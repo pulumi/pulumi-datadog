@@ -7,6 +7,9 @@ on:
       version:
         required: true
         type: string
+      setLatestRelease:
+        required: true
+        type: boolean
       isPrerelease:
         required: true
         type: boolean
@@ -53,8 +56,8 @@ jobs:
     - name: Setup mise
       uses: jdx/mise-action@v3
       with:
+        version: 2025.11.6
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        cache_key: "mise-{{platform}}-${{ hashFiles('mise.lock') }}"
         cache_save: false
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@00943011d9042930efac3dcd3a170e4273319bc8 # v5.1.0
@@ -69,14 +72,14 @@ jobs:
     - name: Create dist directory
       run: mkdir -p dist
     - name: Download provider assets
-      uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
+      uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
       with:
         pattern: pulumi-resource-datadog-v${{ inputs.version }}-*
         path: dist
         # Don't create a directory for each artifact
         merge-multiple: true
     - name: Download schema
-      uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
+      uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
       with:
         # Use a pattern to avoid failing if the artifact doesn't exist
         pattern: schema-embed.*
@@ -109,6 +112,8 @@ jobs:
         prerelease: ${{ inputs.isPrerelease }}
         # We keep pre-releases as drafts so they're not visible until we manually publish them.
         draft: ${{ inputs.isPrerelease }}
+        # Explicitly set make_latest to account for backported releases
+        make_latest: ${{ inputs.setLatestRelease }}
         body: ${{ steps.schema-summary.outputs.summary }}
         generate_release_notes: true
         files: dist/*
@@ -139,8 +144,8 @@ jobs:
     - name: Setup mise
       uses: jdx/mise-action@v3
       with:
+        version: 2025.11.6
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        cache_key: "mise-{{platform}}-{{file_hash}}"
         # only saving the cache in the prerequisites job
         cache_save: false
     - name: Setup Node
@@ -207,8 +212,8 @@ jobs:
   create_docs_build:
     name: create_docs_build
     needs: publish_sdk
-    # Only run for non-prerelease, if the publish_go_sdk job was successful or skipped
-    if: inputs.isPrerelease == false
+    # Only run for non-prerelease and for non-backported releases, if the publish_go_sdk job was successful or skipped
+    if: inputs.isPrerelease == false && inputs.setLatestRelease == true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -225,7 +230,7 @@ jobs:
         name: Fetch secrets from ESC
         uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
       - name: Dispatch Metadata build
-        uses: peter-evans/repository-dispatch@5fc4efd1a4797ddb68ffd0714a238564e4cc0e6f # v4
+        uses: peter-evans/repository-dispatch@28959ce8df70de7be546dd1250a005dd32156697 # v4
         with:
           token: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
           repository: pulumi/registry
