@@ -16,6 +16,255 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// ============================================================================
+//			// Example 1: Basic Usage - Manage the order of tag pipeline rulesets
+//			// ============================================================================
+//			// This example shows the default behavior where UI-defined rulesets that are
+//			// not in Terraform will be preserved at the end of the order.
+//			first, err := datadog.NewTagPipelineRuleset(ctx, "first", &datadog.TagPipelineRulesetArgs{
+//				Name:    pulumi.String("Standardize Environment Tags"),
+//				Enabled: pulumi.Bool(true),
+//				Rules: datadog.TagPipelineRulesetRuleArray{
+//					&datadog.TagPipelineRulesetRuleArgs{
+//						Name:    pulumi.String("map-env"),
+//						Enabled: pulumi.Bool(true),
+//						Mapping: datadog.TagPipelineRulesetRuleMappingArgs{
+//							map[string]interface{}{
+//								"destinationKey": "env",
+//								"ifNotExists":    true,
+//								"sourceKeys": []string{
+//									"environment",
+//									"stage",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			second, err := datadog.NewTagPipelineRuleset(ctx, "second", &datadog.TagPipelineRulesetArgs{
+//				Name:    pulumi.String("Assign Team Tags"),
+//				Enabled: pulumi.Bool(true),
+//				Rules: datadog.TagPipelineRulesetRuleArray{
+//					&datadog.TagPipelineRulesetRuleArgs{
+//						Name:    pulumi.String("assign-team"),
+//						Enabled: pulumi.Bool(true),
+//						Query: datadog.TagPipelineRulesetRuleQueryArgs{
+//							map[string]interface{}{
+//								"query":       "service:web* OR service:api*",
+//								"ifNotExists": false,
+//								"addition": []map[string]interface{}{
+//									map[string]interface{}{
+//										"key":   "team",
+//										"value": "backend",
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			third, err := datadog.NewTagPipelineRuleset(ctx, "third", &datadog.TagPipelineRulesetArgs{
+//				Name:    pulumi.String("Enrich Service Metadata"),
+//				Enabled: pulumi.Bool(true),
+//				Rules: datadog.TagPipelineRulesetRuleArray{
+//					&datadog.TagPipelineRulesetRuleArgs{
+//						Name:    pulumi.String("lookup-service"),
+//						Enabled: pulumi.Bool(true),
+//						ReferenceTable: datadog.TagPipelineRulesetRuleReferenceTableArgs{
+//							map[string]interface{}{
+//								"tableName":         "service_catalog",
+//								"caseInsensitivity": true,
+//								"ifNotExists":       true,
+//								"sourceKeys": []string{
+//									"service",
+//								},
+//								"fieldPairs": []map[string]interface{}{
+//									map[string]interface{}{
+//										"inputColumn": "owner_team",
+//										"outputKey":   "owner",
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Manage the order of tag pipeline rulesets
+//			// Rulesets are executed in the order specified in ruleset_ids
+//			// UI-defined rulesets not in this list will be preserved at the end
+//			_, err = datadog.NewTagPipelineRulesets(ctx, "order", &datadog.TagPipelineRulesetsArgs{
+//				RulesetIds: pulumi.StringArray{
+//					first.ID(),
+//					second.ID(),
+//					third.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// ============================================================================
+//			// Example 2: Override UI-defined rulesets (override_ui_defined_resources = true)
+//			// ============================================================================
+//			// When set to true, any rulesets created via the UI that are not defined in Terraform
+//			// will be automatically deleted during pulumi up.
+//			managedFirst, err := datadog.NewTagPipelineRuleset(ctx, "managed_first", &datadog.TagPipelineRulesetArgs{
+//				Name:    pulumi.String("Standardize Environment Tags"),
+//				Enabled: pulumi.Bool(true),
+//				Rules: datadog.TagPipelineRulesetRuleArray{
+//					&datadog.TagPipelineRulesetRuleArgs{
+//						Name:    pulumi.String("map-env"),
+//						Enabled: pulumi.Bool(true),
+//						Mapping: datadog.TagPipelineRulesetRuleMappingArgs{
+//							map[string]interface{}{
+//								"destinationKey": "env",
+//								"ifNotExists":    true,
+//								"sourceKeys": []string{
+//									"environment",
+//									"stage",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			managedSecond, err := datadog.NewTagPipelineRuleset(ctx, "managed_second", &datadog.TagPipelineRulesetArgs{
+//				Name:    pulumi.String("Assign Team Tags"),
+//				Enabled: pulumi.Bool(true),
+//				Rules: datadog.TagPipelineRulesetRuleArray{
+//					&datadog.TagPipelineRulesetRuleArgs{
+//						Name:    pulumi.String("assign-team"),
+//						Enabled: pulumi.Bool(true),
+//						Query: datadog.TagPipelineRulesetRuleQueryArgs{
+//							map[string]interface{}{
+//								"query":       "service:web*",
+//								"ifNotExists": false,
+//								"addition": []map[string]interface{}{
+//									map[string]interface{}{
+//										"key":   "team",
+//										"value": "frontend",
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Manage order with override_ui_defined_resources = true
+//			// This will delete any rulesets created via the UI that are not in this list
+//			_, err = datadog.NewTagPipelineRulesets(ctx, "order_override", &datadog.TagPipelineRulesetsArgs{
+//				OverrideUiDefinedResources: pulumi.Bool(true),
+//				RulesetIds: pulumi.StringArray{
+//					managedFirst.ID(),
+//					managedSecond.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// ============================================================================
+//			// Example 3: Preserve UI-defined rulesets (override_ui_defined_resources = false)
+//			// ============================================================================
+//			// When set to false (default), UI-defined rulesets that are not in Terraform
+//			// will be preserved at the end of the order. However, if unmanaged rulesets
+//			// are in the middle of the order, Terraform will error and require you to either:
+//			// 1. Import the unmanaged rulesets
+//			// 2. Set override_ui_defined_resources = true
+//			// 3. Manually reorder or delete them in the Datadog UI
+//			preserveFirst, err := datadog.NewTagPipelineRuleset(ctx, "preserve_first", &datadog.TagPipelineRulesetArgs{
+//				Name:    pulumi.String("Standardize Environment Tags"),
+//				Enabled: pulumi.Bool(true),
+//				Rules: datadog.TagPipelineRulesetRuleArray{
+//					&datadog.TagPipelineRulesetRuleArgs{
+//						Name:    pulumi.String("map-env"),
+//						Enabled: pulumi.Bool(true),
+//						Mapping: datadog.TagPipelineRulesetRuleMappingArgs{
+//							map[string]interface{}{
+//								"destinationKey": "env",
+//								"ifNotExists":    true,
+//								"sourceKeys": []string{
+//									"environment",
+//									"stage",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			preserveSecond, err := datadog.NewTagPipelineRuleset(ctx, "preserve_second", &datadog.TagPipelineRulesetArgs{
+//				Name:    pulumi.String("Assign Team Tags"),
+//				Enabled: pulumi.Bool(true),
+//				Rules: datadog.TagPipelineRulesetRuleArray{
+//					&datadog.TagPipelineRulesetRuleArgs{
+//						Name:    pulumi.String("assign-team"),
+//						Enabled: pulumi.Bool(true),
+//						Query: datadog.TagPipelineRulesetRuleQueryArgs{
+//							map[string]interface{}{
+//								"query":       "service:web*",
+//								"ifNotExists": false,
+//								"addition": []map[string]interface{}{
+//									map[string]interface{}{
+//										"key":   "team",
+//										"value": "frontend",
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Manage order with override_ui_defined_resources = false (default)
+//			// UI-defined rulesets will be preserved at the end of the order
+//			// Terraform will warn if unmanaged rulesets exist at the end
+//			// Terraform will error if unmanaged rulesets are in the middle
+//			_, err = datadog.NewTagPipelineRulesets(ctx, "order_preserve", &datadog.TagPipelineRulesetsArgs{
+//				OverrideUiDefinedResources: pulumi.Bool(false),
+//				RulesetIds: pulumi.StringArray{
+//					preserveFirst.ID(),
+//					preserveSecond.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // The `pulumi import` command can be used, for example:

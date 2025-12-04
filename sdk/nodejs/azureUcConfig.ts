@@ -11,6 +11,30 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Create new Azure Usage Cost configuration resource
+ * const example = new datadog.AzureUcConfig("example", {
+ *     accountId: "12345678-1234-abcd-1234-123456789012",
+ *     clientId: "87654321-4321-dcba-4321-210987654321",
+ *     scope: "/subscriptions/12345678-1234-abcd-1234-123456789012",
+ *     actualBillConfig: [{
+ *         exportName: "my-actual-export",
+ *         exportPath: "exports/actual",
+ *         storageAccount: "mystorageaccount",
+ *         storageContainer: "cost-exports",
+ *     }],
+ *     amortizedBillConfig: [{
+ *         exportName: "my-amortized-export",
+ *         exportPath: "exports/amortized",
+ *         storageAccount: "mystorageaccount",
+ *         storageContainer: "cost-exports",
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:

@@ -9,6 +9,24 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Create APM retention filter
+ * const foo = new datadog.ApmRetentionFilter("foo", {
+ *     name: "Sample order",
+ *     rate: "1.0",
+ *     filter: [{
+ *         query: "*",
+ *     }],
+ *     filterType: "spans-sampling-processor",
+ *     enabled: false,
+ * });
+ * // Create APM retention filter order
+ * const bar = new datadog.ApmRetentionFilterOrder("bar", {filterIds: [foo.id]});
+ * ```
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:

@@ -24,6 +24,56 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.CustomAllocationRule;
+ * import com.pulumi.datadog.CustomAllocationRuleArgs;
+ * import com.pulumi.datadog.inputs.CustomAllocationRuleCostsToAllocateArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // Create new datadog_custom_allocation_rule resource
+ *         var myAllocationRule = new CustomAllocationRule("myAllocationRule", CustomAllocationRuleArgs.builder()
+ *             .costsToAllocates(CustomAllocationRuleCostsToAllocateArgs.builder()
+ *                 .condition("is")
+ *                 .tag("aws_product")
+ *                 .value("ec2")
+ *                 .build())
+ *             .enabled(true)
+ *             .providernames("aws")
+ *             .ruleName("my-allocation-rule")
+ *             .strategy(CustomAllocationRuleStrategyArgs.builder()
+ *                 .allocatedByTagKeys("team")
+ *                 .basedOnCosts(CustomAllocationRuleStrategyBasedOnCostArgs.builder()
+ *                     .condition("is")
+ *                     .tag("env")
+ *                     .value("prod")
+ *                     .build())
+ *                 .granularity("daily")
+ *                 .method("even")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:

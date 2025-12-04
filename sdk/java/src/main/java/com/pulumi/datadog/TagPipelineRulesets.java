@@ -21,6 +21,203 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.TagPipelineRuleset;
+ * import com.pulumi.datadog.TagPipelineRulesetArgs;
+ * import com.pulumi.datadog.inputs.TagPipelineRulesetRuleArgs;
+ * import com.pulumi.datadog.TagPipelineRulesets;
+ * import com.pulumi.datadog.TagPipelineRulesetsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // ============================================================================
+ *         // Example 1: Basic Usage - Manage the order of tag pipeline rulesets
+ *         // ============================================================================
+ *         // This example shows the default behavior where UI-defined rulesets that are
+ *         // not in Terraform will be preserved at the end of the order.
+ *         var first = new TagPipelineRuleset("first", TagPipelineRulesetArgs.builder()
+ *             .name("Standardize Environment Tags")
+ *             .enabled(true)
+ *             .rules(TagPipelineRulesetRuleArgs.builder()
+ *                 .name("map-env")
+ *                 .enabled(true)
+ *                 .mapping(TagPipelineRulesetRuleMappingArgs.builder()
+ *                     .destinationKey("env")
+ *                     .ifNotExists(true)
+ *                     .sourceKeys(                    
+ *                         "environment",
+ *                         "stage")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var second = new TagPipelineRuleset("second", TagPipelineRulesetArgs.builder()
+ *             .name("Assign Team Tags")
+ *             .enabled(true)
+ *             .rules(TagPipelineRulesetRuleArgs.builder()
+ *                 .name("assign-team")
+ *                 .enabled(true)
+ *                 .query(TagPipelineRulesetRuleQueryArgs.builder()
+ *                     .query("service:web* OR service:api*")
+ *                     .ifNotExists(false)
+ *                     .addition(TagPipelineRulesetRuleQueryAdditionArgs.builder()
+ *                         .key("team")
+ *                         .value("backend")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var third = new TagPipelineRuleset("third", TagPipelineRulesetArgs.builder()
+ *             .name("Enrich Service Metadata")
+ *             .enabled(true)
+ *             .rules(TagPipelineRulesetRuleArgs.builder()
+ *                 .name("lookup-service")
+ *                 .enabled(true)
+ *                 .referenceTable(TagPipelineRulesetRuleReferenceTableArgs.builder()
+ *                     .tableName("service_catalog")
+ *                     .caseInsensitivity(true)
+ *                     .ifNotExists(true)
+ *                     .sourceKeys("service")
+ *                     .fieldPairs(TagPipelineRulesetRuleReferenceTableFieldPairArgs.builder()
+ *                         .inputColumn("owner_team")
+ *                         .outputKey("owner")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         // Manage the order of tag pipeline rulesets
+ *         // Rulesets are executed in the order specified in ruleset_ids
+ *         // UI-defined rulesets not in this list will be preserved at the end
+ *         var order = new TagPipelineRulesets("order", TagPipelineRulesetsArgs.builder()
+ *             .rulesetIds(            
+ *                 first.id(),
+ *                 second.id(),
+ *                 third.id())
+ *             .build());
+ * 
+ *         // ============================================================================
+ *         // Example 2: Override UI-defined rulesets (override_ui_defined_resources = true)
+ *         // ============================================================================
+ *         // When set to true, any rulesets created via the UI that are not defined in Terraform
+ *         // will be automatically deleted during pulumi up.
+ *         var managedFirst = new TagPipelineRuleset("managedFirst", TagPipelineRulesetArgs.builder()
+ *             .name("Standardize Environment Tags")
+ *             .enabled(true)
+ *             .rules(TagPipelineRulesetRuleArgs.builder()
+ *                 .name("map-env")
+ *                 .enabled(true)
+ *                 .mapping(TagPipelineRulesetRuleMappingArgs.builder()
+ *                     .destinationKey("env")
+ *                     .ifNotExists(true)
+ *                     .sourceKeys(                    
+ *                         "environment",
+ *                         "stage")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var managedSecond = new TagPipelineRuleset("managedSecond", TagPipelineRulesetArgs.builder()
+ *             .name("Assign Team Tags")
+ *             .enabled(true)
+ *             .rules(TagPipelineRulesetRuleArgs.builder()
+ *                 .name("assign-team")
+ *                 .enabled(true)
+ *                 .query(TagPipelineRulesetRuleQueryArgs.builder()
+ *                     .query("service:web*")
+ *                     .ifNotExists(false)
+ *                     .addition(TagPipelineRulesetRuleQueryAdditionArgs.builder()
+ *                         .key("team")
+ *                         .value("frontend")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         // Manage order with override_ui_defined_resources = true
+ *         // This will delete any rulesets created via the UI that are not in this list
+ *         var orderOverride = new TagPipelineRulesets("orderOverride", TagPipelineRulesetsArgs.builder()
+ *             .overrideUiDefinedResources(true)
+ *             .rulesetIds(            
+ *                 managedFirst.id(),
+ *                 managedSecond.id())
+ *             .build());
+ * 
+ *         // ============================================================================
+ *         // Example 3: Preserve UI-defined rulesets (override_ui_defined_resources = false)
+ *         // ============================================================================
+ *         // When set to false (default), UI-defined rulesets that are not in Terraform
+ *         // will be preserved at the end of the order. However, if unmanaged rulesets
+ *         // are in the middle of the order, Terraform will error and require you to either:
+ *         // 1. Import the unmanaged rulesets
+ *         // 2. Set override_ui_defined_resources = true
+ *         // 3. Manually reorder or delete them in the Datadog UI
+ *         var preserveFirst = new TagPipelineRuleset("preserveFirst", TagPipelineRulesetArgs.builder()
+ *             .name("Standardize Environment Tags")
+ *             .enabled(true)
+ *             .rules(TagPipelineRulesetRuleArgs.builder()
+ *                 .name("map-env")
+ *                 .enabled(true)
+ *                 .mapping(TagPipelineRulesetRuleMappingArgs.builder()
+ *                     .destinationKey("env")
+ *                     .ifNotExists(true)
+ *                     .sourceKeys(                    
+ *                         "environment",
+ *                         "stage")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var preserveSecond = new TagPipelineRuleset("preserveSecond", TagPipelineRulesetArgs.builder()
+ *             .name("Assign Team Tags")
+ *             .enabled(true)
+ *             .rules(TagPipelineRulesetRuleArgs.builder()
+ *                 .name("assign-team")
+ *                 .enabled(true)
+ *                 .query(TagPipelineRulesetRuleQueryArgs.builder()
+ *                     .query("service:web*")
+ *                     .ifNotExists(false)
+ *                     .addition(TagPipelineRulesetRuleQueryAdditionArgs.builder()
+ *                         .key("team")
+ *                         .value("frontend")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         // Manage order with override_ui_defined_resources = false (default)
+ *         // UI-defined rulesets will be preserved at the end of the order
+ *         // Terraform will warn if unmanaged rulesets exist at the end
+ *         // Terraform will error if unmanaged rulesets are in the middle
+ *         var orderPreserve = new TagPipelineRulesets("orderPreserve", TagPipelineRulesetsArgs.builder()
+ *             .overrideUiDefinedResources(false)
+ *             .rulesetIds(            
+ *                 preserveFirst.id(),
+ *                 preserveSecond.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:

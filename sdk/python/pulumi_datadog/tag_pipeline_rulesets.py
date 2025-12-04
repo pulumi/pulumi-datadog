@@ -101,6 +101,164 @@ class TagPipelineRulesets(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # ============================================================================
+        # Example 1: Basic Usage - Manage the order of tag pipeline rulesets
+        # ============================================================================
+        # This example shows the default behavior where UI-defined rulesets that are
+        # not in Terraform will be preserved at the end of the order.
+        first = datadog.TagPipelineRuleset("first",
+            name="Standardize Environment Tags",
+            enabled=True,
+            rules=[{
+                "name": "map-env",
+                "enabled": True,
+                "mapping": [{
+                    "destinationKey": "env",
+                    "ifNotExists": True,
+                    "sourceKeys": [
+                        "environment",
+                        "stage",
+                    ],
+                }],
+            }])
+        second = datadog.TagPipelineRuleset("second",
+            name="Assign Team Tags",
+            enabled=True,
+            rules=[{
+                "name": "assign-team",
+                "enabled": True,
+                "query": [{
+                    "query": "service:web* OR service:api*",
+                    "ifNotExists": False,
+                    "addition": [{
+                        "key": "team",
+                        "value": "backend",
+                    }],
+                }],
+            }])
+        third = datadog.TagPipelineRuleset("third",
+            name="Enrich Service Metadata",
+            enabled=True,
+            rules=[{
+                "name": "lookup-service",
+                "enabled": True,
+                "reference_table": [{
+                    "tableName": "service_catalog",
+                    "caseInsensitivity": True,
+                    "ifNotExists": True,
+                    "sourceKeys": ["service"],
+                    "fieldPairs": [{
+                        "inputColumn": "owner_team",
+                        "outputKey": "owner",
+                    }],
+                }],
+            }])
+        # Manage the order of tag pipeline rulesets
+        # Rulesets are executed in the order specified in ruleset_ids
+        # UI-defined rulesets not in this list will be preserved at the end
+        order = datadog.TagPipelineRulesets("order", ruleset_ids=[
+            first.id,
+            second.id,
+            third.id,
+        ])
+        # ============================================================================
+        # Example 2: Override UI-defined rulesets (override_ui_defined_resources = true)
+        # ============================================================================
+        # When set to true, any rulesets created via the UI that are not defined in Terraform
+        # will be automatically deleted during pulumi up.
+        managed_first = datadog.TagPipelineRuleset("managed_first",
+            name="Standardize Environment Tags",
+            enabled=True,
+            rules=[{
+                "name": "map-env",
+                "enabled": True,
+                "mapping": [{
+                    "destinationKey": "env",
+                    "ifNotExists": True,
+                    "sourceKeys": [
+                        "environment",
+                        "stage",
+                    ],
+                }],
+            }])
+        managed_second = datadog.TagPipelineRuleset("managed_second",
+            name="Assign Team Tags",
+            enabled=True,
+            rules=[{
+                "name": "assign-team",
+                "enabled": True,
+                "query": [{
+                    "query": "service:web*",
+                    "ifNotExists": False,
+                    "addition": [{
+                        "key": "team",
+                        "value": "frontend",
+                    }],
+                }],
+            }])
+        # Manage order with override_ui_defined_resources = true
+        # This will delete any rulesets created via the UI that are not in this list
+        order_override = datadog.TagPipelineRulesets("order_override",
+            override_ui_defined_resources=True,
+            ruleset_ids=[
+                managed_first.id,
+                managed_second.id,
+            ])
+        # ============================================================================
+        # Example 3: Preserve UI-defined rulesets (override_ui_defined_resources = false)
+        # ============================================================================
+        # When set to false (default), UI-defined rulesets that are not in Terraform
+        # will be preserved at the end of the order. However, if unmanaged rulesets
+        # are in the middle of the order, Terraform will error and require you to either:
+        # 1. Import the unmanaged rulesets
+        # 2. Set override_ui_defined_resources = true
+        # 3. Manually reorder or delete them in the Datadog UI
+        preserve_first = datadog.TagPipelineRuleset("preserve_first",
+            name="Standardize Environment Tags",
+            enabled=True,
+            rules=[{
+                "name": "map-env",
+                "enabled": True,
+                "mapping": [{
+                    "destinationKey": "env",
+                    "ifNotExists": True,
+                    "sourceKeys": [
+                        "environment",
+                        "stage",
+                    ],
+                }],
+            }])
+        preserve_second = datadog.TagPipelineRuleset("preserve_second",
+            name="Assign Team Tags",
+            enabled=True,
+            rules=[{
+                "name": "assign-team",
+                "enabled": True,
+                "query": [{
+                    "query": "service:web*",
+                    "ifNotExists": False,
+                    "addition": [{
+                        "key": "team",
+                        "value": "frontend",
+                    }],
+                }],
+            }])
+        # Manage order with override_ui_defined_resources = false (default)
+        # UI-defined rulesets will be preserved at the end of the order
+        # Terraform will warn if unmanaged rulesets exist at the end
+        # Terraform will error if unmanaged rulesets are in the middle
+        order_preserve = datadog.TagPipelineRulesets("order_preserve",
+            override_ui_defined_resources=False,
+            ruleset_ids=[
+                preserve_first.id,
+                preserve_second.id,
+            ])
+        ```
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -123,6 +281,164 @@ class TagPipelineRulesets(pulumi.CustomResource):
         Provides a Datadog Tag Pipeline Ruleset Order resource that can be used to manage the order of Tag Pipeline Rulesets.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # ============================================================================
+        # Example 1: Basic Usage - Manage the order of tag pipeline rulesets
+        # ============================================================================
+        # This example shows the default behavior where UI-defined rulesets that are
+        # not in Terraform will be preserved at the end of the order.
+        first = datadog.TagPipelineRuleset("first",
+            name="Standardize Environment Tags",
+            enabled=True,
+            rules=[{
+                "name": "map-env",
+                "enabled": True,
+                "mapping": [{
+                    "destinationKey": "env",
+                    "ifNotExists": True,
+                    "sourceKeys": [
+                        "environment",
+                        "stage",
+                    ],
+                }],
+            }])
+        second = datadog.TagPipelineRuleset("second",
+            name="Assign Team Tags",
+            enabled=True,
+            rules=[{
+                "name": "assign-team",
+                "enabled": True,
+                "query": [{
+                    "query": "service:web* OR service:api*",
+                    "ifNotExists": False,
+                    "addition": [{
+                        "key": "team",
+                        "value": "backend",
+                    }],
+                }],
+            }])
+        third = datadog.TagPipelineRuleset("third",
+            name="Enrich Service Metadata",
+            enabled=True,
+            rules=[{
+                "name": "lookup-service",
+                "enabled": True,
+                "reference_table": [{
+                    "tableName": "service_catalog",
+                    "caseInsensitivity": True,
+                    "ifNotExists": True,
+                    "sourceKeys": ["service"],
+                    "fieldPairs": [{
+                        "inputColumn": "owner_team",
+                        "outputKey": "owner",
+                    }],
+                }],
+            }])
+        # Manage the order of tag pipeline rulesets
+        # Rulesets are executed in the order specified in ruleset_ids
+        # UI-defined rulesets not in this list will be preserved at the end
+        order = datadog.TagPipelineRulesets("order", ruleset_ids=[
+            first.id,
+            second.id,
+            third.id,
+        ])
+        # ============================================================================
+        # Example 2: Override UI-defined rulesets (override_ui_defined_resources = true)
+        # ============================================================================
+        # When set to true, any rulesets created via the UI that are not defined in Terraform
+        # will be automatically deleted during pulumi up.
+        managed_first = datadog.TagPipelineRuleset("managed_first",
+            name="Standardize Environment Tags",
+            enabled=True,
+            rules=[{
+                "name": "map-env",
+                "enabled": True,
+                "mapping": [{
+                    "destinationKey": "env",
+                    "ifNotExists": True,
+                    "sourceKeys": [
+                        "environment",
+                        "stage",
+                    ],
+                }],
+            }])
+        managed_second = datadog.TagPipelineRuleset("managed_second",
+            name="Assign Team Tags",
+            enabled=True,
+            rules=[{
+                "name": "assign-team",
+                "enabled": True,
+                "query": [{
+                    "query": "service:web*",
+                    "ifNotExists": False,
+                    "addition": [{
+                        "key": "team",
+                        "value": "frontend",
+                    }],
+                }],
+            }])
+        # Manage order with override_ui_defined_resources = true
+        # This will delete any rulesets created via the UI that are not in this list
+        order_override = datadog.TagPipelineRulesets("order_override",
+            override_ui_defined_resources=True,
+            ruleset_ids=[
+                managed_first.id,
+                managed_second.id,
+            ])
+        # ============================================================================
+        # Example 3: Preserve UI-defined rulesets (override_ui_defined_resources = false)
+        # ============================================================================
+        # When set to false (default), UI-defined rulesets that are not in Terraform
+        # will be preserved at the end of the order. However, if unmanaged rulesets
+        # are in the middle of the order, Terraform will error and require you to either:
+        # 1. Import the unmanaged rulesets
+        # 2. Set override_ui_defined_resources = true
+        # 3. Manually reorder or delete them in the Datadog UI
+        preserve_first = datadog.TagPipelineRuleset("preserve_first",
+            name="Standardize Environment Tags",
+            enabled=True,
+            rules=[{
+                "name": "map-env",
+                "enabled": True,
+                "mapping": [{
+                    "destinationKey": "env",
+                    "ifNotExists": True,
+                    "sourceKeys": [
+                        "environment",
+                        "stage",
+                    ],
+                }],
+            }])
+        preserve_second = datadog.TagPipelineRuleset("preserve_second",
+            name="Assign Team Tags",
+            enabled=True,
+            rules=[{
+                "name": "assign-team",
+                "enabled": True,
+                "query": [{
+                    "query": "service:web*",
+                    "ifNotExists": False,
+                    "addition": [{
+                        "key": "team",
+                        "value": "frontend",
+                    }],
+                }],
+            }])
+        # Manage order with override_ui_defined_resources = false (default)
+        # UI-defined rulesets will be preserved at the end of the order
+        # Terraform will warn if unmanaged rulesets exist at the end
+        # Terraform will error if unmanaged rulesets are in the middle
+        order_preserve = datadog.TagPipelineRulesets("order_preserve",
+            override_ui_defined_resources=False,
+            ruleset_ids=[
+                preserve_first.id,
+                preserve_second.id,
+            ])
+        ```
 
         ## Import
 
