@@ -144,6 +144,70 @@ class ActionConnection(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import json
+        import pulumi_datadog as datadog
+
+        aws_connection = datadog.ActionConnection("aws_connection",
+            name="My AWS Connection",
+            aws=[{
+                "assumeRole": [{
+                    "accountId": "123456789012",
+                    "role": "role2",
+                }],
+            }])
+        config = pulumi.Config()
+        token1 = config.require("token1")
+        token2 = config.require("token2")
+        http_connection = datadog.ActionConnection("http_connection",
+            name="My HTTP connection with token auth",
+            http=[{
+                "baseUrl": "https://catfact.ninja",
+                "tokenAuth": [{
+                    "tokens": [
+                        {
+                            "type": "SECRET",
+                            "name": "token1",
+                            "value": token1,
+                        },
+                        {
+                            "type": "SECRET",
+                            "name": "token2",
+                            "value": token2,
+                        },
+                    ],
+                    "headers": [
+                        {
+                            "name": "header-one",
+                            "value": "headerval",
+                        },
+                        {
+                            "name": "h2",
+                            "value": "{{ token1 }} test",
+                        },
+                    ],
+                    "urlParameters": [
+                        {
+                            "name": "param1",
+                            "value": "{{ token1 }}",
+                        },
+                        {
+                            "name": "param2",
+                            "value": "paramVal2",
+                        },
+                    ],
+                    "body": [{
+                        "contentType": "application/json",
+                        "content": json.dumps({
+                            "key": "mykey",
+                            "value": "maybe with a secret: {{ token2 }}",
+                        }),
+                    }],
+                }],
+            }])
+        ```
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -168,6 +232,70 @@ class ActionConnection(pulumi.CustomResource):
         A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This resource requires a registered application key.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_datadog as datadog
+
+        aws_connection = datadog.ActionConnection("aws_connection",
+            name="My AWS Connection",
+            aws=[{
+                "assumeRole": [{
+                    "accountId": "123456789012",
+                    "role": "role2",
+                }],
+            }])
+        config = pulumi.Config()
+        token1 = config.require("token1")
+        token2 = config.require("token2")
+        http_connection = datadog.ActionConnection("http_connection",
+            name="My HTTP connection with token auth",
+            http=[{
+                "baseUrl": "https://catfact.ninja",
+                "tokenAuth": [{
+                    "tokens": [
+                        {
+                            "type": "SECRET",
+                            "name": "token1",
+                            "value": token1,
+                        },
+                        {
+                            "type": "SECRET",
+                            "name": "token2",
+                            "value": token2,
+                        },
+                    ],
+                    "headers": [
+                        {
+                            "name": "header-one",
+                            "value": "headerval",
+                        },
+                        {
+                            "name": "h2",
+                            "value": "{{ token1 }} test",
+                        },
+                    ],
+                    "urlParameters": [
+                        {
+                            "name": "param1",
+                            "value": "{{ token1 }}",
+                        },
+                        {
+                            "name": "param2",
+                            "value": "paramVal2",
+                        },
+                    ],
+                    "body": [{
+                        "contentType": "application/json",
+                        "content": json.dumps({
+                            "key": "mykey",
+                            "value": "maybe with a secret: {{ token2 }}",
+                        }),
+                    }],
+                }],
+            }])
+        ```
 
         ## Import
 

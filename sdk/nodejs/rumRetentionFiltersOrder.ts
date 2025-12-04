@@ -7,6 +7,51 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog RumRetentionFiltersOrder resource. This is used to manage the order of Datadog RUM retention filters. Please note that retentionFilterIds should contain all IDs of retention filters, including the default ones created internally for a given RUM application.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ * import * as std from "@pulumi/std";
+ *
+ * // Create a new rum_application resource.
+ * const myRumApplication = new datadog.RumApplication("my_rum_application", {
+ *     name: "my-rum-application-test",
+ *     type: "browser",
+ * });
+ * // Retrieve rum_retention_filters for the rum_application created above.
+ * const myRetentionFilters = datadog.getRumRetentionFilters({
+ *     applicationId: datadogRumApplication.myRumApplication.id,
+ * });
+ * // Create a new rum_retention_filter resource.
+ * const newRumRetentionFilter = new datadog.RumRetentionFilter("new_rum_retention_filter", {
+ *     applicationId: datadogRumApplication.myRumApplication.id,
+ *     name: "testing.rum.retention_filter",
+ *     eventType: "action",
+ *     sampleRate: 60,
+ *     query: "@session.has_replay:true",
+ *     enabled: true,
+ * });
+ * // Create a new rum_retention_filters_order resource for reordering.
+ * // Please note that the IDs of all default retention filters have the prefix 'default', and you need to populate the retention_filter_ids field with all retention filter IDs.
+ * const myRumRetentionFiltersOrder = new datadog.RumRetentionFiltersOrder("my_rum_retention_filters_order", {
+ *     applicationId: datadogRumApplication.myRumApplication.id,
+ *     retentionFilterIds: std.index.concat({
+ *         input: [
+ *             myRetentionFilters.then(myRetentionFilters => .filter(rf => std.index.startswith({
+ *                 input: rf.id,
+ *                 prefix: "default",
+ *             }).result).map(rf => (rf.id))),
+ *             [newRumRetentionFilter.id],
+ *             pulumi.all([myRetentionFilters, newRumRetentionFilter.id]).apply(([myRetentionFilters, id]) => .filter(rf => !std.index.startswith({
+ *                 input: rf.id,
+ *                 prefix: "default",
+ *             }).result && rf.id != id).map(rf => (rf.id))),
+ *         ],
+ *     }).result,
+ * });
+ * ```
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:

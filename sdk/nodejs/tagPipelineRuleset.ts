@@ -11,6 +11,64 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const example = new datadog.TagPipelineRuleset("example", {
+ *     name: "Complete Tag Pipeline Example",
+ *     enabled: true,
+ *     rules: [
+ *         {
+ *             name: "standardize-environment",
+ *             enabled: true,
+ *             mapping: [{
+ *                 destinationKey: "env",
+ *                 ifNotExists: true,
+ *                 sourceKeys: [
+ *                     "environment",
+ *                     "stage",
+ *                     "tier",
+ *                 ],
+ *             }],
+ *         },
+ *         {
+ *             name: "assign-team-tags",
+ *             enabled: true,
+ *             query: [{
+ *                 query: "service:web* OR service:frontend*",
+ *                 caseInsensitivity: true,
+ *                 ifNotExists: true,
+ *                 addition: [{
+ *                     key: "team",
+ *                     value: "frontend",
+ *                 }],
+ *             }],
+ *         },
+ *         {
+ *             name: "enrich-service-metadata",
+ *             enabled: true,
+ *             referenceTable: [{
+ *                 tableName: "service_catalog",
+ *                 caseInsensitivity: true,
+ *                 ifNotExists: true,
+ *                 sourceKeys: ["service"],
+ *                 fieldPairs: [
+ *                     {
+ *                         inputColumn: "owner_team",
+ *                         outputKey: "owner",
+ *                     },
+ *                     {
+ *                         inputColumn: "business_unit",
+ *                         outputKey: "business_unit",
+ *                     },
+ *                 ],
+ *             }],
+ *         },
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:
