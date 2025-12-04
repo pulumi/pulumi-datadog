@@ -16,6 +16,70 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Example Security Monitoring Rule JSON
+//			_, err := datadog.NewSecurityMonitoringRuleJson(ctx, "security_rule_json", &datadog.SecurityMonitoringRuleJsonArgs{
+//				Rule: `{
+//	  "name": "High error rate security monitoring",
+//	  "isEnabled": true,
+//	  "type": "log_detection",
+//	  "message": "High error rate detected in logs",
+//	  "tags": ["env:prod", "security"],
+//	  "cases": [
+//	    {
+//	      "name": "high case",
+//	      "status": "high",
+//	      "condition": "errors > 100 && warnings > 1000",
+//	      "notifications": ["@security-team"]
+//	    }
+//	  ],
+//	  "queries": [
+//	    {
+//	      "name": "errors",
+//	      "query": "status:error",
+//	      "aggregation": "count",
+//	      "dataSource": "logs",
+//	      "groupByFields": ["service", "env"]
+//	    },
+//	    {
+//	      "name": "warnings",
+//	      "query": "status:warning",
+//	      "aggregation": "count",
+//	      "dataSource": "logs",
+//	      "groupByFields": ["service", "env"]
+//	    }
+//	  ],
+//	  "options": {
+//	    "evaluationWindow": 300,
+//	    "keepAlive": 600,
+//	    "maxSignalDuration": 900,
+//	    "detectionMethod": "threshold"
+//	  }
+//	}
+//
+// `,
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // The `pulumi import` command can be used, for example:

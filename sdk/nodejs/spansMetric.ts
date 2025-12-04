@@ -11,6 +11,28 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Create new spans_metric resource
+ * const testingSpansMetric = new datadog.SpansMetric("testing_spans_metric", {
+ *     name: "testing.span.metric",
+ *     compute: [{
+ *         aggregationType: "distribution",
+ *         includePercentiles: false,
+ *         path: "@duration",
+ *     }],
+ *     filter: [{
+ *         query: "@http.status_code:200 service:my-service",
+ *     }],
+ *     groupBies: [{
+ *         path: "resource_name",
+ *         tagName: "resource_name",
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:

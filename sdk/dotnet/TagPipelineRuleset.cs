@@ -14,6 +14,98 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Datadog.TagPipelineRuleset("example", new()
+    ///     {
+    ///         Name = "Complete Tag Pipeline Example",
+    ///         Enabled = true,
+    ///         Rules = new[]
+    ///         {
+    ///             new Datadog.Inputs.TagPipelineRulesetRuleArgs
+    ///             {
+    ///                 Name = "standardize-environment",
+    ///                 Enabled = true,
+    ///                 Mapping = new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "destinationKey", "env" },
+    ///                         { "ifNotExists", true },
+    ///                         { "sourceKeys", new[]
+    ///                         {
+    ///                             "environment",
+    ///                             "stage",
+    ///                             "tier",
+    ///                         } },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.TagPipelineRulesetRuleArgs
+    ///             {
+    ///                 Name = "assign-team-tags",
+    ///                 Enabled = true,
+    ///                 Query = new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "query", "service:web* OR service:frontend*" },
+    ///                         { "caseInsensitivity", true },
+    ///                         { "ifNotExists", true },
+    ///                         { "addition", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "key", "team" },
+    ///                                 { "value", "frontend" },
+    ///                             },
+    ///                         } },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.TagPipelineRulesetRuleArgs
+    ///             {
+    ///                 Name = "enrich-service-metadata",
+    ///                 Enabled = true,
+    ///                 ReferenceTable = new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "tableName", "service_catalog" },
+    ///                         { "caseInsensitivity", true },
+    ///                         { "ifNotExists", true },
+    ///                         { "sourceKeys", new[]
+    ///                         {
+    ///                             "service",
+    ///                         } },
+    ///                         { "fieldPairs", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "inputColumn", "owner_team" },
+    ///                                 { "outputKey", "owner" },
+    ///                             },
+    ///                             
+    ///                             {
+    ///                                 { "inputColumn", "business_unit" },
+    ///                                 { "outputKey", "business_unit" },
+    ///                             },
+    ///                         } },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:

@@ -14,6 +14,281 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // ============================================================================
+    ///     // Example 1: Basic Usage - Manage the order of tag pipeline rulesets
+    ///     // ============================================================================
+    ///     // This example shows the default behavior where UI-defined rulesets that are
+    ///     // not in Terraform will be preserved at the end of the order.
+    ///     var first = new Datadog.TagPipelineRuleset("first", new()
+    ///     {
+    ///         Name = "Standardize Environment Tags",
+    ///         Enabled = true,
+    ///         Rules = new[]
+    ///         {
+    ///             new Datadog.Inputs.TagPipelineRulesetRuleArgs
+    ///             {
+    ///                 Name = "map-env",
+    ///                 Enabled = true,
+    ///                 Mapping = new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "destinationKey", "env" },
+    ///                         { "ifNotExists", true },
+    ///                         { "sourceKeys", new[]
+    ///                         {
+    ///                             "environment",
+    ///                             "stage",
+    ///                         } },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var second = new Datadog.TagPipelineRuleset("second", new()
+    ///     {
+    ///         Name = "Assign Team Tags",
+    ///         Enabled = true,
+    ///         Rules = new[]
+    ///         {
+    ///             new Datadog.Inputs.TagPipelineRulesetRuleArgs
+    ///             {
+    ///                 Name = "assign-team",
+    ///                 Enabled = true,
+    ///                 Query = new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "query", "service:web* OR service:api*" },
+    ///                         { "ifNotExists", false },
+    ///                         { "addition", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "key", "team" },
+    ///                                 { "value", "backend" },
+    ///                             },
+    ///                         } },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var third = new Datadog.TagPipelineRuleset("third", new()
+    ///     {
+    ///         Name = "Enrich Service Metadata",
+    ///         Enabled = true,
+    ///         Rules = new[]
+    ///         {
+    ///             new Datadog.Inputs.TagPipelineRulesetRuleArgs
+    ///             {
+    ///                 Name = "lookup-service",
+    ///                 Enabled = true,
+    ///                 ReferenceTable = new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "tableName", "service_catalog" },
+    ///                         { "caseInsensitivity", true },
+    ///                         { "ifNotExists", true },
+    ///                         { "sourceKeys", new[]
+    ///                         {
+    ///                             "service",
+    ///                         } },
+    ///                         { "fieldPairs", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "inputColumn", "owner_team" },
+    ///                                 { "outputKey", "owner" },
+    ///                             },
+    ///                         } },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Manage the order of tag pipeline rulesets
+    ///     // Rulesets are executed in the order specified in ruleset_ids
+    ///     // UI-defined rulesets not in this list will be preserved at the end
+    ///     var order = new Datadog.TagPipelineRulesets("order", new()
+    ///     {
+    ///         RulesetIds = new[]
+    ///         {
+    ///             first.Id,
+    ///             second.Id,
+    ///             third.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     // ============================================================================
+    ///     // Example 2: Override UI-defined rulesets (override_ui_defined_resources = true)
+    ///     // ============================================================================
+    ///     // When set to true, any rulesets created via the UI that are not defined in Terraform
+    ///     // will be automatically deleted during pulumi up.
+    ///     var managedFirst = new Datadog.TagPipelineRuleset("managed_first", new()
+    ///     {
+    ///         Name = "Standardize Environment Tags",
+    ///         Enabled = true,
+    ///         Rules = new[]
+    ///         {
+    ///             new Datadog.Inputs.TagPipelineRulesetRuleArgs
+    ///             {
+    ///                 Name = "map-env",
+    ///                 Enabled = true,
+    ///                 Mapping = new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "destinationKey", "env" },
+    ///                         { "ifNotExists", true },
+    ///                         { "sourceKeys", new[]
+    ///                         {
+    ///                             "environment",
+    ///                             "stage",
+    ///                         } },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var managedSecond = new Datadog.TagPipelineRuleset("managed_second", new()
+    ///     {
+    ///         Name = "Assign Team Tags",
+    ///         Enabled = true,
+    ///         Rules = new[]
+    ///         {
+    ///             new Datadog.Inputs.TagPipelineRulesetRuleArgs
+    ///             {
+    ///                 Name = "assign-team",
+    ///                 Enabled = true,
+    ///                 Query = new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "query", "service:web*" },
+    ///                         { "ifNotExists", false },
+    ///                         { "addition", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "key", "team" },
+    ///                                 { "value", "frontend" },
+    ///                             },
+    ///                         } },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Manage order with override_ui_defined_resources = true
+    ///     // This will delete any rulesets created via the UI that are not in this list
+    ///     var orderOverride = new Datadog.TagPipelineRulesets("order_override", new()
+    ///     {
+    ///         OverrideUiDefinedResources = true,
+    ///         RulesetIds = new[]
+    ///         {
+    ///             managedFirst.Id,
+    ///             managedSecond.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     // ============================================================================
+    ///     // Example 3: Preserve UI-defined rulesets (override_ui_defined_resources = false)
+    ///     // ============================================================================
+    ///     // When set to false (default), UI-defined rulesets that are not in Terraform
+    ///     // will be preserved at the end of the order. However, if unmanaged rulesets
+    ///     // are in the middle of the order, Terraform will error and require you to either:
+    ///     // 1. Import the unmanaged rulesets
+    ///     // 2. Set override_ui_defined_resources = true
+    ///     // 3. Manually reorder or delete them in the Datadog UI
+    ///     var preserveFirst = new Datadog.TagPipelineRuleset("preserve_first", new()
+    ///     {
+    ///         Name = "Standardize Environment Tags",
+    ///         Enabled = true,
+    ///         Rules = new[]
+    ///         {
+    ///             new Datadog.Inputs.TagPipelineRulesetRuleArgs
+    ///             {
+    ///                 Name = "map-env",
+    ///                 Enabled = true,
+    ///                 Mapping = new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "destinationKey", "env" },
+    ///                         { "ifNotExists", true },
+    ///                         { "sourceKeys", new[]
+    ///                         {
+    ///                             "environment",
+    ///                             "stage",
+    ///                         } },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var preserveSecond = new Datadog.TagPipelineRuleset("preserve_second", new()
+    ///     {
+    ///         Name = "Assign Team Tags",
+    ///         Enabled = true,
+    ///         Rules = new[]
+    ///         {
+    ///             new Datadog.Inputs.TagPipelineRulesetRuleArgs
+    ///             {
+    ///                 Name = "assign-team",
+    ///                 Enabled = true,
+    ///                 Query = new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "query", "service:web*" },
+    ///                         { "ifNotExists", false },
+    ///                         { "addition", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "key", "team" },
+    ///                                 { "value", "frontend" },
+    ///                             },
+    ///                         } },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Manage order with override_ui_defined_resources = false (default)
+    ///     // UI-defined rulesets will be preserved at the end of the order
+    ///     // Terraform will warn if unmanaged rulesets exist at the end
+    ///     // Terraform will error if unmanaged rulesets are in the middle
+    ///     var orderPreserve = new Datadog.TagPipelineRulesets("order_preserve", new()
+    ///     {
+    ///         OverrideUiDefinedResources = false,
+    ///         RulesetIds = new[]
+    ///         {
+    ///             preserveFirst.Id,
+    ///             preserveSecond.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:

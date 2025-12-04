@@ -18,6 +18,113 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewObservabilityPipeline(ctx, "test", &datadog.ObservabilityPipelineArgs{
+//				Name: pulumi.String("test pipeline"),
+//				Config: datadog.ObservabilityPipelineConfigArgs{
+//					map[string]interface{}{
+//						"sources": []map[string]interface{}{
+//							map[string]interface{}{
+//								"kafkas": []map[string]interface{}{
+//									map[string]interface{}{
+//										"id":      "source-1",
+//										"groupId": "my-consumer-group",
+//										"topics": []string{
+//											"my-topic-1",
+//											"my-topic-2",
+//										},
+//										"tls": []map[string]interface{}{
+//											map[string]interface{}{
+//												"crtFile": "/etc/certs/client.crt",
+//												"keyFile": "/etc/certs/client.key",
+//												"caFile":  "/etc/certs/ca.crt",
+//											},
+//										},
+//										"sasl": []map[string]interface{}{
+//											map[string]interface{}{
+//												"mechanism": "SCRAM-SHA-512",
+//											},
+//										},
+//										"librdkafkaOptions": []map[string]interface{}{
+//											map[string]interface{}{
+//												"name":  "fetch.message.max.bytes",
+//												"value": "1048576",
+//											},
+//											map[string]interface{}{
+//												"name":  "socket.timeout.ms",
+//												"value": "500",
+//											},
+//										},
+//									},
+//								},
+//							},
+//						},
+//						"processors": []map[string]interface{}{
+//							map[string]interface{}{
+//								"parseJsons": []map[string]interface{}{
+//									map[string]interface{}{
+//										"id":      "filter-1",
+//										"include": "service:nginx",
+//										"field":   "message2",
+//										"inputs": []string{
+//											"source-1",
+//										},
+//									},
+//									map[string]interface{}{
+//										"id":      "filter-3",
+//										"include": "service:nginx",
+//										"field":   "message",
+//										"inputs": []string{
+//											"filter-2",
+//										},
+//									},
+//								},
+//								"filters": []map[string]interface{}{
+//									map[string]interface{}{
+//										"id":      "filter-2",
+//										"include": "service:nginx",
+//										"inputs": []string{
+//											"filter-1",
+//										},
+//									},
+//								},
+//							},
+//						},
+//						"destinations": []map[string]interface{}{
+//							map[string]interface{}{
+//								"datadogLogs": []map[string]interface{}{
+//									map[string]interface{}{
+//										"id": "sink-1",
+//										"inputs": []string{
+//											"filter-3",
+//										},
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // The `pulumi import` command can be used, for example:

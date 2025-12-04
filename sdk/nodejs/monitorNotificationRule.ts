@@ -11,6 +11,23 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Create new monitor_notification_rule resource
+ * const foo = new datadog.MonitorNotificationRule("foo", {
+ *     name: "A notification rule name",
+ *     recipients: [
+ *         "slack-test-channel",
+ *         "jira-test",
+ *     ],
+ *     filter: [{
+ *         tags: ["env:foo"],
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:

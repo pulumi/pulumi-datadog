@@ -16,6 +16,52 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewCsmThreatsAgentRule(ctx, "my_agent_rule", &datadog.CsmThreatsAgentRuleArgs{
+//				Actions: datadog.CsmThreatsAgentRuleActionArray{
+//					&datadog.CsmThreatsAgentRuleActionArgs{
+//						Hash: datadog.CsmThreatsAgentRuleActionHashArgs{
+//							map[string]interface{}{},
+//						},
+//						Set: datadog.CsmThreatsAgentRuleActionSetArgs{
+//							map[string]interface{}{
+//								"name":   "updated_security_actions",
+//								"field":  "exec.file.path",
+//								"append": false,
+//								"scope":  "process",
+//							},
+//						},
+//					},
+//				},
+//				Name:        pulumi.String("my_agent_rule"),
+//				Enabled:     pulumi.Bool(true),
+//				Description: pulumi.String("This is a rule"),
+//				Expression:  pulumi.String("open.file.name == \"etc/shadow/password\""),
+//				PolicyId:    pulumi.String("jm4-lwh-8cs"),
+//				ProductTags: pulumi.StringArray{
+//					pulumi.String("compliance_framework:PCI-DSS"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // The `pulumi import` command can be used, for example:

@@ -9,6 +9,173 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // ============================================================================
+ * // Example 1: Basic Usage - Manage the order of tag pipeline rulesets
+ * // ============================================================================
+ * // This example shows the default behavior where UI-defined rulesets that are
+ * // not in Terraform will be preserved at the end of the order.
+ * const first = new datadog.TagPipelineRuleset("first", {
+ *     name: "Standardize Environment Tags",
+ *     enabled: true,
+ *     rules: [{
+ *         name: "map-env",
+ *         enabled: true,
+ *         mapping: [{
+ *             destinationKey: "env",
+ *             ifNotExists: true,
+ *             sourceKeys: [
+ *                 "environment",
+ *                 "stage",
+ *             ],
+ *         }],
+ *     }],
+ * });
+ * const second = new datadog.TagPipelineRuleset("second", {
+ *     name: "Assign Team Tags",
+ *     enabled: true,
+ *     rules: [{
+ *         name: "assign-team",
+ *         enabled: true,
+ *         query: [{
+ *             query: "service:web* OR service:api*",
+ *             ifNotExists: false,
+ *             addition: [{
+ *                 key: "team",
+ *                 value: "backend",
+ *             }],
+ *         }],
+ *     }],
+ * });
+ * const third = new datadog.TagPipelineRuleset("third", {
+ *     name: "Enrich Service Metadata",
+ *     enabled: true,
+ *     rules: [{
+ *         name: "lookup-service",
+ *         enabled: true,
+ *         referenceTable: [{
+ *             tableName: "service_catalog",
+ *             caseInsensitivity: true,
+ *             ifNotExists: true,
+ *             sourceKeys: ["service"],
+ *             fieldPairs: [{
+ *                 inputColumn: "owner_team",
+ *                 outputKey: "owner",
+ *             }],
+ *         }],
+ *     }],
+ * });
+ * // Manage the order of tag pipeline rulesets
+ * // Rulesets are executed in the order specified in ruleset_ids
+ * // UI-defined rulesets not in this list will be preserved at the end
+ * const order = new datadog.TagPipelineRulesets("order", {rulesetIds: [
+ *     first.id,
+ *     second.id,
+ *     third.id,
+ * ]});
+ * // ============================================================================
+ * // Example 2: Override UI-defined rulesets (override_ui_defined_resources = true)
+ * // ============================================================================
+ * // When set to true, any rulesets created via the UI that are not defined in Terraform
+ * // will be automatically deleted during pulumi up.
+ * const managedFirst = new datadog.TagPipelineRuleset("managed_first", {
+ *     name: "Standardize Environment Tags",
+ *     enabled: true,
+ *     rules: [{
+ *         name: "map-env",
+ *         enabled: true,
+ *         mapping: [{
+ *             destinationKey: "env",
+ *             ifNotExists: true,
+ *             sourceKeys: [
+ *                 "environment",
+ *                 "stage",
+ *             ],
+ *         }],
+ *     }],
+ * });
+ * const managedSecond = new datadog.TagPipelineRuleset("managed_second", {
+ *     name: "Assign Team Tags",
+ *     enabled: true,
+ *     rules: [{
+ *         name: "assign-team",
+ *         enabled: true,
+ *         query: [{
+ *             query: "service:web*",
+ *             ifNotExists: false,
+ *             addition: [{
+ *                 key: "team",
+ *                 value: "frontend",
+ *             }],
+ *         }],
+ *     }],
+ * });
+ * // Manage order with override_ui_defined_resources = true
+ * // This will delete any rulesets created via the UI that are not in this list
+ * const orderOverride = new datadog.TagPipelineRulesets("order_override", {
+ *     overrideUiDefinedResources: true,
+ *     rulesetIds: [
+ *         managedFirst.id,
+ *         managedSecond.id,
+ *     ],
+ * });
+ * // ============================================================================
+ * // Example 3: Preserve UI-defined rulesets (override_ui_defined_resources = false)
+ * // ============================================================================
+ * // When set to false (default), UI-defined rulesets that are not in Terraform
+ * // will be preserved at the end of the order. However, if unmanaged rulesets
+ * // are in the middle of the order, Terraform will error and require you to either:
+ * // 1. Import the unmanaged rulesets
+ * // 2. Set override_ui_defined_resources = true
+ * // 3. Manually reorder or delete them in the Datadog UI
+ * const preserveFirst = new datadog.TagPipelineRuleset("preserve_first", {
+ *     name: "Standardize Environment Tags",
+ *     enabled: true,
+ *     rules: [{
+ *         name: "map-env",
+ *         enabled: true,
+ *         mapping: [{
+ *             destinationKey: "env",
+ *             ifNotExists: true,
+ *             sourceKeys: [
+ *                 "environment",
+ *                 "stage",
+ *             ],
+ *         }],
+ *     }],
+ * });
+ * const preserveSecond = new datadog.TagPipelineRuleset("preserve_second", {
+ *     name: "Assign Team Tags",
+ *     enabled: true,
+ *     rules: [{
+ *         name: "assign-team",
+ *         enabled: true,
+ *         query: [{
+ *             query: "service:web*",
+ *             ifNotExists: false,
+ *             addition: [{
+ *                 key: "team",
+ *                 value: "frontend",
+ *             }],
+ *         }],
+ *     }],
+ * });
+ * // Manage order with override_ui_defined_resources = false (default)
+ * // UI-defined rulesets will be preserved at the end of the order
+ * // Terraform will warn if unmanaged rulesets exist at the end
+ * // Terraform will error if unmanaged rulesets are in the middle
+ * const orderPreserve = new datadog.TagPipelineRulesets("order_preserve", {
+ *     overrideUiDefinedResources: false,
+ *     rulesetIds: [
+ *         preserveFirst.id,
+ *         preserveSecond.id,
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:
