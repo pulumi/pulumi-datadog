@@ -14,9 +14,17 @@ public final class CostBudgetEntryTagFilterArgs extends com.pulumi.resources.Res
 
     public static final CostBudgetEntryTagFilterArgs Empty = new CostBudgetEntryTagFilterArgs();
 
+    /**
+     * **Note:** Must be one of the tags from the `metricsQuery`.
+     * 
+     */
     @Import(name="tagKey", required=true)
     private Output<String> tagKey;
 
+    /**
+     * @return **Note:** Must be one of the tags from the `metricsQuery`.
+     * 
+     */
     public Output<String> tagKey() {
         return this.tagKey;
     }
@@ -53,11 +61,23 @@ public final class CostBudgetEntryTagFilterArgs extends com.pulumi.resources.Res
             $ = new CostBudgetEntryTagFilterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param tagKey **Note:** Must be one of the tags from the `metricsQuery`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagKey(Output<String> tagKey) {
             $.tagKey = tagKey;
             return this;
         }
 
+        /**
+         * @param tagKey **Note:** Must be one of the tags from the `metricsQuery`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagKey(String tagKey) {
             return tagKey(Output.of(tagKey));
         }

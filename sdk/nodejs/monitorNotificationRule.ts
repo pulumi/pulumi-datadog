@@ -64,15 +64,19 @@ export class MonitorNotificationRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === MonitorNotificationRule.__pulumiType;
     }
 
+    /**
+     * Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
+     */
+    declare public readonly conditionalRecipients: pulumi.Output<outputs.MonitorNotificationRuleConditionalRecipients | undefined>;
     declare public readonly filter: pulumi.Output<outputs.MonitorNotificationRuleFilter | undefined>;
     /**
      * The name of the monitor notification rule.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * List of recipients to notify.
+     * List of recipients to notify. Cannot be used with `conditionalRecipients`.
      */
-    declare public readonly recipients: pulumi.Output<string[]>;
+    declare public readonly recipients: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a MonitorNotificationRule resource with the given unique name, arguments, and options.
@@ -87,6 +91,7 @@ export class MonitorNotificationRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitorNotificationRuleState | undefined;
+            resourceInputs["conditionalRecipients"] = state?.conditionalRecipients;
             resourceInputs["filter"] = state?.filter;
             resourceInputs["name"] = state?.name;
             resourceInputs["recipients"] = state?.recipients;
@@ -95,9 +100,7 @@ export class MonitorNotificationRule extends pulumi.CustomResource {
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if (args?.recipients === undefined && !opts.urn) {
-                throw new Error("Missing required property 'recipients'");
-            }
+            resourceInputs["conditionalRecipients"] = args?.conditionalRecipients;
             resourceInputs["filter"] = args?.filter;
             resourceInputs["name"] = args?.name;
             resourceInputs["recipients"] = args?.recipients;
@@ -111,13 +114,17 @@ export class MonitorNotificationRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MonitorNotificationRule resources.
  */
 export interface MonitorNotificationRuleState {
+    /**
+     * Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
+     */
+    conditionalRecipients?: pulumi.Input<inputs.MonitorNotificationRuleConditionalRecipients>;
     filter?: pulumi.Input<inputs.MonitorNotificationRuleFilter>;
     /**
      * The name of the monitor notification rule.
      */
     name?: pulumi.Input<string>;
     /**
-     * List of recipients to notify.
+     * List of recipients to notify. Cannot be used with `conditionalRecipients`.
      */
     recipients?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -126,13 +133,17 @@ export interface MonitorNotificationRuleState {
  * The set of arguments for constructing a MonitorNotificationRule resource.
  */
 export interface MonitorNotificationRuleArgs {
+    /**
+     * Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
+     */
+    conditionalRecipients?: pulumi.Input<inputs.MonitorNotificationRuleConditionalRecipients>;
     filter?: pulumi.Input<inputs.MonitorNotificationRuleFilter>;
     /**
      * The name of the monitor notification rule.
      */
     name: pulumi.Input<string>;
     /**
-     * List of recipients to notify.
+     * List of recipients to notify. Cannot be used with `conditionalRecipients`.
      */
-    recipients: pulumi.Input<pulumi.Input<string>[]>;
+    recipients?: pulumi.Input<pulumi.Input<string>[]>;
 }

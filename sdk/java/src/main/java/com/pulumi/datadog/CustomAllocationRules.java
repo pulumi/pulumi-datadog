@@ -10,8 +10,10 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.CustomAllocationRulesArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.CustomAllocationRulesState;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -104,8 +106,19 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         // Manage the order of custom allocation rules
- *         var order = new CustomAllocationRules("order", CustomAllocationRulesArgs.builder()
+ *         // Example 1: Preserve mode (default) - allows unmanaged rules to exist at the end
+ *         // This will preserve any existing rules created outside of Terraform as long as they are at the end
+ *         var preserveOrder = new CustomAllocationRules("preserveOrder", CustomAllocationRulesArgs.builder()
+ *             .ruleIds(            
+ *                 rule1.id(),
+ *                 rule2.id(),
+ *                 rule3.id())
+ *             .build());
+ * 
+ *         // Example 2: Override mode - deletes all unmanaged rules and maintains strict order
+ *         // This will delete any rules not defined in Terraform and enforce the exact order specified
+ *         var overrideOrder = new CustomAllocationRules("overrideOrder", CustomAllocationRulesArgs.builder()
+ *             .overrideUiDefinedResources(true)
  *             .ruleIds(            
  *                 rule1.id(),
  *                 rule2.id(),
@@ -128,6 +141,12 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="datadog:index/customAllocationRules:CustomAllocationRules")
 public class CustomAllocationRules extends com.pulumi.resources.CustomResource {
+    @Export(name="overrideUiDefinedResources", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> overrideUiDefinedResources;
+
+    public Output<Optional<Boolean>> overrideUiDefinedResources() {
+        return Codegen.optional(this.overrideUiDefinedResources);
+    }
     /**
      * The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `datadog.CustomAllocationRule` resource.
      * 

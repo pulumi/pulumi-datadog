@@ -21,6 +21,165 @@ import javax.annotation.Nullable;
 /**
  * Provides a Datadog Cost Budget resource.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.CostBudget;
+ * import com.pulumi.datadog.CostBudgetArgs;
+ * import com.pulumi.datadog.inputs.CostBudgetEntryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // Simple budget without tag filters
+ *         // Note: Must provide entries for all months in the budget period
+ *         var simple = new CostBudget("simple", CostBudgetArgs.builder()
+ *             .name("My AWS Cost Budget")
+ *             .metricsQuery("sum:aws.cost.amortized{*}")
+ *             .startMonth(202501)
+ *             .endMonth(202503)
+ *             .entries(            
+ *                 CostBudgetEntryArgs.builder()
+ *                     .month(202501)
+ *                     .amount(1000.0)
+ *                     .build(),
+ *                 CostBudgetEntryArgs.builder()
+ *                     .month(202502)
+ *                     .amount(1200.0)
+ *                     .build(),
+ *                 CostBudgetEntryArgs.builder()
+ *                     .month(202503)
+ *                     .amount(1000.0)
+ *                     .build())
+ *             .build());
+ * 
+ *         // Budget with tag filters
+ *         // Note: Must provide entries for all months in the budget period
+ *         var withTagFilters = new CostBudget("withTagFilters", CostBudgetArgs.builder()
+ *             .name("Production AWS Budget")
+ *             .metricsQuery("sum:aws.cost.amortized{*} by {environment}")
+ *             .startMonth(202501)
+ *             .endMonth(202503)
+ *             .entries(            
+ *                 CostBudgetEntryArgs.builder()
+ *                     .month(202501)
+ *                     .amount(2000.0)
+ *                     .tagFilters(CostBudgetEntryTagFilterArgs.builder()
+ *                         .tagKey("environment")
+ *                         .tagValue("production")
+ *                         .build())
+ *                     .build(),
+ *                 CostBudgetEntryArgs.builder()
+ *                     .month(202502)
+ *                     .amount(2200.0)
+ *                     .tagFilters(CostBudgetEntryTagFilterArgs.builder()
+ *                         .tagKey("environment")
+ *                         .tagValue("production")
+ *                         .build())
+ *                     .build(),
+ *                 CostBudgetEntryArgs.builder()
+ *                     .month(202503)
+ *                     .amount(2000.0)
+ *                     .tagFilters(CostBudgetEntryTagFilterArgs.builder()
+ *                         .tagKey("environment")
+ *                         .tagValue("production")
+ *                         .build())
+ *                     .build())
+ *             .build());
+ * 
+ *         // Hierarchical budget with multiple tag combinations
+ *         // Note: Order of tags in "by {tag1,tag2}" determines UI hierarchy (parent,child)
+ *         // Each unique tag combination must have entries for all months in the budget period
+ *         var hierarchical = new CostBudget("hierarchical", CostBudgetArgs.builder()
+ *             .name("Team-Based AWS Budget")
+ *             .metricsQuery("sum:aws.cost.amortized{*} by {team,account}")
+ *             .startMonth(202501)
+ *             .endMonth(202503)
+ *             .entries(            
+ *                 CostBudgetEntryArgs.builder()
+ *                     .month(202501)
+ *                     .amount(500.0)
+ *                     .tagFilters(                    
+ *                         CostBudgetEntryTagFilterArgs.builder()
+ *                             .tagKey("team")
+ *                             .tagValue("backend")
+ *                             .build(),
+ *                         CostBudgetEntryTagFilterArgs.builder()
+ *                             .tagKey("account")
+ *                             .tagValue("staging")
+ *                             .build())
+ *                     .build(),
+ *                 CostBudgetEntryArgs.builder()
+ *                     .month(202502)
+ *                     .amount(500.0)
+ *                     .tagFilters(                    
+ *                         CostBudgetEntryTagFilterArgs.builder()
+ *                             .tagKey("team")
+ *                             .tagValue("backend")
+ *                             .build(),
+ *                         CostBudgetEntryTagFilterArgs.builder()
+ *                             .tagKey("account")
+ *                             .tagValue("staging")
+ *                             .build())
+ *                     .build(),
+ *                 CostBudgetEntryArgs.builder()
+ *                     .month(202503)
+ *                     .amount(500.0)
+ *                     .tagFilters(                    
+ *                         CostBudgetEntryTagFilterArgs.builder()
+ *                             .tagKey("team")
+ *                             .tagValue("backend")
+ *                             .build(),
+ *                         CostBudgetEntryTagFilterArgs.builder()
+ *                             .tagKey("account")
+ *                             .tagValue("staging")
+ *                             .build())
+ *                     .build(),
+ *                 CostBudgetEntryArgs.builder()
+ *                     .month(202501)
+ *                     .amount(1500.0)
+ *                     .tagFilters(                    
+ *                         CostBudgetEntryTagFilterArgs.builder()
+ *                             .tagKey("team")
+ *                             .tagValue("backend")
+ *                             .build(),
+ *                         CostBudgetEntryTagFilterArgs.builder()
+ *                             .tagKey("account")
+ *                             .tagValue("production")
+ *                             .build())
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Import
+ * 
+ * The `pulumi import` command can be used, for example:
+ * 
+ * Cost budgets can be imported using their ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import datadog:index/costBudget:CostBudget example a1b2c3d4-e5f6-7890-abcd-ef1234567890
+ * ```
+ * 
  */
 @ResourceType(type="datadog:index/costBudget:CostBudget")
 public class CostBudget extends com.pulumi.resources.CustomResource {
@@ -53,28 +212,28 @@ public class CostBudget extends com.pulumi.resources.CustomResource {
         return this.endMonth;
     }
     /**
-     * The entries of the budget.
+     * The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
      * 
      */
     @Export(name="entries", refs={List.class,CostBudgetEntry.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CostBudgetEntry>> entries;
 
     /**
-     * @return The entries of the budget.
+     * @return The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
      * 
      */
     public Output<Optional<List<CostBudgetEntry>>> entries() {
         return Codegen.optional(this.entries);
     }
     /**
-     * The cost query used to track against the budget.
+     * The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
      * 
      */
     @Export(name="metricsQuery", refs={String.class}, tree="[0]")
     private Output<String> metricsQuery;
 
     /**
-     * @return The cost query used to track against the budget.
+     * @return The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
      * 
      */
     public Output<String> metricsQuery() {

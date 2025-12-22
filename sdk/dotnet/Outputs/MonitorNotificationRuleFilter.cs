@@ -14,13 +14,21 @@ namespace Pulumi.Datadog.Outputs
     public sealed class MonitorNotificationRuleFilter
     {
         /// <summary>
+        /// The scope to which the monitor applied.
+        /// </summary>
+        public readonly string? Scope;
+        /// <summary>
         /// All tags that target monitors must match.
         /// </summary>
         public readonly ImmutableArray<string> Tags;
 
         [OutputConstructor]
-        private MonitorNotificationRuleFilter(ImmutableArray<string> tags)
+        private MonitorNotificationRuleFilter(
+            string? scope,
+
+            ImmutableArray<string> tags)
         {
+            Scope = scope;
             Tags = tags;
         }
     }

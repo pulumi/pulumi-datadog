@@ -42,6 +42,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string RotationStart;
         /// <summary>
+        /// The time zone for this layer. If not specified, the layer inherits the schedule's time zone.
+        /// </summary>
+        public readonly string? TimeZone;
+        /// <summary>
         /// List of user IDs for the layer. Can either be a valid user id or null
         /// </summary>
         public readonly ImmutableArray<string> Users;
@@ -62,6 +66,8 @@ namespace Pulumi.Datadog.Outputs
 
             string rotationStart,
 
+            string? timeZone,
+
             ImmutableArray<string> users)
         {
             EffectiveDate = effectiveDate;
@@ -71,6 +77,7 @@ namespace Pulumi.Datadog.Outputs
             Name = name;
             Restrictions = restrictions;
             RotationStart = rotationStart;
+            TimeZone = timeZone;
             Users = users;
         }
     }

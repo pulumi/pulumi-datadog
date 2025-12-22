@@ -436,6 +436,9 @@ export interface CostBudgetEntry {
 }
 
 export interface CostBudgetEntryTagFilter {
+    /**
+     * **Note:** Must be one of the tags from the `metricsQuery`.
+     */
     tagKey: pulumi.Input<string>;
     tagValue: pulumi.Input<string>;
 }
@@ -10169,6 +10172,262 @@ export interface GetIncidentNotificationRuleConditionArgs {
     values?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface GetReferenceTableFileMetadata {
+    /**
+     * Cloud storage access configuration. Only present for cloud storage sources (S3, GCS, Azure).
+     */
+    accessDetails?: inputs.GetReferenceTableFileMetadataAccessDetails;
+    /**
+     * Error message from the last sync attempt, if any.
+     */
+    errorMessage?: string;
+    /**
+     * The number of rows that failed to sync.
+     */
+    errorRowCount?: number;
+    /**
+     * The type of error that occurred during file processing. Only present for cloud storage sources.
+     */
+    errorType?: string;
+    /**
+     * Whether automatic sync is enabled for this table. Only present for cloud storage sources (S3, GCS, Azure).
+     */
+    syncEnabled?: boolean;
+}
+
+export interface GetReferenceTableFileMetadataArgs {
+    /**
+     * Cloud storage access configuration. Only present for cloud storage sources (S3, GCS, Azure).
+     */
+    accessDetails?: pulumi.Input<inputs.GetReferenceTableFileMetadataAccessDetailsArgs>;
+    /**
+     * Error message from the last sync attempt, if any.
+     */
+    errorMessage?: pulumi.Input<string>;
+    /**
+     * The number of rows that failed to sync.
+     */
+    errorRowCount?: pulumi.Input<number>;
+    /**
+     * The type of error that occurred during file processing. Only present for cloud storage sources.
+     */
+    errorType?: pulumi.Input<string>;
+    /**
+     * Whether automatic sync is enabled for this table. Only present for cloud storage sources (S3, GCS, Azure).
+     */
+    syncEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetReferenceTableFileMetadataAccessDetails {
+    /**
+     * AWS S3 access configuration.
+     */
+    awsDetail?: inputs.GetReferenceTableFileMetadataAccessDetailsAwsDetail;
+    /**
+     * Azure Blob Storage access configuration.
+     */
+    azureDetail?: inputs.GetReferenceTableFileMetadataAccessDetailsAzureDetail;
+    /**
+     * Google Cloud Storage access configuration.
+     */
+    gcpDetail?: inputs.GetReferenceTableFileMetadataAccessDetailsGcpDetail;
+}
+
+export interface GetReferenceTableFileMetadataAccessDetailsArgs {
+    /**
+     * AWS S3 access configuration.
+     */
+    awsDetail?: pulumi.Input<inputs.GetReferenceTableFileMetadataAccessDetailsAwsDetailArgs>;
+    /**
+     * Azure Blob Storage access configuration.
+     */
+    azureDetail?: pulumi.Input<inputs.GetReferenceTableFileMetadataAccessDetailsAzureDetailArgs>;
+    /**
+     * Google Cloud Storage access configuration.
+     */
+    gcpDetail?: pulumi.Input<inputs.GetReferenceTableFileMetadataAccessDetailsGcpDetailArgs>;
+}
+
+export interface GetReferenceTableFileMetadataAccessDetailsAwsDetail {
+    /**
+     * The ID of the AWS account.
+     */
+    awsAccountId?: string;
+    /**
+     * The name of the AWS S3 bucket.
+     */
+    awsBucketName?: string;
+    /**
+     * The relative file path from the AWS S3 bucket root to the CSV file.
+     */
+    filePath?: string;
+}
+
+export interface GetReferenceTableFileMetadataAccessDetailsAwsDetailArgs {
+    /**
+     * The ID of the AWS account.
+     */
+    awsAccountId?: pulumi.Input<string>;
+    /**
+     * The name of the AWS S3 bucket.
+     */
+    awsBucketName?: pulumi.Input<string>;
+    /**
+     * The relative file path from the AWS S3 bucket root to the CSV file.
+     */
+    filePath?: pulumi.Input<string>;
+}
+
+export interface GetReferenceTableFileMetadataAccessDetailsAzureDetail {
+    /**
+     * The Azure client ID (application ID).
+     */
+    azureClientId?: string;
+    /**
+     * The name of the Azure container.
+     */
+    azureContainerName?: string;
+    /**
+     * The name of the Azure storage account.
+     */
+    azureStorageAccountName?: string;
+    /**
+     * The ID of the Azure tenant.
+     */
+    azureTenantId?: string;
+    /**
+     * The relative file path from the Azure container root to the CSV file.
+     */
+    filePath?: string;
+}
+
+export interface GetReferenceTableFileMetadataAccessDetailsAzureDetailArgs {
+    /**
+     * The Azure client ID (application ID).
+     */
+    azureClientId?: pulumi.Input<string>;
+    /**
+     * The name of the Azure container.
+     */
+    azureContainerName?: pulumi.Input<string>;
+    /**
+     * The name of the Azure storage account.
+     */
+    azureStorageAccountName?: pulumi.Input<string>;
+    /**
+     * The ID of the Azure tenant.
+     */
+    azureTenantId?: pulumi.Input<string>;
+    /**
+     * The relative file path from the Azure container root to the CSV file.
+     */
+    filePath?: pulumi.Input<string>;
+}
+
+export interface GetReferenceTableFileMetadataAccessDetailsGcpDetail {
+    /**
+     * The relative file path from the GCS bucket root to the CSV file.
+     */
+    filePath?: string;
+    /**
+     * The name of the GCP bucket.
+     */
+    gcpBucketName?: string;
+    /**
+     * The ID of the GCP project.
+     */
+    gcpProjectId?: string;
+    /**
+     * The email of the GCP service account used to access the bucket.
+     */
+    gcpServiceAccountEmail?: string;
+}
+
+export interface GetReferenceTableFileMetadataAccessDetailsGcpDetailArgs {
+    /**
+     * The relative file path from the GCS bucket root to the CSV file.
+     */
+    filePath?: pulumi.Input<string>;
+    /**
+     * The name of the GCP bucket.
+     */
+    gcpBucketName?: pulumi.Input<string>;
+    /**
+     * The ID of the GCP project.
+     */
+    gcpProjectId?: pulumi.Input<string>;
+    /**
+     * The email of the GCP service account used to access the bucket.
+     */
+    gcpServiceAccountEmail?: pulumi.Input<string>;
+}
+
+export interface GetReferenceTableRowsRow {
+    /**
+     * The primary key value of the row.
+     */
+    id?: string;
+    /**
+     * Map of field names to values for this row. All values are returned as strings.
+     */
+    values?: {[key: string]: string};
+}
+
+export interface GetReferenceTableRowsRowArgs {
+    /**
+     * The primary key value of the row.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Map of field names to values for this row. All values are returned as strings.
+     */
+    values?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface GetReferenceTableSchema {
+    /**
+     * List of fields in the table schema.
+     */
+    fields?: inputs.GetReferenceTableSchemaField[];
+    /**
+     * List of field names that serve as primary keys for the table.
+     */
+    primaryKeys?: string[];
+}
+
+export interface GetReferenceTableSchemaArgs {
+    /**
+     * List of fields in the table schema.
+     */
+    fields?: pulumi.Input<pulumi.Input<inputs.GetReferenceTableSchemaFieldArgs>[]>;
+    /**
+     * List of field names that serve as primary keys for the table.
+     */
+    primaryKeys?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface GetReferenceTableSchemaField {
+    /**
+     * The name of the field.
+     */
+    name?: string;
+    /**
+     * The data type of the field (e.g., STRING, INT32).
+     */
+    type?: string;
+}
+
+export interface GetReferenceTableSchemaFieldArgs {
+    /**
+     * The name of the field.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The data type of the field (e.g., STRING, INT32).
+     */
+    type?: pulumi.Input<string>;
+}
+
 export interface GetTagPipelineRulesetRule {
     /**
      * Whether the rule is enabled.
@@ -12110,6 +12369,29 @@ export interface MetricTagConfigurationAggregation {
     time: pulumi.Input<string>;
 }
 
+export interface MonitorAsset {
+    /**
+     * Type of asset the entity represents on a monitor. Valid values are `runbook`.
+     */
+    category: pulumi.Input<string>;
+    /**
+     * Name for the monitor asset.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Identifier of the internal Datadog resource that this asset represents.
+     */
+    resourceKey?: pulumi.Input<string>;
+    /**
+     * Type of internal Datadog resource associated with a monitor asset. Valid values are `notebook`.
+     */
+    resourceType?: pulumi.Input<string>;
+    /**
+     * URL for the asset.
+     */
+    url: pulumi.Input<string>;
+}
+
 export interface MonitorConfigPolicyTagPolicy {
     /**
      * The key of the tag
@@ -12163,11 +12445,37 @@ export interface MonitorMonitorThresholds {
     warningRecovery?: pulumi.Input<string>;
 }
 
+export interface MonitorNotificationRuleConditionalRecipients {
+    /**
+     * Conditions of the notification rule.
+     */
+    conditions?: pulumi.Input<pulumi.Input<inputs.MonitorNotificationRuleConditionalRecipientsCondition>[]>;
+    /**
+     * If none of the `conditions` applied, `fallbackRecipients` will get notified.
+     */
+    fallbackRecipients?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface MonitorNotificationRuleConditionalRecipientsCondition {
+    /**
+     * List of recipients to notify.
+     */
+    recipients: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The scope to which the monitor applied.
+     */
+    scope: pulumi.Input<string>;
+}
+
 export interface MonitorNotificationRuleFilter {
+    /**
+     * The scope to which the monitor applied.
+     */
+    scope?: pulumi.Input<string>;
     /**
      * All tags that target monitors must match.
      */
-    tags: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface MonitorSchedulingOption {
@@ -14569,6 +14877,10 @@ export interface OnCallEscalationPolicyStep {
 
 export interface OnCallEscalationPolicyStepTarget {
     /**
+     * For schedule targets, specifies which on-call user to page. Valid values: `current` (default), `previous`, `next`. Valid values are `current`, `previous`, `next`.
+     */
+    position?: pulumi.Input<string>;
+    /**
      * Targeted schedule ID.
      */
     schedule?: pulumi.Input<string>;
@@ -14611,6 +14923,10 @@ export interface OnCallScheduleLayer {
      * The date/time when the rotation for this layer starts (in ISO 8601).
      */
     rotationStart: pulumi.Input<string>;
+    /**
+     * The time zone for this layer. If not specified, the layer inherits the schedule's time zone.
+     */
+    timeZone?: pulumi.Input<string>;
     /**
      * List of user IDs for the layer. Can either be a valid user id or null
      */
@@ -27075,6 +27391,123 @@ export interface ProviderDefaultTags {
      * [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Resource tags to be applied by default across all resources.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+export interface ReferenceTableFileMetadata {
+    /**
+     * Cloud storage access configuration. Exactly one of aws*detail, gcp*detail, or azure*detail must be specified.
+     */
+    accessDetails?: pulumi.Input<inputs.ReferenceTableFileMetadataAccessDetails>;
+    /**
+     * Error message from the last sync attempt, if any.
+     */
+    errorMessage?: pulumi.Input<string>;
+    /**
+     * The number of rows that failed to sync.
+     */
+    errorRowCount?: pulumi.Input<number>;
+    /**
+     * The type of error that occurred during file processing.
+     */
+    errorType?: pulumi.Input<string>;
+    /**
+     * Whether this table should automatically sync with the cloud storage source.
+     */
+    syncEnabled: pulumi.Input<boolean>;
+}
+
+export interface ReferenceTableFileMetadataAccessDetails {
+    /**
+     * AWS S3 access configuration. Required when source is S3.
+     */
+    awsDetail?: pulumi.Input<inputs.ReferenceTableFileMetadataAccessDetailsAwsDetail>;
+    /**
+     * Azure Blob Storage access configuration. Required when source is AZURE.
+     */
+    azureDetail?: pulumi.Input<inputs.ReferenceTableFileMetadataAccessDetailsAzureDetail>;
+    /**
+     * Google Cloud Storage access configuration. Required when source is GCS.
+     */
+    gcpDetail?: pulumi.Input<inputs.ReferenceTableFileMetadataAccessDetailsGcpDetail>;
+}
+
+export interface ReferenceTableFileMetadataAccessDetailsAwsDetail {
+    /**
+     * The ID of the AWS account.
+     */
+    awsAccountId?: pulumi.Input<string>;
+    /**
+     * The name of the AWS S3 bucket.
+     */
+    awsBucketName?: pulumi.Input<string>;
+    /**
+     * The relative file path from the AWS S3 bucket root to the CSV file.
+     */
+    filePath?: pulumi.Input<string>;
+}
+
+export interface ReferenceTableFileMetadataAccessDetailsAzureDetail {
+    /**
+     * The Azure client ID (application ID).
+     */
+    azureClientId?: pulumi.Input<string>;
+    /**
+     * The name of the Azure container.
+     */
+    azureContainerName?: pulumi.Input<string>;
+    /**
+     * The name of the Azure storage account.
+     */
+    azureStorageAccountName?: pulumi.Input<string>;
+    /**
+     * The ID of the Azure tenant.
+     */
+    azureTenantId?: pulumi.Input<string>;
+    /**
+     * The relative file path from the Azure container root to the CSV file.
+     */
+    filePath?: pulumi.Input<string>;
+}
+
+export interface ReferenceTableFileMetadataAccessDetailsGcpDetail {
+    /**
+     * The relative file path from the GCS bucket root to the CSV file.
+     */
+    filePath?: pulumi.Input<string>;
+    /**
+     * The name of the GCP bucket.
+     */
+    gcpBucketName?: pulumi.Input<string>;
+    /**
+     * The ID of the GCP project.
+     */
+    gcpProjectId?: pulumi.Input<string>;
+    /**
+     * The email of the GCP service account used to access the bucket.
+     */
+    gcpServiceAccountEmail?: pulumi.Input<string>;
+}
+
+export interface ReferenceTableSchema {
+    /**
+     * List of fields in the table schema. Must include at least one field. Schema is only set on create.
+     */
+    fields?: pulumi.Input<pulumi.Input<inputs.ReferenceTableSchemaField>[]>;
+    /**
+     * List of field names that serve as primary keys for the table. Currently only one primary key is supported.
+     */
+    primaryKeys?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ReferenceTableSchemaField {
+    /**
+     * The name of the field.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The data type of the field. Must be one of: STRING, INT32. Valid values are `STRING`, `INT32`.
+     */
+    type?: pulumi.Input<string>;
 }
 
 export interface RestrictionPolicyBinding {

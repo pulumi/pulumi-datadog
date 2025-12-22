@@ -56,6 +56,10 @@ import com.pulumi.datadog.inputs.GetPermissionsArgs;
 import com.pulumi.datadog.inputs.GetPermissionsPlainArgs;
 import com.pulumi.datadog.inputs.GetPowerpackArgs;
 import com.pulumi.datadog.inputs.GetPowerpackPlainArgs;
+import com.pulumi.datadog.inputs.GetReferenceTableArgs;
+import com.pulumi.datadog.inputs.GetReferenceTablePlainArgs;
+import com.pulumi.datadog.inputs.GetReferenceTableRowsArgs;
+import com.pulumi.datadog.inputs.GetReferenceTableRowsPlainArgs;
 import com.pulumi.datadog.inputs.GetRoleArgs;
 import com.pulumi.datadog.inputs.GetRolePlainArgs;
 import com.pulumi.datadog.inputs.GetRoleUsersArgs;
@@ -85,6 +89,8 @@ import com.pulumi.datadog.inputs.GetSyntheticsTestPlainArgs;
 import com.pulumi.datadog.inputs.GetTagPipelineRulesetArgs;
 import com.pulumi.datadog.inputs.GetTagPipelineRulesetPlainArgs;
 import com.pulumi.datadog.inputs.GetTeamArgs;
+import com.pulumi.datadog.inputs.GetTeamHierarchyLinksArgs;
+import com.pulumi.datadog.inputs.GetTeamHierarchyLinksPlainArgs;
 import com.pulumi.datadog.inputs.GetTeamMembershipsArgs;
 import com.pulumi.datadog.inputs.GetTeamMembershipsPlainArgs;
 import com.pulumi.datadog.inputs.GetTeamPlainArgs;
@@ -130,6 +136,8 @@ import com.pulumi.datadog.outputs.GetMonitorResult;
 import com.pulumi.datadog.outputs.GetMonitorsResult;
 import com.pulumi.datadog.outputs.GetPermissionsResult;
 import com.pulumi.datadog.outputs.GetPowerpackResult;
+import com.pulumi.datadog.outputs.GetReferenceTableResult;
+import com.pulumi.datadog.outputs.GetReferenceTableRowsResult;
 import com.pulumi.datadog.outputs.GetRoleResult;
 import com.pulumi.datadog.outputs.GetRoleUsersResult;
 import com.pulumi.datadog.outputs.GetRolesResult;
@@ -148,6 +156,7 @@ import com.pulumi.datadog.outputs.GetSyntheticsGlobalVariableResult;
 import com.pulumi.datadog.outputs.GetSyntheticsLocationsResult;
 import com.pulumi.datadog.outputs.GetSyntheticsTestResult;
 import com.pulumi.datadog.outputs.GetTagPipelineRulesetResult;
+import com.pulumi.datadog.outputs.GetTeamHierarchyLinksResult;
 import com.pulumi.datadog.outputs.GetTeamMembershipsResult;
 import com.pulumi.datadog.outputs.GetTeamResult;
 import com.pulumi.datadog.outputs.GetTeamsResult;
@@ -5681,6 +5690,90 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invokeAsync("datadog:index/getPowerpack:getPowerpack", TypeShape.of(GetPowerpackResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve information about an existing Datadog reference table. Query by either tableName or id (mutually exclusive). Supports all source types including cloud storage (S3, GCS, Azure) and external integrations (ServiceNow, Salesforce, Databricks, Snowflake, LOCAL_FILE).
+     * 
+     */
+    public static Output<GetReferenceTableResult> getReferenceTable() {
+        return getReferenceTable(GetReferenceTableArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog reference table. Query by either tableName or id (mutually exclusive). Supports all source types including cloud storage (S3, GCS, Azure) and external integrations (ServiceNow, Salesforce, Databricks, Snowflake, LOCAL_FILE).
+     * 
+     */
+    public static CompletableFuture<GetReferenceTableResult> getReferenceTablePlain() {
+        return getReferenceTablePlain(GetReferenceTablePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog reference table. Query by either tableName or id (mutually exclusive). Supports all source types including cloud storage (S3, GCS, Azure) and external integrations (ServiceNow, Salesforce, Databricks, Snowflake, LOCAL_FILE).
+     * 
+     */
+    public static Output<GetReferenceTableResult> getReferenceTable(GetReferenceTableArgs args) {
+        return getReferenceTable(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog reference table. Query by either tableName or id (mutually exclusive). Supports all source types including cloud storage (S3, GCS, Azure) and external integrations (ServiceNow, Salesforce, Databricks, Snowflake, LOCAL_FILE).
+     * 
+     */
+    public static CompletableFuture<GetReferenceTableResult> getReferenceTablePlain(GetReferenceTablePlainArgs args) {
+        return getReferenceTablePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog reference table. Query by either tableName or id (mutually exclusive). Supports all source types including cloud storage (S3, GCS, Azure) and external integrations (ServiceNow, Salesforce, Databricks, Snowflake, LOCAL_FILE).
+     * 
+     */
+    public static Output<GetReferenceTableResult> getReferenceTable(GetReferenceTableArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getReferenceTable:getReferenceTable", TypeShape.of(GetReferenceTableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog reference table. Query by either tableName or id (mutually exclusive). Supports all source types including cloud storage (S3, GCS, Azure) and external integrations (ServiceNow, Salesforce, Databricks, Snowflake, LOCAL_FILE).
+     * 
+     */
+    public static Output<GetReferenceTableResult> getReferenceTable(GetReferenceTableArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getReferenceTable:getReferenceTable", TypeShape.of(GetReferenceTableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog reference table. Query by either tableName or id (mutually exclusive). Supports all source types including cloud storage (S3, GCS, Azure) and external integrations (ServiceNow, Salesforce, Databricks, Snowflake, LOCAL_FILE).
+     * 
+     */
+    public static CompletableFuture<GetReferenceTableResult> getReferenceTablePlain(GetReferenceTablePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getReferenceTable:getReferenceTable", TypeShape.of(GetReferenceTableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve specific rows from a Datadog reference table by their primary key values. Works with all reference table source types.
+     * 
+     */
+    public static Output<GetReferenceTableRowsResult> getReferenceTableRows(GetReferenceTableRowsArgs args) {
+        return getReferenceTableRows(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve specific rows from a Datadog reference table by their primary key values. Works with all reference table source types.
+     * 
+     */
+    public static CompletableFuture<GetReferenceTableRowsResult> getReferenceTableRowsPlain(GetReferenceTableRowsPlainArgs args) {
+        return getReferenceTableRowsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve specific rows from a Datadog reference table by their primary key values. Works with all reference table source types.
+     * 
+     */
+    public static Output<GetReferenceTableRowsResult> getReferenceTableRows(GetReferenceTableRowsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getReferenceTableRows:getReferenceTableRows", TypeShape.of(GetReferenceTableRowsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve specific rows from a Datadog reference table by their primary key values. Works with all reference table source types.
+     * 
+     */
+    public static Output<GetReferenceTableRowsResult> getReferenceTableRows(GetReferenceTableRowsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getReferenceTableRows:getReferenceTableRows", TypeShape.of(GetReferenceTableRowsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve specific rows from a Datadog reference table by their primary key values. Works with all reference table source types.
+     * 
+     */
+    public static CompletableFuture<GetReferenceTableRowsResult> getReferenceTableRowsPlain(GetReferenceTableRowsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getReferenceTableRows:getReferenceTableRows", TypeShape.of(GetReferenceTableRowsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to retrieve information about an existing role for use in other resources.
      * 
      * ## Example Usage
@@ -8932,6 +9025,55 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetTeamResult> getTeamPlain(GetTeamPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getTeam:getTeam", TypeShape.of(GetTeamResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing Datadog Team Hierarchy Links.
+     * 
+     */
+    public static Output<GetTeamHierarchyLinksResult> getTeamHierarchyLinks() {
+        return getTeamHierarchyLinks(GetTeamHierarchyLinksArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing Datadog Team Hierarchy Links.
+     * 
+     */
+    public static CompletableFuture<GetTeamHierarchyLinksResult> getTeamHierarchyLinksPlain() {
+        return getTeamHierarchyLinksPlain(GetTeamHierarchyLinksPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing Datadog Team Hierarchy Links.
+     * 
+     */
+    public static Output<GetTeamHierarchyLinksResult> getTeamHierarchyLinks(GetTeamHierarchyLinksArgs args) {
+        return getTeamHierarchyLinks(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing Datadog Team Hierarchy Links.
+     * 
+     */
+    public static CompletableFuture<GetTeamHierarchyLinksResult> getTeamHierarchyLinksPlain(GetTeamHierarchyLinksPlainArgs args) {
+        return getTeamHierarchyLinksPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing Datadog Team Hierarchy Links.
+     * 
+     */
+    public static Output<GetTeamHierarchyLinksResult> getTeamHierarchyLinks(GetTeamHierarchyLinksArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getTeamHierarchyLinks:getTeamHierarchyLinks", TypeShape.of(GetTeamHierarchyLinksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing Datadog Team Hierarchy Links.
+     * 
+     */
+    public static Output<GetTeamHierarchyLinksResult> getTeamHierarchyLinks(GetTeamHierarchyLinksArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getTeamHierarchyLinks:getTeamHierarchyLinks", TypeShape.of(GetTeamHierarchyLinksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing Datadog Team Hierarchy Links.
+     * 
+     */
+    public static CompletableFuture<GetTeamHierarchyLinksResult> getTeamHierarchyLinksPlain(GetTeamHierarchyLinksPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getTeamHierarchyLinks:getTeamHierarchyLinks", TypeShape.of(GetTeamHierarchyLinksResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about existing Datadog team memberships.

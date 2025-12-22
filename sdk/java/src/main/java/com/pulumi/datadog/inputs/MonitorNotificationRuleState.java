@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.MonitorNotificationRuleConditionalRecipientsArgs;
 import com.pulumi.datadog.inputs.MonitorNotificationRuleFilterArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class MonitorNotificationRuleState extends com.pulumi.resources.ResourceArgs {
 
     public static final MonitorNotificationRuleState Empty = new MonitorNotificationRuleState();
+
+    /**
+     * Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
+     * 
+     */
+    @Import(name="conditionalRecipients")
+    private @Nullable Output<MonitorNotificationRuleConditionalRecipientsArgs> conditionalRecipients;
+
+    /**
+     * @return Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
+     * 
+     */
+    public Optional<Output<MonitorNotificationRuleConditionalRecipientsArgs>> conditionalRecipients() {
+        return Optional.ofNullable(this.conditionalRecipients);
+    }
 
     @Import(name="filter")
     private @Nullable Output<MonitorNotificationRuleFilterArgs> filter;
@@ -40,14 +56,14 @@ public final class MonitorNotificationRuleState extends com.pulumi.resources.Res
     }
 
     /**
-     * List of recipients to notify.
+     * List of recipients to notify. Cannot be used with `conditionalRecipients`.
      * 
      */
     @Import(name="recipients")
     private @Nullable Output<List<String>> recipients;
 
     /**
-     * @return List of recipients to notify.
+     * @return List of recipients to notify. Cannot be used with `conditionalRecipients`.
      * 
      */
     public Optional<Output<List<String>>> recipients() {
@@ -57,6 +73,7 @@ public final class MonitorNotificationRuleState extends com.pulumi.resources.Res
     private MonitorNotificationRuleState() {}
 
     private MonitorNotificationRuleState(MonitorNotificationRuleState $) {
+        this.conditionalRecipients = $.conditionalRecipients;
         this.filter = $.filter;
         this.name = $.name;
         this.recipients = $.recipients;
@@ -78,6 +95,27 @@ public final class MonitorNotificationRuleState extends com.pulumi.resources.Res
 
         public Builder(MonitorNotificationRuleState defaults) {
             $ = new MonitorNotificationRuleState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param conditionalRecipients Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder conditionalRecipients(@Nullable Output<MonitorNotificationRuleConditionalRecipientsArgs> conditionalRecipients) {
+            $.conditionalRecipients = conditionalRecipients;
+            return this;
+        }
+
+        /**
+         * @param conditionalRecipients Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder conditionalRecipients(MonitorNotificationRuleConditionalRecipientsArgs conditionalRecipients) {
+            return conditionalRecipients(Output.of(conditionalRecipients));
         }
 
         public Builder filter(@Nullable Output<MonitorNotificationRuleFilterArgs> filter) {
@@ -111,7 +149,7 @@ public final class MonitorNotificationRuleState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recipients List of recipients to notify.
+         * @param recipients List of recipients to notify. Cannot be used with `conditionalRecipients`.
          * 
          * @return builder
          * 
@@ -122,7 +160,7 @@ public final class MonitorNotificationRuleState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recipients List of recipients to notify.
+         * @param recipients List of recipients to notify. Cannot be used with `conditionalRecipients`.
          * 
          * @return builder
          * 
@@ -132,7 +170,7 @@ public final class MonitorNotificationRuleState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recipients List of recipients to notify.
+         * @param recipients List of recipients to notify. Cannot be used with `conditionalRecipients`.
          * 
          * @return builder
          * 

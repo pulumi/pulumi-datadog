@@ -72,6 +72,8 @@ from .get_monitor_config_policies import *
 from .get_monitors import *
 from .get_permissions import *
 from .get_powerpack import *
+from .get_reference_table import *
+from .get_reference_table_rows import *
 from .get_role import *
 from .get_role_users import *
 from .get_roles import *
@@ -91,6 +93,7 @@ from .get_synthetics_locations import *
 from .get_synthetics_test import *
 from .get_tag_pipeline_ruleset import *
 from .get_team import *
+from .get_team_hierarchy_links import *
 from .get_team_memberships import *
 from .get_teams import *
 from .get_user import *
@@ -109,6 +112,7 @@ from .logs_index_order import *
 from .logs_integration_pipeline import *
 from .logs_metric import *
 from .logs_pipeline_order import *
+from .logs_restriction_query import *
 from .metric_metadata import *
 from .metric_tag_configuration import *
 from .monitor import *
@@ -124,6 +128,7 @@ from .org_connection import *
 from .organization_settings import *
 from .powerpack import *
 from .provider import *
+from .reference_table import *
 from .restriction_policy import *
 from .role import *
 from .rum_application import *
@@ -153,6 +158,7 @@ from .synthetics_test import *
 from .tag_pipeline_ruleset import *
 from .tag_pipeline_rulesets import *
 from .team import *
+from .team_hierarchy_links import *
 from .team_link import *
 from .team_membership import *
 from .team_permission_setting import *
@@ -686,6 +692,14 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/logsRestrictionQuery",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/logsRestrictionQuery:LogsRestrictionQuery": "LogsRestrictionQuery"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/metricMetadata",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -794,6 +808,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/powerpack:Powerpack": "Powerpack"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/referenceTable",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/referenceTable:ReferenceTable": "ReferenceTable"
   }
  },
  {
@@ -1026,6 +1048,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/team:Team": "Team"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/teamHierarchyLinks",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/teamHierarchyLinks:TeamHierarchyLinks": "TeamHierarchyLinks"
   }
  },
  {

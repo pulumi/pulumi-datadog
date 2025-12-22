@@ -124,8 +124,22 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// Manage the order of custom allocation rules
-//			_, err = datadog.NewCustomAllocationRules(ctx, "order", &datadog.CustomAllocationRulesArgs{
+//			// Example 1: Preserve mode (default) - allows unmanaged rules to exist at the end
+//			// This will preserve any existing rules created outside of Terraform as long as they are at the end
+//			_, err = datadog.NewCustomAllocationRules(ctx, "preserve_order", &datadog.CustomAllocationRulesArgs{
+//				RuleIds: pulumi.StringArray{
+//					rule1.ID(),
+//					rule2.ID(),
+//					rule3.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Example 2: Override mode - deletes all unmanaged rules and maintains strict order
+//			// This will delete any rules not defined in Terraform and enforce the exact order specified
+//			_, err = datadog.NewCustomAllocationRules(ctx, "override_order", &datadog.CustomAllocationRulesArgs{
+//				OverrideUiDefinedResources: pulumi.Bool(true),
 //				RuleIds: pulumi.StringArray{
 //					rule1.ID(),
 //					rule2.ID(),
@@ -151,6 +165,7 @@ import (
 type CustomAllocationRules struct {
 	pulumi.CustomResourceState
 
+	OverrideUiDefinedResources pulumi.BoolPtrOutput `pulumi:"overrideUiDefinedResources"`
 	// The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `CustomAllocationRule` resource.
 	RuleIds pulumi.StringArrayOutput `pulumi:"ruleIds"`
 }
@@ -188,11 +203,13 @@ func GetCustomAllocationRules(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomAllocationRules resources.
 type customAllocationRulesState struct {
+	OverrideUiDefinedResources *bool `pulumi:"overrideUiDefinedResources"`
 	// The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `CustomAllocationRule` resource.
 	RuleIds []string `pulumi:"ruleIds"`
 }
 
 type CustomAllocationRulesState struct {
+	OverrideUiDefinedResources pulumi.BoolPtrInput
 	// The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `CustomAllocationRule` resource.
 	RuleIds pulumi.StringArrayInput
 }
@@ -202,12 +219,14 @@ func (CustomAllocationRulesState) ElementType() reflect.Type {
 }
 
 type customAllocationRulesArgs struct {
+	OverrideUiDefinedResources *bool `pulumi:"overrideUiDefinedResources"`
 	// The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `CustomAllocationRule` resource.
 	RuleIds []string `pulumi:"ruleIds"`
 }
 
 // The set of arguments for constructing a CustomAllocationRules resource.
 type CustomAllocationRulesArgs struct {
+	OverrideUiDefinedResources pulumi.BoolPtrInput
 	// The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `CustomAllocationRule` resource.
 	RuleIds pulumi.StringArrayInput
 }
@@ -297,6 +316,10 @@ func (o CustomAllocationRulesOutput) ToCustomAllocationRulesOutput() CustomAlloc
 
 func (o CustomAllocationRulesOutput) ToCustomAllocationRulesOutputWithContext(ctx context.Context) CustomAllocationRulesOutput {
 	return o
+}
+
+func (o CustomAllocationRulesOutput) OverrideUiDefinedResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CustomAllocationRules) pulumi.BoolPtrOutput { return v.OverrideUiDefinedResources }).(pulumi.BoolPtrOutput)
 }
 
 // The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `CustomAllocationRule` resource.

@@ -50,14 +50,14 @@ public final class CostBudgetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The entries of the budget.
+     * The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
      * 
      */
     @Import(name="entries")
     private @Nullable Output<List<CostBudgetEntryArgs>> entries;
 
     /**
-     * @return The entries of the budget.
+     * @return The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
      * 
      */
     public Optional<Output<List<CostBudgetEntryArgs>>> entries() {
@@ -65,14 +65,14 @@ public final class CostBudgetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The cost query used to track against the budget.
+     * The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
      * 
      */
     @Import(name="metricsQuery")
     private @Nullable Output<String> metricsQuery;
 
     /**
-     * @return The cost query used to track against the budget.
+     * @return The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
      * 
      */
     public Optional<Output<String>> metricsQuery() {
@@ -197,7 +197,7 @@ public final class CostBudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entries The entries of the budget.
+         * @param entries The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class CostBudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entries The entries of the budget.
+         * @param entries The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class CostBudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entries The entries of the budget.
+         * @param entries The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class CostBudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metricsQuery The cost query used to track against the budget.
+         * @param metricsQuery The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class CostBudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metricsQuery The cost query used to track against the budget.
+         * @param metricsQuery The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
          * 
          * @return builder
          * 

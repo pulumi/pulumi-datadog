@@ -335,6 +335,16 @@ export const getPowerpack: typeof import("./getPowerpack").getPowerpack = null a
 export const getPowerpackOutput: typeof import("./getPowerpack").getPowerpackOutput = null as any;
 utilities.lazyLoad(exports, ["getPowerpack","getPowerpackOutput"], () => require("./getPowerpack"));
 
+export { GetReferenceTableArgs, GetReferenceTableResult, GetReferenceTableOutputArgs } from "./getReferenceTable";
+export const getReferenceTable: typeof import("./getReferenceTable").getReferenceTable = null as any;
+export const getReferenceTableOutput: typeof import("./getReferenceTable").getReferenceTableOutput = null as any;
+utilities.lazyLoad(exports, ["getReferenceTable","getReferenceTableOutput"], () => require("./getReferenceTable"));
+
+export { GetReferenceTableRowsArgs, GetReferenceTableRowsResult, GetReferenceTableRowsOutputArgs } from "./getReferenceTableRows";
+export const getReferenceTableRows: typeof import("./getReferenceTableRows").getReferenceTableRows = null as any;
+export const getReferenceTableRowsOutput: typeof import("./getReferenceTableRows").getReferenceTableRowsOutput = null as any;
+utilities.lazyLoad(exports, ["getReferenceTableRows","getReferenceTableRowsOutput"], () => require("./getReferenceTableRows"));
+
 export { GetRoleArgs, GetRoleResult, GetRoleOutputArgs } from "./getRole";
 export const getRole: typeof import("./getRole").getRole = null as any;
 export const getRoleOutput: typeof import("./getRole").getRoleOutput = null as any;
@@ -430,6 +440,11 @@ export const getTeam: typeof import("./getTeam").getTeam = null as any;
 export const getTeamOutput: typeof import("./getTeam").getTeamOutput = null as any;
 utilities.lazyLoad(exports, ["getTeam","getTeamOutput"], () => require("./getTeam"));
 
+export { GetTeamHierarchyLinksArgs, GetTeamHierarchyLinksResult, GetTeamHierarchyLinksOutputArgs } from "./getTeamHierarchyLinks";
+export const getTeamHierarchyLinks: typeof import("./getTeamHierarchyLinks").getTeamHierarchyLinks = null as any;
+export const getTeamHierarchyLinksOutput: typeof import("./getTeamHierarchyLinks").getTeamHierarchyLinksOutput = null as any;
+utilities.lazyLoad(exports, ["getTeamHierarchyLinks","getTeamHierarchyLinksOutput"], () => require("./getTeamHierarchyLinks"));
+
 export { GetTeamMembershipsArgs, GetTeamMembershipsResult, GetTeamMembershipsOutputArgs } from "./getTeamMemberships";
 export const getTeamMemberships: typeof import("./getTeamMemberships").getTeamMemberships = null as any;
 export const getTeamMembershipsOutput: typeof import("./getTeamMemberships").getTeamMembershipsOutput = null as any;
@@ -520,6 +535,11 @@ export type LogsPipelineOrder = import("./logsPipelineOrder").LogsPipelineOrder;
 export const LogsPipelineOrder: typeof import("./logsPipelineOrder").LogsPipelineOrder = null as any;
 utilities.lazyLoad(exports, ["LogsPipelineOrder"], () => require("./logsPipelineOrder"));
 
+export { LogsRestrictionQueryArgs, LogsRestrictionQueryState } from "./logsRestrictionQuery";
+export type LogsRestrictionQuery = import("./logsRestrictionQuery").LogsRestrictionQuery;
+export const LogsRestrictionQuery: typeof import("./logsRestrictionQuery").LogsRestrictionQuery = null as any;
+utilities.lazyLoad(exports, ["LogsRestrictionQuery"], () => require("./logsRestrictionQuery"));
+
 export { MetricMetadataArgs, MetricMetadataState } from "./metricMetadata";
 export type MetricMetadata = import("./metricMetadata").MetricMetadata;
 export const MetricMetadata: typeof import("./metricMetadata").MetricMetadata = null as any;
@@ -592,6 +612,11 @@ utilities.lazyLoad(exports, ["Powerpack"], () => require("./powerpack"));
 
 export * from "./provider";
 import { Provider } from "./provider";
+
+export { ReferenceTableArgs, ReferenceTableState } from "./referenceTable";
+export type ReferenceTable = import("./referenceTable").ReferenceTable;
+export const ReferenceTable: typeof import("./referenceTable").ReferenceTable = null as any;
+utilities.lazyLoad(exports, ["ReferenceTable"], () => require("./referenceTable"));
 
 export { RestrictionPolicyArgs, RestrictionPolicyState } from "./restrictionPolicy";
 export type RestrictionPolicy = import("./restrictionPolicy").RestrictionPolicy;
@@ -737,6 +762,11 @@ export { TeamArgs, TeamState } from "./team";
 export type Team = import("./team").Team;
 export const Team: typeof import("./team").Team = null as any;
 utilities.lazyLoad(exports, ["Team"], () => require("./team"));
+
+export { TeamHierarchyLinksArgs, TeamHierarchyLinksState } from "./teamHierarchyLinks";
+export type TeamHierarchyLinks = import("./teamHierarchyLinks").TeamHierarchyLinks;
+export const TeamHierarchyLinks: typeof import("./teamHierarchyLinks").TeamHierarchyLinks = null as any;
+utilities.lazyLoad(exports, ["TeamHierarchyLinks"], () => require("./teamHierarchyLinks"));
 
 export { TeamLinkArgs, TeamLinkState } from "./teamLink";
 export type TeamLink = import("./teamLink").TeamLink;
@@ -902,6 +932,8 @@ const _module = {
                 return new LogsMetric(name, <any>undefined, { urn })
             case "datadog:index/logsPipelineOrder:LogsPipelineOrder":
                 return new LogsPipelineOrder(name, <any>undefined, { urn })
+            case "datadog:index/logsRestrictionQuery:LogsRestrictionQuery":
+                return new LogsRestrictionQuery(name, <any>undefined, { urn })
             case "datadog:index/metricMetadata:MetricMetadata":
                 return new MetricMetadata(name, <any>undefined, { urn })
             case "datadog:index/metricTagConfiguration:MetricTagConfiguration":
@@ -930,6 +962,8 @@ const _module = {
                 return new OrganizationSettings(name, <any>undefined, { urn })
             case "datadog:index/powerpack:Powerpack":
                 return new Powerpack(name, <any>undefined, { urn })
+            case "datadog:index/referenceTable:ReferenceTable":
+                return new ReferenceTable(name, <any>undefined, { urn })
             case "datadog:index/restrictionPolicy:RestrictionPolicy":
                 return new RestrictionPolicy(name, <any>undefined, { urn })
             case "datadog:index/role:Role":
@@ -988,6 +1022,8 @@ const _module = {
                 return new TagPipelineRulesets(name, <any>undefined, { urn })
             case "datadog:index/team:Team":
                 return new Team(name, <any>undefined, { urn })
+            case "datadog:index/teamHierarchyLinks:TeamHierarchyLinks":
+                return new TeamHierarchyLinks(name, <any>undefined, { urn })
             case "datadog:index/teamLink:TeamLink":
                 return new TeamLink(name, <any>undefined, { urn })
             case "datadog:index/teamMembership:TeamMembership":
@@ -1054,6 +1090,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/logsIndexOrder", _module
 pulumi.runtime.registerResourceModule("datadog", "index/logsIntegrationPipeline", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/logsMetric", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/logsPipelineOrder", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/logsRestrictionQuery", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/metricMetadata", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/metricTagConfiguration", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/monitor", _module)
@@ -1068,6 +1105,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/openapiApi", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/orgConnection", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/organizationSettings", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/powerpack", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/referenceTable", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/restrictionPolicy", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/role", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/rumApplication", _module)
@@ -1097,6 +1135,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/syntheticsTest", _module
 pulumi.runtime.registerResourceModule("datadog", "index/tagPipelineRuleset", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/tagPipelineRulesets", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/team", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/teamHierarchyLinks", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/teamLink", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/teamMembership", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/teamPermissionSetting", _module)

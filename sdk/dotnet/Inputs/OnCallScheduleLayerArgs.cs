@@ -60,6 +60,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("rotationStart", required: true)]
         public Input<string> RotationStart { get; set; } = null!;
 
+        /// <summary>
+        /// The time zone for this layer. If not specified, the layer inherits the schedule's time zone.
+        /// </summary>
+        [Input("timeZone")]
+        public Input<string>? TimeZone { get; set; }
+
         [Input("users", required: true)]
         private InputList<string>? _users;
 

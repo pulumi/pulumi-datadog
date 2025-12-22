@@ -12,6 +12,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OnCallEscalationPolicyStepTarget {
     /**
+     * @return For schedule targets, specifies which on-call user to page. Valid values: `current` (default), `previous`, `next`. Valid values are `current`, `previous`, `next`.
+     * 
+     */
+    private @Nullable String position;
+    /**
      * @return Targeted schedule ID.
      * 
      */
@@ -28,6 +33,13 @@ public final class OnCallEscalationPolicyStepTarget {
     private @Nullable String user;
 
     private OnCallEscalationPolicyStepTarget() {}
+    /**
+     * @return For schedule targets, specifies which on-call user to page. Valid values: `current` (default), `previous`, `next`. Valid values are `current`, `previous`, `next`.
+     * 
+     */
+    public Optional<String> position() {
+        return Optional.ofNullable(this.position);
+    }
     /**
      * @return Targeted schedule ID.
      * 
@@ -59,17 +71,25 @@ public final class OnCallEscalationPolicyStepTarget {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String position;
         private @Nullable String schedule;
         private @Nullable String team;
         private @Nullable String user;
         public Builder() {}
         public Builder(OnCallEscalationPolicyStepTarget defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.position = defaults.position;
     	      this.schedule = defaults.schedule;
     	      this.team = defaults.team;
     	      this.user = defaults.user;
         }
 
+        @CustomType.Setter
+        public Builder position(@Nullable String position) {
+
+            this.position = position;
+            return this;
+        }
         @CustomType.Setter
         public Builder schedule(@Nullable String schedule) {
 
@@ -90,6 +110,7 @@ public final class OnCallEscalationPolicyStepTarget {
         }
         public OnCallEscalationPolicyStepTarget build() {
             final var _resultValue = new OnCallEscalationPolicyStepTarget();
+            _resultValue.position = position;
             _resultValue.schedule = schedule;
             _resultValue.team = team;
             _resultValue.user = user;

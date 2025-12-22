@@ -10,10 +10,18 @@ import java.util.Objects;
 
 @CustomType
 public final class CostBudgetEntryTagFilter {
+    /**
+     * @return **Note:** Must be one of the tags from the `metricsQuery`.
+     * 
+     */
     private String tagKey;
     private String tagValue;
 
     private CostBudgetEntryTagFilter() {}
+    /**
+     * @return **Note:** Must be one of the tags from the `metricsQuery`.
+     * 
+     */
     public String tagKey() {
         return this.tagKey;
     }

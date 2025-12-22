@@ -6,14 +6,24 @@ package com.pulumi.datadog;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class CustomAllocationRulesArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final CustomAllocationRulesArgs Empty = new CustomAllocationRulesArgs();
+
+    @Import(name="overrideUiDefinedResources")
+    private @Nullable Output<Boolean> overrideUiDefinedResources;
+
+    public Optional<Output<Boolean>> overrideUiDefinedResources() {
+        return Optional.ofNullable(this.overrideUiDefinedResources);
+    }
 
     /**
      * The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `datadog.CustomAllocationRule` resource.
@@ -33,6 +43,7 @@ public final class CustomAllocationRulesArgs extends com.pulumi.resources.Resour
     private CustomAllocationRulesArgs() {}
 
     private CustomAllocationRulesArgs(CustomAllocationRulesArgs $) {
+        this.overrideUiDefinedResources = $.overrideUiDefinedResources;
         this.ruleIds = $.ruleIds;
     }
 
@@ -52,6 +63,15 @@ public final class CustomAllocationRulesArgs extends com.pulumi.resources.Resour
 
         public Builder(CustomAllocationRulesArgs defaults) {
             $ = new CustomAllocationRulesArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder overrideUiDefinedResources(@Nullable Output<Boolean> overrideUiDefinedResources) {
+            $.overrideUiDefinedResources = overrideUiDefinedResources;
+            return this;
+        }
+
+        public Builder overrideUiDefinedResources(Boolean overrideUiDefinedResources) {
+            return overrideUiDefinedResources(Output.of(overrideUiDefinedResources));
         }
 
         /**

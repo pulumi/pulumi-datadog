@@ -61,6 +61,24 @@ namespace Pulumi.Datadog
     ///                     },
     ///                 },
     ///             },
+    ///             new Datadog.Inputs.OnCallScheduleLayerArgs
+    ///             {
+    ///                 Name = "Asia-Pacific On-Call Layer",
+    ///                 EffectiveDate = "2025-01-01T00:00:00Z",
+    ///                 RotationStart = "2025-01-01T00:00:00Z",
+    ///                 TimeZone = "Asia/Tokyo",
+    ///                 Interval = new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "days", 7 },
+    ///                     },
+    ///                 },
+    ///                 Users = new[]
+    ///                 {
+    ///                     "00000000-aba1-0000-0000-000000000001",
+    ///                 },
+    ///             },
     ///         },
     ///     });
     /// 

@@ -11,6 +11,7 @@ import com.pulumi.datadog.aws.inputs.GetIntegrationExternalIdPlainArgs;
 import com.pulumi.datadog.aws.outputs.GetIntegrationAvailableLogsServicesResult;
 import com.pulumi.datadog.aws.outputs.GetIntegrationAvailableNamespacesResult;
 import com.pulumi.datadog.aws.outputs.GetIntegrationExternalIdResult;
+import com.pulumi.datadog.aws.outputs.GetIntegrationIamPermissionsResourceCollectionResult;
 import com.pulumi.datadog.aws.outputs.GetIntegrationIamPermissionsResult;
 import com.pulumi.datadog.aws.outputs.GetIntegrationIamPermissionsStandardResult;
 import com.pulumi.datadog.aws.outputs.GetIntegrationLogsServicesResult;
@@ -373,6 +374,55 @@ public final class AwsFunctions {
      */
     public static CompletableFuture<GetIntegrationIamPermissionsResult> getIntegrationIamPermissionsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:aws/getIntegrationIamPermissions:getIntegrationIamPermissions", TypeShape.of(GetIntegrationIamPermissionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the IAM permissions required for AWS integration resource collection.
+     * 
+     */
+    public static Output<GetIntegrationIamPermissionsResourceCollectionResult> getIntegrationIamPermissionsResourceCollection() {
+        return getIntegrationIamPermissionsResourceCollection(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the IAM permissions required for AWS integration resource collection.
+     * 
+     */
+    public static CompletableFuture<GetIntegrationIamPermissionsResourceCollectionResult> getIntegrationIamPermissionsResourceCollectionPlain() {
+        return getIntegrationIamPermissionsResourceCollectionPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the IAM permissions required for AWS integration resource collection.
+     * 
+     */
+    public static Output<GetIntegrationIamPermissionsResourceCollectionResult> getIntegrationIamPermissionsResourceCollection(InvokeArgs args) {
+        return getIntegrationIamPermissionsResourceCollection(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the IAM permissions required for AWS integration resource collection.
+     * 
+     */
+    public static CompletableFuture<GetIntegrationIamPermissionsResourceCollectionResult> getIntegrationIamPermissionsResourceCollectionPlain(InvokeArgs args) {
+        return getIntegrationIamPermissionsResourceCollectionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the IAM permissions required for AWS integration resource collection.
+     * 
+     */
+    public static Output<GetIntegrationIamPermissionsResourceCollectionResult> getIntegrationIamPermissionsResourceCollection(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:aws/getIntegrationIamPermissionsResourceCollection:getIntegrationIamPermissionsResourceCollection", TypeShape.of(GetIntegrationIamPermissionsResourceCollectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the IAM permissions required for AWS integration resource collection.
+     * 
+     */
+    public static Output<GetIntegrationIamPermissionsResourceCollectionResult> getIntegrationIamPermissionsResourceCollection(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:aws/getIntegrationIamPermissionsResourceCollection:getIntegrationIamPermissionsResourceCollection", TypeShape.of(GetIntegrationIamPermissionsResourceCollectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the IAM permissions required for AWS integration resource collection.
+     * 
+     */
+    public static CompletableFuture<GetIntegrationIamPermissionsResourceCollectionResult> getIntegrationIamPermissionsResourceCollectionPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:aws/getIntegrationIamPermissionsResourceCollection:getIntegrationIamPermissionsResourceCollection", TypeShape.of(GetIntegrationIamPermissionsResourceCollectionResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve the standard IAM permissions required for the AWS integration. This provides the minimum list of IAM actions that should be included in the AWS role policy for Datadog integration.

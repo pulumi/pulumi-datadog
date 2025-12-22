@@ -19,23 +19,35 @@ import * as utilities from "./utilities";
  *     name: "Team A On-Call",
  *     timeZone: "America/New_York",
  *     teams: ["00000000-aba2-0000-0000-000000000000"],
- *     layers: [{
- *         name: "Primary On-Call Layer",
- *         effectiveDate: "2025-01-01T00:00:00Z",
- *         endDate: "2026-01-01T00:00:00Z",
- *         rotationStart: "2025-01-01T00:00:00Z",
- *         interval: [{
- *             days: 1,
- *             seconds: 300,
- *         }],
- *         users: ["00000000-aba1-0000-0000-000000000000"],
- *         restrictions: [{
- *             endDay: "monday",
- *             endTime: "17:00:00",
- *             startDay: "monday",
- *             startTime: "09:00:00",
- *         }],
- *     }],
+ *     layers: [
+ *         {
+ *             name: "Primary On-Call Layer",
+ *             effectiveDate: "2025-01-01T00:00:00Z",
+ *             endDate: "2026-01-01T00:00:00Z",
+ *             rotationStart: "2025-01-01T00:00:00Z",
+ *             interval: [{
+ *                 days: 1,
+ *                 seconds: 300,
+ *             }],
+ *             users: ["00000000-aba1-0000-0000-000000000000"],
+ *             restrictions: [{
+ *                 endDay: "monday",
+ *                 endTime: "17:00:00",
+ *                 startDay: "monday",
+ *                 startTime: "09:00:00",
+ *             }],
+ *         },
+ *         {
+ *             name: "Asia-Pacific On-Call Layer",
+ *             effectiveDate: "2025-01-01T00:00:00Z",
+ *             rotationStart: "2025-01-01T00:00:00Z",
+ *             timeZone: "Asia/Tokyo",
+ *             interval: [{
+ *                 days: 7,
+ *             }],
+ *             users: ["00000000-aba1-0000-0000-000000000001"],
+ *         },
+ *     ],
  * });
  * ```
  *

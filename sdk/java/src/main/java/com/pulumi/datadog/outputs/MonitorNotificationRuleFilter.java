@@ -4,26 +4,39 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class MonitorNotificationRuleFilter {
     /**
+     * @return The scope to which the monitor applied.
+     * 
+     */
+    private @Nullable String scope;
+    /**
      * @return All tags that target monitors must match.
      * 
      */
-    private List<String> tags;
+    private @Nullable List<String> tags;
 
     private MonitorNotificationRuleFilter() {}
+    /**
+     * @return The scope to which the monitor applied.
+     * 
+     */
+    public Optional<String> scope() {
+        return Optional.ofNullable(this.scope);
+    }
     /**
      * @return All tags that target monitors must match.
      * 
      */
     public List<String> tags() {
-        return this.tags;
+        return this.tags == null ? List.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -35,18 +48,24 @@ public final class MonitorNotificationRuleFilter {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> tags;
+        private @Nullable String scope;
+        private @Nullable List<String> tags;
         public Builder() {}
         public Builder(MonitorNotificationRuleFilter defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.scope = defaults.scope;
     	      this.tags = defaults.tags;
         }
 
         @CustomType.Setter
-        public Builder tags(List<String> tags) {
-            if (tags == null) {
-              throw new MissingRequiredPropertyException("MonitorNotificationRuleFilter", "tags");
-            }
+        public Builder scope(@Nullable String scope) {
+
+            this.scope = scope;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tags(@Nullable List<String> tags) {
+
             this.tags = tags;
             return this;
         }
@@ -55,6 +74,7 @@ public final class MonitorNotificationRuleFilter {
         }
         public MonitorNotificationRuleFilter build() {
             final var _resultValue = new MonitorNotificationRuleFilter();
+            _resultValue.scope = scope;
             _resultValue.tags = tags;
             return _resultValue;
         }

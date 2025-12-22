@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.MonitorNotificationRuleArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.MonitorNotificationRuleState;
+import com.pulumi.datadog.outputs.MonitorNotificationRuleConditionalRecipients;
 import com.pulumi.datadog.outputs.MonitorNotificationRuleFilter;
 import java.lang.String;
 import java.util.List;
@@ -70,6 +71,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="datadog:index/monitorNotificationRule:MonitorNotificationRule")
 public class MonitorNotificationRule extends com.pulumi.resources.CustomResource {
+    /**
+     * Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
+     * 
+     */
+    @Export(name="conditionalRecipients", refs={MonitorNotificationRuleConditionalRecipients.class}, tree="[0]")
+    private Output</* @Nullable */ MonitorNotificationRuleConditionalRecipients> conditionalRecipients;
+
+    /**
+     * @return Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
+     * 
+     */
+    public Output<Optional<MonitorNotificationRuleConditionalRecipients>> conditionalRecipients() {
+        return Codegen.optional(this.conditionalRecipients);
+    }
     @Export(name="filter", refs={MonitorNotificationRuleFilter.class}, tree="[0]")
     private Output</* @Nullable */ MonitorNotificationRuleFilter> filter;
 
@@ -91,18 +106,18 @@ public class MonitorNotificationRule extends com.pulumi.resources.CustomResource
         return this.name;
     }
     /**
-     * List of recipients to notify.
+     * List of recipients to notify. Cannot be used with `conditionalRecipients`.
      * 
      */
     @Export(name="recipients", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> recipients;
+    private Output</* @Nullable */ List<String>> recipients;
 
     /**
-     * @return List of recipients to notify.
+     * @return List of recipients to notify. Cannot be used with `conditionalRecipients`.
      * 
      */
-    public Output<List<String>> recipients() {
-        return this.recipients;
+    public Output<Optional<List<String>>> recipients() {
+        return Codegen.optional(this.recipients);
     }
 
     /**

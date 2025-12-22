@@ -58,6 +58,20 @@ import (
 //							},
 //						},
 //					},
+//					&datadog.OnCallScheduleLayerArgs{
+//						Name:          pulumi.String("Asia-Pacific On-Call Layer"),
+//						EffectiveDate: pulumi.String("2025-01-01T00:00:00Z"),
+//						RotationStart: pulumi.String("2025-01-01T00:00:00Z"),
+//						TimeZone:      pulumi.String("Asia/Tokyo"),
+//						Interval: datadog.OnCallScheduleLayerIntervalArgs{
+//							map[string]interface{}{
+//								"days": 7,
+//							},
+//						},
+//						Users: pulumi.StringArray{
+//							pulumi.String("00000000-aba1-0000-0000-000000000001"),
+//						},
+//					},
 //				},
 //			})
 //			if err != nil {

@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class CostBudgetEntryTagFilterGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// **Note:** Must be one of the tags from the `MetricsQuery`.
+        /// </summary>
         [Input("tagKey", required: true)]
         public Input<string> TagKey { get; set; } = null!;
 

@@ -125,6 +125,21 @@ public final class OnCallScheduleLayerArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * The time zone for this layer. If not specified, the layer inherits the schedule&#39;s time zone.
+     * 
+     */
+    @Import(name="timeZone")
+    private @Nullable Output<String> timeZone;
+
+    /**
+     * @return The time zone for this layer. If not specified, the layer inherits the schedule&#39;s time zone.
+     * 
+     */
+    public Optional<Output<String>> timeZone() {
+        return Optional.ofNullable(this.timeZone);
+    }
+
+    /**
      * List of user IDs for the layer. Can either be a valid user id or null
      * 
      */
@@ -149,6 +164,7 @@ public final class OnCallScheduleLayerArgs extends com.pulumi.resources.Resource
         this.name = $.name;
         this.restrictions = $.restrictions;
         this.rotationStart = $.rotationStart;
+        this.timeZone = $.timeZone;
         this.users = $.users;
     }
 
@@ -325,6 +341,27 @@ public final class OnCallScheduleLayerArgs extends com.pulumi.resources.Resource
          */
         public Builder rotationStart(String rotationStart) {
             return rotationStart(Output.of(rotationStart));
+        }
+
+        /**
+         * @param timeZone The time zone for this layer. If not specified, the layer inherits the schedule&#39;s time zone.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timeZone(@Nullable Output<String> timeZone) {
+            $.timeZone = timeZone;
+            return this;
+        }
+
+        /**
+         * @param timeZone The time zone for this layer. If not specified, the layer inherits the schedule&#39;s time zone.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timeZone(String timeZone) {
+            return timeZone(Output.of(timeZone));
         }
 
         /**

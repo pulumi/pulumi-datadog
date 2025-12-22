@@ -57,6 +57,12 @@ namespace Pulumi.Datadog
     public partial class Monitor : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
+        /// </summary>
+        [Output("assets")]
+        public Output<ImmutableArray<Outputs.MonitorAsset>> Assets { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether the monitor is in a draft or published state. When set to `Draft`, the monitor appears as Draft and does not send notifications. When set to `Published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
         /// </summary>
         [Output("draftStatus")]
@@ -309,6 +315,18 @@ namespace Pulumi.Datadog
 
     public sealed class MonitorArgs : global::Pulumi.ResourceArgs
     {
+        [Input("assets")]
+        private InputList<Inputs.MonitorAssetArgs>? _assets;
+
+        /// <summary>
+        /// List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
+        /// </summary>
+        public InputList<Inputs.MonitorAssetArgs> Assets
+        {
+            get => _assets ?? (_assets = new InputList<Inputs.MonitorAssetArgs>());
+            set => _assets = value;
+        }
+
         /// <summary>
         /// Indicates whether the monitor is in a draft or published state. When set to `Draft`, the monitor appears as Draft and does not send notifications. When set to `Published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
         /// </summary>
@@ -553,6 +571,18 @@ namespace Pulumi.Datadog
 
     public sealed class MonitorState : global::Pulumi.ResourceArgs
     {
+        [Input("assets")]
+        private InputList<Inputs.MonitorAssetGetArgs>? _assets;
+
+        /// <summary>
+        /// List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
+        /// </summary>
+        public InputList<Inputs.MonitorAssetGetArgs> Assets
+        {
+            get => _assets ?? (_assets = new InputList<Inputs.MonitorAssetGetArgs>());
+            set => _assets = value;
+        }
+
         /// <summary>
         /// Indicates whether the monitor is in a draft or published state. When set to `Draft`, the monitor appears as Draft and does not send notifications. When set to `Published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
         /// </summary>

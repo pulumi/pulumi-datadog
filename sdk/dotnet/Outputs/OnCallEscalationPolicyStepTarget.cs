@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class OnCallEscalationPolicyStepTarget
     {
         /// <summary>
+        /// For schedule targets, specifies which on-call user to page. Valid values: `Current` (default), `Previous`, `Next`. Valid values are `Current`, `Previous`, `Next`.
+        /// </summary>
+        public readonly string? Position;
+        /// <summary>
         /// Targeted schedule ID.
         /// </summary>
         public readonly string? Schedule;
@@ -28,12 +32,15 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private OnCallEscalationPolicyStepTarget(
+            string? position,
+
             string? schedule,
 
             string? team,
 
             string? user)
         {
+            Position = position;
             Schedule = schedule;
             Team = team;
             User = user;

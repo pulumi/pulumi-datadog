@@ -111,6 +111,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LogsMetric{}
 	case "datadog:index/logsPipelineOrder:LogsPipelineOrder":
 		r = &LogsPipelineOrder{}
+	case "datadog:index/logsRestrictionQuery:LogsRestrictionQuery":
+		r = &LogsRestrictionQuery{}
 	case "datadog:index/metricMetadata:MetricMetadata":
 		r = &MetricMetadata{}
 	case "datadog:index/metricTagConfiguration:MetricTagConfiguration":
@@ -139,6 +141,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OrganizationSettings{}
 	case "datadog:index/powerpack:Powerpack":
 		r = &Powerpack{}
+	case "datadog:index/referenceTable:ReferenceTable":
+		r = &ReferenceTable{}
 	case "datadog:index/restrictionPolicy:RestrictionPolicy":
 		r = &RestrictionPolicy{}
 	case "datadog:index/role:Role":
@@ -197,6 +201,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TagPipelineRulesets{}
 	case "datadog:index/team:Team":
 		r = &Team{}
+	case "datadog:index/teamHierarchyLinks:TeamHierarchyLinks":
+		r = &TeamHierarchyLinks{}
 	case "datadog:index/teamLink:TeamLink":
 		r = &TeamLink{}
 	case "datadog:index/teamMembership:TeamMembership":
@@ -471,6 +477,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/logsRestrictionQuery",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/metricMetadata",
 		&module{version},
 	)
@@ -537,6 +548,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/powerpack",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/referenceTable",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -682,6 +698,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/team",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/teamHierarchyLinks",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -16,6 +16,21 @@ public final class OnCallEscalationPolicyStepTargetArgs extends com.pulumi.resou
     public static final OnCallEscalationPolicyStepTargetArgs Empty = new OnCallEscalationPolicyStepTargetArgs();
 
     /**
+     * For schedule targets, specifies which on-call user to page. Valid values: `current` (default), `previous`, `next`. Valid values are `current`, `previous`, `next`.
+     * 
+     */
+    @Import(name="position")
+    private @Nullable Output<String> position;
+
+    /**
+     * @return For schedule targets, specifies which on-call user to page. Valid values: `current` (default), `previous`, `next`. Valid values are `current`, `previous`, `next`.
+     * 
+     */
+    public Optional<Output<String>> position() {
+        return Optional.ofNullable(this.position);
+    }
+
+    /**
      * Targeted schedule ID.
      * 
      */
@@ -63,6 +78,7 @@ public final class OnCallEscalationPolicyStepTargetArgs extends com.pulumi.resou
     private OnCallEscalationPolicyStepTargetArgs() {}
 
     private OnCallEscalationPolicyStepTargetArgs(OnCallEscalationPolicyStepTargetArgs $) {
+        this.position = $.position;
         this.schedule = $.schedule;
         this.team = $.team;
         this.user = $.user;
@@ -84,6 +100,27 @@ public final class OnCallEscalationPolicyStepTargetArgs extends com.pulumi.resou
 
         public Builder(OnCallEscalationPolicyStepTargetArgs defaults) {
             $ = new OnCallEscalationPolicyStepTargetArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param position For schedule targets, specifies which on-call user to page. Valid values: `current` (default), `previous`, `next`. Valid values are `current`, `previous`, `next`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder position(@Nullable Output<String> position) {
+            $.position = position;
+            return this;
+        }
+
+        /**
+         * @param position For schedule targets, specifies which on-call user to page. Valid values: `current` (default), `previous`, `next`. Valid values are `current`, `previous`, `next`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder position(String position) {
+            return position(Output.of(position));
         }
 
         /**

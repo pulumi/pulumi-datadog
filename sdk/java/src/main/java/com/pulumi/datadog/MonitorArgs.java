@@ -5,6 +5,7 @@ package com.pulumi.datadog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.MonitorAssetArgs;
 import com.pulumi.datadog.inputs.MonitorMonitorThresholdWindowsArgs;
 import com.pulumi.datadog.inputs.MonitorMonitorThresholdsArgs;
 import com.pulumi.datadog.inputs.MonitorSchedulingOptionArgs;
@@ -22,6 +23,21 @@ import javax.annotation.Nullable;
 public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final MonitorArgs Empty = new MonitorArgs();
+
+    /**
+     * List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
+     * 
+     */
+    @Import(name="assets")
+    private @Nullable Output<List<MonitorAssetArgs>> assets;
+
+    /**
+     * @return List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
+     * 
+     */
+    public Optional<Output<List<MonitorAssetArgs>>> assets() {
+        return Optional.ofNullable(this.assets);
+    }
 
     /**
      * Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
@@ -555,6 +571,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     private MonitorArgs() {}
 
     private MonitorArgs(MonitorArgs $) {
+        this.assets = $.assets;
         this.draftStatus = $.draftStatus;
         this.enableLogsSample = $.enableLogsSample;
         this.enableSamples = $.enableSamples;
@@ -608,6 +625,37 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(MonitorArgs defaults) {
             $ = new MonitorArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param assets List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder assets(@Nullable Output<List<MonitorAssetArgs>> assets) {
+            $.assets = assets;
+            return this;
+        }
+
+        /**
+         * @param assets List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder assets(List<MonitorAssetArgs> assets) {
+            return assets(Output.of(assets));
+        }
+
+        /**
+         * @param assets List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder assets(MonitorAssetArgs... assets) {
+            return assets(List.of(assets));
         }
 
         /**

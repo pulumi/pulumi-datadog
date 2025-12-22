@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.MonitorArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.MonitorState;
+import com.pulumi.datadog.outputs.MonitorAsset;
 import com.pulumi.datadog.outputs.MonitorMonitorThresholdWindows;
 import com.pulumi.datadog.outputs.MonitorMonitorThresholds;
 import com.pulumi.datadog.outputs.MonitorSchedulingOption;
@@ -81,6 +82,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="datadog:index/monitor:Monitor")
 public class Monitor extends com.pulumi.resources.CustomResource {
+    /**
+     * List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
+     * 
+     */
+    @Export(name="assets", refs={List.class,MonitorAsset.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<MonitorAsset>> assets;
+
+    /**
+     * @return List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
+     * 
+     */
+    public Output<Optional<List<MonitorAsset>>> assets() {
+        return Codegen.optional(this.assets);
+    }
     /**
      * Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
      * 

@@ -70,12 +70,23 @@ import * as utilities from "./utilities";
  *         method: "even",
  *     }],
  * });
- * // Manage the order of custom allocation rules
- * const order = new datadog.CustomAllocationRules("order", {ruleIds: [
+ * // Example 1: Preserve mode (default) - allows unmanaged rules to exist at the end
+ * // This will preserve any existing rules created outside of Terraform as long as they are at the end
+ * const preserveOrder = new datadog.CustomAllocationRules("preserve_order", {ruleIds: [
  *     rule1.id,
  *     rule2.id,
  *     rule3.id,
  * ]});
+ * // Example 2: Override mode - deletes all unmanaged rules and maintains strict order
+ * // This will delete any rules not defined in Terraform and enforce the exact order specified
+ * const overrideOrder = new datadog.CustomAllocationRules("override_order", {
+ *     overrideUiDefinedResources: true,
+ *     ruleIds: [
+ *         rule1.id,
+ *         rule2.id,
+ *         rule3.id,
+ *     ],
+ * });
  * ```
  *
  * ## Import
@@ -114,6 +125,7 @@ export class CustomAllocationRules extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomAllocationRules.__pulumiType;
     }
 
+    declare public readonly overrideUiDefinedResources: pulumi.Output<boolean | undefined>;
     /**
      * The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `datadog.CustomAllocationRule` resource.
      */
@@ -132,12 +144,14 @@ export class CustomAllocationRules extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomAllocationRulesState | undefined;
+            resourceInputs["overrideUiDefinedResources"] = state?.overrideUiDefinedResources;
             resourceInputs["ruleIds"] = state?.ruleIds;
         } else {
             const args = argsOrState as CustomAllocationRulesArgs | undefined;
             if (args?.ruleIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleIds'");
             }
+            resourceInputs["overrideUiDefinedResources"] = args?.overrideUiDefinedResources;
             resourceInputs["ruleIds"] = args?.ruleIds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -149,6 +163,7 @@ export class CustomAllocationRules extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CustomAllocationRules resources.
  */
 export interface CustomAllocationRulesState {
+    overrideUiDefinedResources?: pulumi.Input<boolean>;
     /**
      * The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `datadog.CustomAllocationRule` resource.
      */
@@ -159,6 +174,7 @@ export interface CustomAllocationRulesState {
  * The set of arguments for constructing a CustomAllocationRules resource.
  */
 export interface CustomAllocationRulesArgs {
+    overrideUiDefinedResources?: pulumi.Input<boolean>;
     /**
      * The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `datadog.CustomAllocationRule` resource.
      */
