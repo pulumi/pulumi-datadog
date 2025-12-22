@@ -13384,6 +13384,15 @@
                     }
                 }
             },
+            "datadog_logs_restriction_query": {
+                "current": "datadog:index/logsRestrictionQuery:LogsRestrictionQuery",
+                "majorVersion": 4,
+                "fields": {
+                    "role_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_metric_metadata": {
                 "current": "datadog:index/metricMetadata:MetricMetadata",
                 "majorVersion": 4
@@ -13404,6 +13413,9 @@
                 "current": "datadog:index/monitor:Monitor",
                 "majorVersion": 4,
                 "fields": {
+                    "assets": {
+                        "maxItemsOne": false
+                    },
                     "monitor_threshold_windows": {
                         "maxItemsOne": true
                     },
@@ -13504,6 +13516,23 @@
                 "current": "datadog:index/monitorNotificationRule:MonitorNotificationRule",
                 "majorVersion": 4,
                 "fields": {
+                    "conditional_recipients": {
+                        "fields": {
+                            "conditions": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "recipients": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            },
+                            "fallback_recipients": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
                     "filter": {
                         "fields": {
                             "tags": {
@@ -17577,6 +17606,25 @@
                     }
                 }
             },
+            "datadog_reference_table": {
+                "current": "datadog:index/referenceTable:ReferenceTable",
+                "majorVersion": 4,
+                "fields": {
+                    "schema": {
+                        "fields": {
+                            "fields": {
+                                "maxItemsOne": false
+                            },
+                            "primary_keys": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_restriction_policy": {
                 "current": "datadog:index/restrictionPolicy:RestrictionPolicy",
                 "majorVersion": 4,
@@ -18379,6 +18427,10 @@
                 "current": "datadog:index/team:Team",
                 "majorVersion": 4
             },
+            "datadog_team_hierarchy_links": {
+                "current": "datadog:index/teamHierarchyLinks:TeamHierarchyLinks",
+                "majorVersion": 4
+            },
             "datadog_team_link": {
                 "current": "datadog:index/teamLink:TeamLink",
                 "majorVersion": 4
@@ -18741,6 +18793,15 @@
                     }
                 }
             },
+            "datadog_integration_aws_iam_permissions_resource_collection": {
+                "current": "datadog:aws/getIntegrationIamPermissionsResourceCollection:getIntegrationIamPermissionsResourceCollection",
+                "majorVersion": 4,
+                "fields": {
+                    "iam_permissions": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_integration_aws_iam_permissions_standard": {
                 "current": "datadog:aws/getIntegrationIamPermissionsStandard:getIntegrationIamPermissionsStandard",
                 "majorVersion": 4,
@@ -19032,6 +19093,37 @@
             "datadog_powerpack": {
                 "current": "datadog:index/getPowerpack:getPowerpack",
                 "majorVersion": 4
+            },
+            "datadog_reference_table": {
+                "current": "datadog:index/getReferenceTable:getReferenceTable",
+                "majorVersion": 4,
+                "fields": {
+                    "schema": {
+                        "fields": {
+                            "fields": {
+                                "maxItemsOne": false
+                            },
+                            "primary_keys": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "datadog_reference_table_rows": {
+                "current": "datadog:index/getReferenceTableRows:getReferenceTableRows",
+                "majorVersion": 4,
+                "fields": {
+                    "row_ids": {
+                        "maxItemsOne": false
+                    },
+                    "rows": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_role": {
                 "current": "datadog:index/getRole:getRole",
@@ -19374,6 +19466,10 @@
                 "current": "datadog:index/getTeam:getTeam",
                 "majorVersion": 4
             },
+            "datadog_team_hierarchy_links": {
+                "current": "datadog:index/getTeamHierarchyLinks:getTeamHierarchyLinks",
+                "majorVersion": 4
+            },
             "datadog_team_memberships": {
                 "current": "datadog:index/getTeamMemberships:getTeamMemberships",
                 "majorVersion": 4,
@@ -19489,6 +19585,7 @@
             "datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline": 0,
             "datadog:index/logsMetric:LogsMetric": 0,
             "datadog:index/logsPipelineOrder:LogsPipelineOrder": 0,
+            "datadog:index/logsRestrictionQuery:LogsRestrictionQuery": 1,
             "datadog:index/metricMetadata:MetricMetadata": 0,
             "datadog:index/metricTagConfiguration:MetricTagConfiguration": 0,
             "datadog:index/monitor:Monitor": 0,
@@ -19503,6 +19600,7 @@
             "datadog:index/orgConnection:OrgConnection": 1,
             "datadog:index/organizationSettings:OrganizationSettings": 0,
             "datadog:index/powerpack:Powerpack": 0,
+            "datadog:index/referenceTable:ReferenceTable": 1,
             "datadog:index/restrictionPolicy:RestrictionPolicy": 1,
             "datadog:index/role:Role": 0,
             "datadog:index/rumApplication:RumApplication": 1,
@@ -19532,6 +19630,7 @@
             "datadog:index/tagPipelineRuleset:TagPipelineRuleset": 1,
             "datadog:index/tagPipelineRulesets:TagPipelineRulesets": 1,
             "datadog:index/team:Team": 1,
+            "datadog:index/teamHierarchyLinks:TeamHierarchyLinks": 1,
             "datadog:index/teamLink:TeamLink": 1,
             "datadog:index/teamMembership:TeamMembership": 1,
             "datadog:index/teamPermissionSetting:TeamPermissionSetting": 1,
@@ -19552,6 +19651,7 @@
             "datadog:aws/getIntegrationAvailableNamespaces:getIntegrationAvailableNamespaces": 1,
             "datadog:aws/getIntegrationExternalId:getIntegrationExternalId": 1,
             "datadog:aws/getIntegrationIamPermissions:getIntegrationIamPermissions": 1,
+            "datadog:aws/getIntegrationIamPermissionsResourceCollection:getIntegrationIamPermissionsResourceCollection": 1,
             "datadog:aws/getIntegrationIamPermissionsStandard:getIntegrationIamPermissionsStandard": 1,
             "datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices": 0,
             "datadog:aws/getIntegrationNamespaceRules:getIntegrationNamespaceRules": 1,
@@ -19589,6 +19689,8 @@
             "datadog:index/getMonitors:getMonitors": 0,
             "datadog:index/getPermissions:getPermissions": 0,
             "datadog:index/getPowerpack:getPowerpack": 1,
+            "datadog:index/getReferenceTable:getReferenceTable": 1,
+            "datadog:index/getReferenceTableRows:getReferenceTableRows": 1,
             "datadog:index/getRole:getRole": 0,
             "datadog:index/getRoleUsers:getRoleUsers": 1,
             "datadog:index/getRoles:getRoles": 0,
@@ -19608,6 +19710,7 @@
             "datadog:index/getSyntheticsTest:getSyntheticsTest": 0,
             "datadog:index/getTagPipelineRuleset:getTagPipelineRuleset": 1,
             "datadog:index/getTeam:getTeam": 1,
+            "datadog:index/getTeamHierarchyLinks:getTeamHierarchyLinks": 1,
             "datadog:index/getTeamMemberships:getTeamMemberships": 1,
             "datadog:index/getTeams:getTeams": 1,
             "datadog:index/getUser:getUser": 0,
