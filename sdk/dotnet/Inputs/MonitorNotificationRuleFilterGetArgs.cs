@@ -12,7 +12,13 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class MonitorNotificationRuleFilterGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("tags", required: true)]
+        /// <summary>
+        /// The scope to which the monitor applied.
+        /// </summary>
+        [Input("scope")]
+        public Input<string>? Scope { get; set; }
+
+        [Input("tags")]
         private InputList<string>? _tags;
 
         /// <summary>

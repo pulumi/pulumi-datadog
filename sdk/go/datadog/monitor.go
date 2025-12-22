@@ -63,6 +63,8 @@ import (
 type Monitor struct {
 	pulumi.CustomResourceState
 
+	// List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
+	Assets MonitorAssetArrayOutput `pulumi:"assets"`
 	// Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
 	DraftStatus pulumi.StringPtrOutput `pulumi:"draftStatus"`
 	// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
@@ -184,6 +186,8 @@ func GetMonitor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Monitor resources.
 type monitorState struct {
+	// List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
+	Assets []MonitorAsset `pulumi:"assets"`
 	// Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
 	DraftStatus *string `pulumi:"draftStatus"`
 	// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
@@ -264,6 +268,8 @@ type monitorState struct {
 }
 
 type MonitorState struct {
+	// List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
+	Assets MonitorAssetArrayInput
 	// Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
 	DraftStatus pulumi.StringPtrInput
 	// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
@@ -348,6 +354,8 @@ func (MonitorState) ElementType() reflect.Type {
 }
 
 type monitorArgs struct {
+	// List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
+	Assets []MonitorAsset `pulumi:"assets"`
 	// Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
 	DraftStatus *string `pulumi:"draftStatus"`
 	// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
@@ -429,6 +437,8 @@ type monitorArgs struct {
 
 // The set of arguments for constructing a Monitor resource.
 type MonitorArgs struct {
+	// List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
+	Assets MonitorAssetArrayInput
 	// Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
 	DraftStatus pulumi.StringPtrInput
 	// A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
@@ -593,6 +603,11 @@ func (o MonitorOutput) ToMonitorOutput() MonitorOutput {
 
 func (o MonitorOutput) ToMonitorOutputWithContext(ctx context.Context) MonitorOutput {
 	return o
+}
+
+// List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
+func (o MonitorOutput) Assets() MonitorAssetArrayOutput {
+	return o.ApplyT(func(v *Monitor) MonitorAssetArrayOutput { return v.Assets }).(MonitorAssetArrayOutput)
 }
 
 // Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.

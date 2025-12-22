@@ -5,6 +5,7 @@ package com.pulumi.datadog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.MonitorNotificationRuleConditionalRecipientsArgs;
 import com.pulumi.datadog.inputs.MonitorNotificationRuleFilterArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -17,6 +18,21 @@ import javax.annotation.Nullable;
 public final class MonitorNotificationRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final MonitorNotificationRuleArgs Empty = new MonitorNotificationRuleArgs();
+
+    /**
+     * Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
+     * 
+     */
+    @Import(name="conditionalRecipients")
+    private @Nullable Output<MonitorNotificationRuleConditionalRecipientsArgs> conditionalRecipients;
+
+    /**
+     * @return Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
+     * 
+     */
+    public Optional<Output<MonitorNotificationRuleConditionalRecipientsArgs>> conditionalRecipients() {
+        return Optional.ofNullable(this.conditionalRecipients);
+    }
 
     @Import(name="filter")
     private @Nullable Output<MonitorNotificationRuleFilterArgs> filter;
@@ -41,23 +57,24 @@ public final class MonitorNotificationRuleArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * List of recipients to notify.
+     * List of recipients to notify. Cannot be used with `conditionalRecipients`.
      * 
      */
-    @Import(name="recipients", required=true)
-    private Output<List<String>> recipients;
+    @Import(name="recipients")
+    private @Nullable Output<List<String>> recipients;
 
     /**
-     * @return List of recipients to notify.
+     * @return List of recipients to notify. Cannot be used with `conditionalRecipients`.
      * 
      */
-    public Output<List<String>> recipients() {
-        return this.recipients;
+    public Optional<Output<List<String>>> recipients() {
+        return Optional.ofNullable(this.recipients);
     }
 
     private MonitorNotificationRuleArgs() {}
 
     private MonitorNotificationRuleArgs(MonitorNotificationRuleArgs $) {
+        this.conditionalRecipients = $.conditionalRecipients;
         this.filter = $.filter;
         this.name = $.name;
         this.recipients = $.recipients;
@@ -79,6 +96,27 @@ public final class MonitorNotificationRuleArgs extends com.pulumi.resources.Reso
 
         public Builder(MonitorNotificationRuleArgs defaults) {
             $ = new MonitorNotificationRuleArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param conditionalRecipients Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder conditionalRecipients(@Nullable Output<MonitorNotificationRuleConditionalRecipientsArgs> conditionalRecipients) {
+            $.conditionalRecipients = conditionalRecipients;
+            return this;
+        }
+
+        /**
+         * @param conditionalRecipients Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder conditionalRecipients(MonitorNotificationRuleConditionalRecipientsArgs conditionalRecipients) {
+            return conditionalRecipients(Output.of(conditionalRecipients));
         }
 
         public Builder filter(@Nullable Output<MonitorNotificationRuleFilterArgs> filter) {
@@ -112,18 +150,18 @@ public final class MonitorNotificationRuleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param recipients List of recipients to notify.
+         * @param recipients List of recipients to notify. Cannot be used with `conditionalRecipients`.
          * 
          * @return builder
          * 
          */
-        public Builder recipients(Output<List<String>> recipients) {
+        public Builder recipients(@Nullable Output<List<String>> recipients) {
             $.recipients = recipients;
             return this;
         }
 
         /**
-         * @param recipients List of recipients to notify.
+         * @param recipients List of recipients to notify. Cannot be used with `conditionalRecipients`.
          * 
          * @return builder
          * 
@@ -133,7 +171,7 @@ public final class MonitorNotificationRuleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param recipients List of recipients to notify.
+         * @param recipients List of recipients to notify. Cannot be used with `conditionalRecipients`.
          * 
          * @return builder
          * 
@@ -145,9 +183,6 @@ public final class MonitorNotificationRuleArgs extends com.pulumi.resources.Reso
         public MonitorNotificationRuleArgs build() {
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("MonitorNotificationRuleArgs", "name");
-            }
-            if ($.recipients == null) {
-                throw new MissingRequiredPropertyException("MonitorNotificationRuleArgs", "recipients");
             }
             return $;
         }

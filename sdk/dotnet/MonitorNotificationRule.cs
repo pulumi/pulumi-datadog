@@ -57,6 +57,12 @@ namespace Pulumi.Datadog
     [DatadogResourceType("datadog:index/monitorNotificationRule:MonitorNotificationRule")]
     public partial class MonitorNotificationRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Use conditional recipients to define different recipients for different situations. Cannot be used with `Recipients`.
+        /// </summary>
+        [Output("conditionalRecipients")]
+        public Output<Outputs.MonitorNotificationRuleConditionalRecipients?> ConditionalRecipients { get; private set; } = null!;
+
         [Output("filter")]
         public Output<Outputs.MonitorNotificationRuleFilter?> Filter { get; private set; } = null!;
 
@@ -67,7 +73,7 @@ namespace Pulumi.Datadog
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of recipients to notify.
+        /// List of recipients to notify. Cannot be used with `ConditionalRecipients`.
         /// </summary>
         [Output("recipients")]
         public Output<ImmutableArray<string>> Recipients { get; private set; } = null!;
@@ -118,6 +124,12 @@ namespace Pulumi.Datadog
 
     public sealed class MonitorNotificationRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Use conditional recipients to define different recipients for different situations. Cannot be used with `Recipients`.
+        /// </summary>
+        [Input("conditionalRecipients")]
+        public Input<Inputs.MonitorNotificationRuleConditionalRecipientsArgs>? ConditionalRecipients { get; set; }
+
         [Input("filter")]
         public Input<Inputs.MonitorNotificationRuleFilterArgs>? Filter { get; set; }
 
@@ -127,11 +139,11 @@ namespace Pulumi.Datadog
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("recipients", required: true)]
+        [Input("recipients")]
         private InputList<string>? _recipients;
 
         /// <summary>
-        /// List of recipients to notify.
+        /// List of recipients to notify. Cannot be used with `ConditionalRecipients`.
         /// </summary>
         public InputList<string> Recipients
         {
@@ -147,6 +159,12 @@ namespace Pulumi.Datadog
 
     public sealed class MonitorNotificationRuleState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Use conditional recipients to define different recipients for different situations. Cannot be used with `Recipients`.
+        /// </summary>
+        [Input("conditionalRecipients")]
+        public Input<Inputs.MonitorNotificationRuleConditionalRecipientsGetArgs>? ConditionalRecipients { get; set; }
+
         [Input("filter")]
         public Input<Inputs.MonitorNotificationRuleFilterGetArgs>? Filter { get; set; }
 
@@ -160,7 +178,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _recipients;
 
         /// <summary>
-        /// List of recipients to notify.
+        /// List of recipients to notify. Cannot be used with `ConditionalRecipients`.
         /// </summary>
         public InputList<string> Recipients
         {

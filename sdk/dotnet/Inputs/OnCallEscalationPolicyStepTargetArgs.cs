@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class OnCallEscalationPolicyStepTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// For schedule targets, specifies which on-call user to page. Valid values: `Current` (default), `Previous`, `Next`. Valid values are `Current`, `Previous`, `Next`.
+        /// </summary>
+        [Input("position")]
+        public Input<string>? Position { get; set; }
+
+        /// <summary>
         /// Targeted schedule ID.
         /// </summary>
         [Input("schedule")]

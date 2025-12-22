@@ -51,6 +51,11 @@ public final class OnCallScheduleLayer {
      */
     private String rotationStart;
     /**
+     * @return The time zone for this layer. If not specified, the layer inherits the schedule&#39;s time zone.
+     * 
+     */
+    private @Nullable String timeZone;
+    /**
      * @return List of user IDs for the layer. Can either be a valid user id or null
      * 
      */
@@ -107,6 +112,13 @@ public final class OnCallScheduleLayer {
         return this.rotationStart;
     }
     /**
+     * @return The time zone for this layer. If not specified, the layer inherits the schedule&#39;s time zone.
+     * 
+     */
+    public Optional<String> timeZone() {
+        return Optional.ofNullable(this.timeZone);
+    }
+    /**
      * @return List of user IDs for the layer. Can either be a valid user id or null
      * 
      */
@@ -130,6 +142,7 @@ public final class OnCallScheduleLayer {
         private String name;
         private @Nullable List<OnCallScheduleLayerRestriction> restrictions;
         private String rotationStart;
+        private @Nullable String timeZone;
         private List<String> users;
         public Builder() {}
         public Builder(OnCallScheduleLayer defaults) {
@@ -141,6 +154,7 @@ public final class OnCallScheduleLayer {
     	      this.name = defaults.name;
     	      this.restrictions = defaults.restrictions;
     	      this.rotationStart = defaults.rotationStart;
+    	      this.timeZone = defaults.timeZone;
     	      this.users = defaults.users;
         }
 
@@ -196,6 +210,12 @@ public final class OnCallScheduleLayer {
             return this;
         }
         @CustomType.Setter
+        public Builder timeZone(@Nullable String timeZone) {
+
+            this.timeZone = timeZone;
+            return this;
+        }
+        @CustomType.Setter
         public Builder users(List<String> users) {
             if (users == null) {
               throw new MissingRequiredPropertyException("OnCallScheduleLayer", "users");
@@ -215,6 +235,7 @@ public final class OnCallScheduleLayer {
             _resultValue.name = name;
             _resultValue.restrictions = restrictions;
             _resultValue.rotationStart = rotationStart;
+            _resultValue.timeZone = timeZone;
             _resultValue.users = users;
             return _resultValue;
         }

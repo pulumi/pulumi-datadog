@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class CostBudgetEntryTagFilter
     {
+        /// <summary>
+        /// **Note:** Must be one of the tags from the `MetricsQuery`.
+        /// </summary>
         public readonly string TagKey;
         public readonly string TagValue;
 

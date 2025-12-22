@@ -5,10 +5,11 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class MonitorNotificationRuleFilterArgs extends com.pulumi.resources.ResourceArgs {
@@ -16,23 +17,39 @@ public final class MonitorNotificationRuleFilterArgs extends com.pulumi.resource
     public static final MonitorNotificationRuleFilterArgs Empty = new MonitorNotificationRuleFilterArgs();
 
     /**
+     * The scope to which the monitor applied.
+     * 
+     */
+    @Import(name="scope")
+    private @Nullable Output<String> scope;
+
+    /**
+     * @return The scope to which the monitor applied.
+     * 
+     */
+    public Optional<Output<String>> scope() {
+        return Optional.ofNullable(this.scope);
+    }
+
+    /**
      * All tags that target monitors must match.
      * 
      */
-    @Import(name="tags", required=true)
-    private Output<List<String>> tags;
+    @Import(name="tags")
+    private @Nullable Output<List<String>> tags;
 
     /**
      * @return All tags that target monitors must match.
      * 
      */
-    public Output<List<String>> tags() {
-        return this.tags;
+    public Optional<Output<List<String>>> tags() {
+        return Optional.ofNullable(this.tags);
     }
 
     private MonitorNotificationRuleFilterArgs() {}
 
     private MonitorNotificationRuleFilterArgs(MonitorNotificationRuleFilterArgs $) {
+        this.scope = $.scope;
         this.tags = $.tags;
     }
 
@@ -55,12 +72,33 @@ public final class MonitorNotificationRuleFilterArgs extends com.pulumi.resource
         }
 
         /**
+         * @param scope The scope to which the monitor applied.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scope(@Nullable Output<String> scope) {
+            $.scope = scope;
+            return this;
+        }
+
+        /**
+         * @param scope The scope to which the monitor applied.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scope(String scope) {
+            return scope(Output.of(scope));
+        }
+
+        /**
          * @param tags All tags that target monitors must match.
          * 
          * @return builder
          * 
          */
-        public Builder tags(Output<List<String>> tags) {
+        public Builder tags(@Nullable Output<List<String>> tags) {
             $.tags = tags;
             return this;
         }
@@ -86,9 +124,6 @@ public final class MonitorNotificationRuleFilterArgs extends com.pulumi.resource
         }
 
         public MonitorNotificationRuleFilterArgs build() {
-            if ($.tags == null) {
-                throw new MissingRequiredPropertyException("MonitorNotificationRuleFilterArgs", "tags");
-            }
             return $;
         }
     }

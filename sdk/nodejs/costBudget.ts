@@ -8,6 +8,147 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a Datadog Cost Budget resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Simple budget without tag filters
+ * // Note: Must provide entries for all months in the budget period
+ * const simple = new datadog.CostBudget("simple", {
+ *     name: "My AWS Cost Budget",
+ *     metricsQuery: "sum:aws.cost.amortized{*}",
+ *     startMonth: 202501,
+ *     endMonth: 202503,
+ *     entries: [
+ *         {
+ *             month: 202501,
+ *             amount: 1000,
+ *         },
+ *         {
+ *             month: 202502,
+ *             amount: 1200,
+ *         },
+ *         {
+ *             month: 202503,
+ *             amount: 1000,
+ *         },
+ *     ],
+ * });
+ * // Budget with tag filters
+ * // Note: Must provide entries for all months in the budget period
+ * const withTagFilters = new datadog.CostBudget("with_tag_filters", {
+ *     name: "Production AWS Budget",
+ *     metricsQuery: "sum:aws.cost.amortized{*} by {environment}",
+ *     startMonth: 202501,
+ *     endMonth: 202503,
+ *     entries: [
+ *         {
+ *             month: 202501,
+ *             amount: 2000,
+ *             tagFilters: [{
+ *                 tagKey: "environment",
+ *                 tagValue: "production",
+ *             }],
+ *         },
+ *         {
+ *             month: 202502,
+ *             amount: 2200,
+ *             tagFilters: [{
+ *                 tagKey: "environment",
+ *                 tagValue: "production",
+ *             }],
+ *         },
+ *         {
+ *             month: 202503,
+ *             amount: 2000,
+ *             tagFilters: [{
+ *                 tagKey: "environment",
+ *                 tagValue: "production",
+ *             }],
+ *         },
+ *     ],
+ * });
+ * // Hierarchical budget with multiple tag combinations
+ * // Note: Order of tags in "by {tag1,tag2}" determines UI hierarchy (parent,child)
+ * // Each unique tag combination must have entries for all months in the budget period
+ * const hierarchical = new datadog.CostBudget("hierarchical", {
+ *     name: "Team-Based AWS Budget",
+ *     metricsQuery: "sum:aws.cost.amortized{*} by {team,account}",
+ *     startMonth: 202501,
+ *     endMonth: 202503,
+ *     entries: [
+ *         {
+ *             month: 202501,
+ *             amount: 500,
+ *             tagFilters: [
+ *                 {
+ *                     tagKey: "team",
+ *                     tagValue: "backend",
+ *                 },
+ *                 {
+ *                     tagKey: "account",
+ *                     tagValue: "staging",
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             month: 202502,
+ *             amount: 500,
+ *             tagFilters: [
+ *                 {
+ *                     tagKey: "team",
+ *                     tagValue: "backend",
+ *                 },
+ *                 {
+ *                     tagKey: "account",
+ *                     tagValue: "staging",
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             month: 202503,
+ *             amount: 500,
+ *             tagFilters: [
+ *                 {
+ *                     tagKey: "team",
+ *                     tagValue: "backend",
+ *                 },
+ *                 {
+ *                     tagKey: "account",
+ *                     tagValue: "staging",
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             month: 202501,
+ *             amount: 1500,
+ *             tagFilters: [
+ *                 {
+ *                     tagKey: "team",
+ *                     tagValue: "backend",
+ *                 },
+ *                 {
+ *                     tagKey: "account",
+ *                     tagValue: "production",
+ *                 },
+ *             ],
+ *         },
+ *     ],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * The `pulumi import` command can be used, for example:
+ *
+ * Cost budgets can be imported using their ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import datadog:index/costBudget:CostBudget example a1b2c3d4-e5f6-7890-abcd-ef1234567890
+ * ```
  */
 export class CostBudget extends pulumi.CustomResource {
     /**
@@ -46,11 +187,11 @@ export class CostBudget extends pulumi.CustomResource {
      */
     declare public readonly endMonth: pulumi.Output<number>;
     /**
-     * The entries of the budget.
+     * The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
      */
     declare public readonly entries: pulumi.Output<outputs.CostBudgetEntry[] | undefined>;
     /**
-     * The cost query used to track against the budget.
+     * The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
      */
     declare public readonly metricsQuery: pulumi.Output<string>;
     /**
@@ -126,11 +267,11 @@ export interface CostBudgetState {
      */
     endMonth?: pulumi.Input<number>;
     /**
-     * The entries of the budget.
+     * The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
      */
     entries?: pulumi.Input<pulumi.Input<inputs.CostBudgetEntry>[]>;
     /**
-     * The cost query used to track against the budget.
+     * The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
      */
     metricsQuery?: pulumi.Input<string>;
     /**
@@ -160,11 +301,11 @@ export interface CostBudgetArgs {
      */
     endMonth: pulumi.Input<number>;
     /**
-     * The entries of the budget.
+     * The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
      */
     entries?: pulumi.Input<pulumi.Input<inputs.CostBudgetEntry>[]>;
     /**
-     * The cost query used to track against the budget.
+     * The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
      */
     metricsQuery: pulumi.Input<string>;
     /**

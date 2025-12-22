@@ -30,11 +30,11 @@ class CostBudgetArgs:
         """
         The set of arguments for constructing a CostBudget resource.
         :param pulumi.Input[_builtins.int] end_month: The month when the budget ends (YYYYMM).
-        :param pulumi.Input[_builtins.str] metrics_query: The cost query used to track against the budget.
+        :param pulumi.Input[_builtins.str] metrics_query: The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
         :param pulumi.Input[_builtins.str] name: The name of the budget.
         :param pulumi.Input[_builtins.int] start_month: The month when the budget starts (YYYYMM).
         :param pulumi.Input[_builtins.str] budget_id: The ID of the budget.
-        :param pulumi.Input[Sequence[pulumi.Input['CostBudgetEntryArgs']]] entries: The entries of the budget.
+        :param pulumi.Input[Sequence[pulumi.Input['CostBudgetEntryArgs']]] entries: The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
         """
         pulumi.set(__self__, "end_month", end_month)
         pulumi.set(__self__, "metrics_query", metrics_query)
@@ -61,7 +61,7 @@ class CostBudgetArgs:
     @pulumi.getter(name="metricsQuery")
     def metrics_query(self) -> pulumi.Input[_builtins.str]:
         """
-        The cost query used to track against the budget.
+        The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
         """
         return pulumi.get(self, "metrics_query")
 
@@ -109,7 +109,7 @@ class CostBudgetArgs:
     @pulumi.getter
     def entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetEntryArgs']]]]:
         """
-        The entries of the budget.
+        The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
         """
         return pulumi.get(self, "entries")
 
@@ -132,8 +132,8 @@ class _CostBudgetState:
         Input properties used for looking up and filtering CostBudget resources.
         :param pulumi.Input[_builtins.str] budget_id: The ID of the budget.
         :param pulumi.Input[_builtins.int] end_month: The month when the budget ends (YYYYMM).
-        :param pulumi.Input[Sequence[pulumi.Input['CostBudgetEntryArgs']]] entries: The entries of the budget.
-        :param pulumi.Input[_builtins.str] metrics_query: The cost query used to track against the budget.
+        :param pulumi.Input[Sequence[pulumi.Input['CostBudgetEntryArgs']]] entries: The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
+        :param pulumi.Input[_builtins.str] metrics_query: The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
         :param pulumi.Input[_builtins.str] name: The name of the budget.
         :param pulumi.Input[_builtins.int] start_month: The month when the budget starts (YYYYMM).
         :param pulumi.Input[_builtins.float] total_amount: The sum of all budget entries' amounts.
@@ -181,7 +181,7 @@ class _CostBudgetState:
     @pulumi.getter
     def entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetEntryArgs']]]]:
         """
-        The entries of the budget.
+        The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
         """
         return pulumi.get(self, "entries")
 
@@ -193,7 +193,7 @@ class _CostBudgetState:
     @pulumi.getter(name="metricsQuery")
     def metrics_query(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The cost query used to track against the budget.
+        The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
         """
         return pulumi.get(self, "metrics_query")
 
@@ -254,12 +254,150 @@ class CostBudget(pulumi.CustomResource):
         """
         Provides a Datadog Cost Budget resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Simple budget without tag filters
+        # Note: Must provide entries for all months in the budget period
+        simple = datadog.CostBudget("simple",
+            name="My AWS Cost Budget",
+            metrics_query="sum:aws.cost.amortized{*}",
+            start_month=202501,
+            end_month=202503,
+            entries=[
+                {
+                    "month": 202501,
+                    "amount": 1000,
+                },
+                {
+                    "month": 202502,
+                    "amount": 1200,
+                },
+                {
+                    "month": 202503,
+                    "amount": 1000,
+                },
+            ])
+        # Budget with tag filters
+        # Note: Must provide entries for all months in the budget period
+        with_tag_filters = datadog.CostBudget("with_tag_filters",
+            name="Production AWS Budget",
+            metrics_query="sum:aws.cost.amortized{*} by {environment}",
+            start_month=202501,
+            end_month=202503,
+            entries=[
+                {
+                    "month": 202501,
+                    "amount": 2000,
+                    "tag_filters": [{
+                        "tag_key": "environment",
+                        "tag_value": "production",
+                    }],
+                },
+                {
+                    "month": 202502,
+                    "amount": 2200,
+                    "tag_filters": [{
+                        "tag_key": "environment",
+                        "tag_value": "production",
+                    }],
+                },
+                {
+                    "month": 202503,
+                    "amount": 2000,
+                    "tag_filters": [{
+                        "tag_key": "environment",
+                        "tag_value": "production",
+                    }],
+                },
+            ])
+        # Hierarchical budget with multiple tag combinations
+        # Note: Order of tags in "by {tag1,tag2}" determines UI hierarchy (parent,child)
+        # Each unique tag combination must have entries for all months in the budget period
+        hierarchical = datadog.CostBudget("hierarchical",
+            name="Team-Based AWS Budget",
+            metrics_query="sum:aws.cost.amortized{*} by {team,account}",
+            start_month=202501,
+            end_month=202503,
+            entries=[
+                {
+                    "month": 202501,
+                    "amount": 500,
+                    "tag_filters": [
+                        {
+                            "tag_key": "team",
+                            "tag_value": "backend",
+                        },
+                        {
+                            "tag_key": "account",
+                            "tag_value": "staging",
+                        },
+                    ],
+                },
+                {
+                    "month": 202502,
+                    "amount": 500,
+                    "tag_filters": [
+                        {
+                            "tag_key": "team",
+                            "tag_value": "backend",
+                        },
+                        {
+                            "tag_key": "account",
+                            "tag_value": "staging",
+                        },
+                    ],
+                },
+                {
+                    "month": 202503,
+                    "amount": 500,
+                    "tag_filters": [
+                        {
+                            "tag_key": "team",
+                            "tag_value": "backend",
+                        },
+                        {
+                            "tag_key": "account",
+                            "tag_value": "staging",
+                        },
+                    ],
+                },
+                {
+                    "month": 202501,
+                    "amount": 1500,
+                    "tag_filters": [
+                        {
+                            "tag_key": "team",
+                            "tag_value": "backend",
+                        },
+                        {
+                            "tag_key": "account",
+                            "tag_value": "production",
+                        },
+                    ],
+                },
+            ])
+        ```
+
+        ## Import
+
+        The `pulumi import` command can be used, for example:
+
+        Cost budgets can be imported using their ID, e.g.
+
+        ```sh
+        $ pulumi import datadog:index/costBudget:CostBudget example a1b2c3d4-e5f6-7890-abcd-ef1234567890
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] budget_id: The ID of the budget.
         :param pulumi.Input[_builtins.int] end_month: The month when the budget ends (YYYYMM).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict']]]] entries: The entries of the budget.
-        :param pulumi.Input[_builtins.str] metrics_query: The cost query used to track against the budget.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict']]]] entries: The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
+        :param pulumi.Input[_builtins.str] metrics_query: The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
         :param pulumi.Input[_builtins.str] name: The name of the budget.
         :param pulumi.Input[_builtins.int] start_month: The month when the budget starts (YYYYMM).
         """
@@ -271,6 +409,144 @@ class CostBudget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Cost Budget resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Simple budget without tag filters
+        # Note: Must provide entries for all months in the budget period
+        simple = datadog.CostBudget("simple",
+            name="My AWS Cost Budget",
+            metrics_query="sum:aws.cost.amortized{*}",
+            start_month=202501,
+            end_month=202503,
+            entries=[
+                {
+                    "month": 202501,
+                    "amount": 1000,
+                },
+                {
+                    "month": 202502,
+                    "amount": 1200,
+                },
+                {
+                    "month": 202503,
+                    "amount": 1000,
+                },
+            ])
+        # Budget with tag filters
+        # Note: Must provide entries for all months in the budget period
+        with_tag_filters = datadog.CostBudget("with_tag_filters",
+            name="Production AWS Budget",
+            metrics_query="sum:aws.cost.amortized{*} by {environment}",
+            start_month=202501,
+            end_month=202503,
+            entries=[
+                {
+                    "month": 202501,
+                    "amount": 2000,
+                    "tag_filters": [{
+                        "tag_key": "environment",
+                        "tag_value": "production",
+                    }],
+                },
+                {
+                    "month": 202502,
+                    "amount": 2200,
+                    "tag_filters": [{
+                        "tag_key": "environment",
+                        "tag_value": "production",
+                    }],
+                },
+                {
+                    "month": 202503,
+                    "amount": 2000,
+                    "tag_filters": [{
+                        "tag_key": "environment",
+                        "tag_value": "production",
+                    }],
+                },
+            ])
+        # Hierarchical budget with multiple tag combinations
+        # Note: Order of tags in "by {tag1,tag2}" determines UI hierarchy (parent,child)
+        # Each unique tag combination must have entries for all months in the budget period
+        hierarchical = datadog.CostBudget("hierarchical",
+            name="Team-Based AWS Budget",
+            metrics_query="sum:aws.cost.amortized{*} by {team,account}",
+            start_month=202501,
+            end_month=202503,
+            entries=[
+                {
+                    "month": 202501,
+                    "amount": 500,
+                    "tag_filters": [
+                        {
+                            "tag_key": "team",
+                            "tag_value": "backend",
+                        },
+                        {
+                            "tag_key": "account",
+                            "tag_value": "staging",
+                        },
+                    ],
+                },
+                {
+                    "month": 202502,
+                    "amount": 500,
+                    "tag_filters": [
+                        {
+                            "tag_key": "team",
+                            "tag_value": "backend",
+                        },
+                        {
+                            "tag_key": "account",
+                            "tag_value": "staging",
+                        },
+                    ],
+                },
+                {
+                    "month": 202503,
+                    "amount": 500,
+                    "tag_filters": [
+                        {
+                            "tag_key": "team",
+                            "tag_value": "backend",
+                        },
+                        {
+                            "tag_key": "account",
+                            "tag_value": "staging",
+                        },
+                    ],
+                },
+                {
+                    "month": 202501,
+                    "amount": 1500,
+                    "tag_filters": [
+                        {
+                            "tag_key": "team",
+                            "tag_value": "backend",
+                        },
+                        {
+                            "tag_key": "account",
+                            "tag_value": "production",
+                        },
+                    ],
+                },
+            ])
+        ```
+
+        ## Import
+
+        The `pulumi import` command can be used, for example:
+
+        Cost budgets can be imported using their ID, e.g.
+
+        ```sh
+        $ pulumi import datadog:index/costBudget:CostBudget example a1b2c3d4-e5f6-7890-abcd-ef1234567890
+        ```
 
         :param str resource_name: The name of the resource.
         :param CostBudgetArgs args: The arguments to use to populate this resource's properties.
@@ -343,8 +619,8 @@ class CostBudget(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] budget_id: The ID of the budget.
         :param pulumi.Input[_builtins.int] end_month: The month when the budget ends (YYYYMM).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict']]]] entries: The entries of the budget.
-        :param pulumi.Input[_builtins.str] metrics_query: The cost query used to track against the budget.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict']]]] entries: The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
+        :param pulumi.Input[_builtins.str] metrics_query: The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
         :param pulumi.Input[_builtins.str] name: The name of the budget.
         :param pulumi.Input[_builtins.int] start_month: The month when the budget starts (YYYYMM).
         :param pulumi.Input[_builtins.float] total_amount: The sum of all budget entries' amounts.
@@ -382,7 +658,7 @@ class CostBudget(pulumi.CustomResource):
     @pulumi.getter
     def entries(self) -> pulumi.Output[Optional[Sequence['outputs.CostBudgetEntry']]]:
         """
-        The entries of the budget.
+        The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
         """
         return pulumi.get(self, "entries")
 
@@ -390,7 +666,7 @@ class CostBudget(pulumi.CustomResource):
     @pulumi.getter(name="metricsQuery")
     def metrics_query(self) -> pulumi.Output[_builtins.str]:
         """
-        The cost query used to track against the budget.
+        The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
         """
         return pulumi.get(self, "metrics_query")
 

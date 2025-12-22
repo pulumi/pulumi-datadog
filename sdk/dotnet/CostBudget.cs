@@ -11,6 +11,195 @@ namespace Pulumi.Datadog
 {
     /// <summary>
     /// Provides a Datadog Cost Budget resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Simple budget without tag filters
+    ///     // Note: Must provide entries for all months in the budget period
+    ///     var simple = new Datadog.CostBudget("simple", new()
+    ///     {
+    ///         Name = "My AWS Cost Budget",
+    ///         MetricsQuery = "sum:aws.cost.amortized{*}",
+    ///         StartMonth = 202501,
+    ///         EndMonth = 202503,
+    ///         Entries = new[]
+    ///         {
+    ///             new Datadog.Inputs.CostBudgetEntryArgs
+    ///             {
+    ///                 Month = 202501,
+    ///                 Amount = 1000,
+    ///             },
+    ///             new Datadog.Inputs.CostBudgetEntryArgs
+    ///             {
+    ///                 Month = 202502,
+    ///                 Amount = 1200,
+    ///             },
+    ///             new Datadog.Inputs.CostBudgetEntryArgs
+    ///             {
+    ///                 Month = 202503,
+    ///                 Amount = 1000,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Budget with tag filters
+    ///     // Note: Must provide entries for all months in the budget period
+    ///     var withTagFilters = new Datadog.CostBudget("with_tag_filters", new()
+    ///     {
+    ///         Name = "Production AWS Budget",
+    ///         MetricsQuery = "sum:aws.cost.amortized{*} by {environment}",
+    ///         StartMonth = 202501,
+    ///         EndMonth = 202503,
+    ///         Entries = new[]
+    ///         {
+    ///             new Datadog.Inputs.CostBudgetEntryArgs
+    ///             {
+    ///                 Month = 202501,
+    ///                 Amount = 2000,
+    ///                 TagFilters = new[]
+    ///                 {
+    ///                     new Datadog.Inputs.CostBudgetEntryTagFilterArgs
+    ///                     {
+    ///                         TagKey = "environment",
+    ///                         TagValue = "production",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.CostBudgetEntryArgs
+    ///             {
+    ///                 Month = 202502,
+    ///                 Amount = 2200,
+    ///                 TagFilters = new[]
+    ///                 {
+    ///                     new Datadog.Inputs.CostBudgetEntryTagFilterArgs
+    ///                     {
+    ///                         TagKey = "environment",
+    ///                         TagValue = "production",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.CostBudgetEntryArgs
+    ///             {
+    ///                 Month = 202503,
+    ///                 Amount = 2000,
+    ///                 TagFilters = new[]
+    ///                 {
+    ///                     new Datadog.Inputs.CostBudgetEntryTagFilterArgs
+    ///                     {
+    ///                         TagKey = "environment",
+    ///                         TagValue = "production",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Hierarchical budget with multiple tag combinations
+    ///     // Note: Order of tags in "by {tag1,tag2}" determines UI hierarchy (parent,child)
+    ///     // Each unique tag combination must have entries for all months in the budget period
+    ///     var hierarchical = new Datadog.CostBudget("hierarchical", new()
+    ///     {
+    ///         Name = "Team-Based AWS Budget",
+    ///         MetricsQuery = "sum:aws.cost.amortized{*} by {team,account}",
+    ///         StartMonth = 202501,
+    ///         EndMonth = 202503,
+    ///         Entries = new[]
+    ///         {
+    ///             new Datadog.Inputs.CostBudgetEntryArgs
+    ///             {
+    ///                 Month = 202501,
+    ///                 Amount = 500,
+    ///                 TagFilters = new[]
+    ///                 {
+    ///                     new Datadog.Inputs.CostBudgetEntryTagFilterArgs
+    ///                     {
+    ///                         TagKey = "team",
+    ///                         TagValue = "backend",
+    ///                     },
+    ///                     new Datadog.Inputs.CostBudgetEntryTagFilterArgs
+    ///                     {
+    ///                         TagKey = "account",
+    ///                         TagValue = "staging",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.CostBudgetEntryArgs
+    ///             {
+    ///                 Month = 202502,
+    ///                 Amount = 500,
+    ///                 TagFilters = new[]
+    ///                 {
+    ///                     new Datadog.Inputs.CostBudgetEntryTagFilterArgs
+    ///                     {
+    ///                         TagKey = "team",
+    ///                         TagValue = "backend",
+    ///                     },
+    ///                     new Datadog.Inputs.CostBudgetEntryTagFilterArgs
+    ///                     {
+    ///                         TagKey = "account",
+    ///                         TagValue = "staging",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.CostBudgetEntryArgs
+    ///             {
+    ///                 Month = 202503,
+    ///                 Amount = 500,
+    ///                 TagFilters = new[]
+    ///                 {
+    ///                     new Datadog.Inputs.CostBudgetEntryTagFilterArgs
+    ///                     {
+    ///                         TagKey = "team",
+    ///                         TagValue = "backend",
+    ///                     },
+    ///                     new Datadog.Inputs.CostBudgetEntryTagFilterArgs
+    ///                     {
+    ///                         TagKey = "account",
+    ///                         TagValue = "staging",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.CostBudgetEntryArgs
+    ///             {
+    ///                 Month = 202501,
+    ///                 Amount = 1500,
+    ///                 TagFilters = new[]
+    ///                 {
+    ///                     new Datadog.Inputs.CostBudgetEntryTagFilterArgs
+    ///                     {
+    ///                         TagKey = "team",
+    ///                         TagValue = "backend",
+    ///                     },
+    ///                     new Datadog.Inputs.CostBudgetEntryTagFilterArgs
+    ///                     {
+    ///                         TagKey = "account",
+    ///                         TagValue = "production",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// The `pulumi import` command can be used, for example:
+    /// 
+    /// Cost budgets can be imported using their ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import datadog:index/costBudget:CostBudget example a1b2c3d4-e5f6-7890-abcd-ef1234567890
+    /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/costBudget:CostBudget")]
     public partial class CostBudget : global::Pulumi.CustomResource
@@ -28,13 +217,13 @@ namespace Pulumi.Datadog
         public Output<int> EndMonth { get; private set; } = null!;
 
         /// <summary>
-        /// The entries of the budget.
+        /// The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
         /// </summary>
         [Output("entries")]
         public Output<ImmutableArray<Outputs.CostBudgetEntry>> Entries { get; private set; } = null!;
 
         /// <summary>
-        /// The cost query used to track against the budget.
+        /// The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
         /// </summary>
         [Output("metricsQuery")]
         public Output<string> MetricsQuery { get; private set; } = null!;
@@ -119,7 +308,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.CostBudgetEntryArgs>? _entries;
 
         /// <summary>
-        /// The entries of the budget.
+        /// The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
         /// </summary>
         public InputList<Inputs.CostBudgetEntryArgs> Entries
         {
@@ -128,7 +317,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The cost query used to track against the budget.
+        /// The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
         /// </summary>
         [Input("metricsQuery", required: true)]
         public Input<string> MetricsQuery { get; set; } = null!;
@@ -169,7 +358,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.CostBudgetEntryGetArgs>? _entries;
 
         /// <summary>
-        /// The entries of the budget.
+        /// The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
         /// </summary>
         public InputList<Inputs.CostBudgetEntryGetArgs> Entries
         {
@@ -178,7 +367,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The cost query used to track against the budget.
+        /// The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
         /// </summary>
         [Input("metricsQuery")]
         public Input<string>? MetricsQuery { get; set; }

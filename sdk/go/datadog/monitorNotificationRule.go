@@ -62,10 +62,12 @@ import (
 type MonitorNotificationRule struct {
 	pulumi.CustomResourceState
 
-	Filter MonitorNotificationRuleFilterPtrOutput `pulumi:"filter"`
+	// Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
+	ConditionalRecipients MonitorNotificationRuleConditionalRecipientsPtrOutput `pulumi:"conditionalRecipients"`
+	Filter                MonitorNotificationRuleFilterPtrOutput                `pulumi:"filter"`
 	// The name of the monitor notification rule.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// List of recipients to notify.
+	// List of recipients to notify. Cannot be used with `conditionalRecipients`.
 	Recipients pulumi.StringArrayOutput `pulumi:"recipients"`
 }
 
@@ -78,9 +80,6 @@ func NewMonitorNotificationRule(ctx *pulumi.Context,
 
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
-	}
-	if args.Recipients == nil {
-		return nil, errors.New("invalid value for required argument 'Recipients'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MonitorNotificationRule
@@ -105,18 +104,22 @@ func GetMonitorNotificationRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MonitorNotificationRule resources.
 type monitorNotificationRuleState struct {
-	Filter *MonitorNotificationRuleFilter `pulumi:"filter"`
+	// Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
+	ConditionalRecipients *MonitorNotificationRuleConditionalRecipients `pulumi:"conditionalRecipients"`
+	Filter                *MonitorNotificationRuleFilter                `pulumi:"filter"`
 	// The name of the monitor notification rule.
 	Name *string `pulumi:"name"`
-	// List of recipients to notify.
+	// List of recipients to notify. Cannot be used with `conditionalRecipients`.
 	Recipients []string `pulumi:"recipients"`
 }
 
 type MonitorNotificationRuleState struct {
-	Filter MonitorNotificationRuleFilterPtrInput
+	// Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
+	ConditionalRecipients MonitorNotificationRuleConditionalRecipientsPtrInput
+	Filter                MonitorNotificationRuleFilterPtrInput
 	// The name of the monitor notification rule.
 	Name pulumi.StringPtrInput
-	// List of recipients to notify.
+	// List of recipients to notify. Cannot be used with `conditionalRecipients`.
 	Recipients pulumi.StringArrayInput
 }
 
@@ -125,19 +128,23 @@ func (MonitorNotificationRuleState) ElementType() reflect.Type {
 }
 
 type monitorNotificationRuleArgs struct {
-	Filter *MonitorNotificationRuleFilter `pulumi:"filter"`
+	// Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
+	ConditionalRecipients *MonitorNotificationRuleConditionalRecipients `pulumi:"conditionalRecipients"`
+	Filter                *MonitorNotificationRuleFilter                `pulumi:"filter"`
 	// The name of the monitor notification rule.
 	Name string `pulumi:"name"`
-	// List of recipients to notify.
+	// List of recipients to notify. Cannot be used with `conditionalRecipients`.
 	Recipients []string `pulumi:"recipients"`
 }
 
 // The set of arguments for constructing a MonitorNotificationRule resource.
 type MonitorNotificationRuleArgs struct {
-	Filter MonitorNotificationRuleFilterPtrInput
+	// Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
+	ConditionalRecipients MonitorNotificationRuleConditionalRecipientsPtrInput
+	Filter                MonitorNotificationRuleFilterPtrInput
 	// The name of the monitor notification rule.
 	Name pulumi.StringInput
-	// List of recipients to notify.
+	// List of recipients to notify. Cannot be used with `conditionalRecipients`.
 	Recipients pulumi.StringArrayInput
 }
 
@@ -228,6 +235,13 @@ func (o MonitorNotificationRuleOutput) ToMonitorNotificationRuleOutputWithContex
 	return o
 }
 
+// Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
+func (o MonitorNotificationRuleOutput) ConditionalRecipients() MonitorNotificationRuleConditionalRecipientsPtrOutput {
+	return o.ApplyT(func(v *MonitorNotificationRule) MonitorNotificationRuleConditionalRecipientsPtrOutput {
+		return v.ConditionalRecipients
+	}).(MonitorNotificationRuleConditionalRecipientsPtrOutput)
+}
+
 func (o MonitorNotificationRuleOutput) Filter() MonitorNotificationRuleFilterPtrOutput {
 	return o.ApplyT(func(v *MonitorNotificationRule) MonitorNotificationRuleFilterPtrOutput { return v.Filter }).(MonitorNotificationRuleFilterPtrOutput)
 }
@@ -237,7 +251,7 @@ func (o MonitorNotificationRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitorNotificationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// List of recipients to notify.
+// List of recipients to notify. Cannot be used with `conditionalRecipients`.
 func (o MonitorNotificationRuleOutput) Recipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MonitorNotificationRule) pulumi.StringArrayOutput { return v.Recipients }).(pulumi.StringArrayOutput)
 }

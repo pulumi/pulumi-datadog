@@ -70,6 +70,10 @@ export class Monitor extends pulumi.CustomResource {
     }
 
     /**
+     * List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
+     */
+    declare public readonly assets: pulumi.Output<outputs.MonitorAsset[] | undefined>;
+    /**
      * Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
      */
     declare public readonly draftStatus: pulumi.Output<string | undefined>;
@@ -224,6 +228,7 @@ export class Monitor extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitorState | undefined;
+            resourceInputs["assets"] = state?.assets;
             resourceInputs["draftStatus"] = state?.draftStatus;
             resourceInputs["enableLogsSample"] = state?.enableLogsSample;
             resourceInputs["enableSamples"] = state?.enableSamples;
@@ -273,6 +278,7 @@ export class Monitor extends pulumi.CustomResource {
             if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            resourceInputs["assets"] = args?.assets;
             resourceInputs["draftStatus"] = args?.draftStatus;
             resourceInputs["enableLogsSample"] = args?.enableLogsSample;
             resourceInputs["enableSamples"] = args?.enableSamples;
@@ -318,6 +324,10 @@ export class Monitor extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Monitor resources.
  */
 export interface MonitorState {
+    /**
+     * List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
+     */
+    assets?: pulumi.Input<pulumi.Input<inputs.MonitorAsset>[]>;
     /**
      * Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
      */
@@ -465,6 +475,10 @@ export interface MonitorState {
  * The set of arguments for constructing a Monitor resource.
  */
 export interface MonitorArgs {
+    /**
+     * List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
+     */
+    assets?: pulumi.Input<pulumi.Input<inputs.MonitorAsset>[]>;
     /**
      * Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
      */

@@ -139,9 +139,23 @@ namespace Pulumi.Datadog
     ///         },
     ///     });
     /// 
-    ///     // Manage the order of custom allocation rules
-    ///     var order = new Datadog.CustomAllocationRules("order", new()
+    ///     // Example 1: Preserve mode (default) - allows unmanaged rules to exist at the end
+    ///     // This will preserve any existing rules created outside of Terraform as long as they are at the end
+    ///     var preserveOrder = new Datadog.CustomAllocationRules("preserve_order", new()
     ///     {
+    ///         RuleIds = new[]
+    ///         {
+    ///             rule1.Id,
+    ///             rule2.Id,
+    ///             rule3.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     // Example 2: Override mode - deletes all unmanaged rules and maintains strict order
+    ///     // This will delete any rules not defined in Terraform and enforce the exact order specified
+    ///     var overrideOrder = new Datadog.CustomAllocationRules("override_order", new()
+    ///     {
+    ///         OverrideUiDefinedResources = true,
     ///         RuleIds = new[]
     ///         {
     ///             rule1.Id,
@@ -164,6 +178,9 @@ namespace Pulumi.Datadog
     [DatadogResourceType("datadog:index/customAllocationRules:CustomAllocationRules")]
     public partial class CustomAllocationRules : global::Pulumi.CustomResource
     {
+        [Output("overrideUiDefinedResources")]
+        public Output<bool?> OverrideUiDefinedResources { get; private set; } = null!;
+
         /// <summary>
         /// The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `Id` field on a `datadog.CustomAllocationRule` resource.
         /// </summary>
@@ -216,6 +233,9 @@ namespace Pulumi.Datadog
 
     public sealed class CustomAllocationRulesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("overrideUiDefinedResources")]
+        public Input<bool>? OverrideUiDefinedResources { get; set; }
+
         [Input("ruleIds", required: true)]
         private InputList<string>? _ruleIds;
 
@@ -236,6 +256,9 @@ namespace Pulumi.Datadog
 
     public sealed class CustomAllocationRulesState : global::Pulumi.ResourceArgs
     {
+        [Input("overrideUiDefinedResources")]
+        public Input<bool>? OverrideUiDefinedResources { get; set; }
+
         [Input("ruleIds")]
         private InputList<string>? _ruleIds;
 

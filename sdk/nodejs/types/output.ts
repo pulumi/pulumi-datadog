@@ -436,6 +436,9 @@ export interface CostBudgetEntry {
 }
 
 export interface CostBudgetEntryTagFilter {
+    /**
+     * **Note:** Must be one of the tags from the `metricsQuery`.
+     */
     tagKey: string;
     tagValue: string;
 }
@@ -10199,6 +10202,134 @@ export interface GetMonitorsMonitor {
     type: string;
 }
 
+export interface GetReferenceTableFileMetadata {
+    /**
+     * Cloud storage access configuration. Only present for cloud storage sources (S3, GCS, Azure).
+     */
+    accessDetails?: outputs.GetReferenceTableFileMetadataAccessDetails;
+    /**
+     * Error message from the last sync attempt, if any.
+     */
+    errorMessage: string;
+    /**
+     * The number of rows that failed to sync.
+     */
+    errorRowCount: number;
+    /**
+     * The type of error that occurred during file processing. Only present for cloud storage sources.
+     */
+    errorType: string;
+    /**
+     * Whether automatic sync is enabled for this table. Only present for cloud storage sources (S3, GCS, Azure).
+     */
+    syncEnabled: boolean;
+}
+
+export interface GetReferenceTableFileMetadataAccessDetails {
+    /**
+     * AWS S3 access configuration.
+     */
+    awsDetail?: outputs.GetReferenceTableFileMetadataAccessDetailsAwsDetail;
+    /**
+     * Azure Blob Storage access configuration.
+     */
+    azureDetail?: outputs.GetReferenceTableFileMetadataAccessDetailsAzureDetail;
+    /**
+     * Google Cloud Storage access configuration.
+     */
+    gcpDetail?: outputs.GetReferenceTableFileMetadataAccessDetailsGcpDetail;
+}
+
+export interface GetReferenceTableFileMetadataAccessDetailsAwsDetail {
+    /**
+     * The ID of the AWS account.
+     */
+    awsAccountId: string;
+    /**
+     * The name of the AWS S3 bucket.
+     */
+    awsBucketName: string;
+    /**
+     * The relative file path from the AWS S3 bucket root to the CSV file.
+     */
+    filePath: string;
+}
+
+export interface GetReferenceTableFileMetadataAccessDetailsAzureDetail {
+    /**
+     * The Azure client ID (application ID).
+     */
+    azureClientId: string;
+    /**
+     * The name of the Azure container.
+     */
+    azureContainerName: string;
+    /**
+     * The name of the Azure storage account.
+     */
+    azureStorageAccountName: string;
+    /**
+     * The ID of the Azure tenant.
+     */
+    azureTenantId: string;
+    /**
+     * The relative file path from the Azure container root to the CSV file.
+     */
+    filePath: string;
+}
+
+export interface GetReferenceTableFileMetadataAccessDetailsGcpDetail {
+    /**
+     * The relative file path from the GCS bucket root to the CSV file.
+     */
+    filePath: string;
+    /**
+     * The name of the GCP bucket.
+     */
+    gcpBucketName: string;
+    /**
+     * The ID of the GCP project.
+     */
+    gcpProjectId: string;
+    /**
+     * The email of the GCP service account used to access the bucket.
+     */
+    gcpServiceAccountEmail: string;
+}
+
+export interface GetReferenceTableRowsRow {
+    /**
+     * The primary key value of the row.
+     */
+    id: string;
+    /**
+     * Map of field names to values for this row. All values are returned as strings.
+     */
+    values: {[key: string]: string};
+}
+
+export interface GetReferenceTableSchema {
+    /**
+     * List of fields in the table schema.
+     */
+    fields?: outputs.GetReferenceTableSchemaField[];
+    /**
+     * List of field names that serve as primary keys for the table.
+     */
+    primaryKeys: string[];
+}
+
+export interface GetReferenceTableSchemaField {
+    /**
+     * The name of the field.
+     */
+    name: string;
+    /**
+     * The data type of the field (e.g., STRING, INT32).
+     */
+    type: string;
+}
+
 export interface GetRoleUsersRoleUser {
     roleId: string;
     userId: string;
@@ -12554,6 +12685,29 @@ export interface MetricTagConfigurationAggregation {
     time: string;
 }
 
+export interface MonitorAsset {
+    /**
+     * Type of asset the entity represents on a monitor. Valid values are `runbook`.
+     */
+    category: string;
+    /**
+     * Name for the monitor asset.
+     */
+    name: string;
+    /**
+     * Identifier of the internal Datadog resource that this asset represents.
+     */
+    resourceKey?: string;
+    /**
+     * Type of internal Datadog resource associated with a monitor asset. Valid values are `notebook`.
+     */
+    resourceType?: string;
+    /**
+     * URL for the asset.
+     */
+    url: string;
+}
+
 export interface MonitorConfigPolicyTagPolicy {
     /**
      * The key of the tag
@@ -12607,11 +12761,37 @@ export interface MonitorMonitorThresholds {
     warningRecovery?: string;
 }
 
+export interface MonitorNotificationRuleConditionalRecipients {
+    /**
+     * Conditions of the notification rule.
+     */
+    conditions?: outputs.MonitorNotificationRuleConditionalRecipientsCondition[];
+    /**
+     * If none of the `conditions` applied, `fallbackRecipients` will get notified.
+     */
+    fallbackRecipients?: string[];
+}
+
+export interface MonitorNotificationRuleConditionalRecipientsCondition {
+    /**
+     * List of recipients to notify.
+     */
+    recipients: string[];
+    /**
+     * The scope to which the monitor applied.
+     */
+    scope: string;
+}
+
 export interface MonitorNotificationRuleFilter {
+    /**
+     * The scope to which the monitor applied.
+     */
+    scope?: string;
     /**
      * All tags that target monitors must match.
      */
-    tags: string[];
+    tags?: string[];
 }
 
 export interface MonitorSchedulingOption {
@@ -15013,6 +15193,10 @@ export interface OnCallEscalationPolicyStep {
 
 export interface OnCallEscalationPolicyStepTarget {
     /**
+     * For schedule targets, specifies which on-call user to page. Valid values: `current` (default), `previous`, `next`. Valid values are `current`, `previous`, `next`.
+     */
+    position?: string;
+    /**
      * Targeted schedule ID.
      */
     schedule?: string;
@@ -15055,6 +15239,10 @@ export interface OnCallScheduleLayer {
      * The date/time when the rotation for this layer starts (in ISO 8601).
      */
     rotationStart: string;
+    /**
+     * The time zone for this layer. If not specified, the layer inherits the schedule's time zone.
+     */
+    timeZone?: string;
     /**
      * List of user IDs for the layer. Can either be a valid user id or null
      */
@@ -27512,6 +27700,123 @@ export interface PowerpackWidgetWidgetLayout {
      * The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
      */
     y: number;
+}
+
+export interface ReferenceTableFileMetadata {
+    /**
+     * Cloud storage access configuration. Exactly one of aws*detail, gcp*detail, or azure*detail must be specified.
+     */
+    accessDetails?: outputs.ReferenceTableFileMetadataAccessDetails;
+    /**
+     * Error message from the last sync attempt, if any.
+     */
+    errorMessage: string;
+    /**
+     * The number of rows that failed to sync.
+     */
+    errorRowCount: number;
+    /**
+     * The type of error that occurred during file processing.
+     */
+    errorType: string;
+    /**
+     * Whether this table should automatically sync with the cloud storage source.
+     */
+    syncEnabled: boolean;
+}
+
+export interface ReferenceTableFileMetadataAccessDetails {
+    /**
+     * AWS S3 access configuration. Required when source is S3.
+     */
+    awsDetail?: outputs.ReferenceTableFileMetadataAccessDetailsAwsDetail;
+    /**
+     * Azure Blob Storage access configuration. Required when source is AZURE.
+     */
+    azureDetail?: outputs.ReferenceTableFileMetadataAccessDetailsAzureDetail;
+    /**
+     * Google Cloud Storage access configuration. Required when source is GCS.
+     */
+    gcpDetail?: outputs.ReferenceTableFileMetadataAccessDetailsGcpDetail;
+}
+
+export interface ReferenceTableFileMetadataAccessDetailsAwsDetail {
+    /**
+     * The ID of the AWS account.
+     */
+    awsAccountId?: string;
+    /**
+     * The name of the AWS S3 bucket.
+     */
+    awsBucketName?: string;
+    /**
+     * The relative file path from the AWS S3 bucket root to the CSV file.
+     */
+    filePath?: string;
+}
+
+export interface ReferenceTableFileMetadataAccessDetailsAzureDetail {
+    /**
+     * The Azure client ID (application ID).
+     */
+    azureClientId?: string;
+    /**
+     * The name of the Azure container.
+     */
+    azureContainerName?: string;
+    /**
+     * The name of the Azure storage account.
+     */
+    azureStorageAccountName?: string;
+    /**
+     * The ID of the Azure tenant.
+     */
+    azureTenantId?: string;
+    /**
+     * The relative file path from the Azure container root to the CSV file.
+     */
+    filePath?: string;
+}
+
+export interface ReferenceTableFileMetadataAccessDetailsGcpDetail {
+    /**
+     * The relative file path from the GCS bucket root to the CSV file.
+     */
+    filePath?: string;
+    /**
+     * The name of the GCP bucket.
+     */
+    gcpBucketName?: string;
+    /**
+     * The ID of the GCP project.
+     */
+    gcpProjectId?: string;
+    /**
+     * The email of the GCP service account used to access the bucket.
+     */
+    gcpServiceAccountEmail?: string;
+}
+
+export interface ReferenceTableSchema {
+    /**
+     * List of fields in the table schema. Must include at least one field. Schema is only set on create.
+     */
+    fields?: outputs.ReferenceTableSchemaField[];
+    /**
+     * List of field names that serve as primary keys for the table. Currently only one primary key is supported.
+     */
+    primaryKeys: string[];
+}
+
+export interface ReferenceTableSchemaField {
+    /**
+     * The name of the field.
+     */
+    name: string;
+    /**
+     * The data type of the field. Must be one of: STRING, INT32. Valid values are `STRING`, `INT32`.
+     */
+    type: string;
 }
 
 export interface RestrictionPolicyBinding {
