@@ -123,6 +123,21 @@ public final class CsmThreatsAgentRuleState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.productTags);
     }
 
+    /**
+     * Indicates whether the Agent rule is silent.
+     * 
+     */
+    @Import(name="silent")
+    private @Nullable Output<Boolean> silent;
+
+    /**
+     * @return Indicates whether the Agent rule is silent.
+     * 
+     */
+    public Optional<Output<Boolean>> silent() {
+        return Optional.ofNullable(this.silent);
+    }
+
     private CsmThreatsAgentRuleState() {}
 
     private CsmThreatsAgentRuleState(CsmThreatsAgentRuleState $) {
@@ -133,6 +148,7 @@ public final class CsmThreatsAgentRuleState extends com.pulumi.resources.Resourc
         this.name = $.name;
         this.policyId = $.policyId;
         this.productTags = $.productTags;
+        this.silent = $.silent;
     }
 
     public static Builder builder() {
@@ -318,6 +334,27 @@ public final class CsmThreatsAgentRuleState extends com.pulumi.resources.Resourc
          */
         public Builder productTags(String... productTags) {
             return productTags(List.of(productTags));
+        }
+
+        /**
+         * @param silent Indicates whether the Agent rule is silent.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder silent(@Nullable Output<Boolean> silent) {
+            $.silent = silent;
+            return this;
+        }
+
+        /**
+         * @param silent Indicates whether the Agent rule is silent.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder silent(Boolean silent) {
+            return silent(Output.of(silent));
         }
 
         public CsmThreatsAgentRuleState build() {

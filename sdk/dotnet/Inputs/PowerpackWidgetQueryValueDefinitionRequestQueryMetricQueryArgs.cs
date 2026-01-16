@@ -42,6 +42,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
+        /// <summary>
+        /// Semantic mode for metrics queries. This determines how metrics from different sources are combined or displayed. Valid values are `Combined`, `Native`.
+        /// </summary>
+        [Input("semanticMode")]
+        public Input<string>? SemanticMode { get; set; }
+
         public PowerpackWidgetQueryValueDefinitionRequestQueryMetricQueryArgs()
         {
         }

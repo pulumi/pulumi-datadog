@@ -12,6 +12,12 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class CsmThreatsAgentRuleActionHashArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The field to hash
+        /// </summary>
+        [Input("field")]
+        public Input<string>? Field { get; set; }
+
         public CsmThreatsAgentRuleActionHashArgs()
         {
         }

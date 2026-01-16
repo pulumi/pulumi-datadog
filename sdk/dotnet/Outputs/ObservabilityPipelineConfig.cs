@@ -16,26 +16,26 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// List of destinations.
         /// </summary>
-        public readonly Outputs.ObservabilityPipelineConfigDestinations? Destinations;
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestination> Destinations;
         /// <summary>
-        /// List of processors.
+        /// A processor group containing common configuration and nested processors.
         /// </summary>
-        public readonly Outputs.ObservabilityPipelineConfigProcessors? Processors;
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroup> ProcessorGroups;
         /// <summary>
         /// List of sources.
         /// </summary>
-        public readonly Outputs.ObservabilityPipelineConfigSources? Sources;
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigSource> Sources;
 
         [OutputConstructor]
         private ObservabilityPipelineConfig(
-            Outputs.ObservabilityPipelineConfigDestinations? destinations,
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestination> destinations,
 
-            Outputs.ObservabilityPipelineConfigProcessors? processors,
+            ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroup> processorGroups,
 
-            Outputs.ObservabilityPipelineConfigSources? sources)
+            ImmutableArray<Outputs.ObservabilityPipelineConfigSource> sources)
         {
             Destinations = destinations;
-            Processors = processors;
+            ProcessorGroups = processorGroups;
             Sources = sources;
         }
     }

@@ -4,11 +4,11 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinations;
-import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessors;
-import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSources;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestination;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroup;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSource;
+import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -17,39 +17,39 @@ public final class ObservabilityPipelineConfig {
      * @return List of destinations.
      * 
      */
-    private @Nullable ObservabilityPipelineConfigDestinations destinations;
+    private @Nullable List<ObservabilityPipelineConfigDestination> destinations;
     /**
-     * @return List of processors.
+     * @return A processor group containing common configuration and nested processors.
      * 
      */
-    private @Nullable ObservabilityPipelineConfigProcessors processors;
+    private @Nullable List<ObservabilityPipelineConfigProcessorGroup> processorGroups;
     /**
      * @return List of sources.
      * 
      */
-    private @Nullable ObservabilityPipelineConfigSources sources;
+    private @Nullable List<ObservabilityPipelineConfigSource> sources;
 
     private ObservabilityPipelineConfig() {}
     /**
      * @return List of destinations.
      * 
      */
-    public Optional<ObservabilityPipelineConfigDestinations> destinations() {
-        return Optional.ofNullable(this.destinations);
+    public List<ObservabilityPipelineConfigDestination> destinations() {
+        return this.destinations == null ? List.of() : this.destinations;
     }
     /**
-     * @return List of processors.
+     * @return A processor group containing common configuration and nested processors.
      * 
      */
-    public Optional<ObservabilityPipelineConfigProcessors> processors() {
-        return Optional.ofNullable(this.processors);
+    public List<ObservabilityPipelineConfigProcessorGroup> processorGroups() {
+        return this.processorGroups == null ? List.of() : this.processorGroups;
     }
     /**
      * @return List of sources.
      * 
      */
-    public Optional<ObservabilityPipelineConfigSources> sources() {
-        return Optional.ofNullable(this.sources);
+    public List<ObservabilityPipelineConfigSource> sources() {
+        return this.sources == null ? List.of() : this.sources;
     }
 
     public static Builder builder() {
@@ -61,39 +61,48 @@ public final class ObservabilityPipelineConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable ObservabilityPipelineConfigDestinations destinations;
-        private @Nullable ObservabilityPipelineConfigProcessors processors;
-        private @Nullable ObservabilityPipelineConfigSources sources;
+        private @Nullable List<ObservabilityPipelineConfigDestination> destinations;
+        private @Nullable List<ObservabilityPipelineConfigProcessorGroup> processorGroups;
+        private @Nullable List<ObservabilityPipelineConfigSource> sources;
         public Builder() {}
         public Builder(ObservabilityPipelineConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destinations = defaults.destinations;
-    	      this.processors = defaults.processors;
+    	      this.processorGroups = defaults.processorGroups;
     	      this.sources = defaults.sources;
         }
 
         @CustomType.Setter
-        public Builder destinations(@Nullable ObservabilityPipelineConfigDestinations destinations) {
+        public Builder destinations(@Nullable List<ObservabilityPipelineConfigDestination> destinations) {
 
             this.destinations = destinations;
             return this;
         }
-        @CustomType.Setter
-        public Builder processors(@Nullable ObservabilityPipelineConfigProcessors processors) {
-
-            this.processors = processors;
-            return this;
+        public Builder destinations(ObservabilityPipelineConfigDestination... destinations) {
+            return destinations(List.of(destinations));
         }
         @CustomType.Setter
-        public Builder sources(@Nullable ObservabilityPipelineConfigSources sources) {
+        public Builder processorGroups(@Nullable List<ObservabilityPipelineConfigProcessorGroup> processorGroups) {
+
+            this.processorGroups = processorGroups;
+            return this;
+        }
+        public Builder processorGroups(ObservabilityPipelineConfigProcessorGroup... processorGroups) {
+            return processorGroups(List.of(processorGroups));
+        }
+        @CustomType.Setter
+        public Builder sources(@Nullable List<ObservabilityPipelineConfigSource> sources) {
 
             this.sources = sources;
             return this;
         }
+        public Builder sources(ObservabilityPipelineConfigSource... sources) {
+            return sources(List.of(sources));
+        }
         public ObservabilityPipelineConfig build() {
             final var _resultValue = new ObservabilityPipelineConfig();
             _resultValue.destinations = destinations;
-            _resultValue.processors = processors;
+            _resultValue.processorGroups = processorGroups;
             _resultValue.sources = sources;
             return _resultValue;
         }

@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<int> ForgetAfter { get; set; } = null!;
 
         /// <summary>
+        /// When set to true, Datadog uses previous values that fall within the defined learning window to construct the baseline, enabling the system to establish an accurate baseline more rapidly rather than relying solely on gradual learning over time. Defaults to `False`.
+        /// </summary>
+        [Input("instantaneousBaseline")]
+        public Input<bool>? InstantaneousBaseline { get; set; }
+
+        /// <summary>
         /// The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`. Defaults to `1`.
         /// </summary>
         [Input("learningDuration")]

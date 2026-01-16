@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SecurityMonitoringRuleOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Options for rules using the anomaly detection method.
+        /// </summary>
+        [Input("anomalyDetectionOptions")]
+        public Input<Inputs.SecurityMonitoringRuleOptionsAnomalyDetectionOptionsArgs>? AnomalyDetectionOptions { get; set; }
+
+        /// <summary>
         /// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `Staging`, `Test`, or `Dev`. Only available when the rule type is `LogDetection`. Defaults to `False`.
         /// </summary>
         [Input("decreaseCriticalityBasedOnEnv")]

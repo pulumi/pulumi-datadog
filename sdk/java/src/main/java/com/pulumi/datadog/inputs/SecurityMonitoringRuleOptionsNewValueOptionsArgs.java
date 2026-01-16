@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -30,6 +31,21 @@ public final class SecurityMonitoringRuleOptionsNewValueOptionsArgs extends com.
      */
     public Output<Integer> forgetAfter() {
         return this.forgetAfter;
+    }
+
+    /**
+     * When set to true, Datadog uses previous values that fall within the defined learning window to construct the baseline, enabling the system to establish an accurate baseline more rapidly rather than relying solely on gradual learning over time. Defaults to `false`.
+     * 
+     */
+    @Import(name="instantaneousBaseline")
+    private @Nullable Output<Boolean> instantaneousBaseline;
+
+    /**
+     * @return When set to true, Datadog uses previous values that fall within the defined learning window to construct the baseline, enabling the system to establish an accurate baseline more rapidly rather than relying solely on gradual learning over time. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> instantaneousBaseline() {
+        return Optional.ofNullable(this.instantaneousBaseline);
     }
 
     /**
@@ -81,6 +97,7 @@ public final class SecurityMonitoringRuleOptionsNewValueOptionsArgs extends com.
 
     private SecurityMonitoringRuleOptionsNewValueOptionsArgs(SecurityMonitoringRuleOptionsNewValueOptionsArgs $) {
         this.forgetAfter = $.forgetAfter;
+        this.instantaneousBaseline = $.instantaneousBaseline;
         this.learningDuration = $.learningDuration;
         this.learningMethod = $.learningMethod;
         this.learningThreshold = $.learningThreshold;
@@ -123,6 +140,27 @@ public final class SecurityMonitoringRuleOptionsNewValueOptionsArgs extends com.
          */
         public Builder forgetAfter(Integer forgetAfter) {
             return forgetAfter(Output.of(forgetAfter));
+        }
+
+        /**
+         * @param instantaneousBaseline When set to true, Datadog uses previous values that fall within the defined learning window to construct the baseline, enabling the system to establish an accurate baseline more rapidly rather than relying solely on gradual learning over time. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instantaneousBaseline(@Nullable Output<Boolean> instantaneousBaseline) {
+            $.instantaneousBaseline = instantaneousBaseline;
+            return this;
+        }
+
+        /**
+         * @param instantaneousBaseline When set to true, Datadog uses previous values that fall within the defined learning window to construct the baseline, enabling the system to establish an accurate baseline more rapidly rather than relying solely on gradual learning over time. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instantaneousBaseline(Boolean instantaneousBaseline) {
+            return instantaneousBaseline(Output.of(instantaneousBaseline));
         }
 
         /**

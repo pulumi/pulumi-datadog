@@ -119,6 +119,12 @@ namespace Pulumi.Datadog
         [Output("productTags")]
         public Output<ImmutableArray<string>> ProductTags { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether the Agent rule is silent.
+        /// </summary>
+        [Output("silent")]
+        public Output<bool> Silent { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a CsmThreatsAgentRule resource with the given unique name, arguments, and options.
@@ -219,6 +225,12 @@ namespace Pulumi.Datadog
             set => _productTags = value;
         }
 
+        /// <summary>
+        /// Indicates whether the Agent rule is silent.
+        /// </summary>
+        [Input("silent")]
+        public Input<bool>? Silent { get; set; }
+
         public CsmThreatsAgentRuleArgs()
         {
         }
@@ -280,6 +292,12 @@ namespace Pulumi.Datadog
             get => _productTags ?? (_productTags = new InputList<string>());
             set => _productTags = value;
         }
+
+        /// <summary>
+        /// Indicates whether the Agent rule is silent.
+        /// </summary>
+        [Input("silent")]
+        public Input<bool>? Silent { get; set; }
 
         public CsmThreatsAgentRuleState()
         {

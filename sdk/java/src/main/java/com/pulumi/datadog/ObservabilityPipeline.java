@@ -31,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.datadog.ObservabilityPipeline;
  * import com.pulumi.datadog.ObservabilityPipelineArgs;
+ * import com.pulumi.datadog.inputs.ObservabilityPipelineConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,56 +48,54 @@ import javax.annotation.Nullable;
  *         var test = new ObservabilityPipeline("test", ObservabilityPipelineArgs.builder()
  *             .name("test pipeline")
  *             .config(ObservabilityPipelineConfigArgs.builder()
- *                 .sources(ObservabilityPipelineConfigSourcesArgs.builder()
- *                     .kafkas(ObservabilityPipelineConfigSourcesKafkaArgs.builder()
- *                         .id("source-1")
- *                         .groupId("my-consumer-group")
- *                         .topics(                        
+ *                 .sources(ObservabilityPipelineConfigSourceArgs.builder()
+ *                     .kafka(List.of(Map.ofEntries(
+ *                         Map.entry("id", "source-1"),
+ *                         Map.entry("groupId", "my-consumer-group"),
+ *                         Map.entry("topics", List.of(                        
  *                             "my-topic-1",
- *                             "my-topic-2")
- *                         .tls(ObservabilityPipelineConfigSourcesKafkaTlsArgs.builder()
- *                             .crtFile("/etc/certs/client.crt")
- *                             .keyFile("/etc/certs/client.key")
- *                             .caFile("/etc/certs/ca.crt")
- *                             .build())
- *                         .sasl(ObservabilityPipelineConfigSourcesKafkaSaslArgs.builder()
- *                             .mechanism("SCRAM-SHA-512")
- *                             .build())
- *                         .librdkafkaOptions(                        
- *                             ObservabilityPipelineConfigSourcesKafkaLibrdkafkaOptionArgs.builder()
- *                                 .name("fetch.message.max.bytes")
- *                                 .value("1048576")
- *                                 .build(),
- *                             ObservabilityPipelineConfigSourcesKafkaLibrdkafkaOptionArgs.builder()
- *                                 .name("socket.timeout.ms")
- *                                 .value("500")
- *                                 .build())
- *                         .build())
+ *                             "my-topic-2")),
+ *                         Map.entry("tls", List.of(Map.ofEntries(
+ *                             Map.entry("crtFile", "/etc/certs/client.crt"),
+ *                             Map.entry("keyFile", "/etc/certs/client.key"),
+ *                             Map.entry("caFile", "/etc/certs/ca.crt")
+ *                         ))),
+ *                         Map.entry("sasl", List.of(Map.of("mechanism", "SCRAM-SHA-512"))),
+ *                         Map.entry("librdkafkaOption", List.of(                        
+ *                             Map.ofEntries(
+ *                                 Map.entry("name", "fetch.message.max.bytes"),
+ *                                 Map.entry("value", "1048576")
+ *                             ),
+ *                             Map.ofEntries(
+ *                                 Map.entry("name", "socket.timeout.ms"),
+ *                                 Map.entry("value", "500")
+ *                             )))
+ *                     )))
  *                     .build())
- *                 .processors(ObservabilityPipelineConfigProcessorsArgs.builder()
- *                     .parseJsons(                    
- *                         ObservabilityPipelineConfigProcessorsParseJsonArgs.builder()
- *                             .id("filter-1")
- *                             .include("service:nginx")
- *                             .field("message2")
- *                             .inputs("source-1")
- *                             .build(),
- *                         ObservabilityPipelineConfigProcessorsParseJsonArgs.builder()
- *                             .id("filter-3")
- *                             .include("service:nginx")
- *                             .field("message")
- *                             .inputs("filter-2")
- *                             .build())
- *                     .filters(ObservabilityPipelineConfigProcessorsFilterArgs.builder()
- *                         .id("filter-2")
- *                         .include("service:nginx")
- *                         .inputs("filter-1")
- *                         .build())
- *                     .build())
- *                 .destinations(ObservabilityPipelineConfigDestinationsArgs.builder()
- *                     .datadogLogs(ObservabilityPipelineConfigDestinationsDatadogLogArgs.builder()
+ *                 .processors(List.of(Map.ofEntries(
+ *                     Map.entry("parseJson", List.of(                    
+ *                         Map.ofEntries(
+ *                             Map.entry("id", "filter-1"),
+ *                             Map.entry("include", "service:nginx"),
+ *                             Map.entry("field", "message2"),
+ *                             Map.entry("inputs", List.of("source-1"))
+ *                         ),
+ *                         Map.ofEntries(
+ *                             Map.entry("id", "filter-3"),
+ *                             Map.entry("include", "service:nginx"),
+ *                             Map.entry("field", "message"),
+ *                             Map.entry("inputs", List.of("filter-2"))
+ *                         ))),
+ *                     Map.entry("filter", List.of(Map.ofEntries(
+ *                         Map.entry("id", "filter-2"),
+ *                         Map.entry("include", "service:nginx"),
+ *                         Map.entry("inputs", List.of("filter-1"))
+ *                     )))
+ *                 )))
+ *                 .destinations(ObservabilityPipelineConfigDestinationArgs.builder()
+ *                     .datadogLogs(ObservabilityPipelineConfigDestinationDatadogLogArgs.builder()
  *                         .id("sink-1")
- *                         .inputs("filter-3")
+ *                         .inputs(List.of("filter-3"))
  *                         .build())
  *                     .build())
  *                 .build())

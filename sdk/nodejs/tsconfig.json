@@ -66,6 +66,7 @@
         "dashboardJson.ts",
         "dashboardList.ts",
         "dataset.ts",
+        "deploymentGate.ts",
         "domainAllowlist.ts",
         "downtime.ts",
         "downtimeSchedule.ts",

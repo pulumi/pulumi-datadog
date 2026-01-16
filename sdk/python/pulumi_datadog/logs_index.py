@@ -337,6 +337,8 @@ class LogsIndex(pulumi.CustomResource):
                  retention_days: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
+        Provides a Datadog Logs Index API resource. This can be used to create and manage Datadog logs indexes.
+
         ## Example Usage
 
         ```python
@@ -404,6 +406,8 @@ class LogsIndex(pulumi.CustomResource):
                  args: LogsIndexArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides a Datadog Logs Index API resource. This can be used to create and manage Datadog logs indexes.
+
         ## Example Usage
 
         ```python

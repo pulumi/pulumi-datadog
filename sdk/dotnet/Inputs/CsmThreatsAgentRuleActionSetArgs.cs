@@ -45,8 +45,8 @@ namespace Pulumi.Datadog.Inputs
         /// <summary>
         /// The name of the set action
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The scope of the set action (process, container, cgroup, or empty)

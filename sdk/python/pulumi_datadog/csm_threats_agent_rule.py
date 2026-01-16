@@ -27,7 +27,8 @@ class CsmThreatsAgentRuleArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 product_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 silent: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a CsmThreatsAgentRule resource.
         :param pulumi.Input[_builtins.str] expression: The SECL expression of the Agent rule
@@ -37,6 +38,7 @@ class CsmThreatsAgentRuleArgs:
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the Agent rule is enabled. Must not be used without policy_id.
         :param pulumi.Input[_builtins.str] policy_id: The ID of the agent policy in which the rule is saved
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] product_tags: The list of product tags associated with the rule
+        :param pulumi.Input[_builtins.bool] silent: Indicates whether the Agent rule is silent.
         """
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
@@ -50,6 +52,8 @@ class CsmThreatsAgentRuleArgs:
             pulumi.set(__self__, "policy_id", policy_id)
         if product_tags is not None:
             pulumi.set(__self__, "product_tags", product_tags)
+        if silent is not None:
+            pulumi.set(__self__, "silent", silent)
 
     @_builtins.property
     @pulumi.getter
@@ -135,6 +139,18 @@ class CsmThreatsAgentRuleArgs:
     def product_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "product_tags", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def silent(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates whether the Agent rule is silent.
+        """
+        return pulumi.get(self, "silent")
+
+    @silent.setter
+    def silent(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "silent", value)
+
 
 @pulumi.input_type
 class _CsmThreatsAgentRuleState:
@@ -145,7 +161,8 @@ class _CsmThreatsAgentRuleState:
                  expression: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 product_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 silent: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering CsmThreatsAgentRule resources.
         :param pulumi.Input[Sequence[pulumi.Input['CsmThreatsAgentRuleActionArgs']]] actions: The list of actions the rule can perform
@@ -155,6 +172,7 @@ class _CsmThreatsAgentRuleState:
         :param pulumi.Input[_builtins.str] name: The name of the Agent rule.
         :param pulumi.Input[_builtins.str] policy_id: The ID of the agent policy in which the rule is saved
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] product_tags: The list of product tags associated with the rule
+        :param pulumi.Input[_builtins.bool] silent: Indicates whether the Agent rule is silent.
         """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -170,6 +188,8 @@ class _CsmThreatsAgentRuleState:
             pulumi.set(__self__, "policy_id", policy_id)
         if product_tags is not None:
             pulumi.set(__self__, "product_tags", product_tags)
+        if silent is not None:
+            pulumi.set(__self__, "silent", silent)
 
     @_builtins.property
     @pulumi.getter
@@ -255,6 +275,18 @@ class _CsmThreatsAgentRuleState:
     def product_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "product_tags", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def silent(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates whether the Agent rule is silent.
+        """
+        return pulumi.get(self, "silent")
+
+    @silent.setter
+    def silent(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "silent", value)
+
 
 @pulumi.type_token("datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule")
 class CsmThreatsAgentRule(pulumi.CustomResource):
@@ -269,6 +301,7 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  policy_id: Optional[pulumi.Input[_builtins.str]] = None,
                  product_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 silent: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
         Provides a Datadog Workload Protection (CSM Threats) Agent Rule API resource.
@@ -322,6 +355,7 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the Agent rule.
         :param pulumi.Input[_builtins.str] policy_id: The ID of the agent policy in which the rule is saved
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] product_tags: The list of product tags associated with the rule
+        :param pulumi.Input[_builtins.bool] silent: Indicates whether the Agent rule is silent.
         """
         ...
     @overload
@@ -394,6 +428,7 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  policy_id: Optional[pulumi.Input[_builtins.str]] = None,
                  product_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 silent: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -414,6 +449,7 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["policy_id"] = policy_id
             __props__.__dict__["product_tags"] = product_tags
+            __props__.__dict__["silent"] = silent
         super(CsmThreatsAgentRule, __self__).__init__(
             'datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule',
             resource_name,
@@ -430,7 +466,8 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
             expression: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            product_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'CsmThreatsAgentRule':
+            product_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            silent: Optional[pulumi.Input[_builtins.bool]] = None) -> 'CsmThreatsAgentRule':
         """
         Get an existing CsmThreatsAgentRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -445,6 +482,7 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the Agent rule.
         :param pulumi.Input[_builtins.str] policy_id: The ID of the agent policy in which the rule is saved
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] product_tags: The list of product tags associated with the rule
+        :param pulumi.Input[_builtins.bool] silent: Indicates whether the Agent rule is silent.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -457,6 +495,7 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["policy_id"] = policy_id
         __props__.__dict__["product_tags"] = product_tags
+        __props__.__dict__["silent"] = silent
         return CsmThreatsAgentRule(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -514,4 +553,12 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
         The list of product tags associated with the rule
         """
         return pulumi.get(self, "product_tags")
+
+    @_builtins.property
+    @pulumi.getter
+    def silent(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Indicates whether the Agent rule is silent.
+        """
+        return pulumi.get(self, "silent")
 

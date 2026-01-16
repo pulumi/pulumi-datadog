@@ -37,6 +37,11 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery {
      * 
      */
     private String query;
+    /**
+     * @return Semantic mode for metrics queries. This determines how metrics from different sources are combined or displayed. Valid values are `combined`, `native`.
+     * 
+     */
+    private @Nullable String semanticMode;
 
     private DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery() {}
     /**
@@ -74,6 +79,13 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery {
     public String query() {
         return this.query;
     }
+    /**
+     * @return Semantic mode for metrics queries. This determines how metrics from different sources are combined or displayed. Valid values are `combined`, `native`.
+     * 
+     */
+    public Optional<String> semanticMode() {
+        return Optional.ofNullable(this.semanticMode);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -89,6 +101,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery {
         private @Nullable String dataSource;
         private String name;
         private String query;
+        private @Nullable String semanticMode;
         public Builder() {}
         public Builder(DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery defaults) {
     	      Objects.requireNonNull(defaults);
@@ -97,6 +110,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery {
     	      this.dataSource = defaults.dataSource;
     	      this.name = defaults.name;
     	      this.query = defaults.query;
+    	      this.semanticMode = defaults.semanticMode;
         }
 
         @CustomType.Setter
@@ -133,6 +147,12 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery {
             this.query = query;
             return this;
         }
+        @CustomType.Setter
+        public Builder semanticMode(@Nullable String semanticMode) {
+
+            this.semanticMode = semanticMode;
+            return this;
+        }
         public DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery build() {
             final var _resultValue = new DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery();
             _resultValue.aggregator = aggregator;
@@ -140,6 +160,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery {
             _resultValue.dataSource = dataSource;
             _resultValue.name = name;
             _resultValue.query = query;
+            _resultValue.semanticMode = semanticMode;
             return _resultValue;
         }
     }

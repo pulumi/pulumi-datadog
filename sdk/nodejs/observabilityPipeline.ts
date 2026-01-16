@@ -19,9 +19,9 @@ import * as utilities from "./utilities";
  *
  * const test = new datadog.ObservabilityPipeline("test", {
  *     name: "test pipeline",
- *     config: [{
+ *     config: {
  *         sources: [{
- *             kafkas: [{
+ *             kafka: [{
  *                 id: "source-1",
  *                 groupId: "my-consumer-group",
  *                 topics: [
@@ -36,7 +36,7 @@ import * as utilities from "./utilities";
  *                 sasl: [{
  *                     mechanism: "SCRAM-SHA-512",
  *                 }],
- *                 librdkafkaOptions: [
+ *                 librdkafkaOption: [
  *                     {
  *                         name: "fetch.message.max.bytes",
  *                         value: "1048576",
@@ -49,7 +49,7 @@ import * as utilities from "./utilities";
  *             }],
  *         }],
  *         processors: [{
- *             parseJsons: [
+ *             parseJson: [
  *                 {
  *                     id: "filter-1",
  *                     include: "service:nginx",
@@ -63,7 +63,7 @@ import * as utilities from "./utilities";
  *                     inputs: ["filter-2"],
  *                 },
  *             ],
- *             filters: [{
+ *             filter: [{
  *                 id: "filter-2",
  *                 include: "service:nginx",
  *                 inputs: ["filter-1"],
@@ -75,7 +75,7 @@ import * as utilities from "./utilities";
  *                 inputs: ["filter-3"],
  *             }],
  *         }],
- *     }],
+ *     },
  * });
  * ```
  *

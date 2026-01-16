@@ -4,7 +4,6 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -43,7 +42,7 @@ public final class CsmThreatsAgentRuleActionSet {
      * @return The name of the set action
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return The scope of the set action (process, container, cgroup, or empty)
      * 
@@ -105,8 +104,8 @@ public final class CsmThreatsAgentRuleActionSet {
      * @return The name of the set action
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return The scope of the set action (process, container, cgroup, or empty)
@@ -151,7 +150,7 @@ public final class CsmThreatsAgentRuleActionSet {
         private @Nullable String expression;
         private @Nullable String field;
         private @Nullable Boolean inherited;
-        private String name;
+        private @Nullable String name;
         private @Nullable String scope;
         private @Nullable Integer size;
         private @Nullable Integer ttl;
@@ -202,10 +201,8 @@ public final class CsmThreatsAgentRuleActionSet {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("CsmThreatsAgentRuleActionSet", "name");
-            }
+        public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }

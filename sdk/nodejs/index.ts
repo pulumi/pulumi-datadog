@@ -145,6 +145,11 @@ export type Dataset = import("./dataset").Dataset;
 export const Dataset: typeof import("./dataset").Dataset = null as any;
 utilities.lazyLoad(exports, ["Dataset"], () => require("./dataset"));
 
+export { DeploymentGateArgs, DeploymentGateState } from "./deploymentGate";
+export type DeploymentGate = import("./deploymentGate").DeploymentGate;
+export const DeploymentGate: typeof import("./deploymentGate").DeploymentGate = null as any;
+utilities.lazyLoad(exports, ["DeploymentGate"], () => require("./deploymentGate"));
+
 export { DomainAllowlistArgs, DomainAllowlistState } from "./domainAllowlist";
 export type DomainAllowlist = import("./domainAllowlist").DomainAllowlist;
 export const DomainAllowlist: typeof import("./domainAllowlist").DomainAllowlist = null as any;
@@ -898,6 +903,8 @@ const _module = {
                 return new DashboardList(name, <any>undefined, { urn })
             case "datadog:index/dataset:Dataset":
                 return new Dataset(name, <any>undefined, { urn })
+            case "datadog:index/deploymentGate:DeploymentGate":
+                return new DeploymentGate(name, <any>undefined, { urn })
             case "datadog:index/domainAllowlist:DomainAllowlist":
                 return new DomainAllowlist(name, <any>undefined, { urn })
             case "datadog:index/downtime:Downtime":
@@ -1073,6 +1080,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/dashboard", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboardJson", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboardList", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dataset", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/deploymentGate", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/domainAllowlist", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/downtime", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/downtimeSchedule", _module)

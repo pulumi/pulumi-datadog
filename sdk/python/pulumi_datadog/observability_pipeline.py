@@ -119,9 +119,9 @@ class ObservabilityPipeline(pulumi.CustomResource):
 
         test = datadog.ObservabilityPipeline("test",
             name="test pipeline",
-            config=[{
+            config={
                 "sources": [{
-                    "kafkas": [{
+                    "kafka": [{
                         "id": "source-1",
                         "groupId": "my-consumer-group",
                         "topics": [
@@ -136,7 +136,7 @@ class ObservabilityPipeline(pulumi.CustomResource):
                         "sasl": [{
                             "mechanism": "SCRAM-SHA-512",
                         }],
-                        "librdkafkaOptions": [
+                        "librdkafkaOption": [
                             {
                                 "name": "fetch.message.max.bytes",
                                 "value": "1048576",
@@ -149,7 +149,7 @@ class ObservabilityPipeline(pulumi.CustomResource):
                     }],
                 }],
                 "processors": [{
-                    "parseJsons": [
+                    "parseJson": [
                         {
                             "id": "filter-1",
                             "include": "service:nginx",
@@ -163,19 +163,19 @@ class ObservabilityPipeline(pulumi.CustomResource):
                             "inputs": ["filter-2"],
                         },
                     ],
-                    "filters": [{
+                    "filter": [{
                         "id": "filter-2",
                         "include": "service:nginx",
                         "inputs": ["filter-1"],
                     }],
                 }],
                 "destinations": [{
-                    "datadogLogs": [{
+                    "datadog_logs": [{
                         "id": "sink-1",
                         "inputs": ["filter-3"],
                     }],
                 }],
-            }])
+            })
         ```
 
         ## Import
@@ -210,9 +210,9 @@ class ObservabilityPipeline(pulumi.CustomResource):
 
         test = datadog.ObservabilityPipeline("test",
             name="test pipeline",
-            config=[{
+            config={
                 "sources": [{
-                    "kafkas": [{
+                    "kafka": [{
                         "id": "source-1",
                         "groupId": "my-consumer-group",
                         "topics": [
@@ -227,7 +227,7 @@ class ObservabilityPipeline(pulumi.CustomResource):
                         "sasl": [{
                             "mechanism": "SCRAM-SHA-512",
                         }],
-                        "librdkafkaOptions": [
+                        "librdkafkaOption": [
                             {
                                 "name": "fetch.message.max.bytes",
                                 "value": "1048576",
@@ -240,7 +240,7 @@ class ObservabilityPipeline(pulumi.CustomResource):
                     }],
                 }],
                 "processors": [{
-                    "parseJsons": [
+                    "parseJson": [
                         {
                             "id": "filter-1",
                             "include": "service:nginx",
@@ -254,19 +254,19 @@ class ObservabilityPipeline(pulumi.CustomResource):
                             "inputs": ["filter-2"],
                         },
                     ],
-                    "filters": [{
+                    "filter": [{
                         "id": "filter-2",
                         "include": "service:nginx",
                         "inputs": ["filter-1"],
                     }],
                 }],
                 "destinations": [{
-                    "datadogLogs": [{
+                    "datadog_logs": [{
                         "id": "sink-1",
                         "inputs": ["filter-3"],
                     }],
                 }],
-            }])
+            })
         ```
 
         ## Import

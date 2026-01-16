@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly int ForgetAfter;
         /// <summary>
+        /// When set to true, Datadog uses previous values that fall within the defined learning window to construct the baseline, enabling the system to establish an accurate baseline more rapidly rather than relying solely on gradual learning over time. Defaults to `False`.
+        /// </summary>
+        public readonly bool? InstantaneousBaseline;
+        /// <summary>
         /// The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`. Defaults to `1`.
         /// </summary>
         public readonly int? LearningDuration;
@@ -34,6 +38,8 @@ namespace Pulumi.Datadog.Outputs
         private SecurityMonitoringRuleOptionsNewValueOptions(
             int forgetAfter,
 
+            bool? instantaneousBaseline,
+
             int? learningDuration,
 
             string? learningMethod,
@@ -41,6 +47,7 @@ namespace Pulumi.Datadog.Outputs
             int? learningThreshold)
         {
             ForgetAfter = forgetAfter;
+            InstantaneousBaseline = instantaneousBaseline;
             LearningDuration = learningDuration;
             LearningMethod = learningMethod;
             LearningThreshold = learningThreshold;

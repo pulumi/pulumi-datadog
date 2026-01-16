@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.SecurityMonitoringRuleOptionsAnomalyDetectionOptionsArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleOptionsNewValueOptionsArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleOptionsSequenceDetectionOptionsArgs;
@@ -20,6 +21,21 @@ import javax.annotation.Nullable;
 public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SecurityMonitoringRuleOptionsArgs Empty = new SecurityMonitoringRuleOptionsArgs();
+
+    /**
+     * Options for rules using the anomaly detection method.
+     * 
+     */
+    @Import(name="anomalyDetectionOptions")
+    private @Nullable Output<SecurityMonitoringRuleOptionsAnomalyDetectionOptionsArgs> anomalyDetectionOptions;
+
+    /**
+     * @return Options for rules using the anomaly detection method.
+     * 
+     */
+    public Optional<Output<SecurityMonitoringRuleOptionsAnomalyDetectionOptionsArgs>> anomalyDetectionOptions() {
+        return Optional.ofNullable(this.anomalyDetectionOptions);
+    }
 
     /**
      * If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`. Defaults to `false`.
@@ -159,6 +175,7 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
     private SecurityMonitoringRuleOptionsArgs() {}
 
     private SecurityMonitoringRuleOptionsArgs(SecurityMonitoringRuleOptionsArgs $) {
+        this.anomalyDetectionOptions = $.anomalyDetectionOptions;
         this.decreaseCriticalityBasedOnEnv = $.decreaseCriticalityBasedOnEnv;
         this.detectionMethod = $.detectionMethod;
         this.evaluationWindow = $.evaluationWindow;
@@ -186,6 +203,27 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
 
         public Builder(SecurityMonitoringRuleOptionsArgs defaults) {
             $ = new SecurityMonitoringRuleOptionsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param anomalyDetectionOptions Options for rules using the anomaly detection method.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder anomalyDetectionOptions(@Nullable Output<SecurityMonitoringRuleOptionsAnomalyDetectionOptionsArgs> anomalyDetectionOptions) {
+            $.anomalyDetectionOptions = anomalyDetectionOptions;
+            return this;
+        }
+
+        /**
+         * @param anomalyDetectionOptions Options for rules using the anomaly detection method.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder anomalyDetectionOptions(SecurityMonitoringRuleOptionsAnomalyDetectionOptionsArgs anomalyDetectionOptions) {
+            return anomalyDetectionOptions(Output.of(anomalyDetectionOptions));
         }
 
         /**
