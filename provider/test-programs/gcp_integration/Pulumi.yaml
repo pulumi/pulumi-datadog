@@ -6,7 +6,9 @@ config:
     value:
       pulumi:template: https://www.pulumi.com/ai/api/project/58803dd4-776b-4b7c-ac10-87d1928a6cb6.zip
 resources:
+  clientEmail:
+    type: random:RandomPet
   datadogGcpIntegration:
     properties:
-      clientEmail: your-client-email@example.com
+      clientEmail: ${clientEmail.id}@example.com
     type: datadog:gcp/integrationSts:IntegrationSts
