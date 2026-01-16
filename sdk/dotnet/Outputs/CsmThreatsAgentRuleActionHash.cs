@@ -13,9 +13,15 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class CsmThreatsAgentRuleActionHash
     {
+        /// <summary>
+        /// The field to hash
+        /// </summary>
+        public readonly string? Field;
+
         [OutputConstructor]
-        private CsmThreatsAgentRuleActionHash()
+        private CsmThreatsAgentRuleActionHash(string? field)
         {
+            Field = field;
         }
     }
 }

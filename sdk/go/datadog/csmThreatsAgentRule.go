@@ -94,6 +94,8 @@ type CsmThreatsAgentRule struct {
 	PolicyId pulumi.StringPtrOutput `pulumi:"policyId"`
 	// The list of product tags associated with the rule
 	ProductTags pulumi.StringArrayOutput `pulumi:"productTags"`
+	// Indicates whether the Agent rule is silent.
+	Silent pulumi.BoolOutput `pulumi:"silent"`
 }
 
 // NewCsmThreatsAgentRule registers a new resource with the given unique name, arguments, and options.
@@ -146,6 +148,8 @@ type csmThreatsAgentRuleState struct {
 	PolicyId *string `pulumi:"policyId"`
 	// The list of product tags associated with the rule
 	ProductTags []string `pulumi:"productTags"`
+	// Indicates whether the Agent rule is silent.
+	Silent *bool `pulumi:"silent"`
 }
 
 type CsmThreatsAgentRuleState struct {
@@ -163,6 +167,8 @@ type CsmThreatsAgentRuleState struct {
 	PolicyId pulumi.StringPtrInput
 	// The list of product tags associated with the rule
 	ProductTags pulumi.StringArrayInput
+	// Indicates whether the Agent rule is silent.
+	Silent pulumi.BoolPtrInput
 }
 
 func (CsmThreatsAgentRuleState) ElementType() reflect.Type {
@@ -184,6 +190,8 @@ type csmThreatsAgentRuleArgs struct {
 	PolicyId *string `pulumi:"policyId"`
 	// The list of product tags associated with the rule
 	ProductTags []string `pulumi:"productTags"`
+	// Indicates whether the Agent rule is silent.
+	Silent *bool `pulumi:"silent"`
 }
 
 // The set of arguments for constructing a CsmThreatsAgentRule resource.
@@ -202,6 +210,8 @@ type CsmThreatsAgentRuleArgs struct {
 	PolicyId pulumi.StringPtrInput
 	// The list of product tags associated with the rule
 	ProductTags pulumi.StringArrayInput
+	// Indicates whether the Agent rule is silent.
+	Silent pulumi.BoolPtrInput
 }
 
 func (CsmThreatsAgentRuleArgs) ElementType() reflect.Type {
@@ -324,6 +334,11 @@ func (o CsmThreatsAgentRuleOutput) PolicyId() pulumi.StringPtrOutput {
 // The list of product tags associated with the rule
 func (o CsmThreatsAgentRuleOutput) ProductTags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CsmThreatsAgentRule) pulumi.StringArrayOutput { return v.ProductTags }).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether the Agent rule is silent.
+func (o CsmThreatsAgentRuleOutput) Silent() pulumi.BoolOutput {
+	return o.ApplyT(func(v *CsmThreatsAgentRule) pulumi.BoolOutput { return v.Silent }).(pulumi.BoolOutput)
 }
 
 type CsmThreatsAgentRuleArrayOutput struct{ *pulumi.OutputState }

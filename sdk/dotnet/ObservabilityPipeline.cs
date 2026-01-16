@@ -27,116 +27,113 @@ namespace Pulumi.Datadog
     ///     var test = new Datadog.ObservabilityPipeline("test", new()
     ///     {
     ///         Name = "test pipeline",
-    ///         Config = new[]
+    ///         Config = new Datadog.Inputs.ObservabilityPipelineConfigArgs
     ///         {
-    ///             
+    ///             Sources = new[]
     ///             {
-    ///                 { "sources", new[]
+    ///                 new Datadog.Inputs.ObservabilityPipelineConfigSourceArgs
     ///                 {
-    ///                     
+    ///                     Kafka = new[]
     ///                     {
-    ///                         { "kafkas", new[]
+    ///                         
     ///                         {
-    ///                             
+    ///                             { "id", "source-1" },
+    ///                             { "groupId", "my-consumer-group" },
+    ///                             { "topics", new[]
     ///                             {
-    ///                                 { "id", "source-1" },
-    ///                                 { "groupId", "my-consumer-group" },
-    ///                                 { "topics", new[]
+    ///                                 "my-topic-1",
+    ///                                 "my-topic-2",
+    ///                             } },
+    ///                             { "tls", new[]
+    ///                             {
+    ///                                 
     ///                                 {
-    ///                                     "my-topic-1",
-    ///                                     "my-topic-2",
-    ///                                 } },
-    ///                                 { "tls", new[]
+    ///                                     { "crtFile", "/etc/certs/client.crt" },
+    ///                                     { "keyFile", "/etc/certs/client.key" },
+    ///                                     { "caFile", "/etc/certs/ca.crt" },
+    ///                                 },
+    ///                             } },
+    ///                             { "sasl", new[]
+    ///                             {
+    ///                                 
     ///                                 {
-    ///                                     
-    ///                                     {
-    ///                                         { "crtFile", "/etc/certs/client.crt" },
-    ///                                         { "keyFile", "/etc/certs/client.key" },
-    ///                                         { "caFile", "/etc/certs/ca.crt" },
-    ///                                     },
-    ///                                 } },
-    ///                                 { "sasl", new[]
+    ///                                     { "mechanism", "SCRAM-SHA-512" },
+    ///                                 },
+    ///                             } },
+    ///                             { "librdkafkaOption", new[]
+    ///                             {
+    ///                                 
     ///                                 {
-    ///                                     
-    ///                                     {
-    ///                                         { "mechanism", "SCRAM-SHA-512" },
-    ///                                     },
-    ///                                 } },
-    ///                                 { "librdkafkaOptions", new[]
+    ///                                     { "name", "fetch.message.max.bytes" },
+    ///                                     { "value", "1048576" },
+    ///                                 },
+    ///                                 
     ///                                 {
-    ///                                     
-    ///                                     {
-    ///                                         { "name", "fetch.message.max.bytes" },
-    ///                                         { "value", "1048576" },
-    ///                                     },
-    ///                                     
-    ///                                     {
-    ///                                         { "name", "socket.timeout.ms" },
-    ///                                         { "value", "500" },
-    ///                                     },
-    ///                                 } },
-    ///                             },
-    ///                         } },
+    ///                                     { "name", "socket.timeout.ms" },
+    ///                                     { "value", "500" },
+    ///                                 },
+    ///                             } },
+    ///                         },
     ///                     },
-    ///                 } },
-    ///                 { "processors", new[]
+    ///                 },
+    ///             },
+    ///             Processors = new[]
+    ///             {
+    ///                 
     ///                 {
-    ///                     
+    ///                     { "parseJson", new[]
     ///                     {
-    ///                         { "parseJsons", new[]
+    ///                         
     ///                         {
-    ///                             
+    ///                             { "id", "filter-1" },
+    ///                             { "include", "service:nginx" },
+    ///                             { "field", "message2" },
+    ///                             { "inputs", new[]
     ///                             {
-    ///                                 { "id", "filter-1" },
-    ///                                 { "include", "service:nginx" },
-    ///                                 { "field", "message2" },
-    ///                                 { "inputs", new[]
-    ///                                 {
-    ///                                     "source-1",
-    ///                                 } },
-    ///                             },
-    ///                             
-    ///                             {
-    ///                                 { "id", "filter-3" },
-    ///                                 { "include", "service:nginx" },
-    ///                                 { "field", "message" },
-    ///                                 { "inputs", new[]
-    ///                                 {
-    ///                                     "filter-2",
-    ///                                 } },
-    ///                             },
-    ///                         } },
-    ///                         { "filters", new[]
+    ///                                 "source-1",
+    ///                             } },
+    ///                         },
+    ///                         
     ///                         {
-    ///                             
+    ///                             { "id", "filter-3" },
+    ///                             { "include", "service:nginx" },
+    ///                             { "field", "message" },
+    ///                             { "inputs", new[]
     ///                             {
-    ///                                 { "id", "filter-2" },
-    ///                                 { "include", "service:nginx" },
-    ///                                 { "inputs", new[]
-    ///                                 {
-    ///                                     "filter-1",
-    ///                                 } },
-    ///                             },
-    ///                         } },
-    ///                     },
-    ///                 } },
-    ///                 { "destinations", new[]
+    ///                                 "filter-2",
+    ///                             } },
+    ///                         },
+    ///                     } },
+    ///                     { "filter", new[]
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "id", "filter-2" },
+    ///                             { "include", "service:nginx" },
+    ///                             { "inputs", new[]
+    ///                             {
+    ///                                 "filter-1",
+    ///                             } },
+    ///                         },
+    ///                     } },
+    ///                 },
+    ///             },
+    ///             Destinations = new[]
+    ///             {
+    ///                 new Datadog.Inputs.ObservabilityPipelineConfigDestinationArgs
     ///                 {
-    ///                     
+    ///                     DatadogLogs = new[]
     ///                     {
-    ///                         { "datadogLogs", new[]
+    ///                         new Datadog.Inputs.ObservabilityPipelineConfigDestinationDatadogLogArgs
     ///                         {
-    ///                             
+    ///                             Id = "sink-1",
+    ///                             Inputs = new[]
     ///                             {
-    ///                                 { "id", "sink-1" },
-    ///                                 { "inputs", new[]
-    ///                                 {
-    ///                                     "filter-3",
-    ///                                 } },
+    ///                                 "filter-3",
     ///                             },
-    ///                         } },
+    ///                         },
     ///                     },
-    ///                 } },
+    ///                 },
     ///             },
     ///         },
     ///     });

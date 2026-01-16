@@ -3,15 +3,44 @@
 
 package com.pulumi.datadog.inputs;
 
-
+import com.pulumi.core.Output;
+import com.pulumi.core.annotations.Import;
+import java.lang.String;
+import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class CsmThreatsAgentRuleActionHashArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final CsmThreatsAgentRuleActionHashArgs Empty = new CsmThreatsAgentRuleActionHashArgs();
 
+    /**
+     * The field to hash
+     * 
+     */
+    @Import(name="field")
+    private @Nullable Output<String> field;
+
+    /**
+     * @return The field to hash
+     * 
+     */
+    public Optional<Output<String>> field() {
+        return Optional.ofNullable(this.field);
+    }
+
+    private CsmThreatsAgentRuleActionHashArgs() {}
+
+    private CsmThreatsAgentRuleActionHashArgs(CsmThreatsAgentRuleActionHashArgs $) {
+        this.field = $.field;
+    }
+
     public static Builder builder() {
         return new Builder();
+    }
+    public static Builder builder(CsmThreatsAgentRuleActionHashArgs defaults) {
+        return new Builder(defaults);
     }
 
     public static final class Builder {
@@ -20,6 +49,32 @@ public final class CsmThreatsAgentRuleActionHashArgs extends com.pulumi.resource
         public Builder() {
             $ = new CsmThreatsAgentRuleActionHashArgs();
         }
+
+        public Builder(CsmThreatsAgentRuleActionHashArgs defaults) {
+            $ = new CsmThreatsAgentRuleActionHashArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param field The field to hash
+         * 
+         * @return builder
+         * 
+         */
+        public Builder field(@Nullable Output<String> field) {
+            $.field = field;
+            return this;
+        }
+
+        /**
+         * @param field The field to hash
+         * 
+         * @return builder
+         * 
+         */
+        public Builder field(String field) {
+            return field(Output.of(field));
+        }
+
         public CsmThreatsAgentRuleActionHashArgs build() {
             return $;
         }

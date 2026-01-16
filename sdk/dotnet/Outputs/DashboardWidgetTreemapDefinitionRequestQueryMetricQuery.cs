@@ -33,6 +33,10 @@ namespace Pulumi.Datadog.Outputs
         /// The metrics query definition.
         /// </summary>
         public readonly string Query;
+        /// <summary>
+        /// Semantic mode for metrics queries. This determines how metrics from different sources are combined or displayed. Valid values are `Combined`, `Native`.
+        /// </summary>
+        public readonly string? SemanticMode;
 
         [OutputConstructor]
         private DashboardWidgetTreemapDefinitionRequestQueryMetricQuery(
@@ -44,13 +48,16 @@ namespace Pulumi.Datadog.Outputs
 
             string name,
 
-            string query)
+            string query,
+
+            string? semanticMode)
         {
             Aggregator = aggregator;
             CrossOrgUuids = crossOrgUuids;
             DataSource = dataSource;
             Name = name;
             Query = query;
+            SemanticMode = semanticMode;
         }
     }
 }

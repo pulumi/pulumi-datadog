@@ -5,9 +5,10 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationsArgs;
-import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorsArgs;
-import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourcesArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceArgs;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,29 +23,29 @@ public final class ObservabilityPipelineConfigArgs extends com.pulumi.resources.
      * 
      */
     @Import(name="destinations")
-    private @Nullable Output<ObservabilityPipelineConfigDestinationsArgs> destinations;
+    private @Nullable Output<List<ObservabilityPipelineConfigDestinationArgs>> destinations;
 
     /**
      * @return List of destinations.
      * 
      */
-    public Optional<Output<ObservabilityPipelineConfigDestinationsArgs>> destinations() {
+    public Optional<Output<List<ObservabilityPipelineConfigDestinationArgs>>> destinations() {
         return Optional.ofNullable(this.destinations);
     }
 
     /**
-     * List of processors.
+     * A processor group containing common configuration and nested processors.
      * 
      */
-    @Import(name="processors")
-    private @Nullable Output<ObservabilityPipelineConfigProcessorsArgs> processors;
+    @Import(name="processorGroups")
+    private @Nullable Output<List<ObservabilityPipelineConfigProcessorGroupArgs>> processorGroups;
 
     /**
-     * @return List of processors.
+     * @return A processor group containing common configuration and nested processors.
      * 
      */
-    public Optional<Output<ObservabilityPipelineConfigProcessorsArgs>> processors() {
-        return Optional.ofNullable(this.processors);
+    public Optional<Output<List<ObservabilityPipelineConfigProcessorGroupArgs>>> processorGroups() {
+        return Optional.ofNullable(this.processorGroups);
     }
 
     /**
@@ -52,13 +53,13 @@ public final class ObservabilityPipelineConfigArgs extends com.pulumi.resources.
      * 
      */
     @Import(name="sources")
-    private @Nullable Output<ObservabilityPipelineConfigSourcesArgs> sources;
+    private @Nullable Output<List<ObservabilityPipelineConfigSourceArgs>> sources;
 
     /**
      * @return List of sources.
      * 
      */
-    public Optional<Output<ObservabilityPipelineConfigSourcesArgs>> sources() {
+    public Optional<Output<List<ObservabilityPipelineConfigSourceArgs>>> sources() {
         return Optional.ofNullable(this.sources);
     }
 
@@ -66,7 +67,7 @@ public final class ObservabilityPipelineConfigArgs extends com.pulumi.resources.
 
     private ObservabilityPipelineConfigArgs(ObservabilityPipelineConfigArgs $) {
         this.destinations = $.destinations;
-        this.processors = $.processors;
+        this.processorGroups = $.processorGroups;
         this.sources = $.sources;
     }
 
@@ -94,7 +95,7 @@ public final class ObservabilityPipelineConfigArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder destinations(@Nullable Output<ObservabilityPipelineConfigDestinationsArgs> destinations) {
+        public Builder destinations(@Nullable Output<List<ObservabilityPipelineConfigDestinationArgs>> destinations) {
             $.destinations = destinations;
             return this;
         }
@@ -105,29 +106,49 @@ public final class ObservabilityPipelineConfigArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder destinations(ObservabilityPipelineConfigDestinationsArgs destinations) {
+        public Builder destinations(List<ObservabilityPipelineConfigDestinationArgs> destinations) {
             return destinations(Output.of(destinations));
         }
 
         /**
-         * @param processors List of processors.
+         * @param destinations List of destinations.
          * 
          * @return builder
          * 
          */
-        public Builder processors(@Nullable Output<ObservabilityPipelineConfigProcessorsArgs> processors) {
-            $.processors = processors;
+        public Builder destinations(ObservabilityPipelineConfigDestinationArgs... destinations) {
+            return destinations(List.of(destinations));
+        }
+
+        /**
+         * @param processorGroups A processor group containing common configuration and nested processors.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder processorGroups(@Nullable Output<List<ObservabilityPipelineConfigProcessorGroupArgs>> processorGroups) {
+            $.processorGroups = processorGroups;
             return this;
         }
 
         /**
-         * @param processors List of processors.
+         * @param processorGroups A processor group containing common configuration and nested processors.
          * 
          * @return builder
          * 
          */
-        public Builder processors(ObservabilityPipelineConfigProcessorsArgs processors) {
-            return processors(Output.of(processors));
+        public Builder processorGroups(List<ObservabilityPipelineConfigProcessorGroupArgs> processorGroups) {
+            return processorGroups(Output.of(processorGroups));
+        }
+
+        /**
+         * @param processorGroups A processor group containing common configuration and nested processors.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder processorGroups(ObservabilityPipelineConfigProcessorGroupArgs... processorGroups) {
+            return processorGroups(List.of(processorGroups));
         }
 
         /**
@@ -136,7 +157,7 @@ public final class ObservabilityPipelineConfigArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder sources(@Nullable Output<ObservabilityPipelineConfigSourcesArgs> sources) {
+        public Builder sources(@Nullable Output<List<ObservabilityPipelineConfigSourceArgs>> sources) {
             $.sources = sources;
             return this;
         }
@@ -147,8 +168,18 @@ public final class ObservabilityPipelineConfigArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder sources(ObservabilityPipelineConfigSourcesArgs sources) {
+        public Builder sources(List<ObservabilityPipelineConfigSourceArgs> sources) {
             return sources(Output.of(sources));
+        }
+
+        /**
+         * @param sources List of sources.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sources(ObservabilityPipelineConfigSourceArgs... sources) {
+            return sources(List.of(sources));
         }
 
         public ObservabilityPipelineConfigArgs build() {

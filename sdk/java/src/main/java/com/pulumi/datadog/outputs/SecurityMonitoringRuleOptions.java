@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.SecurityMonitoringRuleOptionsAnomalyDetectionOptions;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleOptionsImpossibleTravelOptions;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleOptionsNewValueOptions;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleOptionsSequenceDetectionOptions;
@@ -17,6 +18,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SecurityMonitoringRuleOptions {
+    /**
+     * @return Options for rules using the anomaly detection method.
+     * 
+     */
+    private @Nullable SecurityMonitoringRuleOptionsAnomalyDetectionOptions anomalyDetectionOptions;
     /**
      * @return If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`. Defaults to `false`.
      * 
@@ -64,6 +70,13 @@ public final class SecurityMonitoringRuleOptions {
     private @Nullable SecurityMonitoringRuleOptionsThirdPartyRuleOptions thirdPartyRuleOptions;
 
     private SecurityMonitoringRuleOptions() {}
+    /**
+     * @return Options for rules using the anomaly detection method.
+     * 
+     */
+    public Optional<SecurityMonitoringRuleOptionsAnomalyDetectionOptions> anomalyDetectionOptions() {
+        return Optional.ofNullable(this.anomalyDetectionOptions);
+    }
     /**
      * @return If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`. Defaults to `false`.
      * 
@@ -137,6 +150,7 @@ public final class SecurityMonitoringRuleOptions {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable SecurityMonitoringRuleOptionsAnomalyDetectionOptions anomalyDetectionOptions;
         private @Nullable Boolean decreaseCriticalityBasedOnEnv;
         private @Nullable String detectionMethod;
         private @Nullable Integer evaluationWindow;
@@ -149,6 +163,7 @@ public final class SecurityMonitoringRuleOptions {
         public Builder() {}
         public Builder(SecurityMonitoringRuleOptions defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.anomalyDetectionOptions = defaults.anomalyDetectionOptions;
     	      this.decreaseCriticalityBasedOnEnv = defaults.decreaseCriticalityBasedOnEnv;
     	      this.detectionMethod = defaults.detectionMethod;
     	      this.evaluationWindow = defaults.evaluationWindow;
@@ -160,6 +175,12 @@ public final class SecurityMonitoringRuleOptions {
     	      this.thirdPartyRuleOptions = defaults.thirdPartyRuleOptions;
         }
 
+        @CustomType.Setter
+        public Builder anomalyDetectionOptions(@Nullable SecurityMonitoringRuleOptionsAnomalyDetectionOptions anomalyDetectionOptions) {
+
+            this.anomalyDetectionOptions = anomalyDetectionOptions;
+            return this;
+        }
         @CustomType.Setter
         public Builder decreaseCriticalityBasedOnEnv(@Nullable Boolean decreaseCriticalityBasedOnEnv) {
 
@@ -216,6 +237,7 @@ public final class SecurityMonitoringRuleOptions {
         }
         public SecurityMonitoringRuleOptions build() {
             final var _resultValue = new SecurityMonitoringRuleOptions();
+            _resultValue.anomalyDetectionOptions = anomalyDetectionOptions;
             _resultValue.decreaseCriticalityBasedOnEnv = decreaseCriticalityBasedOnEnv;
             _resultValue.detectionMethod = detectionMethod;
             _resultValue.evaluationWindow = evaluationWindow;

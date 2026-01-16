@@ -12,6 +12,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Datadog Logs Index API resource. This can be used to create and manage Datadog logs indexes.
+//
 // ## Example Usage
 //
 // ```go

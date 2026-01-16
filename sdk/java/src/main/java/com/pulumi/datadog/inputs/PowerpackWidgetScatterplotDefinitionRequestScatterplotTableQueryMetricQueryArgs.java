@@ -91,6 +91,21 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
         return this.query;
     }
 
+    /**
+     * Semantic mode for metrics queries. This determines how metrics from different sources are combined or displayed. Valid values are `combined`, `native`.
+     * 
+     */
+    @Import(name="semanticMode")
+    private @Nullable Output<String> semanticMode;
+
+    /**
+     * @return Semantic mode for metrics queries. This determines how metrics from different sources are combined or displayed. Valid values are `combined`, `native`.
+     * 
+     */
+    public Optional<Output<String>> semanticMode() {
+        return Optional.ofNullable(this.semanticMode);
+    }
+
     private PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQueryArgs() {}
 
     private PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQueryArgs(PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQueryArgs $) {
@@ -99,6 +114,7 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
         this.dataSource = $.dataSource;
         this.name = $.name;
         this.query = $.query;
+        this.semanticMode = $.semanticMode;
     }
 
     public static Builder builder() {
@@ -222,6 +238,27 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
          */
         public Builder query(String query) {
             return query(Output.of(query));
+        }
+
+        /**
+         * @param semanticMode Semantic mode for metrics queries. This determines how metrics from different sources are combined or displayed. Valid values are `combined`, `native`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder semanticMode(@Nullable Output<String> semanticMode) {
+            $.semanticMode = semanticMode;
+            return this;
+        }
+
+        /**
+         * @param semanticMode Semantic mode for metrics queries. This determines how metrics from different sources are combined or displayed. Valid values are `combined`, `native`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder semanticMode(String semanticMode) {
+            return semanticMode(Output.of(semanticMode));
         }
 
         public PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQueryArgs build() {

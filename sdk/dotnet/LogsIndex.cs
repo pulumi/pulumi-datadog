@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
+    /// Provides a Datadog Logs Index API resource. This can be used to create and manage Datadog logs indexes.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

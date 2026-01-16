@@ -186,6 +186,20 @@ public class CsmThreatsAgentRule extends com.pulumi.resources.CustomResource {
     public Output<List<String>> productTags() {
         return this.productTags;
     }
+    /**
+     * Indicates whether the Agent rule is silent.
+     * 
+     */
+    @Export(name="silent", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> silent;
+
+    /**
+     * @return Indicates whether the Agent rule is silent.
+     * 
+     */
+    public Output<Boolean> silent() {
+        return this.silent;
+    }
 
     /**
      *

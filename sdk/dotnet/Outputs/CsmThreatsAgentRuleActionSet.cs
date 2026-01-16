@@ -36,7 +36,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The name of the set action
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// The scope of the set action (process, container, cgroup, or empty)
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.Datadog.Outputs
 
             bool? inherited,
 
-            string name,
+            string? name,
 
             string? scope,
 

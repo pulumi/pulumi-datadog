@@ -4,11 +4,18 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class GetCsmThreatsAgentRulesAgentRuleActionHash {
+    private String field;
+
     private GetCsmThreatsAgentRulesAgentRuleActionHash() {}
+    public String field() {
+        return this.field;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -19,13 +26,24 @@ public final class GetCsmThreatsAgentRulesAgentRuleActionHash {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String field;
         public Builder() {}
         public Builder(GetCsmThreatsAgentRulesAgentRuleActionHash defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.field = defaults.field;
         }
 
+        @CustomType.Setter
+        public Builder field(String field) {
+            if (field == null) {
+              throw new MissingRequiredPropertyException("GetCsmThreatsAgentRulesAgentRuleActionHash", "field");
+            }
+            this.field = field;
+            return this;
+        }
         public GetCsmThreatsAgentRulesAgentRuleActionHash build() {
             final var _resultValue = new GetCsmThreatsAgentRulesAgentRuleActionHash();
+            _resultValue.field = field;
             return _resultValue;
         }
     }

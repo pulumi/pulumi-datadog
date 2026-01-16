@@ -34,6 +34,7 @@ from .dashboard import *
 from .dashboard_json import *
 from .dashboard_list import *
 from .dataset import *
+from .deployment_gate import *
 from .domain_allowlist import *
 from .downtime import *
 from .downtime_schedule import *
@@ -552,6 +553,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/dataset:Dataset": "Dataset"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/deploymentGate",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/deploymentGate:DeploymentGate": "DeploymentGate"
   }
  },
  {

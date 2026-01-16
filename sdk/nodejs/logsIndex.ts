@@ -7,6 +7,8 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * Provides a Datadog Logs Index API resource. This can be used to create and manage Datadog logs indexes.
+ *
  * ## Example Usage
  *
  * ```typescript

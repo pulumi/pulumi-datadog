@@ -22,6 +22,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides a Datadog Logs Index API resource. This can be used to create and manage Datadog logs indexes.
+ * 
  * ## Example Usage
  * 
  * <pre>

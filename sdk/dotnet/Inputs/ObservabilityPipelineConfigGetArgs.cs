@@ -12,23 +12,41 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ObservabilityPipelineConfigGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("destinations")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationGetArgs>? _destinations;
+
         /// <summary>
         /// List of destinations.
         /// </summary>
-        [Input("destinations")]
-        public Input<Inputs.ObservabilityPipelineConfigDestinationsGetArgs>? Destinations { get; set; }
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationGetArgs> Destinations
+        {
+            get => _destinations ?? (_destinations = new InputList<Inputs.ObservabilityPipelineConfigDestinationGetArgs>());
+            set => _destinations = value;
+        }
+
+        [Input("processorGroups")]
+        private InputList<Inputs.ObservabilityPipelineConfigProcessorGroupGetArgs>? _processorGroups;
 
         /// <summary>
-        /// List of processors.
+        /// A processor group containing common configuration and nested processors.
         /// </summary>
-        [Input("processors")]
-        public Input<Inputs.ObservabilityPipelineConfigProcessorsGetArgs>? Processors { get; set; }
+        public InputList<Inputs.ObservabilityPipelineConfigProcessorGroupGetArgs> ProcessorGroups
+        {
+            get => _processorGroups ?? (_processorGroups = new InputList<Inputs.ObservabilityPipelineConfigProcessorGroupGetArgs>());
+            set => _processorGroups = value;
+        }
+
+        [Input("sources")]
+        private InputList<Inputs.ObservabilityPipelineConfigSourceGetArgs>? _sources;
 
         /// <summary>
         /// List of sources.
         /// </summary>
-        [Input("sources")]
-        public Input<Inputs.ObservabilityPipelineConfigSourcesGetArgs>? Sources { get; set; }
+        public InputList<Inputs.ObservabilityPipelineConfigSourceGetArgs> Sources
+        {
+            get => _sources ?? (_sources = new InputList<Inputs.ObservabilityPipelineConfigSourceGetArgs>());
+            set => _sources = value;
+        }
 
         public ObservabilityPipelineConfigGetArgs()
         {

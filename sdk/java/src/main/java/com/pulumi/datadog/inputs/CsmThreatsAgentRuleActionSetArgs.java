@@ -5,7 +5,6 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -97,15 +96,15 @@ public final class CsmThreatsAgentRuleActionSetArgs extends com.pulumi.resources
      * The name of the set action
      * 
      */
-    @Import(name="name", required=true)
-    private Output<String> name;
+    @Import(name="name")
+    private @Nullable Output<String> name;
 
     /**
      * @return The name of the set action
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
     }
 
     /**
@@ -312,7 +311,7 @@ public final class CsmThreatsAgentRuleActionSetArgs extends com.pulumi.resources
          * @return builder
          * 
          */
-        public Builder name(Output<String> name) {
+        public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
@@ -412,9 +411,6 @@ public final class CsmThreatsAgentRuleActionSetArgs extends com.pulumi.resources
         }
 
         public CsmThreatsAgentRuleActionSetArgs build() {
-            if ($.name == null) {
-                throw new MissingRequiredPropertyException("CsmThreatsAgentRuleActionSetArgs", "name");
-            }
             return $;
         }
     }

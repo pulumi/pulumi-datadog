@@ -12,23 +12,41 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ObservabilityPipelineConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("destinations")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationArgs>? _destinations;
+
         /// <summary>
         /// List of destinations.
         /// </summary>
-        [Input("destinations")]
-        public Input<Inputs.ObservabilityPipelineConfigDestinationsArgs>? Destinations { get; set; }
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationArgs> Destinations
+        {
+            get => _destinations ?? (_destinations = new InputList<Inputs.ObservabilityPipelineConfigDestinationArgs>());
+            set => _destinations = value;
+        }
+
+        [Input("processorGroups")]
+        private InputList<Inputs.ObservabilityPipelineConfigProcessorGroupArgs>? _processorGroups;
 
         /// <summary>
-        /// List of processors.
+        /// A processor group containing common configuration and nested processors.
         /// </summary>
-        [Input("processors")]
-        public Input<Inputs.ObservabilityPipelineConfigProcessorsArgs>? Processors { get; set; }
+        public InputList<Inputs.ObservabilityPipelineConfigProcessorGroupArgs> ProcessorGroups
+        {
+            get => _processorGroups ?? (_processorGroups = new InputList<Inputs.ObservabilityPipelineConfigProcessorGroupArgs>());
+            set => _processorGroups = value;
+        }
+
+        [Input("sources")]
+        private InputList<Inputs.ObservabilityPipelineConfigSourceArgs>? _sources;
 
         /// <summary>
         /// List of sources.
         /// </summary>
-        [Input("sources")]
-        public Input<Inputs.ObservabilityPipelineConfigSourcesArgs>? Sources { get; set; }
+        public InputList<Inputs.ObservabilityPipelineConfigSourceArgs> Sources
+        {
+            get => _sources ?? (_sources = new InputList<Inputs.ObservabilityPipelineConfigSourceArgs>());
+            set => _sources = value;
+        }
 
         public ObservabilityPipelineConfigArgs()
         {

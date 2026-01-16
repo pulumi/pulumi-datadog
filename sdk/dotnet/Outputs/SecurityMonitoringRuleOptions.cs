@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SecurityMonitoringRuleOptions
     {
         /// <summary>
+        /// Options for rules using the anomaly detection method.
+        /// </summary>
+        public readonly Outputs.SecurityMonitoringRuleOptionsAnomalyDetectionOptions? AnomalyDetectionOptions;
+        /// <summary>
         /// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `Staging`, `Test`, or `Dev`. Only available when the rule type is `LogDetection`. Defaults to `False`.
         /// </summary>
         public readonly bool? DecreaseCriticalityBasedOnEnv;
@@ -52,6 +56,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private SecurityMonitoringRuleOptions(
+            Outputs.SecurityMonitoringRuleOptionsAnomalyDetectionOptions? anomalyDetectionOptions,
+
             bool? decreaseCriticalityBasedOnEnv,
 
             string? detectionMethod,
@@ -70,6 +76,7 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.SecurityMonitoringRuleOptionsThirdPartyRuleOptions? thirdPartyRuleOptions)
         {
+            AnomalyDetectionOptions = anomalyDetectionOptions;
             DecreaseCriticalityBasedOnEnv = decreaseCriticalityBasedOnEnv;
             DetectionMethod = detectionMethod;
             EvaluationWindow = evaluationWindow;

@@ -106,6 +106,10 @@ export class CsmThreatsAgentRule extends pulumi.CustomResource {
      * The list of product tags associated with the rule
      */
     declare public readonly productTags: pulumi.Output<string[]>;
+    /**
+     * Indicates whether the Agent rule is silent.
+     */
+    declare public readonly silent: pulumi.Output<boolean>;
 
     /**
      * Create a CsmThreatsAgentRule resource with the given unique name, arguments, and options.
@@ -127,6 +131,7 @@ export class CsmThreatsAgentRule extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["policyId"] = state?.policyId;
             resourceInputs["productTags"] = state?.productTags;
+            resourceInputs["silent"] = state?.silent;
         } else {
             const args = argsOrState as CsmThreatsAgentRuleArgs | undefined;
             if (args?.expression === undefined && !opts.urn) {
@@ -142,6 +147,7 @@ export class CsmThreatsAgentRule extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["policyId"] = args?.policyId;
             resourceInputs["productTags"] = args?.productTags;
+            resourceInputs["silent"] = args?.silent;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CsmThreatsAgentRule.__pulumiType, name, resourceInputs, opts);
@@ -180,6 +186,10 @@ export interface CsmThreatsAgentRuleState {
      * The list of product tags associated with the rule
      */
     productTags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Indicates whether the Agent rule is silent.
+     */
+    silent?: pulumi.Input<boolean>;
 }
 
 /**
@@ -214,4 +224,8 @@ export interface CsmThreatsAgentRuleArgs {
      * The list of product tags associated with the rule
      */
     productTags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Indicates whether the Agent rule is silent.
+     */
+    silent?: pulumi.Input<boolean>;
 }

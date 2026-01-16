@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -18,6 +19,11 @@ public final class GetSecurityMonitoringRulesRuleOptionsNewValueOptions {
      * 
      */
     private Integer forgetAfter;
+    /**
+     * @return When set to true, Datadog uses previous values that fall within the defined learning window to construct the baseline, enabling the system to establish an accurate baseline more rapidly rather than relying solely on gradual learning over time.
+     * 
+     */
+    private @Nullable Boolean instantaneousBaseline;
     /**
      * @return The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned.
      * 
@@ -41,6 +47,13 @@ public final class GetSecurityMonitoringRulesRuleOptionsNewValueOptions {
      */
     public Integer forgetAfter() {
         return this.forgetAfter;
+    }
+    /**
+     * @return When set to true, Datadog uses previous values that fall within the defined learning window to construct the baseline, enabling the system to establish an accurate baseline more rapidly rather than relying solely on gradual learning over time.
+     * 
+     */
+    public Optional<Boolean> instantaneousBaseline() {
+        return Optional.ofNullable(this.instantaneousBaseline);
     }
     /**
      * @return The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned.
@@ -74,6 +87,7 @@ public final class GetSecurityMonitoringRulesRuleOptionsNewValueOptions {
     @CustomType.Builder
     public static final class Builder {
         private Integer forgetAfter;
+        private @Nullable Boolean instantaneousBaseline;
         private @Nullable Integer learningDuration;
         private @Nullable String learningMethod;
         private @Nullable Integer learningThreshold;
@@ -81,6 +95,7 @@ public final class GetSecurityMonitoringRulesRuleOptionsNewValueOptions {
         public Builder(GetSecurityMonitoringRulesRuleOptionsNewValueOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.forgetAfter = defaults.forgetAfter;
+    	      this.instantaneousBaseline = defaults.instantaneousBaseline;
     	      this.learningDuration = defaults.learningDuration;
     	      this.learningMethod = defaults.learningMethod;
     	      this.learningThreshold = defaults.learningThreshold;
@@ -92,6 +107,12 @@ public final class GetSecurityMonitoringRulesRuleOptionsNewValueOptions {
               throw new MissingRequiredPropertyException("GetSecurityMonitoringRulesRuleOptionsNewValueOptions", "forgetAfter");
             }
             this.forgetAfter = forgetAfter;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder instantaneousBaseline(@Nullable Boolean instantaneousBaseline) {
+
+            this.instantaneousBaseline = instantaneousBaseline;
             return this;
         }
         @CustomType.Setter
@@ -115,6 +136,7 @@ public final class GetSecurityMonitoringRulesRuleOptionsNewValueOptions {
         public GetSecurityMonitoringRulesRuleOptionsNewValueOptions build() {
             final var _resultValue = new GetSecurityMonitoringRulesRuleOptionsNewValueOptions();
             _resultValue.forgetAfter = forgetAfter;
+            _resultValue.instantaneousBaseline = instantaneousBaseline;
             _resultValue.learningDuration = learningDuration;
             _resultValue.learningMethod = learningMethod;
             _resultValue.learningThreshold = learningThreshold;
