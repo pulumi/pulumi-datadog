@@ -86,6 +86,10 @@ export interface GetServiceLevelObjectiveResult {
      */
     readonly queries: outputs.GetServiceLevelObjectiveQuery[];
     /**
+     * List of tags associated with the service level objective.
+     */
+    readonly tags: string[];
+    /**
      * Filter results based on a single SLO tag.
      */
     readonly tagsQuery?: string;

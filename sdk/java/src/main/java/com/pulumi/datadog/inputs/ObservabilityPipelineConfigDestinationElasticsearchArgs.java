@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationElasticsearchDataStreamArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -45,11 +46,27 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchArgs exten
         return Optional.ofNullable(this.bulkIndex);
     }
 
+    /**
+     * Configuration options for writing to Elasticsearch Data Streams instead of a fixed index.
+     * 
+     */
+    @Import(name="dataStream")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationElasticsearchDataStreamArgs> dataStream;
+
+    /**
+     * @return Configuration options for writing to Elasticsearch Data Streams instead of a fixed index.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationElasticsearchDataStreamArgs>> dataStream() {
+        return Optional.ofNullable(this.dataStream);
+    }
+
     private ObservabilityPipelineConfigDestinationElasticsearchArgs() {}
 
     private ObservabilityPipelineConfigDestinationElasticsearchArgs(ObservabilityPipelineConfigDestinationElasticsearchArgs $) {
         this.apiVersion = $.apiVersion;
         this.bulkIndex = $.bulkIndex;
+        this.dataStream = $.dataStream;
     }
 
     public static Builder builder() {
@@ -110,6 +127,27 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchArgs exten
          */
         public Builder bulkIndex(String bulkIndex) {
             return bulkIndex(Output.of(bulkIndex));
+        }
+
+        /**
+         * @param dataStream Configuration options for writing to Elasticsearch Data Streams instead of a fixed index.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataStream(@Nullable Output<ObservabilityPipelineConfigDestinationElasticsearchDataStreamArgs> dataStream) {
+            $.dataStream = dataStream;
+            return this;
+        }
+
+        /**
+         * @param dataStream Configuration options for writing to Elasticsearch Data Streams instead of a fixed index.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataStream(ObservabilityPipelineConfigDestinationElasticsearchDataStreamArgs dataStream) {
+            return dataStream(Output.of(dataStream));
         }
 
         public ObservabilityPipelineConfigDestinationElasticsearchArgs build() {

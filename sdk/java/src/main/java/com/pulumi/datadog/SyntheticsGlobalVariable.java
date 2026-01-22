@@ -21,45 +21,6 @@ import javax.annotation.Nullable;
 /**
  * Provides a Datadog synthetics global variable resource. This can be used to create and manage Datadog synthetics global variables.
  * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.datadog.SyntheticsGlobalVariable;
- * import com.pulumi.datadog.SyntheticsGlobalVariableArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         // Create new synthetics_global_variable resource
- *         var testVariable = new SyntheticsGlobalVariable("testVariable", SyntheticsGlobalVariableArgs.builder()
- *             .name("EXAMPLE_VARIABLE")
- *             .description("Description of the variable")
- *             .tags(            
- *                 "foo:bar",
- *                 "env:test")
- *             .value("variable-value")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:
@@ -218,18 +179,48 @@ public class SyntheticsGlobalVariable extends com.pulumi.resources.CustomResourc
         return this.tags;
     }
     /**
-     * The value of the global variable. Required unless `isFido` is set to `true`.
+     * The value of the global variable. Required unless `isFido` is set to `true` or `valueWo` is used
      * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> value;
 
     /**
-     * @return The value of the global variable. Required unless `isFido` is set to `true`.
+     * @return The value of the global variable. Required unless `isFido` is set to `true` or `valueWo` is used
      * 
      */
     public Output<Optional<String>> value() {
         return Codegen.optional(this.value);
+    }
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only value of the global variable. Must be used with `valueWoVersion`.
+     * 
+     */
+    @Export(name="valueWo", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> valueWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only value of the global variable. Must be used with `valueWoVersion`.
+     * 
+     */
+    public Output<Optional<String>> valueWo() {
+        return Codegen.optional(this.valueWo);
+    }
+    /**
+     * Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., &#39;1&#39;, &#39;v2.1&#39;, &#39;2024-Q1&#39;). String length must be at least 1.
+     * 
+     */
+    @Export(name="valueWoVersion", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> valueWoVersion;
+
+    /**
+     * @return Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., &#39;1&#39;, &#39;v2.1&#39;, &#39;2024-Q1&#39;). String length must be at least 1.
+     * 
+     */
+    public Output<Optional<String>> valueWoVersion() {
+        return Codegen.optional(this.valueWoVersion);
     }
 
     /**
@@ -272,7 +263,8 @@ public class SyntheticsGlobalVariable extends com.pulumi.resources.CustomResourc
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "value"
+                "value",
+                "valueWo"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,6 +13,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetEventTimelineDefinition {
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    private @Nullable Boolean hideIncompleteCostData;
     /**
      * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      * 
@@ -44,6 +50,13 @@ public final class DashboardWidgetEventTimelineDefinition {
     private @Nullable String titleSize;
 
     private DashboardWidgetEventTimelineDefinition() {}
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Boolean> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
+    }
     /**
      * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      * 
@@ -96,6 +109,7 @@ public final class DashboardWidgetEventTimelineDefinition {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String liveSpan;
         private String query;
         private @Nullable String tagsExecution;
@@ -105,6 +119,7 @@ public final class DashboardWidgetEventTimelineDefinition {
         public Builder() {}
         public Builder(DashboardWidgetEventTimelineDefinition defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.liveSpan = defaults.liveSpan;
     	      this.query = defaults.query;
     	      this.tagsExecution = defaults.tagsExecution;
@@ -113,6 +128,12 @@ public final class DashboardWidgetEventTimelineDefinition {
     	      this.titleSize = defaults.titleSize;
         }
 
+        @CustomType.Setter
+        public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
+
+            this.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
+        }
         @CustomType.Setter
         public Builder liveSpan(@Nullable String liveSpan) {
 
@@ -153,6 +174,7 @@ public final class DashboardWidgetEventTimelineDefinition {
         }
         public DashboardWidgetEventTimelineDefinition build() {
             final var _resultValue = new DashboardWidgetEventTimelineDefinition();
+            _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.liveSpan = liveSpan;
             _resultValue.query = query;
             _resultValue.tagsExecution = tagsExecution;

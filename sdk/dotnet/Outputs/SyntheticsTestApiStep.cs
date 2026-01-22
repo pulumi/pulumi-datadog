@@ -79,7 +79,11 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableDictionary<string, string>? RequestQuery;
         public readonly Outputs.SyntheticsTestApiStepRetry? Retry;
         /// <summary>
-        /// The subtype of the Synthetic multistep API test step. Valid values are `Http`, `Grpc`, `Ssl`, `Dns`, `Tcp`, `Udp`, `Icmp`, `Websocket`, `Wait`. Defaults to `"http"`.
+        /// Public ID of the test to be played as part of a `playSubTest` step type.
+        /// </summary>
+        public readonly string? SubtestPublicId;
+        /// <summary>
+        /// The subtype of the Synthetic multistep API test step. Valid values are `Http`, `Grpc`, `Ssl`, `Dns`, `Tcp`, `Udp`, `Icmp`, `Websocket`, `Wait`, `playSubTest`. Defaults to `"http"`.
         /// </summary>
         public readonly string? Subtype;
         /// <summary>
@@ -123,6 +127,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.SyntheticsTestApiStepRetry? retry,
 
+            string? subtestPublicId,
+
             string? subtype,
 
             int? value)
@@ -144,6 +150,7 @@ namespace Pulumi.Datadog.Outputs
             RequestProxy = requestProxy;
             RequestQuery = requestQuery;
             Retry = retry;
+            SubtestPublicId = subtestPublicId;
             Subtype = subtype;
             Value = value;
         }

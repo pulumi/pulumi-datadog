@@ -36,6 +36,12 @@ namespace Pulumi.Datadog.Inputs
             set => _events = value;
         }
 
+        /// <summary>
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        [Input("hideIncompleteCostData")]
+        public Input<bool>? HideIncompleteCostData { get; set; }
+
         [Input("legendColumns")]
         private InputList<string>? _legendColumns;
 

@@ -14,39 +14,6 @@ import (
 
 // Provides a Datadog synthetics global variable resource. This can be used to create and manage Datadog synthetics global variables.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Create new synthetics_global_variable resource
-//			_, err := datadog.NewSyntheticsGlobalVariable(ctx, "test_variable", &datadog.SyntheticsGlobalVariableArgs{
-//				Name:        pulumi.String("EXAMPLE_VARIABLE"),
-//				Description: pulumi.String("Description of the variable"),
-//				Tags: pulumi.StringArray{
-//					pulumi.String("foo:bar"),
-//					pulumi.String("env:test"),
-//				},
-//				Value: pulumi.String("variable-value"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // The `pulumi import` command can be used, for example:
@@ -81,8 +48,13 @@ type SyntheticsGlobalVariable struct {
 	Secure pulumi.BoolOutput `pulumi:"secure"`
 	// A list of tags to associate with your synthetics global variable.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
-	// The value of the global variable. Required unless `isFido` is set to `true`.
+	// The value of the global variable. Required unless `isFido` is set to `true` or `valueWo` is used
 	Value pulumi.StringPtrOutput `pulumi:"value"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only value of the global variable. Must be used with `valueWoVersion`.
+	ValueWo pulumi.StringPtrOutput `pulumi:"valueWo"`
+	// Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., '1', 'v2.1', '2024-Q1'). String length must be at least 1.
+	ValueWoVersion pulumi.StringPtrOutput `pulumi:"valueWoVersion"`
 }
 
 // NewSyntheticsGlobalVariable registers a new resource with the given unique name, arguments, and options.
@@ -98,8 +70,12 @@ func NewSyntheticsGlobalVariable(ctx *pulumi.Context,
 	if args.Value != nil {
 		args.Value = pulumi.ToSecret(args.Value).(pulumi.StringPtrInput)
 	}
+	if args.ValueWo != nil {
+		args.ValueWo = pulumi.ToSecret(args.ValueWo).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"value",
+		"valueWo",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -147,8 +123,13 @@ type syntheticsGlobalVariableState struct {
 	Secure *bool `pulumi:"secure"`
 	// A list of tags to associate with your synthetics global variable.
 	Tags []string `pulumi:"tags"`
-	// The value of the global variable. Required unless `isFido` is set to `true`.
+	// The value of the global variable. Required unless `isFido` is set to `true` or `valueWo` is used
 	Value *string `pulumi:"value"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only value of the global variable. Must be used with `valueWoVersion`.
+	ValueWo *string `pulumi:"valueWo"`
+	// Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., '1', 'v2.1', '2024-Q1'). String length must be at least 1.
+	ValueWoVersion *string `pulumi:"valueWoVersion"`
 }
 
 type SyntheticsGlobalVariableState struct {
@@ -174,8 +155,13 @@ type SyntheticsGlobalVariableState struct {
 	Secure pulumi.BoolPtrInput
 	// A list of tags to associate with your synthetics global variable.
 	Tags pulumi.StringArrayInput
-	// The value of the global variable. Required unless `isFido` is set to `true`.
+	// The value of the global variable. Required unless `isFido` is set to `true` or `valueWo` is used
 	Value pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only value of the global variable. Must be used with `valueWoVersion`.
+	ValueWo pulumi.StringPtrInput
+	// Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., '1', 'v2.1', '2024-Q1'). String length must be at least 1.
+	ValueWoVersion pulumi.StringPtrInput
 }
 
 func (SyntheticsGlobalVariableState) ElementType() reflect.Type {
@@ -205,8 +191,13 @@ type syntheticsGlobalVariableArgs struct {
 	Secure *bool `pulumi:"secure"`
 	// A list of tags to associate with your synthetics global variable.
 	Tags []string `pulumi:"tags"`
-	// The value of the global variable. Required unless `isFido` is set to `true`.
+	// The value of the global variable. Required unless `isFido` is set to `true` or `valueWo` is used
 	Value *string `pulumi:"value"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only value of the global variable. Must be used with `valueWoVersion`.
+	ValueWo *string `pulumi:"valueWo"`
+	// Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., '1', 'v2.1', '2024-Q1'). String length must be at least 1.
+	ValueWoVersion *string `pulumi:"valueWoVersion"`
 }
 
 // The set of arguments for constructing a SyntheticsGlobalVariable resource.
@@ -233,8 +224,13 @@ type SyntheticsGlobalVariableArgs struct {
 	Secure pulumi.BoolPtrInput
 	// A list of tags to associate with your synthetics global variable.
 	Tags pulumi.StringArrayInput
-	// The value of the global variable. Required unless `isFido` is set to `true`.
+	// The value of the global variable. Required unless `isFido` is set to `true` or `valueWo` is used
 	Value pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only value of the global variable. Must be used with `valueWoVersion`.
+	ValueWo pulumi.StringPtrInput
+	// Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., '1', 'v2.1', '2024-Q1'). String length must be at least 1.
+	ValueWoVersion pulumi.StringPtrInput
 }
 
 func (SyntheticsGlobalVariableArgs) ElementType() reflect.Type {
@@ -378,9 +374,20 @@ func (o SyntheticsGlobalVariableOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// The value of the global variable. Required unless `isFido` is set to `true`.
+// The value of the global variable. Required unless `isFido` is set to `true` or `valueWo` is used
 func (o SyntheticsGlobalVariableOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.StringPtrOutput { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// Write-only value of the global variable. Must be used with `valueWoVersion`.
+func (o SyntheticsGlobalVariableOutput) ValueWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.StringPtrOutput { return v.ValueWo }).(pulumi.StringPtrOutput)
+}
+
+// Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., '1', 'v2.1', '2024-Q1'). String length must be at least 1.
+func (o SyntheticsGlobalVariableOutput) ValueWoVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariable) pulumi.StringPtrOutput { return v.ValueWoVersion }).(pulumi.StringPtrOutput)
 }
 
 type SyntheticsGlobalVariableArrayOutput struct{ *pulumi.OutputState }

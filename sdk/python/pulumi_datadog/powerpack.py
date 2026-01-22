@@ -33,7 +33,7 @@ class PowerpackArgs:
         The set of arguments for constructing a Powerpack resource.
         :param pulumi.Input[_builtins.str] description: The description of the powerpack.
         :param pulumi.Input['PowerpackLayoutArgs'] layout: The layout of the powerpack on a free-form dashboard.
-        :param pulumi.Input[_builtins.str] live_span: The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+        :param pulumi.Input[_builtins.str] live_span: The timeframe to use when displaying the powerpack. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
         :param pulumi.Input[_builtins.str] name: The name for the powerpack.
         :param pulumi.Input[_builtins.bool] show_title: Whether or not title should be displayed in the powerpack.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of tags to identify this powerpack.
@@ -85,7 +85,7 @@ class PowerpackArgs:
     @pulumi.getter(name="liveSpan")
     def live_span(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+        The timeframe to use when displaying the powerpack. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
         """
         return pulumi.get(self, "live_span")
 
@@ -169,7 +169,7 @@ class _PowerpackState:
         Input properties used for looking up and filtering Powerpack resources.
         :param pulumi.Input[_builtins.str] description: The description of the powerpack.
         :param pulumi.Input['PowerpackLayoutArgs'] layout: The layout of the powerpack on a free-form dashboard.
-        :param pulumi.Input[_builtins.str] live_span: The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+        :param pulumi.Input[_builtins.str] live_span: The timeframe to use when displaying the powerpack. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
         :param pulumi.Input[_builtins.str] name: The name for the powerpack.
         :param pulumi.Input[_builtins.bool] show_title: Whether or not title should be displayed in the powerpack.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of tags to identify this powerpack.
@@ -221,7 +221,7 @@ class _PowerpackState:
     @pulumi.getter(name="liveSpan")
     def live_span(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+        The timeframe to use when displaying the powerpack. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
         """
         return pulumi.get(self, "live_span")
 
@@ -351,7 +351,7 @@ class Powerpack(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the powerpack.
         :param pulumi.Input[Union['PowerpackLayoutArgs', 'PowerpackLayoutArgsDict']] layout: The layout of the powerpack on a free-form dashboard.
-        :param pulumi.Input[_builtins.str] live_span: The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+        :param pulumi.Input[_builtins.str] live_span: The timeframe to use when displaying the powerpack. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
         :param pulumi.Input[_builtins.str] name: The name for the powerpack.
         :param pulumi.Input[_builtins.bool] show_title: Whether or not title should be displayed in the powerpack.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of tags to identify this powerpack.
@@ -473,7 +473,7 @@ class Powerpack(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the powerpack.
         :param pulumi.Input[Union['PowerpackLayoutArgs', 'PowerpackLayoutArgsDict']] layout: The layout of the powerpack on a free-form dashboard.
-        :param pulumi.Input[_builtins.str] live_span: The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+        :param pulumi.Input[_builtins.str] live_span: The timeframe to use when displaying the powerpack. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
         :param pulumi.Input[_builtins.str] name: The name for the powerpack.
         :param pulumi.Input[_builtins.bool] show_title: Whether or not title should be displayed in the powerpack.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of tags to identify this powerpack.
@@ -514,7 +514,7 @@ class Powerpack(pulumi.CustomResource):
     @pulumi.getter(name="liveSpan")
     def live_span(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+        The timeframe to use when displaying the powerpack. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
         """
         return pulumi.get(self, "live_span")
 

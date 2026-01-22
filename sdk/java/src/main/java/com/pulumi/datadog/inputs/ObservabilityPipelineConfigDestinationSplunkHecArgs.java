@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -35,15 +36,15 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
      * Encoding format for log events. Valid values: `json`, `rawMessage`.
      * 
      */
-    @Import(name="encoding")
-    private @Nullable Output<String> encoding;
+    @Import(name="encoding", required=true)
+    private Output<String> encoding;
 
     /**
      * @return Encoding format for log events. Valid values: `json`, `rawMessage`.
      * 
      */
-    public Optional<Output<String>> encoding() {
-        return Optional.ofNullable(this.encoding);
+    public Output<String> encoding() {
+        return this.encoding;
     }
 
     /**
@@ -130,7 +131,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
          * @return builder
          * 
          */
-        public Builder encoding(@Nullable Output<String> encoding) {
+        public Builder encoding(Output<String> encoding) {
             $.encoding = encoding;
             return this;
         }
@@ -188,6 +189,9 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
         }
 
         public ObservabilityPipelineConfigDestinationSplunkHecArgs build() {
+            if ($.encoding == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationSplunkHecArgs", "encoding");
+            }
             return $;
         }
     }

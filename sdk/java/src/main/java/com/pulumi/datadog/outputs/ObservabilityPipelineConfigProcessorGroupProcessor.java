@@ -6,21 +6,25 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorAddEnvVars;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorAddFields;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorAddHostname;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessor;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorDatadogTags;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorDedupe;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTable;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorFilter;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetrics;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricTags;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrok;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorParseJson;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorParseXml;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorQuota;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorReduce;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorRemoveFields;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorRenameFields;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorSample;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScanner;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorSplitArray;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorThrottle;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -41,6 +45,11 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
      * 
      */
     private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorAddFields addFields;
+    /**
+     * @return The `addHostname` processor adds the hostname to log events.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorAddHostname addHostname;
     /**
      * @return The `customProcessor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
      * 
@@ -88,6 +97,11 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
      */
     private String include;
     /**
+     * @return The `metricTags` processor filters metrics based on their tags using Datadog tag key patterns.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorMetricTags metricTags;
+    /**
      * @return The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
      * 
      */
@@ -102,6 +116,11 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
      * 
      */
     private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorParseJson parseJson;
+    /**
+     * @return The `parseXml` processor parses XML from a specified field and extracts it into the event.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorParseXml parseXml;
     /**
      * @return The `quota` processor measures logging traffic for logs that match a specified filter. When the configured daily quota is met, the processor can drop or alert.
      * 
@@ -133,6 +152,11 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
      */
     private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScanner sensitiveDataScanner;
     /**
+     * @return The `splitArray` processor splits array fields into separate events based on configured rules.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSplitArray splitArray;
+    /**
      * @return The `throttle` processor limits the number of events that pass through over a given time window.
      * 
      */
@@ -152,6 +176,13 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
      */
     public Optional<ObservabilityPipelineConfigProcessorGroupProcessorAddFields> addFields() {
         return Optional.ofNullable(this.addFields);
+    }
+    /**
+     * @return The `addHostname` processor adds the hostname to log events.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigProcessorGroupProcessorAddHostname> addHostname() {
+        return Optional.ofNullable(this.addHostname);
     }
     /**
      * @return The `customProcessor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
@@ -220,6 +251,13 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
         return this.include;
     }
     /**
+     * @return The `metricTags` processor filters metrics based on their tags using Datadog tag key patterns.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigProcessorGroupProcessorMetricTags> metricTags() {
+        return Optional.ofNullable(this.metricTags);
+    }
+    /**
      * @return The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
      * 
      */
@@ -239,6 +277,13 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
      */
     public Optional<ObservabilityPipelineConfigProcessorGroupProcessorParseJson> parseJson() {
         return Optional.ofNullable(this.parseJson);
+    }
+    /**
+     * @return The `parseXml` processor parses XML from a specified field and extracts it into the event.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigProcessorGroupProcessorParseXml> parseXml() {
+        return Optional.ofNullable(this.parseXml);
     }
     /**
      * @return The `quota` processor measures logging traffic for logs that match a specified filter. When the configured daily quota is met, the processor can drop or alert.
@@ -283,6 +328,13 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
         return Optional.ofNullable(this.sensitiveDataScanner);
     }
     /**
+     * @return The `splitArray` processor splits array fields into separate events based on configured rules.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigProcessorGroupProcessorSplitArray> splitArray() {
+        return Optional.ofNullable(this.splitArray);
+    }
+    /**
      * @return The `throttle` processor limits the number of events that pass through over a given time window.
      * 
      */
@@ -301,6 +353,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
     public static final class Builder {
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorAddEnvVars addEnvVars;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorAddFields addFields;
+        private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorAddHostname addHostname;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessor customProcessor;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorDatadogTags datadogTags;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorDedupe dedupe;
@@ -311,21 +364,25 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetrics generateDatadogMetrics;
         private String id;
         private String include;
+        private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorMetricTags metricTags;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper ocsfMapper;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorParseGrok parseGrok;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorParseJson parseJson;
+        private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorParseXml parseXml;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorQuota quota;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorReduce reduce;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorRemoveFields removeFields;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorRenameFields renameFields;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSample sample;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScanner sensitiveDataScanner;
+        private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSplitArray splitArray;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorThrottle throttle;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessor defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addEnvVars = defaults.addEnvVars;
     	      this.addFields = defaults.addFields;
+    	      this.addHostname = defaults.addHostname;
     	      this.customProcessor = defaults.customProcessor;
     	      this.datadogTags = defaults.datadogTags;
     	      this.dedupe = defaults.dedupe;
@@ -336,15 +393,18 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
     	      this.generateDatadogMetrics = defaults.generateDatadogMetrics;
     	      this.id = defaults.id;
     	      this.include = defaults.include;
+    	      this.metricTags = defaults.metricTags;
     	      this.ocsfMapper = defaults.ocsfMapper;
     	      this.parseGrok = defaults.parseGrok;
     	      this.parseJson = defaults.parseJson;
+    	      this.parseXml = defaults.parseXml;
     	      this.quota = defaults.quota;
     	      this.reduce = defaults.reduce;
     	      this.removeFields = defaults.removeFields;
     	      this.renameFields = defaults.renameFields;
     	      this.sample = defaults.sample;
     	      this.sensitiveDataScanner = defaults.sensitiveDataScanner;
+    	      this.splitArray = defaults.splitArray;
     	      this.throttle = defaults.throttle;
         }
 
@@ -358,6 +418,12 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
         public Builder addFields(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorAddFields addFields) {
 
             this.addFields = addFields;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder addHostname(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorAddHostname addHostname) {
+
+            this.addHostname = addHostname;
             return this;
         }
         @CustomType.Setter
@@ -427,6 +493,12 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
             return this;
         }
         @CustomType.Setter
+        public Builder metricTags(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorMetricTags metricTags) {
+
+            this.metricTags = metricTags;
+            return this;
+        }
+        @CustomType.Setter
         public Builder ocsfMapper(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper ocsfMapper) {
 
             this.ocsfMapper = ocsfMapper;
@@ -442,6 +514,12 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
         public Builder parseJson(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorParseJson parseJson) {
 
             this.parseJson = parseJson;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder parseXml(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorParseXml parseXml) {
+
+            this.parseXml = parseXml;
             return this;
         }
         @CustomType.Setter
@@ -481,6 +559,12 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
             return this;
         }
         @CustomType.Setter
+        public Builder splitArray(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorSplitArray splitArray) {
+
+            this.splitArray = splitArray;
+            return this;
+        }
+        @CustomType.Setter
         public Builder throttle(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorThrottle throttle) {
 
             this.throttle = throttle;
@@ -490,6 +574,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
             final var _resultValue = new ObservabilityPipelineConfigProcessorGroupProcessor();
             _resultValue.addEnvVars = addEnvVars;
             _resultValue.addFields = addFields;
+            _resultValue.addHostname = addHostname;
             _resultValue.customProcessor = customProcessor;
             _resultValue.datadogTags = datadogTags;
             _resultValue.dedupe = dedupe;
@@ -500,15 +585,18 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
             _resultValue.generateDatadogMetrics = generateDatadogMetrics;
             _resultValue.id = id;
             _resultValue.include = include;
+            _resultValue.metricTags = metricTags;
             _resultValue.ocsfMapper = ocsfMapper;
             _resultValue.parseGrok = parseGrok;
             _resultValue.parseJson = parseJson;
+            _resultValue.parseXml = parseXml;
             _resultValue.quota = quota;
             _resultValue.reduce = reduce;
             _resultValue.removeFields = removeFields;
             _resultValue.renameFields = renameFields;
             _resultValue.sample = sample;
             _resultValue.sensitiveDataScanner = sensitiveDataScanner;
+            _resultValue.splitArray = splitArray;
             _resultValue.throttle = throttle;
             return _resultValue;
         }

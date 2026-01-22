@@ -20,6 +20,11 @@ public final class DashboardWidgetLogStreamDefinition {
      */
     private @Nullable List<String> columns;
     /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    private @Nullable Boolean hideIncompleteCostData;
+    /**
      * @return An array of index names to query in the stream.
      * 
      */
@@ -77,6 +82,13 @@ public final class DashboardWidgetLogStreamDefinition {
      */
     public List<String> columns() {
         return this.columns == null ? List.of() : this.columns;
+    }
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Boolean> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
     }
     /**
      * @return An array of index names to query in the stream.
@@ -159,6 +171,7 @@ public final class DashboardWidgetLogStreamDefinition {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> columns;
+        private @Nullable Boolean hideIncompleteCostData;
         private @Nullable List<String> indexes;
         private @Nullable String liveSpan;
         private @Nullable String messageDisplay;
@@ -173,6 +186,7 @@ public final class DashboardWidgetLogStreamDefinition {
         public Builder(DashboardWidgetLogStreamDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.columns = defaults.columns;
+    	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.indexes = defaults.indexes;
     	      this.liveSpan = defaults.liveSpan;
     	      this.messageDisplay = defaults.messageDisplay;
@@ -193,6 +207,12 @@ public final class DashboardWidgetLogStreamDefinition {
         }
         public Builder columns(String... columns) {
             return columns(List.of(columns));
+        }
+        @CustomType.Setter
+        public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
+
+            this.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
         }
         @CustomType.Setter
         public Builder indexes(@Nullable List<String> indexes) {
@@ -260,6 +280,7 @@ public final class DashboardWidgetLogStreamDefinition {
         public DashboardWidgetLogStreamDefinition build() {
             final var _resultValue = new DashboardWidgetLogStreamDefinition();
             _resultValue.columns = columns;
+            _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.indexes = indexes;
             _resultValue.liveSpan = liveSpan;
             _resultValue.messageDisplay = messageDisplay;

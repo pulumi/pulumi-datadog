@@ -58,6 +58,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigSourceLogstash> Logstashes;
         /// <summary>
+        /// The `Opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigSourceOpentelemetry? Opentelemetry;
+        /// <summary>
         /// The `Rsyslog` source listens for logs over TCP or UDP from an `Rsyslog` server using the syslog protocol.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigSourceRsyslog> Rsyslogs;
@@ -106,6 +110,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigSourceLogstash> logstashes,
 
+            Outputs.ObservabilityPipelineConfigSourceOpentelemetry? opentelemetry,
+
             ImmutableArray<Outputs.ObservabilityPipelineConfigSourceRsyslog> rsyslogs,
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigSourceSocket> sockets,
@@ -129,6 +135,7 @@ namespace Pulumi.Datadog.Outputs
             Id = id;
             Kafkas = kafkas;
             Logstashes = logstashes;
+            Opentelemetry = opentelemetry;
             Rsyslogs = rsyslogs;
             Sockets = sockets;
             SplunkHecs = splunkHecs;

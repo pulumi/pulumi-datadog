@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionCustomLinkArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionRequestArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -46,6 +47,21 @@ public final class DashboardWidgetQueryTableDefinitionArgs extends com.pulumi.re
      */
     public Optional<Output<String>> hasSearchBar() {
         return Optional.ofNullable(this.hasSearchBar);
+    }
+
+    /**
+     * Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    @Import(name="hideIncompleteCostData")
+    private @Nullable Output<Boolean> hideIncompleteCostData;
+
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Output<Boolean>> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
     }
 
     /**
@@ -128,6 +144,7 @@ public final class DashboardWidgetQueryTableDefinitionArgs extends com.pulumi.re
     private DashboardWidgetQueryTableDefinitionArgs(DashboardWidgetQueryTableDefinitionArgs $) {
         this.customLinks = $.customLinks;
         this.hasSearchBar = $.hasSearchBar;
+        this.hideIncompleteCostData = $.hideIncompleteCostData;
         this.liveSpan = $.liveSpan;
         this.requests = $.requests;
         this.title = $.title;
@@ -203,6 +220,27 @@ public final class DashboardWidgetQueryTableDefinitionArgs extends com.pulumi.re
          */
         public Builder hasSearchBar(String hasSearchBar) {
             return hasSearchBar(Output.of(hasSearchBar));
+        }
+
+        /**
+         * @param hideIncompleteCostData Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hideIncompleteCostData(@Nullable Output<Boolean> hideIncompleteCostData) {
+            $.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
+        }
+
+        /**
+         * @param hideIncompleteCostData Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hideIncompleteCostData(Boolean hideIncompleteCostData) {
+            return hideIncompleteCostData(Output.of(hideIncompleteCostData));
         }
 
         /**

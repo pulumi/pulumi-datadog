@@ -14,22 +14,22 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorSample
     {
         /// <summary>
+        /// Optional list of fields to group events by. Each group is sampled independently.
+        /// </summary>
+        public readonly ImmutableArray<string> GroupBies;
+        /// <summary>
         /// The percentage of logs to sample.
         /// </summary>
-        public readonly double? Percentage;
-        /// <summary>
-        /// Number of events to sample (1 in N).
-        /// </summary>
-        public readonly int? Rate;
+        public readonly double Percentage;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigProcessorGroupProcessorSample(
-            double? percentage,
+            ImmutableArray<string> groupBies,
 
-            int? rate)
+            double percentage)
         {
+            GroupBies = groupBies;
             Percentage = percentage;
-            Rate = rate;
         }
     }
 }

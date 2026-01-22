@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableGeoipArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTableArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
@@ -49,6 +50,21 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
     }
 
     /**
+     * Uses a Datadog reference table to enrich logs.
+     * 
+     */
+    @Import(name="referenceTable")
+    private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTableArgs> referenceTable;
+
+    /**
+     * @return Uses a Datadog reference table to enrich logs.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTableArgs>> referenceTable() {
+        return Optional.ofNullable(this.referenceTable);
+    }
+
+    /**
      * Path where enrichment results should be stored in the log.
      * 
      */
@@ -68,6 +84,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
     private ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableArgs(ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableArgs $) {
         this.file = $.file;
         this.geoip = $.geoip;
+        this.referenceTable = $.referenceTable;
         this.target = $.target;
     }
 
@@ -129,6 +146,27 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
          */
         public Builder geoip(ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableGeoipArgs geoip) {
             return geoip(Output.of(geoip));
+        }
+
+        /**
+         * @param referenceTable Uses a Datadog reference table to enrich logs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder referenceTable(@Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTableArgs> referenceTable) {
+            $.referenceTable = referenceTable;
+            return this;
+        }
+
+        /**
+         * @param referenceTable Uses a Datadog reference table to enrich logs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder referenceTable(ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTableArgs referenceTable) {
+            return referenceTable(Output.of(referenceTable));
         }
 
         /**

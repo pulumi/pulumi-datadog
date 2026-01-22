@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternLibrary
     {
         /// <summary>
+        /// Human-readable description providing context about a sensitive data scanner rule.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Identifier for a predefined pattern from the sensitive data scanner pattern library.
         /// </summary>
         public readonly string? Id;
@@ -24,10 +28,13 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternLibrary(
+            string? description,
+
             string? id,
 
             bool? useRecommendedKeywords)
         {
+            Description = description;
             Id = id;
             UseRecommendedKeywords = useRecommendedKeywords;
         }

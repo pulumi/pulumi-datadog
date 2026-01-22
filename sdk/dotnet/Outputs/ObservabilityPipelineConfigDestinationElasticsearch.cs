@@ -21,15 +21,22 @@ namespace Pulumi.Datadog.Outputs
         /// The index or datastream to write logs to in Elasticsearch.
         /// </summary>
         public readonly string? BulkIndex;
+        /// <summary>
+        /// Configuration options for writing to Elasticsearch Data Streams instead of a fixed index.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationElasticsearchDataStream? DataStream;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationElasticsearch(
             string? apiVersion,
 
-            string? bulkIndex)
+            string? bulkIndex,
+
+            Outputs.ObservabilityPipelineConfigDestinationElasticsearchDataStream? dataStream)
         {
             ApiVersion = apiVersion;
             BulkIndex = bulkIndex;
+            DataStream = dataStream;
         }
     }
 }

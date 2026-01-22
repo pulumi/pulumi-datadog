@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetRunWorkflowDefinitionCustomLink> CustomLinks;
         /// <summary>
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        public readonly bool? HideIncompleteCostData;
+        /// <summary>
         /// Array of workflow inputs to map to dashboard template variables.
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetRunWorkflowDefinitionInput> Inputs;
@@ -46,6 +50,8 @@ namespace Pulumi.Datadog.Outputs
         private PowerpackWidgetRunWorkflowDefinition(
             ImmutableArray<Outputs.PowerpackWidgetRunWorkflowDefinitionCustomLink> customLinks,
 
+            bool? hideIncompleteCostData,
+
             ImmutableArray<Outputs.PowerpackWidgetRunWorkflowDefinitionInput> inputs,
 
             string? liveSpan,
@@ -59,6 +65,7 @@ namespace Pulumi.Datadog.Outputs
             string workflowId)
         {
             CustomLinks = customLinks;
+            HideIncompleteCostData = hideIncompleteCostData;
             Inputs = inputs;
             LiveSpan = liveSpan;
             Title = title;

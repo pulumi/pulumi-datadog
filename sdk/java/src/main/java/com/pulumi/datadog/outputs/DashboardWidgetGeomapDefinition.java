@@ -9,6 +9,7 @@ import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequest;
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionStyle;
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionView;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -22,6 +23,11 @@ public final class DashboardWidgetGeomapDefinition {
      * 
      */
     private @Nullable List<DashboardWidgetGeomapDefinitionCustomLink> customLinks;
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    private @Nullable Boolean hideIncompleteCostData;
     /**
      * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      * 
@@ -65,6 +71,13 @@ public final class DashboardWidgetGeomapDefinition {
      */
     public List<DashboardWidgetGeomapDefinitionCustomLink> customLinks() {
         return this.customLinks == null ? List.of() : this.customLinks;
+    }
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Boolean> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
     }
     /**
      * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
@@ -126,6 +139,7 @@ public final class DashboardWidgetGeomapDefinition {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<DashboardWidgetGeomapDefinitionCustomLink> customLinks;
+        private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String liveSpan;
         private @Nullable List<DashboardWidgetGeomapDefinitionRequest> requests;
         private @Nullable DashboardWidgetGeomapDefinitionStyle style;
@@ -137,6 +151,7 @@ public final class DashboardWidgetGeomapDefinition {
         public Builder(DashboardWidgetGeomapDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customLinks = defaults.customLinks;
+    	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.liveSpan = defaults.liveSpan;
     	      this.requests = defaults.requests;
     	      this.style = defaults.style;
@@ -154,6 +169,12 @@ public final class DashboardWidgetGeomapDefinition {
         }
         public Builder customLinks(DashboardWidgetGeomapDefinitionCustomLink... customLinks) {
             return customLinks(List.of(customLinks));
+        }
+        @CustomType.Setter
+        public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
+
+            this.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
         }
         @CustomType.Setter
         public Builder liveSpan(@Nullable String liveSpan) {
@@ -205,6 +226,7 @@ public final class DashboardWidgetGeomapDefinition {
         public DashboardWidgetGeomapDefinition build() {
             final var _resultValue = new DashboardWidgetGeomapDefinition();
             _resultValue.customLinks = customLinks;
+            _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.liveSpan = liveSpan;
             _resultValue.requests = requests;
             _resultValue.style = style;

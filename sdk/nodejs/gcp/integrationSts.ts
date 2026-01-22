@@ -78,6 +78,10 @@ export class IntegrationSts extends pulumi.CustomResource {
      */
     declare public readonly isCspmEnabled: pulumi.Output<boolean>;
     /**
+     * When enabled, Datadog collects metrics where location is explicitly stated as 'global' or where location information cannot be deduced from GCP.
+     */
+    declare public readonly isGlobalLocationEnabled: pulumi.Output<boolean>;
+    /**
      * When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
      */
     declare public readonly isPerProjectQuotaEnabled: pulumi.Output<boolean>;
@@ -97,6 +101,10 @@ export class IntegrationSts extends pulumi.CustomResource {
      * Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
      */
     declare public readonly monitoredResourceConfigs: pulumi.Output<outputs.gcp.IntegrationStsMonitoredResourceConfig[]>;
+    /**
+     * Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
+     */
+    declare public readonly regionFilterConfigs: pulumi.Output<string[] | undefined>;
     /**
      * When enabled, Datadog scans for all resources in your GCP environment.
      */
@@ -122,11 +130,13 @@ export class IntegrationSts extends pulumi.CustomResource {
             resourceInputs["delegateAccountEmail"] = state?.delegateAccountEmail;
             resourceInputs["hostFilters"] = state?.hostFilters;
             resourceInputs["isCspmEnabled"] = state?.isCspmEnabled;
+            resourceInputs["isGlobalLocationEnabled"] = state?.isGlobalLocationEnabled;
             resourceInputs["isPerProjectQuotaEnabled"] = state?.isPerProjectQuotaEnabled;
             resourceInputs["isResourceChangeCollectionEnabled"] = state?.isResourceChangeCollectionEnabled;
             resourceInputs["isSecurityCommandCenterEnabled"] = state?.isSecurityCommandCenterEnabled;
             resourceInputs["metricNamespaceConfigs"] = state?.metricNamespaceConfigs;
             resourceInputs["monitoredResourceConfigs"] = state?.monitoredResourceConfigs;
+            resourceInputs["regionFilterConfigs"] = state?.regionFilterConfigs;
             resourceInputs["resourceCollectionEnabled"] = state?.resourceCollectionEnabled;
         } else {
             const args = argsOrState as IntegrationStsArgs | undefined;
@@ -139,11 +149,13 @@ export class IntegrationSts extends pulumi.CustomResource {
             resourceInputs["cloudRunRevisionFilters"] = args?.cloudRunRevisionFilters;
             resourceInputs["hostFilters"] = args?.hostFilters;
             resourceInputs["isCspmEnabled"] = args?.isCspmEnabled;
+            resourceInputs["isGlobalLocationEnabled"] = args?.isGlobalLocationEnabled;
             resourceInputs["isPerProjectQuotaEnabled"] = args?.isPerProjectQuotaEnabled;
             resourceInputs["isResourceChangeCollectionEnabled"] = args?.isResourceChangeCollectionEnabled;
             resourceInputs["isSecurityCommandCenterEnabled"] = args?.isSecurityCommandCenterEnabled;
             resourceInputs["metricNamespaceConfigs"] = args?.metricNamespaceConfigs;
             resourceInputs["monitoredResourceConfigs"] = args?.monitoredResourceConfigs;
+            resourceInputs["regionFilterConfigs"] = args?.regionFilterConfigs;
             resourceInputs["resourceCollectionEnabled"] = args?.resourceCollectionEnabled;
             resourceInputs["delegateAccountEmail"] = undefined /*out*/;
         }
@@ -189,6 +201,10 @@ export interface IntegrationStsState {
      */
     isCspmEnabled?: pulumi.Input<boolean>;
     /**
+     * When enabled, Datadog collects metrics where location is explicitly stated as 'global' or where location information cannot be deduced from GCP.
+     */
+    isGlobalLocationEnabled?: pulumi.Input<boolean>;
+    /**
      * When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
      */
     isPerProjectQuotaEnabled?: pulumi.Input<boolean>;
@@ -208,6 +224,10 @@ export interface IntegrationStsState {
      * Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
      */
     monitoredResourceConfigs?: pulumi.Input<pulumi.Input<inputs.gcp.IntegrationStsMonitoredResourceConfig>[]>;
+    /**
+     * Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
+     */
+    regionFilterConfigs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * When enabled, Datadog scans for all resources in your GCP environment.
      */
@@ -247,6 +267,10 @@ export interface IntegrationStsArgs {
      */
     isCspmEnabled?: pulumi.Input<boolean>;
     /**
+     * When enabled, Datadog collects metrics where location is explicitly stated as 'global' or where location information cannot be deduced from GCP.
+     */
+    isGlobalLocationEnabled?: pulumi.Input<boolean>;
+    /**
      * When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
      */
     isPerProjectQuotaEnabled?: pulumi.Input<boolean>;
@@ -266,6 +290,10 @@ export interface IntegrationStsArgs {
      * Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
      */
     monitoredResourceConfigs?: pulumi.Input<pulumi.Input<inputs.gcp.IntegrationStsMonitoredResourceConfig>[]>;
+    /**
+     * Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
+     */
+    regionFilterConfigs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * When enabled, Datadog scans for all resources in your GCP environment.
      */

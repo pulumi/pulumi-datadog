@@ -14,6 +14,7 @@ import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceHttpClient;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceHttpServer;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceKafka;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceLogstash;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceOpentelemetry;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceRsyslog;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceSocket;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceSplunkHec;
@@ -24,6 +25,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -83,6 +85,11 @@ public final class ObservabilityPipelineConfigSource {
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigSourceLogstash> logstashes;
+    /**
+     * @return The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigSourceOpentelemetry opentelemetry;
     /**
      * @return The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
      * 
@@ -193,6 +200,13 @@ public final class ObservabilityPipelineConfigSource {
         return this.logstashes == null ? List.of() : this.logstashes;
     }
     /**
+     * @return The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigSourceOpentelemetry> opentelemetry() {
+        return Optional.ofNullable(this.opentelemetry);
+    }
+    /**
      * @return The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
      * 
      */
@@ -255,6 +269,7 @@ public final class ObservabilityPipelineConfigSource {
         private String id;
         private @Nullable List<ObservabilityPipelineConfigSourceKafka> kafkas;
         private @Nullable List<ObservabilityPipelineConfigSourceLogstash> logstashes;
+        private @Nullable ObservabilityPipelineConfigSourceOpentelemetry opentelemetry;
         private @Nullable List<ObservabilityPipelineConfigSourceRsyslog> rsyslogs;
         private @Nullable List<ObservabilityPipelineConfigSourceSocket> sockets;
         private @Nullable List<ObservabilityPipelineConfigSourceSplunkHec> splunkHecs;
@@ -275,6 +290,7 @@ public final class ObservabilityPipelineConfigSource {
     	      this.id = defaults.id;
     	      this.kafkas = defaults.kafkas;
     	      this.logstashes = defaults.logstashes;
+    	      this.opentelemetry = defaults.opentelemetry;
     	      this.rsyslogs = defaults.rsyslogs;
     	      this.sockets = defaults.sockets;
     	      this.splunkHecs = defaults.splunkHecs;
@@ -382,6 +398,12 @@ public final class ObservabilityPipelineConfigSource {
             return logstashes(List.of(logstashes));
         }
         @CustomType.Setter
+        public Builder opentelemetry(@Nullable ObservabilityPipelineConfigSourceOpentelemetry opentelemetry) {
+
+            this.opentelemetry = opentelemetry;
+            return this;
+        }
+        @CustomType.Setter
         public Builder rsyslogs(@Nullable List<ObservabilityPipelineConfigSourceRsyslog> rsyslogs) {
 
             this.rsyslogs = rsyslogs;
@@ -448,6 +470,7 @@ public final class ObservabilityPipelineConfigSource {
             _resultValue.id = id;
             _resultValue.kafkas = kafkas;
             _resultValue.logstashes = logstashes;
+            _resultValue.opentelemetry = opentelemetry;
             _resultValue.rsyslogs = rsyslogs;
             _resultValue.sockets = sockets;
             _resultValue.splunkHecs = splunkHecs;

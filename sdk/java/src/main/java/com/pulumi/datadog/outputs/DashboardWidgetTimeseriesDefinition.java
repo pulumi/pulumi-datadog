@@ -30,6 +30,11 @@ public final class DashboardWidgetTimeseriesDefinition {
      */
     private @Nullable List<DashboardWidgetTimeseriesDefinitionEvent> events;
     /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    private @Nullable Boolean hideIncompleteCostData;
+    /**
      * @return A list of columns to display in the legend. Valid values are `value`, `avg`, `sum`, `min`, `max`.
      * 
      */
@@ -104,6 +109,13 @@ public final class DashboardWidgetTimeseriesDefinition {
      */
     public List<DashboardWidgetTimeseriesDefinitionEvent> events() {
         return this.events == null ? List.of() : this.events;
+    }
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Boolean> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
     }
     /**
      * @return A list of columns to display in the legend. Valid values are `value`, `avg`, `sum`, `min`, `max`.
@@ -201,6 +213,7 @@ public final class DashboardWidgetTimeseriesDefinition {
     public static final class Builder {
         private @Nullable List<DashboardWidgetTimeseriesDefinitionCustomLink> customLinks;
         private @Nullable List<DashboardWidgetTimeseriesDefinitionEvent> events;
+        private @Nullable Boolean hideIncompleteCostData;
         private @Nullable List<String> legendColumns;
         private @Nullable String legendLayout;
         private @Nullable String legendSize;
@@ -218,6 +231,7 @@ public final class DashboardWidgetTimeseriesDefinition {
     	      Objects.requireNonNull(defaults);
     	      this.customLinks = defaults.customLinks;
     	      this.events = defaults.events;
+    	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.legendColumns = defaults.legendColumns;
     	      this.legendLayout = defaults.legendLayout;
     	      this.legendSize = defaults.legendSize;
@@ -249,6 +263,12 @@ public final class DashboardWidgetTimeseriesDefinition {
         }
         public Builder events(DashboardWidgetTimeseriesDefinitionEvent... events) {
             return events(List.of(events));
+        }
+        @CustomType.Setter
+        public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
+
+            this.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
         }
         @CustomType.Setter
         public Builder legendColumns(@Nullable List<String> legendColumns) {
@@ -335,6 +355,7 @@ public final class DashboardWidgetTimeseriesDefinition {
             final var _resultValue = new DashboardWidgetTimeseriesDefinition();
             _resultValue.customLinks = customLinks;
             _resultValue.events = events;
+            _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.legendColumns = legendColumns;
             _resultValue.legendLayout = legendLayout;
             _resultValue.legendSize = legendSize;

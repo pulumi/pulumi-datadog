@@ -38,6 +38,10 @@ namespace Pulumi.Datadog.Outputs
         /// List of partition fields.
         /// </summary>
         public readonly ImmutableArray<string> PartitionFields;
+        /// <summary>
+        /// The action to take when the max number of buckets is exceeded: `Drop`, `NoAction`, or `OverflowRouting`.
+        /// </summary>
+        public readonly string? TooManyBucketsAction;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigProcessorGroupProcessorQuota(
@@ -53,7 +57,9 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverride> overrides,
 
-            ImmutableArray<string> partitionFields)
+            ImmutableArray<string> partitionFields,
+
+            string? tooManyBucketsAction)
         {
             DropEvents = dropEvents;
             IgnoreWhenMissingPartitions = ignoreWhenMissingPartitions;
@@ -62,6 +68,7 @@ namespace Pulumi.Datadog.Outputs
             OverflowAction = overflowAction;
             Overrides = overrides;
             PartitionFields = partitionFields;
+            TooManyBucketsAction = tooManyBucketsAction;
         }
     }
 }

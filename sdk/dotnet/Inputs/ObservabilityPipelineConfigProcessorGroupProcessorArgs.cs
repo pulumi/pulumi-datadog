@@ -25,6 +25,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsArgs>? AddFields { get; set; }
 
         /// <summary>
+        /// The `AddHostname` processor adds the hostname to log events.
+        /// </summary>
+        [Input("addHostname")]
+        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorAddHostnameArgs>? AddHostname { get; set; }
+
+        /// <summary>
         /// The `CustomProcessor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
         /// </summary>
         [Input("customProcessor")]
@@ -82,6 +88,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Include { get; set; } = null!;
 
         /// <summary>
+        /// The `MetricTags` processor filters metrics based on their tags using Datadog tag key patterns.
+        /// </summary>
+        [Input("metricTags")]
+        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsArgs>? MetricTags { get; set; }
+
+        /// <summary>
         /// The `OcsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
         /// </summary>
         [Input("ocsfMapper")]
@@ -98,6 +110,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("parseJson")]
         public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseJsonArgs>? ParseJson { get; set; }
+
+        /// <summary>
+        /// The `ParseXml` processor parses XML from a specified field and extracts it into the event.
+        /// </summary>
+        [Input("parseXml")]
+        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseXmlArgs>? ParseXml { get; set; }
 
         /// <summary>
         /// The `Quota` processor measures logging traffic for logs that match a specified filter. When the configured daily quota is met, the processor can drop or alert.
@@ -134,6 +152,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("sensitiveDataScanner")]
         public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerArgs>? SensitiveDataScanner { get; set; }
+
+        /// <summary>
+        /// The `SplitArray` processor splits array fields into separate events based on configured rules.
+        /// </summary>
+        [Input("splitArray")]
+        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArgs>? SplitArray { get; set; }
 
         /// <summary>
         /// The `Throttle` processor limits the number of events that pass through over a given time window.

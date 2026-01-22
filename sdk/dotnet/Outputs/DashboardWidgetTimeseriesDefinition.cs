@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionEvent> Events;
         /// <summary>
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        public readonly bool? HideIncompleteCostData;
+        /// <summary>
         /// A list of columns to display in the legend. Valid values are `Value`, `Avg`, `Sum`, `Min`, `Max`.
         /// </summary>
         public readonly ImmutableArray<string> LegendColumns;
@@ -76,6 +80,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionEvent> events,
 
+            bool? hideIncompleteCostData,
+
             ImmutableArray<string> legendColumns,
 
             string? legendLayout,
@@ -102,6 +108,7 @@ namespace Pulumi.Datadog.Outputs
         {
             CustomLinks = customLinks;
             Events = events;
+            HideIncompleteCostData = hideIncompleteCostData;
             LegendColumns = legendColumns;
             LegendLayout = legendLayout;
             LegendSize = legendSize;

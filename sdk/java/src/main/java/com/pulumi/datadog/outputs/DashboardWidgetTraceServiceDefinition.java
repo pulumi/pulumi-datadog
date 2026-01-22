@@ -24,6 +24,11 @@ public final class DashboardWidgetTraceServiceDefinition {
      */
     private String env;
     /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    private @Nullable Boolean hideIncompleteCostData;
+    /**
      * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      * 
      */
@@ -103,6 +108,13 @@ public final class DashboardWidgetTraceServiceDefinition {
      */
     public String env() {
         return this.env;
+    }
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Boolean> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
     }
     /**
      * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
@@ -207,6 +219,7 @@ public final class DashboardWidgetTraceServiceDefinition {
     public static final class Builder {
         private @Nullable String displayFormat;
         private String env;
+        private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String liveSpan;
         private String service;
         private @Nullable Boolean showBreakdown;
@@ -225,6 +238,7 @@ public final class DashboardWidgetTraceServiceDefinition {
     	      Objects.requireNonNull(defaults);
     	      this.displayFormat = defaults.displayFormat;
     	      this.env = defaults.env;
+    	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.liveSpan = defaults.liveSpan;
     	      this.service = defaults.service;
     	      this.showBreakdown = defaults.showBreakdown;
@@ -252,6 +266,12 @@ public final class DashboardWidgetTraceServiceDefinition {
               throw new MissingRequiredPropertyException("DashboardWidgetTraceServiceDefinition", "env");
             }
             this.env = env;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
+
+            this.hideIncompleteCostData = hideIncompleteCostData;
             return this;
         }
         @CustomType.Setter
@@ -340,6 +360,7 @@ public final class DashboardWidgetTraceServiceDefinition {
             final var _resultValue = new DashboardWidgetTraceServiceDefinition();
             _resultValue.displayFormat = displayFormat;
             _resultValue.env = env;
+            _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.liveSpan = liveSpan;
             _resultValue.service = service;
             _resultValue.showBreakdown = showBreakdown;

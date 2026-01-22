@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackWidgetDistributionDefinition
     {
         /// <summary>
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        public readonly bool? HideIncompleteCostData;
+        /// <summary>
         /// The size of the legend displayed in the widget.
         /// </summary>
         public readonly string? LegendSize;
@@ -52,6 +56,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private PowerpackWidgetDistributionDefinition(
+            bool? hideIncompleteCostData,
+
             string? legendSize,
 
             string? liveSpan,
@@ -70,6 +76,7 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.PowerpackWidgetDistributionDefinitionYaxis? yaxis)
         {
+            HideIncompleteCostData = hideIncompleteCostData;
             LegendSize = legendSize;
             LiveSpan = liveSpan;
             Requests = requests;

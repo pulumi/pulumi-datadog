@@ -54,6 +54,21 @@ public final class DashboardWidgetTimeseriesDefinitionArgs extends com.pulumi.re
     }
 
     /**
+     * Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    @Import(name="hideIncompleteCostData")
+    private @Nullable Output<Boolean> hideIncompleteCostData;
+
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Output<Boolean>> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
+    }
+
+    /**
      * A list of columns to display in the legend. Valid values are `value`, `avg`, `sum`, `min`, `max`.
      * 
      */
@@ -238,6 +253,7 @@ public final class DashboardWidgetTimeseriesDefinitionArgs extends com.pulumi.re
     private DashboardWidgetTimeseriesDefinitionArgs(DashboardWidgetTimeseriesDefinitionArgs $) {
         this.customLinks = $.customLinks;
         this.events = $.events;
+        this.hideIncompleteCostData = $.hideIncompleteCostData;
         this.legendColumns = $.legendColumns;
         this.legendLayout = $.legendLayout;
         this.legendSize = $.legendSize;
@@ -330,6 +346,27 @@ public final class DashboardWidgetTimeseriesDefinitionArgs extends com.pulumi.re
          */
         public Builder events(DashboardWidgetTimeseriesDefinitionEventArgs... events) {
             return events(List.of(events));
+        }
+
+        /**
+         * @param hideIncompleteCostData Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hideIncompleteCostData(@Nullable Output<Boolean> hideIncompleteCostData) {
+            $.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
+        }
+
+        /**
+         * @param hideIncompleteCostData Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hideIncompleteCostData(Boolean hideIncompleteCostData) {
+            return hideIncompleteCostData(Output.of(hideIncompleteCostData));
         }
 
         /**

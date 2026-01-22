@@ -81,6 +81,8 @@ type LookupServiceLevelObjectiveResult struct {
 	NameQuery *string `pulumi:"nameQuery"`
 	// The metric query of good / total events
 	Queries []GetServiceLevelObjectiveQuery `pulumi:"queries"`
+	// List of tags associated with the service level objective.
+	Tags []string `pulumi:"tags"`
 	// Filter results based on a single SLO tag.
 	TagsQuery *string `pulumi:"tagsQuery"`
 	// The primary target threshold of the service level objective.
@@ -161,6 +163,11 @@ func (o LookupServiceLevelObjectiveResultOutput) NameQuery() pulumi.StringPtrOut
 // The metric query of good / total events
 func (o LookupServiceLevelObjectiveResultOutput) Queries() GetServiceLevelObjectiveQueryArrayOutput {
 	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) []GetServiceLevelObjectiveQuery { return v.Queries }).(GetServiceLevelObjectiveQueryArrayOutput)
+}
+
+// List of tags associated with the service level objective.
+func (o LookupServiceLevelObjectiveResultOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
 // Filter results based on a single SLO tag.

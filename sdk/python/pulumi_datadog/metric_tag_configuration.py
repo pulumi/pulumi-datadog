@@ -32,13 +32,16 @@ class MetricTagConfigurationArgs:
         :param pulumi.Input[_builtins.str] metric_name: The metric name for this resource.
         :param pulumi.Input[_builtins.str] metric_type: The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tag keys that will be queryable for your metric.
-        :param pulumi.Input[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]] aggregations: A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]] aggregations: A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge. **Deprecated.** The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
         :param pulumi.Input[_builtins.bool] exclude_tags_mode: Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] include_percentiles: Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
         """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "metric_type", metric_type)
         pulumi.set(__self__, "tags", tags)
+        if aggregations is not None:
+            warnings.warn("""The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""aggregations is deprecated: The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.""")
         if aggregations is not None:
             pulumi.set(__self__, "aggregations", aggregations)
         if exclude_tags_mode is not None:
@@ -84,9 +87,10 @@ class MetricTagConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.""")
     def aggregations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]]]:
         """
-        A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+        A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge. **Deprecated.** The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
         """
         return pulumi.get(self, "aggregations")
 
@@ -130,13 +134,16 @@ class _MetricTagConfigurationState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering MetricTagConfiguration resources.
-        :param pulumi.Input[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]] aggregations: A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]] aggregations: A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge. **Deprecated.** The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
         :param pulumi.Input[_builtins.bool] exclude_tags_mode: Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] include_percentiles: Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
         :param pulumi.Input[_builtins.str] metric_name: The metric name for this resource.
         :param pulumi.Input[_builtins.str] metric_type: The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tag keys that will be queryable for your metric.
         """
+        if aggregations is not None:
+            warnings.warn("""The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""aggregations is deprecated: The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.""")
         if aggregations is not None:
             pulumi.set(__self__, "aggregations", aggregations)
         if exclude_tags_mode is not None:
@@ -152,9 +159,10 @@ class _MetricTagConfigurationState:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.""")
     def aggregations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]]]:
         """
-        A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+        A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge. **Deprecated.** The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
         """
         return pulumi.get(self, "aggregations")
 
@@ -262,17 +270,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
                 "sport",
                 "datacenter",
             ],
-            exclude_tags_mode=False,
-            aggregations=[
-                {
-                    "time": "avg",
-                    "space": "min",
-                },
-                {
-                    "time": "avg",
-                    "space": "max",
-                },
-            ])
+            exclude_tags_mode=False)
         ```
 
         ## Import
@@ -285,7 +283,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricTagConfigurationAggregationArgs', 'MetricTagConfigurationAggregationArgsDict']]]] aggregations: A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricTagConfigurationAggregationArgs', 'MetricTagConfigurationAggregationArgsDict']]]] aggregations: A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge. **Deprecated.** The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
         :param pulumi.Input[_builtins.bool] exclude_tags_mode: Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] include_percentiles: Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
         :param pulumi.Input[_builtins.str] metric_name: The metric name for this resource.
@@ -324,17 +322,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
                 "sport",
                 "datacenter",
             ],
-            exclude_tags_mode=False,
-            aggregations=[
-                {
-                    "time": "avg",
-                    "space": "min",
-                },
-                {
-                    "time": "avg",
-                    "space": "max",
-                },
-            ])
+            exclude_tags_mode=False)
         ```
 
         ## Import
@@ -410,7 +398,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricTagConfigurationAggregationArgs', 'MetricTagConfigurationAggregationArgsDict']]]] aggregations: A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricTagConfigurationAggregationArgs', 'MetricTagConfigurationAggregationArgsDict']]]] aggregations: A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge. **Deprecated.** The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
         :param pulumi.Input[_builtins.bool] exclude_tags_mode: Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] include_percentiles: Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
         :param pulumi.Input[_builtins.str] metric_name: The metric name for this resource.
@@ -431,9 +419,10 @@ class MetricTagConfiguration(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.""")
     def aggregations(self) -> pulumi.Output[Sequence['outputs.MetricTagConfigurationAggregation']]:
         """
-        A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+        A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge. **Deprecated.** The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
         """
         return pulumi.get(self, "aggregations")
 

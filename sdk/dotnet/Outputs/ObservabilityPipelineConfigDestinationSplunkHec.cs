@@ -20,7 +20,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// Encoding format for log events. Valid values: `Json`, `RawMessage`.
         /// </summary>
-        public readonly string? Encoding;
+        public readonly string Encoding;
         /// <summary>
         /// Optional name of the Splunk index where logs are written.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Datadog.Outputs
         private ObservabilityPipelineConfigDestinationSplunkHec(
             bool? autoExtractTimestamp,
 
-            string? encoding,
+            string encoding,
 
             string? index,
 

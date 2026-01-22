@@ -27,11 +27,13 @@ class IntegrationStsArgs:
                  cloud_run_revision_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  is_cspm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 is_global_location_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_per_project_quota_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_resource_change_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_security_command_center_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  metric_namespace_configs: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]]] = None,
                  monitored_resource_configs: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationStsMonitoredResourceConfigArgs']]]] = None,
+                 region_filter_configs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a IntegrationSts resource.
@@ -41,11 +43,13 @@ class IntegrationStsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloud_run_revision_filters: List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] host_filters: List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.bool] is_cspm_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
+        :param pulumi.Input[_builtins.bool] is_global_location_enabled: When enabled, Datadog collects metrics where location is explicitly stated as 'global' or where location information cannot be deduced from GCP.
         :param pulumi.Input[_builtins.bool] is_per_project_quota_enabled: When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
         :param pulumi.Input[_builtins.bool] is_resource_change_collection_enabled: When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         :param pulumi.Input[_builtins.bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]] metric_namespace_configs: Configurations for GCP metric namespaces.
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationStsMonitoredResourceConfigArgs']]] monitored_resource_configs: Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] region_filter_configs: Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
         :param pulumi.Input[_builtins.bool] resource_collection_enabled: When enabled, Datadog scans for all resources in your GCP environment.
         """
         pulumi.set(__self__, "client_email", client_email)
@@ -65,6 +69,8 @@ class IntegrationStsArgs:
             pulumi.set(__self__, "host_filters", host_filters)
         if is_cspm_enabled is not None:
             pulumi.set(__self__, "is_cspm_enabled", is_cspm_enabled)
+        if is_global_location_enabled is not None:
+            pulumi.set(__self__, "is_global_location_enabled", is_global_location_enabled)
         if is_per_project_quota_enabled is not None:
             pulumi.set(__self__, "is_per_project_quota_enabled", is_per_project_quota_enabled)
         if is_resource_change_collection_enabled is not None:
@@ -75,6 +81,8 @@ class IntegrationStsArgs:
             pulumi.set(__self__, "metric_namespace_configs", metric_namespace_configs)
         if monitored_resource_configs is not None:
             pulumi.set(__self__, "monitored_resource_configs", monitored_resource_configs)
+        if region_filter_configs is not None:
+            pulumi.set(__self__, "region_filter_configs", region_filter_configs)
         if resource_collection_enabled is not None:
             pulumi.set(__self__, "resource_collection_enabled", resource_collection_enabled)
 
@@ -153,6 +161,18 @@ class IntegrationStsArgs:
         pulumi.set(self, "is_cspm_enabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="isGlobalLocationEnabled")
+    def is_global_location_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When enabled, Datadog collects metrics where location is explicitly stated as 'global' or where location information cannot be deduced from GCP.
+        """
+        return pulumi.get(self, "is_global_location_enabled")
+
+    @is_global_location_enabled.setter
+    def is_global_location_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_global_location_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="isPerProjectQuotaEnabled")
     def is_per_project_quota_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -213,6 +233,18 @@ class IntegrationStsArgs:
         pulumi.set(self, "monitored_resource_configs", value)
 
     @_builtins.property
+    @pulumi.getter(name="regionFilterConfigs")
+    def region_filter_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
+        """
+        return pulumi.get(self, "region_filter_configs")
+
+    @region_filter_configs.setter
+    def region_filter_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "region_filter_configs", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceCollectionEnabled")
     def resource_collection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -235,11 +267,13 @@ class _IntegrationStsState:
                  delegate_account_email: Optional[pulumi.Input[_builtins.str]] = None,
                  host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  is_cspm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 is_global_location_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_per_project_quota_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_resource_change_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_security_command_center_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  metric_namespace_configs: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]]] = None,
                  monitored_resource_configs: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationStsMonitoredResourceConfigArgs']]]] = None,
+                 region_filter_configs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering IntegrationSts resources.
@@ -250,11 +284,13 @@ class _IntegrationStsState:
         :param pulumi.Input[_builtins.str] delegate_account_email: Datadog's STS Delegate Email.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] host_filters: List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.bool] is_cspm_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
+        :param pulumi.Input[_builtins.bool] is_global_location_enabled: When enabled, Datadog collects metrics where location is explicitly stated as 'global' or where location information cannot be deduced from GCP.
         :param pulumi.Input[_builtins.bool] is_per_project_quota_enabled: When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
         :param pulumi.Input[_builtins.bool] is_resource_change_collection_enabled: When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         :param pulumi.Input[_builtins.bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationStsMetricNamespaceConfigArgs']]] metric_namespace_configs: Configurations for GCP metric namespaces.
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationStsMonitoredResourceConfigArgs']]] monitored_resource_configs: Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] region_filter_configs: Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
         :param pulumi.Input[_builtins.bool] resource_collection_enabled: When enabled, Datadog scans for all resources in your GCP environment.
         """
         if account_tags is not None:
@@ -277,6 +313,8 @@ class _IntegrationStsState:
             pulumi.set(__self__, "host_filters", host_filters)
         if is_cspm_enabled is not None:
             pulumi.set(__self__, "is_cspm_enabled", is_cspm_enabled)
+        if is_global_location_enabled is not None:
+            pulumi.set(__self__, "is_global_location_enabled", is_global_location_enabled)
         if is_per_project_quota_enabled is not None:
             pulumi.set(__self__, "is_per_project_quota_enabled", is_per_project_quota_enabled)
         if is_resource_change_collection_enabled is not None:
@@ -287,6 +325,8 @@ class _IntegrationStsState:
             pulumi.set(__self__, "metric_namespace_configs", metric_namespace_configs)
         if monitored_resource_configs is not None:
             pulumi.set(__self__, "monitored_resource_configs", monitored_resource_configs)
+        if region_filter_configs is not None:
+            pulumi.set(__self__, "region_filter_configs", region_filter_configs)
         if resource_collection_enabled is not None:
             pulumi.set(__self__, "resource_collection_enabled", resource_collection_enabled)
 
@@ -377,6 +417,18 @@ class _IntegrationStsState:
         pulumi.set(self, "is_cspm_enabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="isGlobalLocationEnabled")
+    def is_global_location_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When enabled, Datadog collects metrics where location is explicitly stated as 'global' or where location information cannot be deduced from GCP.
+        """
+        return pulumi.get(self, "is_global_location_enabled")
+
+    @is_global_location_enabled.setter
+    def is_global_location_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_global_location_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="isPerProjectQuotaEnabled")
     def is_per_project_quota_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -437,6 +489,18 @@ class _IntegrationStsState:
         pulumi.set(self, "monitored_resource_configs", value)
 
     @_builtins.property
+    @pulumi.getter(name="regionFilterConfigs")
+    def region_filter_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
+        """
+        return pulumi.get(self, "region_filter_configs")
+
+    @region_filter_configs.setter
+    def region_filter_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "region_filter_configs", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceCollectionEnabled")
     def resource_collection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -461,11 +525,13 @@ class IntegrationSts(pulumi.CustomResource):
                  cloud_run_revision_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  is_cspm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 is_global_location_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_per_project_quota_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_resource_change_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_security_command_center_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  metric_namespace_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMetricNamespaceConfigArgs', 'IntegrationStsMetricNamespaceConfigArgsDict']]]]] = None,
                  monitored_resource_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMonitoredResourceConfigArgs', 'IntegrationStsMonitoredResourceConfigArgsDict']]]]] = None,
+                 region_filter_configs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -487,11 +553,13 @@ class IntegrationSts(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloud_run_revision_filters: List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] host_filters: List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.bool] is_cspm_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
+        :param pulumi.Input[_builtins.bool] is_global_location_enabled: When enabled, Datadog collects metrics where location is explicitly stated as 'global' or where location information cannot be deduced from GCP.
         :param pulumi.Input[_builtins.bool] is_per_project_quota_enabled: When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
         :param pulumi.Input[_builtins.bool] is_resource_change_collection_enabled: When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         :param pulumi.Input[_builtins.bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMetricNamespaceConfigArgs', 'IntegrationStsMetricNamespaceConfigArgsDict']]]] metric_namespace_configs: Configurations for GCP metric namespaces.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMonitoredResourceConfigArgs', 'IntegrationStsMonitoredResourceConfigArgsDict']]]] monitored_resource_configs: Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] region_filter_configs: Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
         :param pulumi.Input[_builtins.bool] resource_collection_enabled: When enabled, Datadog scans for all resources in your GCP environment.
         """
         ...
@@ -532,11 +600,13 @@ class IntegrationSts(pulumi.CustomResource):
                  cloud_run_revision_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  is_cspm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 is_global_location_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_per_project_quota_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_resource_change_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_security_command_center_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  metric_namespace_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMetricNamespaceConfigArgs', 'IntegrationStsMetricNamespaceConfigArgsDict']]]]] = None,
                  monitored_resource_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMonitoredResourceConfigArgs', 'IntegrationStsMonitoredResourceConfigArgsDict']]]]] = None,
+                 region_filter_configs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -555,11 +625,13 @@ class IntegrationSts(pulumi.CustomResource):
             __props__.__dict__["cloud_run_revision_filters"] = cloud_run_revision_filters
             __props__.__dict__["host_filters"] = host_filters
             __props__.__dict__["is_cspm_enabled"] = is_cspm_enabled
+            __props__.__dict__["is_global_location_enabled"] = is_global_location_enabled
             __props__.__dict__["is_per_project_quota_enabled"] = is_per_project_quota_enabled
             __props__.__dict__["is_resource_change_collection_enabled"] = is_resource_change_collection_enabled
             __props__.__dict__["is_security_command_center_enabled"] = is_security_command_center_enabled
             __props__.__dict__["metric_namespace_configs"] = metric_namespace_configs
             __props__.__dict__["monitored_resource_configs"] = monitored_resource_configs
+            __props__.__dict__["region_filter_configs"] = region_filter_configs
             __props__.__dict__["resource_collection_enabled"] = resource_collection_enabled
             __props__.__dict__["delegate_account_email"] = None
         super(IntegrationSts, __self__).__init__(
@@ -579,11 +651,13 @@ class IntegrationSts(pulumi.CustomResource):
             delegate_account_email: Optional[pulumi.Input[_builtins.str]] = None,
             host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             is_cspm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+            is_global_location_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             is_per_project_quota_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             is_resource_change_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             is_security_command_center_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             metric_namespace_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMetricNamespaceConfigArgs', 'IntegrationStsMetricNamespaceConfigArgsDict']]]]] = None,
             monitored_resource_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMonitoredResourceConfigArgs', 'IntegrationStsMonitoredResourceConfigArgsDict']]]]] = None,
+            region_filter_configs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'IntegrationSts':
         """
         Get an existing IntegrationSts resource's state with the given name, id, and optional extra
@@ -599,11 +673,13 @@ class IntegrationSts(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] delegate_account_email: Datadog's STS Delegate Email.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] host_filters: List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.bool] is_cspm_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
+        :param pulumi.Input[_builtins.bool] is_global_location_enabled: When enabled, Datadog collects metrics where location is explicitly stated as 'global' or where location information cannot be deduced from GCP.
         :param pulumi.Input[_builtins.bool] is_per_project_quota_enabled: When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
         :param pulumi.Input[_builtins.bool] is_resource_change_collection_enabled: When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         :param pulumi.Input[_builtins.bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMetricNamespaceConfigArgs', 'IntegrationStsMetricNamespaceConfigArgsDict']]]] metric_namespace_configs: Configurations for GCP metric namespaces.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationStsMonitoredResourceConfigArgs', 'IntegrationStsMonitoredResourceConfigArgsDict']]]] monitored_resource_configs: Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] region_filter_configs: Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
         :param pulumi.Input[_builtins.bool] resource_collection_enabled: When enabled, Datadog scans for all resources in your GCP environment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -617,11 +693,13 @@ class IntegrationSts(pulumi.CustomResource):
         __props__.__dict__["delegate_account_email"] = delegate_account_email
         __props__.__dict__["host_filters"] = host_filters
         __props__.__dict__["is_cspm_enabled"] = is_cspm_enabled
+        __props__.__dict__["is_global_location_enabled"] = is_global_location_enabled
         __props__.__dict__["is_per_project_quota_enabled"] = is_per_project_quota_enabled
         __props__.__dict__["is_resource_change_collection_enabled"] = is_resource_change_collection_enabled
         __props__.__dict__["is_security_command_center_enabled"] = is_security_command_center_enabled
         __props__.__dict__["metric_namespace_configs"] = metric_namespace_configs
         __props__.__dict__["monitored_resource_configs"] = monitored_resource_configs
+        __props__.__dict__["region_filter_configs"] = region_filter_configs
         __props__.__dict__["resource_collection_enabled"] = resource_collection_enabled
         return IntegrationSts(resource_name, opts=opts, __props__=__props__)
 
@@ -684,6 +762,14 @@ class IntegrationSts(pulumi.CustomResource):
         return pulumi.get(self, "is_cspm_enabled")
 
     @_builtins.property
+    @pulumi.getter(name="isGlobalLocationEnabled")
+    def is_global_location_enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        When enabled, Datadog collects metrics where location is explicitly stated as 'global' or where location information cannot be deduced from GCP.
+        """
+        return pulumi.get(self, "is_global_location_enabled")
+
+    @_builtins.property
     @pulumi.getter(name="isPerProjectQuotaEnabled")
     def is_per_project_quota_enabled(self) -> pulumi.Output[_builtins.bool]:
         """
@@ -722,6 +808,14 @@ class IntegrationSts(pulumi.CustomResource):
         Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
         """
         return pulumi.get(self, "monitored_resource_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="regionFilterConfigs")
+    def region_filter_configs(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
+        """
+        return pulumi.get(self, "region_filter_configs")
 
     @_builtins.property
     @pulumi.getter(name="resourceCollectionEnabled")

@@ -7,8 +7,10 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestination;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroup;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSource;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -18,6 +20,11 @@ public final class ObservabilityPipelineConfig {
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestination> destinations;
+    /**
+     * @return The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`.
+     * 
+     */
+    private @Nullable String pipelineType;
     /**
      * @return A processor group containing common configuration and nested processors.
      * 
@@ -36,6 +43,13 @@ public final class ObservabilityPipelineConfig {
      */
     public List<ObservabilityPipelineConfigDestination> destinations() {
         return this.destinations == null ? List.of() : this.destinations;
+    }
+    /**
+     * @return The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`.
+     * 
+     */
+    public Optional<String> pipelineType() {
+        return Optional.ofNullable(this.pipelineType);
     }
     /**
      * @return A processor group containing common configuration and nested processors.
@@ -62,12 +76,14 @@ public final class ObservabilityPipelineConfig {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ObservabilityPipelineConfigDestination> destinations;
+        private @Nullable String pipelineType;
         private @Nullable List<ObservabilityPipelineConfigProcessorGroup> processorGroups;
         private @Nullable List<ObservabilityPipelineConfigSource> sources;
         public Builder() {}
         public Builder(ObservabilityPipelineConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destinations = defaults.destinations;
+    	      this.pipelineType = defaults.pipelineType;
     	      this.processorGroups = defaults.processorGroups;
     	      this.sources = defaults.sources;
         }
@@ -80,6 +96,12 @@ public final class ObservabilityPipelineConfig {
         }
         public Builder destinations(ObservabilityPipelineConfigDestination... destinations) {
             return destinations(List.of(destinations));
+        }
+        @CustomType.Setter
+        public Builder pipelineType(@Nullable String pipelineType) {
+
+            this.pipelineType = pipelineType;
+            return this;
         }
         @CustomType.Setter
         public Builder processorGroups(@Nullable List<ObservabilityPipelineConfigProcessorGroup> processorGroups) {
@@ -102,6 +124,7 @@ public final class ObservabilityPipelineConfig {
         public ObservabilityPipelineConfig build() {
             final var _resultValue = new ObservabilityPipelineConfig();
             _resultValue.destinations = destinations;
+            _resultValue.pipelineType = pipelineType;
             _resultValue.processorGroups = processorGroups;
             _resultValue.sources = sources;
             return _resultValue;

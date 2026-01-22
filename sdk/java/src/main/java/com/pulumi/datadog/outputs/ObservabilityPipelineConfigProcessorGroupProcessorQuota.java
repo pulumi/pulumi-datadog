@@ -47,6 +47,11 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuota {
      * 
      */
     private @Nullable List<String> partitionFields;
+    /**
+     * @return The action to take when the max number of buckets is exceeded: `drop`, `noAction`, or `overflowRouting`.
+     * 
+     */
+    private @Nullable String tooManyBucketsAction;
 
     private ObservabilityPipelineConfigProcessorGroupProcessorQuota() {}
     /**
@@ -94,6 +99,13 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuota {
     public List<String> partitionFields() {
         return this.partitionFields == null ? List.of() : this.partitionFields;
     }
+    /**
+     * @return The action to take when the max number of buckets is exceeded: `drop`, `noAction`, or `overflowRouting`.
+     * 
+     */
+    public Optional<String> tooManyBucketsAction() {
+        return Optional.ofNullable(this.tooManyBucketsAction);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -111,6 +123,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuota {
         private @Nullable String overflowAction;
         private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverride> overrides;
         private @Nullable List<String> partitionFields;
+        private @Nullable String tooManyBucketsAction;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorQuota defaults) {
     	      Objects.requireNonNull(defaults);
@@ -121,6 +134,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuota {
     	      this.overflowAction = defaults.overflowAction;
     	      this.overrides = defaults.overrides;
     	      this.partitionFields = defaults.partitionFields;
+    	      this.tooManyBucketsAction = defaults.tooManyBucketsAction;
         }
 
         @CustomType.Setter
@@ -173,6 +187,12 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuota {
         public Builder partitionFields(String... partitionFields) {
             return partitionFields(List.of(partitionFields));
         }
+        @CustomType.Setter
+        public Builder tooManyBucketsAction(@Nullable String tooManyBucketsAction) {
+
+            this.tooManyBucketsAction = tooManyBucketsAction;
+            return this;
+        }
         public ObservabilityPipelineConfigProcessorGroupProcessorQuota build() {
             final var _resultValue = new ObservabilityPipelineConfigProcessorGroupProcessorQuota();
             _resultValue.dropEvents = dropEvents;
@@ -182,6 +202,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuota {
             _resultValue.overflowAction = overflowAction;
             _resultValue.overrides = overrides;
             _resultValue.partitionFields = partitionFields;
+            _resultValue.tooManyBucketsAction = tooManyBucketsAction;
             return _resultValue;
         }
     }

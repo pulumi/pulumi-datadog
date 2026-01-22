@@ -8,6 +8,7 @@ import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionCustomLink
 import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionRequest;
 import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionXaxis;
 import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionYaxis;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -26,6 +27,11 @@ public final class DashboardWidgetScatterplotDefinition {
      * 
      */
     private @Nullable List<DashboardWidgetScatterplotDefinitionCustomLink> customLinks;
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    private @Nullable Boolean hideIncompleteCostData;
     /**
      * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      * 
@@ -76,6 +82,13 @@ public final class DashboardWidgetScatterplotDefinition {
      */
     public List<DashboardWidgetScatterplotDefinitionCustomLink> customLinks() {
         return this.customLinks == null ? List.of() : this.customLinks;
+    }
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Boolean> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
     }
     /**
      * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
@@ -138,6 +151,7 @@ public final class DashboardWidgetScatterplotDefinition {
     public static final class Builder {
         private @Nullable List<String> colorByGroups;
         private @Nullable List<DashboardWidgetScatterplotDefinitionCustomLink> customLinks;
+        private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String liveSpan;
         private @Nullable DashboardWidgetScatterplotDefinitionRequest request;
         private @Nullable String title;
@@ -150,6 +164,7 @@ public final class DashboardWidgetScatterplotDefinition {
     	      Objects.requireNonNull(defaults);
     	      this.colorByGroups = defaults.colorByGroups;
     	      this.customLinks = defaults.customLinks;
+    	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.liveSpan = defaults.liveSpan;
     	      this.request = defaults.request;
     	      this.title = defaults.title;
@@ -176,6 +191,12 @@ public final class DashboardWidgetScatterplotDefinition {
         }
         public Builder customLinks(DashboardWidgetScatterplotDefinitionCustomLink... customLinks) {
             return customLinks(List.of(customLinks));
+        }
+        @CustomType.Setter
+        public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
+
+            this.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
         }
         @CustomType.Setter
         public Builder liveSpan(@Nullable String liveSpan) {
@@ -223,6 +244,7 @@ public final class DashboardWidgetScatterplotDefinition {
             final var _resultValue = new DashboardWidgetScatterplotDefinition();
             _resultValue.colorByGroups = colorByGroups;
             _resultValue.customLinks = customLinks;
+            _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.liveSpan = liveSpan;
             _resultValue.request = request;
             _resultValue.title = title;

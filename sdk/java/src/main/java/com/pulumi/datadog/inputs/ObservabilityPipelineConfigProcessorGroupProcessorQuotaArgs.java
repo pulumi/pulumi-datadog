@@ -117,6 +117,21 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuotaArgs e
         return Optional.ofNullable(this.partitionFields);
     }
 
+    /**
+     * The action to take when the max number of buckets is exceeded: `drop`, `noAction`, or `overflowRouting`.
+     * 
+     */
+    @Import(name="tooManyBucketsAction")
+    private @Nullable Output<String> tooManyBucketsAction;
+
+    /**
+     * @return The action to take when the max number of buckets is exceeded: `drop`, `noAction`, or `overflowRouting`.
+     * 
+     */
+    public Optional<Output<String>> tooManyBucketsAction() {
+        return Optional.ofNullable(this.tooManyBucketsAction);
+    }
+
     private ObservabilityPipelineConfigProcessorGroupProcessorQuotaArgs() {}
 
     private ObservabilityPipelineConfigProcessorGroupProcessorQuotaArgs(ObservabilityPipelineConfigProcessorGroupProcessorQuotaArgs $) {
@@ -127,6 +142,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuotaArgs e
         this.overflowAction = $.overflowAction;
         this.overrides = $.overrides;
         this.partitionFields = $.partitionFields;
+        this.tooManyBucketsAction = $.tooManyBucketsAction;
     }
 
     public static Builder builder() {
@@ -300,6 +316,27 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuotaArgs e
          */
         public Builder partitionFields(String... partitionFields) {
             return partitionFields(List.of(partitionFields));
+        }
+
+        /**
+         * @param tooManyBucketsAction The action to take when the max number of buckets is exceeded: `drop`, `noAction`, or `overflowRouting`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tooManyBucketsAction(@Nullable Output<String> tooManyBucketsAction) {
+            $.tooManyBucketsAction = tooManyBucketsAction;
+            return this;
+        }
+
+        /**
+         * @param tooManyBucketsAction The action to take when the max number of buckets is exceeded: `drop`, `noAction`, or `overflowRouting`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tooManyBucketsAction(String tooManyBucketsAction) {
+            return tooManyBucketsAction(Output.of(tooManyBucketsAction));
         }
 
         public ObservabilityPipelineConfigProcessorGroupProcessorQuotaArgs build() {

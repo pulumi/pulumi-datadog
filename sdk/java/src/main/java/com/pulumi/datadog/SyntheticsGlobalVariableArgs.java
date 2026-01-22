@@ -179,18 +179,50 @@ public final class SyntheticsGlobalVariableArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The value of the global variable. Required unless `isFido` is set to `true`.
+     * The value of the global variable. Required unless `isFido` is set to `true` or `valueWo` is used
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return The value of the global variable. Required unless `isFido` is set to `true`.
+     * @return The value of the global variable. Required unless `isFido` is set to `true` or `valueWo` is used
      * 
      */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
+    }
+
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only value of the global variable. Must be used with `valueWoVersion`.
+     * 
+     */
+    @Import(name="valueWo")
+    private @Nullable Output<String> valueWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only value of the global variable. Must be used with `valueWoVersion`.
+     * 
+     */
+    public Optional<Output<String>> valueWo() {
+        return Optional.ofNullable(this.valueWo);
+    }
+
+    /**
+     * Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., &#39;1&#39;, &#39;v2.1&#39;, &#39;2024-Q1&#39;). String length must be at least 1.
+     * 
+     */
+    @Import(name="valueWoVersion")
+    private @Nullable Output<String> valueWoVersion;
+
+    /**
+     * @return Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., &#39;1&#39;, &#39;v2.1&#39;, &#39;2024-Q1&#39;). String length must be at least 1.
+     * 
+     */
+    public Optional<Output<String>> valueWoVersion() {
+        return Optional.ofNullable(this.valueWoVersion);
     }
 
     private SyntheticsGlobalVariableArgs() {}
@@ -207,6 +239,8 @@ public final class SyntheticsGlobalVariableArgs extends com.pulumi.resources.Res
         this.secure = $.secure;
         this.tags = $.tags;
         this.value = $.value;
+        this.valueWo = $.valueWo;
+        this.valueWoVersion = $.valueWoVersion;
     }
 
     public static Builder builder() {
@@ -470,7 +504,7 @@ public final class SyntheticsGlobalVariableArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param value The value of the global variable. Required unless `isFido` is set to `true`.
+         * @param value The value of the global variable. Required unless `isFido` is set to `true` or `valueWo` is used
          * 
          * @return builder
          * 
@@ -481,13 +515,57 @@ public final class SyntheticsGlobalVariableArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param value The value of the global variable. Required unless `isFido` is set to `true`.
+         * @param value The value of the global variable. Required unless `isFido` is set to `true` or `valueWo` is used
          * 
          * @return builder
          * 
          */
         public Builder value(String value) {
             return value(Output.of(value));
+        }
+
+        /**
+         * @param valueWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only value of the global variable. Must be used with `valueWoVersion`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder valueWo(@Nullable Output<String> valueWo) {
+            $.valueWo = valueWo;
+            return this;
+        }
+
+        /**
+         * @param valueWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only value of the global variable. Must be used with `valueWoVersion`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder valueWo(String valueWo) {
+            return valueWo(Output.of(valueWo));
+        }
+
+        /**
+         * @param valueWoVersion Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., &#39;1&#39;, &#39;v2.1&#39;, &#39;2024-Q1&#39;). String length must be at least 1.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder valueWoVersion(@Nullable Output<String> valueWoVersion) {
+            $.valueWoVersion = valueWoVersion;
+            return this;
+        }
+
+        /**
+         * @param valueWoVersion Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., &#39;1&#39;, &#39;v2.1&#39;, &#39;2024-Q1&#39;). String length must be at least 1.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder valueWoVersion(String valueWoVersion) {
+            return valueWoVersion(Output.of(valueWoVersion));
         }
 
         public SyntheticsGlobalVariableArgs build() {

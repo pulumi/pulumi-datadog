@@ -14,13 +14,21 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternCustom
     {
         /// <summary>
+        /// Human-readable description providing context about a sensitive data scanner rule.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// A regular expression used to detect sensitive values. Must be a valid regex.
         /// </summary>
         public readonly string? Rule;
 
         [OutputConstructor]
-        private ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternCustom(string? rule)
+        private ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternCustom(
+            string? description,
+
+            string? rule)
         {
+            Description = description;
             Rule = rule;
         }
     }

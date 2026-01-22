@@ -16,6 +16,21 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
     public static final ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternCustomArgs Empty = new ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternCustomArgs();
 
     /**
+     * Human-readable description providing context about a sensitive data scanner rule.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return Human-readable description providing context about a sensitive data scanner rule.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * A regular expression used to detect sensitive values. Must be a valid regex.
      * 
      */
@@ -33,6 +48,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
     private ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternCustomArgs() {}
 
     private ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternCustomArgs(ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternCustomArgs $) {
+        this.description = $.description;
         this.rule = $.rule;
     }
 
@@ -52,6 +68,27 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
 
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternCustomArgs defaults) {
             $ = new ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternCustomArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param description Human-readable description providing context about a sensitive data scanner rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description Human-readable description providing context about a sensitive data scanner rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

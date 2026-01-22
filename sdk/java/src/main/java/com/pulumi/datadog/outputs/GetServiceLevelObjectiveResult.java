@@ -46,6 +46,11 @@ public final class GetServiceLevelObjectiveResult {
      */
     private List<GetServiceLevelObjectiveQuery> queries;
     /**
+     * @return List of tags associated with the service level objective.
+     * 
+     */
+    private List<String> tags;
+    /**
      * @return Filter results based on a single SLO tag.
      * 
      */
@@ -115,6 +120,13 @@ public final class GetServiceLevelObjectiveResult {
         return this.queries;
     }
     /**
+     * @return List of tags associated with the service level objective.
+     * 
+     */
+    public List<String> tags() {
+        return this.tags;
+    }
+    /**
      * @return Filter results based on a single SLO tag.
      * 
      */
@@ -165,6 +177,7 @@ public final class GetServiceLevelObjectiveResult {
         private String name;
         private @Nullable String nameQuery;
         private List<GetServiceLevelObjectiveQuery> queries;
+        private List<String> tags;
         private @Nullable String tagsQuery;
         private Double targetThreshold;
         private String timeframe;
@@ -179,6 +192,7 @@ public final class GetServiceLevelObjectiveResult {
     	      this.name = defaults.name;
     	      this.nameQuery = defaults.nameQuery;
     	      this.queries = defaults.queries;
+    	      this.tags = defaults.tags;
     	      this.tagsQuery = defaults.tagsQuery;
     	      this.targetThreshold = defaults.targetThreshold;
     	      this.timeframe = defaults.timeframe;
@@ -232,6 +246,17 @@ public final class GetServiceLevelObjectiveResult {
             return queries(List.of(queries));
         }
         @CustomType.Setter
+        public Builder tags(List<String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetServiceLevelObjectiveResult", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
+        public Builder tags(String... tags) {
+            return tags(List.of(tags));
+        }
+        @CustomType.Setter
         public Builder tagsQuery(@Nullable String tagsQuery) {
 
             this.tagsQuery = tagsQuery;
@@ -277,6 +302,7 @@ public final class GetServiceLevelObjectiveResult {
             _resultValue.name = name;
             _resultValue.nameQuery = nameQuery;
             _resultValue.queries = queries;
+            _resultValue.tags = tags;
             _resultValue.tagsQuery = tagsQuery;
             _resultValue.targetThreshold = targetThreshold;
             _resultValue.timeframe = timeframe;

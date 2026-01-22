@@ -139,6 +139,20 @@ public class IntegrationSts extends com.pulumi.resources.CustomResource {
         return this.isCspmEnabled;
     }
     /**
+     * When enabled, Datadog collects metrics where location is explicitly stated as &#39;global&#39; or where location information cannot be deduced from GCP.
+     * 
+     */
+    @Export(name="isGlobalLocationEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> isGlobalLocationEnabled;
+
+    /**
+     * @return When enabled, Datadog collects metrics where location is explicitly stated as &#39;global&#39; or where location information cannot be deduced from GCP.
+     * 
+     */
+    public Output<Boolean> isGlobalLocationEnabled() {
+        return this.isGlobalLocationEnabled;
+    }
+    /**
      * When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
      * 
      */
@@ -207,6 +221,20 @@ public class IntegrationSts extends com.pulumi.resources.CustomResource {
      */
     public Output<List<IntegrationStsMonitoredResourceConfig>> monitoredResourceConfigs() {
         return this.monitoredResourceConfigs;
+    }
+    /**
+     * Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
+     * 
+     */
+    @Export(name="regionFilterConfigs", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> regionFilterConfigs;
+
+    /**
+     * @return Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
+     * 
+     */
+    public Output<Optional<List<String>>> regionFilterConfigs() {
+        return Codegen.optional(this.regionFilterConfigs);
     }
     /**
      * When enabled, Datadog scans for all resources in your GCP environment.

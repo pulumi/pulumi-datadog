@@ -12,17 +12,23 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorSampleArgs : global::Pulumi.ResourceArgs
     {
+        [Input("groupBies")]
+        private InputList<string>? _groupBies;
+
+        /// <summary>
+        /// Optional list of fields to group events by. Each group is sampled independently.
+        /// </summary>
+        public InputList<string> GroupBies
+        {
+            get => _groupBies ?? (_groupBies = new InputList<string>());
+            set => _groupBies = value;
+        }
+
         /// <summary>
         /// The percentage of logs to sample.
         /// </summary>
-        [Input("percentage")]
-        public Input<double>? Percentage { get; set; }
-
-        /// <summary>
-        /// Number of events to sample (1 in N).
-        /// </summary>
-        [Input("rate")]
-        public Input<int>? Rate { get; set; }
+        [Input("percentage", required: true)]
+        public Input<double> Percentage { get; set; } = null!;
 
         public ObservabilityPipelineConfigProcessorGroupProcessorSampleArgs()
         {

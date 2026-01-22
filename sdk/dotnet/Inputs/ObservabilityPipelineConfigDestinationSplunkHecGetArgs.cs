@@ -21,8 +21,8 @@ namespace Pulumi.Datadog.Inputs
         /// <summary>
         /// Encoding format for log events. Valid values: `Json`, `RawMessage`.
         /// </summary>
-        [Input("encoding")]
-        public Input<string>? Encoding { get; set; }
+        [Input("encoding", required: true)]
+        public Input<string> Encoding { get; set; } = null!;
 
         /// <summary>
         /// Optional name of the Splunk index where logs are written.

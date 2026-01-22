@@ -9,6 +9,7 @@ import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionCustomLinkA
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionXaxisArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionYaxisArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -48,6 +49,21 @@ public final class DashboardWidgetScatterplotDefinitionArgs extends com.pulumi.r
      */
     public Optional<Output<List<DashboardWidgetScatterplotDefinitionCustomLinkArgs>>> customLinks() {
         return Optional.ofNullable(this.customLinks);
+    }
+
+    /**
+     * Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    @Import(name="hideIncompleteCostData")
+    private @Nullable Output<Boolean> hideIncompleteCostData;
+
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Output<Boolean>> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
     }
 
     /**
@@ -160,6 +176,7 @@ public final class DashboardWidgetScatterplotDefinitionArgs extends com.pulumi.r
     private DashboardWidgetScatterplotDefinitionArgs(DashboardWidgetScatterplotDefinitionArgs $) {
         this.colorByGroups = $.colorByGroups;
         this.customLinks = $.customLinks;
+        this.hideIncompleteCostData = $.hideIncompleteCostData;
         this.liveSpan = $.liveSpan;
         this.request = $.request;
         this.title = $.title;
@@ -247,6 +264,27 @@ public final class DashboardWidgetScatterplotDefinitionArgs extends com.pulumi.r
          */
         public Builder customLinks(DashboardWidgetScatterplotDefinitionCustomLinkArgs... customLinks) {
             return customLinks(List.of(customLinks));
+        }
+
+        /**
+         * @param hideIncompleteCostData Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hideIncompleteCostData(@Nullable Output<Boolean> hideIncompleteCostData) {
+            $.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
+        }
+
+        /**
+         * @param hideIncompleteCostData Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hideIncompleteCostData(Boolean hideIncompleteCostData) {
+            return hideIncompleteCostData(Output.of(hideIncompleteCostData));
         }
 
         /**

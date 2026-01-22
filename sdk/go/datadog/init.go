@@ -53,6 +53,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ChildOrganization{}
 	case "datadog:index/cloudConfigurationRule:CloudConfigurationRule":
 		r = &CloudConfigurationRule{}
+	case "datadog:index/cloudInventorySyncConfig:CloudInventorySyncConfig":
+		r = &CloudInventorySyncConfig{}
 	case "datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule":
 		r = &CloudWorkloadSecurityAgentRule{}
 	case "datadog:index/complianceCustomFramework:ComplianceCustomFramework":
@@ -135,6 +137,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OnCallSchedule{}
 	case "datadog:index/onCallTeamRoutingRules:OnCallTeamRoutingRules":
 		r = &OnCallTeamRoutingRules{}
+	case "datadog:index/onCallUserNotificationChannel:OnCallUserNotificationChannel":
+		r = &OnCallUserNotificationChannel{}
+	case "datadog:index/onCallUserNotificationRule:OnCallUserNotificationRule":
+		r = &OnCallUserNotificationRule{}
 	case "datadog:index/openapiApi:OpenapiApi":
 		r = &OpenapiApi{}
 	case "datadog:index/orgConnection:OrgConnection":
@@ -209,6 +215,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TeamLink{}
 	case "datadog:index/teamMembership:TeamMembership":
 		r = &TeamMembership{}
+	case "datadog:index/teamNotificationRule:TeamNotificationRule":
+		r = &TeamNotificationRule{}
 	case "datadog:index/teamPermissionSetting:TeamPermissionSetting":
 		r = &TeamPermissionSetting{}
 	case "datadog:index/user:User":
@@ -330,6 +338,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/cloudConfigurationRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/cloudInventorySyncConfig",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -539,6 +552,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/onCallUserNotificationChannel",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/onCallUserNotificationRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/openapiApi",
 		&module{version},
 	)
@@ -720,6 +743,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/teamMembership",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/teamNotificationRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

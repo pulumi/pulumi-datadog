@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -33,6 +34,11 @@ public final class DashboardWidgetCheckStatusDefinition {
      * 
      */
     private String grouping;
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    private @Nullable Boolean hideIncompleteCostData;
     /**
      * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      * 
@@ -89,6 +95,13 @@ public final class DashboardWidgetCheckStatusDefinition {
         return this.grouping;
     }
     /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Boolean> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
+    }
+    /**
      * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      * 
      */
@@ -137,6 +150,7 @@ public final class DashboardWidgetCheckStatusDefinition {
         private @Nullable String group;
         private @Nullable List<String> groupBies;
         private String grouping;
+        private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String liveSpan;
         private @Nullable List<String> tags;
         private @Nullable String title;
@@ -149,6 +163,7 @@ public final class DashboardWidgetCheckStatusDefinition {
     	      this.group = defaults.group;
     	      this.groupBies = defaults.groupBies;
     	      this.grouping = defaults.grouping;
+    	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.liveSpan = defaults.liveSpan;
     	      this.tags = defaults.tags;
     	      this.title = defaults.title;
@@ -185,6 +200,12 @@ public final class DashboardWidgetCheckStatusDefinition {
               throw new MissingRequiredPropertyException("DashboardWidgetCheckStatusDefinition", "grouping");
             }
             this.grouping = grouping;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
+
+            this.hideIncompleteCostData = hideIncompleteCostData;
             return this;
         }
         @CustomType.Setter
@@ -226,6 +247,7 @@ public final class DashboardWidgetCheckStatusDefinition {
             _resultValue.group = group;
             _resultValue.groupBies = groupBies;
             _resultValue.grouping = grouping;
+            _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.liveSpan = liveSpan;
             _resultValue.tags = tags;
             _resultValue.title = title;

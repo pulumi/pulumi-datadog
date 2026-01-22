@@ -52,6 +52,8 @@ import com.pulumi.datadog.inputs.GetMonitorArgs;
 import com.pulumi.datadog.inputs.GetMonitorPlainArgs;
 import com.pulumi.datadog.inputs.GetMonitorsArgs;
 import com.pulumi.datadog.inputs.GetMonitorsPlainArgs;
+import com.pulumi.datadog.inputs.GetOrganizationSettingsArgs;
+import com.pulumi.datadog.inputs.GetOrganizationSettingsPlainArgs;
 import com.pulumi.datadog.inputs.GetPermissionsArgs;
 import com.pulumi.datadog.inputs.GetPermissionsPlainArgs;
 import com.pulumi.datadog.inputs.GetPowerpackArgs;
@@ -93,6 +95,10 @@ import com.pulumi.datadog.inputs.GetTeamHierarchyLinksArgs;
 import com.pulumi.datadog.inputs.GetTeamHierarchyLinksPlainArgs;
 import com.pulumi.datadog.inputs.GetTeamMembershipsArgs;
 import com.pulumi.datadog.inputs.GetTeamMembershipsPlainArgs;
+import com.pulumi.datadog.inputs.GetTeamNotificationRuleArgs;
+import com.pulumi.datadog.inputs.GetTeamNotificationRulePlainArgs;
+import com.pulumi.datadog.inputs.GetTeamNotificationRulesArgs;
+import com.pulumi.datadog.inputs.GetTeamNotificationRulesPlainArgs;
 import com.pulumi.datadog.inputs.GetTeamPlainArgs;
 import com.pulumi.datadog.inputs.GetTeamsArgs;
 import com.pulumi.datadog.inputs.GetTeamsPlainArgs;
@@ -134,6 +140,7 @@ import com.pulumi.datadog.outputs.GetMetricsResult;
 import com.pulumi.datadog.outputs.GetMonitorConfigPoliciesResult;
 import com.pulumi.datadog.outputs.GetMonitorResult;
 import com.pulumi.datadog.outputs.GetMonitorsResult;
+import com.pulumi.datadog.outputs.GetOrganizationSettingsResult;
 import com.pulumi.datadog.outputs.GetPermissionsResult;
 import com.pulumi.datadog.outputs.GetPowerpackResult;
 import com.pulumi.datadog.outputs.GetReferenceTableResult;
@@ -158,6 +165,8 @@ import com.pulumi.datadog.outputs.GetSyntheticsTestResult;
 import com.pulumi.datadog.outputs.GetTagPipelineRulesetResult;
 import com.pulumi.datadog.outputs.GetTeamHierarchyLinksResult;
 import com.pulumi.datadog.outputs.GetTeamMembershipsResult;
+import com.pulumi.datadog.outputs.GetTeamNotificationRuleResult;
+import com.pulumi.datadog.outputs.GetTeamNotificationRulesResult;
 import com.pulumi.datadog.outputs.GetTeamResult;
 import com.pulumi.datadog.outputs.GetTeamsResult;
 import com.pulumi.datadog.outputs.GetUserResult;
@@ -5277,6 +5286,55 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invokeAsync("datadog:index/getMonitors:getMonitors", TypeShape.of(GetMonitorsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve information about your Datadog organization.
+     * 
+     */
+    public static Output<GetOrganizationSettingsResult> getOrganizationSettings() {
+        return getOrganizationSettings(GetOrganizationSettingsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about your Datadog organization.
+     * 
+     */
+    public static CompletableFuture<GetOrganizationSettingsResult> getOrganizationSettingsPlain() {
+        return getOrganizationSettingsPlain(GetOrganizationSettingsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about your Datadog organization.
+     * 
+     */
+    public static Output<GetOrganizationSettingsResult> getOrganizationSettings(GetOrganizationSettingsArgs args) {
+        return getOrganizationSettings(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about your Datadog organization.
+     * 
+     */
+    public static CompletableFuture<GetOrganizationSettingsResult> getOrganizationSettingsPlain(GetOrganizationSettingsPlainArgs args) {
+        return getOrganizationSettingsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about your Datadog organization.
+     * 
+     */
+    public static Output<GetOrganizationSettingsResult> getOrganizationSettings(GetOrganizationSettingsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getOrganizationSettings:getOrganizationSettings", TypeShape.of(GetOrganizationSettingsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about your Datadog organization.
+     * 
+     */
+    public static Output<GetOrganizationSettingsResult> getOrganizationSettings(GetOrganizationSettingsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getOrganizationSettings:getOrganizationSettings", TypeShape.of(GetOrganizationSettingsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about your Datadog organization.
+     * 
+     */
+    public static CompletableFuture<GetOrganizationSettingsResult> getOrganizationSettingsPlain(GetOrganizationSettingsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getOrganizationSettings:getOrganizationSettings", TypeShape.of(GetOrganizationSettingsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to retrieve the list of Datadog permissions by name and their corresponding ID, for use in the role resource.
      * 
      * ## Example Usage
@@ -9279,6 +9337,421 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetTeamMembershipsResult> getTeamMembershipsPlain(GetTeamMembershipsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getTeamMemberships:getTeamMemberships", TypeShape.of(GetTeamMembershipsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a specific Datadog team notification rule.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamNotificationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get a specific notification rule for a team
+     *         final var example = DatadogFunctions.getTeamNotificationRule(GetTeamNotificationRuleArgs.builder()
+     *             .teamId("00000000-0000-0000-0000-000000000000")
+     *             .ruleId("11111111-1111-1111-1111-111111111111")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetTeamNotificationRuleResult> getTeamNotificationRule(GetTeamNotificationRuleArgs args) {
+        return getTeamNotificationRule(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a specific Datadog team notification rule.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamNotificationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get a specific notification rule for a team
+     *         final var example = DatadogFunctions.getTeamNotificationRule(GetTeamNotificationRuleArgs.builder()
+     *             .teamId("00000000-0000-0000-0000-000000000000")
+     *             .ruleId("11111111-1111-1111-1111-111111111111")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetTeamNotificationRuleResult> getTeamNotificationRulePlain(GetTeamNotificationRulePlainArgs args) {
+        return getTeamNotificationRulePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about a specific Datadog team notification rule.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamNotificationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get a specific notification rule for a team
+     *         final var example = DatadogFunctions.getTeamNotificationRule(GetTeamNotificationRuleArgs.builder()
+     *             .teamId("00000000-0000-0000-0000-000000000000")
+     *             .ruleId("11111111-1111-1111-1111-111111111111")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetTeamNotificationRuleResult> getTeamNotificationRule(GetTeamNotificationRuleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getTeamNotificationRule:getTeamNotificationRule", TypeShape.of(GetTeamNotificationRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a specific Datadog team notification rule.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamNotificationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get a specific notification rule for a team
+     *         final var example = DatadogFunctions.getTeamNotificationRule(GetTeamNotificationRuleArgs.builder()
+     *             .teamId("00000000-0000-0000-0000-000000000000")
+     *             .ruleId("11111111-1111-1111-1111-111111111111")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetTeamNotificationRuleResult> getTeamNotificationRule(GetTeamNotificationRuleArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getTeamNotificationRule:getTeamNotificationRule", TypeShape.of(GetTeamNotificationRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a specific Datadog team notification rule.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamNotificationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get a specific notification rule for a team
+     *         final var example = DatadogFunctions.getTeamNotificationRule(GetTeamNotificationRuleArgs.builder()
+     *             .teamId("00000000-0000-0000-0000-000000000000")
+     *             .ruleId("11111111-1111-1111-1111-111111111111")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetTeamNotificationRuleResult> getTeamNotificationRulePlain(GetTeamNotificationRulePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getTeamNotificationRule:getTeamNotificationRule", TypeShape.of(GetTeamNotificationRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about all Datadog team notification rules for a specific team.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamNotificationRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get all notification rules for a team
+     *         final var example = DatadogFunctions.getTeamNotificationRules(GetTeamNotificationRulesArgs.builder()
+     *             .teamId("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetTeamNotificationRulesResult> getTeamNotificationRules(GetTeamNotificationRulesArgs args) {
+        return getTeamNotificationRules(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about all Datadog team notification rules for a specific team.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamNotificationRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get all notification rules for a team
+     *         final var example = DatadogFunctions.getTeamNotificationRules(GetTeamNotificationRulesArgs.builder()
+     *             .teamId("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetTeamNotificationRulesResult> getTeamNotificationRulesPlain(GetTeamNotificationRulesPlainArgs args) {
+        return getTeamNotificationRulesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about all Datadog team notification rules for a specific team.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamNotificationRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get all notification rules for a team
+     *         final var example = DatadogFunctions.getTeamNotificationRules(GetTeamNotificationRulesArgs.builder()
+     *             .teamId("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetTeamNotificationRulesResult> getTeamNotificationRules(GetTeamNotificationRulesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getTeamNotificationRules:getTeamNotificationRules", TypeShape.of(GetTeamNotificationRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about all Datadog team notification rules for a specific team.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamNotificationRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get all notification rules for a team
+     *         final var example = DatadogFunctions.getTeamNotificationRules(GetTeamNotificationRulesArgs.builder()
+     *             .teamId("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetTeamNotificationRulesResult> getTeamNotificationRules(GetTeamNotificationRulesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getTeamNotificationRules:getTeamNotificationRules", TypeShape.of(GetTeamNotificationRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about all Datadog team notification rules for a specific team.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetTeamNotificationRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get all notification rules for a team
+     *         final var example = DatadogFunctions.getTeamNotificationRules(GetTeamNotificationRulesArgs.builder()
+     *             .teamId("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetTeamNotificationRulesResult> getTeamNotificationRulesPlain(GetTeamNotificationRulesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getTeamNotificationRules:getTeamNotificationRules", TypeShape.of(GetTeamNotificationRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about existing teams for use in other resources.

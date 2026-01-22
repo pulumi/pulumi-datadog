@@ -138,6 +138,12 @@ namespace Pulumi.Datadog.Inputs
             set => _logstashes = value;
         }
 
+        /// <summary>
+        /// The `Opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
+        /// </summary>
+        [Input("opentelemetry")]
+        public Input<Inputs.ObservabilityPipelineConfigSourceOpentelemetryGetArgs>? Opentelemetry { get; set; }
+
         [Input("rsyslogs")]
         private InputList<Inputs.ObservabilityPipelineConfigSourceRsyslogGetArgs>? _rsyslogs;
 

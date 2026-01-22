@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigSourceHttpClient {
     /**
-     * @return Optional authentication strategy for HTTP requests.
+     * @return Optional authentication strategy for HTTP requests. Valid values are `none`, `basic`, `bearer`.
      * 
      */
     private @Nullable String authStrategy;
@@ -42,7 +42,7 @@ public final class ObservabilityPipelineConfigSourceHttpClient {
 
     private ObservabilityPipelineConfigSourceHttpClient() {}
     /**
-     * @return Optional authentication strategy for HTTP requests.
+     * @return Optional authentication strategy for HTTP requests. Valid values are `none`, `basic`, `bearer`.
      * 
      */
     public Optional<String> authStrategy() {

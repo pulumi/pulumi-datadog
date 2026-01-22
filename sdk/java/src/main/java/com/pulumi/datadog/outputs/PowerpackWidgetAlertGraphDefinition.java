@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,6 +18,11 @@ public final class PowerpackWidgetAlertGraphDefinition {
      * 
      */
     private String alertId;
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    private @Nullable Boolean hideIncompleteCostData;
     /**
      * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      * 
@@ -50,6 +56,13 @@ public final class PowerpackWidgetAlertGraphDefinition {
      */
     public String alertId() {
         return this.alertId;
+    }
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Boolean> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
     }
     /**
      * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
@@ -97,6 +110,7 @@ public final class PowerpackWidgetAlertGraphDefinition {
     @CustomType.Builder
     public static final class Builder {
         private String alertId;
+        private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String liveSpan;
         private @Nullable String title;
         private @Nullable String titleAlign;
@@ -106,6 +120,7 @@ public final class PowerpackWidgetAlertGraphDefinition {
         public Builder(PowerpackWidgetAlertGraphDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alertId = defaults.alertId;
+    	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.liveSpan = defaults.liveSpan;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
@@ -119,6 +134,12 @@ public final class PowerpackWidgetAlertGraphDefinition {
               throw new MissingRequiredPropertyException("PowerpackWidgetAlertGraphDefinition", "alertId");
             }
             this.alertId = alertId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
+
+            this.hideIncompleteCostData = hideIncompleteCostData;
             return this;
         }
         @CustomType.Setter
@@ -156,6 +177,7 @@ public final class PowerpackWidgetAlertGraphDefinition {
         public PowerpackWidgetAlertGraphDefinition build() {
             final var _resultValue = new PowerpackWidgetAlertGraphDefinition();
             _resultValue.alertId = alertId;
+            _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.liveSpan = liveSpan;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;

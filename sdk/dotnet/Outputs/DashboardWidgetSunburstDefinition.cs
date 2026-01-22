@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetSunburstDefinitionCustomLink> CustomLinks;
         /// <summary>
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        public readonly bool? HideIncompleteCostData;
+        /// <summary>
         /// Whether or not to show the total value in the widget.
         /// </summary>
         public readonly bool? HideTotal;
@@ -54,6 +58,8 @@ namespace Pulumi.Datadog.Outputs
         private DashboardWidgetSunburstDefinition(
             ImmutableArray<Outputs.DashboardWidgetSunburstDefinitionCustomLink> customLinks,
 
+            bool? hideIncompleteCostData,
+
             bool? hideTotal,
 
             Outputs.DashboardWidgetSunburstDefinitionLegendInline? legendInline,
@@ -71,6 +77,7 @@ namespace Pulumi.Datadog.Outputs
             string? titleSize)
         {
             CustomLinks = customLinks;
+            HideIncompleteCostData = hideIncompleteCostData;
             HideTotal = hideTotal;
             LegendInline = legendInline;
             LegendTable = legendTable;

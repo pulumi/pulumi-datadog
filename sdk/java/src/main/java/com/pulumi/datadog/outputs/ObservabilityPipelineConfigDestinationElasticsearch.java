@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationElasticsearchDataStream;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,6 +22,11 @@ public final class ObservabilityPipelineConfigDestinationElasticsearch {
      * 
      */
     private @Nullable String bulkIndex;
+    /**
+     * @return Configuration options for writing to Elasticsearch Data Streams instead of a fixed index.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationElasticsearchDataStream dataStream;
 
     private ObservabilityPipelineConfigDestinationElasticsearch() {}
     /**
@@ -37,6 +43,13 @@ public final class ObservabilityPipelineConfigDestinationElasticsearch {
     public Optional<String> bulkIndex() {
         return Optional.ofNullable(this.bulkIndex);
     }
+    /**
+     * @return Configuration options for writing to Elasticsearch Data Streams instead of a fixed index.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationElasticsearchDataStream> dataStream() {
+        return Optional.ofNullable(this.dataStream);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -49,11 +62,13 @@ public final class ObservabilityPipelineConfigDestinationElasticsearch {
     public static final class Builder {
         private @Nullable String apiVersion;
         private @Nullable String bulkIndex;
+        private @Nullable ObservabilityPipelineConfigDestinationElasticsearchDataStream dataStream;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationElasticsearch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiVersion = defaults.apiVersion;
     	      this.bulkIndex = defaults.bulkIndex;
+    	      this.dataStream = defaults.dataStream;
         }
 
         @CustomType.Setter
@@ -68,10 +83,17 @@ public final class ObservabilityPipelineConfigDestinationElasticsearch {
             this.bulkIndex = bulkIndex;
             return this;
         }
+        @CustomType.Setter
+        public Builder dataStream(@Nullable ObservabilityPipelineConfigDestinationElasticsearchDataStream dataStream) {
+
+            this.dataStream = dataStream;
+            return this;
+        }
         public ObservabilityPipelineConfigDestinationElasticsearch build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationElasticsearch();
             _resultValue.apiVersion = apiVersion;
             _resultValue.bulkIndex = bulkIndex;
+            _resultValue.dataStream = dataStream;
             return _resultValue;
         }
     }

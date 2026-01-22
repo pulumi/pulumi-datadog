@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigSourceHttpClientArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Optional authentication strategy for HTTP requests.
+        /// Optional authentication strategy for HTTP requests. Valid values are `None`, `Basic`, `Bearer`.
         /// </summary>
         [Input("authStrategy")]
         public Input<string>? AuthStrategy { get; set; }

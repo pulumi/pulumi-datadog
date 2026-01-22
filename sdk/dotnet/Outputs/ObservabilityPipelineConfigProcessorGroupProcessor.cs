@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorAddFields? AddFields;
         /// <summary>
+        /// The `AddHostname` processor adds the hostname to log events.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorAddHostname? AddHostname;
+        /// <summary>
         /// The `CustomProcessor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessor? CustomProcessor;
@@ -59,6 +63,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Include;
         /// <summary>
+        /// The `MetricTags` processor filters metrics based on their tags using Datadog tag key patterns.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricTags? MetricTags;
+        /// <summary>
         /// The `OcsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper? OcsfMapper;
@@ -70,6 +78,10 @@ namespace Pulumi.Datadog.Outputs
         /// The `ParseJson` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorParseJson? ParseJson;
+        /// <summary>
+        /// The `ParseXml` processor parses XML from a specified field and extracts it into the event.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorParseXml? ParseXml;
         /// <summary>
         /// The `Quota` processor measures logging traffic for logs that match a specified filter. When the configured daily quota is met, the processor can drop or alert.
         /// </summary>
@@ -95,6 +107,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScanner? SensitiveDataScanner;
         /// <summary>
+        /// The `SplitArray` processor splits array fields into separate events based on configured rules.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSplitArray? SplitArray;
+        /// <summary>
         /// The `Throttle` processor limits the number of events that pass through over a given time window.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorThrottle? Throttle;
@@ -104,6 +120,8 @@ namespace Pulumi.Datadog.Outputs
             Outputs.ObservabilityPipelineConfigProcessorGroupProcessorAddEnvVars? addEnvVars,
 
             Outputs.ObservabilityPipelineConfigProcessorGroupProcessorAddFields? addFields,
+
+            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorAddHostname? addHostname,
 
             Outputs.ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessor? customProcessor,
 
@@ -125,11 +143,15 @@ namespace Pulumi.Datadog.Outputs
 
             string include,
 
+            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricTags? metricTags,
+
             Outputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper? ocsfMapper,
 
             Outputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrok? parseGrok,
 
             Outputs.ObservabilityPipelineConfigProcessorGroupProcessorParseJson? parseJson,
+
+            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorParseXml? parseXml,
 
             Outputs.ObservabilityPipelineConfigProcessorGroupProcessorQuota? quota,
 
@@ -143,10 +165,13 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScanner? sensitiveDataScanner,
 
+            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSplitArray? splitArray,
+
             Outputs.ObservabilityPipelineConfigProcessorGroupProcessorThrottle? throttle)
         {
             AddEnvVars = addEnvVars;
             AddFields = addFields;
+            AddHostname = addHostname;
             CustomProcessor = customProcessor;
             DatadogTags = datadogTags;
             Dedupe = dedupe;
@@ -157,15 +182,18 @@ namespace Pulumi.Datadog.Outputs
             GenerateDatadogMetrics = generateDatadogMetrics;
             Id = id;
             Include = include;
+            MetricTags = metricTags;
             OcsfMapper = ocsfMapper;
             ParseGrok = parseGrok;
             ParseJson = parseJson;
+            ParseXml = parseXml;
             Quota = quota;
             Reduce = reduce;
             RemoveFields = removeFields;
             RenameFields = renameFields;
             Sample = sample;
             SensitiveDataScanner = sensitiveDataScanner;
+            SplitArray = splitArray;
             Throttle = throttle;
         }
     }

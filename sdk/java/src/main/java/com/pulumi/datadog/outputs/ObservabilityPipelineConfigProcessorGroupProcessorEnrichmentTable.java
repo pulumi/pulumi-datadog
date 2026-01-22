@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFile;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableGeoip;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTable;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
@@ -24,6 +25,11 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
      * 
      */
     private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableGeoip geoip;
+    /**
+     * @return Uses a Datadog reference table to enrich logs.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTable referenceTable;
     /**
      * @return Path where enrichment results should be stored in the log.
      * 
@@ -46,6 +52,13 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
         return Optional.ofNullable(this.geoip);
     }
     /**
+     * @return Uses a Datadog reference table to enrich logs.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTable> referenceTable() {
+        return Optional.ofNullable(this.referenceTable);
+    }
+    /**
      * @return Path where enrichment results should be stored in the log.
      * 
      */
@@ -64,12 +77,14 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
     public static final class Builder {
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFile file;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableGeoip geoip;
+        private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTable referenceTable;
         private String target;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.file = defaults.file;
     	      this.geoip = defaults.geoip;
+    	      this.referenceTable = defaults.referenceTable;
     	      this.target = defaults.target;
         }
 
@@ -86,6 +101,12 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
             return this;
         }
         @CustomType.Setter
+        public Builder referenceTable(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTable referenceTable) {
+
+            this.referenceTable = referenceTable;
+            return this;
+        }
+        @CustomType.Setter
         public Builder target(String target) {
             if (target == null) {
               throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTable", "target");
@@ -97,6 +118,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
             final var _resultValue = new ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTable();
             _resultValue.file = file;
             _resultValue.geoip = geoip;
+            _resultValue.referenceTable = referenceTable;
             _resultValue.target = target;
             return _resultValue;
         }
