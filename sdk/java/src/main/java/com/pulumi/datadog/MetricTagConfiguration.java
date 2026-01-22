@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.datadog.MetricTagConfiguration;
  * import com.pulumi.datadog.MetricTagConfigurationArgs;
- * import com.pulumi.datadog.inputs.MetricTagConfigurationAggregationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -63,15 +62,6 @@ import javax.annotation.Nullable;
  *                 "sport",
  *                 "datacenter")
  *             .excludeTagsMode(false)
- *             .aggregations(            
- *                 MetricTagConfigurationAggregationArgs.builder()
- *                     .time("avg")
- *                     .space("min")
- *                     .build(),
- *                 MetricTagConfigurationAggregationArgs.builder()
- *                     .time("avg")
- *                     .space("max")
- *                     .build())
  *             .build());
  * 
  *     }
@@ -91,14 +81,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/metricTagConfiguration:MetricTagConfiguration")
 public class MetricTagConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
+     * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge. **Deprecated.** The &#39;aggregations&#39; field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
+     * 
+     * @deprecated
+     * The &#39;aggregations&#39; field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
      * 
      */
+    @Deprecated /* The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider. */
     @Export(name="aggregations", refs={List.class,MetricTagConfigurationAggregation.class}, tree="[0,1]")
     private Output<List<MetricTagConfigurationAggregation>> aggregations;
 
     /**
-     * @return A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
+     * @return A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge. **Deprecated.** The &#39;aggregations&#39; field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
      * 
      */
     public Output<List<MetricTagConfigurationAggregation>> aggregations() {

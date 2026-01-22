@@ -30,6 +30,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationAzureStorage> AzureStorages;
         /// <summary>
+        /// The `CloudPrem` destination sends logs to Datadog CloudPrem.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationCloudPrem? CloudPrem;
+        /// <summary>
         /// The `CrowdstrikeNextGenSiem` destination forwards logs to CrowdStrike Next Gen SIEM.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem> CrowdstrikeNextGenSiems;
@@ -37,6 +41,10 @@ namespace Pulumi.Datadog.Outputs
         /// The `DatadogLogs` destination forwards logs to Datadog Log Management.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationDatadogLog> DatadogLogs;
+        /// <summary>
+        /// The `datadog.getMetrics` destination forwards metrics to Datadog.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationDatadogMetric> DatadogMetrics;
         /// <summary>
         /// The `Elasticsearch` destination writes logs to an Elasticsearch cluster.
         /// </summary>
@@ -54,6 +62,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationGooglePubsub> GooglePubsubs;
         /// <summary>
+        /// The `HttpClient` destination sends data to an HTTP endpoint.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationHttpClient> HttpClients;
+        /// <summary>
         /// The unique identifier for this destination.
         /// </summary>
         public readonly string Id;
@@ -61,6 +73,10 @@ namespace Pulumi.Datadog.Outputs
         /// A list of component IDs whose output is used as the `Input` for this component.
         /// </summary>
         public readonly ImmutableArray<string> Inputs;
+        /// <summary>
+        /// The `Kafka` destination sends logs to Apache Kafka topics.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationKafka? Kafka;
         /// <summary>
         /// The `MicrosoftSentinel` destination forwards logs to Microsoft Sentinel.
         /// </summary>
@@ -108,9 +124,13 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationAzureStorage> azureStorages,
 
+            Outputs.ObservabilityPipelineConfigDestinationCloudPrem? cloudPrem,
+
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem> crowdstrikeNextGenSiems,
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationDatadogLog> datadogLogs,
+
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationDatadogMetric> datadogMetrics,
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationElasticsearch> elasticsearches,
 
@@ -120,9 +140,13 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationGooglePubsub> googlePubsubs,
 
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationHttpClient> httpClients,
+
             string id,
 
             ImmutableArray<string> inputs,
+
+            Outputs.ObservabilityPipelineConfigDestinationKafka? kafka,
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationMicrosoftSentinel> microsoftSentinels,
 
@@ -146,14 +170,18 @@ namespace Pulumi.Datadog.Outputs
             AmazonS3s = amazonS3s;
             AmazonSecurityLakes = amazonSecurityLakes;
             AzureStorages = azureStorages;
+            CloudPrem = cloudPrem;
             CrowdstrikeNextGenSiems = crowdstrikeNextGenSiems;
             DatadogLogs = datadogLogs;
+            DatadogMetrics = datadogMetrics;
             Elasticsearches = elasticsearches;
             GoogleChronicles = googleChronicles;
             GoogleCloudStorages = googleCloudStorages;
             GooglePubsubs = googlePubsubs;
+            HttpClients = httpClients;
             Id = id;
             Inputs = inputs;
+            Kafka = kafka;
             MicrosoftSentinels = microsoftSentinels;
             NewRelics = newRelics;
             Opensearches = opensearches;

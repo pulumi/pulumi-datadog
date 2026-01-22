@@ -4,39 +4,40 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
-import java.lang.Integer;
+import java.lang.String;
+import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigProcessorGroupProcessorSample {
     /**
+     * @return Optional list of fields to group events by. Each group is sampled independently.
+     * 
+     */
+    private @Nullable List<String> groupBies;
+    /**
      * @return The percentage of logs to sample.
      * 
      */
-    private @Nullable Double percentage;
-    /**
-     * @return Number of events to sample (1 in N).
-     * 
-     */
-    private @Nullable Integer rate;
+    private Double percentage;
 
     private ObservabilityPipelineConfigProcessorGroupProcessorSample() {}
     /**
+     * @return Optional list of fields to group events by. Each group is sampled independently.
+     * 
+     */
+    public List<String> groupBies() {
+        return this.groupBies == null ? List.of() : this.groupBies;
+    }
+    /**
      * @return The percentage of logs to sample.
      * 
      */
-    public Optional<Double> percentage() {
-        return Optional.ofNullable(this.percentage);
-    }
-    /**
-     * @return Number of events to sample (1 in N).
-     * 
-     */
-    public Optional<Integer> rate() {
-        return Optional.ofNullable(this.rate);
+    public Double percentage() {
+        return this.percentage;
     }
 
     public static Builder builder() {
@@ -48,31 +49,36 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSample {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Double percentage;
-        private @Nullable Integer rate;
+        private @Nullable List<String> groupBies;
+        private Double percentage;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorSample defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.groupBies = defaults.groupBies;
     	      this.percentage = defaults.percentage;
-    	      this.rate = defaults.rate;
         }
 
         @CustomType.Setter
-        public Builder percentage(@Nullable Double percentage) {
+        public Builder groupBies(@Nullable List<String> groupBies) {
 
-            this.percentage = percentage;
+            this.groupBies = groupBies;
             return this;
         }
+        public Builder groupBies(String... groupBies) {
+            return groupBies(List.of(groupBies));
+        }
         @CustomType.Setter
-        public Builder rate(@Nullable Integer rate) {
-
-            this.rate = rate;
+        public Builder percentage(Double percentage) {
+            if (percentage == null) {
+              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorSample", "percentage");
+            }
+            this.percentage = percentage;
             return this;
         }
         public ObservabilityPipelineConfigProcessorGroupProcessorSample build() {
             final var _resultValue = new ObservabilityPipelineConfigProcessorGroupProcessorSample();
+            _resultValue.groupBies = groupBies;
             _resultValue.percentage = percentage;
-            _resultValue.rate = rate;
             return _resultValue;
         }
     }

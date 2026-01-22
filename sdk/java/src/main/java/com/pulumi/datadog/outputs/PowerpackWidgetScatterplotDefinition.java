@@ -8,6 +8,7 @@ import com.pulumi.datadog.outputs.PowerpackWidgetScatterplotDefinitionCustomLink
 import com.pulumi.datadog.outputs.PowerpackWidgetScatterplotDefinitionRequest;
 import com.pulumi.datadog.outputs.PowerpackWidgetScatterplotDefinitionXaxis;
 import com.pulumi.datadog.outputs.PowerpackWidgetScatterplotDefinitionYaxis;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -26,6 +27,11 @@ public final class PowerpackWidgetScatterplotDefinition {
      * 
      */
     private @Nullable List<PowerpackWidgetScatterplotDefinitionCustomLink> customLinks;
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    private @Nullable Boolean hideIncompleteCostData;
     /**
      * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      * 
@@ -76,6 +82,13 @@ public final class PowerpackWidgetScatterplotDefinition {
      */
     public List<PowerpackWidgetScatterplotDefinitionCustomLink> customLinks() {
         return this.customLinks == null ? List.of() : this.customLinks;
+    }
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Boolean> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
     }
     /**
      * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
@@ -138,6 +151,7 @@ public final class PowerpackWidgetScatterplotDefinition {
     public static final class Builder {
         private @Nullable List<String> colorByGroups;
         private @Nullable List<PowerpackWidgetScatterplotDefinitionCustomLink> customLinks;
+        private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String liveSpan;
         private @Nullable PowerpackWidgetScatterplotDefinitionRequest request;
         private @Nullable String title;
@@ -150,6 +164,7 @@ public final class PowerpackWidgetScatterplotDefinition {
     	      Objects.requireNonNull(defaults);
     	      this.colorByGroups = defaults.colorByGroups;
     	      this.customLinks = defaults.customLinks;
+    	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.liveSpan = defaults.liveSpan;
     	      this.request = defaults.request;
     	      this.title = defaults.title;
@@ -176,6 +191,12 @@ public final class PowerpackWidgetScatterplotDefinition {
         }
         public Builder customLinks(PowerpackWidgetScatterplotDefinitionCustomLink... customLinks) {
             return customLinks(List.of(customLinks));
+        }
+        @CustomType.Setter
+        public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
+
+            this.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
         }
         @CustomType.Setter
         public Builder liveSpan(@Nullable String liveSpan) {
@@ -223,6 +244,7 @@ public final class PowerpackWidgetScatterplotDefinition {
             final var _resultValue = new PowerpackWidgetScatterplotDefinition();
             _resultValue.colorByGroups = colorByGroups;
             _resultValue.customLinks = customLinks;
+            _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.liveSpan = liveSpan;
             _resultValue.request = request;
             _resultValue.title = title;

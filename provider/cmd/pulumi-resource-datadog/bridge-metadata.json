@@ -211,6 +211,10 @@
                     }
                 }
             },
+            "datadog_cloud_inventory_sync_config": {
+                "current": "datadog:index/cloudInventorySyncConfig:CloudInventorySyncConfig",
+                "majorVersion": 4
+            },
             "datadog_cloud_workload_security_agent_rule": {
                 "current": "datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule",
                 "majorVersion": 4
@@ -12725,6 +12729,9 @@
                                 }
                             }
                         }
+                    },
+                    "region_filter_configs": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -13613,6 +13620,9 @@
                                             "azure_storage": {
                                                 "maxItemsOne": false
                                             },
+                                            "cloud_prem": {
+                                                "maxItemsOne": true
+                                            },
                                             "crowdstrike_next_gen_siem": {
                                                 "maxItemsOne": false,
                                                 "elem": {
@@ -13629,8 +13639,18 @@
                                             "datadog_logs": {
                                                 "maxItemsOne": false
                                             },
-                                            "elasticsearch": {
+                                            "datadog_metrics": {
                                                 "maxItemsOne": false
+                                            },
+                                            "elasticsearch": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "data_stream": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
                                             },
                                             "google_chronicle": {
                                                 "maxItemsOne": false,
@@ -13668,8 +13688,37 @@
                                                     }
                                                 }
                                             },
+                                            "http_client": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "compression": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "tls": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "inputs": {
                                                 "maxItemsOne": false
+                                            },
+                                            "kafka": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "librdkafka_option": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "sasl": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "tls": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
                                             },
                                             "microsoft_sentinel": {
                                                 "maxItemsOne": false
@@ -13770,6 +13819,9 @@
                                                                 }
                                                             }
                                                         },
+                                                        "add_hostname": {
+                                                            "maxItemsOne": true
+                                                        },
                                                         "custom_processor": {
                                                             "maxItemsOne": true,
                                                             "elem": {
@@ -13822,6 +13874,16 @@
                                                                     },
                                                                     "geoip": {
                                                                         "maxItemsOne": true
+                                                                    },
+                                                                    "reference_table": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "columns": {
+                                                                                    "maxItemsOne": false
+                                                                                }
+                                                                            }
+                                                                        }
                                                                     }
                                                                 }
                                                             }
@@ -13842,6 +13904,23 @@
                                                                                 },
                                                                                 "value": {
                                                                                     "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "metric_tags": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "rule": {
+                                                                        "maxItemsOne": false,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "keys": {
+                                                                                    "maxItemsOne": false
                                                                                 }
                                                                             }
                                                                         }
@@ -13880,6 +13959,9 @@
                                                             }
                                                         },
                                                         "parse_json": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "parse_xml": {
                                                             "maxItemsOne": true
                                                         },
                                                         "quota": {
@@ -13942,7 +14024,14 @@
                                                             }
                                                         },
                                                         "sample": {
-                                                            "maxItemsOne": true
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "group_by": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
                                                         },
                                                         "sensitive_data_scanner": {
                                                             "maxItemsOne": true,
@@ -14023,6 +14112,16 @@
                                                                                 }
                                                                             }
                                                                         }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "split_array": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "array": {
+                                                                        "maxItemsOne": false
                                                                     }
                                                                 }
                                                             }
@@ -14165,6 +14264,16 @@
                                                     }
                                                 }
                                             },
+                                            "opentelemetry": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "tls": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "rsyslog": {
                                                 "maxItemsOne": false,
                                                 "elem": {
@@ -14299,6 +14408,23 @@
                         }
                     }
                 }
+            },
+            "datadog_on_call_user_notification_channel": {
+                "current": "datadog:index/onCallUserNotificationChannel:OnCallUserNotificationChannel",
+                "majorVersion": 4,
+                "fields": {
+                    "email": {
+                        "fields": {
+                            "formats": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
+            },
+            "datadog_on_call_user_notification_rule": {
+                "current": "datadog:index/onCallUserNotificationRule:OnCallUserNotificationRule",
+                "majorVersion": 4
             },
             "datadog_openapi_api": {
                 "current": "datadog:index/openapiApi:OpenapiApi",
@@ -18563,6 +18689,10 @@
                 "current": "datadog:index/teamMembership:TeamMembership",
                 "majorVersion": 4
             },
+            "datadog_team_notification_rule": {
+                "current": "datadog:index/teamNotificationRule:TeamNotificationRule",
+                "majorVersion": 4
+            },
             "datadog_team_permission_setting": {
                 "current": "datadog:index/teamPermissionSetting:TeamPermissionSetting",
                 "majorVersion": 4
@@ -19210,6 +19340,38 @@
                     }
                 }
             },
+            "datadog_organization_settings": {
+                "current": "datadog:index/getOrganizationSettings:getOrganizationSettings",
+                "majorVersion": 4,
+                "fields": {
+                    "settings": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "saml": {
+                                    "maxItemsOne": false
+                                },
+                                "saml_autocreate_users_domains": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "domains": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "saml_idp_initiated_login": {
+                                    "maxItemsOne": false
+                                },
+                                "saml_strict_mode": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "datadog_permissions": {
                 "current": "datadog:index/getPermissions:getPermissions",
                 "majorVersion": 4
@@ -19506,6 +19668,9 @@
                 "fields": {
                     "query": {
                         "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -19606,6 +19771,19 @@
                     }
                 }
             },
+            "datadog_team_notification_rule": {
+                "current": "datadog:index/getTeamNotificationRule:getTeamNotificationRule",
+                "majorVersion": 4
+            },
+            "datadog_team_notification_rules": {
+                "current": "datadog:index/getTeamNotificationRules:getTeamNotificationRules",
+                "majorVersion": 4,
+                "fields": {
+                    "notification_rules": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_teams": {
                 "current": "datadog:index/getTeams:getTeams",
                 "majorVersion": 4,
@@ -19683,6 +19861,7 @@
             "datadog:index/azureUcConfig:AzureUcConfig": 1,
             "datadog:index/childOrganization:ChildOrganization": 0,
             "datadog:index/cloudConfigurationRule:CloudConfigurationRule": 0,
+            "datadog:index/cloudInventorySyncConfig:CloudInventorySyncConfig": 1,
             "datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule": 0,
             "datadog:index/complianceCustomFramework:ComplianceCustomFramework": 1,
             "datadog:index/complianceResourceEvaluationFilter:ComplianceResourceEvaluationFilter": 1,
@@ -19724,6 +19903,8 @@
             "datadog:index/onCallEscalationPolicy:OnCallEscalationPolicy": 1,
             "datadog:index/onCallSchedule:OnCallSchedule": 1,
             "datadog:index/onCallTeamRoutingRules:OnCallTeamRoutingRules": 1,
+            "datadog:index/onCallUserNotificationChannel:OnCallUserNotificationChannel": 1,
+            "datadog:index/onCallUserNotificationRule:OnCallUserNotificationRule": 1,
             "datadog:index/openapiApi:OpenapiApi": 1,
             "datadog:index/orgConnection:OrgConnection": 1,
             "datadog:index/organizationSettings:OrganizationSettings": 0,
@@ -19761,6 +19942,7 @@
             "datadog:index/teamHierarchyLinks:TeamHierarchyLinks": 1,
             "datadog:index/teamLink:TeamLink": 1,
             "datadog:index/teamMembership:TeamMembership": 1,
+            "datadog:index/teamNotificationRule:TeamNotificationRule": 1,
             "datadog:index/teamPermissionSetting:TeamPermissionSetting": 1,
             "datadog:index/user:User": 0,
             "datadog:index/userRole:UserRole": 1,
@@ -19815,6 +19997,7 @@
             "datadog:index/getMonitor:getMonitor": 0,
             "datadog:index/getMonitorConfigPolicies:getMonitorConfigPolicies": 0,
             "datadog:index/getMonitors:getMonitors": 0,
+            "datadog:index/getOrganizationSettings:getOrganizationSettings": 1,
             "datadog:index/getPermissions:getPermissions": 0,
             "datadog:index/getPowerpack:getPowerpack": 1,
             "datadog:index/getReferenceTable:getReferenceTable": 1,
@@ -19840,6 +20023,8 @@
             "datadog:index/getTeam:getTeam": 1,
             "datadog:index/getTeamHierarchyLinks:getTeamHierarchyLinks": 1,
             "datadog:index/getTeamMemberships:getTeamMemberships": 1,
+            "datadog:index/getTeamNotificationRule:getTeamNotificationRule": 1,
+            "datadog:index/getTeamNotificationRules:getTeamNotificationRules": 1,
             "datadog:index/getTeams:getTeams": 1,
             "datadog:index/getUser:getUser": 0,
             "datadog:index/getUsers:getUsers": 1,

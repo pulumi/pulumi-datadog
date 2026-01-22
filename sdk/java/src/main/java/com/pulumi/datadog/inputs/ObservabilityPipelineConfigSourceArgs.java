@@ -15,6 +15,7 @@ import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceHttpClientArgs
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceHttpServerArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceKafkaArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceLogstashArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceOpentelemetryArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceRsyslogArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceSocketArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceSplunkHecArgs;
@@ -199,6 +200,21 @@ public final class ObservabilityPipelineConfigSourceArgs extends com.pulumi.reso
     }
 
     /**
+     * The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
+     * 
+     */
+    @Import(name="opentelemetry")
+    private @Nullable Output<ObservabilityPipelineConfigSourceOpentelemetryArgs> opentelemetry;
+
+    /**
+     * @return The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigSourceOpentelemetryArgs>> opentelemetry() {
+        return Optional.ofNullable(this.opentelemetry);
+    }
+
+    /**
      * The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
      * 
      */
@@ -302,6 +318,7 @@ public final class ObservabilityPipelineConfigSourceArgs extends com.pulumi.reso
         this.id = $.id;
         this.kafkas = $.kafkas;
         this.logstashes = $.logstashes;
+        this.opentelemetry = $.opentelemetry;
         this.rsyslogs = $.rsyslogs;
         this.sockets = $.sockets;
         this.splunkHecs = $.splunkHecs;
@@ -657,6 +674,27 @@ public final class ObservabilityPipelineConfigSourceArgs extends com.pulumi.reso
          */
         public Builder logstashes(ObservabilityPipelineConfigSourceLogstashArgs... logstashes) {
             return logstashes(List.of(logstashes));
+        }
+
+        /**
+         * @param opentelemetry The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder opentelemetry(@Nullable Output<ObservabilityPipelineConfigSourceOpentelemetryArgs> opentelemetry) {
+            $.opentelemetry = opentelemetry;
+            return this;
+        }
+
+        /**
+         * @param opentelemetry The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder opentelemetry(ObservabilityPipelineConfigSourceOpentelemetryArgs opentelemetry) {
+            return opentelemetry(Output.of(opentelemetry));
         }
 
         /**

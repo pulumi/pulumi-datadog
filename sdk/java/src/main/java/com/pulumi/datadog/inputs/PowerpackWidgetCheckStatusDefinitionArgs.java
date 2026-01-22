@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -75,6 +76,21 @@ public final class PowerpackWidgetCheckStatusDefinitionArgs extends com.pulumi.r
      */
     public Output<String> grouping() {
         return this.grouping;
+    }
+
+    /**
+     * Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    @Import(name="hideIncompleteCostData")
+    private @Nullable Output<Boolean> hideIncompleteCostData;
+
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Output<Boolean>> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
     }
 
     /**
@@ -159,6 +175,7 @@ public final class PowerpackWidgetCheckStatusDefinitionArgs extends com.pulumi.r
         this.group = $.group;
         this.groupBies = $.groupBies;
         this.grouping = $.grouping;
+        this.hideIncompleteCostData = $.hideIncompleteCostData;
         this.liveSpan = $.liveSpan;
         this.tags = $.tags;
         this.title = $.title;
@@ -276,6 +293,27 @@ public final class PowerpackWidgetCheckStatusDefinitionArgs extends com.pulumi.r
          */
         public Builder grouping(String grouping) {
             return grouping(Output.of(grouping));
+        }
+
+        /**
+         * @param hideIncompleteCostData Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hideIncompleteCostData(@Nullable Output<Boolean> hideIncompleteCostData) {
+            $.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
+        }
+
+        /**
+         * @param hideIncompleteCostData Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hideIncompleteCostData(Boolean hideIncompleteCostData) {
+            return hideIncompleteCostData(Output.of(hideIncompleteCostData));
         }
 
         /**

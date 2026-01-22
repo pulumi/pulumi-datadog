@@ -19,14 +19,14 @@ public final class ObservabilityPipelineConfigSourceHttpClientArgs extends com.p
     public static final ObservabilityPipelineConfigSourceHttpClientArgs Empty = new ObservabilityPipelineConfigSourceHttpClientArgs();
 
     /**
-     * Optional authentication strategy for HTTP requests.
+     * Optional authentication strategy for HTTP requests. Valid values are `none`, `basic`, `bearer`.
      * 
      */
     @Import(name="authStrategy")
     private @Nullable Output<String> authStrategy;
 
     /**
-     * @return Optional authentication strategy for HTTP requests.
+     * @return Optional authentication strategy for HTTP requests. Valid values are `none`, `basic`, `bearer`.
      * 
      */
     public Optional<Output<String>> authStrategy() {
@@ -122,7 +122,7 @@ public final class ObservabilityPipelineConfigSourceHttpClientArgs extends com.p
         }
 
         /**
-         * @param authStrategy Optional authentication strategy for HTTP requests.
+         * @param authStrategy Optional authentication strategy for HTTP requests. Valid values are `none`, `basic`, `bearer`.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class ObservabilityPipelineConfigSourceHttpClientArgs extends com.p
         }
 
         /**
-         * @param authStrategy Optional authentication strategy for HTTP requests.
+         * @param authStrategy Optional authentication strategy for HTTP requests. Valid values are `none`, `basic`, `bearer`.
          * 
          * @return builder
          * 

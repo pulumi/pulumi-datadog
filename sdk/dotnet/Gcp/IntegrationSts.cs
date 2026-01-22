@@ -66,6 +66,12 @@ namespace Pulumi.Datadog.Gcp
         public Output<bool> IsCspmEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// When enabled, Datadog collects metrics where location is explicitly stated as 'global' or where location information cannot be deduced from GCP.
+        /// </summary>
+        [Output("isGlobalLocationEnabled")]
+        public Output<bool> IsGlobalLocationEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
         /// </summary>
         [Output("isPerProjectQuotaEnabled")]
@@ -94,6 +100,12 @@ namespace Pulumi.Datadog.Gcp
         /// </summary>
         [Output("monitoredResourceConfigs")]
         public Output<ImmutableArray<Outputs.IntegrationStsMonitoredResourceConfig>> MonitoredResourceConfigs { get; private set; } = null!;
+
+        /// <summary>
+        /// Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
+        /// </summary>
+        [Output("regionFilterConfigs")]
+        public Output<ImmutableArray<string>> RegionFilterConfigs { get; private set; } = null!;
 
         /// <summary>
         /// When enabled, Datadog scans for all resources in your GCP environment.
@@ -204,6 +216,12 @@ namespace Pulumi.Datadog.Gcp
         public Input<bool>? IsCspmEnabled { get; set; }
 
         /// <summary>
+        /// When enabled, Datadog collects metrics where location is explicitly stated as 'global' or where location information cannot be deduced from GCP.
+        /// </summary>
+        [Input("isGlobalLocationEnabled")]
+        public Input<bool>? IsGlobalLocationEnabled { get; set; }
+
+        /// <summary>
         /// When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
         /// </summary>
         [Input("isPerProjectQuotaEnabled")]
@@ -243,6 +261,18 @@ namespace Pulumi.Datadog.Gcp
         {
             get => _monitoredResourceConfigs ?? (_monitoredResourceConfigs = new InputList<Inputs.IntegrationStsMonitoredResourceConfigArgs>());
             set => _monitoredResourceConfigs = value;
+        }
+
+        [Input("regionFilterConfigs")]
+        private InputList<string>? _regionFilterConfigs;
+
+        /// <summary>
+        /// Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
+        /// </summary>
+        public InputList<string> RegionFilterConfigs
+        {
+            get => _regionFilterConfigs ?? (_regionFilterConfigs = new InputList<string>());
+            set => _regionFilterConfigs = value;
         }
 
         /// <summary>
@@ -322,6 +352,12 @@ namespace Pulumi.Datadog.Gcp
         public Input<bool>? IsCspmEnabled { get; set; }
 
         /// <summary>
+        /// When enabled, Datadog collects metrics where location is explicitly stated as 'global' or where location information cannot be deduced from GCP.
+        /// </summary>
+        [Input("isGlobalLocationEnabled")]
+        public Input<bool>? IsGlobalLocationEnabled { get; set; }
+
+        /// <summary>
         /// When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
         /// </summary>
         [Input("isPerProjectQuotaEnabled")]
@@ -361,6 +397,18 @@ namespace Pulumi.Datadog.Gcp
         {
             get => _monitoredResourceConfigs ?? (_monitoredResourceConfigs = new InputList<Inputs.IntegrationStsMonitoredResourceConfigGetArgs>());
             set => _monitoredResourceConfigs = value;
+        }
+
+        [Input("regionFilterConfigs")]
+        private InputList<string>? _regionFilterConfigs;
+
+        /// <summary>
+        /// Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
+        /// </summary>
+        public InputList<string> RegionFilterConfigs
+        {
+            get => _regionFilterConfigs ?? (_regionFilterConfigs = new InputList<string>());
+            set => _regionFilterConfigs = value;
         }
 
         /// <summary>

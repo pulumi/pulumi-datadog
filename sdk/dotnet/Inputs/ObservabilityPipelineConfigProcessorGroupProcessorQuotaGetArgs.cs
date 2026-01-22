@@ -63,6 +63,12 @@ namespace Pulumi.Datadog.Inputs
             set => _partitionFields = value;
         }
 
+        /// <summary>
+        /// The action to take when the max number of buckets is exceeded: `Drop`, `NoAction`, or `OverflowRouting`.
+        /// </summary>
+        [Input("tooManyBucketsAction")]
+        public Input<string>? TooManyBucketsAction { get; set; }
+
         public ObservabilityPipelineConfigProcessorGroupProcessorQuotaGetArgs()
         {
         }

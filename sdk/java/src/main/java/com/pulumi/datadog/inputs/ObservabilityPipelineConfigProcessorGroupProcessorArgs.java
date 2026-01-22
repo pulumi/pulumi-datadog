@@ -7,21 +7,25 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorAddEnvVarsArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorAddHostnameArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorDatadogTagsArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorDedupeArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorFilterArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseJsonArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseXmlArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorReduceArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorRemoveFieldsArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorSampleArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -63,6 +67,21 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
      */
     public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsArgs>> addFields() {
         return Optional.ofNullable(this.addFields);
+    }
+
+    /**
+     * The `addHostname` processor adds the hostname to log events.
+     * 
+     */
+    @Import(name="addHostname")
+    private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorAddHostnameArgs> addHostname;
+
+    /**
+     * @return The `addHostname` processor adds the hostname to log events.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorAddHostnameArgs>> addHostname() {
+        return Optional.ofNullable(this.addHostname);
     }
 
     /**
@@ -208,6 +227,21 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
     }
 
     /**
+     * The `metricTags` processor filters metrics based on their tags using Datadog tag key patterns.
+     * 
+     */
+    @Import(name="metricTags")
+    private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsArgs> metricTags;
+
+    /**
+     * @return The `metricTags` processor filters metrics based on their tags using Datadog tag key patterns.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsArgs>> metricTags() {
+        return Optional.ofNullable(this.metricTags);
+    }
+
+    /**
      * The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
      * 
      */
@@ -250,6 +284,21 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
      */
     public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorParseJsonArgs>> parseJson() {
         return Optional.ofNullable(this.parseJson);
+    }
+
+    /**
+     * The `parseXml` processor parses XML from a specified field and extracts it into the event.
+     * 
+     */
+    @Import(name="parseXml")
+    private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorParseXmlArgs> parseXml;
+
+    /**
+     * @return The `parseXml` processor parses XML from a specified field and extracts it into the event.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorParseXmlArgs>> parseXml() {
+        return Optional.ofNullable(this.parseXml);
     }
 
     /**
@@ -343,6 +392,21 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
     }
 
     /**
+     * The `splitArray` processor splits array fields into separate events based on configured rules.
+     * 
+     */
+    @Import(name="splitArray")
+    private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArgs> splitArray;
+
+    /**
+     * @return The `splitArray` processor splits array fields into separate events based on configured rules.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArgs>> splitArray() {
+        return Optional.ofNullable(this.splitArray);
+    }
+
+    /**
      * The `throttle` processor limits the number of events that pass through over a given time window.
      * 
      */
@@ -362,6 +426,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
     private ObservabilityPipelineConfigProcessorGroupProcessorArgs(ObservabilityPipelineConfigProcessorGroupProcessorArgs $) {
         this.addEnvVars = $.addEnvVars;
         this.addFields = $.addFields;
+        this.addHostname = $.addHostname;
         this.customProcessor = $.customProcessor;
         this.datadogTags = $.datadogTags;
         this.dedupe = $.dedupe;
@@ -372,15 +437,18 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
         this.generateDatadogMetrics = $.generateDatadogMetrics;
         this.id = $.id;
         this.include = $.include;
+        this.metricTags = $.metricTags;
         this.ocsfMapper = $.ocsfMapper;
         this.parseGrok = $.parseGrok;
         this.parseJson = $.parseJson;
+        this.parseXml = $.parseXml;
         this.quota = $.quota;
         this.reduce = $.reduce;
         this.removeFields = $.removeFields;
         this.renameFields = $.renameFields;
         this.sample = $.sample;
         this.sensitiveDataScanner = $.sensitiveDataScanner;
+        this.splitArray = $.splitArray;
         this.throttle = $.throttle;
     }
 
@@ -442,6 +510,27 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
          */
         public Builder addFields(ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsArgs addFields) {
             return addFields(Output.of(addFields));
+        }
+
+        /**
+         * @param addHostname The `addHostname` processor adds the hostname to log events.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addHostname(@Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorAddHostnameArgs> addHostname) {
+            $.addHostname = addHostname;
+            return this;
+        }
+
+        /**
+         * @param addHostname The `addHostname` processor adds the hostname to log events.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addHostname(ObservabilityPipelineConfigProcessorGroupProcessorAddHostnameArgs addHostname) {
+            return addHostname(Output.of(addHostname));
         }
 
         /**
@@ -643,6 +732,27 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
         }
 
         /**
+         * @param metricTags The `metricTags` processor filters metrics based on their tags using Datadog tag key patterns.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricTags(@Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsArgs> metricTags) {
+            $.metricTags = metricTags;
+            return this;
+        }
+
+        /**
+         * @param metricTags The `metricTags` processor filters metrics based on their tags using Datadog tag key patterns.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricTags(ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsArgs metricTags) {
+            return metricTags(Output.of(metricTags));
+        }
+
+        /**
          * @param ocsfMapper The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
          * 
          * @return builder
@@ -703,6 +813,27 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
          */
         public Builder parseJson(ObservabilityPipelineConfigProcessorGroupProcessorParseJsonArgs parseJson) {
             return parseJson(Output.of(parseJson));
+        }
+
+        /**
+         * @param parseXml The `parseXml` processor parses XML from a specified field and extracts it into the event.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parseXml(@Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorParseXmlArgs> parseXml) {
+            $.parseXml = parseXml;
+            return this;
+        }
+
+        /**
+         * @param parseXml The `parseXml` processor parses XML from a specified field and extracts it into the event.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parseXml(ObservabilityPipelineConfigProcessorGroupProcessorParseXmlArgs parseXml) {
+            return parseXml(Output.of(parseXml));
         }
 
         /**
@@ -829,6 +960,27 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
          */
         public Builder sensitiveDataScanner(ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerArgs sensitiveDataScanner) {
             return sensitiveDataScanner(Output.of(sensitiveDataScanner));
+        }
+
+        /**
+         * @param splitArray The `splitArray` processor splits array fields into separate events based on configured rules.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder splitArray(@Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArgs> splitArray) {
+            $.splitArray = splitArray;
+            return this;
+        }
+
+        /**
+         * @param splitArray The `splitArray` processor splits array fields into separate events based on configured rules.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder splitArray(ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArgs splitArray) {
+            return splitArray(Output.of(splitArray));
         }
 
         /**

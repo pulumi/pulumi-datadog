@@ -52,6 +52,21 @@ public final class PowerpackWidgetHeatmapDefinitionArgs extends com.pulumi.resou
     }
 
     /**
+     * Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    @Import(name="hideIncompleteCostData")
+    private @Nullable Output<Boolean> hideIncompleteCostData;
+
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Output<Boolean>> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
+    }
+
+    /**
      * The size of the legend displayed in the widget.
      * 
      */
@@ -176,6 +191,7 @@ public final class PowerpackWidgetHeatmapDefinitionArgs extends com.pulumi.resou
     private PowerpackWidgetHeatmapDefinitionArgs(PowerpackWidgetHeatmapDefinitionArgs $) {
         this.customLinks = $.customLinks;
         this.events = $.events;
+        this.hideIncompleteCostData = $.hideIncompleteCostData;
         this.legendSize = $.legendSize;
         this.liveSpan = $.liveSpan;
         this.requests = $.requests;
@@ -264,6 +280,27 @@ public final class PowerpackWidgetHeatmapDefinitionArgs extends com.pulumi.resou
          */
         public Builder events(PowerpackWidgetHeatmapDefinitionEventArgs... events) {
             return events(List.of(events));
+        }
+
+        /**
+         * @param hideIncompleteCostData Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hideIncompleteCostData(@Nullable Output<Boolean> hideIncompleteCostData) {
+            $.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
+        }
+
+        /**
+         * @param hideIncompleteCostData Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hideIncompleteCostData(Boolean hideIncompleteCostData) {
+            return hideIncompleteCostData(Output.of(hideIncompleteCostData));
         }
 
         /**

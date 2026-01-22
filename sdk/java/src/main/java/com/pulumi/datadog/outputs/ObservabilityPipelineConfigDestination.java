@@ -8,12 +8,16 @@ import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonOp
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonS3;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonSecurityLake;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAzureStorage;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationCloudPrem;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationDatadogLog;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationDatadogMetric;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationElasticsearch;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationGoogleChronicle;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorage;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationGooglePubsub;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationHttpClient;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationKafka;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationMicrosoftSentinel;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationNewRelic;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationOpensearch;
@@ -27,6 +31,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -52,6 +57,11 @@ public final class ObservabilityPipelineConfigDestination {
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationAzureStorage> azureStorages;
     /**
+     * @return The `cloudPrem` destination sends logs to Datadog CloudPrem.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationCloudPrem cloudPrem;
+    /**
      * @return The `crowdstrikeNextGenSiem` destination forwards logs to CrowdStrike Next Gen SIEM.
      * 
      */
@@ -61,6 +71,11 @@ public final class ObservabilityPipelineConfigDestination {
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationDatadogLog> datadogLogs;
+    /**
+     * @return The `datadog.getMetrics` destination forwards metrics to Datadog.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigDestinationDatadogMetric> datadogMetrics;
     /**
      * @return The `elasticsearch` destination writes logs to an Elasticsearch cluster.
      * 
@@ -82,6 +97,11 @@ public final class ObservabilityPipelineConfigDestination {
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationGooglePubsub> googlePubsubs;
     /**
+     * @return The `httpClient` destination sends data to an HTTP endpoint.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigDestinationHttpClient> httpClients;
+    /**
      * @return The unique identifier for this destination.
      * 
      */
@@ -91,6 +111,11 @@ public final class ObservabilityPipelineConfigDestination {
      * 
      */
     private List<String> inputs;
+    /**
+     * @return The `kafka` destination sends logs to Apache Kafka topics.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationKafka kafka;
     /**
      * @return The `microsoftSentinel` destination forwards logs to Microsoft Sentinel.
      * 
@@ -167,6 +192,13 @@ public final class ObservabilityPipelineConfigDestination {
         return this.azureStorages == null ? List.of() : this.azureStorages;
     }
     /**
+     * @return The `cloudPrem` destination sends logs to Datadog CloudPrem.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationCloudPrem> cloudPrem() {
+        return Optional.ofNullable(this.cloudPrem);
+    }
+    /**
      * @return The `crowdstrikeNextGenSiem` destination forwards logs to CrowdStrike Next Gen SIEM.
      * 
      */
@@ -179,6 +211,13 @@ public final class ObservabilityPipelineConfigDestination {
      */
     public List<ObservabilityPipelineConfigDestinationDatadogLog> datadogLogs() {
         return this.datadogLogs == null ? List.of() : this.datadogLogs;
+    }
+    /**
+     * @return The `datadog.getMetrics` destination forwards metrics to Datadog.
+     * 
+     */
+    public List<ObservabilityPipelineConfigDestinationDatadogMetric> datadogMetrics() {
+        return this.datadogMetrics == null ? List.of() : this.datadogMetrics;
     }
     /**
      * @return The `elasticsearch` destination writes logs to an Elasticsearch cluster.
@@ -209,6 +248,13 @@ public final class ObservabilityPipelineConfigDestination {
         return this.googlePubsubs == null ? List.of() : this.googlePubsubs;
     }
     /**
+     * @return The `httpClient` destination sends data to an HTTP endpoint.
+     * 
+     */
+    public List<ObservabilityPipelineConfigDestinationHttpClient> httpClients() {
+        return this.httpClients == null ? List.of() : this.httpClients;
+    }
+    /**
      * @return The unique identifier for this destination.
      * 
      */
@@ -221,6 +267,13 @@ public final class ObservabilityPipelineConfigDestination {
      */
     public List<String> inputs() {
         return this.inputs;
+    }
+    /**
+     * @return The `kafka` destination sends logs to Apache Kafka topics.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationKafka> kafka() {
+        return Optional.ofNullable(this.kafka);
     }
     /**
      * @return The `microsoftSentinel` destination forwards logs to Microsoft Sentinel.
@@ -299,14 +352,18 @@ public final class ObservabilityPipelineConfigDestination {
         private @Nullable List<ObservabilityPipelineConfigDestinationAmazonS3> amazonS3s;
         private @Nullable List<ObservabilityPipelineConfigDestinationAmazonSecurityLake> amazonSecurityLakes;
         private @Nullable List<ObservabilityPipelineConfigDestinationAzureStorage> azureStorages;
+        private @Nullable ObservabilityPipelineConfigDestinationCloudPrem cloudPrem;
         private @Nullable List<ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem> crowdstrikeNextGenSiems;
         private @Nullable List<ObservabilityPipelineConfigDestinationDatadogLog> datadogLogs;
+        private @Nullable List<ObservabilityPipelineConfigDestinationDatadogMetric> datadogMetrics;
         private @Nullable List<ObservabilityPipelineConfigDestinationElasticsearch> elasticsearches;
         private @Nullable List<ObservabilityPipelineConfigDestinationGoogleChronicle> googleChronicles;
         private @Nullable List<ObservabilityPipelineConfigDestinationGoogleCloudStorage> googleCloudStorages;
         private @Nullable List<ObservabilityPipelineConfigDestinationGooglePubsub> googlePubsubs;
+        private @Nullable List<ObservabilityPipelineConfigDestinationHttpClient> httpClients;
         private String id;
         private List<String> inputs;
+        private @Nullable ObservabilityPipelineConfigDestinationKafka kafka;
         private @Nullable List<ObservabilityPipelineConfigDestinationMicrosoftSentinel> microsoftSentinels;
         private @Nullable List<ObservabilityPipelineConfigDestinationNewRelic> newRelics;
         private @Nullable List<ObservabilityPipelineConfigDestinationOpensearch> opensearches;
@@ -323,14 +380,18 @@ public final class ObservabilityPipelineConfigDestination {
     	      this.amazonS3s = defaults.amazonS3s;
     	      this.amazonSecurityLakes = defaults.amazonSecurityLakes;
     	      this.azureStorages = defaults.azureStorages;
+    	      this.cloudPrem = defaults.cloudPrem;
     	      this.crowdstrikeNextGenSiems = defaults.crowdstrikeNextGenSiems;
     	      this.datadogLogs = defaults.datadogLogs;
+    	      this.datadogMetrics = defaults.datadogMetrics;
     	      this.elasticsearches = defaults.elasticsearches;
     	      this.googleChronicles = defaults.googleChronicles;
     	      this.googleCloudStorages = defaults.googleCloudStorages;
     	      this.googlePubsubs = defaults.googlePubsubs;
+    	      this.httpClients = defaults.httpClients;
     	      this.id = defaults.id;
     	      this.inputs = defaults.inputs;
+    	      this.kafka = defaults.kafka;
     	      this.microsoftSentinels = defaults.microsoftSentinels;
     	      this.newRelics = defaults.newRelics;
     	      this.opensearches = defaults.opensearches;
@@ -379,6 +440,12 @@ public final class ObservabilityPipelineConfigDestination {
             return azureStorages(List.of(azureStorages));
         }
         @CustomType.Setter
+        public Builder cloudPrem(@Nullable ObservabilityPipelineConfigDestinationCloudPrem cloudPrem) {
+
+            this.cloudPrem = cloudPrem;
+            return this;
+        }
+        @CustomType.Setter
         public Builder crowdstrikeNextGenSiems(@Nullable List<ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem> crowdstrikeNextGenSiems) {
 
             this.crowdstrikeNextGenSiems = crowdstrikeNextGenSiems;
@@ -395,6 +462,15 @@ public final class ObservabilityPipelineConfigDestination {
         }
         public Builder datadogLogs(ObservabilityPipelineConfigDestinationDatadogLog... datadogLogs) {
             return datadogLogs(List.of(datadogLogs));
+        }
+        @CustomType.Setter
+        public Builder datadogMetrics(@Nullable List<ObservabilityPipelineConfigDestinationDatadogMetric> datadogMetrics) {
+
+            this.datadogMetrics = datadogMetrics;
+            return this;
+        }
+        public Builder datadogMetrics(ObservabilityPipelineConfigDestinationDatadogMetric... datadogMetrics) {
+            return datadogMetrics(List.of(datadogMetrics));
         }
         @CustomType.Setter
         public Builder elasticsearches(@Nullable List<ObservabilityPipelineConfigDestinationElasticsearch> elasticsearches) {
@@ -433,6 +509,15 @@ public final class ObservabilityPipelineConfigDestination {
             return googlePubsubs(List.of(googlePubsubs));
         }
         @CustomType.Setter
+        public Builder httpClients(@Nullable List<ObservabilityPipelineConfigDestinationHttpClient> httpClients) {
+
+            this.httpClients = httpClients;
+            return this;
+        }
+        public Builder httpClients(ObservabilityPipelineConfigDestinationHttpClient... httpClients) {
+            return httpClients(List.of(httpClients));
+        }
+        @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
               throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestination", "id");
@@ -450,6 +535,12 @@ public final class ObservabilityPipelineConfigDestination {
         }
         public Builder inputs(String... inputs) {
             return inputs(List.of(inputs));
+        }
+        @CustomType.Setter
+        public Builder kafka(@Nullable ObservabilityPipelineConfigDestinationKafka kafka) {
+
+            this.kafka = kafka;
+            return this;
         }
         @CustomType.Setter
         public Builder microsoftSentinels(@Nullable List<ObservabilityPipelineConfigDestinationMicrosoftSentinel> microsoftSentinels) {
@@ -538,14 +629,18 @@ public final class ObservabilityPipelineConfigDestination {
             _resultValue.amazonS3s = amazonS3s;
             _resultValue.amazonSecurityLakes = amazonSecurityLakes;
             _resultValue.azureStorages = azureStorages;
+            _resultValue.cloudPrem = cloudPrem;
             _resultValue.crowdstrikeNextGenSiems = crowdstrikeNextGenSiems;
             _resultValue.datadogLogs = datadogLogs;
+            _resultValue.datadogMetrics = datadogMetrics;
             _resultValue.elasticsearches = elasticsearches;
             _resultValue.googleChronicles = googleChronicles;
             _resultValue.googleCloudStorages = googleCloudStorages;
             _resultValue.googlePubsubs = googlePubsubs;
+            _resultValue.httpClients = httpClients;
             _resultValue.id = id;
             _resultValue.inputs = inputs;
+            _resultValue.kafka = kafka;
             _resultValue.microsoftSentinels = microsoftSentinels;
             _resultValue.newRelics = newRelics;
             _resultValue.opensearches = opensearches;

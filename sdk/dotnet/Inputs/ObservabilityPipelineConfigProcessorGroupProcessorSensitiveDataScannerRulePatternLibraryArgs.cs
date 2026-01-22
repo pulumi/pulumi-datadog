@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternLibraryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Human-readable description providing context about a sensitive data scanner rule.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Identifier for a predefined pattern from the sensitive data scanner pattern library.
         /// </summary>
         [Input("id")]

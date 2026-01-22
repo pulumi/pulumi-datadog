@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Columns;
         /// <summary>
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        public readonly bool? HideIncompleteCostData;
+        /// <summary>
         /// An array of index names to query in the stream.
         /// </summary>
         public readonly ImmutableArray<string> Indexes;
@@ -62,6 +66,8 @@ namespace Pulumi.Datadog.Outputs
         private PowerpackWidgetLogStreamDefinition(
             ImmutableArray<string> columns,
 
+            bool? hideIncompleteCostData,
+
             ImmutableArray<string> indexes,
 
             string? liveSpan,
@@ -83,6 +89,7 @@ namespace Pulumi.Datadog.Outputs
             string? titleSize)
         {
             Columns = columns;
+            HideIncompleteCostData = hideIncompleteCostData;
             Indexes = indexes;
             LiveSpan = liveSpan;
             MessageDisplay = messageDisplay;

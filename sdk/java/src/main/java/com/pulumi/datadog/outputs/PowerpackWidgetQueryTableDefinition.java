@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.PowerpackWidgetQueryTableDefinitionCustomLink;
 import com.pulumi.datadog.outputs.PowerpackWidgetQueryTableDefinitionRequest;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -24,6 +25,11 @@ public final class PowerpackWidgetQueryTableDefinition {
      * 
      */
     private @Nullable String hasSearchBar;
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    private @Nullable Boolean hideIncompleteCostData;
     /**
      * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      * 
@@ -64,6 +70,13 @@ public final class PowerpackWidgetQueryTableDefinition {
      */
     public Optional<String> hasSearchBar() {
         return Optional.ofNullable(this.hasSearchBar);
+    }
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Boolean> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
     }
     /**
      * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
@@ -112,6 +125,7 @@ public final class PowerpackWidgetQueryTableDefinition {
     public static final class Builder {
         private @Nullable List<PowerpackWidgetQueryTableDefinitionCustomLink> customLinks;
         private @Nullable String hasSearchBar;
+        private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String liveSpan;
         private @Nullable List<PowerpackWidgetQueryTableDefinitionRequest> requests;
         private @Nullable String title;
@@ -122,6 +136,7 @@ public final class PowerpackWidgetQueryTableDefinition {
     	      Objects.requireNonNull(defaults);
     	      this.customLinks = defaults.customLinks;
     	      this.hasSearchBar = defaults.hasSearchBar;
+    	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.liveSpan = defaults.liveSpan;
     	      this.requests = defaults.requests;
     	      this.title = defaults.title;
@@ -142,6 +157,12 @@ public final class PowerpackWidgetQueryTableDefinition {
         public Builder hasSearchBar(@Nullable String hasSearchBar) {
 
             this.hasSearchBar = hasSearchBar;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
+
+            this.hideIncompleteCostData = hideIncompleteCostData;
             return this;
         }
         @CustomType.Setter
@@ -181,6 +202,7 @@ public final class PowerpackWidgetQueryTableDefinition {
             final var _resultValue = new PowerpackWidgetQueryTableDefinition();
             _resultValue.customLinks = customLinks;
             _resultValue.hasSearchBar = hasSearchBar;
+            _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.liveSpan = liveSpan;
             _resultValue.requests = requests;
             _resultValue.title = title;

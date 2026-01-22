@@ -13,6 +13,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternLibrary {
     /**
+     * @return Human-readable description providing context about a sensitive data scanner rule.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return Identifier for a predefined pattern from the sensitive data scanner pattern library.
      * 
      */
@@ -24,6 +29,13 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
     private @Nullable Boolean useRecommendedKeywords;
 
     private ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternLibrary() {}
+    /**
+     * @return Human-readable description providing context about a sensitive data scanner rule.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
+    }
     /**
      * @return Identifier for a predefined pattern from the sensitive data scanner pattern library.
      * 
@@ -48,15 +60,23 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String description;
         private @Nullable String id;
         private @Nullable Boolean useRecommendedKeywords;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternLibrary defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.useRecommendedKeywords = defaults.useRecommendedKeywords;
         }
 
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
+        }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
 
@@ -71,6 +91,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
         }
         public ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternLibrary build() {
             final var _resultValue = new ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternLibrary();
+            _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.useRecommendedKeywords = useRecommendedKeywords;
             return _resultValue;

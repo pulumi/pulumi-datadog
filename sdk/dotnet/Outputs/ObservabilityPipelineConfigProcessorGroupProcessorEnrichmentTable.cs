@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableGeoip? Geoip;
         /// <summary>
+        /// Uses a Datadog reference table to enrich logs.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTable? ReferenceTable;
+        /// <summary>
         /// Path where enrichment results should be stored in the log.
         /// </summary>
         public readonly string Target;
@@ -32,10 +36,13 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableGeoip? geoip,
 
+            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTable? referenceTable,
+
             string target)
         {
             File = file;
             Geoip = geoip;
+            ReferenceTable = referenceTable;
             Target = target;
         }
     }

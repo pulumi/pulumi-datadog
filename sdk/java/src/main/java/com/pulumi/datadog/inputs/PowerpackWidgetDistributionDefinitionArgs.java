@@ -21,6 +21,21 @@ public final class PowerpackWidgetDistributionDefinitionArgs extends com.pulumi.
     public static final PowerpackWidgetDistributionDefinitionArgs Empty = new PowerpackWidgetDistributionDefinitionArgs();
 
     /**
+     * Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    @Import(name="hideIncompleteCostData")
+    private @Nullable Output<Boolean> hideIncompleteCostData;
+
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Output<Boolean>> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
+    }
+
+    /**
      * The size of the legend displayed in the widget.
      * 
      */
@@ -158,6 +173,7 @@ public final class PowerpackWidgetDistributionDefinitionArgs extends com.pulumi.
     private PowerpackWidgetDistributionDefinitionArgs() {}
 
     private PowerpackWidgetDistributionDefinitionArgs(PowerpackWidgetDistributionDefinitionArgs $) {
+        this.hideIncompleteCostData = $.hideIncompleteCostData;
         this.legendSize = $.legendSize;
         this.liveSpan = $.liveSpan;
         this.requests = $.requests;
@@ -185,6 +201,27 @@ public final class PowerpackWidgetDistributionDefinitionArgs extends com.pulumi.
 
         public Builder(PowerpackWidgetDistributionDefinitionArgs defaults) {
             $ = new PowerpackWidgetDistributionDefinitionArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param hideIncompleteCostData Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hideIncompleteCostData(@Nullable Output<Boolean> hideIncompleteCostData) {
+            $.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
+        }
+
+        /**
+         * @param hideIncompleteCostData Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hideIncompleteCostData(Boolean hideIncompleteCostData) {
+            return hideIncompleteCostData(Output.of(hideIncompleteCostData));
         }
 
         /**

@@ -26,6 +26,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? CustomUnit;
         /// <summary>
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        public readonly bool? HideIncompleteCostData;
+        /// <summary>
         /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `WeekToDate`, `MonthToDate`, `1y`, `Alert`.
         /// </summary>
         public readonly string? LiveSpan;
@@ -66,6 +70,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? customUnit,
 
+            bool? hideIncompleteCostData,
+
             string? liveSpan,
 
             int? precision,
@@ -85,6 +91,7 @@ namespace Pulumi.Datadog.Outputs
             Autoscale = autoscale;
             CustomLinks = customLinks;
             CustomUnit = customUnit;
+            HideIncompleteCostData = hideIncompleteCostData;
             LiveSpan = liveSpan;
             Precision = precision;
             Requests = requests;

@@ -407,6 +407,71 @@ export interface CloudConfigurationRuleFilter {
     query: pulumi.Input<string>;
 }
 
+export interface CloudInventorySyncConfigAws {
+    /**
+     * AWS Account ID of the account holding the bucket.
+     */
+    awsAccountId?: pulumi.Input<string>;
+    /**
+     * Name of the S3 bucket holding the inventory files.
+     */
+    destinationBucketName?: pulumi.Input<string>;
+    /**
+     * AWS Region of the bucket holding the inventory files.
+     */
+    destinationBucketRegion?: pulumi.Input<string>;
+    /**
+     * Prefix path within the bucket for inventory files.
+     */
+    destinationPrefix?: pulumi.Input<string>;
+}
+
+export interface CloudInventorySyncConfigAzure {
+    /**
+     * Azure Client ID.
+     */
+    clientId?: pulumi.Input<string>;
+    /**
+     * Azure Storage Container name.
+     */
+    container?: pulumi.Input<string>;
+    /**
+     * Azure Resource Group name.
+     */
+    resourceGroup?: pulumi.Input<string>;
+    /**
+     * Azure Storage Account name.
+     */
+    storageAccount?: pulumi.Input<string>;
+    /**
+     * Azure Subscription ID.
+     */
+    subscriptionId?: pulumi.Input<string>;
+    /**
+     * Azure Tenant ID.
+     */
+    tenantId?: pulumi.Input<string>;
+}
+
+export interface CloudInventorySyncConfigGcp {
+    /**
+     * Name of the GCS bucket holding the inventory files.
+     */
+    destinationBucketName?: pulumi.Input<string>;
+    /**
+     * GCP Project ID of the project holding the bucket.
+     */
+    projectId?: pulumi.Input<string>;
+    /**
+     * Service account email used for reading the bucket.
+     */
+    serviceAccountEmail?: pulumi.Input<string>;
+    /**
+     * Name of the source bucket the inventory report is generated for.
+     */
+    sourceBucketName?: pulumi.Input<string>;
+}
+
 export interface ComplianceCustomFrameworkRequirement {
     /**
      * The controls of the requirement. Length must be at least 1.
@@ -839,6 +904,10 @@ export interface DashboardWidgetAlertGraphDefinition {
      */
     alertId: pulumi.Input<string>;
     /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
+    /**
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     liveSpan?: pulumi.Input<string>;
@@ -979,6 +1048,10 @@ export interface DashboardWidgetChangeDefinition {
      * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      */
     customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetChangeDefinitionCustomLink>[]>;
+    /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
     /**
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
@@ -1583,6 +1656,10 @@ export interface DashboardWidgetCheckStatusDefinition {
      */
     grouping: pulumi.Input<string>;
     /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
+    /**
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     liveSpan?: pulumi.Input<string>;
@@ -1605,6 +1682,10 @@ export interface DashboardWidgetCheckStatusDefinition {
 }
 
 export interface DashboardWidgetDistributionDefinition {
+    /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
     /**
      * The size of the legend displayed in the widget.
      */
@@ -1799,6 +1880,10 @@ export interface DashboardWidgetEventStreamDefinition {
      */
     eventSize?: pulumi.Input<string>;
     /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
+    /**
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     liveSpan?: pulumi.Input<string>;
@@ -1825,6 +1910,10 @@ export interface DashboardWidgetEventStreamDefinition {
 }
 
 export interface DashboardWidgetEventTimelineDefinition {
+    /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
     /**
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
@@ -1875,6 +1964,10 @@ export interface DashboardWidgetGeomapDefinition {
      * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      */
     customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGeomapDefinitionCustomLink>[]>;
+    /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
     /**
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
@@ -2630,6 +2723,10 @@ export interface DashboardWidgetHeatmapDefinition {
      * The definition of the event to overlay on the graph. Multiple `event` blocks are allowed using the structure below.
      */
     events?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionEvent>[]>;
+    /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
     /**
      * The size of the legend displayed in the widget.
      */
@@ -3666,6 +3763,10 @@ export interface DashboardWidgetLogStreamDefinition {
      */
     columns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
+    /**
      * An array of index names to query in the stream.
      */
     indexes?: pulumi.Input<pulumi.Input<string>[]>;
@@ -3881,6 +3982,10 @@ export interface DashboardWidgetQueryTableDefinition {
      * Controls the display of the search bar. Valid values are `always`, `never`, `auto`.
      */
     hasSearchBar?: pulumi.Input<string>;
+    /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
     /**
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
@@ -4645,6 +4750,10 @@ export interface DashboardWidgetQueryValueDefinition {
      * The unit for the value displayed in the widget.
      */
     customUnit?: pulumi.Input<string>;
+    /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
     /**
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
@@ -5476,6 +5585,10 @@ export interface DashboardWidgetRunWorkflowDefinition {
      */
     customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetRunWorkflowDefinitionCustomLink>[]>;
     /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
+    /**
      * Array of workflow inputs to map to dashboard template variables.
      */
     inputs?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetRunWorkflowDefinitionInput>[]>;
@@ -5540,6 +5653,10 @@ export interface DashboardWidgetScatterplotDefinition {
      * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      */
     customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionCustomLink>[]>;
+    /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
     /**
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
@@ -6344,6 +6461,10 @@ export interface DashboardWidgetSplitGraphDefinition {
      */
     hasUniformYAxes?: pulumi.Input<boolean>;
     /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
+    /**
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     liveSpan?: pulumi.Input<string>;
@@ -6469,6 +6590,10 @@ export interface DashboardWidgetSunburstDefinition {
      * Nested block describing a custom link. Multiple `customLink` blocks are allowed with the structure below.
      */
     customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionCustomLink>[]>;
+    /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
     /**
      * Whether or not to show the total value in the widget.
      */
@@ -7259,6 +7384,10 @@ export interface DashboardWidgetTimeseriesDefinition {
      * The definition of the event to overlay on the graph. Multiple `event` blocks are allowed using the structure below.
      */
     events?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionEvent>[]>;
+    /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
     /**
      * A list of columns to display in the legend. Valid values are `value`, `avg`, `sum`, `min`, `max`.
      */
@@ -8143,6 +8272,10 @@ export interface DashboardWidgetToplistDefinition {
      */
     customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetToplistDefinitionCustomLink>[]>;
     /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
+    /**
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     liveSpan?: pulumi.Input<string>;
@@ -8948,6 +9081,10 @@ export interface DashboardWidgetTraceServiceDefinition {
      * APM environment.
      */
     env: pulumi.Input<string>;
+    /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
     /**
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
@@ -10254,6 +10391,156 @@ export interface GetIncidentNotificationRuleConditionArgs {
     values?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface GetOrganizationSettingsSetting {
+    /**
+     * Whether or not the organization users can share widgets outside of Datadog.
+     */
+    privateWidgetShare?: boolean;
+    /**
+     * The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm`, `ro`, `ERROR`.
+     */
+    samlAutocreateAccessRole?: string;
+    /**
+     * List of domains where the SAML automated user creation is enabled.
+     */
+    samlAutocreateUsersDomains?: inputs.GetOrganizationSettingsSettingSamlAutocreateUsersDomain[];
+    /**
+     * Whether or not SAML can be enabled for this organization.
+     */
+    samlCanBeEnabled?: boolean;
+    /**
+     * Identity provider endpoint for SAML authentication.
+     */
+    samlIdpEndpoint?: string;
+    /**
+     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     */
+    samlIdpInitiatedLogins?: inputs.GetOrganizationSettingsSettingSamlIdpInitiatedLogin[];
+    /**
+     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     */
+    samlIdpMetadataUploaded?: boolean;
+    /**
+     * URL for SAML logging.
+     */
+    samlLoginUrl?: string;
+    /**
+     * Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+     */
+    samlStrictModes?: inputs.GetOrganizationSettingsSettingSamlStrictMode[];
+    /**
+     * SAML properties.
+     */
+    samls?: inputs.GetOrganizationSettingsSettingSaml[];
+}
+
+export interface GetOrganizationSettingsSettingArgs {
+    /**
+     * Whether or not the organization users can share widgets outside of Datadog.
+     */
+    privateWidgetShare?: pulumi.Input<boolean>;
+    /**
+     * The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm`, `ro`, `ERROR`.
+     */
+    samlAutocreateAccessRole?: pulumi.Input<string>;
+    /**
+     * List of domains where the SAML automated user creation is enabled.
+     */
+    samlAutocreateUsersDomains?: pulumi.Input<pulumi.Input<inputs.GetOrganizationSettingsSettingSamlAutocreateUsersDomainArgs>[]>;
+    /**
+     * Whether or not SAML can be enabled for this organization.
+     */
+    samlCanBeEnabled?: pulumi.Input<boolean>;
+    /**
+     * Identity provider endpoint for SAML authentication.
+     */
+    samlIdpEndpoint?: pulumi.Input<string>;
+    /**
+     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     */
+    samlIdpInitiatedLogins?: pulumi.Input<pulumi.Input<inputs.GetOrganizationSettingsSettingSamlIdpInitiatedLoginArgs>[]>;
+    /**
+     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     */
+    samlIdpMetadataUploaded?: pulumi.Input<boolean>;
+    /**
+     * URL for SAML logging.
+     */
+    samlLoginUrl?: pulumi.Input<string>;
+    /**
+     * Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+     */
+    samlStrictModes?: pulumi.Input<pulumi.Input<inputs.GetOrganizationSettingsSettingSamlStrictModeArgs>[]>;
+    /**
+     * SAML properties.
+     */
+    samls?: pulumi.Input<pulumi.Input<inputs.GetOrganizationSettingsSettingSamlArgs>[]>;
+}
+
+export interface GetOrganizationSettingsSettingSaml {
+    /**
+     * Whether or not SAML is enabled for this organization.
+     */
+    enabled?: boolean;
+}
+
+export interface GetOrganizationSettingsSettingSamlArgs {
+    /**
+     * Whether or not SAML is enabled for this organization.
+     */
+    enabled?: pulumi.Input<boolean>;
+}
+
+export interface GetOrganizationSettingsSettingSamlAutocreateUsersDomain {
+    /**
+     * List of domains where the SAML automated user creation is enabled.
+     */
+    domains?: string[];
+    /**
+     * Whether or not the automated user creation based on SAML domain is enabled.
+     */
+    enabled?: boolean;
+}
+
+export interface GetOrganizationSettingsSettingSamlAutocreateUsersDomainArgs {
+    /**
+     * List of domains where the SAML automated user creation is enabled.
+     */
+    domains?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Whether or not the automated user creation based on SAML domain is enabled.
+     */
+    enabled?: pulumi.Input<boolean>;
+}
+
+export interface GetOrganizationSettingsSettingSamlIdpInitiatedLogin {
+    /**
+     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     */
+    enabled?: boolean;
+}
+
+export interface GetOrganizationSettingsSettingSamlIdpInitiatedLoginArgs {
+    /**
+     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     */
+    enabled?: pulumi.Input<boolean>;
+}
+
+export interface GetOrganizationSettingsSettingSamlStrictMode {
+    /**
+     * Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+     */
+    enabled?: boolean;
+}
+
+export interface GetOrganizationSettingsSettingSamlStrictModeArgs {
+    /**
+     * Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+     */
+    enabled?: pulumi.Input<boolean>;
+}
+
 export interface GetReferenceTableFileMetadata {
     /**
      * Cloud storage access configuration. Only present for cloud storage sources (S3, GCS, Azure).
@@ -10720,6 +11007,180 @@ export interface GetTagPipelineRulesetRuleReferenceTableFieldPairArgs {
      * The output key name.
      */
     outputKey?: pulumi.Input<string>;
+}
+
+export interface GetTeamNotificationRuleEmail {
+    /**
+     * Flag indicating whether email notifications should be sent
+     */
+    enabled?: boolean;
+}
+
+export interface GetTeamNotificationRuleEmailArgs {
+    /**
+     * Flag indicating whether email notifications should be sent
+     */
+    enabled?: pulumi.Input<boolean>;
+}
+
+export interface GetTeamNotificationRuleMsTeams {
+    /**
+     * MS Teams connector name
+     */
+    connectorName?: string;
+}
+
+export interface GetTeamNotificationRuleMsTeamsArgs {
+    /**
+     * MS Teams connector name
+     */
+    connectorName?: pulumi.Input<string>;
+}
+
+export interface GetTeamNotificationRulePagerduty {
+    /**
+     * PagerDuty service name
+     */
+    serviceName?: string;
+}
+
+export interface GetTeamNotificationRulePagerdutyArgs {
+    /**
+     * PagerDuty service name
+     */
+    serviceName?: pulumi.Input<string>;
+}
+
+export interface GetTeamNotificationRuleSlack {
+    /**
+     * Slack channel for notifications
+     */
+    channel?: string;
+    /**
+     * Slack workspace for notifications
+     */
+    workspace?: string;
+}
+
+export interface GetTeamNotificationRuleSlackArgs {
+    /**
+     * Slack channel for notifications
+     */
+    channel?: pulumi.Input<string>;
+    /**
+     * Slack workspace for notifications
+     */
+    workspace?: pulumi.Input<string>;
+}
+
+export interface GetTeamNotificationRulesNotificationRule {
+    /**
+     * The email notification settings.
+     */
+    email?: inputs.GetTeamNotificationRulesNotificationRuleEmail;
+    /**
+     * The ID of the notification rule.
+     */
+    id?: string;
+    /**
+     * The MS Teams notification settings.
+     */
+    msTeams?: inputs.GetTeamNotificationRulesNotificationRuleMsTeams;
+    /**
+     * The PagerDuty notification settings.
+     */
+    pagerduty?: inputs.GetTeamNotificationRulesNotificationRulePagerduty;
+    /**
+     * The Slack notification settings.
+     */
+    slack?: inputs.GetTeamNotificationRulesNotificationRuleSlack;
+}
+
+export interface GetTeamNotificationRulesNotificationRuleArgs {
+    /**
+     * The email notification settings.
+     */
+    email?: pulumi.Input<inputs.GetTeamNotificationRulesNotificationRuleEmailArgs>;
+    /**
+     * The ID of the notification rule.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The MS Teams notification settings.
+     */
+    msTeams?: pulumi.Input<inputs.GetTeamNotificationRulesNotificationRuleMsTeamsArgs>;
+    /**
+     * The PagerDuty notification settings.
+     */
+    pagerduty?: pulumi.Input<inputs.GetTeamNotificationRulesNotificationRulePagerdutyArgs>;
+    /**
+     * The Slack notification settings.
+     */
+    slack?: pulumi.Input<inputs.GetTeamNotificationRulesNotificationRuleSlackArgs>;
+}
+
+export interface GetTeamNotificationRulesNotificationRuleEmail {
+    /**
+     * Flag indicating whether email notifications should be sent.
+     */
+    enabled?: boolean;
+}
+
+export interface GetTeamNotificationRulesNotificationRuleEmailArgs {
+    /**
+     * Flag indicating whether email notifications should be sent.
+     */
+    enabled?: pulumi.Input<boolean>;
+}
+
+export interface GetTeamNotificationRulesNotificationRuleMsTeams {
+    /**
+     * MS Teams connector name.
+     */
+    connectorName?: string;
+}
+
+export interface GetTeamNotificationRulesNotificationRuleMsTeamsArgs {
+    /**
+     * MS Teams connector name.
+     */
+    connectorName?: pulumi.Input<string>;
+}
+
+export interface GetTeamNotificationRulesNotificationRulePagerduty {
+    /**
+     * PagerDuty service name.
+     */
+    serviceName?: string;
+}
+
+export interface GetTeamNotificationRulesNotificationRulePagerdutyArgs {
+    /**
+     * PagerDuty service name.
+     */
+    serviceName?: pulumi.Input<string>;
+}
+
+export interface GetTeamNotificationRulesNotificationRuleSlack {
+    /**
+     * Slack channel for notifications.
+     */
+    channel?: string;
+    /**
+     * Slack workspace for notifications.
+     */
+    workspace?: string;
+}
+
+export interface GetTeamNotificationRulesNotificationRuleSlackArgs {
+    /**
+     * Slack channel for notifications.
+     */
+    channel?: pulumi.Input<string>;
+    /**
+     * Slack workspace for notifications.
+     */
+    workspace?: pulumi.Input<string>;
 }
 
 export interface GetTeamsTeam {
@@ -12723,6 +13184,10 @@ export interface ObservabilityPipelineConfig {
      */
     destinations?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestination>[]>;
     /**
+     * The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`.
+     */
+    pipelineType?: pulumi.Input<string>;
+    /**
      * A processor group containing common configuration and nested processors.
      */
     processorGroups?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroup>[]>;
@@ -12750,6 +13215,10 @@ export interface ObservabilityPipelineConfigDestination {
      */
     azureStorages?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAzureStorage>[]>;
     /**
+     * The `cloudPrem` destination sends logs to Datadog CloudPrem.
+     */
+    cloudPrem?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationCloudPrem>;
+    /**
      * The `crowdstrikeNextGenSiem` destination forwards logs to CrowdStrike Next Gen SIEM.
      */
     crowdstrikeNextGenSiems?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem>[]>;
@@ -12757,6 +13226,10 @@ export interface ObservabilityPipelineConfigDestination {
      * The `datadogLogs` destination forwards logs to Datadog Log Management.
      */
     datadogLogs?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationDatadogLog>[]>;
+    /**
+     * The `datadog.getMetrics` destination forwards metrics to Datadog.
+     */
+    datadogMetrics?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationDatadogMetric>[]>;
     /**
      * The `elasticsearch` destination writes logs to an Elasticsearch cluster.
      */
@@ -12774,6 +13247,10 @@ export interface ObservabilityPipelineConfigDestination {
      */
     googlePubsubs?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationGooglePubsub>[]>;
     /**
+     * The `httpClient` destination sends data to an HTTP endpoint.
+     */
+    httpClients?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationHttpClient>[]>;
+    /**
      * The unique identifier for this destination.
      */
     id: pulumi.Input<string>;
@@ -12781,6 +13258,10 @@ export interface ObservabilityPipelineConfigDestination {
      * A list of component IDs whose output is used as the `input` for this component.
      */
     inputs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The `kafka` destination sends logs to Apache Kafka topics.
+     */
+    kafka?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationKafka>;
     /**
      * The `microsoftSentinel` destination forwards logs to Microsoft Sentinel.
      */
@@ -12952,6 +13433,9 @@ export interface ObservabilityPipelineConfigDestinationAzureStorage {
     containerName: pulumi.Input<string>;
 }
 
+export interface ObservabilityPipelineConfigDestinationCloudPrem {
+}
+
 export interface ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem {
     /**
      * Compression configuration for log events.
@@ -12996,6 +13480,9 @@ export interface ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemTls
 export interface ObservabilityPipelineConfigDestinationDatadogLog {
 }
 
+export interface ObservabilityPipelineConfigDestinationDatadogMetric {
+}
+
 export interface ObservabilityPipelineConfigDestinationElasticsearch {
     /**
      * The Elasticsearch API version to use. Set to `auto` to auto-detect.
@@ -13005,6 +13492,25 @@ export interface ObservabilityPipelineConfigDestinationElasticsearch {
      * The index or datastream to write logs to in Elasticsearch.
      */
     bulkIndex?: pulumi.Input<string>;
+    /**
+     * Configuration options for writing to Elasticsearch Data Streams instead of a fixed index.
+     */
+    dataStream?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationElasticsearchDataStream>;
+}
+
+export interface ObservabilityPipelineConfigDestinationElasticsearchDataStream {
+    /**
+     * The data stream dataset for your logs. This groups logs by their source or application.
+     */
+    dataset?: pulumi.Input<string>;
+    /**
+     * The data stream type for your logs. This determines how logs are categorized within the data stream.
+     */
+    dtype?: pulumi.Input<string>;
+    /**
+     * The data stream namespace for your logs. This separates logs into different environments or domains.
+     */
+    namespace?: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigDestinationGoogleChronicle {
@@ -13109,6 +13615,131 @@ export interface ObservabilityPipelineConfigDestinationGooglePubsubAuth {
 }
 
 export interface ObservabilityPipelineConfigDestinationGooglePubsubTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+     */
+    caFile?: pulumi.Input<string>;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationHttpClient {
+    /**
+     * HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`.
+     */
+    authStrategy?: pulumi.Input<string>;
+    /**
+     * Compression configuration for HTTP requests.
+     */
+    compression?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationHttpClientCompression>;
+    /**
+     * Encoding format for events. Valid values are `json`.
+     */
+    encoding: pulumi.Input<string>;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationHttpClientTls>;
+}
+
+export interface ObservabilityPipelineConfigDestinationHttpClientCompression {
+    /**
+     * Compression algorithm. Valid values are `gzip`.
+     */
+    algorithm: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationHttpClientTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+     */
+    caFile?: pulumi.Input<string>;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationKafka {
+    /**
+     * Compression codec for Kafka messages. Valid values are `none`, `gzip`, `snappy`, `lz4`, `zstd`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * Encoding format for log events. Valid values are `json`, `rawMessage`.
+     */
+    encoding: pulumi.Input<string>;
+    /**
+     * The field name to use for Kafka message headers.
+     */
+    headersKey?: pulumi.Input<string>;
+    /**
+     * The field name to use as the Kafka message key.
+     */
+    keyField?: pulumi.Input<string>;
+    /**
+     * Optional list of advanced Kafka producer configuration options, defined as key-value pairs.
+     */
+    librdkafkaOptions?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationKafkaLibrdkafkaOption>[]>;
+    /**
+     * Maximum time in milliseconds to wait for message delivery confirmation.
+     */
+    messageTimeoutMs?: pulumi.Input<number>;
+    /**
+     * Duration in seconds for the rate limit window.
+     */
+    rateLimitDurationSecs?: pulumi.Input<number>;
+    /**
+     * Maximum number of messages allowed per rate limit duration.
+     */
+    rateLimitNum?: pulumi.Input<number>;
+    /**
+     * Specifies the SASL mechanism for authenticating with a Kafka cluster.
+     */
+    sasl?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationKafkaSasl>;
+    /**
+     * Socket timeout in milliseconds for network requests.
+     */
+    socketTimeoutMs?: pulumi.Input<number>;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationKafkaTls>;
+    /**
+     * The Kafka topic name to publish logs to.
+     */
+    topic: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationKafkaLibrdkafkaOption {
+    /**
+     * The name of the librdkafka configuration option.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The value of the librdkafka configuration option.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationKafkaSasl {
+    /**
+     * SASL authentication mechanism. Valid values are `PLAIN`, `SCRAM-SHA-256`, `SCRAM-SHA-512`.
+     */
+    mechanism: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationKafkaTls {
     /**
      * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
@@ -13249,7 +13880,7 @@ export interface ObservabilityPipelineConfigDestinationSplunkHec {
     /**
      * Encoding format for log events. Valid values: `json`, `rawMessage`.
      */
-    encoding?: pulumi.Input<string>;
+    encoding: pulumi.Input<string>;
     /**
      * Optional name of the Splunk index where logs are written.
      */
@@ -13357,6 +13988,10 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessor {
      */
     addFields?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorAddFields>;
     /**
+     * The `addHostname` processor adds the hostname to log events.
+     */
+    addHostname?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorAddHostname>;
+    /**
      * The `customProcessor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
      */
     customProcessor?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessor>;
@@ -13394,6 +14029,10 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessor {
      */
     include: pulumi.Input<string>;
     /**
+     * The `metricTags` processor filters metrics based on their tags using Datadog tag key patterns.
+     */
+    metricTags?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricTags>;
+    /**
      * The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
      */
     ocsfMapper?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper>;
@@ -13405,6 +14044,10 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessor {
      * The `parseJson` processor extracts JSON from a specified field and flattens it into the event. This is useful when logs contain embedded JSON as a string.
      */
     parseJson?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseJson>;
+    /**
+     * The `parseXml` processor parses XML from a specified field and extracts it into the event.
+     */
+    parseXml?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseXml>;
     /**
      * The `quota` processor measures logging traffic for logs that match a specified filter. When the configured daily quota is met, the processor can drop or alert.
      */
@@ -13429,6 +14072,10 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessor {
      * The `sensitiveDataScanner` processor detects and optionally redacts sensitive data in log events.
      */
     sensitiveDataScanner?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScanner>;
+    /**
+     * The `splitArray` processor splits array fields into separate events based on configured rules.
+     */
+    splitArray?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorSplitArray>;
     /**
      * The `throttle` processor limits the number of events that pass through over a given time window.
      */
@@ -13469,6 +14116,9 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsFiel
      * The value to assign to the field.
      */
     value: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorAddHostname {
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessor {
@@ -13533,6 +14183,10 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTab
      * Uses a GeoIP database to enrich logs based on an IP field.
      */
     geoip?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableGeoip>;
+    /**
+     * Uses a Datadog reference table to enrich logs.
+     */
+    referenceTable?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTable>;
     /**
      * Path where enrichment results should be stored in the log.
      */
@@ -13611,6 +14265,21 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTab
     path?: pulumi.Input<string>;
 }
 
+export interface ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTable {
+    /**
+     * List of column names to include from the reference table. If not provided, all columns are included.
+     */
+    columns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Path to the field in the log event to match against the reference table.
+     */
+    keyField: pulumi.Input<string>;
+    /**
+     * The unique identifier of the reference table.
+     */
+    tableId: pulumi.Input<string>;
+}
+
 export interface ObservabilityPipelineConfigProcessorGroupProcessorFilter {
 }
 
@@ -13653,6 +14322,32 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatad
      * Metric value strategy: `incrementByOne` or `incrementByField`.
      */
     strategy: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorMetricTags {
+    /**
+     * A list of rules for filtering metric tags.
+     */
+    rules?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRule>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRule {
+    /**
+     * The action to take on tags with matching keys. Valid values are `include`, `exclude`.
+     */
+    action: pulumi.Input<string>;
+    /**
+     * A Datadog search query used to determine which metrics this rule targets.
+     */
+    include: pulumi.Input<string>;
+    /**
+     * A list of tag keys to include or exclude.
+     */
+    keys: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The processing mode for tag filtering. Valid values are `filter`.
+     */
+    mode: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper {
@@ -13728,6 +14423,41 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorParseJson {
     field: pulumi.Input<string>;
 }
 
+export interface ObservabilityPipelineConfigProcessorGroupProcessorParseXml {
+    /**
+     * Whether to always store text inside an object using the text key even when no attributes exist.
+     */
+    alwaysUseTextKey?: pulumi.Input<boolean>;
+    /**
+     * The prefix to use for XML attributes in the parsed output. If the field is left empty, the original attribute key is used.
+     */
+    attrPrefix?: pulumi.Input<string>;
+    /**
+     * The path to the log field on which you want to parse XML.
+     */
+    field: pulumi.Input<string>;
+    /**
+     * Whether to include XML attributes in the parsed output.
+     */
+    includeAttr?: pulumi.Input<boolean>;
+    /**
+     * Whether to parse boolean values from strings.
+     */
+    parseBool?: pulumi.Input<boolean>;
+    /**
+     * Whether to parse null values.
+     */
+    parseNull?: pulumi.Input<boolean>;
+    /**
+     * Whether to parse numeric values from strings.
+     */
+    parseNumber?: pulumi.Input<boolean>;
+    /**
+     * The key name to use for the text node when XML attributes are appended.
+     */
+    textKey?: pulumi.Input<string>;
+}
+
 export interface ObservabilityPipelineConfigProcessorGroupProcessorQuota {
     /**
      * Whether to drop events exceeding the limit.
@@ -13754,6 +14484,10 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorQuota {
      * List of partition fields.
      */
     partitionFields?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The action to take when the max number of buckets is exceeded: `drop`, `noAction`, or `overflowRouting`.
+     */
+    tooManyBucketsAction?: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimit {
@@ -13850,13 +14584,13 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsF
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorSample {
     /**
+     * Optional list of fields to group events by. Each group is sampled independently.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The percentage of logs to sample.
      */
-    percentage?: pulumi.Input<number>;
-    /**
-     * Number of events to sample (1 in N).
-     */
-    rate?: pulumi.Input<number>;
+    percentage: pulumi.Input<number>;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScanner {
@@ -13953,12 +14687,20 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorSensitiveData
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternCustom {
     /**
+     * Human-readable description providing context about a sensitive data scanner rule.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * A regular expression used to detect sensitive values. Must be a valid regex.
      */
     rule?: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternLibrary {
+    /**
+     * Human-readable description providing context about a sensitive data scanner rule.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Identifier for a predefined pattern from the sensitive data scanner pattern library.
      */
@@ -13996,6 +14738,24 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorSensitiveData
      * The fields to include in scanning.
      */
     fields?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorSplitArray {
+    /**
+     * A list of array split configurations.
+     */
+    arrays?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArray>[]>;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArray {
+    /**
+     * The path to the array field to split.
+     */
+    field: pulumi.Input<string>;
+    /**
+     * A Datadog search query used to determine which logs this array split operation targets.
+     */
+    include: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorThrottle {
@@ -14058,6 +14818,10 @@ export interface ObservabilityPipelineConfigSource {
      * The `logstash` source ingests logs from a Logstash forwarder.
      */
     logstashes?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigSourceLogstash>[]>;
+    /**
+     * The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
+     */
+    opentelemetry?: pulumi.Input<inputs.ObservabilityPipelineConfigSourceOpentelemetry>;
     /**
      * The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
      */
@@ -14283,7 +15047,7 @@ export interface ObservabilityPipelineConfigSourceGooglePubsubTls {
 
 export interface ObservabilityPipelineConfigSourceHttpClient {
     /**
-     * Optional authentication strategy for HTTP requests.
+     * Optional authentication strategy for HTTP requests. Valid values are `none`, `basic`, `bearer`.
      */
     authStrategy?: pulumi.Input<string>;
     /**
@@ -14413,6 +15177,28 @@ export interface ObservabilityPipelineConfigSourceLogstash {
 }
 
 export interface ObservabilityPipelineConfigSourceLogstashTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+     */
+    caFile?: pulumi.Input<string>;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigSourceOpentelemetry {
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigSourceOpentelemetryTls>;
+}
+
+export interface ObservabilityPipelineConfigSourceOpentelemetryTls {
     /**
      * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
      */
@@ -14769,6 +15555,31 @@ export interface OnCallTeamRoutingRulesRuleTimeRestrictionsRestriction {
     startTime?: pulumi.Input<string>;
 }
 
+export interface OnCallUserNotificationChannelEmail {
+    /**
+     * The e-mail address to be notified
+     */
+    address?: pulumi.Input<string>;
+    /**
+     * Preferred content formats for notifications
+     */
+    formats?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface OnCallUserNotificationChannelPhone {
+    /**
+     * The E-164 formatted phone number (e.g. +3371234567)
+     */
+    number?: pulumi.Input<string>;
+}
+
+export interface OnCallUserNotificationRulePhone {
+    /**
+     * Specifies the method in which a phone is used in a notification rule. Valid values are `sms`, `voice`.
+     */
+    method?: pulumi.Input<string>;
+}
+
 export interface OrganizationSettingsSettings {
     /**
      * Whether or not the organization users can share widgets outside of Datadog. Defaults to `false`.
@@ -15011,6 +15822,10 @@ export interface PowerpackWidgetAlertGraphDefinition {
      */
     alertId: pulumi.Input<string>;
     /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
+    /**
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     liveSpan?: pulumi.Input<string>;
@@ -15068,6 +15883,10 @@ export interface PowerpackWidgetChangeDefinition {
      * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      */
     customLinks?: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetChangeDefinitionCustomLink>[]>;
+    /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
     /**
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
@@ -16004,6 +16823,10 @@ export interface PowerpackWidgetCheckStatusDefinition {
      */
     grouping: pulumi.Input<string>;
     /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
+    /**
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     liveSpan?: pulumi.Input<string>;
@@ -16026,6 +16849,10 @@ export interface PowerpackWidgetCheckStatusDefinition {
 }
 
 export interface PowerpackWidgetDistributionDefinition {
+    /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
     /**
      * The size of the legend displayed in the widget.
      */
@@ -16552,6 +17379,10 @@ export interface PowerpackWidgetEventStreamDefinition {
      */
     eventSize?: pulumi.Input<string>;
     /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
+    /**
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     liveSpan?: pulumi.Input<string>;
@@ -16578,6 +17409,10 @@ export interface PowerpackWidgetEventStreamDefinition {
 }
 
 export interface PowerpackWidgetEventTimelineDefinition {
+    /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
     /**
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
@@ -16628,6 +17463,10 @@ export interface PowerpackWidgetGeomapDefinition {
      * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      */
     customLinks?: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetGeomapDefinitionCustomLink>[]>;
+    /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
     /**
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
@@ -17360,6 +18199,10 @@ export interface PowerpackWidgetHeatmapDefinition {
      * The definition of the event to overlay on the graph. Multiple `event` blocks are allowed using the structure below.
      */
     events?: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetHeatmapDefinitionEvent>[]>;
+    /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
     /**
      * The size of the legend displayed in the widget.
      */
@@ -19309,6 +20152,10 @@ export interface PowerpackWidgetLogStreamDefinition {
      */
     columns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
+    /**
      * An array of index names to query in the stream.
      */
     indexes?: pulumi.Input<pulumi.Input<string>[]>;
@@ -19456,6 +20303,10 @@ export interface PowerpackWidgetQueryTableDefinition {
      * Controls the display of the search bar. Valid values are `always`, `never`, `auto`.
      */
     hasSearchBar?: pulumi.Input<string>;
+    /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
     /**
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
@@ -20553,6 +21404,10 @@ export interface PowerpackWidgetQueryValueDefinition {
      */
     customUnit?: pulumi.Input<string>;
     /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
+    /**
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     liveSpan?: pulumi.Input<string>;
@@ -21632,6 +22487,10 @@ export interface PowerpackWidgetRunWorkflowDefinition {
      */
     customLinks?: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetRunWorkflowDefinitionCustomLink>[]>;
     /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
+    /**
      * Array of workflow inputs to map to dashboard template variables.
      */
     inputs?: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetRunWorkflowDefinitionInput>[]>;
@@ -21696,6 +22555,10 @@ export interface PowerpackWidgetScatterplotDefinition {
      * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      */
     customLinks?: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetScatterplotDefinitionCustomLink>[]>;
+    /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
     /**
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
@@ -23081,6 +23944,10 @@ export interface PowerpackWidgetSunburstDefinition {
      */
     customLinks?: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetSunburstDefinitionCustomLink>[]>;
     /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
+    /**
      * Whether or not to show the total value in the widget.
      */
     hideTotal?: pulumi.Input<boolean>;
@@ -24202,6 +25069,10 @@ export interface PowerpackWidgetTimeseriesDefinition {
      * The definition of the event to overlay on the graph. Multiple `event` blocks are allowed using the structure below.
      */
     events?: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetTimeseriesDefinitionEvent>[]>;
+    /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
     /**
      * A list of columns to display in the legend. Valid values are `value`, `avg`, `sum`, `min`, `max`.
      */
@@ -25418,6 +26289,10 @@ export interface PowerpackWidgetToplistDefinition {
      */
     customLinks?: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetToplistDefinitionCustomLink>[]>;
     /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
+    /**
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     liveSpan?: pulumi.Input<string>;
@@ -26555,6 +27430,10 @@ export interface PowerpackWidgetTraceServiceDefinition {
      * APM environment.
      */
     env: pulumi.Input<string>;
+    /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean>;
     /**
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
@@ -28129,7 +29008,11 @@ export interface SyntheticsTestApiStep {
     requestQuery?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     retry?: pulumi.Input<inputs.SyntheticsTestApiStepRetry>;
     /**
-     * The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `"http"`.
+     * Public ID of the test to be played as part of a `playSubTest` step type.
+     */
+    subtestPublicId?: pulumi.Input<string>;
+    /**
+     * The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`, `playSubTest`. Defaults to `"http"`.
      */
     subtype?: pulumi.Input<string>;
     /**
@@ -29595,6 +30478,38 @@ export interface TagPipelineRulesetRuleReferenceTableFieldPair {
      * The output key name.
      */
     outputKey?: pulumi.Input<string>;
+}
+
+export interface TeamNotificationRuleEmail {
+    /**
+     * Whether to send email notifications to team members when alerts are triggered.
+     */
+    enabled?: pulumi.Input<boolean>;
+}
+
+export interface TeamNotificationRuleMsTeams {
+    /**
+     * MS Teams connector name used to route notifications to the appropriate channel.
+     */
+    connectorName?: pulumi.Input<string>;
+}
+
+export interface TeamNotificationRulePagerduty {
+    /**
+     * PagerDuty service name to send incident notifications to. The service name can be found in your PagerDuty service settings.
+     */
+    serviceName?: pulumi.Input<string>;
+}
+
+export interface TeamNotificationRuleSlack {
+    /**
+     * Slack channel name for notifications (for example, #alerts or #team-notifications).
+     */
+    channel?: pulumi.Input<string>;
+    /**
+     * Slack workspace name where the channel is located.
+     */
+    workspace?: pulumi.Input<string>;
 }
 export namespace aws {
     export interface IntegrationAccountAuthConfig {

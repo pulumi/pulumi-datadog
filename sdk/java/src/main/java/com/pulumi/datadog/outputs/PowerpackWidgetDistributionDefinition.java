@@ -17,6 +17,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PowerpackWidgetDistributionDefinition {
     /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    private @Nullable Boolean hideIncompleteCostData;
+    /**
      * @return The size of the legend displayed in the widget.
      * 
      */
@@ -63,6 +68,13 @@ public final class PowerpackWidgetDistributionDefinition {
     private @Nullable PowerpackWidgetDistributionDefinitionYaxis yaxis;
 
     private PowerpackWidgetDistributionDefinition() {}
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Boolean> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
+    }
     /**
      * @return The size of the legend displayed in the widget.
      * 
@@ -136,6 +148,7 @@ public final class PowerpackWidgetDistributionDefinition {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String legendSize;
         private @Nullable String liveSpan;
         private @Nullable List<PowerpackWidgetDistributionDefinitionRequest> requests;
@@ -148,6 +161,7 @@ public final class PowerpackWidgetDistributionDefinition {
         public Builder() {}
         public Builder(PowerpackWidgetDistributionDefinition defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.legendSize = defaults.legendSize;
     	      this.liveSpan = defaults.liveSpan;
     	      this.requests = defaults.requests;
@@ -159,6 +173,12 @@ public final class PowerpackWidgetDistributionDefinition {
     	      this.yaxis = defaults.yaxis;
         }
 
+        @CustomType.Setter
+        public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
+
+            this.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
+        }
         @CustomType.Setter
         public Builder legendSize(@Nullable String legendSize) {
 
@@ -218,6 +238,7 @@ public final class PowerpackWidgetDistributionDefinition {
         }
         public PowerpackWidgetDistributionDefinition build() {
             final var _resultValue = new PowerpackWidgetDistributionDefinition();
+            _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.legendSize = legendSize;
             _resultValue.liveSpan = liveSpan;
             _resultValue.requests = requests;

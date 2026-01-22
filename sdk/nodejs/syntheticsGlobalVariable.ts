@@ -9,24 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog synthetics global variable resource. This can be used to create and manage Datadog synthetics global variables.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * // Create new synthetics_global_variable resource
- * const testVariable = new datadog.SyntheticsGlobalVariable("test_variable", {
- *     name: "EXAMPLE_VARIABLE",
- *     description: "Description of the variable",
- *     tags: [
- *         "foo:bar",
- *         "env:test",
- *     ],
- *     value: "variable-value",
- * });
- * ```
- *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:
@@ -108,9 +90,18 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<string[]>;
     /**
-     * The value of the global variable. Required unless `isFido` is set to `true`.
+     * The value of the global variable. Required unless `isFido` is set to `true` or `valueWo` is used
      */
     declare public readonly value: pulumi.Output<string | undefined>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only value of the global variable. Must be used with `valueWoVersion`.
+     */
+    declare public readonly valueWo: pulumi.Output<string | undefined>;
+    /**
+     * Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., '1', 'v2.1', '2024-Q1'). String length must be at least 1.
+     */
+    declare public readonly valueWoVersion: pulumi.Output<string | undefined>;
 
     /**
      * Create a SyntheticsGlobalVariable resource with the given unique name, arguments, and options.
@@ -136,6 +127,8 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
             resourceInputs["secure"] = state?.secure;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["value"] = state?.value;
+            resourceInputs["valueWo"] = state?.valueWo;
+            resourceInputs["valueWoVersion"] = state?.valueWoVersion;
         } else {
             const args = argsOrState as SyntheticsGlobalVariableArgs | undefined;
             if (args?.name === undefined && !opts.urn) {
@@ -152,9 +145,11 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
             resourceInputs["secure"] = args?.secure;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["value"] = args?.value ? pulumi.secret(args.value) : undefined;
+            resourceInputs["valueWo"] = args?.valueWo ? pulumi.secret(args.valueWo) : undefined;
+            resourceInputs["valueWoVersion"] = args?.valueWoVersion;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["value"] };
+        const secretOpts = { additionalSecretOutputs: ["value", "valueWo"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(SyntheticsGlobalVariable.__pulumiType, name, resourceInputs, opts);
     }
@@ -207,9 +202,18 @@ export interface SyntheticsGlobalVariableState {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The value of the global variable. Required unless `isFido` is set to `true`.
+     * The value of the global variable. Required unless `isFido` is set to `true` or `valueWo` is used
      */
     value?: pulumi.Input<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only value of the global variable. Must be used with `valueWoVersion`.
+     */
+    valueWo?: pulumi.Input<string>;
+    /**
+     * Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., '1', 'v2.1', '2024-Q1'). String length must be at least 1.
+     */
+    valueWoVersion?: pulumi.Input<string>;
 }
 
 /**
@@ -259,7 +263,16 @@ export interface SyntheticsGlobalVariableArgs {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The value of the global variable. Required unless `isFido` is set to `true`.
+     * The value of the global variable. Required unless `isFido` is set to `true` or `valueWo` is used
      */
     value?: pulumi.Input<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only value of the global variable. Must be used with `valueWoVersion`.
+     */
+    valueWo?: pulumi.Input<string>;
+    /**
+     * Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., '1', 'v2.1', '2024-Q1'). String length must be at least 1.
+     */
+    valueWoVersion?: pulumi.Input<string>;
 }

@@ -141,6 +141,21 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * When enabled, Datadog collects metrics where location is explicitly stated as &#39;global&#39; or where location information cannot be deduced from GCP.
+     * 
+     */
+    @Import(name="isGlobalLocationEnabled")
+    private @Nullable Output<Boolean> isGlobalLocationEnabled;
+
+    /**
+     * @return When enabled, Datadog collects metrics where location is explicitly stated as &#39;global&#39; or where location information cannot be deduced from GCP.
+     * 
+     */
+    public Optional<Output<Boolean>> isGlobalLocationEnabled() {
+        return Optional.ofNullable(this.isGlobalLocationEnabled);
+    }
+
+    /**
      * When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
      * 
      */
@@ -216,6 +231,21 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
+     * 
+     */
+    @Import(name="regionFilterConfigs")
+    private @Nullable Output<List<String>> regionFilterConfigs;
+
+    /**
+     * @return Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
+     * 
+     */
+    public Optional<Output<List<String>>> regionFilterConfigs() {
+        return Optional.ofNullable(this.regionFilterConfigs);
+    }
+
+    /**
      * When enabled, Datadog scans for all resources in your GCP environment.
      * 
      */
@@ -240,11 +270,13 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
         this.delegateAccountEmail = $.delegateAccountEmail;
         this.hostFilters = $.hostFilters;
         this.isCspmEnabled = $.isCspmEnabled;
+        this.isGlobalLocationEnabled = $.isGlobalLocationEnabled;
         this.isPerProjectQuotaEnabled = $.isPerProjectQuotaEnabled;
         this.isResourceChangeCollectionEnabled = $.isResourceChangeCollectionEnabled;
         this.isSecurityCommandCenterEnabled = $.isSecurityCommandCenterEnabled;
         this.metricNamespaceConfigs = $.metricNamespaceConfigs;
         this.monitoredResourceConfigs = $.monitoredResourceConfigs;
+        this.regionFilterConfigs = $.regionFilterConfigs;
         this.resourceCollectionEnabled = $.resourceCollectionEnabled;
     }
 
@@ -468,6 +500,27 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
+         * @param isGlobalLocationEnabled When enabled, Datadog collects metrics where location is explicitly stated as &#39;global&#39; or where location information cannot be deduced from GCP.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isGlobalLocationEnabled(@Nullable Output<Boolean> isGlobalLocationEnabled) {
+            $.isGlobalLocationEnabled = isGlobalLocationEnabled;
+            return this;
+        }
+
+        /**
+         * @param isGlobalLocationEnabled When enabled, Datadog collects metrics where location is explicitly stated as &#39;global&#39; or where location information cannot be deduced from GCP.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isGlobalLocationEnabled(Boolean isGlobalLocationEnabled) {
+            return isGlobalLocationEnabled(Output.of(isGlobalLocationEnabled));
+        }
+
+        /**
          * @param isPerProjectQuotaEnabled When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
          * 
          * @return builder
@@ -590,6 +643,37 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
          */
         public Builder monitoredResourceConfigs(IntegrationStsMonitoredResourceConfigArgs... monitoredResourceConfigs) {
             return monitoredResourceConfigs(List.of(monitoredResourceConfigs));
+        }
+
+        /**
+         * @param regionFilterConfigs Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regionFilterConfigs(@Nullable Output<List<String>> regionFilterConfigs) {
+            $.regionFilterConfigs = regionFilterConfigs;
+            return this;
+        }
+
+        /**
+         * @param regionFilterConfigs Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regionFilterConfigs(List<String> regionFilterConfigs) {
+            return regionFilterConfigs(Output.of(regionFilterConfigs));
+        }
+
+        /**
+         * @param regionFilterConfigs Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regionFilterConfigs(String... regionFilterConfigs) {
+            return regionFilterConfigs(List.of(regionFilterConfigs));
         }
 
         /**

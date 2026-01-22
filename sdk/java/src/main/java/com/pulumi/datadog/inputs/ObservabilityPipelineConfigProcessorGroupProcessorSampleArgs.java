@@ -5,8 +5,10 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
-import java.lang.Integer;
+import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,40 +19,40 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSampleArgs 
     public static final ObservabilityPipelineConfigProcessorGroupProcessorSampleArgs Empty = new ObservabilityPipelineConfigProcessorGroupProcessorSampleArgs();
 
     /**
+     * Optional list of fields to group events by. Each group is sampled independently.
+     * 
+     */
+    @Import(name="groupBies")
+    private @Nullable Output<List<String>> groupBies;
+
+    /**
+     * @return Optional list of fields to group events by. Each group is sampled independently.
+     * 
+     */
+    public Optional<Output<List<String>>> groupBies() {
+        return Optional.ofNullable(this.groupBies);
+    }
+
+    /**
      * The percentage of logs to sample.
      * 
      */
-    @Import(name="percentage")
-    private @Nullable Output<Double> percentage;
+    @Import(name="percentage", required=true)
+    private Output<Double> percentage;
 
     /**
      * @return The percentage of logs to sample.
      * 
      */
-    public Optional<Output<Double>> percentage() {
-        return Optional.ofNullable(this.percentage);
-    }
-
-    /**
-     * Number of events to sample (1 in N).
-     * 
-     */
-    @Import(name="rate")
-    private @Nullable Output<Integer> rate;
-
-    /**
-     * @return Number of events to sample (1 in N).
-     * 
-     */
-    public Optional<Output<Integer>> rate() {
-        return Optional.ofNullable(this.rate);
+    public Output<Double> percentage() {
+        return this.percentage;
     }
 
     private ObservabilityPipelineConfigProcessorGroupProcessorSampleArgs() {}
 
     private ObservabilityPipelineConfigProcessorGroupProcessorSampleArgs(ObservabilityPipelineConfigProcessorGroupProcessorSampleArgs $) {
+        this.groupBies = $.groupBies;
         this.percentage = $.percentage;
-        this.rate = $.rate;
     }
 
     public static Builder builder() {
@@ -72,12 +74,43 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSampleArgs 
         }
 
         /**
+         * @param groupBies Optional list of fields to group events by. Each group is sampled independently.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupBies(@Nullable Output<List<String>> groupBies) {
+            $.groupBies = groupBies;
+            return this;
+        }
+
+        /**
+         * @param groupBies Optional list of fields to group events by. Each group is sampled independently.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupBies(List<String> groupBies) {
+            return groupBies(Output.of(groupBies));
+        }
+
+        /**
+         * @param groupBies Optional list of fields to group events by. Each group is sampled independently.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupBies(String... groupBies) {
+            return groupBies(List.of(groupBies));
+        }
+
+        /**
          * @param percentage The percentage of logs to sample.
          * 
          * @return builder
          * 
          */
-        public Builder percentage(@Nullable Output<Double> percentage) {
+        public Builder percentage(Output<Double> percentage) {
             $.percentage = percentage;
             return this;
         }
@@ -92,28 +125,10 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSampleArgs 
             return percentage(Output.of(percentage));
         }
 
-        /**
-         * @param rate Number of events to sample (1 in N).
-         * 
-         * @return builder
-         * 
-         */
-        public Builder rate(@Nullable Output<Integer> rate) {
-            $.rate = rate;
-            return this;
-        }
-
-        /**
-         * @param rate Number of events to sample (1 in N).
-         * 
-         * @return builder
-         * 
-         */
-        public Builder rate(Integer rate) {
-            return rate(Output.of(rate));
-        }
-
         public ObservabilityPipelineConfigProcessorGroupProcessorSampleArgs build() {
+            if ($.percentage == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorSampleArgs", "percentage");
+            }
             return $;
         }
     }

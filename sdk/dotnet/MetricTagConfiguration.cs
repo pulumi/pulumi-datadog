@@ -46,19 +46,6 @@ namespace Pulumi.Datadog
     ///             "datacenter",
     ///         },
     ///         ExcludeTagsMode = false,
-    ///         Aggregations = new[]
-    ///         {
-    ///             new Datadog.Inputs.MetricTagConfigurationAggregationArgs
-    ///             {
-    ///                 Time = "avg",
-    ///                 Space = "min",
-    ///             },
-    ///             new Datadog.Inputs.MetricTagConfigurationAggregationArgs
-    ///             {
-    ///                 Time = "avg",
-    ///                 Space = "max",
-    ///             },
-    ///         },
     ///     });
     /// 
     /// });
@@ -76,7 +63,7 @@ namespace Pulumi.Datadog
     public partial class MetricTagConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `MetricType` of count, rate, or gauge.
+        /// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `MetricType` of count, rate, or gauge. **Deprecated.** The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
         /// </summary>
         [Output("aggregations")]
         public Output<ImmutableArray<Outputs.MetricTagConfigurationAggregation>> Aggregations { get; private set; } = null!;
@@ -161,8 +148,9 @@ namespace Pulumi.Datadog
         private InputList<Inputs.MetricTagConfigurationAggregationArgs>? _aggregations;
 
         /// <summary>
-        /// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `MetricType` of count, rate, or gauge.
+        /// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `MetricType` of count, rate, or gauge. **Deprecated.** The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
         /// </summary>
+        [Obsolete(@"The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.")]
         public InputList<Inputs.MetricTagConfigurationAggregationArgs> Aggregations
         {
             get => _aggregations ?? (_aggregations = new InputList<Inputs.MetricTagConfigurationAggregationArgs>());
@@ -217,8 +205,9 @@ namespace Pulumi.Datadog
         private InputList<Inputs.MetricTagConfigurationAggregationGetArgs>? _aggregations;
 
         /// <summary>
-        /// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `MetricType` of count, rate, or gauge.
+        /// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `MetricType` of count, rate, or gauge. **Deprecated.** The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
         /// </summary>
+        [Obsolete(@"The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.")]
         public InputList<Inputs.MetricTagConfigurationAggregationGetArgs> Aggregations
         {
             get => _aggregations ?? (_aggregations = new InputList<Inputs.MetricTagConfigurationAggregationGetArgs>());

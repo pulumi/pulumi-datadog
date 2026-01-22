@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.PowerpackWidgetRunWorkflowDefinitionCustomLink;
 import com.pulumi.datadog.outputs.PowerpackWidgetRunWorkflowDefinitionInput;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -20,6 +21,11 @@ public final class PowerpackWidgetRunWorkflowDefinition {
      * 
      */
     private @Nullable List<PowerpackWidgetRunWorkflowDefinitionCustomLink> customLinks;
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    private @Nullable Boolean hideIncompleteCostData;
     /**
      * @return Array of workflow inputs to map to dashboard template variables.
      * 
@@ -58,6 +64,13 @@ public final class PowerpackWidgetRunWorkflowDefinition {
      */
     public List<PowerpackWidgetRunWorkflowDefinitionCustomLink> customLinks() {
         return this.customLinks == null ? List.of() : this.customLinks;
+    }
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Boolean> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
     }
     /**
      * @return Array of workflow inputs to map to dashboard template variables.
@@ -112,6 +125,7 @@ public final class PowerpackWidgetRunWorkflowDefinition {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<PowerpackWidgetRunWorkflowDefinitionCustomLink> customLinks;
+        private @Nullable Boolean hideIncompleteCostData;
         private @Nullable List<PowerpackWidgetRunWorkflowDefinitionInput> inputs;
         private @Nullable String liveSpan;
         private @Nullable String title;
@@ -122,6 +136,7 @@ public final class PowerpackWidgetRunWorkflowDefinition {
         public Builder(PowerpackWidgetRunWorkflowDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customLinks = defaults.customLinks;
+    	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.inputs = defaults.inputs;
     	      this.liveSpan = defaults.liveSpan;
     	      this.title = defaults.title;
@@ -138,6 +153,12 @@ public final class PowerpackWidgetRunWorkflowDefinition {
         }
         public Builder customLinks(PowerpackWidgetRunWorkflowDefinitionCustomLink... customLinks) {
             return customLinks(List.of(customLinks));
+        }
+        @CustomType.Setter
+        public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
+
+            this.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
         }
         @CustomType.Setter
         public Builder inputs(@Nullable List<PowerpackWidgetRunWorkflowDefinitionInput> inputs) {
@@ -183,6 +204,7 @@ public final class PowerpackWidgetRunWorkflowDefinition {
         public PowerpackWidgetRunWorkflowDefinition build() {
             final var _resultValue = new PowerpackWidgetRunWorkflowDefinition();
             _resultValue.customLinks = customLinks;
+            _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.inputs = inputs;
             _resultValue.liveSpan = liveSpan;
             _resultValue.title = title;

@@ -25,6 +25,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableGeoipGetArgs>? Geoip { get; set; }
 
         /// <summary>
+        /// Uses a Datadog reference table to enrich logs.
+        /// </summary>
+        [Input("referenceTable")]
+        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTableGetArgs>? ReferenceTable { get; set; }
+
+        /// <summary>
         /// Path where enrichment results should be stored in the log.
         /// </summary>
         [Input("target", required: true)]

@@ -60,6 +60,12 @@ namespace Pulumi.Datadog.Inputs
             set => _azureStorages = value;
         }
 
+        /// <summary>
+        /// The `CloudPrem` destination sends logs to Datadog CloudPrem.
+        /// </summary>
+        [Input("cloudPrem")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationCloudPremGetArgs>? CloudPrem { get; set; }
+
         [Input("crowdstrikeNextGenSiems")]
         private InputList<Inputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemGetArgs>? _crowdstrikeNextGenSiems;
 
@@ -82,6 +88,18 @@ namespace Pulumi.Datadog.Inputs
         {
             get => _datadogLogs ?? (_datadogLogs = new InputList<Inputs.ObservabilityPipelineConfigDestinationDatadogLogGetArgs>());
             set => _datadogLogs = value;
+        }
+
+        [Input("datadogMetrics")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationDatadogMetricGetArgs>? _datadogMetrics;
+
+        /// <summary>
+        /// The `datadog.getMetrics` destination forwards metrics to Datadog.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationDatadogMetricGetArgs> DatadogMetrics
+        {
+            get => _datadogMetrics ?? (_datadogMetrics = new InputList<Inputs.ObservabilityPipelineConfigDestinationDatadogMetricGetArgs>());
+            set => _datadogMetrics = value;
         }
 
         [Input("elasticsearches")]
@@ -132,6 +150,18 @@ namespace Pulumi.Datadog.Inputs
             set => _googlePubsubs = value;
         }
 
+        [Input("httpClients")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationHttpClientGetArgs>? _httpClients;
+
+        /// <summary>
+        /// The `HttpClient` destination sends data to an HTTP endpoint.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationHttpClientGetArgs> HttpClients
+        {
+            get => _httpClients ?? (_httpClients = new InputList<Inputs.ObservabilityPipelineConfigDestinationHttpClientGetArgs>());
+            set => _httpClients = value;
+        }
+
         /// <summary>
         /// The unique identifier for this destination.
         /// </summary>
@@ -149,6 +179,12 @@ namespace Pulumi.Datadog.Inputs
             get => _inputs ?? (_inputs = new InputList<string>());
             set => _inputs = value;
         }
+
+        /// <summary>
+        /// The `Kafka` destination sends logs to Apache Kafka topics.
+        /// </summary>
+        [Input("kafka")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationKafkaGetArgs>? Kafka { get; set; }
 
         [Input("microsoftSentinels")]
         private InputList<Inputs.ObservabilityPipelineConfigDestinationMicrosoftSentinelGetArgs>? _microsoftSentinels;

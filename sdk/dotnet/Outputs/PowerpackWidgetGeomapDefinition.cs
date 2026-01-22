@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetGeomapDefinitionCustomLink> CustomLinks;
         /// <summary>
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        public readonly bool? HideIncompleteCostData;
+        /// <summary>
         /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `WeekToDate`, `MonthToDate`, `1y`, `Alert`.
         /// </summary>
         public readonly string? LiveSpan;
@@ -50,6 +54,8 @@ namespace Pulumi.Datadog.Outputs
         private PowerpackWidgetGeomapDefinition(
             ImmutableArray<Outputs.PowerpackWidgetGeomapDefinitionCustomLink> customLinks,
 
+            bool? hideIncompleteCostData,
+
             string? liveSpan,
 
             ImmutableArray<Outputs.PowerpackWidgetGeomapDefinitionRequest> requests,
@@ -65,6 +71,7 @@ namespace Pulumi.Datadog.Outputs
             Outputs.PowerpackWidgetGeomapDefinitionView view)
         {
             CustomLinks = customLinks;
+            HideIncompleteCostData = hideIncompleteCostData;
             LiveSpan = liveSpan;
             Requests = requests;
             Style = style;

@@ -12,32 +12,6 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog synthetics global variable resource. This can be used to create and manage Datadog synthetics global variables.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create new synthetics_global_variable resource
-    ///     var testVariable = new Datadog.SyntheticsGlobalVariable("test_variable", new()
-    ///     {
-    ///         Name = "EXAMPLE_VARIABLE",
-    ///         Description = "Description of the variable",
-    ///         Tags = new[]
-    ///         {
-    ///             "foo:bar",
-    ///             "env:test",
-    ///         },
-    ///         Value = "variable-value",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:
@@ -112,10 +86,23 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The value of the global variable. Required unless `IsFido` is set to `True`.
+        /// The value of the global variable. Required unless `IsFido` is set to `True` or `ValueWo` is used
         /// </summary>
         [Output("value")]
         public Output<string?> Value { get; private set; } = null!;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only value of the global variable. Must be used with `ValueWoVersion`.
+        /// </summary>
+        [Output("valueWo")]
+        public Output<string?> ValueWo { get; private set; } = null!;
+
+        /// <summary>
+        /// Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., '1', 'v2.1', '2024-Q1'). String length must be at least 1.
+        /// </summary>
+        [Output("valueWoVersion")]
+        public Output<string?> ValueWoVersion { get; private set; } = null!;
 
 
         /// <summary>
@@ -143,6 +130,7 @@ namespace Pulumi.Datadog
                 AdditionalSecretOutputs =
                 {
                     "value",
+                    "valueWo",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -244,7 +232,7 @@ namespace Pulumi.Datadog
         private Input<string>? _value;
 
         /// <summary>
-        /// The value of the global variable. Required unless `IsFido` is set to `True`.
+        /// The value of the global variable. Required unless `IsFido` is set to `True` or `ValueWo` is used
         /// </summary>
         public Input<string>? Value
         {
@@ -255,6 +243,29 @@ namespace Pulumi.Datadog
                 _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        [Input("valueWo")]
+        private Input<string>? _valueWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only value of the global variable. Must be used with `ValueWoVersion`.
+        /// </summary>
+        public Input<string>? ValueWo
+        {
+            get => _valueWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _valueWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., '1', 'v2.1', '2024-Q1'). String length must be at least 1.
+        /// </summary>
+        [Input("valueWoVersion")]
+        public Input<string>? ValueWoVersion { get; set; }
 
         public SyntheticsGlobalVariableArgs()
         {
@@ -341,7 +352,7 @@ namespace Pulumi.Datadog
         private Input<string>? _value;
 
         /// <summary>
-        /// The value of the global variable. Required unless `IsFido` is set to `True`.
+        /// The value of the global variable. Required unless `IsFido` is set to `True` or `ValueWo` is used
         /// </summary>
         public Input<string>? Value
         {
@@ -352,6 +363,29 @@ namespace Pulumi.Datadog
                 _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        [Input("valueWo")]
+        private Input<string>? _valueWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only value of the global variable. Must be used with `ValueWoVersion`.
+        /// </summary>
+        public Input<string>? ValueWo
+        {
+            get => _valueWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _valueWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., '1', 'v2.1', '2024-Q1'). String length must be at least 1.
+        /// </summary>
+        [Input("valueWoVersion")]
+        public Input<string>? ValueWoVersion { get; set; }
 
         public SyntheticsGlobalVariableState()
         {

@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionEvent> Events;
         /// <summary>
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        public readonly bool? HideIncompleteCostData;
+        /// <summary>
         /// The size of the legend displayed in the widget.
         /// </summary>
         public readonly string? LegendSize;
@@ -60,6 +64,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionEvent> events,
 
+            bool? hideIncompleteCostData,
+
             string? legendSize,
 
             string? liveSpan,
@@ -78,6 +84,7 @@ namespace Pulumi.Datadog.Outputs
         {
             CustomLinks = customLinks;
             Events = events;
+            HideIncompleteCostData = hideIncompleteCostData;
             LegendSize = legendSize;
             LiveSpan = liveSpan;
             Requests = requests;

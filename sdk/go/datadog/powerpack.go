@@ -80,7 +80,7 @@ type Powerpack struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The layout of the powerpack on a free-form dashboard.
 	Layout PowerpackLayoutOutput `pulumi:"layout"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+	// The timeframe to use when displaying the powerpack. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
 	LiveSpan pulumi.StringPtrOutput `pulumi:"liveSpan"`
 	// The name for the powerpack.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
@@ -128,7 +128,7 @@ type powerpackState struct {
 	Description *string `pulumi:"description"`
 	// The layout of the powerpack on a free-form dashboard.
 	Layout *PowerpackLayout `pulumi:"layout"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+	// The timeframe to use when displaying the powerpack. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
 	LiveSpan *string `pulumi:"liveSpan"`
 	// The name for the powerpack.
 	Name *string `pulumi:"name"`
@@ -147,7 +147,7 @@ type PowerpackState struct {
 	Description pulumi.StringPtrInput
 	// The layout of the powerpack on a free-form dashboard.
 	Layout PowerpackLayoutPtrInput
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+	// The timeframe to use when displaying the powerpack. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
 	LiveSpan pulumi.StringPtrInput
 	// The name for the powerpack.
 	Name pulumi.StringPtrInput
@@ -170,7 +170,7 @@ type powerpackArgs struct {
 	Description *string `pulumi:"description"`
 	// The layout of the powerpack on a free-form dashboard.
 	Layout *PowerpackLayout `pulumi:"layout"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+	// The timeframe to use when displaying the powerpack. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
 	LiveSpan *string `pulumi:"liveSpan"`
 	// The name for the powerpack.
 	Name *string `pulumi:"name"`
@@ -190,7 +190,7 @@ type PowerpackArgs struct {
 	Description pulumi.StringPtrInput
 	// The layout of the powerpack on a free-form dashboard.
 	Layout PowerpackLayoutPtrInput
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+	// The timeframe to use when displaying the powerpack. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
 	LiveSpan pulumi.StringPtrInput
 	// The name for the powerpack.
 	Name pulumi.StringPtrInput
@@ -301,7 +301,7 @@ func (o PowerpackOutput) Layout() PowerpackLayoutOutput {
 	return o.ApplyT(func(v *Powerpack) PowerpackLayoutOutput { return v.Layout }).(PowerpackLayoutOutput)
 }
 
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+// The timeframe to use when displaying the powerpack. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
 func (o PowerpackOutput) LiveSpan() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Powerpack) pulumi.StringPtrOutput { return v.LiveSpan }).(pulumi.StringPtrOutput)
 }

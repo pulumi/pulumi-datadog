@@ -50,16 +50,6 @@ import (
 //					pulumi.String("datacenter"),
 //				},
 //				ExcludeTagsMode: pulumi.Bool(false),
-//				Aggregations: datadog.MetricTagConfigurationAggregationArray{
-//					&datadog.MetricTagConfigurationAggregationArgs{
-//						Time:  pulumi.String("avg"),
-//						Space: pulumi.String("min"),
-//					},
-//					&datadog.MetricTagConfigurationAggregationArgs{
-//						Time:  pulumi.String("avg"),
-//						Space: pulumi.String("max"),
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -80,7 +70,9 @@ import (
 type MetricTagConfiguration struct {
 	pulumi.CustomResourceState
 
-	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
+	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge. **Deprecated.** The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
+	//
+	// Deprecated: The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
 	Aggregations MetricTagConfigurationAggregationArrayOutput `pulumi:"aggregations"`
 	// Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
 	ExcludeTagsMode pulumi.BoolPtrOutput `pulumi:"excludeTagsMode"`
@@ -133,7 +125,9 @@ func GetMetricTagConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MetricTagConfiguration resources.
 type metricTagConfigurationState struct {
-	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
+	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge. **Deprecated.** The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
+	//
+	// Deprecated: The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
 	Aggregations []MetricTagConfigurationAggregation `pulumi:"aggregations"`
 	// Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
 	ExcludeTagsMode *bool `pulumi:"excludeTagsMode"`
@@ -148,7 +142,9 @@ type metricTagConfigurationState struct {
 }
 
 type MetricTagConfigurationState struct {
-	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
+	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge. **Deprecated.** The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
+	//
+	// Deprecated: The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
 	Aggregations MetricTagConfigurationAggregationArrayInput
 	// Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
 	ExcludeTagsMode pulumi.BoolPtrInput
@@ -167,7 +163,9 @@ func (MetricTagConfigurationState) ElementType() reflect.Type {
 }
 
 type metricTagConfigurationArgs struct {
-	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
+	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge. **Deprecated.** The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
+	//
+	// Deprecated: The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
 	Aggregations []MetricTagConfigurationAggregation `pulumi:"aggregations"`
 	// Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
 	ExcludeTagsMode *bool `pulumi:"excludeTagsMode"`
@@ -183,7 +181,9 @@ type metricTagConfigurationArgs struct {
 
 // The set of arguments for constructing a MetricTagConfiguration resource.
 type MetricTagConfigurationArgs struct {
-	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
+	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge. **Deprecated.** The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
+	//
+	// Deprecated: The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
 	Aggregations MetricTagConfigurationAggregationArrayInput
 	// Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
 	ExcludeTagsMode pulumi.BoolPtrInput
@@ -284,7 +284,9 @@ func (o MetricTagConfigurationOutput) ToMetricTagConfigurationOutputWithContext(
 	return o
 }
 
-// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
+// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge. **Deprecated.** The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
+//
+// Deprecated: The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
 func (o MetricTagConfigurationOutput) Aggregations() MetricTagConfigurationAggregationArrayOutput {
 	return o.ApplyT(func(v *MetricTagConfiguration) MetricTagConfigurationAggregationArrayOutput { return v.Aggregations }).(MetricTagConfigurationAggregationArrayOutput)
 }

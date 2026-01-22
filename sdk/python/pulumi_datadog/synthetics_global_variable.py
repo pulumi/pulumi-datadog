@@ -31,7 +31,9 @@ class SyntheticsGlobalVariableArgs:
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  secure: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_wo: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_wo_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SyntheticsGlobalVariable resource.
         :param pulumi.Input[_builtins.str] name: Synthetics global variable name. Must be all uppercase with underscores.
@@ -44,7 +46,10 @@ class SyntheticsGlobalVariableArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
         :param pulumi.Input[_builtins.bool] secure: If set to true, the value of the global variable is hidden. This setting is automatically set to `true` if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your synthetics global variable.
-        :param pulumi.Input[_builtins.str] value: The value of the global variable. Required unless `is_fido` is set to `true`.
+        :param pulumi.Input[_builtins.str] value: The value of the global variable. Required unless `is_fido` is set to `true` or `value_wo` is used
+        :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only value of the global variable. Must be used with `value_wo_version`.
+        :param pulumi.Input[_builtins.str] value_wo_version: Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., '1', 'v2.1', '2024-Q1'). String length must be at least 1.
         """
         pulumi.set(__self__, "name", name)
         if description is not None:
@@ -70,6 +75,10 @@ class SyntheticsGlobalVariableArgs:
             pulumi.set(__self__, "tags", tags)
         if value is not None:
             pulumi.set(__self__, "value", value)
+        if value_wo is not None:
+            pulumi.set(__self__, "value_wo", value_wo)
+        if value_wo_version is not None:
+            pulumi.set(__self__, "value_wo_version", value_wo_version)
 
     @_builtins.property
     @pulumi.getter
@@ -196,13 +205,38 @@ class SyntheticsGlobalVariableArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The value of the global variable. Required unless `is_fido` is set to `true`.
+        The value of the global variable. Required unless `is_fido` is set to `true` or `value_wo` is used
         """
         return pulumi.get(self, "value")
 
     @value.setter
     def value(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueWo")
+    def value_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only value of the global variable. Must be used with `value_wo_version`.
+        """
+        return pulumi.get(self, "value_wo")
+
+    @value_wo.setter
+    def value_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value_wo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueWoVersion")
+    def value_wo_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., '1', 'v2.1', '2024-Q1'). String length must be at least 1.
+        """
+        return pulumi.get(self, "value_wo_version")
+
+    @value_wo_version.setter
+    def value_wo_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value_wo_version", value)
 
 
 @pulumi.input_type
@@ -218,7 +252,9 @@ class _SyntheticsGlobalVariableState:
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  secure: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_wo: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_wo_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SyntheticsGlobalVariable resources.
         :param pulumi.Input[_builtins.str] description: Description of the global variable. Defaults to `""`.
@@ -231,7 +267,10 @@ class _SyntheticsGlobalVariableState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
         :param pulumi.Input[_builtins.bool] secure: If set to true, the value of the global variable is hidden. This setting is automatically set to `true` if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your synthetics global variable.
-        :param pulumi.Input[_builtins.str] value: The value of the global variable. Required unless `is_fido` is set to `true`.
+        :param pulumi.Input[_builtins.str] value: The value of the global variable. Required unless `is_fido` is set to `true` or `value_wo` is used
+        :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only value of the global variable. Must be used with `value_wo_version`.
+        :param pulumi.Input[_builtins.str] value_wo_version: Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., '1', 'v2.1', '2024-Q1'). String length must be at least 1.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -258,6 +297,10 @@ class _SyntheticsGlobalVariableState:
             pulumi.set(__self__, "tags", tags)
         if value is not None:
             pulumi.set(__self__, "value", value)
+        if value_wo is not None:
+            pulumi.set(__self__, "value_wo", value_wo)
+        if value_wo_version is not None:
+            pulumi.set(__self__, "value_wo_version", value_wo_version)
 
     @_builtins.property
     @pulumi.getter
@@ -384,13 +427,38 @@ class _SyntheticsGlobalVariableState:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The value of the global variable. Required unless `is_fido` is set to `true`.
+        The value of the global variable. Required unless `is_fido` is set to `true` or `value_wo` is used
         """
         return pulumi.get(self, "value")
 
     @value.setter
     def value(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueWo")
+    def value_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only value of the global variable. Must be used with `value_wo_version`.
+        """
+        return pulumi.get(self, "value_wo")
+
+    @value_wo.setter
+    def value_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value_wo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueWoVersion")
+    def value_wo_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., '1', 'v2.1', '2024-Q1'). String length must be at least 1.
+        """
+        return pulumi.get(self, "value_wo_version")
+
+    @value_wo_version.setter
+    def value_wo_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value_wo_version", value)
 
 
 @pulumi.type_token("datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable")
@@ -410,26 +478,11 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
                  secure: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_wo: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_wo_version: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog synthetics global variable resource. This can be used to create and manage Datadog synthetics global variables.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create new synthetics_global_variable resource
-        test_variable = datadog.SyntheticsGlobalVariable("test_variable",
-            name="EXAMPLE_VARIABLE",
-            description="Description of the variable",
-            tags=[
-                "foo:bar",
-                "env:test",
-            ],
-            value="variable-value")
-        ```
 
         ## Import
 
@@ -453,7 +506,10 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
         :param pulumi.Input[_builtins.bool] secure: If set to true, the value of the global variable is hidden. This setting is automatically set to `true` if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your synthetics global variable.
-        :param pulumi.Input[_builtins.str] value: The value of the global variable. Required unless `is_fido` is set to `true`.
+        :param pulumi.Input[_builtins.str] value: The value of the global variable. Required unless `is_fido` is set to `true` or `value_wo` is used
+        :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only value of the global variable. Must be used with `value_wo_version`.
+        :param pulumi.Input[_builtins.str] value_wo_version: Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., '1', 'v2.1', '2024-Q1'). String length must be at least 1.
         """
         ...
     @overload
@@ -463,23 +519,6 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog synthetics global variable resource. This can be used to create and manage Datadog synthetics global variables.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create new synthetics_global_variable resource
-        test_variable = datadog.SyntheticsGlobalVariable("test_variable",
-            name="EXAMPLE_VARIABLE",
-            description="Description of the variable",
-            tags=[
-                "foo:bar",
-                "env:test",
-            ],
-            value="variable-value")
-        ```
 
         ## Import
 
@@ -517,6 +556,8 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
                  secure: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_wo: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_wo_version: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -539,7 +580,9 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             __props__.__dict__["secure"] = secure
             __props__.__dict__["tags"] = tags
             __props__.__dict__["value"] = None if value is None else pulumi.Output.secret(value)
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["value"])
+            __props__.__dict__["value_wo"] = None if value_wo is None else pulumi.Output.secret(value_wo)
+            __props__.__dict__["value_wo_version"] = value_wo_version
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["value", "valueWo"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SyntheticsGlobalVariable, __self__).__init__(
             'datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable',
@@ -561,7 +604,9 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             secure: Optional[pulumi.Input[_builtins.bool]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            value: Optional[pulumi.Input[_builtins.str]] = None) -> 'SyntheticsGlobalVariable':
+            value: Optional[pulumi.Input[_builtins.str]] = None,
+            value_wo: Optional[pulumi.Input[_builtins.str]] = None,
+            value_wo_version: Optional[pulumi.Input[_builtins.str]] = None) -> 'SyntheticsGlobalVariable':
         """
         Get an existing SyntheticsGlobalVariable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -579,7 +624,10 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
         :param pulumi.Input[_builtins.bool] secure: If set to true, the value of the global variable is hidden. This setting is automatically set to `true` if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your synthetics global variable.
-        :param pulumi.Input[_builtins.str] value: The value of the global variable. Required unless `is_fido` is set to `true`.
+        :param pulumi.Input[_builtins.str] value: The value of the global variable. Required unless `is_fido` is set to `true` or `value_wo` is used
+        :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only value of the global variable. Must be used with `value_wo_version`.
+        :param pulumi.Input[_builtins.str] value_wo_version: Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., '1', 'v2.1', '2024-Q1'). String length must be at least 1.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -596,6 +644,8 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         __props__.__dict__["secure"] = secure
         __props__.__dict__["tags"] = tags
         __props__.__dict__["value"] = value
+        __props__.__dict__["value_wo"] = value_wo
+        __props__.__dict__["value_wo_version"] = value_wo_version
         return SyntheticsGlobalVariable(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -683,7 +733,24 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
     @pulumi.getter
     def value(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The value of the global variable. Required unless `is_fido` is set to `true`.
+        The value of the global variable. Required unless `is_fido` is set to `true` or `value_wo` is used
         """
         return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueWo")
+    def value_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only value of the global variable. Must be used with `value_wo_version`.
+        """
+        return pulumi.get(self, "value_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="valueWoVersion")
+    def value_wo_version(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., '1', 'v2.1', '2024-Q1'). String length must be at least 1.
+        """
+        return pulumi.get(self, "value_wo_version")
 

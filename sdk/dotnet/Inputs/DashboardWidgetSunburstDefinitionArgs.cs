@@ -25,6 +25,12 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        [Input("hideIncompleteCostData")]
+        public Input<bool>? HideIncompleteCostData { get; set; }
+
+        /// <summary>
         /// Whether or not to show the total value in the widget.
         /// </summary>
         [Input("hideTotal")]

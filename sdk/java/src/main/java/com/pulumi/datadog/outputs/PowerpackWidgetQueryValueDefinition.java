@@ -33,6 +33,11 @@ public final class PowerpackWidgetQueryValueDefinition {
      */
     private @Nullable String customUnit;
     /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    private @Nullable Boolean hideIncompleteCostData;
+    /**
      * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      * 
      */
@@ -94,6 +99,13 @@ public final class PowerpackWidgetQueryValueDefinition {
      */
     public Optional<String> customUnit() {
         return Optional.ofNullable(this.customUnit);
+    }
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Boolean> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
     }
     /**
      * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
@@ -164,6 +176,7 @@ public final class PowerpackWidgetQueryValueDefinition {
         private @Nullable Boolean autoscale;
         private @Nullable List<PowerpackWidgetQueryValueDefinitionCustomLink> customLinks;
         private @Nullable String customUnit;
+        private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String liveSpan;
         private @Nullable Integer precision;
         private @Nullable List<PowerpackWidgetQueryValueDefinitionRequest> requests;
@@ -178,6 +191,7 @@ public final class PowerpackWidgetQueryValueDefinition {
     	      this.autoscale = defaults.autoscale;
     	      this.customLinks = defaults.customLinks;
     	      this.customUnit = defaults.customUnit;
+    	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.liveSpan = defaults.liveSpan;
     	      this.precision = defaults.precision;
     	      this.requests = defaults.requests;
@@ -207,6 +221,12 @@ public final class PowerpackWidgetQueryValueDefinition {
         public Builder customUnit(@Nullable String customUnit) {
 
             this.customUnit = customUnit;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
+
+            this.hideIncompleteCostData = hideIncompleteCostData;
             return this;
         }
         @CustomType.Setter
@@ -265,6 +285,7 @@ public final class PowerpackWidgetQueryValueDefinition {
             _resultValue.autoscale = autoscale;
             _resultValue.customLinks = customLinks;
             _resultValue.customUnit = customUnit;
+            _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.liveSpan = liveSpan;
             _resultValue.precision = precision;
             _resultValue.requests = requests;

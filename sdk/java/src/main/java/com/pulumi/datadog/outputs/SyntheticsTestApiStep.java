@@ -106,7 +106,12 @@ public final class SyntheticsTestApiStep {
     private @Nullable Map<String,String> requestQuery;
     private @Nullable SyntheticsTestApiStepRetry retry;
     /**
-     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `&#34;http&#34;`.
+     * @return Public ID of the test to be played as part of a `playSubTest` step type.
+     * 
+     */
+    private @Nullable String subtestPublicId;
+    /**
+     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`, `playSubTest`. Defaults to `&#34;http&#34;`.
      * 
      */
     private @Nullable String subtype;
@@ -233,7 +238,14 @@ public final class SyntheticsTestApiStep {
         return Optional.ofNullable(this.retry);
     }
     /**
-     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `&#34;http&#34;`.
+     * @return Public ID of the test to be played as part of a `playSubTest` step type.
+     * 
+     */
+    public Optional<String> subtestPublicId() {
+        return Optional.ofNullable(this.subtestPublicId);
+    }
+    /**
+     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`, `playSubTest`. Defaults to `&#34;http&#34;`.
      * 
      */
     public Optional<String> subtype() {
@@ -273,6 +285,7 @@ public final class SyntheticsTestApiStep {
         private @Nullable SyntheticsTestApiStepRequestProxy requestProxy;
         private @Nullable Map<String,String> requestQuery;
         private @Nullable SyntheticsTestApiStepRetry retry;
+        private @Nullable String subtestPublicId;
         private @Nullable String subtype;
         private @Nullable Integer value;
         public Builder() {}
@@ -295,6 +308,7 @@ public final class SyntheticsTestApiStep {
     	      this.requestProxy = defaults.requestProxy;
     	      this.requestQuery = defaults.requestQuery;
     	      this.retry = defaults.retry;
+    	      this.subtestPublicId = defaults.subtestPublicId;
     	      this.subtype = defaults.subtype;
     	      this.value = defaults.value;
         }
@@ -413,6 +427,12 @@ public final class SyntheticsTestApiStep {
             return this;
         }
         @CustomType.Setter
+        public Builder subtestPublicId(@Nullable String subtestPublicId) {
+
+            this.subtestPublicId = subtestPublicId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder subtype(@Nullable String subtype) {
 
             this.subtype = subtype;
@@ -443,6 +463,7 @@ public final class SyntheticsTestApiStep {
             _resultValue.requestProxy = requestProxy;
             _resultValue.requestQuery = requestQuery;
             _resultValue.retry = retry;
+            _resultValue.subtestPublicId = subtestPublicId;
             _resultValue.subtype = subtype;
             _resultValue.value = value;
             return _resultValue;

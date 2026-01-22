@@ -24,6 +24,12 @@ namespace Pulumi.Datadog.Inputs
             set => _customLinks = value;
         }
 
+        /// <summary>
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        [Input("hideIncompleteCostData")]
+        public Input<bool>? HideIncompleteCostData { get; set; }
+
         [Input("inputs")]
         private InputList<Inputs.DashboardWidgetRunWorkflowDefinitionInputGetArgs>? _inputs;
 

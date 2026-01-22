@@ -22,6 +22,7 @@ from .aws_cur_config import *
 from .azure_uc_config import *
 from .child_organization import *
 from .cloud_configuration_rule import *
+from .cloud_inventory_sync_config import *
 from .cloud_workload_security_agent_rule import *
 from .compliance_custom_framework import *
 from .compliance_resource_evaluation_filter import *
@@ -71,6 +72,7 @@ from .get_metrics import *
 from .get_monitor import *
 from .get_monitor_config_policies import *
 from .get_monitors import *
+from .get_organization_settings import *
 from .get_permissions import *
 from .get_powerpack import *
 from .get_reference_table import *
@@ -96,6 +98,8 @@ from .get_tag_pipeline_ruleset import *
 from .get_team import *
 from .get_team_hierarchy_links import *
 from .get_team_memberships import *
+from .get_team_notification_rule import *
+from .get_team_notification_rules import *
 from .get_teams import *
 from .get_user import *
 from .get_users import *
@@ -124,6 +128,8 @@ from .observability_pipeline import *
 from .on_call_escalation_policy import *
 from .on_call_schedule import *
 from .on_call_team_routing_rules import *
+from .on_call_user_notification_channel import *
+from .on_call_user_notification_rule import *
 from .openapi_api import *
 from .org_connection import *
 from .organization_settings import *
@@ -162,6 +168,7 @@ from .team import *
 from .team_hierarchy_links import *
 from .team_link import *
 from .team_membership import *
+from .team_notification_rule import *
 from .team_permission_setting import *
 from .user import *
 from .user_role import *
@@ -457,6 +464,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/cloudConfigurationRule:CloudConfigurationRule": "CloudConfigurationRule"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/cloudInventorySyncConfig",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/cloudInventorySyncConfig:CloudInventorySyncConfig": "CloudInventorySyncConfig"
   }
  },
  {
@@ -789,6 +804,22 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/onCallUserNotificationChannel",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/onCallUserNotificationChannel:OnCallUserNotificationChannel": "OnCallUserNotificationChannel"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/onCallUserNotificationRule",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/onCallUserNotificationRule:OnCallUserNotificationRule": "OnCallUserNotificationRule"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/openapiApi",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -1081,6 +1112,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/teamMembership:TeamMembership": "TeamMembership"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/teamNotificationRule",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/teamNotificationRule:TeamNotificationRule": "TeamNotificationRule"
   }
  },
  {

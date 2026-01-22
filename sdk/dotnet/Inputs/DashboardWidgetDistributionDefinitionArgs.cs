@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetDistributionDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        [Input("hideIncompleteCostData")]
+        public Input<bool>? HideIncompleteCostData { get; set; }
+
+        /// <summary>
         /// The size of the legend displayed in the widget.
         /// </summary>
         [Input("legendSize")]

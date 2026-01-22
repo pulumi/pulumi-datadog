@@ -24,6 +24,12 @@ namespace Pulumi.Datadog.Inputs
             set => _destinations = value;
         }
 
+        /// <summary>
+        /// The type of data being ingested. Defaults to `Logs` if not specified. Valid values are `Logs`, `Metrics`.
+        /// </summary>
+        [Input("pipelineType")]
+        public Input<string>? PipelineType { get; set; }
+
         [Input("processorGroups")]
         private InputList<Inputs.ObservabilityPipelineConfigProcessorGroupGetArgs>? _processorGroups;
 

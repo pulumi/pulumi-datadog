@@ -12,12 +12,24 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternCustom {
     /**
+     * @return Human-readable description providing context about a sensitive data scanner rule.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return A regular expression used to detect sensitive values. Must be a valid regex.
      * 
      */
     private @Nullable String rule;
 
     private ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternCustom() {}
+    /**
+     * @return Human-readable description providing context about a sensitive data scanner rule.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
+    }
     /**
      * @return A regular expression used to detect sensitive values. Must be a valid regex.
      * 
@@ -35,13 +47,21 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String description;
         private @Nullable String rule;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternCustom defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.description = defaults.description;
     	      this.rule = defaults.rule;
         }
 
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
+        }
         @CustomType.Setter
         public Builder rule(@Nullable String rule) {
 
@@ -50,6 +70,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
         }
         public ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternCustom build() {
             final var _resultValue = new ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternCustom();
+            _resultValue.description = description;
             _resultValue.rule = rule;
             return _resultValue;
         }

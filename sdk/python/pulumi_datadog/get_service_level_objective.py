@@ -27,7 +27,7 @@ class GetServiceLevelObjectiveResult:
     """
     A collection of values returned by getServiceLevelObjective.
     """
-    def __init__(__self__, description=None, id=None, metrics_query=None, name=None, name_query=None, queries=None, tags_query=None, target_threshold=None, timeframe=None, type=None, warning_threshold=None):
+    def __init__(__self__, description=None, id=None, metrics_query=None, name=None, name_query=None, queries=None, tags=None, tags_query=None, target_threshold=None, timeframe=None, type=None, warning_threshold=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -46,6 +46,9 @@ class GetServiceLevelObjectiveResult:
         if queries and not isinstance(queries, list):
             raise TypeError("Expected argument 'queries' to be a list")
         pulumi.set(__self__, "queries", queries)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if tags_query and not isinstance(tags_query, str):
             raise TypeError("Expected argument 'tags_query' to be a str")
         pulumi.set(__self__, "tags_query", tags_query)
@@ -111,6 +114,14 @@ class GetServiceLevelObjectiveResult:
         return pulumi.get(self, "queries")
 
     @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Sequence[_builtins.str]:
+        """
+        List of tags associated with the service level objective.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
     @pulumi.getter(name="tagsQuery")
     def tags_query(self) -> Optional[_builtins.str]:
         """
@@ -163,6 +174,7 @@ class AwaitableGetServiceLevelObjectiveResult(GetServiceLevelObjectiveResult):
             name=self.name,
             name_query=self.name_query,
             queries=self.queries,
+            tags=self.tags,
             tags_query=self.tags_query,
             target_threshold=self.target_threshold,
             timeframe=self.timeframe,
@@ -210,6 +222,7 @@ def get_service_level_objective(id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         name_query=pulumi.get(__ret__, 'name_query'),
         queries=pulumi.get(__ret__, 'queries'),
+        tags=pulumi.get(__ret__, 'tags'),
         tags_query=pulumi.get(__ret__, 'tags_query'),
         target_threshold=pulumi.get(__ret__, 'target_threshold'),
         timeframe=pulumi.get(__ret__, 'timeframe'),
@@ -254,6 +267,7 @@ def get_service_level_objective_output(id: Optional[pulumi.Input[Optional[_built
         name=pulumi.get(__response__, 'name'),
         name_query=pulumi.get(__response__, 'name_query'),
         queries=pulumi.get(__response__, 'queries'),
+        tags=pulumi.get(__response__, 'tags'),
         tags_query=pulumi.get(__response__, 'tags_query'),
         target_threshold=pulumi.get(__response__, 'target_threshold'),
         timeframe=pulumi.get(__response__, 'timeframe'),

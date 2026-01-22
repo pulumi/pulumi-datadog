@@ -196,6 +196,10 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceLevelObjectiveQueryResult> Queries;
         /// <summary>
+        /// List of tags associated with the service level objective.
+        /// </summary>
+        public readonly ImmutableArray<string> Tags;
+        /// <summary>
         /// Filter results based on a single SLO tag.
         /// </summary>
         public readonly string? TagsQuery;
@@ -230,6 +234,8 @@ namespace Pulumi.Datadog
 
             ImmutableArray<Outputs.GetServiceLevelObjectiveQueryResult> queries,
 
+            ImmutableArray<string> tags,
+
             string? tagsQuery,
 
             double targetThreshold,
@@ -246,6 +252,7 @@ namespace Pulumi.Datadog
             Name = name;
             NameQuery = nameQuery;
             Queries = queries;
+            Tags = tags;
             TagsQuery = tagsQuery;
             TargetThreshold = targetThreshold;
             Timeframe = timeframe;

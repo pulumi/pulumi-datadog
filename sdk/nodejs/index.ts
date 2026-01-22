@@ -85,6 +85,11 @@ export type CloudConfigurationRule = import("./cloudConfigurationRule").CloudCon
 export const CloudConfigurationRule: typeof import("./cloudConfigurationRule").CloudConfigurationRule = null as any;
 utilities.lazyLoad(exports, ["CloudConfigurationRule"], () => require("./cloudConfigurationRule"));
 
+export { CloudInventorySyncConfigArgs, CloudInventorySyncConfigState } from "./cloudInventorySyncConfig";
+export type CloudInventorySyncConfig = import("./cloudInventorySyncConfig").CloudInventorySyncConfig;
+export const CloudInventorySyncConfig: typeof import("./cloudInventorySyncConfig").CloudInventorySyncConfig = null as any;
+utilities.lazyLoad(exports, ["CloudInventorySyncConfig"], () => require("./cloudInventorySyncConfig"));
+
 export { CloudWorkloadSecurityAgentRuleArgs, CloudWorkloadSecurityAgentRuleState } from "./cloudWorkloadSecurityAgentRule";
 export type CloudWorkloadSecurityAgentRule = import("./cloudWorkloadSecurityAgentRule").CloudWorkloadSecurityAgentRule;
 export const CloudWorkloadSecurityAgentRule: typeof import("./cloudWorkloadSecurityAgentRule").CloudWorkloadSecurityAgentRule = null as any;
@@ -330,6 +335,11 @@ export const getMonitors: typeof import("./getMonitors").getMonitors = null as a
 export const getMonitorsOutput: typeof import("./getMonitors").getMonitorsOutput = null as any;
 utilities.lazyLoad(exports, ["getMonitors","getMonitorsOutput"], () => require("./getMonitors"));
 
+export { GetOrganizationSettingsArgs, GetOrganizationSettingsResult, GetOrganizationSettingsOutputArgs } from "./getOrganizationSettings";
+export const getOrganizationSettings: typeof import("./getOrganizationSettings").getOrganizationSettings = null as any;
+export const getOrganizationSettingsOutput: typeof import("./getOrganizationSettings").getOrganizationSettingsOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganizationSettings","getOrganizationSettingsOutput"], () => require("./getOrganizationSettings"));
+
 export { GetPermissionsArgs, GetPermissionsResult, GetPermissionsOutputArgs } from "./getPermissions";
 export const getPermissions: typeof import("./getPermissions").getPermissions = null as any;
 export const getPermissionsOutput: typeof import("./getPermissions").getPermissionsOutput = null as any;
@@ -454,6 +464,16 @@ export { GetTeamMembershipsArgs, GetTeamMembershipsResult, GetTeamMembershipsOut
 export const getTeamMemberships: typeof import("./getTeamMemberships").getTeamMemberships = null as any;
 export const getTeamMembershipsOutput: typeof import("./getTeamMemberships").getTeamMembershipsOutput = null as any;
 utilities.lazyLoad(exports, ["getTeamMemberships","getTeamMembershipsOutput"], () => require("./getTeamMemberships"));
+
+export { GetTeamNotificationRuleArgs, GetTeamNotificationRuleResult, GetTeamNotificationRuleOutputArgs } from "./getTeamNotificationRule";
+export const getTeamNotificationRule: typeof import("./getTeamNotificationRule").getTeamNotificationRule = null as any;
+export const getTeamNotificationRuleOutput: typeof import("./getTeamNotificationRule").getTeamNotificationRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getTeamNotificationRule","getTeamNotificationRuleOutput"], () => require("./getTeamNotificationRule"));
+
+export { GetTeamNotificationRulesArgs, GetTeamNotificationRulesResult, GetTeamNotificationRulesOutputArgs } from "./getTeamNotificationRules";
+export const getTeamNotificationRules: typeof import("./getTeamNotificationRules").getTeamNotificationRules = null as any;
+export const getTeamNotificationRulesOutput: typeof import("./getTeamNotificationRules").getTeamNotificationRulesOutput = null as any;
+utilities.lazyLoad(exports, ["getTeamNotificationRules","getTeamNotificationRulesOutput"], () => require("./getTeamNotificationRules"));
 
 export { GetTeamsArgs, GetTeamsResult, GetTeamsOutputArgs } from "./getTeams";
 export const getTeams: typeof import("./getTeams").getTeams = null as any;
@@ -594,6 +614,16 @@ export { OnCallTeamRoutingRulesArgs, OnCallTeamRoutingRulesState } from "./onCal
 export type OnCallTeamRoutingRules = import("./onCallTeamRoutingRules").OnCallTeamRoutingRules;
 export const OnCallTeamRoutingRules: typeof import("./onCallTeamRoutingRules").OnCallTeamRoutingRules = null as any;
 utilities.lazyLoad(exports, ["OnCallTeamRoutingRules"], () => require("./onCallTeamRoutingRules"));
+
+export { OnCallUserNotificationChannelArgs, OnCallUserNotificationChannelState } from "./onCallUserNotificationChannel";
+export type OnCallUserNotificationChannel = import("./onCallUserNotificationChannel").OnCallUserNotificationChannel;
+export const OnCallUserNotificationChannel: typeof import("./onCallUserNotificationChannel").OnCallUserNotificationChannel = null as any;
+utilities.lazyLoad(exports, ["OnCallUserNotificationChannel"], () => require("./onCallUserNotificationChannel"));
+
+export { OnCallUserNotificationRuleArgs, OnCallUserNotificationRuleState } from "./onCallUserNotificationRule";
+export type OnCallUserNotificationRule = import("./onCallUserNotificationRule").OnCallUserNotificationRule;
+export const OnCallUserNotificationRule: typeof import("./onCallUserNotificationRule").OnCallUserNotificationRule = null as any;
+utilities.lazyLoad(exports, ["OnCallUserNotificationRule"], () => require("./onCallUserNotificationRule"));
 
 export { OpenapiApiArgs, OpenapiApiState } from "./openapiApi";
 export type OpenapiApi = import("./openapiApi").OpenapiApi;
@@ -783,6 +813,11 @@ export type TeamMembership = import("./teamMembership").TeamMembership;
 export const TeamMembership: typeof import("./teamMembership").TeamMembership = null as any;
 utilities.lazyLoad(exports, ["TeamMembership"], () => require("./teamMembership"));
 
+export { TeamNotificationRuleArgs, TeamNotificationRuleState } from "./teamNotificationRule";
+export type TeamNotificationRule = import("./teamNotificationRule").TeamNotificationRule;
+export const TeamNotificationRule: typeof import("./teamNotificationRule").TeamNotificationRule = null as any;
+utilities.lazyLoad(exports, ["TeamNotificationRule"], () => require("./teamNotificationRule"));
+
 export { TeamPermissionSettingArgs, TeamPermissionSettingState } from "./teamPermissionSetting";
 export type TeamPermissionSetting = import("./teamPermissionSetting").TeamPermissionSetting;
 export const TeamPermissionSetting: typeof import("./teamPermissionSetting").TeamPermissionSetting = null as any;
@@ -879,6 +914,8 @@ const _module = {
                 return new ChildOrganization(name, <any>undefined, { urn })
             case "datadog:index/cloudConfigurationRule:CloudConfigurationRule":
                 return new CloudConfigurationRule(name, <any>undefined, { urn })
+            case "datadog:index/cloudInventorySyncConfig:CloudInventorySyncConfig":
+                return new CloudInventorySyncConfig(name, <any>undefined, { urn })
             case "datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule":
                 return new CloudWorkloadSecurityAgentRule(name, <any>undefined, { urn })
             case "datadog:index/complianceCustomFramework:ComplianceCustomFramework":
@@ -961,6 +998,10 @@ const _module = {
                 return new OnCallSchedule(name, <any>undefined, { urn })
             case "datadog:index/onCallTeamRoutingRules:OnCallTeamRoutingRules":
                 return new OnCallTeamRoutingRules(name, <any>undefined, { urn })
+            case "datadog:index/onCallUserNotificationChannel:OnCallUserNotificationChannel":
+                return new OnCallUserNotificationChannel(name, <any>undefined, { urn })
+            case "datadog:index/onCallUserNotificationRule:OnCallUserNotificationRule":
+                return new OnCallUserNotificationRule(name, <any>undefined, { urn })
             case "datadog:index/openapiApi:OpenapiApi":
                 return new OpenapiApi(name, <any>undefined, { urn })
             case "datadog:index/orgConnection:OrgConnection":
@@ -1035,6 +1076,8 @@ const _module = {
                 return new TeamLink(name, <any>undefined, { urn })
             case "datadog:index/teamMembership:TeamMembership":
                 return new TeamMembership(name, <any>undefined, { urn })
+            case "datadog:index/teamNotificationRule:TeamNotificationRule":
+                return new TeamNotificationRule(name, <any>undefined, { urn })
             case "datadog:index/teamPermissionSetting:TeamPermissionSetting":
                 return new TeamPermissionSetting(name, <any>undefined, { urn })
             case "datadog:index/user:User":
@@ -1068,6 +1111,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/awsCurConfig", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/azureUcConfig", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/childOrganization", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/cloudConfigurationRule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/cloudInventorySyncConfig", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/cloudWorkloadSecurityAgentRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/complianceCustomFramework", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/complianceResourceEvaluationFilter", _module)
@@ -1109,6 +1153,8 @@ pulumi.runtime.registerResourceModule("datadog", "index/observabilityPipeline", 
 pulumi.runtime.registerResourceModule("datadog", "index/onCallEscalationPolicy", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/onCallSchedule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/onCallTeamRoutingRules", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/onCallUserNotificationChannel", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/onCallUserNotificationRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/openapiApi", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/orgConnection", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/organizationSettings", _module)
@@ -1146,6 +1192,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/team", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/teamHierarchyLinks", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/teamLink", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/teamMembership", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/teamNotificationRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/teamPermissionSetting", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/user", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/userRole", _module)

@@ -276,14 +276,29 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `&#34;http&#34;`.
+     * Public ID of the test to be played as part of a `playSubTest` step type.
+     * 
+     */
+    @Import(name="subtestPublicId")
+    private @Nullable Output<String> subtestPublicId;
+
+    /**
+     * @return Public ID of the test to be played as part of a `playSubTest` step type.
+     * 
+     */
+    public Optional<Output<String>> subtestPublicId() {
+        return Optional.ofNullable(this.subtestPublicId);
+    }
+
+    /**
+     * The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`, `playSubTest`. Defaults to `&#34;http&#34;`.
      * 
      */
     @Import(name="subtype")
     private @Nullable Output<String> subtype;
 
     /**
-     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `&#34;http&#34;`.
+     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`, `playSubTest`. Defaults to `&#34;http&#34;`.
      * 
      */
     public Optional<Output<String>> subtype() {
@@ -325,6 +340,7 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
         this.requestProxy = $.requestProxy;
         this.requestQuery = $.requestQuery;
         this.retry = $.retry;
+        this.subtestPublicId = $.subtestPublicId;
         this.subtype = $.subtype;
         this.value = $.value;
     }
@@ -723,7 +739,28 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param subtype The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `&#34;http&#34;`.
+         * @param subtestPublicId Public ID of the test to be played as part of a `playSubTest` step type.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subtestPublicId(@Nullable Output<String> subtestPublicId) {
+            $.subtestPublicId = subtestPublicId;
+            return this;
+        }
+
+        /**
+         * @param subtestPublicId Public ID of the test to be played as part of a `playSubTest` step type.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subtestPublicId(String subtestPublicId) {
+            return subtestPublicId(Output.of(subtestPublicId));
+        }
+
+        /**
+         * @param subtype The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`, `playSubTest`. Defaults to `&#34;http&#34;`.
          * 
          * @return builder
          * 
@@ -734,7 +771,7 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param subtype The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`. Defaults to `&#34;http&#34;`.
+         * @param subtype The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`, `playSubTest`. Defaults to `&#34;http&#34;`.
          * 
          * @return builder
          * 

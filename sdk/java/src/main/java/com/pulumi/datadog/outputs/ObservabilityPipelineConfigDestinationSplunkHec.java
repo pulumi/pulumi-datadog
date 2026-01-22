@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -21,7 +22,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
      * @return Encoding format for log events. Valid values: `json`, `rawMessage`.
      * 
      */
-    private @Nullable String encoding;
+    private String encoding;
     /**
      * @return Optional name of the Splunk index where logs are written.
      * 
@@ -45,8 +46,8 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
      * @return Encoding format for log events. Valid values: `json`, `rawMessage`.
      * 
      */
-    public Optional<String> encoding() {
-        return Optional.ofNullable(this.encoding);
+    public String encoding() {
+        return this.encoding;
     }
     /**
      * @return Optional name of the Splunk index where logs are written.
@@ -73,7 +74,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean autoExtractTimestamp;
-        private @Nullable String encoding;
+        private String encoding;
         private @Nullable String index;
         private @Nullable String sourcetype;
         public Builder() {}
@@ -92,8 +93,10 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
             return this;
         }
         @CustomType.Setter
-        public Builder encoding(@Nullable String encoding) {
-
+        public Builder encoding(String encoding) {
+            if (encoding == null) {
+              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationSplunkHec", "encoding");
+            }
             this.encoding = encoding;
             return this;
         }

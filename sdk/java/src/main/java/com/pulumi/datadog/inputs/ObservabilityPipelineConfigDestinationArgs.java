@@ -9,12 +9,16 @@ import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonOpe
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonS3Args;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonSecurityLakeArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAzureStorageArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationCloudPremArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationDatadogLogArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationDatadogMetricArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationElasticsearchArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationGoogleChronicleArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationGooglePubsubArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationHttpClientArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationKafkaArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationMicrosoftSentinelArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationNewRelicArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationOpensearchArgs;
@@ -97,6 +101,21 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
     }
 
     /**
+     * The `cloudPrem` destination sends logs to Datadog CloudPrem.
+     * 
+     */
+    @Import(name="cloudPrem")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationCloudPremArgs> cloudPrem;
+
+    /**
+     * @return The `cloudPrem` destination sends logs to Datadog CloudPrem.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationCloudPremArgs>> cloudPrem() {
+        return Optional.ofNullable(this.cloudPrem);
+    }
+
+    /**
      * The `crowdstrikeNextGenSiem` destination forwards logs to CrowdStrike Next Gen SIEM.
      * 
      */
@@ -124,6 +143,21 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
      */
     public Optional<Output<List<ObservabilityPipelineConfigDestinationDatadogLogArgs>>> datadogLogs() {
         return Optional.ofNullable(this.datadogLogs);
+    }
+
+    /**
+     * The `datadog.getMetrics` destination forwards metrics to Datadog.
+     * 
+     */
+    @Import(name="datadogMetrics")
+    private @Nullable Output<List<ObservabilityPipelineConfigDestinationDatadogMetricArgs>> datadogMetrics;
+
+    /**
+     * @return The `datadog.getMetrics` destination forwards metrics to Datadog.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigDestinationDatadogMetricArgs>>> datadogMetrics() {
+        return Optional.ofNullable(this.datadogMetrics);
     }
 
     /**
@@ -187,6 +221,21 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
     }
 
     /**
+     * The `httpClient` destination sends data to an HTTP endpoint.
+     * 
+     */
+    @Import(name="httpClients")
+    private @Nullable Output<List<ObservabilityPipelineConfigDestinationHttpClientArgs>> httpClients;
+
+    /**
+     * @return The `httpClient` destination sends data to an HTTP endpoint.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigDestinationHttpClientArgs>>> httpClients() {
+        return Optional.ofNullable(this.httpClients);
+    }
+
+    /**
      * The unique identifier for this destination.
      * 
      */
@@ -214,6 +263,21 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
      */
     public Output<List<String>> inputs() {
         return this.inputs;
+    }
+
+    /**
+     * The `kafka` destination sends logs to Apache Kafka topics.
+     * 
+     */
+    @Import(name="kafka")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationKafkaArgs> kafka;
+
+    /**
+     * @return The `kafka` destination sends logs to Apache Kafka topics.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationKafkaArgs>> kafka() {
+        return Optional.ofNullable(this.kafka);
     }
 
     /**
@@ -358,14 +422,18 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
         this.amazonS3s = $.amazonS3s;
         this.amazonSecurityLakes = $.amazonSecurityLakes;
         this.azureStorages = $.azureStorages;
+        this.cloudPrem = $.cloudPrem;
         this.crowdstrikeNextGenSiems = $.crowdstrikeNextGenSiems;
         this.datadogLogs = $.datadogLogs;
+        this.datadogMetrics = $.datadogMetrics;
         this.elasticsearches = $.elasticsearches;
         this.googleChronicles = $.googleChronicles;
         this.googleCloudStorages = $.googleCloudStorages;
         this.googlePubsubs = $.googlePubsubs;
+        this.httpClients = $.httpClients;
         this.id = $.id;
         this.inputs = $.inputs;
+        this.kafka = $.kafka;
         this.microsoftSentinels = $.microsoftSentinels;
         this.newRelics = $.newRelics;
         this.opensearches = $.opensearches;
@@ -520,6 +588,27 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
         }
 
         /**
+         * @param cloudPrem The `cloudPrem` destination sends logs to Datadog CloudPrem.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudPrem(@Nullable Output<ObservabilityPipelineConfigDestinationCloudPremArgs> cloudPrem) {
+            $.cloudPrem = cloudPrem;
+            return this;
+        }
+
+        /**
+         * @param cloudPrem The `cloudPrem` destination sends logs to Datadog CloudPrem.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudPrem(ObservabilityPipelineConfigDestinationCloudPremArgs cloudPrem) {
+            return cloudPrem(Output.of(cloudPrem));
+        }
+
+        /**
          * @param crowdstrikeNextGenSiems The `crowdstrikeNextGenSiem` destination forwards logs to CrowdStrike Next Gen SIEM.
          * 
          * @return builder
@@ -579,6 +668,37 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
          */
         public Builder datadogLogs(ObservabilityPipelineConfigDestinationDatadogLogArgs... datadogLogs) {
             return datadogLogs(List.of(datadogLogs));
+        }
+
+        /**
+         * @param datadogMetrics The `datadog.getMetrics` destination forwards metrics to Datadog.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder datadogMetrics(@Nullable Output<List<ObservabilityPipelineConfigDestinationDatadogMetricArgs>> datadogMetrics) {
+            $.datadogMetrics = datadogMetrics;
+            return this;
+        }
+
+        /**
+         * @param datadogMetrics The `datadog.getMetrics` destination forwards metrics to Datadog.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder datadogMetrics(List<ObservabilityPipelineConfigDestinationDatadogMetricArgs> datadogMetrics) {
+            return datadogMetrics(Output.of(datadogMetrics));
+        }
+
+        /**
+         * @param datadogMetrics The `datadog.getMetrics` destination forwards metrics to Datadog.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder datadogMetrics(ObservabilityPipelineConfigDestinationDatadogMetricArgs... datadogMetrics) {
+            return datadogMetrics(List.of(datadogMetrics));
         }
 
         /**
@@ -706,6 +826,37 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
         }
 
         /**
+         * @param httpClients The `httpClient` destination sends data to an HTTP endpoint.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpClients(@Nullable Output<List<ObservabilityPipelineConfigDestinationHttpClientArgs>> httpClients) {
+            $.httpClients = httpClients;
+            return this;
+        }
+
+        /**
+         * @param httpClients The `httpClient` destination sends data to an HTTP endpoint.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpClients(List<ObservabilityPipelineConfigDestinationHttpClientArgs> httpClients) {
+            return httpClients(Output.of(httpClients));
+        }
+
+        /**
+         * @param httpClients The `httpClient` destination sends data to an HTTP endpoint.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpClients(ObservabilityPipelineConfigDestinationHttpClientArgs... httpClients) {
+            return httpClients(List.of(httpClients));
+        }
+
+        /**
          * @param id The unique identifier for this destination.
          * 
          * @return builder
@@ -755,6 +906,27 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
          */
         public Builder inputs(String... inputs) {
             return inputs(List.of(inputs));
+        }
+
+        /**
+         * @param kafka The `kafka` destination sends logs to Apache Kafka topics.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kafka(@Nullable Output<ObservabilityPipelineConfigDestinationKafkaArgs> kafka) {
+            $.kafka = kafka;
+            return this;
+        }
+
+        /**
+         * @param kafka The `kafka` destination sends logs to Apache Kafka topics.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kafka(ObservabilityPipelineConfigDestinationKafkaArgs kafka) {
+            return kafka(Output.of(kafka));
         }
 
         /**

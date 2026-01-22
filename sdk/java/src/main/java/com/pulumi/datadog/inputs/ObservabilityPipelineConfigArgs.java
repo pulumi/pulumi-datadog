@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceArgs;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -31,6 +32,21 @@ public final class ObservabilityPipelineConfigArgs extends com.pulumi.resources.
      */
     public Optional<Output<List<ObservabilityPipelineConfigDestinationArgs>>> destinations() {
         return Optional.ofNullable(this.destinations);
+    }
+
+    /**
+     * The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`.
+     * 
+     */
+    @Import(name="pipelineType")
+    private @Nullable Output<String> pipelineType;
+
+    /**
+     * @return The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`.
+     * 
+     */
+    public Optional<Output<String>> pipelineType() {
+        return Optional.ofNullable(this.pipelineType);
     }
 
     /**
@@ -67,6 +83,7 @@ public final class ObservabilityPipelineConfigArgs extends com.pulumi.resources.
 
     private ObservabilityPipelineConfigArgs(ObservabilityPipelineConfigArgs $) {
         this.destinations = $.destinations;
+        this.pipelineType = $.pipelineType;
         this.processorGroups = $.processorGroups;
         this.sources = $.sources;
     }
@@ -118,6 +135,27 @@ public final class ObservabilityPipelineConfigArgs extends com.pulumi.resources.
          */
         public Builder destinations(ObservabilityPipelineConfigDestinationArgs... destinations) {
             return destinations(List.of(destinations));
+        }
+
+        /**
+         * @param pipelineType The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pipelineType(@Nullable Output<String> pipelineType) {
+            $.pipelineType = pipelineType;
+            return this;
+        }
+
+        /**
+         * @param pipelineType The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pipelineType(String pipelineType) {
+            return pipelineType(Output.of(pipelineType));
         }
 
         /**

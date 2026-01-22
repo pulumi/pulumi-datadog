@@ -17,6 +17,21 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
     public static final ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternLibraryArgs Empty = new ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternLibraryArgs();
 
     /**
+     * Human-readable description providing context about a sensitive data scanner rule.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return Human-readable description providing context about a sensitive data scanner rule.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * Identifier for a predefined pattern from the sensitive data scanner pattern library.
      * 
      */
@@ -49,6 +64,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
     private ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternLibraryArgs() {}
 
     private ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternLibraryArgs(ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternLibraryArgs $) {
+        this.description = $.description;
         this.id = $.id;
         this.useRecommendedKeywords = $.useRecommendedKeywords;
     }
@@ -69,6 +85,27 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
 
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternLibraryArgs defaults) {
             $ = new ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternLibraryArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param description Human-readable description providing context about a sensitive data scanner rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description Human-readable description providing context about a sensitive data scanner rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

@@ -86,7 +86,7 @@ export class Powerpack extends pulumi.CustomResource {
      */
     declare public readonly layout: pulumi.Output<outputs.PowerpackLayout>;
     /**
-     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * The timeframe to use when displaying the powerpack. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     declare public readonly liveSpan: pulumi.Output<string | undefined>;
     /**
@@ -160,7 +160,7 @@ export interface PowerpackState {
      */
     layout?: pulumi.Input<inputs.PowerpackLayout>;
     /**
-     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * The timeframe to use when displaying the powerpack. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     liveSpan?: pulumi.Input<string>;
     /**
@@ -198,7 +198,7 @@ export interface PowerpackArgs {
      */
     layout?: pulumi.Input<inputs.PowerpackLayout>;
     /**
-     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * The timeframe to use when displaying the powerpack. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     liveSpan?: pulumi.Input<string>;
     /**
