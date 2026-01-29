@@ -11,7 +11,7 @@ import com.pulumi.datadog.RumRetentionFilterArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.RumRetentionFilterState;
 import java.lang.Boolean;
-import java.lang.Integer;
+import java.lang.Double;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *             .applicationId("<APPLICATION_ID>")
  *             .name("testing.rum.retention_filter")
  *             .eventType("session")
- *             .sampleRate(41)
+ *             .sampleRate(41.0)
  *             .query("}{@literal @}{@code session.has_replay:true")
  *             .enabled(false)
  *             .build());
@@ -139,17 +139,17 @@ public class RumRetentionFilter extends com.pulumi.resources.CustomResource {
         return this.query;
     }
     /**
-     * The sample rate for a RUM retention filter, between 0 and 100.
+     * The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
      * 
      */
-    @Export(name="sampleRate", refs={Integer.class}, tree="[0]")
-    private Output<Integer> sampleRate;
+    @Export(name="sampleRate", refs={Double.class}, tree="[0]")
+    private Output<Double> sampleRate;
 
     /**
-     * @return The sample rate for a RUM retention filter, between 0 and 100.
+     * @return The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
      * 
      */
-    public Output<Integer> sampleRate() {
+    public Output<Double> sampleRate() {
         return this.sampleRate;
     }
 

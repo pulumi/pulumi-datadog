@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestination;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroup;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSource;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -35,6 +36,11 @@ public final class ObservabilityPipelineConfig {
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigSource> sources;
+    /**
+     * @return Set to `true` to continue using the legacy search syntax while migrating filter queries. After migrating all queries to the new syntax, set to `false`. The legacy syntax is deprecated and will eventually be removed. Requires Observability Pipelines Worker 2.11 or later. See https://docs.datadoghq.com/observability*pipelines/guide/upgrade*your*filter*queries*to*the*new*search_syntax/ for more information.
+     * 
+     */
+    private @Nullable Boolean useLegacySearchSyntax;
 
     private ObservabilityPipelineConfig() {}
     /**
@@ -65,6 +71,13 @@ public final class ObservabilityPipelineConfig {
     public List<ObservabilityPipelineConfigSource> sources() {
         return this.sources == null ? List.of() : this.sources;
     }
+    /**
+     * @return Set to `true` to continue using the legacy search syntax while migrating filter queries. After migrating all queries to the new syntax, set to `false`. The legacy syntax is deprecated and will eventually be removed. Requires Observability Pipelines Worker 2.11 or later. See https://docs.datadoghq.com/observability*pipelines/guide/upgrade*your*filter*queries*to*the*new*search_syntax/ for more information.
+     * 
+     */
+    public Optional<Boolean> useLegacySearchSyntax() {
+        return Optional.ofNullable(this.useLegacySearchSyntax);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -79,6 +92,7 @@ public final class ObservabilityPipelineConfig {
         private @Nullable String pipelineType;
         private @Nullable List<ObservabilityPipelineConfigProcessorGroup> processorGroups;
         private @Nullable List<ObservabilityPipelineConfigSource> sources;
+        private @Nullable Boolean useLegacySearchSyntax;
         public Builder() {}
         public Builder(ObservabilityPipelineConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -86,6 +100,7 @@ public final class ObservabilityPipelineConfig {
     	      this.pipelineType = defaults.pipelineType;
     	      this.processorGroups = defaults.processorGroups;
     	      this.sources = defaults.sources;
+    	      this.useLegacySearchSyntax = defaults.useLegacySearchSyntax;
         }
 
         @CustomType.Setter
@@ -121,12 +136,19 @@ public final class ObservabilityPipelineConfig {
         public Builder sources(ObservabilityPipelineConfigSource... sources) {
             return sources(List.of(sources));
         }
+        @CustomType.Setter
+        public Builder useLegacySearchSyntax(@Nullable Boolean useLegacySearchSyntax) {
+
+            this.useLegacySearchSyntax = useLegacySearchSyntax;
+            return this;
+        }
         public ObservabilityPipelineConfig build() {
             final var _resultValue = new ObservabilityPipelineConfig();
             _resultValue.destinations = destinations;
             _resultValue.pipelineType = pipelineType;
             _resultValue.processorGroups = processorGroups;
             _resultValue.sources = sources;
+            _resultValue.useLegacySearchSyntax = useLegacySearchSyntax;
             return _resultValue;
         }
     }

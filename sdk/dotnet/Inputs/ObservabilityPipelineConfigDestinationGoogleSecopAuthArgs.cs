@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Inputs
 {
 
-    public sealed class ObservabilityPipelineConfigDestinationGoogleChronicleAuthGetArgs : global::Pulumi.ResourceArgs
+    public sealed class ObservabilityPipelineConfigDestinationGoogleSecopAuthArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Path to the GCP service account key file.
@@ -18,9 +18,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("credentialsFile", required: true)]
         public Input<string> CredentialsFile { get; set; } = null!;
 
-        public ObservabilityPipelineConfigDestinationGoogleChronicleAuthGetArgs()
+        public ObservabilityPipelineConfigDestinationGoogleSecopAuthArgs()
         {
         }
-        public static new ObservabilityPipelineConfigDestinationGoogleChronicleAuthGetArgs Empty => new ObservabilityPipelineConfigDestinationGoogleChronicleAuthGetArgs();
+        public static new ObservabilityPipelineConfigDestinationGoogleSecopAuthArgs Empty => new ObservabilityPipelineConfigDestinationGoogleSecopAuthArgs();
     }
 }

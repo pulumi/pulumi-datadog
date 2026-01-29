@@ -32,14 +32,14 @@ public final class SyntheticsTestMobileOptionsListMonitorOptionsArgs extends com
     }
 
     /**
-     * The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+     * The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`, `hideQueryAndHandles`, `showOnlySnapshot`, `hideHandlesAndFooter`.
      * 
      */
     @Import(name="notificationPresetName")
     private @Nullable Output<String> notificationPresetName;
 
     /**
-     * @return The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+     * @return The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`, `hideQueryAndHandles`, `showOnlySnapshot`, `hideHandlesAndFooter`.
      * 
      */
     public Optional<Output<String>> notificationPresetName() {
@@ -125,7 +125,7 @@ public final class SyntheticsTestMobileOptionsListMonitorOptionsArgs extends com
         }
 
         /**
-         * @param notificationPresetName The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+         * @param notificationPresetName The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`, `hideQueryAndHandles`, `showOnlySnapshot`, `hideHandlesAndFooter`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class SyntheticsTestMobileOptionsListMonitorOptionsArgs extends com
         }
 
         /**
-         * @param notificationPresetName The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+         * @param notificationPresetName The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`, `hideQueryAndHandles`, `showOnlySnapshot`, `hideHandlesAndFooter`.
          * 
          * @return builder
          * 

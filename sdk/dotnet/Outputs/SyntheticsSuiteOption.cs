@@ -11,17 +11,17 @@ namespace Pulumi.Datadog.Outputs
 {
 
     [OutputType]
-    public sealed class ObservabilityPipelineConfigDestinationGoogleChronicleAuth
+    public sealed class SyntheticsSuiteOption
     {
         /// <summary>
-        /// Path to the GCP service account key file.
+        /// Alerting threshold for the suite. Value must be between 0.000000 and 1.000000.
         /// </summary>
-        public readonly string CredentialsFile;
+        public readonly double AlertingThreshold;
 
         [OutputConstructor]
-        private ObservabilityPipelineConfigDestinationGoogleChronicleAuth(string credentialsFile)
+        private SyntheticsSuiteOption(double alertingThreshold)
         {
-            CredentialsFile = credentialsFile;
+            AlertingThreshold = alertingThreshold;
         }
     }
 }

@@ -13,6 +13,553 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetHostsHostListMetrics struct {
+	Cpu    float64 `pulumi:"cpu"`
+	Iowait float64 `pulumi:"iowait"`
+	Load   float64 `pulumi:"load"`
+}
+
+// GetHostsHostListMetricsInput is an input type that accepts GetHostsHostListMetricsArgs and GetHostsHostListMetricsOutput values.
+// You can construct a concrete instance of `GetHostsHostListMetricsInput` via:
+//
+//	GetHostsHostListMetricsArgs{...}
+type GetHostsHostListMetricsInput interface {
+	pulumi.Input
+
+	ToGetHostsHostListMetricsOutput() GetHostsHostListMetricsOutput
+	ToGetHostsHostListMetricsOutputWithContext(context.Context) GetHostsHostListMetricsOutput
+}
+
+type GetHostsHostListMetricsArgs struct {
+	Cpu    pulumi.Float64Input `pulumi:"cpu"`
+	Iowait pulumi.Float64Input `pulumi:"iowait"`
+	Load   pulumi.Float64Input `pulumi:"load"`
+}
+
+func (GetHostsHostListMetricsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHostsHostListMetrics)(nil)).Elem()
+}
+
+func (i GetHostsHostListMetricsArgs) ToGetHostsHostListMetricsOutput() GetHostsHostListMetricsOutput {
+	return i.ToGetHostsHostListMetricsOutputWithContext(context.Background())
+}
+
+func (i GetHostsHostListMetricsArgs) ToGetHostsHostListMetricsOutputWithContext(ctx context.Context) GetHostsHostListMetricsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHostsHostListMetricsOutput)
+}
+
+type GetHostsHostListMetricsOutput struct{ *pulumi.OutputState }
+
+func (GetHostsHostListMetricsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHostsHostListMetrics)(nil)).Elem()
+}
+
+func (o GetHostsHostListMetricsOutput) ToGetHostsHostListMetricsOutput() GetHostsHostListMetricsOutput {
+	return o
+}
+
+func (o GetHostsHostListMetricsOutput) ToGetHostsHostListMetricsOutputWithContext(ctx context.Context) GetHostsHostListMetricsOutput {
+	return o
+}
+
+func (o GetHostsHostListMetricsOutput) Cpu() pulumi.Float64Output {
+	return o.ApplyT(func(v GetHostsHostListMetrics) float64 { return v.Cpu }).(pulumi.Float64Output)
+}
+
+func (o GetHostsHostListMetricsOutput) Iowait() pulumi.Float64Output {
+	return o.ApplyT(func(v GetHostsHostListMetrics) float64 { return v.Iowait }).(pulumi.Float64Output)
+}
+
+func (o GetHostsHostListMetricsOutput) Load() pulumi.Float64Output {
+	return o.ApplyT(func(v GetHostsHostListMetrics) float64 { return v.Load }).(pulumi.Float64Output)
+}
+
+type GetIncidentNotificationRuleCondition struct {
+	// The incident field to evaluate. Common values include: state, severity, services, teams. Custom fields are also supported.
+	Field string `pulumi:"field"`
+	// The value(s) to compare against.
+	Values []string `pulumi:"values"`
+}
+
+// GetIncidentNotificationRuleConditionInput is an input type that accepts GetIncidentNotificationRuleConditionArgs and GetIncidentNotificationRuleConditionOutput values.
+// You can construct a concrete instance of `GetIncidentNotificationRuleConditionInput` via:
+//
+//	GetIncidentNotificationRuleConditionArgs{...}
+type GetIncidentNotificationRuleConditionInput interface {
+	pulumi.Input
+
+	ToGetIncidentNotificationRuleConditionOutput() GetIncidentNotificationRuleConditionOutput
+	ToGetIncidentNotificationRuleConditionOutputWithContext(context.Context) GetIncidentNotificationRuleConditionOutput
+}
+
+type GetIncidentNotificationRuleConditionArgs struct {
+	// The incident field to evaluate. Common values include: state, severity, services, teams. Custom fields are also supported.
+	Field pulumi.StringInput `pulumi:"field"`
+	// The value(s) to compare against.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetIncidentNotificationRuleConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIncidentNotificationRuleCondition)(nil)).Elem()
+}
+
+func (i GetIncidentNotificationRuleConditionArgs) ToGetIncidentNotificationRuleConditionOutput() GetIncidentNotificationRuleConditionOutput {
+	return i.ToGetIncidentNotificationRuleConditionOutputWithContext(context.Background())
+}
+
+func (i GetIncidentNotificationRuleConditionArgs) ToGetIncidentNotificationRuleConditionOutputWithContext(ctx context.Context) GetIncidentNotificationRuleConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentNotificationRuleConditionOutput)
+}
+
+// GetIncidentNotificationRuleConditionArrayInput is an input type that accepts GetIncidentNotificationRuleConditionArray and GetIncidentNotificationRuleConditionArrayOutput values.
+// You can construct a concrete instance of `GetIncidentNotificationRuleConditionArrayInput` via:
+//
+//	GetIncidentNotificationRuleConditionArray{ GetIncidentNotificationRuleConditionArgs{...} }
+type GetIncidentNotificationRuleConditionArrayInput interface {
+	pulumi.Input
+
+	ToGetIncidentNotificationRuleConditionArrayOutput() GetIncidentNotificationRuleConditionArrayOutput
+	ToGetIncidentNotificationRuleConditionArrayOutputWithContext(context.Context) GetIncidentNotificationRuleConditionArrayOutput
+}
+
+type GetIncidentNotificationRuleConditionArray []GetIncidentNotificationRuleConditionInput
+
+func (GetIncidentNotificationRuleConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIncidentNotificationRuleCondition)(nil)).Elem()
+}
+
+func (i GetIncidentNotificationRuleConditionArray) ToGetIncidentNotificationRuleConditionArrayOutput() GetIncidentNotificationRuleConditionArrayOutput {
+	return i.ToGetIncidentNotificationRuleConditionArrayOutputWithContext(context.Background())
+}
+
+func (i GetIncidentNotificationRuleConditionArray) ToGetIncidentNotificationRuleConditionArrayOutputWithContext(ctx context.Context) GetIncidentNotificationRuleConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentNotificationRuleConditionArrayOutput)
+}
+
+type GetIncidentNotificationRuleConditionOutput struct{ *pulumi.OutputState }
+
+func (GetIncidentNotificationRuleConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIncidentNotificationRuleCondition)(nil)).Elem()
+}
+
+func (o GetIncidentNotificationRuleConditionOutput) ToGetIncidentNotificationRuleConditionOutput() GetIncidentNotificationRuleConditionOutput {
+	return o
+}
+
+func (o GetIncidentNotificationRuleConditionOutput) ToGetIncidentNotificationRuleConditionOutputWithContext(ctx context.Context) GetIncidentNotificationRuleConditionOutput {
+	return o
+}
+
+// The incident field to evaluate. Common values include: state, severity, services, teams. Custom fields are also supported.
+func (o GetIncidentNotificationRuleConditionOutput) Field() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIncidentNotificationRuleCondition) string { return v.Field }).(pulumi.StringOutput)
+}
+
+// The value(s) to compare against.
+func (o GetIncidentNotificationRuleConditionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIncidentNotificationRuleCondition) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetIncidentNotificationRuleConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIncidentNotificationRuleConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIncidentNotificationRuleCondition)(nil)).Elem()
+}
+
+func (o GetIncidentNotificationRuleConditionArrayOutput) ToGetIncidentNotificationRuleConditionArrayOutput() GetIncidentNotificationRuleConditionArrayOutput {
+	return o
+}
+
+func (o GetIncidentNotificationRuleConditionArrayOutput) ToGetIncidentNotificationRuleConditionArrayOutputWithContext(ctx context.Context) GetIncidentNotificationRuleConditionArrayOutput {
+	return o
+}
+
+func (o GetIncidentNotificationRuleConditionArrayOutput) Index(i pulumi.IntInput) GetIncidentNotificationRuleConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIncidentNotificationRuleCondition {
+		return vs[0].([]GetIncidentNotificationRuleCondition)[vs[1].(int)]
+	}).(GetIncidentNotificationRuleConditionOutput)
+}
+
+type GetLogsIndexesLogsIndex struct {
+	// The number of log events you can send in this index per day before you are rate-limited.
+	DailyLimit int `pulumi:"dailyLimit"`
+	// Object containing options to override the default daily limit reset time.
+	DailyLimitResets []GetLogsIndexesLogsIndexDailyLimitReset `pulumi:"dailyLimitResets"`
+	// The percentage threshold of the daily quota at which a Datadog warning event is generated.
+	DailyLimitWarningThresholdPercentage float64 `pulumi:"dailyLimitWarningThresholdPercentage"`
+	// List of exclusion filters.
+	ExclusionFilters []GetLogsIndexesLogsIndexExclusionFilter `pulumi:"exclusionFilters"`
+	// Logs filter
+	Filters []GetLogsIndexesLogsIndexFilter `pulumi:"filters"`
+	// The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+	FlexRetentionDays int `pulumi:"flexRetentionDays"`
+	// The name of the index.
+	Name string `pulumi:"name"`
+	// The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
+	RetentionDays int `pulumi:"retentionDays"`
+}
+
+// GetLogsIndexesLogsIndexInput is an input type that accepts GetLogsIndexesLogsIndexArgs and GetLogsIndexesLogsIndexOutput values.
+// You can construct a concrete instance of `GetLogsIndexesLogsIndexInput` via:
+//
+//	GetLogsIndexesLogsIndexArgs{...}
+type GetLogsIndexesLogsIndexInput interface {
+	pulumi.Input
+
+	ToGetLogsIndexesLogsIndexOutput() GetLogsIndexesLogsIndexOutput
+	ToGetLogsIndexesLogsIndexOutputWithContext(context.Context) GetLogsIndexesLogsIndexOutput
+}
+
+type GetLogsIndexesLogsIndexArgs struct {
+	// The number of log events you can send in this index per day before you are rate-limited.
+	DailyLimit pulumi.IntInput `pulumi:"dailyLimit"`
+	// Object containing options to override the default daily limit reset time.
+	DailyLimitResets GetLogsIndexesLogsIndexDailyLimitResetArrayInput `pulumi:"dailyLimitResets"`
+	// The percentage threshold of the daily quota at which a Datadog warning event is generated.
+	DailyLimitWarningThresholdPercentage pulumi.Float64Input `pulumi:"dailyLimitWarningThresholdPercentage"`
+	// List of exclusion filters.
+	ExclusionFilters GetLogsIndexesLogsIndexExclusionFilterArrayInput `pulumi:"exclusionFilters"`
+	// Logs filter
+	Filters GetLogsIndexesLogsIndexFilterArrayInput `pulumi:"filters"`
+	// The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+	FlexRetentionDays pulumi.IntInput `pulumi:"flexRetentionDays"`
+	// The name of the index.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
+	RetentionDays pulumi.IntInput `pulumi:"retentionDays"`
+}
+
+func (GetLogsIndexesLogsIndexArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogsIndexesLogsIndex)(nil)).Elem()
+}
+
+func (i GetLogsIndexesLogsIndexArgs) ToGetLogsIndexesLogsIndexOutput() GetLogsIndexesLogsIndexOutput {
+	return i.ToGetLogsIndexesLogsIndexOutputWithContext(context.Background())
+}
+
+func (i GetLogsIndexesLogsIndexArgs) ToGetLogsIndexesLogsIndexOutputWithContext(ctx context.Context) GetLogsIndexesLogsIndexOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogsIndexesLogsIndexOutput)
+}
+
+// GetLogsIndexesLogsIndexArrayInput is an input type that accepts GetLogsIndexesLogsIndexArray and GetLogsIndexesLogsIndexArrayOutput values.
+// You can construct a concrete instance of `GetLogsIndexesLogsIndexArrayInput` via:
+//
+//	GetLogsIndexesLogsIndexArray{ GetLogsIndexesLogsIndexArgs{...} }
+type GetLogsIndexesLogsIndexArrayInput interface {
+	pulumi.Input
+
+	ToGetLogsIndexesLogsIndexArrayOutput() GetLogsIndexesLogsIndexArrayOutput
+	ToGetLogsIndexesLogsIndexArrayOutputWithContext(context.Context) GetLogsIndexesLogsIndexArrayOutput
+}
+
+type GetLogsIndexesLogsIndexArray []GetLogsIndexesLogsIndexInput
+
+func (GetLogsIndexesLogsIndexArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLogsIndexesLogsIndex)(nil)).Elem()
+}
+
+func (i GetLogsIndexesLogsIndexArray) ToGetLogsIndexesLogsIndexArrayOutput() GetLogsIndexesLogsIndexArrayOutput {
+	return i.ToGetLogsIndexesLogsIndexArrayOutputWithContext(context.Background())
+}
+
+func (i GetLogsIndexesLogsIndexArray) ToGetLogsIndexesLogsIndexArrayOutputWithContext(ctx context.Context) GetLogsIndexesLogsIndexArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogsIndexesLogsIndexArrayOutput)
+}
+
+type GetLogsIndexesLogsIndexOutput struct{ *pulumi.OutputState }
+
+func (GetLogsIndexesLogsIndexOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogsIndexesLogsIndex)(nil)).Elem()
+}
+
+func (o GetLogsIndexesLogsIndexOutput) ToGetLogsIndexesLogsIndexOutput() GetLogsIndexesLogsIndexOutput {
+	return o
+}
+
+func (o GetLogsIndexesLogsIndexOutput) ToGetLogsIndexesLogsIndexOutputWithContext(ctx context.Context) GetLogsIndexesLogsIndexOutput {
+	return o
+}
+
+// The number of log events you can send in this index per day before you are rate-limited.
+func (o GetLogsIndexesLogsIndexOutput) DailyLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLogsIndexesLogsIndex) int { return v.DailyLimit }).(pulumi.IntOutput)
+}
+
+// Object containing options to override the default daily limit reset time.
+func (o GetLogsIndexesLogsIndexOutput) DailyLimitResets() GetLogsIndexesLogsIndexDailyLimitResetArrayOutput {
+	return o.ApplyT(func(v GetLogsIndexesLogsIndex) []GetLogsIndexesLogsIndexDailyLimitReset { return v.DailyLimitResets }).(GetLogsIndexesLogsIndexDailyLimitResetArrayOutput)
+}
+
+// The percentage threshold of the daily quota at which a Datadog warning event is generated.
+func (o GetLogsIndexesLogsIndexOutput) DailyLimitWarningThresholdPercentage() pulumi.Float64Output {
+	return o.ApplyT(func(v GetLogsIndexesLogsIndex) float64 { return v.DailyLimitWarningThresholdPercentage }).(pulumi.Float64Output)
+}
+
+// List of exclusion filters.
+func (o GetLogsIndexesLogsIndexOutput) ExclusionFilters() GetLogsIndexesLogsIndexExclusionFilterArrayOutput {
+	return o.ApplyT(func(v GetLogsIndexesLogsIndex) []GetLogsIndexesLogsIndexExclusionFilter { return v.ExclusionFilters }).(GetLogsIndexesLogsIndexExclusionFilterArrayOutput)
+}
+
+// Logs filter
+func (o GetLogsIndexesLogsIndexOutput) Filters() GetLogsIndexesLogsIndexFilterArrayOutput {
+	return o.ApplyT(func(v GetLogsIndexesLogsIndex) []GetLogsIndexesLogsIndexFilter { return v.Filters }).(GetLogsIndexesLogsIndexFilterArrayOutput)
+}
+
+// The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
+func (o GetLogsIndexesLogsIndexOutput) FlexRetentionDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLogsIndexesLogsIndex) int { return v.FlexRetentionDays }).(pulumi.IntOutput)
+}
+
+// The name of the index.
+func (o GetLogsIndexesLogsIndexOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLogsIndexesLogsIndex) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
+func (o GetLogsIndexesLogsIndexOutput) RetentionDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLogsIndexesLogsIndex) int { return v.RetentionDays }).(pulumi.IntOutput)
+}
+
+type GetLogsIndexesLogsIndexArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLogsIndexesLogsIndexArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLogsIndexesLogsIndex)(nil)).Elem()
+}
+
+func (o GetLogsIndexesLogsIndexArrayOutput) ToGetLogsIndexesLogsIndexArrayOutput() GetLogsIndexesLogsIndexArrayOutput {
+	return o
+}
+
+func (o GetLogsIndexesLogsIndexArrayOutput) ToGetLogsIndexesLogsIndexArrayOutputWithContext(ctx context.Context) GetLogsIndexesLogsIndexArrayOutput {
+	return o
+}
+
+func (o GetLogsIndexesLogsIndexArrayOutput) Index(i pulumi.IntInput) GetLogsIndexesLogsIndexOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLogsIndexesLogsIndex {
+		return vs[0].([]GetLogsIndexesLogsIndex)[vs[1].(int)]
+	}).(GetLogsIndexesLogsIndexOutput)
+}
+
+type GetLogsIndexesLogsIndexDailyLimitReset struct {
+	// String in `HH:00` format representing the time of day the daily limit should be reset. The hours between 00 and 23 (inclusive).
+	ResetTime string `pulumi:"resetTime"`
+	// String in `(-|+)HH:00` format representing the UTC offset to apply to the given reset time. The hours between -12 and +14 (inclusive).
+	ResetUtcOffset string `pulumi:"resetUtcOffset"`
+}
+
+// GetLogsIndexesLogsIndexDailyLimitResetInput is an input type that accepts GetLogsIndexesLogsIndexDailyLimitResetArgs and GetLogsIndexesLogsIndexDailyLimitResetOutput values.
+// You can construct a concrete instance of `GetLogsIndexesLogsIndexDailyLimitResetInput` via:
+//
+//	GetLogsIndexesLogsIndexDailyLimitResetArgs{...}
+type GetLogsIndexesLogsIndexDailyLimitResetInput interface {
+	pulumi.Input
+
+	ToGetLogsIndexesLogsIndexDailyLimitResetOutput() GetLogsIndexesLogsIndexDailyLimitResetOutput
+	ToGetLogsIndexesLogsIndexDailyLimitResetOutputWithContext(context.Context) GetLogsIndexesLogsIndexDailyLimitResetOutput
+}
+
+type GetLogsIndexesLogsIndexDailyLimitResetArgs struct {
+	// String in `HH:00` format representing the time of day the daily limit should be reset. The hours between 00 and 23 (inclusive).
+	ResetTime pulumi.StringInput `pulumi:"resetTime"`
+	// String in `(-|+)HH:00` format representing the UTC offset to apply to the given reset time. The hours between -12 and +14 (inclusive).
+	ResetUtcOffset pulumi.StringInput `pulumi:"resetUtcOffset"`
+}
+
+func (GetLogsIndexesLogsIndexDailyLimitResetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogsIndexesLogsIndexDailyLimitReset)(nil)).Elem()
+}
+
+func (i GetLogsIndexesLogsIndexDailyLimitResetArgs) ToGetLogsIndexesLogsIndexDailyLimitResetOutput() GetLogsIndexesLogsIndexDailyLimitResetOutput {
+	return i.ToGetLogsIndexesLogsIndexDailyLimitResetOutputWithContext(context.Background())
+}
+
+func (i GetLogsIndexesLogsIndexDailyLimitResetArgs) ToGetLogsIndexesLogsIndexDailyLimitResetOutputWithContext(ctx context.Context) GetLogsIndexesLogsIndexDailyLimitResetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogsIndexesLogsIndexDailyLimitResetOutput)
+}
+
+// GetLogsIndexesLogsIndexDailyLimitResetArrayInput is an input type that accepts GetLogsIndexesLogsIndexDailyLimitResetArray and GetLogsIndexesLogsIndexDailyLimitResetArrayOutput values.
+// You can construct a concrete instance of `GetLogsIndexesLogsIndexDailyLimitResetArrayInput` via:
+//
+//	GetLogsIndexesLogsIndexDailyLimitResetArray{ GetLogsIndexesLogsIndexDailyLimitResetArgs{...} }
+type GetLogsIndexesLogsIndexDailyLimitResetArrayInput interface {
+	pulumi.Input
+
+	ToGetLogsIndexesLogsIndexDailyLimitResetArrayOutput() GetLogsIndexesLogsIndexDailyLimitResetArrayOutput
+	ToGetLogsIndexesLogsIndexDailyLimitResetArrayOutputWithContext(context.Context) GetLogsIndexesLogsIndexDailyLimitResetArrayOutput
+}
+
+type GetLogsIndexesLogsIndexDailyLimitResetArray []GetLogsIndexesLogsIndexDailyLimitResetInput
+
+func (GetLogsIndexesLogsIndexDailyLimitResetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLogsIndexesLogsIndexDailyLimitReset)(nil)).Elem()
+}
+
+func (i GetLogsIndexesLogsIndexDailyLimitResetArray) ToGetLogsIndexesLogsIndexDailyLimitResetArrayOutput() GetLogsIndexesLogsIndexDailyLimitResetArrayOutput {
+	return i.ToGetLogsIndexesLogsIndexDailyLimitResetArrayOutputWithContext(context.Background())
+}
+
+func (i GetLogsIndexesLogsIndexDailyLimitResetArray) ToGetLogsIndexesLogsIndexDailyLimitResetArrayOutputWithContext(ctx context.Context) GetLogsIndexesLogsIndexDailyLimitResetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogsIndexesLogsIndexDailyLimitResetArrayOutput)
+}
+
+type GetLogsIndexesLogsIndexDailyLimitResetOutput struct{ *pulumi.OutputState }
+
+func (GetLogsIndexesLogsIndexDailyLimitResetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogsIndexesLogsIndexDailyLimitReset)(nil)).Elem()
+}
+
+func (o GetLogsIndexesLogsIndexDailyLimitResetOutput) ToGetLogsIndexesLogsIndexDailyLimitResetOutput() GetLogsIndexesLogsIndexDailyLimitResetOutput {
+	return o
+}
+
+func (o GetLogsIndexesLogsIndexDailyLimitResetOutput) ToGetLogsIndexesLogsIndexDailyLimitResetOutputWithContext(ctx context.Context) GetLogsIndexesLogsIndexDailyLimitResetOutput {
+	return o
+}
+
+// String in `HH:00` format representing the time of day the daily limit should be reset. The hours between 00 and 23 (inclusive).
+func (o GetLogsIndexesLogsIndexDailyLimitResetOutput) ResetTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLogsIndexesLogsIndexDailyLimitReset) string { return v.ResetTime }).(pulumi.StringOutput)
+}
+
+// String in `(-|+)HH:00` format representing the UTC offset to apply to the given reset time. The hours between -12 and +14 (inclusive).
+func (o GetLogsIndexesLogsIndexDailyLimitResetOutput) ResetUtcOffset() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLogsIndexesLogsIndexDailyLimitReset) string { return v.ResetUtcOffset }).(pulumi.StringOutput)
+}
+
+type GetLogsIndexesLogsIndexDailyLimitResetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLogsIndexesLogsIndexDailyLimitResetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLogsIndexesLogsIndexDailyLimitReset)(nil)).Elem()
+}
+
+func (o GetLogsIndexesLogsIndexDailyLimitResetArrayOutput) ToGetLogsIndexesLogsIndexDailyLimitResetArrayOutput() GetLogsIndexesLogsIndexDailyLimitResetArrayOutput {
+	return o
+}
+
+func (o GetLogsIndexesLogsIndexDailyLimitResetArrayOutput) ToGetLogsIndexesLogsIndexDailyLimitResetArrayOutputWithContext(ctx context.Context) GetLogsIndexesLogsIndexDailyLimitResetArrayOutput {
+	return o
+}
+
+func (o GetLogsIndexesLogsIndexDailyLimitResetArrayOutput) Index(i pulumi.IntInput) GetLogsIndexesLogsIndexDailyLimitResetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLogsIndexesLogsIndexDailyLimitReset {
+		return vs[0].([]GetLogsIndexesLogsIndexDailyLimitReset)[vs[1].(int)]
+	}).(GetLogsIndexesLogsIndexDailyLimitResetOutput)
+}
+
+type GetLogsIndexesLogsIndexExclusionFilter struct {
+	Filters []GetLogsIndexesLogsIndexExclusionFilterFilter `pulumi:"filters"`
+	// A boolean stating if the exclusion is active or not.
+	IsEnabled bool `pulumi:"isEnabled"`
+	// The name of the exclusion filter.
+	Name string `pulumi:"name"`
+}
+
+// GetLogsIndexesLogsIndexExclusionFilterInput is an input type that accepts GetLogsIndexesLogsIndexExclusionFilterArgs and GetLogsIndexesLogsIndexExclusionFilterOutput values.
+// You can construct a concrete instance of `GetLogsIndexesLogsIndexExclusionFilterInput` via:
+//
+//	GetLogsIndexesLogsIndexExclusionFilterArgs{...}
+type GetLogsIndexesLogsIndexExclusionFilterInput interface {
+	pulumi.Input
+
+	ToGetLogsIndexesLogsIndexExclusionFilterOutput() GetLogsIndexesLogsIndexExclusionFilterOutput
+	ToGetLogsIndexesLogsIndexExclusionFilterOutputWithContext(context.Context) GetLogsIndexesLogsIndexExclusionFilterOutput
+}
+
+type GetLogsIndexesLogsIndexExclusionFilterArgs struct {
+	Filters GetLogsIndexesLogsIndexExclusionFilterFilterArrayInput `pulumi:"filters"`
+	// A boolean stating if the exclusion is active or not.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// The name of the exclusion filter.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetLogsIndexesLogsIndexExclusionFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogsIndexesLogsIndexExclusionFilter)(nil)).Elem()
+}
+
+func (i GetLogsIndexesLogsIndexExclusionFilterArgs) ToGetLogsIndexesLogsIndexExclusionFilterOutput() GetLogsIndexesLogsIndexExclusionFilterOutput {
+	return i.ToGetLogsIndexesLogsIndexExclusionFilterOutputWithContext(context.Background())
+}
+
+func (i GetLogsIndexesLogsIndexExclusionFilterArgs) ToGetLogsIndexesLogsIndexExclusionFilterOutputWithContext(ctx context.Context) GetLogsIndexesLogsIndexExclusionFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogsIndexesLogsIndexExclusionFilterOutput)
+}
+
+// GetLogsIndexesLogsIndexExclusionFilterArrayInput is an input type that accepts GetLogsIndexesLogsIndexExclusionFilterArray and GetLogsIndexesLogsIndexExclusionFilterArrayOutput values.
+// You can construct a concrete instance of `GetLogsIndexesLogsIndexExclusionFilterArrayInput` via:
+//
+//	GetLogsIndexesLogsIndexExclusionFilterArray{ GetLogsIndexesLogsIndexExclusionFilterArgs{...} }
+type GetLogsIndexesLogsIndexExclusionFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetLogsIndexesLogsIndexExclusionFilterArrayOutput() GetLogsIndexesLogsIndexExclusionFilterArrayOutput
+	ToGetLogsIndexesLogsIndexExclusionFilterArrayOutputWithContext(context.Context) GetLogsIndexesLogsIndexExclusionFilterArrayOutput
+}
+
+type GetLogsIndexesLogsIndexExclusionFilterArray []GetLogsIndexesLogsIndexExclusionFilterInput
+
+func (GetLogsIndexesLogsIndexExclusionFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLogsIndexesLogsIndexExclusionFilter)(nil)).Elem()
+}
+
+func (i GetLogsIndexesLogsIndexExclusionFilterArray) ToGetLogsIndexesLogsIndexExclusionFilterArrayOutput() GetLogsIndexesLogsIndexExclusionFilterArrayOutput {
+	return i.ToGetLogsIndexesLogsIndexExclusionFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetLogsIndexesLogsIndexExclusionFilterArray) ToGetLogsIndexesLogsIndexExclusionFilterArrayOutputWithContext(ctx context.Context) GetLogsIndexesLogsIndexExclusionFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogsIndexesLogsIndexExclusionFilterArrayOutput)
+}
+
+type GetLogsIndexesLogsIndexExclusionFilterOutput struct{ *pulumi.OutputState }
+
+func (GetLogsIndexesLogsIndexExclusionFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogsIndexesLogsIndexExclusionFilter)(nil)).Elem()
+}
+
+func (o GetLogsIndexesLogsIndexExclusionFilterOutput) ToGetLogsIndexesLogsIndexExclusionFilterOutput() GetLogsIndexesLogsIndexExclusionFilterOutput {
+	return o
+}
+
+func (o GetLogsIndexesLogsIndexExclusionFilterOutput) ToGetLogsIndexesLogsIndexExclusionFilterOutputWithContext(ctx context.Context) GetLogsIndexesLogsIndexExclusionFilterOutput {
+	return o
+}
+
+func (o GetLogsIndexesLogsIndexExclusionFilterOutput) Filters() GetLogsIndexesLogsIndexExclusionFilterFilterArrayOutput {
+	return o.ApplyT(func(v GetLogsIndexesLogsIndexExclusionFilter) []GetLogsIndexesLogsIndexExclusionFilterFilter {
+		return v.Filters
+	}).(GetLogsIndexesLogsIndexExclusionFilterFilterArrayOutput)
+}
+
+// A boolean stating if the exclusion is active or not.
+func (o GetLogsIndexesLogsIndexExclusionFilterOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLogsIndexesLogsIndexExclusionFilter) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The name of the exclusion filter.
+func (o GetLogsIndexesLogsIndexExclusionFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLogsIndexesLogsIndexExclusionFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetLogsIndexesLogsIndexExclusionFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLogsIndexesLogsIndexExclusionFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLogsIndexesLogsIndexExclusionFilter)(nil)).Elem()
+}
+
+func (o GetLogsIndexesLogsIndexExclusionFilterArrayOutput) ToGetLogsIndexesLogsIndexExclusionFilterArrayOutput() GetLogsIndexesLogsIndexExclusionFilterArrayOutput {
+	return o
+}
+
+func (o GetLogsIndexesLogsIndexExclusionFilterArrayOutput) ToGetLogsIndexesLogsIndexExclusionFilterArrayOutputWithContext(ctx context.Context) GetLogsIndexesLogsIndexExclusionFilterArrayOutput {
+	return o
+}
+
+func (o GetLogsIndexesLogsIndexExclusionFilterArrayOutput) Index(i pulumi.IntInput) GetLogsIndexesLogsIndexExclusionFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLogsIndexesLogsIndexExclusionFilter {
+		return vs[0].([]GetLogsIndexesLogsIndexExclusionFilter)[vs[1].(int)]
+	}).(GetLogsIndexesLogsIndexExclusionFilterOutput)
+}
+
 type GetLogsIndexesLogsIndexExclusionFilterFilter struct {
 	// Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
 	Query string `pulumi:"query"`
@@ -3681,12 +4228,12 @@ func (o GetRolesRoleArrayOutput) Index(i pulumi.IntInput) GetRolesRoleOutput {
 }
 
 type GetRumRetentionFiltersRetentionFilter struct {
-	Enabled    bool   `pulumi:"enabled"`
-	EventType  string `pulumi:"eventType"`
-	Id         string `pulumi:"id"`
-	Name       string `pulumi:"name"`
-	Query      string `pulumi:"query"`
-	SampleRate int    `pulumi:"sampleRate"`
+	Enabled    bool    `pulumi:"enabled"`
+	EventType  string  `pulumi:"eventType"`
+	Id         string  `pulumi:"id"`
+	Name       string  `pulumi:"name"`
+	Query      string  `pulumi:"query"`
+	SampleRate float64 `pulumi:"sampleRate"`
 }
 
 // GetRumRetentionFiltersRetentionFilterInput is an input type that accepts GetRumRetentionFiltersRetentionFilterArgs and GetRumRetentionFiltersRetentionFilterOutput values.
@@ -3701,12 +4248,12 @@ type GetRumRetentionFiltersRetentionFilterInput interface {
 }
 
 type GetRumRetentionFiltersRetentionFilterArgs struct {
-	Enabled    pulumi.BoolInput   `pulumi:"enabled"`
-	EventType  pulumi.StringInput `pulumi:"eventType"`
-	Id         pulumi.StringInput `pulumi:"id"`
-	Name       pulumi.StringInput `pulumi:"name"`
-	Query      pulumi.StringInput `pulumi:"query"`
-	SampleRate pulumi.IntInput    `pulumi:"sampleRate"`
+	Enabled    pulumi.BoolInput    `pulumi:"enabled"`
+	EventType  pulumi.StringInput  `pulumi:"eventType"`
+	Id         pulumi.StringInput  `pulumi:"id"`
+	Name       pulumi.StringInput  `pulumi:"name"`
+	Query      pulumi.StringInput  `pulumi:"query"`
+	SampleRate pulumi.Float64Input `pulumi:"sampleRate"`
 }
 
 func (GetRumRetentionFiltersRetentionFilterArgs) ElementType() reflect.Type {
@@ -3780,8 +4327,8 @@ func (o GetRumRetentionFiltersRetentionFilterOutput) Query() pulumi.StringOutput
 	return o.ApplyT(func(v GetRumRetentionFiltersRetentionFilter) string { return v.Query }).(pulumi.StringOutput)
 }
 
-func (o GetRumRetentionFiltersRetentionFilterOutput) SampleRate() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRumRetentionFiltersRetentionFilter) int { return v.SampleRate }).(pulumi.IntOutput)
+func (o GetRumRetentionFiltersRetentionFilterOutput) SampleRate() pulumi.Float64Output {
+	return o.ApplyT(func(v GetRumRetentionFiltersRetentionFilter) float64 { return v.SampleRate }).(pulumi.Float64Output)
 }
 
 type GetRumRetentionFiltersRetentionFilterArrayOutput struct{ *pulumi.OutputState }
@@ -3802,6 +4349,130 @@ func (o GetRumRetentionFiltersRetentionFilterArrayOutput) Index(i pulumi.IntInpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRumRetentionFiltersRetentionFilter {
 		return vs[0].([]GetRumRetentionFiltersRetentionFilter)[vs[1].(int)]
 	}).(GetRumRetentionFiltersRetentionFilterOutput)
+}
+
+type GetSecurityMonitoringCriticalAssetsCriticalAsset struct {
+	Enabled   bool     `pulumi:"enabled"`
+	Id        string   `pulumi:"id"`
+	Query     string   `pulumi:"query"`
+	RuleQuery string   `pulumi:"ruleQuery"`
+	Severity  string   `pulumi:"severity"`
+	Tags      []string `pulumi:"tags"`
+}
+
+// GetSecurityMonitoringCriticalAssetsCriticalAssetInput is an input type that accepts GetSecurityMonitoringCriticalAssetsCriticalAssetArgs and GetSecurityMonitoringCriticalAssetsCriticalAssetOutput values.
+// You can construct a concrete instance of `GetSecurityMonitoringCriticalAssetsCriticalAssetInput` via:
+//
+//	GetSecurityMonitoringCriticalAssetsCriticalAssetArgs{...}
+type GetSecurityMonitoringCriticalAssetsCriticalAssetInput interface {
+	pulumi.Input
+
+	ToGetSecurityMonitoringCriticalAssetsCriticalAssetOutput() GetSecurityMonitoringCriticalAssetsCriticalAssetOutput
+	ToGetSecurityMonitoringCriticalAssetsCriticalAssetOutputWithContext(context.Context) GetSecurityMonitoringCriticalAssetsCriticalAssetOutput
+}
+
+type GetSecurityMonitoringCriticalAssetsCriticalAssetArgs struct {
+	Enabled   pulumi.BoolInput        `pulumi:"enabled"`
+	Id        pulumi.StringInput      `pulumi:"id"`
+	Query     pulumi.StringInput      `pulumi:"query"`
+	RuleQuery pulumi.StringInput      `pulumi:"ruleQuery"`
+	Severity  pulumi.StringInput      `pulumi:"severity"`
+	Tags      pulumi.StringArrayInput `pulumi:"tags"`
+}
+
+func (GetSecurityMonitoringCriticalAssetsCriticalAssetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityMonitoringCriticalAssetsCriticalAsset)(nil)).Elem()
+}
+
+func (i GetSecurityMonitoringCriticalAssetsCriticalAssetArgs) ToGetSecurityMonitoringCriticalAssetsCriticalAssetOutput() GetSecurityMonitoringCriticalAssetsCriticalAssetOutput {
+	return i.ToGetSecurityMonitoringCriticalAssetsCriticalAssetOutputWithContext(context.Background())
+}
+
+func (i GetSecurityMonitoringCriticalAssetsCriticalAssetArgs) ToGetSecurityMonitoringCriticalAssetsCriticalAssetOutputWithContext(ctx context.Context) GetSecurityMonitoringCriticalAssetsCriticalAssetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityMonitoringCriticalAssetsCriticalAssetOutput)
+}
+
+// GetSecurityMonitoringCriticalAssetsCriticalAssetArrayInput is an input type that accepts GetSecurityMonitoringCriticalAssetsCriticalAssetArray and GetSecurityMonitoringCriticalAssetsCriticalAssetArrayOutput values.
+// You can construct a concrete instance of `GetSecurityMonitoringCriticalAssetsCriticalAssetArrayInput` via:
+//
+//	GetSecurityMonitoringCriticalAssetsCriticalAssetArray{ GetSecurityMonitoringCriticalAssetsCriticalAssetArgs{...} }
+type GetSecurityMonitoringCriticalAssetsCriticalAssetArrayInput interface {
+	pulumi.Input
+
+	ToGetSecurityMonitoringCriticalAssetsCriticalAssetArrayOutput() GetSecurityMonitoringCriticalAssetsCriticalAssetArrayOutput
+	ToGetSecurityMonitoringCriticalAssetsCriticalAssetArrayOutputWithContext(context.Context) GetSecurityMonitoringCriticalAssetsCriticalAssetArrayOutput
+}
+
+type GetSecurityMonitoringCriticalAssetsCriticalAssetArray []GetSecurityMonitoringCriticalAssetsCriticalAssetInput
+
+func (GetSecurityMonitoringCriticalAssetsCriticalAssetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityMonitoringCriticalAssetsCriticalAsset)(nil)).Elem()
+}
+
+func (i GetSecurityMonitoringCriticalAssetsCriticalAssetArray) ToGetSecurityMonitoringCriticalAssetsCriticalAssetArrayOutput() GetSecurityMonitoringCriticalAssetsCriticalAssetArrayOutput {
+	return i.ToGetSecurityMonitoringCriticalAssetsCriticalAssetArrayOutputWithContext(context.Background())
+}
+
+func (i GetSecurityMonitoringCriticalAssetsCriticalAssetArray) ToGetSecurityMonitoringCriticalAssetsCriticalAssetArrayOutputWithContext(ctx context.Context) GetSecurityMonitoringCriticalAssetsCriticalAssetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityMonitoringCriticalAssetsCriticalAssetArrayOutput)
+}
+
+type GetSecurityMonitoringCriticalAssetsCriticalAssetOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityMonitoringCriticalAssetsCriticalAssetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityMonitoringCriticalAssetsCriticalAsset)(nil)).Elem()
+}
+
+func (o GetSecurityMonitoringCriticalAssetsCriticalAssetOutput) ToGetSecurityMonitoringCriticalAssetsCriticalAssetOutput() GetSecurityMonitoringCriticalAssetsCriticalAssetOutput {
+	return o
+}
+
+func (o GetSecurityMonitoringCriticalAssetsCriticalAssetOutput) ToGetSecurityMonitoringCriticalAssetsCriticalAssetOutputWithContext(ctx context.Context) GetSecurityMonitoringCriticalAssetsCriticalAssetOutput {
+	return o
+}
+
+func (o GetSecurityMonitoringCriticalAssetsCriticalAssetOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringCriticalAssetsCriticalAsset) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o GetSecurityMonitoringCriticalAssetsCriticalAssetOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringCriticalAssetsCriticalAsset) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetSecurityMonitoringCriticalAssetsCriticalAssetOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringCriticalAssetsCriticalAsset) string { return v.Query }).(pulumi.StringOutput)
+}
+
+func (o GetSecurityMonitoringCriticalAssetsCriticalAssetOutput) RuleQuery() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringCriticalAssetsCriticalAsset) string { return v.RuleQuery }).(pulumi.StringOutput)
+}
+
+func (o GetSecurityMonitoringCriticalAssetsCriticalAssetOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringCriticalAssetsCriticalAsset) string { return v.Severity }).(pulumi.StringOutput)
+}
+
+func (o GetSecurityMonitoringCriticalAssetsCriticalAssetOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringCriticalAssetsCriticalAsset) []string { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+type GetSecurityMonitoringCriticalAssetsCriticalAssetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityMonitoringCriticalAssetsCriticalAssetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityMonitoringCriticalAssetsCriticalAsset)(nil)).Elem()
+}
+
+func (o GetSecurityMonitoringCriticalAssetsCriticalAssetArrayOutput) ToGetSecurityMonitoringCriticalAssetsCriticalAssetArrayOutput() GetSecurityMonitoringCriticalAssetsCriticalAssetArrayOutput {
+	return o
+}
+
+func (o GetSecurityMonitoringCriticalAssetsCriticalAssetArrayOutput) ToGetSecurityMonitoringCriticalAssetsCriticalAssetArrayOutputWithContext(ctx context.Context) GetSecurityMonitoringCriticalAssetsCriticalAssetArrayOutput {
+	return o
+}
+
+func (o GetSecurityMonitoringCriticalAssetsCriticalAssetArrayOutput) Index(i pulumi.IntInput) GetSecurityMonitoringCriticalAssetsCriticalAssetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecurityMonitoringCriticalAssetsCriticalAsset {
+		return vs[0].([]GetSecurityMonitoringCriticalAssetsCriticalAsset)[vs[1].(int)]
+	}).(GetSecurityMonitoringCriticalAssetsCriticalAssetOutput)
 }
 
 type GetSecurityMonitoringFiltersFilter struct {
@@ -10533,6 +11204,15 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHostsHostListMetricsInput)(nil)).Elem(), GetHostsHostListMetricsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentNotificationRuleConditionInput)(nil)).Elem(), GetIncidentNotificationRuleConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentNotificationRuleConditionArrayInput)(nil)).Elem(), GetIncidentNotificationRuleConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogsIndexesLogsIndexInput)(nil)).Elem(), GetLogsIndexesLogsIndexArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogsIndexesLogsIndexArrayInput)(nil)).Elem(), GetLogsIndexesLogsIndexArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogsIndexesLogsIndexDailyLimitResetInput)(nil)).Elem(), GetLogsIndexesLogsIndexDailyLimitResetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogsIndexesLogsIndexDailyLimitResetArrayInput)(nil)).Elem(), GetLogsIndexesLogsIndexDailyLimitResetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogsIndexesLogsIndexExclusionFilterInput)(nil)).Elem(), GetLogsIndexesLogsIndexExclusionFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogsIndexesLogsIndexExclusionFilterArrayInput)(nil)).Elem(), GetLogsIndexesLogsIndexExclusionFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogsIndexesLogsIndexExclusionFilterFilterInput)(nil)).Elem(), GetLogsIndexesLogsIndexExclusionFilterFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogsIndexesLogsIndexExclusionFilterFilterArrayInput)(nil)).Elem(), GetLogsIndexesLogsIndexExclusionFilterFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogsIndexesLogsIndexFilterInput)(nil)).Elem(), GetLogsIndexesLogsIndexFilterArgs{})
@@ -10592,6 +11272,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRolesRoleArrayInput)(nil)).Elem(), GetRolesRoleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRumRetentionFiltersRetentionFilterInput)(nil)).Elem(), GetRumRetentionFiltersRetentionFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRumRetentionFiltersRetentionFilterArrayInput)(nil)).Elem(), GetRumRetentionFiltersRetentionFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringCriticalAssetsCriticalAssetInput)(nil)).Elem(), GetSecurityMonitoringCriticalAssetsCriticalAssetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringCriticalAssetsCriticalAssetArrayInput)(nil)).Elem(), GetSecurityMonitoringCriticalAssetsCriticalAssetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringFiltersFilterInput)(nil)).Elem(), GetSecurityMonitoringFiltersFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringFiltersFilterArrayInput)(nil)).Elem(), GetSecurityMonitoringFiltersFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringFiltersFilterExclusionFilterInput)(nil)).Elem(), GetSecurityMonitoringFiltersFilterExclusionFilterArgs{})
@@ -10682,6 +11364,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamArrayInput)(nil)).Elem(), GetTeamsTeamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
+	pulumi.RegisterOutputType(GetHostsHostListMetricsOutput{})
+	pulumi.RegisterOutputType(GetIncidentNotificationRuleConditionOutput{})
+	pulumi.RegisterOutputType(GetIncidentNotificationRuleConditionArrayOutput{})
+	pulumi.RegisterOutputType(GetLogsIndexesLogsIndexOutput{})
+	pulumi.RegisterOutputType(GetLogsIndexesLogsIndexArrayOutput{})
+	pulumi.RegisterOutputType(GetLogsIndexesLogsIndexDailyLimitResetOutput{})
+	pulumi.RegisterOutputType(GetLogsIndexesLogsIndexDailyLimitResetArrayOutput{})
+	pulumi.RegisterOutputType(GetLogsIndexesLogsIndexExclusionFilterOutput{})
+	pulumi.RegisterOutputType(GetLogsIndexesLogsIndexExclusionFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetLogsIndexesLogsIndexExclusionFilterFilterOutput{})
 	pulumi.RegisterOutputType(GetLogsIndexesLogsIndexExclusionFilterFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetLogsIndexesLogsIndexFilterOutput{})
@@ -10741,6 +11432,8 @@ func init() {
 	pulumi.RegisterOutputType(GetRolesRoleArrayOutput{})
 	pulumi.RegisterOutputType(GetRumRetentionFiltersRetentionFilterOutput{})
 	pulumi.RegisterOutputType(GetRumRetentionFiltersRetentionFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetSecurityMonitoringCriticalAssetsCriticalAssetOutput{})
+	pulumi.RegisterOutputType(GetSecurityMonitoringCriticalAssetsCriticalAssetArrayOutput{})
 	pulumi.RegisterOutputType(GetSecurityMonitoringFiltersFilterOutput{})
 	pulumi.RegisterOutputType(GetSecurityMonitoringFiltersFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSecurityMonitoringFiltersFilterExclusionFilterOutput{})

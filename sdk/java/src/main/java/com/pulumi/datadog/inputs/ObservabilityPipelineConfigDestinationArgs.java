@@ -14,9 +14,9 @@ import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationCrowdstri
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationDatadogLogArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationDatadogMetricArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationElasticsearchArgs;
-import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationGoogleChronicleArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationGooglePubsubArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationGoogleSecopArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationHttpClientArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationKafkaArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationMicrosoftSentinelArgs;
@@ -176,21 +176,6 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
     }
 
     /**
-     * The `googleChronicle` destination sends logs to Google Chronicle.
-     * 
-     */
-    @Import(name="googleChronicles")
-    private @Nullable Output<List<ObservabilityPipelineConfigDestinationGoogleChronicleArgs>> googleChronicles;
-
-    /**
-     * @return The `googleChronicle` destination sends logs to Google Chronicle.
-     * 
-     */
-    public Optional<Output<List<ObservabilityPipelineConfigDestinationGoogleChronicleArgs>>> googleChronicles() {
-        return Optional.ofNullable(this.googleChronicles);
-    }
-
-    /**
      * The `googleCloudStorage` destination stores logs in a Google Cloud Storage (GCS) bucket.
      * 
      */
@@ -218,6 +203,21 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
      */
     public Optional<Output<List<ObservabilityPipelineConfigDestinationGooglePubsubArgs>>> googlePubsubs() {
         return Optional.ofNullable(this.googlePubsubs);
+    }
+
+    /**
+     * The `googleChronicle` destination sends logs to Google SecOps.
+     * 
+     */
+    @Import(name="googleSecops")
+    private @Nullable Output<List<ObservabilityPipelineConfigDestinationGoogleSecopArgs>> googleSecops;
+
+    /**
+     * @return The `googleChronicle` destination sends logs to Google SecOps.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigDestinationGoogleSecopArgs>>> googleSecops() {
+        return Optional.ofNullable(this.googleSecops);
     }
 
     /**
@@ -427,9 +427,9 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
         this.datadogLogs = $.datadogLogs;
         this.datadogMetrics = $.datadogMetrics;
         this.elasticsearches = $.elasticsearches;
-        this.googleChronicles = $.googleChronicles;
         this.googleCloudStorages = $.googleCloudStorages;
         this.googlePubsubs = $.googlePubsubs;
+        this.googleSecops = $.googleSecops;
         this.httpClients = $.httpClients;
         this.id = $.id;
         this.inputs = $.inputs;
@@ -733,37 +733,6 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
         }
 
         /**
-         * @param googleChronicles The `googleChronicle` destination sends logs to Google Chronicle.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder googleChronicles(@Nullable Output<List<ObservabilityPipelineConfigDestinationGoogleChronicleArgs>> googleChronicles) {
-            $.googleChronicles = googleChronicles;
-            return this;
-        }
-
-        /**
-         * @param googleChronicles The `googleChronicle` destination sends logs to Google Chronicle.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder googleChronicles(List<ObservabilityPipelineConfigDestinationGoogleChronicleArgs> googleChronicles) {
-            return googleChronicles(Output.of(googleChronicles));
-        }
-
-        /**
-         * @param googleChronicles The `googleChronicle` destination sends logs to Google Chronicle.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder googleChronicles(ObservabilityPipelineConfigDestinationGoogleChronicleArgs... googleChronicles) {
-            return googleChronicles(List.of(googleChronicles));
-        }
-
-        /**
          * @param googleCloudStorages The `googleCloudStorage` destination stores logs in a Google Cloud Storage (GCS) bucket.
          * 
          * @return builder
@@ -823,6 +792,37 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
          */
         public Builder googlePubsubs(ObservabilityPipelineConfigDestinationGooglePubsubArgs... googlePubsubs) {
             return googlePubsubs(List.of(googlePubsubs));
+        }
+
+        /**
+         * @param googleSecops The `googleChronicle` destination sends logs to Google SecOps.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder googleSecops(@Nullable Output<List<ObservabilityPipelineConfigDestinationGoogleSecopArgs>> googleSecops) {
+            $.googleSecops = googleSecops;
+            return this;
+        }
+
+        /**
+         * @param googleSecops The `googleChronicle` destination sends logs to Google SecOps.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder googleSecops(List<ObservabilityPipelineConfigDestinationGoogleSecopArgs> googleSecops) {
+            return googleSecops(Output.of(googleSecops));
+        }
+
+        /**
+         * @param googleSecops The `googleChronicle` destination sends logs to Google SecOps.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder googleSecops(ObservabilityPipelineConfigDestinationGoogleSecopArgs... googleSecops) {
+            return googleSecops(List.of(googleSecops));
         }
 
         /**

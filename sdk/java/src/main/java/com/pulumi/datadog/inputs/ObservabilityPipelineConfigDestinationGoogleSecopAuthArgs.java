@@ -10,9 +10,9 @@ import java.lang.String;
 import java.util.Objects;
 
 
-public final class ObservabilityPipelineConfigDestinationGoogleChronicleAuthArgs extends com.pulumi.resources.ResourceArgs {
+public final class ObservabilityPipelineConfigDestinationGoogleSecopAuthArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final ObservabilityPipelineConfigDestinationGoogleChronicleAuthArgs Empty = new ObservabilityPipelineConfigDestinationGoogleChronicleAuthArgs();
+    public static final ObservabilityPipelineConfigDestinationGoogleSecopAuthArgs Empty = new ObservabilityPipelineConfigDestinationGoogleSecopAuthArgs();
 
     /**
      * Path to the GCP service account key file.
@@ -29,28 +29,28 @@ public final class ObservabilityPipelineConfigDestinationGoogleChronicleAuthArgs
         return this.credentialsFile;
     }
 
-    private ObservabilityPipelineConfigDestinationGoogleChronicleAuthArgs() {}
+    private ObservabilityPipelineConfigDestinationGoogleSecopAuthArgs() {}
 
-    private ObservabilityPipelineConfigDestinationGoogleChronicleAuthArgs(ObservabilityPipelineConfigDestinationGoogleChronicleAuthArgs $) {
+    private ObservabilityPipelineConfigDestinationGoogleSecopAuthArgs(ObservabilityPipelineConfigDestinationGoogleSecopAuthArgs $) {
         this.credentialsFile = $.credentialsFile;
     }
 
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(ObservabilityPipelineConfigDestinationGoogleChronicleAuthArgs defaults) {
+    public static Builder builder(ObservabilityPipelineConfigDestinationGoogleSecopAuthArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private ObservabilityPipelineConfigDestinationGoogleChronicleAuthArgs $;
+        private ObservabilityPipelineConfigDestinationGoogleSecopAuthArgs $;
 
         public Builder() {
-            $ = new ObservabilityPipelineConfigDestinationGoogleChronicleAuthArgs();
+            $ = new ObservabilityPipelineConfigDestinationGoogleSecopAuthArgs();
         }
 
-        public Builder(ObservabilityPipelineConfigDestinationGoogleChronicleAuthArgs defaults) {
-            $ = new ObservabilityPipelineConfigDestinationGoogleChronicleAuthArgs(Objects.requireNonNull(defaults));
+        public Builder(ObservabilityPipelineConfigDestinationGoogleSecopAuthArgs defaults) {
+            $ = new ObservabilityPipelineConfigDestinationGoogleSecopAuthArgs(Objects.requireNonNull(defaults));
         }
 
         /**
@@ -74,9 +74,9 @@ public final class ObservabilityPipelineConfigDestinationGoogleChronicleAuthArgs
             return credentialsFile(Output.of(credentialsFile));
         }
 
-        public ObservabilityPipelineConfigDestinationGoogleChronicleAuthArgs build() {
+        public ObservabilityPipelineConfigDestinationGoogleSecopAuthArgs build() {
             if ($.credentialsFile == null) {
-                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationGoogleChronicleAuthArgs", "credentialsFile");
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationGoogleSecopAuthArgs", "credentialsFile");
             }
             return $;
         }

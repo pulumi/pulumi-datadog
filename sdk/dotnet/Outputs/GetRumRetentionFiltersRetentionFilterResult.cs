@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly string Id;
         public readonly string Name;
         public readonly string Query;
-        public readonly int SampleRate;
+        public readonly double SampleRate;
 
         [OutputConstructor]
         private GetRumRetentionFiltersRetentionFilterResult(
@@ -32,7 +32,7 @@ namespace Pulumi.Datadog.Outputs
 
             string query,
 
-            int sampleRate)
+            double sampleRate)
         {
             Enabled = enabled;
             EventType = eventType;

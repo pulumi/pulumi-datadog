@@ -12,6 +12,18 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ObservabilityPipelineConfigDestinationDatadogLogGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("routes")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationDatadogLogRouteGetArgs>? _routes;
+
+        /// <summary>
+        /// A list of routing rules that forward matching logs to Datadog using dedicated API keys.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationDatadogLogRouteGetArgs> Routes
+        {
+            get => _routes ?? (_routes = new InputList<Inputs.ObservabilityPipelineConfigDestinationDatadogLogRouteGetArgs>());
+            set => _routes = value;
+        }
+
         public ObservabilityPipelineConfigDestinationDatadogLogGetArgs()
         {
         }

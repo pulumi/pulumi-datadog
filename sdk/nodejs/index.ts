@@ -150,6 +150,16 @@ export type Dataset = import("./dataset").Dataset;
 export const Dataset: typeof import("./dataset").Dataset = null as any;
 utilities.lazyLoad(exports, ["Dataset"], () => require("./dataset"));
 
+export { DatastoreArgs, DatastoreState } from "./datastore";
+export type Datastore = import("./datastore").Datastore;
+export const Datastore: typeof import("./datastore").Datastore = null as any;
+utilities.lazyLoad(exports, ["Datastore"], () => require("./datastore"));
+
+export { DatastoreItemArgs, DatastoreItemState } from "./datastoreItem";
+export type DatastoreItem = import("./datastoreItem").DatastoreItem;
+export const DatastoreItem: typeof import("./datastoreItem").DatastoreItem = null as any;
+utilities.lazyLoad(exports, ["DatastoreItem"], () => require("./datastoreItem"));
+
 export { DeploymentGateArgs, DeploymentGateState } from "./deploymentGate";
 export type DeploymentGate = import("./deploymentGate").DeploymentGate;
 export const DeploymentGate: typeof import("./deploymentGate").DeploymentGate = null as any;
@@ -244,6 +254,16 @@ export { GetDashboardListArgs, GetDashboardListResult, GetDashboardListOutputArg
 export const getDashboardList: typeof import("./getDashboardList").getDashboardList = null as any;
 export const getDashboardListOutput: typeof import("./getDashboardList").getDashboardListOutput = null as any;
 utilities.lazyLoad(exports, ["getDashboardList","getDashboardListOutput"], () => require("./getDashboardList"));
+
+export { GetDatastoreArgs, GetDatastoreResult, GetDatastoreOutputArgs } from "./getDatastore";
+export const getDatastore: typeof import("./getDatastore").getDatastore = null as any;
+export const getDatastoreOutput: typeof import("./getDatastore").getDatastoreOutput = null as any;
+utilities.lazyLoad(exports, ["getDatastore","getDatastoreOutput"], () => require("./getDatastore"));
+
+export { GetDatastoreItemArgs, GetDatastoreItemResult, GetDatastoreItemOutputArgs } from "./getDatastoreItem";
+export const getDatastoreItem: typeof import("./getDatastoreItem").getDatastoreItem = null as any;
+export const getDatastoreItemOutput: typeof import("./getDatastoreItem").getDatastoreItemOutput = null as any;
+utilities.lazyLoad(exports, ["getDatastoreItem","getDatastoreItemOutput"], () => require("./getDatastoreItem"));
 
 export { GetGcpUcConfigArgs, GetGcpUcConfigResult, GetGcpUcConfigOutputArgs } from "./getGcpUcConfig";
 export const getGcpUcConfig: typeof import("./getGcpUcConfig").getGcpUcConfig = null as any;
@@ -384,6 +404,16 @@ export { GetRumRetentionFiltersArgs, GetRumRetentionFiltersResult, GetRumRetenti
 export const getRumRetentionFilters: typeof import("./getRumRetentionFilters").getRumRetentionFilters = null as any;
 export const getRumRetentionFiltersOutput: typeof import("./getRumRetentionFilters").getRumRetentionFiltersOutput = null as any;
 utilities.lazyLoad(exports, ["getRumRetentionFilters","getRumRetentionFiltersOutput"], () => require("./getRumRetentionFilters"));
+
+export { GetSecurityMonitoringCriticalAssetArgs, GetSecurityMonitoringCriticalAssetResult, GetSecurityMonitoringCriticalAssetOutputArgs } from "./getSecurityMonitoringCriticalAsset";
+export const getSecurityMonitoringCriticalAsset: typeof import("./getSecurityMonitoringCriticalAsset").getSecurityMonitoringCriticalAsset = null as any;
+export const getSecurityMonitoringCriticalAssetOutput: typeof import("./getSecurityMonitoringCriticalAsset").getSecurityMonitoringCriticalAssetOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityMonitoringCriticalAsset","getSecurityMonitoringCriticalAssetOutput"], () => require("./getSecurityMonitoringCriticalAsset"));
+
+export { GetSecurityMonitoringCriticalAssetsResult } from "./getSecurityMonitoringCriticalAssets";
+export const getSecurityMonitoringCriticalAssets: typeof import("./getSecurityMonitoringCriticalAssets").getSecurityMonitoringCriticalAssets = null as any;
+export const getSecurityMonitoringCriticalAssetsOutput: typeof import("./getSecurityMonitoringCriticalAssets").getSecurityMonitoringCriticalAssetsOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityMonitoringCriticalAssets","getSecurityMonitoringCriticalAssetsOutput"], () => require("./getSecurityMonitoringCriticalAssets"));
 
 export { GetSecurityMonitoringFiltersResult } from "./getSecurityMonitoringFilters";
 export const getSecurityMonitoringFilters: typeof import("./getSecurityMonitoringFilters").getSecurityMonitoringFilters = null as any;
@@ -683,6 +713,11 @@ export type RumRetentionFiltersOrder = import("./rumRetentionFiltersOrder").RumR
 export const RumRetentionFiltersOrder: typeof import("./rumRetentionFiltersOrder").RumRetentionFiltersOrder = null as any;
 utilities.lazyLoad(exports, ["RumRetentionFiltersOrder"], () => require("./rumRetentionFiltersOrder"));
 
+export { SecurityMonitoringCriticalAssetArgs, SecurityMonitoringCriticalAssetState } from "./securityMonitoringCriticalAsset";
+export type SecurityMonitoringCriticalAsset = import("./securityMonitoringCriticalAsset").SecurityMonitoringCriticalAsset;
+export const SecurityMonitoringCriticalAsset: typeof import("./securityMonitoringCriticalAsset").SecurityMonitoringCriticalAsset = null as any;
+utilities.lazyLoad(exports, ["SecurityMonitoringCriticalAsset"], () => require("./securityMonitoringCriticalAsset"));
+
 export { SecurityMonitoringDefaultRuleArgs, SecurityMonitoringDefaultRuleState } from "./securityMonitoringDefaultRule";
 export type SecurityMonitoringDefaultRule = import("./securityMonitoringDefaultRule").SecurityMonitoringDefaultRule;
 export const SecurityMonitoringDefaultRule: typeof import("./securityMonitoringDefaultRule").SecurityMonitoringDefaultRule = null as any;
@@ -777,6 +812,11 @@ export { SyntheticsPrivateLocationArgs, SyntheticsPrivateLocationState } from ".
 export type SyntheticsPrivateLocation = import("./syntheticsPrivateLocation").SyntheticsPrivateLocation;
 export const SyntheticsPrivateLocation: typeof import("./syntheticsPrivateLocation").SyntheticsPrivateLocation = null as any;
 utilities.lazyLoad(exports, ["SyntheticsPrivateLocation"], () => require("./syntheticsPrivateLocation"));
+
+export { SyntheticsSuiteArgs, SyntheticsSuiteState } from "./syntheticsSuite";
+export type SyntheticsSuite = import("./syntheticsSuite").SyntheticsSuite;
+export const SyntheticsSuite: typeof import("./syntheticsSuite").SyntheticsSuite = null as any;
+utilities.lazyLoad(exports, ["SyntheticsSuite"], () => require("./syntheticsSuite"));
 
 export { SyntheticsTestArgs, SyntheticsTestState } from "./syntheticsTest";
 export type SyntheticsTest = import("./syntheticsTest").SyntheticsTest;
@@ -940,6 +980,10 @@ const _module = {
                 return new DashboardList(name, <any>undefined, { urn })
             case "datadog:index/dataset:Dataset":
                 return new Dataset(name, <any>undefined, { urn })
+            case "datadog:index/datastore:Datastore":
+                return new Datastore(name, <any>undefined, { urn })
+            case "datadog:index/datastoreItem:DatastoreItem":
+                return new DatastoreItem(name, <any>undefined, { urn })
             case "datadog:index/deploymentGate:DeploymentGate":
                 return new DeploymentGate(name, <any>undefined, { urn })
             case "datadog:index/domainAllowlist:DomainAllowlist":
@@ -1024,6 +1068,8 @@ const _module = {
                 return new RumRetentionFilter(name, <any>undefined, { urn })
             case "datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder":
                 return new RumRetentionFiltersOrder(name, <any>undefined, { urn })
+            case "datadog:index/securityMonitoringCriticalAsset:SecurityMonitoringCriticalAsset":
+                return new SecurityMonitoringCriticalAsset(name, <any>undefined, { urn })
             case "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule":
                 return new SecurityMonitoringDefaultRule(name, <any>undefined, { urn })
             case "datadog:index/securityMonitoringFilter:SecurityMonitoringFilter":
@@ -1062,6 +1108,8 @@ const _module = {
                 return new SyntheticsGlobalVariable(name, <any>undefined, { urn })
             case "datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation":
                 return new SyntheticsPrivateLocation(name, <any>undefined, { urn })
+            case "datadog:index/syntheticsSuite:SyntheticsSuite":
+                return new SyntheticsSuite(name, <any>undefined, { urn })
             case "datadog:index/syntheticsTest:SyntheticsTest":
                 return new SyntheticsTest(name, <any>undefined, { urn })
             case "datadog:index/tagPipelineRuleset:TagPipelineRuleset":
@@ -1124,6 +1172,8 @@ pulumi.runtime.registerResourceModule("datadog", "index/dashboard", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboardJson", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboardList", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dataset", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/datastore", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/datastoreItem", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/deploymentGate", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/domainAllowlist", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/downtime", _module)
@@ -1166,6 +1216,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/rumApplication", _module
 pulumi.runtime.registerResourceModule("datadog", "index/rumMetric", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/rumRetentionFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/rumRetentionFiltersOrder", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringCriticalAsset", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringDefaultRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringRule", _module)
@@ -1185,6 +1236,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/spansMetric", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsConcurrencyCap", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsGlobalVariable", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsPrivateLocation", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/syntheticsSuite", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsTest", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/tagPipelineRuleset", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/tagPipelineRulesets", _module)

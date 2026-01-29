@@ -10654,6 +10654,15 @@ export interface GetRumRetentionFiltersRetentionFilter {
     sampleRate: number;
 }
 
+export interface GetSecurityMonitoringCriticalAssetsCriticalAsset {
+    enabled: boolean;
+    id: string;
+    query: string;
+    ruleQuery: string;
+    severity: string;
+    tags: string[];
+}
+
 export interface GetSecurityMonitoringFiltersFilter {
     /**
      * Exclusion filters to exclude some logs from the security filter.
@@ -13257,6 +13266,10 @@ export interface MonitorVariables {
      */
     cloudCostQueries?: outputs.MonitorVariablesCloudCostQuery[];
     /**
+     * The Data Quality query using formulas and functions.
+     */
+    dataQualityQueries?: outputs.MonitorVariablesDataQualityQuery[];
+    /**
      * A timeseries formula and functions events query.
      */
     eventQueries?: outputs.MonitorVariablesEventQuery[];
@@ -13281,13 +13294,71 @@ export interface MonitorVariablesCloudCostQuery {
     query: string;
 }
 
+export interface MonitorVariablesDataQualityQuery {
+    /**
+     * The data source for data quality queries. Valid value is `dataQualityMetrics`. Valid values are `dataQualityMetrics`.
+     */
+    dataSource: string;
+    /**
+     * Filter expression used to match on data entities. Uses AAstra query syntax.
+     */
+    filter: string;
+    /**
+     * Optional grouping fields for aggregation.
+     */
+    groupBies?: string[];
+    /**
+     * The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percentNegative`, `percentZero`, `rowCount`, `stddev`, `sum`, `uniqueness`. Additional values may be supported.
+     */
+    measure: string;
+    /**
+     * Monitor configuration options for data quality queries.
+     */
+    monitorOptions?: outputs.MonitorVariablesDataQualityQueryMonitorOptions;
+    /**
+     * The name of the query for use in formulas.
+     */
+    name: string;
+    /**
+     * Schema version for the data quality query.
+     */
+    schemaVersion?: string;
+    /**
+     * Optional scoping expression to further filter metrics.
+     */
+    scope?: string;
+}
+
+export interface MonitorVariablesDataQualityQueryMonitorOptions {
+    /**
+     * Crontab expression to override the default schedule.
+     */
+    crontabOverride?: string;
+    /**
+     * Custom SQL query for the monitor.
+     */
+    customSql?: string;
+    /**
+     * Custom WHERE clause for the query.
+     */
+    customWhere?: string;
+    /**
+     * Columns to group results by.
+     */
+    groupByColumns?: string[];
+    /**
+     * Override for the model type. Valid values are `freshness`, `percentage`, `any`.
+     */
+    modelTypeOverride?: string;
+}
+
 export interface MonitorVariablesEventQuery {
     /**
      * The compute options.
      */
     computes: outputs.MonitorVariablesEventQueryCompute[];
     /**
-     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`.
+     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
      */
     dataSource: string;
     /**
@@ -13377,6 +13448,10 @@ export interface ObservabilityPipelineConfig {
      * List of sources.
      */
     sources?: outputs.ObservabilityPipelineConfigSource[];
+    /**
+     * Set to `true` to continue using the legacy search syntax while migrating filter queries. After migrating all queries to the new syntax, set to `false`. The legacy syntax is deprecated and will eventually be removed. Requires Observability Pipelines Worker 2.11 or later. See https://docs.datadoghq.com/observability*pipelines/guide/upgrade*your*filter*queries*to*the*new*search_syntax/ for more information.
+     */
+    useLegacySearchSyntax?: boolean;
 }
 
 export interface ObservabilityPipelineConfigDestination {
@@ -13417,10 +13492,6 @@ export interface ObservabilityPipelineConfigDestination {
      */
     elasticsearches?: outputs.ObservabilityPipelineConfigDestinationElasticsearch[];
     /**
-     * The `googleChronicle` destination sends logs to Google Chronicle.
-     */
-    googleChronicles?: outputs.ObservabilityPipelineConfigDestinationGoogleChronicle[];
-    /**
      * The `googleCloudStorage` destination stores logs in a Google Cloud Storage (GCS) bucket.
      */
     googleCloudStorages?: outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorage[];
@@ -13428,6 +13499,10 @@ export interface ObservabilityPipelineConfigDestination {
      * The `googlePubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
      */
     googlePubsubs?: outputs.ObservabilityPipelineConfigDestinationGooglePubsub[];
+    /**
+     * The `googleChronicle` destination sends logs to Google SecOps.
+     */
+    googleSecops?: outputs.ObservabilityPipelineConfigDestinationGoogleSecop[];
     /**
      * The `httpClient` destination sends data to an HTTP endpoint.
      */
@@ -13660,6 +13735,29 @@ export interface ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemTls
 }
 
 export interface ObservabilityPipelineConfigDestinationDatadogLog {
+    /**
+     * A list of routing rules that forward matching logs to Datadog using dedicated API keys.
+     */
+    routes?: outputs.ObservabilityPipelineConfigDestinationDatadogLogRoute[];
+}
+
+export interface ObservabilityPipelineConfigDestinationDatadogLogRoute {
+    /**
+     * Name of the environment variable or secret that stores the Datadog API key used by this route.
+     */
+    apiKeyKey: string;
+    /**
+     * A Datadog search query that determines which logs are forwarded using this route.
+     */
+    include: string;
+    /**
+     * Unique identifier for this route within the destination.
+     */
+    routeId: string;
+    /**
+     * Datadog site where matching logs are sent (for example, `us1`).
+     */
+    site: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationDatadogMetric {
@@ -13693,32 +13791,6 @@ export interface ObservabilityPipelineConfigDestinationElasticsearchDataStream {
      * The data stream namespace for your logs. This separates logs into different environments or domains.
      */
     namespace?: string;
-}
-
-export interface ObservabilityPipelineConfigDestinationGoogleChronicle {
-    /**
-     * GCP credentials used to authenticate with Google Cloud services.
-     */
-    auth?: outputs.ObservabilityPipelineConfigDestinationGoogleChronicleAuth;
-    /**
-     * The Google Chronicle customer ID.
-     */
-    customerId?: string;
-    /**
-     * The encoding format for the logs sent to Chronicle.
-     */
-    encoding?: string;
-    /**
-     * The log type metadata associated with the Chronicle destination.
-     */
-    logType?: string;
-}
-
-export interface ObservabilityPipelineConfigDestinationGoogleChronicleAuth {
-    /**
-     * Path to the GCP service account key file.
-     */
-    credentialsFile: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationGoogleCloudStorage {
@@ -13809,6 +13881,32 @@ export interface ObservabilityPipelineConfigDestinationGooglePubsubTls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationGoogleSecop {
+    /**
+     * GCP credentials used to authenticate with Google Cloud services.
+     */
+    auth?: outputs.ObservabilityPipelineConfigDestinationGoogleSecopAuth;
+    /**
+     * The Google SecOps customer ID.
+     */
+    customerId: string;
+    /**
+     * The encoding format for the logs sent to Google SecOps. Valid values are `json`, `rawMessage`.
+     */
+    encoding: string;
+    /**
+     * The log type metadata associated with the Google SecOps destination.
+     */
+    logType: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationGoogleSecopAuth {
+    /**
+     * Path to the GCP service account key file.
+     */
+    credentialsFile: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationHttpClient {
@@ -15614,7 +15712,7 @@ export interface OnCallScheduleLayer {
      */
     timeZone?: string;
     /**
-     * List of user IDs for the layer. Can either be a valid user id or null
+     * List of user IDs for the layer. Can either be a valid user id or `null` to represent No-one.
      */
     users: string[];
 }
@@ -29116,6 +29214,24 @@ export interface SyntheticsPrivateLocationMetadata {
     restrictedRoles?: string[];
 }
 
+export interface SyntheticsSuiteOption {
+    /**
+     * Alerting threshold for the suite. Value must be between 0.000000 and 1.000000.
+     */
+    alertingThreshold: number;
+}
+
+export interface SyntheticsSuiteTest {
+    /**
+     * Alerting criticality for the test. Valid values are `ignore`, `critical`.
+     */
+    alertingCriticality?: string;
+    /**
+     * Public ID of the test.
+     */
+    publicId: string;
+}
+
 export interface SyntheticsTestApiStep {
     /**
      * Determines whether or not to continue with test if this step fails.
@@ -29968,7 +30084,7 @@ export interface SyntheticsTestMobileOptionsListMonitorOptions {
      */
     escalationMessage?: string;
     /**
-     * The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+     * The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`, `hideQueryAndHandles`, `showOnlySnapshot`, `hideHandlesAndFooter`.
      */
     notificationPresetName?: string;
     /**
@@ -30249,7 +30365,7 @@ export interface SyntheticsTestOptionsListMonitorOptions {
      */
     escalationMessage?: string;
     /**
-     * The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+     * The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`, `hideQueryAndHandles`, `showOnlySnapshot`, `hideHandlesAndFooter`.
      */
     notificationPresetName?: string;
     /**

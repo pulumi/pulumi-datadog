@@ -21,7 +21,7 @@ public final class MonitorVariablesEventQuery {
      */
     private List<MonitorVariablesEventQueryCompute> computes;
     /**
-     * @return The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`.
+     * @return The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
      * 
      */
     private String dataSource;
@@ -55,7 +55,7 @@ public final class MonitorVariablesEventQuery {
         return this.computes;
     }
     /**
-     * @return The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`.
+     * @return The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
      * 
      */
     public String dataSource() {

@@ -81,7 +81,7 @@ export class RumRetentionFilter extends pulumi.CustomResource {
      */
     declare public readonly query: pulumi.Output<string>;
     /**
-     * The sample rate for a RUM retention filter, between 0 and 100.
+     * The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
      */
     declare public readonly sampleRate: pulumi.Output<number>;
 
@@ -155,7 +155,7 @@ export interface RumRetentionFilterState {
      */
     query?: pulumi.Input<string>;
     /**
-     * The sample rate for a RUM retention filter, between 0 and 100.
+     * The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
      */
     sampleRate?: pulumi.Input<number>;
 }
@@ -185,7 +185,7 @@ export interface RumRetentionFilterArgs {
      */
     query?: pulumi.Input<string>;
     /**
-     * The sample rate for a RUM retention filter, between 0 and 100.
+     * The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
      */
     sampleRate: pulumi.Input<number>;
 }

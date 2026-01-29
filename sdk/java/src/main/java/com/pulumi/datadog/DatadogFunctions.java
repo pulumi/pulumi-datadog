@@ -28,6 +28,10 @@ import com.pulumi.datadog.inputs.GetDashboardArgs;
 import com.pulumi.datadog.inputs.GetDashboardListArgs;
 import com.pulumi.datadog.inputs.GetDashboardListPlainArgs;
 import com.pulumi.datadog.inputs.GetDashboardPlainArgs;
+import com.pulumi.datadog.inputs.GetDatastoreArgs;
+import com.pulumi.datadog.inputs.GetDatastoreItemArgs;
+import com.pulumi.datadog.inputs.GetDatastoreItemPlainArgs;
+import com.pulumi.datadog.inputs.GetDatastorePlainArgs;
 import com.pulumi.datadog.inputs.GetGcpUcConfigArgs;
 import com.pulumi.datadog.inputs.GetGcpUcConfigPlainArgs;
 import com.pulumi.datadog.inputs.GetHostsArgs;
@@ -72,6 +76,8 @@ import com.pulumi.datadog.inputs.GetRumApplicationArgs;
 import com.pulumi.datadog.inputs.GetRumApplicationPlainArgs;
 import com.pulumi.datadog.inputs.GetRumRetentionFiltersArgs;
 import com.pulumi.datadog.inputs.GetRumRetentionFiltersPlainArgs;
+import com.pulumi.datadog.inputs.GetSecurityMonitoringCriticalAssetArgs;
+import com.pulumi.datadog.inputs.GetSecurityMonitoringCriticalAssetPlainArgs;
 import com.pulumi.datadog.inputs.GetSecurityMonitoringRulesArgs;
 import com.pulumi.datadog.inputs.GetSecurityMonitoringRulesPlainArgs;
 import com.pulumi.datadog.inputs.GetSensitiveDataScannerStandardPatternArgs;
@@ -122,6 +128,8 @@ import com.pulumi.datadog.outputs.GetCsmThreatsPoliciesResult;
 import com.pulumi.datadog.outputs.GetCustomAllocationRuleResult;
 import com.pulumi.datadog.outputs.GetDashboardListResult;
 import com.pulumi.datadog.outputs.GetDashboardResult;
+import com.pulumi.datadog.outputs.GetDatastoreItemResult;
+import com.pulumi.datadog.outputs.GetDatastoreResult;
 import com.pulumi.datadog.outputs.GetGcpUcConfigResult;
 import com.pulumi.datadog.outputs.GetHostsResult;
 import com.pulumi.datadog.outputs.GetIncidentNotificationRuleResult;
@@ -150,6 +158,8 @@ import com.pulumi.datadog.outputs.GetRoleUsersResult;
 import com.pulumi.datadog.outputs.GetRolesResult;
 import com.pulumi.datadog.outputs.GetRumApplicationResult;
 import com.pulumi.datadog.outputs.GetRumRetentionFiltersResult;
+import com.pulumi.datadog.outputs.GetSecurityMonitoringCriticalAssetResult;
+import com.pulumi.datadog.outputs.GetSecurityMonitoringCriticalAssetsResult;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringFiltersResult;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesResult;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringSuppressionsResult;
@@ -2623,6 +2633,90 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetDashboardListResult> getDashboardListPlain(GetDashboardListPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getDashboardList:getDashboardList", TypeShape.of(GetDashboardListResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog datastore.
+     * 
+     */
+    public static Output<GetDatastoreResult> getDatastore() {
+        return getDatastore(GetDatastoreArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog datastore.
+     * 
+     */
+    public static CompletableFuture<GetDatastoreResult> getDatastorePlain() {
+        return getDatastorePlain(GetDatastorePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog datastore.
+     * 
+     */
+    public static Output<GetDatastoreResult> getDatastore(GetDatastoreArgs args) {
+        return getDatastore(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog datastore.
+     * 
+     */
+    public static CompletableFuture<GetDatastoreResult> getDatastorePlain(GetDatastorePlainArgs args) {
+        return getDatastorePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog datastore.
+     * 
+     */
+    public static Output<GetDatastoreResult> getDatastore(GetDatastoreArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getDatastore:getDatastore", TypeShape.of(GetDatastoreResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog datastore.
+     * 
+     */
+    public static Output<GetDatastoreResult> getDatastore(GetDatastoreArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getDatastore:getDatastore", TypeShape.of(GetDatastoreResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog datastore.
+     * 
+     */
+    public static CompletableFuture<GetDatastoreResult> getDatastorePlain(GetDatastorePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getDatastore:getDatastore", TypeShape.of(GetDatastoreResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog datastore item.
+     * 
+     */
+    public static Output<GetDatastoreItemResult> getDatastoreItem(GetDatastoreItemArgs args) {
+        return getDatastoreItem(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog datastore item.
+     * 
+     */
+    public static CompletableFuture<GetDatastoreItemResult> getDatastoreItemPlain(GetDatastoreItemPlainArgs args) {
+        return getDatastoreItemPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog datastore item.
+     * 
+     */
+    public static Output<GetDatastoreItemResult> getDatastoreItem(GetDatastoreItemArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getDatastoreItem:getDatastoreItem", TypeShape.of(GetDatastoreItemResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog datastore item.
+     * 
+     */
+    public static Output<GetDatastoreItemResult> getDatastoreItem(GetDatastoreItemArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getDatastoreItem:getDatastoreItem", TypeShape.of(GetDatastoreItemResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog datastore item.
+     * 
+     */
+    public static CompletableFuture<GetDatastoreItemResult> getDatastoreItemPlain(GetDatastoreItemPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getDatastoreItem:getDatastoreItem", TypeShape.of(GetDatastoreItemResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about a specific Datadog GCP Usage Cost configuration. This allows you to fetch details about an existing Cloud Cost Management configuration for GCP billing data access.
@@ -6794,6 +6888,479 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetRumRetentionFiltersResult> getRumRetentionFiltersPlain(GetRumRetentionFiltersPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getRumRetentionFilters:getRumRetentionFilters", TypeShape.of(GetRumRetentionFiltersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing critical asset.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSecurityMonitoringCriticalAssetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myCriticalAsset = DatadogFunctions.getSecurityMonitoringCriticalAsset(GetSecurityMonitoringCriticalAssetArgs.builder()
+     *             .id("1dab677c-5eb4-4ac8-b1d3-444bf0117e19")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSecurityMonitoringCriticalAssetResult> getSecurityMonitoringCriticalAsset(GetSecurityMonitoringCriticalAssetArgs args) {
+        return getSecurityMonitoringCriticalAsset(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing critical asset.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSecurityMonitoringCriticalAssetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myCriticalAsset = DatadogFunctions.getSecurityMonitoringCriticalAsset(GetSecurityMonitoringCriticalAssetArgs.builder()
+     *             .id("1dab677c-5eb4-4ac8-b1d3-444bf0117e19")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSecurityMonitoringCriticalAssetResult> getSecurityMonitoringCriticalAssetPlain(GetSecurityMonitoringCriticalAssetPlainArgs args) {
+        return getSecurityMonitoringCriticalAssetPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing critical asset.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSecurityMonitoringCriticalAssetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myCriticalAsset = DatadogFunctions.getSecurityMonitoringCriticalAsset(GetSecurityMonitoringCriticalAssetArgs.builder()
+     *             .id("1dab677c-5eb4-4ac8-b1d3-444bf0117e19")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSecurityMonitoringCriticalAssetResult> getSecurityMonitoringCriticalAsset(GetSecurityMonitoringCriticalAssetArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getSecurityMonitoringCriticalAsset:getSecurityMonitoringCriticalAsset", TypeShape.of(GetSecurityMonitoringCriticalAssetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing critical asset.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSecurityMonitoringCriticalAssetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myCriticalAsset = DatadogFunctions.getSecurityMonitoringCriticalAsset(GetSecurityMonitoringCriticalAssetArgs.builder()
+     *             .id("1dab677c-5eb4-4ac8-b1d3-444bf0117e19")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSecurityMonitoringCriticalAssetResult> getSecurityMonitoringCriticalAsset(GetSecurityMonitoringCriticalAssetArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getSecurityMonitoringCriticalAsset:getSecurityMonitoringCriticalAsset", TypeShape.of(GetSecurityMonitoringCriticalAssetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing critical asset.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSecurityMonitoringCriticalAssetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myCriticalAsset = DatadogFunctions.getSecurityMonitoringCriticalAsset(GetSecurityMonitoringCriticalAssetArgs.builder()
+     *             .id("1dab677c-5eb4-4ac8-b1d3-444bf0117e19")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSecurityMonitoringCriticalAssetResult> getSecurityMonitoringCriticalAssetPlain(GetSecurityMonitoringCriticalAssetPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getSecurityMonitoringCriticalAsset:getSecurityMonitoringCriticalAsset", TypeShape.of(GetSecurityMonitoringCriticalAssetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a list of all critical assets for the current org.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DatadogFunctions.getSecurityMonitoringCriticalAssets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("criticalAssetsCount", all.criticalAssets().length());
+     *         ctx.export("criticalAssets", all.criticalAssets());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSecurityMonitoringCriticalAssetsResult> getSecurityMonitoringCriticalAssets() {
+        return getSecurityMonitoringCriticalAssets(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a list of all critical assets for the current org.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DatadogFunctions.getSecurityMonitoringCriticalAssets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("criticalAssetsCount", all.criticalAssets().length());
+     *         ctx.export("criticalAssets", all.criticalAssets());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSecurityMonitoringCriticalAssetsResult> getSecurityMonitoringCriticalAssetsPlain() {
+        return getSecurityMonitoringCriticalAssetsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a list of all critical assets for the current org.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DatadogFunctions.getSecurityMonitoringCriticalAssets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("criticalAssetsCount", all.criticalAssets().length());
+     *         ctx.export("criticalAssets", all.criticalAssets());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSecurityMonitoringCriticalAssetsResult> getSecurityMonitoringCriticalAssets(InvokeArgs args) {
+        return getSecurityMonitoringCriticalAssets(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a list of all critical assets for the current org.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DatadogFunctions.getSecurityMonitoringCriticalAssets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("criticalAssetsCount", all.criticalAssets().length());
+     *         ctx.export("criticalAssets", all.criticalAssets());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSecurityMonitoringCriticalAssetsResult> getSecurityMonitoringCriticalAssetsPlain(InvokeArgs args) {
+        return getSecurityMonitoringCriticalAssetsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a list of all critical assets for the current org.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DatadogFunctions.getSecurityMonitoringCriticalAssets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("criticalAssetsCount", all.criticalAssets().length());
+     *         ctx.export("criticalAssets", all.criticalAssets());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSecurityMonitoringCriticalAssetsResult> getSecurityMonitoringCriticalAssets(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getSecurityMonitoringCriticalAssets:getSecurityMonitoringCriticalAssets", TypeShape.of(GetSecurityMonitoringCriticalAssetsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a list of all critical assets for the current org.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DatadogFunctions.getSecurityMonitoringCriticalAssets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("criticalAssetsCount", all.criticalAssets().length());
+     *         ctx.export("criticalAssets", all.criticalAssets());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSecurityMonitoringCriticalAssetsResult> getSecurityMonitoringCriticalAssets(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getSecurityMonitoringCriticalAssets:getSecurityMonitoringCriticalAssets", TypeShape.of(GetSecurityMonitoringCriticalAssetsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a list of all critical assets for the current org.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DatadogFunctions.getSecurityMonitoringCriticalAssets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("criticalAssetsCount", all.criticalAssets().length());
+     *         ctx.export("criticalAssets", all.criticalAssets());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSecurityMonitoringCriticalAssetsResult> getSecurityMonitoringCriticalAssetsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getSecurityMonitoringCriticalAssets:getSecurityMonitoringCriticalAssets", TypeShape.of(GetSecurityMonitoringCriticalAssetsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about existing security monitoring filters for use in other resources.

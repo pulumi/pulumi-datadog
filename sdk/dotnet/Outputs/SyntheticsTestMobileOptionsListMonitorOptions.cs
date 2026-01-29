@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? EscalationMessage;
         /// <summary>
-        /// The name of the preset for the notification for the monitor. Valid values are `ShowAll`, `HideAll`, `HideQuery`, `HideHandles`.
+        /// The name of the preset for the notification for the monitor. Valid values are `ShowAll`, `HideAll`, `HideQuery`, `HideHandles`, `HideQueryAndHandles`, `ShowOnlySnapshot`, `HideHandlesAndFooter`.
         /// </summary>
         public readonly string? NotificationPresetName;
         /// <summary>

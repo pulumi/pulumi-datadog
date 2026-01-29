@@ -9,14 +9,14 @@ import java.lang.String;
 import java.util.Objects;
 
 @CustomType
-public final class ObservabilityPipelineConfigDestinationGoogleChronicleAuth {
+public final class ObservabilityPipelineConfigDestinationGoogleSecopAuth {
     /**
      * @return Path to the GCP service account key file.
      * 
      */
     private String credentialsFile;
 
-    private ObservabilityPipelineConfigDestinationGoogleChronicleAuth() {}
+    private ObservabilityPipelineConfigDestinationGoogleSecopAuth() {}
     /**
      * @return Path to the GCP service account key file.
      * 
@@ -29,14 +29,14 @@ public final class ObservabilityPipelineConfigDestinationGoogleChronicleAuth {
         return new Builder();
     }
 
-    public static Builder builder(ObservabilityPipelineConfigDestinationGoogleChronicleAuth defaults) {
+    public static Builder builder(ObservabilityPipelineConfigDestinationGoogleSecopAuth defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
     public static final class Builder {
         private String credentialsFile;
         public Builder() {}
-        public Builder(ObservabilityPipelineConfigDestinationGoogleChronicleAuth defaults) {
+        public Builder(ObservabilityPipelineConfigDestinationGoogleSecopAuth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.credentialsFile = defaults.credentialsFile;
         }
@@ -44,13 +44,13 @@ public final class ObservabilityPipelineConfigDestinationGoogleChronicleAuth {
         @CustomType.Setter
         public Builder credentialsFile(String credentialsFile) {
             if (credentialsFile == null) {
-              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationGoogleChronicleAuth", "credentialsFile");
+              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationGoogleSecopAuth", "credentialsFile");
             }
             this.credentialsFile = credentialsFile;
             return this;
         }
-        public ObservabilityPipelineConfigDestinationGoogleChronicleAuth build() {
-            final var _resultValue = new ObservabilityPipelineConfigDestinationGoogleChronicleAuth();
+        public ObservabilityPipelineConfigDestinationGoogleSecopAuth build() {
+            final var _resultValue = new ObservabilityPipelineConfigDestinationGoogleSecopAuth();
             _resultValue.credentialsFile = credentialsFile;
             return _resultValue;
         }
