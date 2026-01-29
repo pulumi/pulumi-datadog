@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -79,6 +80,21 @@ public final class ObservabilityPipelineConfigArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.sources);
     }
 
+    /**
+     * Set to `true` to continue using the legacy search syntax while migrating filter queries. After migrating all queries to the new syntax, set to `false`. The legacy syntax is deprecated and will eventually be removed. Requires Observability Pipelines Worker 2.11 or later. See https://docs.datadoghq.com/observability*pipelines/guide/upgrade*your*filter*queries*to*the*new*search_syntax/ for more information.
+     * 
+     */
+    @Import(name="useLegacySearchSyntax")
+    private @Nullable Output<Boolean> useLegacySearchSyntax;
+
+    /**
+     * @return Set to `true` to continue using the legacy search syntax while migrating filter queries. After migrating all queries to the new syntax, set to `false`. The legacy syntax is deprecated and will eventually be removed. Requires Observability Pipelines Worker 2.11 or later. See https://docs.datadoghq.com/observability*pipelines/guide/upgrade*your*filter*queries*to*the*new*search_syntax/ for more information.
+     * 
+     */
+    public Optional<Output<Boolean>> useLegacySearchSyntax() {
+        return Optional.ofNullable(this.useLegacySearchSyntax);
+    }
+
     private ObservabilityPipelineConfigArgs() {}
 
     private ObservabilityPipelineConfigArgs(ObservabilityPipelineConfigArgs $) {
@@ -86,6 +102,7 @@ public final class ObservabilityPipelineConfigArgs extends com.pulumi.resources.
         this.pipelineType = $.pipelineType;
         this.processorGroups = $.processorGroups;
         this.sources = $.sources;
+        this.useLegacySearchSyntax = $.useLegacySearchSyntax;
     }
 
     public static Builder builder() {
@@ -218,6 +235,27 @@ public final class ObservabilityPipelineConfigArgs extends com.pulumi.resources.
          */
         public Builder sources(ObservabilityPipelineConfigSourceArgs... sources) {
             return sources(List.of(sources));
+        }
+
+        /**
+         * @param useLegacySearchSyntax Set to `true` to continue using the legacy search syntax while migrating filter queries. After migrating all queries to the new syntax, set to `false`. The legacy syntax is deprecated and will eventually be removed. Requires Observability Pipelines Worker 2.11 or later. See https://docs.datadoghq.com/observability*pipelines/guide/upgrade*your*filter*queries*to*the*new*search_syntax/ for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useLegacySearchSyntax(@Nullable Output<Boolean> useLegacySearchSyntax) {
+            $.useLegacySearchSyntax = useLegacySearchSyntax;
+            return this;
+        }
+
+        /**
+         * @param useLegacySearchSyntax Set to `true` to continue using the legacy search syntax while migrating filter queries. After migrating all queries to the new syntax, set to `false`. The legacy syntax is deprecated and will eventually be removed. Requires Observability Pipelines Worker 2.11 or later. See https://docs.datadoghq.com/observability*pipelines/guide/upgrade*your*filter*queries*to*the*new*search_syntax/ for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useLegacySearchSyntax(Boolean useLegacySearchSyntax) {
+            return useLegacySearchSyntax(Output.of(useLegacySearchSyntax));
         }
 
         public ObservabilityPipelineConfigArgs build() {

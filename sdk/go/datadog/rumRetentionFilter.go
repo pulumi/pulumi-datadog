@@ -33,7 +33,7 @@ import (
 //				ApplicationId: pulumi.String("<APPLICATION_ID>"),
 //				Name:          pulumi.String("testing.rum.retention_filter"),
 //				EventType:     pulumi.String("session"),
-//				SampleRate:    pulumi.Int(41),
+//				SampleRate:    pulumi.Float64(41),
 //				Query:         pulumi.String("@session.has_replay:true"),
 //				Enabled:       pulumi.Bool(false),
 //			})
@@ -66,8 +66,8 @@ type RumRetentionFilter struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Query string for a RUM retention filter. Defaults to `""`.
 	Query pulumi.StringOutput `pulumi:"query"`
-	// The sample rate for a RUM retention filter, between 0 and 100.
-	SampleRate pulumi.IntOutput `pulumi:"sampleRate"`
+	// The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
+	SampleRate pulumi.Float64Output `pulumi:"sampleRate"`
 }
 
 // NewRumRetentionFilter registers a new resource with the given unique name, arguments, and options.
@@ -122,8 +122,8 @@ type rumRetentionFilterState struct {
 	Name *string `pulumi:"name"`
 	// The Query string for a RUM retention filter. Defaults to `""`.
 	Query *string `pulumi:"query"`
-	// The sample rate for a RUM retention filter, between 0 and 100.
-	SampleRate *int `pulumi:"sampleRate"`
+	// The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
+	SampleRate *float64 `pulumi:"sampleRate"`
 }
 
 type RumRetentionFilterState struct {
@@ -137,8 +137,8 @@ type RumRetentionFilterState struct {
 	Name pulumi.StringPtrInput
 	// The Query string for a RUM retention filter. Defaults to `""`.
 	Query pulumi.StringPtrInput
-	// The sample rate for a RUM retention filter, between 0 and 100.
-	SampleRate pulumi.IntPtrInput
+	// The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
+	SampleRate pulumi.Float64PtrInput
 }
 
 func (RumRetentionFilterState) ElementType() reflect.Type {
@@ -156,8 +156,8 @@ type rumRetentionFilterArgs struct {
 	Name string `pulumi:"name"`
 	// The Query string for a RUM retention filter. Defaults to `""`.
 	Query *string `pulumi:"query"`
-	// The sample rate for a RUM retention filter, between 0 and 100.
-	SampleRate int `pulumi:"sampleRate"`
+	// The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
+	SampleRate float64 `pulumi:"sampleRate"`
 }
 
 // The set of arguments for constructing a RumRetentionFilter resource.
@@ -172,8 +172,8 @@ type RumRetentionFilterArgs struct {
 	Name pulumi.StringInput
 	// The Query string for a RUM retention filter. Defaults to `""`.
 	Query pulumi.StringPtrInput
-	// The sample rate for a RUM retention filter, between 0 and 100.
-	SampleRate pulumi.IntInput
+	// The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
+	SampleRate pulumi.Float64Input
 }
 
 func (RumRetentionFilterArgs) ElementType() reflect.Type {
@@ -288,9 +288,9 @@ func (o RumRetentionFilterOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v *RumRetentionFilter) pulumi.StringOutput { return v.Query }).(pulumi.StringOutput)
 }
 
-// The sample rate for a RUM retention filter, between 0 and 100.
-func (o RumRetentionFilterOutput) SampleRate() pulumi.IntOutput {
-	return o.ApplyT(func(v *RumRetentionFilter) pulumi.IntOutput { return v.SampleRate }).(pulumi.IntOutput)
+// The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
+func (o RumRetentionFilterOutput) SampleRate() pulumi.Float64Output {
+	return o.ApplyT(func(v *RumRetentionFilter) pulumi.Float64Output { return v.SampleRate }).(pulumi.Float64Output)
 }
 
 type RumRetentionFilterArrayOutput struct{ *pulumi.OutputState }

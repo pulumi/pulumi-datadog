@@ -78,10 +78,10 @@ namespace Pulumi.Datadog
         public Output<string> Query { get; private set; } = null!;
 
         /// <summary>
-        /// The sample rate for a RUM retention filter, between 0 and 100.
+        /// The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
         /// </summary>
         [Output("sampleRate")]
-        public Output<int> SampleRate { get; private set; } = null!;
+        public Output<double> SampleRate { get; private set; } = null!;
 
 
         /// <summary>
@@ -160,10 +160,10 @@ namespace Pulumi.Datadog
         public Input<string>? Query { get; set; }
 
         /// <summary>
-        /// The sample rate for a RUM retention filter, between 0 and 100.
+        /// The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
         /// </summary>
         [Input("sampleRate", required: true)]
-        public Input<int> SampleRate { get; set; } = null!;
+        public Input<double> SampleRate { get; set; } = null!;
 
         public RumRetentionFilterArgs()
         {
@@ -204,10 +204,10 @@ namespace Pulumi.Datadog
         public Input<string>? Query { get; set; }
 
         /// <summary>
-        /// The sample rate for a RUM retention filter, between 0 and 100.
+        /// The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
         /// </summary>
         [Input("sampleRate")]
-        public Input<int>? SampleRate { get; set; }
+        public Input<double>? SampleRate { get; set; }
 
         public RumRetentionFilterState()
         {

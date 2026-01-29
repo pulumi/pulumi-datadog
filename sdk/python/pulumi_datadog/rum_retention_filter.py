@@ -22,7 +22,7 @@ class RumRetentionFilterArgs:
                  application_id: pulumi.Input[_builtins.str],
                  event_type: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 sample_rate: pulumi.Input[_builtins.int],
+                 sample_rate: pulumi.Input[_builtins.float],
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  query: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -30,7 +30,7 @@ class RumRetentionFilterArgs:
         :param pulumi.Input[_builtins.str] application_id: RUM application ID.
         :param pulumi.Input[_builtins.str] event_type: The type of RUM events to filter on.
         :param pulumi.Input[_builtins.str] name: The name of a RUM retention filter.
-        :param pulumi.Input[_builtins.int] sample_rate: The sample rate for a RUM retention filter, between 0 and 100.
+        :param pulumi.Input[_builtins.float] sample_rate: The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
         :param pulumi.Input[_builtins.bool] enabled: Whether the retention filter is to be enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] query: The Query string for a RUM retention filter. Defaults to `""`.
         """
@@ -81,14 +81,14 @@ class RumRetentionFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="sampleRate")
-    def sample_rate(self) -> pulumi.Input[_builtins.int]:
+    def sample_rate(self) -> pulumi.Input[_builtins.float]:
         """
-        The sample rate for a RUM retention filter, between 0 and 100.
+        The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
         """
         return pulumi.get(self, "sample_rate")
 
     @sample_rate.setter
-    def sample_rate(self, value: pulumi.Input[_builtins.int]):
+    def sample_rate(self, value: pulumi.Input[_builtins.float]):
         pulumi.set(self, "sample_rate", value)
 
     @_builtins.property
@@ -124,7 +124,7 @@ class _RumRetentionFilterState:
                  event_type: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  query: Optional[pulumi.Input[_builtins.str]] = None,
-                 sample_rate: Optional[pulumi.Input[_builtins.int]] = None):
+                 sample_rate: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Input properties used for looking up and filtering RumRetentionFilter resources.
         :param pulumi.Input[_builtins.str] application_id: RUM application ID.
@@ -132,7 +132,7 @@ class _RumRetentionFilterState:
         :param pulumi.Input[_builtins.str] event_type: The type of RUM events to filter on.
         :param pulumi.Input[_builtins.str] name: The name of a RUM retention filter.
         :param pulumi.Input[_builtins.str] query: The Query string for a RUM retention filter. Defaults to `""`.
-        :param pulumi.Input[_builtins.int] sample_rate: The sample rate for a RUM retention filter, between 0 and 100.
+        :param pulumi.Input[_builtins.float] sample_rate: The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
         """
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
@@ -209,14 +209,14 @@ class _RumRetentionFilterState:
 
     @_builtins.property
     @pulumi.getter(name="sampleRate")
-    def sample_rate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def sample_rate(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
-        The sample rate for a RUM retention filter, between 0 and 100.
+        The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
         """
         return pulumi.get(self, "sample_rate")
 
     @sample_rate.setter
-    def sample_rate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def sample_rate(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "sample_rate", value)
 
 
@@ -231,7 +231,7 @@ class RumRetentionFilter(pulumi.CustomResource):
                  event_type: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  query: Optional[pulumi.Input[_builtins.str]] = None,
-                 sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
+                 sample_rate: Optional[pulumi.Input[_builtins.float]] = None,
                  __props__=None):
         """
         Provides a Datadog RumRetentionFilter resource. This can be used to create and manage Datadog rum_retention_filter.
@@ -267,7 +267,7 @@ class RumRetentionFilter(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] event_type: The type of RUM events to filter on.
         :param pulumi.Input[_builtins.str] name: The name of a RUM retention filter.
         :param pulumi.Input[_builtins.str] query: The Query string for a RUM retention filter. Defaults to `""`.
-        :param pulumi.Input[_builtins.int] sample_rate: The sample rate for a RUM retention filter, between 0 and 100.
+        :param pulumi.Input[_builtins.float] sample_rate: The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
         """
         ...
     @overload
@@ -322,7 +322,7 @@ class RumRetentionFilter(pulumi.CustomResource):
                  event_type: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  query: Optional[pulumi.Input[_builtins.str]] = None,
-                 sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
+                 sample_rate: Optional[pulumi.Input[_builtins.float]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -361,7 +361,7 @@ class RumRetentionFilter(pulumi.CustomResource):
             event_type: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             query: Optional[pulumi.Input[_builtins.str]] = None,
-            sample_rate: Optional[pulumi.Input[_builtins.int]] = None) -> 'RumRetentionFilter':
+            sample_rate: Optional[pulumi.Input[_builtins.float]] = None) -> 'RumRetentionFilter':
         """
         Get an existing RumRetentionFilter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -374,7 +374,7 @@ class RumRetentionFilter(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] event_type: The type of RUM events to filter on.
         :param pulumi.Input[_builtins.str] name: The name of a RUM retention filter.
         :param pulumi.Input[_builtins.str] query: The Query string for a RUM retention filter. Defaults to `""`.
-        :param pulumi.Input[_builtins.int] sample_rate: The sample rate for a RUM retention filter, between 0 and 100.
+        :param pulumi.Input[_builtins.float] sample_rate: The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -430,9 +430,9 @@ class RumRetentionFilter(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="sampleRate")
-    def sample_rate(self) -> pulumi.Output[_builtins.int]:
+    def sample_rate(self) -> pulumi.Output[_builtins.float]:
         """
-        The sample rate for a RUM retention filter, between 0 and 100.
+        The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
         """
         return pulumi.get(self, "sample_rate")
 

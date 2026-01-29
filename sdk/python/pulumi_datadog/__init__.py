@@ -35,6 +35,8 @@ from .dashboard import *
 from .dashboard_json import *
 from .dashboard_list import *
 from .dataset import *
+from .datastore import *
+from .datastore_item import *
 from .deployment_gate import *
 from .domain_allowlist import *
 from .downtime import *
@@ -54,6 +56,8 @@ from .get_csm_threats_policies import *
 from .get_custom_allocation_rule import *
 from .get_dashboard import *
 from .get_dashboard_list import *
+from .get_datastore import *
+from .get_datastore_item import *
 from .get_gcp_uc_config import *
 from .get_hosts import *
 from .get_incident_notification_rule import *
@@ -82,6 +86,8 @@ from .get_role_users import *
 from .get_roles import *
 from .get_rum_application import *
 from .get_rum_retention_filters import *
+from .get_security_monitoring_critical_asset import *
+from .get_security_monitoring_critical_assets import *
 from .get_security_monitoring_filters import *
 from .get_security_monitoring_rules import *
 from .get_security_monitoring_suppressions import *
@@ -142,6 +148,7 @@ from .rum_application import *
 from .rum_metric import *
 from .rum_retention_filter import *
 from .rum_retention_filters_order import *
+from .security_monitoring_critical_asset import *
 from .security_monitoring_default_rule import *
 from .security_monitoring_filter import *
 from .security_monitoring_rule import *
@@ -161,6 +168,7 @@ from .spans_metric import *
 from .synthetics_concurrency_cap import *
 from .synthetics_global_variable import *
 from .synthetics_private_location import *
+from .synthetics_suite import *
 from .synthetics_test import *
 from .tag_pipeline_ruleset import *
 from .tag_pipeline_rulesets import *
@@ -572,6 +580,22 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/datastore",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/datastore:Datastore": "Datastore"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/datastoreItem",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/datastoreItem:DatastoreItem": "DatastoreItem"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/deploymentGate",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -908,6 +932,14 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/securityMonitoringCriticalAsset",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/securityMonitoringCriticalAsset:SecurityMonitoringCriticalAsset": "SecurityMonitoringCriticalAsset"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/securityMonitoringDefaultRule",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -1056,6 +1088,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation": "SyntheticsPrivateLocation"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/syntheticsSuite",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/syntheticsSuite:SyntheticsSuite": "SyntheticsSuite"
   }
  },
  {

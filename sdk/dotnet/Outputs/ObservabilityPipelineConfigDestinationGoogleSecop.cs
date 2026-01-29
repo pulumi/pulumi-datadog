@@ -11,34 +11,34 @@ namespace Pulumi.Datadog.Outputs
 {
 
     [OutputType]
-    public sealed class ObservabilityPipelineConfigDestinationGoogleChronicle
+    public sealed class ObservabilityPipelineConfigDestinationGoogleSecop
     {
         /// <summary>
         /// GCP credentials used to authenticate with Google Cloud services.
         /// </summary>
-        public readonly Outputs.ObservabilityPipelineConfigDestinationGoogleChronicleAuth? Auth;
+        public readonly Outputs.ObservabilityPipelineConfigDestinationGoogleSecopAuth? Auth;
         /// <summary>
-        /// The Google Chronicle customer ID.
+        /// The Google SecOps customer ID.
         /// </summary>
-        public readonly string? CustomerId;
+        public readonly string CustomerId;
         /// <summary>
-        /// The encoding format for the logs sent to Chronicle.
+        /// The encoding format for the logs sent to Google SecOps. Valid values are `Json`, `RawMessage`.
         /// </summary>
-        public readonly string? Encoding;
+        public readonly string Encoding;
         /// <summary>
-        /// The log type metadata associated with the Chronicle destination.
+        /// The log type metadata associated with the Google SecOps destination.
         /// </summary>
-        public readonly string? LogType;
+        public readonly string LogType;
 
         [OutputConstructor]
-        private ObservabilityPipelineConfigDestinationGoogleChronicle(
-            Outputs.ObservabilityPipelineConfigDestinationGoogleChronicleAuth? auth,
+        private ObservabilityPipelineConfigDestinationGoogleSecop(
+            Outputs.ObservabilityPipelineConfigDestinationGoogleSecopAuth? auth,
 
-            string? customerId,
+            string customerId,
 
-            string? encoding,
+            string encoding,
 
-            string? logType)
+            string logType)
         {
             Auth = auth;
             CustomerId = customerId;

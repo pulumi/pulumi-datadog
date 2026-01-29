@@ -13,9 +13,9 @@ import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationCrowdstr
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationDatadogLog;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationDatadogMetric;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationElasticsearch;
-import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationGoogleChronicle;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorage;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationGooglePubsub;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationGoogleSecop;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationHttpClient;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationKafka;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationMicrosoftSentinel;
@@ -82,11 +82,6 @@ public final class ObservabilityPipelineConfigDestination {
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationElasticsearch> elasticsearches;
     /**
-     * @return The `googleChronicle` destination sends logs to Google Chronicle.
-     * 
-     */
-    private @Nullable List<ObservabilityPipelineConfigDestinationGoogleChronicle> googleChronicles;
-    /**
      * @return The `googleCloudStorage` destination stores logs in a Google Cloud Storage (GCS) bucket.
      * 
      */
@@ -96,6 +91,11 @@ public final class ObservabilityPipelineConfigDestination {
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationGooglePubsub> googlePubsubs;
+    /**
+     * @return The `googleChronicle` destination sends logs to Google SecOps.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigDestinationGoogleSecop> googleSecops;
     /**
      * @return The `httpClient` destination sends data to an HTTP endpoint.
      * 
@@ -227,13 +227,6 @@ public final class ObservabilityPipelineConfigDestination {
         return this.elasticsearches == null ? List.of() : this.elasticsearches;
     }
     /**
-     * @return The `googleChronicle` destination sends logs to Google Chronicle.
-     * 
-     */
-    public List<ObservabilityPipelineConfigDestinationGoogleChronicle> googleChronicles() {
-        return this.googleChronicles == null ? List.of() : this.googleChronicles;
-    }
-    /**
      * @return The `googleCloudStorage` destination stores logs in a Google Cloud Storage (GCS) bucket.
      * 
      */
@@ -246,6 +239,13 @@ public final class ObservabilityPipelineConfigDestination {
      */
     public List<ObservabilityPipelineConfigDestinationGooglePubsub> googlePubsubs() {
         return this.googlePubsubs == null ? List.of() : this.googlePubsubs;
+    }
+    /**
+     * @return The `googleChronicle` destination sends logs to Google SecOps.
+     * 
+     */
+    public List<ObservabilityPipelineConfigDestinationGoogleSecop> googleSecops() {
+        return this.googleSecops == null ? List.of() : this.googleSecops;
     }
     /**
      * @return The `httpClient` destination sends data to an HTTP endpoint.
@@ -357,9 +357,9 @@ public final class ObservabilityPipelineConfigDestination {
         private @Nullable List<ObservabilityPipelineConfigDestinationDatadogLog> datadogLogs;
         private @Nullable List<ObservabilityPipelineConfigDestinationDatadogMetric> datadogMetrics;
         private @Nullable List<ObservabilityPipelineConfigDestinationElasticsearch> elasticsearches;
-        private @Nullable List<ObservabilityPipelineConfigDestinationGoogleChronicle> googleChronicles;
         private @Nullable List<ObservabilityPipelineConfigDestinationGoogleCloudStorage> googleCloudStorages;
         private @Nullable List<ObservabilityPipelineConfigDestinationGooglePubsub> googlePubsubs;
+        private @Nullable List<ObservabilityPipelineConfigDestinationGoogleSecop> googleSecops;
         private @Nullable List<ObservabilityPipelineConfigDestinationHttpClient> httpClients;
         private String id;
         private List<String> inputs;
@@ -385,9 +385,9 @@ public final class ObservabilityPipelineConfigDestination {
     	      this.datadogLogs = defaults.datadogLogs;
     	      this.datadogMetrics = defaults.datadogMetrics;
     	      this.elasticsearches = defaults.elasticsearches;
-    	      this.googleChronicles = defaults.googleChronicles;
     	      this.googleCloudStorages = defaults.googleCloudStorages;
     	      this.googlePubsubs = defaults.googlePubsubs;
+    	      this.googleSecops = defaults.googleSecops;
     	      this.httpClients = defaults.httpClients;
     	      this.id = defaults.id;
     	      this.inputs = defaults.inputs;
@@ -482,15 +482,6 @@ public final class ObservabilityPipelineConfigDestination {
             return elasticsearches(List.of(elasticsearches));
         }
         @CustomType.Setter
-        public Builder googleChronicles(@Nullable List<ObservabilityPipelineConfigDestinationGoogleChronicle> googleChronicles) {
-
-            this.googleChronicles = googleChronicles;
-            return this;
-        }
-        public Builder googleChronicles(ObservabilityPipelineConfigDestinationGoogleChronicle... googleChronicles) {
-            return googleChronicles(List.of(googleChronicles));
-        }
-        @CustomType.Setter
         public Builder googleCloudStorages(@Nullable List<ObservabilityPipelineConfigDestinationGoogleCloudStorage> googleCloudStorages) {
 
             this.googleCloudStorages = googleCloudStorages;
@@ -507,6 +498,15 @@ public final class ObservabilityPipelineConfigDestination {
         }
         public Builder googlePubsubs(ObservabilityPipelineConfigDestinationGooglePubsub... googlePubsubs) {
             return googlePubsubs(List.of(googlePubsubs));
+        }
+        @CustomType.Setter
+        public Builder googleSecops(@Nullable List<ObservabilityPipelineConfigDestinationGoogleSecop> googleSecops) {
+
+            this.googleSecops = googleSecops;
+            return this;
+        }
+        public Builder googleSecops(ObservabilityPipelineConfigDestinationGoogleSecop... googleSecops) {
+            return googleSecops(List.of(googleSecops));
         }
         @CustomType.Setter
         public Builder httpClients(@Nullable List<ObservabilityPipelineConfigDestinationHttpClient> httpClients) {
@@ -634,9 +634,9 @@ public final class ObservabilityPipelineConfigDestination {
             _resultValue.datadogLogs = datadogLogs;
             _resultValue.datadogMetrics = datadogMetrics;
             _resultValue.elasticsearches = elasticsearches;
-            _resultValue.googleChronicles = googleChronicles;
             _resultValue.googleCloudStorages = googleCloudStorages;
             _resultValue.googlePubsubs = googlePubsubs;
+            _resultValue.googleSecops = googleSecops;
             _resultValue.httpClients = httpClients;
             _resultValue.id = id;
             _resultValue.inputs = inputs;

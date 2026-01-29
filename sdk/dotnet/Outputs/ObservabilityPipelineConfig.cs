@@ -29,6 +29,10 @@ namespace Pulumi.Datadog.Outputs
         /// List of sources.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigSource> Sources;
+        /// <summary>
+        /// Set to `True` to continue using the legacy search syntax while migrating filter queries. After migrating all queries to the new syntax, set to `False`. The legacy syntax is deprecated and will eventually be removed. Requires Observability Pipelines Worker 2.11 or later. See https://docs.datadoghq.com/observability*pipelines/guide/upgrade*your*filter*queries*to*the*new*search_syntax/ for more information.
+        /// </summary>
+        public readonly bool? UseLegacySearchSyntax;
 
         [OutputConstructor]
         private ObservabilityPipelineConfig(
@@ -38,12 +42,15 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroup> processorGroups,
 
-            ImmutableArray<Outputs.ObservabilityPipelineConfigSource> sources)
+            ImmutableArray<Outputs.ObservabilityPipelineConfigSource> sources,
+
+            bool? useLegacySearchSyntax)
         {
             Destinations = destinations;
             PipelineType = pipelineType;
             ProcessorGroups = processorGroups;
             Sources = sources;
+            UseLegacySearchSyntax = useLegacySearchSyntax;
         }
     }
 }

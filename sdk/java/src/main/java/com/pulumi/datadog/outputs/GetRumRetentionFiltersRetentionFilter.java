@@ -6,7 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
-import java.lang.Integer;
+import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
 
@@ -17,7 +17,7 @@ public final class GetRumRetentionFiltersRetentionFilter {
     private String id;
     private String name;
     private String query;
-    private Integer sampleRate;
+    private Double sampleRate;
 
     private GetRumRetentionFiltersRetentionFilter() {}
     public Boolean enabled() {
@@ -35,7 +35,7 @@ public final class GetRumRetentionFiltersRetentionFilter {
     public String query() {
         return this.query;
     }
-    public Integer sampleRate() {
+    public Double sampleRate() {
         return this.sampleRate;
     }
 
@@ -53,7 +53,7 @@ public final class GetRumRetentionFiltersRetentionFilter {
         private String id;
         private String name;
         private String query;
-        private Integer sampleRate;
+        private Double sampleRate;
         public Builder() {}
         public Builder(GetRumRetentionFiltersRetentionFilter defaults) {
     	      Objects.requireNonNull(defaults);
@@ -106,7 +106,7 @@ public final class GetRumRetentionFiltersRetentionFilter {
             return this;
         }
         @CustomType.Setter
-        public Builder sampleRate(Integer sampleRate) {
+        public Builder sampleRate(Double sampleRate) {
             if (sampleRate == null) {
               throw new MissingRequiredPropertyException("GetRumRetentionFiltersRetentionFilter", "sampleRate");
             }

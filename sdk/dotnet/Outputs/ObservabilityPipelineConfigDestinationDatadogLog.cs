@@ -13,9 +13,15 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class ObservabilityPipelineConfigDestinationDatadogLog
     {
+        /// <summary>
+        /// A list of routing rules that forward matching logs to Datadog using dedicated API keys.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationDatadogLogRoute> Routes;
+
         [OutputConstructor]
-        private ObservabilityPipelineConfigDestinationDatadogLog()
+        private ObservabilityPipelineConfigDestinationDatadogLog(ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationDatadogLogRoute> routes)
         {
+            Routes = routes;
         }
     }
 }

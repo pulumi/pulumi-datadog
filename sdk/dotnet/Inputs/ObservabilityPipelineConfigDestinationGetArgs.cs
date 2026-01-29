@@ -114,18 +114,6 @@ namespace Pulumi.Datadog.Inputs
             set => _elasticsearches = value;
         }
 
-        [Input("googleChronicles")]
-        private InputList<Inputs.ObservabilityPipelineConfigDestinationGoogleChronicleGetArgs>? _googleChronicles;
-
-        /// <summary>
-        /// The `GoogleChronicle` destination sends logs to Google Chronicle.
-        /// </summary>
-        public InputList<Inputs.ObservabilityPipelineConfigDestinationGoogleChronicleGetArgs> GoogleChronicles
-        {
-            get => _googleChronicles ?? (_googleChronicles = new InputList<Inputs.ObservabilityPipelineConfigDestinationGoogleChronicleGetArgs>());
-            set => _googleChronicles = value;
-        }
-
         [Input("googleCloudStorages")]
         private InputList<Inputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageGetArgs>? _googleCloudStorages;
 
@@ -148,6 +136,18 @@ namespace Pulumi.Datadog.Inputs
         {
             get => _googlePubsubs ?? (_googlePubsubs = new InputList<Inputs.ObservabilityPipelineConfigDestinationGooglePubsubGetArgs>());
             set => _googlePubsubs = value;
+        }
+
+        [Input("googleSecops")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationGoogleSecopGetArgs>? _googleSecops;
+
+        /// <summary>
+        /// The `GoogleChronicle` destination sends logs to Google SecOps.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationGoogleSecopGetArgs> GoogleSecops
+        {
+            get => _googleSecops ?? (_googleSecops = new InputList<Inputs.ObservabilityPipelineConfigDestinationGoogleSecopGetArgs>());
+            set => _googleSecops = value;
         }
 
         [Input("httpClients")]

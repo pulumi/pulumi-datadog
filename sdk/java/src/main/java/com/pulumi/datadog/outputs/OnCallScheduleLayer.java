@@ -56,7 +56,7 @@ public final class OnCallScheduleLayer {
      */
     private @Nullable String timeZone;
     /**
-     * @return List of user IDs for the layer. Can either be a valid user id or null
+     * @return List of user IDs for the layer. Can either be a valid user id or `null` to represent No-one.
      * 
      */
     private List<String> users;
@@ -119,7 +119,7 @@ public final class OnCallScheduleLayer {
         return Optional.ofNullable(this.timeZone);
     }
     /**
-     * @return List of user IDs for the layer. Can either be a valid user id or null
+     * @return List of user IDs for the layer. Can either be a valid user id or `null` to represent No-one.
      * 
      */
     public List<String> users() {

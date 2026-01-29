@@ -18,7 +18,7 @@ public final class SyntheticsTestMobileOptionsListMonitorOptions {
      */
     private @Nullable String escalationMessage;
     /**
-     * @return The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+     * @return The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`, `hideQueryAndHandles`, `showOnlySnapshot`, `hideHandlesAndFooter`.
      * 
      */
     private @Nullable String notificationPresetName;
@@ -42,7 +42,7 @@ public final class SyntheticsTestMobileOptionsListMonitorOptions {
         return Optional.ofNullable(this.escalationMessage);
     }
     /**
-     * @return The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+     * @return The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`, `hideQueryAndHandles`, `showOnlySnapshot`, `hideHandlesAndFooter`.
      * 
      */
     public Optional<String> notificationPresetName() {

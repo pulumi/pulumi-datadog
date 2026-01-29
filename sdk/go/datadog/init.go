@@ -79,6 +79,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DashboardList{}
 	case "datadog:index/dataset:Dataset":
 		r = &Dataset{}
+	case "datadog:index/datastore:Datastore":
+		r = &Datastore{}
+	case "datadog:index/datastoreItem:DatastoreItem":
+		r = &DatastoreItem{}
 	case "datadog:index/deploymentGate:DeploymentGate":
 		r = &DeploymentGate{}
 	case "datadog:index/domainAllowlist:DomainAllowlist":
@@ -163,6 +167,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RumRetentionFilter{}
 	case "datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder":
 		r = &RumRetentionFiltersOrder{}
+	case "datadog:index/securityMonitoringCriticalAsset:SecurityMonitoringCriticalAsset":
+		r = &SecurityMonitoringCriticalAsset{}
 	case "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule":
 		r = &SecurityMonitoringDefaultRule{}
 	case "datadog:index/securityMonitoringFilter:SecurityMonitoringFilter":
@@ -201,6 +207,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SyntheticsGlobalVariable{}
 	case "datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation":
 		r = &SyntheticsPrivateLocation{}
+	case "datadog:index/syntheticsSuite:SyntheticsSuite":
+		r = &SyntheticsSuite{}
 	case "datadog:index/syntheticsTest:SyntheticsTest":
 		r = &SyntheticsTest{}
 	case "datadog:index/tagPipelineRuleset:TagPipelineRuleset":
@@ -403,6 +411,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/dataset",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/datastore",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/datastoreItem",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -617,6 +635,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/securityMonitoringCriticalAsset",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/securityMonitoringDefaultRule",
 		&module{version},
 	)
@@ -708,6 +731,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/syntheticsPrivateLocation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/syntheticsSuite",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

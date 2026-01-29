@@ -46,7 +46,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? TimeZone;
         /// <summary>
-        /// List of user IDs for the layer. Can either be a valid user id or null
+        /// List of user IDs for the layer. Can either be a valid user id or `Null` to represent No-one.
         /// </summary>
         public readonly ImmutableArray<string> Users;
 

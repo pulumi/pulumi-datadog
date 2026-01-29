@@ -3,15 +3,45 @@
 
 package com.pulumi.datadog.inputs;
 
-
+import com.pulumi.core.Output;
+import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationDatadogLogRouteArgs;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ObservabilityPipelineConfigDestinationDatadogLogArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ObservabilityPipelineConfigDestinationDatadogLogArgs Empty = new ObservabilityPipelineConfigDestinationDatadogLogArgs();
 
+    /**
+     * A list of routing rules that forward matching logs to Datadog using dedicated API keys.
+     * 
+     */
+    @Import(name="routes")
+    private @Nullable Output<List<ObservabilityPipelineConfigDestinationDatadogLogRouteArgs>> routes;
+
+    /**
+     * @return A list of routing rules that forward matching logs to Datadog using dedicated API keys.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigDestinationDatadogLogRouteArgs>>> routes() {
+        return Optional.ofNullable(this.routes);
+    }
+
+    private ObservabilityPipelineConfigDestinationDatadogLogArgs() {}
+
+    private ObservabilityPipelineConfigDestinationDatadogLogArgs(ObservabilityPipelineConfigDestinationDatadogLogArgs $) {
+        this.routes = $.routes;
+    }
+
     public static Builder builder() {
         return new Builder();
+    }
+    public static Builder builder(ObservabilityPipelineConfigDestinationDatadogLogArgs defaults) {
+        return new Builder(defaults);
     }
 
     public static final class Builder {
@@ -20,6 +50,42 @@ public final class ObservabilityPipelineConfigDestinationDatadogLogArgs extends 
         public Builder() {
             $ = new ObservabilityPipelineConfigDestinationDatadogLogArgs();
         }
+
+        public Builder(ObservabilityPipelineConfigDestinationDatadogLogArgs defaults) {
+            $ = new ObservabilityPipelineConfigDestinationDatadogLogArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param routes A list of routing rules that forward matching logs to Datadog using dedicated API keys.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routes(@Nullable Output<List<ObservabilityPipelineConfigDestinationDatadogLogRouteArgs>> routes) {
+            $.routes = routes;
+            return this;
+        }
+
+        /**
+         * @param routes A list of routing rules that forward matching logs to Datadog using dedicated API keys.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routes(List<ObservabilityPipelineConfigDestinationDatadogLogRouteArgs> routes) {
+            return routes(Output.of(routes));
+        }
+
+        /**
+         * @param routes A list of routing rules that forward matching logs to Datadog using dedicated API keys.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routes(ObservabilityPipelineConfigDestinationDatadogLogRouteArgs... routes) {
+            return routes(List.of(routes));
+        }
+
         public ObservabilityPipelineConfigDestinationDatadogLogArgs build() {
             return $;
         }

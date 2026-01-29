@@ -6,7 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
-import java.lang.Integer;
+import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -93,17 +93,17 @@ public final class RumRetentionFilterState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The sample rate for a RUM retention filter, between 0 and 100.
+     * The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
      * 
      */
     @Import(name="sampleRate")
-    private @Nullable Output<Integer> sampleRate;
+    private @Nullable Output<Double> sampleRate;
 
     /**
-     * @return The sample rate for a RUM retention filter, between 0 and 100.
+     * @return The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
      * 
      */
-    public Optional<Output<Integer>> sampleRate() {
+    public Optional<Output<Double>> sampleRate() {
         return Optional.ofNullable(this.sampleRate);
     }
 
@@ -242,23 +242,23 @@ public final class RumRetentionFilterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sampleRate The sample rate for a RUM retention filter, between 0 and 100.
+         * @param sampleRate The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
          * 
          * @return builder
          * 
          */
-        public Builder sampleRate(@Nullable Output<Integer> sampleRate) {
+        public Builder sampleRate(@Nullable Output<Double> sampleRate) {
             $.sampleRate = sampleRate;
             return this;
         }
 
         /**
-         * @param sampleRate The sample rate for a RUM retention filter, between 0 and 100.
+         * @param sampleRate The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
          * 
          * @return builder
          * 
          */
-        public Builder sampleRate(Integer sampleRate) {
+        public Builder sampleRate(Double sampleRate) {
             return sampleRate(Output.of(sampleRate));
         }
 

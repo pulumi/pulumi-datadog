@@ -70,7 +70,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _users;
 
         /// <summary>
-        /// List of user IDs for the layer. Can either be a valid user id or null
+        /// List of user IDs for the layer. Can either be a valid user id or `Null` to represent No-one.
         /// </summary>
         public InputList<string> Users
         {

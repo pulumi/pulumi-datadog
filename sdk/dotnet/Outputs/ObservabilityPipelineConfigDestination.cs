@@ -50,10 +50,6 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationElasticsearch> Elasticsearches;
         /// <summary>
-        /// The `GoogleChronicle` destination sends logs to Google Chronicle.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationGoogleChronicle> GoogleChronicles;
-        /// <summary>
         /// The `GoogleCloudStorage` destination stores logs in a Google Cloud Storage (GCS) bucket.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorage> GoogleCloudStorages;
@@ -61,6 +57,10 @@ namespace Pulumi.Datadog.Outputs
         /// The `GooglePubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationGooglePubsub> GooglePubsubs;
+        /// <summary>
+        /// The `GoogleChronicle` destination sends logs to Google SecOps.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationGoogleSecop> GoogleSecops;
         /// <summary>
         /// The `HttpClient` destination sends data to an HTTP endpoint.
         /// </summary>
@@ -134,11 +134,11 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationElasticsearch> elasticsearches,
 
-            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationGoogleChronicle> googleChronicles,
-
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorage> googleCloudStorages,
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationGooglePubsub> googlePubsubs,
+
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationGoogleSecop> googleSecops,
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationHttpClient> httpClients,
 
@@ -175,9 +175,9 @@ namespace Pulumi.Datadog.Outputs
             DatadogLogs = datadogLogs;
             DatadogMetrics = datadogMetrics;
             Elasticsearches = elasticsearches;
-            GoogleChronicles = googleChronicles;
             GoogleCloudStorages = googleCloudStorages;
             GooglePubsubs = googlePubsubs;
+            GoogleSecops = googleSecops;
             HttpClients = httpClients;
             Id = id;
             Inputs = inputs;

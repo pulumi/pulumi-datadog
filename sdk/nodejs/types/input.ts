@@ -13075,6 +13075,10 @@ export interface MonitorVariables {
      */
     cloudCostQueries?: pulumi.Input<pulumi.Input<inputs.MonitorVariablesCloudCostQuery>[]>;
     /**
+     * The Data Quality query using formulas and functions.
+     */
+    dataQualityQueries?: pulumi.Input<pulumi.Input<inputs.MonitorVariablesDataQualityQuery>[]>;
+    /**
      * A timeseries formula and functions events query.
      */
     eventQueries?: pulumi.Input<pulumi.Input<inputs.MonitorVariablesEventQuery>[]>;
@@ -13099,13 +13103,71 @@ export interface MonitorVariablesCloudCostQuery {
     query: pulumi.Input<string>;
 }
 
+export interface MonitorVariablesDataQualityQuery {
+    /**
+     * The data source for data quality queries. Valid value is `dataQualityMetrics`. Valid values are `dataQualityMetrics`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Filter expression used to match on data entities. Uses AAstra query syntax.
+     */
+    filter: pulumi.Input<string>;
+    /**
+     * Optional grouping fields for aggregation.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percentNegative`, `percentZero`, `rowCount`, `stddev`, `sum`, `uniqueness`. Additional values may be supported.
+     */
+    measure: pulumi.Input<string>;
+    /**
+     * Monitor configuration options for data quality queries.
+     */
+    monitorOptions?: pulumi.Input<inputs.MonitorVariablesDataQualityQueryMonitorOptions>;
+    /**
+     * The name of the query for use in formulas.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Schema version for the data quality query.
+     */
+    schemaVersion?: pulumi.Input<string>;
+    /**
+     * Optional scoping expression to further filter metrics.
+     */
+    scope?: pulumi.Input<string>;
+}
+
+export interface MonitorVariablesDataQualityQueryMonitorOptions {
+    /**
+     * Crontab expression to override the default schedule.
+     */
+    crontabOverride?: pulumi.Input<string>;
+    /**
+     * Custom SQL query for the monitor.
+     */
+    customSql?: pulumi.Input<string>;
+    /**
+     * Custom WHERE clause for the query.
+     */
+    customWhere?: pulumi.Input<string>;
+    /**
+     * Columns to group results by.
+     */
+    groupByColumns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Override for the model type. Valid values are `freshness`, `percentage`, `any`.
+     */
+    modelTypeOverride?: pulumi.Input<string>;
+}
+
 export interface MonitorVariablesEventQuery {
     /**
      * The compute options.
      */
     computes: pulumi.Input<pulumi.Input<inputs.MonitorVariablesEventQueryCompute>[]>;
     /**
-     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`.
+     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -13195,6 +13257,10 @@ export interface ObservabilityPipelineConfig {
      * List of sources.
      */
     sources?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigSource>[]>;
+    /**
+     * Set to `true` to continue using the legacy search syntax while migrating filter queries. After migrating all queries to the new syntax, set to `false`. The legacy syntax is deprecated and will eventually be removed. Requires Observability Pipelines Worker 2.11 or later. See https://docs.datadoghq.com/observability*pipelines/guide/upgrade*your*filter*queries*to*the*new*search_syntax/ for more information.
+     */
+    useLegacySearchSyntax?: pulumi.Input<boolean>;
 }
 
 export interface ObservabilityPipelineConfigDestination {
@@ -13235,10 +13301,6 @@ export interface ObservabilityPipelineConfigDestination {
      */
     elasticsearches?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationElasticsearch>[]>;
     /**
-     * The `googleChronicle` destination sends logs to Google Chronicle.
-     */
-    googleChronicles?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationGoogleChronicle>[]>;
-    /**
      * The `googleCloudStorage` destination stores logs in a Google Cloud Storage (GCS) bucket.
      */
     googleCloudStorages?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationGoogleCloudStorage>[]>;
@@ -13246,6 +13308,10 @@ export interface ObservabilityPipelineConfigDestination {
      * The `googlePubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
      */
     googlePubsubs?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationGooglePubsub>[]>;
+    /**
+     * The `googleChronicle` destination sends logs to Google SecOps.
+     */
+    googleSecops?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationGoogleSecop>[]>;
     /**
      * The `httpClient` destination sends data to an HTTP endpoint.
      */
@@ -13478,6 +13544,29 @@ export interface ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemTls
 }
 
 export interface ObservabilityPipelineConfigDestinationDatadogLog {
+    /**
+     * A list of routing rules that forward matching logs to Datadog using dedicated API keys.
+     */
+    routes?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationDatadogLogRoute>[]>;
+}
+
+export interface ObservabilityPipelineConfigDestinationDatadogLogRoute {
+    /**
+     * Name of the environment variable or secret that stores the Datadog API key used by this route.
+     */
+    apiKeyKey: pulumi.Input<string>;
+    /**
+     * A Datadog search query that determines which logs are forwarded using this route.
+     */
+    include: pulumi.Input<string>;
+    /**
+     * Unique identifier for this route within the destination.
+     */
+    routeId: pulumi.Input<string>;
+    /**
+     * Datadog site where matching logs are sent (for example, `us1`).
+     */
+    site: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigDestinationDatadogMetric {
@@ -13511,32 +13600,6 @@ export interface ObservabilityPipelineConfigDestinationElasticsearchDataStream {
      * The data stream namespace for your logs. This separates logs into different environments or domains.
      */
     namespace?: pulumi.Input<string>;
-}
-
-export interface ObservabilityPipelineConfigDestinationGoogleChronicle {
-    /**
-     * GCP credentials used to authenticate with Google Cloud services.
-     */
-    auth?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationGoogleChronicleAuth>;
-    /**
-     * The Google Chronicle customer ID.
-     */
-    customerId?: pulumi.Input<string>;
-    /**
-     * The encoding format for the logs sent to Chronicle.
-     */
-    encoding?: pulumi.Input<string>;
-    /**
-     * The log type metadata associated with the Chronicle destination.
-     */
-    logType?: pulumi.Input<string>;
-}
-
-export interface ObservabilityPipelineConfigDestinationGoogleChronicleAuth {
-    /**
-     * Path to the GCP service account key file.
-     */
-    credentialsFile: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigDestinationGoogleCloudStorage {
@@ -13627,6 +13690,32 @@ export interface ObservabilityPipelineConfigDestinationGooglePubsubTls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationGoogleSecop {
+    /**
+     * GCP credentials used to authenticate with Google Cloud services.
+     */
+    auth?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationGoogleSecopAuth>;
+    /**
+     * The Google SecOps customer ID.
+     */
+    customerId: pulumi.Input<string>;
+    /**
+     * The encoding format for the logs sent to Google SecOps. Valid values are `json`, `rawMessage`.
+     */
+    encoding: pulumi.Input<string>;
+    /**
+     * The log type metadata associated with the Google SecOps destination.
+     */
+    logType: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationGoogleSecopAuth {
+    /**
+     * Path to the GCP service account key file.
+     */
+    credentialsFile: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigDestinationHttpClient {
@@ -15432,7 +15521,7 @@ export interface OnCallScheduleLayer {
      */
     timeZone?: pulumi.Input<string>;
     /**
-     * List of user IDs for the layer. Can either be a valid user id or null
+     * List of user IDs for the layer. Can either be a valid user id or `null` to represent No-one.
      */
     users: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -28941,6 +29030,24 @@ export interface SyntheticsPrivateLocationMetadata {
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface SyntheticsSuiteOption {
+    /**
+     * Alerting threshold for the suite. Value must be between 0.000000 and 1.000000.
+     */
+    alertingThreshold: pulumi.Input<number>;
+}
+
+export interface SyntheticsSuiteTest {
+    /**
+     * Alerting criticality for the test. Valid values are `ignore`, `critical`.
+     */
+    alertingCriticality?: pulumi.Input<string>;
+    /**
+     * Public ID of the test.
+     */
+    publicId: pulumi.Input<string>;
+}
+
 export interface SyntheticsTestApiStep {
     /**
      * Determines whether or not to continue with test if this step fails.
@@ -29793,7 +29900,7 @@ export interface SyntheticsTestMobileOptionsListMonitorOptions {
      */
     escalationMessage?: pulumi.Input<string>;
     /**
-     * The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+     * The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`, `hideQueryAndHandles`, `showOnlySnapshot`, `hideHandlesAndFooter`.
      */
     notificationPresetName?: pulumi.Input<string>;
     /**
@@ -30074,7 +30181,7 @@ export interface SyntheticsTestOptionsListMonitorOptions {
      */
     escalationMessage?: pulumi.Input<string>;
     /**
-     * The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`.
+     * The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`, `hideQueryAndHandles`, `showOnlySnapshot`, `hideHandlesAndFooter`.
      */
     notificationPresetName?: pulumi.Input<string>;
     /**

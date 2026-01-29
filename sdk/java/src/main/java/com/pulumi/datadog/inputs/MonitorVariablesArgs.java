@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.MonitorVariablesCloudCostQueryArgs;
+import com.pulumi.datadog.inputs.MonitorVariablesDataQualityQueryArgs;
 import com.pulumi.datadog.inputs.MonitorVariablesEventQueryArgs;
 import java.util.List;
 import java.util.Objects;
@@ -33,6 +34,21 @@ public final class MonitorVariablesArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The Data Quality query using formulas and functions.
+     * 
+     */
+    @Import(name="dataQualityQueries")
+    private @Nullable Output<List<MonitorVariablesDataQualityQueryArgs>> dataQualityQueries;
+
+    /**
+     * @return The Data Quality query using formulas and functions.
+     * 
+     */
+    public Optional<Output<List<MonitorVariablesDataQualityQueryArgs>>> dataQualityQueries() {
+        return Optional.ofNullable(this.dataQualityQueries);
+    }
+
+    /**
      * A timeseries formula and functions events query.
      * 
      */
@@ -51,6 +67,7 @@ public final class MonitorVariablesArgs extends com.pulumi.resources.ResourceArg
 
     private MonitorVariablesArgs(MonitorVariablesArgs $) {
         this.cloudCostQueries = $.cloudCostQueries;
+        this.dataQualityQueries = $.dataQualityQueries;
         this.eventQueries = $.eventQueries;
     }
 
@@ -101,6 +118,37 @@ public final class MonitorVariablesArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder cloudCostQueries(MonitorVariablesCloudCostQueryArgs... cloudCostQueries) {
             return cloudCostQueries(List.of(cloudCostQueries));
+        }
+
+        /**
+         * @param dataQualityQueries The Data Quality query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataQualityQueries(@Nullable Output<List<MonitorVariablesDataQualityQueryArgs>> dataQualityQueries) {
+            $.dataQualityQueries = dataQualityQueries;
+            return this;
+        }
+
+        /**
+         * @param dataQualityQueries The Data Quality query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataQualityQueries(List<MonitorVariablesDataQualityQueryArgs> dataQualityQueries) {
+            return dataQualityQueries(Output.of(dataQualityQueries));
+        }
+
+        /**
+         * @param dataQualityQueries The Data Quality query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataQualityQueries(MonitorVariablesDataQualityQueryArgs... dataQualityQueries) {
+            return dataQualityQueries(List.of(dataQualityQueries));
         }
 
         /**

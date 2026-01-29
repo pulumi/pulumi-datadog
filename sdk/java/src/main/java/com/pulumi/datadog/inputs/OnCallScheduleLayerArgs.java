@@ -140,14 +140,14 @@ public final class OnCallScheduleLayerArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * List of user IDs for the layer. Can either be a valid user id or null
+     * List of user IDs for the layer. Can either be a valid user id or `null` to represent No-one.
      * 
      */
     @Import(name="users", required=true)
     private Output<List<String>> users;
 
     /**
-     * @return List of user IDs for the layer. Can either be a valid user id or null
+     * @return List of user IDs for the layer. Can either be a valid user id or `null` to represent No-one.
      * 
      */
     public Output<List<String>> users() {
@@ -365,7 +365,7 @@ public final class OnCallScheduleLayerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param users List of user IDs for the layer. Can either be a valid user id or null
+         * @param users List of user IDs for the layer. Can either be a valid user id or `null` to represent No-one.
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class OnCallScheduleLayerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param users List of user IDs for the layer. Can either be a valid user id or null
+         * @param users List of user IDs for the layer. Can either be a valid user id or `null` to represent No-one.
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class OnCallScheduleLayerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param users List of user IDs for the layer. Can either be a valid user id or null
+         * @param users List of user IDs for the layer. Can either be a valid user id or `null` to represent No-one.
          * 
          * @return builder
          * 

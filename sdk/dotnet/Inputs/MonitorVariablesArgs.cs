@@ -24,6 +24,18 @@ namespace Pulumi.Datadog.Inputs
             set => _cloudCostQueries = value;
         }
 
+        [Input("dataQualityQueries")]
+        private InputList<Inputs.MonitorVariablesDataQualityQueryArgs>? _dataQualityQueries;
+
+        /// <summary>
+        /// The Data Quality query using formulas and functions.
+        /// </summary>
+        public InputList<Inputs.MonitorVariablesDataQualityQueryArgs> DataQualityQueries
+        {
+            get => _dataQualityQueries ?? (_dataQualityQueries = new InputList<Inputs.MonitorVariablesDataQualityQueryArgs>());
+            set => _dataQualityQueries = value;
+        }
+
         [Input("eventQueries")]
         private InputList<Inputs.MonitorVariablesEventQueryArgs>? _eventQueries;
 
