@@ -12394,6 +12394,14 @@
                     }
                 }
             },
+            "datadog_datastore": {
+                "current": "datadog:index/datastore:Datastore",
+                "majorVersion": 4
+            },
+            "datadog_datastore_item": {
+                "current": "datadog:index/datastoreItem:DatastoreItem",
+                "majorVersion": 4
+            },
             "datadog_deployment_gate": {
                 "current": "datadog:index/deploymentGate:DeploymentGate",
                 "majorVersion": 4,
@@ -13488,6 +13496,26 @@
                                 "cloud_cost_query": {
                                     "maxItemsOne": false
                                 },
+                                "data_quality_query": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "group_by": {
+                                                "maxItemsOne": false
+                                            },
+                                            "monitor_options": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "group_by_columns": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
                                 "event_query": {
                                     "maxItemsOne": false,
                                     "elem": {
@@ -13637,7 +13665,14 @@
                                                 }
                                             },
                                             "datadog_logs": {
-                                                "maxItemsOne": false
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "routes": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
                                             },
                                             "datadog_metrics": {
                                                 "maxItemsOne": false
@@ -13647,16 +13682,6 @@
                                                 "elem": {
                                                     "fields": {
                                                         "data_stream": {
-                                                            "maxItemsOne": true
-                                                        }
-                                                    }
-                                                }
-                                            },
-                                            "google_chronicle": {
-                                                "maxItemsOne": false,
-                                                "elem": {
-                                                    "fields": {
-                                                        "auth": {
                                                             "maxItemsOne": true
                                                         }
                                                     }
@@ -13683,6 +13708,16 @@
                                                             "maxItemsOne": true
                                                         },
                                                         "tls": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "google_secops": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "auth": {
                                                             "maxItemsOne": true
                                                         }
                                                     }
@@ -17923,6 +17958,15 @@
                     }
                 }
             },
+            "datadog_security_monitoring_critical_asset": {
+                "current": "datadog:index/securityMonitoringCriticalAsset:SecurityMonitoringCriticalAsset",
+                "majorVersion": 4,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_security_monitoring_default_rule": {
                 "current": "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule",
                 "majorVersion": 4,
@@ -18340,6 +18384,21 @@
                         }
                     },
                     "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "datadog_synthetics_suite": {
+                "current": "datadog:index/syntheticsSuite:SyntheticsSuite",
+                "majorVersion": 4,
+                "fields": {
+                    "options": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    },
+                    "tests": {
                         "maxItemsOne": false
                     }
                 }
@@ -18950,6 +19009,14 @@
                 "current": "datadog:index/getDashboardList:getDashboardList",
                 "majorVersion": 4
             },
+            "datadog_datastore": {
+                "current": "datadog:index/getDatastore:getDatastore",
+                "majorVersion": 4
+            },
+            "datadog_datastore_item": {
+                "current": "datadog:index/getDatastoreItem:getDatastoreItem",
+                "majorVersion": 4
+            },
             "datadog_gcp_uc_config": {
                 "current": "datadog:index/getGcpUcConfig:getGcpUcConfig",
                 "majorVersion": 4,
@@ -19446,6 +19513,31 @@
                     }
                 }
             },
+            "datadog_security_monitoring_critical_asset": {
+                "current": "datadog:index/getSecurityMonitoringCriticalAsset:getSecurityMonitoringCriticalAsset",
+                "majorVersion": 4,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "datadog_security_monitoring_critical_assets": {
+                "current": "datadog:index/getSecurityMonitoringCriticalAssets:getSecurityMonitoringCriticalAssets",
+                "majorVersion": 4,
+                "fields": {
+                    "critical_assets": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "tags": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "datadog_security_monitoring_filters": {
                 "current": "datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters",
                 "majorVersion": 4,
@@ -19874,6 +19966,8 @@
             "datadog:index/dashboardJson:DashboardJson": 0,
             "datadog:index/dashboardList:DashboardList": 1,
             "datadog:index/dataset:Dataset": 1,
+            "datadog:index/datastore:Datastore": 1,
+            "datadog:index/datastoreItem:DatastoreItem": 1,
             "datadog:index/deploymentGate:DeploymentGate": 1,
             "datadog:index/domainAllowlist:DomainAllowlist": 1,
             "datadog:index/downtime:Downtime": 0,
@@ -19916,6 +20010,7 @@
             "datadog:index/rumMetric:RumMetric": 1,
             "datadog:index/rumRetentionFilter:RumRetentionFilter": 1,
             "datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder": 1,
+            "datadog:index/securityMonitoringCriticalAsset:SecurityMonitoringCriticalAsset": 1,
             "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule": 0,
             "datadog:index/securityMonitoringFilter:SecurityMonitoringFilter": 0,
             "datadog:index/securityMonitoringRule:SecurityMonitoringRule": 0,
@@ -19935,6 +20030,7 @@
             "datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap": 1,
             "datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable": 1,
             "datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation": 1,
+            "datadog:index/syntheticsSuite:SyntheticsSuite": 1,
             "datadog:index/syntheticsTest:SyntheticsTest": 0,
             "datadog:index/tagPipelineRuleset:TagPipelineRuleset": 1,
             "datadog:index/tagPipelineRulesets:TagPipelineRulesets": 1,
@@ -19979,6 +20075,8 @@
             "datadog:index/getCustomAllocationRule:getCustomAllocationRule": 1,
             "datadog:index/getDashboard:getDashboard": 0,
             "datadog:index/getDashboardList:getDashboardList": 1,
+            "datadog:index/getDatastore:getDatastore": 1,
+            "datadog:index/getDatastoreItem:getDatastoreItem": 1,
             "datadog:index/getGcpUcConfig:getGcpUcConfig": 1,
             "datadog:index/getHosts:getHosts": 1,
             "datadog:index/getIncidentNotificationRule:getIncidentNotificationRule": 1,
@@ -20007,6 +20105,8 @@
             "datadog:index/getRoles:getRoles": 0,
             "datadog:index/getRumApplication:getRumApplication": 1,
             "datadog:index/getRumRetentionFilters:getRumRetentionFilters": 1,
+            "datadog:index/getSecurityMonitoringCriticalAsset:getSecurityMonitoringCriticalAsset": 1,
+            "datadog:index/getSecurityMonitoringCriticalAssets:getSecurityMonitoringCriticalAssets": 1,
             "datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters": 0,
             "datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules": 0,
             "datadog:index/getSecurityMonitoringSuppressions:getSecurityMonitoringSuppressions": 1,
