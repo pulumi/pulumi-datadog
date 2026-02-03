@@ -13,7 +13,6 @@ import com.pulumi.datadog.inputs.OnCallScheduleState;
 import com.pulumi.datadog.outputs.OnCallScheduleLayer;
 import java.lang.String;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -101,14 +100,14 @@ public class OnCallSchedule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="layers", refs={List.class,OnCallScheduleLayer.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<OnCallScheduleLayer>> layers;
+    private Output<List<OnCallScheduleLayer>> layers;
 
     /**
      * @return List of layers for the schedule.
      * 
      */
-    public Output<Optional<List<OnCallScheduleLayer>>> layers() {
-        return Codegen.optional(this.layers);
+    public Output<List<OnCallScheduleLayer>> layers() {
+        return this.layers;
     }
     /**
      * A human-readable name for the new schedule.

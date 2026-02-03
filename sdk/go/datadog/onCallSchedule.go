@@ -112,6 +112,9 @@ func NewOnCallSchedule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Layers == nil {
+		return nil, errors.New("invalid value for required argument 'Layers'")
+	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}

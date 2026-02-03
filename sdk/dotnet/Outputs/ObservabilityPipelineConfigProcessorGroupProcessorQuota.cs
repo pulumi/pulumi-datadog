@@ -21,7 +21,7 @@ namespace Pulumi.Datadog.Outputs
         /// Whether to ignore when partition fields are missing.
         /// </summary>
         public readonly bool? IgnoreWhenMissingPartitions;
-        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimit? Limit;
+        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimit Limit;
         /// <summary>
         /// The name of the quota.
         /// </summary>
@@ -49,7 +49,7 @@ namespace Pulumi.Datadog.Outputs
 
             bool? ignoreWhenMissingPartitions,
 
-            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimit? limit,
+            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimit limit,
 
             string name,
 

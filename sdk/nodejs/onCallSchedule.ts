@@ -92,7 +92,7 @@ export class OnCallSchedule extends pulumi.CustomResource {
     /**
      * List of layers for the schedule.
      */
-    declare public readonly layers: pulumi.Output<outputs.OnCallScheduleLayer[] | undefined>;
+    declare public readonly layers: pulumi.Output<outputs.OnCallScheduleLayer[]>;
     /**
      * A human-readable name for the new schedule.
      */
@@ -125,6 +125,9 @@ export class OnCallSchedule extends pulumi.CustomResource {
             resourceInputs["timeZone"] = state?.timeZone;
         } else {
             const args = argsOrState as OnCallScheduleArgs | undefined;
+            if (args?.layers === undefined && !opts.urn) {
+                throw new Error("Missing required property 'layers'");
+            }
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
@@ -170,7 +173,7 @@ export interface OnCallScheduleArgs {
     /**
      * List of layers for the schedule.
      */
-    layers?: pulumi.Input<pulumi.Input<inputs.OnCallScheduleLayer>[]>;
+    layers: pulumi.Input<pulumi.Input<inputs.OnCallScheduleLayer>[]>;
     /**
      * A human-readable name for the new schedule.
      */

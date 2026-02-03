@@ -5,9 +5,9 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsField;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigProcessorGroupProcessorAddFields {
@@ -15,7 +15,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorAddFields {
      * @return A list of static fields (key-value pairs) that is added to each log event processed by this component.
      * 
      */
-    private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsField> fields;
+    private List<ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsField> fields;
 
     private ObservabilityPipelineConfigProcessorGroupProcessorAddFields() {}
     /**
@@ -23,7 +23,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorAddFields {
      * 
      */
     public List<ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsField> fields() {
-        return this.fields == null ? List.of() : this.fields;
+        return this.fields;
     }
 
     public static Builder builder() {
@@ -35,7 +35,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorAddFields {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsField> fields;
+        private List<ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsField> fields;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorAddFields defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +43,10 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorAddFields {
         }
 
         @CustomType.Setter
-        public Builder fields(@Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsField> fields) {
-
+        public Builder fields(List<ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsField> fields) {
+            if (fields == null) {
+              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorAddFields", "fields");
+            }
             this.fields = fields;
             return this;
         }

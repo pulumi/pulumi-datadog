@@ -15,7 +15,6 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -206,14 +205,14 @@ public class SecurityNotificationRule extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="selectors", refs={SecurityNotificationRuleSelectors.class}, tree="[0]")
-    private Output</* @Nullable */ SecurityNotificationRuleSelectors> selectors;
+    private Output<SecurityNotificationRuleSelectors> selectors;
 
     /**
      * @return Defines selectors to filter security issues that generate notifications.
      * 
      */
-    public Output<Optional<SecurityNotificationRuleSelectors>> selectors() {
-        return Codegen.optional(this.selectors);
+    public Output<SecurityNotificationRuleSelectors> selectors() {
+        return this.selectors;
     }
     /**
      * The list of handle targets for the notifications. A target must be prefixed with an {@literal @}. It can be an email address ({@literal @}bob{@literal @}email.com), or any installed integration. For example, a Slack recipient ({@literal @}slack-ops), or a Teams recipient ({@literal @}teams-ops).

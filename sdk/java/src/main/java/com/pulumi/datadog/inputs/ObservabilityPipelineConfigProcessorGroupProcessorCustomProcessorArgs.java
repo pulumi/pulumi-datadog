@@ -6,10 +6,9 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemapArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,15 +19,15 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorCustomProce
      * Array of VRL remap configurations. Each remap defines a transformation rule with its own filter and VRL script.
      * 
      */
-    @Import(name="remaps")
-    private @Nullable Output<List<ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemapArgs>> remaps;
+    @Import(name="remaps", required=true)
+    private Output<List<ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemapArgs>> remaps;
 
     /**
      * @return Array of VRL remap configurations. Each remap defines a transformation rule with its own filter and VRL script.
      * 
      */
-    public Optional<Output<List<ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemapArgs>>> remaps() {
-        return Optional.ofNullable(this.remaps);
+    public Output<List<ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemapArgs>> remaps() {
+        return this.remaps;
     }
 
     private ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorArgs() {}
@@ -61,7 +60,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorCustomProce
          * @return builder
          * 
          */
-        public Builder remaps(@Nullable Output<List<ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemapArgs>> remaps) {
+        public Builder remaps(Output<List<ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemapArgs>> remaps) {
             $.remaps = remaps;
             return this;
         }
@@ -87,6 +86,9 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorCustomProce
         }
 
         public ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorArgs build() {
+            if ($.remaps == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorArgs", "remaps");
+            }
             return $;
         }
     }

@@ -24,8 +24,8 @@ namespace Pulumi.Datadog.Inputs
         [Input("ignoreWhenMissingPartitions")]
         public Input<bool>? IgnoreWhenMissingPartitions { get; set; }
 
-        [Input("limit")]
-        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimitArgs>? Limit { get; set; }
+        [Input("limit", required: true)]
+        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimitArgs> Limit { get; set; } = null!;
 
         /// <summary>
         /// The name of the quota.

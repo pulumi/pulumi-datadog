@@ -5,9 +5,9 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsField;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigProcessorGroupProcessorRenameFields {
@@ -15,7 +15,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorRenameField
      * @return List of fields to rename.
      * 
      */
-    private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsField> fields;
+    private List<ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsField> fields;
 
     private ObservabilityPipelineConfigProcessorGroupProcessorRenameFields() {}
     /**
@@ -23,7 +23,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorRenameField
      * 
      */
     public List<ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsField> fields() {
-        return this.fields == null ? List.of() : this.fields;
+        return this.fields;
     }
 
     public static Builder builder() {
@@ -35,7 +35,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorRenameField
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsField> fields;
+        private List<ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsField> fields;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorRenameFields defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +43,10 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorRenameField
         }
 
         @CustomType.Setter
-        public Builder fields(@Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsField> fields) {
-
+        public Builder fields(List<ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsField> fields) {
+            if (fields == null) {
+              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorRenameFields", "fields");
+            }
             this.fields = fields;
             return this;
         }

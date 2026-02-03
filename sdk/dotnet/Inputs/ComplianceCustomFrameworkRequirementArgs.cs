@@ -12,7 +12,7 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ComplianceCustomFrameworkRequirementArgs : global::Pulumi.ResourceArgs
     {
-        [Input("controls")]
+        [Input("controls", required: true)]
         private InputList<Inputs.ComplianceCustomFrameworkRequirementControlArgs>? _controls;
 
         /// <summary>

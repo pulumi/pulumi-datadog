@@ -22,15 +22,15 @@ public final class OnCallScheduleArgs extends com.pulumi.resources.ResourceArgs 
      * List of layers for the schedule.
      * 
      */
-    @Import(name="layers")
-    private @Nullable Output<List<OnCallScheduleLayerArgs>> layers;
+    @Import(name="layers", required=true)
+    private Output<List<OnCallScheduleLayerArgs>> layers;
 
     /**
      * @return List of layers for the schedule.
      * 
      */
-    public Optional<Output<List<OnCallScheduleLayerArgs>>> layers() {
-        return Optional.ofNullable(this.layers);
+    public Output<List<OnCallScheduleLayerArgs>> layers() {
+        return this.layers;
     }
 
     /**
@@ -111,7 +111,7 @@ public final class OnCallScheduleArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder layers(@Nullable Output<List<OnCallScheduleLayerArgs>> layers) {
+        public Builder layers(Output<List<OnCallScheduleLayerArgs>> layers) {
             $.layers = layers;
             return this;
         }
@@ -210,6 +210,9 @@ public final class OnCallScheduleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public OnCallScheduleArgs build() {
+            if ($.layers == null) {
+                throw new MissingRequiredPropertyException("OnCallScheduleArgs", "layers");
+            }
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("OnCallScheduleArgs", "name");
             }

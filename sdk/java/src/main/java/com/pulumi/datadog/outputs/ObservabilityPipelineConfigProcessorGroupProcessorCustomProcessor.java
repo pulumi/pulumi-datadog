@@ -5,9 +5,9 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemap;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessor {
@@ -15,7 +15,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorCustomProce
      * @return Array of VRL remap configurations. Each remap defines a transformation rule with its own filter and VRL script.
      * 
      */
-    private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemap> remaps;
+    private List<ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemap> remaps;
 
     private ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessor() {}
     /**
@@ -23,7 +23,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorCustomProce
      * 
      */
     public List<ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemap> remaps() {
-        return this.remaps == null ? List.of() : this.remaps;
+        return this.remaps;
     }
 
     public static Builder builder() {
@@ -35,7 +35,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorCustomProce
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemap> remaps;
+        private List<ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemap> remaps;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessor defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +43,10 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorCustomProce
         }
 
         @CustomType.Setter
-        public Builder remaps(@Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemap> remaps) {
-
+        public Builder remaps(List<ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemap> remaps) {
+            if (remaps == null) {
+              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessor", "remaps");
+            }
             this.remaps = remaps;
             return this;
         }

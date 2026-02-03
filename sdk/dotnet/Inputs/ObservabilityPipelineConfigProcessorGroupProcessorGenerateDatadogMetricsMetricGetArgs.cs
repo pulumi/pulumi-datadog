@@ -45,8 +45,8 @@ namespace Pulumi.Datadog.Inputs
         /// <summary>
         /// Specifies how the value of the generated metric is computed.
         /// </summary>
-        [Input("value")]
-        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValueGetArgs>? Value { get; set; }
+        [Input("value", required: true)]
+        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValueGetArgs> Value { get; set; } = null!;
 
         public ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricGetArgs()
         {

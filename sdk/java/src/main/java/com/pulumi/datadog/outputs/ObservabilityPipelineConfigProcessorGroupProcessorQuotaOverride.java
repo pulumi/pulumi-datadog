@@ -6,9 +6,9 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideField;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimit;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -18,7 +18,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverri
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideField> fields;
-    private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimit limit;
+    private ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimit limit;
 
     private ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverride() {}
     /**
@@ -28,8 +28,8 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverri
     public List<ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideField> fields() {
         return this.fields == null ? List.of() : this.fields;
     }
-    public Optional<ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimit> limit() {
-        return Optional.ofNullable(this.limit);
+    public ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimit limit() {
+        return this.limit;
     }
 
     public static Builder builder() {
@@ -42,7 +42,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverri
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideField> fields;
-        private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimit limit;
+        private ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimit limit;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverride defaults) {
     	      Objects.requireNonNull(defaults);
@@ -60,8 +60,10 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverri
             return fields(List.of(fields));
         }
         @CustomType.Setter
-        public Builder limit(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimit limit) {
-
+        public Builder limit(ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimit limit) {
+            if (limit == null) {
+              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverride", "limit");
+            }
             this.limit = limit;
             return this;
         }

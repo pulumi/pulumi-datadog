@@ -190,7 +190,7 @@ namespace Pulumi.Datadog
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("requirements")]
+        [Input("requirements", required: true)]
         private InputList<Inputs.ComplianceCustomFrameworkRequirementArgs>? _requirements;
 
         /// <summary>

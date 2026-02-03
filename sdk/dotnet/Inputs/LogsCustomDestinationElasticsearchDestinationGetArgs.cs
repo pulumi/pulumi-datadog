@@ -15,8 +15,8 @@ namespace Pulumi.Datadog.Inputs
         /// <summary>
         /// Basic access authentication.
         /// </summary>
-        [Input("basicAuth", required: true)]
-        public Input<Inputs.LogsCustomDestinationElasticsearchDestinationBasicAuthGetArgs> BasicAuth { get; set; } = null!;
+        [Input("basicAuth")]
+        public Input<Inputs.LogsCustomDestinationElasticsearchDestinationBasicAuthGetArgs>? BasicAuth { get; set; }
 
         /// <summary>
         /// The destination for which logs will be forwarded to. Must have HTTPS scheme. Forwarding back to Datadog is not allowed.

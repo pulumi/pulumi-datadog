@@ -12,7 +12,7 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorArgs : global::Pulumi.ResourceArgs
     {
-        [Input("remaps")]
+        [Input("remaps", required: true)]
         private InputList<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemapArgs>? _remaps;
 
         /// <summary>

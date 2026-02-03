@@ -26,7 +26,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuota {
      * 
      */
     private @Nullable Boolean ignoreWhenMissingPartitions;
-    private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimit limit;
+    private ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimit limit;
     /**
      * @return The name of the quota.
      * 
@@ -68,8 +68,8 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuota {
     public Optional<Boolean> ignoreWhenMissingPartitions() {
         return Optional.ofNullable(this.ignoreWhenMissingPartitions);
     }
-    public Optional<ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimit> limit() {
-        return Optional.ofNullable(this.limit);
+    public ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimit limit() {
+        return this.limit;
     }
     /**
      * @return The name of the quota.
@@ -118,7 +118,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuota {
     public static final class Builder {
         private @Nullable Boolean dropEvents;
         private @Nullable Boolean ignoreWhenMissingPartitions;
-        private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimit limit;
+        private ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimit limit;
         private String name;
         private @Nullable String overflowAction;
         private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverride> overrides;
@@ -150,8 +150,10 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuota {
             return this;
         }
         @CustomType.Setter
-        public Builder limit(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimit limit) {
-
+        public Builder limit(ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimit limit) {
+            if (limit == null) {
+              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorQuota", "limit");
+            }
             this.limit = limit;
             return this;
         }

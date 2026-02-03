@@ -69,8 +69,8 @@ export class SpansMetric extends pulumi.CustomResource {
         return obj['__pulumiType'] === SpansMetric.__pulumiType;
     }
 
-    declare public readonly compute: pulumi.Output<outputs.SpansMetricCompute | undefined>;
-    declare public readonly filter: pulumi.Output<outputs.SpansMetricFilter | undefined>;
+    declare public readonly compute: pulumi.Output<outputs.SpansMetricCompute>;
+    declare public readonly filter: pulumi.Output<outputs.SpansMetricFilter>;
     declare public readonly groupBies: pulumi.Output<outputs.SpansMetricGroupBy[] | undefined>;
     /**
      * The name of the span-based metric. This field can't be updated after creation.
@@ -96,6 +96,12 @@ export class SpansMetric extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as SpansMetricArgs | undefined;
+            if (args?.compute === undefined && !opts.urn) {
+                throw new Error("Missing required property 'compute'");
+            }
+            if (args?.filter === undefined && !opts.urn) {
+                throw new Error("Missing required property 'filter'");
+            }
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
@@ -126,8 +132,8 @@ export interface SpansMetricState {
  * The set of arguments for constructing a SpansMetric resource.
  */
 export interface SpansMetricArgs {
-    compute?: pulumi.Input<inputs.SpansMetricCompute>;
-    filter?: pulumi.Input<inputs.SpansMetricFilter>;
+    compute: pulumi.Input<inputs.SpansMetricCompute>;
+    filter: pulumi.Input<inputs.SpansMetricFilter>;
     groupBies?: pulumi.Input<pulumi.Input<inputs.SpansMetricGroupBy>[]>;
     /**
      * The name of the span-based metric. This field can't be updated after creation.

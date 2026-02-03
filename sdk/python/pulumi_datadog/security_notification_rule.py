@@ -22,24 +22,23 @@ __all__ = ['SecurityNotificationRuleArgs', 'SecurityNotificationRule']
 class SecurityNotificationRuleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
+                 selectors: pulumi.Input['SecurityNotificationRuleSelectorsArgs'],
                  targets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 selectors: Optional[pulumi.Input['SecurityNotificationRuleSelectorsArgs']] = None,
                  time_aggregation: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a SecurityNotificationRule resource.
         :param pulumi.Input[_builtins.str] name: The name of the rule (must be unique).
+        :param pulumi.Input['SecurityNotificationRuleSelectorsArgs'] selectors: Defines selectors to filter security issues that generate notifications.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] targets: The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the rule is enabled. Defaults to `true`.
-        :param pulumi.Input['SecurityNotificationRuleSelectorsArgs'] selectors: Defines selectors to filter security issues that generate notifications.
         :param pulumi.Input[_builtins.int] time_aggregation: Specifies the time period, in seconds, used to aggregate the notification. Defaults to `0`.
         """
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "selectors", selectors)
         pulumi.set(__self__, "targets", targets)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if selectors is not None:
-            pulumi.set(__self__, "selectors", selectors)
         if time_aggregation is not None:
             pulumi.set(__self__, "time_aggregation", time_aggregation)
 
@@ -54,6 +53,18 @@ class SecurityNotificationRuleArgs:
     @name.setter
     def name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def selectors(self) -> pulumi.Input['SecurityNotificationRuleSelectorsArgs']:
+        """
+        Defines selectors to filter security issues that generate notifications.
+        """
+        return pulumi.get(self, "selectors")
+
+    @selectors.setter
+    def selectors(self, value: pulumi.Input['SecurityNotificationRuleSelectorsArgs']):
+        pulumi.set(self, "selectors", value)
 
     @_builtins.property
     @pulumi.getter
@@ -78,18 +89,6 @@ class SecurityNotificationRuleArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def selectors(self) -> Optional[pulumi.Input['SecurityNotificationRuleSelectorsArgs']]:
-        """
-        Defines selectors to filter security issues that generate notifications.
-        """
-        return pulumi.get(self, "selectors")
-
-    @selectors.setter
-    def selectors(self, value: Optional[pulumi.Input['SecurityNotificationRuleSelectorsArgs']]):
-        pulumi.set(self, "selectors", value)
 
     @_builtins.property
     @pulumi.getter(name="timeAggregation")
@@ -455,6 +454,8 @@ class SecurityNotificationRule(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            if selectors is None and not opts.urn:
+                raise TypeError("Missing required property 'selectors'")
             __props__.__dict__["selectors"] = selectors
             if targets is None and not opts.urn:
                 raise TypeError("Missing required property 'targets'")
@@ -593,7 +594,7 @@ class SecurityNotificationRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def selectors(self) -> pulumi.Output[Optional['outputs.SecurityNotificationRuleSelectors']]:
+    def selectors(self) -> pulumi.Output['outputs.SecurityNotificationRuleSelectors']:
         """
         Defines selectors to filter security issues that generate notifications.
         """

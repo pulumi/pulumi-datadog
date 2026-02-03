@@ -6,10 +6,9 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRuleArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,15 +19,15 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsA
      * A list of rules for filtering metric tags.
      * 
      */
-    @Import(name="rules")
-    private @Nullable Output<List<ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRuleArgs>> rules;
+    @Import(name="rules", required=true)
+    private Output<List<ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRuleArgs>> rules;
 
     /**
      * @return A list of rules for filtering metric tags.
      * 
      */
-    public Optional<Output<List<ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRuleArgs>>> rules() {
-        return Optional.ofNullable(this.rules);
+    public Output<List<ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRuleArgs>> rules() {
+        return this.rules;
     }
 
     private ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsArgs() {}
@@ -61,7 +60,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsA
          * @return builder
          * 
          */
-        public Builder rules(@Nullable Output<List<ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRuleArgs>> rules) {
+        public Builder rules(Output<List<ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRuleArgs>> rules) {
             $.rules = rules;
             return this;
         }
@@ -87,6 +86,9 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsA
         }
 
         public ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsArgs build() {
+            if ($.rules == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsArgs", "rules");
+            }
             return $;
         }
     }

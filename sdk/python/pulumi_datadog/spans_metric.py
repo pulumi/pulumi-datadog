@@ -21,21 +21,37 @@ __all__ = ['SpansMetricArgs', 'SpansMetric']
 @pulumi.input_type
 class SpansMetricArgs:
     def __init__(__self__, *,
+                 compute: pulumi.Input['SpansMetricComputeArgs'],
+                 filter: pulumi.Input['SpansMetricFilterArgs'],
                  name: pulumi.Input[_builtins.str],
-                 compute: Optional[pulumi.Input['SpansMetricComputeArgs']] = None,
-                 filter: Optional[pulumi.Input['SpansMetricFilterArgs']] = None,
                  group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['SpansMetricGroupByArgs']]]] = None):
         """
         The set of arguments for constructing a SpansMetric resource.
         :param pulumi.Input[_builtins.str] name: The name of the span-based metric. This field can't be updated after creation.
         """
+        pulumi.set(__self__, "compute", compute)
+        pulumi.set(__self__, "filter", filter)
         pulumi.set(__self__, "name", name)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
-        if filter is not None:
-            pulumi.set(__self__, "filter", filter)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
+
+    @_builtins.property
+    @pulumi.getter
+    def compute(self) -> pulumi.Input['SpansMetricComputeArgs']:
+        return pulumi.get(self, "compute")
+
+    @compute.setter
+    def compute(self, value: pulumi.Input['SpansMetricComputeArgs']):
+        pulumi.set(self, "compute", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def filter(self) -> pulumi.Input['SpansMetricFilterArgs']:
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: pulumi.Input['SpansMetricFilterArgs']):
+        pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter
@@ -48,24 +64,6 @@ class SpansMetricArgs:
     @name.setter
     def name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def compute(self) -> Optional[pulumi.Input['SpansMetricComputeArgs']]:
-        return pulumi.get(self, "compute")
-
-    @compute.setter
-    def compute(self, value: Optional[pulumi.Input['SpansMetricComputeArgs']]):
-        pulumi.set(self, "compute", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['SpansMetricFilterArgs']]:
-        return pulumi.get(self, "filter")
-
-    @filter.setter
-    def filter(self, value: Optional[pulumi.Input['SpansMetricFilterArgs']]):
-        pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter(name="groupBies")
@@ -254,7 +252,11 @@ class SpansMetric(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SpansMetricArgs.__new__(SpansMetricArgs)
 
+            if compute is None and not opts.urn:
+                raise TypeError("Missing required property 'compute'")
             __props__.__dict__["compute"] = compute
+            if filter is None and not opts.urn:
+                raise TypeError("Missing required property 'filter'")
             __props__.__dict__["filter"] = filter
             __props__.__dict__["group_bies"] = group_bies
             if name is None and not opts.urn:
@@ -295,12 +297,12 @@ class SpansMetric(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def compute(self) -> pulumi.Output[Optional['outputs.SpansMetricCompute']]:
+    def compute(self) -> pulumi.Output['outputs.SpansMetricCompute']:
         return pulumi.get(self, "compute")
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> pulumi.Output[Optional['outputs.SpansMetricFilter']]:
+    def filter(self) -> pulumi.Output['outputs.SpansMetricFilter']:
         return pulumi.get(self, "filter")
 
     @_builtins.property

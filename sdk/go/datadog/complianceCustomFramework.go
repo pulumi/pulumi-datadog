@@ -117,6 +117,9 @@ func NewComplianceCustomFramework(ctx *pulumi.Context,
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
+	if args.Requirements == nil {
+		return nil, errors.New("invalid value for required argument 'Requirements'")
+	}
 	if args.Version == nil {
 		return nil, errors.New("invalid value for required argument 'Version'")
 	}

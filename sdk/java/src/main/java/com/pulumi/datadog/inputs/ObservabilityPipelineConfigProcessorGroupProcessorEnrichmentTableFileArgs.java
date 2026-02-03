@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncodingArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKeyArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -18,11 +19,11 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
 
     public static final ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileArgs Empty = new ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileArgs();
 
-    @Import(name="encoding")
-    private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncodingArgs> encoding;
+    @Import(name="encoding", required=true)
+    private Output<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncodingArgs> encoding;
 
-    public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncodingArgs>> encoding() {
-        return Optional.ofNullable(this.encoding);
+    public Output<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncodingArgs> encoding() {
+        return this.encoding;
     }
 
     /**
@@ -81,7 +82,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
             $ = new ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder encoding(@Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncodingArgs> encoding) {
+        public Builder encoding(Output<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncodingArgs> encoding) {
             $.encoding = encoding;
             return this;
         }
@@ -143,6 +144,9 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
         }
 
         public ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileArgs build() {
+            if ($.encoding == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileArgs", "encoding");
+            }
             return $;
         }
     }

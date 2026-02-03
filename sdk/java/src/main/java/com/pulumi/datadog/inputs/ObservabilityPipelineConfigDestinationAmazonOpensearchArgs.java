@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,11 +17,11 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearchArgs ex
 
     public static final ObservabilityPipelineConfigDestinationAmazonOpensearchArgs Empty = new ObservabilityPipelineConfigDestinationAmazonOpensearchArgs();
 
-    @Import(name="auth")
-    private @Nullable Output<ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs> auth;
+    @Import(name="auth", required=true)
+    private Output<ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs> auth;
 
-    public Optional<Output<ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs>> auth() {
-        return Optional.ofNullable(this.auth);
+    public Output<ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs> auth() {
+        return this.auth;
     }
 
     /**
@@ -63,7 +64,7 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearchArgs ex
             $ = new ObservabilityPipelineConfigDestinationAmazonOpensearchArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder auth(@Nullable Output<ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs> auth) {
+        public Builder auth(Output<ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs> auth) {
             $.auth = auth;
             return this;
         }
@@ -94,6 +95,9 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearchArgs ex
         }
 
         public ObservabilityPipelineConfigDestinationAmazonOpensearchArgs build() {
+            if ($.auth == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationAmazonOpensearchArgs", "auth");
+            }
             return $;
         }
     }

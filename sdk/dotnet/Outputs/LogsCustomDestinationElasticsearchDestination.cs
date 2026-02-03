@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// Basic access authentication.
         /// </summary>
-        public readonly Outputs.LogsCustomDestinationElasticsearchDestinationBasicAuth BasicAuth;
+        public readonly Outputs.LogsCustomDestinationElasticsearchDestinationBasicAuth? BasicAuth;
         /// <summary>
         /// The destination for which logs will be forwarded to. Must have HTTPS scheme. Forwarding back to Datadog is not allowed.
         /// </summary>
@@ -40,7 +40,7 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private LogsCustomDestinationElasticsearchDestination(
-            Outputs.LogsCustomDestinationElasticsearchDestinationBasicAuth basicAuth,
+            Outputs.LogsCustomDestinationElasticsearchDestinationBasicAuth? basicAuth,
 
             string endpoint,
 

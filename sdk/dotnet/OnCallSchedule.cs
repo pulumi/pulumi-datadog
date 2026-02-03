@@ -168,7 +168,7 @@ namespace Pulumi.Datadog
 
     public sealed class OnCallScheduleArgs : global::Pulumi.ResourceArgs
     {
-        [Input("layers")]
+        [Input("layers", required: true)]
         private InputList<Inputs.OnCallScheduleLayerArgs>? _layers;
 
         /// <summary>

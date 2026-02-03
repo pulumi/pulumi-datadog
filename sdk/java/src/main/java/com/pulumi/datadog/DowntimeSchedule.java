@@ -118,10 +118,10 @@ public class DowntimeSchedule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.message);
     }
     @Export(name="monitorIdentifier", refs={DowntimeScheduleMonitorIdentifier.class}, tree="[0]")
-    private Output</* @Nullable */ DowntimeScheduleMonitorIdentifier> monitorIdentifier;
+    private Output<DowntimeScheduleMonitorIdentifier> monitorIdentifier;
 
-    public Output<Optional<DowntimeScheduleMonitorIdentifier>> monitorIdentifier() {
-        return Codegen.optional(this.monitorIdentifier);
+    public Output<DowntimeScheduleMonitorIdentifier> monitorIdentifier() {
+        return this.monitorIdentifier;
     }
     /**
      * If the first recovery notification during a downtime should be muted.

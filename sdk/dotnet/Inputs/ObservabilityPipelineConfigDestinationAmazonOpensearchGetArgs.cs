@@ -12,8 +12,8 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ObservabilityPipelineConfigDestinationAmazonOpensearchGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("auth")]
-        public Input<Inputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuthGetArgs>? Auth { get; set; }
+        [Input("auth", required: true)]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuthGetArgs> Auth { get; set; } = null!;
 
         /// <summary>
         /// The index or datastream to write logs to.

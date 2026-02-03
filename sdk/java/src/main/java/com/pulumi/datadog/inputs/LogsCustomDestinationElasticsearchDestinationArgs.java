@@ -21,15 +21,15 @@ public final class LogsCustomDestinationElasticsearchDestinationArgs extends com
      * Basic access authentication.
      * 
      */
-    @Import(name="basicAuth", required=true)
-    private Output<LogsCustomDestinationElasticsearchDestinationBasicAuthArgs> basicAuth;
+    @Import(name="basicAuth")
+    private @Nullable Output<LogsCustomDestinationElasticsearchDestinationBasicAuthArgs> basicAuth;
 
     /**
      * @return Basic access authentication.
      * 
      */
-    public Output<LogsCustomDestinationElasticsearchDestinationBasicAuthArgs> basicAuth() {
-        return this.basicAuth;
+    public Optional<Output<LogsCustomDestinationElasticsearchDestinationBasicAuthArgs>> basicAuth() {
+        return Optional.ofNullable(this.basicAuth);
     }
 
     /**
@@ -126,7 +126,7 @@ public final class LogsCustomDestinationElasticsearchDestinationArgs extends com
          * @return builder
          * 
          */
-        public Builder basicAuth(Output<LogsCustomDestinationElasticsearchDestinationBasicAuthArgs> basicAuth) {
+        public Builder basicAuth(@Nullable Output<LogsCustomDestinationElasticsearchDestinationBasicAuthArgs> basicAuth) {
             $.basicAuth = basicAuth;
             return this;
         }
@@ -221,9 +221,6 @@ public final class LogsCustomDestinationElasticsearchDestinationArgs extends com
         }
 
         public LogsCustomDestinationElasticsearchDestinationArgs build() {
-            if ($.basicAuth == null) {
-                throw new MissingRequiredPropertyException("LogsCustomDestinationElasticsearchDestinationArgs", "basicAuth");
-            }
             if ($.endpoint == null) {
                 throw new MissingRequiredPropertyException("LogsCustomDestinationElasticsearchDestinationArgs", "endpoint");
             }
