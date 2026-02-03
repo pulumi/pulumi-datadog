@@ -64,7 +64,7 @@ namespace Pulumi.Datadog
         /// The spans filter. Spans matching this filter will be indexed and stored.
         /// </summary>
         [Output("filter")]
-        public Output<Outputs.ApmRetentionFilterFilter?> Filter { get; private set; } = null!;
+        public Output<Outputs.ApmRetentionFilterFilter> Filter { get; private set; } = null!;
 
         /// <summary>
         /// The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.
@@ -145,8 +145,8 @@ namespace Pulumi.Datadog
         /// <summary>
         /// The spans filter. Spans matching this filter will be indexed and stored.
         /// </summary>
-        [Input("filter")]
-        public Input<Inputs.ApmRetentionFilterFilterArgs>? Filter { get; set; }
+        [Input("filter", required: true)]
+        public Input<Inputs.ApmRetentionFilterFilterArgs> Filter { get; set; } = null!;
 
         /// <summary>
         /// The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.

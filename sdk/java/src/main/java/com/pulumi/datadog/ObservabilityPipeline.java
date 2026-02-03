@@ -12,7 +12,6 @@ import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.ObservabilityPipelineState;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfig;
 import java.lang.String;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -122,14 +121,14 @@ public class ObservabilityPipeline extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="config", refs={ObservabilityPipelineConfig.class}, tree="[0]")
-    private Output</* @Nullable */ ObservabilityPipelineConfig> config;
+    private Output<ObservabilityPipelineConfig> config;
 
     /**
      * @return Configuration for the pipeline.
      * 
      */
-    public Output<Optional<ObservabilityPipelineConfig>> config() {
-        return Codegen.optional(this.config);
+    public Output<ObservabilityPipelineConfig> config() {
+        return this.config;
     }
     /**
      * The pipeline name.

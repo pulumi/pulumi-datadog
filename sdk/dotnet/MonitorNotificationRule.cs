@@ -64,7 +64,7 @@ namespace Pulumi.Datadog
         public Output<Outputs.MonitorNotificationRuleConditionalRecipients?> ConditionalRecipients { get; private set; } = null!;
 
         [Output("filter")]
-        public Output<Outputs.MonitorNotificationRuleFilter?> Filter { get; private set; } = null!;
+        public Output<Outputs.MonitorNotificationRuleFilter> Filter { get; private set; } = null!;
 
         /// <summary>
         /// The name of the monitor notification rule.
@@ -130,8 +130,8 @@ namespace Pulumi.Datadog
         [Input("conditionalRecipients")]
         public Input<Inputs.MonitorNotificationRuleConditionalRecipientsArgs>? ConditionalRecipients { get; set; }
 
-        [Input("filter")]
-        public Input<Inputs.MonitorNotificationRuleFilterArgs>? Filter { get; set; }
+        [Input("filter", required: true)]
+        public Input<Inputs.MonitorNotificationRuleFilterArgs> Filter { get; set; } = null!;
 
         /// <summary>
         /// The name of the monitor notification rule.

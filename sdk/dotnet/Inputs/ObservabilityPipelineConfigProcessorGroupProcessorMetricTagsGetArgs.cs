@@ -12,7 +12,7 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("rules")]
+        [Input("rules", required: true)]
         private InputList<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRuleGetArgs>? _rules;
 
         /// <summary>

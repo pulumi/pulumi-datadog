@@ -21,16 +21,27 @@ __all__ = ['ObservabilityPipelineArgs', 'ObservabilityPipeline']
 @pulumi.input_type
 class ObservabilityPipelineArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[_builtins.str],
-                 config: Optional[pulumi.Input['ObservabilityPipelineConfigArgs']] = None):
+                 config: pulumi.Input['ObservabilityPipelineConfigArgs'],
+                 name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ObservabilityPipeline resource.
-        :param pulumi.Input[_builtins.str] name: The pipeline name.
         :param pulumi.Input['ObservabilityPipelineConfigArgs'] config: Configuration for the pipeline.
+        :param pulumi.Input[_builtins.str] name: The pipeline name.
         """
+        pulumi.set(__self__, "config", config)
         pulumi.set(__self__, "name", name)
-        if config is not None:
-            pulumi.set(__self__, "config", config)
+
+    @_builtins.property
+    @pulumi.getter
+    def config(self) -> pulumi.Input['ObservabilityPipelineConfigArgs']:
+        """
+        Configuration for the pipeline.
+        """
+        return pulumi.get(self, "config")
+
+    @config.setter
+    def config(self, value: pulumi.Input['ObservabilityPipelineConfigArgs']):
+        pulumi.set(self, "config", value)
 
     @_builtins.property
     @pulumi.getter
@@ -43,18 +54,6 @@ class ObservabilityPipelineArgs:
     @name.setter
     def name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def config(self) -> Optional[pulumi.Input['ObservabilityPipelineConfigArgs']]:
-        """
-        Configuration for the pipeline.
-        """
-        return pulumi.get(self, "config")
-
-    @config.setter
-    def config(self, value: Optional[pulumi.Input['ObservabilityPipelineConfigArgs']]):
-        pulumi.set(self, "config", value)
 
 
 @pulumi.input_type
@@ -303,6 +302,8 @@ class ObservabilityPipeline(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ObservabilityPipelineArgs.__new__(ObservabilityPipelineArgs)
 
+            if config is None and not opts.urn:
+                raise TypeError("Missing required property 'config'")
             __props__.__dict__["config"] = config
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
@@ -339,7 +340,7 @@ class ObservabilityPipeline(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def config(self) -> pulumi.Output[Optional['outputs.ObservabilityPipelineConfig']]:
+    def config(self) -> pulumi.Output['outputs.ObservabilityPipelineConfig']:
         """
         Configuration for the pipeline.
         """

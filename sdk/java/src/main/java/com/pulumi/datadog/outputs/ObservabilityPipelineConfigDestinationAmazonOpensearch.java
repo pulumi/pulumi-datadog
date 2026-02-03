@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuth;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,7 +13,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigDestinationAmazonOpensearch {
-    private @Nullable ObservabilityPipelineConfigDestinationAmazonOpensearchAuth auth;
+    private ObservabilityPipelineConfigDestinationAmazonOpensearchAuth auth;
     /**
      * @return The index or datastream to write logs to.
      * 
@@ -20,8 +21,8 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearch {
     private @Nullable String bulkIndex;
 
     private ObservabilityPipelineConfigDestinationAmazonOpensearch() {}
-    public Optional<ObservabilityPipelineConfigDestinationAmazonOpensearchAuth> auth() {
-        return Optional.ofNullable(this.auth);
+    public ObservabilityPipelineConfigDestinationAmazonOpensearchAuth auth() {
+        return this.auth;
     }
     /**
      * @return The index or datastream to write logs to.
@@ -40,7 +41,7 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearch {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable ObservabilityPipelineConfigDestinationAmazonOpensearchAuth auth;
+        private ObservabilityPipelineConfigDestinationAmazonOpensearchAuth auth;
         private @Nullable String bulkIndex;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationAmazonOpensearch defaults) {
@@ -50,8 +51,10 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearch {
         }
 
         @CustomType.Setter
-        public Builder auth(@Nullable ObservabilityPipelineConfigDestinationAmazonOpensearchAuth auth) {
-
+        public Builder auth(ObservabilityPipelineConfigDestinationAmazonOpensearchAuth auth) {
+            if (auth == null) {
+              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationAmazonOpensearch", "auth");
+            }
             this.auth = auth;
             return this;
         }

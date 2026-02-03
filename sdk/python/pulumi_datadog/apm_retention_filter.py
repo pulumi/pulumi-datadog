@@ -22,26 +22,25 @@ __all__ = ['ApmRetentionFilterArgs', 'ApmRetentionFilter']
 class ApmRetentionFilterArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
+                 filter: pulumi.Input['ApmRetentionFilterFilterArgs'],
                  filter_type: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  rate: pulumi.Input[_builtins.str],
-                 filter: Optional[pulumi.Input['ApmRetentionFilterFilterArgs']] = None,
                  trace_rate: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApmRetentionFilter resource.
         :param pulumi.Input[_builtins.bool] enabled: the status of the retention filter.
+        :param pulumi.Input['ApmRetentionFilterFilterArgs'] filter: The spans filter. Spans matching this filter will be indexed and stored.
         :param pulumi.Input[_builtins.str] filter_type: The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.
         :param pulumi.Input[_builtins.str] name: The name of the retention filter.
         :param pulumi.Input[_builtins.str] rate: Sample rate to apply to spans going through this retention filter as a string; a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
-        :param pulumi.Input['ApmRetentionFilterFilterArgs'] filter: The spans filter. Spans matching this filter will be indexed and stored.
         :param pulumi.Input[_builtins.str] trace_rate: Sample rate to apply to traces with spans going through this retention filter as a string; a value of 1.0 keeps all traces matching the query. Value must be between 0.00 and 1.00.
         """
         pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "filter", filter)
         pulumi.set(__self__, "filter_type", filter_type)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "rate", rate)
-        if filter is not None:
-            pulumi.set(__self__, "filter", filter)
         if trace_rate is not None:
             pulumi.set(__self__, "trace_rate", trace_rate)
 
@@ -56,6 +55,18 @@ class ApmRetentionFilterArgs:
     @enabled.setter
     def enabled(self, value: pulumi.Input[_builtins.bool]):
         pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def filter(self) -> pulumi.Input['ApmRetentionFilterFilterArgs']:
+        """
+        The spans filter. Spans matching this filter will be indexed and stored.
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: pulumi.Input['ApmRetentionFilterFilterArgs']):
+        pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter(name="filterType")
@@ -92,18 +103,6 @@ class ApmRetentionFilterArgs:
     @rate.setter
     def rate(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "rate", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['ApmRetentionFilterFilterArgs']]:
-        """
-        The spans filter. Spans matching this filter will be indexed and stored.
-        """
-        return pulumi.get(self, "filter")
-
-    @filter.setter
-    def filter(self, value: Optional[pulumi.Input['ApmRetentionFilterFilterArgs']]):
-        pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter(name="traceRate")
@@ -343,6 +342,8 @@ class ApmRetentionFilter(pulumi.CustomResource):
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__.__dict__["enabled"] = enabled
+            if filter is None and not opts.urn:
+                raise TypeError("Missing required property 'filter'")
             __props__.__dict__["filter"] = filter
             if filter_type is None and not opts.urn:
                 raise TypeError("Missing required property 'filter_type'")
@@ -406,7 +407,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> pulumi.Output[Optional['outputs.ApmRetentionFilterFilter']]:
+    def filter(self) -> pulumi.Output['outputs.ApmRetentionFilterFilter']:
         """
         The spans filter. Spans matching this filter will be indexed and stored.
         """

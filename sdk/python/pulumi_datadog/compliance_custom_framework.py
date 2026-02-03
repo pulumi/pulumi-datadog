@@ -23,24 +23,23 @@ class ComplianceCustomFrameworkArgs:
     def __init__(__self__, *,
                  handle: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
+                 requirements: pulumi.Input[Sequence[pulumi.Input['ComplianceCustomFrameworkRequirementArgs']]],
                  version: pulumi.Input[_builtins.str],
-                 icon_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 requirements: Optional[pulumi.Input[Sequence[pulumi.Input['ComplianceCustomFrameworkRequirementArgs']]]] = None):
+                 icon_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ComplianceCustomFramework resource.
         :param pulumi.Input[_builtins.str] handle: The framework handle. String length must be at least 1. This field is immutable.
         :param pulumi.Input[_builtins.str] name: The framework name. String length must be at least 1.
+        :param pulumi.Input[Sequence[pulumi.Input['ComplianceCustomFrameworkRequirementArgs']]] requirements: The requirements of the framework. Length must be at least 1.
         :param pulumi.Input[_builtins.str] version: The framework version. String length must be at least 1. This field is immutable.
         :param pulumi.Input[_builtins.str] icon_url: The URL of the icon representing the framework
-        :param pulumi.Input[Sequence[pulumi.Input['ComplianceCustomFrameworkRequirementArgs']]] requirements: The requirements of the framework. Length must be at least 1.
         """
         pulumi.set(__self__, "handle", handle)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "requirements", requirements)
         pulumi.set(__self__, "version", version)
         if icon_url is not None:
             pulumi.set(__self__, "icon_url", icon_url)
-        if requirements is not None:
-            pulumi.set(__self__, "requirements", requirements)
 
     @_builtins.property
     @pulumi.getter
@@ -68,6 +67,18 @@ class ComplianceCustomFrameworkArgs:
 
     @_builtins.property
     @pulumi.getter
+    def requirements(self) -> pulumi.Input[Sequence[pulumi.Input['ComplianceCustomFrameworkRequirementArgs']]]:
+        """
+        The requirements of the framework. Length must be at least 1.
+        """
+        return pulumi.get(self, "requirements")
+
+    @requirements.setter
+    def requirements(self, value: pulumi.Input[Sequence[pulumi.Input['ComplianceCustomFrameworkRequirementArgs']]]):
+        pulumi.set(self, "requirements", value)
+
+    @_builtins.property
+    @pulumi.getter
     def version(self) -> pulumi.Input[_builtins.str]:
         """
         The framework version. String length must be at least 1. This field is immutable.
@@ -89,18 +100,6 @@ class ComplianceCustomFrameworkArgs:
     @icon_url.setter
     def icon_url(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "icon_url", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def requirements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComplianceCustomFrameworkRequirementArgs']]]]:
-        """
-        The requirements of the framework. Length must be at least 1.
-        """
-        return pulumi.get(self, "requirements")
-
-    @requirements.setter
-    def requirements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ComplianceCustomFrameworkRequirementArgs']]]]):
-        pulumi.set(self, "requirements", value)
 
 
 @pulumi.input_type
@@ -379,6 +378,8 @@ class ComplianceCustomFramework(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            if requirements is None and not opts.urn:
+                raise TypeError("Missing required property 'requirements'")
             __props__.__dict__["requirements"] = requirements
             if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
@@ -448,7 +449,7 @@ class ComplianceCustomFramework(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def requirements(self) -> pulumi.Output[Optional[Sequence['outputs.ComplianceCustomFrameworkRequirement']]]:
+    def requirements(self) -> pulumi.Output[Sequence['outputs.ComplianceCustomFrameworkRequirement']]:
         """
         The requirements of the framework. Length must be at least 1.
         """

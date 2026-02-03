@@ -91,14 +91,14 @@ public class ApmRetentionFilter extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="filter", refs={ApmRetentionFilterFilter.class}, tree="[0]")
-    private Output</* @Nullable */ ApmRetentionFilterFilter> filter;
+    private Output<ApmRetentionFilterFilter> filter;
 
     /**
      * @return The spans filter. Spans matching this filter will be indexed and stored.
      * 
      */
-    public Output<Optional<ApmRetentionFilterFilter>> filter() {
-        return Codegen.optional(this.filter);
+    public Output<ApmRetentionFilterFilter> filter() {
+        return this.filter;
     }
     /**
      * The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.

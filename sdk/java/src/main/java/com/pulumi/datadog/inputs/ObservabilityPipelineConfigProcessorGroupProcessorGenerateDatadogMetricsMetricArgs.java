@@ -82,15 +82,15 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorGenerateDat
      * Specifies how the value of the generated metric is computed.
      * 
      */
-    @Import(name="value")
-    private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValueArgs> value;
+    @Import(name="value", required=true)
+    private Output<ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValueArgs> value;
 
     /**
      * @return Specifies how the value of the generated metric is computed.
      * 
      */
-    public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValueArgs>> value() {
-        return Optional.ofNullable(this.value);
+    public Output<ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValueArgs> value() {
+        return this.value;
     }
 
     private ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricArgs() {}
@@ -221,7 +221,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorGenerateDat
          * @return builder
          * 
          */
-        public Builder value(@Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValueArgs> value) {
+        public Builder value(Output<ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValueArgs> value) {
             $.value = value;
             return this;
         }
@@ -245,6 +245,9 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorGenerateDat
             }
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricArgs", "name");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricArgs", "value");
             }
             return $;
         }

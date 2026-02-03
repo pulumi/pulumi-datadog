@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncoding;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKey;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileSchema;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -15,7 +16,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFile {
-    private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncoding encoding;
+    private ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncoding encoding;
     /**
      * @return Key fields used to look up enrichment values.
      * 
@@ -33,8 +34,8 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
     private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileSchema> schemas;
 
     private ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFile() {}
-    public Optional<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncoding> encoding() {
-        return Optional.ofNullable(this.encoding);
+    public ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncoding encoding() {
+        return this.encoding;
     }
     /**
      * @return Key fields used to look up enrichment values.
@@ -67,7 +68,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncoding encoding;
+        private ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncoding encoding;
         private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKey> keys;
         private @Nullable String path;
         private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileSchema> schemas;
@@ -81,8 +82,10 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
         }
 
         @CustomType.Setter
-        public Builder encoding(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncoding encoding) {
-
+        public Builder encoding(ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncoding encoding) {
+            if (encoding == null) {
+              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFile", "encoding");
+            }
             this.encoding = encoding;
             return this;
         }

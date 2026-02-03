@@ -37,15 +37,15 @@ public final class ApmRetentionFilterArgs extends com.pulumi.resources.ResourceA
      * The spans filter. Spans matching this filter will be indexed and stored.
      * 
      */
-    @Import(name="filter")
-    private @Nullable Output<ApmRetentionFilterFilterArgs> filter;
+    @Import(name="filter", required=true)
+    private Output<ApmRetentionFilterFilterArgs> filter;
 
     /**
      * @return The spans filter. Spans matching this filter will be indexed and stored.
      * 
      */
-    public Optional<Output<ApmRetentionFilterFilterArgs>> filter() {
-        return Optional.ofNullable(this.filter);
+    public Output<ApmRetentionFilterFilterArgs> filter() {
+        return this.filter;
     }
 
     /**
@@ -164,7 +164,7 @@ public final class ApmRetentionFilterArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder filter(@Nullable Output<ApmRetentionFilterFilterArgs> filter) {
+        public Builder filter(Output<ApmRetentionFilterFilterArgs> filter) {
             $.filter = filter;
             return this;
         }
@@ -266,6 +266,9 @@ public final class ApmRetentionFilterArgs extends com.pulumi.resources.ResourceA
         public ApmRetentionFilterArgs build() {
             if ($.enabled == null) {
                 throw new MissingRequiredPropertyException("ApmRetentionFilterArgs", "enabled");
+            }
+            if ($.filter == null) {
+                throw new MissingRequiredPropertyException("ApmRetentionFilterArgs", "filter");
             }
             if ($.filterType == null) {
                 throw new MissingRequiredPropertyException("ApmRetentionFilterArgs", "filterType");

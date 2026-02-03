@@ -95,7 +95,7 @@ namespace Pulumi.Datadog
         public Output<string?> Message { get; private set; } = null!;
 
         [Output("monitorIdentifier")]
-        public Output<Outputs.DowntimeScheduleMonitorIdentifier?> MonitorIdentifier { get; private set; } = null!;
+        public Output<Outputs.DowntimeScheduleMonitorIdentifier> MonitorIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// If the first recovery notification during a downtime should be muted.
@@ -185,8 +185,8 @@ namespace Pulumi.Datadog
         [Input("message")]
         public Input<string>? Message { get; set; }
 
-        [Input("monitorIdentifier")]
-        public Input<Inputs.DowntimeScheduleMonitorIdentifierArgs>? MonitorIdentifier { get; set; }
+        [Input("monitorIdentifier", required: true)]
+        public Input<Inputs.DowntimeScheduleMonitorIdentifierArgs> MonitorIdentifier { get; set; } = null!;
 
         /// <summary>
         /// If the first recovery notification during a downtime should be muted.

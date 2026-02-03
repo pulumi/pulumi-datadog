@@ -90,7 +90,7 @@ export class DowntimeSchedule extends pulumi.CustomResource {
      * A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.
      */
     declare public readonly message: pulumi.Output<string | undefined>;
-    declare public readonly monitorIdentifier: pulumi.Output<outputs.DowntimeScheduleMonitorIdentifier | undefined>;
+    declare public readonly monitorIdentifier: pulumi.Output<outputs.DowntimeScheduleMonitorIdentifier>;
     /**
      * If the first recovery notification during a downtime should be muted.
      */
@@ -134,6 +134,9 @@ export class DowntimeSchedule extends pulumi.CustomResource {
             resourceInputs["scope"] = state?.scope;
         } else {
             const args = argsOrState as DowntimeScheduleArgs | undefined;
+            if (args?.monitorIdentifier === undefined && !opts.urn) {
+                throw new Error("Missing required property 'monitorIdentifier'");
+            }
             if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -197,7 +200,7 @@ export interface DowntimeScheduleArgs {
      * A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.
      */
     message?: pulumi.Input<string>;
-    monitorIdentifier?: pulumi.Input<inputs.DowntimeScheduleMonitorIdentifier>;
+    monitorIdentifier: pulumi.Input<inputs.DowntimeScheduleMonitorIdentifier>;
     /**
      * If the first recovery notification during a downtime should be muted.
      */

@@ -69,8 +69,8 @@ import (
 type SpansMetric struct {
 	pulumi.CustomResourceState
 
-	Compute   SpansMetricComputePtrOutput   `pulumi:"compute"`
-	Filter    SpansMetricFilterPtrOutput    `pulumi:"filter"`
+	Compute   SpansMetricComputeOutput      `pulumi:"compute"`
+	Filter    SpansMetricFilterOutput       `pulumi:"filter"`
 	GroupBies SpansMetricGroupByArrayOutput `pulumi:"groupBies"`
 	// The name of the span-based metric. This field can't be updated after creation.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -83,6 +83,12 @@ func NewSpansMetric(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Compute == nil {
+		return nil, errors.New("invalid value for required argument 'Compute'")
+	}
+	if args.Filter == nil {
+		return nil, errors.New("invalid value for required argument 'Filter'")
+	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -129,8 +135,8 @@ func (SpansMetricState) ElementType() reflect.Type {
 }
 
 type spansMetricArgs struct {
-	Compute   *SpansMetricCompute  `pulumi:"compute"`
-	Filter    *SpansMetricFilter   `pulumi:"filter"`
+	Compute   SpansMetricCompute   `pulumi:"compute"`
+	Filter    SpansMetricFilter    `pulumi:"filter"`
 	GroupBies []SpansMetricGroupBy `pulumi:"groupBies"`
 	// The name of the span-based metric. This field can't be updated after creation.
 	Name string `pulumi:"name"`
@@ -138,8 +144,8 @@ type spansMetricArgs struct {
 
 // The set of arguments for constructing a SpansMetric resource.
 type SpansMetricArgs struct {
-	Compute   SpansMetricComputePtrInput
-	Filter    SpansMetricFilterPtrInput
+	Compute   SpansMetricComputeInput
+	Filter    SpansMetricFilterInput
 	GroupBies SpansMetricGroupByArrayInput
 	// The name of the span-based metric. This field can't be updated after creation.
 	Name pulumi.StringInput
@@ -232,12 +238,12 @@ func (o SpansMetricOutput) ToSpansMetricOutputWithContext(ctx context.Context) S
 	return o
 }
 
-func (o SpansMetricOutput) Compute() SpansMetricComputePtrOutput {
-	return o.ApplyT(func(v *SpansMetric) SpansMetricComputePtrOutput { return v.Compute }).(SpansMetricComputePtrOutput)
+func (o SpansMetricOutput) Compute() SpansMetricComputeOutput {
+	return o.ApplyT(func(v *SpansMetric) SpansMetricComputeOutput { return v.Compute }).(SpansMetricComputeOutput)
 }
 
-func (o SpansMetricOutput) Filter() SpansMetricFilterPtrOutput {
-	return o.ApplyT(func(v *SpansMetric) SpansMetricFilterPtrOutput { return v.Filter }).(SpansMetricFilterPtrOutput)
+func (o SpansMetricOutput) Filter() SpansMetricFilterOutput {
+	return o.ApplyT(func(v *SpansMetric) SpansMetricFilterOutput { return v.Filter }).(SpansMetricFilterOutput)
 }
 
 func (o SpansMetricOutput) GroupBies() SpansMetricGroupByArrayOutput {

@@ -6,10 +6,9 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsFieldArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,15 +19,15 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorRenameField
      * List of fields to rename.
      * 
      */
-    @Import(name="fields")
-    private @Nullable Output<List<ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsFieldArgs>> fields;
+    @Import(name="fields", required=true)
+    private Output<List<ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsFieldArgs>> fields;
 
     /**
      * @return List of fields to rename.
      * 
      */
-    public Optional<Output<List<ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsFieldArgs>>> fields() {
-        return Optional.ofNullable(this.fields);
+    public Output<List<ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsFieldArgs>> fields() {
+        return this.fields;
     }
 
     private ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsArgs() {}
@@ -61,7 +60,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorRenameField
          * @return builder
          * 
          */
-        public Builder fields(@Nullable Output<List<ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsFieldArgs>> fields) {
+        public Builder fields(Output<List<ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsFieldArgs>> fields) {
             $.fields = fields;
             return this;
         }
@@ -87,6 +86,9 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorRenameField
         }
 
         public ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsArgs build() {
+            if ($.fields == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsArgs", "fields");
+            }
             return $;
         }
     }

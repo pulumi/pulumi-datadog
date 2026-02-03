@@ -50,11 +50,11 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuotaArgs e
         return Optional.ofNullable(this.ignoreWhenMissingPartitions);
     }
 
-    @Import(name="limit")
-    private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimitArgs> limit;
+    @Import(name="limit", required=true)
+    private Output<ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimitArgs> limit;
 
-    public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimitArgs>> limit() {
-        return Optional.ofNullable(this.limit);
+    public Output<ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimitArgs> limit() {
+        return this.limit;
     }
 
     /**
@@ -205,7 +205,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuotaArgs e
             return ignoreWhenMissingPartitions(Output.of(ignoreWhenMissingPartitions));
         }
 
-        public Builder limit(@Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimitArgs> limit) {
+        public Builder limit(Output<ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimitArgs> limit) {
             $.limit = limit;
             return this;
         }
@@ -340,6 +340,9 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuotaArgs e
         }
 
         public ObservabilityPipelineConfigProcessorGroupProcessorQuotaArgs build() {
+            if ($.limit == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorQuotaArgs", "limit");
+            }
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorQuotaArgs", "name");
             }

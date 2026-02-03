@@ -64,7 +64,7 @@ type ApmRetentionFilter struct {
 	// the status of the retention filter.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// The spans filter. Spans matching this filter will be indexed and stored.
-	Filter ApmRetentionFilterFilterPtrOutput `pulumi:"filter"`
+	Filter ApmRetentionFilterFilterOutput `pulumi:"filter"`
 	// The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.
 	FilterType pulumi.StringOutput `pulumi:"filterType"`
 	// The name of the retention filter.
@@ -84,6 +84,9 @@ func NewApmRetentionFilter(ctx *pulumi.Context,
 
 	if args.Enabled == nil {
 		return nil, errors.New("invalid value for required argument 'Enabled'")
+	}
+	if args.Filter == nil {
+		return nil, errors.New("invalid value for required argument 'Filter'")
 	}
 	if args.FilterType == nil {
 		return nil, errors.New("invalid value for required argument 'FilterType'")
@@ -154,7 +157,7 @@ type apmRetentionFilterArgs struct {
 	// the status of the retention filter.
 	Enabled bool `pulumi:"enabled"`
 	// The spans filter. Spans matching this filter will be indexed and stored.
-	Filter *ApmRetentionFilterFilter `pulumi:"filter"`
+	Filter ApmRetentionFilterFilter `pulumi:"filter"`
 	// The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.
 	FilterType string `pulumi:"filterType"`
 	// The name of the retention filter.
@@ -170,7 +173,7 @@ type ApmRetentionFilterArgs struct {
 	// the status of the retention filter.
 	Enabled pulumi.BoolInput
 	// The spans filter. Spans matching this filter will be indexed and stored.
-	Filter ApmRetentionFilterFilterPtrInput
+	Filter ApmRetentionFilterFilterInput
 	// The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.
 	FilterType pulumi.StringInput
 	// The name of the retention filter.
@@ -274,8 +277,8 @@ func (o ApmRetentionFilterOutput) Enabled() pulumi.BoolOutput {
 }
 
 // The spans filter. Spans matching this filter will be indexed and stored.
-func (o ApmRetentionFilterOutput) Filter() ApmRetentionFilterFilterPtrOutput {
-	return o.ApplyT(func(v *ApmRetentionFilter) ApmRetentionFilterFilterPtrOutput { return v.Filter }).(ApmRetentionFilterFilterPtrOutput)
+func (o ApmRetentionFilterOutput) Filter() ApmRetentionFilterFilterOutput {
+	return o.ApplyT(func(v *ApmRetentionFilter) ApmRetentionFilterFilterOutput { return v.Filter }).(ApmRetentionFilterFilterOutput)
 }
 
 // The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.

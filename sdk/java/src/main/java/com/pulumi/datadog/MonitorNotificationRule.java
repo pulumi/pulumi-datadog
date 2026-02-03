@@ -86,10 +86,10 @@ public class MonitorNotificationRule extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.conditionalRecipients);
     }
     @Export(name="filter", refs={MonitorNotificationRuleFilter.class}, tree="[0]")
-    private Output</* @Nullable */ MonitorNotificationRuleFilter> filter;
+    private Output<MonitorNotificationRuleFilter> filter;
 
-    public Output<Optional<MonitorNotificationRuleFilter>> filter() {
-        return Codegen.optional(this.filter);
+    public Output<MonitorNotificationRuleFilter> filter() {
+        return this.filter;
     }
     /**
      * The name of the monitor notification rule.

@@ -12,7 +12,7 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("fields")]
+        [Input("fields", required: true)]
         private InputList<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsFieldGetArgs>? _fields;
 
         /// <summary>

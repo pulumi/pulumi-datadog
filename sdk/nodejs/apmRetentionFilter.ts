@@ -72,7 +72,7 @@ export class ApmRetentionFilter extends pulumi.CustomResource {
     /**
      * The spans filter. Spans matching this filter will be indexed and stored.
      */
-    declare public readonly filter: pulumi.Output<outputs.ApmRetentionFilterFilter | undefined>;
+    declare public readonly filter: pulumi.Output<outputs.ApmRetentionFilterFilter>;
     /**
      * The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.
      */
@@ -113,6 +113,9 @@ export class ApmRetentionFilter extends pulumi.CustomResource {
             const args = argsOrState as ApmRetentionFilterArgs | undefined;
             if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
+            }
+            if (args?.filter === undefined && !opts.urn) {
+                throw new Error("Missing required property 'filter'");
             }
             if (args?.filterType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filterType'");
@@ -176,7 +179,7 @@ export interface ApmRetentionFilterArgs {
     /**
      * The spans filter. Spans matching this filter will be indexed and stored.
      */
-    filter?: pulumi.Input<inputs.ApmRetentionFilterFilter>;
+    filter: pulumi.Input<inputs.ApmRetentionFilterFilter>;
     /**
      * The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.
      */

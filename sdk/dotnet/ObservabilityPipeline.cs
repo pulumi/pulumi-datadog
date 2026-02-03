@@ -156,7 +156,7 @@ namespace Pulumi.Datadog
         /// Configuration for the pipeline.
         /// </summary>
         [Output("config")]
-        public Output<Outputs.ObservabilityPipelineConfig?> Config { get; private set; } = null!;
+        public Output<Outputs.ObservabilityPipelineConfig> Config { get; private set; } = null!;
 
         /// <summary>
         /// The pipeline name.
@@ -213,8 +213,8 @@ namespace Pulumi.Datadog
         /// <summary>
         /// Configuration for the pipeline.
         /// </summary>
-        [Input("config")]
-        public Input<Inputs.ObservabilityPipelineConfigArgs>? Config { get; set; }
+        [Input("config", required: true)]
+        public Input<Inputs.ObservabilityPipelineConfigArgs> Config { get; set; } = null!;
 
         /// <summary>
         /// The pipeline name.

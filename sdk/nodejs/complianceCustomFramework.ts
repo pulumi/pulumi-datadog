@@ -113,7 +113,7 @@ export class ComplianceCustomFramework extends pulumi.CustomResource {
     /**
      * The requirements of the framework. Length must be at least 1.
      */
-    declare public readonly requirements: pulumi.Output<outputs.ComplianceCustomFrameworkRequirement[] | undefined>;
+    declare public readonly requirements: pulumi.Output<outputs.ComplianceCustomFrameworkRequirement[]>;
     /**
      * The framework version. String length must be at least 1. This field is immutable.
      */
@@ -144,6 +144,9 @@ export class ComplianceCustomFramework extends pulumi.CustomResource {
             }
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
+            }
+            if (args?.requirements === undefined && !opts.urn) {
+                throw new Error("Missing required property 'requirements'");
             }
             if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
@@ -204,7 +207,7 @@ export interface ComplianceCustomFrameworkArgs {
     /**
      * The requirements of the framework. Length must be at least 1.
      */
-    requirements?: pulumi.Input<pulumi.Input<inputs.ComplianceCustomFrameworkRequirement>[]>;
+    requirements: pulumi.Input<pulumi.Input<inputs.ComplianceCustomFrameworkRequirement>[]>;
     /**
      * The framework version. String length must be at least 1. This field is immutable.
      */

@@ -68,7 +68,7 @@ export class MonitorNotificationRule extends pulumi.CustomResource {
      * Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
      */
     declare public readonly conditionalRecipients: pulumi.Output<outputs.MonitorNotificationRuleConditionalRecipients | undefined>;
-    declare public readonly filter: pulumi.Output<outputs.MonitorNotificationRuleFilter | undefined>;
+    declare public readonly filter: pulumi.Output<outputs.MonitorNotificationRuleFilter>;
     /**
      * The name of the monitor notification rule.
      */
@@ -97,6 +97,9 @@ export class MonitorNotificationRule extends pulumi.CustomResource {
             resourceInputs["recipients"] = state?.recipients;
         } else {
             const args = argsOrState as MonitorNotificationRuleArgs | undefined;
+            if (args?.filter === undefined && !opts.urn) {
+                throw new Error("Missing required property 'filter'");
+            }
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
@@ -137,7 +140,7 @@ export interface MonitorNotificationRuleArgs {
      * Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
      */
     conditionalRecipients?: pulumi.Input<inputs.MonitorNotificationRuleConditionalRecipients>;
-    filter?: pulumi.Input<inputs.MonitorNotificationRuleFilter>;
+    filter: pulumi.Input<inputs.MonitorNotificationRuleFilter>;
     /**
      * The name of the monitor notification rule.
      */

@@ -12,7 +12,7 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("arrays")]
+        [Input("arrays", required: true)]
         private InputList<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArrayGetArgs>? _arrays;
 
         /// <summary>

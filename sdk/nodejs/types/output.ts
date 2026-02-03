@@ -476,7 +476,7 @@ export interface ComplianceCustomFrameworkRequirement {
     /**
      * The controls of the requirement. Length must be at least 1.
      */
-    controls?: outputs.ComplianceCustomFrameworkRequirementControl[];
+    controls: outputs.ComplianceCustomFrameworkRequirementControl[];
     /**
      * The name of the requirement. String length must be at least 1.
      */
@@ -11535,7 +11535,7 @@ export interface LogsCustomDestinationElasticsearchDestination {
     /**
      * Basic access authentication.
      */
-    basicAuth: outputs.LogsCustomDestinationElasticsearchDestinationBasicAuth;
+    basicAuth?: outputs.LogsCustomDestinationElasticsearchDestinationBasicAuth;
     /**
      * The destination for which logs will be forwarded to. Must have HTTPS scheme. Forwarding back to Datadog is not allowed.
      */
@@ -13558,7 +13558,7 @@ export interface ObservabilityPipelineConfigDestination {
 }
 
 export interface ObservabilityPipelineConfigDestinationAmazonOpensearch {
-    auth?: outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuth;
+    auth: outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuth;
     /**
      * The index or datastream to write logs to.
      */
@@ -14108,7 +14108,7 @@ export interface ObservabilityPipelineConfigDestinationSocket {
     /**
      * Defines the framing method for outgoing messages.
      */
-    framing?: outputs.ObservabilityPipelineConfigDestinationSocketFraming;
+    framing: outputs.ObservabilityPipelineConfigDestinationSocketFraming;
     /**
      * The protocol used to send logs. Valid values are `tcp`, `udp`.
      */
@@ -14384,7 +14384,7 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorAddFields {
     /**
      * A list of static fields (key-value pairs) that is added to each log event processed by this component.
      */
-    fields?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsField[];
+    fields: outputs.ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsField[];
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsField {
@@ -14405,7 +14405,7 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorCustomProcess
     /**
      * Array of VRL remap configurations. Each remap defines a transformation rule with its own filter and VRL script.
      */
-    remaps?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemap[];
+    remaps: outputs.ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemap[];
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemap {
@@ -14474,7 +14474,7 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTab
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFile {
-    encoding?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncoding;
+    encoding: outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncoding;
     /**
      * Key fields used to look up enrichment values.
      */
@@ -14590,7 +14590,7 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatad
     /**
      * Specifies how the value of the generated metric is computed.
      */
-    value?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValue;
+    value: outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValue;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValue {
@@ -14608,7 +14608,7 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorMetricTags {
     /**
      * A list of rules for filtering metric tags.
      */
-    rules?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRule[];
+    rules: outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRule[];
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRule {
@@ -14747,7 +14747,7 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorQuota {
      * Whether to ignore when partition fields are missing.
      */
     ignoreWhenMissingPartitions?: boolean;
-    limit?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimit;
+    limit: outputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimit;
     /**
      * The name of the quota.
      */
@@ -14786,7 +14786,7 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverride
      * Fields that trigger this override.
      */
     fields?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideField[];
-    limit?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimit;
+    limit: outputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimit;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideField {
@@ -14844,7 +14844,7 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorRenameFields 
     /**
      * List of fields to rename.
      */
-    fields?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsField[];
+    fields: outputs.ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsField[];
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsField {
@@ -15024,7 +15024,7 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorSplitArray {
     /**
      * A list of array split configurations.
      */
-    arrays?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArray[];
+    arrays: outputs.ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArray[];
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArray {
@@ -15523,7 +15523,7 @@ export interface ObservabilityPipelineConfigSourceSocket {
     /**
      * Defines the framing method for incoming messages.
      */
-    framing?: outputs.ObservabilityPipelineConfigSourceSocketFraming;
+    framing: outputs.ObservabilityPipelineConfigSourceSocketFraming;
     /**
      * The protocol used to receive logs. Valid values are `tcp`, `udp`.
      */

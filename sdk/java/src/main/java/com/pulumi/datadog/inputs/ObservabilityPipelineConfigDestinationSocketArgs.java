@@ -37,15 +37,15 @@ public final class ObservabilityPipelineConfigDestinationSocketArgs extends com.
      * Defines the framing method for outgoing messages.
      * 
      */
-    @Import(name="framing")
-    private @Nullable Output<ObservabilityPipelineConfigDestinationSocketFramingArgs> framing;
+    @Import(name="framing", required=true)
+    private Output<ObservabilityPipelineConfigDestinationSocketFramingArgs> framing;
 
     /**
      * @return Defines the framing method for outgoing messages.
      * 
      */
-    public Optional<Output<ObservabilityPipelineConfigDestinationSocketFramingArgs>> framing() {
-        return Optional.ofNullable(this.framing);
+    public Output<ObservabilityPipelineConfigDestinationSocketFramingArgs> framing() {
+        return this.framing;
     }
 
     /**
@@ -132,7 +132,7 @@ public final class ObservabilityPipelineConfigDestinationSocketArgs extends com.
          * @return builder
          * 
          */
-        public Builder framing(@Nullable Output<ObservabilityPipelineConfigDestinationSocketFramingArgs> framing) {
+        public Builder framing(Output<ObservabilityPipelineConfigDestinationSocketFramingArgs> framing) {
             $.framing = framing;
             return this;
         }
@@ -192,6 +192,9 @@ public final class ObservabilityPipelineConfigDestinationSocketArgs extends com.
         public ObservabilityPipelineConfigDestinationSocketArgs build() {
             if ($.encoding == null) {
                 throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationSocketArgs", "encoding");
+            }
+            if ($.framing == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationSocketArgs", "framing");
             }
             if ($.mode == null) {
                 throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationSocketArgs", "mode");

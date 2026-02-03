@@ -21,6 +21,84 @@ import javax.annotation.Nullable;
 /**
  * Provides a Datadog synthetics global variable resource. This can be used to create and manage Datadog synthetics global variables.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.SyntheticsGlobalVariable;
+ * import com.pulumi.datadog.SyntheticsGlobalVariableArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // Basic Usage
+ *         var testVariable = new SyntheticsGlobalVariable("testVariable", SyntheticsGlobalVariableArgs.builder()
+ *             .name("EXAMPLE_VARIABLE")
+ *             .description("Description of the variable")
+ *             .tags(            
+ *                 "foo:bar",
+ *                 "env:test")
+ *             .value("variable-value")
+ *             .build());
+ * 
+ *         // Write-Only Value (Recommended for Terraform 1.11+)
+ *         var secureVariable = new SyntheticsGlobalVariable("secureVariable", SyntheticsGlobalVariableArgs.builder()
+ *             .name("SECURE_VARIABLE")
+ *             .description("Secure global variable with write-only value")
+ *             .tags(            
+ *                 "foo:bar",
+ *                 "env:production")
+ *             .secure(true)
+ *             .valueWo(secretValue)
+ *             .valueWoVersion("1")
+ *             .build());
+ * 
+ *         final var secretKeepers = Map.ofEntries(
+ *             Map.entry("rotationDate", "2024-02-15"),
+ *             Map.entry("environment", "production"),
+ *             Map.entry("securityPolicy", "v3.1")
+ *         );
+ * 
+ *         // Auto-generate version from keepers
+ *         final var secretVersion = String.format("rotation-%s", StdFunctions.substr(Map.ofEntries(
+ *             Map.entry("input", StdFunctions.md5(Map.of("input", serializeJson(
+ *                 secretKeepers))).result()),
+ *             Map.entry("length", 0),
+ *             Map.entry("offset", 8)
+ *         )).result());
+ * 
+ *         var automatedRotation = new SyntheticsGlobalVariable("automatedRotation", SyntheticsGlobalVariableArgs.builder()
+ *             .name("AUTO_ROTATED_VARIABLE")
+ *             .description("Variable with automated rotation")
+ *             .tags(            
+ *                 "foo:bar",
+ *                 "env:production")
+ *             .secure(true)
+ *             .valueWo(secretValue)
+ *             .valueWoVersion(secretVersion)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:

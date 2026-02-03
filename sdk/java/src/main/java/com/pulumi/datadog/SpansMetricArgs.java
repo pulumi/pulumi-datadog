@@ -20,18 +20,18 @@ public final class SpansMetricArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SpansMetricArgs Empty = new SpansMetricArgs();
 
-    @Import(name="compute")
-    private @Nullable Output<SpansMetricComputeArgs> compute;
+    @Import(name="compute", required=true)
+    private Output<SpansMetricComputeArgs> compute;
 
-    public Optional<Output<SpansMetricComputeArgs>> compute() {
-        return Optional.ofNullable(this.compute);
+    public Output<SpansMetricComputeArgs> compute() {
+        return this.compute;
     }
 
-    @Import(name="filter")
-    private @Nullable Output<SpansMetricFilterArgs> filter;
+    @Import(name="filter", required=true)
+    private Output<SpansMetricFilterArgs> filter;
 
-    public Optional<Output<SpansMetricFilterArgs>> filter() {
-        return Optional.ofNullable(this.filter);
+    public Output<SpansMetricFilterArgs> filter() {
+        return this.filter;
     }
 
     @Import(name="groupBies")
@@ -83,7 +83,7 @@ public final class SpansMetricArgs extends com.pulumi.resources.ResourceArgs {
             $ = new SpansMetricArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder compute(@Nullable Output<SpansMetricComputeArgs> compute) {
+        public Builder compute(Output<SpansMetricComputeArgs> compute) {
             $.compute = compute;
             return this;
         }
@@ -92,7 +92,7 @@ public final class SpansMetricArgs extends com.pulumi.resources.ResourceArgs {
             return compute(Output.of(compute));
         }
 
-        public Builder filter(@Nullable Output<SpansMetricFilterArgs> filter) {
+        public Builder filter(Output<SpansMetricFilterArgs> filter) {
             $.filter = filter;
             return this;
         }
@@ -136,6 +136,12 @@ public final class SpansMetricArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SpansMetricArgs build() {
+            if ($.compute == null) {
+                throw new MissingRequiredPropertyException("SpansMetricArgs", "compute");
+            }
+            if ($.filter == null) {
+                throw new MissingRequiredPropertyException("SpansMetricArgs", "filter");
+            }
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("SpansMetricArgs", "name");
             }

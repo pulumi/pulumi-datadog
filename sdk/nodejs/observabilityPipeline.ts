@@ -118,7 +118,7 @@ export class ObservabilityPipeline extends pulumi.CustomResource {
     /**
      * Configuration for the pipeline.
      */
-    declare public readonly config: pulumi.Output<outputs.ObservabilityPipelineConfig | undefined>;
+    declare public readonly config: pulumi.Output<outputs.ObservabilityPipelineConfig>;
     /**
      * The pipeline name.
      */
@@ -141,6 +141,9 @@ export class ObservabilityPipeline extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as ObservabilityPipelineArgs | undefined;
+            if (args?.config === undefined && !opts.urn) {
+                throw new Error("Missing required property 'config'");
+            }
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
@@ -173,7 +176,7 @@ export interface ObservabilityPipelineArgs {
     /**
      * Configuration for the pipeline.
      */
-    config?: pulumi.Input<inputs.ObservabilityPipelineConfig>;
+    config: pulumi.Input<inputs.ObservabilityPipelineConfig>;
     /**
      * The pipeline name.
      */

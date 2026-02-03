@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFile
     {
-        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncoding? Encoding;
+        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncoding Encoding;
         /// <summary>
         /// Key fields used to look up enrichment values.
         /// </summary>
@@ -29,7 +29,7 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFile(
-            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncoding? encoding,
+            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncoding encoding,
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKey> keys,
 

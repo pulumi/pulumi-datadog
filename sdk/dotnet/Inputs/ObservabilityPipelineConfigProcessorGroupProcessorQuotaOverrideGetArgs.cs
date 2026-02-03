@@ -24,8 +24,8 @@ namespace Pulumi.Datadog.Inputs
             set => _fields = value;
         }
 
-        [Input("limit")]
-        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimitGetArgs>? Limit { get; set; }
+        [Input("limit", required: true)]
+        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimitGetArgs> Limit { get; set; } = null!;
 
         public ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideGetArgs()
         {

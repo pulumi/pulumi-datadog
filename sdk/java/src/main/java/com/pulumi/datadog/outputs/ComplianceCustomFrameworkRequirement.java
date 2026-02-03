@@ -9,7 +9,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class ComplianceCustomFrameworkRequirement {
@@ -17,7 +16,7 @@ public final class ComplianceCustomFrameworkRequirement {
      * @return The controls of the requirement. Length must be at least 1.
      * 
      */
-    private @Nullable List<ComplianceCustomFrameworkRequirementControl> controls;
+    private List<ComplianceCustomFrameworkRequirementControl> controls;
     /**
      * @return The name of the requirement. String length must be at least 1.
      * 
@@ -30,7 +29,7 @@ public final class ComplianceCustomFrameworkRequirement {
      * 
      */
     public List<ComplianceCustomFrameworkRequirementControl> controls() {
-        return this.controls == null ? List.of() : this.controls;
+        return this.controls;
     }
     /**
      * @return The name of the requirement. String length must be at least 1.
@@ -49,7 +48,7 @@ public final class ComplianceCustomFrameworkRequirement {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<ComplianceCustomFrameworkRequirementControl> controls;
+        private List<ComplianceCustomFrameworkRequirementControl> controls;
         private String name;
         public Builder() {}
         public Builder(ComplianceCustomFrameworkRequirement defaults) {
@@ -59,8 +58,10 @@ public final class ComplianceCustomFrameworkRequirement {
         }
 
         @CustomType.Setter
-        public Builder controls(@Nullable List<ComplianceCustomFrameworkRequirementControl> controls) {
-
+        public Builder controls(List<ComplianceCustomFrameworkRequirementControl> controls) {
+            if (controls == null) {
+              throw new MissingRequiredPropertyException("ComplianceCustomFrameworkRequirement", "controls");
+            }
             this.controls = controls;
             return this;
         }

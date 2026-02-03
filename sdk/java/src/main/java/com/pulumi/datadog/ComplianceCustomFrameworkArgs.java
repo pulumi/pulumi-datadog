@@ -67,15 +67,15 @@ public final class ComplianceCustomFrameworkArgs extends com.pulumi.resources.Re
      * The requirements of the framework. Length must be at least 1.
      * 
      */
-    @Import(name="requirements")
-    private @Nullable Output<List<ComplianceCustomFrameworkRequirementArgs>> requirements;
+    @Import(name="requirements", required=true)
+    private Output<List<ComplianceCustomFrameworkRequirementArgs>> requirements;
 
     /**
      * @return The requirements of the framework. Length must be at least 1.
      * 
      */
-    public Optional<Output<List<ComplianceCustomFrameworkRequirementArgs>>> requirements() {
-        return Optional.ofNullable(this.requirements);
+    public Output<List<ComplianceCustomFrameworkRequirementArgs>> requirements() {
+        return this.requirements;
     }
 
     /**
@@ -190,7 +190,7 @@ public final class ComplianceCustomFrameworkArgs extends com.pulumi.resources.Re
          * @return builder
          * 
          */
-        public Builder requirements(@Nullable Output<List<ComplianceCustomFrameworkRequirementArgs>> requirements) {
+        public Builder requirements(Output<List<ComplianceCustomFrameworkRequirementArgs>> requirements) {
             $.requirements = requirements;
             return this;
         }
@@ -242,6 +242,9 @@ public final class ComplianceCustomFrameworkArgs extends com.pulumi.resources.Re
             }
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("ComplianceCustomFrameworkArgs", "name");
+            }
+            if ($.requirements == null) {
+                throw new MissingRequiredPropertyException("ComplianceCustomFrameworkArgs", "requirements");
             }
             if ($.version == null) {
                 throw new MissingRequiredPropertyException("ComplianceCustomFrameworkArgs", "version");

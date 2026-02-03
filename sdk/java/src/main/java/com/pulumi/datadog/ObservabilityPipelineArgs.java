@@ -9,8 +9,6 @@ import com.pulumi.datadog.inputs.ObservabilityPipelineConfigArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class ObservabilityPipelineArgs extends com.pulumi.resources.ResourceArgs {
@@ -21,15 +19,15 @@ public final class ObservabilityPipelineArgs extends com.pulumi.resources.Resour
      * Configuration for the pipeline.
      * 
      */
-    @Import(name="config")
-    private @Nullable Output<ObservabilityPipelineConfigArgs> config;
+    @Import(name="config", required=true)
+    private Output<ObservabilityPipelineConfigArgs> config;
 
     /**
      * @return Configuration for the pipeline.
      * 
      */
-    public Optional<Output<ObservabilityPipelineConfigArgs>> config() {
-        return Optional.ofNullable(this.config);
+    public Output<ObservabilityPipelineConfigArgs> config() {
+        return this.config;
     }
 
     /**
@@ -78,7 +76,7 @@ public final class ObservabilityPipelineArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder config(@Nullable Output<ObservabilityPipelineConfigArgs> config) {
+        public Builder config(Output<ObservabilityPipelineConfigArgs> config) {
             $.config = config;
             return this;
         }
@@ -115,6 +113,9 @@ public final class ObservabilityPipelineArgs extends com.pulumi.resources.Resour
         }
 
         public ObservabilityPipelineArgs build() {
+            if ($.config == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineArgs", "config");
+            }
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("ObservabilityPipelineArgs", "name");
             }
