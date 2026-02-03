@@ -22,10 +22,6 @@ namespace Pulumi.Datadog.Outputs
         /// Path to the CSV file.
         /// </summary>
         public readonly string? Path;
-        /// <summary>
-        /// Schema defining column names and their types.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileSchema> Schemas;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFile(
@@ -33,14 +29,11 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKey> keys,
 
-            string? path,
-
-            ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileSchema> schemas)
+            string? path)
         {
             Encoding = encoding;
             Keys = keys;
             Path = path;
-            Schemas = schemas;
         }
     }
 }

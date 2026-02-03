@@ -80,14 +80,14 @@ public class SensitiveDataScannerRule extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="includedKeywordConfiguration", refs={SensitiveDataScannerRuleIncludedKeywordConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ SensitiveDataScannerRuleIncludedKeywordConfiguration> includedKeywordConfiguration;
+    private Output<SensitiveDataScannerRuleIncludedKeywordConfiguration> includedKeywordConfiguration;
 
     /**
      * @return Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standardPatternId` field, then discarding this field will apply the recommended keywords. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
      * 
      */
-    public Output<Optional<SensitiveDataScannerRuleIncludedKeywordConfiguration>> includedKeywordConfiguration() {
-        return Codegen.optional(this.includedKeywordConfiguration);
+    public Output<SensitiveDataScannerRuleIncludedKeywordConfiguration> includedKeywordConfiguration() {
+        return this.includedKeywordConfiguration;
     }
     /**
      * Whether or not the rule is enabled.

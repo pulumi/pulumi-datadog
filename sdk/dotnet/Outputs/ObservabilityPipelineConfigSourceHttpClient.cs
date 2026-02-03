@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigSourceHttpClient
     {
         /// <summary>
-        /// Optional authentication strategy for HTTP requests. Valid values are `None`, `Basic`, `Bearer`.
+        /// Optional authentication strategy for HTTP requests. Valid values are `None`, `Basic`, `Bearer`, `Custom`.
         /// </summary>
         public readonly string? AuthStrategy;
         /// <summary>

@@ -33,18 +33,6 @@ namespace Pulumi.Datadog.Inputs
         [Input("path")]
         public Input<string>? Path { get; set; }
 
-        [Input("schemas")]
-        private InputList<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileSchemaArgs>? _schemas;
-
-        /// <summary>
-        /// Schema defining column names and their types.
-        /// </summary>
-        public InputList<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileSchemaArgs> Schemas
-        {
-            get => _schemas ?? (_schemas = new InputList<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileSchemaArgs>());
-            set => _schemas = value;
-        }
-
         public ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileArgs()
         {
         }
