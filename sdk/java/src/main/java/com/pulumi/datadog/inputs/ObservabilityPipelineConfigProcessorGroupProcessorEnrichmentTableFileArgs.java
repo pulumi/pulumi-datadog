@@ -7,7 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncodingArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKeyArgs;
-import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileSchemaArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -56,28 +55,12 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
         return Optional.ofNullable(this.path);
     }
 
-    /**
-     * Schema defining column names and their types.
-     * 
-     */
-    @Import(name="schemas")
-    private @Nullable Output<List<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileSchemaArgs>> schemas;
-
-    /**
-     * @return Schema defining column names and their types.
-     * 
-     */
-    public Optional<Output<List<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileSchemaArgs>>> schemas() {
-        return Optional.ofNullable(this.schemas);
-    }
-
     private ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileArgs() {}
 
     private ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileArgs(ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileArgs $) {
         this.encoding = $.encoding;
         this.keys = $.keys;
         this.path = $.path;
-        this.schemas = $.schemas;
     }
 
     public static Builder builder() {
@@ -157,37 +140,6 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
          */
         public Builder path(String path) {
             return path(Output.of(path));
-        }
-
-        /**
-         * @param schemas Schema defining column names and their types.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder schemas(@Nullable Output<List<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileSchemaArgs>> schemas) {
-            $.schemas = schemas;
-            return this;
-        }
-
-        /**
-         * @param schemas Schema defining column names and their types.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder schemas(List<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileSchemaArgs> schemas) {
-            return schemas(Output.of(schemas));
-        }
-
-        /**
-         * @param schemas Schema defining column names and their types.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder schemas(ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileSchemaArgs... schemas) {
-            return schemas(List.of(schemas));
         }
 
         public ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileArgs build() {

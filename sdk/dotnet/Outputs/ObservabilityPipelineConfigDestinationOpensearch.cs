@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// The index or datastream to write logs to.
         /// </summary>
         public readonly string? BulkIndex;
+        /// <summary>
+        /// Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationOpensearchDataStream? DataStream;
 
         [OutputConstructor]
-        private ObservabilityPipelineConfigDestinationOpensearch(string? bulkIndex)
+        private ObservabilityPipelineConfigDestinationOpensearch(
+            string? bulkIndex,
+
+            Outputs.ObservabilityPipelineConfigDestinationOpensearchDataStream? dataStream)
         {
             BulkIndex = bulkIndex;
+            DataStream = dataStream;
         }
     }
 }

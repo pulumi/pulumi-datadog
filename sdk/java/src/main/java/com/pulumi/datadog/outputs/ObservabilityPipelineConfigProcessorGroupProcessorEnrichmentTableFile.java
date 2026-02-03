@@ -6,7 +6,6 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncoding;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKey;
-import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileSchema;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -26,11 +25,6 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
      * 
      */
     private @Nullable String path;
-    /**
-     * @return Schema defining column names and their types.
-     * 
-     */
-    private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileSchema> schemas;
 
     private ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFile() {}
     public Optional<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncoding> encoding() {
@@ -50,13 +44,6 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
     public Optional<String> path() {
         return Optional.ofNullable(this.path);
     }
-    /**
-     * @return Schema defining column names and their types.
-     * 
-     */
-    public List<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileSchema> schemas() {
-        return this.schemas == null ? List.of() : this.schemas;
-    }
 
     public static Builder builder() {
         return new Builder();
@@ -70,14 +57,12 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncoding encoding;
         private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKey> keys;
         private @Nullable String path;
-        private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileSchema> schemas;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.encoding = defaults.encoding;
     	      this.keys = defaults.keys;
     	      this.path = defaults.path;
-    	      this.schemas = defaults.schemas;
         }
 
         @CustomType.Setter
@@ -101,21 +86,11 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
             this.path = path;
             return this;
         }
-        @CustomType.Setter
-        public Builder schemas(@Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileSchema> schemas) {
-
-            this.schemas = schemas;
-            return this;
-        }
-        public Builder schemas(ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileSchema... schemas) {
-            return schemas(List.of(schemas));
-        }
         public ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFile build() {
             final var _resultValue = new ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFile();
             _resultValue.encoding = encoding;
             _resultValue.keys = keys;
             _resultValue.path = path;
-            _resultValue.schemas = schemas;
             return _resultValue;
         }
     }

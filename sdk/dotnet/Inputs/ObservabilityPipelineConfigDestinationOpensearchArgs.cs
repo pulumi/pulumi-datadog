@@ -18,6 +18,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("bulkIndex")]
         public Input<string>? BulkIndex { get; set; }
 
+        /// <summary>
+        /// Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
+        /// </summary>
+        [Input("dataStream")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationOpensearchDataStreamArgs>? DataStream { get; set; }
+
         public ObservabilityPipelineConfigDestinationOpensearchArgs()
         {
         }

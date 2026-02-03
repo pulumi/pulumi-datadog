@@ -13874,6 +13874,25 @@ export interface ObservabilityPipelineConfigDestinationOpensearch {
      * The index or datastream to write logs to.
      */
     bulkIndex?: pulumi.Input<string>;
+    /**
+     * Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
+     */
+    dataStream?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationOpensearchDataStream>;
+}
+
+export interface ObservabilityPipelineConfigDestinationOpensearchDataStream {
+    /**
+     * The data stream dataset for your logs. This groups logs by their source or application.
+     */
+    dataset?: pulumi.Input<string>;
+    /**
+     * The data stream type for your logs. This determines how logs are categorized within the data stream.
+     */
+    dtype?: pulumi.Input<string>;
+    /**
+     * The data stream namespace for your logs. This separates logs into different environments or domains.
+     */
+    namespace?: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigDestinationRsyslog {
@@ -14292,10 +14311,6 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTab
      * Path to the CSV file.
      */
     path?: pulumi.Input<string>;
-    /**
-     * Schema defining column names and their types.
-     */
-    schemas?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileSchema>[]>;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncoding {
@@ -14326,17 +14341,6 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTab
      * The `items` `field`.
      */
     field?: pulumi.Input<string>;
-}
-
-export interface ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileSchema {
-    /**
-     * The `items` `column`.
-     */
-    column?: pulumi.Input<string>;
-    /**
-     * The type of the column (e.g. string, boolean, integer, etc.).
-     */
-    type?: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableGeoip {
@@ -15136,7 +15140,7 @@ export interface ObservabilityPipelineConfigSourceGooglePubsubTls {
 
 export interface ObservabilityPipelineConfigSourceHttpClient {
     /**
-     * Optional authentication strategy for HTTP requests. Valid values are `none`, `basic`, `bearer`.
+     * Optional authentication strategy for HTTP requests. Valid values are `none`, `basic`, `bearer`, `custom`.
      */
     authStrategy?: pulumi.Input<string>;
     /**

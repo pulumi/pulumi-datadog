@@ -13762,7 +13762,14 @@
                                                 "maxItemsOne": false
                                             },
                                             "opensearch": {
-                                                "maxItemsOne": false
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "data_stream": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
                                             },
                                             "rsyslog": {
                                                 "maxItemsOne": false,
@@ -13899,9 +13906,6 @@
                                                                                     "maxItemsOne": true
                                                                                 },
                                                                                 "key": {
-                                                                                    "maxItemsOne": false
-                                                                                },
-                                                                                "schema": {
                                                                                     "maxItemsOne": false
                                                                                 }
                                                                             }

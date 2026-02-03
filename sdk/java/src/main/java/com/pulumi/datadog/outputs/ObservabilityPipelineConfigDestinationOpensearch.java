@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationOpensearchDataStream;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,6 +17,11 @@ public final class ObservabilityPipelineConfigDestinationOpensearch {
      * 
      */
     private @Nullable String bulkIndex;
+    /**
+     * @return Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationOpensearchDataStream dataStream;
 
     private ObservabilityPipelineConfigDestinationOpensearch() {}
     /**
@@ -24,6 +30,13 @@ public final class ObservabilityPipelineConfigDestinationOpensearch {
      */
     public Optional<String> bulkIndex() {
         return Optional.ofNullable(this.bulkIndex);
+    }
+    /**
+     * @return Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationOpensearchDataStream> dataStream() {
+        return Optional.ofNullable(this.dataStream);
     }
 
     public static Builder builder() {
@@ -36,10 +49,12 @@ public final class ObservabilityPipelineConfigDestinationOpensearch {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String bulkIndex;
+        private @Nullable ObservabilityPipelineConfigDestinationOpensearchDataStream dataStream;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationOpensearch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bulkIndex = defaults.bulkIndex;
+    	      this.dataStream = defaults.dataStream;
         }
 
         @CustomType.Setter
@@ -48,9 +63,16 @@ public final class ObservabilityPipelineConfigDestinationOpensearch {
             this.bulkIndex = bulkIndex;
             return this;
         }
+        @CustomType.Setter
+        public Builder dataStream(@Nullable ObservabilityPipelineConfigDestinationOpensearchDataStream dataStream) {
+
+            this.dataStream = dataStream;
+            return this;
+        }
         public ObservabilityPipelineConfigDestinationOpensearch build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationOpensearch();
             _resultValue.bulkIndex = bulkIndex;
+            _resultValue.dataStream = dataStream;
             return _resultValue;
         }
     }

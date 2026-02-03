@@ -14065,6 +14065,25 @@ export interface ObservabilityPipelineConfigDestinationOpensearch {
      * The index or datastream to write logs to.
      */
     bulkIndex?: string;
+    /**
+     * Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
+     */
+    dataStream?: outputs.ObservabilityPipelineConfigDestinationOpensearchDataStream;
+}
+
+export interface ObservabilityPipelineConfigDestinationOpensearchDataStream {
+    /**
+     * The data stream dataset for your logs. This groups logs by their source or application.
+     */
+    dataset?: string;
+    /**
+     * The data stream type for your logs. This determines how logs are categorized within the data stream.
+     */
+    dtype?: string;
+    /**
+     * The data stream namespace for your logs. This separates logs into different environments or domains.
+     */
+    namespace?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationRsyslog {
@@ -14483,10 +14502,6 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTab
      * Path to the CSV file.
      */
     path?: string;
-    /**
-     * Schema defining column names and their types.
-     */
-    schemas?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileSchema[];
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncoding {
@@ -14517,17 +14532,6 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTab
      * The `items` `field`.
      */
     field?: string;
-}
-
-export interface ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileSchema {
-    /**
-     * The `items` `column`.
-     */
-    column?: string;
-    /**
-     * The type of the column (e.g. string, boolean, integer, etc.).
-     */
-    type?: string;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableGeoip {
@@ -15327,7 +15331,7 @@ export interface ObservabilityPipelineConfigSourceGooglePubsubTls {
 
 export interface ObservabilityPipelineConfigSourceHttpClient {
     /**
-     * Optional authentication strategy for HTTP requests. Valid values are `none`, `basic`, `bearer`.
+     * Optional authentication strategy for HTTP requests. Valid values are `none`, `basic`, `bearer`, `custom`.
      */
     authStrategy?: string;
     /**

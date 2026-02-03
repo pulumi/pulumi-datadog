@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationOpensearchDataStreamArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -30,10 +31,26 @@ public final class ObservabilityPipelineConfigDestinationOpensearchArgs extends 
         return Optional.ofNullable(this.bulkIndex);
     }
 
+    /**
+     * Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
+     * 
+     */
+    @Import(name="dataStream")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationOpensearchDataStreamArgs> dataStream;
+
+    /**
+     * @return Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationOpensearchDataStreamArgs>> dataStream() {
+        return Optional.ofNullable(this.dataStream);
+    }
+
     private ObservabilityPipelineConfigDestinationOpensearchArgs() {}
 
     private ObservabilityPipelineConfigDestinationOpensearchArgs(ObservabilityPipelineConfigDestinationOpensearchArgs $) {
         this.bulkIndex = $.bulkIndex;
+        this.dataStream = $.dataStream;
     }
 
     public static Builder builder() {
@@ -73,6 +90,27 @@ public final class ObservabilityPipelineConfigDestinationOpensearchArgs extends 
          */
         public Builder bulkIndex(String bulkIndex) {
             return bulkIndex(Output.of(bulkIndex));
+        }
+
+        /**
+         * @param dataStream Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataStream(@Nullable Output<ObservabilityPipelineConfigDestinationOpensearchDataStreamArgs> dataStream) {
+            $.dataStream = dataStream;
+            return this;
+        }
+
+        /**
+         * @param dataStream Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataStream(ObservabilityPipelineConfigDestinationOpensearchDataStreamArgs dataStream) {
+            return dataStream(Output.of(dataStream));
         }
 
         public ObservabilityPipelineConfigDestinationOpensearchArgs build() {
