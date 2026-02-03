@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideFieldArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimitArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -32,11 +33,11 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverri
         return Optional.ofNullable(this.fields);
     }
 
-    @Import(name="limit")
-    private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimitArgs> limit;
+    @Import(name="limit", required=true)
+    private Output<ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimitArgs> limit;
 
-    public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimitArgs>> limit() {
-        return Optional.ofNullable(this.limit);
+    public Output<ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimitArgs> limit() {
+        return this.limit;
     }
 
     private ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideArgs() {}
@@ -95,7 +96,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverri
             return fields(List.of(fields));
         }
 
-        public Builder limit(@Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimitArgs> limit) {
+        public Builder limit(Output<ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimitArgs> limit) {
             $.limit = limit;
             return this;
         }
@@ -105,6 +106,9 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverri
         }
 
         public ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideArgs build() {
+            if ($.limit == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideArgs", "limit");
+            }
             return $;
         }
     }

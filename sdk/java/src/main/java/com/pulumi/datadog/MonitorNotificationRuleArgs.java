@@ -34,11 +34,11 @@ public final class MonitorNotificationRuleArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.conditionalRecipients);
     }
 
-    @Import(name="filter")
-    private @Nullable Output<MonitorNotificationRuleFilterArgs> filter;
+    @Import(name="filter", required=true)
+    private Output<MonitorNotificationRuleFilterArgs> filter;
 
-    public Optional<Output<MonitorNotificationRuleFilterArgs>> filter() {
-        return Optional.ofNullable(this.filter);
+    public Output<MonitorNotificationRuleFilterArgs> filter() {
+        return this.filter;
     }
 
     /**
@@ -119,7 +119,7 @@ public final class MonitorNotificationRuleArgs extends com.pulumi.resources.Reso
             return conditionalRecipients(Output.of(conditionalRecipients));
         }
 
-        public Builder filter(@Nullable Output<MonitorNotificationRuleFilterArgs> filter) {
+        public Builder filter(Output<MonitorNotificationRuleFilterArgs> filter) {
             $.filter = filter;
             return this;
         }
@@ -181,6 +181,9 @@ public final class MonitorNotificationRuleArgs extends com.pulumi.resources.Reso
         }
 
         public MonitorNotificationRuleArgs build() {
+            if ($.filter == null) {
+                throw new MissingRequiredPropertyException("MonitorNotificationRuleArgs", "filter");
+            }
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("MonitorNotificationRuleArgs", "name");
             }

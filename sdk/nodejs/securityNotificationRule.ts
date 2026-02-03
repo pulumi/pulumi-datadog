@@ -117,7 +117,7 @@ export class SecurityNotificationRule extends pulumi.CustomResource {
     /**
      * Defines selectors to filter security issues that generate notifications.
      */
-    declare public readonly selectors: pulumi.Output<outputs.SecurityNotificationRuleSelectors | undefined>;
+    declare public readonly selectors: pulumi.Output<outputs.SecurityNotificationRuleSelectors>;
     /**
      * The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
      */
@@ -160,6 +160,9 @@ export class SecurityNotificationRule extends pulumi.CustomResource {
             const args = argsOrState as SecurityNotificationRuleArgs | undefined;
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
+            }
+            if (args?.selectors === undefined && !opts.urn) {
+                throw new Error("Missing required property 'selectors'");
             }
             if (args?.targets === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targets'");
@@ -251,7 +254,7 @@ export interface SecurityNotificationRuleArgs {
     /**
      * Defines selectors to filter security issues that generate notifications.
      */
-    selectors?: pulumi.Input<inputs.SecurityNotificationRuleSelectors>;
+    selectors: pulumi.Input<inputs.SecurityNotificationRuleSelectors>;
     /**
      * The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
      */

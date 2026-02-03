@@ -484,6 +484,55 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         """
         Provides a Datadog synthetics global variable resource. This can be used to create and manage Datadog synthetics global variables.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_datadog as datadog
+        import pulumi_std as std
+
+        # Basic Usage
+        test_variable = datadog.SyntheticsGlobalVariable("test_variable",
+            name="EXAMPLE_VARIABLE",
+            description="Description of the variable",
+            tags=[
+                "foo:bar",
+                "env:test",
+            ],
+            value="variable-value")
+        # Write-Only Value (Recommended for Terraform 1.11+)
+        secure_variable = datadog.SyntheticsGlobalVariable("secure_variable",
+            name="SECURE_VARIABLE",
+            description="Secure global variable with write-only value",
+            tags=[
+                "foo:bar",
+                "env:production",
+            ],
+            secure=True,
+            value_wo=secret_value,
+            value_wo_version="1")
+        secret_keepers = {
+            "rotationDate": "2024-02-15",
+            "environment": "production",
+            "securityPolicy": "v3.1",
+        }
+        # Auto-generate version from keepers
+        secret_version = f"rotation-{std.index.substr(input=std.index.md5(input=json.dumps(secret_keepers))['result'],
+            length=0,
+            offset=8)['result']}"
+        automated_rotation = datadog.SyntheticsGlobalVariable("automated_rotation",
+            name="AUTO_ROTATED_VARIABLE",
+            description="Variable with automated rotation",
+            tags=[
+                "foo:bar",
+                "env:production",
+            ],
+            secure=True,
+            value_wo=secret_value,
+            value_wo_version=secret_version)
+        ```
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -519,6 +568,55 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog synthetics global variable resource. This can be used to create and manage Datadog synthetics global variables.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_datadog as datadog
+        import pulumi_std as std
+
+        # Basic Usage
+        test_variable = datadog.SyntheticsGlobalVariable("test_variable",
+            name="EXAMPLE_VARIABLE",
+            description="Description of the variable",
+            tags=[
+                "foo:bar",
+                "env:test",
+            ],
+            value="variable-value")
+        # Write-Only Value (Recommended for Terraform 1.11+)
+        secure_variable = datadog.SyntheticsGlobalVariable("secure_variable",
+            name="SECURE_VARIABLE",
+            description="Secure global variable with write-only value",
+            tags=[
+                "foo:bar",
+                "env:production",
+            ],
+            secure=True,
+            value_wo=secret_value,
+            value_wo_version="1")
+        secret_keepers = {
+            "rotationDate": "2024-02-15",
+            "environment": "production",
+            "securityPolicy": "v3.1",
+        }
+        # Auto-generate version from keepers
+        secret_version = f"rotation-{std.index.substr(input=std.index.md5(input=json.dumps(secret_keepers))['result'],
+            length=0,
+            offset=8)['result']}"
+        automated_rotation = datadog.SyntheticsGlobalVariable("automated_rotation",
+            name="AUTO_ROTATED_VARIABLE",
+            description="Variable with automated rotation",
+            tags=[
+                "foo:bar",
+                "env:production",
+            ],
+            secure=True,
+            value_wo=secret_value,
+            value_wo_version=secret_version)
+        ```
 
         ## Import
 

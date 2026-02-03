@@ -51,11 +51,11 @@ public final class DowntimeScheduleArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.message);
     }
 
-    @Import(name="monitorIdentifier")
-    private @Nullable Output<DowntimeScheduleMonitorIdentifierArgs> monitorIdentifier;
+    @Import(name="monitorIdentifier", required=true)
+    private Output<DowntimeScheduleMonitorIdentifierArgs> monitorIdentifier;
 
-    public Optional<Output<DowntimeScheduleMonitorIdentifierArgs>> monitorIdentifier() {
-        return Optional.ofNullable(this.monitorIdentifier);
+    public Output<DowntimeScheduleMonitorIdentifierArgs> monitorIdentifier() {
+        return this.monitorIdentifier;
     }
 
     /**
@@ -206,7 +206,7 @@ public final class DowntimeScheduleArgs extends com.pulumi.resources.ResourceArg
             return message(Output.of(message));
         }
 
-        public Builder monitorIdentifier(@Nullable Output<DowntimeScheduleMonitorIdentifierArgs> monitorIdentifier) {
+        public Builder monitorIdentifier(Output<DowntimeScheduleMonitorIdentifierArgs> monitorIdentifier) {
             $.monitorIdentifier = monitorIdentifier;
             return this;
         }
@@ -338,6 +338,9 @@ public final class DowntimeScheduleArgs extends com.pulumi.resources.ResourceArg
         }
 
         public DowntimeScheduleArgs build() {
+            if ($.monitorIdentifier == null) {
+                throw new MissingRequiredPropertyException("DowntimeScheduleArgs", "monitorIdentifier");
+            }
             if ($.scope == null) {
                 throw new MissingRequiredPropertyException("DowntimeScheduleArgs", "scope");
             }

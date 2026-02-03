@@ -5,9 +5,9 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArray;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigProcessorGroupProcessorSplitArray {
@@ -15,7 +15,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSplitArray 
      * @return A list of array split configurations.
      * 
      */
-    private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArray> arrays;
+    private List<ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArray> arrays;
 
     private ObservabilityPipelineConfigProcessorGroupProcessorSplitArray() {}
     /**
@@ -23,7 +23,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSplitArray 
      * 
      */
     public List<ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArray> arrays() {
-        return this.arrays == null ? List.of() : this.arrays;
+        return this.arrays;
     }
 
     public static Builder builder() {
@@ -35,7 +35,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSplitArray 
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArray> arrays;
+        private List<ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArray> arrays;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorSplitArray defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +43,10 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSplitArray 
         }
 
         @CustomType.Setter
-        public Builder arrays(@Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArray> arrays) {
-
+        public Builder arrays(List<ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArray> arrays) {
+            if (arrays == null) {
+              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorSplitArray", "arrays");
+            }
             this.arrays = arrays;
             return this;
         }

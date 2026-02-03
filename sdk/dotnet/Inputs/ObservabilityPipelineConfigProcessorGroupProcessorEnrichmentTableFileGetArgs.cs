@@ -12,8 +12,8 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("encoding")]
-        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncodingGetArgs>? Encoding { get; set; }
+        [Input("encoding", required: true)]
+        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncodingGetArgs> Encoding { get; set; } = null!;
 
         [Input("keys")]
         private InputList<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKeyGetArgs>? _keys;

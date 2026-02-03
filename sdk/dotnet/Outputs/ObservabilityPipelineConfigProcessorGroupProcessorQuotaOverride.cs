@@ -17,13 +17,13 @@ namespace Pulumi.Datadog.Outputs
         /// Fields that trigger this override.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideField> Fields;
-        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimit? Limit;
+        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimit Limit;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverride(
             ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideField> fields,
 
-            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimit? limit)
+            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimit limit)
         {
             Fields = fields;
             Limit = limit;

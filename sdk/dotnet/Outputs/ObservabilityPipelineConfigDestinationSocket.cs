@@ -20,7 +20,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// Defines the framing method for outgoing messages.
         /// </summary>
-        public readonly Outputs.ObservabilityPipelineConfigDestinationSocketFraming? Framing;
+        public readonly Outputs.ObservabilityPipelineConfigDestinationSocketFraming Framing;
         /// <summary>
         /// The protocol used to send logs. Valid values are `Tcp`, `Udp`.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Datadog.Outputs
         private ObservabilityPipelineConfigDestinationSocket(
             string encoding,
 
-            Outputs.ObservabilityPipelineConfigDestinationSocketFraming? framing,
+            Outputs.ObservabilityPipelineConfigDestinationSocketFraming framing,
 
             string mode,
 

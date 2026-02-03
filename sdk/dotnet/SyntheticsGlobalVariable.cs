@@ -12,6 +12,81 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog synthetics global variable resource. This can be used to create and manage Datadog synthetics global variables.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Basic Usage
+    ///     var testVariable = new Datadog.SyntheticsGlobalVariable("test_variable", new()
+    ///     {
+    ///         Name = "EXAMPLE_VARIABLE",
+    ///         Description = "Description of the variable",
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "env:test",
+    ///         },
+    ///         Value = "variable-value",
+    ///     });
+    /// 
+    ///     // Write-Only Value (Recommended for Terraform 1.11+)
+    ///     var secureVariable = new Datadog.SyntheticsGlobalVariable("secure_variable", new()
+    ///     {
+    ///         Name = "SECURE_VARIABLE",
+    ///         Description = "Secure global variable with write-only value",
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "env:production",
+    ///         },
+    ///         Secure = true,
+    ///         ValueWo = secretValue,
+    ///         ValueWoVersion = "1",
+    ///     });
+    /// 
+    ///     var secretKeepers = 
+    ///     {
+    ///         { "rotationDate", "2024-02-15" },
+    ///         { "environment", "production" },
+    ///         { "securityPolicy", "v3.1" },
+    ///     };
+    /// 
+    ///     // Auto-generate version from keepers
+    ///     var secretVersion = $"rotation-{Std.Index.Substr.Invoke(new()
+    ///     {
+    ///         Input = Std.Index.Md5.Invoke(new()
+    ///         {
+    ///             Input = JsonSerializer.Serialize(secretKeepers),
+    ///         }).Result,
+    ///         Length = 0,
+    ///         Offset = 8,
+    ///     }).Result}";
+    /// 
+    ///     var automatedRotation = new Datadog.SyntheticsGlobalVariable("automated_rotation", new()
+    ///     {
+    ///         Name = "AUTO_ROTATED_VARIABLE",
+    ///         Description = "Variable with automated rotation",
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "env:production",
+    ///         },
+    ///         Secure = true,
+    ///         ValueWo = secretValue,
+    ///         ValueWoVersion = secretVersion,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:

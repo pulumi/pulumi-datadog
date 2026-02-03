@@ -22,15 +22,15 @@ public final class ObservabilityPipelineConfigSourceSocketArgs extends com.pulum
      * Defines the framing method for incoming messages.
      * 
      */
-    @Import(name="framing")
-    private @Nullable Output<ObservabilityPipelineConfigSourceSocketFramingArgs> framing;
+    @Import(name="framing", required=true)
+    private Output<ObservabilityPipelineConfigSourceSocketFramingArgs> framing;
 
     /**
      * @return Defines the framing method for incoming messages.
      * 
      */
-    public Optional<Output<ObservabilityPipelineConfigSourceSocketFramingArgs>> framing() {
-        return Optional.ofNullable(this.framing);
+    public Output<ObservabilityPipelineConfigSourceSocketFramingArgs> framing() {
+        return this.framing;
     }
 
     /**
@@ -95,7 +95,7 @@ public final class ObservabilityPipelineConfigSourceSocketArgs extends com.pulum
          * @return builder
          * 
          */
-        public Builder framing(@Nullable Output<ObservabilityPipelineConfigSourceSocketFramingArgs> framing) {
+        public Builder framing(Output<ObservabilityPipelineConfigSourceSocketFramingArgs> framing) {
             $.framing = framing;
             return this;
         }
@@ -153,6 +153,9 @@ public final class ObservabilityPipelineConfigSourceSocketArgs extends com.pulum
         }
 
         public ObservabilityPipelineConfigSourceSocketArgs build() {
+            if ($.framing == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigSourceSocketArgs", "framing");
+            }
             if ($.mode == null) {
                 throw new MissingRequiredPropertyException("ObservabilityPipelineConfigSourceSocketArgs", "mode");
             }

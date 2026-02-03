@@ -9,6 +9,61 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog synthetics global variable resource. This can be used to create and manage Datadog synthetics global variables.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ * import * as std from "@pulumi/std";
+ *
+ * // Basic Usage
+ * const testVariable = new datadog.SyntheticsGlobalVariable("test_variable", {
+ *     name: "EXAMPLE_VARIABLE",
+ *     description: "Description of the variable",
+ *     tags: [
+ *         "foo:bar",
+ *         "env:test",
+ *     ],
+ *     value: "variable-value",
+ * });
+ * // Write-Only Value (Recommended for Terraform 1.11+)
+ * const secureVariable = new datadog.SyntheticsGlobalVariable("secure_variable", {
+ *     name: "SECURE_VARIABLE",
+ *     description: "Secure global variable with write-only value",
+ *     tags: [
+ *         "foo:bar",
+ *         "env:production",
+ *     ],
+ *     secure: true,
+ *     valueWo: secretValue,
+ *     valueWoVersion: "1",
+ * });
+ * const secretKeepers = {
+ *     rotationDate: "2024-02-15",
+ *     environment: "production",
+ *     securityPolicy: "v3.1",
+ * };
+ * // Auto-generate version from keepers
+ * const secretVersion = `rotation-${std.index.substr({
+ *     input: std.index.md5({
+ *         input: JSON.stringify(secretKeepers),
+ *     }).result,
+ *     length: 0,
+ *     offset: 8,
+ * }).result}`;
+ * const automatedRotation = new datadog.SyntheticsGlobalVariable("automated_rotation", {
+ *     name: "AUTO_ROTATED_VARIABLE",
+ *     description: "Variable with automated rotation",
+ *     tags: [
+ *         "foo:bar",
+ *         "env:production",
+ *     ],
+ *     secure: true,
+ *     valueWo: secretValue,
+ *     valueWoVersion: secretVersion,
+ * });
+ * ```
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:

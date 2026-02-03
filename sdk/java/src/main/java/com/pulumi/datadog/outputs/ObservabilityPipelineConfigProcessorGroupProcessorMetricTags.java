@@ -5,9 +5,9 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRule;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigProcessorGroupProcessorMetricTags {
@@ -15,7 +15,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorMetricTags 
      * @return A list of rules for filtering metric tags.
      * 
      */
-    private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRule> rules;
+    private List<ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRule> rules;
 
     private ObservabilityPipelineConfigProcessorGroupProcessorMetricTags() {}
     /**
@@ -23,7 +23,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorMetricTags 
      * 
      */
     public List<ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRule> rules() {
-        return this.rules == null ? List.of() : this.rules;
+        return this.rules;
     }
 
     public static Builder builder() {
@@ -35,7 +35,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorMetricTags 
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRule> rules;
+        private List<ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRule> rules;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorMetricTags defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +43,10 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorMetricTags 
         }
 
         @CustomType.Setter
-        public Builder rules(@Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRule> rules) {
-
+        public Builder rules(List<ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRule> rules) {
+            if (rules == null) {
+              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorMetricTags", "rules");
+            }
             this.rules = rules;
             return this;
         }

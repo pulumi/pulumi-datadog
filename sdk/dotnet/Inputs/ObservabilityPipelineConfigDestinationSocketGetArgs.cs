@@ -21,8 +21,8 @@ namespace Pulumi.Datadog.Inputs
         /// <summary>
         /// Defines the framing method for outgoing messages.
         /// </summary>
-        [Input("framing")]
-        public Input<Inputs.ObservabilityPipelineConfigDestinationSocketFramingGetArgs>? Framing { get; set; }
+        [Input("framing", required: true)]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationSocketFramingGetArgs> Framing { get; set; } = null!;
 
         /// <summary>
         /// The protocol used to send logs. Valid values are `Tcp`, `Udp`.

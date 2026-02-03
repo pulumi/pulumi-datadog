@@ -32,7 +32,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// Specifies how the value of the generated metric is computed.
         /// </summary>
-        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValue? Value;
+        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValue Value;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetric(
@@ -44,7 +44,7 @@ namespace Pulumi.Datadog.Outputs
 
             string name,
 
-            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValue? value)
+            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValue value)
         {
             GroupBies = groupBies;
             Include = include;

@@ -138,7 +138,7 @@ namespace Pulumi.Datadog
         /// Defines selectors to filter security issues that generate notifications.
         /// </summary>
         [Output("selectors")]
-        public Output<Outputs.SecurityNotificationRuleSelectors?> Selectors { get; private set; } = null!;
+        public Output<Outputs.SecurityNotificationRuleSelectors> Selectors { get; private set; } = null!;
 
         /// <summary>
         /// The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
@@ -219,8 +219,8 @@ namespace Pulumi.Datadog
         /// <summary>
         /// Defines selectors to filter security issues that generate notifications.
         /// </summary>
-        [Input("selectors")]
-        public Input<Inputs.SecurityNotificationRuleSelectorsArgs>? Selectors { get; set; }
+        [Input("selectors", required: true)]
+        public Input<Inputs.SecurityNotificationRuleSelectorsArgs> Selectors { get; set; } = null!;
 
         [Input("targets", required: true)]
         private InputList<string>? _targets;

@@ -17,7 +17,7 @@ public final class LogsCustomDestinationElasticsearchDestination {
      * @return Basic access authentication.
      * 
      */
-    private LogsCustomDestinationElasticsearchDestinationBasicAuth basicAuth;
+    private @Nullable LogsCustomDestinationElasticsearchDestinationBasicAuth basicAuth;
     /**
      * @return The destination for which logs will be forwarded to. Must have HTTPS scheme. Forwarding back to Datadog is not allowed.
      * 
@@ -47,8 +47,8 @@ public final class LogsCustomDestinationElasticsearchDestination {
      * @return Basic access authentication.
      * 
      */
-    public LogsCustomDestinationElasticsearchDestinationBasicAuth basicAuth() {
-        return this.basicAuth;
+    public Optional<LogsCustomDestinationElasticsearchDestinationBasicAuth> basicAuth() {
+        return Optional.ofNullable(this.basicAuth);
     }
     /**
      * @return The destination for which logs will be forwarded to. Must have HTTPS scheme. Forwarding back to Datadog is not allowed.
@@ -89,7 +89,7 @@ public final class LogsCustomDestinationElasticsearchDestination {
     }
     @CustomType.Builder
     public static final class Builder {
-        private LogsCustomDestinationElasticsearchDestinationBasicAuth basicAuth;
+        private @Nullable LogsCustomDestinationElasticsearchDestinationBasicAuth basicAuth;
         private String endpoint;
         private String indexName;
         private @Nullable String indexRotation;
@@ -103,10 +103,8 @@ public final class LogsCustomDestinationElasticsearchDestination {
         }
 
         @CustomType.Setter
-        public Builder basicAuth(LogsCustomDestinationElasticsearchDestinationBasicAuth basicAuth) {
-            if (basicAuth == null) {
-              throw new MissingRequiredPropertyException("LogsCustomDestinationElasticsearchDestination", "basicAuth");
-            }
+        public Builder basicAuth(@Nullable LogsCustomDestinationElasticsearchDestinationBasicAuth basicAuth) {
+
             this.basicAuth = basicAuth;
             return this;
         }

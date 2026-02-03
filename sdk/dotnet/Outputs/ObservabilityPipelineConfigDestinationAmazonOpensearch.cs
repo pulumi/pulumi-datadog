@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class ObservabilityPipelineConfigDestinationAmazonOpensearch
     {
-        public readonly Outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuth? Auth;
+        public readonly Outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuth Auth;
         /// <summary>
         /// The index or datastream to write logs to.
         /// </summary>
@@ -21,7 +21,7 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationAmazonOpensearch(
-            Outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuth? auth,
+            Outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuth auth,
 
             string? bulkIndex)
         {

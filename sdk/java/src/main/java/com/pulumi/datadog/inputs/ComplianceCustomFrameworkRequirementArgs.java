@@ -10,8 +10,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class ComplianceCustomFrameworkRequirementArgs extends com.pulumi.resources.ResourceArgs {
@@ -22,15 +20,15 @@ public final class ComplianceCustomFrameworkRequirementArgs extends com.pulumi.r
      * The controls of the requirement. Length must be at least 1.
      * 
      */
-    @Import(name="controls")
-    private @Nullable Output<List<ComplianceCustomFrameworkRequirementControlArgs>> controls;
+    @Import(name="controls", required=true)
+    private Output<List<ComplianceCustomFrameworkRequirementControlArgs>> controls;
 
     /**
      * @return The controls of the requirement. Length must be at least 1.
      * 
      */
-    public Optional<Output<List<ComplianceCustomFrameworkRequirementControlArgs>>> controls() {
-        return Optional.ofNullable(this.controls);
+    public Output<List<ComplianceCustomFrameworkRequirementControlArgs>> controls() {
+        return this.controls;
     }
 
     /**
@@ -79,7 +77,7 @@ public final class ComplianceCustomFrameworkRequirementArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder controls(@Nullable Output<List<ComplianceCustomFrameworkRequirementControlArgs>> controls) {
+        public Builder controls(Output<List<ComplianceCustomFrameworkRequirementControlArgs>> controls) {
             $.controls = controls;
             return this;
         }
@@ -126,6 +124,9 @@ public final class ComplianceCustomFrameworkRequirementArgs extends com.pulumi.r
         }
 
         public ComplianceCustomFrameworkRequirementArgs build() {
+            if ($.controls == null) {
+                throw new MissingRequiredPropertyException("ComplianceCustomFrameworkRequirementArgs", "controls");
+            }
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("ComplianceCustomFrameworkRequirementArgs", "name");
             }

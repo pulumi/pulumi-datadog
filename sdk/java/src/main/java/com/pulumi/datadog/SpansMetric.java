@@ -80,16 +80,16 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/spansMetric:SpansMetric")
 public class SpansMetric extends com.pulumi.resources.CustomResource {
     @Export(name="compute", refs={SpansMetricCompute.class}, tree="[0]")
-    private Output</* @Nullable */ SpansMetricCompute> compute;
+    private Output<SpansMetricCompute> compute;
 
-    public Output<Optional<SpansMetricCompute>> compute() {
-        return Codegen.optional(this.compute);
+    public Output<SpansMetricCompute> compute() {
+        return this.compute;
     }
     @Export(name="filter", refs={SpansMetricFilter.class}, tree="[0]")
-    private Output</* @Nullable */ SpansMetricFilter> filter;
+    private Output<SpansMetricFilter> filter;
 
-    public Output<Optional<SpansMetricFilter>> filter() {
-        return Codegen.optional(this.filter);
+    public Output<SpansMetricFilter> filter() {
+        return this.filter;
     }
     @Export(name="groupBies", refs={List.class,SpansMetricGroupBy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SpansMetricGroupBy>> groupBies;

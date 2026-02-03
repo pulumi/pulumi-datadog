@@ -14,6 +14,90 @@ import (
 
 // Provides a Datadog synthetics global variable resource. This can be used to create and manage Datadog synthetics global variables.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Basic Usage
+//			_, err := datadog.NewSyntheticsGlobalVariable(ctx, "test_variable", &datadog.SyntheticsGlobalVariableArgs{
+//				Name:        pulumi.String("EXAMPLE_VARIABLE"),
+//				Description: pulumi.String("Description of the variable"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("foo:bar"),
+//					pulumi.String("env:test"),
+//				},
+//				Value: pulumi.String("variable-value"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Write-Only Value (Recommended for Terraform 1.11+)
+//			_, err = datadog.NewSyntheticsGlobalVariable(ctx, "secure_variable", &datadog.SyntheticsGlobalVariableArgs{
+//				Name:        pulumi.String("SECURE_VARIABLE"),
+//				Description: pulumi.String("Secure global variable with write-only value"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("foo:bar"),
+//					pulumi.String("env:production"),
+//				},
+//				Secure:         pulumi.Bool(true),
+//				ValueWo:        pulumi.Any(secretValue),
+//				ValueWoVersion: pulumi.String("1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			secretKeepers := map[string]interface{}{
+//				"rotationDate":   "2024-02-15",
+//				"environment":    "production",
+//				"securityPolicy": "v3.1",
+//			}
+//			tmpJSON0, err := json.Marshal(secretKeepers)
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			// Auto-generate version from keepers
+//			secretVersion := fmt.Sprintf("rotation-%v", std.Substr(ctx, map[string]interface{}{
+//				"input": std.Md5(ctx, map[string]interface{}{
+//					"input": json0,
+//				}, nil).Result,
+//				"length": 0,
+//				"offset": 8,
+//			}, nil).Result)
+//			_, err = datadog.NewSyntheticsGlobalVariable(ctx, "automated_rotation", &datadog.SyntheticsGlobalVariableArgs{
+//				Name:        pulumi.String("AUTO_ROTATED_VARIABLE"),
+//				Description: pulumi.String("Variable with automated rotation"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("foo:bar"),
+//					pulumi.String("env:production"),
+//				},
+//				Secure:         pulumi.Bool(true),
+//				ValueWo:        pulumi.Any(secretValue),
+//				ValueWoVersion: pulumi.String(secretVersion),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // The `pulumi import` command can be used, for example:

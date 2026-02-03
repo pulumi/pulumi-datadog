@@ -21,10 +21,10 @@ __all__ = ['DowntimeScheduleArgs', 'DowntimeSchedule']
 @pulumi.input_type
 class DowntimeScheduleArgs:
     def __init__(__self__, *,
+                 monitor_identifier: pulumi.Input['DowntimeScheduleMonitorIdentifierArgs'],
                  scope: pulumi.Input[_builtins.str],
                  display_timezone: Optional[pulumi.Input[_builtins.str]] = None,
                  message: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_identifier: Optional[pulumi.Input['DowntimeScheduleMonitorIdentifierArgs']] = None,
                  mute_first_recovery_notification: Optional[pulumi.Input[_builtins.bool]] = None,
                  notify_end_states: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  notify_end_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -39,13 +39,12 @@ class DowntimeScheduleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notify_end_states: States that will trigger a monitor notification when the `notify_end_types` action occurs.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notify_end_types: Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
         """
+        pulumi.set(__self__, "monitor_identifier", monitor_identifier)
         pulumi.set(__self__, "scope", scope)
         if display_timezone is not None:
             pulumi.set(__self__, "display_timezone", display_timezone)
         if message is not None:
             pulumi.set(__self__, "message", message)
-        if monitor_identifier is not None:
-            pulumi.set(__self__, "monitor_identifier", monitor_identifier)
         if mute_first_recovery_notification is not None:
             pulumi.set(__self__, "mute_first_recovery_notification", mute_first_recovery_notification)
         if notify_end_states is not None:
@@ -56,6 +55,15 @@ class DowntimeScheduleArgs:
             pulumi.set(__self__, "one_time_schedule", one_time_schedule)
         if recurring_schedule is not None:
             pulumi.set(__self__, "recurring_schedule", recurring_schedule)
+
+    @_builtins.property
+    @pulumi.getter(name="monitorIdentifier")
+    def monitor_identifier(self) -> pulumi.Input['DowntimeScheduleMonitorIdentifierArgs']:
+        return pulumi.get(self, "monitor_identifier")
+
+    @monitor_identifier.setter
+    def monitor_identifier(self, value: pulumi.Input['DowntimeScheduleMonitorIdentifierArgs']):
+        pulumi.set(self, "monitor_identifier", value)
 
     @_builtins.property
     @pulumi.getter
@@ -92,15 +100,6 @@ class DowntimeScheduleArgs:
     @message.setter
     def message(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "message", value)
-
-    @_builtins.property
-    @pulumi.getter(name="monitorIdentifier")
-    def monitor_identifier(self) -> Optional[pulumi.Input['DowntimeScheduleMonitorIdentifierArgs']]:
-        return pulumi.get(self, "monitor_identifier")
-
-    @monitor_identifier.setter
-    def monitor_identifier(self, value: Optional[pulumi.Input['DowntimeScheduleMonitorIdentifierArgs']]):
-        pulumi.set(self, "monitor_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="muteFirstRecoveryNotification")
@@ -457,6 +456,8 @@ class DowntimeSchedule(pulumi.CustomResource):
 
             __props__.__dict__["display_timezone"] = display_timezone
             __props__.__dict__["message"] = message
+            if monitor_identifier is None and not opts.urn:
+                raise TypeError("Missing required property 'monitor_identifier'")
             __props__.__dict__["monitor_identifier"] = monitor_identifier
             __props__.__dict__["mute_first_recovery_notification"] = mute_first_recovery_notification
             __props__.__dict__["notify_end_states"] = notify_end_states
@@ -532,7 +533,7 @@ class DowntimeSchedule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="monitorIdentifier")
-    def monitor_identifier(self) -> pulumi.Output[Optional['outputs.DowntimeScheduleMonitorIdentifier']]:
+    def monitor_identifier(self) -> pulumi.Output['outputs.DowntimeScheduleMonitorIdentifier']:
         return pulumi.get(self, "monitor_identifier")
 
     @_builtins.property

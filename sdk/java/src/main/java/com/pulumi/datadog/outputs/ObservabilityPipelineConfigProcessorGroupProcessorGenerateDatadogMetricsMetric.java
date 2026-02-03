@@ -9,7 +9,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -38,7 +37,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorGenerateDat
      * @return Specifies how the value of the generated metric is computed.
      * 
      */
-    private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValue value;
+    private ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValue value;
 
     private ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetric() {}
     /**
@@ -73,8 +72,8 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorGenerateDat
      * @return Specifies how the value of the generated metric is computed.
      * 
      */
-    public Optional<ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValue> value() {
-        return Optional.ofNullable(this.value);
+    public ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValue value() {
+        return this.value;
     }
 
     public static Builder builder() {
@@ -90,7 +89,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorGenerateDat
         private String include;
         private String metricType;
         private String name;
-        private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValue value;
+        private ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValue value;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetric defaults) {
     	      Objects.requireNonNull(defaults);
@@ -135,8 +134,10 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorGenerateDat
             return this;
         }
         @CustomType.Setter
-        public Builder value(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValue value) {
-
+        public Builder value(ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValue value) {
+            if (value == null) {
+              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetric", "value");
+            }
             this.value = value;
             return this;
         }

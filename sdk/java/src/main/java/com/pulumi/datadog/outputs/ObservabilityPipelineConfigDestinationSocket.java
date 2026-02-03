@@ -23,7 +23,7 @@ public final class ObservabilityPipelineConfigDestinationSocket {
      * @return Defines the framing method for outgoing messages.
      * 
      */
-    private @Nullable ObservabilityPipelineConfigDestinationSocketFraming framing;
+    private ObservabilityPipelineConfigDestinationSocketFraming framing;
     /**
      * @return The protocol used to send logs. Valid values are `tcp`, `udp`.
      * 
@@ -47,8 +47,8 @@ public final class ObservabilityPipelineConfigDestinationSocket {
      * @return Defines the framing method for outgoing messages.
      * 
      */
-    public Optional<ObservabilityPipelineConfigDestinationSocketFraming> framing() {
-        return Optional.ofNullable(this.framing);
+    public ObservabilityPipelineConfigDestinationSocketFraming framing() {
+        return this.framing;
     }
     /**
      * @return The protocol used to send logs. Valid values are `tcp`, `udp`.
@@ -75,7 +75,7 @@ public final class ObservabilityPipelineConfigDestinationSocket {
     @CustomType.Builder
     public static final class Builder {
         private String encoding;
-        private @Nullable ObservabilityPipelineConfigDestinationSocketFraming framing;
+        private ObservabilityPipelineConfigDestinationSocketFraming framing;
         private String mode;
         private @Nullable ObservabilityPipelineConfigDestinationSocketTls tls;
         public Builder() {}
@@ -96,8 +96,10 @@ public final class ObservabilityPipelineConfigDestinationSocket {
             return this;
         }
         @CustomType.Setter
-        public Builder framing(@Nullable ObservabilityPipelineConfigDestinationSocketFraming framing) {
-
+        public Builder framing(ObservabilityPipelineConfigDestinationSocketFraming framing) {
+            if (framing == null) {
+              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationSocket", "framing");
+            }
             this.framing = framing;
             return this;
         }

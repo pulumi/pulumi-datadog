@@ -476,7 +476,7 @@ export interface ComplianceCustomFrameworkRequirement {
     /**
      * The controls of the requirement. Length must be at least 1.
      */
-    controls?: pulumi.Input<pulumi.Input<inputs.ComplianceCustomFrameworkRequirementControl>[]>;
+    controls: pulumi.Input<pulumi.Input<inputs.ComplianceCustomFrameworkRequirementControl>[]>;
     /**
      * The name of the requirement. String length must be at least 1.
      */
@@ -11344,7 +11344,7 @@ export interface LogsCustomDestinationElasticsearchDestination {
     /**
      * Basic access authentication.
      */
-    basicAuth: pulumi.Input<inputs.LogsCustomDestinationElasticsearchDestinationBasicAuth>;
+    basicAuth?: pulumi.Input<inputs.LogsCustomDestinationElasticsearchDestinationBasicAuth>;
     /**
      * The destination for which logs will be forwarded to. Must have HTTPS scheme. Forwarding back to Datadog is not allowed.
      */
@@ -13367,7 +13367,7 @@ export interface ObservabilityPipelineConfigDestination {
 }
 
 export interface ObservabilityPipelineConfigDestinationAmazonOpensearch {
-    auth?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuth>;
+    auth: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuth>;
     /**
      * The index or datastream to write logs to.
      */
@@ -13936,7 +13936,7 @@ export interface ObservabilityPipelineConfigDestinationSocket {
     /**
      * Defines the framing method for outgoing messages.
      */
-    framing?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationSocketFraming>;
+    framing: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationSocketFraming>;
     /**
      * The protocol used to send logs. Valid values are `tcp`, `udp`.
      */
@@ -14212,7 +14212,7 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorAddFields {
     /**
      * A list of static fields (key-value pairs) that is added to each log event processed by this component.
      */
-    fields?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsField>[]>;
+    fields: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsField>[]>;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsField {
@@ -14233,7 +14233,7 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorCustomProcess
     /**
      * Array of VRL remap configurations. Each remap defines a transformation rule with its own filter and VRL script.
      */
-    remaps?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemap>[]>;
+    remaps: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemap>[]>;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemap {
@@ -14302,7 +14302,7 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTab
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFile {
-    encoding?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncoding>;
+    encoding: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileEncoding>;
     /**
      * Key fields used to look up enrichment values.
      */
@@ -14403,7 +14403,7 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatad
     /**
      * Specifies how the value of the generated metric is computed.
      */
-    value?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValue>;
+    value: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValue>;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMetricValue {
@@ -14421,7 +14421,7 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorMetricTags {
     /**
      * A list of rules for filtering metric tags.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRule>[]>;
+    rules: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRule>[]>;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRule {
@@ -14560,7 +14560,7 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorQuota {
      * Whether to ignore when partition fields are missing.
      */
     ignoreWhenMissingPartitions?: pulumi.Input<boolean>;
-    limit?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimit>;
+    limit: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimit>;
     /**
      * The name of the quota.
      */
@@ -14599,7 +14599,7 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverride
      * Fields that trigger this override.
      */
     fields?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideField>[]>;
-    limit?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimit>;
+    limit: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideLimit>;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideField {
@@ -14657,7 +14657,7 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorRenameFields 
     /**
      * List of fields to rename.
      */
-    fields?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsField>[]>;
+    fields: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsField>[]>;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsField {
@@ -14837,7 +14837,7 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorSplitArray {
     /**
      * A list of array split configurations.
      */
-    arrays?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArray>[]>;
+    arrays: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArray>[]>;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArray {
@@ -15336,7 +15336,7 @@ export interface ObservabilityPipelineConfigSourceSocket {
     /**
      * Defines the framing method for incoming messages.
      */
-    framing?: pulumi.Input<inputs.ObservabilityPipelineConfigSourceSocketFraming>;
+    framing: pulumi.Input<inputs.ObservabilityPipelineConfigSourceSocketFraming>;
     /**
      * The protocol used to receive logs. Valid values are `tcp`, `udp`.
      */

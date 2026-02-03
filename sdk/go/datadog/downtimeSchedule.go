@@ -85,8 +85,8 @@ type DowntimeSchedule struct {
 	// The timezone in which to display the downtime's start and end times in Datadog applications. This is not used as an offset for scheduling.
 	DisplayTimezone pulumi.StringOutput `pulumi:"displayTimezone"`
 	// A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.
-	Message           pulumi.StringPtrOutput                     `pulumi:"message"`
-	MonitorIdentifier DowntimeScheduleMonitorIdentifierPtrOutput `pulumi:"monitorIdentifier"`
+	Message           pulumi.StringPtrOutput                  `pulumi:"message"`
+	MonitorIdentifier DowntimeScheduleMonitorIdentifierOutput `pulumi:"monitorIdentifier"`
 	// If the first recovery notification during a downtime should be muted.
 	MuteFirstRecoveryNotification pulumi.BoolOutput `pulumi:"muteFirstRecoveryNotification"`
 	// States that will trigger a monitor notification when the `notifyEndTypes` action occurs.
@@ -106,6 +106,9 @@ func NewDowntimeSchedule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.MonitorIdentifier == nil {
+		return nil, errors.New("invalid value for required argument 'MonitorIdentifier'")
+	}
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
@@ -175,8 +178,8 @@ type downtimeScheduleArgs struct {
 	// The timezone in which to display the downtime's start and end times in Datadog applications. This is not used as an offset for scheduling.
 	DisplayTimezone *string `pulumi:"displayTimezone"`
 	// A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.
-	Message           *string                            `pulumi:"message"`
-	MonitorIdentifier *DowntimeScheduleMonitorIdentifier `pulumi:"monitorIdentifier"`
+	Message           *string                           `pulumi:"message"`
+	MonitorIdentifier DowntimeScheduleMonitorIdentifier `pulumi:"monitorIdentifier"`
 	// If the first recovery notification during a downtime should be muted.
 	MuteFirstRecoveryNotification *bool `pulumi:"muteFirstRecoveryNotification"`
 	// States that will trigger a monitor notification when the `notifyEndTypes` action occurs.
@@ -195,7 +198,7 @@ type DowntimeScheduleArgs struct {
 	DisplayTimezone pulumi.StringPtrInput
 	// A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.
 	Message           pulumi.StringPtrInput
-	MonitorIdentifier DowntimeScheduleMonitorIdentifierPtrInput
+	MonitorIdentifier DowntimeScheduleMonitorIdentifierInput
 	// If the first recovery notification during a downtime should be muted.
 	MuteFirstRecoveryNotification pulumi.BoolPtrInput
 	// States that will trigger a monitor notification when the `notifyEndTypes` action occurs.
@@ -305,8 +308,8 @@ func (o DowntimeScheduleOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DowntimeSchedule) pulumi.StringPtrOutput { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-func (o DowntimeScheduleOutput) MonitorIdentifier() DowntimeScheduleMonitorIdentifierPtrOutput {
-	return o.ApplyT(func(v *DowntimeSchedule) DowntimeScheduleMonitorIdentifierPtrOutput { return v.MonitorIdentifier }).(DowntimeScheduleMonitorIdentifierPtrOutput)
+func (o DowntimeScheduleOutput) MonitorIdentifier() DowntimeScheduleMonitorIdentifierOutput {
+	return o.ApplyT(func(v *DowntimeSchedule) DowntimeScheduleMonitorIdentifierOutput { return v.MonitorIdentifier }).(DowntimeScheduleMonitorIdentifierOutput)
 }
 
 // If the first recovery notification during a downtime should be muted.

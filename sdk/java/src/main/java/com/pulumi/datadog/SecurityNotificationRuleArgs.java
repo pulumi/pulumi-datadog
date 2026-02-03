@@ -54,15 +54,15 @@ public final class SecurityNotificationRuleArgs extends com.pulumi.resources.Res
      * Defines selectors to filter security issues that generate notifications.
      * 
      */
-    @Import(name="selectors")
-    private @Nullable Output<SecurityNotificationRuleSelectorsArgs> selectors;
+    @Import(name="selectors", required=true)
+    private Output<SecurityNotificationRuleSelectorsArgs> selectors;
 
     /**
      * @return Defines selectors to filter security issues that generate notifications.
      * 
      */
-    public Optional<Output<SecurityNotificationRuleSelectorsArgs>> selectors() {
-        return Optional.ofNullable(this.selectors);
+    public Output<SecurityNotificationRuleSelectorsArgs> selectors() {
+        return this.selectors;
     }
 
     /**
@@ -171,7 +171,7 @@ public final class SecurityNotificationRuleArgs extends com.pulumi.resources.Res
          * @return builder
          * 
          */
-        public Builder selectors(@Nullable Output<SecurityNotificationRuleSelectorsArgs> selectors) {
+        public Builder selectors(Output<SecurityNotificationRuleSelectorsArgs> selectors) {
             $.selectors = selectors;
             return this;
         }
@@ -241,6 +241,9 @@ public final class SecurityNotificationRuleArgs extends com.pulumi.resources.Res
         public SecurityNotificationRuleArgs build() {
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("SecurityNotificationRuleArgs", "name");
+            }
+            if ($.selectors == null) {
+                throw new MissingRequiredPropertyException("SecurityNotificationRuleArgs", "selectors");
             }
             if ($.targets == null) {
                 throw new MissingRequiredPropertyException("SecurityNotificationRuleArgs", "targets");

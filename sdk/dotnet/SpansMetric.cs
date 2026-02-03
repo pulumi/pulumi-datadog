@@ -67,10 +67,10 @@ namespace Pulumi.Datadog
     public partial class SpansMetric : global::Pulumi.CustomResource
     {
         [Output("compute")]
-        public Output<Outputs.SpansMetricCompute?> Compute { get; private set; } = null!;
+        public Output<Outputs.SpansMetricCompute> Compute { get; private set; } = null!;
 
         [Output("filter")]
-        public Output<Outputs.SpansMetricFilter?> Filter { get; private set; } = null!;
+        public Output<Outputs.SpansMetricFilter> Filter { get; private set; } = null!;
 
         [Output("groupBies")]
         public Output<ImmutableArray<Outputs.SpansMetricGroupBy>> GroupBies { get; private set; } = null!;
@@ -127,11 +127,11 @@ namespace Pulumi.Datadog
 
     public sealed class SpansMetricArgs : global::Pulumi.ResourceArgs
     {
-        [Input("compute")]
-        public Input<Inputs.SpansMetricComputeArgs>? Compute { get; set; }
+        [Input("compute", required: true)]
+        public Input<Inputs.SpansMetricComputeArgs> Compute { get; set; } = null!;
 
-        [Input("filter")]
-        public Input<Inputs.SpansMetricFilterArgs>? Filter { get; set; }
+        [Input("filter", required: true)]
+        public Input<Inputs.SpansMetricFilterArgs> Filter { get; set; } = null!;
 
         [Input("groupBies")]
         private InputList<Inputs.SpansMetricGroupByArgs>? _groupBies;

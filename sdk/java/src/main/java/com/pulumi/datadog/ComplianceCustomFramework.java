@@ -146,14 +146,14 @@ public class ComplianceCustomFramework extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="requirements", refs={List.class,ComplianceCustomFrameworkRequirement.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<ComplianceCustomFrameworkRequirement>> requirements;
+    private Output<List<ComplianceCustomFrameworkRequirement>> requirements;
 
     /**
      * @return The requirements of the framework. Length must be at least 1.
      * 
      */
-    public Output<Optional<List<ComplianceCustomFrameworkRequirement>>> requirements() {
-        return Codegen.optional(this.requirements);
+    public Output<List<ComplianceCustomFrameworkRequirement>> requirements() {
+        return this.requirements;
     }
     /**
      * The framework version. String length must be at least 1. This field is immutable.

@@ -6,10 +6,9 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsFieldArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,15 +19,15 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsAr
      * A list of static fields (key-value pairs) that is added to each log event processed by this component.
      * 
      */
-    @Import(name="fields")
-    private @Nullable Output<List<ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsFieldArgs>> fields;
+    @Import(name="fields", required=true)
+    private Output<List<ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsFieldArgs>> fields;
 
     /**
      * @return A list of static fields (key-value pairs) that is added to each log event processed by this component.
      * 
      */
-    public Optional<Output<List<ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsFieldArgs>>> fields() {
-        return Optional.ofNullable(this.fields);
+    public Output<List<ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsFieldArgs>> fields() {
+        return this.fields;
     }
 
     private ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsArgs() {}
@@ -61,7 +60,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsAr
          * @return builder
          * 
          */
-        public Builder fields(@Nullable Output<List<ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsFieldArgs>> fields) {
+        public Builder fields(Output<List<ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsFieldArgs>> fields) {
             $.fields = fields;
             return this;
         }
@@ -87,6 +86,9 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsAr
         }
 
         public ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsArgs build() {
+            if ($.fields == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorAddFieldsArgs", "fields");
+            }
             return $;
         }
     }

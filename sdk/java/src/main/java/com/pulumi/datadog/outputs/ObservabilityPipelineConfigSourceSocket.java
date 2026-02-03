@@ -18,7 +18,7 @@ public final class ObservabilityPipelineConfigSourceSocket {
      * @return Defines the framing method for incoming messages.
      * 
      */
-    private @Nullable ObservabilityPipelineConfigSourceSocketFraming framing;
+    private ObservabilityPipelineConfigSourceSocketFraming framing;
     /**
      * @return The protocol used to receive logs. Valid values are `tcp`, `udp`.
      * 
@@ -35,8 +35,8 @@ public final class ObservabilityPipelineConfigSourceSocket {
      * @return Defines the framing method for incoming messages.
      * 
      */
-    public Optional<ObservabilityPipelineConfigSourceSocketFraming> framing() {
-        return Optional.ofNullable(this.framing);
+    public ObservabilityPipelineConfigSourceSocketFraming framing() {
+        return this.framing;
     }
     /**
      * @return The protocol used to receive logs. Valid values are `tcp`, `udp`.
@@ -62,7 +62,7 @@ public final class ObservabilityPipelineConfigSourceSocket {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable ObservabilityPipelineConfigSourceSocketFraming framing;
+        private ObservabilityPipelineConfigSourceSocketFraming framing;
         private String mode;
         private @Nullable ObservabilityPipelineConfigSourceSocketTls tls;
         public Builder() {}
@@ -74,8 +74,10 @@ public final class ObservabilityPipelineConfigSourceSocket {
         }
 
         @CustomType.Setter
-        public Builder framing(@Nullable ObservabilityPipelineConfigSourceSocketFraming framing) {
-
+        public Builder framing(ObservabilityPipelineConfigSourceSocketFraming framing) {
+            if (framing == null) {
+              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigSourceSocket", "framing");
+            }
             this.framing = framing;
             return this;
         }

@@ -134,7 +134,7 @@ type ObservabilityPipeline struct {
 	pulumi.CustomResourceState
 
 	// Configuration for the pipeline.
-	Config ObservabilityPipelineConfigPtrOutput `pulumi:"config"`
+	Config ObservabilityPipelineConfigOutput `pulumi:"config"`
 	// The pipeline name.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
@@ -146,6 +146,9 @@ func NewObservabilityPipeline(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Config == nil {
+		return nil, errors.New("invalid value for required argument 'Config'")
+	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -191,7 +194,7 @@ func (ObservabilityPipelineState) ElementType() reflect.Type {
 
 type observabilityPipelineArgs struct {
 	// Configuration for the pipeline.
-	Config *ObservabilityPipelineConfig `pulumi:"config"`
+	Config ObservabilityPipelineConfig `pulumi:"config"`
 	// The pipeline name.
 	Name string `pulumi:"name"`
 }
@@ -199,7 +202,7 @@ type observabilityPipelineArgs struct {
 // The set of arguments for constructing a ObservabilityPipeline resource.
 type ObservabilityPipelineArgs struct {
 	// Configuration for the pipeline.
-	Config ObservabilityPipelineConfigPtrInput
+	Config ObservabilityPipelineConfigInput
 	// The pipeline name.
 	Name pulumi.StringInput
 }
@@ -292,8 +295,8 @@ func (o ObservabilityPipelineOutput) ToObservabilityPipelineOutputWithContext(ct
 }
 
 // Configuration for the pipeline.
-func (o ObservabilityPipelineOutput) Config() ObservabilityPipelineConfigPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipeline) ObservabilityPipelineConfigPtrOutput { return v.Config }).(ObservabilityPipelineConfigPtrOutput)
+func (o ObservabilityPipelineOutput) Config() ObservabilityPipelineConfigOutput {
+	return o.ApplyT(func(v *ObservabilityPipeline) ObservabilityPipelineConfigOutput { return v.Config }).(ObservabilityPipelineConfigOutput)
 }
 
 // The pipeline name.

@@ -6,10 +6,9 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArrayArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,15 +19,15 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayA
      * A list of array split configurations.
      * 
      */
-    @Import(name="arrays")
-    private @Nullable Output<List<ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArrayArgs>> arrays;
+    @Import(name="arrays", required=true)
+    private Output<List<ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArrayArgs>> arrays;
 
     /**
      * @return A list of array split configurations.
      * 
      */
-    public Optional<Output<List<ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArrayArgs>>> arrays() {
-        return Optional.ofNullable(this.arrays);
+    public Output<List<ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArrayArgs>> arrays() {
+        return this.arrays;
     }
 
     private ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArgs() {}
@@ -61,7 +60,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayA
          * @return builder
          * 
          */
-        public Builder arrays(@Nullable Output<List<ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArrayArgs>> arrays) {
+        public Builder arrays(Output<List<ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArrayArgs>> arrays) {
             $.arrays = arrays;
             return this;
         }
@@ -87,6 +86,9 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayA
         }
 
         public ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArgs build() {
+            if ($.arrays == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArgs", "arrays");
+            }
             return $;
         }
     }
