@@ -37,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.datadog.DashboardList;
  * import com.pulumi.datadog.DashboardListArgs;
  * import com.pulumi.datadog.inputs.DashboardListDashItemArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -91,7 +90,7 @@ import javax.annotation.Nullable;
  * 
  *         // Create a new Dashboard List with two Dashboards
  *         var newList = new DashboardList("newList", DashboardListArgs.builder()
- *             .name("Automated Created List")
+ *             .name("Terraform Created List")
  *             .dashItems(            
  *                 DashboardListDashItemArgs.builder()
  *                     .type("custom_timeboard")
@@ -101,11 +100,7 @@ import javax.annotation.Nullable;
  *                     .type("custom_screenboard")
  *                     .dashId(screen.id())
  *                     .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     screen,
- *                     time)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

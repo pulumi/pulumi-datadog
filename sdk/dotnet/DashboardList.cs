@@ -76,7 +76,7 @@ namespace Pulumi.Datadog
     ///     // Create a new Dashboard List with two Dashboards
     ///     var newList = new Datadog.DashboardList("new_list", new()
     ///     {
-    ///         Name = "Automated Created List",
+    ///         Name = "Terraform Created List",
     ///         DashItems = new[]
     ///         {
     ///             new Datadog.Inputs.DashboardListDashItemArgs
@@ -89,13 +89,6 @@ namespace Pulumi.Datadog
     ///                 Type = "custom_screenboard",
     ///                 DashId = screen.Id,
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             screen,
-    ///             time,
     ///         },
     ///     });
     /// 
