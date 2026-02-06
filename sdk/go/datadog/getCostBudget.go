@@ -24,7 +24,11 @@ func LookupCostBudget(ctx *pulumi.Context, args *LookupCostBudgetArgs, opts ...p
 
 // A collection of arguments for invoking getCostBudget.
 type LookupCostBudgetArgs struct {
-	// The entries of the budget.
+	// Budget entries grouped by tag combination with amounts map (month > amount).
+	BudgetLines []GetCostBudgetBudgetLine `pulumi:"budgetLines"`
+	// The flat list of budget entries (deprecated - use budgetLine instead).
+	//
+	// Deprecated: Use budgetLine instead. The entries block will be removed in a future version.
 	Entries []GetCostBudgetEntry `pulumi:"entries"`
 	// The ID of the budget.
 	Id string `pulumi:"id"`
@@ -32,9 +36,13 @@ type LookupCostBudgetArgs struct {
 
 // A collection of values returned by getCostBudget.
 type LookupCostBudgetResult struct {
+	// Budget entries grouped by tag combination with amounts map (month > amount).
+	BudgetLines []GetCostBudgetBudgetLine `pulumi:"budgetLines"`
 	// The month when the budget ends (YYYYMM).
 	EndMonth int `pulumi:"endMonth"`
-	// The entries of the budget.
+	// The flat list of budget entries (deprecated - use budgetLine instead).
+	//
+	// Deprecated: Use budgetLine instead. The entries block will be removed in a future version.
 	Entries []GetCostBudgetEntry `pulumi:"entries"`
 	// The ID of the budget.
 	Id string `pulumi:"id"`
@@ -59,7 +67,11 @@ func LookupCostBudgetOutput(ctx *pulumi.Context, args LookupCostBudgetOutputArgs
 
 // A collection of arguments for invoking getCostBudget.
 type LookupCostBudgetOutputArgs struct {
-	// The entries of the budget.
+	// Budget entries grouped by tag combination with amounts map (month > amount).
+	BudgetLines GetCostBudgetBudgetLineArrayInput `pulumi:"budgetLines"`
+	// The flat list of budget entries (deprecated - use budgetLine instead).
+	//
+	// Deprecated: Use budgetLine instead. The entries block will be removed in a future version.
 	Entries GetCostBudgetEntryArrayInput `pulumi:"entries"`
 	// The ID of the budget.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -84,12 +96,19 @@ func (o LookupCostBudgetResultOutput) ToLookupCostBudgetResultOutputWithContext(
 	return o
 }
 
+// Budget entries grouped by tag combination with amounts map (month > amount).
+func (o LookupCostBudgetResultOutput) BudgetLines() GetCostBudgetBudgetLineArrayOutput {
+	return o.ApplyT(func(v LookupCostBudgetResult) []GetCostBudgetBudgetLine { return v.BudgetLines }).(GetCostBudgetBudgetLineArrayOutput)
+}
+
 // The month when the budget ends (YYYYMM).
 func (o LookupCostBudgetResultOutput) EndMonth() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCostBudgetResult) int { return v.EndMonth }).(pulumi.IntOutput)
 }
 
-// The entries of the budget.
+// The flat list of budget entries (deprecated - use budgetLine instead).
+//
+// Deprecated: Use budgetLine instead. The entries block will be removed in a future version.
 func (o LookupCostBudgetResultOutput) Entries() GetCostBudgetEntryArrayOutput {
 	return o.ApplyT(func(v LookupCostBudgetResult) []GetCostBudgetEntry { return v.Entries }).(GetCostBudgetEntryArrayOutput)
 }

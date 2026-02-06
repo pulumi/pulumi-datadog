@@ -28,7 +28,10 @@ class GetCostBudgetResult:
     """
     A collection of values returned by getCostBudget.
     """
-    def __init__(__self__, end_month=None, entries=None, id=None, metrics_query=None, name=None, start_month=None, total_amount=None):
+    def __init__(__self__, budget_lines=None, end_month=None, entries=None, id=None, metrics_query=None, name=None, start_month=None, total_amount=None):
+        if budget_lines and not isinstance(budget_lines, list):
+            raise TypeError("Expected argument 'budget_lines' to be a list")
+        pulumi.set(__self__, "budget_lines", budget_lines)
         if end_month and not isinstance(end_month, int):
             raise TypeError("Expected argument 'end_month' to be a int")
         pulumi.set(__self__, "end_month", end_month)
@@ -52,6 +55,14 @@ class GetCostBudgetResult:
         pulumi.set(__self__, "total_amount", total_amount)
 
     @_builtins.property
+    @pulumi.getter(name="budgetLines")
+    def budget_lines(self) -> Optional[Sequence['outputs.GetCostBudgetBudgetLineResult']]:
+        """
+        Budget entries grouped by tag combination with amounts map (month > amount).
+        """
+        return pulumi.get(self, "budget_lines")
+
+    @_builtins.property
     @pulumi.getter(name="endMonth")
     def end_month(self) -> _builtins.int:
         """
@@ -61,9 +72,10 @@ class GetCostBudgetResult:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""Use budget_line instead. The entries block will be removed in a future version.""")
     def entries(self) -> Optional[Sequence['outputs.GetCostBudgetEntryResult']]:
         """
-        The entries of the budget.
+        The flat list of budget entries (deprecated - use budget_line instead).
         """
         return pulumi.get(self, "entries")
 
@@ -114,6 +126,7 @@ class AwaitableGetCostBudgetResult(GetCostBudgetResult):
         if False:
             yield self
         return GetCostBudgetResult(
+            budget_lines=self.budget_lines,
             end_month=self.end_month,
             entries=self.entries,
             id=self.id,
@@ -123,23 +136,27 @@ class AwaitableGetCostBudgetResult(GetCostBudgetResult):
             total_amount=self.total_amount)
 
 
-def get_cost_budget(entries: Optional[Sequence[Union['GetCostBudgetEntryArgs', 'GetCostBudgetEntryArgsDict']]] = None,
+def get_cost_budget(budget_lines: Optional[Sequence[Union['GetCostBudgetBudgetLineArgs', 'GetCostBudgetBudgetLineArgsDict']]] = None,
+                    entries: Optional[Sequence[Union['GetCostBudgetEntryArgs', 'GetCostBudgetEntryArgsDict']]] = None,
                     id: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCostBudgetResult:
     """
     Use this data source to retrieve information about an existing Datadog cost budget.
 
 
-    :param Sequence[Union['GetCostBudgetEntryArgs', 'GetCostBudgetEntryArgsDict']] entries: The entries of the budget.
+    :param Sequence[Union['GetCostBudgetBudgetLineArgs', 'GetCostBudgetBudgetLineArgsDict']] budget_lines: Budget entries grouped by tag combination with amounts map (month > amount).
+    :param Sequence[Union['GetCostBudgetEntryArgs', 'GetCostBudgetEntryArgsDict']] entries: The flat list of budget entries (deprecated - use budget_line instead).
     :param _builtins.str id: The ID of the budget.
     """
     __args__ = dict()
+    __args__['budgetLines'] = budget_lines
     __args__['entries'] = entries
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('datadog:index/getCostBudget:getCostBudget', __args__, opts=opts, typ=GetCostBudgetResult).value
 
     return AwaitableGetCostBudgetResult(
+        budget_lines=pulumi.get(__ret__, 'budget_lines'),
         end_month=pulumi.get(__ret__, 'end_month'),
         entries=pulumi.get(__ret__, 'entries'),
         id=pulumi.get(__ret__, 'id'),
@@ -147,22 +164,26 @@ def get_cost_budget(entries: Optional[Sequence[Union['GetCostBudgetEntryArgs', '
         name=pulumi.get(__ret__, 'name'),
         start_month=pulumi.get(__ret__, 'start_month'),
         total_amount=pulumi.get(__ret__, 'total_amount'))
-def get_cost_budget_output(entries: Optional[pulumi.Input[Optional[Sequence[Union['GetCostBudgetEntryArgs', 'GetCostBudgetEntryArgsDict']]]]] = None,
+def get_cost_budget_output(budget_lines: Optional[pulumi.Input[Optional[Sequence[Union['GetCostBudgetBudgetLineArgs', 'GetCostBudgetBudgetLineArgsDict']]]]] = None,
+                           entries: Optional[pulumi.Input[Optional[Sequence[Union['GetCostBudgetEntryArgs', 'GetCostBudgetEntryArgsDict']]]]] = None,
                            id: Optional[pulumi.Input[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCostBudgetResult]:
     """
     Use this data source to retrieve information about an existing Datadog cost budget.
 
 
-    :param Sequence[Union['GetCostBudgetEntryArgs', 'GetCostBudgetEntryArgsDict']] entries: The entries of the budget.
+    :param Sequence[Union['GetCostBudgetBudgetLineArgs', 'GetCostBudgetBudgetLineArgsDict']] budget_lines: Budget entries grouped by tag combination with amounts map (month > amount).
+    :param Sequence[Union['GetCostBudgetEntryArgs', 'GetCostBudgetEntryArgsDict']] entries: The flat list of budget entries (deprecated - use budget_line instead).
     :param _builtins.str id: The ID of the budget.
     """
     __args__ = dict()
+    __args__['budgetLines'] = budget_lines
     __args__['entries'] = entries
     __args__['id'] = id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getCostBudget:getCostBudget', __args__, opts=opts, typ=GetCostBudgetResult)
     return __ret__.apply(lambda __response__: GetCostBudgetResult(
+        budget_lines=pulumi.get(__response__, 'budget_lines'),
         end_month=pulumi.get(__response__, 'end_month'),
         entries=pulumi.get(__response__, 'entries'),
         id=pulumi.get(__response__, 'id'),

@@ -494,6 +494,49 @@ export interface ComplianceCustomFrameworkRequirementControl {
     rulesIds: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface CostBudgetBudgetLine {
+    /**
+     * Map of month (YYYYMM) to budget amount. Example: {"202601": 1000.0, "202602": 1200.0}
+     */
+    amounts: pulumi.Input<{[key: string]: pulumi.Input<number>}>;
+    /**
+     * Child tag filters for hierarchical budgets. **Note:** Must be used with parent*tag*filters. Cannot be used with tag*filters.
+     */
+    childTagFilters?: pulumi.Input<pulumi.Input<inputs.CostBudgetBudgetLineChildTagFilter>[]>;
+    /**
+     * Parent tag filters for hierarchical budgets. **Note:** Must be used with child*tag*filters. Cannot be used with tag*filters.
+     */
+    parentTagFilters?: pulumi.Input<pulumi.Input<inputs.CostBudgetBudgetLineParentTagFilter>[]>;
+    /**
+     * Tag filters for non-hierarchical budgets. **Note:** Cannot be used with parent*tag*filters/child*tag*filters.
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<inputs.CostBudgetBudgetLineTagFilter>[]>;
+}
+
+export interface CostBudgetBudgetLineChildTagFilter {
+    /**
+     * Must be one of the tags from the `metricsQuery`.
+     */
+    tagKey: pulumi.Input<string>;
+    tagValue: pulumi.Input<string>;
+}
+
+export interface CostBudgetBudgetLineParentTagFilter {
+    /**
+     * Must be one of the tags from the `metricsQuery`.
+     */
+    tagKey: pulumi.Input<string>;
+    tagValue: pulumi.Input<string>;
+}
+
+export interface CostBudgetBudgetLineTagFilter {
+    /**
+     * Must be one of the tags from the `metricsQuery`.
+     */
+    tagKey: pulumi.Input<string>;
+    tagValue: pulumi.Input<string>;
+}
+
 export interface CostBudgetEntry {
     amount: pulumi.Input<number>;
     month: pulumi.Input<number>;
@@ -8215,6 +8258,10 @@ export interface DashboardWidgetTimeseriesDefinitionRequestStyle {
      */
     lineWidth?: pulumi.Input<string>;
     /**
+     * How to order series in timeseries visualizations. Valid values are `tags`, `values`.
+     */
+    orderBy?: pulumi.Input<string>;
+    /**
      * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
      */
     palette?: pulumi.Input<string>;
@@ -10101,6 +10148,74 @@ export interface GetAzureUcConfigAmortizedBillConfigArgs {
      * The name of the storage container where the Azure Export is saved.
      */
     storageContainer?: pulumi.Input<string>;
+}
+
+export interface GetCostBudgetBudgetLine {
+    /**
+     * Map of month (YYYYMM as string) to budget amount.
+     */
+    amounts?: {[key: string]: number};
+    /**
+     * Child tag filters for hierarchical budgets (second tag in 'by' clause).
+     */
+    childTagFilters?: inputs.GetCostBudgetBudgetLineChildTagFilter[];
+    /**
+     * Parent tag filters for hierarchical budgets (first tag in 'by' clause).
+     */
+    parentTagFilters?: inputs.GetCostBudgetBudgetLineParentTagFilter[];
+    /**
+     * Tag filters for non-hierarchical budgets (single tag or no tags).
+     */
+    tagFilters?: inputs.GetCostBudgetBudgetLineTagFilter[];
+}
+
+export interface GetCostBudgetBudgetLineArgs {
+    /**
+     * Map of month (YYYYMM as string) to budget amount.
+     */
+    amounts?: pulumi.Input<{[key: string]: pulumi.Input<number>}>;
+    /**
+     * Child tag filters for hierarchical budgets (second tag in 'by' clause).
+     */
+    childTagFilters?: pulumi.Input<pulumi.Input<inputs.GetCostBudgetBudgetLineChildTagFilterArgs>[]>;
+    /**
+     * Parent tag filters for hierarchical budgets (first tag in 'by' clause).
+     */
+    parentTagFilters?: pulumi.Input<pulumi.Input<inputs.GetCostBudgetBudgetLineParentTagFilterArgs>[]>;
+    /**
+     * Tag filters for non-hierarchical budgets (single tag or no tags).
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<inputs.GetCostBudgetBudgetLineTagFilterArgs>[]>;
+}
+
+export interface GetCostBudgetBudgetLineChildTagFilter {
+    tagKey?: string;
+    tagValue?: string;
+}
+
+export interface GetCostBudgetBudgetLineChildTagFilterArgs {
+    tagKey?: pulumi.Input<string>;
+    tagValue?: pulumi.Input<string>;
+}
+
+export interface GetCostBudgetBudgetLineParentTagFilter {
+    tagKey?: string;
+    tagValue?: string;
+}
+
+export interface GetCostBudgetBudgetLineParentTagFilterArgs {
+    tagKey?: pulumi.Input<string>;
+    tagValue?: pulumi.Input<string>;
+}
+
+export interface GetCostBudgetBudgetLineTagFilter {
+    tagKey?: string;
+    tagValue?: string;
+}
+
+export interface GetCostBudgetBudgetLineTagFilterArgs {
+    tagKey?: pulumi.Input<string>;
+    tagValue?: pulumi.Input<string>;
 }
 
 export interface GetCostBudgetEntry {
@@ -26324,6 +26439,10 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestStyle {
      * The width of line displayed. Valid values are `normal`, `thick`, `thin`.
      */
     lineWidth?: pulumi.Input<string>;
+    /**
+     * How to order series in timeseries visualizations. Valid values are `tags`, `values`.
+     */
+    orderBy?: pulumi.Input<string>;
     /**
      * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
      */

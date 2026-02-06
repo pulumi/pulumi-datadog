@@ -4,6 +4,7 @@
 package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.GetCostBudgetBudgetLine;
 import com.pulumi.datadog.inputs.GetCostBudgetEntry;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -18,16 +19,39 @@ public final class GetCostBudgetPlainArgs extends com.pulumi.resources.InvokeArg
     public static final GetCostBudgetPlainArgs Empty = new GetCostBudgetPlainArgs();
 
     /**
-     * The entries of the budget.
+     * Budget entries grouped by tag combination with amounts map (month &gt; amount).
      * 
      */
+    @Import(name="budgetLines")
+    private @Nullable List<GetCostBudgetBudgetLine> budgetLines;
+
+    /**
+     * @return Budget entries grouped by tag combination with amounts map (month &gt; amount).
+     * 
+     */
+    public Optional<List<GetCostBudgetBudgetLine>> budgetLines() {
+        return Optional.ofNullable(this.budgetLines);
+    }
+
+    /**
+     * The flat list of budget entries (deprecated - use budgetLine instead).
+     * 
+     * @deprecated
+     * Use budgetLine instead. The entries block will be removed in a future version.
+     * 
+     */
+    @Deprecated /* Use budgetLine instead. The entries block will be removed in a future version. */
     @Import(name="entries")
     private @Nullable List<GetCostBudgetEntry> entries;
 
     /**
-     * @return The entries of the budget.
+     * @return The flat list of budget entries (deprecated - use budgetLine instead).
+     * 
+     * @deprecated
+     * Use budgetLine instead. The entries block will be removed in a future version.
      * 
      */
+    @Deprecated /* Use budgetLine instead. The entries block will be removed in a future version. */
     public Optional<List<GetCostBudgetEntry>> entries() {
         return Optional.ofNullable(this.entries);
     }
@@ -50,6 +74,7 @@ public final class GetCostBudgetPlainArgs extends com.pulumi.resources.InvokeArg
     private GetCostBudgetPlainArgs() {}
 
     private GetCostBudgetPlainArgs(GetCostBudgetPlainArgs $) {
+        this.budgetLines = $.budgetLines;
         this.entries = $.entries;
         this.id = $.id;
     }
@@ -73,22 +98,51 @@ public final class GetCostBudgetPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param entries The entries of the budget.
+         * @param budgetLines Budget entries grouped by tag combination with amounts map (month &gt; amount).
          * 
          * @return builder
          * 
          */
+        public Builder budgetLines(@Nullable List<GetCostBudgetBudgetLine> budgetLines) {
+            $.budgetLines = budgetLines;
+            return this;
+        }
+
+        /**
+         * @param budgetLines Budget entries grouped by tag combination with amounts map (month &gt; amount).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder budgetLines(GetCostBudgetBudgetLine... budgetLines) {
+            return budgetLines(List.of(budgetLines));
+        }
+
+        /**
+         * @param entries The flat list of budget entries (deprecated - use budgetLine instead).
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use budgetLine instead. The entries block will be removed in a future version.
+         * 
+         */
+        @Deprecated /* Use budgetLine instead. The entries block will be removed in a future version. */
         public Builder entries(@Nullable List<GetCostBudgetEntry> entries) {
             $.entries = entries;
             return this;
         }
 
         /**
-         * @param entries The entries of the budget.
+         * @param entries The flat list of budget entries (deprecated - use budgetLine instead).
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use budgetLine instead. The entries block will be removed in a future version.
+         * 
          */
+        @Deprecated /* Use budgetLine instead. The entries block will be removed in a future version. */
         public Builder entries(GetCostBudgetEntry... entries) {
             return entries(List.of(entries));
         }

@@ -33,81 +33,56 @@ import (
 //			_, err := datadog.NewObservabilityPipeline(ctx, "test", &datadog.ObservabilityPipelineArgs{
 //				Name: pulumi.String("test pipeline"),
 //				Config: &datadog.ObservabilityPipelineConfigArgs{
-//					Sources: datadog.ObservabilityPipelineConfigSourceArray{
-//						&datadog.ObservabilityPipelineConfigSourceArgs{
-//							Kafka: []map[string]interface{}{
-//								map[string]interface{}{
-//									"id":      "source-1",
-//									"groupId": "my-consumer-group",
-//									"topics": []string{
-//										"my-topic-1",
-//										"my-topic-2",
-//									},
-//									"tls": []map[string]interface{}{
-//										map[string]interface{}{
-//											"crtFile": "/etc/certs/client.crt",
-//											"keyFile": "/etc/certs/client.key",
-//											"caFile":  "/etc/certs/ca.crt",
-//										},
-//									},
-//									"sasl": []map[string]interface{}{
-//										map[string]interface{}{
-//											"mechanism": "SCRAM-SHA-512",
-//										},
-//									},
-//									"librdkafkaOption": []map[string]interface{}{
-//										map[string]interface{}{
-//											"name":  "fetch.message.max.bytes",
-//											"value": "1048576",
-//										},
-//										map[string]interface{}{
-//											"name":  "socket.timeout.ms",
-//											"value": "500",
-//										},
-//									},
-//								},
-//							},
-//						},
-//					},
-//					Processors: []map[string]interface{}{
-//						map[string]interface{}{
-//							"parseJson": []map[string]interface{}{
-//								map[string]interface{}{
-//									"id":      "filter-1",
-//									"include": "service:nginx",
-//									"field":   "message2",
-//									"inputs": []string{
-//										"source-1",
-//									},
-//								},
-//								map[string]interface{}{
-//									"id":      "filter-3",
-//									"include": "service:nginx",
-//									"field":   "message",
-//									"inputs": []string{
-//										"filter-2",
-//									},
-//								},
-//							},
-//							"filter": []map[string]interface{}{
-//								map[string]interface{}{
-//									"id":      "filter-2",
-//									"include": "service:nginx",
-//									"inputs": []string{
-//										"filter-1",
-//									},
-//								},
-//							},
-//						},
-//					},
 //					Destinations: datadog.ObservabilityPipelineConfigDestinationArray{
 //						&datadog.ObservabilityPipelineConfigDestinationArgs{
 //							DatadogLogs: datadog.ObservabilityPipelineConfigDestinationDatadogLogArray{
-//								&datadog.ObservabilityPipelineConfigDestinationDatadogLogArgs{
-//									Id: "sink-1",
-//									Inputs: []string{
-//										"filter-3",
+//								&datadog.ObservabilityPipelineConfigDestinationDatadogLogArgs{},
+//							},
+//							Id: pulumi.String("destination-1"),
+//							Inputs: pulumi.StringArray{
+//								pulumi.String("processor-group-1"),
+//							},
+//						},
+//					},
+//					Sources: datadog.ObservabilityPipelineConfigSourceArray{
+//						&datadog.ObservabilityPipelineConfigSourceArgs{
+//							Id: pulumi.String("source-1"),
+//							DatadogAgents: datadog.ObservabilityPipelineConfigSourceDatadogAgentArray{
+//								&datadog.ObservabilityPipelineConfigSourceDatadogAgentArgs{
+//									Tls: &datadog.ObservabilityPipelineConfigSourceDatadogAgentTlsArgs{
+//										CrtFile: pulumi.String("/etc/certs/client.crt"),
+//										KeyFile: pulumi.String("/etc/certs/client.key"),
+//										CaFile:  pulumi.String("/etc/certs/ca.crt"),
 //									},
+//								},
+//							},
+//						},
+//					},
+//					ProcessorGroups: datadog.ObservabilityPipelineConfigProcessorGroupArray{
+//						&datadog.ObservabilityPipelineConfigProcessorGroupArgs{
+//							Id:      pulumi.String("processor-group-1"),
+//							Enabled: pulumi.Bool(true),
+//							Include: pulumi.String("service:my-service"),
+//							Inputs: pulumi.StringArray{
+//								pulumi.String("source-1"),
+//							},
+//							DisplayName: pulumi.String("processor group"),
+//							Processors: datadog.ObservabilityPipelineConfigProcessorGroupProcessorArray{
+//								&datadog.ObservabilityPipelineConfigProcessorGroupProcessorArgs{
+//									Id:          pulumi.String("parser-1"),
+//									Enabled:     pulumi.Bool(true),
+//									Include:     pulumi.String("service:my-service"),
+//									DisplayName: pulumi.String("json parser"),
+//									ParseJson: &datadog.ObservabilityPipelineConfigProcessorGroupProcessorParseJsonArgs{
+//										Field: pulumi.String("message"),
+//									},
+//								},
+//								&datadog.ObservabilityPipelineConfigProcessorGroupProcessorArgs{
+//									Id:          pulumi.String("filter-1"),
+//									Enabled:     pulumi.Bool(true),
+//									Include:     pulumi.String("service:my-service"),
+//									DisplayName: pulumi.String("filter"),
+//									Filter:      &datadog.ObservabilityPipelineConfigProcessorGroupProcessorFilterArgs{},
 //								},
 //							},
 //						},

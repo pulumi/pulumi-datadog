@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.CostBudgetBudgetLineArgs;
 import com.pulumi.datadog.inputs.CostBudgetEntryArgs;
 import java.lang.Double;
 import java.lang.Integer;
@@ -35,6 +36,21 @@ public final class CostBudgetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
+     * 
+     */
+    @Import(name="budgetLines")
+    private @Nullable Output<List<CostBudgetBudgetLineArgs>> budgetLines;
+
+    /**
+     * @return Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
+     * 
+     */
+    public Optional<Output<List<CostBudgetBudgetLineArgs>>> budgetLines() {
+        return Optional.ofNullable(this.budgetLines);
+    }
+
+    /**
      * The month when the budget ends (YYYYMM).
      * 
      */
@@ -52,14 +68,22 @@ public final class CostBudgetState extends com.pulumi.resources.ResourceArgs {
     /**
      * The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
      * 
+     * @deprecated
+     * Use budgetLine instead. This field will be removed in a future version.
+     * 
      */
+    @Deprecated /* Use budgetLine instead. This field will be removed in a future version. */
     @Import(name="entries")
     private @Nullable Output<List<CostBudgetEntryArgs>> entries;
 
     /**
      * @return The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
      * 
+     * @deprecated
+     * Use budgetLine instead. This field will be removed in a future version.
+     * 
      */
+    @Deprecated /* Use budgetLine instead. This field will be removed in a future version. */
     public Optional<Output<List<CostBudgetEntryArgs>>> entries() {
         return Optional.ofNullable(this.entries);
     }
@@ -128,6 +152,7 @@ public final class CostBudgetState extends com.pulumi.resources.ResourceArgs {
 
     private CostBudgetState(CostBudgetState $) {
         this.budgetId = $.budgetId;
+        this.budgetLines = $.budgetLines;
         this.endMonth = $.endMonth;
         this.entries = $.entries;
         this.metricsQuery = $.metricsQuery;
@@ -176,6 +201,37 @@ public final class CostBudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param budgetLines Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder budgetLines(@Nullable Output<List<CostBudgetBudgetLineArgs>> budgetLines) {
+            $.budgetLines = budgetLines;
+            return this;
+        }
+
+        /**
+         * @param budgetLines Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder budgetLines(List<CostBudgetBudgetLineArgs> budgetLines) {
+            return budgetLines(Output.of(budgetLines));
+        }
+
+        /**
+         * @param budgetLines Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder budgetLines(CostBudgetBudgetLineArgs... budgetLines) {
+            return budgetLines(List.of(budgetLines));
+        }
+
+        /**
          * @param endMonth The month when the budget ends (YYYYMM).
          * 
          * @return builder
@@ -201,7 +257,11 @@ public final class CostBudgetState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use budgetLine instead. This field will be removed in a future version.
+         * 
          */
+        @Deprecated /* Use budgetLine instead. This field will be removed in a future version. */
         public Builder entries(@Nullable Output<List<CostBudgetEntryArgs>> entries) {
             $.entries = entries;
             return this;
@@ -212,7 +272,11 @@ public final class CostBudgetState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use budgetLine instead. This field will be removed in a future version.
+         * 
          */
+        @Deprecated /* Use budgetLine instead. This field will be removed in a future version. */
         public Builder entries(List<CostBudgetEntryArgs> entries) {
             return entries(Output.of(entries));
         }
@@ -222,7 +286,11 @@ public final class CostBudgetState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use budgetLine instead. This field will be removed in a future version.
+         * 
          */
+        @Deprecated /* Use budgetLine instead. This field will be removed in a future version. */
         public Builder entries(CostBudgetEntryArgs... entries) {
             return entries(List.of(entries));
         }

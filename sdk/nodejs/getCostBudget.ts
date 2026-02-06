@@ -12,6 +12,7 @@ import * as utilities from "./utilities";
 export function getCostBudget(args: GetCostBudgetArgs, opts?: pulumi.InvokeOptions): Promise<GetCostBudgetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getCostBudget:getCostBudget", {
+        "budgetLines": args.budgetLines,
         "entries": args.entries,
         "id": args.id,
     }, opts);
@@ -22,7 +23,13 @@ export function getCostBudget(args: GetCostBudgetArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetCostBudgetArgs {
     /**
-     * The entries of the budget.
+     * Budget entries grouped by tag combination with amounts map (month > amount).
+     */
+    budgetLines?: inputs.GetCostBudgetBudgetLine[];
+    /**
+     * The flat list of budget entries (deprecated - use budgetLine instead).
+     *
+     * @deprecated Use budgetLine instead. The entries block will be removed in a future version.
      */
     entries?: inputs.GetCostBudgetEntry[];
     /**
@@ -36,11 +43,17 @@ export interface GetCostBudgetArgs {
  */
 export interface GetCostBudgetResult {
     /**
+     * Budget entries grouped by tag combination with amounts map (month > amount).
+     */
+    readonly budgetLines?: outputs.GetCostBudgetBudgetLine[];
+    /**
      * The month when the budget ends (YYYYMM).
      */
     readonly endMonth: number;
     /**
-     * The entries of the budget.
+     * The flat list of budget entries (deprecated - use budgetLine instead).
+     *
+     * @deprecated Use budgetLine instead. The entries block will be removed in a future version.
      */
     readonly entries?: outputs.GetCostBudgetEntry[];
     /**
@@ -70,6 +83,7 @@ export interface GetCostBudgetResult {
 export function getCostBudgetOutput(args: GetCostBudgetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCostBudgetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getCostBudget:getCostBudget", {
+        "budgetLines": args.budgetLines,
         "entries": args.entries,
         "id": args.id,
     }, opts);
@@ -80,7 +94,13 @@ export function getCostBudgetOutput(args: GetCostBudgetOutputArgs, opts?: pulumi
  */
 export interface GetCostBudgetOutputArgs {
     /**
-     * The entries of the budget.
+     * Budget entries grouped by tag combination with amounts map (month > amount).
+     */
+    budgetLines?: pulumi.Input<pulumi.Input<inputs.GetCostBudgetBudgetLineArgs>[]>;
+    /**
+     * The flat list of budget entries (deprecated - use budgetLine instead).
+     *
+     * @deprecated Use budgetLine instead. The entries block will be removed in a future version.
      */
     entries?: pulumi.Input<pulumi.Input<inputs.GetCostBudgetEntryArgs>[]>;
     /**

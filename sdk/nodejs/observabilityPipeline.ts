@@ -20,60 +20,45 @@ import * as utilities from "./utilities";
  * const test = new datadog.ObservabilityPipeline("test", {
  *     name: "test pipeline",
  *     config: {
+ *         destinations: [{
+ *             datadogLogs: [{}],
+ *             id: "destination-1",
+ *             inputs: ["processor-group-1"],
+ *         }],
  *         sources: [{
- *             kafka: [{
- *                 id: "source-1",
- *                 groupId: "my-consumer-group",
- *                 topics: [
- *                     "my-topic-1",
- *                     "my-topic-2",
- *                 ],
- *                 tls: [{
+ *             id: "source-1",
+ *             datadogAgents: [{
+ *                 tls: {
  *                     crtFile: "/etc/certs/client.crt",
  *                     keyFile: "/etc/certs/client.key",
  *                     caFile: "/etc/certs/ca.crt",
- *                 }],
- *                 sasl: [{
- *                     mechanism: "SCRAM-SHA-512",
- *                 }],
- *                 librdkafkaOption: [
- *                     {
- *                         name: "fetch.message.max.bytes",
- *                         value: "1048576",
- *                     },
- *                     {
- *                         name: "socket.timeout.ms",
- *                         value: "500",
- *                     },
- *                 ],
+ *                 },
  *             }],
  *         }],
- *         processors: [{
- *             parseJson: [
+ *         processorGroups: [{
+ *             id: "processor-group-1",
+ *             enabled: true,
+ *             include: "service:my-service",
+ *             inputs: ["source-1"],
+ *             displayName: "processor group",
+ *             processors: [
+ *                 {
+ *                     id: "parser-1",
+ *                     enabled: true,
+ *                     include: "service:my-service",
+ *                     displayName: "json parser",
+ *                     parseJson: {
+ *                         field: "message",
+ *                     },
+ *                 },
  *                 {
  *                     id: "filter-1",
- *                     include: "service:nginx",
- *                     field: "message2",
- *                     inputs: ["source-1"],
- *                 },
- *                 {
- *                     id: "filter-3",
- *                     include: "service:nginx",
- *                     field: "message",
- *                     inputs: ["filter-2"],
+ *                     enabled: true,
+ *                     include: "service:my-service",
+ *                     displayName: "filter",
+ *                     filter: {},
  *                 },
  *             ],
- *             filter: [{
- *                 id: "filter-2",
- *                 include: "service:nginx",
- *                 inputs: ["filter-1"],
- *             }],
- *         }],
- *         destinations: [{
- *             datadogLogs: [{
- *                 id: "sink-1",
- *                 inputs: ["filter-3"],
- *             }],
  *         }],
  *     },
  * });

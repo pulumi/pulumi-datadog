@@ -47,55 +47,46 @@ import javax.annotation.Nullable;
  *         var test = new ObservabilityPipeline("test", ObservabilityPipelineArgs.builder()
  *             .name("test pipeline")
  *             .config(ObservabilityPipelineConfigArgs.builder()
- *                 .sources(ObservabilityPipelineConfigSourceArgs.builder()
- *                     .kafka(List.of(Map.ofEntries(
- *                         Map.entry("id", "source-1"),
- *                         Map.entry("groupId", "my-consumer-group"),
- *                         Map.entry("topics", List.of(                        
- *                             "my-topic-1",
- *                             "my-topic-2")),
- *                         Map.entry("tls", List.of(Map.ofEntries(
- *                             Map.entry("crtFile", "/etc/certs/client.crt"),
- *                             Map.entry("keyFile", "/etc/certs/client.key"),
- *                             Map.entry("caFile", "/etc/certs/ca.crt")
- *                         ))),
- *                         Map.entry("sasl", List.of(Map.of("mechanism", "SCRAM-SHA-512"))),
- *                         Map.entry("librdkafkaOption", List.of(                        
- *                             Map.ofEntries(
- *                                 Map.entry("name", "fetch.message.max.bytes"),
- *                                 Map.entry("value", "1048576")
- *                             ),
- *                             Map.ofEntries(
- *                                 Map.entry("name", "socket.timeout.ms"),
- *                                 Map.entry("value", "500")
- *                             )))
- *                     )))
- *                     .build())
- *                 .processors(List.of(Map.ofEntries(
- *                     Map.entry("parseJson", List.of(                    
- *                         Map.ofEntries(
- *                             Map.entry("id", "filter-1"),
- *                             Map.entry("include", "service:nginx"),
- *                             Map.entry("field", "message2"),
- *                             Map.entry("inputs", List.of("source-1"))
- *                         ),
- *                         Map.ofEntries(
- *                             Map.entry("id", "filter-3"),
- *                             Map.entry("include", "service:nginx"),
- *                             Map.entry("field", "message"),
- *                             Map.entry("inputs", List.of("filter-2"))
- *                         ))),
- *                     Map.entry("filter", List.of(Map.ofEntries(
- *                         Map.entry("id", "filter-2"),
- *                         Map.entry("include", "service:nginx"),
- *                         Map.entry("inputs", List.of("filter-1"))
- *                     )))
- *                 )))
  *                 .destinations(ObservabilityPipelineConfigDestinationArgs.builder()
  *                     .datadogLogs(ObservabilityPipelineConfigDestinationDatadogLogArgs.builder()
- *                         .id("sink-1")
- *                         .inputs(List.of("filter-3"))
  *                         .build())
+ *                     .id("destination-1")
+ *                     .inputs("processor-group-1")
+ *                     .build())
+ *                 .sources(ObservabilityPipelineConfigSourceArgs.builder()
+ *                     .id("source-1")
+ *                     .datadogAgents(ObservabilityPipelineConfigSourceDatadogAgentArgs.builder()
+ *                         .tls(ObservabilityPipelineConfigSourceDatadogAgentTlsArgs.builder()
+ *                             .crtFile("/etc/certs/client.crt")
+ *                             .keyFile("/etc/certs/client.key")
+ *                             .caFile("/etc/certs/ca.crt")
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .processorGroups(ObservabilityPipelineConfigProcessorGroupArgs.builder()
+ *                     .id("processor-group-1")
+ *                     .enabled(true)
+ *                     .include("service:my-service")
+ *                     .inputs("source-1")
+ *                     .displayName("processor group")
+ *                     .processors(                    
+ *                         ObservabilityPipelineConfigProcessorGroupProcessorArgs.builder()
+ *                             .id("parser-1")
+ *                             .enabled(true)
+ *                             .include("service:my-service")
+ *                             .displayName("json parser")
+ *                             .parseJson(ObservabilityPipelineConfigProcessorGroupProcessorParseJsonArgs.builder()
+ *                                 .field("message")
+ *                                 .build())
+ *                             .build(),
+ *                         ObservabilityPipelineConfigProcessorGroupProcessorArgs.builder()
+ *                             .id("filter-1")
+ *                             .enabled(true)
+ *                             .include("service:my-service")
+ *                             .displayName("filter")
+ *                             .filter(ObservabilityPipelineConfigProcessorGroupProcessorFilterArgs.builder()
+ *                                 .build())
+ *                             .build())
  *                     .build())
  *                 .build())
  *             .build());

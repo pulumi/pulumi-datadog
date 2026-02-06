@@ -26,6 +26,7 @@ class CostBudgetArgs:
                  name: pulumi.Input[_builtins.str],
                  start_month: pulumi.Input[_builtins.int],
                  budget_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 budget_lines: Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetBudgetLineArgs']]]] = None,
                  entries: Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetEntryArgs']]]] = None):
         """
         The set of arguments for constructing a CostBudget resource.
@@ -34,6 +35,7 @@ class CostBudgetArgs:
         :param pulumi.Input[_builtins.str] name: The name of the budget.
         :param pulumi.Input[_builtins.int] start_month: The month when the budget starts (YYYYMM).
         :param pulumi.Input[_builtins.str] budget_id: The ID of the budget.
+        :param pulumi.Input[Sequence[pulumi.Input['CostBudgetBudgetLineArgs']]] budget_lines: Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
         :param pulumi.Input[Sequence[pulumi.Input['CostBudgetEntryArgs']]] entries: The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
         """
         pulumi.set(__self__, "end_month", end_month)
@@ -42,6 +44,11 @@ class CostBudgetArgs:
         pulumi.set(__self__, "start_month", start_month)
         if budget_id is not None:
             pulumi.set(__self__, "budget_id", budget_id)
+        if budget_lines is not None:
+            pulumi.set(__self__, "budget_lines", budget_lines)
+        if entries is not None:
+            warnings.warn("""Use budget_line instead. This field will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""entries is deprecated: Use budget_line instead. This field will be removed in a future version.""")
         if entries is not None:
             pulumi.set(__self__, "entries", entries)
 
@@ -106,7 +113,20 @@ class CostBudgetArgs:
         pulumi.set(self, "budget_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="budgetLines")
+    def budget_lines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetBudgetLineArgs']]]]:
+        """
+        Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
+        """
+        return pulumi.get(self, "budget_lines")
+
+    @budget_lines.setter
+    def budget_lines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetBudgetLineArgs']]]]):
+        pulumi.set(self, "budget_lines", value)
+
+    @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""Use budget_line instead. This field will be removed in a future version.""")
     def entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetEntryArgs']]]]:
         """
         The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
@@ -122,6 +142,7 @@ class CostBudgetArgs:
 class _CostBudgetState:
     def __init__(__self__, *,
                  budget_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 budget_lines: Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetBudgetLineArgs']]]] = None,
                  end_month: Optional[pulumi.Input[_builtins.int]] = None,
                  entries: Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetEntryArgs']]]] = None,
                  metrics_query: Optional[pulumi.Input[_builtins.str]] = None,
@@ -131,6 +152,7 @@ class _CostBudgetState:
         """
         Input properties used for looking up and filtering CostBudget resources.
         :param pulumi.Input[_builtins.str] budget_id: The ID of the budget.
+        :param pulumi.Input[Sequence[pulumi.Input['CostBudgetBudgetLineArgs']]] budget_lines: Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
         :param pulumi.Input[_builtins.int] end_month: The month when the budget ends (YYYYMM).
         :param pulumi.Input[Sequence[pulumi.Input['CostBudgetEntryArgs']]] entries: The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
         :param pulumi.Input[_builtins.str] metrics_query: The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
@@ -140,8 +162,13 @@ class _CostBudgetState:
         """
         if budget_id is not None:
             pulumi.set(__self__, "budget_id", budget_id)
+        if budget_lines is not None:
+            pulumi.set(__self__, "budget_lines", budget_lines)
         if end_month is not None:
             pulumi.set(__self__, "end_month", end_month)
+        if entries is not None:
+            warnings.warn("""Use budget_line instead. This field will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""entries is deprecated: Use budget_line instead. This field will be removed in a future version.""")
         if entries is not None:
             pulumi.set(__self__, "entries", entries)
         if metrics_query is not None:
@@ -166,6 +193,18 @@ class _CostBudgetState:
         pulumi.set(self, "budget_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="budgetLines")
+    def budget_lines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetBudgetLineArgs']]]]:
+        """
+        Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
+        """
+        return pulumi.get(self, "budget_lines")
+
+    @budget_lines.setter
+    def budget_lines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetBudgetLineArgs']]]]):
+        pulumi.set(self, "budget_lines", value)
+
+    @_builtins.property
     @pulumi.getter(name="endMonth")
     def end_month(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -179,6 +218,7 @@ class _CostBudgetState:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""Use budget_line instead. This field will be removed in a future version.""")
     def entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetEntryArgs']]]]:
         """
         The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
@@ -245,6 +285,7 @@ class CostBudget(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  budget_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 budget_lines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetBudgetLineArgs', 'CostBudgetBudgetLineArgsDict']]]]] = None,
                  end_month: Optional[pulumi.Input[_builtins.int]] = None,
                  entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict']]]]] = None,
                  metrics_query: Optional[pulumi.Input[_builtins.str]] = None,
@@ -260,37 +301,99 @@ class CostBudget(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        # Simple budget without tag filters
-        # Note: Must provide entries for all months in the budget period
-        simple = datadog.CostBudget("simple",
-            name="My AWS Cost Budget",
-            metrics_query="sum:aws.cost.amortized{*}",
-            start_month=202501,
-            end_month=202503,
-            entries=[
+        # Budget with multiple tag combinations
+        # Note: Each unique tag combination needs its own budget_line block
+        with_tags = datadog.CostBudget("with_tags",
+            name="Multi-Environment Budget",
+            metrics_query="sum:aws.cost.amortized{*} by {environment}",
+            start_month=202601,
+            end_month=202603,
+            budget_lines=[
                 {
-                    "month": 202501,
-                    "amount": 1000,
+                    "amounts": {
+                        "202601": 2000,
+                        "202602": 2200,
+                        "202603": 2000,
+                    },
+                    "tag_filters": [{
+                        "tag_key": "environment",
+                        "tag_value": "production",
+                    }],
                 },
                 {
-                    "month": 202502,
-                    "amount": 1200,
-                },
-                {
-                    "month": 202503,
-                    "amount": 1000,
+                    "amounts": {
+                        "202601": 1000,
+                        "202602": 1100,
+                        "202603": 1000,
+                    },
+                    "tag_filters": [{
+                        "tag_key": "environment",
+                        "tag_value": "staging",
+                    }],
                 },
             ])
-        # Budget with tag filters
-        # Note: Must provide entries for all months in the budget period
-        with_tag_filters = datadog.CostBudget("with_tag_filters",
-            name="Production AWS Budget",
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Hierarchical budget with parent/child tag structure
+        # Note: Order in "by {tag1,tag2}" determines hierarchy (parent,child)
+        # Each unique parent+child combination needs its own budget_line block
+        hierarchical = datadog.CostBudget("hierarchical",
+            name="Team-Based AWS Budget",
+            metrics_query="sum:aws.cost.amortized{*} by {team,environment}",
+            start_month=202601,
+            end_month=202603,
+            budget_lines=[
+                {
+                    "amounts": {
+                        "202601": 1500,
+                        "202602": 1600,
+                        "202603": 1500,
+                    },
+                    "parent_tag_filters": [{
+                        "tag_key": "team",
+                        "tag_value": "backend",
+                    }],
+                    "child_tag_filters": [{
+                        "tag_key": "environment",
+                        "tag_value": "production",
+                    }],
+                },
+                {
+                    "amounts": {
+                        "202601": 500,
+                        "202602": 550,
+                        "202603": 500,
+                    },
+                    "parent_tag_filters": [{
+                        "tag_key": "team",
+                        "tag_value": "frontend",
+                    }],
+                    "child_tag_filters": [{
+                        "tag_key": "environment",
+                        "tag_value": "staging",
+                    }],
+                },
+            ])
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Legacy entries with tag filters (deprecated - use budget_line instead)
+        # Note: Each unique tag combination must have entries for all months
+        legacy_with_tags = datadog.CostBudget("legacy_with_tags",
+            name="Production Budget (Legacy)",
             metrics_query="sum:aws.cost.amortized{*} by {environment}",
-            start_month=202501,
-            end_month=202503,
+            start_month=202601,
+            end_month=202603,
             entries=[
                 {
-                    "month": 202501,
+                    "month": 202601,
                     "amount": 2000,
                     "tag_filters": [{
                         "tag_key": "environment",
@@ -298,7 +401,7 @@ class CostBudget(pulumi.CustomResource):
                     }],
                 },
                 {
-                    "month": 202502,
+                    "month": 202602,
                     "amount": 2200,
                     "tag_filters": [{
                         "tag_key": "environment",
@@ -306,78 +409,12 @@ class CostBudget(pulumi.CustomResource):
                     }],
                 },
                 {
-                    "month": 202503,
+                    "month": 202603,
                     "amount": 2000,
                     "tag_filters": [{
                         "tag_key": "environment",
                         "tag_value": "production",
                     }],
-                },
-            ])
-        # Hierarchical budget with multiple tag combinations
-        # Note: Order of tags in "by {tag1,tag2}" determines UI hierarchy (parent,child)
-        # Each unique tag combination must have entries for all months in the budget period
-        hierarchical = datadog.CostBudget("hierarchical",
-            name="Team-Based AWS Budget",
-            metrics_query="sum:aws.cost.amortized{*} by {team,account}",
-            start_month=202501,
-            end_month=202503,
-            entries=[
-                {
-                    "month": 202501,
-                    "amount": 500,
-                    "tag_filters": [
-                        {
-                            "tag_key": "team",
-                            "tag_value": "backend",
-                        },
-                        {
-                            "tag_key": "account",
-                            "tag_value": "staging",
-                        },
-                    ],
-                },
-                {
-                    "month": 202502,
-                    "amount": 500,
-                    "tag_filters": [
-                        {
-                            "tag_key": "team",
-                            "tag_value": "backend",
-                        },
-                        {
-                            "tag_key": "account",
-                            "tag_value": "staging",
-                        },
-                    ],
-                },
-                {
-                    "month": 202503,
-                    "amount": 500,
-                    "tag_filters": [
-                        {
-                            "tag_key": "team",
-                            "tag_value": "backend",
-                        },
-                        {
-                            "tag_key": "account",
-                            "tag_value": "staging",
-                        },
-                    ],
-                },
-                {
-                    "month": 202501,
-                    "amount": 1500,
-                    "tag_filters": [
-                        {
-                            "tag_key": "team",
-                            "tag_value": "backend",
-                        },
-                        {
-                            "tag_key": "account",
-                            "tag_value": "production",
-                        },
-                    ],
                 },
             ])
         ```
@@ -395,6 +432,7 @@ class CostBudget(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] budget_id: The ID of the budget.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetBudgetLineArgs', 'CostBudgetBudgetLineArgsDict']]]] budget_lines: Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
         :param pulumi.Input[_builtins.int] end_month: The month when the budget ends (YYYYMM).
         :param pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict']]]] entries: The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
         :param pulumi.Input[_builtins.str] metrics_query: The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
@@ -416,37 +454,99 @@ class CostBudget(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        # Simple budget without tag filters
-        # Note: Must provide entries for all months in the budget period
-        simple = datadog.CostBudget("simple",
-            name="My AWS Cost Budget",
-            metrics_query="sum:aws.cost.amortized{*}",
-            start_month=202501,
-            end_month=202503,
-            entries=[
+        # Budget with multiple tag combinations
+        # Note: Each unique tag combination needs its own budget_line block
+        with_tags = datadog.CostBudget("with_tags",
+            name="Multi-Environment Budget",
+            metrics_query="sum:aws.cost.amortized{*} by {environment}",
+            start_month=202601,
+            end_month=202603,
+            budget_lines=[
                 {
-                    "month": 202501,
-                    "amount": 1000,
+                    "amounts": {
+                        "202601": 2000,
+                        "202602": 2200,
+                        "202603": 2000,
+                    },
+                    "tag_filters": [{
+                        "tag_key": "environment",
+                        "tag_value": "production",
+                    }],
                 },
                 {
-                    "month": 202502,
-                    "amount": 1200,
-                },
-                {
-                    "month": 202503,
-                    "amount": 1000,
+                    "amounts": {
+                        "202601": 1000,
+                        "202602": 1100,
+                        "202603": 1000,
+                    },
+                    "tag_filters": [{
+                        "tag_key": "environment",
+                        "tag_value": "staging",
+                    }],
                 },
             ])
-        # Budget with tag filters
-        # Note: Must provide entries for all months in the budget period
-        with_tag_filters = datadog.CostBudget("with_tag_filters",
-            name="Production AWS Budget",
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Hierarchical budget with parent/child tag structure
+        # Note: Order in "by {tag1,tag2}" determines hierarchy (parent,child)
+        # Each unique parent+child combination needs its own budget_line block
+        hierarchical = datadog.CostBudget("hierarchical",
+            name="Team-Based AWS Budget",
+            metrics_query="sum:aws.cost.amortized{*} by {team,environment}",
+            start_month=202601,
+            end_month=202603,
+            budget_lines=[
+                {
+                    "amounts": {
+                        "202601": 1500,
+                        "202602": 1600,
+                        "202603": 1500,
+                    },
+                    "parent_tag_filters": [{
+                        "tag_key": "team",
+                        "tag_value": "backend",
+                    }],
+                    "child_tag_filters": [{
+                        "tag_key": "environment",
+                        "tag_value": "production",
+                    }],
+                },
+                {
+                    "amounts": {
+                        "202601": 500,
+                        "202602": 550,
+                        "202603": 500,
+                    },
+                    "parent_tag_filters": [{
+                        "tag_key": "team",
+                        "tag_value": "frontend",
+                    }],
+                    "child_tag_filters": [{
+                        "tag_key": "environment",
+                        "tag_value": "staging",
+                    }],
+                },
+            ])
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Legacy entries with tag filters (deprecated - use budget_line instead)
+        # Note: Each unique tag combination must have entries for all months
+        legacy_with_tags = datadog.CostBudget("legacy_with_tags",
+            name="Production Budget (Legacy)",
             metrics_query="sum:aws.cost.amortized{*} by {environment}",
-            start_month=202501,
-            end_month=202503,
+            start_month=202601,
+            end_month=202603,
             entries=[
                 {
-                    "month": 202501,
+                    "month": 202601,
                     "amount": 2000,
                     "tag_filters": [{
                         "tag_key": "environment",
@@ -454,7 +554,7 @@ class CostBudget(pulumi.CustomResource):
                     }],
                 },
                 {
-                    "month": 202502,
+                    "month": 202602,
                     "amount": 2200,
                     "tag_filters": [{
                         "tag_key": "environment",
@@ -462,78 +562,12 @@ class CostBudget(pulumi.CustomResource):
                     }],
                 },
                 {
-                    "month": 202503,
+                    "month": 202603,
                     "amount": 2000,
                     "tag_filters": [{
                         "tag_key": "environment",
                         "tag_value": "production",
                     }],
-                },
-            ])
-        # Hierarchical budget with multiple tag combinations
-        # Note: Order of tags in "by {tag1,tag2}" determines UI hierarchy (parent,child)
-        # Each unique tag combination must have entries for all months in the budget period
-        hierarchical = datadog.CostBudget("hierarchical",
-            name="Team-Based AWS Budget",
-            metrics_query="sum:aws.cost.amortized{*} by {team,account}",
-            start_month=202501,
-            end_month=202503,
-            entries=[
-                {
-                    "month": 202501,
-                    "amount": 500,
-                    "tag_filters": [
-                        {
-                            "tag_key": "team",
-                            "tag_value": "backend",
-                        },
-                        {
-                            "tag_key": "account",
-                            "tag_value": "staging",
-                        },
-                    ],
-                },
-                {
-                    "month": 202502,
-                    "amount": 500,
-                    "tag_filters": [
-                        {
-                            "tag_key": "team",
-                            "tag_value": "backend",
-                        },
-                        {
-                            "tag_key": "account",
-                            "tag_value": "staging",
-                        },
-                    ],
-                },
-                {
-                    "month": 202503,
-                    "amount": 500,
-                    "tag_filters": [
-                        {
-                            "tag_key": "team",
-                            "tag_value": "backend",
-                        },
-                        {
-                            "tag_key": "account",
-                            "tag_value": "staging",
-                        },
-                    ],
-                },
-                {
-                    "month": 202501,
-                    "amount": 1500,
-                    "tag_filters": [
-                        {
-                            "tag_key": "team",
-                            "tag_value": "backend",
-                        },
-                        {
-                            "tag_key": "account",
-                            "tag_value": "production",
-                        },
-                    ],
                 },
             ])
         ```
@@ -564,6 +598,7 @@ class CostBudget(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  budget_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 budget_lines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetBudgetLineArgs', 'CostBudgetBudgetLineArgsDict']]]]] = None,
                  end_month: Optional[pulumi.Input[_builtins.int]] = None,
                  entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict']]]]] = None,
                  metrics_query: Optional[pulumi.Input[_builtins.str]] = None,
@@ -579,6 +614,7 @@ class CostBudget(pulumi.CustomResource):
             __props__ = CostBudgetArgs.__new__(CostBudgetArgs)
 
             __props__.__dict__["budget_id"] = budget_id
+            __props__.__dict__["budget_lines"] = budget_lines
             if end_month is None and not opts.urn:
                 raise TypeError("Missing required property 'end_month'")
             __props__.__dict__["end_month"] = end_month
@@ -604,6 +640,7 @@ class CostBudget(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             budget_id: Optional[pulumi.Input[_builtins.str]] = None,
+            budget_lines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetBudgetLineArgs', 'CostBudgetBudgetLineArgsDict']]]]] = None,
             end_month: Optional[pulumi.Input[_builtins.int]] = None,
             entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict']]]]] = None,
             metrics_query: Optional[pulumi.Input[_builtins.str]] = None,
@@ -618,6 +655,7 @@ class CostBudget(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] budget_id: The ID of the budget.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetBudgetLineArgs', 'CostBudgetBudgetLineArgsDict']]]] budget_lines: Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
         :param pulumi.Input[_builtins.int] end_month: The month when the budget ends (YYYYMM).
         :param pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict']]]] entries: The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
         :param pulumi.Input[_builtins.str] metrics_query: The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
@@ -630,6 +668,7 @@ class CostBudget(pulumi.CustomResource):
         __props__ = _CostBudgetState.__new__(_CostBudgetState)
 
         __props__.__dict__["budget_id"] = budget_id
+        __props__.__dict__["budget_lines"] = budget_lines
         __props__.__dict__["end_month"] = end_month
         __props__.__dict__["entries"] = entries
         __props__.__dict__["metrics_query"] = metrics_query
@@ -647,6 +686,14 @@ class CostBudget(pulumi.CustomResource):
         return pulumi.get(self, "budget_id")
 
     @_builtins.property
+    @pulumi.getter(name="budgetLines")
+    def budget_lines(self) -> pulumi.Output[Optional[Sequence['outputs.CostBudgetBudgetLine']]]:
+        """
+        Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
+        """
+        return pulumi.get(self, "budget_lines")
+
+    @_builtins.property
     @pulumi.getter(name="endMonth")
     def end_month(self) -> pulumi.Output[_builtins.int]:
         """
@@ -656,6 +703,7 @@ class CostBudget(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""Use budget_line instead. This field will be removed in a future version.""")
     def entries(self) -> pulumi.Output[Optional[Sequence['outputs.CostBudgetEntry']]]:
         """
         The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
