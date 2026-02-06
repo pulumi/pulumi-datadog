@@ -76,7 +76,7 @@ import (
 //			}
 //			// Create a new Dashboard List with two Dashboards
 //			_, err = datadog.NewDashboardList(ctx, "new_list", &datadog.DashboardListArgs{
-//				Name: pulumi.String("Automated Created List"),
+//				Name: pulumi.String("Terraform Created List"),
 //				DashItems: datadog.DashboardListDashItemArray{
 //					&datadog.DashboardListDashItemArgs{
 //						Type:   pulumi.String("custom_timeboard"),
@@ -87,10 +87,7 @@ import (
 //						DashId: screen.ID(),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				screen,
-//				time,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

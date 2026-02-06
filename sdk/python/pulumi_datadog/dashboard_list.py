@@ -151,7 +151,7 @@ class DashboardList(pulumi.CustomResource):
             }])
         # Create a new Dashboard List with two Dashboards
         new_list = datadog.DashboardList("new_list",
-            name="Automated Created List",
+            name="Terraform Created List",
             dash_items=[
                 {
                     "type": "custom_timeboard",
@@ -161,11 +161,7 @@ class DashboardList(pulumi.CustomResource):
                     "type": "custom_screenboard",
                     "dash_id": screen.id,
                 },
-            ],
-            opts = pulumi.ResourceOptions(depends_on=[
-                    screen,
-                    time,
-                ]))
+            ])
         ```
 
         ## Import
@@ -232,7 +228,7 @@ class DashboardList(pulumi.CustomResource):
             }])
         # Create a new Dashboard List with two Dashboards
         new_list = datadog.DashboardList("new_list",
-            name="Automated Created List",
+            name="Terraform Created List",
             dash_items=[
                 {
                     "type": "custom_timeboard",
@@ -242,11 +238,7 @@ class DashboardList(pulumi.CustomResource):
                     "type": "custom_screenboard",
                     "dash_id": screen.id,
                 },
-            ],
-            opts = pulumi.ResourceOptions(depends_on=[
-                    screen,
-                    time,
-                ]))
+            ])
         ```
 
         ## Import

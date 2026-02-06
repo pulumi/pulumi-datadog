@@ -53,7 +53,7 @@ import * as utilities from "./utilities";
  * });
  * // Create a new Dashboard List with two Dashboards
  * const newList = new datadog.DashboardList("new_list", {
- *     name: "Automated Created List",
+ *     name: "Terraform Created List",
  *     dashItems: [
  *         {
  *             type: "custom_timeboard",
@@ -63,11 +63,6 @@ import * as utilities from "./utilities";
  *             type: "custom_screenboard",
  *             dashId: screen.id,
  *         },
- *     ],
- * }, {
- *     dependsOn: [
- *         screen,
- *         time,
  *     ],
  * });
  * ```
