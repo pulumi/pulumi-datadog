@@ -13,6 +13,976 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetCustomAllocationRuleStrategyAllocatedBy struct {
+	AllocatedTags []GetCustomAllocationRuleStrategyAllocatedByAllocatedTag `pulumi:"allocatedTags"`
+	// The percentage of costs allocated to this target as a decimal (e.g., 0.33 for 33%).
+	Percentage float64 `pulumi:"percentage"`
+}
+
+// GetCustomAllocationRuleStrategyAllocatedByInput is an input type that accepts GetCustomAllocationRuleStrategyAllocatedByArgs and GetCustomAllocationRuleStrategyAllocatedByOutput values.
+// You can construct a concrete instance of `GetCustomAllocationRuleStrategyAllocatedByInput` via:
+//
+//	GetCustomAllocationRuleStrategyAllocatedByArgs{...}
+type GetCustomAllocationRuleStrategyAllocatedByInput interface {
+	pulumi.Input
+
+	ToGetCustomAllocationRuleStrategyAllocatedByOutput() GetCustomAllocationRuleStrategyAllocatedByOutput
+	ToGetCustomAllocationRuleStrategyAllocatedByOutputWithContext(context.Context) GetCustomAllocationRuleStrategyAllocatedByOutput
+}
+
+type GetCustomAllocationRuleStrategyAllocatedByArgs struct {
+	AllocatedTags GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayInput `pulumi:"allocatedTags"`
+	// The percentage of costs allocated to this target as a decimal (e.g., 0.33 for 33%).
+	Percentage pulumi.Float64Input `pulumi:"percentage"`
+}
+
+func (GetCustomAllocationRuleStrategyAllocatedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomAllocationRuleStrategyAllocatedBy)(nil)).Elem()
+}
+
+func (i GetCustomAllocationRuleStrategyAllocatedByArgs) ToGetCustomAllocationRuleStrategyAllocatedByOutput() GetCustomAllocationRuleStrategyAllocatedByOutput {
+	return i.ToGetCustomAllocationRuleStrategyAllocatedByOutputWithContext(context.Background())
+}
+
+func (i GetCustomAllocationRuleStrategyAllocatedByArgs) ToGetCustomAllocationRuleStrategyAllocatedByOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyAllocatedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomAllocationRuleStrategyAllocatedByOutput)
+}
+
+// GetCustomAllocationRuleStrategyAllocatedByArrayInput is an input type that accepts GetCustomAllocationRuleStrategyAllocatedByArray and GetCustomAllocationRuleStrategyAllocatedByArrayOutput values.
+// You can construct a concrete instance of `GetCustomAllocationRuleStrategyAllocatedByArrayInput` via:
+//
+//	GetCustomAllocationRuleStrategyAllocatedByArray{ GetCustomAllocationRuleStrategyAllocatedByArgs{...} }
+type GetCustomAllocationRuleStrategyAllocatedByArrayInput interface {
+	pulumi.Input
+
+	ToGetCustomAllocationRuleStrategyAllocatedByArrayOutput() GetCustomAllocationRuleStrategyAllocatedByArrayOutput
+	ToGetCustomAllocationRuleStrategyAllocatedByArrayOutputWithContext(context.Context) GetCustomAllocationRuleStrategyAllocatedByArrayOutput
+}
+
+type GetCustomAllocationRuleStrategyAllocatedByArray []GetCustomAllocationRuleStrategyAllocatedByInput
+
+func (GetCustomAllocationRuleStrategyAllocatedByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCustomAllocationRuleStrategyAllocatedBy)(nil)).Elem()
+}
+
+func (i GetCustomAllocationRuleStrategyAllocatedByArray) ToGetCustomAllocationRuleStrategyAllocatedByArrayOutput() GetCustomAllocationRuleStrategyAllocatedByArrayOutput {
+	return i.ToGetCustomAllocationRuleStrategyAllocatedByArrayOutputWithContext(context.Background())
+}
+
+func (i GetCustomAllocationRuleStrategyAllocatedByArray) ToGetCustomAllocationRuleStrategyAllocatedByArrayOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyAllocatedByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomAllocationRuleStrategyAllocatedByArrayOutput)
+}
+
+type GetCustomAllocationRuleStrategyAllocatedByOutput struct{ *pulumi.OutputState }
+
+func (GetCustomAllocationRuleStrategyAllocatedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomAllocationRuleStrategyAllocatedBy)(nil)).Elem()
+}
+
+func (o GetCustomAllocationRuleStrategyAllocatedByOutput) ToGetCustomAllocationRuleStrategyAllocatedByOutput() GetCustomAllocationRuleStrategyAllocatedByOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleStrategyAllocatedByOutput) ToGetCustomAllocationRuleStrategyAllocatedByOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyAllocatedByOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleStrategyAllocatedByOutput) AllocatedTags() GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategyAllocatedBy) []GetCustomAllocationRuleStrategyAllocatedByAllocatedTag {
+		return v.AllocatedTags
+	}).(GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayOutput)
+}
+
+// The percentage of costs allocated to this target as a decimal (e.g., 0.33 for 33%).
+func (o GetCustomAllocationRuleStrategyAllocatedByOutput) Percentage() pulumi.Float64Output {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategyAllocatedBy) float64 { return v.Percentage }).(pulumi.Float64Output)
+}
+
+type GetCustomAllocationRuleStrategyAllocatedByArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCustomAllocationRuleStrategyAllocatedByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCustomAllocationRuleStrategyAllocatedBy)(nil)).Elem()
+}
+
+func (o GetCustomAllocationRuleStrategyAllocatedByArrayOutput) ToGetCustomAllocationRuleStrategyAllocatedByArrayOutput() GetCustomAllocationRuleStrategyAllocatedByArrayOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleStrategyAllocatedByArrayOutput) ToGetCustomAllocationRuleStrategyAllocatedByArrayOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyAllocatedByArrayOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleStrategyAllocatedByArrayOutput) Index(i pulumi.IntInput) GetCustomAllocationRuleStrategyAllocatedByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCustomAllocationRuleStrategyAllocatedBy {
+		return vs[0].([]GetCustomAllocationRuleStrategyAllocatedBy)[vs[1].(int)]
+	}).(GetCustomAllocationRuleStrategyAllocatedByOutput)
+}
+
+type GetCustomAllocationRuleStrategyAllocatedByAllocatedTag struct {
+	// The tag key for cost allocation.
+	Key string `pulumi:"key"`
+	// The tag value used in the filter (for single-value conditions).
+	Value string `pulumi:"value"`
+}
+
+// GetCustomAllocationRuleStrategyAllocatedByAllocatedTagInput is an input type that accepts GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArgs and GetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutput values.
+// You can construct a concrete instance of `GetCustomAllocationRuleStrategyAllocatedByAllocatedTagInput` via:
+//
+//	GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArgs{...}
+type GetCustomAllocationRuleStrategyAllocatedByAllocatedTagInput interface {
+	pulumi.Input
+
+	ToGetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutput() GetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutput
+	ToGetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutputWithContext(context.Context) GetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutput
+}
+
+type GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArgs struct {
+	// The tag key for cost allocation.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The tag value used in the filter (for single-value conditions).
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomAllocationRuleStrategyAllocatedByAllocatedTag)(nil)).Elem()
+}
+
+func (i GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArgs) ToGetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutput() GetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutput {
+	return i.ToGetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutputWithContext(context.Background())
+}
+
+func (i GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArgs) ToGetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutput)
+}
+
+// GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayInput is an input type that accepts GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArray and GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayOutput values.
+// You can construct a concrete instance of `GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayInput` via:
+//
+//	GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArray{ GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArgs{...} }
+type GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayInput interface {
+	pulumi.Input
+
+	ToGetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayOutput() GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayOutput
+	ToGetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayOutputWithContext(context.Context) GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayOutput
+}
+
+type GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArray []GetCustomAllocationRuleStrategyAllocatedByAllocatedTagInput
+
+func (GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCustomAllocationRuleStrategyAllocatedByAllocatedTag)(nil)).Elem()
+}
+
+func (i GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArray) ToGetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayOutput() GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayOutput {
+	return i.ToGetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArray) ToGetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayOutput)
+}
+
+type GetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutput struct{ *pulumi.OutputState }
+
+func (GetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomAllocationRuleStrategyAllocatedByAllocatedTag)(nil)).Elem()
+}
+
+func (o GetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutput) ToGetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutput() GetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutput) ToGetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutput {
+	return o
+}
+
+// The tag key for cost allocation.
+func (o GetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategyAllocatedByAllocatedTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The tag value used in the filter (for single-value conditions).
+func (o GetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategyAllocatedByAllocatedTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCustomAllocationRuleStrategyAllocatedByAllocatedTag)(nil)).Elem()
+}
+
+func (o GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayOutput) ToGetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayOutput() GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayOutput) ToGetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayOutput) Index(i pulumi.IntInput) GetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCustomAllocationRuleStrategyAllocatedByAllocatedTag {
+		return vs[0].([]GetCustomAllocationRuleStrategyAllocatedByAllocatedTag)[vs[1].(int)]
+	}).(GetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutput)
+}
+
+type GetCustomAllocationRuleStrategyAllocatedByFilter struct {
+	// The condition used to match tags. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+	Condition string `pulumi:"condition"`
+	// The tag key used in the filter.
+	Tag string `pulumi:"tag"`
+	// The tag value used in the filter (for single-value conditions).
+	Value string `pulumi:"value"`
+	// The list of tag values used in the filter (for multi-value conditions like `in` or `notIn`).
+	Values []string `pulumi:"values"`
+}
+
+// GetCustomAllocationRuleStrategyAllocatedByFilterInput is an input type that accepts GetCustomAllocationRuleStrategyAllocatedByFilterArgs and GetCustomAllocationRuleStrategyAllocatedByFilterOutput values.
+// You can construct a concrete instance of `GetCustomAllocationRuleStrategyAllocatedByFilterInput` via:
+//
+//	GetCustomAllocationRuleStrategyAllocatedByFilterArgs{...}
+type GetCustomAllocationRuleStrategyAllocatedByFilterInput interface {
+	pulumi.Input
+
+	ToGetCustomAllocationRuleStrategyAllocatedByFilterOutput() GetCustomAllocationRuleStrategyAllocatedByFilterOutput
+	ToGetCustomAllocationRuleStrategyAllocatedByFilterOutputWithContext(context.Context) GetCustomAllocationRuleStrategyAllocatedByFilterOutput
+}
+
+type GetCustomAllocationRuleStrategyAllocatedByFilterArgs struct {
+	// The condition used to match tags. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+	Condition pulumi.StringInput `pulumi:"condition"`
+	// The tag key used in the filter.
+	Tag pulumi.StringInput `pulumi:"tag"`
+	// The tag value used in the filter (for single-value conditions).
+	Value pulumi.StringInput `pulumi:"value"`
+	// The list of tag values used in the filter (for multi-value conditions like `in` or `notIn`).
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCustomAllocationRuleStrategyAllocatedByFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomAllocationRuleStrategyAllocatedByFilter)(nil)).Elem()
+}
+
+func (i GetCustomAllocationRuleStrategyAllocatedByFilterArgs) ToGetCustomAllocationRuleStrategyAllocatedByFilterOutput() GetCustomAllocationRuleStrategyAllocatedByFilterOutput {
+	return i.ToGetCustomAllocationRuleStrategyAllocatedByFilterOutputWithContext(context.Background())
+}
+
+func (i GetCustomAllocationRuleStrategyAllocatedByFilterArgs) ToGetCustomAllocationRuleStrategyAllocatedByFilterOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyAllocatedByFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomAllocationRuleStrategyAllocatedByFilterOutput)
+}
+
+// GetCustomAllocationRuleStrategyAllocatedByFilterArrayInput is an input type that accepts GetCustomAllocationRuleStrategyAllocatedByFilterArray and GetCustomAllocationRuleStrategyAllocatedByFilterArrayOutput values.
+// You can construct a concrete instance of `GetCustomAllocationRuleStrategyAllocatedByFilterArrayInput` via:
+//
+//	GetCustomAllocationRuleStrategyAllocatedByFilterArray{ GetCustomAllocationRuleStrategyAllocatedByFilterArgs{...} }
+type GetCustomAllocationRuleStrategyAllocatedByFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetCustomAllocationRuleStrategyAllocatedByFilterArrayOutput() GetCustomAllocationRuleStrategyAllocatedByFilterArrayOutput
+	ToGetCustomAllocationRuleStrategyAllocatedByFilterArrayOutputWithContext(context.Context) GetCustomAllocationRuleStrategyAllocatedByFilterArrayOutput
+}
+
+type GetCustomAllocationRuleStrategyAllocatedByFilterArray []GetCustomAllocationRuleStrategyAllocatedByFilterInput
+
+func (GetCustomAllocationRuleStrategyAllocatedByFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCustomAllocationRuleStrategyAllocatedByFilter)(nil)).Elem()
+}
+
+func (i GetCustomAllocationRuleStrategyAllocatedByFilterArray) ToGetCustomAllocationRuleStrategyAllocatedByFilterArrayOutput() GetCustomAllocationRuleStrategyAllocatedByFilterArrayOutput {
+	return i.ToGetCustomAllocationRuleStrategyAllocatedByFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetCustomAllocationRuleStrategyAllocatedByFilterArray) ToGetCustomAllocationRuleStrategyAllocatedByFilterArrayOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyAllocatedByFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomAllocationRuleStrategyAllocatedByFilterArrayOutput)
+}
+
+type GetCustomAllocationRuleStrategyAllocatedByFilterOutput struct{ *pulumi.OutputState }
+
+func (GetCustomAllocationRuleStrategyAllocatedByFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomAllocationRuleStrategyAllocatedByFilter)(nil)).Elem()
+}
+
+func (o GetCustomAllocationRuleStrategyAllocatedByFilterOutput) ToGetCustomAllocationRuleStrategyAllocatedByFilterOutput() GetCustomAllocationRuleStrategyAllocatedByFilterOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleStrategyAllocatedByFilterOutput) ToGetCustomAllocationRuleStrategyAllocatedByFilterOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyAllocatedByFilterOutput {
+	return o
+}
+
+// The condition used to match tags. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+func (o GetCustomAllocationRuleStrategyAllocatedByFilterOutput) Condition() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategyAllocatedByFilter) string { return v.Condition }).(pulumi.StringOutput)
+}
+
+// The tag key used in the filter.
+func (o GetCustomAllocationRuleStrategyAllocatedByFilterOutput) Tag() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategyAllocatedByFilter) string { return v.Tag }).(pulumi.StringOutput)
+}
+
+// The tag value used in the filter (for single-value conditions).
+func (o GetCustomAllocationRuleStrategyAllocatedByFilterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategyAllocatedByFilter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+// The list of tag values used in the filter (for multi-value conditions like `in` or `notIn`).
+func (o GetCustomAllocationRuleStrategyAllocatedByFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategyAllocatedByFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCustomAllocationRuleStrategyAllocatedByFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCustomAllocationRuleStrategyAllocatedByFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCustomAllocationRuleStrategyAllocatedByFilter)(nil)).Elem()
+}
+
+func (o GetCustomAllocationRuleStrategyAllocatedByFilterArrayOutput) ToGetCustomAllocationRuleStrategyAllocatedByFilterArrayOutput() GetCustomAllocationRuleStrategyAllocatedByFilterArrayOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleStrategyAllocatedByFilterArrayOutput) ToGetCustomAllocationRuleStrategyAllocatedByFilterArrayOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyAllocatedByFilterArrayOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleStrategyAllocatedByFilterArrayOutput) Index(i pulumi.IntInput) GetCustomAllocationRuleStrategyAllocatedByFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCustomAllocationRuleStrategyAllocatedByFilter {
+		return vs[0].([]GetCustomAllocationRuleStrategyAllocatedByFilter)[vs[1].(int)]
+	}).(GetCustomAllocationRuleStrategyAllocatedByFilterOutput)
+}
+
+type GetCustomAllocationRuleStrategyBasedOnCost struct {
+	// The condition used to match tags. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+	Condition string `pulumi:"condition"`
+	// The tag key used in the filter.
+	Tag string `pulumi:"tag"`
+	// The tag value used in the filter (for single-value conditions).
+	Value string `pulumi:"value"`
+	// The list of tag values used in the filter (for multi-value conditions like `in` or `notIn`).
+	Values []string `pulumi:"values"`
+}
+
+// GetCustomAllocationRuleStrategyBasedOnCostInput is an input type that accepts GetCustomAllocationRuleStrategyBasedOnCostArgs and GetCustomAllocationRuleStrategyBasedOnCostOutput values.
+// You can construct a concrete instance of `GetCustomAllocationRuleStrategyBasedOnCostInput` via:
+//
+//	GetCustomAllocationRuleStrategyBasedOnCostArgs{...}
+type GetCustomAllocationRuleStrategyBasedOnCostInput interface {
+	pulumi.Input
+
+	ToGetCustomAllocationRuleStrategyBasedOnCostOutput() GetCustomAllocationRuleStrategyBasedOnCostOutput
+	ToGetCustomAllocationRuleStrategyBasedOnCostOutputWithContext(context.Context) GetCustomAllocationRuleStrategyBasedOnCostOutput
+}
+
+type GetCustomAllocationRuleStrategyBasedOnCostArgs struct {
+	// The condition used to match tags. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+	Condition pulumi.StringInput `pulumi:"condition"`
+	// The tag key used in the filter.
+	Tag pulumi.StringInput `pulumi:"tag"`
+	// The tag value used in the filter (for single-value conditions).
+	Value pulumi.StringInput `pulumi:"value"`
+	// The list of tag values used in the filter (for multi-value conditions like `in` or `notIn`).
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCustomAllocationRuleStrategyBasedOnCostArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomAllocationRuleStrategyBasedOnCost)(nil)).Elem()
+}
+
+func (i GetCustomAllocationRuleStrategyBasedOnCostArgs) ToGetCustomAllocationRuleStrategyBasedOnCostOutput() GetCustomAllocationRuleStrategyBasedOnCostOutput {
+	return i.ToGetCustomAllocationRuleStrategyBasedOnCostOutputWithContext(context.Background())
+}
+
+func (i GetCustomAllocationRuleStrategyBasedOnCostArgs) ToGetCustomAllocationRuleStrategyBasedOnCostOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyBasedOnCostOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomAllocationRuleStrategyBasedOnCostOutput)
+}
+
+// GetCustomAllocationRuleStrategyBasedOnCostArrayInput is an input type that accepts GetCustomAllocationRuleStrategyBasedOnCostArray and GetCustomAllocationRuleStrategyBasedOnCostArrayOutput values.
+// You can construct a concrete instance of `GetCustomAllocationRuleStrategyBasedOnCostArrayInput` via:
+//
+//	GetCustomAllocationRuleStrategyBasedOnCostArray{ GetCustomAllocationRuleStrategyBasedOnCostArgs{...} }
+type GetCustomAllocationRuleStrategyBasedOnCostArrayInput interface {
+	pulumi.Input
+
+	ToGetCustomAllocationRuleStrategyBasedOnCostArrayOutput() GetCustomAllocationRuleStrategyBasedOnCostArrayOutput
+	ToGetCustomAllocationRuleStrategyBasedOnCostArrayOutputWithContext(context.Context) GetCustomAllocationRuleStrategyBasedOnCostArrayOutput
+}
+
+type GetCustomAllocationRuleStrategyBasedOnCostArray []GetCustomAllocationRuleStrategyBasedOnCostInput
+
+func (GetCustomAllocationRuleStrategyBasedOnCostArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCustomAllocationRuleStrategyBasedOnCost)(nil)).Elem()
+}
+
+func (i GetCustomAllocationRuleStrategyBasedOnCostArray) ToGetCustomAllocationRuleStrategyBasedOnCostArrayOutput() GetCustomAllocationRuleStrategyBasedOnCostArrayOutput {
+	return i.ToGetCustomAllocationRuleStrategyBasedOnCostArrayOutputWithContext(context.Background())
+}
+
+func (i GetCustomAllocationRuleStrategyBasedOnCostArray) ToGetCustomAllocationRuleStrategyBasedOnCostArrayOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyBasedOnCostArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomAllocationRuleStrategyBasedOnCostArrayOutput)
+}
+
+type GetCustomAllocationRuleStrategyBasedOnCostOutput struct{ *pulumi.OutputState }
+
+func (GetCustomAllocationRuleStrategyBasedOnCostOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomAllocationRuleStrategyBasedOnCost)(nil)).Elem()
+}
+
+func (o GetCustomAllocationRuleStrategyBasedOnCostOutput) ToGetCustomAllocationRuleStrategyBasedOnCostOutput() GetCustomAllocationRuleStrategyBasedOnCostOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleStrategyBasedOnCostOutput) ToGetCustomAllocationRuleStrategyBasedOnCostOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyBasedOnCostOutput {
+	return o
+}
+
+// The condition used to match tags. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+func (o GetCustomAllocationRuleStrategyBasedOnCostOutput) Condition() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategyBasedOnCost) string { return v.Condition }).(pulumi.StringOutput)
+}
+
+// The tag key used in the filter.
+func (o GetCustomAllocationRuleStrategyBasedOnCostOutput) Tag() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategyBasedOnCost) string { return v.Tag }).(pulumi.StringOutput)
+}
+
+// The tag value used in the filter (for single-value conditions).
+func (o GetCustomAllocationRuleStrategyBasedOnCostOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategyBasedOnCost) string { return v.Value }).(pulumi.StringOutput)
+}
+
+// The list of tag values used in the filter (for multi-value conditions like `in` or `notIn`).
+func (o GetCustomAllocationRuleStrategyBasedOnCostOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategyBasedOnCost) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCustomAllocationRuleStrategyBasedOnCostArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCustomAllocationRuleStrategyBasedOnCostArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCustomAllocationRuleStrategyBasedOnCost)(nil)).Elem()
+}
+
+func (o GetCustomAllocationRuleStrategyBasedOnCostArrayOutput) ToGetCustomAllocationRuleStrategyBasedOnCostArrayOutput() GetCustomAllocationRuleStrategyBasedOnCostArrayOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleStrategyBasedOnCostArrayOutput) ToGetCustomAllocationRuleStrategyBasedOnCostArrayOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyBasedOnCostArrayOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleStrategyBasedOnCostArrayOutput) Index(i pulumi.IntInput) GetCustomAllocationRuleStrategyBasedOnCostOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCustomAllocationRuleStrategyBasedOnCost {
+		return vs[0].([]GetCustomAllocationRuleStrategyBasedOnCost)[vs[1].(int)]
+	}).(GetCustomAllocationRuleStrategyBasedOnCostOutput)
+}
+
+type GetCustomAllocationRuleStrategyBasedOnTimeseries struct {
+}
+
+// GetCustomAllocationRuleStrategyBasedOnTimeseriesInput is an input type that accepts GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs and GetCustomAllocationRuleStrategyBasedOnTimeseriesOutput values.
+// You can construct a concrete instance of `GetCustomAllocationRuleStrategyBasedOnTimeseriesInput` via:
+//
+//	GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs{...}
+type GetCustomAllocationRuleStrategyBasedOnTimeseriesInput interface {
+	pulumi.Input
+
+	ToGetCustomAllocationRuleStrategyBasedOnTimeseriesOutput() GetCustomAllocationRuleStrategyBasedOnTimeseriesOutput
+	ToGetCustomAllocationRuleStrategyBasedOnTimeseriesOutputWithContext(context.Context) GetCustomAllocationRuleStrategyBasedOnTimeseriesOutput
+}
+
+type GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs struct {
+}
+
+func (GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomAllocationRuleStrategyBasedOnTimeseries)(nil)).Elem()
+}
+
+func (i GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs) ToGetCustomAllocationRuleStrategyBasedOnTimeseriesOutput() GetCustomAllocationRuleStrategyBasedOnTimeseriesOutput {
+	return i.ToGetCustomAllocationRuleStrategyBasedOnTimeseriesOutputWithContext(context.Background())
+}
+
+func (i GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs) ToGetCustomAllocationRuleStrategyBasedOnTimeseriesOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyBasedOnTimeseriesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomAllocationRuleStrategyBasedOnTimeseriesOutput)
+}
+
+func (i GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs) ToGetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput() GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput {
+	return i.ToGetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutputWithContext(context.Background())
+}
+
+func (i GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs) ToGetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomAllocationRuleStrategyBasedOnTimeseriesOutput).ToGetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutputWithContext(ctx)
+}
+
+// GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrInput is an input type that accepts GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs, GetCustomAllocationRuleStrategyBasedOnTimeseriesPtr and GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput values.
+// You can construct a concrete instance of `GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrInput` via:
+//
+//	        GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrInput interface {
+	pulumi.Input
+
+	ToGetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput() GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput
+	ToGetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutputWithContext(context.Context) GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput
+}
+
+type getCustomAllocationRuleStrategyBasedOnTimeseriesPtrType GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs
+
+func GetCustomAllocationRuleStrategyBasedOnTimeseriesPtr(v *GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs) GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrInput {
+	return (*getCustomAllocationRuleStrategyBasedOnTimeseriesPtrType)(v)
+}
+
+func (*getCustomAllocationRuleStrategyBasedOnTimeseriesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCustomAllocationRuleStrategyBasedOnTimeseries)(nil)).Elem()
+}
+
+func (i *getCustomAllocationRuleStrategyBasedOnTimeseriesPtrType) ToGetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput() GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput {
+	return i.ToGetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutputWithContext(context.Background())
+}
+
+func (i *getCustomAllocationRuleStrategyBasedOnTimeseriesPtrType) ToGetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput)
+}
+
+type GetCustomAllocationRuleStrategyBasedOnTimeseriesOutput struct{ *pulumi.OutputState }
+
+func (GetCustomAllocationRuleStrategyBasedOnTimeseriesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomAllocationRuleStrategyBasedOnTimeseries)(nil)).Elem()
+}
+
+func (o GetCustomAllocationRuleStrategyBasedOnTimeseriesOutput) ToGetCustomAllocationRuleStrategyBasedOnTimeseriesOutput() GetCustomAllocationRuleStrategyBasedOnTimeseriesOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleStrategyBasedOnTimeseriesOutput) ToGetCustomAllocationRuleStrategyBasedOnTimeseriesOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyBasedOnTimeseriesOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleStrategyBasedOnTimeseriesOutput) ToGetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput() GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput {
+	return o.ToGetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutputWithContext(context.Background())
+}
+
+func (o GetCustomAllocationRuleStrategyBasedOnTimeseriesOutput) ToGetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetCustomAllocationRuleStrategyBasedOnTimeseries) *GetCustomAllocationRuleStrategyBasedOnTimeseries {
+		return &v
+	}).(GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput)
+}
+
+type GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput struct{ *pulumi.OutputState }
+
+func (GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCustomAllocationRuleStrategyBasedOnTimeseries)(nil)).Elem()
+}
+
+func (o GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput) ToGetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput() GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput) ToGetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput) Elem() GetCustomAllocationRuleStrategyBasedOnTimeseriesOutput {
+	return o.ApplyT(func(v *GetCustomAllocationRuleStrategyBasedOnTimeseries) GetCustomAllocationRuleStrategyBasedOnTimeseries {
+		if v != nil {
+			return *v
+		}
+		var ret GetCustomAllocationRuleStrategyBasedOnTimeseries
+		return ret
+	}).(GetCustomAllocationRuleStrategyBasedOnTimeseriesOutput)
+}
+
+type GetCustomAllocationRuleStrategyEvaluateGroupedByFilter struct {
+	// The condition used to match tags. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+	Condition string `pulumi:"condition"`
+	// The tag key used in the filter.
+	Tag string `pulumi:"tag"`
+	// The tag value used in the filter (for single-value conditions).
+	Value string `pulumi:"value"`
+	// The list of tag values used in the filter (for multi-value conditions like `in` or `notIn`).
+	Values []string `pulumi:"values"`
+}
+
+// GetCustomAllocationRuleStrategyEvaluateGroupedByFilterInput is an input type that accepts GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArgs and GetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutput values.
+// You can construct a concrete instance of `GetCustomAllocationRuleStrategyEvaluateGroupedByFilterInput` via:
+//
+//	GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArgs{...}
+type GetCustomAllocationRuleStrategyEvaluateGroupedByFilterInput interface {
+	pulumi.Input
+
+	ToGetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutput() GetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutput
+	ToGetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutputWithContext(context.Context) GetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutput
+}
+
+type GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArgs struct {
+	// The condition used to match tags. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+	Condition pulumi.StringInput `pulumi:"condition"`
+	// The tag key used in the filter.
+	Tag pulumi.StringInput `pulumi:"tag"`
+	// The tag value used in the filter (for single-value conditions).
+	Value pulumi.StringInput `pulumi:"value"`
+	// The list of tag values used in the filter (for multi-value conditions like `in` or `notIn`).
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomAllocationRuleStrategyEvaluateGroupedByFilter)(nil)).Elem()
+}
+
+func (i GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArgs) ToGetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutput() GetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutput {
+	return i.ToGetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutputWithContext(context.Background())
+}
+
+func (i GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArgs) ToGetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutput)
+}
+
+// GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayInput is an input type that accepts GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArray and GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutput values.
+// You can construct a concrete instance of `GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayInput` via:
+//
+//	GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArray{ GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArgs{...} }
+type GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutput() GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutput
+	ToGetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutputWithContext(context.Context) GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutput
+}
+
+type GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArray []GetCustomAllocationRuleStrategyEvaluateGroupedByFilterInput
+
+func (GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCustomAllocationRuleStrategyEvaluateGroupedByFilter)(nil)).Elem()
+}
+
+func (i GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArray) ToGetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutput() GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutput {
+	return i.ToGetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArray) ToGetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutput)
+}
+
+type GetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutput struct{ *pulumi.OutputState }
+
+func (GetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomAllocationRuleStrategyEvaluateGroupedByFilter)(nil)).Elem()
+}
+
+func (o GetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutput) ToGetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutput() GetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutput) ToGetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutput {
+	return o
+}
+
+// The condition used to match tags. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+func (o GetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutput) Condition() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategyEvaluateGroupedByFilter) string { return v.Condition }).(pulumi.StringOutput)
+}
+
+// The tag key used in the filter.
+func (o GetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutput) Tag() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategyEvaluateGroupedByFilter) string { return v.Tag }).(pulumi.StringOutput)
+}
+
+// The tag value used in the filter (for single-value conditions).
+func (o GetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategyEvaluateGroupedByFilter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+// The list of tag values used in the filter (for multi-value conditions like `in` or `notIn`).
+func (o GetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategyEvaluateGroupedByFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCustomAllocationRuleStrategyEvaluateGroupedByFilter)(nil)).Elem()
+}
+
+func (o GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutput) ToGetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutput() GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutput) ToGetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutput) Index(i pulumi.IntInput) GetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCustomAllocationRuleStrategyEvaluateGroupedByFilter {
+		return vs[0].([]GetCustomAllocationRuleStrategyEvaluateGroupedByFilter)[vs[1].(int)]
+	}).(GetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutput)
+}
+
+type GetHostsHostList struct {
+	Aliases          []string                `pulumi:"aliases"`
+	Apps             []string                `pulumi:"apps"`
+	AwsName          string                  `pulumi:"awsName"`
+	HostName         string                  `pulumi:"hostName"`
+	Id               int                     `pulumi:"id"`
+	IsMuted          bool                    `pulumi:"isMuted"`
+	LastReportedTime int                     `pulumi:"lastReportedTime"`
+	Meta             GetHostsHostListMeta    `pulumi:"meta"`
+	Metrics          GetHostsHostListMetrics `pulumi:"metrics"`
+	MuteTimeout      int                     `pulumi:"muteTimeout"`
+	Name             string                  `pulumi:"name"`
+	Sources          []string                `pulumi:"sources"`
+	TagsBySource     map[string][]string     `pulumi:"tagsBySource"`
+	Up               bool                    `pulumi:"up"`
+}
+
+// GetHostsHostListInput is an input type that accepts GetHostsHostListArgs and GetHostsHostListOutput values.
+// You can construct a concrete instance of `GetHostsHostListInput` via:
+//
+//	GetHostsHostListArgs{...}
+type GetHostsHostListInput interface {
+	pulumi.Input
+
+	ToGetHostsHostListOutput() GetHostsHostListOutput
+	ToGetHostsHostListOutputWithContext(context.Context) GetHostsHostListOutput
+}
+
+type GetHostsHostListArgs struct {
+	Aliases          pulumi.StringArrayInput      `pulumi:"aliases"`
+	Apps             pulumi.StringArrayInput      `pulumi:"apps"`
+	AwsName          pulumi.StringInput           `pulumi:"awsName"`
+	HostName         pulumi.StringInput           `pulumi:"hostName"`
+	Id               pulumi.IntInput              `pulumi:"id"`
+	IsMuted          pulumi.BoolInput             `pulumi:"isMuted"`
+	LastReportedTime pulumi.IntInput              `pulumi:"lastReportedTime"`
+	Meta             GetHostsHostListMetaInput    `pulumi:"meta"`
+	Metrics          GetHostsHostListMetricsInput `pulumi:"metrics"`
+	MuteTimeout      pulumi.IntInput              `pulumi:"muteTimeout"`
+	Name             pulumi.StringInput           `pulumi:"name"`
+	Sources          pulumi.StringArrayInput      `pulumi:"sources"`
+	TagsBySource     pulumi.StringArrayMapInput   `pulumi:"tagsBySource"`
+	Up               pulumi.BoolInput             `pulumi:"up"`
+}
+
+func (GetHostsHostListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHostsHostList)(nil)).Elem()
+}
+
+func (i GetHostsHostListArgs) ToGetHostsHostListOutput() GetHostsHostListOutput {
+	return i.ToGetHostsHostListOutputWithContext(context.Background())
+}
+
+func (i GetHostsHostListArgs) ToGetHostsHostListOutputWithContext(ctx context.Context) GetHostsHostListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHostsHostListOutput)
+}
+
+// GetHostsHostListArrayInput is an input type that accepts GetHostsHostListArray and GetHostsHostListArrayOutput values.
+// You can construct a concrete instance of `GetHostsHostListArrayInput` via:
+//
+//	GetHostsHostListArray{ GetHostsHostListArgs{...} }
+type GetHostsHostListArrayInput interface {
+	pulumi.Input
+
+	ToGetHostsHostListArrayOutput() GetHostsHostListArrayOutput
+	ToGetHostsHostListArrayOutputWithContext(context.Context) GetHostsHostListArrayOutput
+}
+
+type GetHostsHostListArray []GetHostsHostListInput
+
+func (GetHostsHostListArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHostsHostList)(nil)).Elem()
+}
+
+func (i GetHostsHostListArray) ToGetHostsHostListArrayOutput() GetHostsHostListArrayOutput {
+	return i.ToGetHostsHostListArrayOutputWithContext(context.Background())
+}
+
+func (i GetHostsHostListArray) ToGetHostsHostListArrayOutputWithContext(ctx context.Context) GetHostsHostListArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHostsHostListArrayOutput)
+}
+
+type GetHostsHostListOutput struct{ *pulumi.OutputState }
+
+func (GetHostsHostListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHostsHostList)(nil)).Elem()
+}
+
+func (o GetHostsHostListOutput) ToGetHostsHostListOutput() GetHostsHostListOutput {
+	return o
+}
+
+func (o GetHostsHostListOutput) ToGetHostsHostListOutputWithContext(ctx context.Context) GetHostsHostListOutput {
+	return o
+}
+
+func (o GetHostsHostListOutput) Aliases() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetHostsHostList) []string { return v.Aliases }).(pulumi.StringArrayOutput)
+}
+
+func (o GetHostsHostListOutput) Apps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetHostsHostList) []string { return v.Apps }).(pulumi.StringArrayOutput)
+}
+
+func (o GetHostsHostListOutput) AwsName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHostsHostList) string { return v.AwsName }).(pulumi.StringOutput)
+}
+
+func (o GetHostsHostListOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHostsHostList) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+func (o GetHostsHostListOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetHostsHostList) int { return v.Id }).(pulumi.IntOutput)
+}
+
+func (o GetHostsHostListOutput) IsMuted() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetHostsHostList) bool { return v.IsMuted }).(pulumi.BoolOutput)
+}
+
+func (o GetHostsHostListOutput) LastReportedTime() pulumi.IntOutput {
+	return o.ApplyT(func(v GetHostsHostList) int { return v.LastReportedTime }).(pulumi.IntOutput)
+}
+
+func (o GetHostsHostListOutput) Meta() GetHostsHostListMetaOutput {
+	return o.ApplyT(func(v GetHostsHostList) GetHostsHostListMeta { return v.Meta }).(GetHostsHostListMetaOutput)
+}
+
+func (o GetHostsHostListOutput) Metrics() GetHostsHostListMetricsOutput {
+	return o.ApplyT(func(v GetHostsHostList) GetHostsHostListMetrics { return v.Metrics }).(GetHostsHostListMetricsOutput)
+}
+
+func (o GetHostsHostListOutput) MuteTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetHostsHostList) int { return v.MuteTimeout }).(pulumi.IntOutput)
+}
+
+func (o GetHostsHostListOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHostsHostList) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetHostsHostListOutput) Sources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetHostsHostList) []string { return v.Sources }).(pulumi.StringArrayOutput)
+}
+
+func (o GetHostsHostListOutput) TagsBySource() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v GetHostsHostList) map[string][]string { return v.TagsBySource }).(pulumi.StringArrayMapOutput)
+}
+
+func (o GetHostsHostListOutput) Up() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetHostsHostList) bool { return v.Up }).(pulumi.BoolOutput)
+}
+
+type GetHostsHostListArrayOutput struct{ *pulumi.OutputState }
+
+func (GetHostsHostListArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHostsHostList)(nil)).Elem()
+}
+
+func (o GetHostsHostListArrayOutput) ToGetHostsHostListArrayOutput() GetHostsHostListArrayOutput {
+	return o
+}
+
+func (o GetHostsHostListArrayOutput) ToGetHostsHostListArrayOutputWithContext(ctx context.Context) GetHostsHostListArrayOutput {
+	return o
+}
+
+func (o GetHostsHostListArrayOutput) Index(i pulumi.IntInput) GetHostsHostListOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetHostsHostList {
+		return vs[0].([]GetHostsHostList)[vs[1].(int)]
+	}).(GetHostsHostListOutput)
+}
+
+type GetHostsHostListMeta struct {
+	AgentVersion   string `pulumi:"agentVersion"`
+	CpuCores       int    `pulumi:"cpuCores"`
+	Gohai          string `pulumi:"gohai"`
+	Machine        string `pulumi:"machine"`
+	Platform       string `pulumi:"platform"`
+	Processor      string `pulumi:"processor"`
+	PythonVersion  string `pulumi:"pythonVersion"`
+	SocketFqdn     string `pulumi:"socketFqdn"`
+	SocketHostname string `pulumi:"socketHostname"`
+}
+
+// GetHostsHostListMetaInput is an input type that accepts GetHostsHostListMetaArgs and GetHostsHostListMetaOutput values.
+// You can construct a concrete instance of `GetHostsHostListMetaInput` via:
+//
+//	GetHostsHostListMetaArgs{...}
+type GetHostsHostListMetaInput interface {
+	pulumi.Input
+
+	ToGetHostsHostListMetaOutput() GetHostsHostListMetaOutput
+	ToGetHostsHostListMetaOutputWithContext(context.Context) GetHostsHostListMetaOutput
+}
+
+type GetHostsHostListMetaArgs struct {
+	AgentVersion   pulumi.StringInput `pulumi:"agentVersion"`
+	CpuCores       pulumi.IntInput    `pulumi:"cpuCores"`
+	Gohai          pulumi.StringInput `pulumi:"gohai"`
+	Machine        pulumi.StringInput `pulumi:"machine"`
+	Platform       pulumi.StringInput `pulumi:"platform"`
+	Processor      pulumi.StringInput `pulumi:"processor"`
+	PythonVersion  pulumi.StringInput `pulumi:"pythonVersion"`
+	SocketFqdn     pulumi.StringInput `pulumi:"socketFqdn"`
+	SocketHostname pulumi.StringInput `pulumi:"socketHostname"`
+}
+
+func (GetHostsHostListMetaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHostsHostListMeta)(nil)).Elem()
+}
+
+func (i GetHostsHostListMetaArgs) ToGetHostsHostListMetaOutput() GetHostsHostListMetaOutput {
+	return i.ToGetHostsHostListMetaOutputWithContext(context.Background())
+}
+
+func (i GetHostsHostListMetaArgs) ToGetHostsHostListMetaOutputWithContext(ctx context.Context) GetHostsHostListMetaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHostsHostListMetaOutput)
+}
+
+type GetHostsHostListMetaOutput struct{ *pulumi.OutputState }
+
+func (GetHostsHostListMetaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHostsHostListMeta)(nil)).Elem()
+}
+
+func (o GetHostsHostListMetaOutput) ToGetHostsHostListMetaOutput() GetHostsHostListMetaOutput {
+	return o
+}
+
+func (o GetHostsHostListMetaOutput) ToGetHostsHostListMetaOutputWithContext(ctx context.Context) GetHostsHostListMetaOutput {
+	return o
+}
+
+func (o GetHostsHostListMetaOutput) AgentVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHostsHostListMeta) string { return v.AgentVersion }).(pulumi.StringOutput)
+}
+
+func (o GetHostsHostListMetaOutput) CpuCores() pulumi.IntOutput {
+	return o.ApplyT(func(v GetHostsHostListMeta) int { return v.CpuCores }).(pulumi.IntOutput)
+}
+
+func (o GetHostsHostListMetaOutput) Gohai() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHostsHostListMeta) string { return v.Gohai }).(pulumi.StringOutput)
+}
+
+func (o GetHostsHostListMetaOutput) Machine() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHostsHostListMeta) string { return v.Machine }).(pulumi.StringOutput)
+}
+
+func (o GetHostsHostListMetaOutput) Platform() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHostsHostListMeta) string { return v.Platform }).(pulumi.StringOutput)
+}
+
+func (o GetHostsHostListMetaOutput) Processor() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHostsHostListMeta) string { return v.Processor }).(pulumi.StringOutput)
+}
+
+func (o GetHostsHostListMetaOutput) PythonVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHostsHostListMeta) string { return v.PythonVersion }).(pulumi.StringOutput)
+}
+
+func (o GetHostsHostListMetaOutput) SocketFqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHostsHostListMeta) string { return v.SocketFqdn }).(pulumi.StringOutput)
+}
+
+func (o GetHostsHostListMetaOutput) SocketHostname() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHostsHostListMeta) string { return v.SocketHostname }).(pulumi.StringOutput)
+}
+
 type GetHostsHostListMetrics struct {
 	Cpu    float64 `pulumi:"cpu"`
 	Iowait float64 `pulumi:"iowait"`
@@ -11204,6 +12174,21 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomAllocationRuleStrategyAllocatedByInput)(nil)).Elem(), GetCustomAllocationRuleStrategyAllocatedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomAllocationRuleStrategyAllocatedByArrayInput)(nil)).Elem(), GetCustomAllocationRuleStrategyAllocatedByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomAllocationRuleStrategyAllocatedByAllocatedTagInput)(nil)).Elem(), GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayInput)(nil)).Elem(), GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomAllocationRuleStrategyAllocatedByFilterInput)(nil)).Elem(), GetCustomAllocationRuleStrategyAllocatedByFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomAllocationRuleStrategyAllocatedByFilterArrayInput)(nil)).Elem(), GetCustomAllocationRuleStrategyAllocatedByFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomAllocationRuleStrategyBasedOnCostInput)(nil)).Elem(), GetCustomAllocationRuleStrategyBasedOnCostArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomAllocationRuleStrategyBasedOnCostArrayInput)(nil)).Elem(), GetCustomAllocationRuleStrategyBasedOnCostArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomAllocationRuleStrategyBasedOnTimeseriesInput)(nil)).Elem(), GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrInput)(nil)).Elem(), GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomAllocationRuleStrategyEvaluateGroupedByFilterInput)(nil)).Elem(), GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayInput)(nil)).Elem(), GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHostsHostListInput)(nil)).Elem(), GetHostsHostListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHostsHostListArrayInput)(nil)).Elem(), GetHostsHostListArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHostsHostListMetaInput)(nil)).Elem(), GetHostsHostListMetaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHostsHostListMetricsInput)(nil)).Elem(), GetHostsHostListMetricsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentNotificationRuleConditionInput)(nil)).Elem(), GetIncidentNotificationRuleConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentNotificationRuleConditionArrayInput)(nil)).Elem(), GetIncidentNotificationRuleConditionArray{})
@@ -11364,6 +12349,21 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamArrayInput)(nil)).Elem(), GetTeamsTeamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
+	pulumi.RegisterOutputType(GetCustomAllocationRuleStrategyAllocatedByOutput{})
+	pulumi.RegisterOutputType(GetCustomAllocationRuleStrategyAllocatedByArrayOutput{})
+	pulumi.RegisterOutputType(GetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutput{})
+	pulumi.RegisterOutputType(GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArrayOutput{})
+	pulumi.RegisterOutputType(GetCustomAllocationRuleStrategyAllocatedByFilterOutput{})
+	pulumi.RegisterOutputType(GetCustomAllocationRuleStrategyAllocatedByFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetCustomAllocationRuleStrategyBasedOnCostOutput{})
+	pulumi.RegisterOutputType(GetCustomAllocationRuleStrategyBasedOnCostArrayOutput{})
+	pulumi.RegisterOutputType(GetCustomAllocationRuleStrategyBasedOnTimeseriesOutput{})
+	pulumi.RegisterOutputType(GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput{})
+	pulumi.RegisterOutputType(GetCustomAllocationRuleStrategyEvaluateGroupedByFilterOutput{})
+	pulumi.RegisterOutputType(GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetHostsHostListOutput{})
+	pulumi.RegisterOutputType(GetHostsHostListArrayOutput{})
+	pulumi.RegisterOutputType(GetHostsHostListMetaOutput{})
 	pulumi.RegisterOutputType(GetHostsHostListMetricsOutput{})
 	pulumi.RegisterOutputType(GetIncidentNotificationRuleConditionOutput{})
 	pulumi.RegisterOutputType(GetIncidentNotificationRuleConditionArrayOutput{})

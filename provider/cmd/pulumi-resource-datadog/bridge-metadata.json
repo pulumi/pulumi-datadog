@@ -255,6 +255,22 @@
                 "current": "datadog:index/costBudget:CostBudget",
                 "majorVersion": 4,
                 "fields": {
+                    "budget_line": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "child_tag_filters": {
+                                    "maxItemsOne": false
+                                },
+                                "parent_tag_filters": {
+                                    "maxItemsOne": false
+                                },
+                                "tag_filters": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "entries": {
                         "maxItemsOne": false,
                         "elem": {
@@ -18877,6 +18893,22 @@
                 "current": "datadog:index/getCostBudget:getCostBudget",
                 "majorVersion": 4,
                 "fields": {
+                    "budget_line": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "child_tag_filters": {
+                                    "maxItemsOne": false
+                                },
+                                "parent_tag_filters": {
+                                    "maxItemsOne": false
+                                },
+                                "tag_filters": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "entries": {
                         "maxItemsOne": false,
                         "elem": {

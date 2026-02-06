@@ -33,12 +33,25 @@ namespace Pulumi.Datadog
 
     public sealed class GetCostBudgetArgs : global::Pulumi.InvokeArgs
     {
+        [Input("budgetLines")]
+        private List<Inputs.GetCostBudgetBudgetLineArgs>? _budgetLines;
+
+        /// <summary>
+        /// Budget entries grouped by tag combination with amounts map (month &gt; amount).
+        /// </summary>
+        public List<Inputs.GetCostBudgetBudgetLineArgs> BudgetLines
+        {
+            get => _budgetLines ?? (_budgetLines = new List<Inputs.GetCostBudgetBudgetLineArgs>());
+            set => _budgetLines = value;
+        }
+
         [Input("entries")]
         private List<Inputs.GetCostBudgetEntryArgs>? _entries;
 
         /// <summary>
-        /// The entries of the budget.
+        /// The flat list of budget entries (deprecated - use BudgetLine instead).
         /// </summary>
+        [Obsolete(@"Use BudgetLine instead. The entries block will be removed in a future version.")]
         public List<Inputs.GetCostBudgetEntryArgs> Entries
         {
             get => _entries ?? (_entries = new List<Inputs.GetCostBudgetEntryArgs>());
@@ -59,12 +72,25 @@ namespace Pulumi.Datadog
 
     public sealed class GetCostBudgetInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("budgetLines")]
+        private InputList<Inputs.GetCostBudgetBudgetLineInputArgs>? _budgetLines;
+
+        /// <summary>
+        /// Budget entries grouped by tag combination with amounts map (month &gt; amount).
+        /// </summary>
+        public InputList<Inputs.GetCostBudgetBudgetLineInputArgs> BudgetLines
+        {
+            get => _budgetLines ?? (_budgetLines = new InputList<Inputs.GetCostBudgetBudgetLineInputArgs>());
+            set => _budgetLines = value;
+        }
+
         [Input("entries")]
         private InputList<Inputs.GetCostBudgetEntryInputArgs>? _entries;
 
         /// <summary>
-        /// The entries of the budget.
+        /// The flat list of budget entries (deprecated - use BudgetLine instead).
         /// </summary>
+        [Obsolete(@"Use BudgetLine instead. The entries block will be removed in a future version.")]
         public InputList<Inputs.GetCostBudgetEntryInputArgs> Entries
         {
             get => _entries ?? (_entries = new InputList<Inputs.GetCostBudgetEntryInputArgs>());
@@ -88,11 +114,15 @@ namespace Pulumi.Datadog
     public sealed class GetCostBudgetResult
     {
         /// <summary>
+        /// Budget entries grouped by tag combination with amounts map (month &gt; amount).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetCostBudgetBudgetLineResult> BudgetLines;
+        /// <summary>
         /// The month when the budget ends (YYYYMM).
         /// </summary>
         public readonly int EndMonth;
         /// <summary>
-        /// The entries of the budget.
+        /// The flat list of budget entries (deprecated - use BudgetLine instead).
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCostBudgetEntryResult> Entries;
         /// <summary>
@@ -118,6 +148,8 @@ namespace Pulumi.Datadog
 
         [OutputConstructor]
         private GetCostBudgetResult(
+            ImmutableArray<Outputs.GetCostBudgetBudgetLineResult> budgetLines,
+
             int endMonth,
 
             ImmutableArray<Outputs.GetCostBudgetEntryResult> entries,
@@ -132,6 +164,7 @@ namespace Pulumi.Datadog
 
             double totalAmount)
         {
+            BudgetLines = budgetLines;
             EndMonth = endMonth;
             Entries = entries;
             Id = id;

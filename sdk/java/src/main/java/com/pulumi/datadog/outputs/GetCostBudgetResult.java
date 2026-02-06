@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetCostBudgetBudgetLine;
 import com.pulumi.datadog.outputs.GetCostBudgetEntry;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
@@ -16,14 +17,23 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetCostBudgetResult {
     /**
+     * @return Budget entries grouped by tag combination with amounts map (month &gt; amount).
+     * 
+     */
+    private @Nullable List<GetCostBudgetBudgetLine> budgetLines;
+    /**
      * @return The month when the budget ends (YYYYMM).
      * 
      */
     private Integer endMonth;
     /**
-     * @return The entries of the budget.
+     * @return The flat list of budget entries (deprecated - use budgetLine instead).
+     * 
+     * @deprecated
+     * Use budgetLine instead. The entries block will be removed in a future version.
      * 
      */
+    @Deprecated /* Use budgetLine instead. The entries block will be removed in a future version. */
     private @Nullable List<GetCostBudgetEntry> entries;
     /**
      * @return The ID of the budget.
@@ -53,6 +63,13 @@ public final class GetCostBudgetResult {
 
     private GetCostBudgetResult() {}
     /**
+     * @return Budget entries grouped by tag combination with amounts map (month &gt; amount).
+     * 
+     */
+    public List<GetCostBudgetBudgetLine> budgetLines() {
+        return this.budgetLines == null ? List.of() : this.budgetLines;
+    }
+    /**
      * @return The month when the budget ends (YYYYMM).
      * 
      */
@@ -60,9 +77,13 @@ public final class GetCostBudgetResult {
         return this.endMonth;
     }
     /**
-     * @return The entries of the budget.
+     * @return The flat list of budget entries (deprecated - use budgetLine instead).
+     * 
+     * @deprecated
+     * Use budgetLine instead. The entries block will be removed in a future version.
      * 
      */
+    @Deprecated /* Use budgetLine instead. The entries block will be removed in a future version. */
     public List<GetCostBudgetEntry> entries() {
         return this.entries == null ? List.of() : this.entries;
     }
@@ -111,6 +132,7 @@ public final class GetCostBudgetResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<GetCostBudgetBudgetLine> budgetLines;
         private Integer endMonth;
         private @Nullable List<GetCostBudgetEntry> entries;
         private String id;
@@ -121,6 +143,7 @@ public final class GetCostBudgetResult {
         public Builder() {}
         public Builder(GetCostBudgetResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.budgetLines = defaults.budgetLines;
     	      this.endMonth = defaults.endMonth;
     	      this.entries = defaults.entries;
     	      this.id = defaults.id;
@@ -130,6 +153,15 @@ public final class GetCostBudgetResult {
     	      this.totalAmount = defaults.totalAmount;
         }
 
+        @CustomType.Setter
+        public Builder budgetLines(@Nullable List<GetCostBudgetBudgetLine> budgetLines) {
+
+            this.budgetLines = budgetLines;
+            return this;
+        }
+        public Builder budgetLines(GetCostBudgetBudgetLine... budgetLines) {
+            return budgetLines(List.of(budgetLines));
+        }
         @CustomType.Setter
         public Builder endMonth(Integer endMonth) {
             if (endMonth == null) {
@@ -189,6 +221,7 @@ public final class GetCostBudgetResult {
         }
         public GetCostBudgetResult build() {
             final var _resultValue = new GetCostBudgetResult();
+            _resultValue.budgetLines = budgetLines;
             _resultValue.endMonth = endMonth;
             _resultValue.entries = entries;
             _resultValue.id = id;

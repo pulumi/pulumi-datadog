@@ -119,60 +119,45 @@ class ObservabilityPipeline(pulumi.CustomResource):
         test = datadog.ObservabilityPipeline("test",
             name="test pipeline",
             config={
+                "destinations": [{
+                    "datadog_logs": [{}],
+                    "id": "destination-1",
+                    "inputs": ["processor-group-1"],
+                }],
                 "sources": [{
-                    "kafka": [{
-                        "id": "source-1",
-                        "groupId": "my-consumer-group",
-                        "topics": [
-                            "my-topic-1",
-                            "my-topic-2",
-                        ],
-                        "tls": [{
-                            "crtFile": "/etc/certs/client.crt",
-                            "keyFile": "/etc/certs/client.key",
-                            "caFile": "/etc/certs/ca.crt",
-                        }],
-                        "sasl": [{
-                            "mechanism": "SCRAM-SHA-512",
-                        }],
-                        "librdkafkaOption": [
-                            {
-                                "name": "fetch.message.max.bytes",
-                                "value": "1048576",
-                            },
-                            {
-                                "name": "socket.timeout.ms",
-                                "value": "500",
-                            },
-                        ],
+                    "id": "source-1",
+                    "datadog_agents": [{
+                        "tls": {
+                            "crt_file": "/etc/certs/client.crt",
+                            "key_file": "/etc/certs/client.key",
+                            "ca_file": "/etc/certs/ca.crt",
+                        },
                     }],
                 }],
-                "processors": [{
-                    "parseJson": [
+                "processor_groups": [{
+                    "id": "processor-group-1",
+                    "enabled": True,
+                    "include": "service:my-service",
+                    "inputs": ["source-1"],
+                    "display_name": "processor group",
+                    "processors": [
+                        {
+                            "id": "parser-1",
+                            "enabled": True,
+                            "include": "service:my-service",
+                            "display_name": "json parser",
+                            "parse_json": {
+                                "field": "message",
+                            },
+                        },
                         {
                             "id": "filter-1",
-                            "include": "service:nginx",
-                            "field": "message2",
-                            "inputs": ["source-1"],
-                        },
-                        {
-                            "id": "filter-3",
-                            "include": "service:nginx",
-                            "field": "message",
-                            "inputs": ["filter-2"],
+                            "enabled": True,
+                            "include": "service:my-service",
+                            "display_name": "filter",
+                            "filter": {},
                         },
                     ],
-                    "filter": [{
-                        "id": "filter-2",
-                        "include": "service:nginx",
-                        "inputs": ["filter-1"],
-                    }],
-                }],
-                "destinations": [{
-                    "datadog_logs": [{
-                        "id": "sink-1",
-                        "inputs": ["filter-3"],
-                    }],
                 }],
             })
         ```
@@ -210,60 +195,45 @@ class ObservabilityPipeline(pulumi.CustomResource):
         test = datadog.ObservabilityPipeline("test",
             name="test pipeline",
             config={
+                "destinations": [{
+                    "datadog_logs": [{}],
+                    "id": "destination-1",
+                    "inputs": ["processor-group-1"],
+                }],
                 "sources": [{
-                    "kafka": [{
-                        "id": "source-1",
-                        "groupId": "my-consumer-group",
-                        "topics": [
-                            "my-topic-1",
-                            "my-topic-2",
-                        ],
-                        "tls": [{
-                            "crtFile": "/etc/certs/client.crt",
-                            "keyFile": "/etc/certs/client.key",
-                            "caFile": "/etc/certs/ca.crt",
-                        }],
-                        "sasl": [{
-                            "mechanism": "SCRAM-SHA-512",
-                        }],
-                        "librdkafkaOption": [
-                            {
-                                "name": "fetch.message.max.bytes",
-                                "value": "1048576",
-                            },
-                            {
-                                "name": "socket.timeout.ms",
-                                "value": "500",
-                            },
-                        ],
+                    "id": "source-1",
+                    "datadog_agents": [{
+                        "tls": {
+                            "crt_file": "/etc/certs/client.crt",
+                            "key_file": "/etc/certs/client.key",
+                            "ca_file": "/etc/certs/ca.crt",
+                        },
                     }],
                 }],
-                "processors": [{
-                    "parseJson": [
+                "processor_groups": [{
+                    "id": "processor-group-1",
+                    "enabled": True,
+                    "include": "service:my-service",
+                    "inputs": ["source-1"],
+                    "display_name": "processor group",
+                    "processors": [
+                        {
+                            "id": "parser-1",
+                            "enabled": True,
+                            "include": "service:my-service",
+                            "display_name": "json parser",
+                            "parse_json": {
+                                "field": "message",
+                            },
+                        },
                         {
                             "id": "filter-1",
-                            "include": "service:nginx",
-                            "field": "message2",
-                            "inputs": ["source-1"],
-                        },
-                        {
-                            "id": "filter-3",
-                            "include": "service:nginx",
-                            "field": "message",
-                            "inputs": ["filter-2"],
+                            "enabled": True,
+                            "include": "service:my-service",
+                            "display_name": "filter",
+                            "filter": {},
                         },
                     ],
-                    "filter": [{
-                        "id": "filter-2",
-                        "include": "service:nginx",
-                        "inputs": ["filter-1"],
-                    }],
-                }],
-                "destinations": [{
-                    "datadog_logs": [{
-                        "id": "sink-1",
-                        "inputs": ["filter-3"],
-                    }],
                 }],
             })
         ```

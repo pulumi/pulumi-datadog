@@ -29,108 +29,72 @@ namespace Pulumi.Datadog
     ///         Name = "test pipeline",
     ///         Config = new Datadog.Inputs.ObservabilityPipelineConfigArgs
     ///         {
-    ///             Sources = new[]
-    ///             {
-    ///                 new Datadog.Inputs.ObservabilityPipelineConfigSourceArgs
-    ///                 {
-    ///                     Kafka = new[]
-    ///                     {
-    ///                         
-    ///                         {
-    ///                             { "id", "source-1" },
-    ///                             { "groupId", "my-consumer-group" },
-    ///                             { "topics", new[]
-    ///                             {
-    ///                                 "my-topic-1",
-    ///                                 "my-topic-2",
-    ///                             } },
-    ///                             { "tls", new[]
-    ///                             {
-    ///                                 
-    ///                                 {
-    ///                                     { "crtFile", "/etc/certs/client.crt" },
-    ///                                     { "keyFile", "/etc/certs/client.key" },
-    ///                                     { "caFile", "/etc/certs/ca.crt" },
-    ///                                 },
-    ///                             } },
-    ///                             { "sasl", new[]
-    ///                             {
-    ///                                 
-    ///                                 {
-    ///                                     { "mechanism", "SCRAM-SHA-512" },
-    ///                                 },
-    ///                             } },
-    ///                             { "librdkafkaOption", new[]
-    ///                             {
-    ///                                 
-    ///                                 {
-    ///                                     { "name", "fetch.message.max.bytes" },
-    ///                                     { "value", "1048576" },
-    ///                                 },
-    ///                                 
-    ///                                 {
-    ///                                     { "name", "socket.timeout.ms" },
-    ///                                     { "value", "500" },
-    ///                                 },
-    ///                             } },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Processors = new[]
-    ///             {
-    ///                 
-    ///                 {
-    ///                     { "parseJson", new[]
-    ///                     {
-    ///                         
-    ///                         {
-    ///                             { "id", "filter-1" },
-    ///                             { "include", "service:nginx" },
-    ///                             { "field", "message2" },
-    ///                             { "inputs", new[]
-    ///                             {
-    ///                                 "source-1",
-    ///                             } },
-    ///                         },
-    ///                         
-    ///                         {
-    ///                             { "id", "filter-3" },
-    ///                             { "include", "service:nginx" },
-    ///                             { "field", "message" },
-    ///                             { "inputs", new[]
-    ///                             {
-    ///                                 "filter-2",
-    ///                             } },
-    ///                         },
-    ///                     } },
-    ///                     { "filter", new[]
-    ///                     {
-    ///                         
-    ///                         {
-    ///                             { "id", "filter-2" },
-    ///                             { "include", "service:nginx" },
-    ///                             { "inputs", new[]
-    ///                             {
-    ///                                 "filter-1",
-    ///                             } },
-    ///                         },
-    ///                     } },
-    ///                 },
-    ///             },
     ///             Destinations = new[]
     ///             {
     ///                 new Datadog.Inputs.ObservabilityPipelineConfigDestinationArgs
     ///                 {
     ///                     DatadogLogs = new[]
     ///                     {
-    ///                         new Datadog.Inputs.ObservabilityPipelineConfigDestinationDatadogLogArgs
+    ///                         null,
+    ///                     },
+    ///                     Id = "destination-1",
+    ///                     Inputs = new[]
+    ///                     {
+    ///                         "processor-group-1",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Sources = new[]
+    ///             {
+    ///                 new Datadog.Inputs.ObservabilityPipelineConfigSourceArgs
+    ///                 {
+    ///                     Id = "source-1",
+    ///                     DatadogAgents = new[]
+    ///                     {
+    ///                         new Datadog.Inputs.ObservabilityPipelineConfigSourceDatadogAgentArgs
     ///                         {
-    ///                             Id = "sink-1",
-    ///                             Inputs = new[]
+    ///                             Tls = new Datadog.Inputs.ObservabilityPipelineConfigSourceDatadogAgentTlsArgs
     ///                             {
-    ///                                 "filter-3",
+    ///                                 CrtFile = "/etc/certs/client.crt",
+    ///                                 KeyFile = "/etc/certs/client.key",
+    ///                                 CaFile = "/etc/certs/ca.crt",
     ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ProcessorGroups = new[]
+    ///             {
+    ///                 new Datadog.Inputs.ObservabilityPipelineConfigProcessorGroupArgs
+    ///                 {
+    ///                     Id = "processor-group-1",
+    ///                     Enabled = true,
+    ///                     Include = "service:my-service",
+    ///                     Inputs = new[]
+    ///                     {
+    ///                         "source-1",
+    ///                     },
+    ///                     DisplayName = "processor group",
+    ///                     Processors = new[]
+    ///                     {
+    ///                         new Datadog.Inputs.ObservabilityPipelineConfigProcessorGroupProcessorArgs
+    ///                         {
+    ///                             Id = "parser-1",
+    ///                             Enabled = true,
+    ///                             Include = "service:my-service",
+    ///                             DisplayName = "json parser",
+    ///                             ParseJson = new Datadog.Inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseJsonArgs
+    ///                             {
+    ///                                 Field = "message",
+    ///                             },
+    ///                         },
+    ///                         new Datadog.Inputs.ObservabilityPipelineConfigProcessorGroupProcessorArgs
+    ///                         {
+    ///                             Id = "filter-1",
+    ///                             Enabled = true,
+    ///                             Include = "service:my-service",
+    ///                             DisplayName = "filter",
+    ///                             Filter = null,
     ///                         },
     ///                     },
     ///                 },

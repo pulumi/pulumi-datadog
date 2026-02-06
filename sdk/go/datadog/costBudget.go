@@ -28,41 +28,143 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Simple budget without tag filters
-//			// Note: Must provide entries for all months in the budget period
-//			_, err := datadog.NewCostBudget(ctx, "simple", &datadog.CostBudgetArgs{
-//				Name:         pulumi.String("My AWS Cost Budget"),
-//				MetricsQuery: pulumi.String("sum:aws.cost.amortized{*}"),
-//				StartMonth:   pulumi.Int(202501),
-//				EndMonth:     pulumi.Int(202503),
-//				Entries: datadog.CostBudgetEntryArray{
-//					&datadog.CostBudgetEntryArgs{
-//						Month:  pulumi.Int(202501),
-//						Amount: pulumi.Float64(1000),
+//			// Budget with multiple tag combinations
+//			// Note: Each unique tag combination needs its own budget_line block
+//			_, err := datadog.NewCostBudget(ctx, "with_tags", &datadog.CostBudgetArgs{
+//				Name:         pulumi.String("Multi-Environment Budget"),
+//				MetricsQuery: pulumi.String("sum:aws.cost.amortized{*} by {environment}"),
+//				StartMonth:   pulumi.Int(202601),
+//				EndMonth:     pulumi.Int(202603),
+//				BudgetLines: datadog.CostBudgetBudgetLineArray{
+//					&datadog.CostBudgetBudgetLineArgs{
+//						Amounts: pulumi.Float64Map{
+//							"202601": pulumi.Float64(2000),
+//							"202602": pulumi.Float64(2200),
+//							"202603": pulumi.Float64(2000),
+//						},
+//						TagFilters: datadog.CostBudgetBudgetLineTagFilterArray{
+//							&datadog.CostBudgetBudgetLineTagFilterArgs{
+//								TagKey:   pulumi.String("environment"),
+//								TagValue: pulumi.String("production"),
+//							},
+//						},
 //					},
-//					&datadog.CostBudgetEntryArgs{
-//						Month:  pulumi.Int(202502),
-//						Amount: pulumi.Float64(1200),
-//					},
-//					&datadog.CostBudgetEntryArgs{
-//						Month:  pulumi.Int(202503),
-//						Amount: pulumi.Float64(1000),
+//					&datadog.CostBudgetBudgetLineArgs{
+//						Amounts: pulumi.Float64Map{
+//							"202601": pulumi.Float64(1000),
+//							"202602": pulumi.Float64(1100),
+//							"202603": pulumi.Float64(1000),
+//						},
+//						TagFilters: datadog.CostBudgetBudgetLineTagFilterArray{
+//							&datadog.CostBudgetBudgetLineTagFilterArgs{
+//								TagKey:   pulumi.String("environment"),
+//								TagValue: pulumi.String("staging"),
+//							},
+//						},
 //					},
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			// Budget with tag filters
-//			// Note: Must provide entries for all months in the budget period
-//			_, err = datadog.NewCostBudget(ctx, "with_tag_filters", &datadog.CostBudgetArgs{
-//				Name:         pulumi.String("Production AWS Budget"),
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Hierarchical budget with parent/child tag structure
+//			// Note: Order in "by {tag1,tag2}" determines hierarchy (parent,child)
+//			// Each unique parent+child combination needs its own budget_line block
+//			_, err := datadog.NewCostBudget(ctx, "hierarchical", &datadog.CostBudgetArgs{
+//				Name:         pulumi.String("Team-Based AWS Budget"),
+//				MetricsQuery: pulumi.String("sum:aws.cost.amortized{*} by {team,environment}"),
+//				StartMonth:   pulumi.Int(202601),
+//				EndMonth:     pulumi.Int(202603),
+//				BudgetLines: datadog.CostBudgetBudgetLineArray{
+//					&datadog.CostBudgetBudgetLineArgs{
+//						Amounts: pulumi.Float64Map{
+//							"202601": pulumi.Float64(1500),
+//							"202602": pulumi.Float64(1600),
+//							"202603": pulumi.Float64(1500),
+//						},
+//						ParentTagFilters: datadog.CostBudgetBudgetLineParentTagFilterArray{
+//							&datadog.CostBudgetBudgetLineParentTagFilterArgs{
+//								TagKey:   pulumi.String("team"),
+//								TagValue: pulumi.String("backend"),
+//							},
+//						},
+//						ChildTagFilters: datadog.CostBudgetBudgetLineChildTagFilterArray{
+//							&datadog.CostBudgetBudgetLineChildTagFilterArgs{
+//								TagKey:   pulumi.String("environment"),
+//								TagValue: pulumi.String("production"),
+//							},
+//						},
+//					},
+//					&datadog.CostBudgetBudgetLineArgs{
+//						Amounts: pulumi.Float64Map{
+//							"202601": pulumi.Float64(500),
+//							"202602": pulumi.Float64(550),
+//							"202603": pulumi.Float64(500),
+//						},
+//						ParentTagFilters: datadog.CostBudgetBudgetLineParentTagFilterArray{
+//							&datadog.CostBudgetBudgetLineParentTagFilterArgs{
+//								TagKey:   pulumi.String("team"),
+//								TagValue: pulumi.String("frontend"),
+//							},
+//						},
+//						ChildTagFilters: datadog.CostBudgetBudgetLineChildTagFilterArray{
+//							&datadog.CostBudgetBudgetLineChildTagFilterArgs{
+//								TagKey:   pulumi.String("environment"),
+//								TagValue: pulumi.String("staging"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Legacy entries with tag filters (deprecated - use budget_line instead)
+//			// Note: Each unique tag combination must have entries for all months
+//			_, err := datadog.NewCostBudget(ctx, "legacy_with_tags", &datadog.CostBudgetArgs{
+//				Name:         pulumi.String("Production Budget (Legacy)"),
 //				MetricsQuery: pulumi.String("sum:aws.cost.amortized{*} by {environment}"),
-//				StartMonth:   pulumi.Int(202501),
-//				EndMonth:     pulumi.Int(202503),
+//				StartMonth:   pulumi.Int(202601),
+//				EndMonth:     pulumi.Int(202603),
 //				Entries: datadog.CostBudgetEntryArray{
 //					&datadog.CostBudgetEntryArgs{
-//						Month:  pulumi.Int(202501),
+//						Month:  pulumi.Int(202601),
 //						Amount: pulumi.Float64(2000),
 //						TagFilters: datadog.CostBudgetEntryTagFilterArray{
 //							&datadog.CostBudgetEntryTagFilterArgs{
@@ -72,7 +174,7 @@ import (
 //						},
 //					},
 //					&datadog.CostBudgetEntryArgs{
-//						Month:  pulumi.Int(202502),
+//						Month:  pulumi.Int(202602),
 //						Amount: pulumi.Float64(2200),
 //						TagFilters: datadog.CostBudgetEntryTagFilterArray{
 //							&datadog.CostBudgetEntryTagFilterArgs{
@@ -82,81 +184,11 @@ import (
 //						},
 //					},
 //					&datadog.CostBudgetEntryArgs{
-//						Month:  pulumi.Int(202503),
+//						Month:  pulumi.Int(202603),
 //						Amount: pulumi.Float64(2000),
 //						TagFilters: datadog.CostBudgetEntryTagFilterArray{
 //							&datadog.CostBudgetEntryTagFilterArgs{
 //								TagKey:   pulumi.String("environment"),
-//								TagValue: pulumi.String("production"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// Hierarchical budget with multiple tag combinations
-//			// Note: Order of tags in "by {tag1,tag2}" determines UI hierarchy (parent,child)
-//			// Each unique tag combination must have entries for all months in the budget period
-//			_, err = datadog.NewCostBudget(ctx, "hierarchical", &datadog.CostBudgetArgs{
-//				Name:         pulumi.String("Team-Based AWS Budget"),
-//				MetricsQuery: pulumi.String("sum:aws.cost.amortized{*} by {team,account}"),
-//				StartMonth:   pulumi.Int(202501),
-//				EndMonth:     pulumi.Int(202503),
-//				Entries: datadog.CostBudgetEntryArray{
-//					&datadog.CostBudgetEntryArgs{
-//						Month:  pulumi.Int(202501),
-//						Amount: pulumi.Float64(500),
-//						TagFilters: datadog.CostBudgetEntryTagFilterArray{
-//							&datadog.CostBudgetEntryTagFilterArgs{
-//								TagKey:   pulumi.String("team"),
-//								TagValue: pulumi.String("backend"),
-//							},
-//							&datadog.CostBudgetEntryTagFilterArgs{
-//								TagKey:   pulumi.String("account"),
-//								TagValue: pulumi.String("staging"),
-//							},
-//						},
-//					},
-//					&datadog.CostBudgetEntryArgs{
-//						Month:  pulumi.Int(202502),
-//						Amount: pulumi.Float64(500),
-//						TagFilters: datadog.CostBudgetEntryTagFilterArray{
-//							&datadog.CostBudgetEntryTagFilterArgs{
-//								TagKey:   pulumi.String("team"),
-//								TagValue: pulumi.String("backend"),
-//							},
-//							&datadog.CostBudgetEntryTagFilterArgs{
-//								TagKey:   pulumi.String("account"),
-//								TagValue: pulumi.String("staging"),
-//							},
-//						},
-//					},
-//					&datadog.CostBudgetEntryArgs{
-//						Month:  pulumi.Int(202503),
-//						Amount: pulumi.Float64(500),
-//						TagFilters: datadog.CostBudgetEntryTagFilterArray{
-//							&datadog.CostBudgetEntryTagFilterArgs{
-//								TagKey:   pulumi.String("team"),
-//								TagValue: pulumi.String("backend"),
-//							},
-//							&datadog.CostBudgetEntryTagFilterArgs{
-//								TagKey:   pulumi.String("account"),
-//								TagValue: pulumi.String("staging"),
-//							},
-//						},
-//					},
-//					&datadog.CostBudgetEntryArgs{
-//						Month:  pulumi.Int(202501),
-//						Amount: pulumi.Float64(1500),
-//						TagFilters: datadog.CostBudgetEntryTagFilterArray{
-//							&datadog.CostBudgetEntryTagFilterArgs{
-//								TagKey:   pulumi.String("team"),
-//								TagValue: pulumi.String("backend"),
-//							},
-//							&datadog.CostBudgetEntryTagFilterArgs{
-//								TagKey:   pulumi.String("account"),
 //								TagValue: pulumi.String("production"),
 //							},
 //						},
@@ -186,9 +218,13 @@ type CostBudget struct {
 
 	// The ID of the budget.
 	BudgetId pulumi.StringOutput `pulumi:"budgetId"`
+	// Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
+	BudgetLines CostBudgetBudgetLineArrayOutput `pulumi:"budgetLines"`
 	// The month when the budget ends (YYYYMM).
 	EndMonth pulumi.IntOutput `pulumi:"endMonth"`
 	// The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
+	//
+	// Deprecated: Use budgetLine instead. This field will be removed in a future version.
 	Entries CostBudgetEntryArrayOutput `pulumi:"entries"`
 	// The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
 	MetricsQuery pulumi.StringOutput `pulumi:"metricsQuery"`
@@ -244,9 +280,13 @@ func GetCostBudget(ctx *pulumi.Context,
 type costBudgetState struct {
 	// The ID of the budget.
 	BudgetId *string `pulumi:"budgetId"`
+	// Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
+	BudgetLines []CostBudgetBudgetLine `pulumi:"budgetLines"`
 	// The month when the budget ends (YYYYMM).
 	EndMonth *int `pulumi:"endMonth"`
 	// The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
+	//
+	// Deprecated: Use budgetLine instead. This field will be removed in a future version.
 	Entries []CostBudgetEntry `pulumi:"entries"`
 	// The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
 	MetricsQuery *string `pulumi:"metricsQuery"`
@@ -261,9 +301,13 @@ type costBudgetState struct {
 type CostBudgetState struct {
 	// The ID of the budget.
 	BudgetId pulumi.StringPtrInput
+	// Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
+	BudgetLines CostBudgetBudgetLineArrayInput
 	// The month when the budget ends (YYYYMM).
 	EndMonth pulumi.IntPtrInput
 	// The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
+	//
+	// Deprecated: Use budgetLine instead. This field will be removed in a future version.
 	Entries CostBudgetEntryArrayInput
 	// The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
 	MetricsQuery pulumi.StringPtrInput
@@ -282,9 +326,13 @@ func (CostBudgetState) ElementType() reflect.Type {
 type costBudgetArgs struct {
 	// The ID of the budget.
 	BudgetId *string `pulumi:"budgetId"`
+	// Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
+	BudgetLines []CostBudgetBudgetLine `pulumi:"budgetLines"`
 	// The month when the budget ends (YYYYMM).
 	EndMonth int `pulumi:"endMonth"`
 	// The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
+	//
+	// Deprecated: Use budgetLine instead. This field will be removed in a future version.
 	Entries []CostBudgetEntry `pulumi:"entries"`
 	// The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
 	MetricsQuery string `pulumi:"metricsQuery"`
@@ -298,9 +346,13 @@ type costBudgetArgs struct {
 type CostBudgetArgs struct {
 	// The ID of the budget.
 	BudgetId pulumi.StringPtrInput
+	// Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
+	BudgetLines CostBudgetBudgetLineArrayInput
 	// The month when the budget ends (YYYYMM).
 	EndMonth pulumi.IntInput
 	// The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
+	//
+	// Deprecated: Use budgetLine instead. This field will be removed in a future version.
 	Entries CostBudgetEntryArrayInput
 	// The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
 	MetricsQuery pulumi.StringInput
@@ -402,12 +454,19 @@ func (o CostBudgetOutput) BudgetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CostBudget) pulumi.StringOutput { return v.BudgetId }).(pulumi.StringOutput)
 }
 
+// Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
+func (o CostBudgetOutput) BudgetLines() CostBudgetBudgetLineArrayOutput {
+	return o.ApplyT(func(v *CostBudget) CostBudgetBudgetLineArrayOutput { return v.BudgetLines }).(CostBudgetBudgetLineArrayOutput)
+}
+
 // The month when the budget ends (YYYYMM).
 func (o CostBudgetOutput) EndMonth() pulumi.IntOutput {
 	return o.ApplyT(func(v *CostBudget) pulumi.IntOutput { return v.EndMonth }).(pulumi.IntOutput)
 }
 
 // The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
+//
+// Deprecated: Use budgetLine instead. This field will be removed in a future version.
 func (o CostBudgetOutput) Entries() CostBudgetEntryArrayOutput {
 	return o.ApplyT(func(v *CostBudget) CostBudgetEntryArrayOutput { return v.Entries }).(CostBudgetEntryArrayOutput)
 }

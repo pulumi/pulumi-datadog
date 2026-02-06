@@ -25,6 +25,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? LineWidth { get; set; }
 
         /// <summary>
+        /// How to order series in timeseries visualizations. Valid values are `Tags`, `Values`.
+        /// </summary>
+        [Input("orderBy")]
+        public Input<string>? OrderBy { get; set; }
+
+        /// <summary>
         /// A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
         /// </summary>
         [Input("palette")]

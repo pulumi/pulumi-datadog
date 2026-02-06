@@ -494,6 +494,49 @@ export interface ComplianceCustomFrameworkRequirementControl {
     rulesIds: string[];
 }
 
+export interface CostBudgetBudgetLine {
+    /**
+     * Map of month (YYYYMM) to budget amount. Example: {"202601": 1000.0, "202602": 1200.0}
+     */
+    amounts: {[key: string]: number};
+    /**
+     * Child tag filters for hierarchical budgets. **Note:** Must be used with parent*tag*filters. Cannot be used with tag*filters.
+     */
+    childTagFilters?: outputs.CostBudgetBudgetLineChildTagFilter[];
+    /**
+     * Parent tag filters for hierarchical budgets. **Note:** Must be used with child*tag*filters. Cannot be used with tag*filters.
+     */
+    parentTagFilters?: outputs.CostBudgetBudgetLineParentTagFilter[];
+    /**
+     * Tag filters for non-hierarchical budgets. **Note:** Cannot be used with parent*tag*filters/child*tag*filters.
+     */
+    tagFilters?: outputs.CostBudgetBudgetLineTagFilter[];
+}
+
+export interface CostBudgetBudgetLineChildTagFilter {
+    /**
+     * Must be one of the tags from the `metricsQuery`.
+     */
+    tagKey: string;
+    tagValue: string;
+}
+
+export interface CostBudgetBudgetLineParentTagFilter {
+    /**
+     * Must be one of the tags from the `metricsQuery`.
+     */
+    tagKey: string;
+    tagValue: string;
+}
+
+export interface CostBudgetBudgetLineTagFilter {
+    /**
+     * Must be one of the tags from the `metricsQuery`.
+     */
+    tagKey: string;
+    tagValue: string;
+}
+
 export interface CostBudgetEntry {
     amount: number;
     month: number;
@@ -8215,6 +8258,10 @@ export interface DashboardWidgetTimeseriesDefinitionRequestStyle {
      */
     lineWidth?: string;
     /**
+     * How to order series in timeseries visualizations. Valid values are `tags`, `values`.
+     */
+    orderBy?: string;
+    /**
      * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
      */
     palette?: string;
@@ -9970,6 +10017,40 @@ export interface GetCloudWorkloadSecurityAgentRulesAgentRule {
      * The name of the Agent rule.
      */
     name: string;
+}
+
+export interface GetCostBudgetBudgetLine {
+    /**
+     * Map of month (YYYYMM as string) to budget amount.
+     */
+    amounts: {[key: string]: number};
+    /**
+     * Child tag filters for hierarchical budgets (second tag in 'by' clause).
+     */
+    childTagFilters?: outputs.GetCostBudgetBudgetLineChildTagFilter[];
+    /**
+     * Parent tag filters for hierarchical budgets (first tag in 'by' clause).
+     */
+    parentTagFilters?: outputs.GetCostBudgetBudgetLineParentTagFilter[];
+    /**
+     * Tag filters for non-hierarchical budgets (single tag or no tags).
+     */
+    tagFilters?: outputs.GetCostBudgetBudgetLineTagFilter[];
+}
+
+export interface GetCostBudgetBudgetLineChildTagFilter {
+    tagKey: string;
+    tagValue: string;
+}
+
+export interface GetCostBudgetBudgetLineParentTagFilter {
+    tagKey: string;
+    tagValue: string;
+}
+
+export interface GetCostBudgetBudgetLineTagFilter {
+    tagKey: string;
+    tagValue: string;
 }
 
 export interface GetCostBudgetEntry {
@@ -26515,6 +26596,10 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestStyle {
      * The width of line displayed. Valid values are `normal`, `thick`, `thin`.
      */
     lineWidth?: string;
+    /**
+     * How to order series in timeseries visualizations. Valid values are `tags`, `values`.
+     */
+    orderBy?: string;
     /**
      * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
      */

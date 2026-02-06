@@ -22,6 +22,11 @@ public final class DashboardWidgetTimeseriesDefinitionRequestStyle {
      */
     private @Nullable String lineWidth;
     /**
+     * @return How to order series in timeseries visualizations. Valid values are `tags`, `values`.
+     * 
+     */
+    private @Nullable String orderBy;
+    /**
      * @return A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
      * 
      */
@@ -43,6 +48,13 @@ public final class DashboardWidgetTimeseriesDefinitionRequestStyle {
         return Optional.ofNullable(this.lineWidth);
     }
     /**
+     * @return How to order series in timeseries visualizations. Valid values are `tags`, `values`.
+     * 
+     */
+    public Optional<String> orderBy() {
+        return Optional.ofNullable(this.orderBy);
+    }
+    /**
      * @return A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
      * 
      */
@@ -61,12 +73,14 @@ public final class DashboardWidgetTimeseriesDefinitionRequestStyle {
     public static final class Builder {
         private @Nullable String lineType;
         private @Nullable String lineWidth;
+        private @Nullable String orderBy;
         private @Nullable String palette;
         public Builder() {}
         public Builder(DashboardWidgetTimeseriesDefinitionRequestStyle defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.lineType = defaults.lineType;
     	      this.lineWidth = defaults.lineWidth;
+    	      this.orderBy = defaults.orderBy;
     	      this.palette = defaults.palette;
         }
 
@@ -83,6 +97,12 @@ public final class DashboardWidgetTimeseriesDefinitionRequestStyle {
             return this;
         }
         @CustomType.Setter
+        public Builder orderBy(@Nullable String orderBy) {
+
+            this.orderBy = orderBy;
+            return this;
+        }
+        @CustomType.Setter
         public Builder palette(@Nullable String palette) {
 
             this.palette = palette;
@@ -92,6 +112,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestStyle {
             final var _resultValue = new DashboardWidgetTimeseriesDefinitionRequestStyle();
             _resultValue.lineType = lineType;
             _resultValue.lineWidth = lineWidth;
+            _resultValue.orderBy = orderBy;
             _resultValue.palette = palette;
             return _resultValue;
         }
