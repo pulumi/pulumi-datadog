@@ -17,9 +17,17 @@ public final class CustomAllocationRulesState extends com.pulumi.resources.Resou
 
     public static final CustomAllocationRulesState Empty = new CustomAllocationRulesState();
 
+    /**
+     * Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
+     * 
+     */
     @Import(name="overrideUiDefinedResources")
     private @Nullable Output<Boolean> overrideUiDefinedResources;
 
+    /**
+     * @return Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
+     * 
+     */
     public Optional<Output<Boolean>> overrideUiDefinedResources() {
         return Optional.ofNullable(this.overrideUiDefinedResources);
     }
@@ -64,11 +72,23 @@ public final class CustomAllocationRulesState extends com.pulumi.resources.Resou
             $ = new CustomAllocationRulesState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param overrideUiDefinedResources Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
+         * 
+         * @return builder
+         * 
+         */
         public Builder overrideUiDefinedResources(@Nullable Output<Boolean> overrideUiDefinedResources) {
             $.overrideUiDefinedResources = overrideUiDefinedResources;
             return this;
         }
 
+        /**
+         * @param overrideUiDefinedResources Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
+         * 
+         * @return builder
+         * 
+         */
         public Builder overrideUiDefinedResources(Boolean overrideUiDefinedResources) {
             return overrideUiDefinedResources(Output.of(overrideUiDefinedResources));
         }

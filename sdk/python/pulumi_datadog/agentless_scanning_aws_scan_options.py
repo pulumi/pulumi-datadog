@@ -221,7 +221,7 @@ class AgentlessScanningAwsScanOptions(pulumi.CustomResource):
 
         The `pulumi import` command can be used, for example:
 
-        #!/bin/sh
+        !/bin/sh
 
         Import existing agentless scanning AWS scan options by AWS account ID
 
@@ -265,7 +265,7 @@ class AgentlessScanningAwsScanOptions(pulumi.CustomResource):
 
         The `pulumi import` command can be used, for example:
 
-        #!/bin/sh
+        !/bin/sh
 
         Import existing agentless scanning AWS scan options by AWS account ID
 

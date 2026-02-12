@@ -58,6 +58,9 @@ namespace Pulumi.Datadog
     [DatadogResourceType("datadog:index/role:Role")]
     public partial class Role : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// If set to `True`, the role does not have default (restricted) permissions unless they are explicitly set. The `IncludeRestricted` attribute for the `datadog.getPermissions` data source must be set to `True` to manage default permissions in Terraform.
+        /// </summary>
         [Output("defaultPermissionsOptOut")]
         public Output<bool?> DefaultPermissionsOptOut { get; private set; } = null!;
 
@@ -131,6 +134,9 @@ namespace Pulumi.Datadog
 
     public sealed class RoleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If set to `True`, the role does not have default (restricted) permissions unless they are explicitly set. The `IncludeRestricted` attribute for the `datadog.getPermissions` data source must be set to `True` to manage default permissions in Terraform.
+        /// </summary>
         [Input("defaultPermissionsOptOut")]
         public Input<bool>? DefaultPermissionsOptOut { get; set; }
 
@@ -166,6 +172,9 @@ namespace Pulumi.Datadog
 
     public sealed class RoleState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If set to `True`, the role does not have default (restricted) permissions unless they are explicitly set. The `IncludeRestricted` attribute for the `datadog.getPermissions` data source must be set to `True` to manage default permissions in Terraform.
+        /// </summary>
         [Input("defaultPermissionsOptOut")]
         public Input<bool>? DefaultPermissionsOptOut { get; set; }
 

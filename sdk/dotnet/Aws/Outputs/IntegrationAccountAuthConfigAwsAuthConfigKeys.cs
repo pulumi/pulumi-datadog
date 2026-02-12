@@ -17,6 +17,9 @@ namespace Pulumi.Datadog.Aws.Outputs
         /// AWS Access Key ID
         /// </summary>
         public readonly string? AccessKeyId;
+        /// <summary>
+        /// AWS Secret Access Key. This value is write-only; changes made outside of Terraform will not be drift-detected.
+        /// </summary>
         public readonly string? SecretAccessKey;
 
         [OutputConstructor]

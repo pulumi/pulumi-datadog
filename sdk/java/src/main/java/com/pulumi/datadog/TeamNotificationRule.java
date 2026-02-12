@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  * 
  * The `pulumi import` command can be used, for example:
  * 
- * This resource is imported using team_id and rule_id separated by `:`.
+ * This resource is imported using teamId and ruleId separated by `:`.
  * 
  * ```sh
  * $ pulumi import datadog:index/teamNotificationRule:TeamNotificationRule foo &#34;${team_id}:${rule_id}&#34;

@@ -1479,6 +1479,8 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invokeAsync("datadog:index/getAzureUcConfig:getAzureUcConfig", TypeShape.of(GetAzureUcConfigResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources. Deprecated, use datadog.getCsmThreatsAgentRules data source instead: https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/csm_threats_agent_rules
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1514,6 +1516,8 @@ public final class DatadogFunctions {
         return getCloudWorkloadSecurityAgentRules(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources. Deprecated, use datadog.getCsmThreatsAgentRules data source instead: https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/csm_threats_agent_rules
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1549,6 +1553,8 @@ public final class DatadogFunctions {
         return getCloudWorkloadSecurityAgentRulesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources. Deprecated, use datadog.getCsmThreatsAgentRules data source instead: https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/csm_threats_agent_rules
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1584,6 +1590,8 @@ public final class DatadogFunctions {
         return getCloudWorkloadSecurityAgentRules(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources. Deprecated, use datadog.getCsmThreatsAgentRules data source instead: https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/csm_threats_agent_rules
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1619,6 +1627,8 @@ public final class DatadogFunctions {
         return getCloudWorkloadSecurityAgentRulesPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources. Deprecated, use datadog.getCsmThreatsAgentRules data source instead: https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/csm_threats_agent_rules
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1654,6 +1664,8 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invoke("datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules", TypeShape.of(GetCloudWorkloadSecurityAgentRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources. Deprecated, use datadog.getCsmThreatsAgentRules data source instead: https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/csm_threats_agent_rules
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1689,6 +1701,8 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invoke("datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules", TypeShape.of(GetCloudWorkloadSecurityAgentRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources. Deprecated, use datadog.getCsmThreatsAgentRules data source instead: https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/csm_threats_agent_rules
+     * 
      * ## Example Usage
      * 
      * <pre>

@@ -538,7 +538,8 @@ type DashboardJson struct {
 	pulumi.CustomResourceState
 
 	// The JSON formatted definition of the Dashboard.
-	Dashboard      pulumi.StringOutput   `pulumi:"dashboard"`
+	Dashboard pulumi.StringOutput `pulumi:"dashboard"`
+	// A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
 	DashboardLists pulumi.IntArrayOutput `pulumi:"dashboardLists"`
 	// The list of dashboard lists this dashboard should be removed from. Internal only.
 	DashboardListsRemoveds pulumi.IntArrayOutput `pulumi:"dashboardListsRemoveds"`
@@ -580,8 +581,9 @@ func GetDashboardJson(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DashboardJson resources.
 type dashboardJsonState struct {
 	// The JSON formatted definition of the Dashboard.
-	Dashboard      *string `pulumi:"dashboard"`
-	DashboardLists []int   `pulumi:"dashboardLists"`
+	Dashboard *string `pulumi:"dashboard"`
+	// A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
+	DashboardLists []int `pulumi:"dashboardLists"`
 	// The list of dashboard lists this dashboard should be removed from. Internal only.
 	DashboardListsRemoveds []int `pulumi:"dashboardListsRemoveds"`
 	// The URL of the dashboard.
@@ -590,7 +592,8 @@ type dashboardJsonState struct {
 
 type DashboardJsonState struct {
 	// The JSON formatted definition of the Dashboard.
-	Dashboard      pulumi.StringPtrInput
+	Dashboard pulumi.StringPtrInput
+	// A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
 	DashboardLists pulumi.IntArrayInput
 	// The list of dashboard lists this dashboard should be removed from. Internal only.
 	DashboardListsRemoveds pulumi.IntArrayInput
@@ -604,8 +607,9 @@ func (DashboardJsonState) ElementType() reflect.Type {
 
 type dashboardJsonArgs struct {
 	// The JSON formatted definition of the Dashboard.
-	Dashboard      string `pulumi:"dashboard"`
-	DashboardLists []int  `pulumi:"dashboardLists"`
+	Dashboard string `pulumi:"dashboard"`
+	// A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
+	DashboardLists []int `pulumi:"dashboardLists"`
 	// The URL of the dashboard.
 	Url *string `pulumi:"url"`
 }
@@ -613,7 +617,8 @@ type dashboardJsonArgs struct {
 // The set of arguments for constructing a DashboardJson resource.
 type DashboardJsonArgs struct {
 	// The JSON formatted definition of the Dashboard.
-	Dashboard      pulumi.StringInput
+	Dashboard pulumi.StringInput
+	// A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
 	DashboardLists pulumi.IntArrayInput
 	// The URL of the dashboard.
 	Url pulumi.StringPtrInput
@@ -711,6 +716,7 @@ func (o DashboardJsonOutput) Dashboard() pulumi.StringOutput {
 	return o.ApplyT(func(v *DashboardJson) pulumi.StringOutput { return v.Dashboard }).(pulumi.StringOutput)
 }
 
+// A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
 func (o DashboardJsonOutput) DashboardLists() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DashboardJson) pulumi.IntArrayOutput { return v.DashboardLists }).(pulumi.IntArrayOutput)
 }

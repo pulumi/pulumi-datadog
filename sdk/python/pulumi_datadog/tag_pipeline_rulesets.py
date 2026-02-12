@@ -24,6 +24,7 @@ class TagPipelineRulesetsArgs:
         """
         The set of arguments for constructing a TagPipelineRulesets resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ruleset_ids: The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
+        :param pulumi.Input[_builtins.bool] override_ui_defined_resources: Whether to override UI-defined rulesets. When set to true, any rulesets created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rulesets created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
         """
         pulumi.set(__self__, "ruleset_ids", ruleset_ids)
         if override_ui_defined_resources is not None:
@@ -44,6 +45,9 @@ class TagPipelineRulesetsArgs:
     @_builtins.property
     @pulumi.getter(name="overrideUiDefinedResources")
     def override_ui_defined_resources(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to override UI-defined rulesets. When set to true, any rulesets created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rulesets created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
+        """
         return pulumi.get(self, "override_ui_defined_resources")
 
     @override_ui_defined_resources.setter
@@ -58,6 +62,7 @@ class _TagPipelineRulesetsState:
                  ruleset_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering TagPipelineRulesets resources.
+        :param pulumi.Input[_builtins.bool] override_ui_defined_resources: Whether to override UI-defined rulesets. When set to true, any rulesets created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rulesets created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ruleset_ids: The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
         """
         if override_ui_defined_resources is not None:
@@ -68,6 +73,9 @@ class _TagPipelineRulesetsState:
     @_builtins.property
     @pulumi.getter(name="overrideUiDefinedResources")
     def override_ui_defined_resources(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to override UI-defined rulesets. When set to true, any rulesets created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rulesets created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
+        """
         return pulumi.get(self, "override_ui_defined_resources")
 
     @override_ui_defined_resources.setter
@@ -269,6 +277,7 @@ class TagPipelineRulesets(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] override_ui_defined_resources: Whether to override UI-defined rulesets. When set to true, any rulesets created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rulesets created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ruleset_ids: The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
         """
         ...
@@ -497,6 +506,7 @@ class TagPipelineRulesets(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] override_ui_defined_resources: Whether to override UI-defined rulesets. When set to true, any rulesets created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rulesets created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ruleset_ids: The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -510,6 +520,9 @@ class TagPipelineRulesets(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="overrideUiDefinedResources")
     def override_ui_defined_resources(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to override UI-defined rulesets. When set to true, any rulesets created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rulesets created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
+        """
         return pulumi.get(self, "override_ui_defined_resources")
 
     @_builtins.property

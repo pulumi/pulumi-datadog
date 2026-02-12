@@ -95,8 +95,7 @@ import javax.annotation.Nullable;
  * 
  * The `pulumi import` command can be used, for example:
  * 
- * #!/bin/bash
- * 
+ * !/bin/bash
  * Import an existing reference table by its UUID
  * 
  * ```sh
@@ -105,58 +104,38 @@ import javax.annotation.Nullable;
  * 
  * After importing, add the resource configuration to your .tf file:
  * 
- * resource &#34;datadog_reference_table&#34; &#34;imported_table&#34; {
+ * resource &#34;datadog.ReferenceTable&#34; &#34;importedTable&#34; {
+ * tableName  = &#34;existingTable&#34;
+ * description = &#34;Previously created table&#34;
+ * source      = &#34;S3&#34;  # or &#34;GCS&#34; or &#34;AZURE&#34;
  * 
- *   table_name  = &#34;existing_table&#34;
+ * fileMetadata {
+ * syncEnabled = true
  * 
- *   description = &#34;Previously created table&#34;
+ * accessDetails {
+ * awsDetail {
+ * awsAccountId  = &#34;123456789000&#34;
+ * awsBucketName = &#34;existing-bucket&#34;
+ * filePath       = &#34;data/existing.csv&#34;
+ * }
+ * }
+ * }
  * 
- *   source      = &#34;S3&#34;  # or &#34;GCS&#34; or &#34;AZURE&#34;
+ * schema {
+ * primaryKeys = [&#34;id&#34;]
  * 
- *   file_metadata {
+ * fields {
+ * name = &#34;id&#34;
+ * type = &#34;STRING&#34;
+ * }
  * 
- *     sync_enabled = true
- *     
- *     access_details {
- *     
- *       aws_detail {
- *     
- *         aws_account_id  = &#34;123456789000&#34;
- *     
- *         aws_bucket_name = &#34;existing-bucket&#34;
- *     
- *         file_path       = &#34;data/existing.csv&#34;
- *     
- *       }
- *     
- *     }
+ * fields {
+ * name = &#34;value&#34;
+ * type = &#34;STRING&#34;
+ * }
+ * }
  * 
- *   }
- * 
- *   schema {
- * 
- *     primary_keys = [&#34;id&#34;]
- *     
- *     fields {
- *     
- *       name = &#34;id&#34;
- *     
- *       type = &#34;STRING&#34;
- *     
- *     }
- *     
- *     fields {
- *     
- *       name = &#34;value&#34;
- *     
- *       type = &#34;STRING&#34;
- *     
- *     }
- * 
- *   }
- * 
- *   tags = [&#34;imported:true&#34;]
- * 
+ * tags = [&#34;imported:true&#34;]
  * }
  * 
  */

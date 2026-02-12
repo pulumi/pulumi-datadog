@@ -7,12 +7,107 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Provides a Datadog—Amazon Web Services integration resource. This can be used to create and manage Datadog—Amazon Web Services integration.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Create new integration_aws_account resource
+ * const foo = new datadog.aws.IntegrationAccount("foo", {
+ *     accountTags: ["env:prod"],
+ *     awsAccountId: "123456789012",
+ *     awsPartition: "aws",
+ *     awsRegions: [{
+ *         includeAll: true,
+ *     }],
+ *     authConfig: [{
+ *         awsAuthConfigRole: [{
+ *             roleName: "DatadogIntegrationRole",
+ *         }],
+ *     }],
+ *     logsConfig: [{
+ *         lambdaForwarder: [{
+ *             lambdas: ["arn:aws:lambda:us-east-1:123456789012:function:my-lambda"],
+ *             sources: ["s3"],
+ *             logSourceConfig: [{
+ *                 tagFilters: [{
+ *                     source: "s3",
+ *                     tags: [
+ *                         "env:prod",
+ *                         "team:backend",
+ *                     ],
+ *                 }],
+ *             }],
+ *         }],
+ *     }],
+ *     metricsConfig: [{
+ *         automuteEnabled: true,
+ *         collectCloudwatchAlarms: true,
+ *         collectCustomMetrics: true,
+ *         enabled: true,
+ *         namespaceFilters: [{
+ *             excludeOnlies: [
+ *                 "AWS/SQS",
+ *                 "AWS/ElasticMapReduce",
+ *                 "AWS/Usage",
+ *             ],
+ *         }],
+ *         tagFilters: [{
+ *             namespace: "AWS/EC2",
+ *             tags: ["datadog:true"],
+ *         }],
+ *     }],
+ *     resourcesConfig: [{
+ *         cloudSecurityPostureManagementCollection: true,
+ *         extendedCollection: true,
+ *     }],
+ *     tracesConfig: [{
+ *         xrayServices: [{
+ *             includeAll: true,
+ *         }],
+ *     }],
+ * });
+ * // Create new integration_aws_account resource with all Datadog-provided defaults configured
+ * const foo_defaults = new datadog.aws.IntegrationAccount("foo-defaults", {
+ *     awsRegions: [{}],
+ *     logsConfig: [{
+ *         lambdaForwarder: [{}],
+ *     }],
+ *     metricsConfig: [{
+ *         namespaceFilters: [{}],
+ *     }],
+ *     resourcesConfig: [{}],
+ *     tracesConfig: [{
+ *         xrayServices: [{}],
+ *     }],
+ *     awsAccountId: "234567890123",
+ *     awsPartition: "aws",
+ *     authConfig: [{
+ *         awsAuthConfigRole: [{
+ *             roleName: "DatadogIntegrationRole",
+ *         }],
+ *     }],
+ * });
+ * ```
+ *
+ * ## Upgrading from `datadog.aws.Integration` resources
+ *
+ *  To migrate your account configuration from `datadog_integration_aws*` resources to `datadog.aws.IntegrationAccount`:
+ *  1. Import your integrated accounts into `datadog.aws.IntegrationAccount` resources using the import command below.
+ *  2. Once successfully imported, you can run `terraform state rm` to delete all resources of the deprecated types from state:
+ *     - `datadog.aws.Integration`
+ *     - `datadog.aws.IntegrationLambdaArn`
+ *     - `datadog.aws.IntegrationLogCollection`
+ *     - `datadog.aws.IntegrationTagFilter`
+ *
  * ## Import
  *
  * ```sh
  * $ pulumi import datadog:aws/integrationAccount:IntegrationAccount example "<datadog-aws-account-config-id>"
  * ```
- *
  *  AWS Account Config ID can be retrieved by using the [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations) endpoint and querying by AWS Account ID.
  */
 export class IntegrationAccount extends pulumi.CustomResource {

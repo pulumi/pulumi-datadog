@@ -165,6 +165,7 @@ import (
 type CustomAllocationRules struct {
 	pulumi.CustomResourceState
 
+	// Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
 	OverrideUiDefinedResources pulumi.BoolPtrOutput `pulumi:"overrideUiDefinedResources"`
 	// The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `CustomAllocationRule` resource.
 	RuleIds pulumi.StringArrayOutput `pulumi:"ruleIds"`
@@ -203,12 +204,14 @@ func GetCustomAllocationRules(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomAllocationRules resources.
 type customAllocationRulesState struct {
+	// Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
 	OverrideUiDefinedResources *bool `pulumi:"overrideUiDefinedResources"`
 	// The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `CustomAllocationRule` resource.
 	RuleIds []string `pulumi:"ruleIds"`
 }
 
 type CustomAllocationRulesState struct {
+	// Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
 	OverrideUiDefinedResources pulumi.BoolPtrInput
 	// The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `CustomAllocationRule` resource.
 	RuleIds pulumi.StringArrayInput
@@ -219,6 +222,7 @@ func (CustomAllocationRulesState) ElementType() reflect.Type {
 }
 
 type customAllocationRulesArgs struct {
+	// Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
 	OverrideUiDefinedResources *bool `pulumi:"overrideUiDefinedResources"`
 	// The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `CustomAllocationRule` resource.
 	RuleIds []string `pulumi:"ruleIds"`
@@ -226,6 +230,7 @@ type customAllocationRulesArgs struct {
 
 // The set of arguments for constructing a CustomAllocationRules resource.
 type CustomAllocationRulesArgs struct {
+	// Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
 	OverrideUiDefinedResources pulumi.BoolPtrInput
 	// The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `CustomAllocationRule` resource.
 	RuleIds pulumi.StringArrayInput
@@ -318,6 +323,7 @@ func (o CustomAllocationRulesOutput) ToCustomAllocationRulesOutputWithContext(ct
 	return o
 }
 
+// Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
 func (o CustomAllocationRulesOutput) OverrideUiDefinedResources() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CustomAllocationRules) pulumi.BoolPtrOutput { return v.OverrideUiDefinedResources }).(pulumi.BoolPtrOutput)
 }

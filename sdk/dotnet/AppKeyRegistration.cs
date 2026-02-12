@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
+    /// Registers App Keys to be used for Action Connection, App Builder, and Workflow Automation. This registration is required to enable API and Terraform use in these products.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

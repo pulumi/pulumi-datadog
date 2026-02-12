@@ -13,6 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestConfigVariable {
+    /**
+     * @return Example for the variable. This value is not returned by the API when `secure = true`. Avoid drift by only making updates to this value from within Terraform.
+     * 
+     */
     private @Nullable String example;
     /**
      * @return When type = `global`, ID of the global variable to use.
@@ -24,6 +28,10 @@ public final class SyntheticsTestConfigVariable {
      * 
      */
     private String name;
+    /**
+     * @return Pattern of the variable. This value is not returned by the API when `secure = true`. Avoid drift by only making updates to this value from within Terraform.
+     * 
+     */
     private @Nullable String pattern;
     /**
      * @return Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
@@ -37,6 +45,10 @@ public final class SyntheticsTestConfigVariable {
     private String type;
 
     private SyntheticsTestConfigVariable() {}
+    /**
+     * @return Example for the variable. This value is not returned by the API when `secure = true`. Avoid drift by only making updates to this value from within Terraform.
+     * 
+     */
     public Optional<String> example() {
         return Optional.ofNullable(this.example);
     }
@@ -54,6 +66,10 @@ public final class SyntheticsTestConfigVariable {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Pattern of the variable. This value is not returned by the API when `secure = true`. Avoid drift by only making updates to this value from within Terraform.
+     * 
+     */
     public Optional<String> pattern() {
         return Optional.ofNullable(this.pattern);
     }

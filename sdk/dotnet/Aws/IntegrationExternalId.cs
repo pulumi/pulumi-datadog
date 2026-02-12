@@ -10,6 +10,49 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Aws
 {
     /// <summary>
+    /// !&gt;A new external ID must be used to create an AWS account integration in Datadog within 48 hours of creation or it will expire.
+    /// 
+    /// !&gt;Running `terraform destroy` only removes the resource from Terraform state and does not deactivate anything in Datadog or AWS.
+    /// 
+    /// Provides a Datadog-Amazon Web Services external ID resource. This can be used to create Datadog-Amazon Web Services external IDs
+    /// 
+    /// This resource can be used in conjunction with the `datadog.aws.IntegrationAccount` resource. The external ID value can be referenced as shown:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new Datadog.Aws.IntegrationExternalId("foo");
+    /// 
+    ///     var foo_defaults = new Datadog.Aws.IntegrationAccount("foo-defaults", new()
+    ///     {
+    ///         AwsAccountId = "123456789019",
+    ///         AwsPartition = "aws",
+    ///         AuthConfig = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "awsAuthConfigRole", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "roleName", "DatadogIntegrationRole" },
+    ///                         { "externalId", foo.Id },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// To force a new external ID value to regenerate, you can use the `-replace` flag:
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

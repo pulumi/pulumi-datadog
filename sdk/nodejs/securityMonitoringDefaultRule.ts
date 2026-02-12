@@ -29,9 +29,7 @@ import * as utilities from "./utilities";
  * The `pulumi import` command can be used, for example:
  *
  * Default rules need to be imported using their ID before applying.
- *
- * resource "datadog_security_monitoring_default_rule" "adefaultrule" {
- *
+ * resource "datadog.SecurityMonitoringDefaultRule" "adefaultrule" {
  * }
  *
  * ```sh

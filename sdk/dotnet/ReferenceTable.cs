@@ -98,8 +98,7 @@ namespace Pulumi.Datadog
     /// 
     /// The `pulumi import` command can be used, for example:
     /// 
-    /// #!/bin/bash
-    /// 
+    /// !/bin/bash
     /// Import an existing reference table by its UUID
     /// 
     /// ```sh
@@ -108,58 +107,38 @@ namespace Pulumi.Datadog
     /// 
     /// After importing, add the resource configuration to your .tf file:
     /// 
-    /// resource "datadog_reference_table" "imported_table" {
+    /// resource "datadog.ReferenceTable" "ImportedTable" {
+    /// TableName  = "ExistingTable"
+    /// description = "Previously created table"
+    /// source      = "S3"  # or "GCS" or "AZURE"
     /// 
-    ///   table_name  = "existing_table"
+    /// FileMetadata {
+    /// SyncEnabled = true
     /// 
-    ///   description = "Previously created table"
+    /// AccessDetails {
+    /// AwsDetail {
+    /// AwsAccountId  = "123456789000"
+    /// AwsBucketName = "existing-bucket"
+    /// FilePath       = "data/existing.csv"
+    /// }
+    /// }
+    /// }
     /// 
-    ///   source      = "S3"  # or "GCS" or "AZURE"
+    /// schema {
+    /// PrimaryKeys = ["id"]
     /// 
-    ///   file_metadata {
+    /// fields {
+    /// name = "id"
+    /// type = "STRING"
+    /// }
     /// 
-    ///     sync_enabled = true
-    ///     
-    ///     access_details {
-    ///     
-    ///       aws_detail {
-    ///     
-    ///         aws_account_id  = "123456789000"
-    ///     
-    ///         aws_bucket_name = "existing-bucket"
-    ///     
-    ///         file_path       = "data/existing.csv"
-    ///     
-    ///       }
-    ///     
-    ///     }
+    /// fields {
+    /// name = "value"
+    /// type = "STRING"
+    /// }
+    /// }
     /// 
-    ///   }
-    /// 
-    ///   schema {
-    /// 
-    ///     primary_keys = ["id"]
-    ///     
-    ///     fields {
-    ///     
-    ///       name = "id"
-    ///     
-    ///       type = "STRING"
-    ///     
-    ///     }
-    ///     
-    ///     fields {
-    ///     
-    ///       name = "value"
-    ///     
-    ///       type = "STRING"
-    ///     
-    ///     }
-    /// 
-    ///   }
-    /// 
-    ///   tags = ["imported:true"]
-    /// 
+    /// tags = ["imported:true"]
     /// }
     /// </summary>
     [DatadogResourceType("datadog:index/referenceTable:ReferenceTable")]

@@ -855,6 +855,7 @@ import (
 type Dashboard struct {
 	pulumi.CustomResourceState
 
+	// A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
 	DashboardLists pulumi.IntArrayOutput `pulumi:"dashboardLists"`
 	// A list of dashboard lists this dashboard should be removed from. Internal only.
 	DashboardListsRemoveds pulumi.IntArrayOutput `pulumi:"dashboardListsRemoveds"`
@@ -922,6 +923,7 @@ func GetDashboard(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Dashboard resources.
 type dashboardState struct {
+	// A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
 	DashboardLists []int `pulumi:"dashboardLists"`
 	// A list of dashboard lists this dashboard should be removed from. Internal only.
 	DashboardListsRemoveds []int `pulumi:"dashboardListsRemoveds"`
@@ -954,6 +956,7 @@ type dashboardState struct {
 }
 
 type DashboardState struct {
+	// A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
 	DashboardLists pulumi.IntArrayInput
 	// A list of dashboard lists this dashboard should be removed from. Internal only.
 	DashboardListsRemoveds pulumi.IntArrayInput
@@ -990,6 +993,7 @@ func (DashboardState) ElementType() reflect.Type {
 }
 
 type dashboardArgs struct {
+	// A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
 	DashboardLists []int `pulumi:"dashboardLists"`
 	// The description of the dashboard.
 	Description *string `pulumi:"description"`
@@ -1021,6 +1025,7 @@ type dashboardArgs struct {
 
 // The set of arguments for constructing a Dashboard resource.
 type DashboardArgs struct {
+	// A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
 	DashboardLists pulumi.IntArrayInput
 	// The description of the dashboard.
 	Description pulumi.StringPtrInput
@@ -1137,6 +1142,7 @@ func (o DashboardOutput) ToDashboardOutputWithContext(ctx context.Context) Dashb
 	return o
 }
 
+// A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
 func (o DashboardOutput) DashboardLists() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.IntArrayOutput { return v.DashboardLists }).(pulumi.IntArrayOutput)
 }

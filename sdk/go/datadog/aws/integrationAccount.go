@@ -12,6 +12,174 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Datadog—Amazon Web Services integration resource. This can be used to create and manage Datadog—Amazon Web Services integration.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create new integration_aws_account resource
+//			_, err := aws.NewIntegrationAccount(ctx, "foo", &aws.IntegrationAccountArgs{
+//				AccountTags: pulumi.StringArray{
+//					pulumi.String("env:prod"),
+//				},
+//				AwsAccountId: pulumi.String("123456789012"),
+//				AwsPartition: pulumi.String("aws"),
+//				AwsRegions: aws.IntegrationAccountAwsRegionsArgs{
+//					map[string]interface{}{
+//						"includeAll": true,
+//					},
+//				},
+//				AuthConfig: aws.IntegrationAccountAuthConfigArgs{
+//					map[string]interface{}{
+//						"awsAuthConfigRole": []map[string]interface{}{
+//							map[string]interface{}{
+//								"roleName": "DatadogIntegrationRole",
+//							},
+//						},
+//					},
+//				},
+//				LogsConfig: aws.IntegrationAccountLogsConfigArgs{
+//					map[string]interface{}{
+//						"lambdaForwarder": []map[string]interface{}{
+//							map[string]interface{}{
+//								"lambdas": []string{
+//									"arn:aws:lambda:us-east-1:123456789012:function:my-lambda",
+//								},
+//								"sources": []string{
+//									"s3",
+//								},
+//								"logSourceConfig": []map[string]interface{}{
+//									map[string]interface{}{
+//										"tagFilters": []map[string]interface{}{
+//											map[string]interface{}{
+//												"source": "s3",
+//												"tags": []string{
+//													"env:prod",
+//													"team:backend",
+//												},
+//											},
+//										},
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//				MetricsConfig: aws.IntegrationAccountMetricsConfigArgs{
+//					map[string]interface{}{
+//						"automuteEnabled":         true,
+//						"collectCloudwatchAlarms": true,
+//						"collectCustomMetrics":    true,
+//						"enabled":                 true,
+//						"namespaceFilters": []map[string]interface{}{
+//							map[string]interface{}{
+//								"excludeOnlies": []string{
+//									"AWS/SQS",
+//									"AWS/ElasticMapReduce",
+//									"AWS/Usage",
+//								},
+//							},
+//						},
+//						"tagFilters": []map[string]interface{}{
+//							map[string]interface{}{
+//								"namespace": "AWS/EC2",
+//								"tags": []string{
+//									"datadog:true",
+//								},
+//							},
+//						},
+//					},
+//				},
+//				ResourcesConfig: aws.IntegrationAccountResourcesConfigArgs{
+//					map[string]interface{}{
+//						"cloudSecurityPostureManagementCollection": true,
+//						"extendedCollection":                       true,
+//					},
+//				},
+//				TracesConfig: aws.IntegrationAccountTracesConfigArgs{
+//					map[string]interface{}{
+//						"xrayServices": []map[string]interface{}{
+//							map[string]interface{}{
+//								"includeAll": true,
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Create new integration_aws_account resource with all Datadog-provided defaults configured
+//			_, err = aws.NewIntegrationAccount(ctx, "foo-defaults", &aws.IntegrationAccountArgs{
+//				AwsRegions: aws.IntegrationAccountAwsRegionsArgs{
+//					map[string]interface{}{},
+//				},
+//				LogsConfig: aws.IntegrationAccountLogsConfigArgs{
+//					map[string]interface{}{
+//						"lambdaForwarder": []map[string]interface{}{
+//							map[string]interface{}{},
+//						},
+//					},
+//				},
+//				MetricsConfig: aws.IntegrationAccountMetricsConfigArgs{
+//					map[string]interface{}{
+//						"namespaceFilters": []map[string]interface{}{
+//							map[string]interface{}{},
+//						},
+//					},
+//				},
+//				ResourcesConfig: aws.IntegrationAccountResourcesConfigArgs{
+//					map[string]interface{}{},
+//				},
+//				TracesConfig: aws.IntegrationAccountTracesConfigArgs{
+//					map[string]interface{}{
+//						"xrayServices": []map[string]interface{}{
+//							map[string]interface{}{},
+//						},
+//					},
+//				},
+//				AwsAccountId: pulumi.String("234567890123"),
+//				AwsPartition: pulumi.String("aws"),
+//				AuthConfig: aws.IntegrationAccountAuthConfigArgs{
+//					map[string]interface{}{
+//						"awsAuthConfigRole": []map[string]interface{}{
+//							map[string]interface{}{
+//								"roleName": "DatadogIntegrationRole",
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Upgrading from `aws.Integration` resources
+//
+//	To migrate your account configuration from `datadog_integration_aws*` resources to `aws.IntegrationAccount`:
+//	1. Import your integrated accounts into `aws.IntegrationAccount` resources using the import command below.
+//	2. Once successfully imported, you can run `terraform state rm` to delete all resources of the deprecated types from state:
+//	   - `aws.Integration`
+//	   - `aws.IntegrationLambdaArn`
+//	   - `aws.IntegrationLogCollection`
+//	   - `aws.IntegrationTagFilter`
+//
 // ## Import
 //
 // ```sh

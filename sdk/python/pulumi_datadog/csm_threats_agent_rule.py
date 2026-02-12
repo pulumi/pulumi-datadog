@@ -340,7 +340,7 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
         $ pulumi import datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule my_agent_rule m0o-hto-lkb
         ```
 
-        # CSM Agent Rules can also be imported using the policy ID and the rule ID. For example:
+        CSM Agent Rules can also be imported using the policy ID and the rule ID. For example:
 
         ```sh
         $ pulumi import datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule my_agent_rule jm4-lwh-8cs:m0o-hto-lkb
@@ -400,7 +400,7 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
         $ pulumi import datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule my_agent_rule m0o-hto-lkb
         ```
 
-        # CSM Agent Rules can also be imported using the policy ID and the rule ID. For example:
+        CSM Agent Rules can also be imported using the policy ID and the rule ID. For example:
 
         ```sh
         $ pulumi import datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule my_agent_rule jm4-lwh-8cs:m0o-hto-lkb

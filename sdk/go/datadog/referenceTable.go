@@ -93,9 +93,8 @@ import (
 //
 // The `pulumi import` command can be used, for example:
 //
-// #!/bin/bash
-//
-// # Import an existing reference table by its UUID
+// !/bin/bash
+// Import an existing reference table by its UUID
 //
 // ```sh
 // $ pulumi import datadog:index/referenceTable:ReferenceTable imported_table "00000000-0000-0000-0000-000000000000"
@@ -103,58 +102,38 @@ import (
 //
 // After importing, add the resource configuration to your .tf file:
 //
-// resource "datadog_reference_table" "imported_table" {
+// resource "ReferenceTable" "importedTable" {
+// tableName  = "existingTable"
+// description = "Previously created table"
+// source      = "S3"  # or "GCS" or "AZURE"
 //
-//	table_name  = "existing_table"
+// fileMetadata {
+// syncEnabled = true
 //
-//	description = "Previously created table"
+// accessDetails {
+// awsDetail {
+// awsAccountId  = "123456789000"
+// awsBucketName = "existing-bucket"
+// filePath       = "data/existing.csv"
+// }
+// }
+// }
 //
-//	source      = "S3"  # or "GCS" or "AZURE"
+// schema {
+// primaryKeys = ["id"]
 //
-//	file_metadata {
+// fields {
+// name = "id"
+// type = "STRING"
+// }
 //
-//	  sync_enabled = true
+// fields {
+// name = "value"
+// type = "STRING"
+// }
+// }
 //
-//	  access_details {
-//
-//	    aws_detail {
-//
-//	      aws_account_id  = "123456789000"
-//
-//	      aws_bucket_name = "existing-bucket"
-//
-//	      file_path       = "data/existing.csv"
-//
-//	    }
-//
-//	  }
-//
-//	}
-//
-//	schema {
-//
-//	  primary_keys = ["id"]
-//
-//	  fields {
-//
-//	    name = "id"
-//
-//	    type = "STRING"
-//
-//	  }
-//
-//	  fields {
-//
-//	    name = "value"
-//
-//	    type = "STRING"
-//
-//	  }
-//
-//	}
-//
-//	tags = ["imported:true"]
-//
+// tags = ["imported:true"]
 // }
 type ReferenceTable struct {
 	pulumi.CustomResourceState

@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestConfigVariable
     {
+        /// <summary>
+        /// Example for the variable. This value is not returned by the API when `secure = true`. Avoid drift by only making updates to this value from within Terraform.
+        /// </summary>
         public readonly string? Example;
         /// <summary>
         /// When type = `Global`, ID of the global variable to use.
@@ -22,6 +25,9 @@ namespace Pulumi.Datadog.Outputs
         /// Name of the variable.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Pattern of the variable. This value is not returned by the API when `secure = true`. Avoid drift by only making updates to this value from within Terraform.
+        /// </summary>
         public readonly string? Pattern;
         /// <summary>
         /// Whether the value of this variable will be obfuscated in test results. Defaults to `False`.

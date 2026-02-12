@@ -17,6 +17,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Enables the creation and management of Datadog workflows using Workflow Automation. To easily export a workflow for use with Terraform, use the export button in the Datadog Workflow Automation UI. This resource requires a registered application key.
+ * 
  * ## Example Usage
  * 
  * <pre>

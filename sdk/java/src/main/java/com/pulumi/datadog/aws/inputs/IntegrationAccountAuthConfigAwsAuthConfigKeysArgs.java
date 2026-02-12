@@ -30,9 +30,17 @@ public final class IntegrationAccountAuthConfigAwsAuthConfigKeysArgs extends com
         return Optional.ofNullable(this.accessKeyId);
     }
 
+    /**
+     * AWS Secret Access Key. This value is write-only; changes made outside of Terraform will not be drift-detected.
+     * 
+     */
     @Import(name="secretAccessKey")
     private @Nullable Output<String> secretAccessKey;
 
+    /**
+     * @return AWS Secret Access Key. This value is write-only; changes made outside of Terraform will not be drift-detected.
+     * 
+     */
     public Optional<Output<String>> secretAccessKey() {
         return Optional.ofNullable(this.secretAccessKey);
     }
@@ -83,11 +91,23 @@ public final class IntegrationAccountAuthConfigAwsAuthConfigKeysArgs extends com
             return accessKeyId(Output.of(accessKeyId));
         }
 
+        /**
+         * @param secretAccessKey AWS Secret Access Key. This value is write-only; changes made outside of Terraform will not be drift-detected.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secretAccessKey(@Nullable Output<String> secretAccessKey) {
             $.secretAccessKey = secretAccessKey;
             return this;
         }
 
+        /**
+         * @param secretAccessKey AWS Secret Access Key. This value is write-only; changes made outside of Terraform will not be drift-detected.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secretAccessKey(String secretAccessKey) {
             return secretAccessKey(Output.of(secretAccessKey));
         }

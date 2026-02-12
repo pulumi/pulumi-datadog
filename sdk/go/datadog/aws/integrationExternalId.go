@@ -11,6 +11,55 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !>A new external ID must be used to create an AWS account integration in Datadog within 48 hours of creation or it will expire.
+//
+// !>Running `terraform destroy` only removes the resource from Terraform state and does not deactivate anything in Datadog or AWS.
+//
+// Provides a Datadog-Amazon Web Services external ID resource. This can be used to create Datadog-Amazon Web Services external IDs
+//
+// This resource can be used in conjunction with the `aws.IntegrationAccount` resource. The external ID value can be referenced as shown:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			foo, err := aws.NewIntegrationExternalId(ctx, "foo", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = aws.NewIntegrationAccount(ctx, "foo-defaults", &aws.IntegrationAccountArgs{
+//				AwsAccountId: pulumi.String("123456789019"),
+//				AwsPartition: pulumi.String("aws"),
+//				AuthConfig: aws.IntegrationAccountAuthConfigArgs{
+//					map[string]interface{}{
+//						"awsAuthConfigRole": []map[string]interface{}{
+//							map[string]interface{}{
+//								"roleName":   "DatadogIntegrationRole",
+//								"externalId": foo.ID(),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// To force a new external ID value to regenerate, you can use the `-replace` flag:
+//
 // ## Example Usage
 //
 // ```go

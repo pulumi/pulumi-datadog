@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestConfigVariableGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Example for the variable. This value is not returned by the API when `secure = true`. Avoid drift by only making updates to this value from within Terraform.
+        /// </summary>
         [Input("example")]
         public Input<string>? Example { get; set; }
 
@@ -27,6 +30,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Pattern of the variable. This value is not returned by the API when `secure = true`. Avoid drift by only making updates to this value from within Terraform.
+        /// </summary>
         [Input("pattern")]
         public Input<string>? Pattern { get; set; }
 

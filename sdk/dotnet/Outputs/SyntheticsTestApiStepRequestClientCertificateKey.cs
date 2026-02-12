@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Content;
         /// <summary>
-        /// File name for the certificate.
+        /// File name for the certificate. Defaults to `"Provided in Terraform config"`.
         /// </summary>
         public readonly string? Filename;
 

@@ -232,7 +232,7 @@ class CsmThreatsPolicy(pulumi.CustomResource):
 
         The `pulumi import` command can be used, for example:
 
-        # CSM Policies can be imported using IDs. For example:
+        CSM Policies can be imported using IDs. For example:
 
         ```sh
         $ pulumi import datadog:index/csmThreatsPolicy:CsmThreatsPolicy my_policy jm4-lwh-8cs
@@ -281,7 +281,7 @@ class CsmThreatsPolicy(pulumi.CustomResource):
 
         The `pulumi import` command can be used, for example:
 
-        # CSM Policies can be imported using IDs. For example:
+        CSM Policies can be imported using IDs. For example:
 
         ```sh
         $ pulumi import datadog:index/csmThreatsPolicy:CsmThreatsPolicy my_policy jm4-lwh-8cs

@@ -64,6 +64,8 @@ class AwaitableGetCloudWorkloadSecurityAgentRulesResult(GetCloudWorkloadSecurity
 
 def get_cloud_workload_security_agent_rules(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudWorkloadSecurityAgentRulesResult:
     """
+    Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources. Deprecated, use get_csm_threats_agent_rules data source instead: https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/csm_threats_agent_rules
+
     ## Example Usage
 
     ```python
@@ -82,6 +84,8 @@ def get_cloud_workload_security_agent_rules(opts: Optional[pulumi.InvokeOptions]
         id=pulumi.get(__ret__, 'id'))
 def get_cloud_workload_security_agent_rules_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudWorkloadSecurityAgentRulesResult]:
     """
+    Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources. Deprecated, use get_csm_threats_agent_rules data source instead: https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/csm_threats_agent_rules
+
     ## Example Usage
 
     ```python

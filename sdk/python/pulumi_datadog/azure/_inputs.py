@@ -19,14 +19,9 @@ __all__ = [
     'IntegrationResourceProviderConfigArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class IntegrationResourceProviderConfigArgsDict(TypedDict):
-        metrics_enabled: pulumi.Input[_builtins.bool]
-        namespace: pulumi.Input[_builtins.str]
-elif False:
-    IntegrationResourceProviderConfigArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationResourceProviderConfigArgsDict(TypedDict):
+    metrics_enabled: pulumi.Input[_builtins.bool]
+    namespace: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class IntegrationResourceProviderConfigArgs:

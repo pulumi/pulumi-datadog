@@ -171,7 +171,8 @@ func (o IntegrationAccountAuthConfigPtrOutput) AwsAuthConfigRole() IntegrationAc
 
 type IntegrationAccountAuthConfigAwsAuthConfigKeys struct {
 	// AWS Access Key ID
-	AccessKeyId     *string `pulumi:"accessKeyId"`
+	AccessKeyId *string `pulumi:"accessKeyId"`
+	// AWS Secret Access Key. This value is write-only; changes made outside of Terraform will not be drift-detected.
 	SecretAccessKey *string `pulumi:"secretAccessKey"`
 }
 
@@ -188,7 +189,8 @@ type IntegrationAccountAuthConfigAwsAuthConfigKeysInput interface {
 
 type IntegrationAccountAuthConfigAwsAuthConfigKeysArgs struct {
 	// AWS Access Key ID
-	AccessKeyId     pulumi.StringPtrInput `pulumi:"accessKeyId"`
+	AccessKeyId pulumi.StringPtrInput `pulumi:"accessKeyId"`
+	// AWS Secret Access Key. This value is write-only; changes made outside of Terraform will not be drift-detected.
 	SecretAccessKey pulumi.StringPtrInput `pulumi:"secretAccessKey"`
 }
 
@@ -274,6 +276,7 @@ func (o IntegrationAccountAuthConfigAwsAuthConfigKeysOutput) AccessKeyId() pulum
 	return o.ApplyT(func(v IntegrationAccountAuthConfigAwsAuthConfigKeys) *string { return v.AccessKeyId }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secret Access Key. This value is write-only; changes made outside of Terraform will not be drift-detected.
 func (o IntegrationAccountAuthConfigAwsAuthConfigKeysOutput) SecretAccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationAccountAuthConfigAwsAuthConfigKeys) *string { return v.SecretAccessKey }).(pulumi.StringPtrOutput)
 }
@@ -312,6 +315,7 @@ func (o IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput) AccessKeyId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// AWS Secret Access Key. This value is write-only; changes made outside of Terraform will not be drift-detected.
 func (o IntegrationAccountAuthConfigAwsAuthConfigKeysPtrOutput) SecretAccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccountAuthConfigAwsAuthConfigKeys) *string {
 		if v == nil {

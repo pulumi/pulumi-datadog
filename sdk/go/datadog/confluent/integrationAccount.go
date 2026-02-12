@@ -50,8 +50,7 @@ import (
 //
 // The `pulumi import` command can be used, for example:
 //
-// # Confluent account ID can be retrieved using the ListConfluentAccounts endpoint
-//
+// Confluent account ID can be retrieved using the ListConfluentAccounts endpoint
 // https://docs.datadoghq.com/api/latest/confluent-cloud/#list-confluent-accounts
 //
 // ```sh

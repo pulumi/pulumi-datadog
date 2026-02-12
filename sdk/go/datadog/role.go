@@ -66,6 +66,7 @@ import (
 type Role struct {
 	pulumi.CustomResourceState
 
+	// If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `includeRestricted` attribute for the `getPermissions` data source must be set to `true` to manage default permissions in Terraform.
 	DefaultPermissionsOptOut pulumi.BoolPtrOutput `pulumi:"defaultPermissionsOptOut"`
 	// Name of the role.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -110,6 +111,7 @@ func GetRole(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Role resources.
 type roleState struct {
+	// If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `includeRestricted` attribute for the `getPermissions` data source must be set to `true` to manage default permissions in Terraform.
 	DefaultPermissionsOptOut *bool `pulumi:"defaultPermissionsOptOut"`
 	// Name of the role.
 	Name *string `pulumi:"name"`
@@ -122,6 +124,7 @@ type roleState struct {
 }
 
 type RoleState struct {
+	// If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `includeRestricted` attribute for the `getPermissions` data source must be set to `true` to manage default permissions in Terraform.
 	DefaultPermissionsOptOut pulumi.BoolPtrInput
 	// Name of the role.
 	Name pulumi.StringPtrInput
@@ -138,6 +141,7 @@ func (RoleState) ElementType() reflect.Type {
 }
 
 type roleArgs struct {
+	// If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `includeRestricted` attribute for the `getPermissions` data source must be set to `true` to manage default permissions in Terraform.
 	DefaultPermissionsOptOut *bool `pulumi:"defaultPermissionsOptOut"`
 	// Name of the role.
 	Name string `pulumi:"name"`
@@ -149,6 +153,7 @@ type roleArgs struct {
 
 // The set of arguments for constructing a Role resource.
 type RoleArgs struct {
+	// If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `includeRestricted` attribute for the `getPermissions` data source must be set to `true` to manage default permissions in Terraform.
 	DefaultPermissionsOptOut pulumi.BoolPtrInput
 	// Name of the role.
 	Name pulumi.StringInput
@@ -245,6 +250,7 @@ func (o RoleOutput) ToRoleOutputWithContext(ctx context.Context) RoleOutput {
 	return o
 }
 
+// If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `includeRestricted` attribute for the `getPermissions` data source must be set to `true` to manage default permissions in Terraform.
 func (o RoleOutput) DefaultPermissionsOptOut() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Role) pulumi.BoolPtrOutput { return v.DefaultPermissionsOptOut }).(pulumi.BoolPtrOutput)
 }

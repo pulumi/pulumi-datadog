@@ -20,6 +20,10 @@ namespace Pulumi.Datadog.Aws.Inputs
 
         [Input("secretAccessKey")]
         private Input<string>? _secretAccessKey;
+
+        /// <summary>
+        /// AWS Secret Access Key. This value is write-only; changes made outside of Terraform will not be drift-detected.
+        /// </summary>
         public Input<string>? SecretAccessKey
         {
             get => _secretAccessKey;

@@ -541,6 +541,9 @@ export class DashboardJson extends pulumi.CustomResource {
      * The JSON formatted definition of the Dashboard.
      */
     declare public readonly dashboard: pulumi.Output<string>;
+    /**
+     * A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
+     */
     declare public readonly dashboardLists: pulumi.Output<number[] | undefined>;
     /**
      * The list of dashboard lists this dashboard should be removed from. Internal only.
@@ -591,6 +594,9 @@ export interface DashboardJsonState {
      * The JSON formatted definition of the Dashboard.
      */
     dashboard?: pulumi.Input<string>;
+    /**
+     * A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
+     */
     dashboardLists?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * The list of dashboard lists this dashboard should be removed from. Internal only.
@@ -610,6 +616,9 @@ export interface DashboardJsonArgs {
      * The JSON formatted definition of the Dashboard.
      */
     dashboard: pulumi.Input<string>;
+    /**
+     * A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
+     */
     dashboardLists?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * The URL of the dashboard.

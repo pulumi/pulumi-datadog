@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  * 
  * The `pulumi import` command can be used, for example:
  * 
- * Import an existing on_call_escalation_policy
+ * Import an existing onCallEscalationPolicy
  * 
  * ```sh
  * $ pulumi import datadog:index/onCallEscalationPolicy:OnCallEscalationPolicy policy_test &#34;b03a07d5-49da-43e9-83b4-5d84969b588b&#34;

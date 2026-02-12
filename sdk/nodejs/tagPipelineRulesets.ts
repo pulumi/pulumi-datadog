@@ -212,6 +212,9 @@ export class TagPipelineRulesets extends pulumi.CustomResource {
         return obj['__pulumiType'] === TagPipelineRulesets.__pulumiType;
     }
 
+    /**
+     * Whether to override UI-defined rulesets. When set to true, any rulesets created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rulesets created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
+     */
     declare public readonly overrideUiDefinedResources: pulumi.Output<boolean | undefined>;
     /**
      * The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
@@ -250,6 +253,9 @@ export class TagPipelineRulesets extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TagPipelineRulesets resources.
  */
 export interface TagPipelineRulesetsState {
+    /**
+     * Whether to override UI-defined rulesets. When set to true, any rulesets created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rulesets created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
+     */
     overrideUiDefinedResources?: pulumi.Input<boolean>;
     /**
      * The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
@@ -261,6 +267,9 @@ export interface TagPipelineRulesetsState {
  * The set of arguments for constructing a TagPipelineRulesets resource.
  */
 export interface TagPipelineRulesetsArgs {
+    /**
+     * Whether to override UI-defined rulesets. When set to true, any rulesets created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rulesets created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
+     */
     overrideUiDefinedResources?: pulumi.Input<boolean>;
     /**
      * The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.

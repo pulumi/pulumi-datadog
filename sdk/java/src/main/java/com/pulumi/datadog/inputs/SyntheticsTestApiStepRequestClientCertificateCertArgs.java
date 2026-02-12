@@ -31,14 +31,14 @@ public final class SyntheticsTestApiStepRequestClientCertificateCertArgs extends
     }
 
     /**
-     * File name for the certificate.
+     * File name for the certificate. Defaults to `&#34;Provided in Terraform config&#34;`.
      * 
      */
     @Import(name="filename")
     private @Nullable Output<String> filename;
 
     /**
-     * @return File name for the certificate.
+     * @return File name for the certificate. Defaults to `&#34;Provided in Terraform config&#34;`.
      * 
      */
     public Optional<Output<String>> filename() {
@@ -92,7 +92,7 @@ public final class SyntheticsTestApiStepRequestClientCertificateCertArgs extends
         }
 
         /**
-         * @param filename File name for the certificate.
+         * @param filename File name for the certificate. Defaults to `&#34;Provided in Terraform config&#34;`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class SyntheticsTestApiStepRequestClientCertificateCertArgs extends
         }
 
         /**
-         * @param filename File name for the certificate.
+         * @param filename File name for the certificate. Defaults to `&#34;Provided in Terraform config&#34;`.
          * 
          * @return builder
          * 

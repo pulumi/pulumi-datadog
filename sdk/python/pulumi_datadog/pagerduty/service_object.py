@@ -23,6 +23,7 @@ class ServiceObjectArgs:
                  service_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ServiceObject resource.
+        :param pulumi.Input[_builtins.str] service_key: Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration [documentation](https://www.pagerduty.com/docs/guides/datadog-integration-guide/), UI, and within the Pagerduty Provider for Terraform Note: Since the Datadog API never returns service keys, it is impossible to detect drifts. The best way to solve a drift is to manually mark the Service Object resource with terraform taint to have it destroyed and recreated.
         :param pulumi.Input[_builtins.str] service_name: Your Service name in PagerDuty.
         """
         pulumi.set(__self__, "service_key", service_key)
@@ -31,6 +32,9 @@ class ServiceObjectArgs:
     @_builtins.property
     @pulumi.getter(name="serviceKey")
     def service_key(self) -> pulumi.Input[_builtins.str]:
+        """
+        Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration [documentation](https://www.pagerduty.com/docs/guides/datadog-integration-guide/), UI, and within the Pagerduty Provider for Terraform Note: Since the Datadog API never returns service keys, it is impossible to detect drifts. The best way to solve a drift is to manually mark the Service Object resource with terraform taint to have it destroyed and recreated.
+        """
         return pulumi.get(self, "service_key")
 
     @service_key.setter
@@ -57,6 +61,7 @@ class _ServiceObjectState:
                  service_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceObject resources.
+        :param pulumi.Input[_builtins.str] service_key: Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration [documentation](https://www.pagerduty.com/docs/guides/datadog-integration-guide/), UI, and within the Pagerduty Provider for Terraform Note: Since the Datadog API never returns service keys, it is impossible to detect drifts. The best way to solve a drift is to manually mark the Service Object resource with terraform taint to have it destroyed and recreated.
         :param pulumi.Input[_builtins.str] service_name: Your Service name in PagerDuty.
         """
         if service_key is not None:
@@ -67,6 +72,9 @@ class _ServiceObjectState:
     @_builtins.property
     @pulumi.getter(name="serviceKey")
     def service_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration [documentation](https://www.pagerduty.com/docs/guides/datadog-integration-guide/), UI, and within the Pagerduty Provider for Terraform Note: Since the Datadog API never returns service keys, it is impossible to detect drifts. The best way to solve a drift is to manually mark the Service Object resource with terraform taint to have it destroyed and recreated.
+        """
         return pulumi.get(self, "service_key")
 
     @service_key.setter
@@ -116,14 +124,14 @@ class ServiceObject(pulumi.CustomResource):
 
         The `pulumi import` command can be used, for example:
 
-        Pagerduty service object can be imported using the service_name, while the service_key should be passed by setting the environment variable SERVICE_KEY
-
         ```sh
-        $ pulumi import datadog:pagerduty/serviceObject:ServiceObject SERVICE_KEY=${service_key} datadog_integration_pagerduty_service_object.foo ${service_name}
+        # Pagerduty service object can be imported using the service_name, while the service_key should be passed by setting the environment variable SERVICE_KEY
+        SERVICE_KEY=${service_key} terraform import datadog_integration_pagerduty_service_object.foo ${service_name}
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] service_key: Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration [documentation](https://www.pagerduty.com/docs/guides/datadog-integration-guide/), UI, and within the Pagerduty Provider for Terraform Note: Since the Datadog API never returns service keys, it is impossible to detect drifts. The best way to solve a drift is to manually mark the Service Object resource with terraform taint to have it destroyed and recreated.
         :param pulumi.Input[_builtins.str] service_name: Your Service name in PagerDuty.
         """
         ...
@@ -153,10 +161,9 @@ class ServiceObject(pulumi.CustomResource):
 
         The `pulumi import` command can be used, for example:
 
-        Pagerduty service object can be imported using the service_name, while the service_key should be passed by setting the environment variable SERVICE_KEY
-
         ```sh
-        $ pulumi import datadog:pagerduty/serviceObject:ServiceObject SERVICE_KEY=${service_key} datadog_integration_pagerduty_service_object.foo ${service_name}
+        # Pagerduty service object can be imported using the service_name, while the service_key should be passed by setting the environment variable SERVICE_KEY
+        SERVICE_KEY=${service_key} terraform import datadog_integration_pagerduty_service_object.foo ${service_name}
         ```
 
         :param str resource_name: The name of the resource.
@@ -212,6 +219,7 @@ class ServiceObject(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] service_key: Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration [documentation](https://www.pagerduty.com/docs/guides/datadog-integration-guide/), UI, and within the Pagerduty Provider for Terraform Note: Since the Datadog API never returns service keys, it is impossible to detect drifts. The best way to solve a drift is to manually mark the Service Object resource with terraform taint to have it destroyed and recreated.
         :param pulumi.Input[_builtins.str] service_name: Your Service name in PagerDuty.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -225,6 +233,9 @@ class ServiceObject(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="serviceKey")
     def service_key(self) -> pulumi.Output[_builtins.str]:
+        """
+        Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration [documentation](https://www.pagerduty.com/docs/guides/datadog-integration-guide/), UI, and within the Pagerduty Provider for Terraform Note: Since the Datadog API never returns service keys, it is impossible to detect drifts. The best way to solve a drift is to manually mark the Service Object resource with terraform taint to have it destroyed and recreated.
+        """
         return pulumi.get(self, "service_key")
 
     @_builtins.property

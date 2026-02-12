@@ -28,6 +28,7 @@ class RoleArgs:
         """
         The set of arguments for constructing a Role resource.
         :param pulumi.Input[_builtins.str] name: Name of the role.
+        :param pulumi.Input[_builtins.bool] default_permissions_opt_out: If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `include_restricted` attribute for the `get_permissions` data source must be set to `true` to manage default permissions in Terraform.
         :param pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
         :param pulumi.Input[_builtins.bool] validate: If set to `false`, skip the validation call done during plan.
         """
@@ -54,6 +55,9 @@ class RoleArgs:
     @_builtins.property
     @pulumi.getter(name="defaultPermissionsOptOut")
     def default_permissions_opt_out(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `include_restricted` attribute for the `get_permissions` data source must be set to `true` to manage default permissions in Terraform.
+        """
         return pulumi.get(self, "default_permissions_opt_out")
 
     @default_permissions_opt_out.setter
@@ -95,6 +99,7 @@ class _RoleState:
                  validate: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Role resources.
+        :param pulumi.Input[_builtins.bool] default_permissions_opt_out: If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `include_restricted` attribute for the `get_permissions` data source must be set to `true` to manage default permissions in Terraform.
         :param pulumi.Input[_builtins.str] name: Name of the role.
         :param pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
         :param pulumi.Input[_builtins.int] user_count: Number of users that have this role.
@@ -114,6 +119,9 @@ class _RoleState:
     @_builtins.property
     @pulumi.getter(name="defaultPermissionsOptOut")
     def default_permissions_opt_out(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `include_restricted` attribute for the `get_permissions` data source must be set to `true` to manage default permissions in Terraform.
+        """
         return pulumi.get(self, "default_permissions_opt_out")
 
     @default_permissions_opt_out.setter
@@ -216,6 +224,7 @@ class Role(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] default_permissions_opt_out: If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `include_restricted` attribute for the `get_permissions` data source must be set to `true` to manage default permissions in Terraform.
         :param pulumi.Input[_builtins.str] name: Name of the role.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict']]]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
         :param pulumi.Input[_builtins.bool] validate: If set to `false`, skip the validation call done during plan.
@@ -317,6 +326,7 @@ class Role(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] default_permissions_opt_out: If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `include_restricted` attribute for the `get_permissions` data source must be set to `true` to manage default permissions in Terraform.
         :param pulumi.Input[_builtins.str] name: Name of the role.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict']]]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
         :param pulumi.Input[_builtins.int] user_count: Number of users that have this role.
@@ -336,6 +346,9 @@ class Role(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="defaultPermissionsOptOut")
     def default_permissions_opt_out(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `include_restricted` attribute for the `get_permissions` data source must be set to `true` to manage default permissions in Terraform.
+        """
         return pulumi.get(self, "default_permissions_opt_out")
 
     @_builtins.property

@@ -107,9 +107,17 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.extendedResourceCollectionEnabled);
     }
 
+    /**
+     * AWS External ID. **NOTE** This provider will not be able to detect changes made to the `externalId` field from outside Terraform.
+     * 
+     */
     @Import(name="externalId")
     private @Nullable Output<String> externalId;
 
+    /**
+     * @return AWS External ID. **NOTE** This provider will not be able to detect changes made to the `externalId` field from outside Terraform.
+     * 
+     */
     public Optional<Output<String>> externalId() {
         return Optional.ofNullable(this.externalId);
     }
@@ -384,11 +392,23 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
             return extendedResourceCollectionEnabled(Output.of(extendedResourceCollectionEnabled));
         }
 
+        /**
+         * @param externalId AWS External ID. **NOTE** This provider will not be able to detect changes made to the `externalId` field from outside Terraform.
+         * 
+         * @return builder
+         * 
+         */
         public Builder externalId(@Nullable Output<String> externalId) {
             $.externalId = externalId;
             return this;
         }
 
+        /**
+         * @param externalId AWS External ID. **NOTE** This provider will not be able to detect changes made to the `externalId` field from outside Terraform.
+         * 
+         * @return builder
+         * 
+         */
         public Builder externalId(String externalId) {
             return externalId(Output.of(externalId));
         }

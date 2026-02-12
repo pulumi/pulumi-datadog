@@ -17,7 +17,7 @@ public final class SyntheticsTestRequestClientCertificateCert {
      */
     private @Nullable String content;
     /**
-     * @return File name for the certificate.
+     * @return File name for the certificate. Defaults to `&#34;Provided in Terraform config&#34;`.
      * 
      */
     private @Nullable String filename;
@@ -31,7 +31,7 @@ public final class SyntheticsTestRequestClientCertificateCert {
         return Optional.ofNullable(this.content);
     }
     /**
-     * @return File name for the certificate.
+     * @return File name for the certificate. Defaults to `&#34;Provided in Terraform config&#34;`.
      * 
      */
     public Optional<String> filename() {

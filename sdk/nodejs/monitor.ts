@@ -175,6 +175,11 @@ export class Monitor extends pulumi.CustomResource {
      * Integer from 1 (high) to 5 (low) indicating alert severity.
      */
     declare public readonly priority: pulumi.Output<string | undefined>;
+    /**
+     * The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. `terraform plan` will validate query contents unless `validate` is set to `false`.
+     *
+     * **Note:** APM latency data is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+     */
     declare public readonly query: pulumi.Output<string>;
     /**
      * The number of minutes after the last notification before a monitor will re-notify on the current status. It will only re-notify if it's not resolved.
@@ -192,6 +197,10 @@ export class Monitor extends pulumi.CustomResource {
      * A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a customSchedule set, `requireFullWindow` must be false and will be ignored.
      */
     declare public readonly requireFullWindow: pulumi.Output<boolean | undefined>;
+    /**
+     * A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
+     *  > **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restrictedRoles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `datadog.RestrictionPolicy` resource.
+     */
     declare public readonly restrictedRoles: pulumi.Output<string[] | undefined>;
     /**
      * Configuration options for scheduling.
@@ -430,6 +439,11 @@ export interface MonitorState {
      * Integer from 1 (high) to 5 (low) indicating alert severity.
      */
     priority?: pulumi.Input<string>;
+    /**
+     * The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. `terraform plan` will validate query contents unless `validate` is set to `false`.
+     *
+     * **Note:** APM latency data is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+     */
     query?: pulumi.Input<string>;
     /**
      * The number of minutes after the last notification before a monitor will re-notify on the current status. It will only re-notify if it's not resolved.
@@ -447,6 +461,10 @@ export interface MonitorState {
      * A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a customSchedule set, `requireFullWindow` must be false and will be ignored.
      */
     requireFullWindow?: pulumi.Input<boolean>;
+    /**
+     * A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
+     *  > **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restrictedRoles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `datadog.RestrictionPolicy` resource.
+     */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Configuration options for scheduling.
@@ -581,6 +599,11 @@ export interface MonitorArgs {
      * Integer from 1 (high) to 5 (low) indicating alert severity.
      */
     priority?: pulumi.Input<string>;
+    /**
+     * The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. `terraform plan` will validate query contents unless `validate` is set to `false`.
+     *
+     * **Note:** APM latency data is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+     */
     query: pulumi.Input<string>;
     /**
      * The number of minutes after the last notification before a monitor will re-notify on the current status. It will only re-notify if it's not resolved.
@@ -598,6 +621,10 @@ export interface MonitorArgs {
      * A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a customSchedule set, `requireFullWindow` must be false and will be ignored.
      */
     requireFullWindow?: pulumi.Input<boolean>;
+    /**
+     * A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
+     *  > **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restrictedRoles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `datadog.RestrictionPolicy` resource.
+     */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Configuration options for scheduling.

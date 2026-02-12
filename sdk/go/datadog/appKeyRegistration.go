@@ -12,6 +12,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Registers App Keys to be used for Action Connection, App Builder, and Workflow Automation. This registration is required to enable API and Terraform use in these products.
+//
 // ## Example Usage
 //
 // ```go

@@ -46,7 +46,7 @@ import (
 //
 // The `pulumi import` command can be used, for example:
 //
-// There must be at most one datadog_logs_archive_order resource. You can import the datadog_logs_archive_order or create an archive order.
+// There must be at most one LogsArchiveOrder resource. You can import the LogsArchiveOrder or create an archive order.
 //
 // ```sh
 // $ pulumi import datadog:index/logsArchiveOrder:LogsArchiveOrder name> archiveOrderID

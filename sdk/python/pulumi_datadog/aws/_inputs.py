@@ -45,17 +45,12 @@ __all__ = [
     'IntegrationAccountTracesConfigXrayServicesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class IntegrationAccountAuthConfigArgsDict(TypedDict):
-        aws_auth_config_keys: NotRequired[pulumi.Input['IntegrationAccountAuthConfigAwsAuthConfigKeysArgsDict']]
-        """
-        Datadog will use the provided AWS Access Key ID and Secret Access Key to authenticate to your account.
-        """
-        aws_auth_config_role: NotRequired[pulumi.Input['IntegrationAccountAuthConfigAwsAuthConfigRoleArgsDict']]
-elif False:
-    IntegrationAccountAuthConfigArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationAccountAuthConfigArgsDict(TypedDict):
+    aws_auth_config_keys: NotRequired[pulumi.Input['IntegrationAccountAuthConfigAwsAuthConfigKeysArgsDict']]
+    """
+    Datadog will use the provided AWS Access Key ID and Secret Access Key to authenticate to your account.
+    """
+    aws_auth_config_role: NotRequired[pulumi.Input['IntegrationAccountAuthConfigAwsAuthConfigRoleArgsDict']]
 
 @pulumi.input_type
 class IntegrationAccountAuthConfigArgs:
@@ -92,15 +87,15 @@ class IntegrationAccountAuthConfigArgs:
         pulumi.set(self, "aws_auth_config_role", value)
 
 
-if not MYPY:
-    class IntegrationAccountAuthConfigAwsAuthConfigKeysArgsDict(TypedDict):
-        access_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AWS Access Key ID
-        """
-        secret_access_key: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    IntegrationAccountAuthConfigAwsAuthConfigKeysArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationAccountAuthConfigAwsAuthConfigKeysArgsDict(TypedDict):
+    access_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AWS Access Key ID
+    """
+    secret_access_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AWS Secret Access Key. This value is write-only; changes made outside of Terraform will not be drift-detected.
+    """
 
 @pulumi.input_type
 class IntegrationAccountAuthConfigAwsAuthConfigKeysArgs:
@@ -109,6 +104,7 @@ class IntegrationAccountAuthConfigAwsAuthConfigKeysArgs:
                  secret_access_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] access_key_id: AWS Access Key ID
+        :param pulumi.Input[_builtins.str] secret_access_key: AWS Secret Access Key. This value is write-only; changes made outside of Terraform will not be drift-detected.
         """
         if access_key_id is not None:
             pulumi.set(__self__, "access_key_id", access_key_id)
@@ -130,6 +126,9 @@ class IntegrationAccountAuthConfigAwsAuthConfigKeysArgs:
     @_builtins.property
     @pulumi.getter(name="secretAccessKey")
     def secret_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        AWS Secret Access Key. This value is write-only; changes made outside of Terraform will not be drift-detected.
+        """
         return pulumi.get(self, "secret_access_key")
 
     @secret_access_key.setter
@@ -137,18 +136,15 @@ class IntegrationAccountAuthConfigAwsAuthConfigKeysArgs:
         pulumi.set(self, "secret_access_key", value)
 
 
-if not MYPY:
-    class IntegrationAccountAuthConfigAwsAuthConfigRoleArgsDict(TypedDict):
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AWS IAM external ID for associated role. If omitted, one is generated.
-        """
-        role_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AWS IAM role name.
-        """
-elif False:
-    IntegrationAccountAuthConfigAwsAuthConfigRoleArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationAccountAuthConfigAwsAuthConfigRoleArgsDict(TypedDict):
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AWS IAM external ID for associated role. If omitted, one is generated.
+    """
+    role_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AWS IAM role name.
+    """
 
 @pulumi.input_type
 class IntegrationAccountAuthConfigAwsAuthConfigRoleArgs:
@@ -189,18 +185,15 @@ class IntegrationAccountAuthConfigAwsAuthConfigRoleArgs:
         pulumi.set(self, "role_name", value)
 
 
-if not MYPY:
-    class IntegrationAccountAwsRegionsArgsDict(TypedDict):
-        include_all: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Include all regions. Defaults to `true`.
-        """
-        include_onlies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Include only these regions.
-        """
-elif False:
-    IntegrationAccountAwsRegionsArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationAccountAwsRegionsArgsDict(TypedDict):
+    include_all: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Include all regions. Defaults to `true`.
+    """
+    include_onlies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Include only these regions.
+    """
 
 @pulumi.input_type
 class IntegrationAccountAwsRegionsArgs:
@@ -241,14 +234,11 @@ class IntegrationAccountAwsRegionsArgs:
         pulumi.set(self, "include_onlies", value)
 
 
-if not MYPY:
-    class IntegrationAccountLogsConfigArgsDict(TypedDict):
-        lambda_forwarder: NotRequired[pulumi.Input['IntegrationAccountLogsConfigLambdaForwarderArgsDict']]
-        """
-        Leave empty to omit logs config.
-        """
-elif False:
-    IntegrationAccountLogsConfigArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationAccountLogsConfigArgsDict(TypedDict):
+    lambda_forwarder: NotRequired[pulumi.Input['IntegrationAccountLogsConfigLambdaForwarderArgsDict']]
+    """
+    Leave empty to omit logs config.
+    """
 
 @pulumi.input_type
 class IntegrationAccountLogsConfigArgs:
@@ -273,22 +263,19 @@ class IntegrationAccountLogsConfigArgs:
         pulumi.set(self, "lambda_forwarder", value)
 
 
-if not MYPY:
-    class IntegrationAccountLogsConfigLambdaForwarderArgsDict(TypedDict):
-        lambdas: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
-        """
-        log_source_config: NotRequired[pulumi.Input['IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgsDict']]
-        """
-        Configure log source collection for your Datadog Forwarder Lambda functions.
-        """
-        sources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of service IDs set to enable automatic log collection. Use `aws_get_integration_available_logs_services` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
-        """
-elif False:
-    IntegrationAccountLogsConfigLambdaForwarderArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationAccountLogsConfigLambdaForwarderArgsDict(TypedDict):
+    lambdas: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
+    """
+    log_source_config: NotRequired[pulumi.Input['IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgsDict']]
+    """
+    Configure log source collection for your Datadog Forwarder Lambda functions.
+    """
+    sources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of service IDs set to enable automatic log collection. Use `aws_get_integration_available_logs_services` data source or [the AWS Logs Integration API](https://docs.datadoghq.com/api/latest/aws-logs-integration/?#get-list-of-aws-log-ready-services) to get allowed values. Defaults to `[]`.
+    """
 
 @pulumi.input_type
 class IntegrationAccountLogsConfigLambdaForwarderArgs:
@@ -345,14 +332,11 @@ class IntegrationAccountLogsConfigLambdaForwarderArgs:
         pulumi.set(self, "sources", value)
 
 
-if not MYPY:
-    class IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgsDict(TypedDict):
-        tag_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgsDict']]]]
-        """
-        AWS Logs Collection tag filters list.
-        """
-elif False:
-    IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgsDict(TypedDict):
+    tag_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgsDict']]]]
+    """
+    AWS Logs Collection tag filters list.
+    """
 
 @pulumi.input_type
 class IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs:
@@ -377,18 +361,15 @@ class IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs:
         pulumi.set(self, "tag_filters", value)
 
 
-if not MYPY:
-    class IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgsDict(TypedDict):
-        source: pulumi.Input[_builtins.str]
-        """
-        The AWS service for which the tag filters defined in `tags` will be applied.
-        """
-        tags: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The AWS resource tags to filter on for the service specified by `source`.
-        """
-elif False:
-    IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgsDict(TypedDict):
+    source: pulumi.Input[_builtins.str]
+    """
+    The AWS service for which the tag filters defined in `tags` will be applied.
+    """
+    tags: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The AWS resource tags to filter on for the service specified by `source`.
+    """
 
 @pulumi.input_type
 class IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgs:
@@ -427,34 +408,31 @@ class IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class IntegrationAccountMetricsConfigArgsDict(TypedDict):
-        automute_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable EC2 automute for AWS metrics Defaults to `true`.
-        """
-        collect_cloudwatch_alarms: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable CloudWatch alarms collection Defaults to `false`.
-        """
-        collect_custom_metrics: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable custom metrics collection Defaults to `false`.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable AWS metrics collection Defaults to `true`.
-        """
-        namespace_filters: NotRequired[pulumi.Input['IntegrationAccountMetricsConfigNamespaceFiltersArgsDict']]
-        """
-        AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
-        """
-        tag_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountMetricsConfigTagFilterArgsDict']]]]
-        """
-        AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
-        """
-elif False:
-    IntegrationAccountMetricsConfigArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationAccountMetricsConfigArgsDict(TypedDict):
+    automute_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable EC2 automute for AWS metrics Defaults to `true`.
+    """
+    collect_cloudwatch_alarms: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable CloudWatch alarms collection Defaults to `false`.
+    """
+    collect_custom_metrics: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable custom metrics collection Defaults to `false`.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable AWS metrics collection Defaults to `true`.
+    """
+    namespace_filters: NotRequired[pulumi.Input['IntegrationAccountMetricsConfigNamespaceFiltersArgsDict']]
+    """
+    AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
+    """
+    tag_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountMetricsConfigTagFilterArgsDict']]]]
+    """
+    AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
+    """
 
 @pulumi.input_type
 class IntegrationAccountMetricsConfigArgs:
@@ -559,18 +537,15 @@ class IntegrationAccountMetricsConfigArgs:
         pulumi.set(self, "tag_filters", value)
 
 
-if not MYPY:
-    class IntegrationAccountMetricsConfigNamespaceFiltersArgsDict(TypedDict):
-        exclude_onlies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Exclude only these namespaces from metrics collection. Use `aws_get_integration_available_namespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce", "AWS/Usage"]`. `AWS/SQS`, `AWS/ElasticMapReduce`, and `AWS/Usage` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
-        """
-        include_onlies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Include only these namespaces for metrics collection. Use `aws_get_integration_available_namespaces` data source to get allowed values.
-        """
-elif False:
-    IntegrationAccountMetricsConfigNamespaceFiltersArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationAccountMetricsConfigNamespaceFiltersArgsDict(TypedDict):
+    exclude_onlies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Exclude only these namespaces from metrics collection. Use `aws_get_integration_available_namespaces` data source to get allowed values. Defaults to `["AWS/SQS", "AWS/ElasticMapReduce", "AWS/Usage"]`. `AWS/SQS`, `AWS/ElasticMapReduce`, and `AWS/Usage` are excluded by default to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
+    """
+    include_onlies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Include only these namespaces for metrics collection. Use `aws_get_integration_available_namespaces` data source to get allowed values.
+    """
 
 @pulumi.input_type
 class IntegrationAccountMetricsConfigNamespaceFiltersArgs:
@@ -611,18 +586,15 @@ class IntegrationAccountMetricsConfigNamespaceFiltersArgs:
         pulumi.set(self, "include_onlies", value)
 
 
-if not MYPY:
-    class IntegrationAccountMetricsConfigTagFilterArgsDict(TypedDict):
-        namespace: pulumi.Input[_builtins.str]
-        """
-        The AWS service for which the tag filters defined in `tags` will be applied.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The AWS resource tags to filter on for the service specified by `namespace`. Defaults to `[]`.
-        """
-elif False:
-    IntegrationAccountMetricsConfigTagFilterArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationAccountMetricsConfigTagFilterArgsDict(TypedDict):
+    namespace: pulumi.Input[_builtins.str]
+    """
+    The AWS service for which the tag filters defined in `tags` will be applied.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The AWS resource tags to filter on for the service specified by `namespace`. Defaults to `[]`.
+    """
 
 @pulumi.input_type
 class IntegrationAccountMetricsConfigTagFilterArgs:
@@ -662,18 +634,15 @@ class IntegrationAccountMetricsConfigTagFilterArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class IntegrationAccountResourcesConfigArgsDict(TypedDict):
-        cloud_security_posture_management_collection: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations, identity risks, and compliance violations. Requires `extended_collection` to be set to `true`. Defaults to `false`.
-        """
-        extended_collection: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cloud_security_posture_management_collection`. Defaults to `true`.
-        """
-elif False:
-    IntegrationAccountResourcesConfigArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationAccountResourcesConfigArgsDict(TypedDict):
+    cloud_security_posture_management_collection: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations, identity risks, and compliance violations. Requires `extended_collection` to be set to `true`. Defaults to `false`.
+    """
+    extended_collection: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cloud_security_posture_management_collection`. Defaults to `true`.
+    """
 
 @pulumi.input_type
 class IntegrationAccountResourcesConfigArgs:
@@ -714,14 +683,11 @@ class IntegrationAccountResourcesConfigArgs:
         pulumi.set(self, "extended_collection", value)
 
 
-if not MYPY:
-    class IntegrationAccountTracesConfigArgsDict(TypedDict):
-        xray_services: NotRequired[pulumi.Input['IntegrationAccountTracesConfigXrayServicesArgsDict']]
-        """
-        AWS X-Ray services to collect traces from. Defaults to `include_only`.
-        """
-elif False:
-    IntegrationAccountTracesConfigArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationAccountTracesConfigArgsDict(TypedDict):
+    xray_services: NotRequired[pulumi.Input['IntegrationAccountTracesConfigXrayServicesArgsDict']]
+    """
+    AWS X-Ray services to collect traces from. Defaults to `include_only`.
+    """
 
 @pulumi.input_type
 class IntegrationAccountTracesConfigArgs:
@@ -746,18 +712,15 @@ class IntegrationAccountTracesConfigArgs:
         pulumi.set(self, "xray_services", value)
 
 
-if not MYPY:
-    class IntegrationAccountTracesConfigXrayServicesArgsDict(TypedDict):
-        include_all: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Include all services.
-        """
-        include_onlies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Include only these services. Defaults to `[]`.
-        """
-elif False:
-    IntegrationAccountTracesConfigXrayServicesArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationAccountTracesConfigXrayServicesArgsDict(TypedDict):
+    include_all: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Include all services.
+    """
+    include_onlies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Include only these services. Defaults to `[]`.
+    """
 
 @pulumi.input_type
 class IntegrationAccountTracesConfigXrayServicesArgs:
