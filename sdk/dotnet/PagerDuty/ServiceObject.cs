@@ -41,15 +41,17 @@ namespace Pulumi.Datadog.PagerDuty
     /// 
     /// The `pulumi import` command can be used, for example:
     /// 
-    /// Pagerduty service object can be imported using the service_name, while the service_key should be passed by setting the environment variable SERVICE_KEY
-    /// 
     /// ```sh
-    /// $ pulumi import datadog:pagerduty/serviceObject:ServiceObject SERVICE_KEY=${service_key} datadog_integration_pagerduty_service_object.foo ${service_name}
+    /// # Pagerduty service object can be imported using the service_name, while the service_key should be passed by setting the environment variable SERVICE_KEY
+    /// SERVICE_KEY=${service_key} terraform import datadog_integration_pagerduty_service_object.foo ${service_name}
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:pagerduty/serviceObject:ServiceObject")]
     public partial class ServiceObject : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration [documentation](https://www.pagerduty.com/docs/guides/datadog-integration-guide/), UI, and within the Pagerduty Provider for Terraform Note: Since the Datadog API never returns service keys, it is impossible to detect drifts. The best way to solve a drift is to manually mark the Service Object resource with terraform taint to have it destroyed and recreated.
+        /// </summary>
         [Output("serviceKey")]
         public Output<string> ServiceKey { get; private set; } = null!;
 
@@ -111,6 +113,10 @@ namespace Pulumi.Datadog.PagerDuty
     {
         [Input("serviceKey", required: true)]
         private Input<string>? _serviceKey;
+
+        /// <summary>
+        /// Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration [documentation](https://www.pagerduty.com/docs/guides/datadog-integration-guide/), UI, and within the Pagerduty Provider for Terraform Note: Since the Datadog API never returns service keys, it is impossible to detect drifts. The best way to solve a drift is to manually mark the Service Object resource with terraform taint to have it destroyed and recreated.
+        /// </summary>
         public Input<string>? ServiceKey
         {
             get => _serviceKey;
@@ -137,6 +143,10 @@ namespace Pulumi.Datadog.PagerDuty
     {
         [Input("serviceKey")]
         private Input<string>? _serviceKey;
+
+        /// <summary>
+        /// Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration [documentation](https://www.pagerduty.com/docs/guides/datadog-integration-guide/), UI, and within the Pagerduty Provider for Terraform Note: Since the Datadog API never returns service keys, it is impossible to detect drifts. The best way to solve a drift is to manually mark the Service Object resource with terraform taint to have it destroyed and recreated.
+        /// </summary>
         public Input<string>? ServiceKey
         {
             get => _serviceKey;

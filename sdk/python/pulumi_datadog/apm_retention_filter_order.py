@@ -98,7 +98,6 @@ class ApmRetentionFilterOrder(pulumi.CustomResource):
         The `pulumi import` command can be used, for example:
 
         Import existing APM retention filter order
-
         Note: Value of <foo> can be anything as this id is not stored by the resource
 
         ```sh
@@ -142,7 +141,6 @@ class ApmRetentionFilterOrder(pulumi.CustomResource):
         The `pulumi import` command can be used, for example:
 
         Import existing APM retention filter order
-
         Note: Value of <foo> can be anything as this id is not stored by the resource
 
         ```sh

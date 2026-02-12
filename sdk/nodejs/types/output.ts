@@ -29595,7 +29595,7 @@ export interface SyntheticsTestApiStepRequestClientCertificateCert {
      */
     content?: string;
     /**
-     * File name for the certificate.
+     * File name for the certificate. Defaults to `"Provided in Terraform config"`.
      */
     filename?: string;
 }
@@ -29606,7 +29606,7 @@ export interface SyntheticsTestApiStepRequestClientCertificateKey {
      */
     content?: string;
     /**
-     * File name for the certificate.
+     * File name for the certificate. Defaults to `"Provided in Terraform config"`.
      */
     filename?: string;
 }
@@ -30077,6 +30077,9 @@ export interface SyntheticsTestBrowserVariable {
 }
 
 export interface SyntheticsTestConfigVariable {
+    /**
+     * Example for the variable. This value is not returned by the API when `secure = true`. Avoid drift by only making updates to this value from within Terraform.
+     */
     example?: string;
     /**
      * When type = `global`, ID of the global variable to use.
@@ -30086,6 +30089,9 @@ export interface SyntheticsTestConfigVariable {
      * Name of the variable.
      */
     name: string;
+    /**
+     * Pattern of the variable. This value is not returned by the API when `secure = true`. Avoid drift by only making updates to this value from within Terraform.
+     */
     pattern?: string;
     /**
      * Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
@@ -30601,7 +30607,7 @@ export interface SyntheticsTestRequestClientCertificateCert {
      */
     content?: string;
     /**
-     * File name for the certificate.
+     * File name for the certificate. Defaults to `"Provided in Terraform config"`.
      */
     filename?: string;
 }
@@ -30612,7 +30618,7 @@ export interface SyntheticsTestRequestClientCertificateKey {
      */
     content?: string;
     /**
-     * File name for the certificate.
+     * File name for the certificate. Defaults to `"Provided in Terraform config"`.
      */
     filename?: string;
 }
@@ -30917,6 +30923,9 @@ export namespace aws {
          * AWS Access Key ID
          */
         accessKeyId?: string;
+        /**
+         * AWS Secret Access Key. This value is write-only; changes made outside of Terraform will not be drift-detected.
+         */
         secretAccessKey?: string;
     }
 

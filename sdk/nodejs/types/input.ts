@@ -29445,7 +29445,7 @@ export interface SyntheticsTestApiStepRequestClientCertificateCert {
      */
     content?: pulumi.Input<string>;
     /**
-     * File name for the certificate.
+     * File name for the certificate. Defaults to `"Provided in Terraform config"`.
      */
     filename?: pulumi.Input<string>;
 }
@@ -29456,7 +29456,7 @@ export interface SyntheticsTestApiStepRequestClientCertificateKey {
      */
     content?: pulumi.Input<string>;
     /**
-     * File name for the certificate.
+     * File name for the certificate. Defaults to `"Provided in Terraform config"`.
      */
     filename?: pulumi.Input<string>;
 }
@@ -29927,6 +29927,9 @@ export interface SyntheticsTestBrowserVariable {
 }
 
 export interface SyntheticsTestConfigVariable {
+    /**
+     * Example for the variable. This value is not returned by the API when `secure = true`. Avoid drift by only making updates to this value from within Terraform.
+     */
     example?: pulumi.Input<string>;
     /**
      * When type = `global`, ID of the global variable to use.
@@ -29936,6 +29939,9 @@ export interface SyntheticsTestConfigVariable {
      * Name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * Pattern of the variable. This value is not returned by the API when `secure = true`. Avoid drift by only making updates to this value from within Terraform.
+     */
     pattern?: pulumi.Input<string>;
     /**
      * Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
@@ -30451,7 +30457,7 @@ export interface SyntheticsTestRequestClientCertificateCert {
      */
     content?: pulumi.Input<string>;
     /**
-     * File name for the certificate.
+     * File name for the certificate. Defaults to `"Provided in Terraform config"`.
      */
     filename?: pulumi.Input<string>;
 }
@@ -30462,7 +30468,7 @@ export interface SyntheticsTestRequestClientCertificateKey {
      */
     content?: pulumi.Input<string>;
     /**
-     * File name for the certificate.
+     * File name for the certificate. Defaults to `"Provided in Terraform config"`.
      */
     filename?: pulumi.Input<string>;
 }
@@ -30755,6 +30761,9 @@ export namespace aws {
          * AWS Access Key ID
          */
         accessKeyId?: pulumi.Input<string>;
+        /**
+         * AWS Secret Access Key. This value is write-only; changes made outside of Terraform will not be drift-detected.
+         */
         secretAccessKey?: pulumi.Input<string>;
     }
 

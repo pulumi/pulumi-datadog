@@ -47,7 +47,7 @@ import (
 //
 // The `pulumi import` command can be used, for example:
 //
-// #!/bin/sh
+// !/bin/sh
 //
 // # Import existing agentless scanning GCP scan options by GCP project ID
 //

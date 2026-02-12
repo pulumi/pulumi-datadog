@@ -10,12 +10,217 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Aws
 {
     /// <summary>
+    /// Provides a Datadog—Amazon Web Services integration resource. This can be used to create and manage Datadog—Amazon Web Services integration.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create new integration_aws_account resource
+    ///     var foo = new Datadog.Aws.IntegrationAccount("foo", new()
+    ///     {
+    ///         AccountTags = new[]
+    ///         {
+    ///             "env:prod",
+    ///         },
+    ///         AwsAccountId = "123456789012",
+    ///         AwsPartition = "aws",
+    ///         AwsRegions = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "includeAll", true },
+    ///             },
+    ///         },
+    ///         AuthConfig = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "awsAuthConfigRole", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "roleName", "DatadogIntegrationRole" },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///         },
+    ///         LogsConfig = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "lambdaForwarder", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "lambdas", new[]
+    ///                         {
+    ///                             "arn:aws:lambda:us-east-1:123456789012:function:my-lambda",
+    ///                         } },
+    ///                         { "sources", new[]
+    ///                         {
+    ///                             "s3",
+    ///                         } },
+    ///                         { "logSourceConfig", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "tagFilters", new[]
+    ///                                 {
+    ///                                     
+    ///                                     {
+    ///                                         { "source", "s3" },
+    ///                                         { "tags", new[]
+    ///                                         {
+    ///                                             "env:prod",
+    ///                                             "team:backend",
+    ///                                         } },
+    ///                                     },
+    ///                                 } },
+    ///                             },
+    ///                         } },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///         },
+    ///         MetricsConfig = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "automuteEnabled", true },
+    ///                 { "collectCloudwatchAlarms", true },
+    ///                 { "collectCustomMetrics", true },
+    ///                 { "enabled", true },
+    ///                 { "namespaceFilters", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "excludeOnlies", new[]
+    ///                         {
+    ///                             "AWS/SQS",
+    ///                             "AWS/ElasticMapReduce",
+    ///                             "AWS/Usage",
+    ///                         } },
+    ///                     },
+    ///                 } },
+    ///                 { "tagFilters", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "namespace", "AWS/EC2" },
+    ///                         { "tags", new[]
+    ///                         {
+    ///                             "datadog:true",
+    ///                         } },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///         },
+    ///         ResourcesConfig = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "cloudSecurityPostureManagementCollection", true },
+    ///                 { "extendedCollection", true },
+    ///             },
+    ///         },
+    ///         TracesConfig = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "xrayServices", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "includeAll", true },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Create new integration_aws_account resource with all Datadog-provided defaults configured
+    ///     var foo_defaults = new Datadog.Aws.IntegrationAccount("foo-defaults", new()
+    ///     {
+    ///         AwsRegions = new[]
+    ///         {
+    ///             null,
+    ///         },
+    ///         LogsConfig = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "lambdaForwarder", new[]
+    ///                 {
+    ///                     null,
+    ///                 } },
+    ///             },
+    ///         },
+    ///         MetricsConfig = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "namespaceFilters", new[]
+    ///                 {
+    ///                     null,
+    ///                 } },
+    ///             },
+    ///         },
+    ///         ResourcesConfig = new[]
+    ///         {
+    ///             null,
+    ///         },
+    ///         TracesConfig = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "xrayServices", new[]
+    ///                 {
+    ///                     null,
+    ///                 } },
+    ///             },
+    ///         },
+    ///         AwsAccountId = "234567890123",
+    ///         AwsPartition = "aws",
+    ///         AuthConfig = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "awsAuthConfigRole", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "roleName", "DatadogIntegrationRole" },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Upgrading from `datadog.aws.Integration` resources
+    /// 
+    ///  To migrate your account configuration from `datadog_integration_aws*` resources to `datadog.aws.IntegrationAccount`:
+    ///  1. Import your integrated accounts into `datadog.aws.IntegrationAccount` resources using the import command below.
+    ///  2. Once successfully imported, you can run `terraform state rm` to delete all resources of the deprecated types from state:
+    ///     - `datadog.aws.Integration`
+    ///     - `datadog.aws.IntegrationLambdaArn`
+    ///     - `datadog.aws.IntegrationLogCollection`
+    ///     - `datadog.aws.IntegrationTagFilter`
+    /// 
     /// ## Import
     /// 
     /// ```sh
     /// $ pulumi import datadog:aws/integrationAccount:IntegrationAccount example "&lt;datadog-aws-account-config-id&gt;"
     /// ```
-    /// 
     ///  AWS Account Config ID can be retrieved by using the [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations) endpoint and querying by AWS Account ID.
     /// </summary>
     [DatadogResourceType("datadog:aws/integrationAccount:IntegrationAccount")]

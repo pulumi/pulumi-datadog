@@ -21,9 +21,17 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
 
     public static final DashboardState Empty = new DashboardState();
 
+    /**
+     * A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
+     * 
+     */
     @Import(name="dashboardLists")
     private @Nullable Output<List<Integer>> dashboardLists;
 
+    /**
+     * @return A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
+     * 
+     */
     public Optional<Output<List<Integer>>> dashboardLists() {
         return Optional.ofNullable(this.dashboardLists);
     }
@@ -268,15 +276,33 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
             $ = new DashboardState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dashboardLists A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dashboardLists(@Nullable Output<List<Integer>> dashboardLists) {
             $.dashboardLists = dashboardLists;
             return this;
         }
 
+        /**
+         * @param dashboardLists A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dashboardLists(List<Integer> dashboardLists) {
             return dashboardLists(Output.of(dashboardLists));
         }
 
+        /**
+         * @param dashboardLists A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dashboardLists(Integer... dashboardLists) {
             return dashboardLists(List.of(dashboardLists));
         }

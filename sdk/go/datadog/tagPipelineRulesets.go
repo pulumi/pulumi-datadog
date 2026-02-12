@@ -275,6 +275,7 @@ import (
 type TagPipelineRulesets struct {
 	pulumi.CustomResourceState
 
+	// Whether to override UI-defined rulesets. When set to true, any rulesets created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rulesets created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
 	OverrideUiDefinedResources pulumi.BoolPtrOutput `pulumi:"overrideUiDefinedResources"`
 	// The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
 	RulesetIds pulumi.StringArrayOutput `pulumi:"rulesetIds"`
@@ -313,12 +314,14 @@ func GetTagPipelineRulesets(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TagPipelineRulesets resources.
 type tagPipelineRulesetsState struct {
+	// Whether to override UI-defined rulesets. When set to true, any rulesets created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rulesets created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
 	OverrideUiDefinedResources *bool `pulumi:"overrideUiDefinedResources"`
 	// The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
 	RulesetIds []string `pulumi:"rulesetIds"`
 }
 
 type TagPipelineRulesetsState struct {
+	// Whether to override UI-defined rulesets. When set to true, any rulesets created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rulesets created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
 	OverrideUiDefinedResources pulumi.BoolPtrInput
 	// The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
 	RulesetIds pulumi.StringArrayInput
@@ -329,6 +332,7 @@ func (TagPipelineRulesetsState) ElementType() reflect.Type {
 }
 
 type tagPipelineRulesetsArgs struct {
+	// Whether to override UI-defined rulesets. When set to true, any rulesets created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rulesets created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
 	OverrideUiDefinedResources *bool `pulumi:"overrideUiDefinedResources"`
 	// The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
 	RulesetIds []string `pulumi:"rulesetIds"`
@@ -336,6 +340,7 @@ type tagPipelineRulesetsArgs struct {
 
 // The set of arguments for constructing a TagPipelineRulesets resource.
 type TagPipelineRulesetsArgs struct {
+	// Whether to override UI-defined rulesets. When set to true, any rulesets created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rulesets created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
 	OverrideUiDefinedResources pulumi.BoolPtrInput
 	// The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
 	RulesetIds pulumi.StringArrayInput
@@ -428,6 +433,7 @@ func (o TagPipelineRulesetsOutput) ToTagPipelineRulesetsOutputWithContext(ctx co
 	return o
 }
 
+// Whether to override UI-defined rulesets. When set to true, any rulesets created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rulesets created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
 func (o TagPipelineRulesetsOutput) OverrideUiDefinedResources() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TagPipelineRulesets) pulumi.BoolPtrOutput { return v.OverrideUiDefinedResources }).(pulumi.BoolPtrOutput)
 }

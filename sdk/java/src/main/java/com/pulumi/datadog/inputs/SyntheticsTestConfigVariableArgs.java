@@ -17,9 +17,17 @@ public final class SyntheticsTestConfigVariableArgs extends com.pulumi.resources
 
     public static final SyntheticsTestConfigVariableArgs Empty = new SyntheticsTestConfigVariableArgs();
 
+    /**
+     * Example for the variable. This value is not returned by the API when `secure = true`. Avoid drift by only making updates to this value from within Terraform.
+     * 
+     */
     @Import(name="example")
     private @Nullable Output<String> example;
 
+    /**
+     * @return Example for the variable. This value is not returned by the API when `secure = true`. Avoid drift by only making updates to this value from within Terraform.
+     * 
+     */
     public Optional<Output<String>> example() {
         return Optional.ofNullable(this.example);
     }
@@ -54,9 +62,17 @@ public final class SyntheticsTestConfigVariableArgs extends com.pulumi.resources
         return this.name;
     }
 
+    /**
+     * Pattern of the variable. This value is not returned by the API when `secure = true`. Avoid drift by only making updates to this value from within Terraform.
+     * 
+     */
     @Import(name="pattern")
     private @Nullable Output<String> pattern;
 
+    /**
+     * @return Pattern of the variable. This value is not returned by the API when `secure = true`. Avoid drift by only making updates to this value from within Terraform.
+     * 
+     */
     public Optional<Output<String>> pattern() {
         return Optional.ofNullable(this.pattern);
     }
@@ -120,11 +136,23 @@ public final class SyntheticsTestConfigVariableArgs extends com.pulumi.resources
             $ = new SyntheticsTestConfigVariableArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param example Example for the variable. This value is not returned by the API when `secure = true`. Avoid drift by only making updates to this value from within Terraform.
+         * 
+         * @return builder
+         * 
+         */
         public Builder example(@Nullable Output<String> example) {
             $.example = example;
             return this;
         }
 
+        /**
+         * @param example Example for the variable. This value is not returned by the API when `secure = true`. Avoid drift by only making updates to this value from within Terraform.
+         * 
+         * @return builder
+         * 
+         */
         public Builder example(String example) {
             return example(Output.of(example));
         }
@@ -171,11 +199,23 @@ public final class SyntheticsTestConfigVariableArgs extends com.pulumi.resources
             return name(Output.of(name));
         }
 
+        /**
+         * @param pattern Pattern of the variable. This value is not returned by the API when `secure = true`. Avoid drift by only making updates to this value from within Terraform.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pattern(@Nullable Output<String> pattern) {
             $.pattern = pattern;
             return this;
         }
 
+        /**
+         * @param pattern Pattern of the variable. This value is not returned by the API when `secure = true`. Avoid drift by only making updates to this value from within Terraform.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pattern(String pattern) {
             return pattern(Output.of(pattern));
         }

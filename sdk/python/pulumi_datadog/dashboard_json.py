@@ -25,6 +25,7 @@ class DashboardJsonArgs:
         """
         The set of arguments for constructing a DashboardJson resource.
         :param pulumi.Input[_builtins.str] dashboard: The JSON formatted definition of the Dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
         :param pulumi.Input[_builtins.str] url: The URL of the dashboard.
         """
         pulumi.set(__self__, "dashboard", dashboard)
@@ -48,6 +49,9 @@ class DashboardJsonArgs:
     @_builtins.property
     @pulumi.getter(name="dashboardLists")
     def dashboard_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
+        """
         return pulumi.get(self, "dashboard_lists")
 
     @dashboard_lists.setter
@@ -77,6 +81,7 @@ class _DashboardJsonState:
         """
         Input properties used for looking up and filtering DashboardJson resources.
         :param pulumi.Input[_builtins.str] dashboard: The JSON formatted definition of the Dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dashboard_lists_removeds: The list of dashboard lists this dashboard should be removed from. Internal only.
         :param pulumi.Input[_builtins.str] url: The URL of the dashboard.
         """
@@ -104,6 +109,9 @@ class _DashboardJsonState:
     @_builtins.property
     @pulumi.getter(name="dashboardLists")
     def dashboard_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
+        """
         return pulumi.get(self, "dashboard_lists")
 
     @dashboard_lists.setter
@@ -653,6 +661,7 @@ class DashboardJson(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dashboard: The JSON formatted definition of the Dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
         :param pulumi.Input[_builtins.str] url: The URL of the dashboard.
         """
         ...
@@ -1221,6 +1230,7 @@ class DashboardJson(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dashboard: The JSON formatted definition of the Dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dashboard_lists_removeds: The list of dashboard lists this dashboard should be removed from. Internal only.
         :param pulumi.Input[_builtins.str] url: The URL of the dashboard.
         """
@@ -1245,6 +1255,9 @@ class DashboardJson(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="dashboardLists")
     def dashboard_lists(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
+        """
         return pulumi.get(self, "dashboard_lists")
 
     @_builtins.property

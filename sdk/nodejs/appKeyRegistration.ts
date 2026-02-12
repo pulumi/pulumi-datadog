@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Registers App Keys to be used for Action Connection, App Builder, and Workflow Automation. This registration is required to enable API and Terraform use in these products.
+ *
  * ## Example Usage
  *
  * ```typescript

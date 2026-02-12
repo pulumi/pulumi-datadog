@@ -77,7 +77,7 @@ namespace Pulumi.Datadog
     /// 
     /// The `pulumi import` command can be used, for example:
     /// 
-    /// Import existing on_call_team_routing_rules
+    /// Import existing OnCallTeamRoutingRules
     /// 
     /// ```sh
     /// $ pulumi import datadog:index/onCallTeamRoutingRules:OnCallTeamRoutingRules test "b03a07d5-49da-43e9-83b4-5d84969b588b"

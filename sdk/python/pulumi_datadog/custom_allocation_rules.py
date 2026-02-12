@@ -24,6 +24,7 @@ class CustomAllocationRulesArgs:
         """
         The set of arguments for constructing a CustomAllocationRules resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rule_ids: The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `CustomAllocationRule` resource.
+        :param pulumi.Input[_builtins.bool] override_ui_defined_resources: Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
         """
         pulumi.set(__self__, "rule_ids", rule_ids)
         if override_ui_defined_resources is not None:
@@ -44,6 +45,9 @@ class CustomAllocationRulesArgs:
     @_builtins.property
     @pulumi.getter(name="overrideUiDefinedResources")
     def override_ui_defined_resources(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
+        """
         return pulumi.get(self, "override_ui_defined_resources")
 
     @override_ui_defined_resources.setter
@@ -58,6 +62,7 @@ class _CustomAllocationRulesState:
                  rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CustomAllocationRules resources.
+        :param pulumi.Input[_builtins.bool] override_ui_defined_resources: Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rule_ids: The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `CustomAllocationRule` resource.
         """
         if override_ui_defined_resources is not None:
@@ -68,6 +73,9 @@ class _CustomAllocationRulesState:
     @_builtins.property
     @pulumi.getter(name="overrideUiDefinedResources")
     def override_ui_defined_resources(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
+        """
         return pulumi.get(self, "override_ui_defined_resources")
 
     @override_ui_defined_resources.setter
@@ -187,6 +195,7 @@ class CustomAllocationRules(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] override_ui_defined_resources: Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rule_ids: The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `CustomAllocationRule` resource.
         """
         ...
@@ -333,6 +342,7 @@ class CustomAllocationRules(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] override_ui_defined_resources: Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rule_ids: The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `CustomAllocationRule` resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -346,6 +356,9 @@ class CustomAllocationRules(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="overrideUiDefinedResources")
     def override_ui_defined_resources(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
+        """
         return pulumi.get(self, "override_ui_defined_resources")
 
     @_builtins.property

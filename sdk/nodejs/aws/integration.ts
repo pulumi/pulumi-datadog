@@ -39,10 +39,9 @@ import * as utilities from "../utilities";
  *
  * The `pulumi import` command can be used, for example:
  *
- * Amazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID
- *
  * ```sh
- * $ pulumi import datadog:aws/integration:Integration EXTERNAL_ID=${external_id} datadog_integration_aws.test ${account_id}:${role_name}
+ * # Amazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID
+ * EXTERNAL_ID=${external_id} terraform import datadog_integration_aws.test ${account_id}:${role_name}
  * ```
  */
 export class Integration extends pulumi.CustomResource {
@@ -97,6 +96,9 @@ export class Integration extends pulumi.CustomResource {
      * Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspmResourceCollectionEnabled`.
      */
     declare public readonly extendedResourceCollectionEnabled: pulumi.Output<string>;
+    /**
+     * AWS External ID. **NOTE** This provider will not be able to detect changes made to the `externalId` field from outside Terraform.
+     */
     declare public /*out*/ readonly externalId: pulumi.Output<string>;
     /**
      * Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
@@ -202,6 +204,9 @@ export interface IntegrationState {
      * Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspmResourceCollectionEnabled`.
      */
     extendedResourceCollectionEnabled?: pulumi.Input<string>;
+    /**
+     * AWS External ID. **NOTE** This provider will not be able to detect changes made to the `externalId` field from outside Terraform.
+     */
     externalId?: pulumi.Input<string>;
     /**
      * Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.

@@ -89,7 +89,6 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
         The `pulumi import` command can be used, for example:
 
         To find the pipeline ID, click the "view" button in the UI to open the pipeline details.
-
         The pipeline ID is the last part of the URL.
 
         ```sh
@@ -123,7 +122,6 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
         The `pulumi import` command can be used, for example:
 
         To find the pipeline ID, click the "view" button in the UI to open the pipeline details.
-
         The pipeline ID is the last part of the URL.
 
         ```sh

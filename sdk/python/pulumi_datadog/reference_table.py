@@ -373,8 +373,7 @@ class ReferenceTable(pulumi.CustomResource):
 
         The `pulumi import` command can be used, for example:
 
-        #!/bin/bash
-
+        !/bin/bash
         Import an existing reference table by its UUID
 
         ```sh
@@ -383,58 +382,38 @@ class ReferenceTable(pulumi.CustomResource):
 
         After importing, add the resource configuration to your .tf file:
 
-        resource "datadog_reference_table" "imported_table" {
+        resource "ReferenceTable" "imported_table" {
+        table_name  = "existing_table"
+        description = "Previously created table"
+        source      = "S3"  # or "GCS" or "AZURE"
 
-          table_name  = "existing_table"
+        file_metadata {
+        sync_enabled = true
 
-          description = "Previously created table"
+        access_details {
+        aws_detail {
+        aws_account_id  = "123456789000"
+        aws_bucket_name = "existing-bucket"
+        file_path       = "data/existing.csv"
+        }
+        }
+        }
 
-          source      = "S3"  # or "GCS" or "AZURE"
+        schema {
+        primary_keys = ["id"]
 
-          file_metadata {
+        fields {
+        name = "id"
+        type = "STRING"
+        }
 
-            sync_enabled = true
-            
-            access_details {
-            
-              aws_detail {
-            
-                aws_account_id  = "123456789000"
-            
-                aws_bucket_name = "existing-bucket"
-            
-                file_path       = "data/existing.csv"
-            
-              }
-            
-            }
+        fields {
+        name = "value"
+        type = "STRING"
+        }
+        }
 
-          }
-
-          schema {
-
-            primary_keys = ["id"]
-            
-            fields {
-            
-              name = "id"
-            
-              type = "STRING"
-            
-            }
-            
-            fields {
-            
-              name = "value"
-            
-              type = "STRING"
-            
-            }
-
-          }
-
-          tags = ["imported:true"]
-
+        tags = ["imported:true"]
         }
 
         :param str resource_name: The name of the resource.
@@ -508,8 +487,7 @@ class ReferenceTable(pulumi.CustomResource):
 
         The `pulumi import` command can be used, for example:
 
-        #!/bin/bash
-
+        !/bin/bash
         Import an existing reference table by its UUID
 
         ```sh
@@ -518,58 +496,38 @@ class ReferenceTable(pulumi.CustomResource):
 
         After importing, add the resource configuration to your .tf file:
 
-        resource "datadog_reference_table" "imported_table" {
+        resource "ReferenceTable" "imported_table" {
+        table_name  = "existing_table"
+        description = "Previously created table"
+        source      = "S3"  # or "GCS" or "AZURE"
 
-          table_name  = "existing_table"
+        file_metadata {
+        sync_enabled = true
 
-          description = "Previously created table"
+        access_details {
+        aws_detail {
+        aws_account_id  = "123456789000"
+        aws_bucket_name = "existing-bucket"
+        file_path       = "data/existing.csv"
+        }
+        }
+        }
 
-          source      = "S3"  # or "GCS" or "AZURE"
+        schema {
+        primary_keys = ["id"]
 
-          file_metadata {
+        fields {
+        name = "id"
+        type = "STRING"
+        }
 
-            sync_enabled = true
-            
-            access_details {
-            
-              aws_detail {
-            
-                aws_account_id  = "123456789000"
-            
-                aws_bucket_name = "existing-bucket"
-            
-                file_path       = "data/existing.csv"
-            
-              }
-            
-            }
+        fields {
+        name = "value"
+        type = "STRING"
+        }
+        }
 
-          }
-
-          schema {
-
-            primary_keys = ["id"]
-            
-            fields {
-            
-              name = "id"
-            
-              type = "STRING"
-            
-            }
-            
-            fields {
-            
-              name = "value"
-            
-              type = "STRING"
-            
-            }
-
-          }
-
-          tags = ["imported:true"]
-
+        tags = ["imported:true"]
         }
 
         :param str resource_name: The name of the resource.

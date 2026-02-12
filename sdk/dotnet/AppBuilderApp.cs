@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// ## Example Usage
+    /// Provides a Datadog App resource for creating and managing Datadog Apps from App Builder using the JSON definition. To easily export an App for use with Terraform, use the export button in the Datadog App Builder UI. This resource requires a registered application key.
     /// 
     /// ## Import
     /// 

@@ -29,7 +29,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// File name for the certificate.
+        /// File name for the certificate. Defaults to `"Provided in Terraform config"`.
         /// </summary>
         [Input("filename")]
         public Input<string>? Filename { get; set; }

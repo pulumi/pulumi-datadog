@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
+    /// Provides a Datadog Cloud Workload Security Agent Rule API resource for agent rules. Deprecated, use datadog.getCsmThreatsAgentRules resource instead: https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/csm_threats_agent_rule
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

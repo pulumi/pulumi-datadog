@@ -19,9 +19,17 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RoleArgs Empty = new RoleArgs();
 
+    /**
+     * If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `includeRestricted` attribute for the `datadog.getPermissions` data source must be set to `true` to manage default permissions in Terraform.
+     * 
+     */
     @Import(name="defaultPermissionsOptOut")
     private @Nullable Output<Boolean> defaultPermissionsOptOut;
 
+    /**
+     * @return If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `includeRestricted` attribute for the `datadog.getPermissions` data source must be set to `true` to manage default permissions in Terraform.
+     * 
+     */
     public Optional<Output<Boolean>> defaultPermissionsOptOut() {
         return Optional.ofNullable(this.defaultPermissionsOptOut);
     }
@@ -98,11 +106,23 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
             $ = new RoleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param defaultPermissionsOptOut If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `includeRestricted` attribute for the `datadog.getPermissions` data source must be set to `true` to manage default permissions in Terraform.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultPermissionsOptOut(@Nullable Output<Boolean> defaultPermissionsOptOut) {
             $.defaultPermissionsOptOut = defaultPermissionsOptOut;
             return this;
         }
 
+        /**
+         * @param defaultPermissionsOptOut If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `includeRestricted` attribute for the `datadog.getPermissions` data source must be set to `true` to manage default permissions in Terraform.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultPermissionsOptOut(Boolean defaultPermissionsOptOut) {
             return defaultPermissionsOptOut(Output.of(defaultPermissionsOptOut));
         }

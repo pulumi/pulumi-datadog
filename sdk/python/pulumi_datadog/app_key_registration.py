@@ -72,6 +72,8 @@ class AppKeyRegistration(pulumi.CustomResource):
                  app_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Registers App Keys to be used for Action Connection, App Builder, and Workflow Automation. This registration is required to enable API and Terraform use in these products.
+
         ## Example Usage
 
         ```python
@@ -100,6 +102,8 @@ class AppKeyRegistration(pulumi.CustomResource):
                  args: AppKeyRegistrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Registers App Keys to be used for Action Connection, App Builder, and Workflow Automation. This registration is required to enable API and Terraform use in these products.
+
         ## Example Usage
 
         ```python

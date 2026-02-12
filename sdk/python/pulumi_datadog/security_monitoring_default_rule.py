@@ -343,9 +343,7 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
         The `pulumi import` command can be used, for example:
 
         Default rules need to be imported using their ID before applying.
-
-        resource "datadog_security_monitoring_default_rule" "adefaultrule" {
-
+        resource "SecurityMonitoringDefaultRule" "adefaultrule" {
         }
 
         ```sh
@@ -391,9 +389,7 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
         The `pulumi import` command can be used, for example:
 
         Default rules need to be imported using their ID before applying.
-
-        resource "datadog_security_monitoring_default_rule" "adefaultrule" {
-
+        resource "SecurityMonitoringDefaultRule" "adefaultrule" {
         }
 
         ```sh

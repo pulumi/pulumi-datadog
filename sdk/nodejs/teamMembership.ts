@@ -31,7 +31,7 @@ import * as utilities from "./utilities";
  *
  * The `pulumi import` command can be used, for example:
  *
- * This resource is imported using team_id and user_id seperated by `:`.
+ * This resource is imported using teamId and userId seperated by `:`.
  *
  * ```sh
  * $ pulumi import datadog:index/teamMembership:TeamMembership foo "${team_id}:${user_id}"

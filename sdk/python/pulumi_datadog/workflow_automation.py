@@ -233,6 +233,8 @@ class WorkflowAutomation(pulumi.CustomResource):
                  webhook_secret: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Enables the creation and management of Datadog workflows using Workflow Automation. To easily export a workflow for use with Terraform, use the export button in the Datadog Workflow Automation UI. This resource requires a registered application key.
+
         ## Example Usage
 
         ```python
@@ -308,6 +310,8 @@ class WorkflowAutomation(pulumi.CustomResource):
                  args: WorkflowAutomationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Enables the creation and management of Datadog workflows using Workflow Automation. To easily export a workflow for use with Terraform, use the export button in the Datadog Workflow Automation UI. This resource requires a registered application key.
+
         ## Example Usage
 
         ```python

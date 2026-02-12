@@ -69,6 +69,9 @@ export class Role extends pulumi.CustomResource {
         return obj['__pulumiType'] === Role.__pulumiType;
     }
 
+    /**
+     * If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `includeRestricted` attribute for the `datadog.getPermissions` data source must be set to `true` to manage default permissions in Terraform.
+     */
     declare public readonly defaultPermissionsOptOut: pulumi.Output<boolean | undefined>;
     /**
      * Name of the role.
@@ -125,6 +128,9 @@ export class Role extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Role resources.
  */
 export interface RoleState {
+    /**
+     * If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `includeRestricted` attribute for the `datadog.getPermissions` data source must be set to `true` to manage default permissions in Terraform.
+     */
     defaultPermissionsOptOut?: pulumi.Input<boolean>;
     /**
      * Name of the role.
@@ -148,6 +154,9 @@ export interface RoleState {
  * The set of arguments for constructing a Role resource.
  */
 export interface RoleArgs {
+    /**
+     * If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `includeRestricted` attribute for the `datadog.getPermissions` data source must be set to `true` to manage default permissions in Terraform.
+     */
     defaultPermissionsOptOut?: pulumi.Input<boolean>;
     /**
      * Name of the role.

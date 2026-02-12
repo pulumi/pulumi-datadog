@@ -90,9 +90,17 @@ public class ServiceObject extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts. The best way to solve a drift is to manually mark the Service Object resource with terraform taint to have it destroyed and recreated.
+     * 
+     */
     @Export(name="opsgenieApiKey", refs={String.class}, tree="[0]")
     private Output<String> opsgenieApiKey;
 
+    /**
+     * @return The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts. The best way to solve a drift is to manually mark the Service Object resource with terraform taint to have it destroyed and recreated.
+     * 
+     */
     public Output<String> opsgenieApiKey() {
         return this.opsgenieApiKey;
     }

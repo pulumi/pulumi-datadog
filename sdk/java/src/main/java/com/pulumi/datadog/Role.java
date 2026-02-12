@@ -82,9 +82,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="datadog:index/role:Role")
 public class Role extends com.pulumi.resources.CustomResource {
+    /**
+     * If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `includeRestricted` attribute for the `datadog.getPermissions` data source must be set to `true` to manage default permissions in Terraform.
+     * 
+     */
     @Export(name="defaultPermissionsOptOut", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> defaultPermissionsOptOut;
 
+    /**
+     * @return If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `includeRestricted` attribute for the `datadog.getPermissions` data source must be set to `true` to manage default permissions in Terraform.
+     * 
+     */
     public Output<Optional<Boolean>> defaultPermissionsOptOut() {
         return Codegen.optional(this.defaultPermissionsOptOut);
     }

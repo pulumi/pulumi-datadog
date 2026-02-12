@@ -49,7 +49,7 @@ namespace Pulumi.Datadog
     /// 
     /// The `pulumi import` command can be used, for example:
     /// 
-    /// This resource is imported using team_id and user_id seperated by `:`.
+    /// This resource is imported using TeamId and UserId seperated by `:`.
     /// 
     /// ```sh
     /// $ pulumi import datadog:index/teamMembership:TeamMembership foo "${team_id}:${user_id}"

@@ -60,18 +60,25 @@ import javax.annotation.Nullable;
  * 
  * The `pulumi import` command can be used, for example:
  * 
- * Pagerduty service object can be imported using the service_name, while the service_key should be passed by setting the environment variable SERVICE_KEY
- * 
  * ```sh
- * $ pulumi import datadog:pagerduty/serviceObject:ServiceObject SERVICE_KEY=${service_key} datadog_integration_pagerduty_service_object.foo ${service_name}
+ * # Pagerduty service object can be imported using the service_name, while the service_key should be passed by setting the environment variable SERVICE_KEY
+ * SERVICE_KEY=${service_key} terraform import datadog_integration_pagerduty_service_object.foo ${service_name}
  * ```
  * 
  */
 @ResourceType(type="datadog:pagerduty/serviceObject:ServiceObject")
 public class ServiceObject extends com.pulumi.resources.CustomResource {
+    /**
+     * Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration [documentation](https://www.pagerduty.com/docs/guides/datadog-integration-guide/), UI, and within the Pagerduty Provider for Terraform Note: Since the Datadog API never returns service keys, it is impossible to detect drifts. The best way to solve a drift is to manually mark the Service Object resource with terraform taint to have it destroyed and recreated.
+     * 
+     */
     @Export(name="serviceKey", refs={String.class}, tree="[0]")
     private Output<String> serviceKey;
 
+    /**
+     * @return Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration [documentation](https://www.pagerduty.com/docs/guides/datadog-integration-guide/), UI, and within the Pagerduty Provider for Terraform Note: Since the Datadog API never returns service keys, it is impossible to detect drifts. The best way to solve a drift is to manually mark the Service Object resource with terraform taint to have it destroyed and recreated.
+     * 
+     */
     public Output<String> serviceKey() {
         return this.serviceKey;
     }

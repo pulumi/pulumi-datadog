@@ -57,10 +57,9 @@ namespace Pulumi.Datadog.Aws
     /// 
     /// The `pulumi import` command can be used, for example:
     /// 
-    /// Amazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID
-    /// 
     /// ```sh
-    /// $ pulumi import datadog:aws/integration:Integration EXTERNAL_ID=${external_id} datadog_integration_aws.test ${account_id}:${role_name}
+    /// # Amazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID
+    /// EXTERNAL_ID=${external_id} terraform import datadog_integration_aws.test ${account_id}:${role_name}
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:aws/integration:Integration")]
@@ -102,6 +101,9 @@ namespace Pulumi.Datadog.Aws
         [Output("extendedResourceCollectionEnabled")]
         public Output<string> ExtendedResourceCollectionEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// AWS External ID. **NOTE** This provider will not be able to detect changes made to the `ExternalId` field from outside Terraform.
+        /// </summary>
         [Output("externalId")]
         public Output<string> ExternalId { get; private set; } = null!;
 
@@ -353,6 +355,9 @@ namespace Pulumi.Datadog.Aws
         [Input("extendedResourceCollectionEnabled")]
         public Input<string>? ExtendedResourceCollectionEnabled { get; set; }
 
+        /// <summary>
+        /// AWS External ID. **NOTE** This provider will not be able to detect changes made to the `ExternalId` field from outside Terraform.
+        /// </summary>
         [Input("externalId")]
         public Input<string>? ExternalId { get; set; }
 

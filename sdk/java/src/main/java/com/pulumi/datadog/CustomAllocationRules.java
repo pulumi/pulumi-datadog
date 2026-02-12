@@ -141,9 +141,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="datadog:index/customAllocationRules:CustomAllocationRules")
 public class CustomAllocationRules extends com.pulumi.resources.CustomResource {
+    /**
+     * Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
+     * 
+     */
     @Export(name="overrideUiDefinedResources", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> overrideUiDefinedResources;
 
+    /**
+     * @return Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
+     * 
+     */
     public Output<Optional<Boolean>> overrideUiDefinedResources() {
         return Codegen.optional(this.overrideUiDefinedResources);
     }

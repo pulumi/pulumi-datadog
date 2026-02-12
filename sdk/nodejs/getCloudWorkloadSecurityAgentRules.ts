@@ -7,6 +7,8 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources. Deprecated, use datadog.getCsmThreatsAgentRules data source instead: https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/csm_threats_agent_rules
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -36,6 +38,8 @@ export interface GetCloudWorkloadSecurityAgentRulesResult {
     readonly id: string;
 }
 /**
+ * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources. Deprecated, use datadog.getCsmThreatsAgentRules data source instead: https://registry.terraform.io/providers/DataDog/datadog/latest/docs/data-sources/csm_threats_agent_rules
+ *
  * ## Example Usage
  *
  * ```typescript

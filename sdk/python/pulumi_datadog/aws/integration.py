@@ -244,6 +244,7 @@ class _IntegrationState:
         :param pulumi.Input[_builtins.str] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_regions: An array of AWS regions to exclude from metrics collection.
         :param pulumi.Input[_builtins.str] extended_resource_collection_enabled: Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
+        :param pulumi.Input[_builtins.str] external_id: AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside Terraform.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] filter_tags: Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] host_tags: Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
         :param pulumi.Input[_builtins.str] metrics_collection_enabled: Whether Datadog collects metrics for this AWS account.
@@ -356,6 +357,9 @@ class _IntegrationState:
     @_builtins.property
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside Terraform.
+        """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
@@ -489,10 +493,9 @@ class Integration(pulumi.CustomResource):
 
         The `pulumi import` command can be used, for example:
 
-        Amazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID
-
         ```sh
-        $ pulumi import datadog:aws/integration:Integration EXTERNAL_ID=${external_id} datadog_integration_aws.test ${account_id}:${role_name}
+        # Amazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID
+        EXTERNAL_ID=${external_id} terraform import datadog_integration_aws.test ${account_id}:${role_name}
         ```
 
         :param str resource_name: The name of the resource.
@@ -550,10 +553,9 @@ class Integration(pulumi.CustomResource):
 
         The `pulumi import` command can be used, for example:
 
-        Amazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID
-
         ```sh
-        $ pulumi import datadog:aws/integration:Integration EXTERNAL_ID=${external_id} datadog_integration_aws.test ${account_id}:${role_name}
+        # Amazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID
+        EXTERNAL_ID=${external_id} terraform import datadog_integration_aws.test ${account_id}:${role_name}
         ```
 
         :param str resource_name: The name of the resource.
@@ -643,6 +645,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general resource_collection.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_regions: An array of AWS regions to exclude from metrics collection.
         :param pulumi.Input[_builtins.str] extended_resource_collection_enabled: Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
+        :param pulumi.Input[_builtins.str] external_id: AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside Terraform.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] filter_tags: Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] host_tags: Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
         :param pulumi.Input[_builtins.str] metrics_collection_enabled: Whether Datadog collects metrics for this AWS account.
@@ -720,6 +723,9 @@ class Integration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="externalId")
     def external_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside Terraform.
+        """
         return pulumi.get(self, "external_id")
 
     @_builtins.property

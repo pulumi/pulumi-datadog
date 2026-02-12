@@ -71,10 +71,9 @@ import javax.annotation.Nullable;
  * 
  * The `pulumi import` command can be used, for example:
  * 
- * Amazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID
- * 
  * ```sh
- * $ pulumi import datadog:aws/integration:Integration EXTERNAL_ID=${external_id} datadog_integration_aws.test ${account_id}:${role_name}
+ * # Amazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID
+ * EXTERNAL_ID=${external_id} terraform import datadog_integration_aws.test ${account_id}:${role_name}
  * ```
  * 
  */
@@ -164,9 +163,17 @@ public class Integration extends com.pulumi.resources.CustomResource {
     public Output<String> extendedResourceCollectionEnabled() {
         return this.extendedResourceCollectionEnabled;
     }
+    /**
+     * AWS External ID. **NOTE** This provider will not be able to detect changes made to the `externalId` field from outside Terraform.
+     * 
+     */
     @Export(name="externalId", refs={String.class}, tree="[0]")
     private Output<String> externalId;
 
+    /**
+     * @return AWS External ID. **NOTE** This provider will not be able to detect changes made to the `externalId` field from outside Terraform.
+     * 
+     */
     public Output<String> externalId() {
         return this.externalId;
     }

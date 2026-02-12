@@ -19,32 +19,27 @@ __all__ = [
     'ChannelDisplayArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ChannelDisplayArgsDict(TypedDict):
-        message: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Show the main body of the alert event. Defaults to `true`.
-        """
-        mute_buttons: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Show interactive buttons to mute the alerting monitor. Defaults to `true`.
-        """
-        notified: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Show the list of @-handles in the alert event. Defaults to `true`.
-        """
-        snapshot: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Show the alert event's snapshot image. Defaults to `true`.
-        """
-        tags: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Show the scopes on which the monitor alerted. Defaults to `true`.
-        """
-elif False:
-    ChannelDisplayArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelDisplayArgsDict(TypedDict):
+    message: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Show the main body of the alert event. Defaults to `true`.
+    """
+    mute_buttons: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Show interactive buttons to mute the alerting monitor. Defaults to `true`.
+    """
+    notified: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Show the list of @-handles in the alert event. Defaults to `true`.
+    """
+    snapshot: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Show the alert event's snapshot image. Defaults to `true`.
+    """
+    tags: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Show the scopes on which the monitor alerted. Defaults to `true`.
+    """
 
 @pulumi.input_type
 class ChannelDisplayArgs:

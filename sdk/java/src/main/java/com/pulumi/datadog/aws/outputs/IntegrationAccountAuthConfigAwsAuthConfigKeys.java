@@ -16,6 +16,10 @@ public final class IntegrationAccountAuthConfigAwsAuthConfigKeys {
      * 
      */
     private @Nullable String accessKeyId;
+    /**
+     * @return AWS Secret Access Key. This value is write-only; changes made outside of Terraform will not be drift-detected.
+     * 
+     */
     private @Nullable String secretAccessKey;
 
     private IntegrationAccountAuthConfigAwsAuthConfigKeys() {}
@@ -26,6 +30,10 @@ public final class IntegrationAccountAuthConfigAwsAuthConfigKeys {
     public Optional<String> accessKeyId() {
         return Optional.ofNullable(this.accessKeyId);
     }
+    /**
+     * @return AWS Secret Access Key. This value is write-only; changes made outside of Terraform will not be drift-detected.
+     * 
+     */
     public Optional<String> secretAccessKey() {
         return Optional.ofNullable(this.secretAccessKey);
     }

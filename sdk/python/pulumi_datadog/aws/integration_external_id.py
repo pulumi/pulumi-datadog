@@ -33,6 +33,32 @@ class IntegrationExternalId(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  __props__=None):
         """
+        !>A new external ID must be used to create an AWS account integration in Datadog within 48 hours of creation or it will expire.
+
+        !>Running `terraform destroy` only removes the resource from Terraform state and does not deactivate anything in Datadog or AWS.
+
+        Provides a Datadog-Amazon Web Services external ID resource. This can be used to create Datadog-Amazon Web Services external IDs
+
+        This resource can be used in conjunction with the `aws.IntegrationAccount` resource. The external ID value can be referenced as shown:
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo = datadog.aws.IntegrationExternalId("foo")
+        foo_defaults = datadog.aws.IntegrationAccount("foo-defaults",
+            aws_account_id="123456789019",
+            aws_partition="aws",
+            auth_config=[{
+                "awsAuthConfigRole": [{
+                    "roleName": "DatadogIntegrationRole",
+                    "externalId": foo.id,
+                }],
+            }])
+        ```
+
+        To force a new external ID value to regenerate, you can use the `-replace` flag:
+
         ## Example Usage
 
         ```python
@@ -63,6 +89,32 @@ class IntegrationExternalId(pulumi.CustomResource):
                  args: Optional[IntegrationExternalIdArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !>A new external ID must be used to create an AWS account integration in Datadog within 48 hours of creation or it will expire.
+
+        !>Running `terraform destroy` only removes the resource from Terraform state and does not deactivate anything in Datadog or AWS.
+
+        Provides a Datadog-Amazon Web Services external ID resource. This can be used to create Datadog-Amazon Web Services external IDs
+
+        This resource can be used in conjunction with the `aws.IntegrationAccount` resource. The external ID value can be referenced as shown:
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo = datadog.aws.IntegrationExternalId("foo")
+        foo_defaults = datadog.aws.IntegrationAccount("foo-defaults",
+            aws_account_id="123456789019",
+            aws_partition="aws",
+            auth_config=[{
+                "awsAuthConfigRole": [{
+                    "roleName": "DatadogIntegrationRole",
+                    "externalId": foo.id,
+                }],
+            }])
+        ```
+
+        To force a new external ID value to regenerate, you can use the `-replace` flag:
+
         ## Example Usage
 
         ```python

@@ -170,6 +170,8 @@ class CloudWorkloadSecurityAgentRule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Provides a Datadog Cloud Workload Security Agent Rule API resource for agent rules. Deprecated, use get_csm_threats_agent_rules resource instead: https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/csm_threats_agent_rule
+
         ## Example Usage
 
         ```python
@@ -207,6 +209,8 @@ class CloudWorkloadSecurityAgentRule(pulumi.CustomResource):
                  args: CloudWorkloadSecurityAgentRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides a Datadog Cloud Workload Security Agent Rule API resource for agent rules. Deprecated, use get_csm_threats_agent_rules resource instead: https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/csm_threats_agent_rule
+
         ## Example Usage
 
         ```python

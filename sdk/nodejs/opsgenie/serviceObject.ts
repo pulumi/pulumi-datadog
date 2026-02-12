@@ -61,6 +61,9 @@ export class ServiceObject extends pulumi.CustomResource {
      * The name for the Opsgenie service.
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts. The best way to solve a drift is to manually mark the Service Object resource with terraform taint to have it destroyed and recreated.
+     */
     declare public readonly opsgenieApiKey: pulumi.Output<string>;
     /**
      * The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
@@ -119,6 +122,9 @@ export interface ServiceObjectState {
      * The name for the Opsgenie service.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts. The best way to solve a drift is to manually mark the Service Object resource with terraform taint to have it destroyed and recreated.
+     */
     opsgenieApiKey?: pulumi.Input<string>;
     /**
      * The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
@@ -138,6 +144,9 @@ export interface ServiceObjectArgs {
      * The name for the Opsgenie service.
      */
     name: pulumi.Input<string>;
+    /**
+     * The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts. The best way to solve a drift is to manually mark the Service Object resource with terraform taint to have it destroyed and recreated.
+     */
     opsgenieApiKey: pulumi.Input<string>;
     /**
      * The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.

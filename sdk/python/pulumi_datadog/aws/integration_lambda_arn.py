@@ -130,10 +130,9 @@ class IntegrationLambdaArn(pulumi.CustomResource):
 
         The `pulumi import` command can be used, for example:
 
-        Amazon Web Services Lambda ARN integrations can be imported using their account_id and lambda_arn separated with a space (` `).
-
         ```sh
-        $ pulumi import datadog:aws/integrationLambdaArn:IntegrationLambdaArn test "1234567890 arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder"
+        # Amazon Web Services Lambda ARN integrations can be imported using their account_id and lambda_arn separated with a space (` `).
+        terraform import datadog_integration_aws_lambda_arn.test "1234567890 arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder"
         ```
 
         :param str resource_name: The name of the resource.
@@ -174,10 +173,9 @@ class IntegrationLambdaArn(pulumi.CustomResource):
 
         The `pulumi import` command can be used, for example:
 
-        Amazon Web Services Lambda ARN integrations can be imported using their account_id and lambda_arn separated with a space (` `).
-
         ```sh
-        $ pulumi import datadog:aws/integrationLambdaArn:IntegrationLambdaArn test "1234567890 arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder"
+        # Amazon Web Services Lambda ARN integrations can be imported using their account_id and lambda_arn separated with a space (` `).
+        terraform import datadog_integration_aws_lambda_arn.test "1234567890 arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder"
         ```
 
         :param str resource_name: The name of the resource.

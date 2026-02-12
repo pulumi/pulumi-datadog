@@ -206,6 +206,11 @@ namespace Pulumi.Datadog
         [Output("priority")]
         public Output<string?> Priority { get; private set; } = null!;
 
+        /// <summary>
+        /// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. `terraform plan` will validate query contents unless `Validate` is set to `False`.
+        /// 
+        /// **Note:** APM latency data is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+        /// </summary>
         [Output("query")]
         public Output<string> Query { get; private set; } = null!;
 
@@ -233,6 +238,10 @@ namespace Pulumi.Datadog
         [Output("requireFullWindow")]
         public Output<bool?> RequireFullWindow { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
+        ///  &gt; **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `True`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `RestrictedRoles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `datadog.RestrictionPolicy` resource.
+        /// </summary>
         [Output("restrictedRoles")]
         public Output<ImmutableArray<string>> RestrictedRoles { get; private set; } = null!;
 
@@ -477,6 +486,11 @@ namespace Pulumi.Datadog
         [Input("priority")]
         public Input<string>? Priority { get; set; }
 
+        /// <summary>
+        /// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. `terraform plan` will validate query contents unless `Validate` is set to `False`.
+        /// 
+        /// **Note:** APM latency data is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
@@ -512,6 +526,11 @@ namespace Pulumi.Datadog
 
         [Input("restrictedRoles")]
         private InputList<string>? _restrictedRoles;
+
+        /// <summary>
+        /// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
+        ///  &gt; **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `True`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `RestrictedRoles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `datadog.RestrictionPolicy` resource.
+        /// </summary>
         public InputList<string> RestrictedRoles
         {
             get => _restrictedRoles ?? (_restrictedRoles = new InputList<string>());
@@ -733,6 +752,11 @@ namespace Pulumi.Datadog
         [Input("priority")]
         public Input<string>? Priority { get; set; }
 
+        /// <summary>
+        /// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. `terraform plan` will validate query contents unless `Validate` is set to `False`.
+        /// 
+        /// **Note:** APM latency data is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+        /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }
 
@@ -768,6 +792,11 @@ namespace Pulumi.Datadog
 
         [Input("restrictedRoles")]
         private InputList<string>? _restrictedRoles;
+
+        /// <summary>
+        /// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
+        ///  &gt; **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `True`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `RestrictedRoles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `datadog.RestrictionPolicy` resource.
+        /// </summary>
         public InputList<string> RestrictedRoles
         {
             get => _restrictedRoles ?? (_restrictedRoles = new InputList<string>());

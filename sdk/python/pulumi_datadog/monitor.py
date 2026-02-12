@@ -61,6 +61,9 @@ class MonitorArgs:
         The set of arguments for constructing a Monitor resource.
         :param pulumi.Input[_builtins.str] message: A message to include with notifications for this monitor.
         :param pulumi.Input[_builtins.str] name: Name of Datadog monitor.
+        :param pulumi.Input[_builtins.str] query: The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. `terraform plan` will validate query contents unless `validate` is set to `false`.
+               
+               **Note:** APM latency data is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
         :param pulumi.Input[_builtins.str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type cannot be changed after a monitor is created.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorAssetArgs']]] assets: List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
         :param pulumi.Input[_builtins.str] draft_status: Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
@@ -94,6 +97,8 @@ class MonitorArgs:
         :param pulumi.Input[_builtins.int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] renotify_statuses: The types of statuses for which re-notification messages should be sent.
         :param pulumi.Input[_builtins.bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] restricted_roles: A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
+                > **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restricted_roles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `RestrictionPolicy` resource.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorSchedulingOptionArgs']]] scheduling_options: Configuration options for scheduling.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[_builtins.int] timeout_h: The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
@@ -201,6 +206,11 @@ class MonitorArgs:
     @_builtins.property
     @pulumi.getter
     def query(self) -> pulumi.Input[_builtins.str]:
+        """
+        The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. `terraform plan` will validate query contents unless `validate` is set to `false`.
+
+        **Note:** APM latency data is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+        """
         return pulumi.get(self, "query")
 
     @query.setter
@@ -542,6 +552,10 @@ class MonitorArgs:
     @_builtins.property
     @pulumi.getter(name="restrictedRoles")
     def restricted_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
+         > **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restricted_roles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `RestrictionPolicy` resource.
+        """
         return pulumi.get(self, "restricted_roles")
 
     @restricted_roles.setter
@@ -677,10 +691,15 @@ class _MonitorState:
         :param pulumi.Input[_builtins.bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting.
         :param pulumi.Input[_builtins.str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
         :param pulumi.Input[_builtins.str] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
+        :param pulumi.Input[_builtins.str] query: The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. `terraform plan` will validate query contents unless `validate` is set to `false`.
+               
+               **Note:** APM latency data is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
         :param pulumi.Input[_builtins.int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only re-notify if it's not resolved.
         :param pulumi.Input[_builtins.int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] renotify_statuses: The types of statuses for which re-notification messages should be sent.
         :param pulumi.Input[_builtins.bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] restricted_roles: A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
+                > **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restricted_roles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `RestrictionPolicy` resource.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorSchedulingOptionArgs']]] scheduling_options: Configuration options for scheduling.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[_builtins.int] timeout_h: The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
@@ -1065,6 +1084,11 @@ class _MonitorState:
     @_builtins.property
     @pulumi.getter
     def query(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. `terraform plan` will validate query contents unless `validate` is set to `false`.
+
+        **Note:** APM latency data is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+        """
         return pulumi.get(self, "query")
 
     @query.setter
@@ -1122,6 +1146,10 @@ class _MonitorState:
     @_builtins.property
     @pulumi.getter(name="restrictedRoles")
     def restricted_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
+         > **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restricted_roles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `RestrictionPolicy` resource.
+        """
         return pulumi.get(self, "restricted_roles")
 
     @restricted_roles.setter
@@ -1307,10 +1335,15 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting.
         :param pulumi.Input[_builtins.str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
         :param pulumi.Input[_builtins.str] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
+        :param pulumi.Input[_builtins.str] query: The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. `terraform plan` will validate query contents unless `validate` is set to `false`.
+               
+               **Note:** APM latency data is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
         :param pulumi.Input[_builtins.int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only re-notify if it's not resolved.
         :param pulumi.Input[_builtins.int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] renotify_statuses: The types of statuses for which re-notification messages should be sent.
         :param pulumi.Input[_builtins.bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] restricted_roles: A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
+                > **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restricted_roles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `RestrictionPolicy` resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorSchedulingOptionArgs', 'MonitorSchedulingOptionArgsDict']]]] scheduling_options: Configuration options for scheduling.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[_builtins.int] timeout_h: The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
@@ -1544,10 +1577,15 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting.
         :param pulumi.Input[_builtins.str] on_missing_data: Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
         :param pulumi.Input[_builtins.str] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
+        :param pulumi.Input[_builtins.str] query: The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. `terraform plan` will validate query contents unless `validate` is set to `false`.
+               
+               **Note:** APM latency data is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
         :param pulumi.Input[_builtins.int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only re-notify if it's not resolved.
         :param pulumi.Input[_builtins.int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] renotify_statuses: The types of statuses for which re-notification messages should be sent.
         :param pulumi.Input[_builtins.bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] restricted_roles: A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
+                > **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restricted_roles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `RestrictionPolicy` resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorSchedulingOptionArgs', 'MonitorSchedulingOptionArgsDict']]]] scheduling_options: Configuration options for scheduling.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[_builtins.int] timeout_h: The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
@@ -1799,6 +1837,11 @@ class Monitor(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def query(self) -> pulumi.Output[_builtins.str]:
+        """
+        The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. `terraform plan` will validate query contents unless `validate` is set to `false`.
+
+        **Note:** APM latency data is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
+        """
         return pulumi.get(self, "query")
 
     @_builtins.property
@@ -1836,6 +1879,10 @@ class Monitor(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="restrictedRoles")
     def restricted_roles(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
+         > **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restricted_roles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `RestrictionPolicy` resource.
+        """
         return pulumi.get(self, "restricted_roles")
 
     @_builtins.property

@@ -12,6 +12,57 @@ import com.pulumi.datadog.aws.inputs.IntegrationExternalIdState;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt;A new external ID must be used to create an AWS account integration in Datadog within 48 hours of creation or it will expire.
+ * 
+ * !&gt;Running `terraform destroy` only removes the resource from Terraform state and does not deactivate anything in Datadog or AWS.
+ * 
+ * Provides a Datadog-Amazon Web Services external ID resource. This can be used to create Datadog-Amazon Web Services external IDs
+ * 
+ * This resource can be used in conjunction with the `datadog.aws.IntegrationAccount` resource. The external ID value can be referenced as shown:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.aws.IntegrationExternalId;
+ * import com.pulumi.datadog.aws.IntegrationAccount;
+ * import com.pulumi.datadog.aws.IntegrationAccountArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new IntegrationExternalId("foo");
+ * 
+ *         var foo_defaults = new IntegrationAccount("foo-defaults", IntegrationAccountArgs.builder()
+ *             .awsAccountId("123456789019")
+ *             .awsPartition("aws")
+ *             .authConfig(IntegrationAccountAuthConfigArgs.builder()
+ *                 .awsAuthConfigRole(IntegrationAccountAuthConfigAwsAuthConfigRoleArgs.builder()
+ *                     .roleName("DatadogIntegrationRole")
+ *                     .externalId(foo.id())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * To force a new external ID value to regenerate, you can use the `-replace` flag:
+ * 
  * ## Example Usage
  * 
  * <pre>

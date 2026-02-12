@@ -39,7 +39,7 @@ import * as utilities from "./utilities";
  *
  * The `pulumi import` command can be used, for example:
  *
- * This resource is imported using user_id and role_id seperated by `:`.
+ * This resource is imported using userId and roleId seperated by `:`.
  *
  * ```sh
  * $ pulumi import datadog:index/userRole:UserRole user_with_admin_role "${role_id}:${user_id}"

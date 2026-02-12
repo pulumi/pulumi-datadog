@@ -105,6 +105,7 @@ class IntegrationAccountAuthConfigAwsAuthConfigKeys(dict):
                  secret_access_key: Optional[_builtins.str] = None):
         """
         :param _builtins.str access_key_id: AWS Access Key ID
+        :param _builtins.str secret_access_key: AWS Secret Access Key. This value is write-only; changes made outside of Terraform will not be drift-detected.
         """
         if access_key_id is not None:
             pulumi.set(__self__, "access_key_id", access_key_id)
@@ -122,6 +123,9 @@ class IntegrationAccountAuthConfigAwsAuthConfigKeys(dict):
     @_builtins.property
     @pulumi.getter(name="secretAccessKey")
     def secret_access_key(self) -> Optional[_builtins.str]:
+        """
+        AWS Secret Access Key. This value is write-only; changes made outside of Terraform will not be drift-detected.
+        """
         return pulumi.get(self, "secret_access_key")
 
 

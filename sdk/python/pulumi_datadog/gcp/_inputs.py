@@ -23,14 +23,9 @@ __all__ = [
     'IntegrationStsMonitoredResourceConfigArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class IntegrationMonitoredResourceConfigArgsDict(TypedDict):
-        filters: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        type: pulumi.Input[_builtins.str]
-elif False:
-    IntegrationMonitoredResourceConfigArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationMonitoredResourceConfigArgsDict(TypedDict):
+    filters: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    type: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class IntegrationMonitoredResourceConfigArgs:
@@ -59,13 +54,10 @@ class IntegrationMonitoredResourceConfigArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class IntegrationStsMetricNamespaceConfigArgsDict(TypedDict):
-        disabled: pulumi.Input[_builtins.bool]
-        filters: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        id: pulumi.Input[_builtins.str]
-elif False:
-    IntegrationStsMetricNamespaceConfigArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationStsMetricNamespaceConfigArgsDict(TypedDict):
+    disabled: pulumi.Input[_builtins.bool]
+    filters: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    id: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class IntegrationStsMetricNamespaceConfigArgs:
@@ -105,12 +97,9 @@ class IntegrationStsMetricNamespaceConfigArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class IntegrationStsMonitoredResourceConfigArgsDict(TypedDict):
-        filters: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        type: pulumi.Input[_builtins.str]
-elif False:
-    IntegrationStsMonitoredResourceConfigArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationStsMonitoredResourceConfigArgsDict(TypedDict):
+    filters: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    type: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class IntegrationStsMonitoredResourceConfigArgs:

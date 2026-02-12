@@ -178,6 +178,9 @@ namespace Pulumi.Datadog
     [DatadogResourceType("datadog:index/customAllocationRules:CustomAllocationRules")]
     public partial class CustomAllocationRules : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
+        /// </summary>
         [Output("overrideUiDefinedResources")]
         public Output<bool?> OverrideUiDefinedResources { get; private set; } = null!;
 
@@ -233,6 +236,9 @@ namespace Pulumi.Datadog
 
     public sealed class CustomAllocationRulesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
+        /// </summary>
         [Input("overrideUiDefinedResources")]
         public Input<bool>? OverrideUiDefinedResources { get; set; }
 
@@ -256,6 +262,9 @@ namespace Pulumi.Datadog
 
     public sealed class CustomAllocationRulesState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
+        /// </summary>
         [Input("overrideUiDefinedResources")]
         public Input<bool>? OverrideUiDefinedResources { get; set; }
 

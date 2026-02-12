@@ -87,7 +87,7 @@ import (
 //
 // The `pulumi import` command can be used, for example:
 //
-// Import an existing on_call_schedule
+// # Import an existing onCallSchedule
 //
 // ```sh
 // $ pulumi import datadog:index/onCallSchedule:OnCallSchedule test "b03a07d5-49da-43e9-83b4-5d84969b588b"

@@ -79,7 +79,7 @@ import (
 //
 // The `pulumi import` command can be used, for example:
 //
-// #!/bin/bash
+// !/bin/bash
 //
 // # Import an existing incident notification template
 //
