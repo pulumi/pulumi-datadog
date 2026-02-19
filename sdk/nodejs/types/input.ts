@@ -10973,8 +10973,14 @@ export interface GetTagPipelineRulesetRuleMapping {
     destinationKey?: string;
     /**
      * Whether to apply the mapping only if the destination key doesn't exist.
+     *
+     * @deprecated Use `ifTagExists` instead. This field will be removed in a future release.
      */
     ifNotExists?: boolean;
+    /**
+     * Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     */
+    ifTagExists?: string;
     /**
      * The source keys for the mapping.
      */
@@ -10988,8 +10994,14 @@ export interface GetTagPipelineRulesetRuleMappingArgs {
     destinationKey?: pulumi.Input<string>;
     /**
      * Whether to apply the mapping only if the destination key doesn't exist.
+     *
+     * @deprecated Use `ifTagExists` instead. This field will be removed in a future release.
      */
     ifNotExists?: pulumi.Input<boolean>;
+    /**
+     * Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     */
+    ifTagExists?: pulumi.Input<string>;
     /**
      * The source keys for the mapping.
      */
@@ -11007,8 +11019,14 @@ export interface GetTagPipelineRulesetRuleQuery {
     caseInsensitivity?: boolean;
     /**
      * Whether to apply the query only if the key doesn't exist.
+     *
+     * @deprecated Use `ifTagExists` instead. This field will be removed in a future release.
      */
     ifNotExists?: boolean;
+    /**
+     * Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     */
+    ifTagExists?: string;
     /**
      * The query string.
      */
@@ -11026,8 +11044,14 @@ export interface GetTagPipelineRulesetRuleQueryArgs {
     caseInsensitivity?: pulumi.Input<boolean>;
     /**
      * Whether to apply the query only if the key doesn't exist.
+     *
+     * @deprecated Use `ifTagExists` instead. This field will be removed in a future release.
      */
     ifNotExists?: pulumi.Input<boolean>;
+    /**
+     * Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     */
+    ifTagExists?: pulumi.Input<string>;
     /**
      * The query string.
      */
@@ -11067,8 +11091,14 @@ export interface GetTagPipelineRulesetRuleReferenceTable {
     fieldPairs?: inputs.GetTagPipelineRulesetRuleReferenceTableFieldPair[];
     /**
      * Whether to apply the reference table only if the key doesn't exist.
+     *
+     * @deprecated Use `ifTagExists` instead. This field will be removed in a future release.
      */
     ifNotExists?: boolean;
+    /**
+     * Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     */
+    ifTagExists?: string;
     /**
      * The source keys for the reference table lookup.
      */
@@ -11090,8 +11120,14 @@ export interface GetTagPipelineRulesetRuleReferenceTableArgs {
     fieldPairs?: pulumi.Input<pulumi.Input<inputs.GetTagPipelineRulesetRuleReferenceTableFieldPairArgs>[]>;
     /**
      * Whether to apply the reference table only if the key doesn't exist.
+     *
+     * @deprecated Use `ifTagExists` instead. This field will be removed in a future release.
      */
     ifNotExists?: pulumi.Input<boolean>;
+    /**
+     * Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     */
+    ifTagExists?: pulumi.Input<string>;
     /**
      * The source keys for the reference table lookup.
      */
@@ -13116,22 +13152,22 @@ export interface MonitorNotificationRuleConditionalRecipients {
 
 export interface MonitorNotificationRuleConditionalRecipientsCondition {
     /**
-     * List of recipients to notify.
+     * A list of recipients to notify. Uses the same format as the monitor message field. Must not start with an '@'.
      */
     recipients: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The scope to which the monitor applied.
+     * Defines the condition under which the recipients are notified. Supported formats: Monitor status condition using `transition_type:<status>` (for example `transition_type:is_alert`) or a single tag `key:value pair` (for example `env:prod`).
      */
     scope: pulumi.Input<string>;
 }
 
 export interface MonitorNotificationRuleFilter {
     /**
-     * The scope to which the monitor applied.
+     * A scope expression composed of `key:value` pairs (such as `env:prod`) with boolean operators (AND, OR, NOT) and parentheses for grouping.
      */
     scope?: pulumi.Input<string>;
     /**
-     * All tags that target monitors must match.
+     * A list of tag key:value pairs (e.g. team:product). All tags must match (AND semantics).
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -13182,6 +13218,10 @@ export interface MonitorSchedulingOptionEvaluationWindow {
      * The day of the month at which a one month cumulative evaluation window starts. Must be a value of 1.
      */
     monthStarts?: pulumi.Input<number>;
+    /**
+     * The timezone for the cumulative evaluation window start time.
+     */
+    timezone?: pulumi.Input<string>;
 }
 
 export interface MonitorVariables {
@@ -13770,7 +13810,7 @@ export interface ObservabilityPipelineConfigDestinationGooglePubsub {
     /**
      * Encoding format for log events. Valid values: `json`, `rawMessage`.
      */
-    encoding?: pulumi.Input<string>;
+    encoding: pulumi.Input<string>;
     /**
      * The GCP project ID that owns the Pub/Sub topic.
      */
@@ -14584,14 +14624,14 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorParseGrok {
     /**
      * The list of Grok parsing rules. If multiple parsing rules are provided, they are evaluated in order. The first successful match is applied.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRule>[]>;
+    rules: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRule>[]>;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRule {
     /**
      * A list of Grok parsing rules that define how to extract fields from the source field. Each rule must contain a name and a valid Grok pattern.
      */
-    matchRules?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleMatchRule>[]>;
+    matchRules: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleMatchRule>[]>;
     /**
      * The name of the field in the log event to apply the Grok rules to.
      */
@@ -14747,7 +14787,7 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorReduce {
     /**
      * List of merge strategies defining how values from grouped events should be combined.
      */
-    mergeStrategies?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorReduceMergeStrategy>[]>;
+    mergeStrategies: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorReduceMergeStrategy>[]>;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorReduceMergeStrategy {
@@ -28979,9 +29019,50 @@ export interface ServiceLevelObjectiveQuery {
 
 export interface ServiceLevelObjectiveSliSpecification {
     /**
+     * A count-based (metric) SLI specification. Composed of a good events formula, a total events formula, and the underlying metric queries.
+     */
+    count?: pulumi.Input<inputs.ServiceLevelObjectiveSliSpecificationCount>;
+    /**
      * The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
      */
-    timeSlice: pulumi.Input<inputs.ServiceLevelObjectiveSliSpecificationTimeSlice>;
+    timeSlice?: pulumi.Input<inputs.ServiceLevelObjectiveSliSpecificationTimeSlice>;
+}
+
+export interface ServiceLevelObjectiveSliSpecificationCount {
+    /**
+     * The formula that specifies how to compute the good events.
+     */
+    goodEventsFormula: pulumi.Input<string>;
+    /**
+     * A list of data-source-specific queries that are referenced in the formulas.
+     */
+    queries: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveSliSpecificationCountQuery>[]>;
+    /**
+     * The formula that specifies how to compute the total events.
+     */
+    totalEventsFormula: pulumi.Input<string>;
+}
+
+export interface ServiceLevelObjectiveSliSpecificationCountQuery {
+    /**
+     * A timeseries formula and functions metrics query.
+     */
+    metricQuery?: pulumi.Input<inputs.ServiceLevelObjectiveSliSpecificationCountQueryMetricQuery>;
+}
+
+export interface ServiceLevelObjectiveSliSpecificationCountQueryMetricQuery {
+    /**
+     * The data source for metrics queries. Defaults to `"metrics"`.
+     */
+    dataSource?: pulumi.Input<string>;
+    /**
+     * The name of the query for use in formulas.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
+    query: pulumi.Input<string>;
 }
 
 export interface ServiceLevelObjectiveSliSpecificationTimeSlice {
@@ -30644,8 +30725,14 @@ export interface TagPipelineRulesetRuleMapping {
     destinationKey?: pulumi.Input<string>;
     /**
      * Whether to apply the mapping only if the destination key doesn't exist.
+     *
+     * @deprecated Use `ifTagExists` instead. This field will be removed in a future release.
      */
     ifNotExists?: pulumi.Input<boolean>;
+    /**
+     * Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     */
+    ifTagExists?: pulumi.Input<string>;
     /**
      * The source keys for the mapping.
      */
@@ -30663,8 +30750,14 @@ export interface TagPipelineRulesetRuleQuery {
     caseInsensitivity?: pulumi.Input<boolean>;
     /**
      * Whether to apply the query only if the key doesn't exist.
+     *
+     * @deprecated Use `ifTagExists` instead. This field will be removed in a future release.
      */
     ifNotExists?: pulumi.Input<boolean>;
+    /**
+     * Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     */
+    ifTagExists?: pulumi.Input<string>;
     /**
      * The query string.
      */
@@ -30693,8 +30786,14 @@ export interface TagPipelineRulesetRuleReferenceTable {
     fieldPairs?: pulumi.Input<pulumi.Input<inputs.TagPipelineRulesetRuleReferenceTableFieldPair>[]>;
     /**
      * Whether to apply the reference table only if the key doesn't exist.
+     *
+     * @deprecated Use `ifTagExists` instead. This field will be removed in a future release.
      */
     ifNotExists?: pulumi.Input<boolean>;
+    /**
+     * Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     */
+    ifTagExists?: pulumi.Input<string>;
     /**
      * The source keys for the reference table lookup.
      */

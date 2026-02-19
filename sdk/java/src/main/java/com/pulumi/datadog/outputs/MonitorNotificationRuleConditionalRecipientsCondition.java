@@ -12,26 +12,26 @@ import java.util.Objects;
 @CustomType
 public final class MonitorNotificationRuleConditionalRecipientsCondition {
     /**
-     * @return List of recipients to notify.
+     * @return A list of recipients to notify. Uses the same format as the monitor message field. Must not start with an &#39;{@literal @}&#39;.
      * 
      */
     private List<String> recipients;
     /**
-     * @return The scope to which the monitor applied.
+     * @return Defines the condition under which the recipients are notified. Supported formats: Monitor status condition using `transition_type:&lt;status&gt;` (for example `transition_type:is_alert`) or a single tag `key:value pair` (for example `env:prod`).
      * 
      */
     private String scope;
 
     private MonitorNotificationRuleConditionalRecipientsCondition() {}
     /**
-     * @return List of recipients to notify.
+     * @return A list of recipients to notify. Uses the same format as the monitor message field. Must not start with an &#39;{@literal @}&#39;.
      * 
      */
     public List<String> recipients() {
         return this.recipients;
     }
     /**
-     * @return The scope to which the monitor applied.
+     * @return Defines the condition under which the recipients are notified. Supported formats: Monitor status condition using `transition_type:&lt;status&gt;` (for example `transition_type:is_alert`) or a single tag `key:value pair` (for example `env:prod`).
      * 
      */
     public String scope() {

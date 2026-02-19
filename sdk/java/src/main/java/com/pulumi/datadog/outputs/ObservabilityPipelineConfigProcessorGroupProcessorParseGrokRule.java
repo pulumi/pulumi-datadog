@@ -18,7 +18,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRu
      * @return A list of Grok parsing rules that define how to extract fields from the source field. Each rule must contain a name and a valid Grok pattern.
      * 
      */
-    private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleMatchRule> matchRules;
+    private List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleMatchRule> matchRules;
     /**
      * @return The name of the field in the log event to apply the Grok rules to.
      * 
@@ -36,7 +36,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRu
      * 
      */
     public List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleMatchRule> matchRules() {
-        return this.matchRules == null ? List.of() : this.matchRules;
+        return this.matchRules;
     }
     /**
      * @return The name of the field in the log event to apply the Grok rules to.
@@ -62,7 +62,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRu
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleMatchRule> matchRules;
+        private List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleMatchRule> matchRules;
         private String source;
         private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleSupportRule> supportRules;
         public Builder() {}
@@ -74,8 +74,10 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRu
         }
 
         @CustomType.Setter
-        public Builder matchRules(@Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleMatchRule> matchRules) {
-
+        public Builder matchRules(List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleMatchRule> matchRules) {
+            if (matchRules == null) {
+              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRule", "matchRules");
+            }
             this.matchRules = matchRules;
             return this;
         }

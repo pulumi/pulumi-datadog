@@ -13,6 +13,533 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetCsmThreatsPoliciesPolicy struct {
+	Description   string     `pulumi:"description"`
+	Enabled       bool       `pulumi:"enabled"`
+	HostTagsLists [][]string `pulumi:"hostTagsLists"`
+	Id            string     `pulumi:"id"`
+	Name          string     `pulumi:"name"`
+	Tags          []string   `pulumi:"tags"`
+}
+
+// GetCsmThreatsPoliciesPolicyInput is an input type that accepts GetCsmThreatsPoliciesPolicyArgs and GetCsmThreatsPoliciesPolicyOutput values.
+// You can construct a concrete instance of `GetCsmThreatsPoliciesPolicyInput` via:
+//
+//	GetCsmThreatsPoliciesPolicyArgs{...}
+type GetCsmThreatsPoliciesPolicyInput interface {
+	pulumi.Input
+
+	ToGetCsmThreatsPoliciesPolicyOutput() GetCsmThreatsPoliciesPolicyOutput
+	ToGetCsmThreatsPoliciesPolicyOutputWithContext(context.Context) GetCsmThreatsPoliciesPolicyOutput
+}
+
+type GetCsmThreatsPoliciesPolicyArgs struct {
+	Description   pulumi.StringInput           `pulumi:"description"`
+	Enabled       pulumi.BoolInput             `pulumi:"enabled"`
+	HostTagsLists pulumi.StringArrayArrayInput `pulumi:"hostTagsLists"`
+	Id            pulumi.StringInput           `pulumi:"id"`
+	Name          pulumi.StringInput           `pulumi:"name"`
+	Tags          pulumi.StringArrayInput      `pulumi:"tags"`
+}
+
+func (GetCsmThreatsPoliciesPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCsmThreatsPoliciesPolicy)(nil)).Elem()
+}
+
+func (i GetCsmThreatsPoliciesPolicyArgs) ToGetCsmThreatsPoliciesPolicyOutput() GetCsmThreatsPoliciesPolicyOutput {
+	return i.ToGetCsmThreatsPoliciesPolicyOutputWithContext(context.Background())
+}
+
+func (i GetCsmThreatsPoliciesPolicyArgs) ToGetCsmThreatsPoliciesPolicyOutputWithContext(ctx context.Context) GetCsmThreatsPoliciesPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCsmThreatsPoliciesPolicyOutput)
+}
+
+// GetCsmThreatsPoliciesPolicyArrayInput is an input type that accepts GetCsmThreatsPoliciesPolicyArray and GetCsmThreatsPoliciesPolicyArrayOutput values.
+// You can construct a concrete instance of `GetCsmThreatsPoliciesPolicyArrayInput` via:
+//
+//	GetCsmThreatsPoliciesPolicyArray{ GetCsmThreatsPoliciesPolicyArgs{...} }
+type GetCsmThreatsPoliciesPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetCsmThreatsPoliciesPolicyArrayOutput() GetCsmThreatsPoliciesPolicyArrayOutput
+	ToGetCsmThreatsPoliciesPolicyArrayOutputWithContext(context.Context) GetCsmThreatsPoliciesPolicyArrayOutput
+}
+
+type GetCsmThreatsPoliciesPolicyArray []GetCsmThreatsPoliciesPolicyInput
+
+func (GetCsmThreatsPoliciesPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCsmThreatsPoliciesPolicy)(nil)).Elem()
+}
+
+func (i GetCsmThreatsPoliciesPolicyArray) ToGetCsmThreatsPoliciesPolicyArrayOutput() GetCsmThreatsPoliciesPolicyArrayOutput {
+	return i.ToGetCsmThreatsPoliciesPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetCsmThreatsPoliciesPolicyArray) ToGetCsmThreatsPoliciesPolicyArrayOutputWithContext(ctx context.Context) GetCsmThreatsPoliciesPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCsmThreatsPoliciesPolicyArrayOutput)
+}
+
+type GetCsmThreatsPoliciesPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetCsmThreatsPoliciesPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCsmThreatsPoliciesPolicy)(nil)).Elem()
+}
+
+func (o GetCsmThreatsPoliciesPolicyOutput) ToGetCsmThreatsPoliciesPolicyOutput() GetCsmThreatsPoliciesPolicyOutput {
+	return o
+}
+
+func (o GetCsmThreatsPoliciesPolicyOutput) ToGetCsmThreatsPoliciesPolicyOutputWithContext(ctx context.Context) GetCsmThreatsPoliciesPolicyOutput {
+	return o
+}
+
+func (o GetCsmThreatsPoliciesPolicyOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsPoliciesPolicy) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetCsmThreatsPoliciesPolicyOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCsmThreatsPoliciesPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o GetCsmThreatsPoliciesPolicyOutput) HostTagsLists() pulumi.StringArrayArrayOutput {
+	return o.ApplyT(func(v GetCsmThreatsPoliciesPolicy) [][]string { return v.HostTagsLists }).(pulumi.StringArrayArrayOutput)
+}
+
+func (o GetCsmThreatsPoliciesPolicyOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsPoliciesPolicy) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetCsmThreatsPoliciesPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsPoliciesPolicy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetCsmThreatsPoliciesPolicyOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCsmThreatsPoliciesPolicy) []string { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+type GetCsmThreatsPoliciesPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCsmThreatsPoliciesPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCsmThreatsPoliciesPolicy)(nil)).Elem()
+}
+
+func (o GetCsmThreatsPoliciesPolicyArrayOutput) ToGetCsmThreatsPoliciesPolicyArrayOutput() GetCsmThreatsPoliciesPolicyArrayOutput {
+	return o
+}
+
+func (o GetCsmThreatsPoliciesPolicyArrayOutput) ToGetCsmThreatsPoliciesPolicyArrayOutputWithContext(ctx context.Context) GetCsmThreatsPoliciesPolicyArrayOutput {
+	return o
+}
+
+func (o GetCsmThreatsPoliciesPolicyArrayOutput) Index(i pulumi.IntInput) GetCsmThreatsPoliciesPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCsmThreatsPoliciesPolicy {
+		return vs[0].([]GetCsmThreatsPoliciesPolicy)[vs[1].(int)]
+	}).(GetCsmThreatsPoliciesPolicyOutput)
+}
+
+type GetCustomAllocationRuleCostsToAllocate struct {
+	// The condition used to match tags. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+	Condition string `pulumi:"condition"`
+	// The tag key used in the filter.
+	Tag string `pulumi:"tag"`
+	// The tag value used in the filter (for single-value conditions).
+	Value string `pulumi:"value"`
+	// The list of tag values used in the filter (for multi-value conditions like `in` or `notIn`).
+	Values []string `pulumi:"values"`
+}
+
+// GetCustomAllocationRuleCostsToAllocateInput is an input type that accepts GetCustomAllocationRuleCostsToAllocateArgs and GetCustomAllocationRuleCostsToAllocateOutput values.
+// You can construct a concrete instance of `GetCustomAllocationRuleCostsToAllocateInput` via:
+//
+//	GetCustomAllocationRuleCostsToAllocateArgs{...}
+type GetCustomAllocationRuleCostsToAllocateInput interface {
+	pulumi.Input
+
+	ToGetCustomAllocationRuleCostsToAllocateOutput() GetCustomAllocationRuleCostsToAllocateOutput
+	ToGetCustomAllocationRuleCostsToAllocateOutputWithContext(context.Context) GetCustomAllocationRuleCostsToAllocateOutput
+}
+
+type GetCustomAllocationRuleCostsToAllocateArgs struct {
+	// The condition used to match tags. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+	Condition pulumi.StringInput `pulumi:"condition"`
+	// The tag key used in the filter.
+	Tag pulumi.StringInput `pulumi:"tag"`
+	// The tag value used in the filter (for single-value conditions).
+	Value pulumi.StringInput `pulumi:"value"`
+	// The list of tag values used in the filter (for multi-value conditions like `in` or `notIn`).
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCustomAllocationRuleCostsToAllocateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomAllocationRuleCostsToAllocate)(nil)).Elem()
+}
+
+func (i GetCustomAllocationRuleCostsToAllocateArgs) ToGetCustomAllocationRuleCostsToAllocateOutput() GetCustomAllocationRuleCostsToAllocateOutput {
+	return i.ToGetCustomAllocationRuleCostsToAllocateOutputWithContext(context.Background())
+}
+
+func (i GetCustomAllocationRuleCostsToAllocateArgs) ToGetCustomAllocationRuleCostsToAllocateOutputWithContext(ctx context.Context) GetCustomAllocationRuleCostsToAllocateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomAllocationRuleCostsToAllocateOutput)
+}
+
+// GetCustomAllocationRuleCostsToAllocateArrayInput is an input type that accepts GetCustomAllocationRuleCostsToAllocateArray and GetCustomAllocationRuleCostsToAllocateArrayOutput values.
+// You can construct a concrete instance of `GetCustomAllocationRuleCostsToAllocateArrayInput` via:
+//
+//	GetCustomAllocationRuleCostsToAllocateArray{ GetCustomAllocationRuleCostsToAllocateArgs{...} }
+type GetCustomAllocationRuleCostsToAllocateArrayInput interface {
+	pulumi.Input
+
+	ToGetCustomAllocationRuleCostsToAllocateArrayOutput() GetCustomAllocationRuleCostsToAllocateArrayOutput
+	ToGetCustomAllocationRuleCostsToAllocateArrayOutputWithContext(context.Context) GetCustomAllocationRuleCostsToAllocateArrayOutput
+}
+
+type GetCustomAllocationRuleCostsToAllocateArray []GetCustomAllocationRuleCostsToAllocateInput
+
+func (GetCustomAllocationRuleCostsToAllocateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCustomAllocationRuleCostsToAllocate)(nil)).Elem()
+}
+
+func (i GetCustomAllocationRuleCostsToAllocateArray) ToGetCustomAllocationRuleCostsToAllocateArrayOutput() GetCustomAllocationRuleCostsToAllocateArrayOutput {
+	return i.ToGetCustomAllocationRuleCostsToAllocateArrayOutputWithContext(context.Background())
+}
+
+func (i GetCustomAllocationRuleCostsToAllocateArray) ToGetCustomAllocationRuleCostsToAllocateArrayOutputWithContext(ctx context.Context) GetCustomAllocationRuleCostsToAllocateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomAllocationRuleCostsToAllocateArrayOutput)
+}
+
+type GetCustomAllocationRuleCostsToAllocateOutput struct{ *pulumi.OutputState }
+
+func (GetCustomAllocationRuleCostsToAllocateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomAllocationRuleCostsToAllocate)(nil)).Elem()
+}
+
+func (o GetCustomAllocationRuleCostsToAllocateOutput) ToGetCustomAllocationRuleCostsToAllocateOutput() GetCustomAllocationRuleCostsToAllocateOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleCostsToAllocateOutput) ToGetCustomAllocationRuleCostsToAllocateOutputWithContext(ctx context.Context) GetCustomAllocationRuleCostsToAllocateOutput {
+	return o
+}
+
+// The condition used to match tags. Valid values are `=`, `!=`, `is`, `is not`, `like`, `in`, `not in`.
+func (o GetCustomAllocationRuleCostsToAllocateOutput) Condition() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleCostsToAllocate) string { return v.Condition }).(pulumi.StringOutput)
+}
+
+// The tag key used in the filter.
+func (o GetCustomAllocationRuleCostsToAllocateOutput) Tag() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleCostsToAllocate) string { return v.Tag }).(pulumi.StringOutput)
+}
+
+// The tag value used in the filter (for single-value conditions).
+func (o GetCustomAllocationRuleCostsToAllocateOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleCostsToAllocate) string { return v.Value }).(pulumi.StringOutput)
+}
+
+// The list of tag values used in the filter (for multi-value conditions like `in` or `notIn`).
+func (o GetCustomAllocationRuleCostsToAllocateOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleCostsToAllocate) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCustomAllocationRuleCostsToAllocateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCustomAllocationRuleCostsToAllocateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCustomAllocationRuleCostsToAllocate)(nil)).Elem()
+}
+
+func (o GetCustomAllocationRuleCostsToAllocateArrayOutput) ToGetCustomAllocationRuleCostsToAllocateArrayOutput() GetCustomAllocationRuleCostsToAllocateArrayOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleCostsToAllocateArrayOutput) ToGetCustomAllocationRuleCostsToAllocateArrayOutputWithContext(ctx context.Context) GetCustomAllocationRuleCostsToAllocateArrayOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleCostsToAllocateArrayOutput) Index(i pulumi.IntInput) GetCustomAllocationRuleCostsToAllocateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCustomAllocationRuleCostsToAllocate {
+		return vs[0].([]GetCustomAllocationRuleCostsToAllocate)[vs[1].(int)]
+	}).(GetCustomAllocationRuleCostsToAllocateOutput)
+}
+
+type GetCustomAllocationRuleStrategy struct {
+	AllocatedBies      []GetCustomAllocationRuleStrategyAllocatedBy       `pulumi:"allocatedBies"`
+	AllocatedByFilters []GetCustomAllocationRuleStrategyAllocatedByFilter `pulumi:"allocatedByFilters"`
+	// List of tag keys used to allocate costs.
+	AllocatedByTagKeys       []string                                                 `pulumi:"allocatedByTagKeys"`
+	BasedOnCosts             []GetCustomAllocationRuleStrategyBasedOnCost             `pulumi:"basedOnCosts"`
+	BasedOnTimeseries        *GetCustomAllocationRuleStrategyBasedOnTimeseries        `pulumi:"basedOnTimeseries"`
+	EvaluateGroupedByFilters []GetCustomAllocationRuleStrategyEvaluateGroupedByFilter `pulumi:"evaluateGroupedByFilters"`
+	// List of tag keys used to group costs before allocation.
+	EvaluateGroupedByTagKeys []string `pulumi:"evaluateGroupedByTagKeys"`
+	// The granularity level for cost allocation (`daily` or `monthly`).
+	Granularity string `pulumi:"granularity"`
+	// The allocation method. Valid values are `even`, `proportional`, `proportionalTimeseries`, or `percent`.
+	Method string `pulumi:"method"`
+}
+
+// GetCustomAllocationRuleStrategyInput is an input type that accepts GetCustomAllocationRuleStrategyArgs and GetCustomAllocationRuleStrategyOutput values.
+// You can construct a concrete instance of `GetCustomAllocationRuleStrategyInput` via:
+//
+//	GetCustomAllocationRuleStrategyArgs{...}
+type GetCustomAllocationRuleStrategyInput interface {
+	pulumi.Input
+
+	ToGetCustomAllocationRuleStrategyOutput() GetCustomAllocationRuleStrategyOutput
+	ToGetCustomAllocationRuleStrategyOutputWithContext(context.Context) GetCustomAllocationRuleStrategyOutput
+}
+
+type GetCustomAllocationRuleStrategyArgs struct {
+	AllocatedBies      GetCustomAllocationRuleStrategyAllocatedByArrayInput       `pulumi:"allocatedBies"`
+	AllocatedByFilters GetCustomAllocationRuleStrategyAllocatedByFilterArrayInput `pulumi:"allocatedByFilters"`
+	// List of tag keys used to allocate costs.
+	AllocatedByTagKeys       pulumi.StringArrayInput                                          `pulumi:"allocatedByTagKeys"`
+	BasedOnCosts             GetCustomAllocationRuleStrategyBasedOnCostArrayInput             `pulumi:"basedOnCosts"`
+	BasedOnTimeseries        GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrInput         `pulumi:"basedOnTimeseries"`
+	EvaluateGroupedByFilters GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayInput `pulumi:"evaluateGroupedByFilters"`
+	// List of tag keys used to group costs before allocation.
+	EvaluateGroupedByTagKeys pulumi.StringArrayInput `pulumi:"evaluateGroupedByTagKeys"`
+	// The granularity level for cost allocation (`daily` or `monthly`).
+	Granularity pulumi.StringInput `pulumi:"granularity"`
+	// The allocation method. Valid values are `even`, `proportional`, `proportionalTimeseries`, or `percent`.
+	Method pulumi.StringInput `pulumi:"method"`
+}
+
+func (GetCustomAllocationRuleStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomAllocationRuleStrategy)(nil)).Elem()
+}
+
+func (i GetCustomAllocationRuleStrategyArgs) ToGetCustomAllocationRuleStrategyOutput() GetCustomAllocationRuleStrategyOutput {
+	return i.ToGetCustomAllocationRuleStrategyOutputWithContext(context.Background())
+}
+
+func (i GetCustomAllocationRuleStrategyArgs) ToGetCustomAllocationRuleStrategyOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomAllocationRuleStrategyOutput)
+}
+
+func (i GetCustomAllocationRuleStrategyArgs) ToGetCustomAllocationRuleStrategyPtrOutput() GetCustomAllocationRuleStrategyPtrOutput {
+	return i.ToGetCustomAllocationRuleStrategyPtrOutputWithContext(context.Background())
+}
+
+func (i GetCustomAllocationRuleStrategyArgs) ToGetCustomAllocationRuleStrategyPtrOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomAllocationRuleStrategyOutput).ToGetCustomAllocationRuleStrategyPtrOutputWithContext(ctx)
+}
+
+// GetCustomAllocationRuleStrategyPtrInput is an input type that accepts GetCustomAllocationRuleStrategyArgs, GetCustomAllocationRuleStrategyPtr and GetCustomAllocationRuleStrategyPtrOutput values.
+// You can construct a concrete instance of `GetCustomAllocationRuleStrategyPtrInput` via:
+//
+//	        GetCustomAllocationRuleStrategyArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetCustomAllocationRuleStrategyPtrInput interface {
+	pulumi.Input
+
+	ToGetCustomAllocationRuleStrategyPtrOutput() GetCustomAllocationRuleStrategyPtrOutput
+	ToGetCustomAllocationRuleStrategyPtrOutputWithContext(context.Context) GetCustomAllocationRuleStrategyPtrOutput
+}
+
+type getCustomAllocationRuleStrategyPtrType GetCustomAllocationRuleStrategyArgs
+
+func GetCustomAllocationRuleStrategyPtr(v *GetCustomAllocationRuleStrategyArgs) GetCustomAllocationRuleStrategyPtrInput {
+	return (*getCustomAllocationRuleStrategyPtrType)(v)
+}
+
+func (*getCustomAllocationRuleStrategyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCustomAllocationRuleStrategy)(nil)).Elem()
+}
+
+func (i *getCustomAllocationRuleStrategyPtrType) ToGetCustomAllocationRuleStrategyPtrOutput() GetCustomAllocationRuleStrategyPtrOutput {
+	return i.ToGetCustomAllocationRuleStrategyPtrOutputWithContext(context.Background())
+}
+
+func (i *getCustomAllocationRuleStrategyPtrType) ToGetCustomAllocationRuleStrategyPtrOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomAllocationRuleStrategyPtrOutput)
+}
+
+type GetCustomAllocationRuleStrategyOutput struct{ *pulumi.OutputState }
+
+func (GetCustomAllocationRuleStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomAllocationRuleStrategy)(nil)).Elem()
+}
+
+func (o GetCustomAllocationRuleStrategyOutput) ToGetCustomAllocationRuleStrategyOutput() GetCustomAllocationRuleStrategyOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleStrategyOutput) ToGetCustomAllocationRuleStrategyOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleStrategyOutput) ToGetCustomAllocationRuleStrategyPtrOutput() GetCustomAllocationRuleStrategyPtrOutput {
+	return o.ToGetCustomAllocationRuleStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o GetCustomAllocationRuleStrategyOutput) ToGetCustomAllocationRuleStrategyPtrOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetCustomAllocationRuleStrategy) *GetCustomAllocationRuleStrategy {
+		return &v
+	}).(GetCustomAllocationRuleStrategyPtrOutput)
+}
+
+func (o GetCustomAllocationRuleStrategyOutput) AllocatedBies() GetCustomAllocationRuleStrategyAllocatedByArrayOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategy) []GetCustomAllocationRuleStrategyAllocatedBy {
+		return v.AllocatedBies
+	}).(GetCustomAllocationRuleStrategyAllocatedByArrayOutput)
+}
+
+func (o GetCustomAllocationRuleStrategyOutput) AllocatedByFilters() GetCustomAllocationRuleStrategyAllocatedByFilterArrayOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategy) []GetCustomAllocationRuleStrategyAllocatedByFilter {
+		return v.AllocatedByFilters
+	}).(GetCustomAllocationRuleStrategyAllocatedByFilterArrayOutput)
+}
+
+// List of tag keys used to allocate costs.
+func (o GetCustomAllocationRuleStrategyOutput) AllocatedByTagKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategy) []string { return v.AllocatedByTagKeys }).(pulumi.StringArrayOutput)
+}
+
+func (o GetCustomAllocationRuleStrategyOutput) BasedOnCosts() GetCustomAllocationRuleStrategyBasedOnCostArrayOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategy) []GetCustomAllocationRuleStrategyBasedOnCost {
+		return v.BasedOnCosts
+	}).(GetCustomAllocationRuleStrategyBasedOnCostArrayOutput)
+}
+
+func (o GetCustomAllocationRuleStrategyOutput) BasedOnTimeseries() GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategy) *GetCustomAllocationRuleStrategyBasedOnTimeseries {
+		return v.BasedOnTimeseries
+	}).(GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput)
+}
+
+func (o GetCustomAllocationRuleStrategyOutput) EvaluateGroupedByFilters() GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategy) []GetCustomAllocationRuleStrategyEvaluateGroupedByFilter {
+		return v.EvaluateGroupedByFilters
+	}).(GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutput)
+}
+
+// List of tag keys used to group costs before allocation.
+func (o GetCustomAllocationRuleStrategyOutput) EvaluateGroupedByTagKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategy) []string { return v.EvaluateGroupedByTagKeys }).(pulumi.StringArrayOutput)
+}
+
+// The granularity level for cost allocation (`daily` or `monthly`).
+func (o GetCustomAllocationRuleStrategyOutput) Granularity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategy) string { return v.Granularity }).(pulumi.StringOutput)
+}
+
+// The allocation method. Valid values are `even`, `proportional`, `proportionalTimeseries`, or `percent`.
+func (o GetCustomAllocationRuleStrategyOutput) Method() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCustomAllocationRuleStrategy) string { return v.Method }).(pulumi.StringOutput)
+}
+
+type GetCustomAllocationRuleStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (GetCustomAllocationRuleStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCustomAllocationRuleStrategy)(nil)).Elem()
+}
+
+func (o GetCustomAllocationRuleStrategyPtrOutput) ToGetCustomAllocationRuleStrategyPtrOutput() GetCustomAllocationRuleStrategyPtrOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleStrategyPtrOutput) ToGetCustomAllocationRuleStrategyPtrOutputWithContext(ctx context.Context) GetCustomAllocationRuleStrategyPtrOutput {
+	return o
+}
+
+func (o GetCustomAllocationRuleStrategyPtrOutput) Elem() GetCustomAllocationRuleStrategyOutput {
+	return o.ApplyT(func(v *GetCustomAllocationRuleStrategy) GetCustomAllocationRuleStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret GetCustomAllocationRuleStrategy
+		return ret
+	}).(GetCustomAllocationRuleStrategyOutput)
+}
+
+func (o GetCustomAllocationRuleStrategyPtrOutput) AllocatedBies() GetCustomAllocationRuleStrategyAllocatedByArrayOutput {
+	return o.ApplyT(func(v *GetCustomAllocationRuleStrategy) []GetCustomAllocationRuleStrategyAllocatedBy {
+		if v == nil {
+			return nil
+		}
+		return v.AllocatedBies
+	}).(GetCustomAllocationRuleStrategyAllocatedByArrayOutput)
+}
+
+func (o GetCustomAllocationRuleStrategyPtrOutput) AllocatedByFilters() GetCustomAllocationRuleStrategyAllocatedByFilterArrayOutput {
+	return o.ApplyT(func(v *GetCustomAllocationRuleStrategy) []GetCustomAllocationRuleStrategyAllocatedByFilter {
+		if v == nil {
+			return nil
+		}
+		return v.AllocatedByFilters
+	}).(GetCustomAllocationRuleStrategyAllocatedByFilterArrayOutput)
+}
+
+// List of tag keys used to allocate costs.
+func (o GetCustomAllocationRuleStrategyPtrOutput) AllocatedByTagKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetCustomAllocationRuleStrategy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllocatedByTagKeys
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GetCustomAllocationRuleStrategyPtrOutput) BasedOnCosts() GetCustomAllocationRuleStrategyBasedOnCostArrayOutput {
+	return o.ApplyT(func(v *GetCustomAllocationRuleStrategy) []GetCustomAllocationRuleStrategyBasedOnCost {
+		if v == nil {
+			return nil
+		}
+		return v.BasedOnCosts
+	}).(GetCustomAllocationRuleStrategyBasedOnCostArrayOutput)
+}
+
+func (o GetCustomAllocationRuleStrategyPtrOutput) BasedOnTimeseries() GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput {
+	return o.ApplyT(func(v *GetCustomAllocationRuleStrategy) *GetCustomAllocationRuleStrategyBasedOnTimeseries {
+		if v == nil {
+			return nil
+		}
+		return v.BasedOnTimeseries
+	}).(GetCustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput)
+}
+
+func (o GetCustomAllocationRuleStrategyPtrOutput) EvaluateGroupedByFilters() GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutput {
+	return o.ApplyT(func(v *GetCustomAllocationRuleStrategy) []GetCustomAllocationRuleStrategyEvaluateGroupedByFilter {
+		if v == nil {
+			return nil
+		}
+		return v.EvaluateGroupedByFilters
+	}).(GetCustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutput)
+}
+
+// List of tag keys used to group costs before allocation.
+func (o GetCustomAllocationRuleStrategyPtrOutput) EvaluateGroupedByTagKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetCustomAllocationRuleStrategy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EvaluateGroupedByTagKeys
+	}).(pulumi.StringArrayOutput)
+}
+
+// The granularity level for cost allocation (`daily` or `monthly`).
+func (o GetCustomAllocationRuleStrategyPtrOutput) Granularity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetCustomAllocationRuleStrategy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Granularity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The allocation method. Valid values are `even`, `proportional`, `proportionalTimeseries`, or `percent`.
+func (o GetCustomAllocationRuleStrategyPtrOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetCustomAllocationRuleStrategy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Method
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetCustomAllocationRuleStrategyAllocatedBy struct {
 	AllocatedTags []GetCustomAllocationRuleStrategyAllocatedByAllocatedTag `pulumi:"allocatedTags"`
 	// The percentage of costs allocated to this target as a decimal (e.g., 0.33 for 33%).
@@ -2832,6 +3359,8 @@ type GetMonitorSchedulingOptionEvaluationWindow struct {
 	HourStarts int `pulumi:"hourStarts"`
 	// The day of the month at which a one month cumulative evaluation window starts. Must be a value of 1.
 	MonthStarts int `pulumi:"monthStarts"`
+	// The timezone for the cumulative evaluation window start time.
+	Timezone string `pulumi:"timezone"`
 }
 
 // GetMonitorSchedulingOptionEvaluationWindowInput is an input type that accepts GetMonitorSchedulingOptionEvaluationWindowArgs and GetMonitorSchedulingOptionEvaluationWindowOutput values.
@@ -2852,6 +3381,8 @@ type GetMonitorSchedulingOptionEvaluationWindowArgs struct {
 	HourStarts pulumi.IntInput `pulumi:"hourStarts"`
 	// The day of the month at which a one month cumulative evaluation window starts. Must be a value of 1.
 	MonthStarts pulumi.IntInput `pulumi:"monthStarts"`
+	// The timezone for the cumulative evaluation window start time.
+	Timezone pulumi.StringInput `pulumi:"timezone"`
 }
 
 func (GetMonitorSchedulingOptionEvaluationWindowArgs) ElementType() reflect.Type {
@@ -2918,6 +3449,11 @@ func (o GetMonitorSchedulingOptionEvaluationWindowOutput) HourStarts() pulumi.In
 // The day of the month at which a one month cumulative evaluation window starts. Must be a value of 1.
 func (o GetMonitorSchedulingOptionEvaluationWindowOutput) MonthStarts() pulumi.IntOutput {
 	return o.ApplyT(func(v GetMonitorSchedulingOptionEvaluationWindow) int { return v.MonthStarts }).(pulumi.IntOutput)
+}
+
+// The timezone for the cumulative evaluation window start time.
+func (o GetMonitorSchedulingOptionEvaluationWindowOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMonitorSchedulingOptionEvaluationWindow) string { return v.Timezone }).(pulumi.StringOutput)
 }
 
 type GetMonitorSchedulingOptionEvaluationWindowArrayOutput struct{ *pulumi.OutputState }
@@ -9627,7 +10163,11 @@ type GetTagPipelineRulesetRuleMapping struct {
 	// The destination key for the mapping.
 	DestinationKey string `pulumi:"destinationKey"`
 	// Whether to apply the mapping only if the destination key doesn't exist.
+	//
+	// Deprecated: Use `ifTagExists` instead. This field will be removed in a future release.
 	IfNotExists bool `pulumi:"ifNotExists"`
+	// Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+	IfTagExists string `pulumi:"ifTagExists"`
 	// The source keys for the mapping.
 	SourceKeys []string `pulumi:"sourceKeys"`
 }
@@ -9647,7 +10187,11 @@ type GetTagPipelineRulesetRuleMappingArgs struct {
 	// The destination key for the mapping.
 	DestinationKey pulumi.StringInput `pulumi:"destinationKey"`
 	// Whether to apply the mapping only if the destination key doesn't exist.
+	//
+	// Deprecated: Use `ifTagExists` instead. This field will be removed in a future release.
 	IfNotExists pulumi.BoolInput `pulumi:"ifNotExists"`
+	// Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+	IfTagExists pulumi.StringInput `pulumi:"ifTagExists"`
 	// The source keys for the mapping.
 	SourceKeys pulumi.StringArrayInput `pulumi:"sourceKeys"`
 }
@@ -9735,8 +10279,15 @@ func (o GetTagPipelineRulesetRuleMappingOutput) DestinationKey() pulumi.StringOu
 }
 
 // Whether to apply the mapping only if the destination key doesn't exist.
+//
+// Deprecated: Use `ifTagExists` instead. This field will be removed in a future release.
 func (o GetTagPipelineRulesetRuleMappingOutput) IfNotExists() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetTagPipelineRulesetRuleMapping) bool { return v.IfNotExists }).(pulumi.BoolOutput)
+}
+
+// Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+func (o GetTagPipelineRulesetRuleMappingOutput) IfTagExists() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTagPipelineRulesetRuleMapping) string { return v.IfTagExists }).(pulumi.StringOutput)
 }
 
 // The source keys for the mapping.
@@ -9779,6 +10330,8 @@ func (o GetTagPipelineRulesetRuleMappingPtrOutput) DestinationKey() pulumi.Strin
 }
 
 // Whether to apply the mapping only if the destination key doesn't exist.
+//
+// Deprecated: Use `ifTagExists` instead. This field will be removed in a future release.
 func (o GetTagPipelineRulesetRuleMappingPtrOutput) IfNotExists() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetTagPipelineRulesetRuleMapping) *bool {
 		if v == nil {
@@ -9786,6 +10339,16 @@ func (o GetTagPipelineRulesetRuleMappingPtrOutput) IfNotExists() pulumi.BoolPtrO
 		}
 		return &v.IfNotExists
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+func (o GetTagPipelineRulesetRuleMappingPtrOutput) IfTagExists() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTagPipelineRulesetRuleMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IfTagExists
+	}).(pulumi.StringPtrOutput)
 }
 
 // The source keys for the mapping.
@@ -9804,7 +10367,11 @@ type GetTagPipelineRulesetRuleQuery struct {
 	// Whether the query matching is case insensitive.
 	CaseInsensitivity bool `pulumi:"caseInsensitivity"`
 	// Whether to apply the query only if the key doesn't exist.
+	//
+	// Deprecated: Use `ifTagExists` instead. This field will be removed in a future release.
 	IfNotExists bool `pulumi:"ifNotExists"`
+	// Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+	IfTagExists string `pulumi:"ifTagExists"`
 	// The query string.
 	Query string `pulumi:"query"`
 }
@@ -9826,7 +10393,11 @@ type GetTagPipelineRulesetRuleQueryArgs struct {
 	// Whether the query matching is case insensitive.
 	CaseInsensitivity pulumi.BoolInput `pulumi:"caseInsensitivity"`
 	// Whether to apply the query only if the key doesn't exist.
+	//
+	// Deprecated: Use `ifTagExists` instead. This field will be removed in a future release.
 	IfNotExists pulumi.BoolInput `pulumi:"ifNotExists"`
+	// Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+	IfTagExists pulumi.StringInput `pulumi:"ifTagExists"`
 	// The query string.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -9919,8 +10490,15 @@ func (o GetTagPipelineRulesetRuleQueryOutput) CaseInsensitivity() pulumi.BoolOut
 }
 
 // Whether to apply the query only if the key doesn't exist.
+//
+// Deprecated: Use `ifTagExists` instead. This field will be removed in a future release.
 func (o GetTagPipelineRulesetRuleQueryOutput) IfNotExists() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetTagPipelineRulesetRuleQuery) bool { return v.IfNotExists }).(pulumi.BoolOutput)
+}
+
+// Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+func (o GetTagPipelineRulesetRuleQueryOutput) IfTagExists() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTagPipelineRulesetRuleQuery) string { return v.IfTagExists }).(pulumi.StringOutput)
 }
 
 // The query string.
@@ -9973,6 +10551,8 @@ func (o GetTagPipelineRulesetRuleQueryPtrOutput) CaseInsensitivity() pulumi.Bool
 }
 
 // Whether to apply the query only if the key doesn't exist.
+//
+// Deprecated: Use `ifTagExists` instead. This field will be removed in a future release.
 func (o GetTagPipelineRulesetRuleQueryPtrOutput) IfNotExists() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetTagPipelineRulesetRuleQuery) *bool {
 		if v == nil {
@@ -9980,6 +10560,16 @@ func (o GetTagPipelineRulesetRuleQueryPtrOutput) IfNotExists() pulumi.BoolPtrOut
 		}
 		return &v.IfNotExists
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+func (o GetTagPipelineRulesetRuleQueryPtrOutput) IfTagExists() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTagPipelineRulesetRuleQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IfTagExists
+	}).(pulumi.StringPtrOutput)
 }
 
 // The query string.
@@ -10154,7 +10744,11 @@ type GetTagPipelineRulesetRuleReferenceTable struct {
 	// The field pairs for the reference table.
 	FieldPairs []GetTagPipelineRulesetRuleReferenceTableFieldPair `pulumi:"fieldPairs"`
 	// Whether to apply the reference table only if the key doesn't exist.
+	//
+	// Deprecated: Use `ifTagExists` instead. This field will be removed in a future release.
 	IfNotExists bool `pulumi:"ifNotExists"`
+	// Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+	IfTagExists string `pulumi:"ifTagExists"`
 	// The source keys for the reference table lookup.
 	SourceKeys []string `pulumi:"sourceKeys"`
 	// The name of the reference table.
@@ -10178,7 +10772,11 @@ type GetTagPipelineRulesetRuleReferenceTableArgs struct {
 	// The field pairs for the reference table.
 	FieldPairs GetTagPipelineRulesetRuleReferenceTableFieldPairArrayInput `pulumi:"fieldPairs"`
 	// Whether to apply the reference table only if the key doesn't exist.
+	//
+	// Deprecated: Use `ifTagExists` instead. This field will be removed in a future release.
 	IfNotExists pulumi.BoolInput `pulumi:"ifNotExists"`
+	// Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+	IfTagExists pulumi.StringInput `pulumi:"ifTagExists"`
 	// The source keys for the reference table lookup.
 	SourceKeys pulumi.StringArrayInput `pulumi:"sourceKeys"`
 	// The name of the reference table.
@@ -10275,8 +10873,15 @@ func (o GetTagPipelineRulesetRuleReferenceTableOutput) FieldPairs() GetTagPipeli
 }
 
 // Whether to apply the reference table only if the key doesn't exist.
+//
+// Deprecated: Use `ifTagExists` instead. This field will be removed in a future release.
 func (o GetTagPipelineRulesetRuleReferenceTableOutput) IfNotExists() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetTagPipelineRulesetRuleReferenceTable) bool { return v.IfNotExists }).(pulumi.BoolOutput)
+}
+
+// Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+func (o GetTagPipelineRulesetRuleReferenceTableOutput) IfTagExists() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTagPipelineRulesetRuleReferenceTable) string { return v.IfTagExists }).(pulumi.StringOutput)
 }
 
 // The source keys for the reference table lookup.
@@ -10334,6 +10939,8 @@ func (o GetTagPipelineRulesetRuleReferenceTablePtrOutput) FieldPairs() GetTagPip
 }
 
 // Whether to apply the reference table only if the key doesn't exist.
+//
+// Deprecated: Use `ifTagExists` instead. This field will be removed in a future release.
 func (o GetTagPipelineRulesetRuleReferenceTablePtrOutput) IfNotExists() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetTagPipelineRulesetRuleReferenceTable) *bool {
 		if v == nil {
@@ -10341,6 +10948,16 @@ func (o GetTagPipelineRulesetRuleReferenceTablePtrOutput) IfNotExists() pulumi.B
 		}
 		return &v.IfNotExists
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+func (o GetTagPipelineRulesetRuleReferenceTablePtrOutput) IfTagExists() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTagPipelineRulesetRuleReferenceTable) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IfTagExists
+	}).(pulumi.StringPtrOutput)
 }
 
 // The source keys for the reference table lookup.
@@ -12174,6 +12791,12 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCsmThreatsPoliciesPolicyInput)(nil)).Elem(), GetCsmThreatsPoliciesPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCsmThreatsPoliciesPolicyArrayInput)(nil)).Elem(), GetCsmThreatsPoliciesPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomAllocationRuleCostsToAllocateInput)(nil)).Elem(), GetCustomAllocationRuleCostsToAllocateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomAllocationRuleCostsToAllocateArrayInput)(nil)).Elem(), GetCustomAllocationRuleCostsToAllocateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomAllocationRuleStrategyInput)(nil)).Elem(), GetCustomAllocationRuleStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomAllocationRuleStrategyPtrInput)(nil)).Elem(), GetCustomAllocationRuleStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomAllocationRuleStrategyAllocatedByInput)(nil)).Elem(), GetCustomAllocationRuleStrategyAllocatedByArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomAllocationRuleStrategyAllocatedByArrayInput)(nil)).Elem(), GetCustomAllocationRuleStrategyAllocatedByArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomAllocationRuleStrategyAllocatedByAllocatedTagInput)(nil)).Elem(), GetCustomAllocationRuleStrategyAllocatedByAllocatedTagArgs{})
@@ -12349,6 +12972,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamArrayInput)(nil)).Elem(), GetTeamsTeamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
+	pulumi.RegisterOutputType(GetCsmThreatsPoliciesPolicyOutput{})
+	pulumi.RegisterOutputType(GetCsmThreatsPoliciesPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetCustomAllocationRuleCostsToAllocateOutput{})
+	pulumi.RegisterOutputType(GetCustomAllocationRuleCostsToAllocateArrayOutput{})
+	pulumi.RegisterOutputType(GetCustomAllocationRuleStrategyOutput{})
+	pulumi.RegisterOutputType(GetCustomAllocationRuleStrategyPtrOutput{})
 	pulumi.RegisterOutputType(GetCustomAllocationRuleStrategyAllocatedByOutput{})
 	pulumi.RegisterOutputType(GetCustomAllocationRuleStrategyAllocatedByArrayOutput{})
 	pulumi.RegisterOutputType(GetCustomAllocationRuleStrategyAllocatedByAllocatedTagOutput{})

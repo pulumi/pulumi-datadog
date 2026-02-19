@@ -23,7 +23,7 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsub {
      * @return Encoding format for log events. Valid values: `json`, `rawMessage`.
      * 
      */
-    private @Nullable String encoding;
+    private String encoding;
     /**
      * @return The GCP project ID that owns the Pub/Sub topic.
      * 
@@ -52,8 +52,8 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsub {
      * @return Encoding format for log events. Valid values: `json`, `rawMessage`.
      * 
      */
-    public Optional<String> encoding() {
-        return Optional.ofNullable(this.encoding);
+    public String encoding() {
+        return this.encoding;
     }
     /**
      * @return The GCP project ID that owns the Pub/Sub topic.
@@ -87,7 +87,7 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsub {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable ObservabilityPipelineConfigDestinationGooglePubsubAuth auth;
-        private @Nullable String encoding;
+        private String encoding;
         private String project;
         private @Nullable ObservabilityPipelineConfigDestinationGooglePubsubTls tls;
         private String topic;
@@ -108,8 +108,10 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsub {
             return this;
         }
         @CustomType.Setter
-        public Builder encoding(@Nullable String encoding) {
-
+        public Builder encoding(String encoding) {
+            if (encoding == null) {
+              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationGooglePubsub", "encoding");
+            }
             this.encoding = encoding;
             return this;
         }

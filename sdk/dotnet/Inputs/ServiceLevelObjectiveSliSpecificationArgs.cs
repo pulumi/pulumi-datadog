@@ -13,10 +13,16 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ServiceLevelObjectiveSliSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A count-based (metric) SLI specification. Composed of a good events formula, a total events formula, and the underlying metric queries.
+        /// </summary>
+        [Input("count")]
+        public Input<Inputs.ServiceLevelObjectiveSliSpecificationCountArgs>? Count { get; set; }
+
+        /// <summary>
         /// The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
         /// </summary>
-        [Input("timeSlice", required: true)]
-        public Input<Inputs.ServiceLevelObjectiveSliSpecificationTimeSliceArgs> TimeSlice { get; set; } = null!;
+        [Input("timeSlice")]
+        public Input<Inputs.ServiceLevelObjectiveSliSpecificationTimeSliceArgs>? TimeSlice { get; set; }
 
         public ServiceLevelObjectiveSliSpecificationArgs()
         {

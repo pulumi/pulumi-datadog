@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  *             enabled: true,
  *             mapping: [{
  *                 destinationKey: "env",
- *                 ifNotExists: true,
+ *                 ifTagExists: "replace",
  *                 sourceKeys: [
  *                     "environment",
  *                     "stage",
@@ -38,7 +38,7 @@ import * as utilities from "./utilities";
  *             query: [{
  *                 query: "service:web* OR service:frontend*",
  *                 caseInsensitivity: true,
- *                 ifNotExists: true,
+ *                 ifTagExists: "append",
  *                 addition: [{
  *                     key: "team",
  *                     value: "frontend",
@@ -51,7 +51,7 @@ import * as utilities from "./utilities";
  *             referenceTable: [{
  *                 tableName: "service_catalog",
  *                 caseInsensitivity: true,
- *                 ifNotExists: true,
+ *                 ifTagExists: "append",
  *                 sourceKeys: ["service"],
  *                 fieldPairs: [
  *                     {

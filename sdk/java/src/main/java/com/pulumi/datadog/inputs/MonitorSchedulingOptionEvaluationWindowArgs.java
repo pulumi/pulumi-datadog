@@ -61,12 +61,28 @@ public final class MonitorSchedulingOptionEvaluationWindowArgs extends com.pulum
         return Optional.ofNullable(this.monthStarts);
     }
 
+    /**
+     * The timezone for the cumulative evaluation window start time.
+     * 
+     */
+    @Import(name="timezone")
+    private @Nullable Output<String> timezone;
+
+    /**
+     * @return The timezone for the cumulative evaluation window start time.
+     * 
+     */
+    public Optional<Output<String>> timezone() {
+        return Optional.ofNullable(this.timezone);
+    }
+
     private MonitorSchedulingOptionEvaluationWindowArgs() {}
 
     private MonitorSchedulingOptionEvaluationWindowArgs(MonitorSchedulingOptionEvaluationWindowArgs $) {
         this.dayStarts = $.dayStarts;
         this.hourStarts = $.hourStarts;
         this.monthStarts = $.monthStarts;
+        this.timezone = $.timezone;
     }
 
     public static Builder builder() {
@@ -148,6 +164,27 @@ public final class MonitorSchedulingOptionEvaluationWindowArgs extends com.pulum
          */
         public Builder monthStarts(Integer monthStarts) {
             return monthStarts(Output.of(monthStarts));
+        }
+
+        /**
+         * @param timezone The timezone for the cumulative evaluation window start time.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timezone(@Nullable Output<String> timezone) {
+            $.timezone = timezone;
+            return this;
+        }
+
+        /**
+         * @param timezone The timezone for the cumulative evaluation window start time.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timezone(String timezone) {
+            return timezone(Output.of(timezone));
         }
 
         public MonitorSchedulingOptionEvaluationWindowArgs build() {

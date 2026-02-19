@@ -43,7 +43,7 @@ import (
 //						Mapping: datadog.TagPipelineRulesetRuleMappingArgs{
 //							map[string]interface{}{
 //								"destinationKey": "env",
-//								"ifNotExists":    true,
+//								"ifTagExists":    "replace",
 //								"sourceKeys": []string{
 //									"environment",
 //									"stage",
@@ -66,7 +66,7 @@ import (
 //						Query: datadog.TagPipelineRulesetRuleQueryArgs{
 //							map[string]interface{}{
 //								"query":       "service:web* OR service:api*",
-//								"ifNotExists": false,
+//								"ifTagExists": "do_not_apply",
 //								"addition": []map[string]interface{}{
 //									map[string]interface{}{
 //										"key":   "team",
@@ -92,7 +92,7 @@ import (
 //							map[string]interface{}{
 //								"tableName":         "service_catalog",
 //								"caseInsensitivity": true,
-//								"ifNotExists":       true,
+//								"ifTagExists":       "append",
 //								"sourceKeys": []string{
 //									"service",
 //								},
@@ -138,7 +138,7 @@ import (
 //						Mapping: datadog.TagPipelineRulesetRuleMappingArgs{
 //							map[string]interface{}{
 //								"destinationKey": "env",
-//								"ifNotExists":    true,
+//								"ifTagExists":    "replace",
 //								"sourceKeys": []string{
 //									"environment",
 //									"stage",
@@ -161,7 +161,7 @@ import (
 //						Query: datadog.TagPipelineRulesetRuleQueryArgs{
 //							map[string]interface{}{
 //								"query":       "service:web*",
-//								"ifNotExists": false,
+//								"ifTagExists": "do_not_apply",
 //								"addition": []map[string]interface{}{
 //									map[string]interface{}{
 //										"key":   "team",
@@ -207,7 +207,7 @@ import (
 //						Mapping: datadog.TagPipelineRulesetRuleMappingArgs{
 //							map[string]interface{}{
 //								"destinationKey": "env",
-//								"ifNotExists":    true,
+//								"ifTagExists":    "replace",
 //								"sourceKeys": []string{
 //									"environment",
 //									"stage",
@@ -230,7 +230,7 @@ import (
 //						Query: datadog.TagPipelineRulesetRuleQueryArgs{
 //							map[string]interface{}{
 //								"query":       "service:web*",
-//								"ifNotExists": false,
+//								"ifTagExists": "do_not_apply",
 //								"addition": []map[string]interface{}{
 //									map[string]interface{}{
 //										"key":   "team",

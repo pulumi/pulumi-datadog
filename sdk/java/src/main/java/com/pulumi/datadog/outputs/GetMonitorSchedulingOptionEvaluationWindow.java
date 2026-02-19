@@ -26,6 +26,11 @@ public final class GetMonitorSchedulingOptionEvaluationWindow {
      * 
      */
     private Integer monthStarts;
+    /**
+     * @return The timezone for the cumulative evaluation window start time.
+     * 
+     */
+    private String timezone;
 
     private GetMonitorSchedulingOptionEvaluationWindow() {}
     /**
@@ -49,6 +54,13 @@ public final class GetMonitorSchedulingOptionEvaluationWindow {
     public Integer monthStarts() {
         return this.monthStarts;
     }
+    /**
+     * @return The timezone for the cumulative evaluation window start time.
+     * 
+     */
+    public String timezone() {
+        return this.timezone;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -62,12 +74,14 @@ public final class GetMonitorSchedulingOptionEvaluationWindow {
         private String dayStarts;
         private Integer hourStarts;
         private Integer monthStarts;
+        private String timezone;
         public Builder() {}
         public Builder(GetMonitorSchedulingOptionEvaluationWindow defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dayStarts = defaults.dayStarts;
     	      this.hourStarts = defaults.hourStarts;
     	      this.monthStarts = defaults.monthStarts;
+    	      this.timezone = defaults.timezone;
         }
 
         @CustomType.Setter
@@ -94,11 +108,20 @@ public final class GetMonitorSchedulingOptionEvaluationWindow {
             this.monthStarts = monthStarts;
             return this;
         }
+        @CustomType.Setter
+        public Builder timezone(String timezone) {
+            if (timezone == null) {
+              throw new MissingRequiredPropertyException("GetMonitorSchedulingOptionEvaluationWindow", "timezone");
+            }
+            this.timezone = timezone;
+            return this;
+        }
         public GetMonitorSchedulingOptionEvaluationWindow build() {
             final var _resultValue = new GetMonitorSchedulingOptionEvaluationWindow();
             _resultValue.dayStarts = dayStarts;
             _resultValue.hourStarts = hourStarts;
             _resultValue.monthStarts = monthStarts;
+            _resultValue.timezone = timezone;
             return _resultValue;
         }
     }

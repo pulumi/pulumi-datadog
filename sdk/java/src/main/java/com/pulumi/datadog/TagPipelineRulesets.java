@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *                 .enabled(true)
  *                 .mapping(TagPipelineRulesetRuleMappingArgs.builder()
  *                     .destinationKey("env")
- *                     .ifNotExists(true)
+ *                     .ifTagExists("replace")
  *                     .sourceKeys(                    
  *                         "environment",
  *                         "stage")
@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  *                 .enabled(true)
  *                 .query(TagPipelineRulesetRuleQueryArgs.builder()
  *                     .query("service:web* OR service:api*")
- *                     .ifNotExists(false)
+ *                     .ifTagExists("do_not_apply")
  *                     .addition(TagPipelineRulesetRuleQueryAdditionArgs.builder()
  *                         .key("team")
  *                         .value("backend")
@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *                 .referenceTable(TagPipelineRulesetRuleReferenceTableArgs.builder()
  *                     .tableName("service_catalog")
  *                     .caseInsensitivity(true)
- *                     .ifNotExists(true)
+ *                     .ifTagExists("append")
  *                     .sourceKeys("service")
  *                     .fieldPairs(TagPipelineRulesetRuleReferenceTableFieldPairArgs.builder()
  *                         .inputColumn("owner_team")
@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  *                 .enabled(true)
  *                 .mapping(TagPipelineRulesetRuleMappingArgs.builder()
  *                     .destinationKey("env")
- *                     .ifNotExists(true)
+ *                     .ifTagExists("replace")
  *                     .sourceKeys(                    
  *                         "environment",
  *                         "stage")
@@ -142,7 +142,7 @@ import javax.annotation.Nullable;
  *                 .enabled(true)
  *                 .query(TagPipelineRulesetRuleQueryArgs.builder()
  *                     .query("service:web*")
- *                     .ifNotExists(false)
+ *                     .ifTagExists("do_not_apply")
  *                     .addition(TagPipelineRulesetRuleQueryAdditionArgs.builder()
  *                         .key("team")
  *                         .value("frontend")
@@ -177,7 +177,7 @@ import javax.annotation.Nullable;
  *                 .enabled(true)
  *                 .mapping(TagPipelineRulesetRuleMappingArgs.builder()
  *                     .destinationKey("env")
- *                     .ifNotExists(true)
+ *                     .ifTagExists("replace")
  *                     .sourceKeys(                    
  *                         "environment",
  *                         "stage")
@@ -193,7 +193,7 @@ import javax.annotation.Nullable;
  *                 .enabled(true)
  *                 .query(TagPipelineRulesetRuleQueryArgs.builder()
  *                     .query("service:web*")
- *                     .ifNotExists(false)
+ *                     .ifTagExists("do_not_apply")
  *                     .addition(TagPipelineRulesetRuleQueryAdditionArgs.builder()
  *                         .key("team")
  *                         .value("frontend")

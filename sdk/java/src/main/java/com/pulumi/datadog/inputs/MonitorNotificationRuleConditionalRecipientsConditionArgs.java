@@ -16,14 +16,14 @@ public final class MonitorNotificationRuleConditionalRecipientsConditionArgs ext
     public static final MonitorNotificationRuleConditionalRecipientsConditionArgs Empty = new MonitorNotificationRuleConditionalRecipientsConditionArgs();
 
     /**
-     * List of recipients to notify.
+     * A list of recipients to notify. Uses the same format as the monitor message field. Must not start with an &#39;{@literal @}&#39;.
      * 
      */
     @Import(name="recipients", required=true)
     private Output<List<String>> recipients;
 
     /**
-     * @return List of recipients to notify.
+     * @return A list of recipients to notify. Uses the same format as the monitor message field. Must not start with an &#39;{@literal @}&#39;.
      * 
      */
     public Output<List<String>> recipients() {
@@ -31,14 +31,14 @@ public final class MonitorNotificationRuleConditionalRecipientsConditionArgs ext
     }
 
     /**
-     * The scope to which the monitor applied.
+     * Defines the condition under which the recipients are notified. Supported formats: Monitor status condition using `transition_type:&lt;status&gt;` (for example `transition_type:is_alert`) or a single tag `key:value pair` (for example `env:prod`).
      * 
      */
     @Import(name="scope", required=true)
     private Output<String> scope;
 
     /**
-     * @return The scope to which the monitor applied.
+     * @return Defines the condition under which the recipients are notified. Supported formats: Monitor status condition using `transition_type:&lt;status&gt;` (for example `transition_type:is_alert`) or a single tag `key:value pair` (for example `env:prod`).
      * 
      */
     public Output<String> scope() {
@@ -71,7 +71,7 @@ public final class MonitorNotificationRuleConditionalRecipientsConditionArgs ext
         }
 
         /**
-         * @param recipients List of recipients to notify.
+         * @param recipients A list of recipients to notify. Uses the same format as the monitor message field. Must not start with an &#39;{@literal @}&#39;.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class MonitorNotificationRuleConditionalRecipientsConditionArgs ext
         }
 
         /**
-         * @param recipients List of recipients to notify.
+         * @param recipients A list of recipients to notify. Uses the same format as the monitor message field. Must not start with an &#39;{@literal @}&#39;.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class MonitorNotificationRuleConditionalRecipientsConditionArgs ext
         }
 
         /**
-         * @param recipients List of recipients to notify.
+         * @param recipients A list of recipients to notify. Uses the same format as the monitor message field. Must not start with an &#39;{@literal @}&#39;.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class MonitorNotificationRuleConditionalRecipientsConditionArgs ext
         }
 
         /**
-         * @param scope The scope to which the monitor applied.
+         * @param scope Defines the condition under which the recipients are notified. Supported formats: Monitor status condition using `transition_type:&lt;status&gt;` (for example `transition_type:is_alert`) or a single tag `key:value pair` (for example `env:prod`).
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class MonitorNotificationRuleConditionalRecipientsConditionArgs ext
         }
 
         /**
-         * @param scope The scope to which the monitor applied.
+         * @param scope Defines the condition under which the recipients are notified. Supported formats: Monitor status condition using `transition_type:&lt;status&gt;` (for example `transition_type:is_alert`) or a single tag `key:value pair` (for example `env:prod`).
          * 
          * @return builder
          * 

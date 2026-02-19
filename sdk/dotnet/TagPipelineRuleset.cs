@@ -37,7 +37,7 @@ namespace Pulumi.Datadog
     ///                     
     ///                     {
     ///                         { "destinationKey", "env" },
-    ///                         { "ifNotExists", true },
+    ///                         { "ifTagExists", "replace" },
     ///                         { "sourceKeys", new[]
     ///                         {
     ///                             "environment",
@@ -57,7 +57,7 @@ namespace Pulumi.Datadog
     ///                     {
     ///                         { "query", "service:web* OR service:frontend*" },
     ///                         { "caseInsensitivity", true },
-    ///                         { "ifNotExists", true },
+    ///                         { "ifTagExists", "append" },
     ///                         { "addition", new[]
     ///                         {
     ///                             
@@ -79,7 +79,7 @@ namespace Pulumi.Datadog
     ///                     {
     ///                         { "tableName", "service_catalog" },
     ///                         { "caseInsensitivity", true },
-    ///                         { "ifNotExists", true },
+    ///                         { "ifTagExists", "append" },
     ///                         { "sourceKeys", new[]
     ///                         {
     ///                             "service",

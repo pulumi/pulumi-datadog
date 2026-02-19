@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRule;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -22,7 +23,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrok {
      * @return The list of Grok parsing rules. If multiple parsing rules are provided, they are evaluated in order. The first successful match is applied.
      * 
      */
-    private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRule> rules;
+    private List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRule> rules;
 
     private ObservabilityPipelineConfigProcessorGroupProcessorParseGrok() {}
     /**
@@ -37,7 +38,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrok {
      * 
      */
     public List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRule> rules() {
-        return this.rules == null ? List.of() : this.rules;
+        return this.rules;
     }
 
     public static Builder builder() {
@@ -50,7 +51,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrok {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean disableLibraryRules;
-        private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRule> rules;
+        private List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRule> rules;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorParseGrok defaults) {
     	      Objects.requireNonNull(defaults);
@@ -65,8 +66,10 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrok {
             return this;
         }
         @CustomType.Setter
-        public Builder rules(@Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRule> rules) {
-
+        public Builder rules(List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRule> rules) {
+            if (rules == null) {
+              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorParseGrok", "rules");
+            }
             this.rules = rules;
             return this;
         }

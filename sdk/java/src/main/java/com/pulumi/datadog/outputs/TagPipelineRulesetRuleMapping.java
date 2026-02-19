@@ -21,8 +21,17 @@ public final class TagPipelineRulesetRuleMapping {
     /**
      * @return Whether to apply the mapping only if the destination key doesn&#39;t exist.
      * 
+     * @deprecated
+     * Use `ifTagExists` instead. This field will be removed in a future release.
+     * 
      */
+    @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
     private @Nullable Boolean ifNotExists;
+    /**
+     * @return Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     * 
+     */
+    private @Nullable String ifTagExists;
     /**
      * @return The source keys for the mapping.
      * 
@@ -40,9 +49,20 @@ public final class TagPipelineRulesetRuleMapping {
     /**
      * @return Whether to apply the mapping only if the destination key doesn&#39;t exist.
      * 
+     * @deprecated
+     * Use `ifTagExists` instead. This field will be removed in a future release.
+     * 
      */
+    @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
     public Optional<Boolean> ifNotExists() {
         return Optional.ofNullable(this.ifNotExists);
+    }
+    /**
+     * @return Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     * 
+     */
+    public Optional<String> ifTagExists() {
+        return Optional.ofNullable(this.ifTagExists);
     }
     /**
      * @return The source keys for the mapping.
@@ -63,12 +83,14 @@ public final class TagPipelineRulesetRuleMapping {
     public static final class Builder {
         private @Nullable String destinationKey;
         private @Nullable Boolean ifNotExists;
+        private @Nullable String ifTagExists;
         private @Nullable List<String> sourceKeys;
         public Builder() {}
         public Builder(TagPipelineRulesetRuleMapping defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destinationKey = defaults.destinationKey;
     	      this.ifNotExists = defaults.ifNotExists;
+    	      this.ifTagExists = defaults.ifTagExists;
     	      this.sourceKeys = defaults.sourceKeys;
         }
 
@@ -85,6 +107,12 @@ public final class TagPipelineRulesetRuleMapping {
             return this;
         }
         @CustomType.Setter
+        public Builder ifTagExists(@Nullable String ifTagExists) {
+
+            this.ifTagExists = ifTagExists;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sourceKeys(@Nullable List<String> sourceKeys) {
 
             this.sourceKeys = sourceKeys;
@@ -97,6 +125,7 @@ public final class TagPipelineRulesetRuleMapping {
             final var _resultValue = new TagPipelineRulesetRuleMapping();
             _resultValue.destinationKey = destinationKey;
             _resultValue.ifNotExists = ifNotExists;
+            _resultValue.ifTagExists = ifTagExists;
             _resultValue.sourceKeys = sourceKeys;
             return _resultValue;
         }

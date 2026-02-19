@@ -102,7 +102,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `&#34;&#34;`.
+     * List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
      * 
      * @deprecated
      * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
@@ -113,7 +113,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> hostFilters;
 
     /**
-     * @return List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `&#34;&#34;`.
+     * @return List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
      * 
      * @deprecated
      * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
@@ -393,7 +393,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostFilters List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `&#34;&#34;`.
+         * @param hostFilters List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
          * 
          * @return builder
          * 
@@ -408,7 +408,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostFilters List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `&#34;&#34;`.
+         * @param hostFilters List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
          * 
          * @return builder
          * 

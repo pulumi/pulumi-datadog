@@ -34,9 +34,17 @@ public final class MonitorNotificationRuleArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.conditionalRecipients);
     }
 
+    /**
+     * Specifies the matching criteria for monitor notifications.
+     * 
+     */
     @Import(name="filter", required=true)
     private Output<MonitorNotificationRuleFilterArgs> filter;
 
+    /**
+     * @return Specifies the matching criteria for monitor notifications.
+     * 
+     */
     public Output<MonitorNotificationRuleFilterArgs> filter() {
         return this.filter;
     }
@@ -119,11 +127,23 @@ public final class MonitorNotificationRuleArgs extends com.pulumi.resources.Reso
             return conditionalRecipients(Output.of(conditionalRecipients));
         }
 
+        /**
+         * @param filter Specifies the matching criteria for monitor notifications.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filter(Output<MonitorNotificationRuleFilterArgs> filter) {
             $.filter = filter;
             return this;
         }
 
+        /**
+         * @param filter Specifies the matching criteria for monitor notifications.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filter(MonitorNotificationRuleFilterArgs filter) {
             return filter(Output.of(filter));
         }

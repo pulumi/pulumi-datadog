@@ -26,6 +26,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool IfNotExists;
         /// <summary>
+        /// Behavior when the tag already exists. Valid values: `Append` (append to the existing tag value), `Replace` (replace existing tag value), `DoNotApply` (never apply if tag already exists). Valid values are `Append`, `Replace`, `DoNotApply`.
+        /// </summary>
+        public readonly string IfTagExists;
+        /// <summary>
         /// The query string.
         /// </summary>
         public readonly string Query;
@@ -38,11 +42,14 @@ namespace Pulumi.Datadog.Outputs
 
             bool ifNotExists,
 
+            string ifTagExists,
+
             string query)
         {
             Addition = addition;
             CaseInsensitivity = caseInsensitivity;
             IfNotExists = ifNotExists;
+            IfTagExists = ifTagExists;
             Query = query;
         }
     }

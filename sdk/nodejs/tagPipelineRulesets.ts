@@ -26,7 +26,7 @@ import * as utilities from "./utilities";
  *         enabled: true,
  *         mapping: [{
  *             destinationKey: "env",
- *             ifNotExists: true,
+ *             ifTagExists: "replace",
  *             sourceKeys: [
  *                 "environment",
  *                 "stage",
@@ -42,7 +42,7 @@ import * as utilities from "./utilities";
  *         enabled: true,
  *         query: [{
  *             query: "service:web* OR service:api*",
- *             ifNotExists: false,
+ *             ifTagExists: "do_not_apply",
  *             addition: [{
  *                 key: "team",
  *                 value: "backend",
@@ -59,7 +59,7 @@ import * as utilities from "./utilities";
  *         referenceTable: [{
  *             tableName: "service_catalog",
  *             caseInsensitivity: true,
- *             ifNotExists: true,
+ *             ifTagExists: "append",
  *             sourceKeys: ["service"],
  *             fieldPairs: [{
  *                 inputColumn: "owner_team",
@@ -89,7 +89,7 @@ import * as utilities from "./utilities";
  *         enabled: true,
  *         mapping: [{
  *             destinationKey: "env",
- *             ifNotExists: true,
+ *             ifTagExists: "replace",
  *             sourceKeys: [
  *                 "environment",
  *                 "stage",
@@ -105,7 +105,7 @@ import * as utilities from "./utilities";
  *         enabled: true,
  *         query: [{
  *             query: "service:web*",
- *             ifNotExists: false,
+ *             ifTagExists: "do_not_apply",
  *             addition: [{
  *                 key: "team",
  *                 value: "frontend",
@@ -139,7 +139,7 @@ import * as utilities from "./utilities";
  *         enabled: true,
  *         mapping: [{
  *             destinationKey: "env",
- *             ifNotExists: true,
+ *             ifTagExists: "replace",
  *             sourceKeys: [
  *                 "environment",
  *                 "stage",
@@ -155,7 +155,7 @@ import * as utilities from "./utilities";
  *         enabled: true,
  *         query: [{
  *             query: "service:web*",
- *             ifNotExists: false,
+ *             ifTagExists: "do_not_apply",
  *             addition: [{
  *                 key: "team",
  *                 value: "frontend",

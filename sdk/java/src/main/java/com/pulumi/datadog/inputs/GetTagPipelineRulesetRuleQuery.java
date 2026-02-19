@@ -50,16 +50,39 @@ public final class GetTagPipelineRulesetRuleQuery extends com.pulumi.resources.I
     /**
      * Whether to apply the query only if the key doesn&#39;t exist.
      * 
+     * @deprecated
+     * Use `ifTagExists` instead. This field will be removed in a future release.
+     * 
      */
+    @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
     @Import(name="ifNotExists", required=true)
     private Boolean ifNotExists;
 
     /**
      * @return Whether to apply the query only if the key doesn&#39;t exist.
      * 
+     * @deprecated
+     * Use `ifTagExists` instead. This field will be removed in a future release.
+     * 
      */
+    @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
     public Boolean ifNotExists() {
         return this.ifNotExists;
+    }
+
+    /**
+     * Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     * 
+     */
+    @Import(name="ifTagExists", required=true)
+    private String ifTagExists;
+
+    /**
+     * @return Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     * 
+     */
+    public String ifTagExists() {
+        return this.ifTagExists;
     }
 
     /**
@@ -83,6 +106,7 @@ public final class GetTagPipelineRulesetRuleQuery extends com.pulumi.resources.I
         this.addition = $.addition;
         this.caseInsensitivity = $.caseInsensitivity;
         this.ifNotExists = $.ifNotExists;
+        this.ifTagExists = $.ifTagExists;
         this.query = $.query;
     }
 
@@ -131,9 +155,24 @@ public final class GetTagPipelineRulesetRuleQuery extends com.pulumi.resources.I
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use `ifTagExists` instead. This field will be removed in a future release.
+         * 
          */
+        @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
         public Builder ifNotExists(Boolean ifNotExists) {
             $.ifNotExists = ifNotExists;
+            return this;
+        }
+
+        /**
+         * @param ifTagExists Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ifTagExists(String ifTagExists) {
+            $.ifTagExists = ifTagExists;
             return this;
         }
 
@@ -154,6 +193,9 @@ public final class GetTagPipelineRulesetRuleQuery extends com.pulumi.resources.I
             }
             if ($.ifNotExists == null) {
                 throw new MissingRequiredPropertyException("GetTagPipelineRulesetRuleQuery", "ifNotExists");
+            }
+            if ($.ifTagExists == null) {
+                throw new MissingRequiredPropertyException("GetTagPipelineRulesetRuleQuery", "ifTagExists");
             }
             if ($.query == null) {
                 throw new MissingRequiredPropertyException("GetTagPipelineRulesetRuleQuery", "query");

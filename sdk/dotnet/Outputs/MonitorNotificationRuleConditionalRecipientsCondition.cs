@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class MonitorNotificationRuleConditionalRecipientsCondition
     {
         /// <summary>
-        /// List of recipients to notify.
+        /// A list of recipients to notify. Uses the same format as the monitor message field. Must not start with an '@'.
         /// </summary>
         public readonly ImmutableArray<string> Recipients;
         /// <summary>
-        /// The scope to which the monitor applied.
+        /// Defines the condition under which the recipients are notified. Supported formats: Monitor status condition using `transition_type:&lt;status&gt;` (for example `transition_type:is_alert`) or a single tag `key:value pair` (for example `env:prod`).
         /// </summary>
         public readonly string Scope;
 

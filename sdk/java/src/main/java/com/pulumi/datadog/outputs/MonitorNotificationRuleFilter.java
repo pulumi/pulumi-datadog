@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class MonitorNotificationRuleFilter {
     /**
-     * @return The scope to which the monitor applied.
+     * @return A scope expression composed of `key:value` pairs (such as `env:prod`) with boolean operators (AND, OR, NOT) and parentheses for grouping.
      * 
      */
     private @Nullable String scope;
     /**
-     * @return All tags that target monitors must match.
+     * @return A list of tag key:value pairs (e.g. team:product). All tags must match (AND semantics).
      * 
      */
     private @Nullable List<String> tags;
 
     private MonitorNotificationRuleFilter() {}
     /**
-     * @return The scope to which the monitor applied.
+     * @return A scope expression composed of `key:value` pairs (such as `env:prod`) with boolean operators (AND, OR, NOT) and parentheses for grouping.
      * 
      */
     public Optional<String> scope() {
         return Optional.ofNullable(this.scope);
     }
     /**
-     * @return All tags that target monitors must match.
+     * @return A list of tag key:value pairs (e.g. team:product). All tags must match (AND semantics).
      * 
      */
     public List<String> tags() {

@@ -27,8 +27,17 @@ public final class GetTagPipelineRulesetRuleQuery {
     /**
      * @return Whether to apply the query only if the key doesn&#39;t exist.
      * 
+     * @deprecated
+     * Use `ifTagExists` instead. This field will be removed in a future release.
+     * 
      */
+    @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
     private Boolean ifNotExists;
+    /**
+     * @return Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     * 
+     */
+    private String ifTagExists;
     /**
      * @return The query string.
      * 
@@ -53,9 +62,20 @@ public final class GetTagPipelineRulesetRuleQuery {
     /**
      * @return Whether to apply the query only if the key doesn&#39;t exist.
      * 
+     * @deprecated
+     * Use `ifTagExists` instead. This field will be removed in a future release.
+     * 
      */
+    @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
     public Boolean ifNotExists() {
         return this.ifNotExists;
+    }
+    /**
+     * @return Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     * 
+     */
+    public String ifTagExists() {
+        return this.ifTagExists;
     }
     /**
      * @return The query string.
@@ -77,6 +97,7 @@ public final class GetTagPipelineRulesetRuleQuery {
         private @Nullable GetTagPipelineRulesetRuleQueryAddition addition;
         private Boolean caseInsensitivity;
         private Boolean ifNotExists;
+        private String ifTagExists;
         private String query;
         public Builder() {}
         public Builder(GetTagPipelineRulesetRuleQuery defaults) {
@@ -84,6 +105,7 @@ public final class GetTagPipelineRulesetRuleQuery {
     	      this.addition = defaults.addition;
     	      this.caseInsensitivity = defaults.caseInsensitivity;
     	      this.ifNotExists = defaults.ifNotExists;
+    	      this.ifTagExists = defaults.ifTagExists;
     	      this.query = defaults.query;
         }
 
@@ -110,6 +132,14 @@ public final class GetTagPipelineRulesetRuleQuery {
             return this;
         }
         @CustomType.Setter
+        public Builder ifTagExists(String ifTagExists) {
+            if (ifTagExists == null) {
+              throw new MissingRequiredPropertyException("GetTagPipelineRulesetRuleQuery", "ifTagExists");
+            }
+            this.ifTagExists = ifTagExists;
+            return this;
+        }
+        @CustomType.Setter
         public Builder query(String query) {
             if (query == null) {
               throw new MissingRequiredPropertyException("GetTagPipelineRulesetRuleQuery", "query");
@@ -122,6 +152,7 @@ public final class GetTagPipelineRulesetRuleQuery {
             _resultValue.addition = addition;
             _resultValue.caseInsensitivity = caseInsensitivity;
             _resultValue.ifNotExists = ifNotExists;
+            _resultValue.ifTagExists = ifTagExists;
             _resultValue.query = query;
             return _resultValue;
         }

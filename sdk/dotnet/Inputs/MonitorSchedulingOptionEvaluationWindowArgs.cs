@@ -30,6 +30,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("monthStarts")]
         public Input<int>? MonthStarts { get; set; }
 
+        /// <summary>
+        /// The timezone for the cumulative evaluation window start time.
+        /// </summary>
+        [Input("timezone")]
+        public Input<string>? Timezone { get; set; }
+
         public MonitorSchedulingOptionEvaluationWindowArgs()
         {
         }

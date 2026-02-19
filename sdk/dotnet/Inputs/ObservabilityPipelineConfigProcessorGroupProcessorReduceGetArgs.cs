@@ -24,7 +24,7 @@ namespace Pulumi.Datadog.Inputs
             set => _groupBies = value;
         }
 
-        [Input("mergeStrategies")]
+        [Input("mergeStrategies", required: true)]
         private InputList<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorReduceMergeStrategyGetArgs>? _mergeStrategies;
 
         /// <summary>

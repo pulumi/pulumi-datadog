@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Inputs
         [Input("disableLibraryRules")]
         public Input<bool>? DisableLibraryRules { get; set; }
 
-        [Input("rules")]
+        [Input("rules", required: true)]
         private InputList<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleGetArgs>? _rules;
 
         /// <summary>

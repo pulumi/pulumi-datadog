@@ -26,8 +26,17 @@ public final class TagPipelineRulesetRuleQuery {
     /**
      * @return Whether to apply the query only if the key doesn&#39;t exist.
      * 
+     * @deprecated
+     * Use `ifTagExists` instead. This field will be removed in a future release.
+     * 
      */
+    @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
     private @Nullable Boolean ifNotExists;
+    /**
+     * @return Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     * 
+     */
+    private @Nullable String ifTagExists;
     /**
      * @return The query string.
      * 
@@ -52,9 +61,20 @@ public final class TagPipelineRulesetRuleQuery {
     /**
      * @return Whether to apply the query only if the key doesn&#39;t exist.
      * 
+     * @deprecated
+     * Use `ifTagExists` instead. This field will be removed in a future release.
+     * 
      */
+    @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
     public Optional<Boolean> ifNotExists() {
         return Optional.ofNullable(this.ifNotExists);
+    }
+    /**
+     * @return Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     * 
+     */
+    public Optional<String> ifTagExists() {
+        return Optional.ofNullable(this.ifTagExists);
     }
     /**
      * @return The query string.
@@ -76,6 +96,7 @@ public final class TagPipelineRulesetRuleQuery {
         private @Nullable TagPipelineRulesetRuleQueryAddition addition;
         private @Nullable Boolean caseInsensitivity;
         private @Nullable Boolean ifNotExists;
+        private @Nullable String ifTagExists;
         private @Nullable String query;
         public Builder() {}
         public Builder(TagPipelineRulesetRuleQuery defaults) {
@@ -83,6 +104,7 @@ public final class TagPipelineRulesetRuleQuery {
     	      this.addition = defaults.addition;
     	      this.caseInsensitivity = defaults.caseInsensitivity;
     	      this.ifNotExists = defaults.ifNotExists;
+    	      this.ifTagExists = defaults.ifTagExists;
     	      this.query = defaults.query;
         }
 
@@ -105,6 +127,12 @@ public final class TagPipelineRulesetRuleQuery {
             return this;
         }
         @CustomType.Setter
+        public Builder ifTagExists(@Nullable String ifTagExists) {
+
+            this.ifTagExists = ifTagExists;
+            return this;
+        }
+        @CustomType.Setter
         public Builder query(@Nullable String query) {
 
             this.query = query;
@@ -115,6 +143,7 @@ public final class TagPipelineRulesetRuleQuery {
             _resultValue.addition = addition;
             _resultValue.caseInsensitivity = caseInsensitivity;
             _resultValue.ifNotExists = ifNotExists;
+            _resultValue.ifTagExists = ifTagExists;
             _resultValue.query = query;
             return _resultValue;
         }

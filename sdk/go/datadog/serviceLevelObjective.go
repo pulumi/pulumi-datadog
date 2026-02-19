@@ -61,6 +61,55 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Metric-Based SLO using sli_specification.count
+//			// Create a new Datadog service level objective
+//			_, err = datadog.NewServiceLevelObjective(ctx, "metric_count_spec_slo", &datadog.ServiceLevelObjectiveArgs{
+//				Name:        pulumi.String("Example Metric Count Spec SLO"),
+//				Type:        pulumi.String("metric"),
+//				Description: pulumi.String("My custom metric count spec SLO"),
+//				SliSpecification: &datadog.ServiceLevelObjectiveSliSpecificationArgs{
+//					Count: &datadog.ServiceLevelObjectiveSliSpecificationCountArgs{
+//						GoodEventsFormula:  pulumi.String("query1"),
+//						TotalEventsFormula: pulumi.String("query2"),
+//						Queries: datadog.ServiceLevelObjectiveSliSpecificationCountQueryArray{
+//							&datadog.ServiceLevelObjectiveSliSpecificationCountQueryArgs{
+//								MetricQuery: &datadog.ServiceLevelObjectiveSliSpecificationCountQueryMetricQueryArgs{
+//									Name:  pulumi.String("query1"),
+//									Query: pulumi.String("sum:my.custom.count.metric{type:good_events}.as_count()"),
+//								},
+//							},
+//							&datadog.ServiceLevelObjectiveSliSpecificationCountQueryArgs{
+//								MetricQuery: &datadog.ServiceLevelObjectiveSliSpecificationCountQueryMetricQueryArgs{
+//									Name:  pulumi.String("query2"),
+//									Query: pulumi.String("sum:my.custom.count.metric{*}.as_count()"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//				Thresholds: datadog.ServiceLevelObjectiveThresholdArray{
+//					&datadog.ServiceLevelObjectiveThresholdArgs{
+//						Timeframe: pulumi.String("7d"),
+//						Target:    pulumi.Float64(99.9),
+//						Warning:   pulumi.Float64(99.99),
+//					},
+//					&datadog.ServiceLevelObjectiveThresholdArgs{
+//						Timeframe: pulumi.String("30d"),
+//						Target:    pulumi.Float64(99.9),
+//						Warning:   pulumi.Float64(99.99),
+//					},
+//				},
+//				Timeframe:        pulumi.String("30d"),
+//				TargetThreshold:  pulumi.Float64(99.9),
+//				WarningThreshold: pulumi.Float64(99.99),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("foo:bar"),
+//					pulumi.String("baz"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			// Monitor-Based SLO
 //			// Create a new Datadog service level objective
 //			_, err = datadog.NewServiceLevelObjective(ctx, "bar", &datadog.ServiceLevelObjectiveArgs{
@@ -164,9 +213,9 @@ type ServiceLevelObjective struct {
 	MonitorIds pulumi.IntArrayOutput `pulumi:"monitorIds"`
 	// Name of Datadog service level objective
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The metric query of good / total events
+	// The metric query of good / total events. Use this for metric SLOs as an alternative to `sliSpecification`.
 	Query ServiceLevelObjectiveQueryPtrOutput `pulumi:"query"`
-	// A map of SLI specifications to use as part of the SLO.
+	// A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
 	SliSpecification ServiceLevelObjectiveSliSpecificationPtrOutput `pulumi:"sliSpecification"`
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
@@ -233,9 +282,9 @@ type serviceLevelObjectiveState struct {
 	MonitorIds []int `pulumi:"monitorIds"`
 	// Name of Datadog service level objective
 	Name *string `pulumi:"name"`
-	// The metric query of good / total events
+	// The metric query of good / total events. Use this for metric SLOs as an alternative to `sliSpecification`.
 	Query *ServiceLevelObjectiveQuery `pulumi:"query"`
-	// A map of SLI specifications to use as part of the SLO.
+	// A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
 	SliSpecification *ServiceLevelObjectiveSliSpecification `pulumi:"sliSpecification"`
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
 	Tags []string `pulumi:"tags"`
@@ -264,9 +313,9 @@ type ServiceLevelObjectiveState struct {
 	MonitorIds pulumi.IntArrayInput
 	// Name of Datadog service level objective
 	Name pulumi.StringPtrInput
-	// The metric query of good / total events
+	// The metric query of good / total events. Use this for metric SLOs as an alternative to `sliSpecification`.
 	Query ServiceLevelObjectiveQueryPtrInput
-	// A map of SLI specifications to use as part of the SLO.
+	// A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
 	SliSpecification ServiceLevelObjectiveSliSpecificationPtrInput
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
 	Tags pulumi.StringArrayInput
@@ -299,9 +348,9 @@ type serviceLevelObjectiveArgs struct {
 	MonitorIds []int `pulumi:"monitorIds"`
 	// Name of Datadog service level objective
 	Name string `pulumi:"name"`
-	// The metric query of good / total events
+	// The metric query of good / total events. Use this for metric SLOs as an alternative to `sliSpecification`.
 	Query *ServiceLevelObjectiveQuery `pulumi:"query"`
-	// A map of SLI specifications to use as part of the SLO.
+	// A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
 	SliSpecification *ServiceLevelObjectiveSliSpecification `pulumi:"sliSpecification"`
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
 	Tags []string `pulumi:"tags"`
@@ -331,9 +380,9 @@ type ServiceLevelObjectiveArgs struct {
 	MonitorIds pulumi.IntArrayInput
 	// Name of Datadog service level objective
 	Name pulumi.StringInput
-	// The metric query of good / total events
+	// The metric query of good / total events. Use this for metric SLOs as an alternative to `sliSpecification`.
 	Query ServiceLevelObjectiveQueryPtrInput
-	// A map of SLI specifications to use as part of the SLO.
+	// A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
 	SliSpecification ServiceLevelObjectiveSliSpecificationPtrInput
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
 	Tags pulumi.StringArrayInput
@@ -463,12 +512,12 @@ func (o ServiceLevelObjectiveOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The metric query of good / total events
+// The metric query of good / total events. Use this for metric SLOs as an alternative to `sliSpecification`.
 func (o ServiceLevelObjectiveOutput) Query() ServiceLevelObjectiveQueryPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) ServiceLevelObjectiveQueryPtrOutput { return v.Query }).(ServiceLevelObjectiveQueryPtrOutput)
 }
 
-// A map of SLI specifications to use as part of the SLO.
+// A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
 func (o ServiceLevelObjectiveOutput) SliSpecification() ServiceLevelObjectiveSliSpecificationPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) ServiceLevelObjectiveSliSpecificationPtrOutput {
 		return v.SliSpecification

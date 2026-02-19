@@ -42,7 +42,7 @@ namespace Pulumi.Datadog
     ///                     
     ///                     {
     ///                         { "destinationKey", "env" },
-    ///                         { "ifNotExists", true },
+    ///                         { "ifTagExists", "replace" },
     ///                         { "sourceKeys", new[]
     ///                         {
     ///                             "environment",
@@ -69,7 +69,7 @@ namespace Pulumi.Datadog
     ///                     
     ///                     {
     ///                         { "query", "service:web* OR service:api*" },
-    ///                         { "ifNotExists", false },
+    ///                         { "ifTagExists", "do_not_apply" },
     ///                         { "addition", new[]
     ///                         {
     ///                             
@@ -100,7 +100,7 @@ namespace Pulumi.Datadog
     ///                     {
     ///                         { "tableName", "service_catalog" },
     ///                         { "caseInsensitivity", true },
-    ///                         { "ifNotExists", true },
+    ///                         { "ifTagExists", "append" },
     ///                         { "sourceKeys", new[]
     ///                         {
     ///                             "service",
@@ -152,7 +152,7 @@ namespace Pulumi.Datadog
     ///                     
     ///                     {
     ///                         { "destinationKey", "env" },
-    ///                         { "ifNotExists", true },
+    ///                         { "ifTagExists", "replace" },
     ///                         { "sourceKeys", new[]
     ///                         {
     ///                             "environment",
@@ -179,7 +179,7 @@ namespace Pulumi.Datadog
     ///                     
     ///                     {
     ///                         { "query", "service:web*" },
-    ///                         { "ifNotExists", false },
+    ///                         { "ifTagExists", "do_not_apply" },
     ///                         { "addition", new[]
     ///                         {
     ///                             
@@ -230,7 +230,7 @@ namespace Pulumi.Datadog
     ///                     
     ///                     {
     ///                         { "destinationKey", "env" },
-    ///                         { "ifNotExists", true },
+    ///                         { "ifTagExists", "replace" },
     ///                         { "sourceKeys", new[]
     ///                         {
     ///                             "environment",
@@ -257,7 +257,7 @@ namespace Pulumi.Datadog
     ///                     
     ///                     {
     ///                         { "query", "service:web*" },
-    ///                         { "ifNotExists", false },
+    ///                         { "ifTagExists", "do_not_apply" },
     ///                         { "addition", new[]
     ///                         {
     ///                             

@@ -44,7 +44,7 @@ class IntegrationArgs:
         :param pulumi.Input[_builtins.bool] automute: Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloud_run_revision_filters: List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] host_filters: List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+        :param pulumi.Input[_builtins.str] host_filters: List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.bool] is_resource_change_collection_enabled: When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         :param pulumi.Input[_builtins.bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationMonitoredResourceConfigArgs']]] monitored_resource_configs: Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
@@ -180,7 +180,7 @@ class IntegrationArgs:
     @_utilities.deprecated("""**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`""")
     def host_filters(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+        List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         """
         return pulumi.get(self, "host_filters")
 
@@ -260,7 +260,7 @@ class _IntegrationState:
         :param pulumi.Input[_builtins.str] client_id: Your ID found in your JSON service account key.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloud_run_revision_filters: List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] host_filters: List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+        :param pulumi.Input[_builtins.str] host_filters: List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.bool] is_resource_change_collection_enabled: When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         :param pulumi.Input[_builtins.bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationMonitoredResourceConfigArgs']]] monitored_resource_configs: Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
@@ -368,7 +368,7 @@ class _IntegrationState:
     @_utilities.deprecated("""**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`""")
     def host_filters(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+        List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         """
         return pulumi.get(self, "host_filters")
 
@@ -501,7 +501,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] client_id: Your ID found in your JSON service account key.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloud_run_revision_filters: List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] host_filters: List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+        :param pulumi.Input[_builtins.str] host_filters: List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.bool] is_resource_change_collection_enabled: When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         :param pulumi.Input[_builtins.bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationMonitoredResourceConfigArgs', 'IntegrationMonitoredResourceConfigArgsDict']]]] monitored_resource_configs: Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
@@ -626,7 +626,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] client_id: Your ID found in your JSON service account key.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloud_run_revision_filters: List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] host_filters: List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+        :param pulumi.Input[_builtins.str] host_filters: List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.bool] is_resource_change_collection_enabled: When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         :param pulumi.Input[_builtins.bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationMonitoredResourceConfigArgs', 'IntegrationMonitoredResourceConfigArgsDict']]]] monitored_resource_configs: Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
@@ -700,7 +700,7 @@ class Integration(pulumi.CustomResource):
     @_utilities.deprecated("""**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`""")
     def host_filters(self) -> pulumi.Output[_builtins.str]:
         """
-        List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+        List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         """
         return pulumi.get(self, "host_filters")
 

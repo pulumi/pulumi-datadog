@@ -34,16 +34,39 @@ public final class GetTagPipelineRulesetRuleMappingArgs extends com.pulumi.resou
     /**
      * Whether to apply the mapping only if the destination key doesn&#39;t exist.
      * 
+     * @deprecated
+     * Use `ifTagExists` instead. This field will be removed in a future release.
+     * 
      */
+    @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
     @Import(name="ifNotExists", required=true)
     private Output<Boolean> ifNotExists;
 
     /**
      * @return Whether to apply the mapping only if the destination key doesn&#39;t exist.
      * 
+     * @deprecated
+     * Use `ifTagExists` instead. This field will be removed in a future release.
+     * 
      */
+    @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
     public Output<Boolean> ifNotExists() {
         return this.ifNotExists;
+    }
+
+    /**
+     * Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     * 
+     */
+    @Import(name="ifTagExists", required=true)
+    private Output<String> ifTagExists;
+
+    /**
+     * @return Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     * 
+     */
+    public Output<String> ifTagExists() {
+        return this.ifTagExists;
     }
 
     /**
@@ -66,6 +89,7 @@ public final class GetTagPipelineRulesetRuleMappingArgs extends com.pulumi.resou
     private GetTagPipelineRulesetRuleMappingArgs(GetTagPipelineRulesetRuleMappingArgs $) {
         this.destinationKey = $.destinationKey;
         this.ifNotExists = $.ifNotExists;
+        this.ifTagExists = $.ifTagExists;
         this.sourceKeys = $.sourceKeys;
     }
 
@@ -113,7 +137,11 @@ public final class GetTagPipelineRulesetRuleMappingArgs extends com.pulumi.resou
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use `ifTagExists` instead. This field will be removed in a future release.
+         * 
          */
+        @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
         public Builder ifNotExists(Output<Boolean> ifNotExists) {
             $.ifNotExists = ifNotExists;
             return this;
@@ -124,9 +152,34 @@ public final class GetTagPipelineRulesetRuleMappingArgs extends com.pulumi.resou
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use `ifTagExists` instead. This field will be removed in a future release.
+         * 
          */
+        @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
         public Builder ifNotExists(Boolean ifNotExists) {
             return ifNotExists(Output.of(ifNotExists));
+        }
+
+        /**
+         * @param ifTagExists Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ifTagExists(Output<String> ifTagExists) {
+            $.ifTagExists = ifTagExists;
+            return this;
+        }
+
+        /**
+         * @param ifTagExists Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ifTagExists(String ifTagExists) {
+            return ifTagExists(Output.of(ifTagExists));
         }
 
         /**
@@ -166,6 +219,9 @@ public final class GetTagPipelineRulesetRuleMappingArgs extends com.pulumi.resou
             }
             if ($.ifNotExists == null) {
                 throw new MissingRequiredPropertyException("GetTagPipelineRulesetRuleMappingArgs", "ifNotExists");
+            }
+            if ($.ifTagExists == null) {
+                throw new MissingRequiredPropertyException("GetTagPipelineRulesetRuleMappingArgs", "ifTagExists");
             }
             if ($.sourceKeys == null) {
                 throw new MissingRequiredPropertyException("GetTagPipelineRulesetRuleMappingArgs", "sourceKeys");

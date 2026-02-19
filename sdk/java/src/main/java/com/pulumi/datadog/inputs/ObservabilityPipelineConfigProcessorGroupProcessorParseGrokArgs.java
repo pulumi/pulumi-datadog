@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -36,15 +37,15 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokAr
      * The list of Grok parsing rules. If multiple parsing rules are provided, they are evaluated in order. The first successful match is applied.
      * 
      */
-    @Import(name="rules")
-    private @Nullable Output<List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleArgs>> rules;
+    @Import(name="rules", required=true)
+    private Output<List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleArgs>> rules;
 
     /**
      * @return The list of Grok parsing rules. If multiple parsing rules are provided, they are evaluated in order. The first successful match is applied.
      * 
      */
-    public Optional<Output<List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleArgs>>> rules() {
-        return Optional.ofNullable(this.rules);
+    public Output<List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleArgs>> rules() {
+        return this.rules;
     }
 
     private ObservabilityPipelineConfigProcessorGroupProcessorParseGrokArgs() {}
@@ -99,7 +100,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokAr
          * @return builder
          * 
          */
-        public Builder rules(@Nullable Output<List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleArgs>> rules) {
+        public Builder rules(Output<List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleArgs>> rules) {
             $.rules = rules;
             return this;
         }
@@ -125,6 +126,9 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokAr
         }
 
         public ObservabilityPipelineConfigProcessorGroupProcessorParseGrokArgs build() {
+            if ($.rules == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorParseGrokArgs", "rules");
+            }
             return $;
         }
     }

@@ -37,15 +37,15 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsubArgs extend
      * Encoding format for log events. Valid values: `json`, `rawMessage`.
      * 
      */
-    @Import(name="encoding")
-    private @Nullable Output<String> encoding;
+    @Import(name="encoding", required=true)
+    private Output<String> encoding;
 
     /**
      * @return Encoding format for log events. Valid values: `json`, `rawMessage`.
      * 
      */
-    public Optional<Output<String>> encoding() {
-        return Optional.ofNullable(this.encoding);
+    public Output<String> encoding() {
+        return this.encoding;
     }
 
     /**
@@ -148,7 +148,7 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsubArgs extend
          * @return builder
          * 
          */
-        public Builder encoding(@Nullable Output<String> encoding) {
+        public Builder encoding(Output<String> encoding) {
             $.encoding = encoding;
             return this;
         }
@@ -227,6 +227,9 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsubArgs extend
         }
 
         public ObservabilityPipelineConfigDestinationGooglePubsubArgs build() {
+            if ($.encoding == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationGooglePubsubArgs", "encoding");
+            }
             if ($.project == null) {
                 throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationGooglePubsubArgs", "project");
             }

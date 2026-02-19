@@ -59,6 +59,65 @@ namespace Pulumi.Datadog
     ///         },
     ///     });
     /// 
+    ///     // Metric-Based SLO using sli_specification.count
+    ///     // Create a new Datadog service level objective
+    ///     var metricCountSpecSlo = new Datadog.ServiceLevelObjective("metric_count_spec_slo", new()
+    ///     {
+    ///         Name = "Example Metric Count Spec SLO",
+    ///         Type = "metric",
+    ///         Description = "My custom metric count spec SLO",
+    ///         SliSpecification = new Datadog.Inputs.ServiceLevelObjectiveSliSpecificationArgs
+    ///         {
+    ///             Count = new Datadog.Inputs.ServiceLevelObjectiveSliSpecificationCountArgs
+    ///             {
+    ///                 GoodEventsFormula = "query1",
+    ///                 TotalEventsFormula = "query2",
+    ///                 Queries = new[]
+    ///                 {
+    ///                     new Datadog.Inputs.ServiceLevelObjectiveSliSpecificationCountQueryArgs
+    ///                     {
+    ///                         MetricQuery = new Datadog.Inputs.ServiceLevelObjectiveSliSpecificationCountQueryMetricQueryArgs
+    ///                         {
+    ///                             Name = "query1",
+    ///                             Query = "sum:my.custom.count.metric{type:good_events}.as_count()",
+    ///                         },
+    ///                     },
+    ///                     new Datadog.Inputs.ServiceLevelObjectiveSliSpecificationCountQueryArgs
+    ///                     {
+    ///                         MetricQuery = new Datadog.Inputs.ServiceLevelObjectiveSliSpecificationCountQueryMetricQueryArgs
+    ///                         {
+    ///                             Name = "query2",
+    ///                             Query = "sum:my.custom.count.metric{*}.as_count()",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Thresholds = new[]
+    ///         {
+    ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
+    ///             {
+    ///                 Timeframe = "7d",
+    ///                 Target = 99.9,
+    ///                 Warning = 99.99,
+    ///             },
+    ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
+    ///             {
+    ///                 Timeframe = "30d",
+    ///                 Target = 99.9,
+    ///                 Warning = 99.99,
+    ///             },
+    ///         },
+    ///         Timeframe = "30d",
+    ///         TargetThreshold = 99.9,
+    ///         WarningThreshold = 99.99,
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "baz",
+    ///         },
+    ///     });
+    /// 
     ///     // Monitor-Based SLO
     ///     // Create a new Datadog service level objective
     ///     var bar = new Datadog.ServiceLevelObjective("bar", new()
@@ -194,13 +253,13 @@ namespace Pulumi.Datadog
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The metric query of good / total events
+        /// The metric query of good / total events. Use this for metric SLOs as an alternative to `SliSpecification`.
         /// </summary>
         [Output("query")]
         public Output<Outputs.ServiceLevelObjectiveQuery?> Query { get; private set; } = null!;
 
         /// <summary>
-        /// A map of SLI specifications to use as part of the SLO.
+        /// A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
         /// </summary>
         [Output("sliSpecification")]
         public Output<Outputs.ServiceLevelObjectiveSliSpecification?> SliSpecification { get; private set; } = null!;
@@ -336,13 +395,13 @@ namespace Pulumi.Datadog
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The metric query of good / total events
+        /// The metric query of good / total events. Use this for metric SLOs as an alternative to `SliSpecification`.
         /// </summary>
         [Input("query")]
         public Input<Inputs.ServiceLevelObjectiveQueryArgs>? Query { get; set; }
 
         /// <summary>
-        /// A map of SLI specifications to use as part of the SLO.
+        /// A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
         /// </summary>
         [Input("sliSpecification")]
         public Input<Inputs.ServiceLevelObjectiveSliSpecificationArgs>? SliSpecification { get; set; }
@@ -452,13 +511,13 @@ namespace Pulumi.Datadog
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The metric query of good / total events
+        /// The metric query of good / total events. Use this for metric SLOs as an alternative to `SliSpecification`.
         /// </summary>
         [Input("query")]
         public Input<Inputs.ServiceLevelObjectiveQueryGetArgs>? Query { get; set; }
 
         /// <summary>
-        /// A map of SLI specifications to use as part of the SLO.
+        /// A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
         /// </summary>
         [Input("sliSpecification")]
         public Input<Inputs.ServiceLevelObjectiveSliSpecificationGetArgs>? SliSpecification { get; set; }
