@@ -107,7 +107,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return this.cspmResourceCollectionEnabled;
     }
     /**
-     * List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `&#34;&#34;`.
+     * List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
      * 
      * @deprecated
      * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
@@ -118,7 +118,7 @@ public class Integration extends com.pulumi.resources.CustomResource {
     private Output<String> hostFilters;
 
     /**
-     * @return List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `&#34;&#34;`.
+     * @return List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
      * 
      */
     public Output<String> hostFilters() {

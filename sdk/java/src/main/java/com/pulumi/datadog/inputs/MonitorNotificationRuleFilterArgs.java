@@ -17,14 +17,14 @@ public final class MonitorNotificationRuleFilterArgs extends com.pulumi.resource
     public static final MonitorNotificationRuleFilterArgs Empty = new MonitorNotificationRuleFilterArgs();
 
     /**
-     * The scope to which the monitor applied.
+     * A scope expression composed of `key:value` pairs (such as `env:prod`) with boolean operators (AND, OR, NOT) and parentheses for grouping.
      * 
      */
     @Import(name="scope")
     private @Nullable Output<String> scope;
 
     /**
-     * @return The scope to which the monitor applied.
+     * @return A scope expression composed of `key:value` pairs (such as `env:prod`) with boolean operators (AND, OR, NOT) and parentheses for grouping.
      * 
      */
     public Optional<Output<String>> scope() {
@@ -32,14 +32,14 @@ public final class MonitorNotificationRuleFilterArgs extends com.pulumi.resource
     }
 
     /**
-     * All tags that target monitors must match.
+     * A list of tag key:value pairs (e.g. team:product). All tags must match (AND semantics).
      * 
      */
     @Import(name="tags")
     private @Nullable Output<List<String>> tags;
 
     /**
-     * @return All tags that target monitors must match.
+     * @return A list of tag key:value pairs (e.g. team:product). All tags must match (AND semantics).
      * 
      */
     public Optional<Output<List<String>>> tags() {
@@ -72,7 +72,7 @@ public final class MonitorNotificationRuleFilterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param scope The scope to which the monitor applied.
+         * @param scope A scope expression composed of `key:value` pairs (such as `env:prod`) with boolean operators (AND, OR, NOT) and parentheses for grouping.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class MonitorNotificationRuleFilterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param scope The scope to which the monitor applied.
+         * @param scope A scope expression composed of `key:value` pairs (such as `env:prod`) with boolean operators (AND, OR, NOT) and parentheses for grouping.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class MonitorNotificationRuleFilterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param tags All tags that target monitors must match.
+         * @param tags A list of tag key:value pairs (e.g. team:product). All tags must match (AND semantics).
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class MonitorNotificationRuleFilterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param tags All tags that target monitors must match.
+         * @param tags A list of tag key:value pairs (e.g. team:product). All tags must match (AND semantics).
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class MonitorNotificationRuleFilterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param tags All tags that target monitors must match.
+         * @param tags A list of tag key:value pairs (e.g. team:product). All tags must match (AND semantics).
          * 
          * @return builder
          * 

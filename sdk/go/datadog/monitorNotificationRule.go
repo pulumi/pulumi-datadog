@@ -28,17 +28,49 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Create new monitor_notification_rule resource
-//			_, err := datadog.NewMonitorNotificationRule(ctx, "foo", &datadog.MonitorNotificationRuleArgs{
-//				Name: pulumi.String("A notification rule name"),
+//			_, err := datadog.NewMonitorNotificationRule(ctx, "team_checkout_notification_rule", &datadog.MonitorNotificationRuleArgs{
+//				Name: pulumi.String("Route alerts from checkout team"),
 //				Recipients: pulumi.StringArray{
-//					pulumi.String("slack-test-channel"),
-//					pulumi.String("jira-test"),
+//					pulumi.String("slack-checkout-ops"),
+//					pulumi.String("jira-checkout"),
 //				},
 //				Filter: datadog.MonitorNotificationRuleFilterArgs{
 //					map[string]interface{}{
 //						"tags": []string{
-//							"env:foo",
+//							"team:payment",
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewMonitorNotificationRule(ctx, "team_payment_notification_rule", &datadog.MonitorNotificationRuleArgs{
+//				Name: pulumi.String("Routing logic for team payment"),
+//				Filter: datadog.MonitorNotificationRuleFilterArgs{
+//					map[string]interface{}{
+//						"scope": "team:payment AND NOT env:dev AND service:(payment-processing OR payment-gateway)",
+//					},
+//				},
+//				ConditionalRecipients: datadog.MonitorNotificationRuleConditionalRecipientsArgs{
+//					map[string]interface{}{
+//						"conditions": []interface{}{
+//							map[string]interface{}{
+//								"scope": "priority:p1",
+//								"recipients": []string{
+//									"oncall-payment",
+//									"slack-payment",
+//								},
+//							},
+//							map[string]interface{}{
+//								"scope": "priority:p5",
+//								"recipients": []string{
+//									"slack-payment",
+//								},
+//							},
+//						},
+//						"fallbackRecipients": []string{
+//							"slack-payment",
 //						},
 //					},
 //				},
@@ -64,7 +96,8 @@ type MonitorNotificationRule struct {
 
 	// Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
 	ConditionalRecipients MonitorNotificationRuleConditionalRecipientsPtrOutput `pulumi:"conditionalRecipients"`
-	Filter                MonitorNotificationRuleFilterOutput                   `pulumi:"filter"`
+	// Specifies the matching criteria for monitor notifications.
+	Filter MonitorNotificationRuleFilterOutput `pulumi:"filter"`
 	// The name of the monitor notification rule.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of recipients to notify. Cannot be used with `conditionalRecipients`.
@@ -109,7 +142,8 @@ func GetMonitorNotificationRule(ctx *pulumi.Context,
 type monitorNotificationRuleState struct {
 	// Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
 	ConditionalRecipients *MonitorNotificationRuleConditionalRecipients `pulumi:"conditionalRecipients"`
-	Filter                *MonitorNotificationRuleFilter                `pulumi:"filter"`
+	// Specifies the matching criteria for monitor notifications.
+	Filter *MonitorNotificationRuleFilter `pulumi:"filter"`
 	// The name of the monitor notification rule.
 	Name *string `pulumi:"name"`
 	// List of recipients to notify. Cannot be used with `conditionalRecipients`.
@@ -119,7 +153,8 @@ type monitorNotificationRuleState struct {
 type MonitorNotificationRuleState struct {
 	// Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
 	ConditionalRecipients MonitorNotificationRuleConditionalRecipientsPtrInput
-	Filter                MonitorNotificationRuleFilterPtrInput
+	// Specifies the matching criteria for monitor notifications.
+	Filter MonitorNotificationRuleFilterPtrInput
 	// The name of the monitor notification rule.
 	Name pulumi.StringPtrInput
 	// List of recipients to notify. Cannot be used with `conditionalRecipients`.
@@ -133,7 +168,8 @@ func (MonitorNotificationRuleState) ElementType() reflect.Type {
 type monitorNotificationRuleArgs struct {
 	// Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
 	ConditionalRecipients *MonitorNotificationRuleConditionalRecipients `pulumi:"conditionalRecipients"`
-	Filter                MonitorNotificationRuleFilter                 `pulumi:"filter"`
+	// Specifies the matching criteria for monitor notifications.
+	Filter MonitorNotificationRuleFilter `pulumi:"filter"`
 	// The name of the monitor notification rule.
 	Name string `pulumi:"name"`
 	// List of recipients to notify. Cannot be used with `conditionalRecipients`.
@@ -144,7 +180,8 @@ type monitorNotificationRuleArgs struct {
 type MonitorNotificationRuleArgs struct {
 	// Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
 	ConditionalRecipients MonitorNotificationRuleConditionalRecipientsPtrInput
-	Filter                MonitorNotificationRuleFilterInput
+	// Specifies the matching criteria for monitor notifications.
+	Filter MonitorNotificationRuleFilterInput
 	// The name of the monitor notification rule.
 	Name pulumi.StringInput
 	// List of recipients to notify. Cannot be used with `conditionalRecipients`.
@@ -245,6 +282,7 @@ func (o MonitorNotificationRuleOutput) ConditionalRecipients() MonitorNotificati
 	}).(MonitorNotificationRuleConditionalRecipientsPtrOutput)
 }
 
+// Specifies the matching criteria for monitor notifications.
 func (o MonitorNotificationRuleOutput) Filter() MonitorNotificationRuleFilterOutput {
 	return o.ApplyT(func(v *MonitorNotificationRule) MonitorNotificationRuleFilterOutput { return v.Filter }).(MonitorNotificationRuleFilterOutput)
 }

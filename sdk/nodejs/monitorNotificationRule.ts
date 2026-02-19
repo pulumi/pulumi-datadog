@@ -15,15 +15,36 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * // Create new monitor_notification_rule resource
- * const foo = new datadog.MonitorNotificationRule("foo", {
- *     name: "A notification rule name",
+ * const teamCheckoutNotificationRule = new datadog.MonitorNotificationRule("team_checkout_notification_rule", {
+ *     name: "Route alerts from checkout team",
  *     recipients: [
- *         "slack-test-channel",
- *         "jira-test",
+ *         "slack-checkout-ops",
+ *         "jira-checkout",
  *     ],
  *     filter: [{
- *         tags: ["env:foo"],
+ *         tags: ["team:payment"],
+ *     }],
+ * });
+ * const teamPaymentNotificationRule = new datadog.MonitorNotificationRule("team_payment_notification_rule", {
+ *     name: "Routing logic for team payment",
+ *     filter: [{
+ *         scope: "team:payment AND NOT env:dev AND service:(payment-processing OR payment-gateway)",
+ *     }],
+ *     conditionalRecipients: [{
+ *         conditions: [
+ *             {
+ *                 scope: "priority:p1",
+ *                 recipients: [
+ *                     "oncall-payment",
+ *                     "slack-payment",
+ *                 ],
+ *             },
+ *             {
+ *                 scope: "priority:p5",
+ *                 recipients: ["slack-payment"],
+ *             },
+ *         ],
+ *         fallbackRecipients: ["slack-payment"],
  *     }],
  * });
  * ```
@@ -68,6 +89,9 @@ export class MonitorNotificationRule extends pulumi.CustomResource {
      * Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
      */
     declare public readonly conditionalRecipients: pulumi.Output<outputs.MonitorNotificationRuleConditionalRecipients | undefined>;
+    /**
+     * Specifies the matching criteria for monitor notifications.
+     */
     declare public readonly filter: pulumi.Output<outputs.MonitorNotificationRuleFilter>;
     /**
      * The name of the monitor notification rule.
@@ -121,6 +145,9 @@ export interface MonitorNotificationRuleState {
      * Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
      */
     conditionalRecipients?: pulumi.Input<inputs.MonitorNotificationRuleConditionalRecipients>;
+    /**
+     * Specifies the matching criteria for monitor notifications.
+     */
     filter?: pulumi.Input<inputs.MonitorNotificationRuleFilter>;
     /**
      * The name of the monitor notification rule.
@@ -140,6 +167,9 @@ export interface MonitorNotificationRuleArgs {
      * Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
      */
     conditionalRecipients?: pulumi.Input<inputs.MonitorNotificationRuleConditionalRecipients>;
+    /**
+     * Specifies the matching criteria for monitor notifications.
+     */
     filter: pulumi.Input<inputs.MonitorNotificationRuleFilter>;
     /**
      * The name of the monitor notification rule.

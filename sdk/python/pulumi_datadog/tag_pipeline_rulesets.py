@@ -126,7 +126,7 @@ class TagPipelineRulesets(pulumi.CustomResource):
                 "enabled": True,
                 "mapping": [{
                     "destinationKey": "env",
-                    "ifNotExists": True,
+                    "ifTagExists": "replace",
                     "sourceKeys": [
                         "environment",
                         "stage",
@@ -141,7 +141,7 @@ class TagPipelineRulesets(pulumi.CustomResource):
                 "enabled": True,
                 "query": [{
                     "query": "service:web* OR service:api*",
-                    "ifNotExists": False,
+                    "ifTagExists": "do_not_apply",
                     "addition": [{
                         "key": "team",
                         "value": "backend",
@@ -157,7 +157,7 @@ class TagPipelineRulesets(pulumi.CustomResource):
                 "reference_table": [{
                     "tableName": "service_catalog",
                     "caseInsensitivity": True,
-                    "ifNotExists": True,
+                    "ifTagExists": "append",
                     "sourceKeys": ["service"],
                     "fieldPairs": [{
                         "inputColumn": "owner_team",
@@ -186,7 +186,7 @@ class TagPipelineRulesets(pulumi.CustomResource):
                 "enabled": True,
                 "mapping": [{
                     "destinationKey": "env",
-                    "ifNotExists": True,
+                    "ifTagExists": "replace",
                     "sourceKeys": [
                         "environment",
                         "stage",
@@ -201,7 +201,7 @@ class TagPipelineRulesets(pulumi.CustomResource):
                 "enabled": True,
                 "query": [{
                     "query": "service:web*",
-                    "ifNotExists": False,
+                    "ifTagExists": "do_not_apply",
                     "addition": [{
                         "key": "team",
                         "value": "frontend",
@@ -233,7 +233,7 @@ class TagPipelineRulesets(pulumi.CustomResource):
                 "enabled": True,
                 "mapping": [{
                     "destinationKey": "env",
-                    "ifNotExists": True,
+                    "ifTagExists": "replace",
                     "sourceKeys": [
                         "environment",
                         "stage",
@@ -248,7 +248,7 @@ class TagPipelineRulesets(pulumi.CustomResource):
                 "enabled": True,
                 "query": [{
                     "query": "service:web*",
-                    "ifNotExists": False,
+                    "ifTagExists": "do_not_apply",
                     "addition": [{
                         "key": "team",
                         "value": "frontend",
@@ -308,7 +308,7 @@ class TagPipelineRulesets(pulumi.CustomResource):
                 "enabled": True,
                 "mapping": [{
                     "destinationKey": "env",
-                    "ifNotExists": True,
+                    "ifTagExists": "replace",
                     "sourceKeys": [
                         "environment",
                         "stage",
@@ -323,7 +323,7 @@ class TagPipelineRulesets(pulumi.CustomResource):
                 "enabled": True,
                 "query": [{
                     "query": "service:web* OR service:api*",
-                    "ifNotExists": False,
+                    "ifTagExists": "do_not_apply",
                     "addition": [{
                         "key": "team",
                         "value": "backend",
@@ -339,7 +339,7 @@ class TagPipelineRulesets(pulumi.CustomResource):
                 "reference_table": [{
                     "tableName": "service_catalog",
                     "caseInsensitivity": True,
-                    "ifNotExists": True,
+                    "ifTagExists": "append",
                     "sourceKeys": ["service"],
                     "fieldPairs": [{
                         "inputColumn": "owner_team",
@@ -368,7 +368,7 @@ class TagPipelineRulesets(pulumi.CustomResource):
                 "enabled": True,
                 "mapping": [{
                     "destinationKey": "env",
-                    "ifNotExists": True,
+                    "ifTagExists": "replace",
                     "sourceKeys": [
                         "environment",
                         "stage",
@@ -383,7 +383,7 @@ class TagPipelineRulesets(pulumi.CustomResource):
                 "enabled": True,
                 "query": [{
                     "query": "service:web*",
-                    "ifNotExists": False,
+                    "ifTagExists": "do_not_apply",
                     "addition": [{
                         "key": "team",
                         "value": "frontend",
@@ -415,7 +415,7 @@ class TagPipelineRulesets(pulumi.CustomResource):
                 "enabled": True,
                 "mapping": [{
                     "destinationKey": "env",
-                    "ifNotExists": True,
+                    "ifTagExists": "replace",
                     "sourceKeys": [
                         "environment",
                         "stage",
@@ -430,7 +430,7 @@ class TagPipelineRulesets(pulumi.CustomResource):
                 "enabled": True,
                 "query": [{
                     "query": "service:web*",
-                    "ifNotExists": False,
+                    "ifTagExists": "do_not_apply",
                     "addition": [{
                         "key": "team",
                         "value": "frontend",

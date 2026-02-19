@@ -4,25 +4,39 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ServiceLevelObjectiveSliSpecificationCount;
 import com.pulumi.datadog.outputs.ServiceLevelObjectiveSliSpecificationTimeSlice;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceLevelObjectiveSliSpecification {
     /**
-     * @return The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
+     * @return A count-based (metric) SLI specification. Composed of a good events formula, a total events formula, and the underlying metric queries.
      * 
      */
-    private ServiceLevelObjectiveSliSpecificationTimeSlice timeSlice;
-
-    private ServiceLevelObjectiveSliSpecification() {}
+    private @Nullable ServiceLevelObjectiveSliSpecificationCount count;
     /**
      * @return The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
      * 
      */
-    public ServiceLevelObjectiveSliSpecificationTimeSlice timeSlice() {
-        return this.timeSlice;
+    private @Nullable ServiceLevelObjectiveSliSpecificationTimeSlice timeSlice;
+
+    private ServiceLevelObjectiveSliSpecification() {}
+    /**
+     * @return A count-based (metric) SLI specification. Composed of a good events formula, a total events formula, and the underlying metric queries.
+     * 
+     */
+    public Optional<ServiceLevelObjectiveSliSpecificationCount> count() {
+        return Optional.ofNullable(this.count);
+    }
+    /**
+     * @return The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
+     * 
+     */
+    public Optional<ServiceLevelObjectiveSliSpecificationTimeSlice> timeSlice() {
+        return Optional.ofNullable(this.timeSlice);
     }
 
     public static Builder builder() {
@@ -34,23 +48,30 @@ public final class ServiceLevelObjectiveSliSpecification {
     }
     @CustomType.Builder
     public static final class Builder {
-        private ServiceLevelObjectiveSliSpecificationTimeSlice timeSlice;
+        private @Nullable ServiceLevelObjectiveSliSpecificationCount count;
+        private @Nullable ServiceLevelObjectiveSliSpecificationTimeSlice timeSlice;
         public Builder() {}
         public Builder(ServiceLevelObjectiveSliSpecification defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.count = defaults.count;
     	      this.timeSlice = defaults.timeSlice;
         }
 
         @CustomType.Setter
-        public Builder timeSlice(ServiceLevelObjectiveSliSpecificationTimeSlice timeSlice) {
-            if (timeSlice == null) {
-              throw new MissingRequiredPropertyException("ServiceLevelObjectiveSliSpecification", "timeSlice");
-            }
+        public Builder count(@Nullable ServiceLevelObjectiveSliSpecificationCount count) {
+
+            this.count = count;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder timeSlice(@Nullable ServiceLevelObjectiveSliSpecificationTimeSlice timeSlice) {
+
             this.timeSlice = timeSlice;
             return this;
         }
         public ServiceLevelObjectiveSliSpecification build() {
             final var _resultValue = new ServiceLevelObjectiveSliSpecification();
+            _resultValue.count = count;
             _resultValue.timeSlice = timeSlice;
             return _resultValue;
         }

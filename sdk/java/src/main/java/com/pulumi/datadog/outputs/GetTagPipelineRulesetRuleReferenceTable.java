@@ -27,8 +27,17 @@ public final class GetTagPipelineRulesetRuleReferenceTable {
     /**
      * @return Whether to apply the reference table only if the key doesn&#39;t exist.
      * 
+     * @deprecated
+     * Use `ifTagExists` instead. This field will be removed in a future release.
+     * 
      */
+    @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
     private Boolean ifNotExists;
+    /**
+     * @return Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     * 
+     */
+    private String ifTagExists;
     /**
      * @return The source keys for the reference table lookup.
      * 
@@ -58,9 +67,20 @@ public final class GetTagPipelineRulesetRuleReferenceTable {
     /**
      * @return Whether to apply the reference table only if the key doesn&#39;t exist.
      * 
+     * @deprecated
+     * Use `ifTagExists` instead. This field will be removed in a future release.
+     * 
      */
+    @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
     public Boolean ifNotExists() {
         return this.ifNotExists;
+    }
+    /**
+     * @return Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     * 
+     */
+    public String ifTagExists() {
+        return this.ifTagExists;
     }
     /**
      * @return The source keys for the reference table lookup.
@@ -89,6 +109,7 @@ public final class GetTagPipelineRulesetRuleReferenceTable {
         private Boolean caseInsensitivity;
         private @Nullable List<GetTagPipelineRulesetRuleReferenceTableFieldPair> fieldPairs;
         private Boolean ifNotExists;
+        private String ifTagExists;
         private List<String> sourceKeys;
         private String tableName;
         public Builder() {}
@@ -97,6 +118,7 @@ public final class GetTagPipelineRulesetRuleReferenceTable {
     	      this.caseInsensitivity = defaults.caseInsensitivity;
     	      this.fieldPairs = defaults.fieldPairs;
     	      this.ifNotExists = defaults.ifNotExists;
+    	      this.ifTagExists = defaults.ifTagExists;
     	      this.sourceKeys = defaults.sourceKeys;
     	      this.tableName = defaults.tableName;
         }
@@ -127,6 +149,14 @@ public final class GetTagPipelineRulesetRuleReferenceTable {
             return this;
         }
         @CustomType.Setter
+        public Builder ifTagExists(String ifTagExists) {
+            if (ifTagExists == null) {
+              throw new MissingRequiredPropertyException("GetTagPipelineRulesetRuleReferenceTable", "ifTagExists");
+            }
+            this.ifTagExists = ifTagExists;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sourceKeys(List<String> sourceKeys) {
             if (sourceKeys == null) {
               throw new MissingRequiredPropertyException("GetTagPipelineRulesetRuleReferenceTable", "sourceKeys");
@@ -150,6 +180,7 @@ public final class GetTagPipelineRulesetRuleReferenceTable {
             _resultValue.caseInsensitivity = caseInsensitivity;
             _resultValue.fieldPairs = fieldPairs;
             _resultValue.ifNotExists = ifNotExists;
+            _resultValue.ifTagExists = ifTagExists;
             _resultValue.sourceKeys = sourceKeys;
             _resultValue.tableName = tableName;
             return _resultValue;

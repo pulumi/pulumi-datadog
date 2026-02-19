@@ -10,8 +10,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class ObservabilityPipelineConfigProcessorGroupProcessorReduceArgs extends com.pulumi.resources.ResourceArgs {
@@ -37,15 +35,15 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorReduceArgs 
      * List of merge strategies defining how values from grouped events should be combined.
      * 
      */
-    @Import(name="mergeStrategies")
-    private @Nullable Output<List<ObservabilityPipelineConfigProcessorGroupProcessorReduceMergeStrategyArgs>> mergeStrategies;
+    @Import(name="mergeStrategies", required=true)
+    private Output<List<ObservabilityPipelineConfigProcessorGroupProcessorReduceMergeStrategyArgs>> mergeStrategies;
 
     /**
      * @return List of merge strategies defining how values from grouped events should be combined.
      * 
      */
-    public Optional<Output<List<ObservabilityPipelineConfigProcessorGroupProcessorReduceMergeStrategyArgs>>> mergeStrategies() {
-        return Optional.ofNullable(this.mergeStrategies);
+    public Output<List<ObservabilityPipelineConfigProcessorGroupProcessorReduceMergeStrategyArgs>> mergeStrategies() {
+        return this.mergeStrategies;
     }
 
     private ObservabilityPipelineConfigProcessorGroupProcessorReduceArgs() {}
@@ -110,7 +108,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorReduceArgs 
          * @return builder
          * 
          */
-        public Builder mergeStrategies(@Nullable Output<List<ObservabilityPipelineConfigProcessorGroupProcessorReduceMergeStrategyArgs>> mergeStrategies) {
+        public Builder mergeStrategies(Output<List<ObservabilityPipelineConfigProcessorGroupProcessorReduceMergeStrategyArgs>> mergeStrategies) {
             $.mergeStrategies = mergeStrategies;
             return this;
         }
@@ -138,6 +136,9 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorReduceArgs 
         public ObservabilityPipelineConfigProcessorGroupProcessorReduceArgs build() {
             if ($.groupBies == null) {
                 throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorReduceArgs", "groupBies");
+            }
+            if ($.mergeStrategies == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorReduceArgs", "mergeStrategies");
             }
             return $;
         }

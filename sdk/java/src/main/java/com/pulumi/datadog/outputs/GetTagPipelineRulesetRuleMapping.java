@@ -20,8 +20,17 @@ public final class GetTagPipelineRulesetRuleMapping {
     /**
      * @return Whether to apply the mapping only if the destination key doesn&#39;t exist.
      * 
+     * @deprecated
+     * Use `ifTagExists` instead. This field will be removed in a future release.
+     * 
      */
+    @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
     private Boolean ifNotExists;
+    /**
+     * @return Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     * 
+     */
+    private String ifTagExists;
     /**
      * @return The source keys for the mapping.
      * 
@@ -39,9 +48,20 @@ public final class GetTagPipelineRulesetRuleMapping {
     /**
      * @return Whether to apply the mapping only if the destination key doesn&#39;t exist.
      * 
+     * @deprecated
+     * Use `ifTagExists` instead. This field will be removed in a future release.
+     * 
      */
+    @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
     public Boolean ifNotExists() {
         return this.ifNotExists;
+    }
+    /**
+     * @return Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     * 
+     */
+    public String ifTagExists() {
+        return this.ifTagExists;
     }
     /**
      * @return The source keys for the mapping.
@@ -62,12 +82,14 @@ public final class GetTagPipelineRulesetRuleMapping {
     public static final class Builder {
         private String destinationKey;
         private Boolean ifNotExists;
+        private String ifTagExists;
         private List<String> sourceKeys;
         public Builder() {}
         public Builder(GetTagPipelineRulesetRuleMapping defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destinationKey = defaults.destinationKey;
     	      this.ifNotExists = defaults.ifNotExists;
+    	      this.ifTagExists = defaults.ifTagExists;
     	      this.sourceKeys = defaults.sourceKeys;
         }
 
@@ -88,6 +110,14 @@ public final class GetTagPipelineRulesetRuleMapping {
             return this;
         }
         @CustomType.Setter
+        public Builder ifTagExists(String ifTagExists) {
+            if (ifTagExists == null) {
+              throw new MissingRequiredPropertyException("GetTagPipelineRulesetRuleMapping", "ifTagExists");
+            }
+            this.ifTagExists = ifTagExists;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sourceKeys(List<String> sourceKeys) {
             if (sourceKeys == null) {
               throw new MissingRequiredPropertyException("GetTagPipelineRulesetRuleMapping", "sourceKeys");
@@ -102,6 +132,7 @@ public final class GetTagPipelineRulesetRuleMapping {
             final var _resultValue = new GetTagPipelineRulesetRuleMapping();
             _resultValue.destinationKey = destinationKey;
             _resultValue.ifNotExists = ifNotExists;
+            _resultValue.ifTagExists = ifTagExists;
             _resultValue.sourceKeys = sourceKeys;
             return _resultValue;
         }

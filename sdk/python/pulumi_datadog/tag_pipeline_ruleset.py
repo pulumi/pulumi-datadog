@@ -189,7 +189,7 @@ class TagPipelineRuleset(pulumi.CustomResource):
                     "enabled": True,
                     "mapping": [{
                         "destinationKey": "env",
-                        "ifNotExists": True,
+                        "ifTagExists": "replace",
                         "sourceKeys": [
                             "environment",
                             "stage",
@@ -203,7 +203,7 @@ class TagPipelineRuleset(pulumi.CustomResource):
                     "query": [{
                         "query": "service:web* OR service:frontend*",
                         "caseInsensitivity": True,
-                        "ifNotExists": True,
+                        "ifTagExists": "append",
                         "addition": [{
                             "key": "team",
                             "value": "frontend",
@@ -216,7 +216,7 @@ class TagPipelineRuleset(pulumi.CustomResource):
                     "reference_table": [{
                         "tableName": "service_catalog",
                         "caseInsensitivity": True,
-                        "ifNotExists": True,
+                        "ifTagExists": "append",
                         "sourceKeys": ["service"],
                         "fieldPairs": [
                             {
@@ -271,7 +271,7 @@ class TagPipelineRuleset(pulumi.CustomResource):
                     "enabled": True,
                     "mapping": [{
                         "destinationKey": "env",
-                        "ifNotExists": True,
+                        "ifTagExists": "replace",
                         "sourceKeys": [
                             "environment",
                             "stage",
@@ -285,7 +285,7 @@ class TagPipelineRuleset(pulumi.CustomResource):
                     "query": [{
                         "query": "service:web* OR service:frontend*",
                         "caseInsensitivity": True,
-                        "ifNotExists": True,
+                        "ifTagExists": "append",
                         "addition": [{
                             "key": "team",
                             "value": "frontend",
@@ -298,7 +298,7 @@ class TagPipelineRuleset(pulumi.CustomResource):
                     "reference_table": [{
                         "tableName": "service_catalog",
                         "caseInsensitivity": True,
-                        "ifNotExists": True,
+                        "ifTagExists": "append",
                         "sourceKeys": ["service"],
                         "fieldPairs": [
                             {

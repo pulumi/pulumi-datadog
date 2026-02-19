@@ -25,6 +25,10 @@ namespace Pulumi.Datadog.Outputs
         /// The day of the month at which a one month cumulative evaluation window starts. Must be a value of 1.
         /// </summary>
         public readonly int MonthStarts;
+        /// <summary>
+        /// The timezone for the cumulative evaluation window start time.
+        /// </summary>
+        public readonly string Timezone;
 
         [OutputConstructor]
         private GetMonitorSchedulingOptionEvaluationWindowResult(
@@ -32,11 +36,14 @@ namespace Pulumi.Datadog.Outputs
 
             int hourStarts,
 
-            int monthStarts)
+            int monthStarts,
+
+            string timezone)
         {
             DayStarts = dayStarts;
             HourStarts = hourStarts;
             MonthStarts = monthStarts;
+            Timezone = timezone;
         }
     }
 }

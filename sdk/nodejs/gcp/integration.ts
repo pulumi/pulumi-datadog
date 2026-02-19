@@ -70,7 +70,7 @@ export class Integration extends pulumi.CustomResource {
      */
     declare public readonly cspmResourceCollectionEnabled: pulumi.Output<boolean>;
     /**
-     * List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+     * List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
      *
      * @deprecated **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
      */
@@ -195,7 +195,7 @@ export interface IntegrationState {
      */
     cspmResourceCollectionEnabled?: pulumi.Input<boolean>;
     /**
-     * List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+     * List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
      *
      * @deprecated **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
      */
@@ -257,7 +257,7 @@ export interface IntegrationArgs {
      */
     cspmResourceCollectionEnabled?: pulumi.Input<boolean>;
     /**
-     * List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+     * List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
      *
      * @deprecated **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
      */

@@ -35,16 +35,39 @@ public final class TagPipelineRulesetRuleMappingArgs extends com.pulumi.resource
     /**
      * Whether to apply the mapping only if the destination key doesn&#39;t exist.
      * 
+     * @deprecated
+     * Use `ifTagExists` instead. This field will be removed in a future release.
+     * 
      */
+    @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
     @Import(name="ifNotExists")
     private @Nullable Output<Boolean> ifNotExists;
 
     /**
      * @return Whether to apply the mapping only if the destination key doesn&#39;t exist.
      * 
+     * @deprecated
+     * Use `ifTagExists` instead. This field will be removed in a future release.
+     * 
      */
+    @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
     public Optional<Output<Boolean>> ifNotExists() {
         return Optional.ofNullable(this.ifNotExists);
+    }
+
+    /**
+     * Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     * 
+     */
+    @Import(name="ifTagExists")
+    private @Nullable Output<String> ifTagExists;
+
+    /**
+     * @return Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+     * 
+     */
+    public Optional<Output<String>> ifTagExists() {
+        return Optional.ofNullable(this.ifTagExists);
     }
 
     /**
@@ -67,6 +90,7 @@ public final class TagPipelineRulesetRuleMappingArgs extends com.pulumi.resource
     private TagPipelineRulesetRuleMappingArgs(TagPipelineRulesetRuleMappingArgs $) {
         this.destinationKey = $.destinationKey;
         this.ifNotExists = $.ifNotExists;
+        this.ifTagExists = $.ifTagExists;
         this.sourceKeys = $.sourceKeys;
     }
 
@@ -114,7 +138,11 @@ public final class TagPipelineRulesetRuleMappingArgs extends com.pulumi.resource
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use `ifTagExists` instead. This field will be removed in a future release.
+         * 
          */
+        @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
         public Builder ifNotExists(@Nullable Output<Boolean> ifNotExists) {
             $.ifNotExists = ifNotExists;
             return this;
@@ -125,9 +153,34 @@ public final class TagPipelineRulesetRuleMappingArgs extends com.pulumi.resource
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use `ifTagExists` instead. This field will be removed in a future release.
+         * 
          */
+        @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
         public Builder ifNotExists(Boolean ifNotExists) {
             return ifNotExists(Output.of(ifNotExists));
+        }
+
+        /**
+         * @param ifTagExists Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ifTagExists(@Nullable Output<String> ifTagExists) {
+            $.ifTagExists = ifTagExists;
+            return this;
+        }
+
+        /**
+         * @param ifTagExists Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ifTagExists(String ifTagExists) {
+            return ifTagExists(Output.of(ifTagExists));
         }
 
         /**

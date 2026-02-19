@@ -44,14 +44,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         // Create new monitor_notification_rule resource
- *         var foo = new MonitorNotificationRule("foo", MonitorNotificationRuleArgs.builder()
- *             .name("A notification rule name")
+ *         var teamCheckoutNotificationRule = new MonitorNotificationRule("teamCheckoutNotificationRule", MonitorNotificationRuleArgs.builder()
+ *             .name("Route alerts from checkout team")
  *             .recipients(            
- *                 "slack-test-channel",
- *                 "jira-test")
+ *                 "slack-checkout-ops",
+ *                 "jira-checkout")
  *             .filter(MonitorNotificationRuleFilterArgs.builder()
- *                 .tags("env:foo")
+ *                 .tags("team:payment")
+ *                 .build())
+ *             .build());
+ * 
+ *         var teamPaymentNotificationRule = new MonitorNotificationRule("teamPaymentNotificationRule", MonitorNotificationRuleArgs.builder()
+ *             .name("Routing logic for team payment")
+ *             .filter(MonitorNotificationRuleFilterArgs.builder()
+ *                 .scope("team:payment AND NOT env:dev AND service:(payment-processing OR payment-gateway)")
+ *                 .build())
+ *             .conditionalRecipients(MonitorNotificationRuleConditionalRecipientsArgs.builder()
+ *                 .conditions(                
+ *                     MonitorNotificationRuleConditionalRecipientsConditionArgs.builder()
+ *                         .scope("priority:p1")
+ *                         .recipients(                        
+ *                             "oncall-payment",
+ *                             "slack-payment")
+ *                         .build(),
+ *                     MonitorNotificationRuleConditionalRecipientsConditionArgs.builder()
+ *                         .scope("priority:p5")
+ *                         .recipients("slack-payment")
+ *                         .build())
+ *                 .fallbackRecipients("slack-payment")
  *                 .build())
  *             .build());
  * 
@@ -85,9 +105,17 @@ public class MonitorNotificationRule extends com.pulumi.resources.CustomResource
     public Output<Optional<MonitorNotificationRuleConditionalRecipients>> conditionalRecipients() {
         return Codegen.optional(this.conditionalRecipients);
     }
+    /**
+     * Specifies the matching criteria for monitor notifications.
+     * 
+     */
     @Export(name="filter", refs={MonitorNotificationRuleFilter.class}, tree="[0]")
     private Output<MonitorNotificationRuleFilter> filter;
 
+    /**
+     * @return Specifies the matching criteria for monitor notifications.
+     * 
+     */
     public Output<MonitorNotificationRuleFilter> filter() {
         return this.filter;
     }

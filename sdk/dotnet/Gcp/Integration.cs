@@ -56,7 +56,7 @@ namespace Pulumi.Datadog.Gcp
         public Output<bool> CspmResourceCollectionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+        /// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         /// </summary>
         [Output("hostFilters")]
         public Output<string> HostFilters { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Datadog.Gcp
         public Input<bool>? CspmResourceCollectionEnabled { get; set; }
 
         /// <summary>
-        /// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+        /// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         /// </summary>
         [Input("hostFilters")]
         public Input<string>? HostFilters { get; set; }
@@ -300,7 +300,7 @@ namespace Pulumi.Datadog.Gcp
         public Input<bool>? CspmResourceCollectionEnabled { get; set; }
 
         /// <summary>
-        /// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+        /// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         /// </summary>
         [Input("hostFilters")]
         public Input<string>? HostFilters { get; set; }

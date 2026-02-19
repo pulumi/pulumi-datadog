@@ -24,6 +24,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("ifNotExists", required: true)]
         public bool IfNotExists { get; set; }
 
+        /// <summary>
+        /// Behavior when the tag already exists. Valid values: `Append` (append to the existing tag value), `Replace` (replace existing tag value), `DoNotApply` (never apply if tag already exists). Valid values are `Append`, `Replace`, `DoNotApply`.
+        /// </summary>
+        [Input("ifTagExists", required: true)]
+        public string IfTagExists { get; set; } = null!;
+
         [Input("sourceKeys", required: true)]
         private List<string>? _sourceKeys;
 

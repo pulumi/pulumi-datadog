@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _recipients;
 
         /// <summary>
-        /// List of recipients to notify.
+        /// A list of recipients to notify. Uses the same format as the monitor message field. Must not start with an '@'.
         /// </summary>
         public InputList<string> Recipients
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The scope to which the monitor applied.
+        /// Defines the condition under which the recipients are notified. Supported formats: Monitor status condition using `transition_type:&lt;status&gt;` (for example `transition_type:is_alert`) or a single tag `key:value pair` (for example `env:prod`).
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;

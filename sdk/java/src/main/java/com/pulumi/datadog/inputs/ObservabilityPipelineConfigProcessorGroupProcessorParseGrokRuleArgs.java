@@ -23,15 +23,15 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRu
      * A list of Grok parsing rules that define how to extract fields from the source field. Each rule must contain a name and a valid Grok pattern.
      * 
      */
-    @Import(name="matchRules")
-    private @Nullable Output<List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleMatchRuleArgs>> matchRules;
+    @Import(name="matchRules", required=true)
+    private Output<List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleMatchRuleArgs>> matchRules;
 
     /**
      * @return A list of Grok parsing rules that define how to extract fields from the source field. Each rule must contain a name and a valid Grok pattern.
      * 
      */
-    public Optional<Output<List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleMatchRuleArgs>>> matchRules() {
-        return Optional.ofNullable(this.matchRules);
+    public Output<List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleMatchRuleArgs>> matchRules() {
+        return this.matchRules;
     }
 
     /**
@@ -96,7 +96,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRu
          * @return builder
          * 
          */
-        public Builder matchRules(@Nullable Output<List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleMatchRuleArgs>> matchRules) {
+        public Builder matchRules(Output<List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleMatchRuleArgs>> matchRules) {
             $.matchRules = matchRules;
             return this;
         }
@@ -174,6 +174,9 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRu
         }
 
         public ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleArgs build() {
+            if ($.matchRules == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleArgs", "matchRules");
+            }
             if ($.source == null) {
                 throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleArgs", "source");
             }

@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *                     .enabled(true)
  *                     .mapping(TagPipelineRulesetRuleMappingArgs.builder()
  *                         .destinationKey("env")
- *                         .ifNotExists(true)
+ *                         .ifTagExists("replace")
  *                         .sourceKeys(                        
  *                             "environment",
  *                             "stage",
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *                     .query(TagPipelineRulesetRuleQueryArgs.builder()
  *                         .query("service:web* OR service:frontend*")
  *                         .caseInsensitivity(true)
- *                         .ifNotExists(true)
+ *                         .ifTagExists("append")
  *                         .addition(TagPipelineRulesetRuleQueryAdditionArgs.builder()
  *                             .key("team")
  *                             .value("frontend")
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *                     .referenceTable(TagPipelineRulesetRuleReferenceTableArgs.builder()
  *                         .tableName("service_catalog")
  *                         .caseInsensitivity(true)
- *                         .ifNotExists(true)
+ *                         .ifTagExists("append")
  *                         .sourceKeys("service")
  *                         .fieldPairs(                        
  *                             TagPipelineRulesetRuleReferenceTableFieldPairArgs.builder()

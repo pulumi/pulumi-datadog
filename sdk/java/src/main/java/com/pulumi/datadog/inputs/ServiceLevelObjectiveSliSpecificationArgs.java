@@ -5,9 +5,11 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ServiceLevelObjectiveSliSpecificationCountArgs;
 import com.pulumi.datadog.inputs.ServiceLevelObjectiveSliSpecificationTimeSliceArgs;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ServiceLevelObjectiveSliSpecificationArgs extends com.pulumi.resources.ResourceArgs {
@@ -15,23 +17,39 @@ public final class ServiceLevelObjectiveSliSpecificationArgs extends com.pulumi.
     public static final ServiceLevelObjectiveSliSpecificationArgs Empty = new ServiceLevelObjectiveSliSpecificationArgs();
 
     /**
+     * A count-based (metric) SLI specification. Composed of a good events formula, a total events formula, and the underlying metric queries.
+     * 
+     */
+    @Import(name="count")
+    private @Nullable Output<ServiceLevelObjectiveSliSpecificationCountArgs> count;
+
+    /**
+     * @return A count-based (metric) SLI specification. Composed of a good events formula, a total events formula, and the underlying metric queries.
+     * 
+     */
+    public Optional<Output<ServiceLevelObjectiveSliSpecificationCountArgs>> count() {
+        return Optional.ofNullable(this.count);
+    }
+
+    /**
      * The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
      * 
      */
-    @Import(name="timeSlice", required=true)
-    private Output<ServiceLevelObjectiveSliSpecificationTimeSliceArgs> timeSlice;
+    @Import(name="timeSlice")
+    private @Nullable Output<ServiceLevelObjectiveSliSpecificationTimeSliceArgs> timeSlice;
 
     /**
      * @return The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
      * 
      */
-    public Output<ServiceLevelObjectiveSliSpecificationTimeSliceArgs> timeSlice() {
-        return this.timeSlice;
+    public Optional<Output<ServiceLevelObjectiveSliSpecificationTimeSliceArgs>> timeSlice() {
+        return Optional.ofNullable(this.timeSlice);
     }
 
     private ServiceLevelObjectiveSliSpecificationArgs() {}
 
     private ServiceLevelObjectiveSliSpecificationArgs(ServiceLevelObjectiveSliSpecificationArgs $) {
+        this.count = $.count;
         this.timeSlice = $.timeSlice;
     }
 
@@ -54,12 +72,33 @@ public final class ServiceLevelObjectiveSliSpecificationArgs extends com.pulumi.
         }
 
         /**
+         * @param count A count-based (metric) SLI specification. Composed of a good events formula, a total events formula, and the underlying metric queries.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder count(@Nullable Output<ServiceLevelObjectiveSliSpecificationCountArgs> count) {
+            $.count = count;
+            return this;
+        }
+
+        /**
+         * @param count A count-based (metric) SLI specification. Composed of a good events formula, a total events formula, and the underlying metric queries.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder count(ServiceLevelObjectiveSliSpecificationCountArgs count) {
+            return count(Output.of(count));
+        }
+
+        /**
          * @param timeSlice The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
          * 
          * @return builder
          * 
          */
-        public Builder timeSlice(Output<ServiceLevelObjectiveSliSpecificationTimeSliceArgs> timeSlice) {
+        public Builder timeSlice(@Nullable Output<ServiceLevelObjectiveSliSpecificationTimeSliceArgs> timeSlice) {
             $.timeSlice = timeSlice;
             return this;
         }
@@ -75,9 +114,6 @@ public final class ServiceLevelObjectiveSliSpecificationArgs extends com.pulumi.
         }
 
         public ServiceLevelObjectiveSliSpecificationArgs build() {
-            if ($.timeSlice == null) {
-                throw new MissingRequiredPropertyException("ServiceLevelObjectiveSliSpecificationArgs", "timeSlice");
-            }
             return $;
         }
     }

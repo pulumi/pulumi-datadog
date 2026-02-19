@@ -38,7 +38,7 @@ type Integration struct {
 	CloudRunRevisionFilters pulumi.StringArrayOutput `pulumi:"cloudRunRevisionFilters"`
 	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled. Defaults to `false`.
 	CspmResourceCollectionEnabled pulumi.BoolOutput `pulumi:"cspmResourceCollectionEnabled"`
-	// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+	// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
 	//
 	// Deprecated: **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
 	HostFilters pulumi.StringOutput `pulumi:"hostFilters"`
@@ -122,7 +122,7 @@ type integrationState struct {
 	CloudRunRevisionFilters []string `pulumi:"cloudRunRevisionFilters"`
 	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled. Defaults to `false`.
 	CspmResourceCollectionEnabled *bool `pulumi:"cspmResourceCollectionEnabled"`
-	// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+	// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
 	//
 	// Deprecated: **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
 	HostFilters *string `pulumi:"hostFilters"`
@@ -155,7 +155,7 @@ type IntegrationState struct {
 	CloudRunRevisionFilters pulumi.StringArrayInput
 	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled. Defaults to `false`.
 	CspmResourceCollectionEnabled pulumi.BoolPtrInput
-	// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+	// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
 	//
 	// Deprecated: **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
 	HostFilters pulumi.StringPtrInput
@@ -192,7 +192,7 @@ type integrationArgs struct {
 	CloudRunRevisionFilters []string `pulumi:"cloudRunRevisionFilters"`
 	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled. Defaults to `false`.
 	CspmResourceCollectionEnabled *bool `pulumi:"cspmResourceCollectionEnabled"`
-	// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+	// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
 	//
 	// Deprecated: **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
 	HostFilters *string `pulumi:"hostFilters"`
@@ -226,7 +226,7 @@ type IntegrationArgs struct {
 	CloudRunRevisionFilters pulumi.StringArrayInput
 	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled. Defaults to `false`.
 	CspmResourceCollectionEnabled pulumi.BoolPtrInput
-	// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+	// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
 	//
 	// Deprecated: **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
 	HostFilters pulumi.StringPtrInput
@@ -360,7 +360,7 @@ func (o IntegrationOutput) CspmResourceCollectionEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Integration) pulumi.BoolOutput { return v.CspmResourceCollectionEnabled }).(pulumi.BoolOutput)
 }
 
-// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog. Defaults to `""`.
+// List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
 //
 // Deprecated: **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
 func (o IntegrationOutput) HostFilters() pulumi.StringOutput {

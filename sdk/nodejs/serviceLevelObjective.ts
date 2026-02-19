@@ -45,6 +45,52 @@ import * as utilities from "./utilities";
  *         "baz",
  *     ],
  * });
+ * // Metric-Based SLO using sli_specification.count
+ * // Create a new Datadog service level objective
+ * const metricCountSpecSlo = new datadog.ServiceLevelObjective("metric_count_spec_slo", {
+ *     name: "Example Metric Count Spec SLO",
+ *     type: "metric",
+ *     description: "My custom metric count spec SLO",
+ *     sliSpecification: {
+ *         count: {
+ *             goodEventsFormula: "query1",
+ *             totalEventsFormula: "query2",
+ *             queries: [
+ *                 {
+ *                     metricQuery: {
+ *                         name: "query1",
+ *                         query: "sum:my.custom.count.metric{type:good_events}.as_count()",
+ *                     },
+ *                 },
+ *                 {
+ *                     metricQuery: {
+ *                         name: "query2",
+ *                         query: "sum:my.custom.count.metric{*}.as_count()",
+ *                     },
+ *                 },
+ *             ],
+ *         },
+ *     },
+ *     thresholds: [
+ *         {
+ *             timeframe: "7d",
+ *             target: 99.9,
+ *             warning: 99.99,
+ *         },
+ *         {
+ *             timeframe: "30d",
+ *             target: 99.9,
+ *             warning: 99.99,
+ *         },
+ *     ],
+ *     timeframe: "30d",
+ *     targetThreshold: 99.9,
+ *     warningThreshold: 99.99,
+ *     tags: [
+ *         "foo:bar",
+ *         "baz",
+ *     ],
+ * });
  * // Monitor-Based SLO
  * // Create a new Datadog service level objective
  * const bar = new datadog.ServiceLevelObjective("bar", {
@@ -171,11 +217,11 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The metric query of good / total events
+     * The metric query of good / total events. Use this for metric SLOs as an alternative to `sliSpecification`.
      */
     declare public readonly query: pulumi.Output<outputs.ServiceLevelObjectiveQuery | undefined>;
     /**
-     * A map of SLI specifications to use as part of the SLO.
+     * A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
      */
     declare public readonly sliSpecification: pulumi.Output<outputs.ServiceLevelObjectiveSliSpecification | undefined>;
     /**
@@ -290,11 +336,11 @@ export interface ServiceLevelObjectiveState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The metric query of good / total events
+     * The metric query of good / total events. Use this for metric SLOs as an alternative to `sliSpecification`.
      */
     query?: pulumi.Input<inputs.ServiceLevelObjectiveQuery>;
     /**
-     * A map of SLI specifications to use as part of the SLO.
+     * A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
      */
     sliSpecification?: pulumi.Input<inputs.ServiceLevelObjectiveSliSpecification>;
     /**
@@ -352,11 +398,11 @@ export interface ServiceLevelObjectiveArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The metric query of good / total events
+     * The metric query of good / total events. Use this for metric SLOs as an alternative to `sliSpecification`.
      */
     query?: pulumi.Input<inputs.ServiceLevelObjectiveQuery>;
     /**
-     * A map of SLI specifications to use as part of the SLO.
+     * A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
      */
     sliSpecification?: pulumi.Input<inputs.ServiceLevelObjectiveSliSpecification>;
     /**

@@ -20,7 +20,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// Encoding format for log events. Valid values: `Json`, `RawMessage`.
         /// </summary>
-        public readonly string? Encoding;
+        public readonly string Encoding;
         /// <summary>
         /// The GCP project ID that owns the Pub/Sub topic.
         /// </summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Datadog.Outputs
         private ObservabilityPipelineConfigDestinationGooglePubsub(
             Outputs.ObservabilityPipelineConfigDestinationGooglePubsubAuth? auth,
 
-            string? encoding,
+            string encoding,
 
             string project,
 

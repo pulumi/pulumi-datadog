@@ -38,6 +38,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.datadog.inputs.ServiceLevelObjectiveQueryArgs;
  * import com.pulumi.datadog.inputs.ServiceLevelObjectiveThresholdArgs;
  * import com.pulumi.datadog.inputs.ServiceLevelObjectiveSliSpecificationArgs;
+ * import com.pulumi.datadog.inputs.ServiceLevelObjectiveSliSpecificationCountArgs;
  * import com.pulumi.datadog.inputs.ServiceLevelObjectiveSliSpecificationTimeSliceArgs;
  * import com.pulumi.datadog.inputs.ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs;
  * import com.pulumi.datadog.inputs.ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs;
@@ -63,6 +64,50 @@ import javax.annotation.Nullable;
  *             .query(ServiceLevelObjectiveQueryArgs.builder()
  *                 .numerator("sum:my.custom.count.metric{type:good_events}.as_count()")
  *                 .denominator("sum:my.custom.count.metric{*}.as_count()")
+ *                 .build())
+ *             .thresholds(            
+ *                 ServiceLevelObjectiveThresholdArgs.builder()
+ *                     .timeframe("7d")
+ *                     .target(99.9)
+ *                     .warning(99.99)
+ *                     .build(),
+ *                 ServiceLevelObjectiveThresholdArgs.builder()
+ *                     .timeframe("30d")
+ *                     .target(99.9)
+ *                     .warning(99.99)
+ *                     .build())
+ *             .timeframe("30d")
+ *             .targetThreshold(99.9)
+ *             .warningThreshold(99.99)
+ *             .tags(            
+ *                 "foo:bar",
+ *                 "baz")
+ *             .build());
+ * 
+ *         // Metric-Based SLO using sli_specification.count
+ *         // Create a new Datadog service level objective
+ *         var metricCountSpecSlo = new ServiceLevelObjective("metricCountSpecSlo", ServiceLevelObjectiveArgs.builder()
+ *             .name("Example Metric Count Spec SLO")
+ *             .type("metric")
+ *             .description("My custom metric count spec SLO")
+ *             .sliSpecification(ServiceLevelObjectiveSliSpecificationArgs.builder()
+ *                 .count(ServiceLevelObjectiveSliSpecificationCountArgs.builder()
+ *                     .goodEventsFormula("query1")
+ *                     .totalEventsFormula("query2")
+ *                     .queries(                    
+ *                         ServiceLevelObjectiveSliSpecificationCountQueryArgs.builder()
+ *                             .metricQuery(ServiceLevelObjectiveSliSpecificationCountQueryMetricQueryArgs.builder()
+ *                                 .name("query1")
+ *                                 .query("sum:my.custom.count.metric{type:good_events}.as_count()")
+ *                                 .build())
+ *                             .build(),
+ *                         ServiceLevelObjectiveSliSpecificationCountQueryArgs.builder()
+ *                             .metricQuery(ServiceLevelObjectiveSliSpecificationCountQueryMetricQueryArgs.builder()
+ *                                 .name("query2")
+ *                                 .query("sum:my.custom.count.metric{*}.as_count()")
+ *                                 .build())
+ *                             .build())
+ *                     .build())
  *                 .build())
  *             .thresholds(            
  *                 ServiceLevelObjectiveThresholdArgs.builder()
@@ -235,28 +280,28 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The metric query of good / total events
+     * The metric query of good / total events. Use this for metric SLOs as an alternative to `sliSpecification`.
      * 
      */
     @Export(name="query", refs={ServiceLevelObjectiveQuery.class}, tree="[0]")
     private Output</* @Nullable */ ServiceLevelObjectiveQuery> query;
 
     /**
-     * @return The metric query of good / total events
+     * @return The metric query of good / total events. Use this for metric SLOs as an alternative to `sliSpecification`.
      * 
      */
     public Output<Optional<ServiceLevelObjectiveQuery>> query() {
         return Codegen.optional(this.query);
     }
     /**
-     * A map of SLI specifications to use as part of the SLO.
+     * A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
      * 
      */
     @Export(name="sliSpecification", refs={ServiceLevelObjectiveSliSpecification.class}, tree="[0]")
     private Output</* @Nullable */ ServiceLevelObjectiveSliSpecification> sliSpecification;
 
     /**
-     * @return A map of SLI specifications to use as part of the SLO.
+     * @return A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
      * 
      */
     public Output<Optional<ServiceLevelObjectiveSliSpecification>> sliSpecification() {

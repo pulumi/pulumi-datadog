@@ -38,7 +38,7 @@ import (
 //						Mapping: datadog.TagPipelineRulesetRuleMappingArgs{
 //							map[string]interface{}{
 //								"destinationKey": "env",
-//								"ifNotExists":    true,
+//								"ifTagExists":    "replace",
 //								"sourceKeys": []string{
 //									"environment",
 //									"stage",
@@ -54,7 +54,7 @@ import (
 //							map[string]interface{}{
 //								"query":             "service:web* OR service:frontend*",
 //								"caseInsensitivity": true,
-//								"ifNotExists":       true,
+//								"ifTagExists":       "append",
 //								"addition": []map[string]interface{}{
 //									map[string]interface{}{
 //										"key":   "team",
@@ -71,7 +71,7 @@ import (
 //							map[string]interface{}{
 //								"tableName":         "service_catalog",
 //								"caseInsensitivity": true,
-//								"ifNotExists":       true,
+//								"ifTagExists":       "append",
 //								"sourceKeys": []string{
 //									"service",
 //								},

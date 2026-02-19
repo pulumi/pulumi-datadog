@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class MonitorNotificationRuleFilter
     {
         /// <summary>
-        /// The scope to which the monitor applied.
+        /// A scope expression composed of `key:value` pairs (such as `env:prod`) with boolean operators (AND, OR, NOT) and parentheses for grouping.
         /// </summary>
         public readonly string? Scope;
         /// <summary>
-        /// All tags that target monitors must match.
+        /// A list of tag key:value pairs (e.g. team:product). All tags must match (AND semantics).
         /// </summary>
         public readonly ImmutableArray<string> Tags;
 

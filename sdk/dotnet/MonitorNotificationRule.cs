@@ -22,14 +22,13 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // Create new monitor_notification_rule resource
-    ///     var foo = new Datadog.MonitorNotificationRule("foo", new()
+    ///     var teamCheckoutNotificationRule = new Datadog.MonitorNotificationRule("team_checkout_notification_rule", new()
     ///     {
-    ///         Name = "A notification rule name",
+    ///         Name = "Route alerts from checkout team",
     ///         Recipients = new[]
     ///         {
-    ///             "slack-test-channel",
-    ///             "jira-test",
+    ///             "slack-checkout-ops",
+    ///             "jira-checkout",
     ///         },
     ///         Filter = new[]
     ///         {
@@ -37,7 +36,49 @@ namespace Pulumi.Datadog
     ///             {
     ///                 { "tags", new[]
     ///                 {
-    ///                     "env:foo",
+    ///                     "team:payment",
+    ///                 } },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var teamPaymentNotificationRule = new Datadog.MonitorNotificationRule("team_payment_notification_rule", new()
+    ///     {
+    ///         Name = "Routing logic for team payment",
+    ///         Filter = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "scope", "team:payment AND NOT env:dev AND service:(payment-processing OR payment-gateway)" },
+    ///             },
+    ///         },
+    ///         ConditionalRecipients = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "conditions", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "scope", "priority:p1" },
+    ///                         { "recipients", new[]
+    ///                         {
+    ///                             "oncall-payment",
+    ///                             "slack-payment",
+    ///                         } },
+    ///                     },
+    ///                     
+    ///                     {
+    ///                         { "scope", "priority:p5" },
+    ///                         { "recipients", new[]
+    ///                         {
+    ///                             "slack-payment",
+    ///                         } },
+    ///                     },
+    ///                 } },
+    ///                 { "fallbackRecipients", new[]
+    ///                 {
+    ///                     "slack-payment",
     ///                 } },
     ///             },
     ///         },
@@ -63,6 +104,9 @@ namespace Pulumi.Datadog
         [Output("conditionalRecipients")]
         public Output<Outputs.MonitorNotificationRuleConditionalRecipients?> ConditionalRecipients { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the matching criteria for monitor notifications.
+        /// </summary>
         [Output("filter")]
         public Output<Outputs.MonitorNotificationRuleFilter> Filter { get; private set; } = null!;
 
@@ -130,6 +174,9 @@ namespace Pulumi.Datadog
         [Input("conditionalRecipients")]
         public Input<Inputs.MonitorNotificationRuleConditionalRecipientsArgs>? ConditionalRecipients { get; set; }
 
+        /// <summary>
+        /// Specifies the matching criteria for monitor notifications.
+        /// </summary>
         [Input("filter", required: true)]
         public Input<Inputs.MonitorNotificationRuleFilterArgs> Filter { get; set; } = null!;
 
@@ -165,6 +212,9 @@ namespace Pulumi.Datadog
         [Input("conditionalRecipients")]
         public Input<Inputs.MonitorNotificationRuleConditionalRecipientsGetArgs>? ConditionalRecipients { get; set; }
 
+        /// <summary>
+        /// Specifies the matching criteria for monitor notifications.
+        /// </summary>
         [Input("filter")]
         public Input<Inputs.MonitorNotificationRuleFilterGetArgs>? Filter { get; set; }
 

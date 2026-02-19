@@ -27,6 +27,7 @@ class MonitorNotificationRuleArgs:
                  recipients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MonitorNotificationRule resource.
+        :param pulumi.Input['MonitorNotificationRuleFilterArgs'] filter: Specifies the matching criteria for monitor notifications.
         :param pulumi.Input[_builtins.str] name: The name of the monitor notification rule.
         :param pulumi.Input['MonitorNotificationRuleConditionalRecipientsArgs'] conditional_recipients: Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] recipients: List of recipients to notify. Cannot be used with `conditional_recipients`.
@@ -41,6 +42,9 @@ class MonitorNotificationRuleArgs:
     @_builtins.property
     @pulumi.getter
     def filter(self) -> pulumi.Input['MonitorNotificationRuleFilterArgs']:
+        """
+        Specifies the matching criteria for monitor notifications.
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -94,6 +98,7 @@ class _MonitorNotificationRuleState:
         """
         Input properties used for looking up and filtering MonitorNotificationRule resources.
         :param pulumi.Input['MonitorNotificationRuleConditionalRecipientsArgs'] conditional_recipients: Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
+        :param pulumi.Input['MonitorNotificationRuleFilterArgs'] filter: Specifies the matching criteria for monitor notifications.
         :param pulumi.Input[_builtins.str] name: The name of the monitor notification rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] recipients: List of recipients to notify. Cannot be used with `conditional_recipients`.
         """
@@ -121,6 +126,9 @@ class _MonitorNotificationRuleState:
     @_builtins.property
     @pulumi.getter
     def filter(self) -> Optional[pulumi.Input['MonitorNotificationRuleFilterArgs']]:
+        """
+        Specifies the matching criteria for monitor notifications.
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -172,15 +180,35 @@ class MonitorNotificationRule(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        # Create new monitor_notification_rule resource
-        foo = datadog.MonitorNotificationRule("foo",
-            name="A notification rule name",
+        team_checkout_notification_rule = datadog.MonitorNotificationRule("team_checkout_notification_rule",
+            name="Route alerts from checkout team",
             recipients=[
-                "slack-test-channel",
-                "jira-test",
+                "slack-checkout-ops",
+                "jira-checkout",
             ],
             filter=[{
-                "tags": ["env:foo"],
+                "tags": ["team:payment"],
+            }])
+        team_payment_notification_rule = datadog.MonitorNotificationRule("team_payment_notification_rule",
+            name="Routing logic for team payment",
+            filter=[{
+                "scope": "team:payment AND NOT env:dev AND service:(payment-processing OR payment-gateway)",
+            }],
+            conditional_recipients=[{
+                "conditions": [
+                    {
+                        "scope": "priority:p1",
+                        "recipients": [
+                            "oncall-payment",
+                            "slack-payment",
+                        ],
+                    },
+                    {
+                        "scope": "priority:p5",
+                        "recipients": ["slack-payment"],
+                    },
+                ],
+                "fallbackRecipients": ["slack-payment"],
             }])
         ```
 
@@ -195,6 +223,7 @@ class MonitorNotificationRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['MonitorNotificationRuleConditionalRecipientsArgs', 'MonitorNotificationRuleConditionalRecipientsArgsDict']] conditional_recipients: Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
+        :param pulumi.Input[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict']] filter: Specifies the matching criteria for monitor notifications.
         :param pulumi.Input[_builtins.str] name: The name of the monitor notification rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] recipients: List of recipients to notify. Cannot be used with `conditional_recipients`.
         """
@@ -213,15 +242,35 @@ class MonitorNotificationRule(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        # Create new monitor_notification_rule resource
-        foo = datadog.MonitorNotificationRule("foo",
-            name="A notification rule name",
+        team_checkout_notification_rule = datadog.MonitorNotificationRule("team_checkout_notification_rule",
+            name="Route alerts from checkout team",
             recipients=[
-                "slack-test-channel",
-                "jira-test",
+                "slack-checkout-ops",
+                "jira-checkout",
             ],
             filter=[{
-                "tags": ["env:foo"],
+                "tags": ["team:payment"],
+            }])
+        team_payment_notification_rule = datadog.MonitorNotificationRule("team_payment_notification_rule",
+            name="Routing logic for team payment",
+            filter=[{
+                "scope": "team:payment AND NOT env:dev AND service:(payment-processing OR payment-gateway)",
+            }],
+            conditional_recipients=[{
+                "conditions": [
+                    {
+                        "scope": "priority:p1",
+                        "recipients": [
+                            "oncall-payment",
+                            "slack-payment",
+                        ],
+                    },
+                    {
+                        "scope": "priority:p5",
+                        "recipients": ["slack-payment"],
+                    },
+                ],
+                "fallbackRecipients": ["slack-payment"],
             }])
         ```
 
@@ -291,6 +340,7 @@ class MonitorNotificationRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['MonitorNotificationRuleConditionalRecipientsArgs', 'MonitorNotificationRuleConditionalRecipientsArgsDict']] conditional_recipients: Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
+        :param pulumi.Input[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict']] filter: Specifies the matching criteria for monitor notifications.
         :param pulumi.Input[_builtins.str] name: The name of the monitor notification rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] recipients: List of recipients to notify. Cannot be used with `conditional_recipients`.
         """
@@ -315,6 +365,9 @@ class MonitorNotificationRule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def filter(self) -> pulumi.Output['outputs.MonitorNotificationRuleFilter']:
+        """
+        Specifies the matching criteria for monitor notifications.
+        """
         return pulumi.get(self, "filter")
 
     @_builtins.property

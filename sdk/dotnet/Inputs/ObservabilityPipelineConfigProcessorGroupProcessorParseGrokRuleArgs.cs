@@ -12,7 +12,7 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleArgs : global::Pulumi.ResourceArgs
     {
-        [Input("matchRules")]
+        [Input("matchRules", required: true)]
         private InputList<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleMatchRuleArgs>? _matchRules;
 
         /// <summary>

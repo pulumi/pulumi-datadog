@@ -98,14 +98,14 @@ public final class ServiceLevelObjectiveState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The metric query of good / total events
+     * The metric query of good / total events. Use this for metric SLOs as an alternative to `sliSpecification`.
      * 
      */
     @Import(name="query")
     private @Nullable Output<ServiceLevelObjectiveQueryArgs> query;
 
     /**
-     * @return The metric query of good / total events
+     * @return The metric query of good / total events. Use this for metric SLOs as an alternative to `sliSpecification`.
      * 
      */
     public Optional<Output<ServiceLevelObjectiveQueryArgs>> query() {
@@ -113,14 +113,14 @@ public final class ServiceLevelObjectiveState extends com.pulumi.resources.Resou
     }
 
     /**
-     * A map of SLI specifications to use as part of the SLO.
+     * A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
      * 
      */
     @Import(name="sliSpecification")
     private @Nullable Output<ServiceLevelObjectiveSliSpecificationArgs> sliSpecification;
 
     /**
-     * @return A map of SLI specifications to use as part of the SLO.
+     * @return A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
      * 
      */
     public Optional<Output<ServiceLevelObjectiveSliSpecificationArgs>> sliSpecification() {
@@ -395,7 +395,7 @@ public final class ServiceLevelObjectiveState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param query The metric query of good / total events
+         * @param query The metric query of good / total events. Use this for metric SLOs as an alternative to `sliSpecification`.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class ServiceLevelObjectiveState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param query The metric query of good / total events
+         * @param query The metric query of good / total events. Use this for metric SLOs as an alternative to `sliSpecification`.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class ServiceLevelObjectiveState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param sliSpecification A map of SLI specifications to use as part of the SLO.
+         * @param sliSpecification A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class ServiceLevelObjectiveState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param sliSpecification A map of SLI specifications to use as part of the SLO.
+         * @param sliSpecification A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
          * 
          * @return builder
          * 
