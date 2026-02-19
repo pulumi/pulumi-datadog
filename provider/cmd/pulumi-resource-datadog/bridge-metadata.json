@@ -18298,6 +18298,23 @@
                         "maxItemsOne": true,
                         "elem": {
                             "fields": {
+                                "count": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "queries": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "metric_query": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
                                 "time_slice": {
                                     "maxItemsOne": true,
                                     "elem": {
