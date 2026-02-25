@@ -36,7 +36,8 @@ func maybeSkip(t *testing.T, program string) {
 	case "test-programs/index_logsindex":
 		t.Skipf(`Flaky test fails with:
 
-              	* error creating logs index from /api/v1/logs/config/indexes: 429 Too Many Requests: {"error":{"code":"ResourceExhausted","message":"Limit reached. Cannot create new index."}}`)
+              	* error creating logs index from /api/v1/logs/config/indexes: 429 Too Many Requests: ` +
+			`{"error":{"code":"ResourceExhausted","message":"Limit reached. Cannot create new index."}}`)
 	}
 }
 
