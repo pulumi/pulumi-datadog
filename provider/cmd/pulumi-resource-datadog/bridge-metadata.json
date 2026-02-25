@@ -13395,6 +13395,9 @@
                     },
                     "filter": {
                         "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -13634,6 +13637,19 @@
                                                     "fields": {
                                                         "auth": {
                                                             "maxItemsOne": true
+                                                        },
+                                                        "buffer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "disk": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "memory": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -13644,6 +13660,19 @@
                                                     "fields": {
                                                         "auth": {
                                                             "maxItemsOne": true
+                                                        },
+                                                        "buffer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "disk": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "memory": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -13655,6 +13684,19 @@
                                                         "auth": {
                                                             "maxItemsOne": true
                                                         },
+                                                        "buffer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "disk": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "memory": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
                                                         "tls": {
                                                             "maxItemsOne": true
                                                         }
@@ -13662,7 +13704,24 @@
                                                 }
                                             },
                                             "azure_storage": {
-                                                "maxItemsOne": false
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "buffer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "disk": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "memory": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
                                             },
                                             "cloud_prem": {
                                                 "maxItemsOne": true
@@ -13671,6 +13730,19 @@
                                                 "maxItemsOne": false,
                                                 "elem": {
                                                     "fields": {
+                                                        "buffer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "disk": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "memory": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
                                                         "compression": {
                                                             "maxItemsOne": true
                                                         },
@@ -13684,8 +13756,38 @@
                                                 "maxItemsOne": false,
                                                 "elem": {
                                                     "fields": {
+                                                        "buffer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "disk": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "memory": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
                                                         "routes": {
-                                                            "maxItemsOne": false
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "buffer": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "disk": {
+                                                                                    "maxItemsOne": true
+                                                                                },
+                                                                                "memory": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -13697,6 +13799,19 @@
                                                 "maxItemsOne": false,
                                                 "elem": {
                                                     "fields": {
+                                                        "buffer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "disk": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "memory": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
                                                         "data_stream": {
                                                             "maxItemsOne": true
                                                         }
@@ -13709,6 +13824,19 @@
                                                     "fields": {
                                                         "auth": {
                                                             "maxItemsOne": true
+                                                        },
+                                                        "buffer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "disk": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "memory": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
                                                         },
                                                         "metadata": {
                                                             "maxItemsOne": false
@@ -13723,6 +13851,19 @@
                                                         "auth": {
                                                             "maxItemsOne": true
                                                         },
+                                                        "buffer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "disk": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "memory": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
                                                         "tls": {
                                                             "maxItemsOne": true
                                                         }
@@ -13735,6 +13876,19 @@
                                                     "fields": {
                                                         "auth": {
                                                             "maxItemsOne": true
+                                                        },
+                                                        "buffer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "disk": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "memory": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -13772,15 +13926,62 @@
                                                 }
                                             },
                                             "microsoft_sentinel": {
-                                                "maxItemsOne": false
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "buffer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "disk": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "memory": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
                                             },
                                             "new_relic": {
-                                                "maxItemsOne": false
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "buffer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "disk": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "memory": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
                                             },
                                             "opensearch": {
                                                 "maxItemsOne": false,
                                                 "elem": {
                                                     "fields": {
+                                                        "buffer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "disk": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "memory": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
                                                         "data_stream": {
                                                             "maxItemsOne": true
                                                         }
@@ -13791,6 +13992,19 @@
                                                 "maxItemsOne": false,
                                                 "elem": {
                                                     "fields": {
+                                                        "buffer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "disk": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "memory": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
                                                         "tls": {
                                                             "maxItemsOne": true
                                                         }
@@ -13798,12 +14012,42 @@
                                                 }
                                             },
                                             "sentinel_one": {
-                                                "maxItemsOne": false
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "buffer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "disk": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "memory": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
                                             },
                                             "socket": {
                                                 "maxItemsOne": false,
                                                 "elem": {
                                                     "fields": {
+                                                        "buffer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "disk": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "memory": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
                                                         "framing": {
                                                             "maxItemsOne": true,
                                                             "elem": {
@@ -13821,12 +14065,42 @@
                                                 }
                                             },
                                             "splunk_hec": {
-                                                "maxItemsOne": false
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "buffer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "disk": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "memory": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
                                             },
                                             "sumo_logic": {
                                                 "maxItemsOne": false,
                                                 "elem": {
                                                     "fields": {
+                                                        "buffer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "disk": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "memory": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
                                                         "header_custom_field": {
                                                             "maxItemsOne": false
                                                         }
@@ -13837,6 +14111,19 @@
                                                 "maxItemsOne": false,
                                                 "elem": {
                                                     "fields": {
+                                                        "buffer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "disk": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "memory": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
                                                         "tls": {
                                                             "maxItemsOne": true
                                                         }
@@ -19294,6 +19581,9 @@
                                     }
                                 },
                                 "filter": {
+                                    "maxItemsOne": false
+                                },
+                                "tags": {
                                     "maxItemsOne": false
                                 }
                             }
