@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationMicrosoftSentinel
     {
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationMicrosoftSentinelBuffer? Buffer;
+        /// <summary>
         /// Azure AD client ID used for authentication.
         /// </summary>
         public readonly string ClientId;
@@ -32,6 +36,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationMicrosoftSentinel(
+            Outputs.ObservabilityPipelineConfigDestinationMicrosoftSentinelBuffer? buffer,
+
             string clientId,
 
             string dcrImmutableId,
@@ -40,6 +46,7 @@ namespace Pulumi.Datadog.Outputs
 
             string tenantId)
         {
+            Buffer = buffer;
             ClientId = clientId;
             DcrImmutableId = dcrImmutableId;
             Table = table;

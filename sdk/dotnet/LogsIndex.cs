@@ -71,6 +71,11 @@ namespace Pulumi.Datadog
     ///                 },
     ///             },
     ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             "team:backend",
+    ///             "env:production",
+    ///         },
     ///     });
     /// 
     /// });
@@ -140,6 +145,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("retentionDays")]
         public Output<int> RetentionDays { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -253,6 +264,18 @@ namespace Pulumi.Datadog
         [Input("retentionDays")]
         public Input<int>? RetentionDays { get; set; }
 
+        [Input("tags")]
+        private InputList<string>? _tags;
+
+        /// <summary>
+        /// A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
+        /// </summary>
+        public InputList<string> Tags
+        {
+            get => _tags ?? (_tags = new InputList<string>());
+            set => _tags = value;
+        }
+
         public LogsIndexArgs()
         {
         }
@@ -326,6 +349,18 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("retentionDays")]
         public Input<int>? RetentionDays { get; set; }
+
+        [Input("tags")]
+        private InputList<string>? _tags;
+
+        /// <summary>
+        /// A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
+        /// </summary>
+        public InputList<string> Tags
+        {
+            get => _tags ?? (_tags = new InputList<string>());
+            set => _tags = value;
+        }
 
         public LogsIndexState()
         {

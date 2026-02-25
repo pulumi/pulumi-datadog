@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageAuth;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageBuffer;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageMetadata;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -30,6 +31,11 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorage {
      * 
      */
     private String bucket;
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationGoogleCloudStorageBuffer buffer;
     /**
      * @return Optional prefix for object keys within the GCS bucket.
      * 
@@ -69,6 +75,13 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorage {
         return this.bucket;
     }
     /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationGoogleCloudStorageBuffer> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
+    /**
      * @return Optional prefix for object keys within the GCS bucket.
      * 
      */
@@ -102,6 +115,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorage {
         private @Nullable String acl;
         private @Nullable ObservabilityPipelineConfigDestinationGoogleCloudStorageAuth auth;
         private String bucket;
+        private @Nullable ObservabilityPipelineConfigDestinationGoogleCloudStorageBuffer buffer;
         private @Nullable String keyPrefix;
         private @Nullable List<ObservabilityPipelineConfigDestinationGoogleCloudStorageMetadata> metadatas;
         private String storageClass;
@@ -111,6 +125,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorage {
     	      this.acl = defaults.acl;
     	      this.auth = defaults.auth;
     	      this.bucket = defaults.bucket;
+    	      this.buffer = defaults.buffer;
     	      this.keyPrefix = defaults.keyPrefix;
     	      this.metadatas = defaults.metadatas;
     	      this.storageClass = defaults.storageClass;
@@ -134,6 +149,12 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorage {
               throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationGoogleCloudStorage", "bucket");
             }
             this.bucket = bucket;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationGoogleCloudStorageBuffer buffer) {
+
+            this.buffer = buffer;
             return this;
         }
         @CustomType.Setter
@@ -164,6 +185,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorage {
             _resultValue.acl = acl;
             _resultValue.auth = auth;
             _resultValue.bucket = bucket;
+            _resultValue.buffer = buffer;
             _resultValue.keyPrefix = keyPrefix;
             _resultValue.metadatas = metadatas;
             _resultValue.storageClass = storageClass;

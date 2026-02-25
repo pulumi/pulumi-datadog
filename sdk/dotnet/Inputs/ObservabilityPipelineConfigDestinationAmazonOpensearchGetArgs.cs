@@ -16,6 +16,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuthGetArgs> Auth { get; set; } = null!;
 
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        [Input("buffer")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationAmazonOpensearchBufferGetArgs>? Buffer { get; set; }
+
+        /// <summary>
         /// The index or datastream to write logs to.
         /// </summary>
         [Input("bulkIndex")]

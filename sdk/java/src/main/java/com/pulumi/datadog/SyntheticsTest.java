@@ -773,6 +773,181 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Example Usage (TCP Network Path Test)
+ *         // Create a new Datadog TCP Network Path test to example.com on port 443
+ *         // using the TCP traceroute strategy "syn"
+ *         var networkTcp = new SyntheticsTest("networkTcp", SyntheticsTestArgs.builder()
+ *             .name("TCP Network Path Test")
+ *             .type("network")
+ *             .subtype("tcp")
+ *             .status("live")
+ *             .message("Notify }{@literal @}{@code pagerduty")
+ *             .locations("aws:eu-central-1")
+ *             .tags(            
+ *                 "foo:bar",
+ *                 "foo",
+ *                 "env:test")
+ *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+ *                 .host("example.com")
+ *                 .port("443")
+ *                 .e2eQueries(5)
+ *                 .maxTtl(30)
+ *                 .tracerouteQueries(3)
+ *                 .tcpMethod("syn")
+ *                 .timeout(10)
+ *                 .build())
+ *             .assertions(            
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .type("latency")
+ *                     .operator("lessThan")
+ *                     .property("avg")
+ *                     .target("200")
+ *                     .build(),
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .type("latency")
+ *                     .operator("lessThan")
+ *                     .property("max")
+ *                     .target("500")
+ *                     .build(),
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .type("jitter")
+ *                     .operator("lessThan")
+ *                     .target("50")
+ *                     .build(),
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .type("packetLossPercentage")
+ *                     .operator("lessThan")
+ *                     .target("0.5")
+ *                     .build(),
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .type("multiNetworkHop")
+ *                     .operator("lessThan")
+ *                     .property("max")
+ *                     .target("20")
+ *                     .build())
+ *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+ *                 .tickEvery(900)
+ *                 .retry(SyntheticsTestOptionsListRetryArgs.builder()
+ *                     .count(2)
+ *                     .interval(300)
+ *                     .build())
+ *                 .monitorOptions(SyntheticsTestOptionsListMonitorOptionsArgs.builder()
+ *                     .renotifyInterval(120)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         // Example Usage (UDP Network Path Test)
+ *         // Create a new Datadog UDP Network Path test to example.com on port 53
+ *         var networkUdp = new SyntheticsTest("networkUdp", SyntheticsTestArgs.builder()
+ *             .name("UDP Network Path Test")
+ *             .type("network")
+ *             .subtype("udp")
+ *             .status("live")
+ *             .message("Notify }{@literal @}{@code pagerduty")
+ *             .locations("aws:eu-central-1")
+ *             .tags(            
+ *                 "foo:bar",
+ *                 "foo",
+ *                 "env:test")
+ *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+ *                 .host("example.com")
+ *                 .port("53")
+ *                 .e2eQueries(5)
+ *                 .maxTtl(30)
+ *                 .tracerouteQueries(3)
+ *                 .timeout(10)
+ *                 .build())
+ *             .assertions(            
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .type("latency")
+ *                     .operator("lessThan")
+ *                     .property("avg")
+ *                     .target("100.2")
+ *                     .build(),
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .type("jitter")
+ *                     .operator("lessThan")
+ *                     .target("20")
+ *                     .build(),
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .type("packetLossPercentage")
+ *                     .operator("lessThan")
+ *                     .target("0.1")
+ *                     .build())
+ *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+ *                 .tickEvery(900)
+ *                 .retry(SyntheticsTestOptionsListRetryArgs.builder()
+ *                     .count(2)
+ *                     .interval(300)
+ *                     .build())
+ *                 .monitorOptions(SyntheticsTestOptionsListMonitorOptionsArgs.builder()
+ *                     .renotifyInterval(120)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         // Example Usage (ICMP Network Path Test)
+ *         // Create a new Datadog ICMP Network Path test to example.com
+ *         var networkIcmp = new SyntheticsTest("networkIcmp", SyntheticsTestArgs.builder()
+ *             .name("ICMP Network Path Test")
+ *             .type("network")
+ *             .subtype("icmp")
+ *             .status("live")
+ *             .message("Notify }{@literal @}{@code pagerduty")
+ *             .locations("aws:eu-central-1")
+ *             .tags(            
+ *                 "foo:bar",
+ *                 "foo",
+ *                 "env:test")
+ *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+ *                 .host("example.com")
+ *                 .e2eQueries(5)
+ *                 .maxTtl(30)
+ *                 .tracerouteQueries(3)
+ *                 .timeout(10)
+ *                 .build())
+ *             .assertions(            
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .type("latency")
+ *                     .operator("lessThan")
+ *                     .property("avg")
+ *                     .target("150")
+ *                     .build(),
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .type("latency")
+ *                     .operator("lessThan")
+ *                     .property("max")
+ *                     .target("300")
+ *                     .build(),
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .type("jitter")
+ *                     .operator("lessThan")
+ *                     .target("30")
+ *                     .build(),
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .type("packetLossPercentage")
+ *                     .operator("lessThan")
+ *                     .target("0.5")
+ *                     .build(),
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .type("multiNetworkHop")
+ *                     .operator("lessThan")
+ *                     .property("avg")
+ *                     .target("15")
+ *                     .build())
+ *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+ *                 .tickEvery(900)
+ *                 .retry(SyntheticsTestOptionsListRetryArgs.builder()
+ *                     .count(2)
+ *                     .interval(300)
+ *                     .build())
+ *                 .monitorOptions(SyntheticsTestOptionsListMonitorOptionsArgs.builder()
+ *                     .renotifyInterval(120)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
  *     }}{@code
  * }}{@code
  * }
@@ -1124,14 +1299,14 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
-     * The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+     * The subtype for API or Network Path tests. For API tests, defaults to `http`. For Network Path tests, only `tcp`, `udp`, `icmp` are available. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
      * 
      */
     @Export(name="subtype", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subtype;
 
     /**
-     * @return The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+     * @return The subtype for API or Network Path tests. For API tests, defaults to `http`. For Network Path tests, only `tcp`, `udp`, `icmp` are available. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
      * 
      */
     public Output<Optional<String>> subtype() {
@@ -1152,14 +1327,14 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Synthetics test type. Valid values are `api`, `browser`, `mobile`.
+     * The type of Synthetics test. Valid values are `api`, `browser`, `mobile`, `network`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Synthetics test type. Valid values are `api`, `browser`, `mobile`.
+     * @return The type of Synthetics test. Valid values are `api`, `browser`, `mobile`, `network`.
      * 
      */
     public Output<String> type() {

@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBuffer;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemCompression;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemTls;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -14,6 +15,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem {
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBuffer buffer;
     /**
      * @return Compression configuration for log events.
      * 
@@ -31,6 +37,13 @@ public final class ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem 
     private @Nullable ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemTls tls;
 
     private ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem() {}
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBuffer> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
     /**
      * @return Compression configuration for log events.
      * 
@@ -62,17 +75,25 @@ public final class ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem 
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBuffer buffer;
         private @Nullable ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemCompression compression;
         private String encoding;
         private @Nullable ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemTls tls;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.buffer = defaults.buffer;
     	      this.compression = defaults.compression;
     	      this.encoding = defaults.encoding;
     	      this.tls = defaults.tls;
         }
 
+        @CustomType.Setter
+        public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBuffer buffer) {
+
+            this.buffer = buffer;
+            return this;
+        }
         @CustomType.Setter
         public Builder compression(@Nullable ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemCompression compression) {
 
@@ -95,6 +116,7 @@ public final class ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem 
         }
         public ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem();
+            _resultValue.buffer = buffer;
             _resultValue.compression = compression;
             _resultValue.encoding = encoding;
             _resultValue.tls = tls;

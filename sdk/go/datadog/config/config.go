@@ -51,7 +51,7 @@ func GetCloudProviderType(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:cloudProviderType")
 }
 
-// [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
+// [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
 func GetDefaultTags(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:defaultTags")
 }

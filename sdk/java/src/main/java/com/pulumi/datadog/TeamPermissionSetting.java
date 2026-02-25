@@ -59,6 +59,16 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ## Import
+ * 
+ * The `pulumi import` command can be used, for example:
+ * 
+ * This resource is imported using teamId and action separated by `:`.
+ * 
+ * ```sh
+ * $ pulumi import datadog:index/teamPermissionSetting:TeamPermissionSetting example &#34;${team_id}:${action}&#34;
+ * ```
+ * 
  */
 @ResourceType(type="datadog:index/teamPermissionSetting:TeamPermissionSetting")
 public class TeamPermissionSetting extends com.pulumi.resources.CustomResource {

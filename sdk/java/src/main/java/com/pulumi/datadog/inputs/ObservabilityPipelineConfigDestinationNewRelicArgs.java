@@ -5,14 +5,32 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationNewRelicBufferArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ObservabilityPipelineConfigDestinationNewRelicArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ObservabilityPipelineConfigDestinationNewRelicArgs Empty = new ObservabilityPipelineConfigDestinationNewRelicArgs();
+
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    @Import(name="buffer")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationNewRelicBufferArgs> buffer;
+
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationNewRelicBufferArgs>> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
 
     /**
      * The New Relic region.
@@ -32,6 +50,7 @@ public final class ObservabilityPipelineConfigDestinationNewRelicArgs extends co
     private ObservabilityPipelineConfigDestinationNewRelicArgs() {}
 
     private ObservabilityPipelineConfigDestinationNewRelicArgs(ObservabilityPipelineConfigDestinationNewRelicArgs $) {
+        this.buffer = $.buffer;
         this.region = $.region;
     }
 
@@ -51,6 +70,27 @@ public final class ObservabilityPipelineConfigDestinationNewRelicArgs extends co
 
         public Builder(ObservabilityPipelineConfigDestinationNewRelicArgs defaults) {
             $ = new ObservabilityPipelineConfigDestinationNewRelicArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(@Nullable Output<ObservabilityPipelineConfigDestinationNewRelicBufferArgs> buffer) {
+            $.buffer = buffer;
+            return this;
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(ObservabilityPipelineConfigDestinationNewRelicBufferArgs buffer) {
+            return buffer(Output.of(buffer));
         }
 
         /**

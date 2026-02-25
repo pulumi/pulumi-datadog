@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> ApiKeyKey { get; set; } = null!;
 
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        [Input("buffer")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationDatadogLogRouteBufferGetArgs>? Buffer { get; set; }
+
+        /// <summary>
         /// A Datadog search query that determines which logs are forwarded using this route.
         /// </summary>
         [Input("include", required: true)]

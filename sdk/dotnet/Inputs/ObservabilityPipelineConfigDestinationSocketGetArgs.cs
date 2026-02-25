@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigDestinationSocketGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        [Input("buffer")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationSocketBufferGetArgs>? Buffer { get; set; }
+
+        /// <summary>
         /// Encoding format for log events. Valid values are `Json`, `RawMessage`.
         /// </summary>
         [Input("encoding", required: true)]

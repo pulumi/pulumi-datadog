@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Bucket;
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationAmazonSecurityLakeBuffer? Buffer;
+        /// <summary>
         /// Custom source name for the logs in Security Lake.
         /// </summary>
         public readonly string CustomSourceName;
@@ -40,6 +44,8 @@ namespace Pulumi.Datadog.Outputs
 
             string bucket,
 
+            Outputs.ObservabilityPipelineConfigDestinationAmazonSecurityLakeBuffer? buffer,
+
             string customSourceName,
 
             string region,
@@ -48,6 +54,7 @@ namespace Pulumi.Datadog.Outputs
         {
             Auth = auth;
             Bucket = bucket;
+            Buffer = buffer;
             CustomSourceName = customSourceName;
             Region = region;
             Tls = tls;

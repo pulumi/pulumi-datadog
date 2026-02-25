@@ -13524,6 +13524,10 @@ export interface ObservabilityPipelineConfigDestination {
 export interface ObservabilityPipelineConfigDestinationAmazonOpensearch {
     auth: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuth>;
     /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAmazonOpensearchBuffer>;
+    /**
      * The index or datastream to write logs to.
      */
     bulkIndex?: pulumi.Input<string>;
@@ -13552,6 +13556,43 @@ export interface ObservabilityPipelineConfigDestinationAmazonOpensearchAuth {
     strategy: pulumi.Input<string>;
 }
 
+export interface ObservabilityPipelineConfigDestinationAmazonOpensearchBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk>;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory>;
+}
+
+export interface ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: pulumi.Input<number>;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
 export interface ObservabilityPipelineConfigDestinationAmazonS3 {
     /**
      * AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
@@ -13561,6 +13602,10 @@ export interface ObservabilityPipelineConfigDestinationAmazonS3 {
      * S3 bucket name.
      */
     bucket: pulumi.Input<string>;
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAmazonS3Buffer>;
     /**
      * Prefix for object keys.
      */
@@ -13590,6 +13635,43 @@ export interface ObservabilityPipelineConfigDestinationAmazonS3Auth {
     sessionName?: pulumi.Input<string>;
 }
 
+export interface ObservabilityPipelineConfigDestinationAmazonS3Buffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAmazonS3BufferDisk>;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAmazonS3BufferMemory>;
+}
+
+export interface ObservabilityPipelineConfigDestinationAmazonS3BufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationAmazonS3BufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: pulumi.Input<number>;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
 export interface ObservabilityPipelineConfigDestinationAmazonSecurityLake {
     /**
      * AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
@@ -13599,6 +13681,10 @@ export interface ObservabilityPipelineConfigDestinationAmazonSecurityLake {
      * Name of the Amazon S3 bucket in Security Lake (3-63 characters).
      */
     bucket: pulumi.Input<string>;
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAmazonSecurityLakeBuffer>;
     /**
      * Custom source name for the logs in Security Lake.
      */
@@ -13628,6 +13714,43 @@ export interface ObservabilityPipelineConfigDestinationAmazonSecurityLakeAuth {
     sessionName?: pulumi.Input<string>;
 }
 
+export interface ObservabilityPipelineConfigDestinationAmazonSecurityLakeBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAmazonSecurityLakeBufferDisk>;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAmazonSecurityLakeBufferMemory>;
+}
+
+export interface ObservabilityPipelineConfigDestinationAmazonSecurityLakeBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationAmazonSecurityLakeBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: pulumi.Input<number>;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
 export interface ObservabilityPipelineConfigDestinationAmazonSecurityLakeTls {
     /**
      * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
@@ -13649,15 +13772,60 @@ export interface ObservabilityPipelineConfigDestinationAzureStorage {
      */
     blobPrefix?: pulumi.Input<string>;
     /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAzureStorageBuffer>;
+    /**
      * The name of the Azure Blob Storage container to store logs in.
      */
     containerName: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureStorageBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAzureStorageBufferDisk>;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAzureStorageBufferMemory>;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureStorageBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureStorageBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: pulumi.Input<number>;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigDestinationCloudPrem {
 }
 
 export interface ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem {
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBuffer>;
     /**
      * Compression configuration for log events.
      */
@@ -13670,6 +13838,43 @@ export interface ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem {
      * Configuration for enabling TLS encryption between the pipeline component and external services.
      */
     tls?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemTls>;
+}
+
+export interface ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBufferDisk>;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBufferMemory>;
+}
+
+export interface ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: pulumi.Input<number>;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemCompression {
@@ -13700,9 +13905,50 @@ export interface ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemTls
 
 export interface ObservabilityPipelineConfigDestinationDatadogLog {
     /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationDatadogLogBuffer>;
+    /**
      * A list of routing rules that forward matching logs to Datadog using dedicated API keys.
      */
     routes?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationDatadogLogRoute>[]>;
+}
+
+export interface ObservabilityPipelineConfigDestinationDatadogLogBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationDatadogLogBufferDisk>;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationDatadogLogBufferMemory>;
+}
+
+export interface ObservabilityPipelineConfigDestinationDatadogLogBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationDatadogLogBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: pulumi.Input<number>;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigDestinationDatadogLogRoute {
@@ -13710,6 +13956,10 @@ export interface ObservabilityPipelineConfigDestinationDatadogLogRoute {
      * Name of the environment variable or secret that stores the Datadog API key used by this route.
      */
     apiKeyKey: pulumi.Input<string>;
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationDatadogLogRouteBuffer>;
     /**
      * A Datadog search query that determines which logs are forwarded using this route.
      */
@@ -13724,6 +13974,43 @@ export interface ObservabilityPipelineConfigDestinationDatadogLogRoute {
     site: pulumi.Input<string>;
 }
 
+export interface ObservabilityPipelineConfigDestinationDatadogLogRouteBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationDatadogLogRouteBufferDisk>;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationDatadogLogRouteBufferMemory>;
+}
+
+export interface ObservabilityPipelineConfigDestinationDatadogLogRouteBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationDatadogLogRouteBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: pulumi.Input<number>;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
 export interface ObservabilityPipelineConfigDestinationDatadogMetric {
 }
 
@@ -13733,6 +14020,10 @@ export interface ObservabilityPipelineConfigDestinationElasticsearch {
      */
     apiVersion?: pulumi.Input<string>;
     /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationElasticsearchBuffer>;
+    /**
      * The index or datastream to write logs to in Elasticsearch.
      */
     bulkIndex?: pulumi.Input<string>;
@@ -13740,6 +14031,43 @@ export interface ObservabilityPipelineConfigDestinationElasticsearch {
      * Configuration options for writing to Elasticsearch Data Streams instead of a fixed index.
      */
     dataStream?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationElasticsearchDataStream>;
+}
+
+export interface ObservabilityPipelineConfigDestinationElasticsearchBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationElasticsearchBufferDisk>;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationElasticsearchBufferMemory>;
+}
+
+export interface ObservabilityPipelineConfigDestinationElasticsearchBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationElasticsearchBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: pulumi.Input<number>;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigDestinationElasticsearchDataStream {
@@ -13771,6 +14099,10 @@ export interface ObservabilityPipelineConfigDestinationGoogleCloudStorage {
      */
     bucket: pulumi.Input<string>;
     /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageBuffer>;
+    /**
      * Optional prefix for object keys within the GCS bucket.
      */
     keyPrefix?: pulumi.Input<string>;
@@ -13791,6 +14123,43 @@ export interface ObservabilityPipelineConfigDestinationGoogleCloudStorageAuth {
     credentialsFile: pulumi.Input<string>;
 }
 
+export interface ObservabilityPipelineConfigDestinationGoogleCloudStorageBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageBufferDisk>;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageBufferMemory>;
+}
+
+export interface ObservabilityPipelineConfigDestinationGoogleCloudStorageBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationGoogleCloudStorageBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: pulumi.Input<number>;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
 export interface ObservabilityPipelineConfigDestinationGoogleCloudStorageMetadata {
     /**
      * The metadata key.
@@ -13807,6 +14176,10 @@ export interface ObservabilityPipelineConfigDestinationGooglePubsub {
      * GCP credentials used to authenticate with Google Cloud services.
      */
     auth?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationGooglePubsubAuth>;
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationGooglePubsubBuffer>;
     /**
      * Encoding format for log events. Valid values: `json`, `rawMessage`.
      */
@@ -13832,6 +14205,43 @@ export interface ObservabilityPipelineConfigDestinationGooglePubsubAuth {
     credentialsFile: pulumi.Input<string>;
 }
 
+export interface ObservabilityPipelineConfigDestinationGooglePubsubBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationGooglePubsubBufferDisk>;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationGooglePubsubBufferMemory>;
+}
+
+export interface ObservabilityPipelineConfigDestinationGooglePubsubBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationGooglePubsubBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: pulumi.Input<number>;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
 export interface ObservabilityPipelineConfigDestinationGooglePubsubTls {
     /**
      * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
@@ -13853,6 +14263,10 @@ export interface ObservabilityPipelineConfigDestinationGoogleSecop {
      */
     auth?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationGoogleSecopAuth>;
     /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationGoogleSecopBuffer>;
+    /**
      * The Google SecOps customer ID.
      */
     customerId: pulumi.Input<string>;
@@ -13871,6 +14285,43 @@ export interface ObservabilityPipelineConfigDestinationGoogleSecopAuth {
      * Path to the GCP service account key file.
      */
     credentialsFile: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationGoogleSecopBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationGoogleSecopBufferDisk>;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationGoogleSecopBufferMemory>;
+}
+
+export interface ObservabilityPipelineConfigDestinationGoogleSecopBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationGoogleSecopBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: pulumi.Input<number>;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigDestinationHttpClient {
@@ -14000,6 +14451,10 @@ export interface ObservabilityPipelineConfigDestinationKafkaTls {
 
 export interface ObservabilityPipelineConfigDestinationMicrosoftSentinel {
     /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationMicrosoftSentinelBuffer>;
+    /**
      * Azure AD client ID used for authentication.
      */
     clientId: pulumi.Input<string>;
@@ -14017,14 +14472,96 @@ export interface ObservabilityPipelineConfigDestinationMicrosoftSentinel {
     tenantId: pulumi.Input<string>;
 }
 
+export interface ObservabilityPipelineConfigDestinationMicrosoftSentinelBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationMicrosoftSentinelBufferDisk>;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationMicrosoftSentinelBufferMemory>;
+}
+
+export interface ObservabilityPipelineConfigDestinationMicrosoftSentinelBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationMicrosoftSentinelBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: pulumi.Input<number>;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
 export interface ObservabilityPipelineConfigDestinationNewRelic {
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationNewRelicBuffer>;
     /**
      * The New Relic region.
      */
     region: pulumi.Input<string>;
 }
 
+export interface ObservabilityPipelineConfigDestinationNewRelicBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationNewRelicBufferDisk>;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationNewRelicBufferMemory>;
+}
+
+export interface ObservabilityPipelineConfigDestinationNewRelicBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationNewRelicBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: pulumi.Input<number>;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
 export interface ObservabilityPipelineConfigDestinationOpensearch {
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationOpensearchBuffer>;
     /**
      * The index or datastream to write logs to.
      */
@@ -14033,6 +14570,43 @@ export interface ObservabilityPipelineConfigDestinationOpensearch {
      * Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
      */
     dataStream?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationOpensearchDataStream>;
+}
+
+export interface ObservabilityPipelineConfigDestinationOpensearchBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationOpensearchBufferDisk>;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationOpensearchBufferMemory>;
+}
+
+export interface ObservabilityPipelineConfigDestinationOpensearchBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationOpensearchBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: pulumi.Input<number>;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigDestinationOpensearchDataStream {
@@ -14052,6 +14626,10 @@ export interface ObservabilityPipelineConfigDestinationOpensearchDataStream {
 
 export interface ObservabilityPipelineConfigDestinationRsyslog {
     /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationRsyslogBuffer>;
+    /**
      * Optional socket keepalive duration in milliseconds.
      */
     keepalive?: pulumi.Input<number>;
@@ -14059,6 +14637,43 @@ export interface ObservabilityPipelineConfigDestinationRsyslog {
      * Configuration for enabling TLS encryption between the pipeline component and external services.
      */
     tls?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationRsyslogTls>;
+}
+
+export interface ObservabilityPipelineConfigDestinationRsyslogBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationRsyslogBufferDisk>;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationRsyslogBufferMemory>;
+}
+
+export interface ObservabilityPipelineConfigDestinationRsyslogBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationRsyslogBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: pulumi.Input<number>;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigDestinationRsyslogTls {
@@ -14078,12 +14693,57 @@ export interface ObservabilityPipelineConfigDestinationRsyslogTls {
 
 export interface ObservabilityPipelineConfigDestinationSentinelOne {
     /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationSentinelOneBuffer>;
+    /**
      * The SentinelOne region to send logs to.
      */
     region: pulumi.Input<string>;
 }
 
+export interface ObservabilityPipelineConfigDestinationSentinelOneBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationSentinelOneBufferDisk>;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationSentinelOneBufferMemory>;
+}
+
+export interface ObservabilityPipelineConfigDestinationSentinelOneBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationSentinelOneBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: pulumi.Input<number>;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
 export interface ObservabilityPipelineConfigDestinationSocket {
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationSocketBuffer>;
     /**
      * Encoding format for log events. Valid values are `json`, `rawMessage`.
      */
@@ -14100,6 +14760,43 @@ export interface ObservabilityPipelineConfigDestinationSocket {
      * Configuration for enabling TLS encryption between the pipeline component and external services.
      */
     tls?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationSocketTls>;
+}
+
+export interface ObservabilityPipelineConfigDestinationSocketBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationSocketBufferDisk>;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationSocketBufferMemory>;
+}
+
+export interface ObservabilityPipelineConfigDestinationSocketBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationSocketBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: pulumi.Input<number>;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigDestinationSocketFraming {
@@ -14141,6 +14838,10 @@ export interface ObservabilityPipelineConfigDestinationSplunkHec {
      */
     autoExtractTimestamp?: pulumi.Input<boolean>;
     /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationSplunkHecBuffer>;
+    /**
      * Encoding format for log events. Valid values: `json`, `rawMessage`.
      */
     encoding: pulumi.Input<string>;
@@ -14154,7 +14855,48 @@ export interface ObservabilityPipelineConfigDestinationSplunkHec {
     sourcetype?: pulumi.Input<string>;
 }
 
+export interface ObservabilityPipelineConfigDestinationSplunkHecBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationSplunkHecBufferDisk>;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationSplunkHecBufferMemory>;
+}
+
+export interface ObservabilityPipelineConfigDestinationSplunkHecBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationSplunkHecBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: pulumi.Input<number>;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
 export interface ObservabilityPipelineConfigDestinationSumoLogic {
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationSumoLogicBuffer>;
     /**
      * The output encoding format.
      */
@@ -14177,6 +14919,43 @@ export interface ObservabilityPipelineConfigDestinationSumoLogic {
     headerSourceName?: pulumi.Input<string>;
 }
 
+export interface ObservabilityPipelineConfigDestinationSumoLogicBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationSumoLogicBufferDisk>;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationSumoLogicBufferMemory>;
+}
+
+export interface ObservabilityPipelineConfigDestinationSumoLogicBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationSumoLogicBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: pulumi.Input<number>;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
 export interface ObservabilityPipelineConfigDestinationSumoLogicHeaderCustomField {
     /**
      * The header field name.
@@ -14190,6 +14969,10 @@ export interface ObservabilityPipelineConfigDestinationSumoLogicHeaderCustomFiel
 
 export interface ObservabilityPipelineConfigDestinationSyslogNg {
     /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationSyslogNgBuffer>;
+    /**
      * Optional socket keepalive duration in milliseconds.
      */
     keepalive?: pulumi.Input<number>;
@@ -14197,6 +14980,43 @@ export interface ObservabilityPipelineConfigDestinationSyslogNg {
      * Configuration for enabling TLS encryption between the pipeline component and external services.
      */
     tls?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationSyslogNgTls>;
+}
+
+export interface ObservabilityPipelineConfigDestinationSyslogNgBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationSyslogNgBufferDisk>;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationSyslogNgBufferMemory>;
+}
+
+export interface ObservabilityPipelineConfigDestinationSyslogNgBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationSyslogNgBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: pulumi.Input<number>;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigDestinationSyslogNgTls {
@@ -28277,7 +29097,7 @@ export interface PowerpackWidgetWidgetLayout {
 
 export interface ProviderDefaultTags {
     /**
-     * [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Resource tags to be applied by default across all resources.
+     * [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Resource tags to be applied by default across all resources.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -28379,24 +29199,24 @@ export interface ReferenceTableFileMetadataAccessDetailsGcpDetail {
 
 export interface ReferenceTableSchema {
     /**
-     * List of fields in the table schema. Must include at least one field. Schema is only set on create.
+     * List of fields in the table schema. At least one field is required. Schema is only set on create.
      */
     fields?: pulumi.Input<pulumi.Input<inputs.ReferenceTableSchemaField>[]>;
     /**
      * List of field names that serve as primary keys for the table. Currently only one primary key is supported.
      */
-    primaryKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    primaryKeys: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface ReferenceTableSchemaField {
     /**
      * The name of the field.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * The data type of the field. Must be one of: STRING, INT32. Valid values are `STRING`, `INT32`.
      */
-    type?: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }
 
 export interface RestrictionPolicyBinding {
@@ -29338,11 +30158,11 @@ export interface SyntheticsTestApiStepAssertion {
      */
     code?: pulumi.Input<string>;
     /**
-     * Assertion operator. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
+     * Assertion operator. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `contains`, `doesNotContain`, `is`, `isNot`, `lessThan`, `lessThanOrEqual`, `moreThan`, `moreThanOrEqual`, `matches`, `doesNotMatch`, `validates`, `isInMoreThan`, `isInLessThan`, `doesNotExist`, `isUndefined`, `validatesJSONPath`, `validatesJSONSchema`, `validatesXPath`, `md5`, `sha1`, `sha256`, `is`, `isNot`, `lessThan`, `lessThanOrEqual`, `moreThan`, `moreThanOrEqual`.
      */
     operator?: pulumi.Input<string>;
     /**
-     * If assertion type is `header`, this is the header name.
+     * If assertion type is `header` or `grpcMetadata`, this is the header name. For other assertion types, this is an aggregation property: `avg`, `min`, `max`, or `stddev`.
      */
     property?: pulumi.Input<string>;
     /**
@@ -29366,7 +30186,7 @@ export interface SyntheticsTestApiStepAssertion {
      */
     timingsScope?: pulumi.Input<string>;
     /**
-     * Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+     * Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#synthetics-create-a-network-path-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `multiNetworkHop`, `jitter`, `bodyHash`, `javascript`.
      */
     type: pulumi.Input<string>;
 }
@@ -29572,6 +30392,10 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     checkCertificateRevocation?: pulumi.Input<boolean>;
     /**
+     * For Network Path tests, an optional label displayed for the destination host in the Network Path visualization.
+     */
+    destinationService?: pulumi.Input<string>;
+    /**
      * For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
      */
     disableAiaIntermediateFetching?: pulumi.Input<boolean>;
@@ -29583,6 +30407,10 @@ export interface SyntheticsTestApiStepRequestDefinition {
      * DNS server port to use for DNS tests.
      */
     dnsServerPort?: pulumi.Input<string>;
+    /**
+     * For Network Path tests, the number of packets sent to probe the destination to measure packet loss, latency, and jitter.
+     */
+    e2eQueries?: pulumi.Input<number>;
     /**
      * Determines whether or not the API HTTP test should follow redirects.
      */
@@ -29600,11 +30428,15 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     httpVersion?: pulumi.Input<string>;
     /**
-     * Whether the message is base64-encoded.
+     * For Websocket tests, whether the message is treated as a base64-encoded string in the server.
      */
     isMessageBase64Encoded?: pulumi.Input<boolean>;
     /**
-     * For gRPC, UDP and websocket tests, message to send with the request.
+     * For Network Path tests, the maximum time-to-live (max number of hops) used in outgoing probe packets.
+     */
+    maxTtl?: pulumi.Input<number>;
+    /**
+     * For gRPC, UDP, and Websocket tests, message to send with the request.
      */
     message?: pulumi.Input<string>;
     /**
@@ -29650,9 +30482,21 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     shouldTrackHops?: pulumi.Input<boolean>;
     /**
+     * For Network Path tests, an optional label displayed for the source host in the Network Path visualization
+     */
+    sourceService?: pulumi.Input<string>;
+    /**
+     * For TCP Network Path tests, the TCP traceroute strategy.
+     */
+    tcpMethod?: pulumi.Input<string>;
+    /**
      * Timeout in seconds for the test.
      */
     timeout?: pulumi.Input<number>;
+    /**
+     * For Network Path tests, the number of traceroute path tracings.
+     */
+    tracerouteQueries?: pulumi.Input<number>;
     /**
      * The URL to send the request to.
      */
@@ -29714,11 +30558,11 @@ export interface SyntheticsTestAssertion {
      */
     code?: pulumi.Input<string>;
     /**
-     * Assertion operator. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
+     * Assertion operator. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `contains`, `doesNotContain`, `is`, `isNot`, `lessThan`, `lessThanOrEqual`, `moreThan`, `moreThanOrEqual`, `matches`, `doesNotMatch`, `validates`, `isInMoreThan`, `isInLessThan`, `doesNotExist`, `isUndefined`, `validatesJSONPath`, `validatesJSONSchema`, `validatesXPath`, `md5`, `sha1`, `sha256`, `is`, `isNot`, `lessThan`, `lessThanOrEqual`, `moreThan`, `moreThanOrEqual`.
      */
     operator?: pulumi.Input<string>;
     /**
-     * If assertion type is `header`, this is the header name.
+     * If assertion type is `header` or `grpcMetadata`, this is the header name. For other assertion types, this is an aggregation property: `avg`, `min`, `max`, or `stddev`.
      */
     property?: pulumi.Input<string>;
     /**
@@ -29742,7 +30586,7 @@ export interface SyntheticsTestAssertion {
      */
     timingsScope?: pulumi.Input<string>;
     /**
-     * Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+     * Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#synthetics-create-a-network-path-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `multiNetworkHop`, `jitter`, `bodyHash`, `javascript`.
      */
     type: pulumi.Input<string>;
 }
@@ -30572,6 +31416,10 @@ export interface SyntheticsTestRequestDefinition {
      */
     certificateDomains?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * For Network Path tests, an optional label displayed for the destination host in the Network Path visualization.
+     */
+    destinationService?: pulumi.Input<string>;
+    /**
      * DNS server to use for DNS tests (`subtype = "dns"`).
      */
     dnsServer?: pulumi.Input<string>;
@@ -30579,6 +31427,10 @@ export interface SyntheticsTestRequestDefinition {
      * DNS server port to use for DNS tests.
      */
     dnsServerPort?: pulumi.Input<string>;
+    /**
+     * For Network Path tests, the number of packets sent to probe the destination to measure packet loss, latency, and jitter.
+     */
+    e2eQueries?: pulumi.Input<number>;
     /**
      * Form data to be sent when `bodyType` is `multipart/form-data`.
      */
@@ -30594,11 +31446,15 @@ export interface SyntheticsTestRequestDefinition {
      */
     httpVersion?: pulumi.Input<string>;
     /**
-     * Whether the message is base64-encoded.
+     * For Websocket tests, whether the message is treated as a base64-encoded string in the server.
      */
     isMessageBase64Encoded?: pulumi.Input<boolean>;
     /**
-     * For gRPC, UDP and websocket tests, message to send with the request.
+     * For Network Path tests, the maximum time-to-live (max number of hops) used in outgoing probe packets.
+     */
+    maxTtl?: pulumi.Input<number>;
+    /**
+     * For gRPC, UDP, and Websocket tests, message to send with the request.
      */
     message?: pulumi.Input<string>;
     /**
@@ -30644,9 +31500,21 @@ export interface SyntheticsTestRequestDefinition {
      */
     shouldTrackHops?: pulumi.Input<boolean>;
     /**
+     * For Network Path tests, an optional label displayed for the source host in the Network Path visualization
+     */
+    sourceService?: pulumi.Input<string>;
+    /**
+     * For TCP Network Path tests, the TCP traceroute strategy.
+     */
+    tcpMethod?: pulumi.Input<string>;
+    /**
      * Timeout in seconds for the test.
      */
     timeout?: pulumi.Input<number>;
+    /**
+     * For Network Path tests, the number of traceroute path tracings.
+     */
+    tracerouteQueries?: pulumi.Input<number>;
     /**
      * The URL to send the request to.
      */

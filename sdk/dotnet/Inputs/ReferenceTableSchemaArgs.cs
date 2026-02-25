@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ReferenceTableSchemaFieldArgs>? _fields;
 
         /// <summary>
-        /// List of fields in the table schema. Must include at least one field. Schema is only set on create.
+        /// List of fields in the table schema. At least one field is required. Schema is only set on create.
         /// </summary>
         public InputList<Inputs.ReferenceTableSchemaFieldArgs> Fields
         {
@@ -24,7 +24,7 @@ namespace Pulumi.Datadog.Inputs
             set => _fields = value;
         }
 
-        [Input("primaryKeys")]
+        [Input("primaryKeys", required: true)]
         private InputList<string>? _primaryKeys;
 
         /// <summary>

@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Bucket;
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationAmazonS3Buffer? Buffer;
+        /// <summary>
         /// Prefix for object keys.
         /// </summary>
         public readonly string KeyPrefix;
@@ -40,6 +44,8 @@ namespace Pulumi.Datadog.Outputs
 
             string bucket,
 
+            Outputs.ObservabilityPipelineConfigDestinationAmazonS3Buffer? buffer,
+
             string keyPrefix,
 
             string region,
@@ -48,6 +54,7 @@ namespace Pulumi.Datadog.Outputs
         {
             Auth = auth;
             Bucket = bucket;
+            Buffer = buffer;
             KeyPrefix = keyPrefix;
             Region = region;
             StorageClass = storageClass;

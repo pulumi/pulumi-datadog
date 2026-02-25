@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationGooglePubsubAuthArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationGooglePubsubBufferArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationGooglePubsubTlsArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -31,6 +32,21 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsubArgs extend
      */
     public Optional<Output<ObservabilityPipelineConfigDestinationGooglePubsubAuthArgs>> auth() {
         return Optional.ofNullable(this.auth);
+    }
+
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    @Import(name="buffer")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationGooglePubsubBufferArgs> buffer;
+
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationGooglePubsubBufferArgs>> buffer() {
+        return Optional.ofNullable(this.buffer);
     }
 
     /**
@@ -97,6 +113,7 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsubArgs extend
 
     private ObservabilityPipelineConfigDestinationGooglePubsubArgs(ObservabilityPipelineConfigDestinationGooglePubsubArgs $) {
         this.auth = $.auth;
+        this.buffer = $.buffer;
         this.encoding = $.encoding;
         this.project = $.project;
         this.tls = $.tls;
@@ -140,6 +157,27 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsubArgs extend
          */
         public Builder auth(ObservabilityPipelineConfigDestinationGooglePubsubAuthArgs auth) {
             return auth(Output.of(auth));
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(@Nullable Output<ObservabilityPipelineConfigDestinationGooglePubsubBufferArgs> buffer) {
+            $.buffer = buffer;
+            return this;
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(ObservabilityPipelineConfigDestinationGooglePubsubBufferArgs buffer) {
+            return buffer(Output.of(buffer));
         }
 
         /**

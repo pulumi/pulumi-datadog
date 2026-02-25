@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigDestinationOpensearchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        [Input("buffer")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationOpensearchBufferArgs>? Buffer { get; set; }
+
+        /// <summary>
         /// The index or datastream to write logs to.
         /// </summary>
         [Input("bulkIndex")]

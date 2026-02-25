@@ -43,6 +43,12 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// For Network Path tests, an optional label displayed for the destination host in the Network Path visualization.
+        /// </summary>
+        [Input("destinationService")]
+        public Input<string>? DestinationService { get; set; }
+
+        /// <summary>
         /// DNS server to use for DNS tests (`subtype = "dns"`).
         /// </summary>
         [Input("dnsServer")]
@@ -53,6 +59,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("dnsServerPort")]
         public Input<string>? DnsServerPort { get; set; }
+
+        /// <summary>
+        /// For Network Path tests, the number of packets sent to probe the destination to measure packet loss, latency, and jitter.
+        /// </summary>
+        [Input("e2eQueries")]
+        public Input<int>? E2eQueries { get; set; }
 
         [Input("form")]
         private InputMap<string>? _form;
@@ -79,13 +91,19 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? HttpVersion { get; set; }
 
         /// <summary>
-        /// Whether the message is base64-encoded.
+        /// For Websocket tests, whether the message is treated as a base64-encoded string in the server.
         /// </summary>
         [Input("isMessageBase64Encoded")]
         public Input<bool>? IsMessageBase64Encoded { get; set; }
 
         /// <summary>
-        /// For gRPC, UDP and websocket tests, message to send with the request.
+        /// For Network Path tests, the maximum time-to-live (max number of hops) used in outgoing probe packets.
+        /// </summary>
+        [Input("maxTtl")]
+        public Input<int>? MaxTtl { get; set; }
+
+        /// <summary>
+        /// For gRPC, UDP, and Websocket tests, message to send with the request.
         /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }
@@ -151,10 +169,28 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? ShouldTrackHops { get; set; }
 
         /// <summary>
+        /// For Network Path tests, an optional label displayed for the source host in the Network Path visualization
+        /// </summary>
+        [Input("sourceService")]
+        public Input<string>? SourceService { get; set; }
+
+        /// <summary>
+        /// For TCP Network Path tests, the TCP traceroute strategy.
+        /// </summary>
+        [Input("tcpMethod")]
+        public Input<string>? TcpMethod { get; set; }
+
+        /// <summary>
         /// Timeout in seconds for the test.
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
+
+        /// <summary>
+        /// For Network Path tests, the number of traceroute path tracings.
+        /// </summary>
+        [Input("tracerouteQueries")]
+        public Input<int>? TracerouteQueries { get; set; }
 
         /// <summary>
         /// The URL to send the request to.

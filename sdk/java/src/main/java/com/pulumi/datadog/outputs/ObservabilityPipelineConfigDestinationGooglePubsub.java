@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationGooglePubsubAuth;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationGooglePubsubBuffer;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationGooglePubsubTls;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -19,6 +20,11 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsub {
      * 
      */
     private @Nullable ObservabilityPipelineConfigDestinationGooglePubsubAuth auth;
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationGooglePubsubBuffer buffer;
     /**
      * @return Encoding format for log events. Valid values: `json`, `rawMessage`.
      * 
@@ -47,6 +53,13 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsub {
      */
     public Optional<ObservabilityPipelineConfigDestinationGooglePubsubAuth> auth() {
         return Optional.ofNullable(this.auth);
+    }
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationGooglePubsubBuffer> buffer() {
+        return Optional.ofNullable(this.buffer);
     }
     /**
      * @return Encoding format for log events. Valid values: `json`, `rawMessage`.
@@ -87,6 +100,7 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsub {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable ObservabilityPipelineConfigDestinationGooglePubsubAuth auth;
+        private @Nullable ObservabilityPipelineConfigDestinationGooglePubsubBuffer buffer;
         private String encoding;
         private String project;
         private @Nullable ObservabilityPipelineConfigDestinationGooglePubsubTls tls;
@@ -95,6 +109,7 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsub {
         public Builder(ObservabilityPipelineConfigDestinationGooglePubsub defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.auth = defaults.auth;
+    	      this.buffer = defaults.buffer;
     	      this.encoding = defaults.encoding;
     	      this.project = defaults.project;
     	      this.tls = defaults.tls;
@@ -105,6 +120,12 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsub {
         public Builder auth(@Nullable ObservabilityPipelineConfigDestinationGooglePubsubAuth auth) {
 
             this.auth = auth;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationGooglePubsubBuffer buffer) {
+
+            this.buffer = buffer;
             return this;
         }
         @CustomType.Setter
@@ -140,6 +161,7 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsub {
         public ObservabilityPipelineConfigDestinationGooglePubsub build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationGooglePubsub();
             _resultValue.auth = auth;
+            _resultValue.buffer = buffer;
             _resultValue.encoding = encoding;
             _resultValue.project = project;
             _resultValue.tls = tls;

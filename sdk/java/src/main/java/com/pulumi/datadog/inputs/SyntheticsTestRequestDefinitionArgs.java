@@ -80,6 +80,21 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
     }
 
     /**
+     * For Network Path tests, an optional label displayed for the destination host in the Network Path visualization.
+     * 
+     */
+    @Import(name="destinationService")
+    private @Nullable Output<String> destinationService;
+
+    /**
+     * @return For Network Path tests, an optional label displayed for the destination host in the Network Path visualization.
+     * 
+     */
+    public Optional<Output<String>> destinationService() {
+        return Optional.ofNullable(this.destinationService);
+    }
+
+    /**
      * DNS server to use for DNS tests (`subtype = &#34;dns&#34;`).
      * 
      */
@@ -107,6 +122,21 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
      */
     public Optional<Output<String>> dnsServerPort() {
         return Optional.ofNullable(this.dnsServerPort);
+    }
+
+    /**
+     * For Network Path tests, the number of packets sent to probe the destination to measure packet loss, latency, and jitter.
+     * 
+     */
+    @Import(name="e2eQueries")
+    private @Nullable Output<Integer> e2eQueries;
+
+    /**
+     * @return For Network Path tests, the number of packets sent to probe the destination to measure packet loss, latency, and jitter.
+     * 
+     */
+    public Optional<Output<Integer>> e2eQueries() {
+        return Optional.ofNullable(this.e2eQueries);
     }
 
     /**
@@ -163,14 +193,14 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
     }
 
     /**
-     * Whether the message is base64-encoded.
+     * For Websocket tests, whether the message is treated as a base64-encoded string in the server.
      * 
      */
     @Import(name="isMessageBase64Encoded")
     private @Nullable Output<Boolean> isMessageBase64Encoded;
 
     /**
-     * @return Whether the message is base64-encoded.
+     * @return For Websocket tests, whether the message is treated as a base64-encoded string in the server.
      * 
      */
     public Optional<Output<Boolean>> isMessageBase64Encoded() {
@@ -178,14 +208,29 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
     }
 
     /**
-     * For gRPC, UDP and websocket tests, message to send with the request.
+     * For Network Path tests, the maximum time-to-live (max number of hops) used in outgoing probe packets.
+     * 
+     */
+    @Import(name="maxTtl")
+    private @Nullable Output<Integer> maxTtl;
+
+    /**
+     * @return For Network Path tests, the maximum time-to-live (max number of hops) used in outgoing probe packets.
+     * 
+     */
+    public Optional<Output<Integer>> maxTtl() {
+        return Optional.ofNullable(this.maxTtl);
+    }
+
+    /**
+     * For gRPC, UDP, and Websocket tests, message to send with the request.
      * 
      */
     @Import(name="message")
     private @Nullable Output<String> message;
 
     /**
-     * @return For gRPC, UDP and websocket tests, message to send with the request.
+     * @return For gRPC, UDP, and Websocket tests, message to send with the request.
      * 
      */
     public Optional<Output<String>> message() {
@@ -351,6 +396,36 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
     }
 
     /**
+     * For Network Path tests, an optional label displayed for the source host in the Network Path visualization
+     * 
+     */
+    @Import(name="sourceService")
+    private @Nullable Output<String> sourceService;
+
+    /**
+     * @return For Network Path tests, an optional label displayed for the source host in the Network Path visualization
+     * 
+     */
+    public Optional<Output<String>> sourceService() {
+        return Optional.ofNullable(this.sourceService);
+    }
+
+    /**
+     * For TCP Network Path tests, the TCP traceroute strategy.
+     * 
+     */
+    @Import(name="tcpMethod")
+    private @Nullable Output<String> tcpMethod;
+
+    /**
+     * @return For TCP Network Path tests, the TCP traceroute strategy.
+     * 
+     */
+    public Optional<Output<String>> tcpMethod() {
+        return Optional.ofNullable(this.tcpMethod);
+    }
+
+    /**
      * Timeout in seconds for the test.
      * 
      */
@@ -363,6 +438,21 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
      */
     public Optional<Output<Integer>> timeout() {
         return Optional.ofNullable(this.timeout);
+    }
+
+    /**
+     * For Network Path tests, the number of traceroute path tracings.
+     * 
+     */
+    @Import(name="tracerouteQueries")
+    private @Nullable Output<Integer> tracerouteQueries;
+
+    /**
+     * @return For Network Path tests, the number of traceroute path tracings.
+     * 
+     */
+    public Optional<Output<Integer>> tracerouteQueries() {
+        return Optional.ofNullable(this.tracerouteQueries);
     }
 
     /**
@@ -387,12 +477,15 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
         this.bodyType = $.bodyType;
         this.callType = $.callType;
         this.certificateDomains = $.certificateDomains;
+        this.destinationService = $.destinationService;
         this.dnsServer = $.dnsServer;
         this.dnsServerPort = $.dnsServerPort;
+        this.e2eQueries = $.e2eQueries;
         this.form = $.form;
         this.host = $.host;
         this.httpVersion = $.httpVersion;
         this.isMessageBase64Encoded = $.isMessageBase64Encoded;
+        this.maxTtl = $.maxTtl;
         this.message = $.message;
         this.method = $.method;
         this.noSavingResponseBody = $.noSavingResponseBody;
@@ -404,7 +497,10 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
         this.servername = $.servername;
         this.service = $.service;
         this.shouldTrackHops = $.shouldTrackHops;
+        this.sourceService = $.sourceService;
+        this.tcpMethod = $.tcpMethod;
         this.timeout = $.timeout;
+        this.tracerouteQueries = $.tracerouteQueries;
         this.url = $.url;
     }
 
@@ -521,6 +617,27 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
         }
 
         /**
+         * @param destinationService For Network Path tests, an optional label displayed for the destination host in the Network Path visualization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder destinationService(@Nullable Output<String> destinationService) {
+            $.destinationService = destinationService;
+            return this;
+        }
+
+        /**
+         * @param destinationService For Network Path tests, an optional label displayed for the destination host in the Network Path visualization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder destinationService(String destinationService) {
+            return destinationService(Output.of(destinationService));
+        }
+
+        /**
          * @param dnsServer DNS server to use for DNS tests (`subtype = &#34;dns&#34;`).
          * 
          * @return builder
@@ -560,6 +677,27 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
          */
         public Builder dnsServerPort(String dnsServerPort) {
             return dnsServerPort(Output.of(dnsServerPort));
+        }
+
+        /**
+         * @param e2eQueries For Network Path tests, the number of packets sent to probe the destination to measure packet loss, latency, and jitter.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder e2eQueries(@Nullable Output<Integer> e2eQueries) {
+            $.e2eQueries = e2eQueries;
+            return this;
+        }
+
+        /**
+         * @param e2eQueries For Network Path tests, the number of packets sent to probe the destination to measure packet loss, latency, and jitter.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder e2eQueries(Integer e2eQueries) {
+            return e2eQueries(Output.of(e2eQueries));
         }
 
         /**
@@ -634,7 +772,7 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param isMessageBase64Encoded Whether the message is base64-encoded.
+         * @param isMessageBase64Encoded For Websocket tests, whether the message is treated as a base64-encoded string in the server.
          * 
          * @return builder
          * 
@@ -645,7 +783,7 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param isMessageBase64Encoded Whether the message is base64-encoded.
+         * @param isMessageBase64Encoded For Websocket tests, whether the message is treated as a base64-encoded string in the server.
          * 
          * @return builder
          * 
@@ -655,7 +793,28 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param message For gRPC, UDP and websocket tests, message to send with the request.
+         * @param maxTtl For Network Path tests, the maximum time-to-live (max number of hops) used in outgoing probe packets.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxTtl(@Nullable Output<Integer> maxTtl) {
+            $.maxTtl = maxTtl;
+            return this;
+        }
+
+        /**
+         * @param maxTtl For Network Path tests, the maximum time-to-live (max number of hops) used in outgoing probe packets.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxTtl(Integer maxTtl) {
+            return maxTtl(Output.of(maxTtl));
+        }
+
+        /**
+         * @param message For gRPC, UDP, and Websocket tests, message to send with the request.
          * 
          * @return builder
          * 
@@ -666,7 +825,7 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param message For gRPC, UDP and websocket tests, message to send with the request.
+         * @param message For gRPC, UDP, and Websocket tests, message to send with the request.
          * 
          * @return builder
          * 
@@ -894,6 +1053,48 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
         }
 
         /**
+         * @param sourceService For Network Path tests, an optional label displayed for the source host in the Network Path visualization
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourceService(@Nullable Output<String> sourceService) {
+            $.sourceService = sourceService;
+            return this;
+        }
+
+        /**
+         * @param sourceService For Network Path tests, an optional label displayed for the source host in the Network Path visualization
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourceService(String sourceService) {
+            return sourceService(Output.of(sourceService));
+        }
+
+        /**
+         * @param tcpMethod For TCP Network Path tests, the TCP traceroute strategy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tcpMethod(@Nullable Output<String> tcpMethod) {
+            $.tcpMethod = tcpMethod;
+            return this;
+        }
+
+        /**
+         * @param tcpMethod For TCP Network Path tests, the TCP traceroute strategy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tcpMethod(String tcpMethod) {
+            return tcpMethod(Output.of(tcpMethod));
+        }
+
+        /**
          * @param timeout Timeout in seconds for the test.
          * 
          * @return builder
@@ -912,6 +1113,27 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
          */
         public Builder timeout(Integer timeout) {
             return timeout(Output.of(timeout));
+        }
+
+        /**
+         * @param tracerouteQueries For Network Path tests, the number of traceroute path tracings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tracerouteQueries(@Nullable Output<Integer> tracerouteQueries) {
+            $.tracerouteQueries = tracerouteQueries;
+            return this;
+        }
+
+        /**
+         * @param tracerouteQueries For Network Path tests, the number of traceroute path tracings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tracerouteQueries(Integer tracerouteQueries) {
+            return tracerouteQueries(Output.of(tracerouteQueries));
         }
 
         /**

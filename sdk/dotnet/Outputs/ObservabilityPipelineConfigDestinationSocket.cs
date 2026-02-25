@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationSocket
     {
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationSocketBuffer? Buffer;
+        /// <summary>
         /// Encoding format for log events. Valid values are `Json`, `RawMessage`.
         /// </summary>
         public readonly string Encoding;
@@ -32,6 +36,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationSocket(
+            Outputs.ObservabilityPipelineConfigDestinationSocketBuffer? buffer,
+
             string encoding,
 
             Outputs.ObservabilityPipelineConfigDestinationSocketFraming framing,
@@ -40,6 +46,7 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.ObservabilityPipelineConfigDestinationSocketTls? tls)
         {
+            Buffer = buffer;
             Encoding = encoding;
             Framing = framing;
             Mode = mode;

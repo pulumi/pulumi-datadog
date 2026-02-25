@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonS3Auth;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonS3Buffer;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
@@ -23,6 +24,11 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3 {
      * 
      */
     private String bucket;
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationAmazonS3Buffer buffer;
     /**
      * @return Prefix for object keys.
      * 
@@ -53,6 +59,13 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3 {
      */
     public String bucket() {
         return this.bucket;
+    }
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationAmazonS3Buffer> buffer() {
+        return Optional.ofNullable(this.buffer);
     }
     /**
      * @return Prefix for object keys.
@@ -87,6 +100,7 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3 {
     public static final class Builder {
         private @Nullable ObservabilityPipelineConfigDestinationAmazonS3Auth auth;
         private String bucket;
+        private @Nullable ObservabilityPipelineConfigDestinationAmazonS3Buffer buffer;
         private String keyPrefix;
         private String region;
         private String storageClass;
@@ -95,6 +109,7 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3 {
     	      Objects.requireNonNull(defaults);
     	      this.auth = defaults.auth;
     	      this.bucket = defaults.bucket;
+    	      this.buffer = defaults.buffer;
     	      this.keyPrefix = defaults.keyPrefix;
     	      this.region = defaults.region;
     	      this.storageClass = defaults.storageClass;
@@ -112,6 +127,12 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3 {
               throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationAmazonS3", "bucket");
             }
             this.bucket = bucket;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationAmazonS3Buffer buffer) {
+
+            this.buffer = buffer;
             return this;
         }
         @CustomType.Setter
@@ -142,6 +163,7 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3 {
             final var _resultValue = new ObservabilityPipelineConfigDestinationAmazonS3();
             _resultValue.auth = auth;
             _resultValue.bucket = bucket;
+            _resultValue.buffer = buffer;
             _resultValue.keyPrefix = keyPrefix;
             _resultValue.region = region;
             _resultValue.storageClass = storageClass;

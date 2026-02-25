@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationSplunkHecBufferArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -30,6 +31,21 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
      */
     public Optional<Output<Boolean>> autoExtractTimestamp() {
         return Optional.ofNullable(this.autoExtractTimestamp);
+    }
+
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    @Import(name="buffer")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationSplunkHecBufferArgs> buffer;
+
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationSplunkHecBufferArgs>> buffer() {
+        return Optional.ofNullable(this.buffer);
     }
 
     /**
@@ -81,6 +97,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
 
     private ObservabilityPipelineConfigDestinationSplunkHecArgs(ObservabilityPipelineConfigDestinationSplunkHecArgs $) {
         this.autoExtractTimestamp = $.autoExtractTimestamp;
+        this.buffer = $.buffer;
         this.encoding = $.encoding;
         this.index = $.index;
         this.sourcetype = $.sourcetype;
@@ -123,6 +140,27 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
          */
         public Builder autoExtractTimestamp(Boolean autoExtractTimestamp) {
             return autoExtractTimestamp(Output.of(autoExtractTimestamp));
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(@Nullable Output<ObservabilityPipelineConfigDestinationSplunkHecBufferArgs> buffer) {
+            $.buffer = buffer;
+            return this;
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(ObservabilityPipelineConfigDestinationSplunkHecBufferArgs buffer) {
+            return buffer(Output.of(buffer));
         }
 
         /**

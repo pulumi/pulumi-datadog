@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationElasticsearchBuffer;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationElasticsearchDataStream;
 import java.lang.String;
 import java.util.Objects;
@@ -17,6 +18,11 @@ public final class ObservabilityPipelineConfigDestinationElasticsearch {
      * 
      */
     private @Nullable String apiVersion;
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationElasticsearchBuffer buffer;
     /**
      * @return The index or datastream to write logs to in Elasticsearch.
      * 
@@ -35,6 +41,13 @@ public final class ObservabilityPipelineConfigDestinationElasticsearch {
      */
     public Optional<String> apiVersion() {
         return Optional.ofNullable(this.apiVersion);
+    }
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationElasticsearchBuffer> buffer() {
+        return Optional.ofNullable(this.buffer);
     }
     /**
      * @return The index or datastream to write logs to in Elasticsearch.
@@ -61,12 +74,14 @@ public final class ObservabilityPipelineConfigDestinationElasticsearch {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String apiVersion;
+        private @Nullable ObservabilityPipelineConfigDestinationElasticsearchBuffer buffer;
         private @Nullable String bulkIndex;
         private @Nullable ObservabilityPipelineConfigDestinationElasticsearchDataStream dataStream;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationElasticsearch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiVersion = defaults.apiVersion;
+    	      this.buffer = defaults.buffer;
     	      this.bulkIndex = defaults.bulkIndex;
     	      this.dataStream = defaults.dataStream;
         }
@@ -75,6 +90,12 @@ public final class ObservabilityPipelineConfigDestinationElasticsearch {
         public Builder apiVersion(@Nullable String apiVersion) {
 
             this.apiVersion = apiVersion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationElasticsearchBuffer buffer) {
+
+            this.buffer = buffer;
             return this;
         }
         @CustomType.Setter
@@ -92,6 +113,7 @@ public final class ObservabilityPipelineConfigDestinationElasticsearch {
         public ObservabilityPipelineConfigDestinationElasticsearch build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationElasticsearch();
             _resultValue.apiVersion = apiVersion;
+            _resultValue.buffer = buffer;
             _resultValue.bulkIndex = bulkIndex;
             _resultValue.dataStream = dataStream;
             return _resultValue;

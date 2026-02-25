@@ -69,7 +69,7 @@ public final class Config {
         return Codegen.stringProp("cloudProviderType").config(config).get();
     }
 /**
- * [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
+ * [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
  * 
  */
     public Optional<DefaultTags> defaultTags() {

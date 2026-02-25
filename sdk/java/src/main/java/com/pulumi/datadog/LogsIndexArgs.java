@@ -158,6 +158,21 @@ public final class LogsIndexArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.retentionDays);
     }
 
+    /**
+     * A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<List<String>> tags;
+
+    /**
+     * @return A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
+     * 
+     */
+    public Optional<Output<List<String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     private LogsIndexArgs() {}
 
     private LogsIndexArgs(LogsIndexArgs $) {
@@ -170,6 +185,7 @@ public final class LogsIndexArgs extends com.pulumi.resources.ResourceArgs {
         this.flexRetentionDays = $.flexRetentionDays;
         this.name = $.name;
         this.retentionDays = $.retentionDays;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -397,6 +413,37 @@ public final class LogsIndexArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder retentionDays(Integer retentionDays) {
             return retentionDays(Output.of(retentionDays));
+        }
+
+        /**
+         * @param tags A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<List<String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(List<String> tags) {
+            return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tags A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(String... tags) {
+            return tags(List.of(tags));
         }
 
         public LogsIndexArgs build() {

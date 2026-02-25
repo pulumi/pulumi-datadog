@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAzureStorageBufferArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
@@ -32,6 +33,21 @@ public final class ObservabilityPipelineConfigDestinationAzureStorageArgs extend
     }
 
     /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    @Import(name="buffer")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationAzureStorageBufferArgs> buffer;
+
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationAzureStorageBufferArgs>> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
+
+    /**
      * The name of the Azure Blob Storage container to store logs in.
      * 
      */
@@ -50,6 +66,7 @@ public final class ObservabilityPipelineConfigDestinationAzureStorageArgs extend
 
     private ObservabilityPipelineConfigDestinationAzureStorageArgs(ObservabilityPipelineConfigDestinationAzureStorageArgs $) {
         this.blobPrefix = $.blobPrefix;
+        this.buffer = $.buffer;
         this.containerName = $.containerName;
     }
 
@@ -90,6 +107,27 @@ public final class ObservabilityPipelineConfigDestinationAzureStorageArgs extend
          */
         public Builder blobPrefix(String blobPrefix) {
             return blobPrefix(Output.of(blobPrefix));
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(@Nullable Output<ObservabilityPipelineConfigDestinationAzureStorageBufferArgs> buffer) {
+            $.buffer = buffer;
+            return this;
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(ObservabilityPipelineConfigDestinationAzureStorageBufferArgs buffer) {
+            return buffer(Output.of(buffer));
         }
 
         /**

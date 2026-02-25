@@ -15,6 +15,10 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly Outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuth Auth;
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchBuffer? Buffer;
+        /// <summary>
         /// The index or datastream to write logs to.
         /// </summary>
         public readonly string? BulkIndex;
@@ -23,9 +27,12 @@ namespace Pulumi.Datadog.Outputs
         private ObservabilityPipelineConfigDestinationAmazonOpensearch(
             Outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuth auth,
 
+            Outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchBuffer? buffer,
+
             string? bulkIndex)
         {
             Auth = auth;
+            Buffer = buffer;
             BulkIndex = bulkIndex;
         }
     }

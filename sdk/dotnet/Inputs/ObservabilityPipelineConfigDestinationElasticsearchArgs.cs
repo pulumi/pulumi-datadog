@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? ApiVersion { get; set; }
 
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        [Input("buffer")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationElasticsearchBufferArgs>? Buffer { get; set; }
+
+        /// <summary>
         /// The index or datastream to write logs to in Elasticsearch.
         /// </summary>
         [Input("bulkIndex")]

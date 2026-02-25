@@ -953,6 +953,230 @@ namespace Pulumi.Datadog
     ///         },
     ///     });
     /// 
+    ///     // Example Usage (TCP Network Path Test)
+    ///     // Create a new Datadog TCP Network Path test to example.com on port 443
+    ///     // using the TCP traceroute strategy "syn"
+    ///     var networkTcp = new Datadog.SyntheticsTest("network_tcp", new()
+    ///     {
+    ///         Name = "TCP Network Path Test",
+    ///         Type = "network",
+    ///         Subtype = "tcp",
+    ///         Status = "live",
+    ///         Message = "Notify @pagerduty",
+    ///         Locations = new[]
+    ///         {
+    ///             "aws:eu-central-1",
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "foo",
+    ///             "env:test",
+    ///         },
+    ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
+    ///         {
+    ///             Host = "example.com",
+    ///             Port = "443",
+    ///             E2eQueries = 5,
+    ///             MaxTtl = 30,
+    ///             TracerouteQueries = 3,
+    ///             TcpMethod = "syn",
+    ///             Timeout = 10,
+    ///         },
+    ///         Assertions = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Type = "latency",
+    ///                 Operator = "lessThan",
+    ///                 Property = "avg",
+    ///                 Target = "200",
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Type = "latency",
+    ///                 Operator = "lessThan",
+    ///                 Property = "max",
+    ///                 Target = "500",
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Type = "jitter",
+    ///                 Operator = "lessThan",
+    ///                 Target = "50",
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Type = "packetLossPercentage",
+    ///                 Operator = "lessThan",
+    ///                 Target = "0.5",
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Type = "multiNetworkHop",
+    ///                 Operator = "lessThan",
+    ///                 Property = "max",
+    ///                 Target = "20",
+    ///             },
+    ///         },
+    ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+    ///         {
+    ///             TickEvery = 900,
+    ///             Retry = new Datadog.Inputs.SyntheticsTestOptionsListRetryArgs
+    ///             {
+    ///                 Count = 2,
+    ///                 Interval = 300,
+    ///             },
+    ///             MonitorOptions = new Datadog.Inputs.SyntheticsTestOptionsListMonitorOptionsArgs
+    ///             {
+    ///                 RenotifyInterval = 120,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Example Usage (UDP Network Path Test)
+    ///     // Create a new Datadog UDP Network Path test to example.com on port 53
+    ///     var networkUdp = new Datadog.SyntheticsTest("network_udp", new()
+    ///     {
+    ///         Name = "UDP Network Path Test",
+    ///         Type = "network",
+    ///         Subtype = "udp",
+    ///         Status = "live",
+    ///         Message = "Notify @pagerduty",
+    ///         Locations = new[]
+    ///         {
+    ///             "aws:eu-central-1",
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "foo",
+    ///             "env:test",
+    ///         },
+    ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
+    ///         {
+    ///             Host = "example.com",
+    ///             Port = "53",
+    ///             E2eQueries = 5,
+    ///             MaxTtl = 30,
+    ///             TracerouteQueries = 3,
+    ///             Timeout = 10,
+    ///         },
+    ///         Assertions = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Type = "latency",
+    ///                 Operator = "lessThan",
+    ///                 Property = "avg",
+    ///                 Target = "100.2",
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Type = "jitter",
+    ///                 Operator = "lessThan",
+    ///                 Target = "20",
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Type = "packetLossPercentage",
+    ///                 Operator = "lessThan",
+    ///                 Target = "0.1",
+    ///             },
+    ///         },
+    ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+    ///         {
+    ///             TickEvery = 900,
+    ///             Retry = new Datadog.Inputs.SyntheticsTestOptionsListRetryArgs
+    ///             {
+    ///                 Count = 2,
+    ///                 Interval = 300,
+    ///             },
+    ///             MonitorOptions = new Datadog.Inputs.SyntheticsTestOptionsListMonitorOptionsArgs
+    ///             {
+    ///                 RenotifyInterval = 120,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Example Usage (ICMP Network Path Test)
+    ///     // Create a new Datadog ICMP Network Path test to example.com
+    ///     var networkIcmp = new Datadog.SyntheticsTest("network_icmp", new()
+    ///     {
+    ///         Name = "ICMP Network Path Test",
+    ///         Type = "network",
+    ///         Subtype = "icmp",
+    ///         Status = "live",
+    ///         Message = "Notify @pagerduty",
+    ///         Locations = new[]
+    ///         {
+    ///             "aws:eu-central-1",
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "foo",
+    ///             "env:test",
+    ///         },
+    ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
+    ///         {
+    ///             Host = "example.com",
+    ///             E2eQueries = 5,
+    ///             MaxTtl = 30,
+    ///             TracerouteQueries = 3,
+    ///             Timeout = 10,
+    ///         },
+    ///         Assertions = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Type = "latency",
+    ///                 Operator = "lessThan",
+    ///                 Property = "avg",
+    ///                 Target = "150",
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Type = "latency",
+    ///                 Operator = "lessThan",
+    ///                 Property = "max",
+    ///                 Target = "300",
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Type = "jitter",
+    ///                 Operator = "lessThan",
+    ///                 Target = "30",
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Type = "packetLossPercentage",
+    ///                 Operator = "lessThan",
+    ///                 Target = "0.5",
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Type = "multiNetworkHop",
+    ///                 Operator = "lessThan",
+    ///                 Property = "avg",
+    ///                 Target = "15",
+    ///             },
+    ///         },
+    ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+    ///         {
+    ///             TickEvery = 900,
+    ///             Retry = new Datadog.Inputs.SyntheticsTestOptionsListRetryArgs
+    ///             {
+    ///                 Count = 2,
+    ///                 Interval = 300,
+    ///             },
+    ///             MonitorOptions = new Datadog.Inputs.SyntheticsTestOptionsListMonitorOptionsArgs
+    ///             {
+    ///                 RenotifyInterval = 120,
+    ///             },
+    ///         },
+    ///     });
+    /// 
     /// });
     /// ```
     /// 
@@ -1112,7 +1336,7 @@ namespace Pulumi.Datadog
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The subtype of the Synthetic API test. Defaults to `Http`. Valid values are `Http`, `Ssl`, `Tcp`, `Dns`, `Multi`, `Icmp`, `Udp`, `Websocket`, `Grpc`.
+        /// The subtype for API or Network Path tests. For API tests, defaults to `Http`. For Network Path tests, only `Tcp`, `Udp`, `Icmp` are available. Valid values are `Http`, `Ssl`, `Tcp`, `Dns`, `Multi`, `Icmp`, `Udp`, `Websocket`, `Grpc`.
         /// </summary>
         [Output("subtype")]
         public Output<string?> Subtype { get; private set; } = null!;
@@ -1124,7 +1348,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Synthetics test type. Valid values are `Api`, `Browser`, `Mobile`.
+        /// The type of Synthetics test. Valid values are `Api`, `Browser`, `Mobile`, `Network`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -1398,7 +1622,7 @@ namespace Pulumi.Datadog
         public Input<string> Status { get; set; } = null!;
 
         /// <summary>
-        /// The subtype of the Synthetic API test. Defaults to `Http`. Valid values are `Http`, `Ssl`, `Tcp`, `Dns`, `Multi`, `Icmp`, `Udp`, `Websocket`, `Grpc`.
+        /// The subtype for API or Network Path tests. For API tests, defaults to `Http`. For Network Path tests, only `Tcp`, `Udp`, `Icmp` are available. Valid values are `Http`, `Ssl`, `Tcp`, `Dns`, `Multi`, `Icmp`, `Udp`, `Websocket`, `Grpc`.
         /// </summary>
         [Input("subtype")]
         public Input<string>? Subtype { get; set; }
@@ -1416,7 +1640,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Synthetics test type. Valid values are `Api`, `Browser`, `Mobile`.
+        /// The type of Synthetics test. Valid values are `Api`, `Browser`, `Mobile`, `Network`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -1658,7 +1882,7 @@ namespace Pulumi.Datadog
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The subtype of the Synthetic API test. Defaults to `Http`. Valid values are `Http`, `Ssl`, `Tcp`, `Dns`, `Multi`, `Icmp`, `Udp`, `Websocket`, `Grpc`.
+        /// The subtype for API or Network Path tests. For API tests, defaults to `Http`. For Network Path tests, only `Tcp`, `Udp`, `Icmp` are available. Valid values are `Http`, `Ssl`, `Tcp`, `Dns`, `Multi`, `Icmp`, `Udp`, `Websocket`, `Grpc`.
         /// </summary>
         [Input("subtype")]
         public Input<string>? Subtype { get; set; }
@@ -1676,7 +1900,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Synthetics test type. Valid values are `Api`, `Browser`, `Mobile`.
+        /// The type of Synthetics test. Valid values are `Api`, `Browser`, `Mobile`, `Network`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

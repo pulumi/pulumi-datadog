@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationRsyslogBufferArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationRsyslogTlsArgs;
 import java.lang.Integer;
 import java.util.Objects;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class ObservabilityPipelineConfigDestinationRsyslogArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ObservabilityPipelineConfigDestinationRsyslogArgs Empty = new ObservabilityPipelineConfigDestinationRsyslogArgs();
+
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    @Import(name="buffer")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationRsyslogBufferArgs> buffer;
+
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationRsyslogBufferArgs>> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
 
     /**
      * Optional socket keepalive duration in milliseconds.
@@ -49,6 +65,7 @@ public final class ObservabilityPipelineConfigDestinationRsyslogArgs extends com
     private ObservabilityPipelineConfigDestinationRsyslogArgs() {}
 
     private ObservabilityPipelineConfigDestinationRsyslogArgs(ObservabilityPipelineConfigDestinationRsyslogArgs $) {
+        this.buffer = $.buffer;
         this.keepalive = $.keepalive;
         this.tls = $.tls;
     }
@@ -69,6 +86,27 @@ public final class ObservabilityPipelineConfigDestinationRsyslogArgs extends com
 
         public Builder(ObservabilityPipelineConfigDestinationRsyslogArgs defaults) {
             $ = new ObservabilityPipelineConfigDestinationRsyslogArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(@Nullable Output<ObservabilityPipelineConfigDestinationRsyslogBufferArgs> buffer) {
+            $.buffer = buffer;
+            return this;
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(ObservabilityPipelineConfigDestinationRsyslogBufferArgs buffer) {
+            return buffer(Output.of(buffer));
         }
 
         /**

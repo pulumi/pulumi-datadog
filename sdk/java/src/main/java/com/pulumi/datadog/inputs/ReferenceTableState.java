@@ -95,14 +95,14 @@ public final class ReferenceTableState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+     * The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
      * 
      */
     @Import(name="schema")
     private @Nullable Output<ReferenceTableSchemaArgs> schema;
 
     /**
-     * @return The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+     * @return The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
      * 
      */
     public Optional<Output<ReferenceTableSchemaArgs>> schema() {
@@ -324,7 +324,7 @@ public final class ReferenceTableState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param schema The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+         * @param schema The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class ReferenceTableState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param schema The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+         * @param schema The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
          * 
          * @return builder
          * 

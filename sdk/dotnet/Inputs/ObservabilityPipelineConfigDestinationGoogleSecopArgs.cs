@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.ObservabilityPipelineConfigDestinationGoogleSecopAuthArgs>? Auth { get; set; }
 
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        [Input("buffer")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationGoogleSecopBufferArgs>? Buffer { get; set; }
+
+        /// <summary>
         /// The Google SecOps customer ID.
         /// </summary>
         [Input("customerId", required: true)]

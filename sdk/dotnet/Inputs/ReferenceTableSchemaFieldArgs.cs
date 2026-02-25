@@ -15,14 +15,14 @@ namespace Pulumi.Datadog.Inputs
         /// <summary>
         /// The name of the field.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The data type of the field. Must be one of: STRING, INT32. Valid values are `STRING`, `INT32`.
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public ReferenceTableSchemaFieldArgs()
         {

@@ -33,7 +33,7 @@ class ReferenceTableArgs:
         :param pulumi.Input[_builtins.str] table_name: The name of the reference table. This must be unique within your organization.
         :param pulumi.Input[_builtins.str] description: The description of the reference table.
         :param pulumi.Input['ReferenceTableFileMetadataArgs'] file_metadata: Configuration for cloud storage file access and sync settings.
-        :param pulumi.Input['ReferenceTableSchemaArgs'] schema: The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+        :param pulumi.Input['ReferenceTableSchemaArgs'] schema: The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with the reference table.
         """
         pulumi.set(__self__, "source", source)
@@ -99,7 +99,7 @@ class ReferenceTableArgs:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input['ReferenceTableSchemaArgs']]:
         """
-        The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+        The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
         """
         return pulumi.get(self, "schema")
 
@@ -141,7 +141,7 @@ class _ReferenceTableState:
         :param pulumi.Input['ReferenceTableFileMetadataArgs'] file_metadata: Configuration for cloud storage file access and sync settings.
         :param pulumi.Input[_builtins.str] last_updated_by: UUID of the user who last updated the reference table.
         :param pulumi.Input[_builtins.int] row_count: The number of successfully processed rows in the reference table.
-        :param pulumi.Input['ReferenceTableSchemaArgs'] schema: The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+        :param pulumi.Input['ReferenceTableSchemaArgs'] schema: The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
         :param pulumi.Input[_builtins.str] source: The source type for the reference table. Valid values are `S3`, `GCS`, `AZURE`.
         :param pulumi.Input[_builtins.str] status: The status of the reference table (e.g., DONE, PROCESSING, ERROR).
         :param pulumi.Input[_builtins.str] table_name: The name of the reference table. This must be unique within your organization.
@@ -235,7 +235,7 @@ class _ReferenceTableState:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input['ReferenceTableSchemaArgs']]:
         """
-        The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+        The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
         """
         return pulumi.get(self, "schema")
 
@@ -380,7 +380,9 @@ class ReferenceTable(pulumi.CustomResource):
         $ pulumi import datadog:index/referenceTable:ReferenceTable imported_table "00000000-0000-0000-0000-000000000000"
         ```
 
-        After importing, add the resource configuration to your .tf file:
+        After importing, you must add the full resource configuration to your .tf file.
+        Use `terraform state show datadog_reference_table.imported_table` to view the imported schema
+        and other attributes, then add the matching configuration:
 
         resource "ReferenceTable" "imported_table" {
         table_name  = "existing_table"
@@ -420,7 +422,7 @@ class ReferenceTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the reference table.
         :param pulumi.Input[Union['ReferenceTableFileMetadataArgs', 'ReferenceTableFileMetadataArgsDict']] file_metadata: Configuration for cloud storage file access and sync settings.
-        :param pulumi.Input[Union['ReferenceTableSchemaArgs', 'ReferenceTableSchemaArgsDict']] schema: The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+        :param pulumi.Input[Union['ReferenceTableSchemaArgs', 'ReferenceTableSchemaArgsDict']] schema: The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
         :param pulumi.Input[_builtins.str] source: The source type for the reference table. Valid values are `S3`, `GCS`, `AZURE`.
         :param pulumi.Input[_builtins.str] table_name: The name of the reference table. This must be unique within your organization.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with the reference table.
@@ -494,7 +496,9 @@ class ReferenceTable(pulumi.CustomResource):
         $ pulumi import datadog:index/referenceTable:ReferenceTable imported_table "00000000-0000-0000-0000-000000000000"
         ```
 
-        After importing, add the resource configuration to your .tf file:
+        After importing, you must add the full resource configuration to your .tf file.
+        Use `terraform state show datadog_reference_table.imported_table` to view the imported schema
+        and other attributes, then add the matching configuration:
 
         resource "ReferenceTable" "imported_table" {
         table_name  = "existing_table"
@@ -608,7 +612,7 @@ class ReferenceTable(pulumi.CustomResource):
         :param pulumi.Input[Union['ReferenceTableFileMetadataArgs', 'ReferenceTableFileMetadataArgsDict']] file_metadata: Configuration for cloud storage file access and sync settings.
         :param pulumi.Input[_builtins.str] last_updated_by: UUID of the user who last updated the reference table.
         :param pulumi.Input[_builtins.int] row_count: The number of successfully processed rows in the reference table.
-        :param pulumi.Input[Union['ReferenceTableSchemaArgs', 'ReferenceTableSchemaArgsDict']] schema: The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+        :param pulumi.Input[Union['ReferenceTableSchemaArgs', 'ReferenceTableSchemaArgsDict']] schema: The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
         :param pulumi.Input[_builtins.str] source: The source type for the reference table. Valid values are `S3`, `GCS`, `AZURE`.
         :param pulumi.Input[_builtins.str] status: The status of the reference table (e.g., DONE, PROCESSING, ERROR).
         :param pulumi.Input[_builtins.str] table_name: The name of the reference table. This must be unique within your organization.
@@ -676,7 +680,7 @@ class ReferenceTable(pulumi.CustomResource):
     @pulumi.getter
     def schema(self) -> pulumi.Output[Optional['outputs.ReferenceTableSchema']]:
         """
-        The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+        The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
         """
         return pulumi.get(self, "schema")
 

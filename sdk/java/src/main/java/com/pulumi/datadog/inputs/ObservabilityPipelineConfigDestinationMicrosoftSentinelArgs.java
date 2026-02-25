@@ -5,14 +5,32 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationMicrosoftSentinelBufferArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ObservabilityPipelineConfigDestinationMicrosoftSentinelArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ObservabilityPipelineConfigDestinationMicrosoftSentinelArgs Empty = new ObservabilityPipelineConfigDestinationMicrosoftSentinelArgs();
+
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    @Import(name="buffer")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationMicrosoftSentinelBufferArgs> buffer;
+
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationMicrosoftSentinelBufferArgs>> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
 
     /**
      * Azure AD client ID used for authentication.
@@ -77,6 +95,7 @@ public final class ObservabilityPipelineConfigDestinationMicrosoftSentinelArgs e
     private ObservabilityPipelineConfigDestinationMicrosoftSentinelArgs() {}
 
     private ObservabilityPipelineConfigDestinationMicrosoftSentinelArgs(ObservabilityPipelineConfigDestinationMicrosoftSentinelArgs $) {
+        this.buffer = $.buffer;
         this.clientId = $.clientId;
         this.dcrImmutableId = $.dcrImmutableId;
         this.table = $.table;
@@ -99,6 +118,27 @@ public final class ObservabilityPipelineConfigDestinationMicrosoftSentinelArgs e
 
         public Builder(ObservabilityPipelineConfigDestinationMicrosoftSentinelArgs defaults) {
             $ = new ObservabilityPipelineConfigDestinationMicrosoftSentinelArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(@Nullable Output<ObservabilityPipelineConfigDestinationMicrosoftSentinelBufferArgs> buffer) {
+            $.buffer = buffer;
+            return this;
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(ObservabilityPipelineConfigDestinationMicrosoftSentinelBufferArgs buffer) {
+            return buffer(Output.of(buffer));
         }
 
         /**

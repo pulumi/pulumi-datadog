@@ -45,6 +45,10 @@ namespace Pulumi.Datadog.Outputs
         /// The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
         /// </summary>
         public readonly int RetentionDays;
+        /// <summary>
+        /// A list of tags for this index. Tags are in `key:value` format.
+        /// </summary>
+        public readonly ImmutableArray<string> Tags;
 
         [OutputConstructor]
         private GetLogsIndexesLogsIndexResult(
@@ -62,7 +66,9 @@ namespace Pulumi.Datadog.Outputs
 
             string name,
 
-            int retentionDays)
+            int retentionDays,
+
+            ImmutableArray<string> tags)
         {
             DailyLimit = dailyLimit;
             DailyLimitResets = dailyLimitResets;
@@ -72,6 +78,7 @@ namespace Pulumi.Datadog.Outputs
             FlexRetentionDays = flexRetentionDays;
             Name = name;
             RetentionDays = retentionDays;
+            Tags = tags;
         }
     }
 }

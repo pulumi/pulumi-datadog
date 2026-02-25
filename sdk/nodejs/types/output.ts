@@ -10306,6 +10306,10 @@ export interface GetLogsIndexesLogsIndex {
      * The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
      */
     retentionDays: number;
+    /**
+     * A list of tags for this index. Tags are in `key:value` format.
+     */
+    tags: string[];
 }
 
 export interface GetLogsIndexesLogsIndexDailyLimitReset {
@@ -13667,6 +13671,10 @@ export interface ObservabilityPipelineConfigDestination {
 export interface ObservabilityPipelineConfigDestinationAmazonOpensearch {
     auth: outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuth;
     /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchBuffer;
+    /**
      * The index or datastream to write logs to.
      */
     bulkIndex?: string;
@@ -13695,6 +13703,43 @@ export interface ObservabilityPipelineConfigDestinationAmazonOpensearchAuth {
     strategy: string;
 }
 
+export interface ObservabilityPipelineConfigDestinationAmazonOpensearchBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory;
+}
+
+export interface ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
 export interface ObservabilityPipelineConfigDestinationAmazonS3 {
     /**
      * AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
@@ -13704,6 +13749,10 @@ export interface ObservabilityPipelineConfigDestinationAmazonS3 {
      * S3 bucket name.
      */
     bucket: string;
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: outputs.ObservabilityPipelineConfigDestinationAmazonS3Buffer;
     /**
      * Prefix for object keys.
      */
@@ -13733,6 +13782,43 @@ export interface ObservabilityPipelineConfigDestinationAmazonS3Auth {
     sessionName?: string;
 }
 
+export interface ObservabilityPipelineConfigDestinationAmazonS3Buffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: outputs.ObservabilityPipelineConfigDestinationAmazonS3BufferDisk;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: outputs.ObservabilityPipelineConfigDestinationAmazonS3BufferMemory;
+}
+
+export interface ObservabilityPipelineConfigDestinationAmazonS3BufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationAmazonS3BufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
 export interface ObservabilityPipelineConfigDestinationAmazonSecurityLake {
     /**
      * AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
@@ -13742,6 +13828,10 @@ export interface ObservabilityPipelineConfigDestinationAmazonSecurityLake {
      * Name of the Amazon S3 bucket in Security Lake (3-63 characters).
      */
     bucket: string;
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: outputs.ObservabilityPipelineConfigDestinationAmazonSecurityLakeBuffer;
     /**
      * Custom source name for the logs in Security Lake.
      */
@@ -13771,6 +13861,43 @@ export interface ObservabilityPipelineConfigDestinationAmazonSecurityLakeAuth {
     sessionName?: string;
 }
 
+export interface ObservabilityPipelineConfigDestinationAmazonSecurityLakeBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: outputs.ObservabilityPipelineConfigDestinationAmazonSecurityLakeBufferDisk;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: outputs.ObservabilityPipelineConfigDestinationAmazonSecurityLakeBufferMemory;
+}
+
+export interface ObservabilityPipelineConfigDestinationAmazonSecurityLakeBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationAmazonSecurityLakeBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
 export interface ObservabilityPipelineConfigDestinationAmazonSecurityLakeTls {
     /**
      * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
@@ -13792,15 +13919,60 @@ export interface ObservabilityPipelineConfigDestinationAzureStorage {
      */
     blobPrefix?: string;
     /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: outputs.ObservabilityPipelineConfigDestinationAzureStorageBuffer;
+    /**
      * The name of the Azure Blob Storage container to store logs in.
      */
     containerName: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureStorageBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: outputs.ObservabilityPipelineConfigDestinationAzureStorageBufferDisk;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: outputs.ObservabilityPipelineConfigDestinationAzureStorageBufferMemory;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureStorageBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureStorageBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationCloudPrem {
 }
 
 export interface ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem {
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: outputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBuffer;
     /**
      * Compression configuration for log events.
      */
@@ -13813,6 +13985,43 @@ export interface ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem {
      * Configuration for enabling TLS encryption between the pipeline component and external services.
      */
     tls?: outputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemTls;
+}
+
+export interface ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: outputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBufferDisk;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: outputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBufferMemory;
+}
+
+export interface ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemCompression {
@@ -13843,9 +14052,50 @@ export interface ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemTls
 
 export interface ObservabilityPipelineConfigDestinationDatadogLog {
     /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: outputs.ObservabilityPipelineConfigDestinationDatadogLogBuffer;
+    /**
      * A list of routing rules that forward matching logs to Datadog using dedicated API keys.
      */
     routes?: outputs.ObservabilityPipelineConfigDestinationDatadogLogRoute[];
+}
+
+export interface ObservabilityPipelineConfigDestinationDatadogLogBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: outputs.ObservabilityPipelineConfigDestinationDatadogLogBufferDisk;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: outputs.ObservabilityPipelineConfigDestinationDatadogLogBufferMemory;
+}
+
+export interface ObservabilityPipelineConfigDestinationDatadogLogBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationDatadogLogBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationDatadogLogRoute {
@@ -13853,6 +14103,10 @@ export interface ObservabilityPipelineConfigDestinationDatadogLogRoute {
      * Name of the environment variable or secret that stores the Datadog API key used by this route.
      */
     apiKeyKey: string;
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: outputs.ObservabilityPipelineConfigDestinationDatadogLogRouteBuffer;
     /**
      * A Datadog search query that determines which logs are forwarded using this route.
      */
@@ -13867,6 +14121,43 @@ export interface ObservabilityPipelineConfigDestinationDatadogLogRoute {
     site: string;
 }
 
+export interface ObservabilityPipelineConfigDestinationDatadogLogRouteBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: outputs.ObservabilityPipelineConfigDestinationDatadogLogRouteBufferDisk;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: outputs.ObservabilityPipelineConfigDestinationDatadogLogRouteBufferMemory;
+}
+
+export interface ObservabilityPipelineConfigDestinationDatadogLogRouteBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationDatadogLogRouteBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
 export interface ObservabilityPipelineConfigDestinationDatadogMetric {
 }
 
@@ -13876,6 +14167,10 @@ export interface ObservabilityPipelineConfigDestinationElasticsearch {
      */
     apiVersion?: string;
     /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: outputs.ObservabilityPipelineConfigDestinationElasticsearchBuffer;
+    /**
      * The index or datastream to write logs to in Elasticsearch.
      */
     bulkIndex?: string;
@@ -13883,6 +14178,43 @@ export interface ObservabilityPipelineConfigDestinationElasticsearch {
      * Configuration options for writing to Elasticsearch Data Streams instead of a fixed index.
      */
     dataStream?: outputs.ObservabilityPipelineConfigDestinationElasticsearchDataStream;
+}
+
+export interface ObservabilityPipelineConfigDestinationElasticsearchBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: outputs.ObservabilityPipelineConfigDestinationElasticsearchBufferDisk;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: outputs.ObservabilityPipelineConfigDestinationElasticsearchBufferMemory;
+}
+
+export interface ObservabilityPipelineConfigDestinationElasticsearchBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationElasticsearchBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationElasticsearchDataStream {
@@ -13914,6 +14246,10 @@ export interface ObservabilityPipelineConfigDestinationGoogleCloudStorage {
      */
     bucket: string;
     /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageBuffer;
+    /**
      * Optional prefix for object keys within the GCS bucket.
      */
     keyPrefix?: string;
@@ -13934,6 +14270,43 @@ export interface ObservabilityPipelineConfigDestinationGoogleCloudStorageAuth {
     credentialsFile: string;
 }
 
+export interface ObservabilityPipelineConfigDestinationGoogleCloudStorageBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageBufferDisk;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageBufferMemory;
+}
+
+export interface ObservabilityPipelineConfigDestinationGoogleCloudStorageBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationGoogleCloudStorageBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
 export interface ObservabilityPipelineConfigDestinationGoogleCloudStorageMetadata {
     /**
      * The metadata key.
@@ -13950,6 +14323,10 @@ export interface ObservabilityPipelineConfigDestinationGooglePubsub {
      * GCP credentials used to authenticate with Google Cloud services.
      */
     auth?: outputs.ObservabilityPipelineConfigDestinationGooglePubsubAuth;
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: outputs.ObservabilityPipelineConfigDestinationGooglePubsubBuffer;
     /**
      * Encoding format for log events. Valid values: `json`, `rawMessage`.
      */
@@ -13975,6 +14352,43 @@ export interface ObservabilityPipelineConfigDestinationGooglePubsubAuth {
     credentialsFile: string;
 }
 
+export interface ObservabilityPipelineConfigDestinationGooglePubsubBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: outputs.ObservabilityPipelineConfigDestinationGooglePubsubBufferDisk;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: outputs.ObservabilityPipelineConfigDestinationGooglePubsubBufferMemory;
+}
+
+export interface ObservabilityPipelineConfigDestinationGooglePubsubBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationGooglePubsubBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
 export interface ObservabilityPipelineConfigDestinationGooglePubsubTls {
     /**
      * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
@@ -13996,6 +14410,10 @@ export interface ObservabilityPipelineConfigDestinationGoogleSecop {
      */
     auth?: outputs.ObservabilityPipelineConfigDestinationGoogleSecopAuth;
     /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: outputs.ObservabilityPipelineConfigDestinationGoogleSecopBuffer;
+    /**
      * The Google SecOps customer ID.
      */
     customerId: string;
@@ -14014,6 +14432,43 @@ export interface ObservabilityPipelineConfigDestinationGoogleSecopAuth {
      * Path to the GCP service account key file.
      */
     credentialsFile: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationGoogleSecopBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: outputs.ObservabilityPipelineConfigDestinationGoogleSecopBufferDisk;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: outputs.ObservabilityPipelineConfigDestinationGoogleSecopBufferMemory;
+}
+
+export interface ObservabilityPipelineConfigDestinationGoogleSecopBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationGoogleSecopBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationHttpClient {
@@ -14143,6 +14598,10 @@ export interface ObservabilityPipelineConfigDestinationKafkaTls {
 
 export interface ObservabilityPipelineConfigDestinationMicrosoftSentinel {
     /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: outputs.ObservabilityPipelineConfigDestinationMicrosoftSentinelBuffer;
+    /**
      * Azure AD client ID used for authentication.
      */
     clientId: string;
@@ -14160,14 +14619,96 @@ export interface ObservabilityPipelineConfigDestinationMicrosoftSentinel {
     tenantId: string;
 }
 
+export interface ObservabilityPipelineConfigDestinationMicrosoftSentinelBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: outputs.ObservabilityPipelineConfigDestinationMicrosoftSentinelBufferDisk;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: outputs.ObservabilityPipelineConfigDestinationMicrosoftSentinelBufferMemory;
+}
+
+export interface ObservabilityPipelineConfigDestinationMicrosoftSentinelBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationMicrosoftSentinelBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
 export interface ObservabilityPipelineConfigDestinationNewRelic {
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: outputs.ObservabilityPipelineConfigDestinationNewRelicBuffer;
     /**
      * The New Relic region.
      */
     region: string;
 }
 
+export interface ObservabilityPipelineConfigDestinationNewRelicBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: outputs.ObservabilityPipelineConfigDestinationNewRelicBufferDisk;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: outputs.ObservabilityPipelineConfigDestinationNewRelicBufferMemory;
+}
+
+export interface ObservabilityPipelineConfigDestinationNewRelicBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationNewRelicBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
 export interface ObservabilityPipelineConfigDestinationOpensearch {
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: outputs.ObservabilityPipelineConfigDestinationOpensearchBuffer;
     /**
      * The index or datastream to write logs to.
      */
@@ -14176,6 +14717,43 @@ export interface ObservabilityPipelineConfigDestinationOpensearch {
      * Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
      */
     dataStream?: outputs.ObservabilityPipelineConfigDestinationOpensearchDataStream;
+}
+
+export interface ObservabilityPipelineConfigDestinationOpensearchBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: outputs.ObservabilityPipelineConfigDestinationOpensearchBufferDisk;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: outputs.ObservabilityPipelineConfigDestinationOpensearchBufferMemory;
+}
+
+export interface ObservabilityPipelineConfigDestinationOpensearchBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationOpensearchBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationOpensearchDataStream {
@@ -14195,6 +14773,10 @@ export interface ObservabilityPipelineConfigDestinationOpensearchDataStream {
 
 export interface ObservabilityPipelineConfigDestinationRsyslog {
     /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: outputs.ObservabilityPipelineConfigDestinationRsyslogBuffer;
+    /**
      * Optional socket keepalive duration in milliseconds.
      */
     keepalive?: number;
@@ -14202,6 +14784,43 @@ export interface ObservabilityPipelineConfigDestinationRsyslog {
      * Configuration for enabling TLS encryption between the pipeline component and external services.
      */
     tls?: outputs.ObservabilityPipelineConfigDestinationRsyslogTls;
+}
+
+export interface ObservabilityPipelineConfigDestinationRsyslogBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: outputs.ObservabilityPipelineConfigDestinationRsyslogBufferDisk;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: outputs.ObservabilityPipelineConfigDestinationRsyslogBufferMemory;
+}
+
+export interface ObservabilityPipelineConfigDestinationRsyslogBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationRsyslogBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationRsyslogTls {
@@ -14221,12 +14840,57 @@ export interface ObservabilityPipelineConfigDestinationRsyslogTls {
 
 export interface ObservabilityPipelineConfigDestinationSentinelOne {
     /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: outputs.ObservabilityPipelineConfigDestinationSentinelOneBuffer;
+    /**
      * The SentinelOne region to send logs to.
      */
     region: string;
 }
 
+export interface ObservabilityPipelineConfigDestinationSentinelOneBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: outputs.ObservabilityPipelineConfigDestinationSentinelOneBufferDisk;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: outputs.ObservabilityPipelineConfigDestinationSentinelOneBufferMemory;
+}
+
+export interface ObservabilityPipelineConfigDestinationSentinelOneBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationSentinelOneBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
 export interface ObservabilityPipelineConfigDestinationSocket {
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: outputs.ObservabilityPipelineConfigDestinationSocketBuffer;
     /**
      * Encoding format for log events. Valid values are `json`, `rawMessage`.
      */
@@ -14243,6 +14907,43 @@ export interface ObservabilityPipelineConfigDestinationSocket {
      * Configuration for enabling TLS encryption between the pipeline component and external services.
      */
     tls?: outputs.ObservabilityPipelineConfigDestinationSocketTls;
+}
+
+export interface ObservabilityPipelineConfigDestinationSocketBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: outputs.ObservabilityPipelineConfigDestinationSocketBufferDisk;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: outputs.ObservabilityPipelineConfigDestinationSocketBufferMemory;
+}
+
+export interface ObservabilityPipelineConfigDestinationSocketBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationSocketBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationSocketFraming {
@@ -14284,6 +14985,10 @@ export interface ObservabilityPipelineConfigDestinationSplunkHec {
      */
     autoExtractTimestamp?: boolean;
     /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: outputs.ObservabilityPipelineConfigDestinationSplunkHecBuffer;
+    /**
      * Encoding format for log events. Valid values: `json`, `rawMessage`.
      */
     encoding: string;
@@ -14297,7 +15002,48 @@ export interface ObservabilityPipelineConfigDestinationSplunkHec {
     sourcetype?: string;
 }
 
+export interface ObservabilityPipelineConfigDestinationSplunkHecBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: outputs.ObservabilityPipelineConfigDestinationSplunkHecBufferDisk;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: outputs.ObservabilityPipelineConfigDestinationSplunkHecBufferMemory;
+}
+
+export interface ObservabilityPipelineConfigDestinationSplunkHecBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationSplunkHecBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
 export interface ObservabilityPipelineConfigDestinationSumoLogic {
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: outputs.ObservabilityPipelineConfigDestinationSumoLogicBuffer;
     /**
      * The output encoding format.
      */
@@ -14320,6 +15066,43 @@ export interface ObservabilityPipelineConfigDestinationSumoLogic {
     headerSourceName?: string;
 }
 
+export interface ObservabilityPipelineConfigDestinationSumoLogicBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: outputs.ObservabilityPipelineConfigDestinationSumoLogicBufferDisk;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: outputs.ObservabilityPipelineConfigDestinationSumoLogicBufferMemory;
+}
+
+export interface ObservabilityPipelineConfigDestinationSumoLogicBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationSumoLogicBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
 export interface ObservabilityPipelineConfigDestinationSumoLogicHeaderCustomField {
     /**
      * The header field name.
@@ -14333,6 +15116,10 @@ export interface ObservabilityPipelineConfigDestinationSumoLogicHeaderCustomFiel
 
 export interface ObservabilityPipelineConfigDestinationSyslogNg {
     /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: outputs.ObservabilityPipelineConfigDestinationSyslogNgBuffer;
+    /**
      * Optional socket keepalive duration in milliseconds.
      */
     keepalive?: number;
@@ -14340,6 +15127,43 @@ export interface ObservabilityPipelineConfigDestinationSyslogNg {
      * Configuration for enabling TLS encryption between the pipeline component and external services.
      */
     tls?: outputs.ObservabilityPipelineConfigDestinationSyslogNgTls;
+}
+
+export interface ObservabilityPipelineConfigDestinationSyslogNgBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: outputs.ObservabilityPipelineConfigDestinationSyslogNgBufferDisk;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: outputs.ObservabilityPipelineConfigDestinationSyslogNgBufferMemory;
+}
+
+export interface ObservabilityPipelineConfigDestinationSyslogNgBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationSyslogNgBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationSyslogNgTls {
@@ -28515,7 +29339,7 @@ export interface ReferenceTableFileMetadataAccessDetailsGcpDetail {
 
 export interface ReferenceTableSchema {
     /**
-     * List of fields in the table schema. Must include at least one field. Schema is only set on create.
+     * List of fields in the table schema. At least one field is required. Schema is only set on create.
      */
     fields?: outputs.ReferenceTableSchemaField[];
     /**
@@ -29474,11 +30298,11 @@ export interface SyntheticsTestApiStepAssertion {
      */
     code?: string;
     /**
-     * Assertion operator. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
+     * Assertion operator. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `contains`, `doesNotContain`, `is`, `isNot`, `lessThan`, `lessThanOrEqual`, `moreThan`, `moreThanOrEqual`, `matches`, `doesNotMatch`, `validates`, `isInMoreThan`, `isInLessThan`, `doesNotExist`, `isUndefined`, `validatesJSONPath`, `validatesJSONSchema`, `validatesXPath`, `md5`, `sha1`, `sha256`, `is`, `isNot`, `lessThan`, `lessThanOrEqual`, `moreThan`, `moreThanOrEqual`.
      */
     operator?: string;
     /**
-     * If assertion type is `header`, this is the header name.
+     * If assertion type is `header` or `grpcMetadata`, this is the header name. For other assertion types, this is an aggregation property: `avg`, `min`, `max`, or `stddev`.
      */
     property?: string;
     /**
@@ -29502,7 +30326,7 @@ export interface SyntheticsTestApiStepAssertion {
      */
     timingsScope?: string;
     /**
-     * Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+     * Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#synthetics-create-a-network-path-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `multiNetworkHop`, `jitter`, `bodyHash`, `javascript`.
      */
     type: string;
 }
@@ -29708,6 +30532,10 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     checkCertificateRevocation?: boolean;
     /**
+     * For Network Path tests, an optional label displayed for the destination host in the Network Path visualization.
+     */
+    destinationService?: string;
+    /**
      * For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
      */
     disableAiaIntermediateFetching?: boolean;
@@ -29719,6 +30547,10 @@ export interface SyntheticsTestApiStepRequestDefinition {
      * DNS server port to use for DNS tests.
      */
     dnsServerPort?: string;
+    /**
+     * For Network Path tests, the number of packets sent to probe the destination to measure packet loss, latency, and jitter.
+     */
+    e2eQueries?: number;
     /**
      * Determines whether or not the API HTTP test should follow redirects.
      */
@@ -29736,11 +30568,15 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     httpVersion?: string;
     /**
-     * Whether the message is base64-encoded.
+     * For Websocket tests, whether the message is treated as a base64-encoded string in the server.
      */
     isMessageBase64Encoded?: boolean;
     /**
-     * For gRPC, UDP and websocket tests, message to send with the request.
+     * For Network Path tests, the maximum time-to-live (max number of hops) used in outgoing probe packets.
+     */
+    maxTtl?: number;
+    /**
+     * For gRPC, UDP, and Websocket tests, message to send with the request.
      */
     message?: string;
     /**
@@ -29786,9 +30622,21 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     shouldTrackHops?: boolean;
     /**
+     * For Network Path tests, an optional label displayed for the source host in the Network Path visualization
+     */
+    sourceService?: string;
+    /**
+     * For TCP Network Path tests, the TCP traceroute strategy.
+     */
+    tcpMethod?: string;
+    /**
      * Timeout in seconds for the test.
      */
     timeout?: number;
+    /**
+     * For Network Path tests, the number of traceroute path tracings.
+     */
+    tracerouteQueries?: number;
     /**
      * The URL to send the request to.
      */
@@ -29850,11 +30698,11 @@ export interface SyntheticsTestAssertion {
      */
     code?: string;
     /**
-     * Assertion operator. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
+     * Assertion operator. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `contains`, `doesNotContain`, `is`, `isNot`, `lessThan`, `lessThanOrEqual`, `moreThan`, `moreThanOrEqual`, `matches`, `doesNotMatch`, `validates`, `isInMoreThan`, `isInLessThan`, `doesNotExist`, `isUndefined`, `validatesJSONPath`, `validatesJSONSchema`, `validatesXPath`, `md5`, `sha1`, `sha256`, `is`, `isNot`, `lessThan`, `lessThanOrEqual`, `moreThan`, `moreThanOrEqual`.
      */
     operator?: string;
     /**
-     * If assertion type is `header`, this is the header name.
+     * If assertion type is `header` or `grpcMetadata`, this is the header name. For other assertion types, this is an aggregation property: `avg`, `min`, `max`, or `stddev`.
      */
     property?: string;
     /**
@@ -29878,7 +30726,7 @@ export interface SyntheticsTestAssertion {
      */
     timingsScope?: string;
     /**
-     * Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`, `javascript`.
+     * Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#synthetics-create-a-network-path-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `multiNetworkHop`, `jitter`, `bodyHash`, `javascript`.
      */
     type: string;
 }
@@ -30708,6 +31556,10 @@ export interface SyntheticsTestRequestDefinition {
      */
     certificateDomains?: string[];
     /**
+     * For Network Path tests, an optional label displayed for the destination host in the Network Path visualization.
+     */
+    destinationService?: string;
+    /**
      * DNS server to use for DNS tests (`subtype = "dns"`).
      */
     dnsServer?: string;
@@ -30715,6 +31567,10 @@ export interface SyntheticsTestRequestDefinition {
      * DNS server port to use for DNS tests.
      */
     dnsServerPort?: string;
+    /**
+     * For Network Path tests, the number of packets sent to probe the destination to measure packet loss, latency, and jitter.
+     */
+    e2eQueries?: number;
     /**
      * Form data to be sent when `bodyType` is `multipart/form-data`.
      */
@@ -30730,11 +31586,15 @@ export interface SyntheticsTestRequestDefinition {
      */
     httpVersion?: string;
     /**
-     * Whether the message is base64-encoded.
+     * For Websocket tests, whether the message is treated as a base64-encoded string in the server.
      */
     isMessageBase64Encoded?: boolean;
     /**
-     * For gRPC, UDP and websocket tests, message to send with the request.
+     * For Network Path tests, the maximum time-to-live (max number of hops) used in outgoing probe packets.
+     */
+    maxTtl?: number;
+    /**
+     * For gRPC, UDP, and Websocket tests, message to send with the request.
      */
     message?: string;
     /**
@@ -30780,9 +31640,21 @@ export interface SyntheticsTestRequestDefinition {
      */
     shouldTrackHops?: boolean;
     /**
+     * For Network Path tests, an optional label displayed for the source host in the Network Path visualization
+     */
+    sourceService?: string;
+    /**
+     * For TCP Network Path tests, the TCP traceroute strategy.
+     */
+    tcpMethod?: string;
+    /**
      * Timeout in seconds for the test.
      */
     timeout?: number;
+    /**
+     * For Network Path tests, the number of traceroute path tracings.
+     */
+    tracerouteQueries?: number;
     /**
      * The URL to send the request to.
      */
@@ -31167,7 +32039,7 @@ export namespace azure {
 export namespace config {
     export interface DefaultTags {
         /**
-         * [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Resource tags to be applied by default across all resources.
+         * [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Resource tags to be applied by default across all resources.
          */
         tags?: {[key: string]: string};
     }

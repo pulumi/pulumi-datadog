@@ -25,6 +25,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        [Input("buffer")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationAmazonS3BufferArgs>? Buffer { get; set; }
+
+        /// <summary>
         /// Prefix for object keys.
         /// </summary>
         [Input("keyPrefix", required: true)]

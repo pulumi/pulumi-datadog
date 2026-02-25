@@ -30,6 +30,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<string> CertificateDomains;
         /// <summary>
+        /// For Network Path tests, an optional label displayed for the destination host in the Network Path visualization.
+        /// </summary>
+        public readonly string? DestinationService;
+        /// <summary>
         /// DNS server to use for DNS tests (`subtype = "dns"`).
         /// </summary>
         public readonly string? DnsServer;
@@ -37,6 +41,10 @@ namespace Pulumi.Datadog.Outputs
         /// DNS server port to use for DNS tests.
         /// </summary>
         public readonly string? DnsServerPort;
+        /// <summary>
+        /// For Network Path tests, the number of packets sent to probe the destination to measure packet loss, latency, and jitter.
+        /// </summary>
+        public readonly int? E2eQueries;
         /// <summary>
         /// Form data to be sent when `BodyType` is `multipart/form-data`.
         /// </summary>
@@ -50,11 +58,15 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? HttpVersion;
         /// <summary>
-        /// Whether the message is base64-encoded.
+        /// For Websocket tests, whether the message is treated as a base64-encoded string in the server.
         /// </summary>
         public readonly bool? IsMessageBase64Encoded;
         /// <summary>
-        /// For gRPC, UDP and websocket tests, message to send with the request.
+        /// For Network Path tests, the maximum time-to-live (max number of hops) used in outgoing probe packets.
+        /// </summary>
+        public readonly int? MaxTtl;
+        /// <summary>
+        /// For gRPC, UDP, and Websocket tests, message to send with the request.
         /// </summary>
         public readonly string? Message;
         /// <summary>
@@ -98,9 +110,21 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? ShouldTrackHops;
         /// <summary>
+        /// For Network Path tests, an optional label displayed for the source host in the Network Path visualization
+        /// </summary>
+        public readonly string? SourceService;
+        /// <summary>
+        /// For TCP Network Path tests, the TCP traceroute strategy.
+        /// </summary>
+        public readonly string? TcpMethod;
+        /// <summary>
         /// Timeout in seconds for the test.
         /// </summary>
         public readonly int? Timeout;
+        /// <summary>
+        /// For Network Path tests, the number of traceroute path tracings.
+        /// </summary>
+        public readonly int? TracerouteQueries;
         /// <summary>
         /// The URL to send the request to.
         /// </summary>
@@ -116,9 +140,13 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<string> certificateDomains,
 
+            string? destinationService,
+
             string? dnsServer,
 
             string? dnsServerPort,
+
+            int? e2eQueries,
 
             ImmutableDictionary<string, string>? form,
 
@@ -127,6 +155,8 @@ namespace Pulumi.Datadog.Outputs
             string? httpVersion,
 
             bool? isMessageBase64Encoded,
+
+            int? maxTtl,
 
             string? message,
 
@@ -150,7 +180,13 @@ namespace Pulumi.Datadog.Outputs
 
             bool? shouldTrackHops,
 
+            string? sourceService,
+
+            string? tcpMethod,
+
             int? timeout,
+
+            int? tracerouteQueries,
 
             string? url)
         {
@@ -158,12 +194,15 @@ namespace Pulumi.Datadog.Outputs
             BodyType = bodyType;
             CallType = callType;
             CertificateDomains = certificateDomains;
+            DestinationService = destinationService;
             DnsServer = dnsServer;
             DnsServerPort = dnsServerPort;
+            E2eQueries = e2eQueries;
             Form = form;
             Host = host;
             HttpVersion = httpVersion;
             IsMessageBase64Encoded = isMessageBase64Encoded;
+            MaxTtl = maxTtl;
             Message = message;
             Method = method;
             NoSavingResponseBody = noSavingResponseBody;
@@ -175,7 +214,10 @@ namespace Pulumi.Datadog.Outputs
             Servername = servername;
             Service = service;
             ShouldTrackHops = shouldTrackHops;
+            SourceService = sourceService;
+            TcpMethod = tcpMethod;
             Timeout = timeout;
+            TracerouteQueries = tracerouteQueries;
             Url = url;
         }
     }

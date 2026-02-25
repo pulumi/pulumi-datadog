@@ -154,6 +154,16 @@ class TeamPermissionSetting(pulumi.CustomResource):
             value="organization")
         ```
 
+        ## Import
+
+        The `pulumi import` command can be used, for example:
+
+        This resource is imported using team_id and action separated by `:`.
+
+        ```sh
+        $ pulumi import datadog:index/teamPermissionSetting:TeamPermissionSetting example "${team_id}:${action}"
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: The identifier for the action. Valid values are `manage_membership`, `edit`.
@@ -183,6 +193,16 @@ class TeamPermissionSetting(pulumi.CustomResource):
             team_id=foo.id,
             action="manage_membership",
             value="organization")
+        ```
+
+        ## Import
+
+        The `pulumi import` command can be used, for example:
+
+        This resource is imported using team_id and action separated by `:`.
+
+        ```sh
+        $ pulumi import datadog:index/teamPermissionSetting:TeamPermissionSetting example "${team_id}:${action}"
         ```
 
         :param str resource_name: The name of the resource.

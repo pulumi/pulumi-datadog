@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationSplunkHecBuffer;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,6 +19,11 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
      * 
      */
     private @Nullable Boolean autoExtractTimestamp;
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationSplunkHecBuffer buffer;
     /**
      * @return Encoding format for log events. Valid values: `json`, `rawMessage`.
      * 
@@ -41,6 +47,13 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
      */
     public Optional<Boolean> autoExtractTimestamp() {
         return Optional.ofNullable(this.autoExtractTimestamp);
+    }
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationSplunkHecBuffer> buffer() {
+        return Optional.ofNullable(this.buffer);
     }
     /**
      * @return Encoding format for log events. Valid values: `json`, `rawMessage`.
@@ -74,6 +87,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean autoExtractTimestamp;
+        private @Nullable ObservabilityPipelineConfigDestinationSplunkHecBuffer buffer;
         private String encoding;
         private @Nullable String index;
         private @Nullable String sourcetype;
@@ -81,6 +95,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
         public Builder(ObservabilityPipelineConfigDestinationSplunkHec defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoExtractTimestamp = defaults.autoExtractTimestamp;
+    	      this.buffer = defaults.buffer;
     	      this.encoding = defaults.encoding;
     	      this.index = defaults.index;
     	      this.sourcetype = defaults.sourcetype;
@@ -90,6 +105,12 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
         public Builder autoExtractTimestamp(@Nullable Boolean autoExtractTimestamp) {
 
             this.autoExtractTimestamp = autoExtractTimestamp;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationSplunkHecBuffer buffer) {
+
+            this.buffer = buffer;
             return this;
         }
         @CustomType.Setter
@@ -115,6 +136,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
         public ObservabilityPipelineConfigDestinationSplunkHec build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationSplunkHec();
             _resultValue.autoExtractTimestamp = autoExtractTimestamp;
+            _resultValue.buffer = buffer;
             _resultValue.encoding = encoding;
             _resultValue.index = index;
             _resultValue.sourcetype = sourcetype;

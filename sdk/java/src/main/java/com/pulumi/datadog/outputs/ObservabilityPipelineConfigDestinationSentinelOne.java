@@ -4,12 +4,20 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationSentinelOneBuffer;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigDestinationSentinelOne {
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationSentinelOneBuffer buffer;
     /**
      * @return The SentinelOne region to send logs to.
      * 
@@ -17,6 +25,13 @@ public final class ObservabilityPipelineConfigDestinationSentinelOne {
     private String region;
 
     private ObservabilityPipelineConfigDestinationSentinelOne() {}
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationSentinelOneBuffer> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
     /**
      * @return The SentinelOne region to send logs to.
      * 
@@ -34,13 +49,21 @@ public final class ObservabilityPipelineConfigDestinationSentinelOne {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable ObservabilityPipelineConfigDestinationSentinelOneBuffer buffer;
         private String region;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationSentinelOne defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.buffer = defaults.buffer;
     	      this.region = defaults.region;
         }
 
+        @CustomType.Setter
+        public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationSentinelOneBuffer buffer) {
+
+            this.buffer = buffer;
+            return this;
+        }
         @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
@@ -51,6 +74,7 @@ public final class ObservabilityPipelineConfigDestinationSentinelOne {
         }
         public ObservabilityPipelineConfigDestinationSentinelOne build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationSentinelOne();
+            _resultValue.buffer = buffer;
             _resultValue.region = region;
             return _resultValue;
         }

@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigDestinationSyslogNgArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        [Input("buffer")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationSyslogNgBufferArgs>? Buffer { get; set; }
+
+        /// <summary>
         /// Optional socket keepalive duration in milliseconds.
         /// </summary>
         [Input("keepalive")]

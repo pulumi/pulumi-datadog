@@ -24,6 +24,16 @@ import * as utilities from "./utilities";
  *     value: "organization",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * The `pulumi import` command can be used, for example:
+ *
+ * This resource is imported using teamId and action separated by `:`.
+ *
+ * ```sh
+ * $ pulumi import datadog:index/teamPermissionSetting:TeamPermissionSetting example "${team_id}:${action}"
+ * ```
  */
 export class TeamPermissionSetting extends pulumi.CustomResource {
     /**

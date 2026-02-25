@@ -49,6 +49,16 @@ import (
 //	}
 //
 // ```
+//
+// ## Import
+//
+// The `pulumi import` command can be used, for example:
+//
+// This resource is imported using teamId and action separated by `:`.
+//
+// ```sh
+// $ pulumi import datadog:index/teamPermissionSetting:TeamPermissionSetting example "${team_id}:${action}"
+// ```
 type TeamPermissionSetting struct {
 	pulumi.CustomResourceState
 

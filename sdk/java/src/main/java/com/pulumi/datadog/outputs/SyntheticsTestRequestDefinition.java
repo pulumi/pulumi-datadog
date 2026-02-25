@@ -36,6 +36,11 @@ public final class SyntheticsTestRequestDefinition {
      */
     private @Nullable List<String> certificateDomains;
     /**
+     * @return For Network Path tests, an optional label displayed for the destination host in the Network Path visualization.
+     * 
+     */
+    private @Nullable String destinationService;
+    /**
      * @return DNS server to use for DNS tests (`subtype = &#34;dns&#34;`).
      * 
      */
@@ -45,6 +50,11 @@ public final class SyntheticsTestRequestDefinition {
      * 
      */
     private @Nullable String dnsServerPort;
+    /**
+     * @return For Network Path tests, the number of packets sent to probe the destination to measure packet loss, latency, and jitter.
+     * 
+     */
+    private @Nullable Integer e2eQueries;
     /**
      * @return Form data to be sent when `bodyType` is `multipart/form-data`.
      * 
@@ -65,12 +75,17 @@ public final class SyntheticsTestRequestDefinition {
     @Deprecated /* Use `httpVersion` in the `optionsList` field instead. */
     private @Nullable String httpVersion;
     /**
-     * @return Whether the message is base64-encoded.
+     * @return For Websocket tests, whether the message is treated as a base64-encoded string in the server.
      * 
      */
     private @Nullable Boolean isMessageBase64Encoded;
     /**
-     * @return For gRPC, UDP and websocket tests, message to send with the request.
+     * @return For Network Path tests, the maximum time-to-live (max number of hops) used in outgoing probe packets.
+     * 
+     */
+    private @Nullable Integer maxTtl;
+    /**
+     * @return For gRPC, UDP, and Websocket tests, message to send with the request.
      * 
      */
     private @Nullable String message;
@@ -129,10 +144,25 @@ public final class SyntheticsTestRequestDefinition {
      */
     private @Nullable Boolean shouldTrackHops;
     /**
+     * @return For Network Path tests, an optional label displayed for the source host in the Network Path visualization
+     * 
+     */
+    private @Nullable String sourceService;
+    /**
+     * @return For TCP Network Path tests, the TCP traceroute strategy.
+     * 
+     */
+    private @Nullable String tcpMethod;
+    /**
      * @return Timeout in seconds for the test.
      * 
      */
     private @Nullable Integer timeout;
+    /**
+     * @return For Network Path tests, the number of traceroute path tracings.
+     * 
+     */
+    private @Nullable Integer tracerouteQueries;
     /**
      * @return The URL to send the request to.
      * 
@@ -169,6 +199,13 @@ public final class SyntheticsTestRequestDefinition {
         return this.certificateDomains == null ? List.of() : this.certificateDomains;
     }
     /**
+     * @return For Network Path tests, an optional label displayed for the destination host in the Network Path visualization.
+     * 
+     */
+    public Optional<String> destinationService() {
+        return Optional.ofNullable(this.destinationService);
+    }
+    /**
      * @return DNS server to use for DNS tests (`subtype = &#34;dns&#34;`).
      * 
      */
@@ -181,6 +218,13 @@ public final class SyntheticsTestRequestDefinition {
      */
     public Optional<String> dnsServerPort() {
         return Optional.ofNullable(this.dnsServerPort);
+    }
+    /**
+     * @return For Network Path tests, the number of packets sent to probe the destination to measure packet loss, latency, and jitter.
+     * 
+     */
+    public Optional<Integer> e2eQueries() {
+        return Optional.ofNullable(this.e2eQueries);
     }
     /**
      * @return Form data to be sent when `bodyType` is `multipart/form-data`.
@@ -208,14 +252,21 @@ public final class SyntheticsTestRequestDefinition {
         return Optional.ofNullable(this.httpVersion);
     }
     /**
-     * @return Whether the message is base64-encoded.
+     * @return For Websocket tests, whether the message is treated as a base64-encoded string in the server.
      * 
      */
     public Optional<Boolean> isMessageBase64Encoded() {
         return Optional.ofNullable(this.isMessageBase64Encoded);
     }
     /**
-     * @return For gRPC, UDP and websocket tests, message to send with the request.
+     * @return For Network Path tests, the maximum time-to-live (max number of hops) used in outgoing probe packets.
+     * 
+     */
+    public Optional<Integer> maxTtl() {
+        return Optional.ofNullable(this.maxTtl);
+    }
+    /**
+     * @return For gRPC, UDP, and Websocket tests, message to send with the request.
      * 
      */
     public Optional<String> message() {
@@ -296,11 +347,32 @@ public final class SyntheticsTestRequestDefinition {
         return Optional.ofNullable(this.shouldTrackHops);
     }
     /**
+     * @return For Network Path tests, an optional label displayed for the source host in the Network Path visualization
+     * 
+     */
+    public Optional<String> sourceService() {
+        return Optional.ofNullable(this.sourceService);
+    }
+    /**
+     * @return For TCP Network Path tests, the TCP traceroute strategy.
+     * 
+     */
+    public Optional<String> tcpMethod() {
+        return Optional.ofNullable(this.tcpMethod);
+    }
+    /**
      * @return Timeout in seconds for the test.
      * 
      */
     public Optional<Integer> timeout() {
         return Optional.ofNullable(this.timeout);
+    }
+    /**
+     * @return For Network Path tests, the number of traceroute path tracings.
+     * 
+     */
+    public Optional<Integer> tracerouteQueries() {
+        return Optional.ofNullable(this.tracerouteQueries);
     }
     /**
      * @return The URL to send the request to.
@@ -323,12 +395,15 @@ public final class SyntheticsTestRequestDefinition {
         private @Nullable String bodyType;
         private @Nullable String callType;
         private @Nullable List<String> certificateDomains;
+        private @Nullable String destinationService;
         private @Nullable String dnsServer;
         private @Nullable String dnsServerPort;
+        private @Nullable Integer e2eQueries;
         private @Nullable Map<String,String> form;
         private @Nullable String host;
         private @Nullable String httpVersion;
         private @Nullable Boolean isMessageBase64Encoded;
+        private @Nullable Integer maxTtl;
         private @Nullable String message;
         private @Nullable String method;
         private @Nullable Boolean noSavingResponseBody;
@@ -340,7 +415,10 @@ public final class SyntheticsTestRequestDefinition {
         private @Nullable String servername;
         private @Nullable String service;
         private @Nullable Boolean shouldTrackHops;
+        private @Nullable String sourceService;
+        private @Nullable String tcpMethod;
         private @Nullable Integer timeout;
+        private @Nullable Integer tracerouteQueries;
         private @Nullable String url;
         public Builder() {}
         public Builder(SyntheticsTestRequestDefinition defaults) {
@@ -349,12 +427,15 @@ public final class SyntheticsTestRequestDefinition {
     	      this.bodyType = defaults.bodyType;
     	      this.callType = defaults.callType;
     	      this.certificateDomains = defaults.certificateDomains;
+    	      this.destinationService = defaults.destinationService;
     	      this.dnsServer = defaults.dnsServer;
     	      this.dnsServerPort = defaults.dnsServerPort;
+    	      this.e2eQueries = defaults.e2eQueries;
     	      this.form = defaults.form;
     	      this.host = defaults.host;
     	      this.httpVersion = defaults.httpVersion;
     	      this.isMessageBase64Encoded = defaults.isMessageBase64Encoded;
+    	      this.maxTtl = defaults.maxTtl;
     	      this.message = defaults.message;
     	      this.method = defaults.method;
     	      this.noSavingResponseBody = defaults.noSavingResponseBody;
@@ -366,7 +447,10 @@ public final class SyntheticsTestRequestDefinition {
     	      this.servername = defaults.servername;
     	      this.service = defaults.service;
     	      this.shouldTrackHops = defaults.shouldTrackHops;
+    	      this.sourceService = defaults.sourceService;
+    	      this.tcpMethod = defaults.tcpMethod;
     	      this.timeout = defaults.timeout;
+    	      this.tracerouteQueries = defaults.tracerouteQueries;
     	      this.url = defaults.url;
         }
 
@@ -398,6 +482,12 @@ public final class SyntheticsTestRequestDefinition {
             return certificateDomains(List.of(certificateDomains));
         }
         @CustomType.Setter
+        public Builder destinationService(@Nullable String destinationService) {
+
+            this.destinationService = destinationService;
+            return this;
+        }
+        @CustomType.Setter
         public Builder dnsServer(@Nullable String dnsServer) {
 
             this.dnsServer = dnsServer;
@@ -407,6 +497,12 @@ public final class SyntheticsTestRequestDefinition {
         public Builder dnsServerPort(@Nullable String dnsServerPort) {
 
             this.dnsServerPort = dnsServerPort;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder e2eQueries(@Nullable Integer e2eQueries) {
+
+            this.e2eQueries = e2eQueries;
             return this;
         }
         @CustomType.Setter
@@ -431,6 +527,12 @@ public final class SyntheticsTestRequestDefinition {
         public Builder isMessageBase64Encoded(@Nullable Boolean isMessageBase64Encoded) {
 
             this.isMessageBase64Encoded = isMessageBase64Encoded;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder maxTtl(@Nullable Integer maxTtl) {
+
+            this.maxTtl = maxTtl;
             return this;
         }
         @CustomType.Setter
@@ -500,9 +602,27 @@ public final class SyntheticsTestRequestDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder sourceService(@Nullable String sourceService) {
+
+            this.sourceService = sourceService;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tcpMethod(@Nullable String tcpMethod) {
+
+            this.tcpMethod = tcpMethod;
+            return this;
+        }
+        @CustomType.Setter
         public Builder timeout(@Nullable Integer timeout) {
 
             this.timeout = timeout;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tracerouteQueries(@Nullable Integer tracerouteQueries) {
+
+            this.tracerouteQueries = tracerouteQueries;
             return this;
         }
         @CustomType.Setter
@@ -517,12 +637,15 @@ public final class SyntheticsTestRequestDefinition {
             _resultValue.bodyType = bodyType;
             _resultValue.callType = callType;
             _resultValue.certificateDomains = certificateDomains;
+            _resultValue.destinationService = destinationService;
             _resultValue.dnsServer = dnsServer;
             _resultValue.dnsServerPort = dnsServerPort;
+            _resultValue.e2eQueries = e2eQueries;
             _resultValue.form = form;
             _resultValue.host = host;
             _resultValue.httpVersion = httpVersion;
             _resultValue.isMessageBase64Encoded = isMessageBase64Encoded;
+            _resultValue.maxTtl = maxTtl;
             _resultValue.message = message;
             _resultValue.method = method;
             _resultValue.noSavingResponseBody = noSavingResponseBody;
@@ -534,7 +657,10 @@ public final class SyntheticsTestRequestDefinition {
             _resultValue.servername = servername;
             _resultValue.service = service;
             _resultValue.shouldTrackHops = shouldTrackHops;
+            _resultValue.sourceService = sourceService;
+            _resultValue.tcpMethod = tcpMethod;
             _resultValue.timeout = timeout;
+            _resultValue.tracerouteQueries = tracerouteQueries;
             _resultValue.url = url;
             return _resultValue;
         }

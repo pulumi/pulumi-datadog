@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationGoogleSecopAuthArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationGoogleSecopBufferArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
@@ -30,6 +31,21 @@ public final class ObservabilityPipelineConfigDestinationGoogleSecopArgs extends
      */
     public Optional<Output<ObservabilityPipelineConfigDestinationGoogleSecopAuthArgs>> auth() {
         return Optional.ofNullable(this.auth);
+    }
+
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    @Import(name="buffer")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationGoogleSecopBufferArgs> buffer;
+
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationGoogleSecopBufferArgs>> buffer() {
+        return Optional.ofNullable(this.buffer);
     }
 
     /**
@@ -81,6 +97,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleSecopArgs extends
 
     private ObservabilityPipelineConfigDestinationGoogleSecopArgs(ObservabilityPipelineConfigDestinationGoogleSecopArgs $) {
         this.auth = $.auth;
+        this.buffer = $.buffer;
         this.customerId = $.customerId;
         this.encoding = $.encoding;
         this.logType = $.logType;
@@ -123,6 +140,27 @@ public final class ObservabilityPipelineConfigDestinationGoogleSecopArgs extends
          */
         public Builder auth(ObservabilityPipelineConfigDestinationGoogleSecopAuthArgs auth) {
             return auth(Output.of(auth));
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(@Nullable Output<ObservabilityPipelineConfigDestinationGoogleSecopBufferArgs> buffer) {
+            $.buffer = buffer;
+            return this;
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(ObservabilityPipelineConfigDestinationGoogleSecopBufferArgs buffer) {
+            return buffer(Output.of(buffer));
         }
 
         /**

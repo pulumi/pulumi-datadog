@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationSumoLogicBufferArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationSumoLogicHeaderCustomFieldArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class ObservabilityPipelineConfigDestinationSumoLogicArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ObservabilityPipelineConfigDestinationSumoLogicArgs Empty = new ObservabilityPipelineConfigDestinationSumoLogicArgs();
+
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    @Import(name="buffer")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationSumoLogicBufferArgs> buffer;
+
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationSumoLogicBufferArgs>> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
 
     /**
      * The output encoding format.
@@ -95,6 +111,7 @@ public final class ObservabilityPipelineConfigDestinationSumoLogicArgs extends c
     private ObservabilityPipelineConfigDestinationSumoLogicArgs() {}
 
     private ObservabilityPipelineConfigDestinationSumoLogicArgs(ObservabilityPipelineConfigDestinationSumoLogicArgs $) {
+        this.buffer = $.buffer;
         this.encoding = $.encoding;
         this.headerCustomFields = $.headerCustomFields;
         this.headerHostName = $.headerHostName;
@@ -118,6 +135,27 @@ public final class ObservabilityPipelineConfigDestinationSumoLogicArgs extends c
 
         public Builder(ObservabilityPipelineConfigDestinationSumoLogicArgs defaults) {
             $ = new ObservabilityPipelineConfigDestinationSumoLogicArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(@Nullable Output<ObservabilityPipelineConfigDestinationSumoLogicBufferArgs> buffer) {
+            $.buffer = buffer;
+            return this;
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(ObservabilityPipelineConfigDestinationSumoLogicBufferArgs buffer) {
+            return buffer(Output.of(buffer));
         }
 
         /**

@@ -26,6 +26,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Bucket;
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageBuffer? Buffer;
+        /// <summary>
         /// Optional prefix for object keys within the GCS bucket.
         /// </summary>
         public readonly string? KeyPrefix;
@@ -46,6 +50,8 @@ namespace Pulumi.Datadog.Outputs
 
             string bucket,
 
+            Outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageBuffer? buffer,
+
             string? keyPrefix,
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageMetadata> metadatas,
@@ -55,6 +61,7 @@ namespace Pulumi.Datadog.Outputs
             Acl = acl;
             Auth = auth;
             Bucket = bucket;
+            Buffer = buffer;
             KeyPrefix = keyPrefix;
             Metadatas = metadatas;
             StorageClass = storageClass;

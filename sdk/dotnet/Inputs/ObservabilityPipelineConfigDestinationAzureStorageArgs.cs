@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? BlobPrefix { get; set; }
 
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        [Input("buffer")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationAzureStorageBufferArgs>? Buffer { get; set; }
+
+        /// <summary>
         /// The name of the Azure Blob Storage container to store logs in.
         /// </summary>
         [Input("containerName", required: true)]

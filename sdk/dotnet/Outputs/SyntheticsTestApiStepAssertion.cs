@@ -18,11 +18,11 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Code;
         /// <summary>
-        /// Assertion operator. **Note:** Only some combinations of `Type` and `Operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test).
+        /// Assertion operator. **Note:** Only some combinations of `Type` and `Operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `Contains`, `doesNotContain`, `Is`, `isNot`, `lessThan`, `lessThanOrEqual`, `moreThan`, `moreThanOrEqual`, `Matches`, `doesNotMatch`, `Validates`, `isInMoreThan`, `isInLessThan`, `doesNotExist`, `isUndefined`, `validatesJSONPath`, `validatesJSONSchema`, `validatesXPath`, `Md5`, `Sha1`, `Sha256`, `Is`, `isNot`, `lessThan`, `lessThanOrEqual`, `moreThan`, `moreThanOrEqual`.
         /// </summary>
         public readonly string? Operator;
         /// <summary>
-        /// If assertion type is `Header`, this is the header name.
+        /// If assertion type is `Header` or `grpcMetadata`, this is the header name. For other assertion types, this is an aggregation property: `Avg`, `Min`, `Max`, or `Stddev`.
         /// </summary>
         public readonly string? Property;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? TimingsScope;
         /// <summary>
-        /// Type of assertion. **Note:** Only some combinations of `Type` and `Operator` are valid. Refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). Valid values are `Body`, `Header`, `statusCode`, `Certificate`, `responseTime`, `Property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `Latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `Connection`, `bodyHash`, `Javascript`.
+        /// Type of assertion. **Note:** Only some combinations of `Type` and `Operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#synthetics-create-a-network-path-test). Valid values are `Body`, `Header`, `statusCode`, `Certificate`, `responseTime`, `Property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `Latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `Connection`, `multiNetworkHop`, `Jitter`, `bodyHash`, `Javascript`.
         /// </summary>
         public readonly string Type;
 

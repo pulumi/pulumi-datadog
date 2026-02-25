@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationDatadogLogBufferArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationDatadogLogRouteArgs;
 import java.util.List;
 import java.util.Objects;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class ObservabilityPipelineConfigDestinationDatadogLogArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ObservabilityPipelineConfigDestinationDatadogLogArgs Empty = new ObservabilityPipelineConfigDestinationDatadogLogArgs();
+
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    @Import(name="buffer")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationDatadogLogBufferArgs> buffer;
+
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationDatadogLogBufferArgs>> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
 
     /**
      * A list of routing rules that forward matching logs to Datadog using dedicated API keys.
@@ -34,6 +50,7 @@ public final class ObservabilityPipelineConfigDestinationDatadogLogArgs extends 
     private ObservabilityPipelineConfigDestinationDatadogLogArgs() {}
 
     private ObservabilityPipelineConfigDestinationDatadogLogArgs(ObservabilityPipelineConfigDestinationDatadogLogArgs $) {
+        this.buffer = $.buffer;
         this.routes = $.routes;
     }
 
@@ -53,6 +70,27 @@ public final class ObservabilityPipelineConfigDestinationDatadogLogArgs extends 
 
         public Builder(ObservabilityPipelineConfigDestinationDatadogLogArgs defaults) {
             $ = new ObservabilityPipelineConfigDestinationDatadogLogArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(@Nullable Output<ObservabilityPipelineConfigDestinationDatadogLogBufferArgs> buffer) {
+            $.buffer = buffer;
+            return this;
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(ObservabilityPipelineConfigDestinationDatadogLogBufferArgs buffer) {
+            return buffer(Output.of(buffer));
         }
 
         /**

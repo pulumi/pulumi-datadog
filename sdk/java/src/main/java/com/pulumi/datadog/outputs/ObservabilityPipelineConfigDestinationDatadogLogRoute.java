@@ -4,9 +4,12 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationDatadogLogRouteBuffer;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigDestinationDatadogLogRoute {
@@ -15,6 +18,11 @@ public final class ObservabilityPipelineConfigDestinationDatadogLogRoute {
      * 
      */
     private String apiKeyKey;
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationDatadogLogRouteBuffer buffer;
     /**
      * @return A Datadog search query that determines which logs are forwarded using this route.
      * 
@@ -38,6 +46,13 @@ public final class ObservabilityPipelineConfigDestinationDatadogLogRoute {
      */
     public String apiKeyKey() {
         return this.apiKeyKey;
+    }
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationDatadogLogRouteBuffer> buffer() {
+        return Optional.ofNullable(this.buffer);
     }
     /**
      * @return A Datadog search query that determines which logs are forwarded using this route.
@@ -71,6 +86,7 @@ public final class ObservabilityPipelineConfigDestinationDatadogLogRoute {
     @CustomType.Builder
     public static final class Builder {
         private String apiKeyKey;
+        private @Nullable ObservabilityPipelineConfigDestinationDatadogLogRouteBuffer buffer;
         private String include;
         private String routeId;
         private String site;
@@ -78,6 +94,7 @@ public final class ObservabilityPipelineConfigDestinationDatadogLogRoute {
         public Builder(ObservabilityPipelineConfigDestinationDatadogLogRoute defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiKeyKey = defaults.apiKeyKey;
+    	      this.buffer = defaults.buffer;
     	      this.include = defaults.include;
     	      this.routeId = defaults.routeId;
     	      this.site = defaults.site;
@@ -89,6 +106,12 @@ public final class ObservabilityPipelineConfigDestinationDatadogLogRoute {
               throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationDatadogLogRoute", "apiKeyKey");
             }
             this.apiKeyKey = apiKeyKey;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationDatadogLogRouteBuffer buffer) {
+
+            this.buffer = buffer;
             return this;
         }
         @CustomType.Setter
@@ -118,6 +141,7 @@ public final class ObservabilityPipelineConfigDestinationDatadogLogRoute {
         public ObservabilityPipelineConfigDestinationDatadogLogRoute build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationDatadogLogRoute();
             _resultValue.apiKeyKey = apiKeyKey;
+            _resultValue.buffer = buffer;
             _resultValue.include = include;
             _resultValue.routeId = routeId;
             _resultValue.site = site;

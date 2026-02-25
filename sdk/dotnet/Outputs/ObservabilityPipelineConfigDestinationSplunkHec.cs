@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? AutoExtractTimestamp;
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationSplunkHecBuffer? Buffer;
+        /// <summary>
         /// Encoding format for log events. Valid values: `Json`, `RawMessage`.
         /// </summary>
         public readonly string Encoding;
@@ -34,6 +38,8 @@ namespace Pulumi.Datadog.Outputs
         private ObservabilityPipelineConfigDestinationSplunkHec(
             bool? autoExtractTimestamp,
 
+            Outputs.ObservabilityPipelineConfigDestinationSplunkHecBuffer? buffer,
+
             string encoding,
 
             string? index,
@@ -41,6 +47,7 @@ namespace Pulumi.Datadog.Outputs
             string? sourcetype)
         {
             AutoExtractTimestamp = autoExtractTimestamp;
+            Buffer = buffer;
             Encoding = encoding;
             Index = index;
             Sourcetype = sourcetype;

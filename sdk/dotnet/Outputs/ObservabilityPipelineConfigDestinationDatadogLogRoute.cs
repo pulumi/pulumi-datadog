@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string ApiKeyKey;
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationDatadogLogRouteBuffer? Buffer;
+        /// <summary>
         /// A Datadog search query that determines which logs are forwarded using this route.
         /// </summary>
         public readonly string Include;
@@ -34,6 +38,8 @@ namespace Pulumi.Datadog.Outputs
         private ObservabilityPipelineConfigDestinationDatadogLogRoute(
             string apiKeyKey,
 
+            Outputs.ObservabilityPipelineConfigDestinationDatadogLogRouteBuffer? buffer,
+
             string include,
 
             string routeId,
@@ -41,6 +47,7 @@ namespace Pulumi.Datadog.Outputs
             string site)
         {
             ApiKeyKey = apiKeyKey;
+            Buffer = buffer;
             Include = include;
             RouteId = routeId;
             Site = site;

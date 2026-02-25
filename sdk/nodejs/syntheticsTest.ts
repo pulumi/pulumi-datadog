@@ -707,6 +707,184 @@ import * as utilities from "./utilities";
  *         tickEvery: 900,
  *     },
  * });
+ * // Example Usage (TCP Network Path Test)
+ * // Create a new Datadog TCP Network Path test to example.com on port 443
+ * // using the TCP traceroute strategy "syn"
+ * const networkTcp = new datadog.SyntheticsTest("network_tcp", {
+ *     name: "TCP Network Path Test",
+ *     type: "network",
+ *     subtype: "tcp",
+ *     status: "live",
+ *     message: "Notify @pagerduty",
+ *     locations: ["aws:eu-central-1"],
+ *     tags: [
+ *         "foo:bar",
+ *         "foo",
+ *         "env:test",
+ *     ],
+ *     requestDefinition: {
+ *         host: "example.com",
+ *         port: "443",
+ *         e2eQueries: 5,
+ *         maxTtl: 30,
+ *         tracerouteQueries: 3,
+ *         tcpMethod: "syn",
+ *         timeout: 10,
+ *     },
+ *     assertions: [
+ *         {
+ *             type: "latency",
+ *             operator: "lessThan",
+ *             property: "avg",
+ *             target: "200",
+ *         },
+ *         {
+ *             type: "latency",
+ *             operator: "lessThan",
+ *             property: "max",
+ *             target: "500",
+ *         },
+ *         {
+ *             type: "jitter",
+ *             operator: "lessThan",
+ *             target: "50",
+ *         },
+ *         {
+ *             type: "packetLossPercentage",
+ *             operator: "lessThan",
+ *             target: "0.5",
+ *         },
+ *         {
+ *             type: "multiNetworkHop",
+ *             operator: "lessThan",
+ *             property: "max",
+ *             target: "20",
+ *         },
+ *     ],
+ *     optionsList: {
+ *         tickEvery: 900,
+ *         retry: {
+ *             count: 2,
+ *             interval: 300,
+ *         },
+ *         monitorOptions: {
+ *             renotifyInterval: 120,
+ *         },
+ *     },
+ * });
+ * // Example Usage (UDP Network Path Test)
+ * // Create a new Datadog UDP Network Path test to example.com on port 53
+ * const networkUdp = new datadog.SyntheticsTest("network_udp", {
+ *     name: "UDP Network Path Test",
+ *     type: "network",
+ *     subtype: "udp",
+ *     status: "live",
+ *     message: "Notify @pagerduty",
+ *     locations: ["aws:eu-central-1"],
+ *     tags: [
+ *         "foo:bar",
+ *         "foo",
+ *         "env:test",
+ *     ],
+ *     requestDefinition: {
+ *         host: "example.com",
+ *         port: "53",
+ *         e2eQueries: 5,
+ *         maxTtl: 30,
+ *         tracerouteQueries: 3,
+ *         timeout: 10,
+ *     },
+ *     assertions: [
+ *         {
+ *             type: "latency",
+ *             operator: "lessThan",
+ *             property: "avg",
+ *             target: "100.2",
+ *         },
+ *         {
+ *             type: "jitter",
+ *             operator: "lessThan",
+ *             target: "20",
+ *         },
+ *         {
+ *             type: "packetLossPercentage",
+ *             operator: "lessThan",
+ *             target: "0.1",
+ *         },
+ *     ],
+ *     optionsList: {
+ *         tickEvery: 900,
+ *         retry: {
+ *             count: 2,
+ *             interval: 300,
+ *         },
+ *         monitorOptions: {
+ *             renotifyInterval: 120,
+ *         },
+ *     },
+ * });
+ * // Example Usage (ICMP Network Path Test)
+ * // Create a new Datadog ICMP Network Path test to example.com
+ * const networkIcmp = new datadog.SyntheticsTest("network_icmp", {
+ *     name: "ICMP Network Path Test",
+ *     type: "network",
+ *     subtype: "icmp",
+ *     status: "live",
+ *     message: "Notify @pagerduty",
+ *     locations: ["aws:eu-central-1"],
+ *     tags: [
+ *         "foo:bar",
+ *         "foo",
+ *         "env:test",
+ *     ],
+ *     requestDefinition: {
+ *         host: "example.com",
+ *         e2eQueries: 5,
+ *         maxTtl: 30,
+ *         tracerouteQueries: 3,
+ *         timeout: 10,
+ *     },
+ *     assertions: [
+ *         {
+ *             type: "latency",
+ *             operator: "lessThan",
+ *             property: "avg",
+ *             target: "150",
+ *         },
+ *         {
+ *             type: "latency",
+ *             operator: "lessThan",
+ *             property: "max",
+ *             target: "300",
+ *         },
+ *         {
+ *             type: "jitter",
+ *             operator: "lessThan",
+ *             target: "30",
+ *         },
+ *         {
+ *             type: "packetLossPercentage",
+ *             operator: "lessThan",
+ *             target: "0.5",
+ *         },
+ *         {
+ *             type: "multiNetworkHop",
+ *             operator: "lessThan",
+ *             property: "avg",
+ *             target: "15",
+ *         },
+ *     ],
+ *     optionsList: {
+ *         tickEvery: 900,
+ *         retry: {
+ *             count: 2,
+ *             interval: 300,
+ *         },
+ *         monitorOptions: {
+ *             renotifyInterval: 120,
+ *         },
+ *     },
+ * });
  * ```
  *
  * ## Import
@@ -840,7 +1018,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     declare public readonly status: pulumi.Output<string>;
     /**
-     * The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+     * The subtype for API or Network Path tests. For API tests, defaults to `http`. For Network Path tests, only `tcp`, `udp`, `icmp` are available. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
      */
     declare public readonly subtype: pulumi.Output<string | undefined>;
     /**
@@ -848,7 +1026,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<string[] | undefined>;
     /**
-     * Synthetics test type. Valid values are `api`, `browser`, `mobile`.
+     * The type of Synthetics test. Valid values are `api`, `browser`, `mobile`, `network`.
      */
     declare public readonly type: pulumi.Output<string>;
     /**
@@ -1046,7 +1224,7 @@ export interface SyntheticsTestState {
      */
     status?: pulumi.Input<string>;
     /**
-     * The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+     * The subtype for API or Network Path tests. For API tests, defaults to `http`. For Network Path tests, only `tcp`, `udp`, `icmp` are available. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
      */
     subtype?: pulumi.Input<string>;
     /**
@@ -1054,7 +1232,7 @@ export interface SyntheticsTestState {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Synthetics test type. Valid values are `api`, `browser`, `mobile`.
+     * The type of Synthetics test. Valid values are `api`, `browser`, `mobile`, `network`.
      */
     type?: pulumi.Input<string>;
     /**
@@ -1158,7 +1336,7 @@ export interface SyntheticsTestArgs {
      */
     status: pulumi.Input<string>;
     /**
-     * The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+     * The subtype for API or Network Path tests. For API tests, defaults to `http`. For Network Path tests, only `tcp`, `udp`, `icmp` are available. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
      */
     subtype?: pulumi.Input<string>;
     /**
@@ -1166,7 +1344,7 @@ export interface SyntheticsTestArgs {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Synthetics test type. Valid values are `api`, `browser`, `mobile`.
+     * The type of Synthetics test. Valid values are `api`, `browser`, `mobile`, `network`.
      */
     type: pulumi.Input<string>;
     /**

@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ReferenceTableSchemaField;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -13,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ReferenceTableSchema {
     /**
-     * @return List of fields in the table schema. Must include at least one field. Schema is only set on create.
+     * @return List of fields in the table schema. At least one field is required. Schema is only set on create.
      * 
      */
     private @Nullable List<ReferenceTableSchemaField> fields;
@@ -21,11 +22,11 @@ public final class ReferenceTableSchema {
      * @return List of field names that serve as primary keys for the table. Currently only one primary key is supported.
      * 
      */
-    private @Nullable List<String> primaryKeys;
+    private List<String> primaryKeys;
 
     private ReferenceTableSchema() {}
     /**
-     * @return List of fields in the table schema. Must include at least one field. Schema is only set on create.
+     * @return List of fields in the table schema. At least one field is required. Schema is only set on create.
      * 
      */
     public List<ReferenceTableSchemaField> fields() {
@@ -36,7 +37,7 @@ public final class ReferenceTableSchema {
      * 
      */
     public List<String> primaryKeys() {
-        return this.primaryKeys == null ? List.of() : this.primaryKeys;
+        return this.primaryKeys;
     }
 
     public static Builder builder() {
@@ -49,7 +50,7 @@ public final class ReferenceTableSchema {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ReferenceTableSchemaField> fields;
-        private @Nullable List<String> primaryKeys;
+        private List<String> primaryKeys;
         public Builder() {}
         public Builder(ReferenceTableSchema defaults) {
     	      Objects.requireNonNull(defaults);
@@ -67,8 +68,10 @@ public final class ReferenceTableSchema {
             return fields(List.of(fields));
         }
         @CustomType.Setter
-        public Builder primaryKeys(@Nullable List<String> primaryKeys) {
-
+        public Builder primaryKeys(List<String> primaryKeys) {
+            if (primaryKeys == null) {
+              throw new MissingRequiredPropertyException("ReferenceTableSchema", "primaryKeys");
+            }
             this.primaryKeys = primaryKeys;
             return this;
         }
