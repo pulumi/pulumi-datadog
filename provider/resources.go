@@ -242,7 +242,7 @@ func Provider() tfbridge.ProviderInfo {
 			lower := string(unicode.ToLower(rune(name[0]))) + name[1:]
 			return datadogPkg + ":" + module + "/" + lower + ":" + name, nil
 		})
-	contract.AssertNoError(err)
+	contract.AssertNoErrorf(err, "")
 
 	prov.MustComputeTokens(strategy)
 	prov.MustApplyAutoAliases()
