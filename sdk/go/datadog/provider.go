@@ -98,7 +98,7 @@ type providerArgs struct {
 	CloudProviderRegion *string `pulumi:"cloudProviderRegion"`
 	// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
 	CloudProviderType *string `pulumi:"cloudProviderType"`
-	// [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
+	// [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
 	DefaultTags *ProviderDefaultTags `pulumi:"defaultTags"`
 	// The HTTP request retry back off base. Defaults to 2.
 	HttpClientRetryBackoffBase *int `pulumi:"httpClientRetryBackoffBase"`
@@ -134,7 +134,7 @@ type ProviderArgs struct {
 	CloudProviderRegion pulumi.StringPtrInput
 	// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
 	CloudProviderType pulumi.StringPtrInput
-	// [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
+	// [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
 	DefaultTags ProviderDefaultTagsPtrInput
 	// The HTTP request retry back off base. Defaults to 2.
 	HttpClientRetryBackoffBase pulumi.IntPtrInput

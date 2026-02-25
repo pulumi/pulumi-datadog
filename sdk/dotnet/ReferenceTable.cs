@@ -105,7 +105,9 @@ namespace Pulumi.Datadog
     /// $ pulumi import datadog:index/referenceTable:ReferenceTable imported_table "00000000-0000-0000-0000-000000000000"
     /// ```
     /// 
-    /// After importing, add the resource configuration to your .tf file:
+    /// After importing, you must add the full resource configuration to your .tf file.
+    /// Use `terraform state show datadog_reference_table.imported_table` to view the imported schema
+    /// and other attributes, then add the matching configuration:
     /// 
     /// resource "datadog.ReferenceTable" "ImportedTable" {
     /// TableName  = "ExistingTable"
@@ -175,7 +177,7 @@ namespace Pulumi.Datadog
         public Output<int> RowCount { get; private set; } = null!;
 
         /// <summary>
-        /// The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+        /// The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
         /// </summary>
         [Output("schema")]
         public Output<Outputs.ReferenceTableSchema?> Schema { get; private set; } = null!;
@@ -269,7 +271,7 @@ namespace Pulumi.Datadog
         public Input<Inputs.ReferenceTableFileMetadataArgs>? FileMetadata { get; set; }
 
         /// <summary>
-        /// The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+        /// The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
         /// </summary>
         [Input("schema")]
         public Input<Inputs.ReferenceTableSchemaArgs>? Schema { get; set; }
@@ -337,7 +339,7 @@ namespace Pulumi.Datadog
         public Input<int>? RowCount { get; set; }
 
         /// <summary>
-        /// The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+        /// The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
         /// </summary>
         [Input("schema")]
         public Input<Inputs.ReferenceTableSchemaGetArgs>? Schema { get; set; }

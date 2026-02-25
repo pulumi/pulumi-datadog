@@ -56,6 +56,11 @@ public final class GetLogsIndexesLogsIndex {
      * 
      */
     private Integer retentionDays;
+    /**
+     * @return A list of tags for this index. Tags are in `key:value` format.
+     * 
+     */
+    private List<String> tags;
 
     private GetLogsIndexesLogsIndex() {}
     /**
@@ -114,6 +119,13 @@ public final class GetLogsIndexesLogsIndex {
     public Integer retentionDays() {
         return this.retentionDays;
     }
+    /**
+     * @return A list of tags for this index. Tags are in `key:value` format.
+     * 
+     */
+    public List<String> tags() {
+        return this.tags;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -132,6 +144,7 @@ public final class GetLogsIndexesLogsIndex {
         private Integer flexRetentionDays;
         private String name;
         private Integer retentionDays;
+        private List<String> tags;
         public Builder() {}
         public Builder(GetLogsIndexesLogsIndex defaults) {
     	      Objects.requireNonNull(defaults);
@@ -143,6 +156,7 @@ public final class GetLogsIndexesLogsIndex {
     	      this.flexRetentionDays = defaults.flexRetentionDays;
     	      this.name = defaults.name;
     	      this.retentionDays = defaults.retentionDays;
+    	      this.tags = defaults.tags;
         }
 
         @CustomType.Setter
@@ -218,6 +232,17 @@ public final class GetLogsIndexesLogsIndex {
             this.retentionDays = retentionDays;
             return this;
         }
+        @CustomType.Setter
+        public Builder tags(List<String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetLogsIndexesLogsIndex", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
+        public Builder tags(String... tags) {
+            return tags(List.of(tags));
+        }
         public GetLogsIndexesLogsIndex build() {
             final var _resultValue = new GetLogsIndexesLogsIndex();
             _resultValue.dailyLimit = dailyLimit;
@@ -228,6 +253,7 @@ public final class GetLogsIndexesLogsIndex {
             _resultValue.flexRetentionDays = flexRetentionDays;
             _resultValue.name = name;
             _resultValue.retentionDays = retentionDays;
+            _resultValue.tags = tags;
             return _resultValue;
         }
     }

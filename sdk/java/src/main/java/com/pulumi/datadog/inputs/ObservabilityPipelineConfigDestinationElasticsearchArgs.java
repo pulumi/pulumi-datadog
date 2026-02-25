@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationElasticsearchBufferArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationElasticsearchDataStreamArgs;
 import java.lang.String;
 import java.util.Objects;
@@ -29,6 +30,21 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchArgs exten
      */
     public Optional<Output<String>> apiVersion() {
         return Optional.ofNullable(this.apiVersion);
+    }
+
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    @Import(name="buffer")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationElasticsearchBufferArgs> buffer;
+
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationElasticsearchBufferArgs>> buffer() {
+        return Optional.ofNullable(this.buffer);
     }
 
     /**
@@ -65,6 +81,7 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchArgs exten
 
     private ObservabilityPipelineConfigDestinationElasticsearchArgs(ObservabilityPipelineConfigDestinationElasticsearchArgs $) {
         this.apiVersion = $.apiVersion;
+        this.buffer = $.buffer;
         this.bulkIndex = $.bulkIndex;
         this.dataStream = $.dataStream;
     }
@@ -106,6 +123,27 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchArgs exten
          */
         public Builder apiVersion(String apiVersion) {
             return apiVersion(Output.of(apiVersion));
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(@Nullable Output<ObservabilityPipelineConfigDestinationElasticsearchBufferArgs> buffer) {
+            $.buffer = buffer;
+            return this;
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(ObservabilityPipelineConfigDestinationElasticsearchBufferArgs buffer) {
+            return buffer(Output.of(buffer));
         }
 
         /**

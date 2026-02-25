@@ -4,12 +4,20 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationMicrosoftSentinelBuffer;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigDestinationMicrosoftSentinel {
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationMicrosoftSentinelBuffer buffer;
     /**
      * @return Azure AD client ID used for authentication.
      * 
@@ -32,6 +40,13 @@ public final class ObservabilityPipelineConfigDestinationMicrosoftSentinel {
     private String tenantId;
 
     private ObservabilityPipelineConfigDestinationMicrosoftSentinel() {}
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationMicrosoftSentinelBuffer> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
     /**
      * @return Azure AD client ID used for authentication.
      * 
@@ -70,6 +85,7 @@ public final class ObservabilityPipelineConfigDestinationMicrosoftSentinel {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable ObservabilityPipelineConfigDestinationMicrosoftSentinelBuffer buffer;
         private String clientId;
         private String dcrImmutableId;
         private String table;
@@ -77,12 +93,19 @@ public final class ObservabilityPipelineConfigDestinationMicrosoftSentinel {
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationMicrosoftSentinel defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.buffer = defaults.buffer;
     	      this.clientId = defaults.clientId;
     	      this.dcrImmutableId = defaults.dcrImmutableId;
     	      this.table = defaults.table;
     	      this.tenantId = defaults.tenantId;
         }
 
+        @CustomType.Setter
+        public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationMicrosoftSentinelBuffer buffer) {
+
+            this.buffer = buffer;
+            return this;
+        }
         @CustomType.Setter
         public Builder clientId(String clientId) {
             if (clientId == null) {
@@ -117,6 +140,7 @@ public final class ObservabilityPipelineConfigDestinationMicrosoftSentinel {
         }
         public ObservabilityPipelineConfigDestinationMicrosoftSentinel build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationMicrosoftSentinel();
+            _resultValue.buffer = buffer;
             _resultValue.clientId = clientId;
             _resultValue.dcrImmutableId = dcrImmutableId;
             _resultValue.table = table;

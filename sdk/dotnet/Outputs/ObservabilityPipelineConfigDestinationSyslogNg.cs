@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationSyslogNg
     {
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationSyslogNgBuffer? Buffer;
+        /// <summary>
         /// Optional socket keepalive duration in milliseconds.
         /// </summary>
         public readonly int? Keepalive;
@@ -24,10 +28,13 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationSyslogNg(
+            Outputs.ObservabilityPipelineConfigDestinationSyslogNgBuffer? buffer,
+
             int? keepalive,
 
             Outputs.ObservabilityPipelineConfigDestinationSyslogNgTls? tls)
         {
+            Buffer = buffer;
             Keepalive = keepalive;
             Tls = tls;
         }

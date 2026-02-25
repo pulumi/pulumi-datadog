@@ -29,7 +29,8 @@ class LogsIndexArgs:
                  disable_daily_limit: Optional[pulumi.Input[_builtins.bool]] = None,
                  exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]] = None,
                  flex_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LogsIndex resource.
         :param pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]] filters: Logs filter
@@ -41,6 +42,7 @@ class LogsIndexArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[_builtins.int] flex_retention_days: The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
         :param pulumi.Input[_builtins.int] retention_days: The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
         """
         pulumi.set(__self__, "filters", filters)
         pulumi.set(__self__, "name", name)
@@ -58,6 +60,8 @@ class LogsIndexArgs:
             pulumi.set(__self__, "flex_retention_days", flex_retention_days)
         if retention_days is not None:
             pulumi.set(__self__, "retention_days", retention_days)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter
@@ -167,6 +171,18 @@ class LogsIndexArgs:
     def retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "retention_days", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _LogsIndexState:
@@ -179,7 +195,8 @@ class _LogsIndexState:
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]]] = None,
                  flex_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LogsIndex resources.
         :param pulumi.Input[_builtins.int] daily_limit: The number of log events you can send in this index per day before you are rate-limited.
@@ -191,6 +208,7 @@ class _LogsIndexState:
         :param pulumi.Input[_builtins.int] flex_retention_days: The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
         :param pulumi.Input[_builtins.str] name: The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
         :param pulumi.Input[_builtins.int] retention_days: The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
         """
         if daily_limit is not None:
             pulumi.set(__self__, "daily_limit", daily_limit)
@@ -210,6 +228,8 @@ class _LogsIndexState:
             pulumi.set(__self__, "name", name)
         if retention_days is not None:
             pulumi.set(__self__, "retention_days", retention_days)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="dailyLimit")
@@ -319,6 +339,18 @@ class _LogsIndexState:
     def retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "retention_days", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("datadog:index/logsIndex:LogsIndex")
 class LogsIndex(pulumi.CustomResource):
@@ -335,6 +367,7 @@ class LogsIndex(pulumi.CustomResource):
                  flex_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  retention_days: Optional[pulumi.Input[_builtins.int]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a Datadog Logs Index API resource. This can be used to create and manage Datadog logs indexes.
@@ -376,6 +409,10 @@ class LogsIndex(pulumi.CustomResource):
                         "sample_rate": 1,
                     }],
                 },
+            ],
+            tags=[
+                "team:backend",
+                "env:production",
             ])
         ```
 
@@ -398,6 +435,7 @@ class LogsIndex(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] flex_retention_days: The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
         :param pulumi.Input[_builtins.str] name: The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
         :param pulumi.Input[_builtins.int] retention_days: The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
         """
         ...
     @overload
@@ -445,6 +483,10 @@ class LogsIndex(pulumi.CustomResource):
                         "sample_rate": 1,
                     }],
                 },
+            ],
+            tags=[
+                "team:backend",
+                "env:production",
             ])
         ```
 
@@ -480,6 +522,7 @@ class LogsIndex(pulumi.CustomResource):
                  flex_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  retention_days: Optional[pulumi.Input[_builtins.int]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -502,6 +545,7 @@ class LogsIndex(pulumi.CustomResource):
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["retention_days"] = retention_days
+            __props__.__dict__["tags"] = tags
         super(LogsIndex, __self__).__init__(
             'datadog:index/logsIndex:LogsIndex',
             resource_name,
@@ -520,7 +564,8 @@ class LogsIndex(pulumi.CustomResource):
             filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexFilterArgs', 'LogsIndexFilterArgsDict']]]]] = None,
             flex_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
-            retention_days: Optional[pulumi.Input[_builtins.int]] = None) -> 'LogsIndex':
+            retention_days: Optional[pulumi.Input[_builtins.int]] = None,
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'LogsIndex':
         """
         Get an existing LogsIndex resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -537,6 +582,7 @@ class LogsIndex(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] flex_retention_days: The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
         :param pulumi.Input[_builtins.str] name: The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
         :param pulumi.Input[_builtins.int] retention_days: The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -551,6 +597,7 @@ class LogsIndex(pulumi.CustomResource):
         __props__.__dict__["flex_retention_days"] = flex_retention_days
         __props__.__dict__["name"] = name
         __props__.__dict__["retention_days"] = retention_days
+        __props__.__dict__["tags"] = tags
         return LogsIndex(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -624,4 +671,12 @@ class LogsIndex(pulumi.CustomResource):
         The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
         """
         return pulumi.get(self, "retention_days")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
+        """
+        return pulumi.get(self, "tags")
 

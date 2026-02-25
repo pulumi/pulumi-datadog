@@ -82,6 +82,9 @@ import javax.annotation.Nullable;
  *                         .sampleRate(1.0)
  *                         .build())
  *                     .build())
+ *             .tags(            
+ *                 "team:backend",
+ *                 "env:production")
  *             .build());
  * 
  *     }
@@ -225,6 +228,20 @@ public class LogsIndex extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> retentionDays() {
         return this.retentionDays;
+    }
+    /**
+     * A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
+     * 
+     */
+    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> tags;
+
+    /**
+     * @return A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
+     * 
+     */
+    public Output<List<String>> tags() {
+        return this.tags;
     }
 
     /**

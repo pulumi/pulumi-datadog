@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? BlobPrefix;
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationAzureStorageBuffer? Buffer;
+        /// <summary>
         /// The name of the Azure Blob Storage container to store logs in.
         /// </summary>
         public readonly string ContainerName;
@@ -26,9 +30,12 @@ namespace Pulumi.Datadog.Outputs
         private ObservabilityPipelineConfigDestinationAzureStorage(
             string? blobPrefix,
 
+            Outputs.ObservabilityPipelineConfigDestinationAzureStorageBuffer? buffer,
+
             string containerName)
         {
             BlobPrefix = blobPrefix;
+            Buffer = buffer;
             ContainerName = containerName;
         }
     }

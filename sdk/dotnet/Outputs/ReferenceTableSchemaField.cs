@@ -16,17 +16,17 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The name of the field.
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
         /// The data type of the field. Must be one of: STRING, INT32. Valid values are `STRING`, `INT32`.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private ReferenceTableSchemaField(
-            string? name,
+            string name,
 
-            string? type)
+            string type)
         {
             Name = name;
             Type = type;

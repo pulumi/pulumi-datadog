@@ -38,6 +38,16 @@ namespace Pulumi.Datadog
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// The `pulumi import` command can be used, for example:
+    /// 
+    /// This resource is imported using TeamId and action separated by `:`.
+    /// 
+    /// ```sh
+    /// $ pulumi import datadog:index/teamPermissionSetting:TeamPermissionSetting example "${team_id}:${action}"
+    /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/teamPermissionSetting:TeamPermissionSetting")]
     public partial class TeamPermissionSetting : global::Pulumi.CustomResource

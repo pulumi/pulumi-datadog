@@ -4,13 +4,20 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationDatadogLogBuffer;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationDatadogLogRoute;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigDestinationDatadogLog {
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationDatadogLogBuffer buffer;
     /**
      * @return A list of routing rules that forward matching logs to Datadog using dedicated API keys.
      * 
@@ -18,6 +25,13 @@ public final class ObservabilityPipelineConfigDestinationDatadogLog {
     private @Nullable List<ObservabilityPipelineConfigDestinationDatadogLogRoute> routes;
 
     private ObservabilityPipelineConfigDestinationDatadogLog() {}
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationDatadogLogBuffer> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
     /**
      * @return A list of routing rules that forward matching logs to Datadog using dedicated API keys.
      * 
@@ -35,13 +49,21 @@ public final class ObservabilityPipelineConfigDestinationDatadogLog {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable ObservabilityPipelineConfigDestinationDatadogLogBuffer buffer;
         private @Nullable List<ObservabilityPipelineConfigDestinationDatadogLogRoute> routes;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationDatadogLog defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.buffer = defaults.buffer;
     	      this.routes = defaults.routes;
         }
 
+        @CustomType.Setter
+        public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationDatadogLogBuffer buffer) {
+
+            this.buffer = buffer;
+            return this;
+        }
         @CustomType.Setter
         public Builder routes(@Nullable List<ObservabilityPipelineConfigDestinationDatadogLogRoute> routes) {
 
@@ -53,6 +75,7 @@ public final class ObservabilityPipelineConfigDestinationDatadogLog {
         }
         public ObservabilityPipelineConfigDestinationDatadogLog build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationDatadogLog();
+            _resultValue.buffer = buffer;
             _resultValue.routes = routes;
             return _resultValue;
         }

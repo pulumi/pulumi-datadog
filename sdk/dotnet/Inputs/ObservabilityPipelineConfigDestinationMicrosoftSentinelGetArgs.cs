@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigDestinationMicrosoftSentinelGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        [Input("buffer")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationMicrosoftSentinelBufferGetArgs>? Buffer { get; set; }
+
+        /// <summary>
         /// Azure AD client ID used for authentication.
         /// </summary>
         [Input("clientId", required: true)]

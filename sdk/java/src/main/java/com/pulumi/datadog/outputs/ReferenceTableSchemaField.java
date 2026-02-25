@@ -4,10 +4,9 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class ReferenceTableSchemaField {
@@ -15,27 +14,27 @@ public final class ReferenceTableSchemaField {
      * @return The name of the field.
      * 
      */
-    private @Nullable String name;
+    private String name;
     /**
      * @return The data type of the field. Must be one of: STRING, INT32. Valid values are `STRING`, `INT32`.
      * 
      */
-    private @Nullable String type;
+    private String type;
 
     private ReferenceTableSchemaField() {}
     /**
      * @return The name of the field.
      * 
      */
-    public Optional<String> name() {
-        return Optional.ofNullable(this.name);
+    public String name() {
+        return this.name;
     }
     /**
      * @return The data type of the field. Must be one of: STRING, INT32. Valid values are `STRING`, `INT32`.
      * 
      */
-    public Optional<String> type() {
-        return Optional.ofNullable(this.type);
+    public String type() {
+        return this.type;
     }
 
     public static Builder builder() {
@@ -47,8 +46,8 @@ public final class ReferenceTableSchemaField {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String name;
-        private @Nullable String type;
+        private String name;
+        private String type;
         public Builder() {}
         public Builder(ReferenceTableSchemaField defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,14 +56,18 @@ public final class ReferenceTableSchemaField {
         }
 
         @CustomType.Setter
-        public Builder name(@Nullable String name) {
-
+        public Builder name(String name) {
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ReferenceTableSchemaField", "name");
+            }
             this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder type(@Nullable String type) {
-
+        public Builder type(String type) {
+            if (type == null) {
+              throw new MissingRequiredPropertyException("ReferenceTableSchemaField", "type");
+            }
             this.type = type;
             return this;
         }

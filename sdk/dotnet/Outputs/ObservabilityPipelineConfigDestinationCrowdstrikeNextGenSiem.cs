@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem
     {
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBuffer? Buffer;
+        /// <summary>
         /// Compression configuration for log events.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemCompression? Compression;
@@ -28,12 +32,15 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem(
+            Outputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBuffer? buffer,
+
             Outputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemCompression? compression,
 
             string encoding,
 
             Outputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemTls? tls)
         {
+            Buffer = buffer;
             Compression = compression;
             Encoding = encoding;
             Tls = tls;

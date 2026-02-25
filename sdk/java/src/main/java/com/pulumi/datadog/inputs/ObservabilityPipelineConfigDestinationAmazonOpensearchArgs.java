@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonOpensearchBufferArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
@@ -22,6 +23,21 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearchArgs ex
 
     public Output<ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs> auth() {
         return this.auth;
+    }
+
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    @Import(name="buffer")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationAmazonOpensearchBufferArgs> buffer;
+
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationAmazonOpensearchBufferArgs>> buffer() {
+        return Optional.ofNullable(this.buffer);
     }
 
     /**
@@ -43,6 +59,7 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearchArgs ex
 
     private ObservabilityPipelineConfigDestinationAmazonOpensearchArgs(ObservabilityPipelineConfigDestinationAmazonOpensearchArgs $) {
         this.auth = $.auth;
+        this.buffer = $.buffer;
         this.bulkIndex = $.bulkIndex;
     }
 
@@ -71,6 +88,27 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearchArgs ex
 
         public Builder auth(ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs auth) {
             return auth(Output.of(auth));
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(@Nullable Output<ObservabilityPipelineConfigDestinationAmazonOpensearchBufferArgs> buffer) {
+            $.buffer = buffer;
+            return this;
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferArgs buffer) {
+            return buffer(Output.of(buffer));
         }
 
         /**

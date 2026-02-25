@@ -850,6 +850,199 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Example Usage (TCP Network Path Test)
+//			// Create a new Datadog TCP Network Path test to example.com on port 443
+//			// using the TCP traceroute strategy "syn"
+//			_, err = datadog.NewSyntheticsTest(ctx, "network_tcp", &datadog.SyntheticsTestArgs{
+//				Name:    pulumi.String("TCP Network Path Test"),
+//				Type:    pulumi.String("network"),
+//				Subtype: pulumi.String("tcp"),
+//				Status:  pulumi.String("live"),
+//				Message: pulumi.String("Notify @pagerduty"),
+//				Locations: pulumi.StringArray{
+//					pulumi.String("aws:eu-central-1"),
+//				},
+//				Tags: pulumi.StringArray{
+//					pulumi.String("foo:bar"),
+//					pulumi.String("foo"),
+//					pulumi.String("env:test"),
+//				},
+//				RequestDefinition: &datadog.SyntheticsTestRequestDefinitionArgs{
+//					Host:              pulumi.String("example.com"),
+//					Port:              pulumi.String("443"),
+//					E2eQueries:        pulumi.Int(5),
+//					MaxTtl:            pulumi.Int(30),
+//					TracerouteQueries: pulumi.Int(3),
+//					TcpMethod:         pulumi.String("syn"),
+//					Timeout:           pulumi.Int(10),
+//				},
+//				Assertions: datadog.SyntheticsTestAssertionArray{
+//					&datadog.SyntheticsTestAssertionArgs{
+//						Type:     pulumi.String("latency"),
+//						Operator: pulumi.String("lessThan"),
+//						Property: pulumi.String("avg"),
+//						Target:   pulumi.String("200"),
+//					},
+//					&datadog.SyntheticsTestAssertionArgs{
+//						Type:     pulumi.String("latency"),
+//						Operator: pulumi.String("lessThan"),
+//						Property: pulumi.String("max"),
+//						Target:   pulumi.String("500"),
+//					},
+//					&datadog.SyntheticsTestAssertionArgs{
+//						Type:     pulumi.String("jitter"),
+//						Operator: pulumi.String("lessThan"),
+//						Target:   pulumi.String("50"),
+//					},
+//					&datadog.SyntheticsTestAssertionArgs{
+//						Type:     pulumi.String("packetLossPercentage"),
+//						Operator: pulumi.String("lessThan"),
+//						Target:   pulumi.String("0.5"),
+//					},
+//					&datadog.SyntheticsTestAssertionArgs{
+//						Type:     pulumi.String("multiNetworkHop"),
+//						Operator: pulumi.String("lessThan"),
+//						Property: pulumi.String("max"),
+//						Target:   pulumi.String("20"),
+//					},
+//				},
+//				OptionsList: &datadog.SyntheticsTestOptionsListArgs{
+//					TickEvery: pulumi.Int(900),
+//					Retry: &datadog.SyntheticsTestOptionsListRetryArgs{
+//						Count:    pulumi.Int(2),
+//						Interval: pulumi.Int(300),
+//					},
+//					MonitorOptions: &datadog.SyntheticsTestOptionsListMonitorOptionsArgs{
+//						RenotifyInterval: pulumi.Int(120),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Example Usage (UDP Network Path Test)
+//			// Create a new Datadog UDP Network Path test to example.com on port 53
+//			_, err = datadog.NewSyntheticsTest(ctx, "network_udp", &datadog.SyntheticsTestArgs{
+//				Name:    pulumi.String("UDP Network Path Test"),
+//				Type:    pulumi.String("network"),
+//				Subtype: pulumi.String("udp"),
+//				Status:  pulumi.String("live"),
+//				Message: pulumi.String("Notify @pagerduty"),
+//				Locations: pulumi.StringArray{
+//					pulumi.String("aws:eu-central-1"),
+//				},
+//				Tags: pulumi.StringArray{
+//					pulumi.String("foo:bar"),
+//					pulumi.String("foo"),
+//					pulumi.String("env:test"),
+//				},
+//				RequestDefinition: &datadog.SyntheticsTestRequestDefinitionArgs{
+//					Host:              pulumi.String("example.com"),
+//					Port:              pulumi.String("53"),
+//					E2eQueries:        pulumi.Int(5),
+//					MaxTtl:            pulumi.Int(30),
+//					TracerouteQueries: pulumi.Int(3),
+//					Timeout:           pulumi.Int(10),
+//				},
+//				Assertions: datadog.SyntheticsTestAssertionArray{
+//					&datadog.SyntheticsTestAssertionArgs{
+//						Type:     pulumi.String("latency"),
+//						Operator: pulumi.String("lessThan"),
+//						Property: pulumi.String("avg"),
+//						Target:   pulumi.String("100.2"),
+//					},
+//					&datadog.SyntheticsTestAssertionArgs{
+//						Type:     pulumi.String("jitter"),
+//						Operator: pulumi.String("lessThan"),
+//						Target:   pulumi.String("20"),
+//					},
+//					&datadog.SyntheticsTestAssertionArgs{
+//						Type:     pulumi.String("packetLossPercentage"),
+//						Operator: pulumi.String("lessThan"),
+//						Target:   pulumi.String("0.1"),
+//					},
+//				},
+//				OptionsList: &datadog.SyntheticsTestOptionsListArgs{
+//					TickEvery: pulumi.Int(900),
+//					Retry: &datadog.SyntheticsTestOptionsListRetryArgs{
+//						Count:    pulumi.Int(2),
+//						Interval: pulumi.Int(300),
+//					},
+//					MonitorOptions: &datadog.SyntheticsTestOptionsListMonitorOptionsArgs{
+//						RenotifyInterval: pulumi.Int(120),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Example Usage (ICMP Network Path Test)
+//			// Create a new Datadog ICMP Network Path test to example.com
+//			_, err = datadog.NewSyntheticsTest(ctx, "network_icmp", &datadog.SyntheticsTestArgs{
+//				Name:    pulumi.String("ICMP Network Path Test"),
+//				Type:    pulumi.String("network"),
+//				Subtype: pulumi.String("icmp"),
+//				Status:  pulumi.String("live"),
+//				Message: pulumi.String("Notify @pagerduty"),
+//				Locations: pulumi.StringArray{
+//					pulumi.String("aws:eu-central-1"),
+//				},
+//				Tags: pulumi.StringArray{
+//					pulumi.String("foo:bar"),
+//					pulumi.String("foo"),
+//					pulumi.String("env:test"),
+//				},
+//				RequestDefinition: &datadog.SyntheticsTestRequestDefinitionArgs{
+//					Host:              pulumi.String("example.com"),
+//					E2eQueries:        pulumi.Int(5),
+//					MaxTtl:            pulumi.Int(30),
+//					TracerouteQueries: pulumi.Int(3),
+//					Timeout:           pulumi.Int(10),
+//				},
+//				Assertions: datadog.SyntheticsTestAssertionArray{
+//					&datadog.SyntheticsTestAssertionArgs{
+//						Type:     pulumi.String("latency"),
+//						Operator: pulumi.String("lessThan"),
+//						Property: pulumi.String("avg"),
+//						Target:   pulumi.String("150"),
+//					},
+//					&datadog.SyntheticsTestAssertionArgs{
+//						Type:     pulumi.String("latency"),
+//						Operator: pulumi.String("lessThan"),
+//						Property: pulumi.String("max"),
+//						Target:   pulumi.String("300"),
+//					},
+//					&datadog.SyntheticsTestAssertionArgs{
+//						Type:     pulumi.String("jitter"),
+//						Operator: pulumi.String("lessThan"),
+//						Target:   pulumi.String("30"),
+//					},
+//					&datadog.SyntheticsTestAssertionArgs{
+//						Type:     pulumi.String("packetLossPercentage"),
+//						Operator: pulumi.String("lessThan"),
+//						Target:   pulumi.String("0.5"),
+//					},
+//					&datadog.SyntheticsTestAssertionArgs{
+//						Type:     pulumi.String("multiNetworkHop"),
+//						Operator: pulumi.String("lessThan"),
+//						Property: pulumi.String("avg"),
+//						Target:   pulumi.String("15"),
+//					},
+//				},
+//				OptionsList: &datadog.SyntheticsTestOptionsListArgs{
+//					TickEvery: pulumi.Int(900),
+//					Retry: &datadog.SyntheticsTestOptionsListRetryArgs{
+//						Count:    pulumi.Int(2),
+//						Interval: pulumi.Int(300),
+//					},
+//					MonitorOptions: &datadog.SyntheticsTestOptionsListMonitorOptionsArgs{
+//						RenotifyInterval: pulumi.Int(120),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
@@ -914,11 +1107,11 @@ type SyntheticsTest struct {
 	SetCookie pulumi.StringPtrOutput `pulumi:"setCookie"`
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+	// The subtype for API or Network Path tests. For API tests, defaults to `http`. For Network Path tests, only `tcp`, `udp`, `icmp` are available. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
 	Subtype pulumi.StringPtrOutput `pulumi:"subtype"`
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
-	// Synthetics test type. Valid values are `api`, `browser`, `mobile`.
+	// The type of Synthetics test. Valid values are `api`, `browser`, `mobile`, `network`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Variables defined from JavaScript code for API HTTP tests.
 	VariablesFromScript pulumi.StringPtrOutput `pulumi:"variablesFromScript"`
@@ -1014,11 +1207,11 @@ type syntheticsTestState struct {
 	SetCookie *string `pulumi:"setCookie"`
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
 	Status *string `pulumi:"status"`
-	// The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+	// The subtype for API or Network Path tests. For API tests, defaults to `http`. For Network Path tests, only `tcp`, `udp`, `icmp` are available. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
 	Subtype *string `pulumi:"subtype"`
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags []string `pulumi:"tags"`
-	// Synthetics test type. Valid values are `api`, `browser`, `mobile`.
+	// The type of Synthetics test. Valid values are `api`, `browser`, `mobile`, `network`.
 	Type *string `pulumi:"type"`
 	// Variables defined from JavaScript code for API HTTP tests.
 	VariablesFromScript *string `pulumi:"variablesFromScript"`
@@ -1073,11 +1266,11 @@ type SyntheticsTestState struct {
 	SetCookie pulumi.StringPtrInput
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
 	Status pulumi.StringPtrInput
-	// The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+	// The subtype for API or Network Path tests. For API tests, defaults to `http`. For Network Path tests, only `tcp`, `udp`, `icmp` are available. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
 	Subtype pulumi.StringPtrInput
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags pulumi.StringArrayInput
-	// Synthetics test type. Valid values are `api`, `browser`, `mobile`.
+	// The type of Synthetics test. Valid values are `api`, `browser`, `mobile`, `network`.
 	Type pulumi.StringPtrInput
 	// Variables defined from JavaScript code for API HTTP tests.
 	VariablesFromScript pulumi.StringPtrInput
@@ -1134,11 +1327,11 @@ type syntheticsTestArgs struct {
 	SetCookie *string `pulumi:"setCookie"`
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
 	Status string `pulumi:"status"`
-	// The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+	// The subtype for API or Network Path tests. For API tests, defaults to `http`. For Network Path tests, only `tcp`, `udp`, `icmp` are available. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
 	Subtype *string `pulumi:"subtype"`
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags []string `pulumi:"tags"`
-	// Synthetics test type. Valid values are `api`, `browser`, `mobile`.
+	// The type of Synthetics test. Valid values are `api`, `browser`, `mobile`, `network`.
 	Type string `pulumi:"type"`
 	// Variables defined from JavaScript code for API HTTP tests.
 	VariablesFromScript *string `pulumi:"variablesFromScript"`
@@ -1192,11 +1385,11 @@ type SyntheticsTestArgs struct {
 	SetCookie pulumi.StringPtrInput
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
 	Status pulumi.StringInput
-	// The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+	// The subtype for API or Network Path tests. For API tests, defaults to `http`. For Network Path tests, only `tcp`, `udp`, `icmp` are available. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
 	Subtype pulumi.StringPtrInput
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags pulumi.StringArrayInput
-	// Synthetics test type. Valid values are `api`, `browser`, `mobile`.
+	// The type of Synthetics test. Valid values are `api`, `browser`, `mobile`, `network`.
 	Type pulumi.StringInput
 	// Variables defined from JavaScript code for API HTTP tests.
 	VariablesFromScript pulumi.StringPtrInput
@@ -1414,7 +1607,7 @@ func (o SyntheticsTestOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+// The subtype for API or Network Path tests. For API tests, defaults to `http`. For Network Path tests, only `tcp`, `udp`, `icmp` are available. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
 func (o SyntheticsTestOutput) Subtype() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringPtrOutput { return v.Subtype }).(pulumi.StringPtrOutput)
 }
@@ -1424,7 +1617,7 @@ func (o SyntheticsTestOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// Synthetics test type. Valid values are `api`, `browser`, `mobile`.
+// The type of Synthetics test. Valid values are `api`, `browser`, `mobile`, `network`.
 func (o SyntheticsTestOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

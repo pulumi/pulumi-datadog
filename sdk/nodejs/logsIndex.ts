@@ -47,6 +47,10 @@ import * as utilities from "./utilities";
  *             }],
  *         },
  *     ],
+ *     tags: [
+ *         "team:backend",
+ *         "env:production",
+ *     ],
  * });
  * ```
  *
@@ -122,6 +126,10 @@ export class LogsIndex extends pulumi.CustomResource {
      * The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
      */
     declare public readonly retentionDays: pulumi.Output<number>;
+    /**
+     * A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
+     */
+    declare public readonly tags: pulumi.Output<string[]>;
 
     /**
      * Create a LogsIndex resource with the given unique name, arguments, and options.
@@ -145,6 +153,7 @@ export class LogsIndex extends pulumi.CustomResource {
             resourceInputs["flexRetentionDays"] = state?.flexRetentionDays;
             resourceInputs["name"] = state?.name;
             resourceInputs["retentionDays"] = state?.retentionDays;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as LogsIndexArgs | undefined;
             if (args?.filters === undefined && !opts.urn) {
@@ -162,6 +171,7 @@ export class LogsIndex extends pulumi.CustomResource {
             resourceInputs["flexRetentionDays"] = args?.flexRetentionDays;
             resourceInputs["name"] = args?.name;
             resourceInputs["retentionDays"] = args?.retentionDays;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogsIndex.__pulumiType, name, resourceInputs, opts);
@@ -208,6 +218,10 @@ export interface LogsIndexState {
      * The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
      */
     retentionDays?: pulumi.Input<number>;
+    /**
+     * A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -250,4 +264,8 @@ export interface LogsIndexArgs {
      * The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
      */
     retentionDays?: pulumi.Input<number>;
+    /**
+     * A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
 }

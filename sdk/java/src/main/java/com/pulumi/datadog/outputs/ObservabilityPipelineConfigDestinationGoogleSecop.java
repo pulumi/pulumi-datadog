@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationGoogleSecopAuth;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationGoogleSecopBuffer;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
@@ -18,6 +19,11 @@ public final class ObservabilityPipelineConfigDestinationGoogleSecop {
      * 
      */
     private @Nullable ObservabilityPipelineConfigDestinationGoogleSecopAuth auth;
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationGoogleSecopBuffer buffer;
     /**
      * @return The Google SecOps customer ID.
      * 
@@ -41,6 +47,13 @@ public final class ObservabilityPipelineConfigDestinationGoogleSecop {
      */
     public Optional<ObservabilityPipelineConfigDestinationGoogleSecopAuth> auth() {
         return Optional.ofNullable(this.auth);
+    }
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationGoogleSecopBuffer> buffer() {
+        return Optional.ofNullable(this.buffer);
     }
     /**
      * @return The Google SecOps customer ID.
@@ -74,6 +87,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleSecop {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable ObservabilityPipelineConfigDestinationGoogleSecopAuth auth;
+        private @Nullable ObservabilityPipelineConfigDestinationGoogleSecopBuffer buffer;
         private String customerId;
         private String encoding;
         private String logType;
@@ -81,6 +95,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleSecop {
         public Builder(ObservabilityPipelineConfigDestinationGoogleSecop defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.auth = defaults.auth;
+    	      this.buffer = defaults.buffer;
     	      this.customerId = defaults.customerId;
     	      this.encoding = defaults.encoding;
     	      this.logType = defaults.logType;
@@ -90,6 +105,12 @@ public final class ObservabilityPipelineConfigDestinationGoogleSecop {
         public Builder auth(@Nullable ObservabilityPipelineConfigDestinationGoogleSecopAuth auth) {
 
             this.auth = auth;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationGoogleSecopBuffer buffer) {
+
+            this.buffer = buffer;
             return this;
         }
         @CustomType.Setter
@@ -119,6 +140,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleSecop {
         public ObservabilityPipelineConfigDestinationGoogleSecop build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationGoogleSecop();
             _resultValue.auth = auth;
+            _resultValue.buffer = buffer;
             _resultValue.customerId = customerId;
             _resultValue.encoding = encoding;
             _resultValue.logType = logType;

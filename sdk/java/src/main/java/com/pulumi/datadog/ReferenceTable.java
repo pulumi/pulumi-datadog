@@ -102,7 +102,9 @@ import javax.annotation.Nullable;
  * $ pulumi import datadog:index/referenceTable:ReferenceTable imported_table &#34;00000000-0000-0000-0000-000000000000&#34;
  * ```
  * 
- * After importing, add the resource configuration to your .tf file:
+ * After importing, you must add the full resource configuration to your .tf file.
+ * Use `terraform state show datadog_reference_table.imported_table` to view the imported schema
+ * and other attributes, then add the matching configuration:
  * 
  * resource &#34;datadog.ReferenceTable&#34; &#34;importedTable&#34; {
  * tableName  = &#34;existingTable&#34;
@@ -212,14 +214,14 @@ public class ReferenceTable extends com.pulumi.resources.CustomResource {
         return this.rowCount;
     }
     /**
-     * The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+     * The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
      * 
      */
     @Export(name="schema", refs={ReferenceTableSchema.class}, tree="[0]")
     private Output</* @Nullable */ ReferenceTableSchema> schema;
 
     /**
-     * @return The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+     * @return The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
      * 
      */
     public Output<Optional<ReferenceTableSchema>> schema() {

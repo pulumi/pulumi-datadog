@@ -5,10 +5,9 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class ReferenceTableSchemaFieldArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,30 +18,30 @@ public final class ReferenceTableSchemaFieldArgs extends com.pulumi.resources.Re
      * The name of the field.
      * 
      */
-    @Import(name="name")
-    private @Nullable Output<String> name;
+    @Import(name="name", required=true)
+    private Output<String> name;
 
     /**
      * @return The name of the field.
      * 
      */
-    public Optional<Output<String>> name() {
-        return Optional.ofNullable(this.name);
+    public Output<String> name() {
+        return this.name;
     }
 
     /**
      * The data type of the field. Must be one of: STRING, INT32. Valid values are `STRING`, `INT32`.
      * 
      */
-    @Import(name="type")
-    private @Nullable Output<String> type;
+    @Import(name="type", required=true)
+    private Output<String> type;
 
     /**
      * @return The data type of the field. Must be one of: STRING, INT32. Valid values are `STRING`, `INT32`.
      * 
      */
-    public Optional<Output<String>> type() {
-        return Optional.ofNullable(this.type);
+    public Output<String> type() {
+        return this.type;
     }
 
     private ReferenceTableSchemaFieldArgs() {}
@@ -76,7 +75,7 @@ public final class ReferenceTableSchemaFieldArgs extends com.pulumi.resources.Re
          * @return builder
          * 
          */
-        public Builder name(@Nullable Output<String> name) {
+        public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
@@ -97,7 +96,7 @@ public final class ReferenceTableSchemaFieldArgs extends com.pulumi.resources.Re
          * @return builder
          * 
          */
-        public Builder type(@Nullable Output<String> type) {
+        public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
@@ -113,6 +112,12 @@ public final class ReferenceTableSchemaFieldArgs extends com.pulumi.resources.Re
         }
 
         public ReferenceTableSchemaFieldArgs build() {
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ReferenceTableSchemaFieldArgs", "name");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ReferenceTableSchemaFieldArgs", "type");
+            }
             return $;
         }
     }

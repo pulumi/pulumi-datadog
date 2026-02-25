@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageAuthArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageBufferArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageMetadataArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -65,6 +66,21 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorageArgs 
     }
 
     /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    @Import(name="buffer")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationGoogleCloudStorageBufferArgs> buffer;
+
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationGoogleCloudStorageBufferArgs>> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
+
+    /**
      * Optional prefix for object keys within the GCS bucket.
      * 
      */
@@ -115,6 +131,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorageArgs 
         this.acl = $.acl;
         this.auth = $.auth;
         this.bucket = $.bucket;
+        this.buffer = $.buffer;
         this.keyPrefix = $.keyPrefix;
         this.metadatas = $.metadatas;
         this.storageClass = $.storageClass;
@@ -199,6 +216,27 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorageArgs 
          */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(@Nullable Output<ObservabilityPipelineConfigDestinationGoogleCloudStorageBufferArgs> buffer) {
+            $.buffer = buffer;
+            return this;
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(ObservabilityPipelineConfigDestinationGoogleCloudStorageBufferArgs buffer) {
+            return buffer(Output.of(buffer));
         }
 
         /**

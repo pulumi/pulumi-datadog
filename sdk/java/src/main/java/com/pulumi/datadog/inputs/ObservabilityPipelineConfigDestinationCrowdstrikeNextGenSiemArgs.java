@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBufferArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemCompressionArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemTlsArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -17,6 +18,21 @@ import javax.annotation.Nullable;
 public final class ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemArgs Empty = new ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemArgs();
+
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    @Import(name="buffer")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBufferArgs> buffer;
+
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBufferArgs>> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
 
     /**
      * Compression configuration for log events.
@@ -66,6 +82,7 @@ public final class ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemA
     private ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemArgs() {}
 
     private ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemArgs(ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemArgs $) {
+        this.buffer = $.buffer;
         this.compression = $.compression;
         this.encoding = $.encoding;
         this.tls = $.tls;
@@ -87,6 +104,27 @@ public final class ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemA
 
         public Builder(ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemArgs defaults) {
             $ = new ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(@Nullable Output<ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBufferArgs> buffer) {
+            $.buffer = buffer;
+            return this;
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBufferArgs buffer) {
+            return buffer(Output.of(buffer));
         }
 
         /**

@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonSecurityLakeAuth;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonSecurityLakeBuffer;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonSecurityLakeTls;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -24,6 +25,11 @@ public final class ObservabilityPipelineConfigDestinationAmazonSecurityLake {
      * 
      */
     private String bucket;
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationAmazonSecurityLakeBuffer buffer;
     /**
      * @return Custom source name for the logs in Security Lake.
      * 
@@ -54,6 +60,13 @@ public final class ObservabilityPipelineConfigDestinationAmazonSecurityLake {
      */
     public String bucket() {
         return this.bucket;
+    }
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationAmazonSecurityLakeBuffer> buffer() {
+        return Optional.ofNullable(this.buffer);
     }
     /**
      * @return Custom source name for the logs in Security Lake.
@@ -88,6 +101,7 @@ public final class ObservabilityPipelineConfigDestinationAmazonSecurityLake {
     public static final class Builder {
         private @Nullable ObservabilityPipelineConfigDestinationAmazonSecurityLakeAuth auth;
         private String bucket;
+        private @Nullable ObservabilityPipelineConfigDestinationAmazonSecurityLakeBuffer buffer;
         private String customSourceName;
         private String region;
         private @Nullable ObservabilityPipelineConfigDestinationAmazonSecurityLakeTls tls;
@@ -96,6 +110,7 @@ public final class ObservabilityPipelineConfigDestinationAmazonSecurityLake {
     	      Objects.requireNonNull(defaults);
     	      this.auth = defaults.auth;
     	      this.bucket = defaults.bucket;
+    	      this.buffer = defaults.buffer;
     	      this.customSourceName = defaults.customSourceName;
     	      this.region = defaults.region;
     	      this.tls = defaults.tls;
@@ -113,6 +128,12 @@ public final class ObservabilityPipelineConfigDestinationAmazonSecurityLake {
               throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationAmazonSecurityLake", "bucket");
             }
             this.bucket = bucket;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationAmazonSecurityLakeBuffer buffer) {
+
+            this.buffer = buffer;
             return this;
         }
         @CustomType.Setter
@@ -141,6 +162,7 @@ public final class ObservabilityPipelineConfigDestinationAmazonSecurityLake {
             final var _resultValue = new ObservabilityPipelineConfigDestinationAmazonSecurityLake();
             _resultValue.auth = auth;
             _resultValue.bucket = bucket;
+            _resultValue.buffer = buffer;
             _resultValue.customSourceName = customSourceName;
             _resultValue.region = region;
             _resultValue.tls = tls;

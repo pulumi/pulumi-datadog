@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuth;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchBuffer;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
@@ -15,6 +16,11 @@ import javax.annotation.Nullable;
 public final class ObservabilityPipelineConfigDestinationAmazonOpensearch {
     private ObservabilityPipelineConfigDestinationAmazonOpensearchAuth auth;
     /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationAmazonOpensearchBuffer buffer;
+    /**
      * @return The index or datastream to write logs to.
      * 
      */
@@ -23,6 +29,13 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearch {
     private ObservabilityPipelineConfigDestinationAmazonOpensearch() {}
     public ObservabilityPipelineConfigDestinationAmazonOpensearchAuth auth() {
         return this.auth;
+    }
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationAmazonOpensearchBuffer> buffer() {
+        return Optional.ofNullable(this.buffer);
     }
     /**
      * @return The index or datastream to write logs to.
@@ -42,11 +55,13 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearch {
     @CustomType.Builder
     public static final class Builder {
         private ObservabilityPipelineConfigDestinationAmazonOpensearchAuth auth;
+        private @Nullable ObservabilityPipelineConfigDestinationAmazonOpensearchBuffer buffer;
         private @Nullable String bulkIndex;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationAmazonOpensearch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.auth = defaults.auth;
+    	      this.buffer = defaults.buffer;
     	      this.bulkIndex = defaults.bulkIndex;
         }
 
@@ -59,6 +74,12 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearch {
             return this;
         }
         @CustomType.Setter
+        public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationAmazonOpensearchBuffer buffer) {
+
+            this.buffer = buffer;
+            return this;
+        }
+        @CustomType.Setter
         public Builder bulkIndex(@Nullable String bulkIndex) {
 
             this.bulkIndex = bulkIndex;
@@ -67,6 +88,7 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearch {
         public ObservabilityPipelineConfigDestinationAmazonOpensearch build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationAmazonOpensearch();
             _resultValue.auth = auth;
+            _resultValue.buffer = buffer;
             _resultValue.bulkIndex = bulkIndex;
             return _resultValue;
         }

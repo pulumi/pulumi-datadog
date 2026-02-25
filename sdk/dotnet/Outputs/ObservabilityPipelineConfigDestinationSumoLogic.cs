@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationSumoLogic
     {
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationSumoLogicBuffer? Buffer;
+        /// <summary>
         /// The output encoding format.
         /// </summary>
         public readonly string? Encoding;
@@ -36,6 +40,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationSumoLogic(
+            Outputs.ObservabilityPipelineConfigDestinationSumoLogicBuffer? buffer,
+
             string? encoding,
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationSumoLogicHeaderCustomField> headerCustomFields,
@@ -46,6 +52,7 @@ namespace Pulumi.Datadog.Outputs
 
             string? headerSourceName)
         {
+            Buffer = buffer;
             Encoding = encoding;
             HeaderCustomFields = headerCustomFields;
             HeaderHostName = headerHostName;

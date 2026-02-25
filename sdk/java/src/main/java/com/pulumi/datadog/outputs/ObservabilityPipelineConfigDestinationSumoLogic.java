@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationSumoLogicBuffer;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationSumoLogicHeaderCustomField;
 import java.lang.String;
 import java.util.List;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigDestinationSumoLogic {
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationSumoLogicBuffer buffer;
     /**
      * @return The output encoding format.
      * 
@@ -40,6 +46,13 @@ public final class ObservabilityPipelineConfigDestinationSumoLogic {
     private @Nullable String headerSourceName;
 
     private ObservabilityPipelineConfigDestinationSumoLogic() {}
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationSumoLogicBuffer> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
     /**
      * @return The output encoding format.
      * 
@@ -85,6 +98,7 @@ public final class ObservabilityPipelineConfigDestinationSumoLogic {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable ObservabilityPipelineConfigDestinationSumoLogicBuffer buffer;
         private @Nullable String encoding;
         private @Nullable List<ObservabilityPipelineConfigDestinationSumoLogicHeaderCustomField> headerCustomFields;
         private @Nullable String headerHostName;
@@ -93,6 +107,7 @@ public final class ObservabilityPipelineConfigDestinationSumoLogic {
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationSumoLogic defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.buffer = defaults.buffer;
     	      this.encoding = defaults.encoding;
     	      this.headerCustomFields = defaults.headerCustomFields;
     	      this.headerHostName = defaults.headerHostName;
@@ -100,6 +115,12 @@ public final class ObservabilityPipelineConfigDestinationSumoLogic {
     	      this.headerSourceName = defaults.headerSourceName;
         }
 
+        @CustomType.Setter
+        public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationSumoLogicBuffer buffer) {
+
+            this.buffer = buffer;
+            return this;
+        }
         @CustomType.Setter
         public Builder encoding(@Nullable String encoding) {
 
@@ -135,6 +156,7 @@ public final class ObservabilityPipelineConfigDestinationSumoLogic {
         }
         public ObservabilityPipelineConfigDestinationSumoLogic build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationSumoLogic();
+            _resultValue.buffer = buffer;
             _resultValue.encoding = encoding;
             _resultValue.headerCustomFields = headerCustomFields;
             _resultValue.headerHostName = headerHostName;

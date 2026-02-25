@@ -54,7 +54,7 @@ class SyntheticsTestArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] locations: Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
         :param pulumi.Input[_builtins.str] name: Name of Datadog synthetics test.
         :param pulumi.Input[_builtins.str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
-        :param pulumi.Input[_builtins.str] type: Synthetics test type. Valid values are `api`, `browser`, `mobile`.
+        :param pulumi.Input[_builtins.str] type: The type of Synthetics test. Valid values are `api`, `browser`, `mobile`, `network`.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]] api_steps: Steps for multistep API tests
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]] browser_steps: Steps for browser tests.
@@ -74,7 +74,7 @@ class SyntheticsTestArgs:
         :param pulumi.Input['SyntheticsTestRequestProxyArgs'] request_proxy: The proxy to perform the test.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_query: Query arguments name and value map.
         :param pulumi.Input[_builtins.str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
-        :param pulumi.Input[_builtins.str] subtype: The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+        :param pulumi.Input[_builtins.str] subtype: The subtype for API or Network Path tests. For API tests, defaults to `http`. For Network Path tests, only `tcp`, `udp`, `icmp` are available. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
         :param pulumi.Input[_builtins.str] variables_from_script: Variables defined from JavaScript code for API HTTP tests.
         """
@@ -171,7 +171,7 @@ class SyntheticsTestArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        Synthetics test type. Valid values are `api`, `browser`, `mobile`.
+        The type of Synthetics test. Valid values are `api`, `browser`, `mobile`, `network`.
         """
         return pulumi.get(self, "type")
 
@@ -429,7 +429,7 @@ class SyntheticsTestArgs:
     @pulumi.getter
     def subtype(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+        The subtype for API or Network Path tests. For API tests, defaults to `http`. For Network Path tests, only `tcp`, `udp`, `icmp` are available. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
         """
         return pulumi.get(self, "subtype")
 
@@ -519,9 +519,9 @@ class _SyntheticsTestState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_query: Query arguments name and value map.
         :param pulumi.Input[_builtins.str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         :param pulumi.Input[_builtins.str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
-        :param pulumi.Input[_builtins.str] subtype: The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+        :param pulumi.Input[_builtins.str] subtype: The subtype for API or Network Path tests. For API tests, defaults to `http`. For Network Path tests, only `tcp`, `udp`, `icmp` are available. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
-        :param pulumi.Input[_builtins.str] type: Synthetics test type. Valid values are `api`, `browser`, `mobile`.
+        :param pulumi.Input[_builtins.str] type: The type of Synthetics test. Valid values are `api`, `browser`, `mobile`, `network`.
         :param pulumi.Input[_builtins.str] variables_from_script: Variables defined from JavaScript code for API HTTP tests.
         """
         if api_steps is not None:
@@ -881,7 +881,7 @@ class _SyntheticsTestState:
     @pulumi.getter
     def subtype(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+        The subtype for API or Network Path tests. For API tests, defaults to `http`. For Network Path tests, only `tcp`, `udp`, `icmp` are available. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
         """
         return pulumi.get(self, "subtype")
 
@@ -905,7 +905,7 @@ class _SyntheticsTestState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Synthetics test type. Valid values are `api`, `browser`, `mobile`.
+        The type of Synthetics test. Valid values are `api`, `browser`, `mobile`, `network`.
         """
         return pulumi.get(self, "type")
 
@@ -1652,6 +1652,181 @@ class SyntheticsTest(pulumi.CustomResource):
             options_list={
                 "tick_every": 900,
             })
+        # Example Usage (TCP Network Path Test)
+        # Create a new Datadog TCP Network Path test to example.com on port 443
+        # using the TCP traceroute strategy "syn"
+        network_tcp = datadog.SyntheticsTest("network_tcp",
+            name="TCP Network Path Test",
+            type="network",
+            subtype="tcp",
+            status="live",
+            message="Notify @pagerduty",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            request_definition={
+                "host": "example.com",
+                "port": "443",
+                "e2e_queries": 5,
+                "max_ttl": 30,
+                "traceroute_queries": 3,
+                "tcp_method": "syn",
+                "timeout": 10,
+            },
+            assertions=[
+                {
+                    "type": "latency",
+                    "operator": "lessThan",
+                    "property": "avg",
+                    "target": "200",
+                },
+                {
+                    "type": "latency",
+                    "operator": "lessThan",
+                    "property": "max",
+                    "target": "500",
+                },
+                {
+                    "type": "jitter",
+                    "operator": "lessThan",
+                    "target": "50",
+                },
+                {
+                    "type": "packetLossPercentage",
+                    "operator": "lessThan",
+                    "target": "0.5",
+                },
+                {
+                    "type": "multiNetworkHop",
+                    "operator": "lessThan",
+                    "property": "max",
+                    "target": "20",
+                },
+            ],
+            options_list={
+                "tick_every": 900,
+                "retry": {
+                    "count": 2,
+                    "interval": 300,
+                },
+                "monitor_options": {
+                    "renotify_interval": 120,
+                },
+            })
+        # Example Usage (UDP Network Path Test)
+        # Create a new Datadog UDP Network Path test to example.com on port 53
+        network_udp = datadog.SyntheticsTest("network_udp",
+            name="UDP Network Path Test",
+            type="network",
+            subtype="udp",
+            status="live",
+            message="Notify @pagerduty",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            request_definition={
+                "host": "example.com",
+                "port": "53",
+                "e2e_queries": 5,
+                "max_ttl": 30,
+                "traceroute_queries": 3,
+                "timeout": 10,
+            },
+            assertions=[
+                {
+                    "type": "latency",
+                    "operator": "lessThan",
+                    "property": "avg",
+                    "target": "100.2",
+                },
+                {
+                    "type": "jitter",
+                    "operator": "lessThan",
+                    "target": "20",
+                },
+                {
+                    "type": "packetLossPercentage",
+                    "operator": "lessThan",
+                    "target": "0.1",
+                },
+            ],
+            options_list={
+                "tick_every": 900,
+                "retry": {
+                    "count": 2,
+                    "interval": 300,
+                },
+                "monitor_options": {
+                    "renotify_interval": 120,
+                },
+            })
+        # Example Usage (ICMP Network Path Test)
+        # Create a new Datadog ICMP Network Path test to example.com
+        network_icmp = datadog.SyntheticsTest("network_icmp",
+            name="ICMP Network Path Test",
+            type="network",
+            subtype="icmp",
+            status="live",
+            message="Notify @pagerduty",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            request_definition={
+                "host": "example.com",
+                "e2e_queries": 5,
+                "max_ttl": 30,
+                "traceroute_queries": 3,
+                "timeout": 10,
+            },
+            assertions=[
+                {
+                    "type": "latency",
+                    "operator": "lessThan",
+                    "property": "avg",
+                    "target": "150",
+                },
+                {
+                    "type": "latency",
+                    "operator": "lessThan",
+                    "property": "max",
+                    "target": "300",
+                },
+                {
+                    "type": "jitter",
+                    "operator": "lessThan",
+                    "target": "30",
+                },
+                {
+                    "type": "packetLossPercentage",
+                    "operator": "lessThan",
+                    "target": "0.5",
+                },
+                {
+                    "type": "multiNetworkHop",
+                    "operator": "lessThan",
+                    "property": "avg",
+                    "target": "15",
+                },
+            ],
+            options_list={
+                "tick_every": 900,
+                "retry": {
+                    "count": 2,
+                    "interval": 300,
+                },
+                "monitor_options": {
+                    "renotify_interval": 120,
+                },
+            })
         ```
 
         ## Import
@@ -1686,9 +1861,9 @@ class SyntheticsTest(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_query: Query arguments name and value map.
         :param pulumi.Input[_builtins.str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         :param pulumi.Input[_builtins.str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
-        :param pulumi.Input[_builtins.str] subtype: The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+        :param pulumi.Input[_builtins.str] subtype: The subtype for API or Network Path tests. For API tests, defaults to `http`. For Network Path tests, only `tcp`, `udp`, `icmp` are available. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
-        :param pulumi.Input[_builtins.str] type: Synthetics test type. Valid values are `api`, `browser`, `mobile`.
+        :param pulumi.Input[_builtins.str] type: The type of Synthetics test. Valid values are `api`, `browser`, `mobile`, `network`.
         :param pulumi.Input[_builtins.str] variables_from_script: Variables defined from JavaScript code for API HTTP tests.
         """
         ...
@@ -2388,6 +2563,181 @@ class SyntheticsTest(pulumi.CustomResource):
             options_list={
                 "tick_every": 900,
             })
+        # Example Usage (TCP Network Path Test)
+        # Create a new Datadog TCP Network Path test to example.com on port 443
+        # using the TCP traceroute strategy "syn"
+        network_tcp = datadog.SyntheticsTest("network_tcp",
+            name="TCP Network Path Test",
+            type="network",
+            subtype="tcp",
+            status="live",
+            message="Notify @pagerduty",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            request_definition={
+                "host": "example.com",
+                "port": "443",
+                "e2e_queries": 5,
+                "max_ttl": 30,
+                "traceroute_queries": 3,
+                "tcp_method": "syn",
+                "timeout": 10,
+            },
+            assertions=[
+                {
+                    "type": "latency",
+                    "operator": "lessThan",
+                    "property": "avg",
+                    "target": "200",
+                },
+                {
+                    "type": "latency",
+                    "operator": "lessThan",
+                    "property": "max",
+                    "target": "500",
+                },
+                {
+                    "type": "jitter",
+                    "operator": "lessThan",
+                    "target": "50",
+                },
+                {
+                    "type": "packetLossPercentage",
+                    "operator": "lessThan",
+                    "target": "0.5",
+                },
+                {
+                    "type": "multiNetworkHop",
+                    "operator": "lessThan",
+                    "property": "max",
+                    "target": "20",
+                },
+            ],
+            options_list={
+                "tick_every": 900,
+                "retry": {
+                    "count": 2,
+                    "interval": 300,
+                },
+                "monitor_options": {
+                    "renotify_interval": 120,
+                },
+            })
+        # Example Usage (UDP Network Path Test)
+        # Create a new Datadog UDP Network Path test to example.com on port 53
+        network_udp = datadog.SyntheticsTest("network_udp",
+            name="UDP Network Path Test",
+            type="network",
+            subtype="udp",
+            status="live",
+            message="Notify @pagerduty",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            request_definition={
+                "host": "example.com",
+                "port": "53",
+                "e2e_queries": 5,
+                "max_ttl": 30,
+                "traceroute_queries": 3,
+                "timeout": 10,
+            },
+            assertions=[
+                {
+                    "type": "latency",
+                    "operator": "lessThan",
+                    "property": "avg",
+                    "target": "100.2",
+                },
+                {
+                    "type": "jitter",
+                    "operator": "lessThan",
+                    "target": "20",
+                },
+                {
+                    "type": "packetLossPercentage",
+                    "operator": "lessThan",
+                    "target": "0.1",
+                },
+            ],
+            options_list={
+                "tick_every": 900,
+                "retry": {
+                    "count": 2,
+                    "interval": 300,
+                },
+                "monitor_options": {
+                    "renotify_interval": 120,
+                },
+            })
+        # Example Usage (ICMP Network Path Test)
+        # Create a new Datadog ICMP Network Path test to example.com
+        network_icmp = datadog.SyntheticsTest("network_icmp",
+            name="ICMP Network Path Test",
+            type="network",
+            subtype="icmp",
+            status="live",
+            message="Notify @pagerduty",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            request_definition={
+                "host": "example.com",
+                "e2e_queries": 5,
+                "max_ttl": 30,
+                "traceroute_queries": 3,
+                "timeout": 10,
+            },
+            assertions=[
+                {
+                    "type": "latency",
+                    "operator": "lessThan",
+                    "property": "avg",
+                    "target": "150",
+                },
+                {
+                    "type": "latency",
+                    "operator": "lessThan",
+                    "property": "max",
+                    "target": "300",
+                },
+                {
+                    "type": "jitter",
+                    "operator": "lessThan",
+                    "target": "30",
+                },
+                {
+                    "type": "packetLossPercentage",
+                    "operator": "lessThan",
+                    "target": "0.5",
+                },
+                {
+                    "type": "multiNetworkHop",
+                    "operator": "lessThan",
+                    "property": "avg",
+                    "target": "15",
+                },
+            ],
+            options_list={
+                "tick_every": 900,
+                "retry": {
+                    "count": 2,
+                    "interval": 300,
+                },
+                "monitor_options": {
+                    "renotify_interval": 120,
+                },
+            })
         ```
 
         ## Import
@@ -2556,9 +2906,9 @@ class SyntheticsTest(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_query: Query arguments name and value map.
         :param pulumi.Input[_builtins.str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         :param pulumi.Input[_builtins.str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
-        :param pulumi.Input[_builtins.str] subtype: The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+        :param pulumi.Input[_builtins.str] subtype: The subtype for API or Network Path tests. For API tests, defaults to `http`. For Network Path tests, only `tcp`, `udp`, `icmp` are available. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
-        :param pulumi.Input[_builtins.str] type: Synthetics test type. Valid values are `api`, `browser`, `mobile`.
+        :param pulumi.Input[_builtins.str] type: The type of Synthetics test. Valid values are `api`, `browser`, `mobile`, `network`.
         :param pulumi.Input[_builtins.str] variables_from_script: Variables defined from JavaScript code for API HTTP tests.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -2794,7 +3144,7 @@ class SyntheticsTest(pulumi.CustomResource):
     @pulumi.getter
     def subtype(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
+        The subtype for API or Network Path tests. For API tests, defaults to `http`. For Network Path tests, only `tcp`, `udp`, `icmp` are available. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
         """
         return pulumi.get(self, "subtype")
 
@@ -2810,7 +3160,7 @@ class SyntheticsTest(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Synthetics test type. Valid values are `api`, `browser`, `mobile`.
+        The type of Synthetics test. Valid values are `api`, `browser`, `mobile`, `network`.
         """
         return pulumi.get(self, "type")
 

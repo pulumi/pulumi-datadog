@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAzureStorageBuffer;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
@@ -18,6 +19,11 @@ public final class ObservabilityPipelineConfigDestinationAzureStorage {
      */
     private @Nullable String blobPrefix;
     /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationAzureStorageBuffer buffer;
+    /**
      * @return The name of the Azure Blob Storage container to store logs in.
      * 
      */
@@ -30,6 +36,13 @@ public final class ObservabilityPipelineConfigDestinationAzureStorage {
      */
     public Optional<String> blobPrefix() {
         return Optional.ofNullable(this.blobPrefix);
+    }
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationAzureStorageBuffer> buffer() {
+        return Optional.ofNullable(this.buffer);
     }
     /**
      * @return The name of the Azure Blob Storage container to store logs in.
@@ -49,11 +62,13 @@ public final class ObservabilityPipelineConfigDestinationAzureStorage {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String blobPrefix;
+        private @Nullable ObservabilityPipelineConfigDestinationAzureStorageBuffer buffer;
         private String containerName;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationAzureStorage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.blobPrefix = defaults.blobPrefix;
+    	      this.buffer = defaults.buffer;
     	      this.containerName = defaults.containerName;
         }
 
@@ -61,6 +76,12 @@ public final class ObservabilityPipelineConfigDestinationAzureStorage {
         public Builder blobPrefix(@Nullable String blobPrefix) {
 
             this.blobPrefix = blobPrefix;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationAzureStorageBuffer buffer) {
+
+            this.buffer = buffer;
             return this;
         }
         @CustomType.Setter
@@ -74,6 +95,7 @@ public final class ObservabilityPipelineConfigDestinationAzureStorage {
         public ObservabilityPipelineConfigDestinationAzureStorage build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationAzureStorage();
             _resultValue.blobPrefix = blobPrefix;
+            _resultValue.buffer = buffer;
             _resultValue.containerName = containerName;
             return _resultValue;
         }

@@ -13,6 +13,10034 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type SyntheticsTestMobileOptionsListCi struct {
+	// Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
+	ExecutionRule string `pulumi:"executionRule"`
+}
+
+// SyntheticsTestMobileOptionsListCiInput is an input type that accepts SyntheticsTestMobileOptionsListCiArgs and SyntheticsTestMobileOptionsListCiOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListCiInput` via:
+//
+//	SyntheticsTestMobileOptionsListCiArgs{...}
+type SyntheticsTestMobileOptionsListCiInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListCiOutput() SyntheticsTestMobileOptionsListCiOutput
+	ToSyntheticsTestMobileOptionsListCiOutputWithContext(context.Context) SyntheticsTestMobileOptionsListCiOutput
+}
+
+type SyntheticsTestMobileOptionsListCiArgs struct {
+	// Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
+	ExecutionRule pulumi.StringInput `pulumi:"executionRule"`
+}
+
+func (SyntheticsTestMobileOptionsListCiArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListCi)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileOptionsListCiArgs) ToSyntheticsTestMobileOptionsListCiOutput() SyntheticsTestMobileOptionsListCiOutput {
+	return i.ToSyntheticsTestMobileOptionsListCiOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListCiArgs) ToSyntheticsTestMobileOptionsListCiOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListCiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListCiOutput)
+}
+
+func (i SyntheticsTestMobileOptionsListCiArgs) ToSyntheticsTestMobileOptionsListCiPtrOutput() SyntheticsTestMobileOptionsListCiPtrOutput {
+	return i.ToSyntheticsTestMobileOptionsListCiPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListCiArgs) ToSyntheticsTestMobileOptionsListCiPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListCiPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListCiOutput).ToSyntheticsTestMobileOptionsListCiPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestMobileOptionsListCiPtrInput is an input type that accepts SyntheticsTestMobileOptionsListCiArgs, SyntheticsTestMobileOptionsListCiPtr and SyntheticsTestMobileOptionsListCiPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListCiPtrInput` via:
+//
+//	        SyntheticsTestMobileOptionsListCiArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestMobileOptionsListCiPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListCiPtrOutput() SyntheticsTestMobileOptionsListCiPtrOutput
+	ToSyntheticsTestMobileOptionsListCiPtrOutputWithContext(context.Context) SyntheticsTestMobileOptionsListCiPtrOutput
+}
+
+type syntheticsTestMobileOptionsListCiPtrType SyntheticsTestMobileOptionsListCiArgs
+
+func SyntheticsTestMobileOptionsListCiPtr(v *SyntheticsTestMobileOptionsListCiArgs) SyntheticsTestMobileOptionsListCiPtrInput {
+	return (*syntheticsTestMobileOptionsListCiPtrType)(v)
+}
+
+func (*syntheticsTestMobileOptionsListCiPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileOptionsListCi)(nil)).Elem()
+}
+
+func (i *syntheticsTestMobileOptionsListCiPtrType) ToSyntheticsTestMobileOptionsListCiPtrOutput() SyntheticsTestMobileOptionsListCiPtrOutput {
+	return i.ToSyntheticsTestMobileOptionsListCiPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestMobileOptionsListCiPtrType) ToSyntheticsTestMobileOptionsListCiPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListCiPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListCiPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListCiOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListCiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListCi)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListCiOutput) ToSyntheticsTestMobileOptionsListCiOutput() SyntheticsTestMobileOptionsListCiOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListCiOutput) ToSyntheticsTestMobileOptionsListCiOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListCiOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListCiOutput) ToSyntheticsTestMobileOptionsListCiPtrOutput() SyntheticsTestMobileOptionsListCiPtrOutput {
+	return o.ToSyntheticsTestMobileOptionsListCiPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestMobileOptionsListCiOutput) ToSyntheticsTestMobileOptionsListCiPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListCiPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestMobileOptionsListCi) *SyntheticsTestMobileOptionsListCi {
+		return &v
+	}).(SyntheticsTestMobileOptionsListCiPtrOutput)
+}
+
+// Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
+func (o SyntheticsTestMobileOptionsListCiOutput) ExecutionRule() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListCi) string { return v.ExecutionRule }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestMobileOptionsListCiPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListCiPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileOptionsListCi)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListCiPtrOutput) ToSyntheticsTestMobileOptionsListCiPtrOutput() SyntheticsTestMobileOptionsListCiPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListCiPtrOutput) ToSyntheticsTestMobileOptionsListCiPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListCiPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListCiPtrOutput) Elem() SyntheticsTestMobileOptionsListCiOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListCi) SyntheticsTestMobileOptionsListCi {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestMobileOptionsListCi
+		return ret
+	}).(SyntheticsTestMobileOptionsListCiOutput)
+}
+
+// Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
+func (o SyntheticsTestMobileOptionsListCiPtrOutput) ExecutionRule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListCi) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExecutionRule
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListMobileApplication struct {
+	ApplicationId string `pulumi:"applicationId"`
+	ReferenceId   string `pulumi:"referenceId"`
+	// Valid values are `latest`, `version`.
+	ReferenceType string `pulumi:"referenceType"`
+}
+
+// SyntheticsTestMobileOptionsListMobileApplicationInput is an input type that accepts SyntheticsTestMobileOptionsListMobileApplicationArgs and SyntheticsTestMobileOptionsListMobileApplicationOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListMobileApplicationInput` via:
+//
+//	SyntheticsTestMobileOptionsListMobileApplicationArgs{...}
+type SyntheticsTestMobileOptionsListMobileApplicationInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListMobileApplicationOutput() SyntheticsTestMobileOptionsListMobileApplicationOutput
+	ToSyntheticsTestMobileOptionsListMobileApplicationOutputWithContext(context.Context) SyntheticsTestMobileOptionsListMobileApplicationOutput
+}
+
+type SyntheticsTestMobileOptionsListMobileApplicationArgs struct {
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+	ReferenceId   pulumi.StringInput `pulumi:"referenceId"`
+	// Valid values are `latest`, `version`.
+	ReferenceType pulumi.StringInput `pulumi:"referenceType"`
+}
+
+func (SyntheticsTestMobileOptionsListMobileApplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListMobileApplication)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileOptionsListMobileApplicationArgs) ToSyntheticsTestMobileOptionsListMobileApplicationOutput() SyntheticsTestMobileOptionsListMobileApplicationOutput {
+	return i.ToSyntheticsTestMobileOptionsListMobileApplicationOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListMobileApplicationArgs) ToSyntheticsTestMobileOptionsListMobileApplicationOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListMobileApplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListMobileApplicationOutput)
+}
+
+func (i SyntheticsTestMobileOptionsListMobileApplicationArgs) ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutput() SyntheticsTestMobileOptionsListMobileApplicationPtrOutput {
+	return i.ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListMobileApplicationArgs) ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListMobileApplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListMobileApplicationOutput).ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestMobileOptionsListMobileApplicationPtrInput is an input type that accepts SyntheticsTestMobileOptionsListMobileApplicationArgs, SyntheticsTestMobileOptionsListMobileApplicationPtr and SyntheticsTestMobileOptionsListMobileApplicationPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListMobileApplicationPtrInput` via:
+//
+//	        SyntheticsTestMobileOptionsListMobileApplicationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestMobileOptionsListMobileApplicationPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutput() SyntheticsTestMobileOptionsListMobileApplicationPtrOutput
+	ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutputWithContext(context.Context) SyntheticsTestMobileOptionsListMobileApplicationPtrOutput
+}
+
+type syntheticsTestMobileOptionsListMobileApplicationPtrType SyntheticsTestMobileOptionsListMobileApplicationArgs
+
+func SyntheticsTestMobileOptionsListMobileApplicationPtr(v *SyntheticsTestMobileOptionsListMobileApplicationArgs) SyntheticsTestMobileOptionsListMobileApplicationPtrInput {
+	return (*syntheticsTestMobileOptionsListMobileApplicationPtrType)(v)
+}
+
+func (*syntheticsTestMobileOptionsListMobileApplicationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileOptionsListMobileApplication)(nil)).Elem()
+}
+
+func (i *syntheticsTestMobileOptionsListMobileApplicationPtrType) ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutput() SyntheticsTestMobileOptionsListMobileApplicationPtrOutput {
+	return i.ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestMobileOptionsListMobileApplicationPtrType) ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListMobileApplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListMobileApplicationPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListMobileApplicationOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListMobileApplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListMobileApplication)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListMobileApplicationOutput) ToSyntheticsTestMobileOptionsListMobileApplicationOutput() SyntheticsTestMobileOptionsListMobileApplicationOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListMobileApplicationOutput) ToSyntheticsTestMobileOptionsListMobileApplicationOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListMobileApplicationOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListMobileApplicationOutput) ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutput() SyntheticsTestMobileOptionsListMobileApplicationPtrOutput {
+	return o.ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestMobileOptionsListMobileApplicationOutput) ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListMobileApplicationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestMobileOptionsListMobileApplication) *SyntheticsTestMobileOptionsListMobileApplication {
+		return &v
+	}).(SyntheticsTestMobileOptionsListMobileApplicationPtrOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListMobileApplicationOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListMobileApplication) string { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListMobileApplicationOutput) ReferenceId() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListMobileApplication) string { return v.ReferenceId }).(pulumi.StringOutput)
+}
+
+// Valid values are `latest`, `version`.
+func (o SyntheticsTestMobileOptionsListMobileApplicationOutput) ReferenceType() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListMobileApplication) string { return v.ReferenceType }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestMobileOptionsListMobileApplicationPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListMobileApplicationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileOptionsListMobileApplication)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListMobileApplicationPtrOutput) ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutput() SyntheticsTestMobileOptionsListMobileApplicationPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListMobileApplicationPtrOutput) ToSyntheticsTestMobileOptionsListMobileApplicationPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListMobileApplicationPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListMobileApplicationPtrOutput) Elem() SyntheticsTestMobileOptionsListMobileApplicationOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListMobileApplication) SyntheticsTestMobileOptionsListMobileApplication {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestMobileOptionsListMobileApplication
+		return ret
+	}).(SyntheticsTestMobileOptionsListMobileApplicationOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListMobileApplicationPtrOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListMobileApplication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplicationId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestMobileOptionsListMobileApplicationPtrOutput) ReferenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListMobileApplication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ReferenceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Valid values are `latest`, `version`.
+func (o SyntheticsTestMobileOptionsListMobileApplicationPtrOutput) ReferenceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListMobileApplication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ReferenceType
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListMonitorOptions struct {
+	// A message to include with a re-notification.
+	EscalationMessage *string `pulumi:"escalationMessage"`
+	// The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`, `hideQueryAndHandles`, `showOnlySnapshot`, `hideHandlesAndFooter`.
+	NotificationPresetName *string `pulumi:"notificationPresetName"`
+	// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
+	RenotifyInterval *int `pulumi:"renotifyInterval"`
+	// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
+	RenotifyOccurrences *int `pulumi:"renotifyOccurrences"`
+}
+
+// SyntheticsTestMobileOptionsListMonitorOptionsInput is an input type that accepts SyntheticsTestMobileOptionsListMonitorOptionsArgs and SyntheticsTestMobileOptionsListMonitorOptionsOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListMonitorOptionsInput` via:
+//
+//	SyntheticsTestMobileOptionsListMonitorOptionsArgs{...}
+type SyntheticsTestMobileOptionsListMonitorOptionsInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListMonitorOptionsOutput() SyntheticsTestMobileOptionsListMonitorOptionsOutput
+	ToSyntheticsTestMobileOptionsListMonitorOptionsOutputWithContext(context.Context) SyntheticsTestMobileOptionsListMonitorOptionsOutput
+}
+
+type SyntheticsTestMobileOptionsListMonitorOptionsArgs struct {
+	// A message to include with a re-notification.
+	EscalationMessage pulumi.StringPtrInput `pulumi:"escalationMessage"`
+	// The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`, `hideQueryAndHandles`, `showOnlySnapshot`, `hideHandlesAndFooter`.
+	NotificationPresetName pulumi.StringPtrInput `pulumi:"notificationPresetName"`
+	// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
+	RenotifyInterval pulumi.IntPtrInput `pulumi:"renotifyInterval"`
+	// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
+	RenotifyOccurrences pulumi.IntPtrInput `pulumi:"renotifyOccurrences"`
+}
+
+func (SyntheticsTestMobileOptionsListMonitorOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListMonitorOptions)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileOptionsListMonitorOptionsArgs) ToSyntheticsTestMobileOptionsListMonitorOptionsOutput() SyntheticsTestMobileOptionsListMonitorOptionsOutput {
+	return i.ToSyntheticsTestMobileOptionsListMonitorOptionsOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListMonitorOptionsArgs) ToSyntheticsTestMobileOptionsListMonitorOptionsOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListMonitorOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListMonitorOptionsOutput)
+}
+
+func (i SyntheticsTestMobileOptionsListMonitorOptionsArgs) ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutput() SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput {
+	return i.ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListMonitorOptionsArgs) ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListMonitorOptionsOutput).ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestMobileOptionsListMonitorOptionsPtrInput is an input type that accepts SyntheticsTestMobileOptionsListMonitorOptionsArgs, SyntheticsTestMobileOptionsListMonitorOptionsPtr and SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListMonitorOptionsPtrInput` via:
+//
+//	        SyntheticsTestMobileOptionsListMonitorOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestMobileOptionsListMonitorOptionsPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutput() SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput
+	ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutputWithContext(context.Context) SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput
+}
+
+type syntheticsTestMobileOptionsListMonitorOptionsPtrType SyntheticsTestMobileOptionsListMonitorOptionsArgs
+
+func SyntheticsTestMobileOptionsListMonitorOptionsPtr(v *SyntheticsTestMobileOptionsListMonitorOptionsArgs) SyntheticsTestMobileOptionsListMonitorOptionsPtrInput {
+	return (*syntheticsTestMobileOptionsListMonitorOptionsPtrType)(v)
+}
+
+func (*syntheticsTestMobileOptionsListMonitorOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileOptionsListMonitorOptions)(nil)).Elem()
+}
+
+func (i *syntheticsTestMobileOptionsListMonitorOptionsPtrType) ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutput() SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput {
+	return i.ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestMobileOptionsListMonitorOptionsPtrType) ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListMonitorOptionsOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListMonitorOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListMonitorOptions)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListMonitorOptionsOutput) ToSyntheticsTestMobileOptionsListMonitorOptionsOutput() SyntheticsTestMobileOptionsListMonitorOptionsOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListMonitorOptionsOutput) ToSyntheticsTestMobileOptionsListMonitorOptionsOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListMonitorOptionsOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListMonitorOptionsOutput) ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutput() SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput {
+	return o.ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestMobileOptionsListMonitorOptionsOutput) ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestMobileOptionsListMonitorOptions) *SyntheticsTestMobileOptionsListMonitorOptions {
+		return &v
+	}).(SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput)
+}
+
+// A message to include with a re-notification.
+func (o SyntheticsTestMobileOptionsListMonitorOptionsOutput) EscalationMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListMonitorOptions) *string { return v.EscalationMessage }).(pulumi.StringPtrOutput)
+}
+
+// The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`, `hideQueryAndHandles`, `showOnlySnapshot`, `hideHandlesAndFooter`.
+func (o SyntheticsTestMobileOptionsListMonitorOptionsOutput) NotificationPresetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListMonitorOptions) *string { return v.NotificationPresetName }).(pulumi.StringPtrOutput)
+}
+
+// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
+func (o SyntheticsTestMobileOptionsListMonitorOptionsOutput) RenotifyInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListMonitorOptions) *int { return v.RenotifyInterval }).(pulumi.IntPtrOutput)
+}
+
+// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
+func (o SyntheticsTestMobileOptionsListMonitorOptionsOutput) RenotifyOccurrences() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListMonitorOptions) *int { return v.RenotifyOccurrences }).(pulumi.IntPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileOptionsListMonitorOptions)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput) ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutput() SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput) ToSyntheticsTestMobileOptionsListMonitorOptionsPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput) Elem() SyntheticsTestMobileOptionsListMonitorOptionsOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListMonitorOptions) SyntheticsTestMobileOptionsListMonitorOptions {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestMobileOptionsListMonitorOptions
+		return ret
+	}).(SyntheticsTestMobileOptionsListMonitorOptionsOutput)
+}
+
+// A message to include with a re-notification.
+func (o SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput) EscalationMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListMonitorOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EscalationMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`, `hideQueryAndHandles`, `showOnlySnapshot`, `hideHandlesAndFooter`.
+func (o SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput) NotificationPresetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListMonitorOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NotificationPresetName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
+func (o SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput) RenotifyInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListMonitorOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RenotifyInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
+func (o SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput) RenotifyOccurrences() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListMonitorOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RenotifyOccurrences
+	}).(pulumi.IntPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListRetry struct {
+	// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
+	Count *int `pulumi:"count"`
+	// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
+	Interval *int `pulumi:"interval"`
+}
+
+// SyntheticsTestMobileOptionsListRetryInput is an input type that accepts SyntheticsTestMobileOptionsListRetryArgs and SyntheticsTestMobileOptionsListRetryOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListRetryInput` via:
+//
+//	SyntheticsTestMobileOptionsListRetryArgs{...}
+type SyntheticsTestMobileOptionsListRetryInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListRetryOutput() SyntheticsTestMobileOptionsListRetryOutput
+	ToSyntheticsTestMobileOptionsListRetryOutputWithContext(context.Context) SyntheticsTestMobileOptionsListRetryOutput
+}
+
+type SyntheticsTestMobileOptionsListRetryArgs struct {
+	// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (SyntheticsTestMobileOptionsListRetryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListRetry)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileOptionsListRetryArgs) ToSyntheticsTestMobileOptionsListRetryOutput() SyntheticsTestMobileOptionsListRetryOutput {
+	return i.ToSyntheticsTestMobileOptionsListRetryOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListRetryArgs) ToSyntheticsTestMobileOptionsListRetryOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListRetryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListRetryOutput)
+}
+
+func (i SyntheticsTestMobileOptionsListRetryArgs) ToSyntheticsTestMobileOptionsListRetryPtrOutput() SyntheticsTestMobileOptionsListRetryPtrOutput {
+	return i.ToSyntheticsTestMobileOptionsListRetryPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListRetryArgs) ToSyntheticsTestMobileOptionsListRetryPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListRetryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListRetryOutput).ToSyntheticsTestMobileOptionsListRetryPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestMobileOptionsListRetryPtrInput is an input type that accepts SyntheticsTestMobileOptionsListRetryArgs, SyntheticsTestMobileOptionsListRetryPtr and SyntheticsTestMobileOptionsListRetryPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListRetryPtrInput` via:
+//
+//	        SyntheticsTestMobileOptionsListRetryArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestMobileOptionsListRetryPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListRetryPtrOutput() SyntheticsTestMobileOptionsListRetryPtrOutput
+	ToSyntheticsTestMobileOptionsListRetryPtrOutputWithContext(context.Context) SyntheticsTestMobileOptionsListRetryPtrOutput
+}
+
+type syntheticsTestMobileOptionsListRetryPtrType SyntheticsTestMobileOptionsListRetryArgs
+
+func SyntheticsTestMobileOptionsListRetryPtr(v *SyntheticsTestMobileOptionsListRetryArgs) SyntheticsTestMobileOptionsListRetryPtrInput {
+	return (*syntheticsTestMobileOptionsListRetryPtrType)(v)
+}
+
+func (*syntheticsTestMobileOptionsListRetryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileOptionsListRetry)(nil)).Elem()
+}
+
+func (i *syntheticsTestMobileOptionsListRetryPtrType) ToSyntheticsTestMobileOptionsListRetryPtrOutput() SyntheticsTestMobileOptionsListRetryPtrOutput {
+	return i.ToSyntheticsTestMobileOptionsListRetryPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestMobileOptionsListRetryPtrType) ToSyntheticsTestMobileOptionsListRetryPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListRetryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListRetryPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListRetryOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListRetryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListRetry)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListRetryOutput) ToSyntheticsTestMobileOptionsListRetryOutput() SyntheticsTestMobileOptionsListRetryOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListRetryOutput) ToSyntheticsTestMobileOptionsListRetryOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListRetryOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListRetryOutput) ToSyntheticsTestMobileOptionsListRetryPtrOutput() SyntheticsTestMobileOptionsListRetryPtrOutput {
+	return o.ToSyntheticsTestMobileOptionsListRetryPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestMobileOptionsListRetryOutput) ToSyntheticsTestMobileOptionsListRetryPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListRetryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestMobileOptionsListRetry) *SyntheticsTestMobileOptionsListRetry {
+		return &v
+	}).(SyntheticsTestMobileOptionsListRetryPtrOutput)
+}
+
+// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
+func (o SyntheticsTestMobileOptionsListRetryOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListRetry) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
+func (o SyntheticsTestMobileOptionsListRetryOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListRetry) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListRetryPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListRetryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileOptionsListRetry)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListRetryPtrOutput) ToSyntheticsTestMobileOptionsListRetryPtrOutput() SyntheticsTestMobileOptionsListRetryPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListRetryPtrOutput) ToSyntheticsTestMobileOptionsListRetryPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListRetryPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListRetryPtrOutput) Elem() SyntheticsTestMobileOptionsListRetryOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListRetry) SyntheticsTestMobileOptionsListRetry {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestMobileOptionsListRetry
+		return ret
+	}).(SyntheticsTestMobileOptionsListRetryOutput)
+}
+
+// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
+func (o SyntheticsTestMobileOptionsListRetryPtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListRetry) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
+func (o SyntheticsTestMobileOptionsListRetryPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListRetry) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListScheduling struct {
+	// Array containing objects describing the scheduling pattern to apply to each day.
+	Timeframes []SyntheticsTestMobileOptionsListSchedulingTimeframe `pulumi:"timeframes"`
+	// Timezone in which the timeframe is based.
+	Timezone string `pulumi:"timezone"`
+}
+
+// SyntheticsTestMobileOptionsListSchedulingInput is an input type that accepts SyntheticsTestMobileOptionsListSchedulingArgs and SyntheticsTestMobileOptionsListSchedulingOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListSchedulingInput` via:
+//
+//	SyntheticsTestMobileOptionsListSchedulingArgs{...}
+type SyntheticsTestMobileOptionsListSchedulingInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListSchedulingOutput() SyntheticsTestMobileOptionsListSchedulingOutput
+	ToSyntheticsTestMobileOptionsListSchedulingOutputWithContext(context.Context) SyntheticsTestMobileOptionsListSchedulingOutput
+}
+
+type SyntheticsTestMobileOptionsListSchedulingArgs struct {
+	// Array containing objects describing the scheduling pattern to apply to each day.
+	Timeframes SyntheticsTestMobileOptionsListSchedulingTimeframeArrayInput `pulumi:"timeframes"`
+	// Timezone in which the timeframe is based.
+	Timezone pulumi.StringInput `pulumi:"timezone"`
+}
+
+func (SyntheticsTestMobileOptionsListSchedulingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListScheduling)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileOptionsListSchedulingArgs) ToSyntheticsTestMobileOptionsListSchedulingOutput() SyntheticsTestMobileOptionsListSchedulingOutput {
+	return i.ToSyntheticsTestMobileOptionsListSchedulingOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListSchedulingArgs) ToSyntheticsTestMobileOptionsListSchedulingOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListSchedulingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListSchedulingOutput)
+}
+
+func (i SyntheticsTestMobileOptionsListSchedulingArgs) ToSyntheticsTestMobileOptionsListSchedulingPtrOutput() SyntheticsTestMobileOptionsListSchedulingPtrOutput {
+	return i.ToSyntheticsTestMobileOptionsListSchedulingPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListSchedulingArgs) ToSyntheticsTestMobileOptionsListSchedulingPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListSchedulingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListSchedulingOutput).ToSyntheticsTestMobileOptionsListSchedulingPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestMobileOptionsListSchedulingPtrInput is an input type that accepts SyntheticsTestMobileOptionsListSchedulingArgs, SyntheticsTestMobileOptionsListSchedulingPtr and SyntheticsTestMobileOptionsListSchedulingPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListSchedulingPtrInput` via:
+//
+//	        SyntheticsTestMobileOptionsListSchedulingArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestMobileOptionsListSchedulingPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListSchedulingPtrOutput() SyntheticsTestMobileOptionsListSchedulingPtrOutput
+	ToSyntheticsTestMobileOptionsListSchedulingPtrOutputWithContext(context.Context) SyntheticsTestMobileOptionsListSchedulingPtrOutput
+}
+
+type syntheticsTestMobileOptionsListSchedulingPtrType SyntheticsTestMobileOptionsListSchedulingArgs
+
+func SyntheticsTestMobileOptionsListSchedulingPtr(v *SyntheticsTestMobileOptionsListSchedulingArgs) SyntheticsTestMobileOptionsListSchedulingPtrInput {
+	return (*syntheticsTestMobileOptionsListSchedulingPtrType)(v)
+}
+
+func (*syntheticsTestMobileOptionsListSchedulingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileOptionsListScheduling)(nil)).Elem()
+}
+
+func (i *syntheticsTestMobileOptionsListSchedulingPtrType) ToSyntheticsTestMobileOptionsListSchedulingPtrOutput() SyntheticsTestMobileOptionsListSchedulingPtrOutput {
+	return i.ToSyntheticsTestMobileOptionsListSchedulingPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestMobileOptionsListSchedulingPtrType) ToSyntheticsTestMobileOptionsListSchedulingPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListSchedulingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListSchedulingPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListSchedulingOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListSchedulingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListScheduling)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListSchedulingOutput) ToSyntheticsTestMobileOptionsListSchedulingOutput() SyntheticsTestMobileOptionsListSchedulingOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListSchedulingOutput) ToSyntheticsTestMobileOptionsListSchedulingOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListSchedulingOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListSchedulingOutput) ToSyntheticsTestMobileOptionsListSchedulingPtrOutput() SyntheticsTestMobileOptionsListSchedulingPtrOutput {
+	return o.ToSyntheticsTestMobileOptionsListSchedulingPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestMobileOptionsListSchedulingOutput) ToSyntheticsTestMobileOptionsListSchedulingPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListSchedulingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestMobileOptionsListScheduling) *SyntheticsTestMobileOptionsListScheduling {
+		return &v
+	}).(SyntheticsTestMobileOptionsListSchedulingPtrOutput)
+}
+
+// Array containing objects describing the scheduling pattern to apply to each day.
+func (o SyntheticsTestMobileOptionsListSchedulingOutput) Timeframes() SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListScheduling) []SyntheticsTestMobileOptionsListSchedulingTimeframe {
+		return v.Timeframes
+	}).(SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput)
+}
+
+// Timezone in which the timeframe is based.
+func (o SyntheticsTestMobileOptionsListSchedulingOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListScheduling) string { return v.Timezone }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestMobileOptionsListSchedulingPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListSchedulingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileOptionsListScheduling)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListSchedulingPtrOutput) ToSyntheticsTestMobileOptionsListSchedulingPtrOutput() SyntheticsTestMobileOptionsListSchedulingPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListSchedulingPtrOutput) ToSyntheticsTestMobileOptionsListSchedulingPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListSchedulingPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListSchedulingPtrOutput) Elem() SyntheticsTestMobileOptionsListSchedulingOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListScheduling) SyntheticsTestMobileOptionsListScheduling {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestMobileOptionsListScheduling
+		return ret
+	}).(SyntheticsTestMobileOptionsListSchedulingOutput)
+}
+
+// Array containing objects describing the scheduling pattern to apply to each day.
+func (o SyntheticsTestMobileOptionsListSchedulingPtrOutput) Timeframes() SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListScheduling) []SyntheticsTestMobileOptionsListSchedulingTimeframe {
+		if v == nil {
+			return nil
+		}
+		return v.Timeframes
+	}).(SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput)
+}
+
+// Timezone in which the timeframe is based.
+func (o SyntheticsTestMobileOptionsListSchedulingPtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileOptionsListScheduling) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestMobileOptionsListSchedulingTimeframe struct {
+	// Number representing the day of the week
+	Day int `pulumi:"day"`
+	// The hour of the day on which scheduling starts.
+	From string `pulumi:"from"`
+	// The hour of the day on which scheduling ends.
+	To string `pulumi:"to"`
+}
+
+// SyntheticsTestMobileOptionsListSchedulingTimeframeInput is an input type that accepts SyntheticsTestMobileOptionsListSchedulingTimeframeArgs and SyntheticsTestMobileOptionsListSchedulingTimeframeOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListSchedulingTimeframeInput` via:
+//
+//	SyntheticsTestMobileOptionsListSchedulingTimeframeArgs{...}
+type SyntheticsTestMobileOptionsListSchedulingTimeframeInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListSchedulingTimeframeOutput() SyntheticsTestMobileOptionsListSchedulingTimeframeOutput
+	ToSyntheticsTestMobileOptionsListSchedulingTimeframeOutputWithContext(context.Context) SyntheticsTestMobileOptionsListSchedulingTimeframeOutput
+}
+
+type SyntheticsTestMobileOptionsListSchedulingTimeframeArgs struct {
+	// Number representing the day of the week
+	Day pulumi.IntInput `pulumi:"day"`
+	// The hour of the day on which scheduling starts.
+	From pulumi.StringInput `pulumi:"from"`
+	// The hour of the day on which scheduling ends.
+	To pulumi.StringInput `pulumi:"to"`
+}
+
+func (SyntheticsTestMobileOptionsListSchedulingTimeframeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListSchedulingTimeframe)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileOptionsListSchedulingTimeframeArgs) ToSyntheticsTestMobileOptionsListSchedulingTimeframeOutput() SyntheticsTestMobileOptionsListSchedulingTimeframeOutput {
+	return i.ToSyntheticsTestMobileOptionsListSchedulingTimeframeOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListSchedulingTimeframeArgs) ToSyntheticsTestMobileOptionsListSchedulingTimeframeOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListSchedulingTimeframeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListSchedulingTimeframeOutput)
+}
+
+// SyntheticsTestMobileOptionsListSchedulingTimeframeArrayInput is an input type that accepts SyntheticsTestMobileOptionsListSchedulingTimeframeArray and SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileOptionsListSchedulingTimeframeArrayInput` via:
+//
+//	SyntheticsTestMobileOptionsListSchedulingTimeframeArray{ SyntheticsTestMobileOptionsListSchedulingTimeframeArgs{...} }
+type SyntheticsTestMobileOptionsListSchedulingTimeframeArrayInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput() SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput
+	ToSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutputWithContext(context.Context) SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput
+}
+
+type SyntheticsTestMobileOptionsListSchedulingTimeframeArray []SyntheticsTestMobileOptionsListSchedulingTimeframeInput
+
+func (SyntheticsTestMobileOptionsListSchedulingTimeframeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestMobileOptionsListSchedulingTimeframe)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileOptionsListSchedulingTimeframeArray) ToSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput() SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput {
+	return i.ToSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileOptionsListSchedulingTimeframeArray) ToSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput)
+}
+
+type SyntheticsTestMobileOptionsListSchedulingTimeframeOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListSchedulingTimeframeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileOptionsListSchedulingTimeframe)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListSchedulingTimeframeOutput) ToSyntheticsTestMobileOptionsListSchedulingTimeframeOutput() SyntheticsTestMobileOptionsListSchedulingTimeframeOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListSchedulingTimeframeOutput) ToSyntheticsTestMobileOptionsListSchedulingTimeframeOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListSchedulingTimeframeOutput {
+	return o
+}
+
+// Number representing the day of the week
+func (o SyntheticsTestMobileOptionsListSchedulingTimeframeOutput) Day() pulumi.IntOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListSchedulingTimeframe) int { return v.Day }).(pulumi.IntOutput)
+}
+
+// The hour of the day on which scheduling starts.
+func (o SyntheticsTestMobileOptionsListSchedulingTimeframeOutput) From() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListSchedulingTimeframe) string { return v.From }).(pulumi.StringOutput)
+}
+
+// The hour of the day on which scheduling ends.
+func (o SyntheticsTestMobileOptionsListSchedulingTimeframeOutput) To() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileOptionsListSchedulingTimeframe) string { return v.To }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestMobileOptionsListSchedulingTimeframe)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput) ToSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput() SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput) ToSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutputWithContext(ctx context.Context) SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput) Index(i pulumi.IntInput) SyntheticsTestMobileOptionsListSchedulingTimeframeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyntheticsTestMobileOptionsListSchedulingTimeframe {
+		return vs[0].([]SyntheticsTestMobileOptionsListSchedulingTimeframe)[vs[1].(int)]
+	}).(SyntheticsTestMobileOptionsListSchedulingTimeframeOutput)
+}
+
+type SyntheticsTestMobileStep struct {
+	// A boolean set to allow this step to fail.
+	AllowFailure *bool `pulumi:"allowFailure"`
+	// A boolean set to determine if the step has a new step element.
+	HasNewStepElement *bool `pulumi:"hasNewStepElement"`
+	// A boolean to use in addition to `allowFailure` to determine if the test should be marked as failed when the step fails.
+	IsCritical *bool `pulumi:"isCritical"`
+	// The name of the step.
+	Name string `pulumi:"name"`
+	// A boolean set to not take a screenshot for the step.
+	NoScreenshot *bool `pulumi:"noScreenshot"`
+	// Parameters for the step.
+	Params SyntheticsTestMobileStepParams `pulumi:"params"`
+	// The public ID of the step.
+	PublicId *string `pulumi:"publicId"`
+	// The time before declaring a step failed.
+	Timeout *int `pulumi:"timeout"`
+	// The type of the step. Valid values are `assertElementContent`, `assertScreenContains`, `assertScreenLacks`, `doubleTap`, `extractVariable`, `flick`, `openDeeplink`, `playSubTest`, `pressBack`, `restartApplication`, `rotate`, `scroll`, `scrollToElement`, `tap`, `toggleWiFi`, `typeText`, `wait`.
+	Type string `pulumi:"type"`
+}
+
+// SyntheticsTestMobileStepInput is an input type that accepts SyntheticsTestMobileStepArgs and SyntheticsTestMobileStepOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepInput` via:
+//
+//	SyntheticsTestMobileStepArgs{...}
+type SyntheticsTestMobileStepInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepOutput() SyntheticsTestMobileStepOutput
+	ToSyntheticsTestMobileStepOutputWithContext(context.Context) SyntheticsTestMobileStepOutput
+}
+
+type SyntheticsTestMobileStepArgs struct {
+	// A boolean set to allow this step to fail.
+	AllowFailure pulumi.BoolPtrInput `pulumi:"allowFailure"`
+	// A boolean set to determine if the step has a new step element.
+	HasNewStepElement pulumi.BoolPtrInput `pulumi:"hasNewStepElement"`
+	// A boolean to use in addition to `allowFailure` to determine if the test should be marked as failed when the step fails.
+	IsCritical pulumi.BoolPtrInput `pulumi:"isCritical"`
+	// The name of the step.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A boolean set to not take a screenshot for the step.
+	NoScreenshot pulumi.BoolPtrInput `pulumi:"noScreenshot"`
+	// Parameters for the step.
+	Params SyntheticsTestMobileStepParamsInput `pulumi:"params"`
+	// The public ID of the step.
+	PublicId pulumi.StringPtrInput `pulumi:"publicId"`
+	// The time before declaring a step failed.
+	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
+	// The type of the step. Valid values are `assertElementContent`, `assertScreenContains`, `assertScreenLacks`, `doubleTap`, `extractVariable`, `flick`, `openDeeplink`, `playSubTest`, `pressBack`, `restartApplication`, `rotate`, `scroll`, `scrollToElement`, `tap`, `toggleWiFi`, `typeText`, `wait`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SyntheticsTestMobileStepArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStep)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileStepArgs) ToSyntheticsTestMobileStepOutput() SyntheticsTestMobileStepOutput {
+	return i.ToSyntheticsTestMobileStepOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepArgs) ToSyntheticsTestMobileStepOutputWithContext(ctx context.Context) SyntheticsTestMobileStepOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepOutput)
+}
+
+// SyntheticsTestMobileStepArrayInput is an input type that accepts SyntheticsTestMobileStepArray and SyntheticsTestMobileStepArrayOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepArrayInput` via:
+//
+//	SyntheticsTestMobileStepArray{ SyntheticsTestMobileStepArgs{...} }
+type SyntheticsTestMobileStepArrayInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepArrayOutput() SyntheticsTestMobileStepArrayOutput
+	ToSyntheticsTestMobileStepArrayOutputWithContext(context.Context) SyntheticsTestMobileStepArrayOutput
+}
+
+type SyntheticsTestMobileStepArray []SyntheticsTestMobileStepInput
+
+func (SyntheticsTestMobileStepArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestMobileStep)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileStepArray) ToSyntheticsTestMobileStepArrayOutput() SyntheticsTestMobileStepArrayOutput {
+	return i.ToSyntheticsTestMobileStepArrayOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepArray) ToSyntheticsTestMobileStepArrayOutputWithContext(ctx context.Context) SyntheticsTestMobileStepArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepArrayOutput)
+}
+
+type SyntheticsTestMobileStepOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStep)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepOutput) ToSyntheticsTestMobileStepOutput() SyntheticsTestMobileStepOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepOutput) ToSyntheticsTestMobileStepOutputWithContext(ctx context.Context) SyntheticsTestMobileStepOutput {
+	return o
+}
+
+// A boolean set to allow this step to fail.
+func (o SyntheticsTestMobileStepOutput) AllowFailure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStep) *bool { return v.AllowFailure }).(pulumi.BoolPtrOutput)
+}
+
+// A boolean set to determine if the step has a new step element.
+func (o SyntheticsTestMobileStepOutput) HasNewStepElement() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStep) *bool { return v.HasNewStepElement }).(pulumi.BoolPtrOutput)
+}
+
+// A boolean to use in addition to `allowFailure` to determine if the test should be marked as failed when the step fails.
+func (o SyntheticsTestMobileStepOutput) IsCritical() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStep) *bool { return v.IsCritical }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the step.
+func (o SyntheticsTestMobileStepOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStep) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A boolean set to not take a screenshot for the step.
+func (o SyntheticsTestMobileStepOutput) NoScreenshot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStep) *bool { return v.NoScreenshot }).(pulumi.BoolPtrOutput)
+}
+
+// Parameters for the step.
+func (o SyntheticsTestMobileStepOutput) Params() SyntheticsTestMobileStepParamsOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStep) SyntheticsTestMobileStepParams { return v.Params }).(SyntheticsTestMobileStepParamsOutput)
+}
+
+// The public ID of the step.
+func (o SyntheticsTestMobileStepOutput) PublicId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStep) *string { return v.PublicId }).(pulumi.StringPtrOutput)
+}
+
+// The time before declaring a step failed.
+func (o SyntheticsTestMobileStepOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStep) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// The type of the step. Valid values are `assertElementContent`, `assertScreenContains`, `assertScreenLacks`, `doubleTap`, `extractVariable`, `flick`, `openDeeplink`, `playSubTest`, `pressBack`, `restartApplication`, `rotate`, `scroll`, `scrollToElement`, `tap`, `toggleWiFi`, `typeText`, `wait`.
+func (o SyntheticsTestMobileStepOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStep) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestMobileStepArrayOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestMobileStep)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepArrayOutput) ToSyntheticsTestMobileStepArrayOutput() SyntheticsTestMobileStepArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepArrayOutput) ToSyntheticsTestMobileStepArrayOutputWithContext(ctx context.Context) SyntheticsTestMobileStepArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepArrayOutput) Index(i pulumi.IntInput) SyntheticsTestMobileStepOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyntheticsTestMobileStep {
+		return vs[0].([]SyntheticsTestMobileStep)[vs[1].(int)]
+	}).(SyntheticsTestMobileStepOutput)
+}
+
+type SyntheticsTestMobileStepParams struct {
+	// Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+	Check *string `pulumi:"check"`
+	// Delay between each key stroke for a "type test" step.
+	Delay *int `pulumi:"delay"`
+	// Valid values are `up`, `down`, `left`, `right`.
+	Direction *string `pulumi:"direction"`
+	// Element to use for the step
+	Element    *SyntheticsTestMobileStepParamsElement   `pulumi:"element"`
+	Enable     *bool                                    `pulumi:"enable"`
+	MaxScrolls *int                                     `pulumi:"maxScrolls"`
+	Positions  []SyntheticsTestMobileStepParamsPosition `pulumi:"positions"`
+	// ID of the Synthetics test to use as subtest.
+	SubtestPublicId *string `pulumi:"subtestPublicId"`
+	// Value of the step.
+	Value *string `pulumi:"value"`
+	// Details of the variable to extract.
+	Variable  *SyntheticsTestMobileStepParamsVariable `pulumi:"variable"`
+	WithEnter *bool                                   `pulumi:"withEnter"`
+	// X coordinates for a "scroll step".
+	X *float64 `pulumi:"x"`
+	// Y coordinates for a "scroll step".
+	Y *float64 `pulumi:"y"`
+}
+
+// SyntheticsTestMobileStepParamsInput is an input type that accepts SyntheticsTestMobileStepParamsArgs and SyntheticsTestMobileStepParamsOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsInput` via:
+//
+//	SyntheticsTestMobileStepParamsArgs{...}
+type SyntheticsTestMobileStepParamsInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsOutput() SyntheticsTestMobileStepParamsOutput
+	ToSyntheticsTestMobileStepParamsOutputWithContext(context.Context) SyntheticsTestMobileStepParamsOutput
+}
+
+type SyntheticsTestMobileStepParamsArgs struct {
+	// Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+	Check pulumi.StringPtrInput `pulumi:"check"`
+	// Delay between each key stroke for a "type test" step.
+	Delay pulumi.IntPtrInput `pulumi:"delay"`
+	// Valid values are `up`, `down`, `left`, `right`.
+	Direction pulumi.StringPtrInput `pulumi:"direction"`
+	// Element to use for the step
+	Element    SyntheticsTestMobileStepParamsElementPtrInput    `pulumi:"element"`
+	Enable     pulumi.BoolPtrInput                              `pulumi:"enable"`
+	MaxScrolls pulumi.IntPtrInput                               `pulumi:"maxScrolls"`
+	Positions  SyntheticsTestMobileStepParamsPositionArrayInput `pulumi:"positions"`
+	// ID of the Synthetics test to use as subtest.
+	SubtestPublicId pulumi.StringPtrInput `pulumi:"subtestPublicId"`
+	// Value of the step.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+	// Details of the variable to extract.
+	Variable  SyntheticsTestMobileStepParamsVariablePtrInput `pulumi:"variable"`
+	WithEnter pulumi.BoolPtrInput                            `pulumi:"withEnter"`
+	// X coordinates for a "scroll step".
+	X pulumi.Float64PtrInput `pulumi:"x"`
+	// Y coordinates for a "scroll step".
+	Y pulumi.Float64PtrInput `pulumi:"y"`
+}
+
+func (SyntheticsTestMobileStepParamsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParams)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileStepParamsArgs) ToSyntheticsTestMobileStepParamsOutput() SyntheticsTestMobileStepParamsOutput {
+	return i.ToSyntheticsTestMobileStepParamsOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsArgs) ToSyntheticsTestMobileStepParamsOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsOutput)
+}
+
+type SyntheticsTestMobileStepParamsOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParams)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsOutput) ToSyntheticsTestMobileStepParamsOutput() SyntheticsTestMobileStepParamsOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsOutput) ToSyntheticsTestMobileStepParamsOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsOutput {
+	return o
+}
+
+// Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+func (o SyntheticsTestMobileStepParamsOutput) Check() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) *string { return v.Check }).(pulumi.StringPtrOutput)
+}
+
+// Delay between each key stroke for a "type test" step.
+func (o SyntheticsTestMobileStepParamsOutput) Delay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) *int { return v.Delay }).(pulumi.IntPtrOutput)
+}
+
+// Valid values are `up`, `down`, `left`, `right`.
+func (o SyntheticsTestMobileStepParamsOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) *string { return v.Direction }).(pulumi.StringPtrOutput)
+}
+
+// Element to use for the step
+func (o SyntheticsTestMobileStepParamsOutput) Element() SyntheticsTestMobileStepParamsElementPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) *SyntheticsTestMobileStepParamsElement { return v.Element }).(SyntheticsTestMobileStepParamsElementPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsOutput) MaxScrolls() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) *int { return v.MaxScrolls }).(pulumi.IntPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsOutput) Positions() SyntheticsTestMobileStepParamsPositionArrayOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) []SyntheticsTestMobileStepParamsPosition { return v.Positions }).(SyntheticsTestMobileStepParamsPositionArrayOutput)
+}
+
+// ID of the Synthetics test to use as subtest.
+func (o SyntheticsTestMobileStepParamsOutput) SubtestPublicId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) *string { return v.SubtestPublicId }).(pulumi.StringPtrOutput)
+}
+
+// Value of the step.
+func (o SyntheticsTestMobileStepParamsOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+// Details of the variable to extract.
+func (o SyntheticsTestMobileStepParamsOutput) Variable() SyntheticsTestMobileStepParamsVariablePtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) *SyntheticsTestMobileStepParamsVariable { return v.Variable }).(SyntheticsTestMobileStepParamsVariablePtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsOutput) WithEnter() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) *bool { return v.WithEnter }).(pulumi.BoolPtrOutput)
+}
+
+// X coordinates for a "scroll step".
+func (o SyntheticsTestMobileStepParamsOutput) X() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) *float64 { return v.X }).(pulumi.Float64PtrOutput)
+}
+
+// Y coordinates for a "scroll step".
+func (o SyntheticsTestMobileStepParamsOutput) Y() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParams) *float64 { return v.Y }).(pulumi.Float64PtrOutput)
+}
+
+type SyntheticsTestMobileStepParamsElement struct {
+	Context *string `pulumi:"context"`
+	// Valid values are `native`, `web`.
+	ContextType        *string                                                `pulumi:"contextType"`
+	ElementDescription *string                                                `pulumi:"elementDescription"`
+	MultiLocator       map[string]string                                      `pulumi:"multiLocator"`
+	RelativePosition   *SyntheticsTestMobileStepParamsElementRelativePosition `pulumi:"relativePosition"`
+	TextContent        *string                                                `pulumi:"textContent"`
+	UserLocator        *SyntheticsTestMobileStepParamsElementUserLocator      `pulumi:"userLocator"`
+	ViewName           *string                                                `pulumi:"viewName"`
+}
+
+// SyntheticsTestMobileStepParamsElementInput is an input type that accepts SyntheticsTestMobileStepParamsElementArgs and SyntheticsTestMobileStepParamsElementOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsElementInput` via:
+//
+//	SyntheticsTestMobileStepParamsElementArgs{...}
+type SyntheticsTestMobileStepParamsElementInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsElementOutput() SyntheticsTestMobileStepParamsElementOutput
+	ToSyntheticsTestMobileStepParamsElementOutputWithContext(context.Context) SyntheticsTestMobileStepParamsElementOutput
+}
+
+type SyntheticsTestMobileStepParamsElementArgs struct {
+	Context pulumi.StringPtrInput `pulumi:"context"`
+	// Valid values are `native`, `web`.
+	ContextType        pulumi.StringPtrInput                                         `pulumi:"contextType"`
+	ElementDescription pulumi.StringPtrInput                                         `pulumi:"elementDescription"`
+	MultiLocator       pulumi.StringMapInput                                         `pulumi:"multiLocator"`
+	RelativePosition   SyntheticsTestMobileStepParamsElementRelativePositionPtrInput `pulumi:"relativePosition"`
+	TextContent        pulumi.StringPtrInput                                         `pulumi:"textContent"`
+	UserLocator        SyntheticsTestMobileStepParamsElementUserLocatorPtrInput      `pulumi:"userLocator"`
+	ViewName           pulumi.StringPtrInput                                         `pulumi:"viewName"`
+}
+
+func (SyntheticsTestMobileStepParamsElementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParamsElement)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileStepParamsElementArgs) ToSyntheticsTestMobileStepParamsElementOutput() SyntheticsTestMobileStepParamsElementOutput {
+	return i.ToSyntheticsTestMobileStepParamsElementOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsElementArgs) ToSyntheticsTestMobileStepParamsElementOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsElementOutput)
+}
+
+func (i SyntheticsTestMobileStepParamsElementArgs) ToSyntheticsTestMobileStepParamsElementPtrOutput() SyntheticsTestMobileStepParamsElementPtrOutput {
+	return i.ToSyntheticsTestMobileStepParamsElementPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsElementArgs) ToSyntheticsTestMobileStepParamsElementPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsElementOutput).ToSyntheticsTestMobileStepParamsElementPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestMobileStepParamsElementPtrInput is an input type that accepts SyntheticsTestMobileStepParamsElementArgs, SyntheticsTestMobileStepParamsElementPtr and SyntheticsTestMobileStepParamsElementPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsElementPtrInput` via:
+//
+//	        SyntheticsTestMobileStepParamsElementArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestMobileStepParamsElementPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsElementPtrOutput() SyntheticsTestMobileStepParamsElementPtrOutput
+	ToSyntheticsTestMobileStepParamsElementPtrOutputWithContext(context.Context) SyntheticsTestMobileStepParamsElementPtrOutput
+}
+
+type syntheticsTestMobileStepParamsElementPtrType SyntheticsTestMobileStepParamsElementArgs
+
+func SyntheticsTestMobileStepParamsElementPtr(v *SyntheticsTestMobileStepParamsElementArgs) SyntheticsTestMobileStepParamsElementPtrInput {
+	return (*syntheticsTestMobileStepParamsElementPtrType)(v)
+}
+
+func (*syntheticsTestMobileStepParamsElementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileStepParamsElement)(nil)).Elem()
+}
+
+func (i *syntheticsTestMobileStepParamsElementPtrType) ToSyntheticsTestMobileStepParamsElementPtrOutput() SyntheticsTestMobileStepParamsElementPtrOutput {
+	return i.ToSyntheticsTestMobileStepParamsElementPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestMobileStepParamsElementPtrType) ToSyntheticsTestMobileStepParamsElementPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsElementPtrOutput)
+}
+
+type SyntheticsTestMobileStepParamsElementOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsElementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParamsElement)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsElementOutput) ToSyntheticsTestMobileStepParamsElementOutput() SyntheticsTestMobileStepParamsElementOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementOutput) ToSyntheticsTestMobileStepParamsElementOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementOutput) ToSyntheticsTestMobileStepParamsElementPtrOutput() SyntheticsTestMobileStepParamsElementPtrOutput {
+	return o.ToSyntheticsTestMobileStepParamsElementPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestMobileStepParamsElementOutput) ToSyntheticsTestMobileStepParamsElementPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestMobileStepParamsElement) *SyntheticsTestMobileStepParamsElement {
+		return &v
+	}).(SyntheticsTestMobileStepParamsElementPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElement) *string { return v.Context }).(pulumi.StringPtrOutput)
+}
+
+// Valid values are `native`, `web`.
+func (o SyntheticsTestMobileStepParamsElementOutput) ContextType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElement) *string { return v.ContextType }).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementOutput) ElementDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElement) *string { return v.ElementDescription }).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementOutput) MultiLocator() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElement) map[string]string { return v.MultiLocator }).(pulumi.StringMapOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementOutput) RelativePosition() SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElement) *SyntheticsTestMobileStepParamsElementRelativePosition {
+		return v.RelativePosition
+	}).(SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementOutput) TextContent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElement) *string { return v.TextContent }).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementOutput) UserLocator() SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElement) *SyntheticsTestMobileStepParamsElementUserLocator {
+		return v.UserLocator
+	}).(SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementOutput) ViewName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElement) *string { return v.ViewName }).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestMobileStepParamsElementPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsElementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileStepParamsElement)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsElementPtrOutput) ToSyntheticsTestMobileStepParamsElementPtrOutput() SyntheticsTestMobileStepParamsElementPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementPtrOutput) ToSyntheticsTestMobileStepParamsElementPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementPtrOutput) Elem() SyntheticsTestMobileStepParamsElementOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElement) SyntheticsTestMobileStepParamsElement {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestMobileStepParamsElement
+		return ret
+	}).(SyntheticsTestMobileStepParamsElementOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementPtrOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Context
+	}).(pulumi.StringPtrOutput)
+}
+
+// Valid values are `native`, `web`.
+func (o SyntheticsTestMobileStepParamsElementPtrOutput) ContextType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContextType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementPtrOutput) ElementDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ElementDescription
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementPtrOutput) MultiLocator() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElement) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.MultiLocator
+	}).(pulumi.StringMapOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementPtrOutput) RelativePosition() SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElement) *SyntheticsTestMobileStepParamsElementRelativePosition {
+		if v == nil {
+			return nil
+		}
+		return v.RelativePosition
+	}).(SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementPtrOutput) TextContent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TextContent
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementPtrOutput) UserLocator() SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElement) *SyntheticsTestMobileStepParamsElementUserLocator {
+		if v == nil {
+			return nil
+		}
+		return v.UserLocator
+	}).(SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementPtrOutput) ViewName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ViewName
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestMobileStepParamsElementRelativePosition struct {
+	X *float64 `pulumi:"x"`
+	Y *float64 `pulumi:"y"`
+}
+
+// SyntheticsTestMobileStepParamsElementRelativePositionInput is an input type that accepts SyntheticsTestMobileStepParamsElementRelativePositionArgs and SyntheticsTestMobileStepParamsElementRelativePositionOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsElementRelativePositionInput` via:
+//
+//	SyntheticsTestMobileStepParamsElementRelativePositionArgs{...}
+type SyntheticsTestMobileStepParamsElementRelativePositionInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsElementRelativePositionOutput() SyntheticsTestMobileStepParamsElementRelativePositionOutput
+	ToSyntheticsTestMobileStepParamsElementRelativePositionOutputWithContext(context.Context) SyntheticsTestMobileStepParamsElementRelativePositionOutput
+}
+
+type SyntheticsTestMobileStepParamsElementRelativePositionArgs struct {
+	X pulumi.Float64PtrInput `pulumi:"x"`
+	Y pulumi.Float64PtrInput `pulumi:"y"`
+}
+
+func (SyntheticsTestMobileStepParamsElementRelativePositionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParamsElementRelativePosition)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileStepParamsElementRelativePositionArgs) ToSyntheticsTestMobileStepParamsElementRelativePositionOutput() SyntheticsTestMobileStepParamsElementRelativePositionOutput {
+	return i.ToSyntheticsTestMobileStepParamsElementRelativePositionOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsElementRelativePositionArgs) ToSyntheticsTestMobileStepParamsElementRelativePositionOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementRelativePositionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsElementRelativePositionOutput)
+}
+
+func (i SyntheticsTestMobileStepParamsElementRelativePositionArgs) ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutput() SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput {
+	return i.ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsElementRelativePositionArgs) ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsElementRelativePositionOutput).ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestMobileStepParamsElementRelativePositionPtrInput is an input type that accepts SyntheticsTestMobileStepParamsElementRelativePositionArgs, SyntheticsTestMobileStepParamsElementRelativePositionPtr and SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsElementRelativePositionPtrInput` via:
+//
+//	        SyntheticsTestMobileStepParamsElementRelativePositionArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestMobileStepParamsElementRelativePositionPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutput() SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput
+	ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutputWithContext(context.Context) SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput
+}
+
+type syntheticsTestMobileStepParamsElementRelativePositionPtrType SyntheticsTestMobileStepParamsElementRelativePositionArgs
+
+func SyntheticsTestMobileStepParamsElementRelativePositionPtr(v *SyntheticsTestMobileStepParamsElementRelativePositionArgs) SyntheticsTestMobileStepParamsElementRelativePositionPtrInput {
+	return (*syntheticsTestMobileStepParamsElementRelativePositionPtrType)(v)
+}
+
+func (*syntheticsTestMobileStepParamsElementRelativePositionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileStepParamsElementRelativePosition)(nil)).Elem()
+}
+
+func (i *syntheticsTestMobileStepParamsElementRelativePositionPtrType) ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutput() SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput {
+	return i.ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestMobileStepParamsElementRelativePositionPtrType) ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput)
+}
+
+type SyntheticsTestMobileStepParamsElementRelativePositionOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsElementRelativePositionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParamsElementRelativePosition)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsElementRelativePositionOutput) ToSyntheticsTestMobileStepParamsElementRelativePositionOutput() SyntheticsTestMobileStepParamsElementRelativePositionOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementRelativePositionOutput) ToSyntheticsTestMobileStepParamsElementRelativePositionOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementRelativePositionOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementRelativePositionOutput) ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutput() SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput {
+	return o.ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestMobileStepParamsElementRelativePositionOutput) ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestMobileStepParamsElementRelativePosition) *SyntheticsTestMobileStepParamsElementRelativePosition {
+		return &v
+	}).(SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementRelativePositionOutput) X() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElementRelativePosition) *float64 { return v.X }).(pulumi.Float64PtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementRelativePositionOutput) Y() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElementRelativePosition) *float64 { return v.Y }).(pulumi.Float64PtrOutput)
+}
+
+type SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileStepParamsElementRelativePosition)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput) ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutput() SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput) ToSyntheticsTestMobileStepParamsElementRelativePositionPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput) Elem() SyntheticsTestMobileStepParamsElementRelativePositionOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElementRelativePosition) SyntheticsTestMobileStepParamsElementRelativePosition {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestMobileStepParamsElementRelativePosition
+		return ret
+	}).(SyntheticsTestMobileStepParamsElementRelativePositionOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput) X() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElementRelativePosition) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.X
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput) Y() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElementRelativePosition) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Y
+	}).(pulumi.Float64PtrOutput)
+}
+
+type SyntheticsTestMobileStepParamsElementUserLocator struct {
+	FailTestOnCannotLocate *bool                                                   `pulumi:"failTestOnCannotLocate"`
+	Values                 []SyntheticsTestMobileStepParamsElementUserLocatorValue `pulumi:"values"`
+}
+
+// SyntheticsTestMobileStepParamsElementUserLocatorInput is an input type that accepts SyntheticsTestMobileStepParamsElementUserLocatorArgs and SyntheticsTestMobileStepParamsElementUserLocatorOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsElementUserLocatorInput` via:
+//
+//	SyntheticsTestMobileStepParamsElementUserLocatorArgs{...}
+type SyntheticsTestMobileStepParamsElementUserLocatorInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsElementUserLocatorOutput() SyntheticsTestMobileStepParamsElementUserLocatorOutput
+	ToSyntheticsTestMobileStepParamsElementUserLocatorOutputWithContext(context.Context) SyntheticsTestMobileStepParamsElementUserLocatorOutput
+}
+
+type SyntheticsTestMobileStepParamsElementUserLocatorArgs struct {
+	FailTestOnCannotLocate pulumi.BoolPtrInput                                             `pulumi:"failTestOnCannotLocate"`
+	Values                 SyntheticsTestMobileStepParamsElementUserLocatorValueArrayInput `pulumi:"values"`
+}
+
+func (SyntheticsTestMobileStepParamsElementUserLocatorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParamsElementUserLocator)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileStepParamsElementUserLocatorArgs) ToSyntheticsTestMobileStepParamsElementUserLocatorOutput() SyntheticsTestMobileStepParamsElementUserLocatorOutput {
+	return i.ToSyntheticsTestMobileStepParamsElementUserLocatorOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsElementUserLocatorArgs) ToSyntheticsTestMobileStepParamsElementUserLocatorOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementUserLocatorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsElementUserLocatorOutput)
+}
+
+func (i SyntheticsTestMobileStepParamsElementUserLocatorArgs) ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutput() SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput {
+	return i.ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsElementUserLocatorArgs) ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsElementUserLocatorOutput).ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestMobileStepParamsElementUserLocatorPtrInput is an input type that accepts SyntheticsTestMobileStepParamsElementUserLocatorArgs, SyntheticsTestMobileStepParamsElementUserLocatorPtr and SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsElementUserLocatorPtrInput` via:
+//
+//	        SyntheticsTestMobileStepParamsElementUserLocatorArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestMobileStepParamsElementUserLocatorPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutput() SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput
+	ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutputWithContext(context.Context) SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput
+}
+
+type syntheticsTestMobileStepParamsElementUserLocatorPtrType SyntheticsTestMobileStepParamsElementUserLocatorArgs
+
+func SyntheticsTestMobileStepParamsElementUserLocatorPtr(v *SyntheticsTestMobileStepParamsElementUserLocatorArgs) SyntheticsTestMobileStepParamsElementUserLocatorPtrInput {
+	return (*syntheticsTestMobileStepParamsElementUserLocatorPtrType)(v)
+}
+
+func (*syntheticsTestMobileStepParamsElementUserLocatorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileStepParamsElementUserLocator)(nil)).Elem()
+}
+
+func (i *syntheticsTestMobileStepParamsElementUserLocatorPtrType) ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutput() SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput {
+	return i.ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestMobileStepParamsElementUserLocatorPtrType) ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput)
+}
+
+type SyntheticsTestMobileStepParamsElementUserLocatorOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsElementUserLocatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParamsElementUserLocator)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorOutput) ToSyntheticsTestMobileStepParamsElementUserLocatorOutput() SyntheticsTestMobileStepParamsElementUserLocatorOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorOutput) ToSyntheticsTestMobileStepParamsElementUserLocatorOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementUserLocatorOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorOutput) ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutput() SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput {
+	return o.ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorOutput) ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestMobileStepParamsElementUserLocator) *SyntheticsTestMobileStepParamsElementUserLocator {
+		return &v
+	}).(SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorOutput) FailTestOnCannotLocate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElementUserLocator) *bool { return v.FailTestOnCannotLocate }).(pulumi.BoolPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorOutput) Values() SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElementUserLocator) []SyntheticsTestMobileStepParamsElementUserLocatorValue {
+		return v.Values
+	}).(SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput)
+}
+
+type SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileStepParamsElementUserLocator)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput) ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutput() SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput) ToSyntheticsTestMobileStepParamsElementUserLocatorPtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput) Elem() SyntheticsTestMobileStepParamsElementUserLocatorOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElementUserLocator) SyntheticsTestMobileStepParamsElementUserLocator {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestMobileStepParamsElementUserLocator
+		return ret
+	}).(SyntheticsTestMobileStepParamsElementUserLocatorOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput) FailTestOnCannotLocate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElementUserLocator) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FailTestOnCannotLocate
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput) Values() SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsElementUserLocator) []SyntheticsTestMobileStepParamsElementUserLocatorValue {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput)
+}
+
+type SyntheticsTestMobileStepParamsElementUserLocatorValue struct {
+	// Valid values are `accessibility-id`, `id`, `ios-predicate-string`, `ios-class-chain`, `xpath`.
+	Type  *string `pulumi:"type"`
+	Value *string `pulumi:"value"`
+}
+
+// SyntheticsTestMobileStepParamsElementUserLocatorValueInput is an input type that accepts SyntheticsTestMobileStepParamsElementUserLocatorValueArgs and SyntheticsTestMobileStepParamsElementUserLocatorValueOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsElementUserLocatorValueInput` via:
+//
+//	SyntheticsTestMobileStepParamsElementUserLocatorValueArgs{...}
+type SyntheticsTestMobileStepParamsElementUserLocatorValueInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsElementUserLocatorValueOutput() SyntheticsTestMobileStepParamsElementUserLocatorValueOutput
+	ToSyntheticsTestMobileStepParamsElementUserLocatorValueOutputWithContext(context.Context) SyntheticsTestMobileStepParamsElementUserLocatorValueOutput
+}
+
+type SyntheticsTestMobileStepParamsElementUserLocatorValueArgs struct {
+	// Valid values are `accessibility-id`, `id`, `ios-predicate-string`, `ios-class-chain`, `xpath`.
+	Type  pulumi.StringPtrInput `pulumi:"type"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (SyntheticsTestMobileStepParamsElementUserLocatorValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParamsElementUserLocatorValue)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileStepParamsElementUserLocatorValueArgs) ToSyntheticsTestMobileStepParamsElementUserLocatorValueOutput() SyntheticsTestMobileStepParamsElementUserLocatorValueOutput {
+	return i.ToSyntheticsTestMobileStepParamsElementUserLocatorValueOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsElementUserLocatorValueArgs) ToSyntheticsTestMobileStepParamsElementUserLocatorValueOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementUserLocatorValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsElementUserLocatorValueOutput)
+}
+
+// SyntheticsTestMobileStepParamsElementUserLocatorValueArrayInput is an input type that accepts SyntheticsTestMobileStepParamsElementUserLocatorValueArray and SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsElementUserLocatorValueArrayInput` via:
+//
+//	SyntheticsTestMobileStepParamsElementUserLocatorValueArray{ SyntheticsTestMobileStepParamsElementUserLocatorValueArgs{...} }
+type SyntheticsTestMobileStepParamsElementUserLocatorValueArrayInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput() SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput
+	ToSyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutputWithContext(context.Context) SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput
+}
+
+type SyntheticsTestMobileStepParamsElementUserLocatorValueArray []SyntheticsTestMobileStepParamsElementUserLocatorValueInput
+
+func (SyntheticsTestMobileStepParamsElementUserLocatorValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestMobileStepParamsElementUserLocatorValue)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileStepParamsElementUserLocatorValueArray) ToSyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput() SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput {
+	return i.ToSyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsElementUserLocatorValueArray) ToSyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput)
+}
+
+type SyntheticsTestMobileStepParamsElementUserLocatorValueOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsElementUserLocatorValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParamsElementUserLocatorValue)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorValueOutput) ToSyntheticsTestMobileStepParamsElementUserLocatorValueOutput() SyntheticsTestMobileStepParamsElementUserLocatorValueOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorValueOutput) ToSyntheticsTestMobileStepParamsElementUserLocatorValueOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementUserLocatorValueOutput {
+	return o
+}
+
+// Valid values are `accessibility-id`, `id`, `ios-predicate-string`, `ios-class-chain`, `xpath`.
+func (o SyntheticsTestMobileStepParamsElementUserLocatorValueOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElementUserLocatorValue) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorValueOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsElementUserLocatorValue) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestMobileStepParamsElementUserLocatorValue)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput) ToSyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput() SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput) ToSyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput) Index(i pulumi.IntInput) SyntheticsTestMobileStepParamsElementUserLocatorValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyntheticsTestMobileStepParamsElementUserLocatorValue {
+		return vs[0].([]SyntheticsTestMobileStepParamsElementUserLocatorValue)[vs[1].(int)]
+	}).(SyntheticsTestMobileStepParamsElementUserLocatorValueOutput)
+}
+
+type SyntheticsTestMobileStepParamsPosition struct {
+	X *float64 `pulumi:"x"`
+	Y *float64 `pulumi:"y"`
+}
+
+// SyntheticsTestMobileStepParamsPositionInput is an input type that accepts SyntheticsTestMobileStepParamsPositionArgs and SyntheticsTestMobileStepParamsPositionOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsPositionInput` via:
+//
+//	SyntheticsTestMobileStepParamsPositionArgs{...}
+type SyntheticsTestMobileStepParamsPositionInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsPositionOutput() SyntheticsTestMobileStepParamsPositionOutput
+	ToSyntheticsTestMobileStepParamsPositionOutputWithContext(context.Context) SyntheticsTestMobileStepParamsPositionOutput
+}
+
+type SyntheticsTestMobileStepParamsPositionArgs struct {
+	X pulumi.Float64PtrInput `pulumi:"x"`
+	Y pulumi.Float64PtrInput `pulumi:"y"`
+}
+
+func (SyntheticsTestMobileStepParamsPositionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParamsPosition)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileStepParamsPositionArgs) ToSyntheticsTestMobileStepParamsPositionOutput() SyntheticsTestMobileStepParamsPositionOutput {
+	return i.ToSyntheticsTestMobileStepParamsPositionOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsPositionArgs) ToSyntheticsTestMobileStepParamsPositionOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsPositionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsPositionOutput)
+}
+
+// SyntheticsTestMobileStepParamsPositionArrayInput is an input type that accepts SyntheticsTestMobileStepParamsPositionArray and SyntheticsTestMobileStepParamsPositionArrayOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsPositionArrayInput` via:
+//
+//	SyntheticsTestMobileStepParamsPositionArray{ SyntheticsTestMobileStepParamsPositionArgs{...} }
+type SyntheticsTestMobileStepParamsPositionArrayInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsPositionArrayOutput() SyntheticsTestMobileStepParamsPositionArrayOutput
+	ToSyntheticsTestMobileStepParamsPositionArrayOutputWithContext(context.Context) SyntheticsTestMobileStepParamsPositionArrayOutput
+}
+
+type SyntheticsTestMobileStepParamsPositionArray []SyntheticsTestMobileStepParamsPositionInput
+
+func (SyntheticsTestMobileStepParamsPositionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestMobileStepParamsPosition)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileStepParamsPositionArray) ToSyntheticsTestMobileStepParamsPositionArrayOutput() SyntheticsTestMobileStepParamsPositionArrayOutput {
+	return i.ToSyntheticsTestMobileStepParamsPositionArrayOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsPositionArray) ToSyntheticsTestMobileStepParamsPositionArrayOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsPositionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsPositionArrayOutput)
+}
+
+type SyntheticsTestMobileStepParamsPositionOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsPositionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParamsPosition)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsPositionOutput) ToSyntheticsTestMobileStepParamsPositionOutput() SyntheticsTestMobileStepParamsPositionOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsPositionOutput) ToSyntheticsTestMobileStepParamsPositionOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsPositionOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsPositionOutput) X() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsPosition) *float64 { return v.X }).(pulumi.Float64PtrOutput)
+}
+
+func (o SyntheticsTestMobileStepParamsPositionOutput) Y() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsPosition) *float64 { return v.Y }).(pulumi.Float64PtrOutput)
+}
+
+type SyntheticsTestMobileStepParamsPositionArrayOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsPositionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestMobileStepParamsPosition)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsPositionArrayOutput) ToSyntheticsTestMobileStepParamsPositionArrayOutput() SyntheticsTestMobileStepParamsPositionArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsPositionArrayOutput) ToSyntheticsTestMobileStepParamsPositionArrayOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsPositionArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsPositionArrayOutput) Index(i pulumi.IntInput) SyntheticsTestMobileStepParamsPositionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyntheticsTestMobileStepParamsPosition {
+		return vs[0].([]SyntheticsTestMobileStepParamsPosition)[vs[1].(int)]
+	}).(SyntheticsTestMobileStepParamsPositionOutput)
+}
+
+type SyntheticsTestMobileStepParamsVariable struct {
+	// Example of the extracted variable. Defaults to `""`.
+	Example *string `pulumi:"example"`
+	// Name of the extracted variable.
+	Name string `pulumi:"name"`
+}
+
+// SyntheticsTestMobileStepParamsVariableInput is an input type that accepts SyntheticsTestMobileStepParamsVariableArgs and SyntheticsTestMobileStepParamsVariableOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsVariableInput` via:
+//
+//	SyntheticsTestMobileStepParamsVariableArgs{...}
+type SyntheticsTestMobileStepParamsVariableInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsVariableOutput() SyntheticsTestMobileStepParamsVariableOutput
+	ToSyntheticsTestMobileStepParamsVariableOutputWithContext(context.Context) SyntheticsTestMobileStepParamsVariableOutput
+}
+
+type SyntheticsTestMobileStepParamsVariableArgs struct {
+	// Example of the extracted variable. Defaults to `""`.
+	Example pulumi.StringPtrInput `pulumi:"example"`
+	// Name of the extracted variable.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (SyntheticsTestMobileStepParamsVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParamsVariable)(nil)).Elem()
+}
+
+func (i SyntheticsTestMobileStepParamsVariableArgs) ToSyntheticsTestMobileStepParamsVariableOutput() SyntheticsTestMobileStepParamsVariableOutput {
+	return i.ToSyntheticsTestMobileStepParamsVariableOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsVariableArgs) ToSyntheticsTestMobileStepParamsVariableOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsVariableOutput)
+}
+
+func (i SyntheticsTestMobileStepParamsVariableArgs) ToSyntheticsTestMobileStepParamsVariablePtrOutput() SyntheticsTestMobileStepParamsVariablePtrOutput {
+	return i.ToSyntheticsTestMobileStepParamsVariablePtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMobileStepParamsVariableArgs) ToSyntheticsTestMobileStepParamsVariablePtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsVariablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsVariableOutput).ToSyntheticsTestMobileStepParamsVariablePtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestMobileStepParamsVariablePtrInput is an input type that accepts SyntheticsTestMobileStepParamsVariableArgs, SyntheticsTestMobileStepParamsVariablePtr and SyntheticsTestMobileStepParamsVariablePtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestMobileStepParamsVariablePtrInput` via:
+//
+//	        SyntheticsTestMobileStepParamsVariableArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestMobileStepParamsVariablePtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMobileStepParamsVariablePtrOutput() SyntheticsTestMobileStepParamsVariablePtrOutput
+	ToSyntheticsTestMobileStepParamsVariablePtrOutputWithContext(context.Context) SyntheticsTestMobileStepParamsVariablePtrOutput
+}
+
+type syntheticsTestMobileStepParamsVariablePtrType SyntheticsTestMobileStepParamsVariableArgs
+
+func SyntheticsTestMobileStepParamsVariablePtr(v *SyntheticsTestMobileStepParamsVariableArgs) SyntheticsTestMobileStepParamsVariablePtrInput {
+	return (*syntheticsTestMobileStepParamsVariablePtrType)(v)
+}
+
+func (*syntheticsTestMobileStepParamsVariablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileStepParamsVariable)(nil)).Elem()
+}
+
+func (i *syntheticsTestMobileStepParamsVariablePtrType) ToSyntheticsTestMobileStepParamsVariablePtrOutput() SyntheticsTestMobileStepParamsVariablePtrOutput {
+	return i.ToSyntheticsTestMobileStepParamsVariablePtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestMobileStepParamsVariablePtrType) ToSyntheticsTestMobileStepParamsVariablePtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsVariablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMobileStepParamsVariablePtrOutput)
+}
+
+type SyntheticsTestMobileStepParamsVariableOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestMobileStepParamsVariable)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsVariableOutput) ToSyntheticsTestMobileStepParamsVariableOutput() SyntheticsTestMobileStepParamsVariableOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsVariableOutput) ToSyntheticsTestMobileStepParamsVariableOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsVariableOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsVariableOutput) ToSyntheticsTestMobileStepParamsVariablePtrOutput() SyntheticsTestMobileStepParamsVariablePtrOutput {
+	return o.ToSyntheticsTestMobileStepParamsVariablePtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestMobileStepParamsVariableOutput) ToSyntheticsTestMobileStepParamsVariablePtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsVariablePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestMobileStepParamsVariable) *SyntheticsTestMobileStepParamsVariable {
+		return &v
+	}).(SyntheticsTestMobileStepParamsVariablePtrOutput)
+}
+
+// Example of the extracted variable. Defaults to `""`.
+func (o SyntheticsTestMobileStepParamsVariableOutput) Example() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsVariable) *string { return v.Example }).(pulumi.StringPtrOutput)
+}
+
+// Name of the extracted variable.
+func (o SyntheticsTestMobileStepParamsVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestMobileStepParamsVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestMobileStepParamsVariablePtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMobileStepParamsVariablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestMobileStepParamsVariable)(nil)).Elem()
+}
+
+func (o SyntheticsTestMobileStepParamsVariablePtrOutput) ToSyntheticsTestMobileStepParamsVariablePtrOutput() SyntheticsTestMobileStepParamsVariablePtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsVariablePtrOutput) ToSyntheticsTestMobileStepParamsVariablePtrOutputWithContext(ctx context.Context) SyntheticsTestMobileStepParamsVariablePtrOutput {
+	return o
+}
+
+func (o SyntheticsTestMobileStepParamsVariablePtrOutput) Elem() SyntheticsTestMobileStepParamsVariableOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsVariable) SyntheticsTestMobileStepParamsVariable {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestMobileStepParamsVariable
+		return ret
+	}).(SyntheticsTestMobileStepParamsVariableOutput)
+}
+
+// Example of the extracted variable. Defaults to `""`.
+func (o SyntheticsTestMobileStepParamsVariablePtrOutput) Example() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsVariable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Example
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the extracted variable.
+func (o SyntheticsTestMobileStepParamsVariablePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestMobileStepParamsVariable) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestOptionsList struct {
+	// For SSL tests, whether or not the test should allow self signed certificates.
+	AcceptSelfSigned *bool `pulumi:"acceptSelfSigned"`
+	// Allows loading insecure content for a request in an API test or in a multistep API test step.
+	AllowInsecure *bool `pulumi:"allowInsecure"`
+	// Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
+	BlockedRequestPatterns []string `pulumi:"blockedRequestPatterns"`
+	// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
+	CheckCertificateRevocation *bool `pulumi:"checkCertificateRevocation"`
+	// CI/CD options for a Synthetic test.
+	Ci *SyntheticsTestOptionsListCi `pulumi:"ci"`
+	// For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+	DisableAiaIntermediateFetching *bool `pulumi:"disableAiaIntermediateFetching"`
+	// Disable Cross-Origin Resource Sharing for browser tests.
+	DisableCors *bool `pulumi:"disableCors"`
+	// Disable Content Security Policy for browser tests.
+	DisableCsp *bool `pulumi:"disableCsp"`
+	// Determines whether or not the API HTTP test should follow redirects.
+	FollowRedirects *bool `pulumi:"followRedirects"`
+	// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
+	HttpVersion *string `pulumi:"httpVersion"`
+	// Ignore server certificate error for browser tests.
+	IgnoreServerCertificateError *bool `pulumi:"ignoreServerCertificateError"`
+	// Timeout before declaring the initial step as failed (in seconds) for browser tests.
+	InitialNavigationTimeout *int `pulumi:"initialNavigationTimeout"`
+	// Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
+	MinFailureDuration *int `pulumi:"minFailureDuration"`
+	// Minimum number of locations in failure required to trigger an alert. Defaults to `1`.
+	MinLocationFailed *int `pulumi:"minLocationFailed"`
+	// The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+	MonitorName     *string                                  `pulumi:"monitorName"`
+	MonitorOptions  *SyntheticsTestOptionsListMonitorOptions `pulumi:"monitorOptions"`
+	MonitorPriority *int                                     `pulumi:"monitorPriority"`
+	// Prevents saving screenshots of the steps.
+	NoScreenshot *bool `pulumi:"noScreenshot"`
+	// A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
+	//
+	// Deprecated: This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
+	RestrictedRoles []string                        `pulumi:"restrictedRoles"`
+	Retry           *SyntheticsTestOptionsListRetry `pulumi:"retry"`
+	// The RUM data collection settings for the Synthetic browser test.
+	RumSettings *SyntheticsTestOptionsListRumSettings `pulumi:"rumSettings"`
+	// Object containing timeframes and timezone used for advanced scheduling.
+	Scheduling *SyntheticsTestOptionsListScheduling `pulumi:"scheduling"`
+	// How often the test should run (in seconds). Valid range is `30-604800` for API tests and `60-604800` for browser tests.
+	TickEvery int `pulumi:"tickEvery"`
+}
+
+// SyntheticsTestOptionsListInput is an input type that accepts SyntheticsTestOptionsListArgs and SyntheticsTestOptionsListOutput values.
+// You can construct a concrete instance of `SyntheticsTestOptionsListInput` via:
+//
+//	SyntheticsTestOptionsListArgs{...}
+type SyntheticsTestOptionsListInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestOptionsListOutput() SyntheticsTestOptionsListOutput
+	ToSyntheticsTestOptionsListOutputWithContext(context.Context) SyntheticsTestOptionsListOutput
+}
+
+type SyntheticsTestOptionsListArgs struct {
+	// For SSL tests, whether or not the test should allow self signed certificates.
+	AcceptSelfSigned pulumi.BoolPtrInput `pulumi:"acceptSelfSigned"`
+	// Allows loading insecure content for a request in an API test or in a multistep API test step.
+	AllowInsecure pulumi.BoolPtrInput `pulumi:"allowInsecure"`
+	// Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
+	BlockedRequestPatterns pulumi.StringArrayInput `pulumi:"blockedRequestPatterns"`
+	// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
+	CheckCertificateRevocation pulumi.BoolPtrInput `pulumi:"checkCertificateRevocation"`
+	// CI/CD options for a Synthetic test.
+	Ci SyntheticsTestOptionsListCiPtrInput `pulumi:"ci"`
+	// For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+	DisableAiaIntermediateFetching pulumi.BoolPtrInput `pulumi:"disableAiaIntermediateFetching"`
+	// Disable Cross-Origin Resource Sharing for browser tests.
+	DisableCors pulumi.BoolPtrInput `pulumi:"disableCors"`
+	// Disable Content Security Policy for browser tests.
+	DisableCsp pulumi.BoolPtrInput `pulumi:"disableCsp"`
+	// Determines whether or not the API HTTP test should follow redirects.
+	FollowRedirects pulumi.BoolPtrInput `pulumi:"followRedirects"`
+	// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
+	HttpVersion pulumi.StringPtrInput `pulumi:"httpVersion"`
+	// Ignore server certificate error for browser tests.
+	IgnoreServerCertificateError pulumi.BoolPtrInput `pulumi:"ignoreServerCertificateError"`
+	// Timeout before declaring the initial step as failed (in seconds) for browser tests.
+	InitialNavigationTimeout pulumi.IntPtrInput `pulumi:"initialNavigationTimeout"`
+	// Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
+	MinFailureDuration pulumi.IntPtrInput `pulumi:"minFailureDuration"`
+	// Minimum number of locations in failure required to trigger an alert. Defaults to `1`.
+	MinLocationFailed pulumi.IntPtrInput `pulumi:"minLocationFailed"`
+	// The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+	MonitorName     pulumi.StringPtrInput                           `pulumi:"monitorName"`
+	MonitorOptions  SyntheticsTestOptionsListMonitorOptionsPtrInput `pulumi:"monitorOptions"`
+	MonitorPriority pulumi.IntPtrInput                              `pulumi:"monitorPriority"`
+	// Prevents saving screenshots of the steps.
+	NoScreenshot pulumi.BoolPtrInput `pulumi:"noScreenshot"`
+	// A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
+	//
+	// Deprecated: This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
+	RestrictedRoles pulumi.StringArrayInput                `pulumi:"restrictedRoles"`
+	Retry           SyntheticsTestOptionsListRetryPtrInput `pulumi:"retry"`
+	// The RUM data collection settings for the Synthetic browser test.
+	RumSettings SyntheticsTestOptionsListRumSettingsPtrInput `pulumi:"rumSettings"`
+	// Object containing timeframes and timezone used for advanced scheduling.
+	Scheduling SyntheticsTestOptionsListSchedulingPtrInput `pulumi:"scheduling"`
+	// How often the test should run (in seconds). Valid range is `30-604800` for API tests and `60-604800` for browser tests.
+	TickEvery pulumi.IntInput `pulumi:"tickEvery"`
+}
+
+func (SyntheticsTestOptionsListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestOptionsList)(nil)).Elem()
+}
+
+func (i SyntheticsTestOptionsListArgs) ToSyntheticsTestOptionsListOutput() SyntheticsTestOptionsListOutput {
+	return i.ToSyntheticsTestOptionsListOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestOptionsListArgs) ToSyntheticsTestOptionsListOutputWithContext(ctx context.Context) SyntheticsTestOptionsListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListOutput)
+}
+
+func (i SyntheticsTestOptionsListArgs) ToSyntheticsTestOptionsListPtrOutput() SyntheticsTestOptionsListPtrOutput {
+	return i.ToSyntheticsTestOptionsListPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestOptionsListArgs) ToSyntheticsTestOptionsListPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListOutput).ToSyntheticsTestOptionsListPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestOptionsListPtrInput is an input type that accepts SyntheticsTestOptionsListArgs, SyntheticsTestOptionsListPtr and SyntheticsTestOptionsListPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestOptionsListPtrInput` via:
+//
+//	        SyntheticsTestOptionsListArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestOptionsListPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestOptionsListPtrOutput() SyntheticsTestOptionsListPtrOutput
+	ToSyntheticsTestOptionsListPtrOutputWithContext(context.Context) SyntheticsTestOptionsListPtrOutput
+}
+
+type syntheticsTestOptionsListPtrType SyntheticsTestOptionsListArgs
+
+func SyntheticsTestOptionsListPtr(v *SyntheticsTestOptionsListArgs) SyntheticsTestOptionsListPtrInput {
+	return (*syntheticsTestOptionsListPtrType)(v)
+}
+
+func (*syntheticsTestOptionsListPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestOptionsList)(nil)).Elem()
+}
+
+func (i *syntheticsTestOptionsListPtrType) ToSyntheticsTestOptionsListPtrOutput() SyntheticsTestOptionsListPtrOutput {
+	return i.ToSyntheticsTestOptionsListPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestOptionsListPtrType) ToSyntheticsTestOptionsListPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListPtrOutput)
+}
+
+type SyntheticsTestOptionsListOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestOptionsListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestOptionsList)(nil)).Elem()
+}
+
+func (o SyntheticsTestOptionsListOutput) ToSyntheticsTestOptionsListOutput() SyntheticsTestOptionsListOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListOutput) ToSyntheticsTestOptionsListOutputWithContext(ctx context.Context) SyntheticsTestOptionsListOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListOutput) ToSyntheticsTestOptionsListPtrOutput() SyntheticsTestOptionsListPtrOutput {
+	return o.ToSyntheticsTestOptionsListPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestOptionsListOutput) ToSyntheticsTestOptionsListPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestOptionsList) *SyntheticsTestOptionsList {
+		return &v
+	}).(SyntheticsTestOptionsListPtrOutput)
+}
+
+// For SSL tests, whether or not the test should allow self signed certificates.
+func (o SyntheticsTestOptionsListOutput) AcceptSelfSigned() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.AcceptSelfSigned }).(pulumi.BoolPtrOutput)
+}
+
+// Allows loading insecure content for a request in an API test or in a multistep API test step.
+func (o SyntheticsTestOptionsListOutput) AllowInsecure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.AllowInsecure }).(pulumi.BoolPtrOutput)
+}
+
+// Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
+func (o SyntheticsTestOptionsListOutput) BlockedRequestPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) []string { return v.BlockedRequestPatterns }).(pulumi.StringArrayOutput)
+}
+
+// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
+func (o SyntheticsTestOptionsListOutput) CheckCertificateRevocation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.CheckCertificateRevocation }).(pulumi.BoolPtrOutput)
+}
+
+// CI/CD options for a Synthetic test.
+func (o SyntheticsTestOptionsListOutput) Ci() SyntheticsTestOptionsListCiPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *SyntheticsTestOptionsListCi { return v.Ci }).(SyntheticsTestOptionsListCiPtrOutput)
+}
+
+// For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+func (o SyntheticsTestOptionsListOutput) DisableAiaIntermediateFetching() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.DisableAiaIntermediateFetching }).(pulumi.BoolPtrOutput)
+}
+
+// Disable Cross-Origin Resource Sharing for browser tests.
+func (o SyntheticsTestOptionsListOutput) DisableCors() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.DisableCors }).(pulumi.BoolPtrOutput)
+}
+
+// Disable Content Security Policy for browser tests.
+func (o SyntheticsTestOptionsListOutput) DisableCsp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.DisableCsp }).(pulumi.BoolPtrOutput)
+}
+
+// Determines whether or not the API HTTP test should follow redirects.
+func (o SyntheticsTestOptionsListOutput) FollowRedirects() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.FollowRedirects }).(pulumi.BoolPtrOutput)
+}
+
+// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
+func (o SyntheticsTestOptionsListOutput) HttpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *string { return v.HttpVersion }).(pulumi.StringPtrOutput)
+}
+
+// Ignore server certificate error for browser tests.
+func (o SyntheticsTestOptionsListOutput) IgnoreServerCertificateError() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.IgnoreServerCertificateError }).(pulumi.BoolPtrOutput)
+}
+
+// Timeout before declaring the initial step as failed (in seconds) for browser tests.
+func (o SyntheticsTestOptionsListOutput) InitialNavigationTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *int { return v.InitialNavigationTimeout }).(pulumi.IntPtrOutput)
+}
+
+// Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
+func (o SyntheticsTestOptionsListOutput) MinFailureDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *int { return v.MinFailureDuration }).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of locations in failure required to trigger an alert. Defaults to `1`.
+func (o SyntheticsTestOptionsListOutput) MinLocationFailed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *int { return v.MinLocationFailed }).(pulumi.IntPtrOutput)
+}
+
+// The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+func (o SyntheticsTestOptionsListOutput) MonitorName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *string { return v.MonitorName }).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestOptionsListOutput) MonitorOptions() SyntheticsTestOptionsListMonitorOptionsPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *SyntheticsTestOptionsListMonitorOptions { return v.MonitorOptions }).(SyntheticsTestOptionsListMonitorOptionsPtrOutput)
+}
+
+func (o SyntheticsTestOptionsListOutput) MonitorPriority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *int { return v.MonitorPriority }).(pulumi.IntPtrOutput)
+}
+
+// Prevents saving screenshots of the steps.
+func (o SyntheticsTestOptionsListOutput) NoScreenshot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.NoScreenshot }).(pulumi.BoolPtrOutput)
+}
+
+// A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
+//
+// Deprecated: This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
+func (o SyntheticsTestOptionsListOutput) RestrictedRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) []string { return v.RestrictedRoles }).(pulumi.StringArrayOutput)
+}
+
+func (o SyntheticsTestOptionsListOutput) Retry() SyntheticsTestOptionsListRetryPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *SyntheticsTestOptionsListRetry { return v.Retry }).(SyntheticsTestOptionsListRetryPtrOutput)
+}
+
+// The RUM data collection settings for the Synthetic browser test.
+func (o SyntheticsTestOptionsListOutput) RumSettings() SyntheticsTestOptionsListRumSettingsPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *SyntheticsTestOptionsListRumSettings { return v.RumSettings }).(SyntheticsTestOptionsListRumSettingsPtrOutput)
+}
+
+// Object containing timeframes and timezone used for advanced scheduling.
+func (o SyntheticsTestOptionsListOutput) Scheduling() SyntheticsTestOptionsListSchedulingPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *SyntheticsTestOptionsListScheduling { return v.Scheduling }).(SyntheticsTestOptionsListSchedulingPtrOutput)
+}
+
+// How often the test should run (in seconds). Valid range is `30-604800` for API tests and `60-604800` for browser tests.
+func (o SyntheticsTestOptionsListOutput) TickEvery() pulumi.IntOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) int { return v.TickEvery }).(pulumi.IntOutput)
+}
+
+type SyntheticsTestOptionsListPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestOptionsListPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestOptionsList)(nil)).Elem()
+}
+
+func (o SyntheticsTestOptionsListPtrOutput) ToSyntheticsTestOptionsListPtrOutput() SyntheticsTestOptionsListPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListPtrOutput) ToSyntheticsTestOptionsListPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListPtrOutput) Elem() SyntheticsTestOptionsListOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) SyntheticsTestOptionsList {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestOptionsList
+		return ret
+	}).(SyntheticsTestOptionsListOutput)
+}
+
+// For SSL tests, whether or not the test should allow self signed certificates.
+func (o SyntheticsTestOptionsListPtrOutput) AcceptSelfSigned() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AcceptSelfSigned
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Allows loading insecure content for a request in an API test or in a multistep API test step.
+func (o SyntheticsTestOptionsListPtrOutput) AllowInsecure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowInsecure
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
+func (o SyntheticsTestOptionsListPtrOutput) BlockedRequestPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BlockedRequestPatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
+func (o SyntheticsTestOptionsListPtrOutput) CheckCertificateRevocation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CheckCertificateRevocation
+	}).(pulumi.BoolPtrOutput)
+}
+
+// CI/CD options for a Synthetic test.
+func (o SyntheticsTestOptionsListPtrOutput) Ci() SyntheticsTestOptionsListCiPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *SyntheticsTestOptionsListCi {
+		if v == nil {
+			return nil
+		}
+		return v.Ci
+	}).(SyntheticsTestOptionsListCiPtrOutput)
+}
+
+// For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA
+func (o SyntheticsTestOptionsListPtrOutput) DisableAiaIntermediateFetching() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableAiaIntermediateFetching
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Disable Cross-Origin Resource Sharing for browser tests.
+func (o SyntheticsTestOptionsListPtrOutput) DisableCors() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableCors
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Disable Content Security Policy for browser tests.
+func (o SyntheticsTestOptionsListPtrOutput) DisableCsp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableCsp
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Determines whether or not the API HTTP test should follow redirects.
+func (o SyntheticsTestOptionsListPtrOutput) FollowRedirects() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FollowRedirects
+	}).(pulumi.BoolPtrOutput)
+}
+
+// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
+func (o SyntheticsTestOptionsListPtrOutput) HttpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Ignore server certificate error for browser tests.
+func (o SyntheticsTestOptionsListPtrOutput) IgnoreServerCertificateError() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreServerCertificateError
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Timeout before declaring the initial step as failed (in seconds) for browser tests.
+func (o SyntheticsTestOptionsListPtrOutput) InitialNavigationTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InitialNavigationTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
+func (o SyntheticsTestOptionsListPtrOutput) MinFailureDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinFailureDuration
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of locations in failure required to trigger an alert. Defaults to `1`.
+func (o SyntheticsTestOptionsListPtrOutput) MinLocationFailed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinLocationFailed
+	}).(pulumi.IntPtrOutput)
+}
+
+// The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+func (o SyntheticsTestOptionsListPtrOutput) MonitorName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MonitorName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestOptionsListPtrOutput) MonitorOptions() SyntheticsTestOptionsListMonitorOptionsPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *SyntheticsTestOptionsListMonitorOptions {
+		if v == nil {
+			return nil
+		}
+		return v.MonitorOptions
+	}).(SyntheticsTestOptionsListMonitorOptionsPtrOutput)
+}
+
+func (o SyntheticsTestOptionsListPtrOutput) MonitorPriority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MonitorPriority
+	}).(pulumi.IntPtrOutput)
+}
+
+// Prevents saving screenshots of the steps.
+func (o SyntheticsTestOptionsListPtrOutput) NoScreenshot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NoScreenshot
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A list of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
+//
+// Deprecated: This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
+func (o SyntheticsTestOptionsListPtrOutput) RestrictedRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RestrictedRoles
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o SyntheticsTestOptionsListPtrOutput) Retry() SyntheticsTestOptionsListRetryPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *SyntheticsTestOptionsListRetry {
+		if v == nil {
+			return nil
+		}
+		return v.Retry
+	}).(SyntheticsTestOptionsListRetryPtrOutput)
+}
+
+// The RUM data collection settings for the Synthetic browser test.
+func (o SyntheticsTestOptionsListPtrOutput) RumSettings() SyntheticsTestOptionsListRumSettingsPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *SyntheticsTestOptionsListRumSettings {
+		if v == nil {
+			return nil
+		}
+		return v.RumSettings
+	}).(SyntheticsTestOptionsListRumSettingsPtrOutput)
+}
+
+// Object containing timeframes and timezone used for advanced scheduling.
+func (o SyntheticsTestOptionsListPtrOutput) Scheduling() SyntheticsTestOptionsListSchedulingPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *SyntheticsTestOptionsListScheduling {
+		if v == nil {
+			return nil
+		}
+		return v.Scheduling
+	}).(SyntheticsTestOptionsListSchedulingPtrOutput)
+}
+
+// How often the test should run (in seconds). Valid range is `30-604800` for API tests and `60-604800` for browser tests.
+func (o SyntheticsTestOptionsListPtrOutput) TickEvery() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TickEvery
+	}).(pulumi.IntPtrOutput)
+}
+
+type SyntheticsTestOptionsListCi struct {
+	// Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
+	ExecutionRule *string `pulumi:"executionRule"`
+}
+
+// SyntheticsTestOptionsListCiInput is an input type that accepts SyntheticsTestOptionsListCiArgs and SyntheticsTestOptionsListCiOutput values.
+// You can construct a concrete instance of `SyntheticsTestOptionsListCiInput` via:
+//
+//	SyntheticsTestOptionsListCiArgs{...}
+type SyntheticsTestOptionsListCiInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestOptionsListCiOutput() SyntheticsTestOptionsListCiOutput
+	ToSyntheticsTestOptionsListCiOutputWithContext(context.Context) SyntheticsTestOptionsListCiOutput
+}
+
+type SyntheticsTestOptionsListCiArgs struct {
+	// Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
+	ExecutionRule pulumi.StringPtrInput `pulumi:"executionRule"`
+}
+
+func (SyntheticsTestOptionsListCiArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestOptionsListCi)(nil)).Elem()
+}
+
+func (i SyntheticsTestOptionsListCiArgs) ToSyntheticsTestOptionsListCiOutput() SyntheticsTestOptionsListCiOutput {
+	return i.ToSyntheticsTestOptionsListCiOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestOptionsListCiArgs) ToSyntheticsTestOptionsListCiOutputWithContext(ctx context.Context) SyntheticsTestOptionsListCiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListCiOutput)
+}
+
+func (i SyntheticsTestOptionsListCiArgs) ToSyntheticsTestOptionsListCiPtrOutput() SyntheticsTestOptionsListCiPtrOutput {
+	return i.ToSyntheticsTestOptionsListCiPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestOptionsListCiArgs) ToSyntheticsTestOptionsListCiPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListCiPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListCiOutput).ToSyntheticsTestOptionsListCiPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestOptionsListCiPtrInput is an input type that accepts SyntheticsTestOptionsListCiArgs, SyntheticsTestOptionsListCiPtr and SyntheticsTestOptionsListCiPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestOptionsListCiPtrInput` via:
+//
+//	        SyntheticsTestOptionsListCiArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestOptionsListCiPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestOptionsListCiPtrOutput() SyntheticsTestOptionsListCiPtrOutput
+	ToSyntheticsTestOptionsListCiPtrOutputWithContext(context.Context) SyntheticsTestOptionsListCiPtrOutput
+}
+
+type syntheticsTestOptionsListCiPtrType SyntheticsTestOptionsListCiArgs
+
+func SyntheticsTestOptionsListCiPtr(v *SyntheticsTestOptionsListCiArgs) SyntheticsTestOptionsListCiPtrInput {
+	return (*syntheticsTestOptionsListCiPtrType)(v)
+}
+
+func (*syntheticsTestOptionsListCiPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestOptionsListCi)(nil)).Elem()
+}
+
+func (i *syntheticsTestOptionsListCiPtrType) ToSyntheticsTestOptionsListCiPtrOutput() SyntheticsTestOptionsListCiPtrOutput {
+	return i.ToSyntheticsTestOptionsListCiPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestOptionsListCiPtrType) ToSyntheticsTestOptionsListCiPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListCiPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListCiPtrOutput)
+}
+
+type SyntheticsTestOptionsListCiOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestOptionsListCiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestOptionsListCi)(nil)).Elem()
+}
+
+func (o SyntheticsTestOptionsListCiOutput) ToSyntheticsTestOptionsListCiOutput() SyntheticsTestOptionsListCiOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListCiOutput) ToSyntheticsTestOptionsListCiOutputWithContext(ctx context.Context) SyntheticsTestOptionsListCiOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListCiOutput) ToSyntheticsTestOptionsListCiPtrOutput() SyntheticsTestOptionsListCiPtrOutput {
+	return o.ToSyntheticsTestOptionsListCiPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestOptionsListCiOutput) ToSyntheticsTestOptionsListCiPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListCiPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestOptionsListCi) *SyntheticsTestOptionsListCi {
+		return &v
+	}).(SyntheticsTestOptionsListCiPtrOutput)
+}
+
+// Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
+func (o SyntheticsTestOptionsListCiOutput) ExecutionRule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsListCi) *string { return v.ExecutionRule }).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestOptionsListCiPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestOptionsListCiPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestOptionsListCi)(nil)).Elem()
+}
+
+func (o SyntheticsTestOptionsListCiPtrOutput) ToSyntheticsTestOptionsListCiPtrOutput() SyntheticsTestOptionsListCiPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListCiPtrOutput) ToSyntheticsTestOptionsListCiPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListCiPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListCiPtrOutput) Elem() SyntheticsTestOptionsListCiOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListCi) SyntheticsTestOptionsListCi {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestOptionsListCi
+		return ret
+	}).(SyntheticsTestOptionsListCiOutput)
+}
+
+// Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
+func (o SyntheticsTestOptionsListCiPtrOutput) ExecutionRule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListCi) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionRule
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestOptionsListMonitorOptions struct {
+	// A message to include with a re-notification.
+	EscalationMessage *string `pulumi:"escalationMessage"`
+	// The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`, `hideQueryAndHandles`, `showOnlySnapshot`, `hideHandlesAndFooter`.
+	NotificationPresetName *string `pulumi:"notificationPresetName"`
+	// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
+	RenotifyInterval *int `pulumi:"renotifyInterval"`
+	// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
+	RenotifyOccurrences *int `pulumi:"renotifyOccurrences"`
+}
+
+// SyntheticsTestOptionsListMonitorOptionsInput is an input type that accepts SyntheticsTestOptionsListMonitorOptionsArgs and SyntheticsTestOptionsListMonitorOptionsOutput values.
+// You can construct a concrete instance of `SyntheticsTestOptionsListMonitorOptionsInput` via:
+//
+//	SyntheticsTestOptionsListMonitorOptionsArgs{...}
+type SyntheticsTestOptionsListMonitorOptionsInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestOptionsListMonitorOptionsOutput() SyntheticsTestOptionsListMonitorOptionsOutput
+	ToSyntheticsTestOptionsListMonitorOptionsOutputWithContext(context.Context) SyntheticsTestOptionsListMonitorOptionsOutput
+}
+
+type SyntheticsTestOptionsListMonitorOptionsArgs struct {
+	// A message to include with a re-notification.
+	EscalationMessage pulumi.StringPtrInput `pulumi:"escalationMessage"`
+	// The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`, `hideQueryAndHandles`, `showOnlySnapshot`, `hideHandlesAndFooter`.
+	NotificationPresetName pulumi.StringPtrInput `pulumi:"notificationPresetName"`
+	// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
+	RenotifyInterval pulumi.IntPtrInput `pulumi:"renotifyInterval"`
+	// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
+	RenotifyOccurrences pulumi.IntPtrInput `pulumi:"renotifyOccurrences"`
+}
+
+func (SyntheticsTestOptionsListMonitorOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestOptionsListMonitorOptions)(nil)).Elem()
+}
+
+func (i SyntheticsTestOptionsListMonitorOptionsArgs) ToSyntheticsTestOptionsListMonitorOptionsOutput() SyntheticsTestOptionsListMonitorOptionsOutput {
+	return i.ToSyntheticsTestOptionsListMonitorOptionsOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestOptionsListMonitorOptionsArgs) ToSyntheticsTestOptionsListMonitorOptionsOutputWithContext(ctx context.Context) SyntheticsTestOptionsListMonitorOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListMonitorOptionsOutput)
+}
+
+func (i SyntheticsTestOptionsListMonitorOptionsArgs) ToSyntheticsTestOptionsListMonitorOptionsPtrOutput() SyntheticsTestOptionsListMonitorOptionsPtrOutput {
+	return i.ToSyntheticsTestOptionsListMonitorOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestOptionsListMonitorOptionsArgs) ToSyntheticsTestOptionsListMonitorOptionsPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListMonitorOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListMonitorOptionsOutput).ToSyntheticsTestOptionsListMonitorOptionsPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestOptionsListMonitorOptionsPtrInput is an input type that accepts SyntheticsTestOptionsListMonitorOptionsArgs, SyntheticsTestOptionsListMonitorOptionsPtr and SyntheticsTestOptionsListMonitorOptionsPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestOptionsListMonitorOptionsPtrInput` via:
+//
+//	        SyntheticsTestOptionsListMonitorOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestOptionsListMonitorOptionsPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestOptionsListMonitorOptionsPtrOutput() SyntheticsTestOptionsListMonitorOptionsPtrOutput
+	ToSyntheticsTestOptionsListMonitorOptionsPtrOutputWithContext(context.Context) SyntheticsTestOptionsListMonitorOptionsPtrOutput
+}
+
+type syntheticsTestOptionsListMonitorOptionsPtrType SyntheticsTestOptionsListMonitorOptionsArgs
+
+func SyntheticsTestOptionsListMonitorOptionsPtr(v *SyntheticsTestOptionsListMonitorOptionsArgs) SyntheticsTestOptionsListMonitorOptionsPtrInput {
+	return (*syntheticsTestOptionsListMonitorOptionsPtrType)(v)
+}
+
+func (*syntheticsTestOptionsListMonitorOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestOptionsListMonitorOptions)(nil)).Elem()
+}
+
+func (i *syntheticsTestOptionsListMonitorOptionsPtrType) ToSyntheticsTestOptionsListMonitorOptionsPtrOutput() SyntheticsTestOptionsListMonitorOptionsPtrOutput {
+	return i.ToSyntheticsTestOptionsListMonitorOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestOptionsListMonitorOptionsPtrType) ToSyntheticsTestOptionsListMonitorOptionsPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListMonitorOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListMonitorOptionsPtrOutput)
+}
+
+type SyntheticsTestOptionsListMonitorOptionsOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestOptionsListMonitorOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestOptionsListMonitorOptions)(nil)).Elem()
+}
+
+func (o SyntheticsTestOptionsListMonitorOptionsOutput) ToSyntheticsTestOptionsListMonitorOptionsOutput() SyntheticsTestOptionsListMonitorOptionsOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListMonitorOptionsOutput) ToSyntheticsTestOptionsListMonitorOptionsOutputWithContext(ctx context.Context) SyntheticsTestOptionsListMonitorOptionsOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListMonitorOptionsOutput) ToSyntheticsTestOptionsListMonitorOptionsPtrOutput() SyntheticsTestOptionsListMonitorOptionsPtrOutput {
+	return o.ToSyntheticsTestOptionsListMonitorOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestOptionsListMonitorOptionsOutput) ToSyntheticsTestOptionsListMonitorOptionsPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListMonitorOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestOptionsListMonitorOptions) *SyntheticsTestOptionsListMonitorOptions {
+		return &v
+	}).(SyntheticsTestOptionsListMonitorOptionsPtrOutput)
+}
+
+// A message to include with a re-notification.
+func (o SyntheticsTestOptionsListMonitorOptionsOutput) EscalationMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsListMonitorOptions) *string { return v.EscalationMessage }).(pulumi.StringPtrOutput)
+}
+
+// The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`, `hideQueryAndHandles`, `showOnlySnapshot`, `hideHandlesAndFooter`.
+func (o SyntheticsTestOptionsListMonitorOptionsOutput) NotificationPresetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsListMonitorOptions) *string { return v.NotificationPresetName }).(pulumi.StringPtrOutput)
+}
+
+// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
+func (o SyntheticsTestOptionsListMonitorOptionsOutput) RenotifyInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsListMonitorOptions) *int { return v.RenotifyInterval }).(pulumi.IntPtrOutput)
+}
+
+// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
+func (o SyntheticsTestOptionsListMonitorOptionsOutput) RenotifyOccurrences() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsListMonitorOptions) *int { return v.RenotifyOccurrences }).(pulumi.IntPtrOutput)
+}
+
+type SyntheticsTestOptionsListMonitorOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestOptionsListMonitorOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestOptionsListMonitorOptions)(nil)).Elem()
+}
+
+func (o SyntheticsTestOptionsListMonitorOptionsPtrOutput) ToSyntheticsTestOptionsListMonitorOptionsPtrOutput() SyntheticsTestOptionsListMonitorOptionsPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListMonitorOptionsPtrOutput) ToSyntheticsTestOptionsListMonitorOptionsPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListMonitorOptionsPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListMonitorOptionsPtrOutput) Elem() SyntheticsTestOptionsListMonitorOptionsOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListMonitorOptions) SyntheticsTestOptionsListMonitorOptions {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestOptionsListMonitorOptions
+		return ret
+	}).(SyntheticsTestOptionsListMonitorOptionsOutput)
+}
+
+// A message to include with a re-notification.
+func (o SyntheticsTestOptionsListMonitorOptionsPtrOutput) EscalationMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListMonitorOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EscalationMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the preset for the notification for the monitor. Valid values are `showAll`, `hideAll`, `hideQuery`, `hideHandles`, `hideQueryAndHandles`, `showOnlySnapshot`, `hideHandlesAndFooter`.
+func (o SyntheticsTestOptionsListMonitorOptionsPtrOutput) NotificationPresetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListMonitorOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NotificationPresetName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
+func (o SyntheticsTestOptionsListMonitorOptionsPtrOutput) RenotifyInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListMonitorOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RenotifyInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
+func (o SyntheticsTestOptionsListMonitorOptionsPtrOutput) RenotifyOccurrences() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListMonitorOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RenotifyOccurrences
+	}).(pulumi.IntPtrOutput)
+}
+
+type SyntheticsTestOptionsListRetry struct {
+	// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
+	Count *int `pulumi:"count"`
+	// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
+	Interval *int `pulumi:"interval"`
+}
+
+// SyntheticsTestOptionsListRetryInput is an input type that accepts SyntheticsTestOptionsListRetryArgs and SyntheticsTestOptionsListRetryOutput values.
+// You can construct a concrete instance of `SyntheticsTestOptionsListRetryInput` via:
+//
+//	SyntheticsTestOptionsListRetryArgs{...}
+type SyntheticsTestOptionsListRetryInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestOptionsListRetryOutput() SyntheticsTestOptionsListRetryOutput
+	ToSyntheticsTestOptionsListRetryOutputWithContext(context.Context) SyntheticsTestOptionsListRetryOutput
+}
+
+type SyntheticsTestOptionsListRetryArgs struct {
+	// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (SyntheticsTestOptionsListRetryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestOptionsListRetry)(nil)).Elem()
+}
+
+func (i SyntheticsTestOptionsListRetryArgs) ToSyntheticsTestOptionsListRetryOutput() SyntheticsTestOptionsListRetryOutput {
+	return i.ToSyntheticsTestOptionsListRetryOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestOptionsListRetryArgs) ToSyntheticsTestOptionsListRetryOutputWithContext(ctx context.Context) SyntheticsTestOptionsListRetryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListRetryOutput)
+}
+
+func (i SyntheticsTestOptionsListRetryArgs) ToSyntheticsTestOptionsListRetryPtrOutput() SyntheticsTestOptionsListRetryPtrOutput {
+	return i.ToSyntheticsTestOptionsListRetryPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestOptionsListRetryArgs) ToSyntheticsTestOptionsListRetryPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListRetryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListRetryOutput).ToSyntheticsTestOptionsListRetryPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestOptionsListRetryPtrInput is an input type that accepts SyntheticsTestOptionsListRetryArgs, SyntheticsTestOptionsListRetryPtr and SyntheticsTestOptionsListRetryPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestOptionsListRetryPtrInput` via:
+//
+//	        SyntheticsTestOptionsListRetryArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestOptionsListRetryPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestOptionsListRetryPtrOutput() SyntheticsTestOptionsListRetryPtrOutput
+	ToSyntheticsTestOptionsListRetryPtrOutputWithContext(context.Context) SyntheticsTestOptionsListRetryPtrOutput
+}
+
+type syntheticsTestOptionsListRetryPtrType SyntheticsTestOptionsListRetryArgs
+
+func SyntheticsTestOptionsListRetryPtr(v *SyntheticsTestOptionsListRetryArgs) SyntheticsTestOptionsListRetryPtrInput {
+	return (*syntheticsTestOptionsListRetryPtrType)(v)
+}
+
+func (*syntheticsTestOptionsListRetryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestOptionsListRetry)(nil)).Elem()
+}
+
+func (i *syntheticsTestOptionsListRetryPtrType) ToSyntheticsTestOptionsListRetryPtrOutput() SyntheticsTestOptionsListRetryPtrOutput {
+	return i.ToSyntheticsTestOptionsListRetryPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestOptionsListRetryPtrType) ToSyntheticsTestOptionsListRetryPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListRetryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListRetryPtrOutput)
+}
+
+type SyntheticsTestOptionsListRetryOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestOptionsListRetryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestOptionsListRetry)(nil)).Elem()
+}
+
+func (o SyntheticsTestOptionsListRetryOutput) ToSyntheticsTestOptionsListRetryOutput() SyntheticsTestOptionsListRetryOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListRetryOutput) ToSyntheticsTestOptionsListRetryOutputWithContext(ctx context.Context) SyntheticsTestOptionsListRetryOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListRetryOutput) ToSyntheticsTestOptionsListRetryPtrOutput() SyntheticsTestOptionsListRetryPtrOutput {
+	return o.ToSyntheticsTestOptionsListRetryPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestOptionsListRetryOutput) ToSyntheticsTestOptionsListRetryPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListRetryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestOptionsListRetry) *SyntheticsTestOptionsListRetry {
+		return &v
+	}).(SyntheticsTestOptionsListRetryPtrOutput)
+}
+
+// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
+func (o SyntheticsTestOptionsListRetryOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsListRetry) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
+func (o SyntheticsTestOptionsListRetryOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsListRetry) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type SyntheticsTestOptionsListRetryPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestOptionsListRetryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestOptionsListRetry)(nil)).Elem()
+}
+
+func (o SyntheticsTestOptionsListRetryPtrOutput) ToSyntheticsTestOptionsListRetryPtrOutput() SyntheticsTestOptionsListRetryPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListRetryPtrOutput) ToSyntheticsTestOptionsListRetryPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListRetryPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListRetryPtrOutput) Elem() SyntheticsTestOptionsListRetryOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListRetry) SyntheticsTestOptionsListRetry {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestOptionsListRetry
+		return ret
+	}).(SyntheticsTestOptionsListRetryOutput)
+}
+
+// Number of retries needed to consider a location as failed before sending a notification alert. Maximum value: `3` for `api` tests, `2` for `browser` and `mobile` tests. Defaults to `0`.
+func (o SyntheticsTestOptionsListRetryPtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListRetry) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+// Interval between a failed test and the next retry in milliseconds. Maximum value: `5000`. Defaults to `300`.
+func (o SyntheticsTestOptionsListRetryPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListRetry) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+type SyntheticsTestOptionsListRumSettings struct {
+	// RUM application ID used to collect RUM data for the browser test.
+	ApplicationId *string `pulumi:"applicationId"`
+	// RUM application API key ID used to collect RUM data for the browser test.
+	ClientTokenId *int `pulumi:"clientTokenId"`
+	// Determines whether RUM data is collected during test runs.
+	IsEnabled bool `pulumi:"isEnabled"`
+}
+
+// SyntheticsTestOptionsListRumSettingsInput is an input type that accepts SyntheticsTestOptionsListRumSettingsArgs and SyntheticsTestOptionsListRumSettingsOutput values.
+// You can construct a concrete instance of `SyntheticsTestOptionsListRumSettingsInput` via:
+//
+//	SyntheticsTestOptionsListRumSettingsArgs{...}
+type SyntheticsTestOptionsListRumSettingsInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestOptionsListRumSettingsOutput() SyntheticsTestOptionsListRumSettingsOutput
+	ToSyntheticsTestOptionsListRumSettingsOutputWithContext(context.Context) SyntheticsTestOptionsListRumSettingsOutput
+}
+
+type SyntheticsTestOptionsListRumSettingsArgs struct {
+	// RUM application ID used to collect RUM data for the browser test.
+	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
+	// RUM application API key ID used to collect RUM data for the browser test.
+	ClientTokenId pulumi.IntPtrInput `pulumi:"clientTokenId"`
+	// Determines whether RUM data is collected during test runs.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+}
+
+func (SyntheticsTestOptionsListRumSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestOptionsListRumSettings)(nil)).Elem()
+}
+
+func (i SyntheticsTestOptionsListRumSettingsArgs) ToSyntheticsTestOptionsListRumSettingsOutput() SyntheticsTestOptionsListRumSettingsOutput {
+	return i.ToSyntheticsTestOptionsListRumSettingsOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestOptionsListRumSettingsArgs) ToSyntheticsTestOptionsListRumSettingsOutputWithContext(ctx context.Context) SyntheticsTestOptionsListRumSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListRumSettingsOutput)
+}
+
+func (i SyntheticsTestOptionsListRumSettingsArgs) ToSyntheticsTestOptionsListRumSettingsPtrOutput() SyntheticsTestOptionsListRumSettingsPtrOutput {
+	return i.ToSyntheticsTestOptionsListRumSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestOptionsListRumSettingsArgs) ToSyntheticsTestOptionsListRumSettingsPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListRumSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListRumSettingsOutput).ToSyntheticsTestOptionsListRumSettingsPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestOptionsListRumSettingsPtrInput is an input type that accepts SyntheticsTestOptionsListRumSettingsArgs, SyntheticsTestOptionsListRumSettingsPtr and SyntheticsTestOptionsListRumSettingsPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestOptionsListRumSettingsPtrInput` via:
+//
+//	        SyntheticsTestOptionsListRumSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestOptionsListRumSettingsPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestOptionsListRumSettingsPtrOutput() SyntheticsTestOptionsListRumSettingsPtrOutput
+	ToSyntheticsTestOptionsListRumSettingsPtrOutputWithContext(context.Context) SyntheticsTestOptionsListRumSettingsPtrOutput
+}
+
+type syntheticsTestOptionsListRumSettingsPtrType SyntheticsTestOptionsListRumSettingsArgs
+
+func SyntheticsTestOptionsListRumSettingsPtr(v *SyntheticsTestOptionsListRumSettingsArgs) SyntheticsTestOptionsListRumSettingsPtrInput {
+	return (*syntheticsTestOptionsListRumSettingsPtrType)(v)
+}
+
+func (*syntheticsTestOptionsListRumSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestOptionsListRumSettings)(nil)).Elem()
+}
+
+func (i *syntheticsTestOptionsListRumSettingsPtrType) ToSyntheticsTestOptionsListRumSettingsPtrOutput() SyntheticsTestOptionsListRumSettingsPtrOutput {
+	return i.ToSyntheticsTestOptionsListRumSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestOptionsListRumSettingsPtrType) ToSyntheticsTestOptionsListRumSettingsPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListRumSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListRumSettingsPtrOutput)
+}
+
+type SyntheticsTestOptionsListRumSettingsOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestOptionsListRumSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestOptionsListRumSettings)(nil)).Elem()
+}
+
+func (o SyntheticsTestOptionsListRumSettingsOutput) ToSyntheticsTestOptionsListRumSettingsOutput() SyntheticsTestOptionsListRumSettingsOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListRumSettingsOutput) ToSyntheticsTestOptionsListRumSettingsOutputWithContext(ctx context.Context) SyntheticsTestOptionsListRumSettingsOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListRumSettingsOutput) ToSyntheticsTestOptionsListRumSettingsPtrOutput() SyntheticsTestOptionsListRumSettingsPtrOutput {
+	return o.ToSyntheticsTestOptionsListRumSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestOptionsListRumSettingsOutput) ToSyntheticsTestOptionsListRumSettingsPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListRumSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestOptionsListRumSettings) *SyntheticsTestOptionsListRumSettings {
+		return &v
+	}).(SyntheticsTestOptionsListRumSettingsPtrOutput)
+}
+
+// RUM application ID used to collect RUM data for the browser test.
+func (o SyntheticsTestOptionsListRumSettingsOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsListRumSettings) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
+}
+
+// RUM application API key ID used to collect RUM data for the browser test.
+func (o SyntheticsTestOptionsListRumSettingsOutput) ClientTokenId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsListRumSettings) *int { return v.ClientTokenId }).(pulumi.IntPtrOutput)
+}
+
+// Determines whether RUM data is collected during test runs.
+func (o SyntheticsTestOptionsListRumSettingsOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsListRumSettings) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+type SyntheticsTestOptionsListRumSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestOptionsListRumSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestOptionsListRumSettings)(nil)).Elem()
+}
+
+func (o SyntheticsTestOptionsListRumSettingsPtrOutput) ToSyntheticsTestOptionsListRumSettingsPtrOutput() SyntheticsTestOptionsListRumSettingsPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListRumSettingsPtrOutput) ToSyntheticsTestOptionsListRumSettingsPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListRumSettingsPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListRumSettingsPtrOutput) Elem() SyntheticsTestOptionsListRumSettingsOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListRumSettings) SyntheticsTestOptionsListRumSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestOptionsListRumSettings
+		return ret
+	}).(SyntheticsTestOptionsListRumSettingsOutput)
+}
+
+// RUM application ID used to collect RUM data for the browser test.
+func (o SyntheticsTestOptionsListRumSettingsPtrOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListRumSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// RUM application API key ID used to collect RUM data for the browser test.
+func (o SyntheticsTestOptionsListRumSettingsPtrOutput) ClientTokenId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListRumSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ClientTokenId
+	}).(pulumi.IntPtrOutput)
+}
+
+// Determines whether RUM data is collected during test runs.
+func (o SyntheticsTestOptionsListRumSettingsPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListRumSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type SyntheticsTestOptionsListScheduling struct {
+	// Array containing objects describing the scheduling pattern to apply to each day.
+	Timeframes []SyntheticsTestOptionsListSchedulingTimeframe `pulumi:"timeframes"`
+	// Timezone in which the timeframe is based.
+	Timezone string `pulumi:"timezone"`
+}
+
+// SyntheticsTestOptionsListSchedulingInput is an input type that accepts SyntheticsTestOptionsListSchedulingArgs and SyntheticsTestOptionsListSchedulingOutput values.
+// You can construct a concrete instance of `SyntheticsTestOptionsListSchedulingInput` via:
+//
+//	SyntheticsTestOptionsListSchedulingArgs{...}
+type SyntheticsTestOptionsListSchedulingInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestOptionsListSchedulingOutput() SyntheticsTestOptionsListSchedulingOutput
+	ToSyntheticsTestOptionsListSchedulingOutputWithContext(context.Context) SyntheticsTestOptionsListSchedulingOutput
+}
+
+type SyntheticsTestOptionsListSchedulingArgs struct {
+	// Array containing objects describing the scheduling pattern to apply to each day.
+	Timeframes SyntheticsTestOptionsListSchedulingTimeframeArrayInput `pulumi:"timeframes"`
+	// Timezone in which the timeframe is based.
+	Timezone pulumi.StringInput `pulumi:"timezone"`
+}
+
+func (SyntheticsTestOptionsListSchedulingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestOptionsListScheduling)(nil)).Elem()
+}
+
+func (i SyntheticsTestOptionsListSchedulingArgs) ToSyntheticsTestOptionsListSchedulingOutput() SyntheticsTestOptionsListSchedulingOutput {
+	return i.ToSyntheticsTestOptionsListSchedulingOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestOptionsListSchedulingArgs) ToSyntheticsTestOptionsListSchedulingOutputWithContext(ctx context.Context) SyntheticsTestOptionsListSchedulingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListSchedulingOutput)
+}
+
+func (i SyntheticsTestOptionsListSchedulingArgs) ToSyntheticsTestOptionsListSchedulingPtrOutput() SyntheticsTestOptionsListSchedulingPtrOutput {
+	return i.ToSyntheticsTestOptionsListSchedulingPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestOptionsListSchedulingArgs) ToSyntheticsTestOptionsListSchedulingPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListSchedulingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListSchedulingOutput).ToSyntheticsTestOptionsListSchedulingPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestOptionsListSchedulingPtrInput is an input type that accepts SyntheticsTestOptionsListSchedulingArgs, SyntheticsTestOptionsListSchedulingPtr and SyntheticsTestOptionsListSchedulingPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestOptionsListSchedulingPtrInput` via:
+//
+//	        SyntheticsTestOptionsListSchedulingArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestOptionsListSchedulingPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestOptionsListSchedulingPtrOutput() SyntheticsTestOptionsListSchedulingPtrOutput
+	ToSyntheticsTestOptionsListSchedulingPtrOutputWithContext(context.Context) SyntheticsTestOptionsListSchedulingPtrOutput
+}
+
+type syntheticsTestOptionsListSchedulingPtrType SyntheticsTestOptionsListSchedulingArgs
+
+func SyntheticsTestOptionsListSchedulingPtr(v *SyntheticsTestOptionsListSchedulingArgs) SyntheticsTestOptionsListSchedulingPtrInput {
+	return (*syntheticsTestOptionsListSchedulingPtrType)(v)
+}
+
+func (*syntheticsTestOptionsListSchedulingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestOptionsListScheduling)(nil)).Elem()
+}
+
+func (i *syntheticsTestOptionsListSchedulingPtrType) ToSyntheticsTestOptionsListSchedulingPtrOutput() SyntheticsTestOptionsListSchedulingPtrOutput {
+	return i.ToSyntheticsTestOptionsListSchedulingPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestOptionsListSchedulingPtrType) ToSyntheticsTestOptionsListSchedulingPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListSchedulingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListSchedulingPtrOutput)
+}
+
+type SyntheticsTestOptionsListSchedulingOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestOptionsListSchedulingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestOptionsListScheduling)(nil)).Elem()
+}
+
+func (o SyntheticsTestOptionsListSchedulingOutput) ToSyntheticsTestOptionsListSchedulingOutput() SyntheticsTestOptionsListSchedulingOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListSchedulingOutput) ToSyntheticsTestOptionsListSchedulingOutputWithContext(ctx context.Context) SyntheticsTestOptionsListSchedulingOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListSchedulingOutput) ToSyntheticsTestOptionsListSchedulingPtrOutput() SyntheticsTestOptionsListSchedulingPtrOutput {
+	return o.ToSyntheticsTestOptionsListSchedulingPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestOptionsListSchedulingOutput) ToSyntheticsTestOptionsListSchedulingPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListSchedulingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestOptionsListScheduling) *SyntheticsTestOptionsListScheduling {
+		return &v
+	}).(SyntheticsTestOptionsListSchedulingPtrOutput)
+}
+
+// Array containing objects describing the scheduling pattern to apply to each day.
+func (o SyntheticsTestOptionsListSchedulingOutput) Timeframes() SyntheticsTestOptionsListSchedulingTimeframeArrayOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsListScheduling) []SyntheticsTestOptionsListSchedulingTimeframe {
+		return v.Timeframes
+	}).(SyntheticsTestOptionsListSchedulingTimeframeArrayOutput)
+}
+
+// Timezone in which the timeframe is based.
+func (o SyntheticsTestOptionsListSchedulingOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsListScheduling) string { return v.Timezone }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestOptionsListSchedulingPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestOptionsListSchedulingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestOptionsListScheduling)(nil)).Elem()
+}
+
+func (o SyntheticsTestOptionsListSchedulingPtrOutput) ToSyntheticsTestOptionsListSchedulingPtrOutput() SyntheticsTestOptionsListSchedulingPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListSchedulingPtrOutput) ToSyntheticsTestOptionsListSchedulingPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListSchedulingPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListSchedulingPtrOutput) Elem() SyntheticsTestOptionsListSchedulingOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListScheduling) SyntheticsTestOptionsListScheduling {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestOptionsListScheduling
+		return ret
+	}).(SyntheticsTestOptionsListSchedulingOutput)
+}
+
+// Array containing objects describing the scheduling pattern to apply to each day.
+func (o SyntheticsTestOptionsListSchedulingPtrOutput) Timeframes() SyntheticsTestOptionsListSchedulingTimeframeArrayOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListScheduling) []SyntheticsTestOptionsListSchedulingTimeframe {
+		if v == nil {
+			return nil
+		}
+		return v.Timeframes
+	}).(SyntheticsTestOptionsListSchedulingTimeframeArrayOutput)
+}
+
+// Timezone in which the timeframe is based.
+func (o SyntheticsTestOptionsListSchedulingPtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListScheduling) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestOptionsListSchedulingTimeframe struct {
+	// Number representing the day of the week
+	Day int `pulumi:"day"`
+	// The hour of the day on which scheduling starts.
+	From string `pulumi:"from"`
+	// The hour of the day on which scheduling ends.
+	To string `pulumi:"to"`
+}
+
+// SyntheticsTestOptionsListSchedulingTimeframeInput is an input type that accepts SyntheticsTestOptionsListSchedulingTimeframeArgs and SyntheticsTestOptionsListSchedulingTimeframeOutput values.
+// You can construct a concrete instance of `SyntheticsTestOptionsListSchedulingTimeframeInput` via:
+//
+//	SyntheticsTestOptionsListSchedulingTimeframeArgs{...}
+type SyntheticsTestOptionsListSchedulingTimeframeInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestOptionsListSchedulingTimeframeOutput() SyntheticsTestOptionsListSchedulingTimeframeOutput
+	ToSyntheticsTestOptionsListSchedulingTimeframeOutputWithContext(context.Context) SyntheticsTestOptionsListSchedulingTimeframeOutput
+}
+
+type SyntheticsTestOptionsListSchedulingTimeframeArgs struct {
+	// Number representing the day of the week
+	Day pulumi.IntInput `pulumi:"day"`
+	// The hour of the day on which scheduling starts.
+	From pulumi.StringInput `pulumi:"from"`
+	// The hour of the day on which scheduling ends.
+	To pulumi.StringInput `pulumi:"to"`
+}
+
+func (SyntheticsTestOptionsListSchedulingTimeframeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestOptionsListSchedulingTimeframe)(nil)).Elem()
+}
+
+func (i SyntheticsTestOptionsListSchedulingTimeframeArgs) ToSyntheticsTestOptionsListSchedulingTimeframeOutput() SyntheticsTestOptionsListSchedulingTimeframeOutput {
+	return i.ToSyntheticsTestOptionsListSchedulingTimeframeOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestOptionsListSchedulingTimeframeArgs) ToSyntheticsTestOptionsListSchedulingTimeframeOutputWithContext(ctx context.Context) SyntheticsTestOptionsListSchedulingTimeframeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListSchedulingTimeframeOutput)
+}
+
+// SyntheticsTestOptionsListSchedulingTimeframeArrayInput is an input type that accepts SyntheticsTestOptionsListSchedulingTimeframeArray and SyntheticsTestOptionsListSchedulingTimeframeArrayOutput values.
+// You can construct a concrete instance of `SyntheticsTestOptionsListSchedulingTimeframeArrayInput` via:
+//
+//	SyntheticsTestOptionsListSchedulingTimeframeArray{ SyntheticsTestOptionsListSchedulingTimeframeArgs{...} }
+type SyntheticsTestOptionsListSchedulingTimeframeArrayInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestOptionsListSchedulingTimeframeArrayOutput() SyntheticsTestOptionsListSchedulingTimeframeArrayOutput
+	ToSyntheticsTestOptionsListSchedulingTimeframeArrayOutputWithContext(context.Context) SyntheticsTestOptionsListSchedulingTimeframeArrayOutput
+}
+
+type SyntheticsTestOptionsListSchedulingTimeframeArray []SyntheticsTestOptionsListSchedulingTimeframeInput
+
+func (SyntheticsTestOptionsListSchedulingTimeframeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestOptionsListSchedulingTimeframe)(nil)).Elem()
+}
+
+func (i SyntheticsTestOptionsListSchedulingTimeframeArray) ToSyntheticsTestOptionsListSchedulingTimeframeArrayOutput() SyntheticsTestOptionsListSchedulingTimeframeArrayOutput {
+	return i.ToSyntheticsTestOptionsListSchedulingTimeframeArrayOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestOptionsListSchedulingTimeframeArray) ToSyntheticsTestOptionsListSchedulingTimeframeArrayOutputWithContext(ctx context.Context) SyntheticsTestOptionsListSchedulingTimeframeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListSchedulingTimeframeArrayOutput)
+}
+
+type SyntheticsTestOptionsListSchedulingTimeframeOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestOptionsListSchedulingTimeframeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestOptionsListSchedulingTimeframe)(nil)).Elem()
+}
+
+func (o SyntheticsTestOptionsListSchedulingTimeframeOutput) ToSyntheticsTestOptionsListSchedulingTimeframeOutput() SyntheticsTestOptionsListSchedulingTimeframeOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListSchedulingTimeframeOutput) ToSyntheticsTestOptionsListSchedulingTimeframeOutputWithContext(ctx context.Context) SyntheticsTestOptionsListSchedulingTimeframeOutput {
+	return o
+}
+
+// Number representing the day of the week
+func (o SyntheticsTestOptionsListSchedulingTimeframeOutput) Day() pulumi.IntOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsListSchedulingTimeframe) int { return v.Day }).(pulumi.IntOutput)
+}
+
+// The hour of the day on which scheduling starts.
+func (o SyntheticsTestOptionsListSchedulingTimeframeOutput) From() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsListSchedulingTimeframe) string { return v.From }).(pulumi.StringOutput)
+}
+
+// The hour of the day on which scheduling ends.
+func (o SyntheticsTestOptionsListSchedulingTimeframeOutput) To() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsListSchedulingTimeframe) string { return v.To }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestOptionsListSchedulingTimeframeArrayOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestOptionsListSchedulingTimeframeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestOptionsListSchedulingTimeframe)(nil)).Elem()
+}
+
+func (o SyntheticsTestOptionsListSchedulingTimeframeArrayOutput) ToSyntheticsTestOptionsListSchedulingTimeframeArrayOutput() SyntheticsTestOptionsListSchedulingTimeframeArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListSchedulingTimeframeArrayOutput) ToSyntheticsTestOptionsListSchedulingTimeframeArrayOutputWithContext(ctx context.Context) SyntheticsTestOptionsListSchedulingTimeframeArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListSchedulingTimeframeArrayOutput) Index(i pulumi.IntInput) SyntheticsTestOptionsListSchedulingTimeframeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyntheticsTestOptionsListSchedulingTimeframe {
+		return vs[0].([]SyntheticsTestOptionsListSchedulingTimeframe)[vs[1].(int)]
+	}).(SyntheticsTestOptionsListSchedulingTimeframeOutput)
+}
+
+type SyntheticsTestRequestBasicauth struct {
+	// Access key for `SIGV4` authentication.
+	AccessKey *string `pulumi:"accessKey"`
+	// Access token url for `oauth-client` or `oauth-rop` authentication.
+	AccessTokenUrl *string `pulumi:"accessTokenUrl"`
+	// Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+	Audience *string `pulumi:"audience"`
+	// Client ID for `oauth-client` or `oauth-rop` authentication.
+	ClientId *string `pulumi:"clientId"`
+	// Client secret for `oauth-client` or `oauth-rop` authentication.
+	ClientSecret *string `pulumi:"clientSecret"`
+	// Domain for `ntlm` authentication.
+	Domain *string `pulumi:"domain"`
+	// Password for authentication.
+	Password *string `pulumi:"password"`
+	// Region for `SIGV4` authentication.
+	Region *string `pulumi:"region"`
+	// Resource for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+	Resource *string `pulumi:"resource"`
+	// Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+	Scope *string `pulumi:"scope"`
+	// Secret key for `SIGV4` authentication.
+	SecretKey *string `pulumi:"secretKey"`
+	// Service name for `SIGV4` authentication.
+	ServiceName *string `pulumi:"serviceName"`
+	// Session token for `SIGV4` authentication.
+	SessionToken *string `pulumi:"sessionToken"`
+	// Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `header`, `body`.
+	TokenApiAuthentication *string `pulumi:"tokenApiAuthentication"`
+	// Type of basic authentication to use when performing the test. Defaults to `"web"`.
+	Type *string `pulumi:"type"`
+	// Username for authentication.
+	Username *string `pulumi:"username"`
+	// Workstation for `ntlm` authentication.
+	Workstation *string `pulumi:"workstation"`
+}
+
+// SyntheticsTestRequestBasicauthInput is an input type that accepts SyntheticsTestRequestBasicauthArgs and SyntheticsTestRequestBasicauthOutput values.
+// You can construct a concrete instance of `SyntheticsTestRequestBasicauthInput` via:
+//
+//	SyntheticsTestRequestBasicauthArgs{...}
+type SyntheticsTestRequestBasicauthInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestRequestBasicauthOutput() SyntheticsTestRequestBasicauthOutput
+	ToSyntheticsTestRequestBasicauthOutputWithContext(context.Context) SyntheticsTestRequestBasicauthOutput
+}
+
+type SyntheticsTestRequestBasicauthArgs struct {
+	// Access key for `SIGV4` authentication.
+	AccessKey pulumi.StringPtrInput `pulumi:"accessKey"`
+	// Access token url for `oauth-client` or `oauth-rop` authentication.
+	AccessTokenUrl pulumi.StringPtrInput `pulumi:"accessTokenUrl"`
+	// Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+	Audience pulumi.StringPtrInput `pulumi:"audience"`
+	// Client ID for `oauth-client` or `oauth-rop` authentication.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// Client secret for `oauth-client` or `oauth-rop` authentication.
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// Domain for `ntlm` authentication.
+	Domain pulumi.StringPtrInput `pulumi:"domain"`
+	// Password for authentication.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// Region for `SIGV4` authentication.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// Resource for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+	Resource pulumi.StringPtrInput `pulumi:"resource"`
+	// Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	// Secret key for `SIGV4` authentication.
+	SecretKey pulumi.StringPtrInput `pulumi:"secretKey"`
+	// Service name for `SIGV4` authentication.
+	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
+	// Session token for `SIGV4` authentication.
+	SessionToken pulumi.StringPtrInput `pulumi:"sessionToken"`
+	// Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `header`, `body`.
+	TokenApiAuthentication pulumi.StringPtrInput `pulumi:"tokenApiAuthentication"`
+	// Type of basic authentication to use when performing the test. Defaults to `"web"`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Username for authentication.
+	Username pulumi.StringPtrInput `pulumi:"username"`
+	// Workstation for `ntlm` authentication.
+	Workstation pulumi.StringPtrInput `pulumi:"workstation"`
+}
+
+func (SyntheticsTestRequestBasicauthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestRequestBasicauth)(nil)).Elem()
+}
+
+func (i SyntheticsTestRequestBasicauthArgs) ToSyntheticsTestRequestBasicauthOutput() SyntheticsTestRequestBasicauthOutput {
+	return i.ToSyntheticsTestRequestBasicauthOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestRequestBasicauthArgs) ToSyntheticsTestRequestBasicauthOutputWithContext(ctx context.Context) SyntheticsTestRequestBasicauthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestRequestBasicauthOutput)
+}
+
+func (i SyntheticsTestRequestBasicauthArgs) ToSyntheticsTestRequestBasicauthPtrOutput() SyntheticsTestRequestBasicauthPtrOutput {
+	return i.ToSyntheticsTestRequestBasicauthPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestRequestBasicauthArgs) ToSyntheticsTestRequestBasicauthPtrOutputWithContext(ctx context.Context) SyntheticsTestRequestBasicauthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestRequestBasicauthOutput).ToSyntheticsTestRequestBasicauthPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestRequestBasicauthPtrInput is an input type that accepts SyntheticsTestRequestBasicauthArgs, SyntheticsTestRequestBasicauthPtr and SyntheticsTestRequestBasicauthPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestRequestBasicauthPtrInput` via:
+//
+//	        SyntheticsTestRequestBasicauthArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestRequestBasicauthPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestRequestBasicauthPtrOutput() SyntheticsTestRequestBasicauthPtrOutput
+	ToSyntheticsTestRequestBasicauthPtrOutputWithContext(context.Context) SyntheticsTestRequestBasicauthPtrOutput
+}
+
+type syntheticsTestRequestBasicauthPtrType SyntheticsTestRequestBasicauthArgs
+
+func SyntheticsTestRequestBasicauthPtr(v *SyntheticsTestRequestBasicauthArgs) SyntheticsTestRequestBasicauthPtrInput {
+	return (*syntheticsTestRequestBasicauthPtrType)(v)
+}
+
+func (*syntheticsTestRequestBasicauthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestRequestBasicauth)(nil)).Elem()
+}
+
+func (i *syntheticsTestRequestBasicauthPtrType) ToSyntheticsTestRequestBasicauthPtrOutput() SyntheticsTestRequestBasicauthPtrOutput {
+	return i.ToSyntheticsTestRequestBasicauthPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestRequestBasicauthPtrType) ToSyntheticsTestRequestBasicauthPtrOutputWithContext(ctx context.Context) SyntheticsTestRequestBasicauthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestRequestBasicauthPtrOutput)
+}
+
+type SyntheticsTestRequestBasicauthOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestRequestBasicauthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestRequestBasicauth)(nil)).Elem()
+}
+
+func (o SyntheticsTestRequestBasicauthOutput) ToSyntheticsTestRequestBasicauthOutput() SyntheticsTestRequestBasicauthOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestBasicauthOutput) ToSyntheticsTestRequestBasicauthOutputWithContext(ctx context.Context) SyntheticsTestRequestBasicauthOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestBasicauthOutput) ToSyntheticsTestRequestBasicauthPtrOutput() SyntheticsTestRequestBasicauthPtrOutput {
+	return o.ToSyntheticsTestRequestBasicauthPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestRequestBasicauthOutput) ToSyntheticsTestRequestBasicauthPtrOutputWithContext(ctx context.Context) SyntheticsTestRequestBasicauthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestRequestBasicauth) *SyntheticsTestRequestBasicauth {
+		return &v
+	}).(SyntheticsTestRequestBasicauthPtrOutput)
+}
+
+// Access key for `SIGV4` authentication.
+func (o SyntheticsTestRequestBasicauthOutput) AccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestBasicauth) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
+}
+
+// Access token url for `oauth-client` or `oauth-rop` authentication.
+func (o SyntheticsTestRequestBasicauthOutput) AccessTokenUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestBasicauth) *string { return v.AccessTokenUrl }).(pulumi.StringPtrOutput)
+}
+
+// Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+func (o SyntheticsTestRequestBasicauthOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestBasicauth) *string { return v.Audience }).(pulumi.StringPtrOutput)
+}
+
+// Client ID for `oauth-client` or `oauth-rop` authentication.
+func (o SyntheticsTestRequestBasicauthOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestBasicauth) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// Client secret for `oauth-client` or `oauth-rop` authentication.
+func (o SyntheticsTestRequestBasicauthOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestBasicauth) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// Domain for `ntlm` authentication.
+func (o SyntheticsTestRequestBasicauthOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestBasicauth) *string { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// Password for authentication.
+func (o SyntheticsTestRequestBasicauthOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestBasicauth) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// Region for `SIGV4` authentication.
+func (o SyntheticsTestRequestBasicauthOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestBasicauth) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// Resource for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+func (o SyntheticsTestRequestBasicauthOutput) Resource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestBasicauth) *string { return v.Resource }).(pulumi.StringPtrOutput)
+}
+
+// Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+func (o SyntheticsTestRequestBasicauthOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestBasicauth) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// Secret key for `SIGV4` authentication.
+func (o SyntheticsTestRequestBasicauthOutput) SecretKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestBasicauth) *string { return v.SecretKey }).(pulumi.StringPtrOutput)
+}
+
+// Service name for `SIGV4` authentication.
+func (o SyntheticsTestRequestBasicauthOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestBasicauth) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
+}
+
+// Session token for `SIGV4` authentication.
+func (o SyntheticsTestRequestBasicauthOutput) SessionToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestBasicauth) *string { return v.SessionToken }).(pulumi.StringPtrOutput)
+}
+
+// Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `header`, `body`.
+func (o SyntheticsTestRequestBasicauthOutput) TokenApiAuthentication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestBasicauth) *string { return v.TokenApiAuthentication }).(pulumi.StringPtrOutput)
+}
+
+// Type of basic authentication to use when performing the test. Defaults to `"web"`.
+func (o SyntheticsTestRequestBasicauthOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestBasicauth) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Username for authentication.
+func (o SyntheticsTestRequestBasicauthOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestBasicauth) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+// Workstation for `ntlm` authentication.
+func (o SyntheticsTestRequestBasicauthOutput) Workstation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestBasicauth) *string { return v.Workstation }).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestRequestBasicauthPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestRequestBasicauthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestRequestBasicauth)(nil)).Elem()
+}
+
+func (o SyntheticsTestRequestBasicauthPtrOutput) ToSyntheticsTestRequestBasicauthPtrOutput() SyntheticsTestRequestBasicauthPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestBasicauthPtrOutput) ToSyntheticsTestRequestBasicauthPtrOutputWithContext(ctx context.Context) SyntheticsTestRequestBasicauthPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestBasicauthPtrOutput) Elem() SyntheticsTestRequestBasicauthOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestBasicauth) SyntheticsTestRequestBasicauth {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestRequestBasicauth
+		return ret
+	}).(SyntheticsTestRequestBasicauthOutput)
+}
+
+// Access key for `SIGV4` authentication.
+func (o SyntheticsTestRequestBasicauthPtrOutput) AccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Access token url for `oauth-client` or `oauth-rop` authentication.
+func (o SyntheticsTestRequestBasicauthPtrOutput) AccessTokenUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessTokenUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+func (o SyntheticsTestRequestBasicauthPtrOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Audience
+	}).(pulumi.StringPtrOutput)
+}
+
+// Client ID for `oauth-client` or `oauth-rop` authentication.
+func (o SyntheticsTestRequestBasicauthPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Client secret for `oauth-client` or `oauth-rop` authentication.
+func (o SyntheticsTestRequestBasicauthPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Domain for `ntlm` authentication.
+func (o SyntheticsTestRequestBasicauthPtrOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Domain
+	}).(pulumi.StringPtrOutput)
+}
+
+// Password for authentication.
+func (o SyntheticsTestRequestBasicauthPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// Region for `SIGV4` authentication.
+func (o SyntheticsTestRequestBasicauthPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+func (o SyntheticsTestRequestBasicauthPtrOutput) Resource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Resource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+func (o SyntheticsTestRequestBasicauthPtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret key for `SIGV4` authentication.
+func (o SyntheticsTestRequestBasicauthPtrOutput) SecretKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Service name for `SIGV4` authentication.
+func (o SyntheticsTestRequestBasicauthPtrOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Session token for `SIGV4` authentication.
+func (o SyntheticsTestRequestBasicauthPtrOutput) SessionToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SessionToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `header`, `body`.
+func (o SyntheticsTestRequestBasicauthPtrOutput) TokenApiAuthentication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenApiAuthentication
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of basic authentication to use when performing the test. Defaults to `"web"`.
+func (o SyntheticsTestRequestBasicauthPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Username for authentication.
+func (o SyntheticsTestRequestBasicauthPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+// Workstation for `ntlm` authentication.
+func (o SyntheticsTestRequestBasicauthPtrOutput) Workstation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Workstation
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestRequestClientCertificate struct {
+	Cert SyntheticsTestRequestClientCertificateCert `pulumi:"cert"`
+	Key  SyntheticsTestRequestClientCertificateKey  `pulumi:"key"`
+}
+
+// SyntheticsTestRequestClientCertificateInput is an input type that accepts SyntheticsTestRequestClientCertificateArgs and SyntheticsTestRequestClientCertificateOutput values.
+// You can construct a concrete instance of `SyntheticsTestRequestClientCertificateInput` via:
+//
+//	SyntheticsTestRequestClientCertificateArgs{...}
+type SyntheticsTestRequestClientCertificateInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestRequestClientCertificateOutput() SyntheticsTestRequestClientCertificateOutput
+	ToSyntheticsTestRequestClientCertificateOutputWithContext(context.Context) SyntheticsTestRequestClientCertificateOutput
+}
+
+type SyntheticsTestRequestClientCertificateArgs struct {
+	Cert SyntheticsTestRequestClientCertificateCertInput `pulumi:"cert"`
+	Key  SyntheticsTestRequestClientCertificateKeyInput  `pulumi:"key"`
+}
+
+func (SyntheticsTestRequestClientCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestRequestClientCertificate)(nil)).Elem()
+}
+
+func (i SyntheticsTestRequestClientCertificateArgs) ToSyntheticsTestRequestClientCertificateOutput() SyntheticsTestRequestClientCertificateOutput {
+	return i.ToSyntheticsTestRequestClientCertificateOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestRequestClientCertificateArgs) ToSyntheticsTestRequestClientCertificateOutputWithContext(ctx context.Context) SyntheticsTestRequestClientCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestRequestClientCertificateOutput)
+}
+
+func (i SyntheticsTestRequestClientCertificateArgs) ToSyntheticsTestRequestClientCertificatePtrOutput() SyntheticsTestRequestClientCertificatePtrOutput {
+	return i.ToSyntheticsTestRequestClientCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestRequestClientCertificateArgs) ToSyntheticsTestRequestClientCertificatePtrOutputWithContext(ctx context.Context) SyntheticsTestRequestClientCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestRequestClientCertificateOutput).ToSyntheticsTestRequestClientCertificatePtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestRequestClientCertificatePtrInput is an input type that accepts SyntheticsTestRequestClientCertificateArgs, SyntheticsTestRequestClientCertificatePtr and SyntheticsTestRequestClientCertificatePtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestRequestClientCertificatePtrInput` via:
+//
+//	        SyntheticsTestRequestClientCertificateArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestRequestClientCertificatePtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestRequestClientCertificatePtrOutput() SyntheticsTestRequestClientCertificatePtrOutput
+	ToSyntheticsTestRequestClientCertificatePtrOutputWithContext(context.Context) SyntheticsTestRequestClientCertificatePtrOutput
+}
+
+type syntheticsTestRequestClientCertificatePtrType SyntheticsTestRequestClientCertificateArgs
+
+func SyntheticsTestRequestClientCertificatePtr(v *SyntheticsTestRequestClientCertificateArgs) SyntheticsTestRequestClientCertificatePtrInput {
+	return (*syntheticsTestRequestClientCertificatePtrType)(v)
+}
+
+func (*syntheticsTestRequestClientCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestRequestClientCertificate)(nil)).Elem()
+}
+
+func (i *syntheticsTestRequestClientCertificatePtrType) ToSyntheticsTestRequestClientCertificatePtrOutput() SyntheticsTestRequestClientCertificatePtrOutput {
+	return i.ToSyntheticsTestRequestClientCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestRequestClientCertificatePtrType) ToSyntheticsTestRequestClientCertificatePtrOutputWithContext(ctx context.Context) SyntheticsTestRequestClientCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestRequestClientCertificatePtrOutput)
+}
+
+type SyntheticsTestRequestClientCertificateOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestRequestClientCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestRequestClientCertificate)(nil)).Elem()
+}
+
+func (o SyntheticsTestRequestClientCertificateOutput) ToSyntheticsTestRequestClientCertificateOutput() SyntheticsTestRequestClientCertificateOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestClientCertificateOutput) ToSyntheticsTestRequestClientCertificateOutputWithContext(ctx context.Context) SyntheticsTestRequestClientCertificateOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestClientCertificateOutput) ToSyntheticsTestRequestClientCertificatePtrOutput() SyntheticsTestRequestClientCertificatePtrOutput {
+	return o.ToSyntheticsTestRequestClientCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestRequestClientCertificateOutput) ToSyntheticsTestRequestClientCertificatePtrOutputWithContext(ctx context.Context) SyntheticsTestRequestClientCertificatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestRequestClientCertificate) *SyntheticsTestRequestClientCertificate {
+		return &v
+	}).(SyntheticsTestRequestClientCertificatePtrOutput)
+}
+
+func (o SyntheticsTestRequestClientCertificateOutput) Cert() SyntheticsTestRequestClientCertificateCertOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestClientCertificate) SyntheticsTestRequestClientCertificateCert {
+		return v.Cert
+	}).(SyntheticsTestRequestClientCertificateCertOutput)
+}
+
+func (o SyntheticsTestRequestClientCertificateOutput) Key() SyntheticsTestRequestClientCertificateKeyOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestClientCertificate) SyntheticsTestRequestClientCertificateKey { return v.Key }).(SyntheticsTestRequestClientCertificateKeyOutput)
+}
+
+type SyntheticsTestRequestClientCertificatePtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestRequestClientCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestRequestClientCertificate)(nil)).Elem()
+}
+
+func (o SyntheticsTestRequestClientCertificatePtrOutput) ToSyntheticsTestRequestClientCertificatePtrOutput() SyntheticsTestRequestClientCertificatePtrOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestClientCertificatePtrOutput) ToSyntheticsTestRequestClientCertificatePtrOutputWithContext(ctx context.Context) SyntheticsTestRequestClientCertificatePtrOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestClientCertificatePtrOutput) Elem() SyntheticsTestRequestClientCertificateOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestClientCertificate) SyntheticsTestRequestClientCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestRequestClientCertificate
+		return ret
+	}).(SyntheticsTestRequestClientCertificateOutput)
+}
+
+func (o SyntheticsTestRequestClientCertificatePtrOutput) Cert() SyntheticsTestRequestClientCertificateCertPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestClientCertificate) *SyntheticsTestRequestClientCertificateCert {
+		if v == nil {
+			return nil
+		}
+		return &v.Cert
+	}).(SyntheticsTestRequestClientCertificateCertPtrOutput)
+}
+
+func (o SyntheticsTestRequestClientCertificatePtrOutput) Key() SyntheticsTestRequestClientCertificateKeyPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestClientCertificate) *SyntheticsTestRequestClientCertificateKey {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(SyntheticsTestRequestClientCertificateKeyPtrOutput)
+}
+
+type SyntheticsTestRequestClientCertificateCert struct {
+	// Content of the certificate.
+	Content *string `pulumi:"content"`
+	// File name for the certificate. Defaults to `"Provided in Terraform config"`.
+	Filename *string `pulumi:"filename"`
+}
+
+// SyntheticsTestRequestClientCertificateCertInput is an input type that accepts SyntheticsTestRequestClientCertificateCertArgs and SyntheticsTestRequestClientCertificateCertOutput values.
+// You can construct a concrete instance of `SyntheticsTestRequestClientCertificateCertInput` via:
+//
+//	SyntheticsTestRequestClientCertificateCertArgs{...}
+type SyntheticsTestRequestClientCertificateCertInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestRequestClientCertificateCertOutput() SyntheticsTestRequestClientCertificateCertOutput
+	ToSyntheticsTestRequestClientCertificateCertOutputWithContext(context.Context) SyntheticsTestRequestClientCertificateCertOutput
+}
+
+type SyntheticsTestRequestClientCertificateCertArgs struct {
+	// Content of the certificate.
+	Content pulumi.StringPtrInput `pulumi:"content"`
+	// File name for the certificate. Defaults to `"Provided in Terraform config"`.
+	Filename pulumi.StringPtrInput `pulumi:"filename"`
+}
+
+func (SyntheticsTestRequestClientCertificateCertArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestRequestClientCertificateCert)(nil)).Elem()
+}
+
+func (i SyntheticsTestRequestClientCertificateCertArgs) ToSyntheticsTestRequestClientCertificateCertOutput() SyntheticsTestRequestClientCertificateCertOutput {
+	return i.ToSyntheticsTestRequestClientCertificateCertOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestRequestClientCertificateCertArgs) ToSyntheticsTestRequestClientCertificateCertOutputWithContext(ctx context.Context) SyntheticsTestRequestClientCertificateCertOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestRequestClientCertificateCertOutput)
+}
+
+func (i SyntheticsTestRequestClientCertificateCertArgs) ToSyntheticsTestRequestClientCertificateCertPtrOutput() SyntheticsTestRequestClientCertificateCertPtrOutput {
+	return i.ToSyntheticsTestRequestClientCertificateCertPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestRequestClientCertificateCertArgs) ToSyntheticsTestRequestClientCertificateCertPtrOutputWithContext(ctx context.Context) SyntheticsTestRequestClientCertificateCertPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestRequestClientCertificateCertOutput).ToSyntheticsTestRequestClientCertificateCertPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestRequestClientCertificateCertPtrInput is an input type that accepts SyntheticsTestRequestClientCertificateCertArgs, SyntheticsTestRequestClientCertificateCertPtr and SyntheticsTestRequestClientCertificateCertPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestRequestClientCertificateCertPtrInput` via:
+//
+//	        SyntheticsTestRequestClientCertificateCertArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestRequestClientCertificateCertPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestRequestClientCertificateCertPtrOutput() SyntheticsTestRequestClientCertificateCertPtrOutput
+	ToSyntheticsTestRequestClientCertificateCertPtrOutputWithContext(context.Context) SyntheticsTestRequestClientCertificateCertPtrOutput
+}
+
+type syntheticsTestRequestClientCertificateCertPtrType SyntheticsTestRequestClientCertificateCertArgs
+
+func SyntheticsTestRequestClientCertificateCertPtr(v *SyntheticsTestRequestClientCertificateCertArgs) SyntheticsTestRequestClientCertificateCertPtrInput {
+	return (*syntheticsTestRequestClientCertificateCertPtrType)(v)
+}
+
+func (*syntheticsTestRequestClientCertificateCertPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestRequestClientCertificateCert)(nil)).Elem()
+}
+
+func (i *syntheticsTestRequestClientCertificateCertPtrType) ToSyntheticsTestRequestClientCertificateCertPtrOutput() SyntheticsTestRequestClientCertificateCertPtrOutput {
+	return i.ToSyntheticsTestRequestClientCertificateCertPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestRequestClientCertificateCertPtrType) ToSyntheticsTestRequestClientCertificateCertPtrOutputWithContext(ctx context.Context) SyntheticsTestRequestClientCertificateCertPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestRequestClientCertificateCertPtrOutput)
+}
+
+type SyntheticsTestRequestClientCertificateCertOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestRequestClientCertificateCertOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestRequestClientCertificateCert)(nil)).Elem()
+}
+
+func (o SyntheticsTestRequestClientCertificateCertOutput) ToSyntheticsTestRequestClientCertificateCertOutput() SyntheticsTestRequestClientCertificateCertOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestClientCertificateCertOutput) ToSyntheticsTestRequestClientCertificateCertOutputWithContext(ctx context.Context) SyntheticsTestRequestClientCertificateCertOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestClientCertificateCertOutput) ToSyntheticsTestRequestClientCertificateCertPtrOutput() SyntheticsTestRequestClientCertificateCertPtrOutput {
+	return o.ToSyntheticsTestRequestClientCertificateCertPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestRequestClientCertificateCertOutput) ToSyntheticsTestRequestClientCertificateCertPtrOutputWithContext(ctx context.Context) SyntheticsTestRequestClientCertificateCertPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestRequestClientCertificateCert) *SyntheticsTestRequestClientCertificateCert {
+		return &v
+	}).(SyntheticsTestRequestClientCertificateCertPtrOutput)
+}
+
+// Content of the certificate.
+func (o SyntheticsTestRequestClientCertificateCertOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestClientCertificateCert) *string { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+// File name for the certificate. Defaults to `"Provided in Terraform config"`.
+func (o SyntheticsTestRequestClientCertificateCertOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestClientCertificateCert) *string { return v.Filename }).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestRequestClientCertificateCertPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestRequestClientCertificateCertPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestRequestClientCertificateCert)(nil)).Elem()
+}
+
+func (o SyntheticsTestRequestClientCertificateCertPtrOutput) ToSyntheticsTestRequestClientCertificateCertPtrOutput() SyntheticsTestRequestClientCertificateCertPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestClientCertificateCertPtrOutput) ToSyntheticsTestRequestClientCertificateCertPtrOutputWithContext(ctx context.Context) SyntheticsTestRequestClientCertificateCertPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestClientCertificateCertPtrOutput) Elem() SyntheticsTestRequestClientCertificateCertOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestClientCertificateCert) SyntheticsTestRequestClientCertificateCert {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestRequestClientCertificateCert
+		return ret
+	}).(SyntheticsTestRequestClientCertificateCertOutput)
+}
+
+// Content of the certificate.
+func (o SyntheticsTestRequestClientCertificateCertPtrOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestClientCertificateCert) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Content
+	}).(pulumi.StringPtrOutput)
+}
+
+// File name for the certificate. Defaults to `"Provided in Terraform config"`.
+func (o SyntheticsTestRequestClientCertificateCertPtrOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestClientCertificateCert) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Filename
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestRequestClientCertificateKey struct {
+	// Content of the certificate.
+	Content *string `pulumi:"content"`
+	// File name for the certificate. Defaults to `"Provided in Terraform config"`.
+	Filename *string `pulumi:"filename"`
+}
+
+// SyntheticsTestRequestClientCertificateKeyInput is an input type that accepts SyntheticsTestRequestClientCertificateKeyArgs and SyntheticsTestRequestClientCertificateKeyOutput values.
+// You can construct a concrete instance of `SyntheticsTestRequestClientCertificateKeyInput` via:
+//
+//	SyntheticsTestRequestClientCertificateKeyArgs{...}
+type SyntheticsTestRequestClientCertificateKeyInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestRequestClientCertificateKeyOutput() SyntheticsTestRequestClientCertificateKeyOutput
+	ToSyntheticsTestRequestClientCertificateKeyOutputWithContext(context.Context) SyntheticsTestRequestClientCertificateKeyOutput
+}
+
+type SyntheticsTestRequestClientCertificateKeyArgs struct {
+	// Content of the certificate.
+	Content pulumi.StringPtrInput `pulumi:"content"`
+	// File name for the certificate. Defaults to `"Provided in Terraform config"`.
+	Filename pulumi.StringPtrInput `pulumi:"filename"`
+}
+
+func (SyntheticsTestRequestClientCertificateKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestRequestClientCertificateKey)(nil)).Elem()
+}
+
+func (i SyntheticsTestRequestClientCertificateKeyArgs) ToSyntheticsTestRequestClientCertificateKeyOutput() SyntheticsTestRequestClientCertificateKeyOutput {
+	return i.ToSyntheticsTestRequestClientCertificateKeyOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestRequestClientCertificateKeyArgs) ToSyntheticsTestRequestClientCertificateKeyOutputWithContext(ctx context.Context) SyntheticsTestRequestClientCertificateKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestRequestClientCertificateKeyOutput)
+}
+
+func (i SyntheticsTestRequestClientCertificateKeyArgs) ToSyntheticsTestRequestClientCertificateKeyPtrOutput() SyntheticsTestRequestClientCertificateKeyPtrOutput {
+	return i.ToSyntheticsTestRequestClientCertificateKeyPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestRequestClientCertificateKeyArgs) ToSyntheticsTestRequestClientCertificateKeyPtrOutputWithContext(ctx context.Context) SyntheticsTestRequestClientCertificateKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestRequestClientCertificateKeyOutput).ToSyntheticsTestRequestClientCertificateKeyPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestRequestClientCertificateKeyPtrInput is an input type that accepts SyntheticsTestRequestClientCertificateKeyArgs, SyntheticsTestRequestClientCertificateKeyPtr and SyntheticsTestRequestClientCertificateKeyPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestRequestClientCertificateKeyPtrInput` via:
+//
+//	        SyntheticsTestRequestClientCertificateKeyArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestRequestClientCertificateKeyPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestRequestClientCertificateKeyPtrOutput() SyntheticsTestRequestClientCertificateKeyPtrOutput
+	ToSyntheticsTestRequestClientCertificateKeyPtrOutputWithContext(context.Context) SyntheticsTestRequestClientCertificateKeyPtrOutput
+}
+
+type syntheticsTestRequestClientCertificateKeyPtrType SyntheticsTestRequestClientCertificateKeyArgs
+
+func SyntheticsTestRequestClientCertificateKeyPtr(v *SyntheticsTestRequestClientCertificateKeyArgs) SyntheticsTestRequestClientCertificateKeyPtrInput {
+	return (*syntheticsTestRequestClientCertificateKeyPtrType)(v)
+}
+
+func (*syntheticsTestRequestClientCertificateKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestRequestClientCertificateKey)(nil)).Elem()
+}
+
+func (i *syntheticsTestRequestClientCertificateKeyPtrType) ToSyntheticsTestRequestClientCertificateKeyPtrOutput() SyntheticsTestRequestClientCertificateKeyPtrOutput {
+	return i.ToSyntheticsTestRequestClientCertificateKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestRequestClientCertificateKeyPtrType) ToSyntheticsTestRequestClientCertificateKeyPtrOutputWithContext(ctx context.Context) SyntheticsTestRequestClientCertificateKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestRequestClientCertificateKeyPtrOutput)
+}
+
+type SyntheticsTestRequestClientCertificateKeyOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestRequestClientCertificateKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestRequestClientCertificateKey)(nil)).Elem()
+}
+
+func (o SyntheticsTestRequestClientCertificateKeyOutput) ToSyntheticsTestRequestClientCertificateKeyOutput() SyntheticsTestRequestClientCertificateKeyOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestClientCertificateKeyOutput) ToSyntheticsTestRequestClientCertificateKeyOutputWithContext(ctx context.Context) SyntheticsTestRequestClientCertificateKeyOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestClientCertificateKeyOutput) ToSyntheticsTestRequestClientCertificateKeyPtrOutput() SyntheticsTestRequestClientCertificateKeyPtrOutput {
+	return o.ToSyntheticsTestRequestClientCertificateKeyPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestRequestClientCertificateKeyOutput) ToSyntheticsTestRequestClientCertificateKeyPtrOutputWithContext(ctx context.Context) SyntheticsTestRequestClientCertificateKeyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestRequestClientCertificateKey) *SyntheticsTestRequestClientCertificateKey {
+		return &v
+	}).(SyntheticsTestRequestClientCertificateKeyPtrOutput)
+}
+
+// Content of the certificate.
+func (o SyntheticsTestRequestClientCertificateKeyOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestClientCertificateKey) *string { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+// File name for the certificate. Defaults to `"Provided in Terraform config"`.
+func (o SyntheticsTestRequestClientCertificateKeyOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestClientCertificateKey) *string { return v.Filename }).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestRequestClientCertificateKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestRequestClientCertificateKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestRequestClientCertificateKey)(nil)).Elem()
+}
+
+func (o SyntheticsTestRequestClientCertificateKeyPtrOutput) ToSyntheticsTestRequestClientCertificateKeyPtrOutput() SyntheticsTestRequestClientCertificateKeyPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestClientCertificateKeyPtrOutput) ToSyntheticsTestRequestClientCertificateKeyPtrOutputWithContext(ctx context.Context) SyntheticsTestRequestClientCertificateKeyPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestClientCertificateKeyPtrOutput) Elem() SyntheticsTestRequestClientCertificateKeyOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestClientCertificateKey) SyntheticsTestRequestClientCertificateKey {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestRequestClientCertificateKey
+		return ret
+	}).(SyntheticsTestRequestClientCertificateKeyOutput)
+}
+
+// Content of the certificate.
+func (o SyntheticsTestRequestClientCertificateKeyPtrOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestClientCertificateKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Content
+	}).(pulumi.StringPtrOutput)
+}
+
+// File name for the certificate. Defaults to `"Provided in Terraform config"`.
+func (o SyntheticsTestRequestClientCertificateKeyPtrOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestClientCertificateKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Filename
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestRequestDefinition struct {
+	// The request body.
+	Body *string `pulumi:"body"`
+	// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
+	BodyType *string `pulumi:"bodyType"`
+	// The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
+	CallType *string `pulumi:"callType"`
+	// By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
+	CertificateDomains []string `pulumi:"certificateDomains"`
+	// For Network Path tests, an optional label displayed for the destination host in the Network Path visualization.
+	DestinationService *string `pulumi:"destinationService"`
+	// DNS server to use for DNS tests (`subtype = "dns"`).
+	DnsServer *string `pulumi:"dnsServer"`
+	// DNS server port to use for DNS tests.
+	DnsServerPort *string `pulumi:"dnsServerPort"`
+	// For Network Path tests, the number of packets sent to probe the destination to measure packet loss, latency, and jitter.
+	E2eQueries *int `pulumi:"e2eQueries"`
+	// Form data to be sent when `bodyType` is `multipart/form-data`.
+	Form map[string]string `pulumi:"form"`
+	// Host name to perform the test with.
+	Host *string `pulumi:"host"`
+	// HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `httpVersion` in the `optionsList` field instead.
+	//
+	// Deprecated: Use `httpVersion` in the `optionsList` field instead.
+	HttpVersion *string `pulumi:"httpVersion"`
+	// For Websocket tests, whether the message is treated as a base64-encoded string in the server.
+	IsMessageBase64Encoded *bool `pulumi:"isMessageBase64Encoded"`
+	// For Network Path tests, the maximum time-to-live (max number of hops) used in outgoing probe packets.
+	MaxTtl *int `pulumi:"maxTtl"`
+	// For gRPC, UDP, and Websocket tests, message to send with the request.
+	Message *string `pulumi:"message"`
+	// Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
+	Method *string `pulumi:"method"`
+	// Determines whether or not to save the response body.
+	NoSavingResponseBody *bool `pulumi:"noSavingResponseBody"`
+	// Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
+	NumberOfPackets *int `pulumi:"numberOfPackets"`
+	// Persist cookies across redirects.
+	PersistCookies *bool `pulumi:"persistCookies"`
+	// The content of a proto file as a string.
+	PlainProtoFile *string `pulumi:"plainProtoFile"`
+	// Port to use when performing the test.
+	Port *string `pulumi:"port"`
+	// A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
+	//
+	// Deprecated: Use `plainProtoFile` instead.
+	ProtoJsonDescriptor *string `pulumi:"protoJsonDescriptor"`
+	// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
+	Servername *string `pulumi:"servername"`
+	// The gRPC service on which you want to perform the gRPC call.
+	Service *string `pulumi:"service"`
+	// This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
+	ShouldTrackHops *bool `pulumi:"shouldTrackHops"`
+	// For Network Path tests, an optional label displayed for the source host in the Network Path visualization
+	SourceService *string `pulumi:"sourceService"`
+	// For TCP Network Path tests, the TCP traceroute strategy.
+	TcpMethod *string `pulumi:"tcpMethod"`
+	// Timeout in seconds for the test.
+	Timeout *int `pulumi:"timeout"`
+	// For Network Path tests, the number of traceroute path tracings.
+	TracerouteQueries *int `pulumi:"tracerouteQueries"`
+	// The URL to send the request to.
+	Url *string `pulumi:"url"`
+}
+
+// SyntheticsTestRequestDefinitionInput is an input type that accepts SyntheticsTestRequestDefinitionArgs and SyntheticsTestRequestDefinitionOutput values.
+// You can construct a concrete instance of `SyntheticsTestRequestDefinitionInput` via:
+//
+//	SyntheticsTestRequestDefinitionArgs{...}
+type SyntheticsTestRequestDefinitionInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestRequestDefinitionOutput() SyntheticsTestRequestDefinitionOutput
+	ToSyntheticsTestRequestDefinitionOutputWithContext(context.Context) SyntheticsTestRequestDefinitionOutput
+}
+
+type SyntheticsTestRequestDefinitionArgs struct {
+	// The request body.
+	Body pulumi.StringPtrInput `pulumi:"body"`
+	// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
+	BodyType pulumi.StringPtrInput `pulumi:"bodyType"`
+	// The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
+	CallType pulumi.StringPtrInput `pulumi:"callType"`
+	// By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
+	CertificateDomains pulumi.StringArrayInput `pulumi:"certificateDomains"`
+	// For Network Path tests, an optional label displayed for the destination host in the Network Path visualization.
+	DestinationService pulumi.StringPtrInput `pulumi:"destinationService"`
+	// DNS server to use for DNS tests (`subtype = "dns"`).
+	DnsServer pulumi.StringPtrInput `pulumi:"dnsServer"`
+	// DNS server port to use for DNS tests.
+	DnsServerPort pulumi.StringPtrInput `pulumi:"dnsServerPort"`
+	// For Network Path tests, the number of packets sent to probe the destination to measure packet loss, latency, and jitter.
+	E2eQueries pulumi.IntPtrInput `pulumi:"e2eQueries"`
+	// Form data to be sent when `bodyType` is `multipart/form-data`.
+	Form pulumi.StringMapInput `pulumi:"form"`
+	// Host name to perform the test with.
+	Host pulumi.StringPtrInput `pulumi:"host"`
+	// HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `httpVersion` in the `optionsList` field instead.
+	//
+	// Deprecated: Use `httpVersion` in the `optionsList` field instead.
+	HttpVersion pulumi.StringPtrInput `pulumi:"httpVersion"`
+	// For Websocket tests, whether the message is treated as a base64-encoded string in the server.
+	IsMessageBase64Encoded pulumi.BoolPtrInput `pulumi:"isMessageBase64Encoded"`
+	// For Network Path tests, the maximum time-to-live (max number of hops) used in outgoing probe packets.
+	MaxTtl pulumi.IntPtrInput `pulumi:"maxTtl"`
+	// For gRPC, UDP, and Websocket tests, message to send with the request.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
+	Method pulumi.StringPtrInput `pulumi:"method"`
+	// Determines whether or not to save the response body.
+	NoSavingResponseBody pulumi.BoolPtrInput `pulumi:"noSavingResponseBody"`
+	// Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
+	NumberOfPackets pulumi.IntPtrInput `pulumi:"numberOfPackets"`
+	// Persist cookies across redirects.
+	PersistCookies pulumi.BoolPtrInput `pulumi:"persistCookies"`
+	// The content of a proto file as a string.
+	PlainProtoFile pulumi.StringPtrInput `pulumi:"plainProtoFile"`
+	// Port to use when performing the test.
+	Port pulumi.StringPtrInput `pulumi:"port"`
+	// A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
+	//
+	// Deprecated: Use `plainProtoFile` instead.
+	ProtoJsonDescriptor pulumi.StringPtrInput `pulumi:"protoJsonDescriptor"`
+	// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
+	Servername pulumi.StringPtrInput `pulumi:"servername"`
+	// The gRPC service on which you want to perform the gRPC call.
+	Service pulumi.StringPtrInput `pulumi:"service"`
+	// This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
+	ShouldTrackHops pulumi.BoolPtrInput `pulumi:"shouldTrackHops"`
+	// For Network Path tests, an optional label displayed for the source host in the Network Path visualization
+	SourceService pulumi.StringPtrInput `pulumi:"sourceService"`
+	// For TCP Network Path tests, the TCP traceroute strategy.
+	TcpMethod pulumi.StringPtrInput `pulumi:"tcpMethod"`
+	// Timeout in seconds for the test.
+	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
+	// For Network Path tests, the number of traceroute path tracings.
+	TracerouteQueries pulumi.IntPtrInput `pulumi:"tracerouteQueries"`
+	// The URL to send the request to.
+	Url pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (SyntheticsTestRequestDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestRequestDefinition)(nil)).Elem()
+}
+
+func (i SyntheticsTestRequestDefinitionArgs) ToSyntheticsTestRequestDefinitionOutput() SyntheticsTestRequestDefinitionOutput {
+	return i.ToSyntheticsTestRequestDefinitionOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestRequestDefinitionArgs) ToSyntheticsTestRequestDefinitionOutputWithContext(ctx context.Context) SyntheticsTestRequestDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestRequestDefinitionOutput)
+}
+
+func (i SyntheticsTestRequestDefinitionArgs) ToSyntheticsTestRequestDefinitionPtrOutput() SyntheticsTestRequestDefinitionPtrOutput {
+	return i.ToSyntheticsTestRequestDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestRequestDefinitionArgs) ToSyntheticsTestRequestDefinitionPtrOutputWithContext(ctx context.Context) SyntheticsTestRequestDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestRequestDefinitionOutput).ToSyntheticsTestRequestDefinitionPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestRequestDefinitionPtrInput is an input type that accepts SyntheticsTestRequestDefinitionArgs, SyntheticsTestRequestDefinitionPtr and SyntheticsTestRequestDefinitionPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestRequestDefinitionPtrInput` via:
+//
+//	        SyntheticsTestRequestDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestRequestDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestRequestDefinitionPtrOutput() SyntheticsTestRequestDefinitionPtrOutput
+	ToSyntheticsTestRequestDefinitionPtrOutputWithContext(context.Context) SyntheticsTestRequestDefinitionPtrOutput
+}
+
+type syntheticsTestRequestDefinitionPtrType SyntheticsTestRequestDefinitionArgs
+
+func SyntheticsTestRequestDefinitionPtr(v *SyntheticsTestRequestDefinitionArgs) SyntheticsTestRequestDefinitionPtrInput {
+	return (*syntheticsTestRequestDefinitionPtrType)(v)
+}
+
+func (*syntheticsTestRequestDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestRequestDefinition)(nil)).Elem()
+}
+
+func (i *syntheticsTestRequestDefinitionPtrType) ToSyntheticsTestRequestDefinitionPtrOutput() SyntheticsTestRequestDefinitionPtrOutput {
+	return i.ToSyntheticsTestRequestDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestRequestDefinitionPtrType) ToSyntheticsTestRequestDefinitionPtrOutputWithContext(ctx context.Context) SyntheticsTestRequestDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestRequestDefinitionPtrOutput)
+}
+
+type SyntheticsTestRequestDefinitionOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestRequestDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestRequestDefinition)(nil)).Elem()
+}
+
+func (o SyntheticsTestRequestDefinitionOutput) ToSyntheticsTestRequestDefinitionOutput() SyntheticsTestRequestDefinitionOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestDefinitionOutput) ToSyntheticsTestRequestDefinitionOutputWithContext(ctx context.Context) SyntheticsTestRequestDefinitionOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestDefinitionOutput) ToSyntheticsTestRequestDefinitionPtrOutput() SyntheticsTestRequestDefinitionPtrOutput {
+	return o.ToSyntheticsTestRequestDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestRequestDefinitionOutput) ToSyntheticsTestRequestDefinitionPtrOutputWithContext(ctx context.Context) SyntheticsTestRequestDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestRequestDefinition) *SyntheticsTestRequestDefinition {
+		return &v
+	}).(SyntheticsTestRequestDefinitionPtrOutput)
+}
+
+// The request body.
+func (o SyntheticsTestRequestDefinitionOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.Body }).(pulumi.StringPtrOutput)
+}
+
+// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
+func (o SyntheticsTestRequestDefinitionOutput) BodyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.BodyType }).(pulumi.StringPtrOutput)
+}
+
+// The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
+func (o SyntheticsTestRequestDefinitionOutput) CallType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.CallType }).(pulumi.StringPtrOutput)
+}
+
+// By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
+func (o SyntheticsTestRequestDefinitionOutput) CertificateDomains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) []string { return v.CertificateDomains }).(pulumi.StringArrayOutput)
+}
+
+// For Network Path tests, an optional label displayed for the destination host in the Network Path visualization.
+func (o SyntheticsTestRequestDefinitionOutput) DestinationService() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.DestinationService }).(pulumi.StringPtrOutput)
+}
+
+// DNS server to use for DNS tests (`subtype = "dns"`).
+func (o SyntheticsTestRequestDefinitionOutput) DnsServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.DnsServer }).(pulumi.StringPtrOutput)
+}
+
+// DNS server port to use for DNS tests.
+func (o SyntheticsTestRequestDefinitionOutput) DnsServerPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.DnsServerPort }).(pulumi.StringPtrOutput)
+}
+
+// For Network Path tests, the number of packets sent to probe the destination to measure packet loss, latency, and jitter.
+func (o SyntheticsTestRequestDefinitionOutput) E2eQueries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *int { return v.E2eQueries }).(pulumi.IntPtrOutput)
+}
+
+// Form data to be sent when `bodyType` is `multipart/form-data`.
+func (o SyntheticsTestRequestDefinitionOutput) Form() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) map[string]string { return v.Form }).(pulumi.StringMapOutput)
+}
+
+// Host name to perform the test with.
+func (o SyntheticsTestRequestDefinitionOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.Host }).(pulumi.StringPtrOutput)
+}
+
+// HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `httpVersion` in the `optionsList` field instead.
+//
+// Deprecated: Use `httpVersion` in the `optionsList` field instead.
+func (o SyntheticsTestRequestDefinitionOutput) HttpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.HttpVersion }).(pulumi.StringPtrOutput)
+}
+
+// For Websocket tests, whether the message is treated as a base64-encoded string in the server.
+func (o SyntheticsTestRequestDefinitionOutput) IsMessageBase64Encoded() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *bool { return v.IsMessageBase64Encoded }).(pulumi.BoolPtrOutput)
+}
+
+// For Network Path tests, the maximum time-to-live (max number of hops) used in outgoing probe packets.
+func (o SyntheticsTestRequestDefinitionOutput) MaxTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *int { return v.MaxTtl }).(pulumi.IntPtrOutput)
+}
+
+// For gRPC, UDP, and Websocket tests, message to send with the request.
+func (o SyntheticsTestRequestDefinitionOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
+func (o SyntheticsTestRequestDefinitionOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.Method }).(pulumi.StringPtrOutput)
+}
+
+// Determines whether or not to save the response body.
+func (o SyntheticsTestRequestDefinitionOutput) NoSavingResponseBody() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *bool { return v.NoSavingResponseBody }).(pulumi.BoolPtrOutput)
+}
+
+// Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
+func (o SyntheticsTestRequestDefinitionOutput) NumberOfPackets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *int { return v.NumberOfPackets }).(pulumi.IntPtrOutput)
+}
+
+// Persist cookies across redirects.
+func (o SyntheticsTestRequestDefinitionOutput) PersistCookies() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *bool { return v.PersistCookies }).(pulumi.BoolPtrOutput)
+}
+
+// The content of a proto file as a string.
+func (o SyntheticsTestRequestDefinitionOutput) PlainProtoFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.PlainProtoFile }).(pulumi.StringPtrOutput)
+}
+
+// Port to use when performing the test.
+func (o SyntheticsTestRequestDefinitionOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+// A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
+//
+// Deprecated: Use `plainProtoFile` instead.
+func (o SyntheticsTestRequestDefinitionOutput) ProtoJsonDescriptor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.ProtoJsonDescriptor }).(pulumi.StringPtrOutput)
+}
+
+// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
+func (o SyntheticsTestRequestDefinitionOutput) Servername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.Servername }).(pulumi.StringPtrOutput)
+}
+
+// The gRPC service on which you want to perform the gRPC call.
+func (o SyntheticsTestRequestDefinitionOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.Service }).(pulumi.StringPtrOutput)
+}
+
+// This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
+func (o SyntheticsTestRequestDefinitionOutput) ShouldTrackHops() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *bool { return v.ShouldTrackHops }).(pulumi.BoolPtrOutput)
+}
+
+// For Network Path tests, an optional label displayed for the source host in the Network Path visualization
+func (o SyntheticsTestRequestDefinitionOutput) SourceService() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.SourceService }).(pulumi.StringPtrOutput)
+}
+
+// For TCP Network Path tests, the TCP traceroute strategy.
+func (o SyntheticsTestRequestDefinitionOutput) TcpMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.TcpMethod }).(pulumi.StringPtrOutput)
+}
+
+// Timeout in seconds for the test.
+func (o SyntheticsTestRequestDefinitionOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// For Network Path tests, the number of traceroute path tracings.
+func (o SyntheticsTestRequestDefinitionOutput) TracerouteQueries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *int { return v.TracerouteQueries }).(pulumi.IntPtrOutput)
+}
+
+// The URL to send the request to.
+func (o SyntheticsTestRequestDefinitionOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestRequestDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestRequestDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestRequestDefinition)(nil)).Elem()
+}
+
+func (o SyntheticsTestRequestDefinitionPtrOutput) ToSyntheticsTestRequestDefinitionPtrOutput() SyntheticsTestRequestDefinitionPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestDefinitionPtrOutput) ToSyntheticsTestRequestDefinitionPtrOutputWithContext(ctx context.Context) SyntheticsTestRequestDefinitionPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestDefinitionPtrOutput) Elem() SyntheticsTestRequestDefinitionOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) SyntheticsTestRequestDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestRequestDefinition
+		return ret
+	}).(SyntheticsTestRequestDefinitionOutput)
+}
+
+// The request body.
+func (o SyntheticsTestRequestDefinitionPtrOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Body
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
+func (o SyntheticsTestRequestDefinitionPtrOutput) BodyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BodyType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
+func (o SyntheticsTestRequestDefinitionPtrOutput) CallType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CallType
+	}).(pulumi.StringPtrOutput)
+}
+
+// By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
+func (o SyntheticsTestRequestDefinitionPtrOutput) CertificateDomains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateDomains
+	}).(pulumi.StringArrayOutput)
+}
+
+// For Network Path tests, an optional label displayed for the destination host in the Network Path visualization.
+func (o SyntheticsTestRequestDefinitionPtrOutput) DestinationService() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationService
+	}).(pulumi.StringPtrOutput)
+}
+
+// DNS server to use for DNS tests (`subtype = "dns"`).
+func (o SyntheticsTestRequestDefinitionPtrOutput) DnsServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsServer
+	}).(pulumi.StringPtrOutput)
+}
+
+// DNS server port to use for DNS tests.
+func (o SyntheticsTestRequestDefinitionPtrOutput) DnsServerPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsServerPort
+	}).(pulumi.StringPtrOutput)
+}
+
+// For Network Path tests, the number of packets sent to probe the destination to measure packet loss, latency, and jitter.
+func (o SyntheticsTestRequestDefinitionPtrOutput) E2eQueries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.E2eQueries
+	}).(pulumi.IntPtrOutput)
+}
+
+// Form data to be sent when `bodyType` is `multipart/form-data`.
+func (o SyntheticsTestRequestDefinitionPtrOutput) Form() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Form
+	}).(pulumi.StringMapOutput)
+}
+
+// Host name to perform the test with.
+func (o SyntheticsTestRequestDefinitionPtrOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Host
+	}).(pulumi.StringPtrOutput)
+}
+
+// HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `httpVersion` in the `optionsList` field instead.
+//
+// Deprecated: Use `httpVersion` in the `optionsList` field instead.
+func (o SyntheticsTestRequestDefinitionPtrOutput) HttpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// For Websocket tests, whether the message is treated as a base64-encoded string in the server.
+func (o SyntheticsTestRequestDefinitionPtrOutput) IsMessageBase64Encoded() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsMessageBase64Encoded
+	}).(pulumi.BoolPtrOutput)
+}
+
+// For Network Path tests, the maximum time-to-live (max number of hops) used in outgoing probe packets.
+func (o SyntheticsTestRequestDefinitionPtrOutput) MaxTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxTtl
+	}).(pulumi.IntPtrOutput)
+}
+
+// For gRPC, UDP, and Websocket tests, message to send with the request.
+func (o SyntheticsTestRequestDefinitionPtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
+func (o SyntheticsTestRequestDefinitionPtrOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Method
+	}).(pulumi.StringPtrOutput)
+}
+
+// Determines whether or not to save the response body.
+func (o SyntheticsTestRequestDefinitionPtrOutput) NoSavingResponseBody() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NoSavingResponseBody
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
+func (o SyntheticsTestRequestDefinitionPtrOutput) NumberOfPackets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfPackets
+	}).(pulumi.IntPtrOutput)
+}
+
+// Persist cookies across redirects.
+func (o SyntheticsTestRequestDefinitionPtrOutput) PersistCookies() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PersistCookies
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The content of a proto file as a string.
+func (o SyntheticsTestRequestDefinitionPtrOutput) PlainProtoFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PlainProtoFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Port to use when performing the test.
+func (o SyntheticsTestRequestDefinitionPtrOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.StringPtrOutput)
+}
+
+// A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
+//
+// Deprecated: Use `plainProtoFile` instead.
+func (o SyntheticsTestRequestDefinitionPtrOutput) ProtoJsonDescriptor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProtoJsonDescriptor
+	}).(pulumi.StringPtrOutput)
+}
+
+// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
+func (o SyntheticsTestRequestDefinitionPtrOutput) Servername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Servername
+	}).(pulumi.StringPtrOutput)
+}
+
+// The gRPC service on which you want to perform the gRPC call.
+func (o SyntheticsTestRequestDefinitionPtrOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Service
+	}).(pulumi.StringPtrOutput)
+}
+
+// This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
+func (o SyntheticsTestRequestDefinitionPtrOutput) ShouldTrackHops() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ShouldTrackHops
+	}).(pulumi.BoolPtrOutput)
+}
+
+// For Network Path tests, an optional label displayed for the source host in the Network Path visualization
+func (o SyntheticsTestRequestDefinitionPtrOutput) SourceService() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceService
+	}).(pulumi.StringPtrOutput)
+}
+
+// For TCP Network Path tests, the TCP traceroute strategy.
+func (o SyntheticsTestRequestDefinitionPtrOutput) TcpMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TcpMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// Timeout in seconds for the test.
+func (o SyntheticsTestRequestDefinitionPtrOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// For Network Path tests, the number of traceroute path tracings.
+func (o SyntheticsTestRequestDefinitionPtrOutput) TracerouteQueries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TracerouteQueries
+	}).(pulumi.IntPtrOutput)
+}
+
+// The URL to send the request to.
+func (o SyntheticsTestRequestDefinitionPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestRequestFile struct {
+	// Bucket key of the file.
+	BucketKey *string `pulumi:"bucketKey"`
+	// Content of the file.
+	Content *string `pulumi:"content"`
+	// Name of the file.
+	Name string `pulumi:"name"`
+	// Original name of the file.
+	OriginalFileName *string `pulumi:"originalFileName"`
+	// Size of the file.
+	Size int `pulumi:"size"`
+	// Type of the file.
+	Type string `pulumi:"type"`
+}
+
+// SyntheticsTestRequestFileInput is an input type that accepts SyntheticsTestRequestFileArgs and SyntheticsTestRequestFileOutput values.
+// You can construct a concrete instance of `SyntheticsTestRequestFileInput` via:
+//
+//	SyntheticsTestRequestFileArgs{...}
+type SyntheticsTestRequestFileInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestRequestFileOutput() SyntheticsTestRequestFileOutput
+	ToSyntheticsTestRequestFileOutputWithContext(context.Context) SyntheticsTestRequestFileOutput
+}
+
+type SyntheticsTestRequestFileArgs struct {
+	// Bucket key of the file.
+	BucketKey pulumi.StringPtrInput `pulumi:"bucketKey"`
+	// Content of the file.
+	Content pulumi.StringPtrInput `pulumi:"content"`
+	// Name of the file.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Original name of the file.
+	OriginalFileName pulumi.StringPtrInput `pulumi:"originalFileName"`
+	// Size of the file.
+	Size pulumi.IntInput `pulumi:"size"`
+	// Type of the file.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SyntheticsTestRequestFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestRequestFile)(nil)).Elem()
+}
+
+func (i SyntheticsTestRequestFileArgs) ToSyntheticsTestRequestFileOutput() SyntheticsTestRequestFileOutput {
+	return i.ToSyntheticsTestRequestFileOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestRequestFileArgs) ToSyntheticsTestRequestFileOutputWithContext(ctx context.Context) SyntheticsTestRequestFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestRequestFileOutput)
+}
+
+// SyntheticsTestRequestFileArrayInput is an input type that accepts SyntheticsTestRequestFileArray and SyntheticsTestRequestFileArrayOutput values.
+// You can construct a concrete instance of `SyntheticsTestRequestFileArrayInput` via:
+//
+//	SyntheticsTestRequestFileArray{ SyntheticsTestRequestFileArgs{...} }
+type SyntheticsTestRequestFileArrayInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestRequestFileArrayOutput() SyntheticsTestRequestFileArrayOutput
+	ToSyntheticsTestRequestFileArrayOutputWithContext(context.Context) SyntheticsTestRequestFileArrayOutput
+}
+
+type SyntheticsTestRequestFileArray []SyntheticsTestRequestFileInput
+
+func (SyntheticsTestRequestFileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestRequestFile)(nil)).Elem()
+}
+
+func (i SyntheticsTestRequestFileArray) ToSyntheticsTestRequestFileArrayOutput() SyntheticsTestRequestFileArrayOutput {
+	return i.ToSyntheticsTestRequestFileArrayOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestRequestFileArray) ToSyntheticsTestRequestFileArrayOutputWithContext(ctx context.Context) SyntheticsTestRequestFileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestRequestFileArrayOutput)
+}
+
+type SyntheticsTestRequestFileOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestRequestFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestRequestFile)(nil)).Elem()
+}
+
+func (o SyntheticsTestRequestFileOutput) ToSyntheticsTestRequestFileOutput() SyntheticsTestRequestFileOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestFileOutput) ToSyntheticsTestRequestFileOutputWithContext(ctx context.Context) SyntheticsTestRequestFileOutput {
+	return o
+}
+
+// Bucket key of the file.
+func (o SyntheticsTestRequestFileOutput) BucketKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestFile) *string { return v.BucketKey }).(pulumi.StringPtrOutput)
+}
+
+// Content of the file.
+func (o SyntheticsTestRequestFileOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestFile) *string { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+// Name of the file.
+func (o SyntheticsTestRequestFileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestFile) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Original name of the file.
+func (o SyntheticsTestRequestFileOutput) OriginalFileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestFile) *string { return v.OriginalFileName }).(pulumi.StringPtrOutput)
+}
+
+// Size of the file.
+func (o SyntheticsTestRequestFileOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestFile) int { return v.Size }).(pulumi.IntOutput)
+}
+
+// Type of the file.
+func (o SyntheticsTestRequestFileOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestFile) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestRequestFileArrayOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestRequestFileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestRequestFile)(nil)).Elem()
+}
+
+func (o SyntheticsTestRequestFileArrayOutput) ToSyntheticsTestRequestFileArrayOutput() SyntheticsTestRequestFileArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestFileArrayOutput) ToSyntheticsTestRequestFileArrayOutputWithContext(ctx context.Context) SyntheticsTestRequestFileArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestFileArrayOutput) Index(i pulumi.IntInput) SyntheticsTestRequestFileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyntheticsTestRequestFile {
+		return vs[0].([]SyntheticsTestRequestFile)[vs[1].(int)]
+	}).(SyntheticsTestRequestFileOutput)
+}
+
+type SyntheticsTestRequestProxy struct {
+	// Header name and value map.
+	Headers map[string]string `pulumi:"headers"`
+	// URL of the proxy to perform the test.
+	Url string `pulumi:"url"`
+}
+
+// SyntheticsTestRequestProxyInput is an input type that accepts SyntheticsTestRequestProxyArgs and SyntheticsTestRequestProxyOutput values.
+// You can construct a concrete instance of `SyntheticsTestRequestProxyInput` via:
+//
+//	SyntheticsTestRequestProxyArgs{...}
+type SyntheticsTestRequestProxyInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestRequestProxyOutput() SyntheticsTestRequestProxyOutput
+	ToSyntheticsTestRequestProxyOutputWithContext(context.Context) SyntheticsTestRequestProxyOutput
+}
+
+type SyntheticsTestRequestProxyArgs struct {
+	// Header name and value map.
+	Headers pulumi.StringMapInput `pulumi:"headers"`
+	// URL of the proxy to perform the test.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (SyntheticsTestRequestProxyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestRequestProxy)(nil)).Elem()
+}
+
+func (i SyntheticsTestRequestProxyArgs) ToSyntheticsTestRequestProxyOutput() SyntheticsTestRequestProxyOutput {
+	return i.ToSyntheticsTestRequestProxyOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestRequestProxyArgs) ToSyntheticsTestRequestProxyOutputWithContext(ctx context.Context) SyntheticsTestRequestProxyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestRequestProxyOutput)
+}
+
+func (i SyntheticsTestRequestProxyArgs) ToSyntheticsTestRequestProxyPtrOutput() SyntheticsTestRequestProxyPtrOutput {
+	return i.ToSyntheticsTestRequestProxyPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestRequestProxyArgs) ToSyntheticsTestRequestProxyPtrOutputWithContext(ctx context.Context) SyntheticsTestRequestProxyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestRequestProxyOutput).ToSyntheticsTestRequestProxyPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestRequestProxyPtrInput is an input type that accepts SyntheticsTestRequestProxyArgs, SyntheticsTestRequestProxyPtr and SyntheticsTestRequestProxyPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestRequestProxyPtrInput` via:
+//
+//	        SyntheticsTestRequestProxyArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestRequestProxyPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestRequestProxyPtrOutput() SyntheticsTestRequestProxyPtrOutput
+	ToSyntheticsTestRequestProxyPtrOutputWithContext(context.Context) SyntheticsTestRequestProxyPtrOutput
+}
+
+type syntheticsTestRequestProxyPtrType SyntheticsTestRequestProxyArgs
+
+func SyntheticsTestRequestProxyPtr(v *SyntheticsTestRequestProxyArgs) SyntheticsTestRequestProxyPtrInput {
+	return (*syntheticsTestRequestProxyPtrType)(v)
+}
+
+func (*syntheticsTestRequestProxyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestRequestProxy)(nil)).Elem()
+}
+
+func (i *syntheticsTestRequestProxyPtrType) ToSyntheticsTestRequestProxyPtrOutput() SyntheticsTestRequestProxyPtrOutput {
+	return i.ToSyntheticsTestRequestProxyPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestRequestProxyPtrType) ToSyntheticsTestRequestProxyPtrOutputWithContext(ctx context.Context) SyntheticsTestRequestProxyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestRequestProxyPtrOutput)
+}
+
+type SyntheticsTestRequestProxyOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestRequestProxyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestRequestProxy)(nil)).Elem()
+}
+
+func (o SyntheticsTestRequestProxyOutput) ToSyntheticsTestRequestProxyOutput() SyntheticsTestRequestProxyOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestProxyOutput) ToSyntheticsTestRequestProxyOutputWithContext(ctx context.Context) SyntheticsTestRequestProxyOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestProxyOutput) ToSyntheticsTestRequestProxyPtrOutput() SyntheticsTestRequestProxyPtrOutput {
+	return o.ToSyntheticsTestRequestProxyPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestRequestProxyOutput) ToSyntheticsTestRequestProxyPtrOutputWithContext(ctx context.Context) SyntheticsTestRequestProxyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestRequestProxy) *SyntheticsTestRequestProxy {
+		return &v
+	}).(SyntheticsTestRequestProxyPtrOutput)
+}
+
+// Header name and value map.
+func (o SyntheticsTestRequestProxyOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestProxy) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
+}
+
+// URL of the proxy to perform the test.
+func (o SyntheticsTestRequestProxyOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestProxy) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestRequestProxyPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestRequestProxyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestRequestProxy)(nil)).Elem()
+}
+
+func (o SyntheticsTestRequestProxyPtrOutput) ToSyntheticsTestRequestProxyPtrOutput() SyntheticsTestRequestProxyPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestProxyPtrOutput) ToSyntheticsTestRequestProxyPtrOutputWithContext(ctx context.Context) SyntheticsTestRequestProxyPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestProxyPtrOutput) Elem() SyntheticsTestRequestProxyOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestProxy) SyntheticsTestRequestProxy {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestRequestProxy
+		return ret
+	}).(SyntheticsTestRequestProxyOutput)
+}
+
+// Header name and value map.
+func (o SyntheticsTestRequestProxyPtrOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestProxy) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(pulumi.StringMapOutput)
+}
+
+// URL of the proxy to perform the test.
+func (o SyntheticsTestRequestProxyPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestProxy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type TagPipelineRulesetRule struct {
+	// Whether the rule is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// The mapping configuration for the rule.
+	Mapping *TagPipelineRulesetRuleMapping `pulumi:"mapping"`
+	// Rule metadata key-value pairs.
+	Metadata map[string]string `pulumi:"metadata"`
+	// The name of the rule.
+	Name string `pulumi:"name"`
+	// The query configuration for the rule.
+	Query *TagPipelineRulesetRuleQuery `pulumi:"query"`
+	// The reference table configuration for the rule.
+	ReferenceTable *TagPipelineRulesetRuleReferenceTable `pulumi:"referenceTable"`
+}
+
+// TagPipelineRulesetRuleInput is an input type that accepts TagPipelineRulesetRuleArgs and TagPipelineRulesetRuleOutput values.
+// You can construct a concrete instance of `TagPipelineRulesetRuleInput` via:
+//
+//	TagPipelineRulesetRuleArgs{...}
+type TagPipelineRulesetRuleInput interface {
+	pulumi.Input
+
+	ToTagPipelineRulesetRuleOutput() TagPipelineRulesetRuleOutput
+	ToTagPipelineRulesetRuleOutputWithContext(context.Context) TagPipelineRulesetRuleOutput
+}
+
+type TagPipelineRulesetRuleArgs struct {
+	// Whether the rule is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The mapping configuration for the rule.
+	Mapping TagPipelineRulesetRuleMappingPtrInput `pulumi:"mapping"`
+	// Rule metadata key-value pairs.
+	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	// The name of the rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The query configuration for the rule.
+	Query TagPipelineRulesetRuleQueryPtrInput `pulumi:"query"`
+	// The reference table configuration for the rule.
+	ReferenceTable TagPipelineRulesetRuleReferenceTablePtrInput `pulumi:"referenceTable"`
+}
+
+func (TagPipelineRulesetRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagPipelineRulesetRule)(nil)).Elem()
+}
+
+func (i TagPipelineRulesetRuleArgs) ToTagPipelineRulesetRuleOutput() TagPipelineRulesetRuleOutput {
+	return i.ToTagPipelineRulesetRuleOutputWithContext(context.Background())
+}
+
+func (i TagPipelineRulesetRuleArgs) ToTagPipelineRulesetRuleOutputWithContext(ctx context.Context) TagPipelineRulesetRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagPipelineRulesetRuleOutput)
+}
+
+// TagPipelineRulesetRuleArrayInput is an input type that accepts TagPipelineRulesetRuleArray and TagPipelineRulesetRuleArrayOutput values.
+// You can construct a concrete instance of `TagPipelineRulesetRuleArrayInput` via:
+//
+//	TagPipelineRulesetRuleArray{ TagPipelineRulesetRuleArgs{...} }
+type TagPipelineRulesetRuleArrayInput interface {
+	pulumi.Input
+
+	ToTagPipelineRulesetRuleArrayOutput() TagPipelineRulesetRuleArrayOutput
+	ToTagPipelineRulesetRuleArrayOutputWithContext(context.Context) TagPipelineRulesetRuleArrayOutput
+}
+
+type TagPipelineRulesetRuleArray []TagPipelineRulesetRuleInput
+
+func (TagPipelineRulesetRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TagPipelineRulesetRule)(nil)).Elem()
+}
+
+func (i TagPipelineRulesetRuleArray) ToTagPipelineRulesetRuleArrayOutput() TagPipelineRulesetRuleArrayOutput {
+	return i.ToTagPipelineRulesetRuleArrayOutputWithContext(context.Background())
+}
+
+func (i TagPipelineRulesetRuleArray) ToTagPipelineRulesetRuleArrayOutputWithContext(ctx context.Context) TagPipelineRulesetRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagPipelineRulesetRuleArrayOutput)
+}
+
+type TagPipelineRulesetRuleOutput struct{ *pulumi.OutputState }
+
+func (TagPipelineRulesetRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagPipelineRulesetRule)(nil)).Elem()
+}
+
+func (o TagPipelineRulesetRuleOutput) ToTagPipelineRulesetRuleOutput() TagPipelineRulesetRuleOutput {
+	return o
+}
+
+func (o TagPipelineRulesetRuleOutput) ToTagPipelineRulesetRuleOutputWithContext(ctx context.Context) TagPipelineRulesetRuleOutput {
+	return o
+}
+
+// Whether the rule is enabled.
+func (o TagPipelineRulesetRuleOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRule) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The mapping configuration for the rule.
+func (o TagPipelineRulesetRuleOutput) Mapping() TagPipelineRulesetRuleMappingPtrOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRule) *TagPipelineRulesetRuleMapping { return v.Mapping }).(TagPipelineRulesetRuleMappingPtrOutput)
+}
+
+// Rule metadata key-value pairs.
+func (o TagPipelineRulesetRuleOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRule) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// The name of the rule.
+func (o TagPipelineRulesetRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The query configuration for the rule.
+func (o TagPipelineRulesetRuleOutput) Query() TagPipelineRulesetRuleQueryPtrOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRule) *TagPipelineRulesetRuleQuery { return v.Query }).(TagPipelineRulesetRuleQueryPtrOutput)
+}
+
+// The reference table configuration for the rule.
+func (o TagPipelineRulesetRuleOutput) ReferenceTable() TagPipelineRulesetRuleReferenceTablePtrOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRule) *TagPipelineRulesetRuleReferenceTable { return v.ReferenceTable }).(TagPipelineRulesetRuleReferenceTablePtrOutput)
+}
+
+type TagPipelineRulesetRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (TagPipelineRulesetRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TagPipelineRulesetRule)(nil)).Elem()
+}
+
+func (o TagPipelineRulesetRuleArrayOutput) ToTagPipelineRulesetRuleArrayOutput() TagPipelineRulesetRuleArrayOutput {
+	return o
+}
+
+func (o TagPipelineRulesetRuleArrayOutput) ToTagPipelineRulesetRuleArrayOutputWithContext(ctx context.Context) TagPipelineRulesetRuleArrayOutput {
+	return o
+}
+
+func (o TagPipelineRulesetRuleArrayOutput) Index(i pulumi.IntInput) TagPipelineRulesetRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TagPipelineRulesetRule {
+		return vs[0].([]TagPipelineRulesetRule)[vs[1].(int)]
+	}).(TagPipelineRulesetRuleOutput)
+}
+
+type TagPipelineRulesetRuleMapping struct {
+	// The destination key for the mapping.
+	DestinationKey *string `pulumi:"destinationKey"`
+	// Whether to apply the mapping only if the destination key doesn't exist.
+	//
+	// Deprecated: Use `ifTagExists` instead. This field will be removed in a future release.
+	IfNotExists *bool `pulumi:"ifNotExists"`
+	// Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+	IfTagExists *string `pulumi:"ifTagExists"`
+	// The source keys for the mapping.
+	SourceKeys []string `pulumi:"sourceKeys"`
+}
+
+// TagPipelineRulesetRuleMappingInput is an input type that accepts TagPipelineRulesetRuleMappingArgs and TagPipelineRulesetRuleMappingOutput values.
+// You can construct a concrete instance of `TagPipelineRulesetRuleMappingInput` via:
+//
+//	TagPipelineRulesetRuleMappingArgs{...}
+type TagPipelineRulesetRuleMappingInput interface {
+	pulumi.Input
+
+	ToTagPipelineRulesetRuleMappingOutput() TagPipelineRulesetRuleMappingOutput
+	ToTagPipelineRulesetRuleMappingOutputWithContext(context.Context) TagPipelineRulesetRuleMappingOutput
+}
+
+type TagPipelineRulesetRuleMappingArgs struct {
+	// The destination key for the mapping.
+	DestinationKey pulumi.StringPtrInput `pulumi:"destinationKey"`
+	// Whether to apply the mapping only if the destination key doesn't exist.
+	//
+	// Deprecated: Use `ifTagExists` instead. This field will be removed in a future release.
+	IfNotExists pulumi.BoolPtrInput `pulumi:"ifNotExists"`
+	// Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+	IfTagExists pulumi.StringPtrInput `pulumi:"ifTagExists"`
+	// The source keys for the mapping.
+	SourceKeys pulumi.StringArrayInput `pulumi:"sourceKeys"`
+}
+
+func (TagPipelineRulesetRuleMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagPipelineRulesetRuleMapping)(nil)).Elem()
+}
+
+func (i TagPipelineRulesetRuleMappingArgs) ToTagPipelineRulesetRuleMappingOutput() TagPipelineRulesetRuleMappingOutput {
+	return i.ToTagPipelineRulesetRuleMappingOutputWithContext(context.Background())
+}
+
+func (i TagPipelineRulesetRuleMappingArgs) ToTagPipelineRulesetRuleMappingOutputWithContext(ctx context.Context) TagPipelineRulesetRuleMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagPipelineRulesetRuleMappingOutput)
+}
+
+func (i TagPipelineRulesetRuleMappingArgs) ToTagPipelineRulesetRuleMappingPtrOutput() TagPipelineRulesetRuleMappingPtrOutput {
+	return i.ToTagPipelineRulesetRuleMappingPtrOutputWithContext(context.Background())
+}
+
+func (i TagPipelineRulesetRuleMappingArgs) ToTagPipelineRulesetRuleMappingPtrOutputWithContext(ctx context.Context) TagPipelineRulesetRuleMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagPipelineRulesetRuleMappingOutput).ToTagPipelineRulesetRuleMappingPtrOutputWithContext(ctx)
+}
+
+// TagPipelineRulesetRuleMappingPtrInput is an input type that accepts TagPipelineRulesetRuleMappingArgs, TagPipelineRulesetRuleMappingPtr and TagPipelineRulesetRuleMappingPtrOutput values.
+// You can construct a concrete instance of `TagPipelineRulesetRuleMappingPtrInput` via:
+//
+//	        TagPipelineRulesetRuleMappingArgs{...}
+//
+//	or:
+//
+//	        nil
+type TagPipelineRulesetRuleMappingPtrInput interface {
+	pulumi.Input
+
+	ToTagPipelineRulesetRuleMappingPtrOutput() TagPipelineRulesetRuleMappingPtrOutput
+	ToTagPipelineRulesetRuleMappingPtrOutputWithContext(context.Context) TagPipelineRulesetRuleMappingPtrOutput
+}
+
+type tagPipelineRulesetRuleMappingPtrType TagPipelineRulesetRuleMappingArgs
+
+func TagPipelineRulesetRuleMappingPtr(v *TagPipelineRulesetRuleMappingArgs) TagPipelineRulesetRuleMappingPtrInput {
+	return (*tagPipelineRulesetRuleMappingPtrType)(v)
+}
+
+func (*tagPipelineRulesetRuleMappingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagPipelineRulesetRuleMapping)(nil)).Elem()
+}
+
+func (i *tagPipelineRulesetRuleMappingPtrType) ToTagPipelineRulesetRuleMappingPtrOutput() TagPipelineRulesetRuleMappingPtrOutput {
+	return i.ToTagPipelineRulesetRuleMappingPtrOutputWithContext(context.Background())
+}
+
+func (i *tagPipelineRulesetRuleMappingPtrType) ToTagPipelineRulesetRuleMappingPtrOutputWithContext(ctx context.Context) TagPipelineRulesetRuleMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagPipelineRulesetRuleMappingPtrOutput)
+}
+
+type TagPipelineRulesetRuleMappingOutput struct{ *pulumi.OutputState }
+
+func (TagPipelineRulesetRuleMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagPipelineRulesetRuleMapping)(nil)).Elem()
+}
+
+func (o TagPipelineRulesetRuleMappingOutput) ToTagPipelineRulesetRuleMappingOutput() TagPipelineRulesetRuleMappingOutput {
+	return o
+}
+
+func (o TagPipelineRulesetRuleMappingOutput) ToTagPipelineRulesetRuleMappingOutputWithContext(ctx context.Context) TagPipelineRulesetRuleMappingOutput {
+	return o
+}
+
+func (o TagPipelineRulesetRuleMappingOutput) ToTagPipelineRulesetRuleMappingPtrOutput() TagPipelineRulesetRuleMappingPtrOutput {
+	return o.ToTagPipelineRulesetRuleMappingPtrOutputWithContext(context.Background())
+}
+
+func (o TagPipelineRulesetRuleMappingOutput) ToTagPipelineRulesetRuleMappingPtrOutputWithContext(ctx context.Context) TagPipelineRulesetRuleMappingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagPipelineRulesetRuleMapping) *TagPipelineRulesetRuleMapping {
+		return &v
+	}).(TagPipelineRulesetRuleMappingPtrOutput)
+}
+
+// The destination key for the mapping.
+func (o TagPipelineRulesetRuleMappingOutput) DestinationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRuleMapping) *string { return v.DestinationKey }).(pulumi.StringPtrOutput)
+}
+
+// Whether to apply the mapping only if the destination key doesn't exist.
+//
+// Deprecated: Use `ifTagExists` instead. This field will be removed in a future release.
+func (o TagPipelineRulesetRuleMappingOutput) IfNotExists() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRuleMapping) *bool { return v.IfNotExists }).(pulumi.BoolPtrOutput)
+}
+
+// Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+func (o TagPipelineRulesetRuleMappingOutput) IfTagExists() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRuleMapping) *string { return v.IfTagExists }).(pulumi.StringPtrOutput)
+}
+
+// The source keys for the mapping.
+func (o TagPipelineRulesetRuleMappingOutput) SourceKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRuleMapping) []string { return v.SourceKeys }).(pulumi.StringArrayOutput)
+}
+
+type TagPipelineRulesetRuleMappingPtrOutput struct{ *pulumi.OutputState }
+
+func (TagPipelineRulesetRuleMappingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagPipelineRulesetRuleMapping)(nil)).Elem()
+}
+
+func (o TagPipelineRulesetRuleMappingPtrOutput) ToTagPipelineRulesetRuleMappingPtrOutput() TagPipelineRulesetRuleMappingPtrOutput {
+	return o
+}
+
+func (o TagPipelineRulesetRuleMappingPtrOutput) ToTagPipelineRulesetRuleMappingPtrOutputWithContext(ctx context.Context) TagPipelineRulesetRuleMappingPtrOutput {
+	return o
+}
+
+func (o TagPipelineRulesetRuleMappingPtrOutput) Elem() TagPipelineRulesetRuleMappingOutput {
+	return o.ApplyT(func(v *TagPipelineRulesetRuleMapping) TagPipelineRulesetRuleMapping {
+		if v != nil {
+			return *v
+		}
+		var ret TagPipelineRulesetRuleMapping
+		return ret
+	}).(TagPipelineRulesetRuleMappingOutput)
+}
+
+// The destination key for the mapping.
+func (o TagPipelineRulesetRuleMappingPtrOutput) DestinationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagPipelineRulesetRuleMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to apply the mapping only if the destination key doesn't exist.
+//
+// Deprecated: Use `ifTagExists` instead. This field will be removed in a future release.
+func (o TagPipelineRulesetRuleMappingPtrOutput) IfNotExists() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TagPipelineRulesetRuleMapping) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IfNotExists
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+func (o TagPipelineRulesetRuleMappingPtrOutput) IfTagExists() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagPipelineRulesetRuleMapping) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IfTagExists
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source keys for the mapping.
+func (o TagPipelineRulesetRuleMappingPtrOutput) SourceKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TagPipelineRulesetRuleMapping) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceKeys
+	}).(pulumi.StringArrayOutput)
+}
+
+type TagPipelineRulesetRuleQuery struct {
+	// The addition configuration for the query.
+	Addition *TagPipelineRulesetRuleQueryAddition `pulumi:"addition"`
+	// Whether the query matching is case insensitive.
+	CaseInsensitivity *bool `pulumi:"caseInsensitivity"`
+	// Whether to apply the query only if the key doesn't exist.
+	//
+	// Deprecated: Use `ifTagExists` instead. This field will be removed in a future release.
+	IfNotExists *bool `pulumi:"ifNotExists"`
+	// Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+	IfTagExists *string `pulumi:"ifTagExists"`
+	// The query string.
+	Query *string `pulumi:"query"`
+}
+
+// TagPipelineRulesetRuleQueryInput is an input type that accepts TagPipelineRulesetRuleQueryArgs and TagPipelineRulesetRuleQueryOutput values.
+// You can construct a concrete instance of `TagPipelineRulesetRuleQueryInput` via:
+//
+//	TagPipelineRulesetRuleQueryArgs{...}
+type TagPipelineRulesetRuleQueryInput interface {
+	pulumi.Input
+
+	ToTagPipelineRulesetRuleQueryOutput() TagPipelineRulesetRuleQueryOutput
+	ToTagPipelineRulesetRuleQueryOutputWithContext(context.Context) TagPipelineRulesetRuleQueryOutput
+}
+
+type TagPipelineRulesetRuleQueryArgs struct {
+	// The addition configuration for the query.
+	Addition TagPipelineRulesetRuleQueryAdditionPtrInput `pulumi:"addition"`
+	// Whether the query matching is case insensitive.
+	CaseInsensitivity pulumi.BoolPtrInput `pulumi:"caseInsensitivity"`
+	// Whether to apply the query only if the key doesn't exist.
+	//
+	// Deprecated: Use `ifTagExists` instead. This field will be removed in a future release.
+	IfNotExists pulumi.BoolPtrInput `pulumi:"ifNotExists"`
+	// Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+	IfTagExists pulumi.StringPtrInput `pulumi:"ifTagExists"`
+	// The query string.
+	Query pulumi.StringPtrInput `pulumi:"query"`
+}
+
+func (TagPipelineRulesetRuleQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagPipelineRulesetRuleQuery)(nil)).Elem()
+}
+
+func (i TagPipelineRulesetRuleQueryArgs) ToTagPipelineRulesetRuleQueryOutput() TagPipelineRulesetRuleQueryOutput {
+	return i.ToTagPipelineRulesetRuleQueryOutputWithContext(context.Background())
+}
+
+func (i TagPipelineRulesetRuleQueryArgs) ToTagPipelineRulesetRuleQueryOutputWithContext(ctx context.Context) TagPipelineRulesetRuleQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagPipelineRulesetRuleQueryOutput)
+}
+
+func (i TagPipelineRulesetRuleQueryArgs) ToTagPipelineRulesetRuleQueryPtrOutput() TagPipelineRulesetRuleQueryPtrOutput {
+	return i.ToTagPipelineRulesetRuleQueryPtrOutputWithContext(context.Background())
+}
+
+func (i TagPipelineRulesetRuleQueryArgs) ToTagPipelineRulesetRuleQueryPtrOutputWithContext(ctx context.Context) TagPipelineRulesetRuleQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagPipelineRulesetRuleQueryOutput).ToTagPipelineRulesetRuleQueryPtrOutputWithContext(ctx)
+}
+
+// TagPipelineRulesetRuleQueryPtrInput is an input type that accepts TagPipelineRulesetRuleQueryArgs, TagPipelineRulesetRuleQueryPtr and TagPipelineRulesetRuleQueryPtrOutput values.
+// You can construct a concrete instance of `TagPipelineRulesetRuleQueryPtrInput` via:
+//
+//	        TagPipelineRulesetRuleQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type TagPipelineRulesetRuleQueryPtrInput interface {
+	pulumi.Input
+
+	ToTagPipelineRulesetRuleQueryPtrOutput() TagPipelineRulesetRuleQueryPtrOutput
+	ToTagPipelineRulesetRuleQueryPtrOutputWithContext(context.Context) TagPipelineRulesetRuleQueryPtrOutput
+}
+
+type tagPipelineRulesetRuleQueryPtrType TagPipelineRulesetRuleQueryArgs
+
+func TagPipelineRulesetRuleQueryPtr(v *TagPipelineRulesetRuleQueryArgs) TagPipelineRulesetRuleQueryPtrInput {
+	return (*tagPipelineRulesetRuleQueryPtrType)(v)
+}
+
+func (*tagPipelineRulesetRuleQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagPipelineRulesetRuleQuery)(nil)).Elem()
+}
+
+func (i *tagPipelineRulesetRuleQueryPtrType) ToTagPipelineRulesetRuleQueryPtrOutput() TagPipelineRulesetRuleQueryPtrOutput {
+	return i.ToTagPipelineRulesetRuleQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *tagPipelineRulesetRuleQueryPtrType) ToTagPipelineRulesetRuleQueryPtrOutputWithContext(ctx context.Context) TagPipelineRulesetRuleQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagPipelineRulesetRuleQueryPtrOutput)
+}
+
+type TagPipelineRulesetRuleQueryOutput struct{ *pulumi.OutputState }
+
+func (TagPipelineRulesetRuleQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagPipelineRulesetRuleQuery)(nil)).Elem()
+}
+
+func (o TagPipelineRulesetRuleQueryOutput) ToTagPipelineRulesetRuleQueryOutput() TagPipelineRulesetRuleQueryOutput {
+	return o
+}
+
+func (o TagPipelineRulesetRuleQueryOutput) ToTagPipelineRulesetRuleQueryOutputWithContext(ctx context.Context) TagPipelineRulesetRuleQueryOutput {
+	return o
+}
+
+func (o TagPipelineRulesetRuleQueryOutput) ToTagPipelineRulesetRuleQueryPtrOutput() TagPipelineRulesetRuleQueryPtrOutput {
+	return o.ToTagPipelineRulesetRuleQueryPtrOutputWithContext(context.Background())
+}
+
+func (o TagPipelineRulesetRuleQueryOutput) ToTagPipelineRulesetRuleQueryPtrOutputWithContext(ctx context.Context) TagPipelineRulesetRuleQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagPipelineRulesetRuleQuery) *TagPipelineRulesetRuleQuery {
+		return &v
+	}).(TagPipelineRulesetRuleQueryPtrOutput)
+}
+
+// The addition configuration for the query.
+func (o TagPipelineRulesetRuleQueryOutput) Addition() TagPipelineRulesetRuleQueryAdditionPtrOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRuleQuery) *TagPipelineRulesetRuleQueryAddition { return v.Addition }).(TagPipelineRulesetRuleQueryAdditionPtrOutput)
+}
+
+// Whether the query matching is case insensitive.
+func (o TagPipelineRulesetRuleQueryOutput) CaseInsensitivity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRuleQuery) *bool { return v.CaseInsensitivity }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to apply the query only if the key doesn't exist.
+//
+// Deprecated: Use `ifTagExists` instead. This field will be removed in a future release.
+func (o TagPipelineRulesetRuleQueryOutput) IfNotExists() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRuleQuery) *bool { return v.IfNotExists }).(pulumi.BoolPtrOutput)
+}
+
+// Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+func (o TagPipelineRulesetRuleQueryOutput) IfTagExists() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRuleQuery) *string { return v.IfTagExists }).(pulumi.StringPtrOutput)
+}
+
+// The query string.
+func (o TagPipelineRulesetRuleQueryOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRuleQuery) *string { return v.Query }).(pulumi.StringPtrOutput)
+}
+
+type TagPipelineRulesetRuleQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (TagPipelineRulesetRuleQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagPipelineRulesetRuleQuery)(nil)).Elem()
+}
+
+func (o TagPipelineRulesetRuleQueryPtrOutput) ToTagPipelineRulesetRuleQueryPtrOutput() TagPipelineRulesetRuleQueryPtrOutput {
+	return o
+}
+
+func (o TagPipelineRulesetRuleQueryPtrOutput) ToTagPipelineRulesetRuleQueryPtrOutputWithContext(ctx context.Context) TagPipelineRulesetRuleQueryPtrOutput {
+	return o
+}
+
+func (o TagPipelineRulesetRuleQueryPtrOutput) Elem() TagPipelineRulesetRuleQueryOutput {
+	return o.ApplyT(func(v *TagPipelineRulesetRuleQuery) TagPipelineRulesetRuleQuery {
+		if v != nil {
+			return *v
+		}
+		var ret TagPipelineRulesetRuleQuery
+		return ret
+	}).(TagPipelineRulesetRuleQueryOutput)
+}
+
+// The addition configuration for the query.
+func (o TagPipelineRulesetRuleQueryPtrOutput) Addition() TagPipelineRulesetRuleQueryAdditionPtrOutput {
+	return o.ApplyT(func(v *TagPipelineRulesetRuleQuery) *TagPipelineRulesetRuleQueryAddition {
+		if v == nil {
+			return nil
+		}
+		return v.Addition
+	}).(TagPipelineRulesetRuleQueryAdditionPtrOutput)
+}
+
+// Whether the query matching is case insensitive.
+func (o TagPipelineRulesetRuleQueryPtrOutput) CaseInsensitivity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TagPipelineRulesetRuleQuery) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CaseInsensitivity
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether to apply the query only if the key doesn't exist.
+//
+// Deprecated: Use `ifTagExists` instead. This field will be removed in a future release.
+func (o TagPipelineRulesetRuleQueryPtrOutput) IfNotExists() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TagPipelineRulesetRuleQuery) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IfNotExists
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+func (o TagPipelineRulesetRuleQueryPtrOutput) IfTagExists() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagPipelineRulesetRuleQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IfTagExists
+	}).(pulumi.StringPtrOutput)
+}
+
+// The query string.
+func (o TagPipelineRulesetRuleQueryPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagPipelineRulesetRuleQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+type TagPipelineRulesetRuleQueryAddition struct {
+	// The key to add.
+	Key *string `pulumi:"key"`
+	// The value to add.
+	Value *string `pulumi:"value"`
+}
+
+// TagPipelineRulesetRuleQueryAdditionInput is an input type that accepts TagPipelineRulesetRuleQueryAdditionArgs and TagPipelineRulesetRuleQueryAdditionOutput values.
+// You can construct a concrete instance of `TagPipelineRulesetRuleQueryAdditionInput` via:
+//
+//	TagPipelineRulesetRuleQueryAdditionArgs{...}
+type TagPipelineRulesetRuleQueryAdditionInput interface {
+	pulumi.Input
+
+	ToTagPipelineRulesetRuleQueryAdditionOutput() TagPipelineRulesetRuleQueryAdditionOutput
+	ToTagPipelineRulesetRuleQueryAdditionOutputWithContext(context.Context) TagPipelineRulesetRuleQueryAdditionOutput
+}
+
+type TagPipelineRulesetRuleQueryAdditionArgs struct {
+	// The key to add.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The value to add.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TagPipelineRulesetRuleQueryAdditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagPipelineRulesetRuleQueryAddition)(nil)).Elem()
+}
+
+func (i TagPipelineRulesetRuleQueryAdditionArgs) ToTagPipelineRulesetRuleQueryAdditionOutput() TagPipelineRulesetRuleQueryAdditionOutput {
+	return i.ToTagPipelineRulesetRuleQueryAdditionOutputWithContext(context.Background())
+}
+
+func (i TagPipelineRulesetRuleQueryAdditionArgs) ToTagPipelineRulesetRuleQueryAdditionOutputWithContext(ctx context.Context) TagPipelineRulesetRuleQueryAdditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagPipelineRulesetRuleQueryAdditionOutput)
+}
+
+func (i TagPipelineRulesetRuleQueryAdditionArgs) ToTagPipelineRulesetRuleQueryAdditionPtrOutput() TagPipelineRulesetRuleQueryAdditionPtrOutput {
+	return i.ToTagPipelineRulesetRuleQueryAdditionPtrOutputWithContext(context.Background())
+}
+
+func (i TagPipelineRulesetRuleQueryAdditionArgs) ToTagPipelineRulesetRuleQueryAdditionPtrOutputWithContext(ctx context.Context) TagPipelineRulesetRuleQueryAdditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagPipelineRulesetRuleQueryAdditionOutput).ToTagPipelineRulesetRuleQueryAdditionPtrOutputWithContext(ctx)
+}
+
+// TagPipelineRulesetRuleQueryAdditionPtrInput is an input type that accepts TagPipelineRulesetRuleQueryAdditionArgs, TagPipelineRulesetRuleQueryAdditionPtr and TagPipelineRulesetRuleQueryAdditionPtrOutput values.
+// You can construct a concrete instance of `TagPipelineRulesetRuleQueryAdditionPtrInput` via:
+//
+//	        TagPipelineRulesetRuleQueryAdditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type TagPipelineRulesetRuleQueryAdditionPtrInput interface {
+	pulumi.Input
+
+	ToTagPipelineRulesetRuleQueryAdditionPtrOutput() TagPipelineRulesetRuleQueryAdditionPtrOutput
+	ToTagPipelineRulesetRuleQueryAdditionPtrOutputWithContext(context.Context) TagPipelineRulesetRuleQueryAdditionPtrOutput
+}
+
+type tagPipelineRulesetRuleQueryAdditionPtrType TagPipelineRulesetRuleQueryAdditionArgs
+
+func TagPipelineRulesetRuleQueryAdditionPtr(v *TagPipelineRulesetRuleQueryAdditionArgs) TagPipelineRulesetRuleQueryAdditionPtrInput {
+	return (*tagPipelineRulesetRuleQueryAdditionPtrType)(v)
+}
+
+func (*tagPipelineRulesetRuleQueryAdditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagPipelineRulesetRuleQueryAddition)(nil)).Elem()
+}
+
+func (i *tagPipelineRulesetRuleQueryAdditionPtrType) ToTagPipelineRulesetRuleQueryAdditionPtrOutput() TagPipelineRulesetRuleQueryAdditionPtrOutput {
+	return i.ToTagPipelineRulesetRuleQueryAdditionPtrOutputWithContext(context.Background())
+}
+
+func (i *tagPipelineRulesetRuleQueryAdditionPtrType) ToTagPipelineRulesetRuleQueryAdditionPtrOutputWithContext(ctx context.Context) TagPipelineRulesetRuleQueryAdditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagPipelineRulesetRuleQueryAdditionPtrOutput)
+}
+
+type TagPipelineRulesetRuleQueryAdditionOutput struct{ *pulumi.OutputState }
+
+func (TagPipelineRulesetRuleQueryAdditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagPipelineRulesetRuleQueryAddition)(nil)).Elem()
+}
+
+func (o TagPipelineRulesetRuleQueryAdditionOutput) ToTagPipelineRulesetRuleQueryAdditionOutput() TagPipelineRulesetRuleQueryAdditionOutput {
+	return o
+}
+
+func (o TagPipelineRulesetRuleQueryAdditionOutput) ToTagPipelineRulesetRuleQueryAdditionOutputWithContext(ctx context.Context) TagPipelineRulesetRuleQueryAdditionOutput {
+	return o
+}
+
+func (o TagPipelineRulesetRuleQueryAdditionOutput) ToTagPipelineRulesetRuleQueryAdditionPtrOutput() TagPipelineRulesetRuleQueryAdditionPtrOutput {
+	return o.ToTagPipelineRulesetRuleQueryAdditionPtrOutputWithContext(context.Background())
+}
+
+func (o TagPipelineRulesetRuleQueryAdditionOutput) ToTagPipelineRulesetRuleQueryAdditionPtrOutputWithContext(ctx context.Context) TagPipelineRulesetRuleQueryAdditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagPipelineRulesetRuleQueryAddition) *TagPipelineRulesetRuleQueryAddition {
+		return &v
+	}).(TagPipelineRulesetRuleQueryAdditionPtrOutput)
+}
+
+// The key to add.
+func (o TagPipelineRulesetRuleQueryAdditionOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRuleQueryAddition) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// The value to add.
+func (o TagPipelineRulesetRuleQueryAdditionOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRuleQueryAddition) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TagPipelineRulesetRuleQueryAdditionPtrOutput struct{ *pulumi.OutputState }
+
+func (TagPipelineRulesetRuleQueryAdditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagPipelineRulesetRuleQueryAddition)(nil)).Elem()
+}
+
+func (o TagPipelineRulesetRuleQueryAdditionPtrOutput) ToTagPipelineRulesetRuleQueryAdditionPtrOutput() TagPipelineRulesetRuleQueryAdditionPtrOutput {
+	return o
+}
+
+func (o TagPipelineRulesetRuleQueryAdditionPtrOutput) ToTagPipelineRulesetRuleQueryAdditionPtrOutputWithContext(ctx context.Context) TagPipelineRulesetRuleQueryAdditionPtrOutput {
+	return o
+}
+
+func (o TagPipelineRulesetRuleQueryAdditionPtrOutput) Elem() TagPipelineRulesetRuleQueryAdditionOutput {
+	return o.ApplyT(func(v *TagPipelineRulesetRuleQueryAddition) TagPipelineRulesetRuleQueryAddition {
+		if v != nil {
+			return *v
+		}
+		var ret TagPipelineRulesetRuleQueryAddition
+		return ret
+	}).(TagPipelineRulesetRuleQueryAdditionOutput)
+}
+
+// The key to add.
+func (o TagPipelineRulesetRuleQueryAdditionPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagPipelineRulesetRuleQueryAddition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value to add.
+func (o TagPipelineRulesetRuleQueryAdditionPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagPipelineRulesetRuleQueryAddition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type TagPipelineRulesetRuleReferenceTable struct {
+	// Whether the reference table lookup is case insensitive.
+	CaseInsensitivity *bool `pulumi:"caseInsensitivity"`
+	// The field pairs for the reference table.
+	FieldPairs []TagPipelineRulesetRuleReferenceTableFieldPair `pulumi:"fieldPairs"`
+	// Whether to apply the reference table only if the key doesn't exist.
+	//
+	// Deprecated: Use `ifTagExists` instead. This field will be removed in a future release.
+	IfNotExists *bool `pulumi:"ifNotExists"`
+	// Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+	IfTagExists *string `pulumi:"ifTagExists"`
+	// The source keys for the reference table lookup.
+	SourceKeys []string `pulumi:"sourceKeys"`
+	// The name of the reference table.
+	TableName *string `pulumi:"tableName"`
+}
+
+// TagPipelineRulesetRuleReferenceTableInput is an input type that accepts TagPipelineRulesetRuleReferenceTableArgs and TagPipelineRulesetRuleReferenceTableOutput values.
+// You can construct a concrete instance of `TagPipelineRulesetRuleReferenceTableInput` via:
+//
+//	TagPipelineRulesetRuleReferenceTableArgs{...}
+type TagPipelineRulesetRuleReferenceTableInput interface {
+	pulumi.Input
+
+	ToTagPipelineRulesetRuleReferenceTableOutput() TagPipelineRulesetRuleReferenceTableOutput
+	ToTagPipelineRulesetRuleReferenceTableOutputWithContext(context.Context) TagPipelineRulesetRuleReferenceTableOutput
+}
+
+type TagPipelineRulesetRuleReferenceTableArgs struct {
+	// Whether the reference table lookup is case insensitive.
+	CaseInsensitivity pulumi.BoolPtrInput `pulumi:"caseInsensitivity"`
+	// The field pairs for the reference table.
+	FieldPairs TagPipelineRulesetRuleReferenceTableFieldPairArrayInput `pulumi:"fieldPairs"`
+	// Whether to apply the reference table only if the key doesn't exist.
+	//
+	// Deprecated: Use `ifTagExists` instead. This field will be removed in a future release.
+	IfNotExists pulumi.BoolPtrInput `pulumi:"ifNotExists"`
+	// Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+	IfTagExists pulumi.StringPtrInput `pulumi:"ifTagExists"`
+	// The source keys for the reference table lookup.
+	SourceKeys pulumi.StringArrayInput `pulumi:"sourceKeys"`
+	// The name of the reference table.
+	TableName pulumi.StringPtrInput `pulumi:"tableName"`
+}
+
+func (TagPipelineRulesetRuleReferenceTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagPipelineRulesetRuleReferenceTable)(nil)).Elem()
+}
+
+func (i TagPipelineRulesetRuleReferenceTableArgs) ToTagPipelineRulesetRuleReferenceTableOutput() TagPipelineRulesetRuleReferenceTableOutput {
+	return i.ToTagPipelineRulesetRuleReferenceTableOutputWithContext(context.Background())
+}
+
+func (i TagPipelineRulesetRuleReferenceTableArgs) ToTagPipelineRulesetRuleReferenceTableOutputWithContext(ctx context.Context) TagPipelineRulesetRuleReferenceTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagPipelineRulesetRuleReferenceTableOutput)
+}
+
+func (i TagPipelineRulesetRuleReferenceTableArgs) ToTagPipelineRulesetRuleReferenceTablePtrOutput() TagPipelineRulesetRuleReferenceTablePtrOutput {
+	return i.ToTagPipelineRulesetRuleReferenceTablePtrOutputWithContext(context.Background())
+}
+
+func (i TagPipelineRulesetRuleReferenceTableArgs) ToTagPipelineRulesetRuleReferenceTablePtrOutputWithContext(ctx context.Context) TagPipelineRulesetRuleReferenceTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagPipelineRulesetRuleReferenceTableOutput).ToTagPipelineRulesetRuleReferenceTablePtrOutputWithContext(ctx)
+}
+
+// TagPipelineRulesetRuleReferenceTablePtrInput is an input type that accepts TagPipelineRulesetRuleReferenceTableArgs, TagPipelineRulesetRuleReferenceTablePtr and TagPipelineRulesetRuleReferenceTablePtrOutput values.
+// You can construct a concrete instance of `TagPipelineRulesetRuleReferenceTablePtrInput` via:
+//
+//	        TagPipelineRulesetRuleReferenceTableArgs{...}
+//
+//	or:
+//
+//	        nil
+type TagPipelineRulesetRuleReferenceTablePtrInput interface {
+	pulumi.Input
+
+	ToTagPipelineRulesetRuleReferenceTablePtrOutput() TagPipelineRulesetRuleReferenceTablePtrOutput
+	ToTagPipelineRulesetRuleReferenceTablePtrOutputWithContext(context.Context) TagPipelineRulesetRuleReferenceTablePtrOutput
+}
+
+type tagPipelineRulesetRuleReferenceTablePtrType TagPipelineRulesetRuleReferenceTableArgs
+
+func TagPipelineRulesetRuleReferenceTablePtr(v *TagPipelineRulesetRuleReferenceTableArgs) TagPipelineRulesetRuleReferenceTablePtrInput {
+	return (*tagPipelineRulesetRuleReferenceTablePtrType)(v)
+}
+
+func (*tagPipelineRulesetRuleReferenceTablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagPipelineRulesetRuleReferenceTable)(nil)).Elem()
+}
+
+func (i *tagPipelineRulesetRuleReferenceTablePtrType) ToTagPipelineRulesetRuleReferenceTablePtrOutput() TagPipelineRulesetRuleReferenceTablePtrOutput {
+	return i.ToTagPipelineRulesetRuleReferenceTablePtrOutputWithContext(context.Background())
+}
+
+func (i *tagPipelineRulesetRuleReferenceTablePtrType) ToTagPipelineRulesetRuleReferenceTablePtrOutputWithContext(ctx context.Context) TagPipelineRulesetRuleReferenceTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagPipelineRulesetRuleReferenceTablePtrOutput)
+}
+
+type TagPipelineRulesetRuleReferenceTableOutput struct{ *pulumi.OutputState }
+
+func (TagPipelineRulesetRuleReferenceTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagPipelineRulesetRuleReferenceTable)(nil)).Elem()
+}
+
+func (o TagPipelineRulesetRuleReferenceTableOutput) ToTagPipelineRulesetRuleReferenceTableOutput() TagPipelineRulesetRuleReferenceTableOutput {
+	return o
+}
+
+func (o TagPipelineRulesetRuleReferenceTableOutput) ToTagPipelineRulesetRuleReferenceTableOutputWithContext(ctx context.Context) TagPipelineRulesetRuleReferenceTableOutput {
+	return o
+}
+
+func (o TagPipelineRulesetRuleReferenceTableOutput) ToTagPipelineRulesetRuleReferenceTablePtrOutput() TagPipelineRulesetRuleReferenceTablePtrOutput {
+	return o.ToTagPipelineRulesetRuleReferenceTablePtrOutputWithContext(context.Background())
+}
+
+func (o TagPipelineRulesetRuleReferenceTableOutput) ToTagPipelineRulesetRuleReferenceTablePtrOutputWithContext(ctx context.Context) TagPipelineRulesetRuleReferenceTablePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagPipelineRulesetRuleReferenceTable) *TagPipelineRulesetRuleReferenceTable {
+		return &v
+	}).(TagPipelineRulesetRuleReferenceTablePtrOutput)
+}
+
+// Whether the reference table lookup is case insensitive.
+func (o TagPipelineRulesetRuleReferenceTableOutput) CaseInsensitivity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRuleReferenceTable) *bool { return v.CaseInsensitivity }).(pulumi.BoolPtrOutput)
+}
+
+// The field pairs for the reference table.
+func (o TagPipelineRulesetRuleReferenceTableOutput) FieldPairs() TagPipelineRulesetRuleReferenceTableFieldPairArrayOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRuleReferenceTable) []TagPipelineRulesetRuleReferenceTableFieldPair {
+		return v.FieldPairs
+	}).(TagPipelineRulesetRuleReferenceTableFieldPairArrayOutput)
+}
+
+// Whether to apply the reference table only if the key doesn't exist.
+//
+// Deprecated: Use `ifTagExists` instead. This field will be removed in a future release.
+func (o TagPipelineRulesetRuleReferenceTableOutput) IfNotExists() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRuleReferenceTable) *bool { return v.IfNotExists }).(pulumi.BoolPtrOutput)
+}
+
+// Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+func (o TagPipelineRulesetRuleReferenceTableOutput) IfTagExists() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRuleReferenceTable) *string { return v.IfTagExists }).(pulumi.StringPtrOutput)
+}
+
+// The source keys for the reference table lookup.
+func (o TagPipelineRulesetRuleReferenceTableOutput) SourceKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRuleReferenceTable) []string { return v.SourceKeys }).(pulumi.StringArrayOutput)
+}
+
+// The name of the reference table.
+func (o TagPipelineRulesetRuleReferenceTableOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRuleReferenceTable) *string { return v.TableName }).(pulumi.StringPtrOutput)
+}
+
+type TagPipelineRulesetRuleReferenceTablePtrOutput struct{ *pulumi.OutputState }
+
+func (TagPipelineRulesetRuleReferenceTablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagPipelineRulesetRuleReferenceTable)(nil)).Elem()
+}
+
+func (o TagPipelineRulesetRuleReferenceTablePtrOutput) ToTagPipelineRulesetRuleReferenceTablePtrOutput() TagPipelineRulesetRuleReferenceTablePtrOutput {
+	return o
+}
+
+func (o TagPipelineRulesetRuleReferenceTablePtrOutput) ToTagPipelineRulesetRuleReferenceTablePtrOutputWithContext(ctx context.Context) TagPipelineRulesetRuleReferenceTablePtrOutput {
+	return o
+}
+
+func (o TagPipelineRulesetRuleReferenceTablePtrOutput) Elem() TagPipelineRulesetRuleReferenceTableOutput {
+	return o.ApplyT(func(v *TagPipelineRulesetRuleReferenceTable) TagPipelineRulesetRuleReferenceTable {
+		if v != nil {
+			return *v
+		}
+		var ret TagPipelineRulesetRuleReferenceTable
+		return ret
+	}).(TagPipelineRulesetRuleReferenceTableOutput)
+}
+
+// Whether the reference table lookup is case insensitive.
+func (o TagPipelineRulesetRuleReferenceTablePtrOutput) CaseInsensitivity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TagPipelineRulesetRuleReferenceTable) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CaseInsensitivity
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The field pairs for the reference table.
+func (o TagPipelineRulesetRuleReferenceTablePtrOutput) FieldPairs() TagPipelineRulesetRuleReferenceTableFieldPairArrayOutput {
+	return o.ApplyT(func(v *TagPipelineRulesetRuleReferenceTable) []TagPipelineRulesetRuleReferenceTableFieldPair {
+		if v == nil {
+			return nil
+		}
+		return v.FieldPairs
+	}).(TagPipelineRulesetRuleReferenceTableFieldPairArrayOutput)
+}
+
+// Whether to apply the reference table only if the key doesn't exist.
+//
+// Deprecated: Use `ifTagExists` instead. This field will be removed in a future release.
+func (o TagPipelineRulesetRuleReferenceTablePtrOutput) IfNotExists() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TagPipelineRulesetRuleReferenceTable) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IfNotExists
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
+func (o TagPipelineRulesetRuleReferenceTablePtrOutput) IfTagExists() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagPipelineRulesetRuleReferenceTable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IfTagExists
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source keys for the reference table lookup.
+func (o TagPipelineRulesetRuleReferenceTablePtrOutput) SourceKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TagPipelineRulesetRuleReferenceTable) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceKeys
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the reference table.
+func (o TagPipelineRulesetRuleReferenceTablePtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagPipelineRulesetRuleReferenceTable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
+type TagPipelineRulesetRuleReferenceTableFieldPair struct {
+	// The input column name.
+	InputColumn *string `pulumi:"inputColumn"`
+	// The output key name.
+	OutputKey *string `pulumi:"outputKey"`
+}
+
+// TagPipelineRulesetRuleReferenceTableFieldPairInput is an input type that accepts TagPipelineRulesetRuleReferenceTableFieldPairArgs and TagPipelineRulesetRuleReferenceTableFieldPairOutput values.
+// You can construct a concrete instance of `TagPipelineRulesetRuleReferenceTableFieldPairInput` via:
+//
+//	TagPipelineRulesetRuleReferenceTableFieldPairArgs{...}
+type TagPipelineRulesetRuleReferenceTableFieldPairInput interface {
+	pulumi.Input
+
+	ToTagPipelineRulesetRuleReferenceTableFieldPairOutput() TagPipelineRulesetRuleReferenceTableFieldPairOutput
+	ToTagPipelineRulesetRuleReferenceTableFieldPairOutputWithContext(context.Context) TagPipelineRulesetRuleReferenceTableFieldPairOutput
+}
+
+type TagPipelineRulesetRuleReferenceTableFieldPairArgs struct {
+	// The input column name.
+	InputColumn pulumi.StringPtrInput `pulumi:"inputColumn"`
+	// The output key name.
+	OutputKey pulumi.StringPtrInput `pulumi:"outputKey"`
+}
+
+func (TagPipelineRulesetRuleReferenceTableFieldPairArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagPipelineRulesetRuleReferenceTableFieldPair)(nil)).Elem()
+}
+
+func (i TagPipelineRulesetRuleReferenceTableFieldPairArgs) ToTagPipelineRulesetRuleReferenceTableFieldPairOutput() TagPipelineRulesetRuleReferenceTableFieldPairOutput {
+	return i.ToTagPipelineRulesetRuleReferenceTableFieldPairOutputWithContext(context.Background())
+}
+
+func (i TagPipelineRulesetRuleReferenceTableFieldPairArgs) ToTagPipelineRulesetRuleReferenceTableFieldPairOutputWithContext(ctx context.Context) TagPipelineRulesetRuleReferenceTableFieldPairOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagPipelineRulesetRuleReferenceTableFieldPairOutput)
+}
+
+// TagPipelineRulesetRuleReferenceTableFieldPairArrayInput is an input type that accepts TagPipelineRulesetRuleReferenceTableFieldPairArray and TagPipelineRulesetRuleReferenceTableFieldPairArrayOutput values.
+// You can construct a concrete instance of `TagPipelineRulesetRuleReferenceTableFieldPairArrayInput` via:
+//
+//	TagPipelineRulesetRuleReferenceTableFieldPairArray{ TagPipelineRulesetRuleReferenceTableFieldPairArgs{...} }
+type TagPipelineRulesetRuleReferenceTableFieldPairArrayInput interface {
+	pulumi.Input
+
+	ToTagPipelineRulesetRuleReferenceTableFieldPairArrayOutput() TagPipelineRulesetRuleReferenceTableFieldPairArrayOutput
+	ToTagPipelineRulesetRuleReferenceTableFieldPairArrayOutputWithContext(context.Context) TagPipelineRulesetRuleReferenceTableFieldPairArrayOutput
+}
+
+type TagPipelineRulesetRuleReferenceTableFieldPairArray []TagPipelineRulesetRuleReferenceTableFieldPairInput
+
+func (TagPipelineRulesetRuleReferenceTableFieldPairArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TagPipelineRulesetRuleReferenceTableFieldPair)(nil)).Elem()
+}
+
+func (i TagPipelineRulesetRuleReferenceTableFieldPairArray) ToTagPipelineRulesetRuleReferenceTableFieldPairArrayOutput() TagPipelineRulesetRuleReferenceTableFieldPairArrayOutput {
+	return i.ToTagPipelineRulesetRuleReferenceTableFieldPairArrayOutputWithContext(context.Background())
+}
+
+func (i TagPipelineRulesetRuleReferenceTableFieldPairArray) ToTagPipelineRulesetRuleReferenceTableFieldPairArrayOutputWithContext(ctx context.Context) TagPipelineRulesetRuleReferenceTableFieldPairArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagPipelineRulesetRuleReferenceTableFieldPairArrayOutput)
+}
+
+type TagPipelineRulesetRuleReferenceTableFieldPairOutput struct{ *pulumi.OutputState }
+
+func (TagPipelineRulesetRuleReferenceTableFieldPairOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagPipelineRulesetRuleReferenceTableFieldPair)(nil)).Elem()
+}
+
+func (o TagPipelineRulesetRuleReferenceTableFieldPairOutput) ToTagPipelineRulesetRuleReferenceTableFieldPairOutput() TagPipelineRulesetRuleReferenceTableFieldPairOutput {
+	return o
+}
+
+func (o TagPipelineRulesetRuleReferenceTableFieldPairOutput) ToTagPipelineRulesetRuleReferenceTableFieldPairOutputWithContext(ctx context.Context) TagPipelineRulesetRuleReferenceTableFieldPairOutput {
+	return o
+}
+
+// The input column name.
+func (o TagPipelineRulesetRuleReferenceTableFieldPairOutput) InputColumn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRuleReferenceTableFieldPair) *string { return v.InputColumn }).(pulumi.StringPtrOutput)
+}
+
+// The output key name.
+func (o TagPipelineRulesetRuleReferenceTableFieldPairOutput) OutputKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TagPipelineRulesetRuleReferenceTableFieldPair) *string { return v.OutputKey }).(pulumi.StringPtrOutput)
+}
+
+type TagPipelineRulesetRuleReferenceTableFieldPairArrayOutput struct{ *pulumi.OutputState }
+
+func (TagPipelineRulesetRuleReferenceTableFieldPairArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TagPipelineRulesetRuleReferenceTableFieldPair)(nil)).Elem()
+}
+
+func (o TagPipelineRulesetRuleReferenceTableFieldPairArrayOutput) ToTagPipelineRulesetRuleReferenceTableFieldPairArrayOutput() TagPipelineRulesetRuleReferenceTableFieldPairArrayOutput {
+	return o
+}
+
+func (o TagPipelineRulesetRuleReferenceTableFieldPairArrayOutput) ToTagPipelineRulesetRuleReferenceTableFieldPairArrayOutputWithContext(ctx context.Context) TagPipelineRulesetRuleReferenceTableFieldPairArrayOutput {
+	return o
+}
+
+func (o TagPipelineRulesetRuleReferenceTableFieldPairArrayOutput) Index(i pulumi.IntInput) TagPipelineRulesetRuleReferenceTableFieldPairOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TagPipelineRulesetRuleReferenceTableFieldPair {
+		return vs[0].([]TagPipelineRulesetRuleReferenceTableFieldPair)[vs[1].(int)]
+	}).(TagPipelineRulesetRuleReferenceTableFieldPairOutput)
+}
+
+type TeamNotificationRuleEmail struct {
+	// Whether to send email notifications to team members when alerts are triggered.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// TeamNotificationRuleEmailInput is an input type that accepts TeamNotificationRuleEmailArgs and TeamNotificationRuleEmailOutput values.
+// You can construct a concrete instance of `TeamNotificationRuleEmailInput` via:
+//
+//	TeamNotificationRuleEmailArgs{...}
+type TeamNotificationRuleEmailInput interface {
+	pulumi.Input
+
+	ToTeamNotificationRuleEmailOutput() TeamNotificationRuleEmailOutput
+	ToTeamNotificationRuleEmailOutputWithContext(context.Context) TeamNotificationRuleEmailOutput
+}
+
+type TeamNotificationRuleEmailArgs struct {
+	// Whether to send email notifications to team members when alerts are triggered.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (TeamNotificationRuleEmailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamNotificationRuleEmail)(nil)).Elem()
+}
+
+func (i TeamNotificationRuleEmailArgs) ToTeamNotificationRuleEmailOutput() TeamNotificationRuleEmailOutput {
+	return i.ToTeamNotificationRuleEmailOutputWithContext(context.Background())
+}
+
+func (i TeamNotificationRuleEmailArgs) ToTeamNotificationRuleEmailOutputWithContext(ctx context.Context) TeamNotificationRuleEmailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamNotificationRuleEmailOutput)
+}
+
+func (i TeamNotificationRuleEmailArgs) ToTeamNotificationRuleEmailPtrOutput() TeamNotificationRuleEmailPtrOutput {
+	return i.ToTeamNotificationRuleEmailPtrOutputWithContext(context.Background())
+}
+
+func (i TeamNotificationRuleEmailArgs) ToTeamNotificationRuleEmailPtrOutputWithContext(ctx context.Context) TeamNotificationRuleEmailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamNotificationRuleEmailOutput).ToTeamNotificationRuleEmailPtrOutputWithContext(ctx)
+}
+
+// TeamNotificationRuleEmailPtrInput is an input type that accepts TeamNotificationRuleEmailArgs, TeamNotificationRuleEmailPtr and TeamNotificationRuleEmailPtrOutput values.
+// You can construct a concrete instance of `TeamNotificationRuleEmailPtrInput` via:
+//
+//	        TeamNotificationRuleEmailArgs{...}
+//
+//	or:
+//
+//	        nil
+type TeamNotificationRuleEmailPtrInput interface {
+	pulumi.Input
+
+	ToTeamNotificationRuleEmailPtrOutput() TeamNotificationRuleEmailPtrOutput
+	ToTeamNotificationRuleEmailPtrOutputWithContext(context.Context) TeamNotificationRuleEmailPtrOutput
+}
+
+type teamNotificationRuleEmailPtrType TeamNotificationRuleEmailArgs
+
+func TeamNotificationRuleEmailPtr(v *TeamNotificationRuleEmailArgs) TeamNotificationRuleEmailPtrInput {
+	return (*teamNotificationRuleEmailPtrType)(v)
+}
+
+func (*teamNotificationRuleEmailPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TeamNotificationRuleEmail)(nil)).Elem()
+}
+
+func (i *teamNotificationRuleEmailPtrType) ToTeamNotificationRuleEmailPtrOutput() TeamNotificationRuleEmailPtrOutput {
+	return i.ToTeamNotificationRuleEmailPtrOutputWithContext(context.Background())
+}
+
+func (i *teamNotificationRuleEmailPtrType) ToTeamNotificationRuleEmailPtrOutputWithContext(ctx context.Context) TeamNotificationRuleEmailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamNotificationRuleEmailPtrOutput)
+}
+
+type TeamNotificationRuleEmailOutput struct{ *pulumi.OutputState }
+
+func (TeamNotificationRuleEmailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamNotificationRuleEmail)(nil)).Elem()
+}
+
+func (o TeamNotificationRuleEmailOutput) ToTeamNotificationRuleEmailOutput() TeamNotificationRuleEmailOutput {
+	return o
+}
+
+func (o TeamNotificationRuleEmailOutput) ToTeamNotificationRuleEmailOutputWithContext(ctx context.Context) TeamNotificationRuleEmailOutput {
+	return o
+}
+
+func (o TeamNotificationRuleEmailOutput) ToTeamNotificationRuleEmailPtrOutput() TeamNotificationRuleEmailPtrOutput {
+	return o.ToTeamNotificationRuleEmailPtrOutputWithContext(context.Background())
+}
+
+func (o TeamNotificationRuleEmailOutput) ToTeamNotificationRuleEmailPtrOutputWithContext(ctx context.Context) TeamNotificationRuleEmailPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TeamNotificationRuleEmail) *TeamNotificationRuleEmail {
+		return &v
+	}).(TeamNotificationRuleEmailPtrOutput)
+}
+
+// Whether to send email notifications to team members when alerts are triggered.
+func (o TeamNotificationRuleEmailOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TeamNotificationRuleEmail) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type TeamNotificationRuleEmailPtrOutput struct{ *pulumi.OutputState }
+
+func (TeamNotificationRuleEmailPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TeamNotificationRuleEmail)(nil)).Elem()
+}
+
+func (o TeamNotificationRuleEmailPtrOutput) ToTeamNotificationRuleEmailPtrOutput() TeamNotificationRuleEmailPtrOutput {
+	return o
+}
+
+func (o TeamNotificationRuleEmailPtrOutput) ToTeamNotificationRuleEmailPtrOutputWithContext(ctx context.Context) TeamNotificationRuleEmailPtrOutput {
+	return o
+}
+
+func (o TeamNotificationRuleEmailPtrOutput) Elem() TeamNotificationRuleEmailOutput {
+	return o.ApplyT(func(v *TeamNotificationRuleEmail) TeamNotificationRuleEmail {
+		if v != nil {
+			return *v
+		}
+		var ret TeamNotificationRuleEmail
+		return ret
+	}).(TeamNotificationRuleEmailOutput)
+}
+
+// Whether to send email notifications to team members when alerts are triggered.
+func (o TeamNotificationRuleEmailPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TeamNotificationRuleEmail) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type TeamNotificationRuleMsTeams struct {
+	// MS Teams connector name used to route notifications to the appropriate channel.
+	ConnectorName *string `pulumi:"connectorName"`
+}
+
+// TeamNotificationRuleMsTeamsInput is an input type that accepts TeamNotificationRuleMsTeamsArgs and TeamNotificationRuleMsTeamsOutput values.
+// You can construct a concrete instance of `TeamNotificationRuleMsTeamsInput` via:
+//
+//	TeamNotificationRuleMsTeamsArgs{...}
+type TeamNotificationRuleMsTeamsInput interface {
+	pulumi.Input
+
+	ToTeamNotificationRuleMsTeamsOutput() TeamNotificationRuleMsTeamsOutput
+	ToTeamNotificationRuleMsTeamsOutputWithContext(context.Context) TeamNotificationRuleMsTeamsOutput
+}
+
+type TeamNotificationRuleMsTeamsArgs struct {
+	// MS Teams connector name used to route notifications to the appropriate channel.
+	ConnectorName pulumi.StringPtrInput `pulumi:"connectorName"`
+}
+
+func (TeamNotificationRuleMsTeamsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamNotificationRuleMsTeams)(nil)).Elem()
+}
+
+func (i TeamNotificationRuleMsTeamsArgs) ToTeamNotificationRuleMsTeamsOutput() TeamNotificationRuleMsTeamsOutput {
+	return i.ToTeamNotificationRuleMsTeamsOutputWithContext(context.Background())
+}
+
+func (i TeamNotificationRuleMsTeamsArgs) ToTeamNotificationRuleMsTeamsOutputWithContext(ctx context.Context) TeamNotificationRuleMsTeamsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamNotificationRuleMsTeamsOutput)
+}
+
+func (i TeamNotificationRuleMsTeamsArgs) ToTeamNotificationRuleMsTeamsPtrOutput() TeamNotificationRuleMsTeamsPtrOutput {
+	return i.ToTeamNotificationRuleMsTeamsPtrOutputWithContext(context.Background())
+}
+
+func (i TeamNotificationRuleMsTeamsArgs) ToTeamNotificationRuleMsTeamsPtrOutputWithContext(ctx context.Context) TeamNotificationRuleMsTeamsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamNotificationRuleMsTeamsOutput).ToTeamNotificationRuleMsTeamsPtrOutputWithContext(ctx)
+}
+
+// TeamNotificationRuleMsTeamsPtrInput is an input type that accepts TeamNotificationRuleMsTeamsArgs, TeamNotificationRuleMsTeamsPtr and TeamNotificationRuleMsTeamsPtrOutput values.
+// You can construct a concrete instance of `TeamNotificationRuleMsTeamsPtrInput` via:
+//
+//	        TeamNotificationRuleMsTeamsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TeamNotificationRuleMsTeamsPtrInput interface {
+	pulumi.Input
+
+	ToTeamNotificationRuleMsTeamsPtrOutput() TeamNotificationRuleMsTeamsPtrOutput
+	ToTeamNotificationRuleMsTeamsPtrOutputWithContext(context.Context) TeamNotificationRuleMsTeamsPtrOutput
+}
+
+type teamNotificationRuleMsTeamsPtrType TeamNotificationRuleMsTeamsArgs
+
+func TeamNotificationRuleMsTeamsPtr(v *TeamNotificationRuleMsTeamsArgs) TeamNotificationRuleMsTeamsPtrInput {
+	return (*teamNotificationRuleMsTeamsPtrType)(v)
+}
+
+func (*teamNotificationRuleMsTeamsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TeamNotificationRuleMsTeams)(nil)).Elem()
+}
+
+func (i *teamNotificationRuleMsTeamsPtrType) ToTeamNotificationRuleMsTeamsPtrOutput() TeamNotificationRuleMsTeamsPtrOutput {
+	return i.ToTeamNotificationRuleMsTeamsPtrOutputWithContext(context.Background())
+}
+
+func (i *teamNotificationRuleMsTeamsPtrType) ToTeamNotificationRuleMsTeamsPtrOutputWithContext(ctx context.Context) TeamNotificationRuleMsTeamsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamNotificationRuleMsTeamsPtrOutput)
+}
+
+type TeamNotificationRuleMsTeamsOutput struct{ *pulumi.OutputState }
+
+func (TeamNotificationRuleMsTeamsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamNotificationRuleMsTeams)(nil)).Elem()
+}
+
+func (o TeamNotificationRuleMsTeamsOutput) ToTeamNotificationRuleMsTeamsOutput() TeamNotificationRuleMsTeamsOutput {
+	return o
+}
+
+func (o TeamNotificationRuleMsTeamsOutput) ToTeamNotificationRuleMsTeamsOutputWithContext(ctx context.Context) TeamNotificationRuleMsTeamsOutput {
+	return o
+}
+
+func (o TeamNotificationRuleMsTeamsOutput) ToTeamNotificationRuleMsTeamsPtrOutput() TeamNotificationRuleMsTeamsPtrOutput {
+	return o.ToTeamNotificationRuleMsTeamsPtrOutputWithContext(context.Background())
+}
+
+func (o TeamNotificationRuleMsTeamsOutput) ToTeamNotificationRuleMsTeamsPtrOutputWithContext(ctx context.Context) TeamNotificationRuleMsTeamsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TeamNotificationRuleMsTeams) *TeamNotificationRuleMsTeams {
+		return &v
+	}).(TeamNotificationRuleMsTeamsPtrOutput)
+}
+
+// MS Teams connector name used to route notifications to the appropriate channel.
+func (o TeamNotificationRuleMsTeamsOutput) ConnectorName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TeamNotificationRuleMsTeams) *string { return v.ConnectorName }).(pulumi.StringPtrOutput)
+}
+
+type TeamNotificationRuleMsTeamsPtrOutput struct{ *pulumi.OutputState }
+
+func (TeamNotificationRuleMsTeamsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TeamNotificationRuleMsTeams)(nil)).Elem()
+}
+
+func (o TeamNotificationRuleMsTeamsPtrOutput) ToTeamNotificationRuleMsTeamsPtrOutput() TeamNotificationRuleMsTeamsPtrOutput {
+	return o
+}
+
+func (o TeamNotificationRuleMsTeamsPtrOutput) ToTeamNotificationRuleMsTeamsPtrOutputWithContext(ctx context.Context) TeamNotificationRuleMsTeamsPtrOutput {
+	return o
+}
+
+func (o TeamNotificationRuleMsTeamsPtrOutput) Elem() TeamNotificationRuleMsTeamsOutput {
+	return o.ApplyT(func(v *TeamNotificationRuleMsTeams) TeamNotificationRuleMsTeams {
+		if v != nil {
+			return *v
+		}
+		var ret TeamNotificationRuleMsTeams
+		return ret
+	}).(TeamNotificationRuleMsTeamsOutput)
+}
+
+// MS Teams connector name used to route notifications to the appropriate channel.
+func (o TeamNotificationRuleMsTeamsPtrOutput) ConnectorName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TeamNotificationRuleMsTeams) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectorName
+	}).(pulumi.StringPtrOutput)
+}
+
+type TeamNotificationRulePagerduty struct {
+	// PagerDuty service name to send incident notifications to. The service name can be found in your PagerDuty service settings.
+	ServiceName *string `pulumi:"serviceName"`
+}
+
+// TeamNotificationRulePagerdutyInput is an input type that accepts TeamNotificationRulePagerdutyArgs and TeamNotificationRulePagerdutyOutput values.
+// You can construct a concrete instance of `TeamNotificationRulePagerdutyInput` via:
+//
+//	TeamNotificationRulePagerdutyArgs{...}
+type TeamNotificationRulePagerdutyInput interface {
+	pulumi.Input
+
+	ToTeamNotificationRulePagerdutyOutput() TeamNotificationRulePagerdutyOutput
+	ToTeamNotificationRulePagerdutyOutputWithContext(context.Context) TeamNotificationRulePagerdutyOutput
+}
+
+type TeamNotificationRulePagerdutyArgs struct {
+	// PagerDuty service name to send incident notifications to. The service name can be found in your PagerDuty service settings.
+	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
+}
+
+func (TeamNotificationRulePagerdutyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamNotificationRulePagerduty)(nil)).Elem()
+}
+
+func (i TeamNotificationRulePagerdutyArgs) ToTeamNotificationRulePagerdutyOutput() TeamNotificationRulePagerdutyOutput {
+	return i.ToTeamNotificationRulePagerdutyOutputWithContext(context.Background())
+}
+
+func (i TeamNotificationRulePagerdutyArgs) ToTeamNotificationRulePagerdutyOutputWithContext(ctx context.Context) TeamNotificationRulePagerdutyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamNotificationRulePagerdutyOutput)
+}
+
+func (i TeamNotificationRulePagerdutyArgs) ToTeamNotificationRulePagerdutyPtrOutput() TeamNotificationRulePagerdutyPtrOutput {
+	return i.ToTeamNotificationRulePagerdutyPtrOutputWithContext(context.Background())
+}
+
+func (i TeamNotificationRulePagerdutyArgs) ToTeamNotificationRulePagerdutyPtrOutputWithContext(ctx context.Context) TeamNotificationRulePagerdutyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamNotificationRulePagerdutyOutput).ToTeamNotificationRulePagerdutyPtrOutputWithContext(ctx)
+}
+
+// TeamNotificationRulePagerdutyPtrInput is an input type that accepts TeamNotificationRulePagerdutyArgs, TeamNotificationRulePagerdutyPtr and TeamNotificationRulePagerdutyPtrOutput values.
+// You can construct a concrete instance of `TeamNotificationRulePagerdutyPtrInput` via:
+//
+//	        TeamNotificationRulePagerdutyArgs{...}
+//
+//	or:
+//
+//	        nil
+type TeamNotificationRulePagerdutyPtrInput interface {
+	pulumi.Input
+
+	ToTeamNotificationRulePagerdutyPtrOutput() TeamNotificationRulePagerdutyPtrOutput
+	ToTeamNotificationRulePagerdutyPtrOutputWithContext(context.Context) TeamNotificationRulePagerdutyPtrOutput
+}
+
+type teamNotificationRulePagerdutyPtrType TeamNotificationRulePagerdutyArgs
+
+func TeamNotificationRulePagerdutyPtr(v *TeamNotificationRulePagerdutyArgs) TeamNotificationRulePagerdutyPtrInput {
+	return (*teamNotificationRulePagerdutyPtrType)(v)
+}
+
+func (*teamNotificationRulePagerdutyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TeamNotificationRulePagerduty)(nil)).Elem()
+}
+
+func (i *teamNotificationRulePagerdutyPtrType) ToTeamNotificationRulePagerdutyPtrOutput() TeamNotificationRulePagerdutyPtrOutput {
+	return i.ToTeamNotificationRulePagerdutyPtrOutputWithContext(context.Background())
+}
+
+func (i *teamNotificationRulePagerdutyPtrType) ToTeamNotificationRulePagerdutyPtrOutputWithContext(ctx context.Context) TeamNotificationRulePagerdutyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamNotificationRulePagerdutyPtrOutput)
+}
+
+type TeamNotificationRulePagerdutyOutput struct{ *pulumi.OutputState }
+
+func (TeamNotificationRulePagerdutyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamNotificationRulePagerduty)(nil)).Elem()
+}
+
+func (o TeamNotificationRulePagerdutyOutput) ToTeamNotificationRulePagerdutyOutput() TeamNotificationRulePagerdutyOutput {
+	return o
+}
+
+func (o TeamNotificationRulePagerdutyOutput) ToTeamNotificationRulePagerdutyOutputWithContext(ctx context.Context) TeamNotificationRulePagerdutyOutput {
+	return o
+}
+
+func (o TeamNotificationRulePagerdutyOutput) ToTeamNotificationRulePagerdutyPtrOutput() TeamNotificationRulePagerdutyPtrOutput {
+	return o.ToTeamNotificationRulePagerdutyPtrOutputWithContext(context.Background())
+}
+
+func (o TeamNotificationRulePagerdutyOutput) ToTeamNotificationRulePagerdutyPtrOutputWithContext(ctx context.Context) TeamNotificationRulePagerdutyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TeamNotificationRulePagerduty) *TeamNotificationRulePagerduty {
+		return &v
+	}).(TeamNotificationRulePagerdutyPtrOutput)
+}
+
+// PagerDuty service name to send incident notifications to. The service name can be found in your PagerDuty service settings.
+func (o TeamNotificationRulePagerdutyOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TeamNotificationRulePagerduty) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
+}
+
+type TeamNotificationRulePagerdutyPtrOutput struct{ *pulumi.OutputState }
+
+func (TeamNotificationRulePagerdutyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TeamNotificationRulePagerduty)(nil)).Elem()
+}
+
+func (o TeamNotificationRulePagerdutyPtrOutput) ToTeamNotificationRulePagerdutyPtrOutput() TeamNotificationRulePagerdutyPtrOutput {
+	return o
+}
+
+func (o TeamNotificationRulePagerdutyPtrOutput) ToTeamNotificationRulePagerdutyPtrOutputWithContext(ctx context.Context) TeamNotificationRulePagerdutyPtrOutput {
+	return o
+}
+
+func (o TeamNotificationRulePagerdutyPtrOutput) Elem() TeamNotificationRulePagerdutyOutput {
+	return o.ApplyT(func(v *TeamNotificationRulePagerduty) TeamNotificationRulePagerduty {
+		if v != nil {
+			return *v
+		}
+		var ret TeamNotificationRulePagerduty
+		return ret
+	}).(TeamNotificationRulePagerdutyOutput)
+}
+
+// PagerDuty service name to send incident notifications to. The service name can be found in your PagerDuty service settings.
+func (o TeamNotificationRulePagerdutyPtrOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TeamNotificationRulePagerduty) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+type TeamNotificationRuleSlack struct {
+	// Slack channel name for notifications (for example, #alerts or #team-notifications).
+	Channel *string `pulumi:"channel"`
+	// Slack workspace name where the channel is located.
+	Workspace *string `pulumi:"workspace"`
+}
+
+// TeamNotificationRuleSlackInput is an input type that accepts TeamNotificationRuleSlackArgs and TeamNotificationRuleSlackOutput values.
+// You can construct a concrete instance of `TeamNotificationRuleSlackInput` via:
+//
+//	TeamNotificationRuleSlackArgs{...}
+type TeamNotificationRuleSlackInput interface {
+	pulumi.Input
+
+	ToTeamNotificationRuleSlackOutput() TeamNotificationRuleSlackOutput
+	ToTeamNotificationRuleSlackOutputWithContext(context.Context) TeamNotificationRuleSlackOutput
+}
+
+type TeamNotificationRuleSlackArgs struct {
+	// Slack channel name for notifications (for example, #alerts or #team-notifications).
+	Channel pulumi.StringPtrInput `pulumi:"channel"`
+	// Slack workspace name where the channel is located.
+	Workspace pulumi.StringPtrInput `pulumi:"workspace"`
+}
+
+func (TeamNotificationRuleSlackArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamNotificationRuleSlack)(nil)).Elem()
+}
+
+func (i TeamNotificationRuleSlackArgs) ToTeamNotificationRuleSlackOutput() TeamNotificationRuleSlackOutput {
+	return i.ToTeamNotificationRuleSlackOutputWithContext(context.Background())
+}
+
+func (i TeamNotificationRuleSlackArgs) ToTeamNotificationRuleSlackOutputWithContext(ctx context.Context) TeamNotificationRuleSlackOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamNotificationRuleSlackOutput)
+}
+
+func (i TeamNotificationRuleSlackArgs) ToTeamNotificationRuleSlackPtrOutput() TeamNotificationRuleSlackPtrOutput {
+	return i.ToTeamNotificationRuleSlackPtrOutputWithContext(context.Background())
+}
+
+func (i TeamNotificationRuleSlackArgs) ToTeamNotificationRuleSlackPtrOutputWithContext(ctx context.Context) TeamNotificationRuleSlackPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamNotificationRuleSlackOutput).ToTeamNotificationRuleSlackPtrOutputWithContext(ctx)
+}
+
+// TeamNotificationRuleSlackPtrInput is an input type that accepts TeamNotificationRuleSlackArgs, TeamNotificationRuleSlackPtr and TeamNotificationRuleSlackPtrOutput values.
+// You can construct a concrete instance of `TeamNotificationRuleSlackPtrInput` via:
+//
+//	        TeamNotificationRuleSlackArgs{...}
+//
+//	or:
+//
+//	        nil
+type TeamNotificationRuleSlackPtrInput interface {
+	pulumi.Input
+
+	ToTeamNotificationRuleSlackPtrOutput() TeamNotificationRuleSlackPtrOutput
+	ToTeamNotificationRuleSlackPtrOutputWithContext(context.Context) TeamNotificationRuleSlackPtrOutput
+}
+
+type teamNotificationRuleSlackPtrType TeamNotificationRuleSlackArgs
+
+func TeamNotificationRuleSlackPtr(v *TeamNotificationRuleSlackArgs) TeamNotificationRuleSlackPtrInput {
+	return (*teamNotificationRuleSlackPtrType)(v)
+}
+
+func (*teamNotificationRuleSlackPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TeamNotificationRuleSlack)(nil)).Elem()
+}
+
+func (i *teamNotificationRuleSlackPtrType) ToTeamNotificationRuleSlackPtrOutput() TeamNotificationRuleSlackPtrOutput {
+	return i.ToTeamNotificationRuleSlackPtrOutputWithContext(context.Background())
+}
+
+func (i *teamNotificationRuleSlackPtrType) ToTeamNotificationRuleSlackPtrOutputWithContext(ctx context.Context) TeamNotificationRuleSlackPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamNotificationRuleSlackPtrOutput)
+}
+
+type TeamNotificationRuleSlackOutput struct{ *pulumi.OutputState }
+
+func (TeamNotificationRuleSlackOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamNotificationRuleSlack)(nil)).Elem()
+}
+
+func (o TeamNotificationRuleSlackOutput) ToTeamNotificationRuleSlackOutput() TeamNotificationRuleSlackOutput {
+	return o
+}
+
+func (o TeamNotificationRuleSlackOutput) ToTeamNotificationRuleSlackOutputWithContext(ctx context.Context) TeamNotificationRuleSlackOutput {
+	return o
+}
+
+func (o TeamNotificationRuleSlackOutput) ToTeamNotificationRuleSlackPtrOutput() TeamNotificationRuleSlackPtrOutput {
+	return o.ToTeamNotificationRuleSlackPtrOutputWithContext(context.Background())
+}
+
+func (o TeamNotificationRuleSlackOutput) ToTeamNotificationRuleSlackPtrOutputWithContext(ctx context.Context) TeamNotificationRuleSlackPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TeamNotificationRuleSlack) *TeamNotificationRuleSlack {
+		return &v
+	}).(TeamNotificationRuleSlackPtrOutput)
+}
+
+// Slack channel name for notifications (for example, #alerts or #team-notifications).
+func (o TeamNotificationRuleSlackOutput) Channel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TeamNotificationRuleSlack) *string { return v.Channel }).(pulumi.StringPtrOutput)
+}
+
+// Slack workspace name where the channel is located.
+func (o TeamNotificationRuleSlackOutput) Workspace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TeamNotificationRuleSlack) *string { return v.Workspace }).(pulumi.StringPtrOutput)
+}
+
+type TeamNotificationRuleSlackPtrOutput struct{ *pulumi.OutputState }
+
+func (TeamNotificationRuleSlackPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TeamNotificationRuleSlack)(nil)).Elem()
+}
+
+func (o TeamNotificationRuleSlackPtrOutput) ToTeamNotificationRuleSlackPtrOutput() TeamNotificationRuleSlackPtrOutput {
+	return o
+}
+
+func (o TeamNotificationRuleSlackPtrOutput) ToTeamNotificationRuleSlackPtrOutputWithContext(ctx context.Context) TeamNotificationRuleSlackPtrOutput {
+	return o
+}
+
+func (o TeamNotificationRuleSlackPtrOutput) Elem() TeamNotificationRuleSlackOutput {
+	return o.ApplyT(func(v *TeamNotificationRuleSlack) TeamNotificationRuleSlack {
+		if v != nil {
+			return *v
+		}
+		var ret TeamNotificationRuleSlack
+		return ret
+	}).(TeamNotificationRuleSlackOutput)
+}
+
+// Slack channel name for notifications (for example, #alerts or #team-notifications).
+func (o TeamNotificationRuleSlackPtrOutput) Channel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TeamNotificationRuleSlack) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Channel
+	}).(pulumi.StringPtrOutput)
+}
+
+// Slack workspace name where the channel is located.
+func (o TeamNotificationRuleSlackPtrOutput) Workspace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TeamNotificationRuleSlack) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Workspace
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetActionConnectionAws struct {
+	// Configuration for an assume role AWS connection
+	AssumeRole *GetActionConnectionAwsAssumeRole `pulumi:"assumeRole"`
+}
+
+// GetActionConnectionAwsInput is an input type that accepts GetActionConnectionAwsArgs and GetActionConnectionAwsOutput values.
+// You can construct a concrete instance of `GetActionConnectionAwsInput` via:
+//
+//	GetActionConnectionAwsArgs{...}
+type GetActionConnectionAwsInput interface {
+	pulumi.Input
+
+	ToGetActionConnectionAwsOutput() GetActionConnectionAwsOutput
+	ToGetActionConnectionAwsOutputWithContext(context.Context) GetActionConnectionAwsOutput
+}
+
+type GetActionConnectionAwsArgs struct {
+	// Configuration for an assume role AWS connection
+	AssumeRole GetActionConnectionAwsAssumeRolePtrInput `pulumi:"assumeRole"`
+}
+
+func (GetActionConnectionAwsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionConnectionAws)(nil)).Elem()
+}
+
+func (i GetActionConnectionAwsArgs) ToGetActionConnectionAwsOutput() GetActionConnectionAwsOutput {
+	return i.ToGetActionConnectionAwsOutputWithContext(context.Background())
+}
+
+func (i GetActionConnectionAwsArgs) ToGetActionConnectionAwsOutputWithContext(ctx context.Context) GetActionConnectionAwsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionConnectionAwsOutput)
+}
+
+func (i GetActionConnectionAwsArgs) ToGetActionConnectionAwsPtrOutput() GetActionConnectionAwsPtrOutput {
+	return i.ToGetActionConnectionAwsPtrOutputWithContext(context.Background())
+}
+
+func (i GetActionConnectionAwsArgs) ToGetActionConnectionAwsPtrOutputWithContext(ctx context.Context) GetActionConnectionAwsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionConnectionAwsOutput).ToGetActionConnectionAwsPtrOutputWithContext(ctx)
+}
+
+// GetActionConnectionAwsPtrInput is an input type that accepts GetActionConnectionAwsArgs, GetActionConnectionAwsPtr and GetActionConnectionAwsPtrOutput values.
+// You can construct a concrete instance of `GetActionConnectionAwsPtrInput` via:
+//
+//	        GetActionConnectionAwsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetActionConnectionAwsPtrInput interface {
+	pulumi.Input
+
+	ToGetActionConnectionAwsPtrOutput() GetActionConnectionAwsPtrOutput
+	ToGetActionConnectionAwsPtrOutputWithContext(context.Context) GetActionConnectionAwsPtrOutput
+}
+
+type getActionConnectionAwsPtrType GetActionConnectionAwsArgs
+
+func GetActionConnectionAwsPtr(v *GetActionConnectionAwsArgs) GetActionConnectionAwsPtrInput {
+	return (*getActionConnectionAwsPtrType)(v)
+}
+
+func (*getActionConnectionAwsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetActionConnectionAws)(nil)).Elem()
+}
+
+func (i *getActionConnectionAwsPtrType) ToGetActionConnectionAwsPtrOutput() GetActionConnectionAwsPtrOutput {
+	return i.ToGetActionConnectionAwsPtrOutputWithContext(context.Background())
+}
+
+func (i *getActionConnectionAwsPtrType) ToGetActionConnectionAwsPtrOutputWithContext(ctx context.Context) GetActionConnectionAwsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionConnectionAwsPtrOutput)
+}
+
+type GetActionConnectionAwsOutput struct{ *pulumi.OutputState }
+
+func (GetActionConnectionAwsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionConnectionAws)(nil)).Elem()
+}
+
+func (o GetActionConnectionAwsOutput) ToGetActionConnectionAwsOutput() GetActionConnectionAwsOutput {
+	return o
+}
+
+func (o GetActionConnectionAwsOutput) ToGetActionConnectionAwsOutputWithContext(ctx context.Context) GetActionConnectionAwsOutput {
+	return o
+}
+
+func (o GetActionConnectionAwsOutput) ToGetActionConnectionAwsPtrOutput() GetActionConnectionAwsPtrOutput {
+	return o.ToGetActionConnectionAwsPtrOutputWithContext(context.Background())
+}
+
+func (o GetActionConnectionAwsOutput) ToGetActionConnectionAwsPtrOutputWithContext(ctx context.Context) GetActionConnectionAwsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetActionConnectionAws) *GetActionConnectionAws {
+		return &v
+	}).(GetActionConnectionAwsPtrOutput)
+}
+
+// Configuration for an assume role AWS connection
+func (o GetActionConnectionAwsOutput) AssumeRole() GetActionConnectionAwsAssumeRolePtrOutput {
+	return o.ApplyT(func(v GetActionConnectionAws) *GetActionConnectionAwsAssumeRole { return v.AssumeRole }).(GetActionConnectionAwsAssumeRolePtrOutput)
+}
+
+type GetActionConnectionAwsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetActionConnectionAwsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetActionConnectionAws)(nil)).Elem()
+}
+
+func (o GetActionConnectionAwsPtrOutput) ToGetActionConnectionAwsPtrOutput() GetActionConnectionAwsPtrOutput {
+	return o
+}
+
+func (o GetActionConnectionAwsPtrOutput) ToGetActionConnectionAwsPtrOutputWithContext(ctx context.Context) GetActionConnectionAwsPtrOutput {
+	return o
+}
+
+func (o GetActionConnectionAwsPtrOutput) Elem() GetActionConnectionAwsOutput {
+	return o.ApplyT(func(v *GetActionConnectionAws) GetActionConnectionAws {
+		if v != nil {
+			return *v
+		}
+		var ret GetActionConnectionAws
+		return ret
+	}).(GetActionConnectionAwsOutput)
+}
+
+// Configuration for an assume role AWS connection
+func (o GetActionConnectionAwsPtrOutput) AssumeRole() GetActionConnectionAwsAssumeRolePtrOutput {
+	return o.ApplyT(func(v *GetActionConnectionAws) *GetActionConnectionAwsAssumeRole {
+		if v == nil {
+			return nil
+		}
+		return v.AssumeRole
+	}).(GetActionConnectionAwsAssumeRolePtrOutput)
+}
+
+type GetActionConnectionAwsAssumeRole struct {
+	// AWS account that the connection is created for
+	AccountId string `pulumi:"accountId"`
+	// External ID that specifies which connection can be used to assume the role
+	ExternalId string `pulumi:"externalId"`
+	// AWS account that will assume the role
+	PrincipalId string `pulumi:"principalId"`
+	// Role to assume
+	Role string `pulumi:"role"`
+}
+
+// GetActionConnectionAwsAssumeRoleInput is an input type that accepts GetActionConnectionAwsAssumeRoleArgs and GetActionConnectionAwsAssumeRoleOutput values.
+// You can construct a concrete instance of `GetActionConnectionAwsAssumeRoleInput` via:
+//
+//	GetActionConnectionAwsAssumeRoleArgs{...}
+type GetActionConnectionAwsAssumeRoleInput interface {
+	pulumi.Input
+
+	ToGetActionConnectionAwsAssumeRoleOutput() GetActionConnectionAwsAssumeRoleOutput
+	ToGetActionConnectionAwsAssumeRoleOutputWithContext(context.Context) GetActionConnectionAwsAssumeRoleOutput
+}
+
+type GetActionConnectionAwsAssumeRoleArgs struct {
+	// AWS account that the connection is created for
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// External ID that specifies which connection can be used to assume the role
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// AWS account that will assume the role
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// Role to assume
+	Role pulumi.StringInput `pulumi:"role"`
+}
+
+func (GetActionConnectionAwsAssumeRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionConnectionAwsAssumeRole)(nil)).Elem()
+}
+
+func (i GetActionConnectionAwsAssumeRoleArgs) ToGetActionConnectionAwsAssumeRoleOutput() GetActionConnectionAwsAssumeRoleOutput {
+	return i.ToGetActionConnectionAwsAssumeRoleOutputWithContext(context.Background())
+}
+
+func (i GetActionConnectionAwsAssumeRoleArgs) ToGetActionConnectionAwsAssumeRoleOutputWithContext(ctx context.Context) GetActionConnectionAwsAssumeRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionConnectionAwsAssumeRoleOutput)
+}
+
+func (i GetActionConnectionAwsAssumeRoleArgs) ToGetActionConnectionAwsAssumeRolePtrOutput() GetActionConnectionAwsAssumeRolePtrOutput {
+	return i.ToGetActionConnectionAwsAssumeRolePtrOutputWithContext(context.Background())
+}
+
+func (i GetActionConnectionAwsAssumeRoleArgs) ToGetActionConnectionAwsAssumeRolePtrOutputWithContext(ctx context.Context) GetActionConnectionAwsAssumeRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionConnectionAwsAssumeRoleOutput).ToGetActionConnectionAwsAssumeRolePtrOutputWithContext(ctx)
+}
+
+// GetActionConnectionAwsAssumeRolePtrInput is an input type that accepts GetActionConnectionAwsAssumeRoleArgs, GetActionConnectionAwsAssumeRolePtr and GetActionConnectionAwsAssumeRolePtrOutput values.
+// You can construct a concrete instance of `GetActionConnectionAwsAssumeRolePtrInput` via:
+//
+//	        GetActionConnectionAwsAssumeRoleArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetActionConnectionAwsAssumeRolePtrInput interface {
+	pulumi.Input
+
+	ToGetActionConnectionAwsAssumeRolePtrOutput() GetActionConnectionAwsAssumeRolePtrOutput
+	ToGetActionConnectionAwsAssumeRolePtrOutputWithContext(context.Context) GetActionConnectionAwsAssumeRolePtrOutput
+}
+
+type getActionConnectionAwsAssumeRolePtrType GetActionConnectionAwsAssumeRoleArgs
+
+func GetActionConnectionAwsAssumeRolePtr(v *GetActionConnectionAwsAssumeRoleArgs) GetActionConnectionAwsAssumeRolePtrInput {
+	return (*getActionConnectionAwsAssumeRolePtrType)(v)
+}
+
+func (*getActionConnectionAwsAssumeRolePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetActionConnectionAwsAssumeRole)(nil)).Elem()
+}
+
+func (i *getActionConnectionAwsAssumeRolePtrType) ToGetActionConnectionAwsAssumeRolePtrOutput() GetActionConnectionAwsAssumeRolePtrOutput {
+	return i.ToGetActionConnectionAwsAssumeRolePtrOutputWithContext(context.Background())
+}
+
+func (i *getActionConnectionAwsAssumeRolePtrType) ToGetActionConnectionAwsAssumeRolePtrOutputWithContext(ctx context.Context) GetActionConnectionAwsAssumeRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionConnectionAwsAssumeRolePtrOutput)
+}
+
+type GetActionConnectionAwsAssumeRoleOutput struct{ *pulumi.OutputState }
+
+func (GetActionConnectionAwsAssumeRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionConnectionAwsAssumeRole)(nil)).Elem()
+}
+
+func (o GetActionConnectionAwsAssumeRoleOutput) ToGetActionConnectionAwsAssumeRoleOutput() GetActionConnectionAwsAssumeRoleOutput {
+	return o
+}
+
+func (o GetActionConnectionAwsAssumeRoleOutput) ToGetActionConnectionAwsAssumeRoleOutputWithContext(ctx context.Context) GetActionConnectionAwsAssumeRoleOutput {
+	return o
+}
+
+func (o GetActionConnectionAwsAssumeRoleOutput) ToGetActionConnectionAwsAssumeRolePtrOutput() GetActionConnectionAwsAssumeRolePtrOutput {
+	return o.ToGetActionConnectionAwsAssumeRolePtrOutputWithContext(context.Background())
+}
+
+func (o GetActionConnectionAwsAssumeRoleOutput) ToGetActionConnectionAwsAssumeRolePtrOutputWithContext(ctx context.Context) GetActionConnectionAwsAssumeRolePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetActionConnectionAwsAssumeRole) *GetActionConnectionAwsAssumeRole {
+		return &v
+	}).(GetActionConnectionAwsAssumeRolePtrOutput)
+}
+
+// AWS account that the connection is created for
+func (o GetActionConnectionAwsAssumeRoleOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionConnectionAwsAssumeRole) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// External ID that specifies which connection can be used to assume the role
+func (o GetActionConnectionAwsAssumeRoleOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionConnectionAwsAssumeRole) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// AWS account that will assume the role
+func (o GetActionConnectionAwsAssumeRoleOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionConnectionAwsAssumeRole) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// Role to assume
+func (o GetActionConnectionAwsAssumeRoleOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionConnectionAwsAssumeRole) string { return v.Role }).(pulumi.StringOutput)
+}
+
+type GetActionConnectionAwsAssumeRolePtrOutput struct{ *pulumi.OutputState }
+
+func (GetActionConnectionAwsAssumeRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetActionConnectionAwsAssumeRole)(nil)).Elem()
+}
+
+func (o GetActionConnectionAwsAssumeRolePtrOutput) ToGetActionConnectionAwsAssumeRolePtrOutput() GetActionConnectionAwsAssumeRolePtrOutput {
+	return o
+}
+
+func (o GetActionConnectionAwsAssumeRolePtrOutput) ToGetActionConnectionAwsAssumeRolePtrOutputWithContext(ctx context.Context) GetActionConnectionAwsAssumeRolePtrOutput {
+	return o
+}
+
+func (o GetActionConnectionAwsAssumeRolePtrOutput) Elem() GetActionConnectionAwsAssumeRoleOutput {
+	return o.ApplyT(func(v *GetActionConnectionAwsAssumeRole) GetActionConnectionAwsAssumeRole {
+		if v != nil {
+			return *v
+		}
+		var ret GetActionConnectionAwsAssumeRole
+		return ret
+	}).(GetActionConnectionAwsAssumeRoleOutput)
+}
+
+// AWS account that the connection is created for
+func (o GetActionConnectionAwsAssumeRolePtrOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetActionConnectionAwsAssumeRole) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// External ID that specifies which connection can be used to assume the role
+func (o GetActionConnectionAwsAssumeRolePtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetActionConnectionAwsAssumeRole) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS account that will assume the role
+func (o GetActionConnectionAwsAssumeRolePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetActionConnectionAwsAssumeRole) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Role to assume
+func (o GetActionConnectionAwsAssumeRolePtrOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetActionConnectionAwsAssumeRole) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Role
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetActionConnectionHttp struct {
+	// Base HTTP url for the integration
+	BaseUrl string `pulumi:"baseUrl"`
+	// Configuration for an HTTP connection that uses token auth
+	TokenAuth *GetActionConnectionHttpTokenAuth `pulumi:"tokenAuth"`
+}
+
+// GetActionConnectionHttpInput is an input type that accepts GetActionConnectionHttpArgs and GetActionConnectionHttpOutput values.
+// You can construct a concrete instance of `GetActionConnectionHttpInput` via:
+//
+//	GetActionConnectionHttpArgs{...}
+type GetActionConnectionHttpInput interface {
+	pulumi.Input
+
+	ToGetActionConnectionHttpOutput() GetActionConnectionHttpOutput
+	ToGetActionConnectionHttpOutputWithContext(context.Context) GetActionConnectionHttpOutput
+}
+
+type GetActionConnectionHttpArgs struct {
+	// Base HTTP url for the integration
+	BaseUrl pulumi.StringInput `pulumi:"baseUrl"`
+	// Configuration for an HTTP connection that uses token auth
+	TokenAuth GetActionConnectionHttpTokenAuthPtrInput `pulumi:"tokenAuth"`
+}
+
+func (GetActionConnectionHttpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionConnectionHttp)(nil)).Elem()
+}
+
+func (i GetActionConnectionHttpArgs) ToGetActionConnectionHttpOutput() GetActionConnectionHttpOutput {
+	return i.ToGetActionConnectionHttpOutputWithContext(context.Background())
+}
+
+func (i GetActionConnectionHttpArgs) ToGetActionConnectionHttpOutputWithContext(ctx context.Context) GetActionConnectionHttpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionConnectionHttpOutput)
+}
+
+func (i GetActionConnectionHttpArgs) ToGetActionConnectionHttpPtrOutput() GetActionConnectionHttpPtrOutput {
+	return i.ToGetActionConnectionHttpPtrOutputWithContext(context.Background())
+}
+
+func (i GetActionConnectionHttpArgs) ToGetActionConnectionHttpPtrOutputWithContext(ctx context.Context) GetActionConnectionHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionConnectionHttpOutput).ToGetActionConnectionHttpPtrOutputWithContext(ctx)
+}
+
+// GetActionConnectionHttpPtrInput is an input type that accepts GetActionConnectionHttpArgs, GetActionConnectionHttpPtr and GetActionConnectionHttpPtrOutput values.
+// You can construct a concrete instance of `GetActionConnectionHttpPtrInput` via:
+//
+//	        GetActionConnectionHttpArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetActionConnectionHttpPtrInput interface {
+	pulumi.Input
+
+	ToGetActionConnectionHttpPtrOutput() GetActionConnectionHttpPtrOutput
+	ToGetActionConnectionHttpPtrOutputWithContext(context.Context) GetActionConnectionHttpPtrOutput
+}
+
+type getActionConnectionHttpPtrType GetActionConnectionHttpArgs
+
+func GetActionConnectionHttpPtr(v *GetActionConnectionHttpArgs) GetActionConnectionHttpPtrInput {
+	return (*getActionConnectionHttpPtrType)(v)
+}
+
+func (*getActionConnectionHttpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetActionConnectionHttp)(nil)).Elem()
+}
+
+func (i *getActionConnectionHttpPtrType) ToGetActionConnectionHttpPtrOutput() GetActionConnectionHttpPtrOutput {
+	return i.ToGetActionConnectionHttpPtrOutputWithContext(context.Background())
+}
+
+func (i *getActionConnectionHttpPtrType) ToGetActionConnectionHttpPtrOutputWithContext(ctx context.Context) GetActionConnectionHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionConnectionHttpPtrOutput)
+}
+
+type GetActionConnectionHttpOutput struct{ *pulumi.OutputState }
+
+func (GetActionConnectionHttpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionConnectionHttp)(nil)).Elem()
+}
+
+func (o GetActionConnectionHttpOutput) ToGetActionConnectionHttpOutput() GetActionConnectionHttpOutput {
+	return o
+}
+
+func (o GetActionConnectionHttpOutput) ToGetActionConnectionHttpOutputWithContext(ctx context.Context) GetActionConnectionHttpOutput {
+	return o
+}
+
+func (o GetActionConnectionHttpOutput) ToGetActionConnectionHttpPtrOutput() GetActionConnectionHttpPtrOutput {
+	return o.ToGetActionConnectionHttpPtrOutputWithContext(context.Background())
+}
+
+func (o GetActionConnectionHttpOutput) ToGetActionConnectionHttpPtrOutputWithContext(ctx context.Context) GetActionConnectionHttpPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetActionConnectionHttp) *GetActionConnectionHttp {
+		return &v
+	}).(GetActionConnectionHttpPtrOutput)
+}
+
+// Base HTTP url for the integration
+func (o GetActionConnectionHttpOutput) BaseUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionConnectionHttp) string { return v.BaseUrl }).(pulumi.StringOutput)
+}
+
+// Configuration for an HTTP connection that uses token auth
+func (o GetActionConnectionHttpOutput) TokenAuth() GetActionConnectionHttpTokenAuthPtrOutput {
+	return o.ApplyT(func(v GetActionConnectionHttp) *GetActionConnectionHttpTokenAuth { return v.TokenAuth }).(GetActionConnectionHttpTokenAuthPtrOutput)
+}
+
+type GetActionConnectionHttpPtrOutput struct{ *pulumi.OutputState }
+
+func (GetActionConnectionHttpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetActionConnectionHttp)(nil)).Elem()
+}
+
+func (o GetActionConnectionHttpPtrOutput) ToGetActionConnectionHttpPtrOutput() GetActionConnectionHttpPtrOutput {
+	return o
+}
+
+func (o GetActionConnectionHttpPtrOutput) ToGetActionConnectionHttpPtrOutputWithContext(ctx context.Context) GetActionConnectionHttpPtrOutput {
+	return o
+}
+
+func (o GetActionConnectionHttpPtrOutput) Elem() GetActionConnectionHttpOutput {
+	return o.ApplyT(func(v *GetActionConnectionHttp) GetActionConnectionHttp {
+		if v != nil {
+			return *v
+		}
+		var ret GetActionConnectionHttp
+		return ret
+	}).(GetActionConnectionHttpOutput)
+}
+
+// Base HTTP url for the integration
+func (o GetActionConnectionHttpPtrOutput) BaseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetActionConnectionHttp) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BaseUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for an HTTP connection that uses token auth
+func (o GetActionConnectionHttpPtrOutput) TokenAuth() GetActionConnectionHttpTokenAuthPtrOutput {
+	return o.ApplyT(func(v *GetActionConnectionHttp) *GetActionConnectionHttpTokenAuth {
+		if v == nil {
+			return nil
+		}
+		return v.TokenAuth
+	}).(GetActionConnectionHttpTokenAuthPtrOutput)
+}
+
+type GetActionConnectionHttpTokenAuth struct {
+	// Body for HTTP authentication
+	Body *GetActionConnectionHttpTokenAuthBody `pulumi:"body"`
+	// Header for HTTP authentication
+	Headers []GetActionConnectionHttpTokenAuthHeader `pulumi:"headers"`
+	// Token for HTTP authentication
+	Tokens []GetActionConnectionHttpTokenAuthToken `pulumi:"tokens"`
+	// URL parameter for HTTP authentication
+	UrlParameters []GetActionConnectionHttpTokenAuthUrlParameter `pulumi:"urlParameters"`
+}
+
+// GetActionConnectionHttpTokenAuthInput is an input type that accepts GetActionConnectionHttpTokenAuthArgs and GetActionConnectionHttpTokenAuthOutput values.
+// You can construct a concrete instance of `GetActionConnectionHttpTokenAuthInput` via:
+//
+//	GetActionConnectionHttpTokenAuthArgs{...}
+type GetActionConnectionHttpTokenAuthInput interface {
+	pulumi.Input
+
+	ToGetActionConnectionHttpTokenAuthOutput() GetActionConnectionHttpTokenAuthOutput
+	ToGetActionConnectionHttpTokenAuthOutputWithContext(context.Context) GetActionConnectionHttpTokenAuthOutput
+}
+
+type GetActionConnectionHttpTokenAuthArgs struct {
+	// Body for HTTP authentication
+	Body GetActionConnectionHttpTokenAuthBodyPtrInput `pulumi:"body"`
+	// Header for HTTP authentication
+	Headers GetActionConnectionHttpTokenAuthHeaderArrayInput `pulumi:"headers"`
+	// Token for HTTP authentication
+	Tokens GetActionConnectionHttpTokenAuthTokenArrayInput `pulumi:"tokens"`
+	// URL parameter for HTTP authentication
+	UrlParameters GetActionConnectionHttpTokenAuthUrlParameterArrayInput `pulumi:"urlParameters"`
+}
+
+func (GetActionConnectionHttpTokenAuthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionConnectionHttpTokenAuth)(nil)).Elem()
+}
+
+func (i GetActionConnectionHttpTokenAuthArgs) ToGetActionConnectionHttpTokenAuthOutput() GetActionConnectionHttpTokenAuthOutput {
+	return i.ToGetActionConnectionHttpTokenAuthOutputWithContext(context.Background())
+}
+
+func (i GetActionConnectionHttpTokenAuthArgs) ToGetActionConnectionHttpTokenAuthOutputWithContext(ctx context.Context) GetActionConnectionHttpTokenAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionConnectionHttpTokenAuthOutput)
+}
+
+func (i GetActionConnectionHttpTokenAuthArgs) ToGetActionConnectionHttpTokenAuthPtrOutput() GetActionConnectionHttpTokenAuthPtrOutput {
+	return i.ToGetActionConnectionHttpTokenAuthPtrOutputWithContext(context.Background())
+}
+
+func (i GetActionConnectionHttpTokenAuthArgs) ToGetActionConnectionHttpTokenAuthPtrOutputWithContext(ctx context.Context) GetActionConnectionHttpTokenAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionConnectionHttpTokenAuthOutput).ToGetActionConnectionHttpTokenAuthPtrOutputWithContext(ctx)
+}
+
+// GetActionConnectionHttpTokenAuthPtrInput is an input type that accepts GetActionConnectionHttpTokenAuthArgs, GetActionConnectionHttpTokenAuthPtr and GetActionConnectionHttpTokenAuthPtrOutput values.
+// You can construct a concrete instance of `GetActionConnectionHttpTokenAuthPtrInput` via:
+//
+//	        GetActionConnectionHttpTokenAuthArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetActionConnectionHttpTokenAuthPtrInput interface {
+	pulumi.Input
+
+	ToGetActionConnectionHttpTokenAuthPtrOutput() GetActionConnectionHttpTokenAuthPtrOutput
+	ToGetActionConnectionHttpTokenAuthPtrOutputWithContext(context.Context) GetActionConnectionHttpTokenAuthPtrOutput
+}
+
+type getActionConnectionHttpTokenAuthPtrType GetActionConnectionHttpTokenAuthArgs
+
+func GetActionConnectionHttpTokenAuthPtr(v *GetActionConnectionHttpTokenAuthArgs) GetActionConnectionHttpTokenAuthPtrInput {
+	return (*getActionConnectionHttpTokenAuthPtrType)(v)
+}
+
+func (*getActionConnectionHttpTokenAuthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetActionConnectionHttpTokenAuth)(nil)).Elem()
+}
+
+func (i *getActionConnectionHttpTokenAuthPtrType) ToGetActionConnectionHttpTokenAuthPtrOutput() GetActionConnectionHttpTokenAuthPtrOutput {
+	return i.ToGetActionConnectionHttpTokenAuthPtrOutputWithContext(context.Background())
+}
+
+func (i *getActionConnectionHttpTokenAuthPtrType) ToGetActionConnectionHttpTokenAuthPtrOutputWithContext(ctx context.Context) GetActionConnectionHttpTokenAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionConnectionHttpTokenAuthPtrOutput)
+}
+
+type GetActionConnectionHttpTokenAuthOutput struct{ *pulumi.OutputState }
+
+func (GetActionConnectionHttpTokenAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionConnectionHttpTokenAuth)(nil)).Elem()
+}
+
+func (o GetActionConnectionHttpTokenAuthOutput) ToGetActionConnectionHttpTokenAuthOutput() GetActionConnectionHttpTokenAuthOutput {
+	return o
+}
+
+func (o GetActionConnectionHttpTokenAuthOutput) ToGetActionConnectionHttpTokenAuthOutputWithContext(ctx context.Context) GetActionConnectionHttpTokenAuthOutput {
+	return o
+}
+
+func (o GetActionConnectionHttpTokenAuthOutput) ToGetActionConnectionHttpTokenAuthPtrOutput() GetActionConnectionHttpTokenAuthPtrOutput {
+	return o.ToGetActionConnectionHttpTokenAuthPtrOutputWithContext(context.Background())
+}
+
+func (o GetActionConnectionHttpTokenAuthOutput) ToGetActionConnectionHttpTokenAuthPtrOutputWithContext(ctx context.Context) GetActionConnectionHttpTokenAuthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetActionConnectionHttpTokenAuth) *GetActionConnectionHttpTokenAuth {
+		return &v
+	}).(GetActionConnectionHttpTokenAuthPtrOutput)
+}
+
+// Body for HTTP authentication
+func (o GetActionConnectionHttpTokenAuthOutput) Body() GetActionConnectionHttpTokenAuthBodyPtrOutput {
+	return o.ApplyT(func(v GetActionConnectionHttpTokenAuth) *GetActionConnectionHttpTokenAuthBody { return v.Body }).(GetActionConnectionHttpTokenAuthBodyPtrOutput)
+}
+
+// Header for HTTP authentication
+func (o GetActionConnectionHttpTokenAuthOutput) Headers() GetActionConnectionHttpTokenAuthHeaderArrayOutput {
+	return o.ApplyT(func(v GetActionConnectionHttpTokenAuth) []GetActionConnectionHttpTokenAuthHeader { return v.Headers }).(GetActionConnectionHttpTokenAuthHeaderArrayOutput)
+}
+
+// Token for HTTP authentication
+func (o GetActionConnectionHttpTokenAuthOutput) Tokens() GetActionConnectionHttpTokenAuthTokenArrayOutput {
+	return o.ApplyT(func(v GetActionConnectionHttpTokenAuth) []GetActionConnectionHttpTokenAuthToken { return v.Tokens }).(GetActionConnectionHttpTokenAuthTokenArrayOutput)
+}
+
+// URL parameter for HTTP authentication
+func (o GetActionConnectionHttpTokenAuthOutput) UrlParameters() GetActionConnectionHttpTokenAuthUrlParameterArrayOutput {
+	return o.ApplyT(func(v GetActionConnectionHttpTokenAuth) []GetActionConnectionHttpTokenAuthUrlParameter {
+		return v.UrlParameters
+	}).(GetActionConnectionHttpTokenAuthUrlParameterArrayOutput)
+}
+
+type GetActionConnectionHttpTokenAuthPtrOutput struct{ *pulumi.OutputState }
+
+func (GetActionConnectionHttpTokenAuthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetActionConnectionHttpTokenAuth)(nil)).Elem()
+}
+
+func (o GetActionConnectionHttpTokenAuthPtrOutput) ToGetActionConnectionHttpTokenAuthPtrOutput() GetActionConnectionHttpTokenAuthPtrOutput {
+	return o
+}
+
+func (o GetActionConnectionHttpTokenAuthPtrOutput) ToGetActionConnectionHttpTokenAuthPtrOutputWithContext(ctx context.Context) GetActionConnectionHttpTokenAuthPtrOutput {
+	return o
+}
+
+func (o GetActionConnectionHttpTokenAuthPtrOutput) Elem() GetActionConnectionHttpTokenAuthOutput {
+	return o.ApplyT(func(v *GetActionConnectionHttpTokenAuth) GetActionConnectionHttpTokenAuth {
+		if v != nil {
+			return *v
+		}
+		var ret GetActionConnectionHttpTokenAuth
+		return ret
+	}).(GetActionConnectionHttpTokenAuthOutput)
+}
+
+// Body for HTTP authentication
+func (o GetActionConnectionHttpTokenAuthPtrOutput) Body() GetActionConnectionHttpTokenAuthBodyPtrOutput {
+	return o.ApplyT(func(v *GetActionConnectionHttpTokenAuth) *GetActionConnectionHttpTokenAuthBody {
+		if v == nil {
+			return nil
+		}
+		return v.Body
+	}).(GetActionConnectionHttpTokenAuthBodyPtrOutput)
+}
+
+// Header for HTTP authentication
+func (o GetActionConnectionHttpTokenAuthPtrOutput) Headers() GetActionConnectionHttpTokenAuthHeaderArrayOutput {
+	return o.ApplyT(func(v *GetActionConnectionHttpTokenAuth) []GetActionConnectionHttpTokenAuthHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(GetActionConnectionHttpTokenAuthHeaderArrayOutput)
+}
+
+// Token for HTTP authentication
+func (o GetActionConnectionHttpTokenAuthPtrOutput) Tokens() GetActionConnectionHttpTokenAuthTokenArrayOutput {
+	return o.ApplyT(func(v *GetActionConnectionHttpTokenAuth) []GetActionConnectionHttpTokenAuthToken {
+		if v == nil {
+			return nil
+		}
+		return v.Tokens
+	}).(GetActionConnectionHttpTokenAuthTokenArrayOutput)
+}
+
+// URL parameter for HTTP authentication
+func (o GetActionConnectionHttpTokenAuthPtrOutput) UrlParameters() GetActionConnectionHttpTokenAuthUrlParameterArrayOutput {
+	return o.ApplyT(func(v *GetActionConnectionHttpTokenAuth) []GetActionConnectionHttpTokenAuthUrlParameter {
+		if v == nil {
+			return nil
+		}
+		return v.UrlParameters
+	}).(GetActionConnectionHttpTokenAuthUrlParameterArrayOutput)
+}
+
+type GetActionConnectionHttpTokenAuthBody struct {
+	// Serialized body content
+	Content string `pulumi:"content"`
+	// Content type of the body
+	ContentType string `pulumi:"contentType"`
+}
+
+// GetActionConnectionHttpTokenAuthBodyInput is an input type that accepts GetActionConnectionHttpTokenAuthBodyArgs and GetActionConnectionHttpTokenAuthBodyOutput values.
+// You can construct a concrete instance of `GetActionConnectionHttpTokenAuthBodyInput` via:
+//
+//	GetActionConnectionHttpTokenAuthBodyArgs{...}
+type GetActionConnectionHttpTokenAuthBodyInput interface {
+	pulumi.Input
+
+	ToGetActionConnectionHttpTokenAuthBodyOutput() GetActionConnectionHttpTokenAuthBodyOutput
+	ToGetActionConnectionHttpTokenAuthBodyOutputWithContext(context.Context) GetActionConnectionHttpTokenAuthBodyOutput
+}
+
+type GetActionConnectionHttpTokenAuthBodyArgs struct {
+	// Serialized body content
+	Content pulumi.StringInput `pulumi:"content"`
+	// Content type of the body
+	ContentType pulumi.StringInput `pulumi:"contentType"`
+}
+
+func (GetActionConnectionHttpTokenAuthBodyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionConnectionHttpTokenAuthBody)(nil)).Elem()
+}
+
+func (i GetActionConnectionHttpTokenAuthBodyArgs) ToGetActionConnectionHttpTokenAuthBodyOutput() GetActionConnectionHttpTokenAuthBodyOutput {
+	return i.ToGetActionConnectionHttpTokenAuthBodyOutputWithContext(context.Background())
+}
+
+func (i GetActionConnectionHttpTokenAuthBodyArgs) ToGetActionConnectionHttpTokenAuthBodyOutputWithContext(ctx context.Context) GetActionConnectionHttpTokenAuthBodyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionConnectionHttpTokenAuthBodyOutput)
+}
+
+func (i GetActionConnectionHttpTokenAuthBodyArgs) ToGetActionConnectionHttpTokenAuthBodyPtrOutput() GetActionConnectionHttpTokenAuthBodyPtrOutput {
+	return i.ToGetActionConnectionHttpTokenAuthBodyPtrOutputWithContext(context.Background())
+}
+
+func (i GetActionConnectionHttpTokenAuthBodyArgs) ToGetActionConnectionHttpTokenAuthBodyPtrOutputWithContext(ctx context.Context) GetActionConnectionHttpTokenAuthBodyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionConnectionHttpTokenAuthBodyOutput).ToGetActionConnectionHttpTokenAuthBodyPtrOutputWithContext(ctx)
+}
+
+// GetActionConnectionHttpTokenAuthBodyPtrInput is an input type that accepts GetActionConnectionHttpTokenAuthBodyArgs, GetActionConnectionHttpTokenAuthBodyPtr and GetActionConnectionHttpTokenAuthBodyPtrOutput values.
+// You can construct a concrete instance of `GetActionConnectionHttpTokenAuthBodyPtrInput` via:
+//
+//	        GetActionConnectionHttpTokenAuthBodyArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetActionConnectionHttpTokenAuthBodyPtrInput interface {
+	pulumi.Input
+
+	ToGetActionConnectionHttpTokenAuthBodyPtrOutput() GetActionConnectionHttpTokenAuthBodyPtrOutput
+	ToGetActionConnectionHttpTokenAuthBodyPtrOutputWithContext(context.Context) GetActionConnectionHttpTokenAuthBodyPtrOutput
+}
+
+type getActionConnectionHttpTokenAuthBodyPtrType GetActionConnectionHttpTokenAuthBodyArgs
+
+func GetActionConnectionHttpTokenAuthBodyPtr(v *GetActionConnectionHttpTokenAuthBodyArgs) GetActionConnectionHttpTokenAuthBodyPtrInput {
+	return (*getActionConnectionHttpTokenAuthBodyPtrType)(v)
+}
+
+func (*getActionConnectionHttpTokenAuthBodyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetActionConnectionHttpTokenAuthBody)(nil)).Elem()
+}
+
+func (i *getActionConnectionHttpTokenAuthBodyPtrType) ToGetActionConnectionHttpTokenAuthBodyPtrOutput() GetActionConnectionHttpTokenAuthBodyPtrOutput {
+	return i.ToGetActionConnectionHttpTokenAuthBodyPtrOutputWithContext(context.Background())
+}
+
+func (i *getActionConnectionHttpTokenAuthBodyPtrType) ToGetActionConnectionHttpTokenAuthBodyPtrOutputWithContext(ctx context.Context) GetActionConnectionHttpTokenAuthBodyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionConnectionHttpTokenAuthBodyPtrOutput)
+}
+
+type GetActionConnectionHttpTokenAuthBodyOutput struct{ *pulumi.OutputState }
+
+func (GetActionConnectionHttpTokenAuthBodyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionConnectionHttpTokenAuthBody)(nil)).Elem()
+}
+
+func (o GetActionConnectionHttpTokenAuthBodyOutput) ToGetActionConnectionHttpTokenAuthBodyOutput() GetActionConnectionHttpTokenAuthBodyOutput {
+	return o
+}
+
+func (o GetActionConnectionHttpTokenAuthBodyOutput) ToGetActionConnectionHttpTokenAuthBodyOutputWithContext(ctx context.Context) GetActionConnectionHttpTokenAuthBodyOutput {
+	return o
+}
+
+func (o GetActionConnectionHttpTokenAuthBodyOutput) ToGetActionConnectionHttpTokenAuthBodyPtrOutput() GetActionConnectionHttpTokenAuthBodyPtrOutput {
+	return o.ToGetActionConnectionHttpTokenAuthBodyPtrOutputWithContext(context.Background())
+}
+
+func (o GetActionConnectionHttpTokenAuthBodyOutput) ToGetActionConnectionHttpTokenAuthBodyPtrOutputWithContext(ctx context.Context) GetActionConnectionHttpTokenAuthBodyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetActionConnectionHttpTokenAuthBody) *GetActionConnectionHttpTokenAuthBody {
+		return &v
+	}).(GetActionConnectionHttpTokenAuthBodyPtrOutput)
+}
+
+// Serialized body content
+func (o GetActionConnectionHttpTokenAuthBodyOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionConnectionHttpTokenAuthBody) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// Content type of the body
+func (o GetActionConnectionHttpTokenAuthBodyOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionConnectionHttpTokenAuthBody) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+type GetActionConnectionHttpTokenAuthBodyPtrOutput struct{ *pulumi.OutputState }
+
+func (GetActionConnectionHttpTokenAuthBodyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetActionConnectionHttpTokenAuthBody)(nil)).Elem()
+}
+
+func (o GetActionConnectionHttpTokenAuthBodyPtrOutput) ToGetActionConnectionHttpTokenAuthBodyPtrOutput() GetActionConnectionHttpTokenAuthBodyPtrOutput {
+	return o
+}
+
+func (o GetActionConnectionHttpTokenAuthBodyPtrOutput) ToGetActionConnectionHttpTokenAuthBodyPtrOutputWithContext(ctx context.Context) GetActionConnectionHttpTokenAuthBodyPtrOutput {
+	return o
+}
+
+func (o GetActionConnectionHttpTokenAuthBodyPtrOutput) Elem() GetActionConnectionHttpTokenAuthBodyOutput {
+	return o.ApplyT(func(v *GetActionConnectionHttpTokenAuthBody) GetActionConnectionHttpTokenAuthBody {
+		if v != nil {
+			return *v
+		}
+		var ret GetActionConnectionHttpTokenAuthBody
+		return ret
+	}).(GetActionConnectionHttpTokenAuthBodyOutput)
+}
+
+// Serialized body content
+func (o GetActionConnectionHttpTokenAuthBodyPtrOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetActionConnectionHttpTokenAuthBody) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Content
+	}).(pulumi.StringPtrOutput)
+}
+
+// Content type of the body
+func (o GetActionConnectionHttpTokenAuthBodyPtrOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetActionConnectionHttpTokenAuthBody) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContentType
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetActionConnectionHttpTokenAuthHeader struct {
+	// Header name
+	Name  string `pulumi:"name"`
+	Value string `pulumi:"value"`
+}
+
+// GetActionConnectionHttpTokenAuthHeaderInput is an input type that accepts GetActionConnectionHttpTokenAuthHeaderArgs and GetActionConnectionHttpTokenAuthHeaderOutput values.
+// You can construct a concrete instance of `GetActionConnectionHttpTokenAuthHeaderInput` via:
+//
+//	GetActionConnectionHttpTokenAuthHeaderArgs{...}
+type GetActionConnectionHttpTokenAuthHeaderInput interface {
+	pulumi.Input
+
+	ToGetActionConnectionHttpTokenAuthHeaderOutput() GetActionConnectionHttpTokenAuthHeaderOutput
+	ToGetActionConnectionHttpTokenAuthHeaderOutputWithContext(context.Context) GetActionConnectionHttpTokenAuthHeaderOutput
+}
+
+type GetActionConnectionHttpTokenAuthHeaderArgs struct {
+	// Header name
+	Name  pulumi.StringInput `pulumi:"name"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetActionConnectionHttpTokenAuthHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionConnectionHttpTokenAuthHeader)(nil)).Elem()
+}
+
+func (i GetActionConnectionHttpTokenAuthHeaderArgs) ToGetActionConnectionHttpTokenAuthHeaderOutput() GetActionConnectionHttpTokenAuthHeaderOutput {
+	return i.ToGetActionConnectionHttpTokenAuthHeaderOutputWithContext(context.Background())
+}
+
+func (i GetActionConnectionHttpTokenAuthHeaderArgs) ToGetActionConnectionHttpTokenAuthHeaderOutputWithContext(ctx context.Context) GetActionConnectionHttpTokenAuthHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionConnectionHttpTokenAuthHeaderOutput)
+}
+
+// GetActionConnectionHttpTokenAuthHeaderArrayInput is an input type that accepts GetActionConnectionHttpTokenAuthHeaderArray and GetActionConnectionHttpTokenAuthHeaderArrayOutput values.
+// You can construct a concrete instance of `GetActionConnectionHttpTokenAuthHeaderArrayInput` via:
+//
+//	GetActionConnectionHttpTokenAuthHeaderArray{ GetActionConnectionHttpTokenAuthHeaderArgs{...} }
+type GetActionConnectionHttpTokenAuthHeaderArrayInput interface {
+	pulumi.Input
+
+	ToGetActionConnectionHttpTokenAuthHeaderArrayOutput() GetActionConnectionHttpTokenAuthHeaderArrayOutput
+	ToGetActionConnectionHttpTokenAuthHeaderArrayOutputWithContext(context.Context) GetActionConnectionHttpTokenAuthHeaderArrayOutput
+}
+
+type GetActionConnectionHttpTokenAuthHeaderArray []GetActionConnectionHttpTokenAuthHeaderInput
+
+func (GetActionConnectionHttpTokenAuthHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetActionConnectionHttpTokenAuthHeader)(nil)).Elem()
+}
+
+func (i GetActionConnectionHttpTokenAuthHeaderArray) ToGetActionConnectionHttpTokenAuthHeaderArrayOutput() GetActionConnectionHttpTokenAuthHeaderArrayOutput {
+	return i.ToGetActionConnectionHttpTokenAuthHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i GetActionConnectionHttpTokenAuthHeaderArray) ToGetActionConnectionHttpTokenAuthHeaderArrayOutputWithContext(ctx context.Context) GetActionConnectionHttpTokenAuthHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionConnectionHttpTokenAuthHeaderArrayOutput)
+}
+
+type GetActionConnectionHttpTokenAuthHeaderOutput struct{ *pulumi.OutputState }
+
+func (GetActionConnectionHttpTokenAuthHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionConnectionHttpTokenAuthHeader)(nil)).Elem()
+}
+
+func (o GetActionConnectionHttpTokenAuthHeaderOutput) ToGetActionConnectionHttpTokenAuthHeaderOutput() GetActionConnectionHttpTokenAuthHeaderOutput {
+	return o
+}
+
+func (o GetActionConnectionHttpTokenAuthHeaderOutput) ToGetActionConnectionHttpTokenAuthHeaderOutputWithContext(ctx context.Context) GetActionConnectionHttpTokenAuthHeaderOutput {
+	return o
+}
+
+// Header name
+func (o GetActionConnectionHttpTokenAuthHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionConnectionHttpTokenAuthHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetActionConnectionHttpTokenAuthHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionConnectionHttpTokenAuthHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetActionConnectionHttpTokenAuthHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (GetActionConnectionHttpTokenAuthHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetActionConnectionHttpTokenAuthHeader)(nil)).Elem()
+}
+
+func (o GetActionConnectionHttpTokenAuthHeaderArrayOutput) ToGetActionConnectionHttpTokenAuthHeaderArrayOutput() GetActionConnectionHttpTokenAuthHeaderArrayOutput {
+	return o
+}
+
+func (o GetActionConnectionHttpTokenAuthHeaderArrayOutput) ToGetActionConnectionHttpTokenAuthHeaderArrayOutputWithContext(ctx context.Context) GetActionConnectionHttpTokenAuthHeaderArrayOutput {
+	return o
+}
+
+func (o GetActionConnectionHttpTokenAuthHeaderArrayOutput) Index(i pulumi.IntInput) GetActionConnectionHttpTokenAuthHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetActionConnectionHttpTokenAuthHeader {
+		return vs[0].([]GetActionConnectionHttpTokenAuthHeader)[vs[1].(int)]
+	}).(GetActionConnectionHttpTokenAuthHeaderOutput)
+}
+
+type GetActionConnectionHttpTokenAuthToken struct {
+	// Token name
+	Name string `pulumi:"name"`
+	// Token type
+	Type string `pulumi:"type"`
+	// Token value
+	Value string `pulumi:"value"`
+}
+
+// GetActionConnectionHttpTokenAuthTokenInput is an input type that accepts GetActionConnectionHttpTokenAuthTokenArgs and GetActionConnectionHttpTokenAuthTokenOutput values.
+// You can construct a concrete instance of `GetActionConnectionHttpTokenAuthTokenInput` via:
+//
+//	GetActionConnectionHttpTokenAuthTokenArgs{...}
+type GetActionConnectionHttpTokenAuthTokenInput interface {
+	pulumi.Input
+
+	ToGetActionConnectionHttpTokenAuthTokenOutput() GetActionConnectionHttpTokenAuthTokenOutput
+	ToGetActionConnectionHttpTokenAuthTokenOutputWithContext(context.Context) GetActionConnectionHttpTokenAuthTokenOutput
+}
+
+type GetActionConnectionHttpTokenAuthTokenArgs struct {
+	// Token name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Token type
+	Type pulumi.StringInput `pulumi:"type"`
+	// Token value
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetActionConnectionHttpTokenAuthTokenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionConnectionHttpTokenAuthToken)(nil)).Elem()
+}
+
+func (i GetActionConnectionHttpTokenAuthTokenArgs) ToGetActionConnectionHttpTokenAuthTokenOutput() GetActionConnectionHttpTokenAuthTokenOutput {
+	return i.ToGetActionConnectionHttpTokenAuthTokenOutputWithContext(context.Background())
+}
+
+func (i GetActionConnectionHttpTokenAuthTokenArgs) ToGetActionConnectionHttpTokenAuthTokenOutputWithContext(ctx context.Context) GetActionConnectionHttpTokenAuthTokenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionConnectionHttpTokenAuthTokenOutput)
+}
+
+// GetActionConnectionHttpTokenAuthTokenArrayInput is an input type that accepts GetActionConnectionHttpTokenAuthTokenArray and GetActionConnectionHttpTokenAuthTokenArrayOutput values.
+// You can construct a concrete instance of `GetActionConnectionHttpTokenAuthTokenArrayInput` via:
+//
+//	GetActionConnectionHttpTokenAuthTokenArray{ GetActionConnectionHttpTokenAuthTokenArgs{...} }
+type GetActionConnectionHttpTokenAuthTokenArrayInput interface {
+	pulumi.Input
+
+	ToGetActionConnectionHttpTokenAuthTokenArrayOutput() GetActionConnectionHttpTokenAuthTokenArrayOutput
+	ToGetActionConnectionHttpTokenAuthTokenArrayOutputWithContext(context.Context) GetActionConnectionHttpTokenAuthTokenArrayOutput
+}
+
+type GetActionConnectionHttpTokenAuthTokenArray []GetActionConnectionHttpTokenAuthTokenInput
+
+func (GetActionConnectionHttpTokenAuthTokenArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetActionConnectionHttpTokenAuthToken)(nil)).Elem()
+}
+
+func (i GetActionConnectionHttpTokenAuthTokenArray) ToGetActionConnectionHttpTokenAuthTokenArrayOutput() GetActionConnectionHttpTokenAuthTokenArrayOutput {
+	return i.ToGetActionConnectionHttpTokenAuthTokenArrayOutputWithContext(context.Background())
+}
+
+func (i GetActionConnectionHttpTokenAuthTokenArray) ToGetActionConnectionHttpTokenAuthTokenArrayOutputWithContext(ctx context.Context) GetActionConnectionHttpTokenAuthTokenArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionConnectionHttpTokenAuthTokenArrayOutput)
+}
+
+type GetActionConnectionHttpTokenAuthTokenOutput struct{ *pulumi.OutputState }
+
+func (GetActionConnectionHttpTokenAuthTokenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionConnectionHttpTokenAuthToken)(nil)).Elem()
+}
+
+func (o GetActionConnectionHttpTokenAuthTokenOutput) ToGetActionConnectionHttpTokenAuthTokenOutput() GetActionConnectionHttpTokenAuthTokenOutput {
+	return o
+}
+
+func (o GetActionConnectionHttpTokenAuthTokenOutput) ToGetActionConnectionHttpTokenAuthTokenOutputWithContext(ctx context.Context) GetActionConnectionHttpTokenAuthTokenOutput {
+	return o
+}
+
+// Token name
+func (o GetActionConnectionHttpTokenAuthTokenOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionConnectionHttpTokenAuthToken) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Token type
+func (o GetActionConnectionHttpTokenAuthTokenOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionConnectionHttpTokenAuthToken) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Token value
+func (o GetActionConnectionHttpTokenAuthTokenOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionConnectionHttpTokenAuthToken) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetActionConnectionHttpTokenAuthTokenArrayOutput struct{ *pulumi.OutputState }
+
+func (GetActionConnectionHttpTokenAuthTokenArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetActionConnectionHttpTokenAuthToken)(nil)).Elem()
+}
+
+func (o GetActionConnectionHttpTokenAuthTokenArrayOutput) ToGetActionConnectionHttpTokenAuthTokenArrayOutput() GetActionConnectionHttpTokenAuthTokenArrayOutput {
+	return o
+}
+
+func (o GetActionConnectionHttpTokenAuthTokenArrayOutput) ToGetActionConnectionHttpTokenAuthTokenArrayOutputWithContext(ctx context.Context) GetActionConnectionHttpTokenAuthTokenArrayOutput {
+	return o
+}
+
+func (o GetActionConnectionHttpTokenAuthTokenArrayOutput) Index(i pulumi.IntInput) GetActionConnectionHttpTokenAuthTokenOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetActionConnectionHttpTokenAuthToken {
+		return vs[0].([]GetActionConnectionHttpTokenAuthToken)[vs[1].(int)]
+	}).(GetActionConnectionHttpTokenAuthTokenOutput)
+}
+
+type GetActionConnectionHttpTokenAuthUrlParameter struct {
+	// URL parameter name
+	Name string `pulumi:"name"`
+	// URL parameter value
+	Value string `pulumi:"value"`
+}
+
+// GetActionConnectionHttpTokenAuthUrlParameterInput is an input type that accepts GetActionConnectionHttpTokenAuthUrlParameterArgs and GetActionConnectionHttpTokenAuthUrlParameterOutput values.
+// You can construct a concrete instance of `GetActionConnectionHttpTokenAuthUrlParameterInput` via:
+//
+//	GetActionConnectionHttpTokenAuthUrlParameterArgs{...}
+type GetActionConnectionHttpTokenAuthUrlParameterInput interface {
+	pulumi.Input
+
+	ToGetActionConnectionHttpTokenAuthUrlParameterOutput() GetActionConnectionHttpTokenAuthUrlParameterOutput
+	ToGetActionConnectionHttpTokenAuthUrlParameterOutputWithContext(context.Context) GetActionConnectionHttpTokenAuthUrlParameterOutput
+}
+
+type GetActionConnectionHttpTokenAuthUrlParameterArgs struct {
+	// URL parameter name
+	Name pulumi.StringInput `pulumi:"name"`
+	// URL parameter value
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetActionConnectionHttpTokenAuthUrlParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionConnectionHttpTokenAuthUrlParameter)(nil)).Elem()
+}
+
+func (i GetActionConnectionHttpTokenAuthUrlParameterArgs) ToGetActionConnectionHttpTokenAuthUrlParameterOutput() GetActionConnectionHttpTokenAuthUrlParameterOutput {
+	return i.ToGetActionConnectionHttpTokenAuthUrlParameterOutputWithContext(context.Background())
+}
+
+func (i GetActionConnectionHttpTokenAuthUrlParameterArgs) ToGetActionConnectionHttpTokenAuthUrlParameterOutputWithContext(ctx context.Context) GetActionConnectionHttpTokenAuthUrlParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionConnectionHttpTokenAuthUrlParameterOutput)
+}
+
+// GetActionConnectionHttpTokenAuthUrlParameterArrayInput is an input type that accepts GetActionConnectionHttpTokenAuthUrlParameterArray and GetActionConnectionHttpTokenAuthUrlParameterArrayOutput values.
+// You can construct a concrete instance of `GetActionConnectionHttpTokenAuthUrlParameterArrayInput` via:
+//
+//	GetActionConnectionHttpTokenAuthUrlParameterArray{ GetActionConnectionHttpTokenAuthUrlParameterArgs{...} }
+type GetActionConnectionHttpTokenAuthUrlParameterArrayInput interface {
+	pulumi.Input
+
+	ToGetActionConnectionHttpTokenAuthUrlParameterArrayOutput() GetActionConnectionHttpTokenAuthUrlParameterArrayOutput
+	ToGetActionConnectionHttpTokenAuthUrlParameterArrayOutputWithContext(context.Context) GetActionConnectionHttpTokenAuthUrlParameterArrayOutput
+}
+
+type GetActionConnectionHttpTokenAuthUrlParameterArray []GetActionConnectionHttpTokenAuthUrlParameterInput
+
+func (GetActionConnectionHttpTokenAuthUrlParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetActionConnectionHttpTokenAuthUrlParameter)(nil)).Elem()
+}
+
+func (i GetActionConnectionHttpTokenAuthUrlParameterArray) ToGetActionConnectionHttpTokenAuthUrlParameterArrayOutput() GetActionConnectionHttpTokenAuthUrlParameterArrayOutput {
+	return i.ToGetActionConnectionHttpTokenAuthUrlParameterArrayOutputWithContext(context.Background())
+}
+
+func (i GetActionConnectionHttpTokenAuthUrlParameterArray) ToGetActionConnectionHttpTokenAuthUrlParameterArrayOutputWithContext(ctx context.Context) GetActionConnectionHttpTokenAuthUrlParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionConnectionHttpTokenAuthUrlParameterArrayOutput)
+}
+
+type GetActionConnectionHttpTokenAuthUrlParameterOutput struct{ *pulumi.OutputState }
+
+func (GetActionConnectionHttpTokenAuthUrlParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionConnectionHttpTokenAuthUrlParameter)(nil)).Elem()
+}
+
+func (o GetActionConnectionHttpTokenAuthUrlParameterOutput) ToGetActionConnectionHttpTokenAuthUrlParameterOutput() GetActionConnectionHttpTokenAuthUrlParameterOutput {
+	return o
+}
+
+func (o GetActionConnectionHttpTokenAuthUrlParameterOutput) ToGetActionConnectionHttpTokenAuthUrlParameterOutputWithContext(ctx context.Context) GetActionConnectionHttpTokenAuthUrlParameterOutput {
+	return o
+}
+
+// URL parameter name
+func (o GetActionConnectionHttpTokenAuthUrlParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionConnectionHttpTokenAuthUrlParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// URL parameter value
+func (o GetActionConnectionHttpTokenAuthUrlParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionConnectionHttpTokenAuthUrlParameter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetActionConnectionHttpTokenAuthUrlParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetActionConnectionHttpTokenAuthUrlParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetActionConnectionHttpTokenAuthUrlParameter)(nil)).Elem()
+}
+
+func (o GetActionConnectionHttpTokenAuthUrlParameterArrayOutput) ToGetActionConnectionHttpTokenAuthUrlParameterArrayOutput() GetActionConnectionHttpTokenAuthUrlParameterArrayOutput {
+	return o
+}
+
+func (o GetActionConnectionHttpTokenAuthUrlParameterArrayOutput) ToGetActionConnectionHttpTokenAuthUrlParameterArrayOutputWithContext(ctx context.Context) GetActionConnectionHttpTokenAuthUrlParameterArrayOutput {
+	return o
+}
+
+func (o GetActionConnectionHttpTokenAuthUrlParameterArrayOutput) Index(i pulumi.IntInput) GetActionConnectionHttpTokenAuthUrlParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetActionConnectionHttpTokenAuthUrlParameter {
+		return vs[0].([]GetActionConnectionHttpTokenAuthUrlParameter)[vs[1].(int)]
+	}).(GetActionConnectionHttpTokenAuthUrlParameterOutput)
+}
+
+type GetAwsCurConfigAccountFilters struct {
+	// List of AWS account IDs excluded from cost analysis.
+	ExcludedAccounts []string `pulumi:"excludedAccounts"`
+	// Whether new member accounts are automatically included in cost analysis.
+	IncludeNewAccounts bool `pulumi:"includeNewAccounts"`
+	// List of AWS account IDs included in cost analysis.
+	IncludedAccounts []string `pulumi:"includedAccounts"`
+}
+
+// GetAwsCurConfigAccountFiltersInput is an input type that accepts GetAwsCurConfigAccountFiltersArgs and GetAwsCurConfigAccountFiltersOutput values.
+// You can construct a concrete instance of `GetAwsCurConfigAccountFiltersInput` via:
+//
+//	GetAwsCurConfigAccountFiltersArgs{...}
+type GetAwsCurConfigAccountFiltersInput interface {
+	pulumi.Input
+
+	ToGetAwsCurConfigAccountFiltersOutput() GetAwsCurConfigAccountFiltersOutput
+	ToGetAwsCurConfigAccountFiltersOutputWithContext(context.Context) GetAwsCurConfigAccountFiltersOutput
+}
+
+type GetAwsCurConfigAccountFiltersArgs struct {
+	// List of AWS account IDs excluded from cost analysis.
+	ExcludedAccounts pulumi.StringArrayInput `pulumi:"excludedAccounts"`
+	// Whether new member accounts are automatically included in cost analysis.
+	IncludeNewAccounts pulumi.BoolInput `pulumi:"includeNewAccounts"`
+	// List of AWS account IDs included in cost analysis.
+	IncludedAccounts pulumi.StringArrayInput `pulumi:"includedAccounts"`
+}
+
+func (GetAwsCurConfigAccountFiltersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAwsCurConfigAccountFilters)(nil)).Elem()
+}
+
+func (i GetAwsCurConfigAccountFiltersArgs) ToGetAwsCurConfigAccountFiltersOutput() GetAwsCurConfigAccountFiltersOutput {
+	return i.ToGetAwsCurConfigAccountFiltersOutputWithContext(context.Background())
+}
+
+func (i GetAwsCurConfigAccountFiltersArgs) ToGetAwsCurConfigAccountFiltersOutputWithContext(ctx context.Context) GetAwsCurConfigAccountFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAwsCurConfigAccountFiltersOutput)
+}
+
+func (i GetAwsCurConfigAccountFiltersArgs) ToGetAwsCurConfigAccountFiltersPtrOutput() GetAwsCurConfigAccountFiltersPtrOutput {
+	return i.ToGetAwsCurConfigAccountFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i GetAwsCurConfigAccountFiltersArgs) ToGetAwsCurConfigAccountFiltersPtrOutputWithContext(ctx context.Context) GetAwsCurConfigAccountFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAwsCurConfigAccountFiltersOutput).ToGetAwsCurConfigAccountFiltersPtrOutputWithContext(ctx)
+}
+
+// GetAwsCurConfigAccountFiltersPtrInput is an input type that accepts GetAwsCurConfigAccountFiltersArgs, GetAwsCurConfigAccountFiltersPtr and GetAwsCurConfigAccountFiltersPtrOutput values.
+// You can construct a concrete instance of `GetAwsCurConfigAccountFiltersPtrInput` via:
+//
+//	        GetAwsCurConfigAccountFiltersArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetAwsCurConfigAccountFiltersPtrInput interface {
+	pulumi.Input
+
+	ToGetAwsCurConfigAccountFiltersPtrOutput() GetAwsCurConfigAccountFiltersPtrOutput
+	ToGetAwsCurConfigAccountFiltersPtrOutputWithContext(context.Context) GetAwsCurConfigAccountFiltersPtrOutput
+}
+
+type getAwsCurConfigAccountFiltersPtrType GetAwsCurConfigAccountFiltersArgs
+
+func GetAwsCurConfigAccountFiltersPtr(v *GetAwsCurConfigAccountFiltersArgs) GetAwsCurConfigAccountFiltersPtrInput {
+	return (*getAwsCurConfigAccountFiltersPtrType)(v)
+}
+
+func (*getAwsCurConfigAccountFiltersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAwsCurConfigAccountFilters)(nil)).Elem()
+}
+
+func (i *getAwsCurConfigAccountFiltersPtrType) ToGetAwsCurConfigAccountFiltersPtrOutput() GetAwsCurConfigAccountFiltersPtrOutput {
+	return i.ToGetAwsCurConfigAccountFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i *getAwsCurConfigAccountFiltersPtrType) ToGetAwsCurConfigAccountFiltersPtrOutputWithContext(ctx context.Context) GetAwsCurConfigAccountFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAwsCurConfigAccountFiltersPtrOutput)
+}
+
+type GetAwsCurConfigAccountFiltersOutput struct{ *pulumi.OutputState }
+
+func (GetAwsCurConfigAccountFiltersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAwsCurConfigAccountFilters)(nil)).Elem()
+}
+
+func (o GetAwsCurConfigAccountFiltersOutput) ToGetAwsCurConfigAccountFiltersOutput() GetAwsCurConfigAccountFiltersOutput {
+	return o
+}
+
+func (o GetAwsCurConfigAccountFiltersOutput) ToGetAwsCurConfigAccountFiltersOutputWithContext(ctx context.Context) GetAwsCurConfigAccountFiltersOutput {
+	return o
+}
+
+func (o GetAwsCurConfigAccountFiltersOutput) ToGetAwsCurConfigAccountFiltersPtrOutput() GetAwsCurConfigAccountFiltersPtrOutput {
+	return o.ToGetAwsCurConfigAccountFiltersPtrOutputWithContext(context.Background())
+}
+
+func (o GetAwsCurConfigAccountFiltersOutput) ToGetAwsCurConfigAccountFiltersPtrOutputWithContext(ctx context.Context) GetAwsCurConfigAccountFiltersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetAwsCurConfigAccountFilters) *GetAwsCurConfigAccountFilters {
+		return &v
+	}).(GetAwsCurConfigAccountFiltersPtrOutput)
+}
+
+// List of AWS account IDs excluded from cost analysis.
+func (o GetAwsCurConfigAccountFiltersOutput) ExcludedAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAwsCurConfigAccountFilters) []string { return v.ExcludedAccounts }).(pulumi.StringArrayOutput)
+}
+
+// Whether new member accounts are automatically included in cost analysis.
+func (o GetAwsCurConfigAccountFiltersOutput) IncludeNewAccounts() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAwsCurConfigAccountFilters) bool { return v.IncludeNewAccounts }).(pulumi.BoolOutput)
+}
+
+// List of AWS account IDs included in cost analysis.
+func (o GetAwsCurConfigAccountFiltersOutput) IncludedAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAwsCurConfigAccountFilters) []string { return v.IncludedAccounts }).(pulumi.StringArrayOutput)
+}
+
+type GetAwsCurConfigAccountFiltersPtrOutput struct{ *pulumi.OutputState }
+
+func (GetAwsCurConfigAccountFiltersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAwsCurConfigAccountFilters)(nil)).Elem()
+}
+
+func (o GetAwsCurConfigAccountFiltersPtrOutput) ToGetAwsCurConfigAccountFiltersPtrOutput() GetAwsCurConfigAccountFiltersPtrOutput {
+	return o
+}
+
+func (o GetAwsCurConfigAccountFiltersPtrOutput) ToGetAwsCurConfigAccountFiltersPtrOutputWithContext(ctx context.Context) GetAwsCurConfigAccountFiltersPtrOutput {
+	return o
+}
+
+func (o GetAwsCurConfigAccountFiltersPtrOutput) Elem() GetAwsCurConfigAccountFiltersOutput {
+	return o.ApplyT(func(v *GetAwsCurConfigAccountFilters) GetAwsCurConfigAccountFilters {
+		if v != nil {
+			return *v
+		}
+		var ret GetAwsCurConfigAccountFilters
+		return ret
+	}).(GetAwsCurConfigAccountFiltersOutput)
+}
+
+// List of AWS account IDs excluded from cost analysis.
+func (o GetAwsCurConfigAccountFiltersPtrOutput) ExcludedAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetAwsCurConfigAccountFilters) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedAccounts
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether new member accounts are automatically included in cost analysis.
+func (o GetAwsCurConfigAccountFiltersPtrOutput) IncludeNewAccounts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAwsCurConfigAccountFilters) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IncludeNewAccounts
+	}).(pulumi.BoolPtrOutput)
+}
+
+// List of AWS account IDs included in cost analysis.
+func (o GetAwsCurConfigAccountFiltersPtrOutput) IncludedAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetAwsCurConfigAccountFilters) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedAccounts
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetAzureUcConfigActualBillConfig struct {
+	// The name of the configured Azure Export.
+	ExportName string `pulumi:"exportName"`
+	// The path where the Azure Export is saved.
+	ExportPath string `pulumi:"exportPath"`
+	// The name of the storage account where the Azure Export is saved.
+	StorageAccount string `pulumi:"storageAccount"`
+	// The name of the storage container where the Azure Export is saved.
+	StorageContainer string `pulumi:"storageContainer"`
+}
+
+// GetAzureUcConfigActualBillConfigInput is an input type that accepts GetAzureUcConfigActualBillConfigArgs and GetAzureUcConfigActualBillConfigOutput values.
+// You can construct a concrete instance of `GetAzureUcConfigActualBillConfigInput` via:
+//
+//	GetAzureUcConfigActualBillConfigArgs{...}
+type GetAzureUcConfigActualBillConfigInput interface {
+	pulumi.Input
+
+	ToGetAzureUcConfigActualBillConfigOutput() GetAzureUcConfigActualBillConfigOutput
+	ToGetAzureUcConfigActualBillConfigOutputWithContext(context.Context) GetAzureUcConfigActualBillConfigOutput
+}
+
+type GetAzureUcConfigActualBillConfigArgs struct {
+	// The name of the configured Azure Export.
+	ExportName pulumi.StringInput `pulumi:"exportName"`
+	// The path where the Azure Export is saved.
+	ExportPath pulumi.StringInput `pulumi:"exportPath"`
+	// The name of the storage account where the Azure Export is saved.
+	StorageAccount pulumi.StringInput `pulumi:"storageAccount"`
+	// The name of the storage container where the Azure Export is saved.
+	StorageContainer pulumi.StringInput `pulumi:"storageContainer"`
+}
+
+func (GetAzureUcConfigActualBillConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAzureUcConfigActualBillConfig)(nil)).Elem()
+}
+
+func (i GetAzureUcConfigActualBillConfigArgs) ToGetAzureUcConfigActualBillConfigOutput() GetAzureUcConfigActualBillConfigOutput {
+	return i.ToGetAzureUcConfigActualBillConfigOutputWithContext(context.Background())
+}
+
+func (i GetAzureUcConfigActualBillConfigArgs) ToGetAzureUcConfigActualBillConfigOutputWithContext(ctx context.Context) GetAzureUcConfigActualBillConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAzureUcConfigActualBillConfigOutput)
+}
+
+func (i GetAzureUcConfigActualBillConfigArgs) ToGetAzureUcConfigActualBillConfigPtrOutput() GetAzureUcConfigActualBillConfigPtrOutput {
+	return i.ToGetAzureUcConfigActualBillConfigPtrOutputWithContext(context.Background())
+}
+
+func (i GetAzureUcConfigActualBillConfigArgs) ToGetAzureUcConfigActualBillConfigPtrOutputWithContext(ctx context.Context) GetAzureUcConfigActualBillConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAzureUcConfigActualBillConfigOutput).ToGetAzureUcConfigActualBillConfigPtrOutputWithContext(ctx)
+}
+
+// GetAzureUcConfigActualBillConfigPtrInput is an input type that accepts GetAzureUcConfigActualBillConfigArgs, GetAzureUcConfigActualBillConfigPtr and GetAzureUcConfigActualBillConfigPtrOutput values.
+// You can construct a concrete instance of `GetAzureUcConfigActualBillConfigPtrInput` via:
+//
+//	        GetAzureUcConfigActualBillConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetAzureUcConfigActualBillConfigPtrInput interface {
+	pulumi.Input
+
+	ToGetAzureUcConfigActualBillConfigPtrOutput() GetAzureUcConfigActualBillConfigPtrOutput
+	ToGetAzureUcConfigActualBillConfigPtrOutputWithContext(context.Context) GetAzureUcConfigActualBillConfigPtrOutput
+}
+
+type getAzureUcConfigActualBillConfigPtrType GetAzureUcConfigActualBillConfigArgs
+
+func GetAzureUcConfigActualBillConfigPtr(v *GetAzureUcConfigActualBillConfigArgs) GetAzureUcConfigActualBillConfigPtrInput {
+	return (*getAzureUcConfigActualBillConfigPtrType)(v)
+}
+
+func (*getAzureUcConfigActualBillConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAzureUcConfigActualBillConfig)(nil)).Elem()
+}
+
+func (i *getAzureUcConfigActualBillConfigPtrType) ToGetAzureUcConfigActualBillConfigPtrOutput() GetAzureUcConfigActualBillConfigPtrOutput {
+	return i.ToGetAzureUcConfigActualBillConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *getAzureUcConfigActualBillConfigPtrType) ToGetAzureUcConfigActualBillConfigPtrOutputWithContext(ctx context.Context) GetAzureUcConfigActualBillConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAzureUcConfigActualBillConfigPtrOutput)
+}
+
+type GetAzureUcConfigActualBillConfigOutput struct{ *pulumi.OutputState }
+
+func (GetAzureUcConfigActualBillConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAzureUcConfigActualBillConfig)(nil)).Elem()
+}
+
+func (o GetAzureUcConfigActualBillConfigOutput) ToGetAzureUcConfigActualBillConfigOutput() GetAzureUcConfigActualBillConfigOutput {
+	return o
+}
+
+func (o GetAzureUcConfigActualBillConfigOutput) ToGetAzureUcConfigActualBillConfigOutputWithContext(ctx context.Context) GetAzureUcConfigActualBillConfigOutput {
+	return o
+}
+
+func (o GetAzureUcConfigActualBillConfigOutput) ToGetAzureUcConfigActualBillConfigPtrOutput() GetAzureUcConfigActualBillConfigPtrOutput {
+	return o.ToGetAzureUcConfigActualBillConfigPtrOutputWithContext(context.Background())
+}
+
+func (o GetAzureUcConfigActualBillConfigOutput) ToGetAzureUcConfigActualBillConfigPtrOutputWithContext(ctx context.Context) GetAzureUcConfigActualBillConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetAzureUcConfigActualBillConfig) *GetAzureUcConfigActualBillConfig {
+		return &v
+	}).(GetAzureUcConfigActualBillConfigPtrOutput)
+}
+
+// The name of the configured Azure Export.
+func (o GetAzureUcConfigActualBillConfigOutput) ExportName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAzureUcConfigActualBillConfig) string { return v.ExportName }).(pulumi.StringOutput)
+}
+
+// The path where the Azure Export is saved.
+func (o GetAzureUcConfigActualBillConfigOutput) ExportPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAzureUcConfigActualBillConfig) string { return v.ExportPath }).(pulumi.StringOutput)
+}
+
+// The name of the storage account where the Azure Export is saved.
+func (o GetAzureUcConfigActualBillConfigOutput) StorageAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAzureUcConfigActualBillConfig) string { return v.StorageAccount }).(pulumi.StringOutput)
+}
+
+// The name of the storage container where the Azure Export is saved.
+func (o GetAzureUcConfigActualBillConfigOutput) StorageContainer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAzureUcConfigActualBillConfig) string { return v.StorageContainer }).(pulumi.StringOutput)
+}
+
+type GetAzureUcConfigActualBillConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (GetAzureUcConfigActualBillConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAzureUcConfigActualBillConfig)(nil)).Elem()
+}
+
+func (o GetAzureUcConfigActualBillConfigPtrOutput) ToGetAzureUcConfigActualBillConfigPtrOutput() GetAzureUcConfigActualBillConfigPtrOutput {
+	return o
+}
+
+func (o GetAzureUcConfigActualBillConfigPtrOutput) ToGetAzureUcConfigActualBillConfigPtrOutputWithContext(ctx context.Context) GetAzureUcConfigActualBillConfigPtrOutput {
+	return o
+}
+
+func (o GetAzureUcConfigActualBillConfigPtrOutput) Elem() GetAzureUcConfigActualBillConfigOutput {
+	return o.ApplyT(func(v *GetAzureUcConfigActualBillConfig) GetAzureUcConfigActualBillConfig {
+		if v != nil {
+			return *v
+		}
+		var ret GetAzureUcConfigActualBillConfig
+		return ret
+	}).(GetAzureUcConfigActualBillConfigOutput)
+}
+
+// The name of the configured Azure Export.
+func (o GetAzureUcConfigActualBillConfigPtrOutput) ExportName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAzureUcConfigActualBillConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExportName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The path where the Azure Export is saved.
+func (o GetAzureUcConfigActualBillConfigPtrOutput) ExportPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAzureUcConfigActualBillConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExportPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the storage account where the Azure Export is saved.
+func (o GetAzureUcConfigActualBillConfigPtrOutput) StorageAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAzureUcConfigActualBillConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageAccount
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the storage container where the Azure Export is saved.
+func (o GetAzureUcConfigActualBillConfigPtrOutput) StorageContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAzureUcConfigActualBillConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageContainer
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetAzureUcConfigAmortizedBillConfig struct {
+	// The name of the configured Azure Export.
+	ExportName string `pulumi:"exportName"`
+	// The path where the Azure Export is saved.
+	ExportPath string `pulumi:"exportPath"`
+	// The name of the storage account where the Azure Export is saved.
+	StorageAccount string `pulumi:"storageAccount"`
+	// The name of the storage container where the Azure Export is saved.
+	StorageContainer string `pulumi:"storageContainer"`
+}
+
+// GetAzureUcConfigAmortizedBillConfigInput is an input type that accepts GetAzureUcConfigAmortizedBillConfigArgs and GetAzureUcConfigAmortizedBillConfigOutput values.
+// You can construct a concrete instance of `GetAzureUcConfigAmortizedBillConfigInput` via:
+//
+//	GetAzureUcConfigAmortizedBillConfigArgs{...}
+type GetAzureUcConfigAmortizedBillConfigInput interface {
+	pulumi.Input
+
+	ToGetAzureUcConfigAmortizedBillConfigOutput() GetAzureUcConfigAmortizedBillConfigOutput
+	ToGetAzureUcConfigAmortizedBillConfigOutputWithContext(context.Context) GetAzureUcConfigAmortizedBillConfigOutput
+}
+
+type GetAzureUcConfigAmortizedBillConfigArgs struct {
+	// The name of the configured Azure Export.
+	ExportName pulumi.StringInput `pulumi:"exportName"`
+	// The path where the Azure Export is saved.
+	ExportPath pulumi.StringInput `pulumi:"exportPath"`
+	// The name of the storage account where the Azure Export is saved.
+	StorageAccount pulumi.StringInput `pulumi:"storageAccount"`
+	// The name of the storage container where the Azure Export is saved.
+	StorageContainer pulumi.StringInput `pulumi:"storageContainer"`
+}
+
+func (GetAzureUcConfigAmortizedBillConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAzureUcConfigAmortizedBillConfig)(nil)).Elem()
+}
+
+func (i GetAzureUcConfigAmortizedBillConfigArgs) ToGetAzureUcConfigAmortizedBillConfigOutput() GetAzureUcConfigAmortizedBillConfigOutput {
+	return i.ToGetAzureUcConfigAmortizedBillConfigOutputWithContext(context.Background())
+}
+
+func (i GetAzureUcConfigAmortizedBillConfigArgs) ToGetAzureUcConfigAmortizedBillConfigOutputWithContext(ctx context.Context) GetAzureUcConfigAmortizedBillConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAzureUcConfigAmortizedBillConfigOutput)
+}
+
+func (i GetAzureUcConfigAmortizedBillConfigArgs) ToGetAzureUcConfigAmortizedBillConfigPtrOutput() GetAzureUcConfigAmortizedBillConfigPtrOutput {
+	return i.ToGetAzureUcConfigAmortizedBillConfigPtrOutputWithContext(context.Background())
+}
+
+func (i GetAzureUcConfigAmortizedBillConfigArgs) ToGetAzureUcConfigAmortizedBillConfigPtrOutputWithContext(ctx context.Context) GetAzureUcConfigAmortizedBillConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAzureUcConfigAmortizedBillConfigOutput).ToGetAzureUcConfigAmortizedBillConfigPtrOutputWithContext(ctx)
+}
+
+// GetAzureUcConfigAmortizedBillConfigPtrInput is an input type that accepts GetAzureUcConfigAmortizedBillConfigArgs, GetAzureUcConfigAmortizedBillConfigPtr and GetAzureUcConfigAmortizedBillConfigPtrOutput values.
+// You can construct a concrete instance of `GetAzureUcConfigAmortizedBillConfigPtrInput` via:
+//
+//	        GetAzureUcConfigAmortizedBillConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetAzureUcConfigAmortizedBillConfigPtrInput interface {
+	pulumi.Input
+
+	ToGetAzureUcConfigAmortizedBillConfigPtrOutput() GetAzureUcConfigAmortizedBillConfigPtrOutput
+	ToGetAzureUcConfigAmortizedBillConfigPtrOutputWithContext(context.Context) GetAzureUcConfigAmortizedBillConfigPtrOutput
+}
+
+type getAzureUcConfigAmortizedBillConfigPtrType GetAzureUcConfigAmortizedBillConfigArgs
+
+func GetAzureUcConfigAmortizedBillConfigPtr(v *GetAzureUcConfigAmortizedBillConfigArgs) GetAzureUcConfigAmortizedBillConfigPtrInput {
+	return (*getAzureUcConfigAmortizedBillConfigPtrType)(v)
+}
+
+func (*getAzureUcConfigAmortizedBillConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAzureUcConfigAmortizedBillConfig)(nil)).Elem()
+}
+
+func (i *getAzureUcConfigAmortizedBillConfigPtrType) ToGetAzureUcConfigAmortizedBillConfigPtrOutput() GetAzureUcConfigAmortizedBillConfigPtrOutput {
+	return i.ToGetAzureUcConfigAmortizedBillConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *getAzureUcConfigAmortizedBillConfigPtrType) ToGetAzureUcConfigAmortizedBillConfigPtrOutputWithContext(ctx context.Context) GetAzureUcConfigAmortizedBillConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAzureUcConfigAmortizedBillConfigPtrOutput)
+}
+
+type GetAzureUcConfigAmortizedBillConfigOutput struct{ *pulumi.OutputState }
+
+func (GetAzureUcConfigAmortizedBillConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAzureUcConfigAmortizedBillConfig)(nil)).Elem()
+}
+
+func (o GetAzureUcConfigAmortizedBillConfigOutput) ToGetAzureUcConfigAmortizedBillConfigOutput() GetAzureUcConfigAmortizedBillConfigOutput {
+	return o
+}
+
+func (o GetAzureUcConfigAmortizedBillConfigOutput) ToGetAzureUcConfigAmortizedBillConfigOutputWithContext(ctx context.Context) GetAzureUcConfigAmortizedBillConfigOutput {
+	return o
+}
+
+func (o GetAzureUcConfigAmortizedBillConfigOutput) ToGetAzureUcConfigAmortizedBillConfigPtrOutput() GetAzureUcConfigAmortizedBillConfigPtrOutput {
+	return o.ToGetAzureUcConfigAmortizedBillConfigPtrOutputWithContext(context.Background())
+}
+
+func (o GetAzureUcConfigAmortizedBillConfigOutput) ToGetAzureUcConfigAmortizedBillConfigPtrOutputWithContext(ctx context.Context) GetAzureUcConfigAmortizedBillConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetAzureUcConfigAmortizedBillConfig) *GetAzureUcConfigAmortizedBillConfig {
+		return &v
+	}).(GetAzureUcConfigAmortizedBillConfigPtrOutput)
+}
+
+// The name of the configured Azure Export.
+func (o GetAzureUcConfigAmortizedBillConfigOutput) ExportName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAzureUcConfigAmortizedBillConfig) string { return v.ExportName }).(pulumi.StringOutput)
+}
+
+// The path where the Azure Export is saved.
+func (o GetAzureUcConfigAmortizedBillConfigOutput) ExportPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAzureUcConfigAmortizedBillConfig) string { return v.ExportPath }).(pulumi.StringOutput)
+}
+
+// The name of the storage account where the Azure Export is saved.
+func (o GetAzureUcConfigAmortizedBillConfigOutput) StorageAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAzureUcConfigAmortizedBillConfig) string { return v.StorageAccount }).(pulumi.StringOutput)
+}
+
+// The name of the storage container where the Azure Export is saved.
+func (o GetAzureUcConfigAmortizedBillConfigOutput) StorageContainer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAzureUcConfigAmortizedBillConfig) string { return v.StorageContainer }).(pulumi.StringOutput)
+}
+
+type GetAzureUcConfigAmortizedBillConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (GetAzureUcConfigAmortizedBillConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAzureUcConfigAmortizedBillConfig)(nil)).Elem()
+}
+
+func (o GetAzureUcConfigAmortizedBillConfigPtrOutput) ToGetAzureUcConfigAmortizedBillConfigPtrOutput() GetAzureUcConfigAmortizedBillConfigPtrOutput {
+	return o
+}
+
+func (o GetAzureUcConfigAmortizedBillConfigPtrOutput) ToGetAzureUcConfigAmortizedBillConfigPtrOutputWithContext(ctx context.Context) GetAzureUcConfigAmortizedBillConfigPtrOutput {
+	return o
+}
+
+func (o GetAzureUcConfigAmortizedBillConfigPtrOutput) Elem() GetAzureUcConfigAmortizedBillConfigOutput {
+	return o.ApplyT(func(v *GetAzureUcConfigAmortizedBillConfig) GetAzureUcConfigAmortizedBillConfig {
+		if v != nil {
+			return *v
+		}
+		var ret GetAzureUcConfigAmortizedBillConfig
+		return ret
+	}).(GetAzureUcConfigAmortizedBillConfigOutput)
+}
+
+// The name of the configured Azure Export.
+func (o GetAzureUcConfigAmortizedBillConfigPtrOutput) ExportName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAzureUcConfigAmortizedBillConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExportName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The path where the Azure Export is saved.
+func (o GetAzureUcConfigAmortizedBillConfigPtrOutput) ExportPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAzureUcConfigAmortizedBillConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExportPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the storage account where the Azure Export is saved.
+func (o GetAzureUcConfigAmortizedBillConfigPtrOutput) StorageAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAzureUcConfigAmortizedBillConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageAccount
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the storage container where the Azure Export is saved.
+func (o GetAzureUcConfigAmortizedBillConfigPtrOutput) StorageContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAzureUcConfigAmortizedBillConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageContainer
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetCloudWorkloadSecurityAgentRulesAgentRule struct {
+	// The description of the Agent rule.
+	Description string `pulumi:"description"`
+	// Whether the Agent rule is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// The SECL expression of the Agent rule.
+	Expression string `pulumi:"expression"`
+	// The id of the Agent rule.
+	Id string `pulumi:"id"`
+	// The name of the Agent rule.
+	Name string `pulumi:"name"`
+}
+
+// GetCloudWorkloadSecurityAgentRulesAgentRuleInput is an input type that accepts GetCloudWorkloadSecurityAgentRulesAgentRuleArgs and GetCloudWorkloadSecurityAgentRulesAgentRuleOutput values.
+// You can construct a concrete instance of `GetCloudWorkloadSecurityAgentRulesAgentRuleInput` via:
+//
+//	GetCloudWorkloadSecurityAgentRulesAgentRuleArgs{...}
+type GetCloudWorkloadSecurityAgentRulesAgentRuleInput interface {
+	pulumi.Input
+
+	ToGetCloudWorkloadSecurityAgentRulesAgentRuleOutput() GetCloudWorkloadSecurityAgentRulesAgentRuleOutput
+	ToGetCloudWorkloadSecurityAgentRulesAgentRuleOutputWithContext(context.Context) GetCloudWorkloadSecurityAgentRulesAgentRuleOutput
+}
+
+type GetCloudWorkloadSecurityAgentRulesAgentRuleArgs struct {
+	// The description of the Agent rule.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Whether the Agent rule is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The SECL expression of the Agent rule.
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// The id of the Agent rule.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the Agent rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetCloudWorkloadSecurityAgentRulesAgentRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudWorkloadSecurityAgentRulesAgentRule)(nil)).Elem()
+}
+
+func (i GetCloudWorkloadSecurityAgentRulesAgentRuleArgs) ToGetCloudWorkloadSecurityAgentRulesAgentRuleOutput() GetCloudWorkloadSecurityAgentRulesAgentRuleOutput {
+	return i.ToGetCloudWorkloadSecurityAgentRulesAgentRuleOutputWithContext(context.Background())
+}
+
+func (i GetCloudWorkloadSecurityAgentRulesAgentRuleArgs) ToGetCloudWorkloadSecurityAgentRulesAgentRuleOutputWithContext(ctx context.Context) GetCloudWorkloadSecurityAgentRulesAgentRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudWorkloadSecurityAgentRulesAgentRuleOutput)
+}
+
+// GetCloudWorkloadSecurityAgentRulesAgentRuleArrayInput is an input type that accepts GetCloudWorkloadSecurityAgentRulesAgentRuleArray and GetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutput values.
+// You can construct a concrete instance of `GetCloudWorkloadSecurityAgentRulesAgentRuleArrayInput` via:
+//
+//	GetCloudWorkloadSecurityAgentRulesAgentRuleArray{ GetCloudWorkloadSecurityAgentRulesAgentRuleArgs{...} }
+type GetCloudWorkloadSecurityAgentRulesAgentRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutput() GetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutput
+	ToGetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutputWithContext(context.Context) GetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutput
+}
+
+type GetCloudWorkloadSecurityAgentRulesAgentRuleArray []GetCloudWorkloadSecurityAgentRulesAgentRuleInput
+
+func (GetCloudWorkloadSecurityAgentRulesAgentRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCloudWorkloadSecurityAgentRulesAgentRule)(nil)).Elem()
+}
+
+func (i GetCloudWorkloadSecurityAgentRulesAgentRuleArray) ToGetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutput() GetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutput {
+	return i.ToGetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetCloudWorkloadSecurityAgentRulesAgentRuleArray) ToGetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutputWithContext(ctx context.Context) GetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutput)
+}
+
+type GetCloudWorkloadSecurityAgentRulesAgentRuleOutput struct{ *pulumi.OutputState }
+
+func (GetCloudWorkloadSecurityAgentRulesAgentRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudWorkloadSecurityAgentRulesAgentRule)(nil)).Elem()
+}
+
+func (o GetCloudWorkloadSecurityAgentRulesAgentRuleOutput) ToGetCloudWorkloadSecurityAgentRulesAgentRuleOutput() GetCloudWorkloadSecurityAgentRulesAgentRuleOutput {
+	return o
+}
+
+func (o GetCloudWorkloadSecurityAgentRulesAgentRuleOutput) ToGetCloudWorkloadSecurityAgentRulesAgentRuleOutputWithContext(ctx context.Context) GetCloudWorkloadSecurityAgentRulesAgentRuleOutput {
+	return o
+}
+
+// The description of the Agent rule.
+func (o GetCloudWorkloadSecurityAgentRulesAgentRuleOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudWorkloadSecurityAgentRulesAgentRule) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Whether the Agent rule is enabled.
+func (o GetCloudWorkloadSecurityAgentRulesAgentRuleOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCloudWorkloadSecurityAgentRulesAgentRule) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The SECL expression of the Agent rule.
+func (o GetCloudWorkloadSecurityAgentRulesAgentRuleOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudWorkloadSecurityAgentRulesAgentRule) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+// The id of the Agent rule.
+func (o GetCloudWorkloadSecurityAgentRulesAgentRuleOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudWorkloadSecurityAgentRulesAgentRule) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the Agent rule.
+func (o GetCloudWorkloadSecurityAgentRulesAgentRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudWorkloadSecurityAgentRulesAgentRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCloudWorkloadSecurityAgentRulesAgentRule)(nil)).Elem()
+}
+
+func (o GetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutput) ToGetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutput() GetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutput {
+	return o
+}
+
+func (o GetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutput) ToGetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutputWithContext(ctx context.Context) GetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutput {
+	return o
+}
+
+func (o GetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutput) Index(i pulumi.IntInput) GetCloudWorkloadSecurityAgentRulesAgentRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCloudWorkloadSecurityAgentRulesAgentRule {
+		return vs[0].([]GetCloudWorkloadSecurityAgentRulesAgentRule)[vs[1].(int)]
+	}).(GetCloudWorkloadSecurityAgentRulesAgentRuleOutput)
+}
+
+type GetCostBudgetBudgetLine struct {
+	// Map of month (YYYYMM as string) to budget amount.
+	Amounts map[string]float64 `pulumi:"amounts"`
+	// Child tag filters for hierarchical budgets (second tag in 'by' clause).
+	ChildTagFilters []GetCostBudgetBudgetLineChildTagFilter `pulumi:"childTagFilters"`
+	// Parent tag filters for hierarchical budgets (first tag in 'by' clause).
+	ParentTagFilters []GetCostBudgetBudgetLineParentTagFilter `pulumi:"parentTagFilters"`
+	// Tag filters for non-hierarchical budgets (single tag or no tags).
+	TagFilters []GetCostBudgetBudgetLineTagFilter `pulumi:"tagFilters"`
+}
+
+// GetCostBudgetBudgetLineInput is an input type that accepts GetCostBudgetBudgetLineArgs and GetCostBudgetBudgetLineOutput values.
+// You can construct a concrete instance of `GetCostBudgetBudgetLineInput` via:
+//
+//	GetCostBudgetBudgetLineArgs{...}
+type GetCostBudgetBudgetLineInput interface {
+	pulumi.Input
+
+	ToGetCostBudgetBudgetLineOutput() GetCostBudgetBudgetLineOutput
+	ToGetCostBudgetBudgetLineOutputWithContext(context.Context) GetCostBudgetBudgetLineOutput
+}
+
+type GetCostBudgetBudgetLineArgs struct {
+	// Map of month (YYYYMM as string) to budget amount.
+	Amounts pulumi.Float64MapInput `pulumi:"amounts"`
+	// Child tag filters for hierarchical budgets (second tag in 'by' clause).
+	ChildTagFilters GetCostBudgetBudgetLineChildTagFilterArrayInput `pulumi:"childTagFilters"`
+	// Parent tag filters for hierarchical budgets (first tag in 'by' clause).
+	ParentTagFilters GetCostBudgetBudgetLineParentTagFilterArrayInput `pulumi:"parentTagFilters"`
+	// Tag filters for non-hierarchical budgets (single tag or no tags).
+	TagFilters GetCostBudgetBudgetLineTagFilterArrayInput `pulumi:"tagFilters"`
+}
+
+func (GetCostBudgetBudgetLineArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostBudgetBudgetLine)(nil)).Elem()
+}
+
+func (i GetCostBudgetBudgetLineArgs) ToGetCostBudgetBudgetLineOutput() GetCostBudgetBudgetLineOutput {
+	return i.ToGetCostBudgetBudgetLineOutputWithContext(context.Background())
+}
+
+func (i GetCostBudgetBudgetLineArgs) ToGetCostBudgetBudgetLineOutputWithContext(ctx context.Context) GetCostBudgetBudgetLineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostBudgetBudgetLineOutput)
+}
+
+// GetCostBudgetBudgetLineArrayInput is an input type that accepts GetCostBudgetBudgetLineArray and GetCostBudgetBudgetLineArrayOutput values.
+// You can construct a concrete instance of `GetCostBudgetBudgetLineArrayInput` via:
+//
+//	GetCostBudgetBudgetLineArray{ GetCostBudgetBudgetLineArgs{...} }
+type GetCostBudgetBudgetLineArrayInput interface {
+	pulumi.Input
+
+	ToGetCostBudgetBudgetLineArrayOutput() GetCostBudgetBudgetLineArrayOutput
+	ToGetCostBudgetBudgetLineArrayOutputWithContext(context.Context) GetCostBudgetBudgetLineArrayOutput
+}
+
+type GetCostBudgetBudgetLineArray []GetCostBudgetBudgetLineInput
+
+func (GetCostBudgetBudgetLineArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostBudgetBudgetLine)(nil)).Elem()
+}
+
+func (i GetCostBudgetBudgetLineArray) ToGetCostBudgetBudgetLineArrayOutput() GetCostBudgetBudgetLineArrayOutput {
+	return i.ToGetCostBudgetBudgetLineArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostBudgetBudgetLineArray) ToGetCostBudgetBudgetLineArrayOutputWithContext(ctx context.Context) GetCostBudgetBudgetLineArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostBudgetBudgetLineArrayOutput)
+}
+
+type GetCostBudgetBudgetLineOutput struct{ *pulumi.OutputState }
+
+func (GetCostBudgetBudgetLineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostBudgetBudgetLine)(nil)).Elem()
+}
+
+func (o GetCostBudgetBudgetLineOutput) ToGetCostBudgetBudgetLineOutput() GetCostBudgetBudgetLineOutput {
+	return o
+}
+
+func (o GetCostBudgetBudgetLineOutput) ToGetCostBudgetBudgetLineOutputWithContext(ctx context.Context) GetCostBudgetBudgetLineOutput {
+	return o
+}
+
+// Map of month (YYYYMM as string) to budget amount.
+func (o GetCostBudgetBudgetLineOutput) Amounts() pulumi.Float64MapOutput {
+	return o.ApplyT(func(v GetCostBudgetBudgetLine) map[string]float64 { return v.Amounts }).(pulumi.Float64MapOutput)
+}
+
+// Child tag filters for hierarchical budgets (second tag in 'by' clause).
+func (o GetCostBudgetBudgetLineOutput) ChildTagFilters() GetCostBudgetBudgetLineChildTagFilterArrayOutput {
+	return o.ApplyT(func(v GetCostBudgetBudgetLine) []GetCostBudgetBudgetLineChildTagFilter { return v.ChildTagFilters }).(GetCostBudgetBudgetLineChildTagFilterArrayOutput)
+}
+
+// Parent tag filters for hierarchical budgets (first tag in 'by' clause).
+func (o GetCostBudgetBudgetLineOutput) ParentTagFilters() GetCostBudgetBudgetLineParentTagFilterArrayOutput {
+	return o.ApplyT(func(v GetCostBudgetBudgetLine) []GetCostBudgetBudgetLineParentTagFilter { return v.ParentTagFilters }).(GetCostBudgetBudgetLineParentTagFilterArrayOutput)
+}
+
+// Tag filters for non-hierarchical budgets (single tag or no tags).
+func (o GetCostBudgetBudgetLineOutput) TagFilters() GetCostBudgetBudgetLineTagFilterArrayOutput {
+	return o.ApplyT(func(v GetCostBudgetBudgetLine) []GetCostBudgetBudgetLineTagFilter { return v.TagFilters }).(GetCostBudgetBudgetLineTagFilterArrayOutput)
+}
+
+type GetCostBudgetBudgetLineArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostBudgetBudgetLineArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostBudgetBudgetLine)(nil)).Elem()
+}
+
+func (o GetCostBudgetBudgetLineArrayOutput) ToGetCostBudgetBudgetLineArrayOutput() GetCostBudgetBudgetLineArrayOutput {
+	return o
+}
+
+func (o GetCostBudgetBudgetLineArrayOutput) ToGetCostBudgetBudgetLineArrayOutputWithContext(ctx context.Context) GetCostBudgetBudgetLineArrayOutput {
+	return o
+}
+
+func (o GetCostBudgetBudgetLineArrayOutput) Index(i pulumi.IntInput) GetCostBudgetBudgetLineOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostBudgetBudgetLine {
+		return vs[0].([]GetCostBudgetBudgetLine)[vs[1].(int)]
+	}).(GetCostBudgetBudgetLineOutput)
+}
+
+type GetCostBudgetBudgetLineChildTagFilter struct {
+	TagKey   string `pulumi:"tagKey"`
+	TagValue string `pulumi:"tagValue"`
+}
+
+// GetCostBudgetBudgetLineChildTagFilterInput is an input type that accepts GetCostBudgetBudgetLineChildTagFilterArgs and GetCostBudgetBudgetLineChildTagFilterOutput values.
+// You can construct a concrete instance of `GetCostBudgetBudgetLineChildTagFilterInput` via:
+//
+//	GetCostBudgetBudgetLineChildTagFilterArgs{...}
+type GetCostBudgetBudgetLineChildTagFilterInput interface {
+	pulumi.Input
+
+	ToGetCostBudgetBudgetLineChildTagFilterOutput() GetCostBudgetBudgetLineChildTagFilterOutput
+	ToGetCostBudgetBudgetLineChildTagFilterOutputWithContext(context.Context) GetCostBudgetBudgetLineChildTagFilterOutput
+}
+
+type GetCostBudgetBudgetLineChildTagFilterArgs struct {
+	TagKey   pulumi.StringInput `pulumi:"tagKey"`
+	TagValue pulumi.StringInput `pulumi:"tagValue"`
+}
+
+func (GetCostBudgetBudgetLineChildTagFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostBudgetBudgetLineChildTagFilter)(nil)).Elem()
+}
+
+func (i GetCostBudgetBudgetLineChildTagFilterArgs) ToGetCostBudgetBudgetLineChildTagFilterOutput() GetCostBudgetBudgetLineChildTagFilterOutput {
+	return i.ToGetCostBudgetBudgetLineChildTagFilterOutputWithContext(context.Background())
+}
+
+func (i GetCostBudgetBudgetLineChildTagFilterArgs) ToGetCostBudgetBudgetLineChildTagFilterOutputWithContext(ctx context.Context) GetCostBudgetBudgetLineChildTagFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostBudgetBudgetLineChildTagFilterOutput)
+}
+
+// GetCostBudgetBudgetLineChildTagFilterArrayInput is an input type that accepts GetCostBudgetBudgetLineChildTagFilterArray and GetCostBudgetBudgetLineChildTagFilterArrayOutput values.
+// You can construct a concrete instance of `GetCostBudgetBudgetLineChildTagFilterArrayInput` via:
+//
+//	GetCostBudgetBudgetLineChildTagFilterArray{ GetCostBudgetBudgetLineChildTagFilterArgs{...} }
+type GetCostBudgetBudgetLineChildTagFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetCostBudgetBudgetLineChildTagFilterArrayOutput() GetCostBudgetBudgetLineChildTagFilterArrayOutput
+	ToGetCostBudgetBudgetLineChildTagFilterArrayOutputWithContext(context.Context) GetCostBudgetBudgetLineChildTagFilterArrayOutput
+}
+
+type GetCostBudgetBudgetLineChildTagFilterArray []GetCostBudgetBudgetLineChildTagFilterInput
+
+func (GetCostBudgetBudgetLineChildTagFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostBudgetBudgetLineChildTagFilter)(nil)).Elem()
+}
+
+func (i GetCostBudgetBudgetLineChildTagFilterArray) ToGetCostBudgetBudgetLineChildTagFilterArrayOutput() GetCostBudgetBudgetLineChildTagFilterArrayOutput {
+	return i.ToGetCostBudgetBudgetLineChildTagFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostBudgetBudgetLineChildTagFilterArray) ToGetCostBudgetBudgetLineChildTagFilterArrayOutputWithContext(ctx context.Context) GetCostBudgetBudgetLineChildTagFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostBudgetBudgetLineChildTagFilterArrayOutput)
+}
+
+type GetCostBudgetBudgetLineChildTagFilterOutput struct{ *pulumi.OutputState }
+
+func (GetCostBudgetBudgetLineChildTagFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostBudgetBudgetLineChildTagFilter)(nil)).Elem()
+}
+
+func (o GetCostBudgetBudgetLineChildTagFilterOutput) ToGetCostBudgetBudgetLineChildTagFilterOutput() GetCostBudgetBudgetLineChildTagFilterOutput {
+	return o
+}
+
+func (o GetCostBudgetBudgetLineChildTagFilterOutput) ToGetCostBudgetBudgetLineChildTagFilterOutputWithContext(ctx context.Context) GetCostBudgetBudgetLineChildTagFilterOutput {
+	return o
+}
+
+func (o GetCostBudgetBudgetLineChildTagFilterOutput) TagKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostBudgetBudgetLineChildTagFilter) string { return v.TagKey }).(pulumi.StringOutput)
+}
+
+func (o GetCostBudgetBudgetLineChildTagFilterOutput) TagValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostBudgetBudgetLineChildTagFilter) string { return v.TagValue }).(pulumi.StringOutput)
+}
+
+type GetCostBudgetBudgetLineChildTagFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostBudgetBudgetLineChildTagFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostBudgetBudgetLineChildTagFilter)(nil)).Elem()
+}
+
+func (o GetCostBudgetBudgetLineChildTagFilterArrayOutput) ToGetCostBudgetBudgetLineChildTagFilterArrayOutput() GetCostBudgetBudgetLineChildTagFilterArrayOutput {
+	return o
+}
+
+func (o GetCostBudgetBudgetLineChildTagFilterArrayOutput) ToGetCostBudgetBudgetLineChildTagFilterArrayOutputWithContext(ctx context.Context) GetCostBudgetBudgetLineChildTagFilterArrayOutput {
+	return o
+}
+
+func (o GetCostBudgetBudgetLineChildTagFilterArrayOutput) Index(i pulumi.IntInput) GetCostBudgetBudgetLineChildTagFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostBudgetBudgetLineChildTagFilter {
+		return vs[0].([]GetCostBudgetBudgetLineChildTagFilter)[vs[1].(int)]
+	}).(GetCostBudgetBudgetLineChildTagFilterOutput)
+}
+
+type GetCostBudgetBudgetLineParentTagFilter struct {
+	TagKey   string `pulumi:"tagKey"`
+	TagValue string `pulumi:"tagValue"`
+}
+
+// GetCostBudgetBudgetLineParentTagFilterInput is an input type that accepts GetCostBudgetBudgetLineParentTagFilterArgs and GetCostBudgetBudgetLineParentTagFilterOutput values.
+// You can construct a concrete instance of `GetCostBudgetBudgetLineParentTagFilterInput` via:
+//
+//	GetCostBudgetBudgetLineParentTagFilterArgs{...}
+type GetCostBudgetBudgetLineParentTagFilterInput interface {
+	pulumi.Input
+
+	ToGetCostBudgetBudgetLineParentTagFilterOutput() GetCostBudgetBudgetLineParentTagFilterOutput
+	ToGetCostBudgetBudgetLineParentTagFilterOutputWithContext(context.Context) GetCostBudgetBudgetLineParentTagFilterOutput
+}
+
+type GetCostBudgetBudgetLineParentTagFilterArgs struct {
+	TagKey   pulumi.StringInput `pulumi:"tagKey"`
+	TagValue pulumi.StringInput `pulumi:"tagValue"`
+}
+
+func (GetCostBudgetBudgetLineParentTagFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostBudgetBudgetLineParentTagFilter)(nil)).Elem()
+}
+
+func (i GetCostBudgetBudgetLineParentTagFilterArgs) ToGetCostBudgetBudgetLineParentTagFilterOutput() GetCostBudgetBudgetLineParentTagFilterOutput {
+	return i.ToGetCostBudgetBudgetLineParentTagFilterOutputWithContext(context.Background())
+}
+
+func (i GetCostBudgetBudgetLineParentTagFilterArgs) ToGetCostBudgetBudgetLineParentTagFilterOutputWithContext(ctx context.Context) GetCostBudgetBudgetLineParentTagFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostBudgetBudgetLineParentTagFilterOutput)
+}
+
+// GetCostBudgetBudgetLineParentTagFilterArrayInput is an input type that accepts GetCostBudgetBudgetLineParentTagFilterArray and GetCostBudgetBudgetLineParentTagFilterArrayOutput values.
+// You can construct a concrete instance of `GetCostBudgetBudgetLineParentTagFilterArrayInput` via:
+//
+//	GetCostBudgetBudgetLineParentTagFilterArray{ GetCostBudgetBudgetLineParentTagFilterArgs{...} }
+type GetCostBudgetBudgetLineParentTagFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetCostBudgetBudgetLineParentTagFilterArrayOutput() GetCostBudgetBudgetLineParentTagFilterArrayOutput
+	ToGetCostBudgetBudgetLineParentTagFilterArrayOutputWithContext(context.Context) GetCostBudgetBudgetLineParentTagFilterArrayOutput
+}
+
+type GetCostBudgetBudgetLineParentTagFilterArray []GetCostBudgetBudgetLineParentTagFilterInput
+
+func (GetCostBudgetBudgetLineParentTagFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostBudgetBudgetLineParentTagFilter)(nil)).Elem()
+}
+
+func (i GetCostBudgetBudgetLineParentTagFilterArray) ToGetCostBudgetBudgetLineParentTagFilterArrayOutput() GetCostBudgetBudgetLineParentTagFilterArrayOutput {
+	return i.ToGetCostBudgetBudgetLineParentTagFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostBudgetBudgetLineParentTagFilterArray) ToGetCostBudgetBudgetLineParentTagFilterArrayOutputWithContext(ctx context.Context) GetCostBudgetBudgetLineParentTagFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostBudgetBudgetLineParentTagFilterArrayOutput)
+}
+
+type GetCostBudgetBudgetLineParentTagFilterOutput struct{ *pulumi.OutputState }
+
+func (GetCostBudgetBudgetLineParentTagFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostBudgetBudgetLineParentTagFilter)(nil)).Elem()
+}
+
+func (o GetCostBudgetBudgetLineParentTagFilterOutput) ToGetCostBudgetBudgetLineParentTagFilterOutput() GetCostBudgetBudgetLineParentTagFilterOutput {
+	return o
+}
+
+func (o GetCostBudgetBudgetLineParentTagFilterOutput) ToGetCostBudgetBudgetLineParentTagFilterOutputWithContext(ctx context.Context) GetCostBudgetBudgetLineParentTagFilterOutput {
+	return o
+}
+
+func (o GetCostBudgetBudgetLineParentTagFilterOutput) TagKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostBudgetBudgetLineParentTagFilter) string { return v.TagKey }).(pulumi.StringOutput)
+}
+
+func (o GetCostBudgetBudgetLineParentTagFilterOutput) TagValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostBudgetBudgetLineParentTagFilter) string { return v.TagValue }).(pulumi.StringOutput)
+}
+
+type GetCostBudgetBudgetLineParentTagFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostBudgetBudgetLineParentTagFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostBudgetBudgetLineParentTagFilter)(nil)).Elem()
+}
+
+func (o GetCostBudgetBudgetLineParentTagFilterArrayOutput) ToGetCostBudgetBudgetLineParentTagFilterArrayOutput() GetCostBudgetBudgetLineParentTagFilterArrayOutput {
+	return o
+}
+
+func (o GetCostBudgetBudgetLineParentTagFilterArrayOutput) ToGetCostBudgetBudgetLineParentTagFilterArrayOutputWithContext(ctx context.Context) GetCostBudgetBudgetLineParentTagFilterArrayOutput {
+	return o
+}
+
+func (o GetCostBudgetBudgetLineParentTagFilterArrayOutput) Index(i pulumi.IntInput) GetCostBudgetBudgetLineParentTagFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostBudgetBudgetLineParentTagFilter {
+		return vs[0].([]GetCostBudgetBudgetLineParentTagFilter)[vs[1].(int)]
+	}).(GetCostBudgetBudgetLineParentTagFilterOutput)
+}
+
+type GetCostBudgetBudgetLineTagFilter struct {
+	TagKey   string `pulumi:"tagKey"`
+	TagValue string `pulumi:"tagValue"`
+}
+
+// GetCostBudgetBudgetLineTagFilterInput is an input type that accepts GetCostBudgetBudgetLineTagFilterArgs and GetCostBudgetBudgetLineTagFilterOutput values.
+// You can construct a concrete instance of `GetCostBudgetBudgetLineTagFilterInput` via:
+//
+//	GetCostBudgetBudgetLineTagFilterArgs{...}
+type GetCostBudgetBudgetLineTagFilterInput interface {
+	pulumi.Input
+
+	ToGetCostBudgetBudgetLineTagFilterOutput() GetCostBudgetBudgetLineTagFilterOutput
+	ToGetCostBudgetBudgetLineTagFilterOutputWithContext(context.Context) GetCostBudgetBudgetLineTagFilterOutput
+}
+
+type GetCostBudgetBudgetLineTagFilterArgs struct {
+	TagKey   pulumi.StringInput `pulumi:"tagKey"`
+	TagValue pulumi.StringInput `pulumi:"tagValue"`
+}
+
+func (GetCostBudgetBudgetLineTagFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostBudgetBudgetLineTagFilter)(nil)).Elem()
+}
+
+func (i GetCostBudgetBudgetLineTagFilterArgs) ToGetCostBudgetBudgetLineTagFilterOutput() GetCostBudgetBudgetLineTagFilterOutput {
+	return i.ToGetCostBudgetBudgetLineTagFilterOutputWithContext(context.Background())
+}
+
+func (i GetCostBudgetBudgetLineTagFilterArgs) ToGetCostBudgetBudgetLineTagFilterOutputWithContext(ctx context.Context) GetCostBudgetBudgetLineTagFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostBudgetBudgetLineTagFilterOutput)
+}
+
+// GetCostBudgetBudgetLineTagFilterArrayInput is an input type that accepts GetCostBudgetBudgetLineTagFilterArray and GetCostBudgetBudgetLineTagFilterArrayOutput values.
+// You can construct a concrete instance of `GetCostBudgetBudgetLineTagFilterArrayInput` via:
+//
+//	GetCostBudgetBudgetLineTagFilterArray{ GetCostBudgetBudgetLineTagFilterArgs{...} }
+type GetCostBudgetBudgetLineTagFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetCostBudgetBudgetLineTagFilterArrayOutput() GetCostBudgetBudgetLineTagFilterArrayOutput
+	ToGetCostBudgetBudgetLineTagFilterArrayOutputWithContext(context.Context) GetCostBudgetBudgetLineTagFilterArrayOutput
+}
+
+type GetCostBudgetBudgetLineTagFilterArray []GetCostBudgetBudgetLineTagFilterInput
+
+func (GetCostBudgetBudgetLineTagFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostBudgetBudgetLineTagFilter)(nil)).Elem()
+}
+
+func (i GetCostBudgetBudgetLineTagFilterArray) ToGetCostBudgetBudgetLineTagFilterArrayOutput() GetCostBudgetBudgetLineTagFilterArrayOutput {
+	return i.ToGetCostBudgetBudgetLineTagFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostBudgetBudgetLineTagFilterArray) ToGetCostBudgetBudgetLineTagFilterArrayOutputWithContext(ctx context.Context) GetCostBudgetBudgetLineTagFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostBudgetBudgetLineTagFilterArrayOutput)
+}
+
+type GetCostBudgetBudgetLineTagFilterOutput struct{ *pulumi.OutputState }
+
+func (GetCostBudgetBudgetLineTagFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostBudgetBudgetLineTagFilter)(nil)).Elem()
+}
+
+func (o GetCostBudgetBudgetLineTagFilterOutput) ToGetCostBudgetBudgetLineTagFilterOutput() GetCostBudgetBudgetLineTagFilterOutput {
+	return o
+}
+
+func (o GetCostBudgetBudgetLineTagFilterOutput) ToGetCostBudgetBudgetLineTagFilterOutputWithContext(ctx context.Context) GetCostBudgetBudgetLineTagFilterOutput {
+	return o
+}
+
+func (o GetCostBudgetBudgetLineTagFilterOutput) TagKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostBudgetBudgetLineTagFilter) string { return v.TagKey }).(pulumi.StringOutput)
+}
+
+func (o GetCostBudgetBudgetLineTagFilterOutput) TagValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostBudgetBudgetLineTagFilter) string { return v.TagValue }).(pulumi.StringOutput)
+}
+
+type GetCostBudgetBudgetLineTagFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostBudgetBudgetLineTagFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostBudgetBudgetLineTagFilter)(nil)).Elem()
+}
+
+func (o GetCostBudgetBudgetLineTagFilterArrayOutput) ToGetCostBudgetBudgetLineTagFilterArrayOutput() GetCostBudgetBudgetLineTagFilterArrayOutput {
+	return o
+}
+
+func (o GetCostBudgetBudgetLineTagFilterArrayOutput) ToGetCostBudgetBudgetLineTagFilterArrayOutputWithContext(ctx context.Context) GetCostBudgetBudgetLineTagFilterArrayOutput {
+	return o
+}
+
+func (o GetCostBudgetBudgetLineTagFilterArrayOutput) Index(i pulumi.IntInput) GetCostBudgetBudgetLineTagFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostBudgetBudgetLineTagFilter {
+		return vs[0].([]GetCostBudgetBudgetLineTagFilter)[vs[1].(int)]
+	}).(GetCostBudgetBudgetLineTagFilterOutput)
+}
+
+type GetCostBudgetEntry struct {
+	Amount     float64                       `pulumi:"amount"`
+	Month      int                           `pulumi:"month"`
+	TagFilters []GetCostBudgetEntryTagFilter `pulumi:"tagFilters"`
+}
+
+// GetCostBudgetEntryInput is an input type that accepts GetCostBudgetEntryArgs and GetCostBudgetEntryOutput values.
+// You can construct a concrete instance of `GetCostBudgetEntryInput` via:
+//
+//	GetCostBudgetEntryArgs{...}
+type GetCostBudgetEntryInput interface {
+	pulumi.Input
+
+	ToGetCostBudgetEntryOutput() GetCostBudgetEntryOutput
+	ToGetCostBudgetEntryOutputWithContext(context.Context) GetCostBudgetEntryOutput
+}
+
+type GetCostBudgetEntryArgs struct {
+	Amount     pulumi.Float64Input                   `pulumi:"amount"`
+	Month      pulumi.IntInput                       `pulumi:"month"`
+	TagFilters GetCostBudgetEntryTagFilterArrayInput `pulumi:"tagFilters"`
+}
+
+func (GetCostBudgetEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostBudgetEntry)(nil)).Elem()
+}
+
+func (i GetCostBudgetEntryArgs) ToGetCostBudgetEntryOutput() GetCostBudgetEntryOutput {
+	return i.ToGetCostBudgetEntryOutputWithContext(context.Background())
+}
+
+func (i GetCostBudgetEntryArgs) ToGetCostBudgetEntryOutputWithContext(ctx context.Context) GetCostBudgetEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostBudgetEntryOutput)
+}
+
+// GetCostBudgetEntryArrayInput is an input type that accepts GetCostBudgetEntryArray and GetCostBudgetEntryArrayOutput values.
+// You can construct a concrete instance of `GetCostBudgetEntryArrayInput` via:
+//
+//	GetCostBudgetEntryArray{ GetCostBudgetEntryArgs{...} }
+type GetCostBudgetEntryArrayInput interface {
+	pulumi.Input
+
+	ToGetCostBudgetEntryArrayOutput() GetCostBudgetEntryArrayOutput
+	ToGetCostBudgetEntryArrayOutputWithContext(context.Context) GetCostBudgetEntryArrayOutput
+}
+
+type GetCostBudgetEntryArray []GetCostBudgetEntryInput
+
+func (GetCostBudgetEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostBudgetEntry)(nil)).Elem()
+}
+
+func (i GetCostBudgetEntryArray) ToGetCostBudgetEntryArrayOutput() GetCostBudgetEntryArrayOutput {
+	return i.ToGetCostBudgetEntryArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostBudgetEntryArray) ToGetCostBudgetEntryArrayOutputWithContext(ctx context.Context) GetCostBudgetEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostBudgetEntryArrayOutput)
+}
+
+type GetCostBudgetEntryOutput struct{ *pulumi.OutputState }
+
+func (GetCostBudgetEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostBudgetEntry)(nil)).Elem()
+}
+
+func (o GetCostBudgetEntryOutput) ToGetCostBudgetEntryOutput() GetCostBudgetEntryOutput {
+	return o
+}
+
+func (o GetCostBudgetEntryOutput) ToGetCostBudgetEntryOutputWithContext(ctx context.Context) GetCostBudgetEntryOutput {
+	return o
+}
+
+func (o GetCostBudgetEntryOutput) Amount() pulumi.Float64Output {
+	return o.ApplyT(func(v GetCostBudgetEntry) float64 { return v.Amount }).(pulumi.Float64Output)
+}
+
+func (o GetCostBudgetEntryOutput) Month() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCostBudgetEntry) int { return v.Month }).(pulumi.IntOutput)
+}
+
+func (o GetCostBudgetEntryOutput) TagFilters() GetCostBudgetEntryTagFilterArrayOutput {
+	return o.ApplyT(func(v GetCostBudgetEntry) []GetCostBudgetEntryTagFilter { return v.TagFilters }).(GetCostBudgetEntryTagFilterArrayOutput)
+}
+
+type GetCostBudgetEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostBudgetEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostBudgetEntry)(nil)).Elem()
+}
+
+func (o GetCostBudgetEntryArrayOutput) ToGetCostBudgetEntryArrayOutput() GetCostBudgetEntryArrayOutput {
+	return o
+}
+
+func (o GetCostBudgetEntryArrayOutput) ToGetCostBudgetEntryArrayOutputWithContext(ctx context.Context) GetCostBudgetEntryArrayOutput {
+	return o
+}
+
+func (o GetCostBudgetEntryArrayOutput) Index(i pulumi.IntInput) GetCostBudgetEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostBudgetEntry {
+		return vs[0].([]GetCostBudgetEntry)[vs[1].(int)]
+	}).(GetCostBudgetEntryOutput)
+}
+
+type GetCostBudgetEntryTagFilter struct {
+	TagKey   string `pulumi:"tagKey"`
+	TagValue string `pulumi:"tagValue"`
+}
+
+// GetCostBudgetEntryTagFilterInput is an input type that accepts GetCostBudgetEntryTagFilterArgs and GetCostBudgetEntryTagFilterOutput values.
+// You can construct a concrete instance of `GetCostBudgetEntryTagFilterInput` via:
+//
+//	GetCostBudgetEntryTagFilterArgs{...}
+type GetCostBudgetEntryTagFilterInput interface {
+	pulumi.Input
+
+	ToGetCostBudgetEntryTagFilterOutput() GetCostBudgetEntryTagFilterOutput
+	ToGetCostBudgetEntryTagFilterOutputWithContext(context.Context) GetCostBudgetEntryTagFilterOutput
+}
+
+type GetCostBudgetEntryTagFilterArgs struct {
+	TagKey   pulumi.StringInput `pulumi:"tagKey"`
+	TagValue pulumi.StringInput `pulumi:"tagValue"`
+}
+
+func (GetCostBudgetEntryTagFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostBudgetEntryTagFilter)(nil)).Elem()
+}
+
+func (i GetCostBudgetEntryTagFilterArgs) ToGetCostBudgetEntryTagFilterOutput() GetCostBudgetEntryTagFilterOutput {
+	return i.ToGetCostBudgetEntryTagFilterOutputWithContext(context.Background())
+}
+
+func (i GetCostBudgetEntryTagFilterArgs) ToGetCostBudgetEntryTagFilterOutputWithContext(ctx context.Context) GetCostBudgetEntryTagFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostBudgetEntryTagFilterOutput)
+}
+
+// GetCostBudgetEntryTagFilterArrayInput is an input type that accepts GetCostBudgetEntryTagFilterArray and GetCostBudgetEntryTagFilterArrayOutput values.
+// You can construct a concrete instance of `GetCostBudgetEntryTagFilterArrayInput` via:
+//
+//	GetCostBudgetEntryTagFilterArray{ GetCostBudgetEntryTagFilterArgs{...} }
+type GetCostBudgetEntryTagFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetCostBudgetEntryTagFilterArrayOutput() GetCostBudgetEntryTagFilterArrayOutput
+	ToGetCostBudgetEntryTagFilterArrayOutputWithContext(context.Context) GetCostBudgetEntryTagFilterArrayOutput
+}
+
+type GetCostBudgetEntryTagFilterArray []GetCostBudgetEntryTagFilterInput
+
+func (GetCostBudgetEntryTagFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostBudgetEntryTagFilter)(nil)).Elem()
+}
+
+func (i GetCostBudgetEntryTagFilterArray) ToGetCostBudgetEntryTagFilterArrayOutput() GetCostBudgetEntryTagFilterArrayOutput {
+	return i.ToGetCostBudgetEntryTagFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetCostBudgetEntryTagFilterArray) ToGetCostBudgetEntryTagFilterArrayOutputWithContext(ctx context.Context) GetCostBudgetEntryTagFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCostBudgetEntryTagFilterArrayOutput)
+}
+
+type GetCostBudgetEntryTagFilterOutput struct{ *pulumi.OutputState }
+
+func (GetCostBudgetEntryTagFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCostBudgetEntryTagFilter)(nil)).Elem()
+}
+
+func (o GetCostBudgetEntryTagFilterOutput) ToGetCostBudgetEntryTagFilterOutput() GetCostBudgetEntryTagFilterOutput {
+	return o
+}
+
+func (o GetCostBudgetEntryTagFilterOutput) ToGetCostBudgetEntryTagFilterOutputWithContext(ctx context.Context) GetCostBudgetEntryTagFilterOutput {
+	return o
+}
+
+func (o GetCostBudgetEntryTagFilterOutput) TagKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostBudgetEntryTagFilter) string { return v.TagKey }).(pulumi.StringOutput)
+}
+
+func (o GetCostBudgetEntryTagFilterOutput) TagValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCostBudgetEntryTagFilter) string { return v.TagValue }).(pulumi.StringOutput)
+}
+
+type GetCostBudgetEntryTagFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCostBudgetEntryTagFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCostBudgetEntryTagFilter)(nil)).Elem()
+}
+
+func (o GetCostBudgetEntryTagFilterArrayOutput) ToGetCostBudgetEntryTagFilterArrayOutput() GetCostBudgetEntryTagFilterArrayOutput {
+	return o
+}
+
+func (o GetCostBudgetEntryTagFilterArrayOutput) ToGetCostBudgetEntryTagFilterArrayOutputWithContext(ctx context.Context) GetCostBudgetEntryTagFilterArrayOutput {
+	return o
+}
+
+func (o GetCostBudgetEntryTagFilterArrayOutput) Index(i pulumi.IntInput) GetCostBudgetEntryTagFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCostBudgetEntryTagFilter {
+		return vs[0].([]GetCostBudgetEntryTagFilter)[vs[1].(int)]
+	}).(GetCostBudgetEntryTagFilterOutput)
+}
+
+type GetCsmThreatsAgentRulesAgentRule struct {
+	Actions     []GetCsmThreatsAgentRulesAgentRuleAction `pulumi:"actions"`
+	Description string                                   `pulumi:"description"`
+	Enabled     bool                                     `pulumi:"enabled"`
+	Expression  string                                   `pulumi:"expression"`
+	Id          string                                   `pulumi:"id"`
+	Name        string                                   `pulumi:"name"`
+	ProductTags []string                                 `pulumi:"productTags"`
+}
+
+// GetCsmThreatsAgentRulesAgentRuleInput is an input type that accepts GetCsmThreatsAgentRulesAgentRuleArgs and GetCsmThreatsAgentRulesAgentRuleOutput values.
+// You can construct a concrete instance of `GetCsmThreatsAgentRulesAgentRuleInput` via:
+//
+//	GetCsmThreatsAgentRulesAgentRuleArgs{...}
+type GetCsmThreatsAgentRulesAgentRuleInput interface {
+	pulumi.Input
+
+	ToGetCsmThreatsAgentRulesAgentRuleOutput() GetCsmThreatsAgentRulesAgentRuleOutput
+	ToGetCsmThreatsAgentRulesAgentRuleOutputWithContext(context.Context) GetCsmThreatsAgentRulesAgentRuleOutput
+}
+
+type GetCsmThreatsAgentRulesAgentRuleArgs struct {
+	Actions     GetCsmThreatsAgentRulesAgentRuleActionArrayInput `pulumi:"actions"`
+	Description pulumi.StringInput                               `pulumi:"description"`
+	Enabled     pulumi.BoolInput                                 `pulumi:"enabled"`
+	Expression  pulumi.StringInput                               `pulumi:"expression"`
+	Id          pulumi.StringInput                               `pulumi:"id"`
+	Name        pulumi.StringInput                               `pulumi:"name"`
+	ProductTags pulumi.StringArrayInput                          `pulumi:"productTags"`
+}
+
+func (GetCsmThreatsAgentRulesAgentRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRule)(nil)).Elem()
+}
+
+func (i GetCsmThreatsAgentRulesAgentRuleArgs) ToGetCsmThreatsAgentRulesAgentRuleOutput() GetCsmThreatsAgentRulesAgentRuleOutput {
+	return i.ToGetCsmThreatsAgentRulesAgentRuleOutputWithContext(context.Background())
+}
+
+func (i GetCsmThreatsAgentRulesAgentRuleArgs) ToGetCsmThreatsAgentRulesAgentRuleOutputWithContext(ctx context.Context) GetCsmThreatsAgentRulesAgentRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCsmThreatsAgentRulesAgentRuleOutput)
+}
+
+// GetCsmThreatsAgentRulesAgentRuleArrayInput is an input type that accepts GetCsmThreatsAgentRulesAgentRuleArray and GetCsmThreatsAgentRulesAgentRuleArrayOutput values.
+// You can construct a concrete instance of `GetCsmThreatsAgentRulesAgentRuleArrayInput` via:
+//
+//	GetCsmThreatsAgentRulesAgentRuleArray{ GetCsmThreatsAgentRulesAgentRuleArgs{...} }
+type GetCsmThreatsAgentRulesAgentRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetCsmThreatsAgentRulesAgentRuleArrayOutput() GetCsmThreatsAgentRulesAgentRuleArrayOutput
+	ToGetCsmThreatsAgentRulesAgentRuleArrayOutputWithContext(context.Context) GetCsmThreatsAgentRulesAgentRuleArrayOutput
+}
+
+type GetCsmThreatsAgentRulesAgentRuleArray []GetCsmThreatsAgentRulesAgentRuleInput
+
+func (GetCsmThreatsAgentRulesAgentRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCsmThreatsAgentRulesAgentRule)(nil)).Elem()
+}
+
+func (i GetCsmThreatsAgentRulesAgentRuleArray) ToGetCsmThreatsAgentRulesAgentRuleArrayOutput() GetCsmThreatsAgentRulesAgentRuleArrayOutput {
+	return i.ToGetCsmThreatsAgentRulesAgentRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetCsmThreatsAgentRulesAgentRuleArray) ToGetCsmThreatsAgentRulesAgentRuleArrayOutputWithContext(ctx context.Context) GetCsmThreatsAgentRulesAgentRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCsmThreatsAgentRulesAgentRuleArrayOutput)
+}
+
+type GetCsmThreatsAgentRulesAgentRuleOutput struct{ *pulumi.OutputState }
+
+func (GetCsmThreatsAgentRulesAgentRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRule)(nil)).Elem()
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleOutput) ToGetCsmThreatsAgentRulesAgentRuleOutput() GetCsmThreatsAgentRulesAgentRuleOutput {
+	return o
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleOutput) ToGetCsmThreatsAgentRulesAgentRuleOutputWithContext(ctx context.Context) GetCsmThreatsAgentRulesAgentRuleOutput {
+	return o
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleOutput) Actions() GetCsmThreatsAgentRulesAgentRuleActionArrayOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRule) []GetCsmThreatsAgentRulesAgentRuleAction { return v.Actions }).(GetCsmThreatsAgentRulesAgentRuleActionArrayOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRule) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRule) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRule) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRule) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleOutput) ProductTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRule) []string { return v.ProductTags }).(pulumi.StringArrayOutput)
+}
+
+type GetCsmThreatsAgentRulesAgentRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCsmThreatsAgentRulesAgentRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCsmThreatsAgentRulesAgentRule)(nil)).Elem()
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleArrayOutput) ToGetCsmThreatsAgentRulesAgentRuleArrayOutput() GetCsmThreatsAgentRulesAgentRuleArrayOutput {
+	return o
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleArrayOutput) ToGetCsmThreatsAgentRulesAgentRuleArrayOutputWithContext(ctx context.Context) GetCsmThreatsAgentRulesAgentRuleArrayOutput {
+	return o
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleArrayOutput) Index(i pulumi.IntInput) GetCsmThreatsAgentRulesAgentRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCsmThreatsAgentRulesAgentRule {
+		return vs[0].([]GetCsmThreatsAgentRulesAgentRule)[vs[1].(int)]
+	}).(GetCsmThreatsAgentRulesAgentRuleOutput)
+}
+
+type GetCsmThreatsAgentRulesAgentRuleAction struct {
+	Hash GetCsmThreatsAgentRulesAgentRuleActionHash `pulumi:"hash"`
+	Set  GetCsmThreatsAgentRulesAgentRuleActionSet  `pulumi:"set"`
+}
+
+// GetCsmThreatsAgentRulesAgentRuleActionInput is an input type that accepts GetCsmThreatsAgentRulesAgentRuleActionArgs and GetCsmThreatsAgentRulesAgentRuleActionOutput values.
+// You can construct a concrete instance of `GetCsmThreatsAgentRulesAgentRuleActionInput` via:
+//
+//	GetCsmThreatsAgentRulesAgentRuleActionArgs{...}
+type GetCsmThreatsAgentRulesAgentRuleActionInput interface {
+	pulumi.Input
+
+	ToGetCsmThreatsAgentRulesAgentRuleActionOutput() GetCsmThreatsAgentRulesAgentRuleActionOutput
+	ToGetCsmThreatsAgentRulesAgentRuleActionOutputWithContext(context.Context) GetCsmThreatsAgentRulesAgentRuleActionOutput
+}
+
+type GetCsmThreatsAgentRulesAgentRuleActionArgs struct {
+	Hash GetCsmThreatsAgentRulesAgentRuleActionHashInput `pulumi:"hash"`
+	Set  GetCsmThreatsAgentRulesAgentRuleActionSetInput  `pulumi:"set"`
+}
+
+func (GetCsmThreatsAgentRulesAgentRuleActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleAction)(nil)).Elem()
+}
+
+func (i GetCsmThreatsAgentRulesAgentRuleActionArgs) ToGetCsmThreatsAgentRulesAgentRuleActionOutput() GetCsmThreatsAgentRulesAgentRuleActionOutput {
+	return i.ToGetCsmThreatsAgentRulesAgentRuleActionOutputWithContext(context.Background())
+}
+
+func (i GetCsmThreatsAgentRulesAgentRuleActionArgs) ToGetCsmThreatsAgentRulesAgentRuleActionOutputWithContext(ctx context.Context) GetCsmThreatsAgentRulesAgentRuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCsmThreatsAgentRulesAgentRuleActionOutput)
+}
+
+// GetCsmThreatsAgentRulesAgentRuleActionArrayInput is an input type that accepts GetCsmThreatsAgentRulesAgentRuleActionArray and GetCsmThreatsAgentRulesAgentRuleActionArrayOutput values.
+// You can construct a concrete instance of `GetCsmThreatsAgentRulesAgentRuleActionArrayInput` via:
+//
+//	GetCsmThreatsAgentRulesAgentRuleActionArray{ GetCsmThreatsAgentRulesAgentRuleActionArgs{...} }
+type GetCsmThreatsAgentRulesAgentRuleActionArrayInput interface {
+	pulumi.Input
+
+	ToGetCsmThreatsAgentRulesAgentRuleActionArrayOutput() GetCsmThreatsAgentRulesAgentRuleActionArrayOutput
+	ToGetCsmThreatsAgentRulesAgentRuleActionArrayOutputWithContext(context.Context) GetCsmThreatsAgentRulesAgentRuleActionArrayOutput
+}
+
+type GetCsmThreatsAgentRulesAgentRuleActionArray []GetCsmThreatsAgentRulesAgentRuleActionInput
+
+func (GetCsmThreatsAgentRulesAgentRuleActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCsmThreatsAgentRulesAgentRuleAction)(nil)).Elem()
+}
+
+func (i GetCsmThreatsAgentRulesAgentRuleActionArray) ToGetCsmThreatsAgentRulesAgentRuleActionArrayOutput() GetCsmThreatsAgentRulesAgentRuleActionArrayOutput {
+	return i.ToGetCsmThreatsAgentRulesAgentRuleActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetCsmThreatsAgentRulesAgentRuleActionArray) ToGetCsmThreatsAgentRulesAgentRuleActionArrayOutputWithContext(ctx context.Context) GetCsmThreatsAgentRulesAgentRuleActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCsmThreatsAgentRulesAgentRuleActionArrayOutput)
+}
+
+type GetCsmThreatsAgentRulesAgentRuleActionOutput struct{ *pulumi.OutputState }
+
+func (GetCsmThreatsAgentRulesAgentRuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleAction)(nil)).Elem()
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionOutput) ToGetCsmThreatsAgentRulesAgentRuleActionOutput() GetCsmThreatsAgentRulesAgentRuleActionOutput {
+	return o
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionOutput) ToGetCsmThreatsAgentRulesAgentRuleActionOutputWithContext(ctx context.Context) GetCsmThreatsAgentRulesAgentRuleActionOutput {
+	return o
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionOutput) Hash() GetCsmThreatsAgentRulesAgentRuleActionHashOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRuleAction) GetCsmThreatsAgentRulesAgentRuleActionHash {
+		return v.Hash
+	}).(GetCsmThreatsAgentRulesAgentRuleActionHashOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionOutput) Set() GetCsmThreatsAgentRulesAgentRuleActionSetOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRuleAction) GetCsmThreatsAgentRulesAgentRuleActionSet { return v.Set }).(GetCsmThreatsAgentRulesAgentRuleActionSetOutput)
+}
+
+type GetCsmThreatsAgentRulesAgentRuleActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCsmThreatsAgentRulesAgentRuleActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCsmThreatsAgentRulesAgentRuleAction)(nil)).Elem()
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionArrayOutput) ToGetCsmThreatsAgentRulesAgentRuleActionArrayOutput() GetCsmThreatsAgentRulesAgentRuleActionArrayOutput {
+	return o
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionArrayOutput) ToGetCsmThreatsAgentRulesAgentRuleActionArrayOutputWithContext(ctx context.Context) GetCsmThreatsAgentRulesAgentRuleActionArrayOutput {
+	return o
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionArrayOutput) Index(i pulumi.IntInput) GetCsmThreatsAgentRulesAgentRuleActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCsmThreatsAgentRulesAgentRuleAction {
+		return vs[0].([]GetCsmThreatsAgentRulesAgentRuleAction)[vs[1].(int)]
+	}).(GetCsmThreatsAgentRulesAgentRuleActionOutput)
+}
+
+type GetCsmThreatsAgentRulesAgentRuleActionHash struct {
+	Field string `pulumi:"field"`
+}
+
+// GetCsmThreatsAgentRulesAgentRuleActionHashInput is an input type that accepts GetCsmThreatsAgentRulesAgentRuleActionHashArgs and GetCsmThreatsAgentRulesAgentRuleActionHashOutput values.
+// You can construct a concrete instance of `GetCsmThreatsAgentRulesAgentRuleActionHashInput` via:
+//
+//	GetCsmThreatsAgentRulesAgentRuleActionHashArgs{...}
+type GetCsmThreatsAgentRulesAgentRuleActionHashInput interface {
+	pulumi.Input
+
+	ToGetCsmThreatsAgentRulesAgentRuleActionHashOutput() GetCsmThreatsAgentRulesAgentRuleActionHashOutput
+	ToGetCsmThreatsAgentRulesAgentRuleActionHashOutputWithContext(context.Context) GetCsmThreatsAgentRulesAgentRuleActionHashOutput
+}
+
+type GetCsmThreatsAgentRulesAgentRuleActionHashArgs struct {
+	Field pulumi.StringInput `pulumi:"field"`
+}
+
+func (GetCsmThreatsAgentRulesAgentRuleActionHashArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleActionHash)(nil)).Elem()
+}
+
+func (i GetCsmThreatsAgentRulesAgentRuleActionHashArgs) ToGetCsmThreatsAgentRulesAgentRuleActionHashOutput() GetCsmThreatsAgentRulesAgentRuleActionHashOutput {
+	return i.ToGetCsmThreatsAgentRulesAgentRuleActionHashOutputWithContext(context.Background())
+}
+
+func (i GetCsmThreatsAgentRulesAgentRuleActionHashArgs) ToGetCsmThreatsAgentRulesAgentRuleActionHashOutputWithContext(ctx context.Context) GetCsmThreatsAgentRulesAgentRuleActionHashOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCsmThreatsAgentRulesAgentRuleActionHashOutput)
+}
+
+type GetCsmThreatsAgentRulesAgentRuleActionHashOutput struct{ *pulumi.OutputState }
+
+func (GetCsmThreatsAgentRulesAgentRuleActionHashOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleActionHash)(nil)).Elem()
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionHashOutput) ToGetCsmThreatsAgentRulesAgentRuleActionHashOutput() GetCsmThreatsAgentRulesAgentRuleActionHashOutput {
+	return o
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionHashOutput) ToGetCsmThreatsAgentRulesAgentRuleActionHashOutputWithContext(ctx context.Context) GetCsmThreatsAgentRulesAgentRuleActionHashOutput {
+	return o
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionHashOutput) Field() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRuleActionHash) string { return v.Field }).(pulumi.StringOutput)
+}
+
+type GetCsmThreatsAgentRulesAgentRuleActionSet struct {
+	Append       bool   `pulumi:"append"`
+	DefaultValue string `pulumi:"defaultValue"`
+	Expression   string `pulumi:"expression"`
+	Field        string `pulumi:"field"`
+	Inherited    bool   `pulumi:"inherited"`
+	Name         string `pulumi:"name"`
+	Scope        string `pulumi:"scope"`
+	Size         int    `pulumi:"size"`
+	Ttl          int    `pulumi:"ttl"`
+	Value        string `pulumi:"value"`
+}
+
+// GetCsmThreatsAgentRulesAgentRuleActionSetInput is an input type that accepts GetCsmThreatsAgentRulesAgentRuleActionSetArgs and GetCsmThreatsAgentRulesAgentRuleActionSetOutput values.
+// You can construct a concrete instance of `GetCsmThreatsAgentRulesAgentRuleActionSetInput` via:
+//
+//	GetCsmThreatsAgentRulesAgentRuleActionSetArgs{...}
+type GetCsmThreatsAgentRulesAgentRuleActionSetInput interface {
+	pulumi.Input
+
+	ToGetCsmThreatsAgentRulesAgentRuleActionSetOutput() GetCsmThreatsAgentRulesAgentRuleActionSetOutput
+	ToGetCsmThreatsAgentRulesAgentRuleActionSetOutputWithContext(context.Context) GetCsmThreatsAgentRulesAgentRuleActionSetOutput
+}
+
+type GetCsmThreatsAgentRulesAgentRuleActionSetArgs struct {
+	Append       pulumi.BoolInput   `pulumi:"append"`
+	DefaultValue pulumi.StringInput `pulumi:"defaultValue"`
+	Expression   pulumi.StringInput `pulumi:"expression"`
+	Field        pulumi.StringInput `pulumi:"field"`
+	Inherited    pulumi.BoolInput   `pulumi:"inherited"`
+	Name         pulumi.StringInput `pulumi:"name"`
+	Scope        pulumi.StringInput `pulumi:"scope"`
+	Size         pulumi.IntInput    `pulumi:"size"`
+	Ttl          pulumi.IntInput    `pulumi:"ttl"`
+	Value        pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetCsmThreatsAgentRulesAgentRuleActionSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleActionSet)(nil)).Elem()
+}
+
+func (i GetCsmThreatsAgentRulesAgentRuleActionSetArgs) ToGetCsmThreatsAgentRulesAgentRuleActionSetOutput() GetCsmThreatsAgentRulesAgentRuleActionSetOutput {
+	return i.ToGetCsmThreatsAgentRulesAgentRuleActionSetOutputWithContext(context.Background())
+}
+
+func (i GetCsmThreatsAgentRulesAgentRuleActionSetArgs) ToGetCsmThreatsAgentRulesAgentRuleActionSetOutputWithContext(ctx context.Context) GetCsmThreatsAgentRulesAgentRuleActionSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCsmThreatsAgentRulesAgentRuleActionSetOutput)
+}
+
+type GetCsmThreatsAgentRulesAgentRuleActionSetOutput struct{ *pulumi.OutputState }
+
+func (GetCsmThreatsAgentRulesAgentRuleActionSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleActionSet)(nil)).Elem()
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionSetOutput) ToGetCsmThreatsAgentRulesAgentRuleActionSetOutput() GetCsmThreatsAgentRulesAgentRuleActionSetOutput {
+	return o
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionSetOutput) ToGetCsmThreatsAgentRulesAgentRuleActionSetOutputWithContext(ctx context.Context) GetCsmThreatsAgentRulesAgentRuleActionSetOutput {
+	return o
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionSetOutput) Append() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRuleActionSet) bool { return v.Append }).(pulumi.BoolOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionSetOutput) DefaultValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRuleActionSet) string { return v.DefaultValue }).(pulumi.StringOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionSetOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRuleActionSet) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionSetOutput) Field() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRuleActionSet) string { return v.Field }).(pulumi.StringOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionSetOutput) Inherited() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRuleActionSet) bool { return v.Inherited }).(pulumi.BoolOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRuleActionSet) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionSetOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRuleActionSet) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionSetOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRuleActionSet) int { return v.Size }).(pulumi.IntOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionSetOutput) Ttl() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRuleActionSet) int { return v.Ttl }).(pulumi.IntOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleActionSetOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRuleActionSet) string { return v.Value }).(pulumi.StringOutput)
+}
+
 type GetCsmThreatsPoliciesPolicy struct {
 	Description   string     `pulumi:"description"`
 	Enabled       bool       `pulumi:"enabled"`
@@ -1694,6 +11722,8 @@ type GetLogsIndexesLogsIndex struct {
 	Name string `pulumi:"name"`
 	// The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
 	RetentionDays int `pulumi:"retentionDays"`
+	// A list of tags for this index. Tags are in `key:value` format.
+	Tags []string `pulumi:"tags"`
 }
 
 // GetLogsIndexesLogsIndexInput is an input type that accepts GetLogsIndexesLogsIndexArgs and GetLogsIndexesLogsIndexOutput values.
@@ -1724,6 +11754,8 @@ type GetLogsIndexesLogsIndexArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
 	RetentionDays pulumi.IntInput `pulumi:"retentionDays"`
+	// A list of tags for this index. Tags are in `key:value` format.
+	Tags pulumi.StringArrayInput `pulumi:"tags"`
 }
 
 func (GetLogsIndexesLogsIndexArgs) ElementType() reflect.Type {
@@ -1815,6 +11847,11 @@ func (o GetLogsIndexesLogsIndexOutput) Name() pulumi.StringOutput {
 // The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
 func (o GetLogsIndexesLogsIndexOutput) RetentionDays() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLogsIndexesLogsIndex) int { return v.RetentionDays }).(pulumi.IntOutput)
+}
+
+// A list of tags for this index. Tags are in `key:value` format.
+func (o GetLogsIndexesLogsIndexOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLogsIndexesLogsIndex) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
 type GetLogsIndexesLogsIndexArrayOutput struct{ *pulumi.OutputState }
@@ -12791,6 +22828,123 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListCiInput)(nil)).Elem(), SyntheticsTestMobileOptionsListCiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListCiPtrInput)(nil)).Elem(), SyntheticsTestMobileOptionsListCiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListMobileApplicationInput)(nil)).Elem(), SyntheticsTestMobileOptionsListMobileApplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListMobileApplicationPtrInput)(nil)).Elem(), SyntheticsTestMobileOptionsListMobileApplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListMonitorOptionsInput)(nil)).Elem(), SyntheticsTestMobileOptionsListMonitorOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListMonitorOptionsPtrInput)(nil)).Elem(), SyntheticsTestMobileOptionsListMonitorOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListRetryInput)(nil)).Elem(), SyntheticsTestMobileOptionsListRetryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListRetryPtrInput)(nil)).Elem(), SyntheticsTestMobileOptionsListRetryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListSchedulingInput)(nil)).Elem(), SyntheticsTestMobileOptionsListSchedulingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListSchedulingPtrInput)(nil)).Elem(), SyntheticsTestMobileOptionsListSchedulingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListSchedulingTimeframeInput)(nil)).Elem(), SyntheticsTestMobileOptionsListSchedulingTimeframeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileOptionsListSchedulingTimeframeArrayInput)(nil)).Elem(), SyntheticsTestMobileOptionsListSchedulingTimeframeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepInput)(nil)).Elem(), SyntheticsTestMobileStepArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepArrayInput)(nil)).Elem(), SyntheticsTestMobileStepArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsInput)(nil)).Elem(), SyntheticsTestMobileStepParamsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsElementInput)(nil)).Elem(), SyntheticsTestMobileStepParamsElementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsElementPtrInput)(nil)).Elem(), SyntheticsTestMobileStepParamsElementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsElementRelativePositionInput)(nil)).Elem(), SyntheticsTestMobileStepParamsElementRelativePositionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsElementRelativePositionPtrInput)(nil)).Elem(), SyntheticsTestMobileStepParamsElementRelativePositionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsElementUserLocatorInput)(nil)).Elem(), SyntheticsTestMobileStepParamsElementUserLocatorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsElementUserLocatorPtrInput)(nil)).Elem(), SyntheticsTestMobileStepParamsElementUserLocatorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsElementUserLocatorValueInput)(nil)).Elem(), SyntheticsTestMobileStepParamsElementUserLocatorValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsElementUserLocatorValueArrayInput)(nil)).Elem(), SyntheticsTestMobileStepParamsElementUserLocatorValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsPositionInput)(nil)).Elem(), SyntheticsTestMobileStepParamsPositionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsPositionArrayInput)(nil)).Elem(), SyntheticsTestMobileStepParamsPositionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsVariableInput)(nil)).Elem(), SyntheticsTestMobileStepParamsVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMobileStepParamsVariablePtrInput)(nil)).Elem(), SyntheticsTestMobileStepParamsVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListInput)(nil)).Elem(), SyntheticsTestOptionsListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListPtrInput)(nil)).Elem(), SyntheticsTestOptionsListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListCiInput)(nil)).Elem(), SyntheticsTestOptionsListCiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListCiPtrInput)(nil)).Elem(), SyntheticsTestOptionsListCiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListMonitorOptionsInput)(nil)).Elem(), SyntheticsTestOptionsListMonitorOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListMonitorOptionsPtrInput)(nil)).Elem(), SyntheticsTestOptionsListMonitorOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListRetryInput)(nil)).Elem(), SyntheticsTestOptionsListRetryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListRetryPtrInput)(nil)).Elem(), SyntheticsTestOptionsListRetryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListRumSettingsInput)(nil)).Elem(), SyntheticsTestOptionsListRumSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListRumSettingsPtrInput)(nil)).Elem(), SyntheticsTestOptionsListRumSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListSchedulingInput)(nil)).Elem(), SyntheticsTestOptionsListSchedulingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListSchedulingPtrInput)(nil)).Elem(), SyntheticsTestOptionsListSchedulingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListSchedulingTimeframeInput)(nil)).Elem(), SyntheticsTestOptionsListSchedulingTimeframeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListSchedulingTimeframeArrayInput)(nil)).Elem(), SyntheticsTestOptionsListSchedulingTimeframeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestBasicauthInput)(nil)).Elem(), SyntheticsTestRequestBasicauthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestBasicauthPtrInput)(nil)).Elem(), SyntheticsTestRequestBasicauthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestClientCertificateInput)(nil)).Elem(), SyntheticsTestRequestClientCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestClientCertificatePtrInput)(nil)).Elem(), SyntheticsTestRequestClientCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestClientCertificateCertInput)(nil)).Elem(), SyntheticsTestRequestClientCertificateCertArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestClientCertificateCertPtrInput)(nil)).Elem(), SyntheticsTestRequestClientCertificateCertArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestClientCertificateKeyInput)(nil)).Elem(), SyntheticsTestRequestClientCertificateKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestClientCertificateKeyPtrInput)(nil)).Elem(), SyntheticsTestRequestClientCertificateKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestDefinitionInput)(nil)).Elem(), SyntheticsTestRequestDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestDefinitionPtrInput)(nil)).Elem(), SyntheticsTestRequestDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestFileInput)(nil)).Elem(), SyntheticsTestRequestFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestFileArrayInput)(nil)).Elem(), SyntheticsTestRequestFileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestProxyInput)(nil)).Elem(), SyntheticsTestRequestProxyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestProxyPtrInput)(nil)).Elem(), SyntheticsTestRequestProxyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagPipelineRulesetRuleInput)(nil)).Elem(), TagPipelineRulesetRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagPipelineRulesetRuleArrayInput)(nil)).Elem(), TagPipelineRulesetRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagPipelineRulesetRuleMappingInput)(nil)).Elem(), TagPipelineRulesetRuleMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagPipelineRulesetRuleMappingPtrInput)(nil)).Elem(), TagPipelineRulesetRuleMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagPipelineRulesetRuleQueryInput)(nil)).Elem(), TagPipelineRulesetRuleQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagPipelineRulesetRuleQueryPtrInput)(nil)).Elem(), TagPipelineRulesetRuleQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagPipelineRulesetRuleQueryAdditionInput)(nil)).Elem(), TagPipelineRulesetRuleQueryAdditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagPipelineRulesetRuleQueryAdditionPtrInput)(nil)).Elem(), TagPipelineRulesetRuleQueryAdditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagPipelineRulesetRuleReferenceTableInput)(nil)).Elem(), TagPipelineRulesetRuleReferenceTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagPipelineRulesetRuleReferenceTablePtrInput)(nil)).Elem(), TagPipelineRulesetRuleReferenceTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagPipelineRulesetRuleReferenceTableFieldPairInput)(nil)).Elem(), TagPipelineRulesetRuleReferenceTableFieldPairArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagPipelineRulesetRuleReferenceTableFieldPairArrayInput)(nil)).Elem(), TagPipelineRulesetRuleReferenceTableFieldPairArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamNotificationRuleEmailInput)(nil)).Elem(), TeamNotificationRuleEmailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamNotificationRuleEmailPtrInput)(nil)).Elem(), TeamNotificationRuleEmailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamNotificationRuleMsTeamsInput)(nil)).Elem(), TeamNotificationRuleMsTeamsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamNotificationRuleMsTeamsPtrInput)(nil)).Elem(), TeamNotificationRuleMsTeamsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamNotificationRulePagerdutyInput)(nil)).Elem(), TeamNotificationRulePagerdutyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamNotificationRulePagerdutyPtrInput)(nil)).Elem(), TeamNotificationRulePagerdutyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamNotificationRuleSlackInput)(nil)).Elem(), TeamNotificationRuleSlackArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamNotificationRuleSlackPtrInput)(nil)).Elem(), TeamNotificationRuleSlackArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionConnectionAwsInput)(nil)).Elem(), GetActionConnectionAwsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionConnectionAwsPtrInput)(nil)).Elem(), GetActionConnectionAwsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionConnectionAwsAssumeRoleInput)(nil)).Elem(), GetActionConnectionAwsAssumeRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionConnectionAwsAssumeRolePtrInput)(nil)).Elem(), GetActionConnectionAwsAssumeRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionConnectionHttpInput)(nil)).Elem(), GetActionConnectionHttpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionConnectionHttpPtrInput)(nil)).Elem(), GetActionConnectionHttpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionConnectionHttpTokenAuthInput)(nil)).Elem(), GetActionConnectionHttpTokenAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionConnectionHttpTokenAuthPtrInput)(nil)).Elem(), GetActionConnectionHttpTokenAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionConnectionHttpTokenAuthBodyInput)(nil)).Elem(), GetActionConnectionHttpTokenAuthBodyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionConnectionHttpTokenAuthBodyPtrInput)(nil)).Elem(), GetActionConnectionHttpTokenAuthBodyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionConnectionHttpTokenAuthHeaderInput)(nil)).Elem(), GetActionConnectionHttpTokenAuthHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionConnectionHttpTokenAuthHeaderArrayInput)(nil)).Elem(), GetActionConnectionHttpTokenAuthHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionConnectionHttpTokenAuthTokenInput)(nil)).Elem(), GetActionConnectionHttpTokenAuthTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionConnectionHttpTokenAuthTokenArrayInput)(nil)).Elem(), GetActionConnectionHttpTokenAuthTokenArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionConnectionHttpTokenAuthUrlParameterInput)(nil)).Elem(), GetActionConnectionHttpTokenAuthUrlParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionConnectionHttpTokenAuthUrlParameterArrayInput)(nil)).Elem(), GetActionConnectionHttpTokenAuthUrlParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAwsCurConfigAccountFiltersInput)(nil)).Elem(), GetAwsCurConfigAccountFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAwsCurConfigAccountFiltersPtrInput)(nil)).Elem(), GetAwsCurConfigAccountFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAzureUcConfigActualBillConfigInput)(nil)).Elem(), GetAzureUcConfigActualBillConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAzureUcConfigActualBillConfigPtrInput)(nil)).Elem(), GetAzureUcConfigActualBillConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAzureUcConfigAmortizedBillConfigInput)(nil)).Elem(), GetAzureUcConfigAmortizedBillConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAzureUcConfigAmortizedBillConfigPtrInput)(nil)).Elem(), GetAzureUcConfigAmortizedBillConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudWorkloadSecurityAgentRulesAgentRuleInput)(nil)).Elem(), GetCloudWorkloadSecurityAgentRulesAgentRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudWorkloadSecurityAgentRulesAgentRuleArrayInput)(nil)).Elem(), GetCloudWorkloadSecurityAgentRulesAgentRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostBudgetBudgetLineInput)(nil)).Elem(), GetCostBudgetBudgetLineArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostBudgetBudgetLineArrayInput)(nil)).Elem(), GetCostBudgetBudgetLineArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostBudgetBudgetLineChildTagFilterInput)(nil)).Elem(), GetCostBudgetBudgetLineChildTagFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostBudgetBudgetLineChildTagFilterArrayInput)(nil)).Elem(), GetCostBudgetBudgetLineChildTagFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostBudgetBudgetLineParentTagFilterInput)(nil)).Elem(), GetCostBudgetBudgetLineParentTagFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostBudgetBudgetLineParentTagFilterArrayInput)(nil)).Elem(), GetCostBudgetBudgetLineParentTagFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostBudgetBudgetLineTagFilterInput)(nil)).Elem(), GetCostBudgetBudgetLineTagFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostBudgetBudgetLineTagFilterArrayInput)(nil)).Elem(), GetCostBudgetBudgetLineTagFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostBudgetEntryInput)(nil)).Elem(), GetCostBudgetEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostBudgetEntryArrayInput)(nil)).Elem(), GetCostBudgetEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostBudgetEntryTagFilterInput)(nil)).Elem(), GetCostBudgetEntryTagFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCostBudgetEntryTagFilterArrayInput)(nil)).Elem(), GetCostBudgetEntryTagFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleInput)(nil)).Elem(), GetCsmThreatsAgentRulesAgentRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleArrayInput)(nil)).Elem(), GetCsmThreatsAgentRulesAgentRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleActionInput)(nil)).Elem(), GetCsmThreatsAgentRulesAgentRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleActionArrayInput)(nil)).Elem(), GetCsmThreatsAgentRulesAgentRuleActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleActionHashInput)(nil)).Elem(), GetCsmThreatsAgentRulesAgentRuleActionHashArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleActionSetInput)(nil)).Elem(), GetCsmThreatsAgentRulesAgentRuleActionSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCsmThreatsPoliciesPolicyInput)(nil)).Elem(), GetCsmThreatsPoliciesPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCsmThreatsPoliciesPolicyArrayInput)(nil)).Elem(), GetCsmThreatsPoliciesPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomAllocationRuleCostsToAllocateInput)(nil)).Elem(), GetCustomAllocationRuleCostsToAllocateArgs{})
@@ -12972,6 +23126,123 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamArrayInput)(nil)).Elem(), GetTeamsTeamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListCiOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListCiPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListMobileApplicationOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListMobileApplicationPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListMonitorOptionsOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListMonitorOptionsPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListRetryOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListRetryPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListSchedulingOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListSchedulingPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListSchedulingTimeframeOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepArrayOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsElementOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsElementPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsElementRelativePositionOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsElementRelativePositionPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsElementUserLocatorOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsElementUserLocatorPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsElementUserLocatorValueOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsElementUserLocatorValueArrayOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsPositionOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsPositionArrayOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsVariableOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMobileStepParamsVariablePtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestOptionsListOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestOptionsListPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestOptionsListCiOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestOptionsListCiPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestOptionsListMonitorOptionsOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestOptionsListMonitorOptionsPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestOptionsListRetryOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestOptionsListRetryPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestOptionsListRumSettingsOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestOptionsListRumSettingsPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestOptionsListSchedulingOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestOptionsListSchedulingPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestOptionsListSchedulingTimeframeOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestOptionsListSchedulingTimeframeArrayOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestRequestBasicauthOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestRequestBasicauthPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestRequestClientCertificateOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestRequestClientCertificatePtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestRequestClientCertificateCertOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestRequestClientCertificateCertPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestRequestClientCertificateKeyOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestRequestClientCertificateKeyPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestRequestDefinitionOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestRequestDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestRequestFileOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestRequestFileArrayOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestRequestProxyOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestRequestProxyPtrOutput{})
+	pulumi.RegisterOutputType(TagPipelineRulesetRuleOutput{})
+	pulumi.RegisterOutputType(TagPipelineRulesetRuleArrayOutput{})
+	pulumi.RegisterOutputType(TagPipelineRulesetRuleMappingOutput{})
+	pulumi.RegisterOutputType(TagPipelineRulesetRuleMappingPtrOutput{})
+	pulumi.RegisterOutputType(TagPipelineRulesetRuleQueryOutput{})
+	pulumi.RegisterOutputType(TagPipelineRulesetRuleQueryPtrOutput{})
+	pulumi.RegisterOutputType(TagPipelineRulesetRuleQueryAdditionOutput{})
+	pulumi.RegisterOutputType(TagPipelineRulesetRuleQueryAdditionPtrOutput{})
+	pulumi.RegisterOutputType(TagPipelineRulesetRuleReferenceTableOutput{})
+	pulumi.RegisterOutputType(TagPipelineRulesetRuleReferenceTablePtrOutput{})
+	pulumi.RegisterOutputType(TagPipelineRulesetRuleReferenceTableFieldPairOutput{})
+	pulumi.RegisterOutputType(TagPipelineRulesetRuleReferenceTableFieldPairArrayOutput{})
+	pulumi.RegisterOutputType(TeamNotificationRuleEmailOutput{})
+	pulumi.RegisterOutputType(TeamNotificationRuleEmailPtrOutput{})
+	pulumi.RegisterOutputType(TeamNotificationRuleMsTeamsOutput{})
+	pulumi.RegisterOutputType(TeamNotificationRuleMsTeamsPtrOutput{})
+	pulumi.RegisterOutputType(TeamNotificationRulePagerdutyOutput{})
+	pulumi.RegisterOutputType(TeamNotificationRulePagerdutyPtrOutput{})
+	pulumi.RegisterOutputType(TeamNotificationRuleSlackOutput{})
+	pulumi.RegisterOutputType(TeamNotificationRuleSlackPtrOutput{})
+	pulumi.RegisterOutputType(GetActionConnectionAwsOutput{})
+	pulumi.RegisterOutputType(GetActionConnectionAwsPtrOutput{})
+	pulumi.RegisterOutputType(GetActionConnectionAwsAssumeRoleOutput{})
+	pulumi.RegisterOutputType(GetActionConnectionAwsAssumeRolePtrOutput{})
+	pulumi.RegisterOutputType(GetActionConnectionHttpOutput{})
+	pulumi.RegisterOutputType(GetActionConnectionHttpPtrOutput{})
+	pulumi.RegisterOutputType(GetActionConnectionHttpTokenAuthOutput{})
+	pulumi.RegisterOutputType(GetActionConnectionHttpTokenAuthPtrOutput{})
+	pulumi.RegisterOutputType(GetActionConnectionHttpTokenAuthBodyOutput{})
+	pulumi.RegisterOutputType(GetActionConnectionHttpTokenAuthBodyPtrOutput{})
+	pulumi.RegisterOutputType(GetActionConnectionHttpTokenAuthHeaderOutput{})
+	pulumi.RegisterOutputType(GetActionConnectionHttpTokenAuthHeaderArrayOutput{})
+	pulumi.RegisterOutputType(GetActionConnectionHttpTokenAuthTokenOutput{})
+	pulumi.RegisterOutputType(GetActionConnectionHttpTokenAuthTokenArrayOutput{})
+	pulumi.RegisterOutputType(GetActionConnectionHttpTokenAuthUrlParameterOutput{})
+	pulumi.RegisterOutputType(GetActionConnectionHttpTokenAuthUrlParameterArrayOutput{})
+	pulumi.RegisterOutputType(GetAwsCurConfigAccountFiltersOutput{})
+	pulumi.RegisterOutputType(GetAwsCurConfigAccountFiltersPtrOutput{})
+	pulumi.RegisterOutputType(GetAzureUcConfigActualBillConfigOutput{})
+	pulumi.RegisterOutputType(GetAzureUcConfigActualBillConfigPtrOutput{})
+	pulumi.RegisterOutputType(GetAzureUcConfigAmortizedBillConfigOutput{})
+	pulumi.RegisterOutputType(GetAzureUcConfigAmortizedBillConfigPtrOutput{})
+	pulumi.RegisterOutputType(GetCloudWorkloadSecurityAgentRulesAgentRuleOutput{})
+	pulumi.RegisterOutputType(GetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetCostBudgetBudgetLineOutput{})
+	pulumi.RegisterOutputType(GetCostBudgetBudgetLineArrayOutput{})
+	pulumi.RegisterOutputType(GetCostBudgetBudgetLineChildTagFilterOutput{})
+	pulumi.RegisterOutputType(GetCostBudgetBudgetLineChildTagFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetCostBudgetBudgetLineParentTagFilterOutput{})
+	pulumi.RegisterOutputType(GetCostBudgetBudgetLineParentTagFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetCostBudgetBudgetLineTagFilterOutput{})
+	pulumi.RegisterOutputType(GetCostBudgetBudgetLineTagFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetCostBudgetEntryOutput{})
+	pulumi.RegisterOutputType(GetCostBudgetEntryArrayOutput{})
+	pulumi.RegisterOutputType(GetCostBudgetEntryTagFilterOutput{})
+	pulumi.RegisterOutputType(GetCostBudgetEntryTagFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetCsmThreatsAgentRulesAgentRuleOutput{})
+	pulumi.RegisterOutputType(GetCsmThreatsAgentRulesAgentRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetCsmThreatsAgentRulesAgentRuleActionOutput{})
+	pulumi.RegisterOutputType(GetCsmThreatsAgentRulesAgentRuleActionArrayOutput{})
+	pulumi.RegisterOutputType(GetCsmThreatsAgentRulesAgentRuleActionHashOutput{})
+	pulumi.RegisterOutputType(GetCsmThreatsAgentRulesAgentRuleActionSetOutput{})
 	pulumi.RegisterOutputType(GetCsmThreatsPoliciesPolicyOutput{})
 	pulumi.RegisterOutputType(GetCsmThreatsPoliciesPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetCustomAllocationRuleCostsToAllocateOutput{})

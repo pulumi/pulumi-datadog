@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationOpensearchBuffer;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationOpensearchDataStream;
 import java.lang.String;
 import java.util.Objects;
@@ -12,6 +13,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigDestinationOpensearch {
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationOpensearchBuffer buffer;
     /**
      * @return The index or datastream to write logs to.
      * 
@@ -24,6 +30,13 @@ public final class ObservabilityPipelineConfigDestinationOpensearch {
     private @Nullable ObservabilityPipelineConfigDestinationOpensearchDataStream dataStream;
 
     private ObservabilityPipelineConfigDestinationOpensearch() {}
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationOpensearchBuffer> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
     /**
      * @return The index or datastream to write logs to.
      * 
@@ -48,15 +61,23 @@ public final class ObservabilityPipelineConfigDestinationOpensearch {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable ObservabilityPipelineConfigDestinationOpensearchBuffer buffer;
         private @Nullable String bulkIndex;
         private @Nullable ObservabilityPipelineConfigDestinationOpensearchDataStream dataStream;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationOpensearch defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.buffer = defaults.buffer;
     	      this.bulkIndex = defaults.bulkIndex;
     	      this.dataStream = defaults.dataStream;
         }
 
+        @CustomType.Setter
+        public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationOpensearchBuffer buffer) {
+
+            this.buffer = buffer;
+            return this;
+        }
         @CustomType.Setter
         public Builder bulkIndex(@Nullable String bulkIndex) {
 
@@ -71,6 +92,7 @@ public final class ObservabilityPipelineConfigDestinationOpensearch {
         }
         public ObservabilityPipelineConfigDestinationOpensearch build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationOpensearch();
+            _resultValue.buffer = buffer;
             _resultValue.bulkIndex = bulkIndex;
             _resultValue.dataStream = dataStream;
             return _resultValue;

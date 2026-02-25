@@ -57,7 +57,7 @@ Specifies the cloud provider used for cloud-provider-based authentication, enabl
 
 defaultTags: Optional[str]
 """
-[Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
+[Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
 """
 
 httpClientRetryBackoffBase: Optional[int]

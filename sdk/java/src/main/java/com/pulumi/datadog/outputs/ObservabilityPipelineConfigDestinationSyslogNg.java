@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationSyslogNgBuffer;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationSyslogNgTls;
 import java.lang.Integer;
 import java.util.Objects;
@@ -12,6 +13,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigDestinationSyslogNg {
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationSyslogNgBuffer buffer;
     /**
      * @return Optional socket keepalive duration in milliseconds.
      * 
@@ -24,6 +30,13 @@ public final class ObservabilityPipelineConfigDestinationSyslogNg {
     private @Nullable ObservabilityPipelineConfigDestinationSyslogNgTls tls;
 
     private ObservabilityPipelineConfigDestinationSyslogNg() {}
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationSyslogNgBuffer> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
     /**
      * @return Optional socket keepalive duration in milliseconds.
      * 
@@ -48,15 +61,23 @@ public final class ObservabilityPipelineConfigDestinationSyslogNg {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable ObservabilityPipelineConfigDestinationSyslogNgBuffer buffer;
         private @Nullable Integer keepalive;
         private @Nullable ObservabilityPipelineConfigDestinationSyslogNgTls tls;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationSyslogNg defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.buffer = defaults.buffer;
     	      this.keepalive = defaults.keepalive;
     	      this.tls = defaults.tls;
         }
 
+        @CustomType.Setter
+        public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationSyslogNgBuffer buffer) {
+
+            this.buffer = buffer;
+            return this;
+        }
         @CustomType.Setter
         public Builder keepalive(@Nullable Integer keepalive) {
 
@@ -71,6 +92,7 @@ public final class ObservabilityPipelineConfigDestinationSyslogNg {
         }
         public ObservabilityPipelineConfigDestinationSyslogNg build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationSyslogNg();
+            _resultValue.buffer = buffer;
             _resultValue.keepalive = keepalive;
             _resultValue.tls = tls;
             return _resultValue;

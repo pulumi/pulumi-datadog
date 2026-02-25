@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ReferenceTableSchema
     {
         /// <summary>
-        /// List of fields in the table schema. Must include at least one field. Schema is only set on create.
+        /// List of fields in the table schema. At least one field is required. Schema is only set on create.
         /// </summary>
         public readonly ImmutableArray<Outputs.ReferenceTableSchemaField> Fields;
         /// <summary>

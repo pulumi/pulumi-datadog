@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ReferenceTableSchemaFieldArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -18,14 +19,14 @@ public final class ReferenceTableSchemaArgs extends com.pulumi.resources.Resourc
     public static final ReferenceTableSchemaArgs Empty = new ReferenceTableSchemaArgs();
 
     /**
-     * List of fields in the table schema. Must include at least one field. Schema is only set on create.
+     * List of fields in the table schema. At least one field is required. Schema is only set on create.
      * 
      */
     @Import(name="fields")
     private @Nullable Output<List<ReferenceTableSchemaFieldArgs>> fields;
 
     /**
-     * @return List of fields in the table schema. Must include at least one field. Schema is only set on create.
+     * @return List of fields in the table schema. At least one field is required. Schema is only set on create.
      * 
      */
     public Optional<Output<List<ReferenceTableSchemaFieldArgs>>> fields() {
@@ -36,15 +37,15 @@ public final class ReferenceTableSchemaArgs extends com.pulumi.resources.Resourc
      * List of field names that serve as primary keys for the table. Currently only one primary key is supported.
      * 
      */
-    @Import(name="primaryKeys")
-    private @Nullable Output<List<String>> primaryKeys;
+    @Import(name="primaryKeys", required=true)
+    private Output<List<String>> primaryKeys;
 
     /**
      * @return List of field names that serve as primary keys for the table. Currently only one primary key is supported.
      * 
      */
-    public Optional<Output<List<String>>> primaryKeys() {
-        return Optional.ofNullable(this.primaryKeys);
+    public Output<List<String>> primaryKeys() {
+        return this.primaryKeys;
     }
 
     private ReferenceTableSchemaArgs() {}
@@ -73,7 +74,7 @@ public final class ReferenceTableSchemaArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param fields List of fields in the table schema. Must include at least one field. Schema is only set on create.
+         * @param fields List of fields in the table schema. At least one field is required. Schema is only set on create.
          * 
          * @return builder
          * 
@@ -84,7 +85,7 @@ public final class ReferenceTableSchemaArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param fields List of fields in the table schema. Must include at least one field. Schema is only set on create.
+         * @param fields List of fields in the table schema. At least one field is required. Schema is only set on create.
          * 
          * @return builder
          * 
@@ -94,7 +95,7 @@ public final class ReferenceTableSchemaArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param fields List of fields in the table schema. Must include at least one field. Schema is only set on create.
+         * @param fields List of fields in the table schema. At least one field is required. Schema is only set on create.
          * 
          * @return builder
          * 
@@ -109,7 +110,7 @@ public final class ReferenceTableSchemaArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder primaryKeys(@Nullable Output<List<String>> primaryKeys) {
+        public Builder primaryKeys(Output<List<String>> primaryKeys) {
             $.primaryKeys = primaryKeys;
             return this;
         }
@@ -135,6 +136,9 @@ public final class ReferenceTableSchemaArgs extends com.pulumi.resources.Resourc
         }
 
         public ReferenceTableSchemaArgs build() {
+            if ($.primaryKeys == null) {
+                throw new MissingRequiredPropertyException("ReferenceTableSchemaArgs", "primaryKeys");
+            }
             return $;
         }
     }

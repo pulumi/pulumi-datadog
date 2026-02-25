@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationGooglePubsubAuth? Auth;
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationGooglePubsubBuffer? Buffer;
+        /// <summary>
         /// Encoding format for log events. Valid values: `Json`, `RawMessage`.
         /// </summary>
         public readonly string Encoding;
@@ -38,6 +42,8 @@ namespace Pulumi.Datadog.Outputs
         private ObservabilityPipelineConfigDestinationGooglePubsub(
             Outputs.ObservabilityPipelineConfigDestinationGooglePubsubAuth? auth,
 
+            Outputs.ObservabilityPipelineConfigDestinationGooglePubsubBuffer? buffer,
+
             string encoding,
 
             string project,
@@ -47,6 +53,7 @@ namespace Pulumi.Datadog.Outputs
             string topic)
         {
             Auth = auth;
+            Buffer = buffer;
             Encoding = encoding;
             Project = project;
             Tls = tls;

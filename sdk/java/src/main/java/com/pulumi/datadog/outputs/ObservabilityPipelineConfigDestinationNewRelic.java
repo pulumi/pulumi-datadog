@@ -4,12 +4,20 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationNewRelicBuffer;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigDestinationNewRelic {
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationNewRelicBuffer buffer;
     /**
      * @return The New Relic region.
      * 
@@ -17,6 +25,13 @@ public final class ObservabilityPipelineConfigDestinationNewRelic {
     private String region;
 
     private ObservabilityPipelineConfigDestinationNewRelic() {}
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationNewRelicBuffer> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
     /**
      * @return The New Relic region.
      * 
@@ -34,13 +49,21 @@ public final class ObservabilityPipelineConfigDestinationNewRelic {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable ObservabilityPipelineConfigDestinationNewRelicBuffer buffer;
         private String region;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationNewRelic defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.buffer = defaults.buffer;
     	      this.region = defaults.region;
         }
 
+        @CustomType.Setter
+        public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationNewRelicBuffer buffer) {
+
+            this.buffer = buffer;
+            return this;
+        }
         @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
@@ -51,6 +74,7 @@ public final class ObservabilityPipelineConfigDestinationNewRelic {
         }
         public ObservabilityPipelineConfigDestinationNewRelic build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationNewRelic();
+            _resultValue.buffer = buffer;
             _resultValue.region = region;
             return _resultValue;
         }

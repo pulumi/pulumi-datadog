@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationSocketBufferArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationSocketFramingArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationSocketTlsArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -17,6 +18,21 @@ import javax.annotation.Nullable;
 public final class ObservabilityPipelineConfigDestinationSocketArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ObservabilityPipelineConfigDestinationSocketArgs Empty = new ObservabilityPipelineConfigDestinationSocketArgs();
+
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    @Import(name="buffer")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationSocketBufferArgs> buffer;
+
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationSocketBufferArgs>> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
 
     /**
      * Encoding format for log events. Valid values are `json`, `rawMessage`.
@@ -81,6 +97,7 @@ public final class ObservabilityPipelineConfigDestinationSocketArgs extends com.
     private ObservabilityPipelineConfigDestinationSocketArgs() {}
 
     private ObservabilityPipelineConfigDestinationSocketArgs(ObservabilityPipelineConfigDestinationSocketArgs $) {
+        this.buffer = $.buffer;
         this.encoding = $.encoding;
         this.framing = $.framing;
         this.mode = $.mode;
@@ -103,6 +120,27 @@ public final class ObservabilityPipelineConfigDestinationSocketArgs extends com.
 
         public Builder(ObservabilityPipelineConfigDestinationSocketArgs defaults) {
             $ = new ObservabilityPipelineConfigDestinationSocketArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(@Nullable Output<ObservabilityPipelineConfigDestinationSocketBufferArgs> buffer) {
+            $.buffer = buffer;
+            return this;
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(ObservabilityPipelineConfigDestinationSocketBufferArgs buffer) {
+            return buffer(Output.of(buffer));
         }
 
         /**

@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationGoogleSecopAuth? Auth;
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationGoogleSecopBuffer? Buffer;
+        /// <summary>
         /// The Google SecOps customer ID.
         /// </summary>
         public readonly string CustomerId;
@@ -34,6 +38,8 @@ namespace Pulumi.Datadog.Outputs
         private ObservabilityPipelineConfigDestinationGoogleSecop(
             Outputs.ObservabilityPipelineConfigDestinationGoogleSecopAuth? auth,
 
+            Outputs.ObservabilityPipelineConfigDestinationGoogleSecopBuffer? buffer,
+
             string customerId,
 
             string encoding,
@@ -41,6 +47,7 @@ namespace Pulumi.Datadog.Outputs
             string logType)
         {
             Auth = auth;
+            Buffer = buffer;
             CustomerId = customerId;
             Encoding = encoding;
             LogType = logType;

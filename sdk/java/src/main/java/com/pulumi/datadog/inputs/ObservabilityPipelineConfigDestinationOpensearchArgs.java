@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationOpensearchBufferArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationOpensearchDataStreamArgs;
 import java.lang.String;
 import java.util.Objects;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class ObservabilityPipelineConfigDestinationOpensearchArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ObservabilityPipelineConfigDestinationOpensearchArgs Empty = new ObservabilityPipelineConfigDestinationOpensearchArgs();
+
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    @Import(name="buffer")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationOpensearchBufferArgs> buffer;
+
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationOpensearchBufferArgs>> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
 
     /**
      * The index or datastream to write logs to.
@@ -49,6 +65,7 @@ public final class ObservabilityPipelineConfigDestinationOpensearchArgs extends 
     private ObservabilityPipelineConfigDestinationOpensearchArgs() {}
 
     private ObservabilityPipelineConfigDestinationOpensearchArgs(ObservabilityPipelineConfigDestinationOpensearchArgs $) {
+        this.buffer = $.buffer;
         this.bulkIndex = $.bulkIndex;
         this.dataStream = $.dataStream;
     }
@@ -69,6 +86,27 @@ public final class ObservabilityPipelineConfigDestinationOpensearchArgs extends 
 
         public Builder(ObservabilityPipelineConfigDestinationOpensearchArgs defaults) {
             $ = new ObservabilityPipelineConfigDestinationOpensearchArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(@Nullable Output<ObservabilityPipelineConfigDestinationOpensearchBufferArgs> buffer) {
+            $.buffer = buffer;
+            return this;
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(ObservabilityPipelineConfigDestinationOpensearchBufferArgs buffer) {
+            return buffer(Output.of(buffer));
         }
 
         /**

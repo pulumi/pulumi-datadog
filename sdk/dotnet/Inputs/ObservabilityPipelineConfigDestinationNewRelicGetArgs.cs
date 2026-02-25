@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigDestinationNewRelicGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        [Input("buffer")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationNewRelicBufferGetArgs>? Buffer { get; set; }
+
+        /// <summary>
         /// The New Relic region.
         /// </summary>
         [Input("region", required: true)]

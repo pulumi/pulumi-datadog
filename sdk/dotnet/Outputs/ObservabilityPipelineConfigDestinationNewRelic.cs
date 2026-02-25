@@ -14,13 +14,21 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationNewRelic
     {
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationNewRelicBuffer? Buffer;
+        /// <summary>
         /// The New Relic region.
         /// </summary>
         public readonly string Region;
 
         [OutputConstructor]
-        private ObservabilityPipelineConfigDestinationNewRelic(string region)
+        private ObservabilityPipelineConfigDestinationNewRelic(
+            Outputs.ObservabilityPipelineConfigDestinationNewRelicBuffer? buffer,
+
+            string region)
         {
+            Buffer = buffer;
             Region = region;
         }
     }

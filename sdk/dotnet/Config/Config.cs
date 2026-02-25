@@ -114,7 +114,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<Pulumi.Datadog.Config.Types.DefaultTags?> _defaultTags = new __Value<Pulumi.Datadog.Config.Types.DefaultTags?>(() => __config.GetObject<Pulumi.Datadog.Config.Types.DefaultTags>("defaultTags"));
         /// <summary>
-        /// [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
+        /// [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
         /// </summary>
         public static Pulumi.Datadog.Config.Types.DefaultTags? DefaultTags
         {
@@ -198,7 +198,7 @@ namespace Pulumi.Datadog
              public class DefaultTags
              {
             /// <summary>
-            /// [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Resource tags to be applied by default across all resources.
+            /// [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Resource tags to be applied by default across all resources.
             /// </summary>
                 public ImmutableDictionary<string, string>? Tags { get; set; } = null!;
             }

@@ -31,6 +31,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        [Input("buffer")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageBufferArgs>? Buffer { get; set; }
+
+        /// <summary>
         /// Optional prefix for object keys within the GCS bucket.
         /// </summary>
         [Input("keyPrefix")]

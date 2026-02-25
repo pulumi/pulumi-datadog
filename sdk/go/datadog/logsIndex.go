@@ -66,6 +66,10 @@ import (
 //						},
 //					},
 //				},
+//				Tags: pulumi.StringArray{
+//					pulumi.String("team:backend"),
+//					pulumi.String("env:production"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -104,6 +108,8 @@ type LogsIndex struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
 	RetentionDays pulumi.IntOutput `pulumi:"retentionDays"`
+	// A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
+	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 }
 
 // NewLogsIndex registers a new resource with the given unique name, arguments, and options.
@@ -160,6 +166,8 @@ type logsIndexState struct {
 	Name *string `pulumi:"name"`
 	// The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
 	RetentionDays *int `pulumi:"retentionDays"`
+	// A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
+	Tags []string `pulumi:"tags"`
 }
 
 type LogsIndexState struct {
@@ -181,6 +189,8 @@ type LogsIndexState struct {
 	Name pulumi.StringPtrInput
 	// The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
 	RetentionDays pulumi.IntPtrInput
+	// A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
+	Tags pulumi.StringArrayInput
 }
 
 func (LogsIndexState) ElementType() reflect.Type {
@@ -206,6 +216,8 @@ type logsIndexArgs struct {
 	Name string `pulumi:"name"`
 	// The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
 	RetentionDays *int `pulumi:"retentionDays"`
+	// A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
+	Tags []string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LogsIndex resource.
@@ -228,6 +240,8 @@ type LogsIndexArgs struct {
 	Name pulumi.StringInput
 	// The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
 	RetentionDays pulumi.IntPtrInput
+	// A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
+	Tags pulumi.StringArrayInput
 }
 
 func (LogsIndexArgs) ElementType() reflect.Type {
@@ -360,6 +374,11 @@ func (o LogsIndexOutput) Name() pulumi.StringOutput {
 // The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
 func (o LogsIndexOutput) RetentionDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *LogsIndex) pulumi.IntOutput { return v.RetentionDays }).(pulumi.IntOutput)
+}
+
+// A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
+func (o LogsIndexOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LogsIndex) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
 type LogsIndexArrayOutput struct{ *pulumi.OutputState }

@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationSocketBuffer;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationSocketFraming;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationSocketTls;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -14,6 +15,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigDestinationSocket {
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationSocketBuffer buffer;
     /**
      * @return Encoding format for log events. Valid values are `json`, `rawMessage`.
      * 
@@ -36,6 +42,13 @@ public final class ObservabilityPipelineConfigDestinationSocket {
     private @Nullable ObservabilityPipelineConfigDestinationSocketTls tls;
 
     private ObservabilityPipelineConfigDestinationSocket() {}
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationSocketBuffer> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
     /**
      * @return Encoding format for log events. Valid values are `json`, `rawMessage`.
      * 
@@ -74,6 +87,7 @@ public final class ObservabilityPipelineConfigDestinationSocket {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable ObservabilityPipelineConfigDestinationSocketBuffer buffer;
         private String encoding;
         private ObservabilityPipelineConfigDestinationSocketFraming framing;
         private String mode;
@@ -81,12 +95,19 @@ public final class ObservabilityPipelineConfigDestinationSocket {
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationSocket defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.buffer = defaults.buffer;
     	      this.encoding = defaults.encoding;
     	      this.framing = defaults.framing;
     	      this.mode = defaults.mode;
     	      this.tls = defaults.tls;
         }
 
+        @CustomType.Setter
+        public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationSocketBuffer buffer) {
+
+            this.buffer = buffer;
+            return this;
+        }
         @CustomType.Setter
         public Builder encoding(String encoding) {
             if (encoding == null) {
@@ -119,6 +140,7 @@ public final class ObservabilityPipelineConfigDestinationSocket {
         }
         public ObservabilityPipelineConfigDestinationSocket build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationSocket();
+            _resultValue.buffer = buffer;
             _resultValue.encoding = encoding;
             _resultValue.framing = framing;
             _resultValue.mode = mode;

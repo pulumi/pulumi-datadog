@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationOpensearch
     {
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationOpensearchBuffer? Buffer;
+        /// <summary>
         /// The index or datastream to write logs to.
         /// </summary>
         public readonly string? BulkIndex;
@@ -24,10 +28,13 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationOpensearch(
+            Outputs.ObservabilityPipelineConfigDestinationOpensearchBuffer? buffer,
+
             string? bulkIndex,
 
             Outputs.ObservabilityPipelineConfigDestinationOpensearchDataStream? dataStream)
         {
+            Buffer = buffer;
             BulkIndex = bulkIndex;
             DataStream = dataStream;
         }

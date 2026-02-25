@@ -225,7 +225,7 @@ namespace Pulumi.Datadog
         public Input<string>? CloudProviderType { get; set; }
 
         /// <summary>
-        /// [Experimental - Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
+        /// [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
         /// </summary>
         [Input("defaultTags", json: true)]
         public Input<Inputs.ProviderDefaultTagsArgs>? DefaultTags { get; set; }

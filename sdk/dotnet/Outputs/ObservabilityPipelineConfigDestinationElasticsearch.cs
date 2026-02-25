@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? ApiVersion;
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationElasticsearchBuffer? Buffer;
+        /// <summary>
         /// The index or datastream to write logs to in Elasticsearch.
         /// </summary>
         public readonly string? BulkIndex;
@@ -30,11 +34,14 @@ namespace Pulumi.Datadog.Outputs
         private ObservabilityPipelineConfigDestinationElasticsearch(
             string? apiVersion,
 
+            Outputs.ObservabilityPipelineConfigDestinationElasticsearchBuffer? buffer,
+
             string? bulkIndex,
 
             Outputs.ObservabilityPipelineConfigDestinationElasticsearchDataStream? dataStream)
         {
             ApiVersion = apiVersion;
+            Buffer = buffer;
             BulkIndex = bulkIndex;
             DataStream = dataStream;
         }

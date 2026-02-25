@@ -14,13 +14,21 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationDatadogLog
     {
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationDatadogLogBuffer? Buffer;
+        /// <summary>
         /// A list of routing rules that forward matching logs to Datadog using dedicated API keys.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationDatadogLogRoute> Routes;
 
         [OutputConstructor]
-        private ObservabilityPipelineConfigDestinationDatadogLog(ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationDatadogLogRoute> routes)
+        private ObservabilityPipelineConfigDestinationDatadogLog(
+            Outputs.ObservabilityPipelineConfigDestinationDatadogLogBuffer? buffer,
+
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationDatadogLogRoute> routes)
         {
+            Buffer = buffer;
             Routes = routes;
         }
     }

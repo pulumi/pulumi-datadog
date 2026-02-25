@@ -100,7 +100,9 @@ import (
 // $ pulumi import datadog:index/referenceTable:ReferenceTable imported_table "00000000-0000-0000-0000-000000000000"
 // ```
 //
-// After importing, add the resource configuration to your .tf file:
+// After importing, you must add the full resource configuration to your .tf file.
+// Use `terraform state show datadog_reference_table.imported_table` to view the imported schema
+// and other attributes, then add the matching configuration:
 //
 // resource "ReferenceTable" "importedTable" {
 // tableName  = "existingTable"
@@ -148,7 +150,7 @@ type ReferenceTable struct {
 	LastUpdatedBy pulumi.StringOutput `pulumi:"lastUpdatedBy"`
 	// The number of successfully processed rows in the reference table.
 	RowCount pulumi.IntOutput `pulumi:"rowCount"`
-	// The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+	// The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
 	Schema ReferenceTableSchemaPtrOutput `pulumi:"schema"`
 	// The source type for the reference table. Valid values are `S3`, `GCS`, `AZURE`.
 	Source pulumi.StringOutput `pulumi:"source"`
@@ -208,7 +210,7 @@ type referenceTableState struct {
 	LastUpdatedBy *string `pulumi:"lastUpdatedBy"`
 	// The number of successfully processed rows in the reference table.
 	RowCount *int `pulumi:"rowCount"`
-	// The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+	// The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
 	Schema *ReferenceTableSchema `pulumi:"schema"`
 	// The source type for the reference table. Valid values are `S3`, `GCS`, `AZURE`.
 	Source *string `pulumi:"source"`
@@ -233,7 +235,7 @@ type ReferenceTableState struct {
 	LastUpdatedBy pulumi.StringPtrInput
 	// The number of successfully processed rows in the reference table.
 	RowCount pulumi.IntPtrInput
-	// The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+	// The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
 	Schema ReferenceTableSchemaPtrInput
 	// The source type for the reference table. Valid values are `S3`, `GCS`, `AZURE`.
 	Source pulumi.StringPtrInput
@@ -256,7 +258,7 @@ type referenceTableArgs struct {
 	Description *string `pulumi:"description"`
 	// Configuration for cloud storage file access and sync settings.
 	FileMetadata *ReferenceTableFileMetadata `pulumi:"fileMetadata"`
-	// The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+	// The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
 	Schema *ReferenceTableSchema `pulumi:"schema"`
 	// The source type for the reference table. Valid values are `S3`, `GCS`, `AZURE`.
 	Source string `pulumi:"source"`
@@ -272,7 +274,7 @@ type ReferenceTableArgs struct {
 	Description pulumi.StringPtrInput
 	// Configuration for cloud storage file access and sync settings.
 	FileMetadata ReferenceTableFileMetadataPtrInput
-	// The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+	// The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
 	Schema ReferenceTableSchemaPtrInput
 	// The source type for the reference table. Valid values are `S3`, `GCS`, `AZURE`.
 	Source pulumi.StringInput
@@ -394,7 +396,7 @@ func (o ReferenceTableOutput) RowCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *ReferenceTable) pulumi.IntOutput { return v.RowCount }).(pulumi.IntOutput)
 }
 
-// The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+// The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
 func (o ReferenceTableOutput) Schema() ReferenceTableSchemaPtrOutput {
 	return o.ApplyT(func(v *ReferenceTable) ReferenceTableSchemaPtrOutput { return v.Schema }).(ReferenceTableSchemaPtrOutput)
 }

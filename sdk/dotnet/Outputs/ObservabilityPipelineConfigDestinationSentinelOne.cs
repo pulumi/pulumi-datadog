@@ -14,13 +14,21 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationSentinelOne
     {
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationSentinelOneBuffer? Buffer;
+        /// <summary>
         /// The SentinelOne region to send logs to.
         /// </summary>
         public readonly string Region;
 
         [OutputConstructor]
-        private ObservabilityPipelineConfigDestinationSentinelOne(string region)
+        private ObservabilityPipelineConfigDestinationSentinelOne(
+            Outputs.ObservabilityPipelineConfigDestinationSentinelOneBuffer? buffer,
+
+            string region)
         {
+            Buffer = buffer;
             Region = region;
         }
     }

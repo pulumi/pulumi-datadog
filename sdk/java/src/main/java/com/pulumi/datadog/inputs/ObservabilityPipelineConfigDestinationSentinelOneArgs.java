@@ -5,14 +5,32 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationSentinelOneBufferArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ObservabilityPipelineConfigDestinationSentinelOneArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ObservabilityPipelineConfigDestinationSentinelOneArgs Empty = new ObservabilityPipelineConfigDestinationSentinelOneArgs();
+
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    @Import(name="buffer")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationSentinelOneBufferArgs> buffer;
+
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationSentinelOneBufferArgs>> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
 
     /**
      * The SentinelOne region to send logs to.
@@ -32,6 +50,7 @@ public final class ObservabilityPipelineConfigDestinationSentinelOneArgs extends
     private ObservabilityPipelineConfigDestinationSentinelOneArgs() {}
 
     private ObservabilityPipelineConfigDestinationSentinelOneArgs(ObservabilityPipelineConfigDestinationSentinelOneArgs $) {
+        this.buffer = $.buffer;
         this.region = $.region;
     }
 
@@ -51,6 +70,27 @@ public final class ObservabilityPipelineConfigDestinationSentinelOneArgs extends
 
         public Builder(ObservabilityPipelineConfigDestinationSentinelOneArgs defaults) {
             $ = new ObservabilityPipelineConfigDestinationSentinelOneArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(@Nullable Output<ObservabilityPipelineConfigDestinationSentinelOneBufferArgs> buffer) {
+            $.buffer = buffer;
+            return this;
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(ObservabilityPipelineConfigDestinationSentinelOneBufferArgs buffer) {
+            return buffer(Output.of(buffer));
         }
 
         /**

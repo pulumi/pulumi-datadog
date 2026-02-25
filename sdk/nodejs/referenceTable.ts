@@ -70,7 +70,9 @@ import * as utilities from "./utilities";
  * $ pulumi import datadog:index/referenceTable:ReferenceTable imported_table "00000000-0000-0000-0000-000000000000"
  * ```
  *
- * After importing, add the resource configuration to your .tf file:
+ * After importing, you must add the full resource configuration to your .tf file.
+ * Use `terraform state show datadog_reference_table.imported_table` to view the imported schema
+ * and other attributes, then add the matching configuration:
  *
  * resource "datadog.ReferenceTable" "importedTable" {
  * tableName  = "existingTable"
@@ -155,7 +157,7 @@ export class ReferenceTable extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly rowCount: pulumi.Output<number>;
     /**
-     * The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+     * The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
      */
     declare public readonly schema: pulumi.Output<outputs.ReferenceTableSchema | undefined>;
     /**
@@ -253,7 +255,7 @@ export interface ReferenceTableState {
      */
     rowCount?: pulumi.Input<number>;
     /**
-     * The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+     * The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
      */
     schema?: pulumi.Input<inputs.ReferenceTableSchema>;
     /**
@@ -291,7 +293,7 @@ export interface ReferenceTableArgs {
      */
     fileMetadata?: pulumi.Input<inputs.ReferenceTableFileMetadata>;
     /**
-     * The schema definition for the reference table, including field definitions and primary keys. Schema is only set on create; updates are derived from the file asynchronously.
+     * The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
      */
     schema?: pulumi.Input<inputs.ReferenceTableSchema>;
     /**

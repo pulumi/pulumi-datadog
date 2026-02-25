@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigDestinationSumoLogicArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        [Input("buffer")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationSumoLogicBufferArgs>? Buffer { get; set; }
+
+        /// <summary>
         /// The output encoding format.
         /// </summary>
         [Input("encoding")]

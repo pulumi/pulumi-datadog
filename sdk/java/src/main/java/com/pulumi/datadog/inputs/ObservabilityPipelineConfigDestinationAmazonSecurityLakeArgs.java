@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonSecurityLakeAuthArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonSecurityLakeBufferArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonSecurityLakeTlsArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -46,6 +47,21 @@ public final class ObservabilityPipelineConfigDestinationAmazonSecurityLakeArgs 
      */
     public Output<String> bucket() {
         return this.bucket;
+    }
+
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    @Import(name="buffer")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationAmazonSecurityLakeBufferArgs> buffer;
+
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationAmazonSecurityLakeBufferArgs>> buffer() {
+        return Optional.ofNullable(this.buffer);
     }
 
     /**
@@ -98,6 +114,7 @@ public final class ObservabilityPipelineConfigDestinationAmazonSecurityLakeArgs 
     private ObservabilityPipelineConfigDestinationAmazonSecurityLakeArgs(ObservabilityPipelineConfigDestinationAmazonSecurityLakeArgs $) {
         this.auth = $.auth;
         this.bucket = $.bucket;
+        this.buffer = $.buffer;
         this.customSourceName = $.customSourceName;
         this.region = $.region;
         this.tls = $.tls;
@@ -161,6 +178,27 @@ public final class ObservabilityPipelineConfigDestinationAmazonSecurityLakeArgs 
          */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(@Nullable Output<ObservabilityPipelineConfigDestinationAmazonSecurityLakeBufferArgs> buffer) {
+            $.buffer = buffer;
+            return this;
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(ObservabilityPipelineConfigDestinationAmazonSecurityLakeBufferArgs buffer) {
+            return buffer(Output.of(buffer));
         }
 
         /**
