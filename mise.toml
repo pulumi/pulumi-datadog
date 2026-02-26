@@ -1,3 +1,4 @@
 [tools]
 "vfox-pulumi:pulumi/pulumi-converter-terraform" = "1.0.16"
 golangci-lint = "2.7.0"
+"go:gotest.tools/gotestsum" = "latest"
