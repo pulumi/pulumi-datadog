@@ -29,6 +29,7 @@ class AwsCurConfigArgs:
                  bucket_region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AwsCurConfig resource.
+
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID of your billing/payer account. For AWS Organizations, this is typically the management account ID.
         :param pulumi.Input[_builtins.str] bucket_name: The S3 bucket name where your AWS Cost and Usage Report files are stored. This bucket must have appropriate IAM permissions for Datadog access and should be in the same AWS account as the CUR report.
         :param pulumi.Input[_builtins.str] report_name: The exact name of your AWS Cost and Usage Report as configured in AWS Billing preferences. This must match the report name exactly as it appears in your AWS billing settings.
@@ -130,6 +131,7 @@ class _AwsCurConfigState:
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AwsCurConfig resources.
+
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID of your billing/payer account. For AWS Organizations, this is typically the management account ID.
         :param pulumi.Input[_builtins.str] bucket_name: The S3 bucket name where your AWS Cost and Usage Report files are stored. This bucket must have appropriate IAM permissions for Datadog access and should be in the same AWS account as the CUR report.
         :param pulumi.Input[_builtins.str] bucket_region: The AWS region where the S3 bucket containing your Cost and Usage Report is located (e.g., us-east-1, eu-west-1).
@@ -340,6 +342,7 @@ class AwsCurConfig(pulumi.CustomResource):
         $ pulumi import datadog:index/awsCurConfig:AwsCurConfig aws_cur_report <cloud_account_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID of your billing/payer account. For AWS Organizations, this is typically the management account ID.
@@ -386,6 +389,7 @@ class AwsCurConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/awsCurConfig:AwsCurConfig aws_cur_report <cloud_account_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AwsCurConfigArgs args: The arguments to use to populate this resource's properties.

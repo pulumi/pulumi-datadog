@@ -35,6 +35,7 @@ class SensitiveDataScannerRuleArgs:
                  text_replacement: Optional[pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs']] = None):
         """
         The set of arguments for constructing a SensitiveDataScannerRule resource.
+
         :param pulumi.Input[_builtins.str] group_id: Id of the scanning group the rule belongs to.
         :param pulumi.Input[_builtins.str] description: Description of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_namespaces: Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
@@ -234,6 +235,7 @@ class _SensitiveDataScannerRuleState:
                  text_replacement: Optional[pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs']] = None):
         """
         Input properties used for looking up and filtering SensitiveDataScannerRule resources.
+
         :param pulumi.Input[_builtins.str] description: Description of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_namespaces: Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
         :param pulumi.Input[_builtins.str] group_id: Id of the scanning group the rule belongs to.
@@ -447,6 +449,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         $ pulumi import datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule new_list "<rule_id>"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the rule.
@@ -478,6 +481,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule new_list "<rule_id>"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SensitiveDataScannerRuleArgs args: The arguments to use to populate this resource's properties.

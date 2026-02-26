@@ -25,6 +25,7 @@ class ServiceAccountArgs:
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServiceAccount resource.
+
         :param pulumi.Input[_builtins.str] email: Email of the associated user.
         :param pulumi.Input[_builtins.bool] disabled: Whether the service account is disabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] name: Name for the service account.
@@ -96,6 +97,7 @@ class _ServiceAccountState:
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ServiceAccount resources.
+
         :param pulumi.Input[_builtins.bool] disabled: Whether the service account is disabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] email: Email of the associated user.
         :param pulumi.Input[_builtins.str] name: Name for the service account.
@@ -196,6 +198,7 @@ class ServiceAccount(pulumi.CustomResource):
         $ pulumi import datadog:index/serviceAccount:ServiceAccount example_sa 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] disabled: Whether the service account is disabled. Defaults to `false`.
@@ -234,6 +237,7 @@ class ServiceAccount(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/serviceAccount:ServiceAccount example_sa 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceAccountArgs args: The arguments to use to populate this resource's properties.

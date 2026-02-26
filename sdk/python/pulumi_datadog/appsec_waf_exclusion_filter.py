@@ -32,6 +32,7 @@ class AppsecWafExclusionFilterArgs:
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input['AppsecWafExclusionFilterScopeArgs']]]] = None):
         """
         The set of arguments for constructing a AppsecWafExclusionFilter resource.
+
         :param pulumi.Input[_builtins.str] description: A description for the exclusion filter.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the exclusion filter is enabled.
         :param pulumi.Input[_builtins.str] event_query: The event query matched by the legacy exclusion filter. Cannot be created nor updated.
@@ -174,6 +175,7 @@ class _AppsecWafExclusionFilterState:
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input['AppsecWafExclusionFilterScopeArgs']]]] = None):
         """
         Input properties used for looking up and filtering AppsecWafExclusionFilter resources.
+
         :param pulumi.Input[_builtins.str] description: A description for the exclusion filter.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the exclusion filter is enabled.
         :param pulumi.Input[_builtins.str] event_query: The event query matched by the legacy exclusion filter. Cannot be created nor updated.
@@ -360,6 +362,7 @@ class AppsecWafExclusionFilter(pulumi.CustomResource):
         $ pulumi import datadog:index/appsecWafExclusionFilter:AppsecWafExclusionFilter passlist_entry "45b7032f-0ac4-4b2f-9118-363523c625f6"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the exclusion filter.
@@ -415,6 +418,7 @@ class AppsecWafExclusionFilter(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/appsecWafExclusionFilter:AppsecWafExclusionFilter passlist_entry "45b7032f-0ac4-4b2f-9118-363523c625f6"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppsecWafExclusionFilterArgs args: The arguments to use to populate this resource's properties.

@@ -79,6 +79,7 @@ class IntegrationExternalId(pulumi.CustomResource):
         $ pulumi import datadog:aws/integrationExternalId:IntegrationExternalId foo ${id}
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -134,6 +135,7 @@ class IntegrationExternalId(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:aws/integrationExternalId:IntegrationExternalId foo ${id}
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationExternalIdArgs args: The arguments to use to populate this resource's properties.

@@ -23,6 +23,7 @@ class OrgConnectionArgs:
                  sink_org_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a OrgConnection resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] connection_types: Set of connection types to enable for this connection (., metrics, logs).
         :param pulumi.Input[_builtins.str] sink_org_id: UUID of the sink (destination) organization. Must be a valid UUID.
         """
@@ -66,6 +67,7 @@ class _OrgConnectionState:
                  source_org_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrgConnection resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] connection_types: Set of connection types to enable for this connection (., metrics, logs).
         :param pulumi.Input[_builtins.str] created_at: Timestamp when the connection was created (RFC 3339).
         :param pulumi.Input[_builtins.str] created_by: Creator user ID (UUID).
@@ -209,6 +211,7 @@ class OrgConnection(pulumi.CustomResource):
         $ pulumi import datadog:index/orgConnection:OrgConnection foo "<org_connection_id>"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] connection_types: Set of connection types to enable for this connection (., metrics, logs).
@@ -245,6 +248,7 @@ class OrgConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/orgConnection:OrgConnection foo "<org_connection_id>"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrgConnectionArgs args: The arguments to use to populate this resource's properties.

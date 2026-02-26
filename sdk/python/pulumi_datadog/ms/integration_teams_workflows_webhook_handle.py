@@ -23,6 +23,7 @@ class IntegrationTeamsWorkflowsWebhookHandleArgs:
                  url: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a IntegrationTeamsWorkflowsWebhookHandle resource.
+
         :param pulumi.Input[_builtins.str] name: Your Microsoft Workflows webhook handle name.
         :param pulumi.Input[_builtins.str] url: Your Microsoft Workflows webhook URL.
         """
@@ -61,6 +62,7 @@ class _IntegrationTeamsWorkflowsWebhookHandleState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationTeamsWorkflowsWebhookHandle resources.
+
         :param pulumi.Input[_builtins.str] name: Your Microsoft Workflows webhook handle name.
         :param pulumi.Input[_builtins.str] url: Your Microsoft Workflows webhook URL.
         """
@@ -106,6 +108,7 @@ class IntegrationTeamsWorkflowsWebhookHandle(pulumi.CustomResource):
         """
         Resource for interacting with Datadog Microsoft Teams integration Microsoft Workflows webhook handles.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Your Microsoft Workflows webhook handle name.
@@ -119,6 +122,7 @@ class IntegrationTeamsWorkflowsWebhookHandle(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for interacting with Datadog Microsoft Teams integration Microsoft Workflows webhook handles.
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationTeamsWorkflowsWebhookHandleArgs args: The arguments to use to populate this resource's properties.

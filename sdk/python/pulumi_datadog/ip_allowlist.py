@@ -25,6 +25,7 @@ class IpAllowlistArgs:
                  entries: Optional[pulumi.Input[Sequence[pulumi.Input['IpAllowlistEntryArgs']]]] = None):
         """
         The set of arguments for constructing a IpAllowlist resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Whether the IP Allowlist is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['IpAllowlistEntryArgs']]] entries: Set of objects containing an IP address or range of IP addresses in the allowlist and an accompanying note.
         """
@@ -64,6 +65,7 @@ class _IpAllowlistState:
                  entries: Optional[pulumi.Input[Sequence[pulumi.Input['IpAllowlistEntryArgs']]]] = None):
         """
         Input properties used for looking up and filtering IpAllowlist resources.
+
         :param pulumi.Input[_builtins.bool] enabled: Whether the IP Allowlist is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['IpAllowlistEntryArgs']]] entries: Set of objects containing an IP address or range of IP addresses in the allowlist and an accompanying note.
         """
@@ -129,6 +131,7 @@ class IpAllowlist(pulumi.CustomResource):
             ])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Whether the IP Allowlist is enabled.
@@ -162,6 +165,7 @@ class IpAllowlist(pulumi.CustomResource):
                 },
             ])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IpAllowlistArgs args: The arguments to use to populate this resource's properties.

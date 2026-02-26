@@ -24,6 +24,7 @@ class AgentlessScanningGcpScanOptionsArgs:
                  vuln_host_os: pulumi.Input[_builtins.bool]):
         """
         The set of arguments for constructing a AgentlessScanningGcpScanOptions resource.
+
         :param pulumi.Input[_builtins.str] gcp_project_id: The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
         :param pulumi.Input[_builtins.bool] vuln_containers_os: Indicates if scanning for vulnerabilities in containers is enabled.
         :param pulumi.Input[_builtins.bool] vuln_host_os: Indicates if scanning for vulnerabilities in hosts is enabled.
@@ -77,6 +78,7 @@ class _AgentlessScanningGcpScanOptionsState:
                  vuln_host_os: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering AgentlessScanningGcpScanOptions resources.
+
         :param pulumi.Input[_builtins.str] gcp_project_id: The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
         :param pulumi.Input[_builtins.bool] vuln_containers_os: Indicates if scanning for vulnerabilities in containers is enabled.
         :param pulumi.Input[_builtins.bool] vuln_host_os: Indicates if scanning for vulnerabilities in hosts is enabled.
@@ -163,6 +165,7 @@ class AgentlessScanningGcpScanOptions(pulumi.CustomResource):
         $ pulumi import datadog:index/agentlessScanningGcpScanOptions:AgentlessScanningGcpScanOptions example company-project-prod
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] gcp_project_id: The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
@@ -202,6 +205,7 @@ class AgentlessScanningGcpScanOptions(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/agentlessScanningGcpScanOptions:AgentlessScanningGcpScanOptions example company-project-prod
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentlessScanningGcpScanOptionsArgs args: The arguments to use to populate this resource's properties.

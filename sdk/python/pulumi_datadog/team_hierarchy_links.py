@@ -23,6 +23,7 @@ class TeamHierarchyLinksArgs:
                  sub_team_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a TeamHierarchyLinks resource.
+
         :param pulumi.Input[_builtins.str] parent_team_id: ID of the parent team the team hierarchy link is associated with.
         :param pulumi.Input[_builtins.str] sub_team_id: ID of the sub team the team hierarchy link is associated with.
         """
@@ -63,6 +64,7 @@ class _TeamHierarchyLinksState:
                  sub_team_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TeamHierarchyLinks resources.
+
         :param pulumi.Input[_builtins.str] created_at: Timestamp when the team hierarchy link was created.
         :param pulumi.Input[_builtins.str] parent_team_id: ID of the parent team the team hierarchy link is associated with.
         :param pulumi.Input[_builtins.str] provisioned_by: The user who created the team hierarchy link.
@@ -138,6 +140,7 @@ class TeamHierarchyLinks(pulumi.CustomResource):
         """
         Provides a Datadog TeamHierarchyLinks resource. This can be used to create and manage Datadog Team Hierarchy Links.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] parent_team_id: ID of the parent team the team hierarchy link is associated with.
@@ -151,6 +154,7 @@ class TeamHierarchyLinks(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog TeamHierarchyLinks resource. This can be used to create and manage Datadog Team Hierarchy Links.
+
 
         :param str resource_name: The name of the resource.
         :param TeamHierarchyLinksArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class RumApplicationArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RumApplication resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the RUM application.
         :param pulumi.Input[_builtins.str] product_analytics_retention_state: Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
         :param pulumi.Input[_builtins.str] rum_event_processing_state: Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
@@ -98,6 +99,7 @@ class _RumApplicationState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RumApplication resources.
+
         :param pulumi.Input[_builtins.int] api_key_id: ID of the API key associated with the application.
         :param pulumi.Input[_builtins.str] client_token: The client token.
         :param pulumi.Input[_builtins.str] name: Name of the RUM application.
@@ -226,6 +228,7 @@ class RumApplication(pulumi.CustomResource):
         $ pulumi import datadog:index/rumApplication:RumApplication rum_application a1b2c3d4-a1b2-a1b2-a1b2-a1b2c3d4e5f6
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the RUM application.
@@ -262,6 +265,7 @@ class RumApplication(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/rumApplication:RumApplication rum_application a1b2c3d4-a1b2-a1b2-a1b2-a1b2c3d4e5f6
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RumApplicationArgs args: The arguments to use to populate this resource's properties.

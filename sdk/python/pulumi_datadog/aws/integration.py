@@ -33,6 +33,7 @@ class IntegrationArgs:
                  secret_access_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Integration resource.
+
         :param pulumi.Input[_builtins.str] access_key_id: Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
         :param pulumi.Input[_builtins.str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
@@ -238,6 +239,7 @@ class _IntegrationState:
                  secret_access_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Integration resources.
+
         :param pulumi.Input[_builtins.str] access_key_id: Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
         :param pulumi.Input[_builtins.str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
@@ -498,6 +500,7 @@ class Integration(pulumi.CustomResource):
         EXTERNAL_ID=${external_id} terraform import datadog_integration_aws.test ${account_id}:${role_name}
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_key_id: Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
@@ -557,6 +560,7 @@ class Integration(pulumi.CustomResource):
         # Amazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID
         EXTERNAL_ID=${external_id} terraform import datadog_integration_aws.test ${account_id}:${role_name}
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationArgs args: The arguments to use to populate this resource's properties.

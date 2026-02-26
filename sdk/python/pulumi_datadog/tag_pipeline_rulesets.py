@@ -23,6 +23,7 @@ class TagPipelineRulesetsArgs:
                  override_ui_defined_resources: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a TagPipelineRulesets resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ruleset_ids: The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
         :param pulumi.Input[_builtins.bool] override_ui_defined_resources: Whether to override UI-defined rulesets. When set to true, any rulesets created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rulesets created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
         """
@@ -62,6 +63,7 @@ class _TagPipelineRulesetsState:
                  ruleset_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering TagPipelineRulesets resources.
+
         :param pulumi.Input[_builtins.bool] override_ui_defined_resources: Whether to override UI-defined rulesets. When set to true, any rulesets created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rulesets created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ruleset_ids: The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
         """
@@ -275,6 +277,7 @@ class TagPipelineRulesets(pulumi.CustomResource):
         $ pulumi import datadog:index/tagPipelineRulesets:TagPipelineRulesets my_rulesets order
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] override_ui_defined_resources: Whether to override UI-defined rulesets. When set to true, any rulesets created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rulesets created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
@@ -456,6 +459,7 @@ class TagPipelineRulesets(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/tagPipelineRulesets:TagPipelineRulesets my_rulesets order
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TagPipelineRulesetsArgs args: The arguments to use to populate this resource's properties.

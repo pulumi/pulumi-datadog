@@ -25,6 +25,7 @@ class IntegrationAccountArgs:
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IntegrationAccount resource.
+
         :param pulumi.Input[_builtins.str] api_key: The API key (or token) for the Cloudflare account.
         :param pulumi.Input[_builtins.str] name: The name of the Cloudflare account.
         :param pulumi.Input[_builtins.str] email: The email associated with the Cloudflare account. If an API key is provided (and not a token), this field is also required.
@@ -95,6 +96,7 @@ class _IntegrationAccountState:
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering IntegrationAccount resources.
+
         :param pulumi.Input[_builtins.str] api_key: The API key (or token) for the Cloudflare account.
         :param pulumi.Input[_builtins.str] email: The email associated with the Cloudflare account. If an API key is provided (and not a token), this field is also required.
         :param pulumi.Input[_builtins.str] name: The name of the Cloudflare account.
@@ -193,6 +195,7 @@ class IntegrationAccount(pulumi.CustomResource):
         $ pulumi import datadog:cloudflare/integrationAccount:IntegrationAccount new_list "<ID>"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_key: The API key (or token) for the Cloudflare account.
@@ -229,6 +232,7 @@ class IntegrationAccount(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:cloudflare/integrationAccount:IntegrationAccount new_list "<ID>"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountArgs args: The arguments to use to populate this resource's properties.

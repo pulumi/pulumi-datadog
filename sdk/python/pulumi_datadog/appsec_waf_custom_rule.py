@@ -31,6 +31,7 @@ class AppsecWafCustomRuleArgs:
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input['AppsecWafCustomRuleScopeArgs']]]] = None):
         """
         The set of arguments for constructing a AppsecWafCustomRule resource.
+
         :param pulumi.Input[_builtins.bool] blocking: Indicates whether the WAF custom rule will block the request.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the WAF custom rule is enabled.
         :param pulumi.Input[_builtins.str] name: The Name of the WAF custom rule.
@@ -151,6 +152,7 @@ class _AppsecWafCustomRuleState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AppsecWafCustomRule resources.
+
         :param pulumi.Input[_builtins.bool] blocking: Indicates whether the WAF custom rule will block the request.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the WAF custom rule is enabled.
         :param pulumi.Input[_builtins.str] name: The Name of the WAF custom rule.
@@ -346,6 +348,7 @@ class AppsecWafCustomRule(pulumi.CustomResource):
         $ pulumi import datadog:index/appsecWafCustomRule:AppsecWafCustomRule new_list ""
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] blocking: Indicates whether the WAF custom rule will block the request.
@@ -428,6 +431,7 @@ class AppsecWafCustomRule(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/appsecWafCustomRule:AppsecWafCustomRule new_list ""
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppsecWafCustomRuleArgs args: The arguments to use to populate this resource's properties.

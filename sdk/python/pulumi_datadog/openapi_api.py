@@ -22,6 +22,7 @@ class OpenapiApiArgs:
                  spec: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a OpenapiApi resource.
+
         :param pulumi.Input[_builtins.str] spec: The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
         """
         pulumi.set(__self__, "spec", spec)
@@ -45,6 +46,7 @@ class _OpenapiApiState:
                  spec: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OpenapiApi resources.
+
         :param pulumi.Input[_builtins.str] spec: The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
         """
         if spec is not None:
@@ -93,6 +95,7 @@ class OpenapiApi(pulumi.CustomResource):
         $ pulumi import datadog:index/openapiApi:OpenapiApi new_list "90646597-5fdb-4a17-a240-647003f8c028"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] spec: The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
@@ -124,6 +127,7 @@ class OpenapiApi(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/openapiApi:OpenapiApi new_list "90646597-5fdb-4a17-a240-647003f8c028"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OpenapiApiArgs args: The arguments to use to populate this resource's properties.

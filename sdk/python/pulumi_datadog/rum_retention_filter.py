@@ -27,6 +27,7 @@ class RumRetentionFilterArgs:
                  query: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RumRetentionFilter resource.
+
         :param pulumi.Input[_builtins.str] application_id: RUM application ID.
         :param pulumi.Input[_builtins.str] event_type: The type of RUM events to filter on.
         :param pulumi.Input[_builtins.str] name: The name of a RUM retention filter.
@@ -127,6 +128,7 @@ class _RumRetentionFilterState:
                  sample_rate: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Input properties used for looking up and filtering RumRetentionFilter resources.
+
         :param pulumi.Input[_builtins.str] application_id: RUM application ID.
         :param pulumi.Input[_builtins.bool] enabled: Whether the retention filter is to be enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] event_type: The type of RUM events to filter on.
@@ -260,6 +262,7 @@ class RumRetentionFilter(pulumi.CustomResource):
         $ pulumi import datadog:index/rumRetentionFilter:RumRetentionFilter testing_rum_retention_filter "<application_id>:<retention_filter_id>"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: RUM application ID.
@@ -301,6 +304,7 @@ class RumRetentionFilter(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/rumRetentionFilter:RumRetentionFilter testing_rum_retention_filter "<application_id>:<retention_filter_id>"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RumRetentionFilterArgs args: The arguments to use to populate this resource's properties.

@@ -36,6 +36,7 @@ class DashboardArgs:
                  widgets: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
+
         :param pulumi.Input[_builtins.str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
         :param pulumi.Input[_builtins.str] title: The title of the dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
@@ -255,6 +256,7 @@ class _DashboardState:
                  widgets: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]] = None):
         """
         Input properties used for looking up and filtering Dashboard resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dashboard_lists_removeds: A list of dashboard lists this dashboard should be removed from. Internal only.
         :param pulumi.Input[_builtins.str] description: The description of the dashboard.
@@ -1250,6 +1252,7 @@ class Dashboard(pulumi.CustomResource):
         $ pulumi import datadog:index/dashboard:Dashboard my_service_dashboard sv7-gyh-kas
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
@@ -2029,6 +2032,7 @@ class Dashboard(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/dashboard:Dashboard my_service_dashboard sv7-gyh-kas
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DashboardArgs args: The arguments to use to populate this resource's properties.

@@ -22,6 +22,7 @@ class AppKeyRegistrationArgs:
                  app_key_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a AppKeyRegistration resource.
+
         :param pulumi.Input[_builtins.str] app_key_id: The Application Key ID to register.
         """
         pulumi.set(__self__, "app_key_id", app_key_id)
@@ -45,6 +46,7 @@ class _AppKeyRegistrationState:
                  app_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AppKeyRegistration resources.
+
         :param pulumi.Input[_builtins.str] app_key_id: The Application Key ID to register.
         """
         if app_key_id is not None:
@@ -91,6 +93,7 @@ class AppKeyRegistration(pulumi.CustomResource):
         $ pulumi import datadog:index/appKeyRegistration:AppKeyRegistration my_app_key_registration 11111111-2222-3333-4444-555555555555
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_key_id: The Application Key ID to register.
@@ -120,6 +123,7 @@ class AppKeyRegistration(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/appKeyRegistration:AppKeyRegistration my_app_key_registration 11111111-2222-3333-4444-555555555555
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppKeyRegistrationArgs args: The arguments to use to populate this resource's properties.

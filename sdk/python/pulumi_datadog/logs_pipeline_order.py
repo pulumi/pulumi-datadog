@@ -23,6 +23,7 @@ class LogsPipelineOrderArgs:
                  pipelines: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The set of arguments for constructing a LogsPipelineOrder resource.
+
         :param pulumi.Input[_builtins.str] name: The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] pipelines: The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
         """
@@ -61,6 +62,7 @@ class _LogsPipelineOrderState:
                  pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LogsPipelineOrder resources.
+
         :param pulumi.Input[_builtins.str] name: The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] pipelines: The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
         """
@@ -130,6 +132,7 @@ class LogsPipelineOrder(pulumi.CustomResource):
         $ pulumi import datadog:index/logsPipelineOrder:LogsPipelineOrder name> <name>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
@@ -167,6 +170,7 @@ class LogsPipelineOrder(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/logsPipelineOrder:LogsPipelineOrder name> <name>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogsPipelineOrderArgs args: The arguments to use to populate this resource's properties.

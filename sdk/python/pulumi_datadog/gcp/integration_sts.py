@@ -37,6 +37,7 @@ class IntegrationStsArgs:
                  resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a IntegrationSts resource.
+
         :param pulumi.Input[_builtins.str] client_email: Your service account email address.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_tags: Tags to be associated with GCP metrics and service checks from your account.
         :param pulumi.Input[_builtins.bool] automute: Silence monitors for expected GCE instance shutdowns.
@@ -277,6 +278,7 @@ class _IntegrationStsState:
                  resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering IntegrationSts resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_tags: Tags to be associated with GCP metrics and service checks from your account.
         :param pulumi.Input[_builtins.bool] automute: Silence monitors for expected GCE instance shutdowns.
         :param pulumi.Input[_builtins.str] client_email: Your service account email address.
@@ -545,6 +547,7 @@ class IntegrationSts(pulumi.CustomResource):
         $ pulumi import datadog:gcp/integrationSts:IntegrationSts foo "9c303af3-b963-45e0-8c8f-469b9e1a213f"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_tags: Tags to be associated with GCP metrics and service checks from your account.
@@ -578,6 +581,7 @@ class IntegrationSts(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:gcp/integrationSts:IntegrationSts foo "9c303af3-b963-45e0-8c8f-469b9e1a213f"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationStsArgs args: The arguments to use to populate this resource's properties.

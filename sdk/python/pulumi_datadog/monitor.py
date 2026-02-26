@@ -59,6 +59,7 @@ class MonitorArgs:
                  variables: Optional[pulumi.Input['MonitorVariablesArgs']] = None):
         """
         The set of arguments for constructing a Monitor resource.
+
         :param pulumi.Input[_builtins.str] message: A message to include with notifications for this monitor.
         :param pulumi.Input[_builtins.str] name: Name of Datadog monitor.
         :param pulumi.Input[_builtins.str] query: The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. `terraform plan` will validate query contents unless `validate` is set to `false`.
@@ -661,6 +662,7 @@ class _MonitorState:
                  variables: Optional[pulumi.Input['MonitorVariablesArgs']] = None):
         """
         Input properties used for looking up and filtering Monitor resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['MonitorAssetArgs']]] assets: List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
         :param pulumi.Input[_builtins.str] draft_status: Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
         :param pulumi.Input[_builtins.bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
@@ -1303,6 +1305,7 @@ class Monitor(pulumi.CustomResource):
         $ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorAssetArgs', 'MonitorAssetArgsDict']]]] assets: List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
@@ -1389,6 +1392,7 @@ class Monitor(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MonitorArgs args: The arguments to use to populate this resource's properties.

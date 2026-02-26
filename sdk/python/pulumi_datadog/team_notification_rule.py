@@ -28,6 +28,7 @@ class TeamNotificationRuleArgs:
                  slack: Optional[pulumi.Input['TeamNotificationRuleSlackArgs']] = None):
         """
         The set of arguments for constructing a TeamNotificationRule resource.
+
         :param pulumi.Input[_builtins.str] team_id: The ID of the team that this notification rule belongs to.
         :param pulumi.Input['TeamNotificationRuleEmailArgs'] email: The email notification settings.
         :param pulumi.Input['TeamNotificationRuleMsTeamsArgs'] ms_teams: The MS Teams notification settings.
@@ -115,6 +116,7 @@ class _TeamNotificationRuleState:
                  team_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TeamNotificationRule resources.
+
         :param pulumi.Input['TeamNotificationRuleEmailArgs'] email: The email notification settings.
         :param pulumi.Input['TeamNotificationRuleMsTeamsArgs'] ms_teams: The MS Teams notification settings.
         :param pulumi.Input['TeamNotificationRulePagerdutyArgs'] pagerduty: The PagerDuty notification settings.
@@ -246,6 +248,7 @@ class TeamNotificationRule(pulumi.CustomResource):
         $ pulumi import datadog:index/teamNotificationRule:TeamNotificationRule foo "${team_id}:${rule_id}"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TeamNotificationRuleEmailArgs', 'TeamNotificationRuleEmailArgsDict']] email: The email notification settings.
@@ -300,6 +303,7 @@ class TeamNotificationRule(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/teamNotificationRule:TeamNotificationRule foo "${team_id}:${rule_id}"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TeamNotificationRuleArgs args: The arguments to use to populate this resource's properties.

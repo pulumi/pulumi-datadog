@@ -26,6 +26,7 @@ class ActionConnectionArgs:
                  http: Optional[pulumi.Input['ActionConnectionHttpArgs']] = None):
         """
         The set of arguments for constructing a ActionConnection resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the connection
         :param pulumi.Input['ActionConnectionAwsArgs'] aws: Configuration for an AWS connection
         :param pulumi.Input['ActionConnectionHttpArgs'] http: Configuration for an HTTP connection
@@ -81,6 +82,7 @@ class _ActionConnectionState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActionConnection resources.
+
         :param pulumi.Input['ActionConnectionAwsArgs'] aws: Configuration for an AWS connection
         :param pulumi.Input['ActionConnectionHttpArgs'] http: Configuration for an HTTP connection
         :param pulumi.Input[_builtins.str] name: Name of the connection
@@ -216,6 +218,7 @@ class ActionConnection(pulumi.CustomResource):
         $ pulumi import datadog:index/actionConnection:ActionConnection my_connection 11111111-2222-3333-4444-555555555555
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ActionConnectionAwsArgs', 'ActionConnectionAwsArgsDict']] aws: Configuration for an AWS connection
@@ -304,6 +307,7 @@ class ActionConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/actionConnection:ActionConnection my_connection 11111111-2222-3333-4444-555555555555
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ActionConnectionArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class SyntheticsPrivateLocationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SyntheticsPrivateLocation resource.
+
         :param pulumi.Input[_builtins.str] name: Synthetics private location name.
         :param pulumi.Input[_builtins.str] api_key: API key used to generate the private location configuration.
         :param pulumi.Input[_builtins.str] description: Description of the private location. Defaults to `""`.
@@ -117,6 +118,7 @@ class _SyntheticsPrivateLocationState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SyntheticsPrivateLocation resources.
+
         :param pulumi.Input[_builtins.str] api_key: API key used to generate the private location configuration.
         :param pulumi.Input[_builtins.str] config: Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
         :param pulumi.Input[_builtins.str] description: Description of the private location. Defaults to `""`.
@@ -265,6 +267,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
         $ pulumi import datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation bar pl:private-location-name-abcdef123456
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_key: API key used to generate the private location configuration.
@@ -306,6 +309,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation bar pl:private-location-name-abcdef123456
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SyntheticsPrivateLocationArgs args: The arguments to use to populate this resource's properties.

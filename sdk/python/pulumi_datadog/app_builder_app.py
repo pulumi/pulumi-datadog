@@ -27,6 +27,7 @@ class AppBuilderAppArgs:
                  root_instance_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AppBuilderApp resource.
+
         :param pulumi.Input[_builtins.str] app_json: The JSON representation of the App. String length must be at least 1.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] action_query_names_to_connection_ids: If specified, this will override the Action Connection IDs for the specified Action Query Names in the App JSON. Otherwise, a map of the App's Action Query Names to Action Connection IDs will be returned in output.
         :param pulumi.Input[_builtins.str] description: If specified, this will override the human-readable description of the App in the App JSON. String length must be at least 1.
@@ -130,6 +131,7 @@ class _AppBuilderAppState:
                  root_instance_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AppBuilderApp resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] action_query_names_to_connection_ids: If specified, this will override the Action Connection IDs for the specified Action Query Names in the App JSON. Otherwise, a map of the App's Action Query Names to Action Connection IDs will be returned in output.
         :param pulumi.Input[_builtins.str] app_json: The JSON representation of the App. String length must be at least 1.
         :param pulumi.Input[_builtins.str] description: If specified, this will override the human-readable description of the App in the App JSON. String length must be at least 1.
@@ -247,6 +249,7 @@ class AppBuilderApp(pulumi.CustomResource):
         $ pulumi import datadog:index/appBuilderApp:AppBuilderApp my_app 11111111-2222-3333-4444-555555555555
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] action_query_names_to_connection_ids: If specified, this will override the Action Connection IDs for the specified Action Query Names in the App JSON. Otherwise, a map of the App's Action Query Names to Action Connection IDs will be returned in output.
@@ -272,6 +275,7 @@ class AppBuilderApp(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/appBuilderApp:AppBuilderApp my_app 11111111-2222-3333-4444-555555555555
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppBuilderAppArgs args: The arguments to use to populate this resource's properties.

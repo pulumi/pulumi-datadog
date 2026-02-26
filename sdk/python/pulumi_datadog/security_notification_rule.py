@@ -28,6 +28,7 @@ class SecurityNotificationRuleArgs:
                  time_aggregation: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a SecurityNotificationRule resource.
+
         :param pulumi.Input[_builtins.str] name: The name of the rule (must be unique).
         :param pulumi.Input['SecurityNotificationRuleSelectorsArgs'] selectors: Defines selectors to filter security issues that generate notifications.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] targets: The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
@@ -120,6 +121,7 @@ class _SecurityNotificationRuleState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SecurityNotificationRule resources.
+
         :param pulumi.Input[_builtins.int] created_at: Indicates when this rule was created.
         :param pulumi.Input[_builtins.str] created_by_handle: The handle of the rule creator.
         :param pulumi.Input[_builtins.str] created_by_name: The name of the rule creator.
@@ -361,6 +363,7 @@ class SecurityNotificationRule(pulumi.CustomResource):
         $ pulumi import datadog:index/securityNotificationRule:SecurityNotificationRule signal_rule yq9-t9l-bso
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the rule is enabled. Defaults to `true`.
@@ -420,6 +423,7 @@ class SecurityNotificationRule(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/securityNotificationRule:SecurityNotificationRule signal_rule yq9-t9l-bso
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecurityNotificationRuleArgs args: The arguments to use to populate this resource's properties.

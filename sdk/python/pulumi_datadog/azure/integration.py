@@ -37,6 +37,7 @@ class IntegrationArgs:
                  usage_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Integration resource.
+
         :param pulumi.Input[_builtins.str] client_id: Your Azure web application ID.
         :param pulumi.Input[_builtins.str] client_secret: (Required for Initial Creation) Your Azure web application secret key.
         :param pulumi.Input[_builtins.str] tenant_name: Your Azure Active Directory ID.
@@ -268,6 +269,7 @@ class _IntegrationState:
                  usage_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Integration resources.
+
         :param pulumi.Input[_builtins.str] app_service_plan_filters: This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure App Service Plans. Only App Service Plans that match one of the defined tags are imported into Datadog. The rest, including the apps and functions running on them, are ignored. This also filters the metrics for any App or Function running on the App Service Plan(s). Defaults to `""`.
         :param pulumi.Input[_builtins.bool] automute: Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
         :param pulumi.Input[_builtins.str] client_id: Your Azure web application ID.
@@ -537,6 +539,7 @@ class Integration(pulumi.CustomResource):
         $ pulumi import datadog:azure/integration:Integration sandbox ${tenant_name}:${client_id}
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_service_plan_filters: This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure App Service Plans. Only App Service Plans that match one of the defined tags are imported into Datadog. The rest, including the apps and functions running on them, are ignored. This also filters the metrics for any App or Function running on the App Service Plan(s). Defaults to `""`.
@@ -593,6 +596,7 @@ class Integration(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:azure/integration:Integration sandbox ${tenant_name}:${client_id}
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationArgs args: The arguments to use to populate this resource's properties.

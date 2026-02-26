@@ -23,6 +23,7 @@ class IntegrationLambdaArnArgs:
                  lambda_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a IntegrationLambdaArn resource.
+
         :param pulumi.Input[_builtins.str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[_builtins.str] lambda_arn: The ARN of the Datadog forwarder Lambda.
         """
@@ -61,6 +62,7 @@ class _IntegrationLambdaArnState:
                  lambda_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationLambdaArn resources.
+
         :param pulumi.Input[_builtins.str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[_builtins.str] lambda_arn: The ARN of the Datadog forwarder Lambda.
         """
@@ -135,6 +137,7 @@ class IntegrationLambdaArn(pulumi.CustomResource):
         terraform import datadog_integration_aws_lambda_arn.test "1234567890 arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Your AWS Account ID without dashes.
@@ -177,6 +180,7 @@ class IntegrationLambdaArn(pulumi.CustomResource):
         # Amazon Web Services Lambda ARN integrations can be imported using their account_id and lambda_arn separated with a space (` `).
         terraform import datadog_integration_aws_lambda_arn.test "1234567890 arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationLambdaArnArgs args: The arguments to use to populate this resource's properties.

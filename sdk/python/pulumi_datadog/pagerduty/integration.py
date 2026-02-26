@@ -24,6 +24,7 @@ class IntegrationArgs:
                  schedules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Integration resource.
+
         :param pulumi.Input[_builtins.str] subdomain: Your PagerDuty account’s personalized subdomain name.
         :param pulumi.Input[_builtins.str] api_token: Your PagerDuty API token.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] schedules: Array of your schedule URLs.
@@ -79,6 +80,7 @@ class _IntegrationState:
                  subdomain: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Integration resources.
+
         :param pulumi.Input[_builtins.str] api_token: Your PagerDuty API token.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] schedules: Array of your schedule URLs.
         :param pulumi.Input[_builtins.str] subdomain: Your PagerDuty account’s personalized subdomain name.
@@ -165,6 +167,7 @@ class Integration(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[pd]))
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_token: Your PagerDuty API token.
@@ -204,6 +207,7 @@ class Integration(pulumi.CustomResource):
             service_key="54321098765432109876",
             opts = pulumi.ResourceOptions(depends_on=[pd]))
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationArgs args: The arguments to use to populate this resource's properties.

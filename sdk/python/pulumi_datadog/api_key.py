@@ -23,6 +23,7 @@ class ApiKeyArgs:
                  remote_config_read_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ApiKey resource.
+
         :param pulumi.Input[_builtins.str] name: Name for API Key.
         :param pulumi.Input[_builtins.bool] remote_config_read_enabled: Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
         """
@@ -63,6 +64,7 @@ class _ApiKeyState:
                  remote_config_read_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ApiKey resources.
+
         :param pulumi.Input[_builtins.str] key: The value of the API Key.
         :param pulumi.Input[_builtins.str] name: Name for API Key.
         :param pulumi.Input[_builtins.bool] remote_config_read_enabled: Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
@@ -141,6 +143,7 @@ class ApiKey(pulumi.CustomResource):
         $ pulumi import datadog:index/apiKey:ApiKey foo 11111111-2222-3333-4444-555555555555
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name for API Key.
@@ -172,6 +175,7 @@ class ApiKey(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/apiKey:ApiKey foo 11111111-2222-3333-4444-555555555555
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApiKeyArgs args: The arguments to use to populate this resource's properties.

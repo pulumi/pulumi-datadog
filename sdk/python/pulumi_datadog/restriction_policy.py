@@ -25,6 +25,7 @@ class RestrictionPolicyArgs:
                  bindings: Optional[pulumi.Input[Sequence[pulumi.Input['RestrictionPolicyBindingArgs']]]] = None):
         """
         The set of arguments for constructing a RestrictionPolicy resource.
+
         :param pulumi.Input[_builtins.str] resource_id: Identifier for the resource, formatted as resource*type:resource*id.
         """
         pulumi.set(__self__, "resource_id", resource_id)
@@ -60,6 +61,7 @@ class _RestrictionPolicyState:
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RestrictionPolicy resources.
+
         :param pulumi.Input[_builtins.str] resource_id: Identifier for the resource, formatted as resource*type:resource*id.
         """
         if bindings is not None:
@@ -130,6 +132,7 @@ class RestrictionPolicy(pulumi.CustomResource):
         $ pulumi import datadog:index/restrictionPolicy:RestrictionPolicy new_list "<policy_id>"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] resource_id: Identifier for the resource, formatted as resource*type:resource*id.
@@ -171,6 +174,7 @@ class RestrictionPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/restrictionPolicy:RestrictionPolicy new_list "<policy_id>"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RestrictionPolicyArgs args: The arguments to use to populate this resource's properties.

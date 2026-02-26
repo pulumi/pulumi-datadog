@@ -23,6 +23,7 @@ class LogsIndexOrderArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogsIndexOrder resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] indexes: The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
         :param pulumi.Input[_builtins.str] name: The unique name of the index order resource.
         """
@@ -62,6 +63,7 @@ class _LogsIndexOrderState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogsIndexOrder resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] indexes: The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
         :param pulumi.Input[_builtins.str] name: The unique name of the index order resource.
         """
@@ -129,6 +131,7 @@ class LogsIndexOrder(pulumi.CustomResource):
         $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder name> <name>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] indexes: The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
@@ -164,6 +167,7 @@ class LogsIndexOrder(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder name> <name>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogsIndexOrderArgs args: The arguments to use to populate this resource's properties.

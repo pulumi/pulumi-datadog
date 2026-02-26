@@ -25,6 +25,7 @@ class ServiceObjectArgs:
                  custom_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceObject resource.
+
         :param pulumi.Input[_builtins.str] name: The name for the Opsgenie service.
         :param pulumi.Input[_builtins.str] opsgenie_api_key: The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts. The best way to solve a drift is to manually mark the Service Object resource with terraform taint to have it destroyed and recreated.
         :param pulumi.Input[_builtins.str] region: The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
@@ -94,6 +95,7 @@ class _ServiceObjectState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceObject resources.
+
         :param pulumi.Input[_builtins.str] custom_url: The custom url for a custom region.
         :param pulumi.Input[_builtins.str] name: The name for the Opsgenie service.
         :param pulumi.Input[_builtins.str] opsgenie_api_key: The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts. The best way to solve a drift is to manually mark the Service Object resource with terraform taint to have it destroyed and recreated.
@@ -187,6 +189,7 @@ class ServiceObject(pulumi.CustomResource):
             region="eu")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_url: The custom url for a custom region.
@@ -218,6 +221,7 @@ class ServiceObject(pulumi.CustomResource):
             opsgenie_api_key="11111111-1111-1111-1111-111111111111",
             region="eu")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceObjectArgs args: The arguments to use to populate this resource's properties.

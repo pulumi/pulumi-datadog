@@ -24,6 +24,7 @@ class IncidentTypeArgs:
                  is_default: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a IncidentType resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the incident type. Must be between 1 and 50 characters.
         :param pulumi.Input[_builtins.str] description: Description of the incident type. The description can have a maximum of 512 characters.
         :param pulumi.Input[_builtins.bool] is_default: Whether this incident type is the default type.
@@ -79,6 +80,7 @@ class _IncidentTypeState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IncidentType resources.
+
         :param pulumi.Input[_builtins.str] description: Description of the incident type. The description can have a maximum of 512 characters.
         :param pulumi.Input[_builtins.bool] is_default: Whether this incident type is the default type.
         :param pulumi.Input[_builtins.str] name: Name of the incident type. Must be between 1 and 50 characters.
@@ -161,6 +163,7 @@ class IncidentType(pulumi.CustomResource):
         $ pulumi import datadog:index/incidentType:IncidentType example "12345678-1234-1234-1234-1234567890ab"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the incident type. The description can have a maximum of 512 characters.
@@ -196,6 +199,7 @@ class IncidentType(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/incidentType:IncidentType example "12345678-1234-1234-1234-1234567890ab"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IncidentTypeArgs args: The arguments to use to populate this resource's properties.

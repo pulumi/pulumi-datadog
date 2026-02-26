@@ -26,6 +26,7 @@ class IncidentNotificationTemplateArgs:
                  subject: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a IncidentNotificationTemplate resource.
+
         :param pulumi.Input[_builtins.str] category: The category of the notification template. Valid values are `alert`, `incident`, `recovery`.
         :param pulumi.Input[_builtins.str] content: The content body of the notification template.
         :param pulumi.Input[_builtins.str] incident_type: The ID of the incident type this notification template is associated with.
@@ -111,6 +112,7 @@ class _IncidentNotificationTemplateState:
                  subject: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IncidentNotificationTemplate resources.
+
         :param pulumi.Input[_builtins.str] category: The category of the notification template. Valid values are `alert`, `incident`, `recovery`.
         :param pulumi.Input[_builtins.str] content: The content body of the notification template.
         :param pulumi.Input[_builtins.str] created: Timestamp when the notification template was created.
@@ -286,6 +288,7 @@ class IncidentNotificationTemplate(pulumi.CustomResource):
         $ pulumi import datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate security_incident 11111111-2222-3333-4444-555555555555
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] category: The category of the notification template. Valid values are `alert`, `incident`, `recovery`.
@@ -354,6 +357,7 @@ class IncidentNotificationTemplate(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate security_incident 11111111-2222-3333-4444-555555555555
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IncidentNotificationTemplateArgs args: The arguments to use to populate this resource's properties.

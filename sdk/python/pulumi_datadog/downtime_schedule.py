@@ -32,6 +32,7 @@ class DowntimeScheduleArgs:
                  recurring_schedule: Optional[pulumi.Input['DowntimeScheduleRecurringScheduleArgs']] = None):
         """
         The set of arguments for constructing a DowntimeSchedule resource.
+
         :param pulumi.Input[_builtins.str] scope: The scope to which the downtime applies. Must follow the [common search syntax](https://docs.datadoghq.com/logs/explorer/search_syntax/).
         :param pulumi.Input[_builtins.str] display_timezone: The timezone in which to display the downtime's start and end times in Datadog applications. This is not used as an offset for scheduling.
         :param pulumi.Input[_builtins.str] message: A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.
@@ -170,6 +171,7 @@ class _DowntimeScheduleState:
                  scope: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DowntimeSchedule resources.
+
         :param pulumi.Input[_builtins.str] display_timezone: The timezone in which to display the downtime's start and end times in Datadog applications. This is not used as an offset for scheduling.
         :param pulumi.Input[_builtins.str] message: A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.
         :param pulumi.Input[_builtins.bool] mute_first_recovery_notification: If the first recovery notification during a downtime should be muted.
@@ -359,6 +361,7 @@ class DowntimeSchedule(pulumi.CustomResource):
         $ pulumi import datadog:index/downtimeSchedule:DowntimeSchedule new_list "00e000000-0000-1234-0000-000000000000"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_timezone: The timezone in which to display the downtime's start and end times in Datadog applications. This is not used as an offset for scheduling.
@@ -420,6 +423,7 @@ class DowntimeSchedule(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/downtimeSchedule:DowntimeSchedule new_list "00e000000-0000-1234-0000-000000000000"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DowntimeScheduleArgs args: The arguments to use to populate this resource's properties.

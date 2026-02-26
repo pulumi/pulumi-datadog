@@ -24,6 +24,7 @@ class DatastoreItemArgs:
                  value: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]):
         """
         The set of arguments for constructing a DatastoreItem resource.
+
         :param pulumi.Input[_builtins.str] datastore_id: The unique identifier of the datastore containing this item.
         :param pulumi.Input[_builtins.str] item_key: The primary key value that identifies this item. Cannot exceed 256 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] value: The data content (as key-value pairs) of the datastore item.
@@ -77,6 +78,7 @@ class _DatastoreItemState:
                  value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DatastoreItem resources.
+
         :param pulumi.Input[_builtins.str] datastore_id: The unique identifier of the datastore containing this item.
         :param pulumi.Input[_builtins.str] item_key: The primary key value that identifies this item. Cannot exceed 256 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] value: The data content (as key-value pairs) of the datastore item.
@@ -180,6 +182,7 @@ class DatastoreItem(pulumi.CustomResource):
         $ pulumi import datadog:index/datastoreItem:DatastoreItem foo "datastore-id:item-key"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] datastore_id: The unique identifier of the datastore containing this item.
@@ -236,6 +239,7 @@ class DatastoreItem(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/datastoreItem:DatastoreItem foo "datastore-id:item-key"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DatastoreItemArgs args: The arguments to use to populate this resource's properties.

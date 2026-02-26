@@ -34,6 +34,7 @@ class CloudConfigurationRuleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CloudConfigurationRule resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Whether the cloud configuration rule is enabled.
         :param pulumi.Input[_builtins.str] message: The message associated to the rule that will be shown in findings and signals.
         :param pulumi.Input[_builtins.str] name: The name of the cloud configuration rule.
@@ -212,6 +213,7 @@ class _CloudConfigurationRuleState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CloudConfigurationRule resources.
+
         :param pulumi.Input[_builtins.bool] enabled: Whether the cloud configuration rule is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['CloudConfigurationRuleFilterArgs']]] filters: Additional queries to filter matched events before they are processed. Defaults to empty list
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_bies: Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
@@ -454,6 +456,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
         $ pulumi import datadog:index/cloudConfigurationRule:CloudConfigurationRule my_rule m0o-hto-lkb
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Whether the cloud configuration rule is enabled.
@@ -529,6 +532,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/cloudConfigurationRule:CloudConfigurationRule my_rule m0o-hto-lkb
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CloudConfigurationRuleArgs args: The arguments to use to populate this resource's properties.

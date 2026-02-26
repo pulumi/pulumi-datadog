@@ -25,6 +25,7 @@ class TeamLinkArgs:
                  position: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a TeamLink resource.
+
         :param pulumi.Input[_builtins.str] label: The link's label.
         :param pulumi.Input[_builtins.str] team_id: ID of the team the link is associated with.
         :param pulumi.Input[_builtins.str] url: The URL for the link.
@@ -94,6 +95,7 @@ class _TeamLinkState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TeamLink resources.
+
         :param pulumi.Input[_builtins.str] label: The link's label.
         :param pulumi.Input[_builtins.int] position: The link's position, used to sort links for the team.
         :param pulumi.Input[_builtins.str] team_id: ID of the team the link is associated with.
@@ -197,6 +199,7 @@ class TeamLink(pulumi.CustomResource):
         $ pulumi import datadog:index/teamLink:TeamLink new_list "${team_id}:${resource_id}"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] label: The link's label.
@@ -238,6 +241,7 @@ class TeamLink(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/teamLink:TeamLink new_list "${team_id}:${resource_id}"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TeamLinkArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class OnCallUserNotificationRuleArgs:
                  phone: Optional[pulumi.Input['OnCallUserNotificationRulePhoneArgs']] = None):
         """
         The set of arguments for constructing a OnCallUserNotificationRule resource.
+
         :param pulumi.Input[_builtins.str] category: Notification category to associate the rule with. Valid values are `high_urgency`, `low_urgency`.
         :param pulumi.Input[_builtins.str] channel_id: ID of the notification channel to associate the notification rule with.
         :param pulumi.Input[_builtins.int] delay_minutes: Number of minutes to elapse before this rule is evaluated.  `0` indicates immediate evaluation.
@@ -108,6 +109,7 @@ class _OnCallUserNotificationRuleState:
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OnCallUserNotificationRule resources.
+
         :param pulumi.Input[_builtins.str] category: Notification category to associate the rule with. Valid values are `high_urgency`, `low_urgency`.
         :param pulumi.Input[_builtins.str] channel_id: ID of the notification channel to associate the notification rule with.
         :param pulumi.Input[_builtins.int] delay_minutes: Number of minutes to elapse before this rule is evaluated.  `0` indicates immediate evaluation.
@@ -197,6 +199,7 @@ class OnCallUserNotificationRule(pulumi.CustomResource):
         """
         Provides a Datadog On-Call user notification rule resource.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] category: Notification category to associate the rule with. Valid values are `high_urgency`, `low_urgency`.
@@ -212,6 +215,7 @@ class OnCallUserNotificationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog On-Call user notification rule resource.
+
 
         :param str resource_name: The name of the resource.
         :param OnCallUserNotificationRuleArgs args: The arguments to use to populate this resource's properties.

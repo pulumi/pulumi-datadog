@@ -28,6 +28,7 @@ class SecurityMonitoringFilterArgs:
                  filtered_data_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityMonitoringFilter resource.
+
         :param pulumi.Input[_builtins.bool] is_enabled: Whether the security filter is enabled.
         :param pulumi.Input[_builtins.str] name: The name of the security filter.
         :param pulumi.Input[_builtins.str] query: The query of the security filter.
@@ -114,6 +115,7 @@ class _SecurityMonitoringFilterState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SecurityMonitoringFilter resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringFilterExclusionFilterArgs']]] exclusion_filters: Exclusion filters to exclude some logs from the security filter.
         :param pulumi.Input[_builtins.str] filtered_data_type: The filtered data type. Valid values are `logs`. Defaults to `"logs"`.
         :param pulumi.Input[_builtins.bool] is_enabled: Whether the security filter is enabled.
@@ -254,6 +256,7 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
         $ pulumi import datadog:index/securityMonitoringFilter:SecurityMonitoringFilter my_filter m0o-hto-lkb
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringFilterExclusionFilterArgs', 'SecurityMonitoringFilterExclusionFilterArgsDict']]]] exclusion_filters: Exclusion filters to exclude some logs from the security filter.
@@ -302,6 +305,7 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/securityMonitoringFilter:SecurityMonitoringFilter my_filter m0o-hto-lkb
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecurityMonitoringFilterArgs args: The arguments to use to populate this resource's properties.

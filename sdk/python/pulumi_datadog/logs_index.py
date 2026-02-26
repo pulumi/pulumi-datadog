@@ -33,6 +33,7 @@ class LogsIndexArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LogsIndex resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]] filters: Logs filter
         :param pulumi.Input[_builtins.str] name: The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
         :param pulumi.Input[_builtins.int] daily_limit: The number of log events you can send in this index per day before you are rate-limited.
@@ -199,6 +200,7 @@ class _LogsIndexState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LogsIndex resources.
+
         :param pulumi.Input[_builtins.int] daily_limit: The number of log events you can send in this index per day before you are rate-limited.
         :param pulumi.Input['LogsIndexDailyLimitResetArgs'] daily_limit_reset: Object containing options to override the default daily limit reset time.
         :param pulumi.Input[_builtins.float] daily_limit_warning_threshold_percentage: A percentage threshold of the daily quota at which a Datadog warning event is generated.
@@ -424,6 +426,7 @@ class LogsIndex(pulumi.CustomResource):
         $ pulumi import datadog:index/logsIndex:LogsIndex name> <indexName>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] daily_limit: The number of log events you can send in this index per day before you are rate-limited.
@@ -497,6 +500,7 @@ class LogsIndex(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/logsIndex:LogsIndex name> <indexName>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogsIndexArgs args: The arguments to use to populate this resource's properties.

@@ -23,6 +23,7 @@ class DomainAllowlistArgs:
                  enabled: pulumi.Input[_builtins.bool]):
         """
         The set of arguments for constructing a DomainAllowlist resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: The domains within the domain allowlist.
         :param pulumi.Input[_builtins.bool] enabled: Whether the Email Domain Allowlist is enabled.
         """
@@ -61,6 +62,7 @@ class _DomainAllowlistState:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering DomainAllowlist resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: The domains within the domain allowlist.
         :param pulumi.Input[_builtins.bool] enabled: Whether the Email Domain Allowlist is enabled.
         """
@@ -117,6 +119,7 @@ class DomainAllowlist(pulumi.CustomResource):
             domains=["@gmail.com"])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: The domains within the domain allowlist.
@@ -141,6 +144,7 @@ class DomainAllowlist(pulumi.CustomResource):
             enabled=True,
             domains=["@gmail.com"])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DomainAllowlistArgs args: The arguments to use to populate this resource's properties.

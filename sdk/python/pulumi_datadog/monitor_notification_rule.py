@@ -27,6 +27,7 @@ class MonitorNotificationRuleArgs:
                  recipients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MonitorNotificationRule resource.
+
         :param pulumi.Input['MonitorNotificationRuleFilterArgs'] filter: Specifies the matching criteria for monitor notifications.
         :param pulumi.Input[_builtins.str] name: The name of the monitor notification rule.
         :param pulumi.Input['MonitorNotificationRuleConditionalRecipientsArgs'] conditional_recipients: Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
@@ -97,6 +98,7 @@ class _MonitorNotificationRuleState:
                  recipients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering MonitorNotificationRule resources.
+
         :param pulumi.Input['MonitorNotificationRuleConditionalRecipientsArgs'] conditional_recipients: Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
         :param pulumi.Input['MonitorNotificationRuleFilterArgs'] filter: Specifies the matching criteria for monitor notifications.
         :param pulumi.Input[_builtins.str] name: The name of the monitor notification rule.
@@ -220,6 +222,7 @@ class MonitorNotificationRule(pulumi.CustomResource):
         $ pulumi import datadog:index/monitorNotificationRule:MonitorNotificationRule new_list "00e000000-0000-1234-0000-000000000000"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['MonitorNotificationRuleConditionalRecipientsArgs', 'MonitorNotificationRuleConditionalRecipientsArgsDict']] conditional_recipients: Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
@@ -281,6 +284,7 @@ class MonitorNotificationRule(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/monitorNotificationRule:MonitorNotificationRule new_list "00e000000-0000-1234-0000-000000000000"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MonitorNotificationRuleArgs args: The arguments to use to populate this resource's properties.

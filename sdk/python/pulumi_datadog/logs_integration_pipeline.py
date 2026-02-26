@@ -22,6 +22,7 @@ class LogsIntegrationPipelineArgs:
                  is_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LogsIntegrationPipeline resource.
+
         :param pulumi.Input[_builtins.bool] is_enabled: Boolean value to enable your pipeline.
         """
         if is_enabled is not None:
@@ -46,6 +47,7 @@ class _LogsIntegrationPipelineState:
                  is_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering LogsIntegrationPipeline resources.
+
         :param pulumi.Input[_builtins.bool] is_enabled: Boolean value to enable your pipeline.
         """
         if is_enabled is not None:
@@ -95,6 +97,7 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
         $ pulumi import datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline name> <pipelineID>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] is_enabled: Boolean value to enable your pipeline.
@@ -127,6 +130,7 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline name> <pipelineID>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogsIntegrationPipelineArgs args: The arguments to use to populate this resource's properties.

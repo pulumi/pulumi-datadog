@@ -23,6 +23,7 @@ class UserRoleArgs:
                  user_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a UserRole resource.
+
         :param pulumi.Input[_builtins.str] role_id: ID of the role that the user is assigned to.
         :param pulumi.Input[_builtins.str] user_id: The ID of the user.
         """
@@ -61,6 +62,7 @@ class _UserRoleState:
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserRole resources.
+
         :param pulumi.Input[_builtins.str] role_id: ID of the role that the user is assigned to.
         :param pulumi.Input[_builtins.str] user_id: The ID of the user.
         """
@@ -142,6 +144,7 @@ class UserRole(pulumi.CustomResource):
         $ pulumi import datadog:index/userRole:UserRole user_with_admin_role "${role_id}:${user_id}"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] role_id: ID of the role that the user is assigned to.
@@ -191,6 +194,7 @@ class UserRole(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/userRole:UserRole user_with_admin_role "${role_id}:${user_id}"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserRoleArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class IntegrationTeamsTenantBasedHandleArgs:
                  tenant_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a IntegrationTeamsTenantBasedHandle resource.
+
         :param pulumi.Input[_builtins.str] channel_name: Your channel name.
         :param pulumi.Input[_builtins.str] name: Your tenant-based handle name.
         :param pulumi.Input[_builtins.str] team_name: Your team name.
@@ -93,6 +94,7 @@ class _IntegrationTeamsTenantBasedHandleState:
                  tenant_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationTeamsTenantBasedHandle resources.
+
         :param pulumi.Input[_builtins.str] channel_name: Your channel name.
         :param pulumi.Input[_builtins.str] name: Your tenant-based handle name.
         :param pulumi.Input[_builtins.str] team_name: Your team name.
@@ -170,6 +172,7 @@ class IntegrationTeamsTenantBasedHandle(pulumi.CustomResource):
         """
         Resource for interacting with Datadog Microsoft Teams Integration tenant-based handles.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] channel_name: Your channel name.
@@ -185,6 +188,7 @@ class IntegrationTeamsTenantBasedHandle(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for interacting with Datadog Microsoft Teams Integration tenant-based handles.
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationTeamsTenantBasedHandleArgs args: The arguments to use to populate this resource's properties.

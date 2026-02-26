@@ -29,6 +29,7 @@ class ApmRetentionFilterArgs:
                  trace_rate: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApmRetentionFilter resource.
+
         :param pulumi.Input[_builtins.bool] enabled: the status of the retention filter.
         :param pulumi.Input['ApmRetentionFilterFilterArgs'] filter: The spans filter. Spans matching this filter will be indexed and stored.
         :param pulumi.Input[_builtins.str] filter_type: The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.
@@ -128,6 +129,7 @@ class _ApmRetentionFilterState:
                  trace_rate: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApmRetentionFilter resources.
+
         :param pulumi.Input[_builtins.bool] enabled: the status of the retention filter.
         :param pulumi.Input['ApmRetentionFilterFilterArgs'] filter: The spans filter. Spans matching this filter will be indexed and stored.
         :param pulumi.Input[_builtins.str] filter_type: The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.
@@ -264,6 +266,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
         $ pulumi import datadog:index/apmRetentionFilter:ApmRetentionFilter foo <filter_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: the status of the retention filter.
@@ -308,6 +311,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/apmRetentionFilter:ApmRetentionFilter foo <filter_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApmRetentionFilterArgs args: The arguments to use to populate this resource's properties.

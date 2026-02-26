@@ -24,6 +24,7 @@ class TeamPermissionSettingArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a TeamPermissionSetting resource.
+
         :param pulumi.Input[_builtins.str] action: The identifier for the action. Valid values are `manage_membership`, `edit`.
         :param pulumi.Input[_builtins.str] team_id: ID of the team the team permission setting is associated with.
         :param pulumi.Input[_builtins.str] value: The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
@@ -77,6 +78,7 @@ class _TeamPermissionSettingState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TeamPermissionSetting resources.
+
         :param pulumi.Input[_builtins.str] action: The identifier for the action. Valid values are `manage_membership`, `edit`.
         :param pulumi.Input[_builtins.str] team_id: ID of the team the team permission setting is associated with.
         :param pulumi.Input[_builtins.str] value: The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
@@ -164,6 +166,7 @@ class TeamPermissionSetting(pulumi.CustomResource):
         $ pulumi import datadog:index/teamPermissionSetting:TeamPermissionSetting example "${team_id}:${action}"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: The identifier for the action. Valid values are `manage_membership`, `edit`.
@@ -204,6 +207,7 @@ class TeamPermissionSetting(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/teamPermissionSetting:TeamPermissionSetting example "${team_id}:${action}"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TeamPermissionSettingArgs args: The arguments to use to populate this resource's properties.

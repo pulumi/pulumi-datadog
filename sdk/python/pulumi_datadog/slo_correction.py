@@ -29,6 +29,7 @@ class SloCorrectionArgs:
                  timezone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SloCorrection resource.
+
         :param pulumi.Input[_builtins.str] category: Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
         :param pulumi.Input[_builtins.str] slo_id: ID of the SLO that this correction will be applied to.
         :param pulumi.Input[_builtins.int] start: Starting time of the correction in epoch seconds.
@@ -162,6 +163,7 @@ class _SloCorrectionState:
                  timezone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SloCorrection resources.
+
         :param pulumi.Input[_builtins.str] category: Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
         :param pulumi.Input[_builtins.str] description: Description of the correction being made.
         :param pulumi.Input[_builtins.int] duration: Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
@@ -349,6 +351,7 @@ class SloCorrection(pulumi.CustomResource):
         $ pulumi import datadog:index/sloCorrection:SloCorrection testing_slo_correction 11111111-3fee-11eb-8a13-77cd9f15119e
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] category: Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
@@ -414,6 +417,7 @@ class SloCorrection(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/sloCorrection:SloCorrection testing_slo_correction 11111111-3fee-11eb-8a13-77cd9f15119e
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SloCorrectionArgs args: The arguments to use to populate this resource's properties.

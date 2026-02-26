@@ -25,6 +25,7 @@ class MonitorConfigPolicyArgs:
                  tag_policy: Optional[pulumi.Input['MonitorConfigPolicyTagPolicyArgs']] = None):
         """
         The set of arguments for constructing a MonitorConfigPolicy resource.
+
         :param pulumi.Input[_builtins.str] policy_type: The monitor config policy type Valid values are `tag`.
         :param pulumi.Input['MonitorConfigPolicyTagPolicyArgs'] tag_policy: Config for a tag policy. Only set if `policy_type` is `tag`.
         """
@@ -64,6 +65,7 @@ class _MonitorConfigPolicyState:
                  tag_policy: Optional[pulumi.Input['MonitorConfigPolicyTagPolicyArgs']] = None):
         """
         Input properties used for looking up and filtering MonitorConfigPolicy resources.
+
         :param pulumi.Input[_builtins.str] policy_type: The monitor config policy type Valid values are `tag`.
         :param pulumi.Input['MonitorConfigPolicyTagPolicyArgs'] tag_policy: Config for a tag policy. Only set if `policy_type` is `tag`.
         """
@@ -127,6 +129,7 @@ class MonitorConfigPolicy(pulumi.CustomResource):
             })
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy_type: The monitor config policy type Valid values are `tag`.
@@ -158,6 +161,7 @@ class MonitorConfigPolicy(pulumi.CustomResource):
                 ],
             })
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MonitorConfigPolicyArgs args: The arguments to use to populate this resource's properties.

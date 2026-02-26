@@ -29,6 +29,7 @@ class ReferenceTableArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReferenceTable resource.
+
         :param pulumi.Input[_builtins.str] source: The source type for the reference table. Valid values are `S3`, `GCS`, `AZURE`.
         :param pulumi.Input[_builtins.str] table_name: The name of the reference table. This must be unique within your organization.
         :param pulumi.Input[_builtins.str] description: The description of the reference table.
@@ -136,6 +137,7 @@ class _ReferenceTableState:
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReferenceTable resources.
+
         :param pulumi.Input[_builtins.str] created_by: UUID of the user who created the reference table.
         :param pulumi.Input[_builtins.str] description: The description of the reference table.
         :param pulumi.Input['ReferenceTableFileMetadataArgs'] file_metadata: Configuration for cloud storage file access and sync settings.
@@ -418,6 +420,7 @@ class ReferenceTable(pulumi.CustomResource):
         tags = ["imported:true"]
         }
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the reference table.
@@ -533,6 +536,7 @@ class ReferenceTable(pulumi.CustomResource):
 
         tags = ["imported:true"]
         }
+
 
         :param str resource_name: The name of the resource.
         :param ReferenceTableArgs args: The arguments to use to populate this resource's properties.

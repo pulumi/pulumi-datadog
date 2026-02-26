@@ -26,6 +26,7 @@ class TagPipelineRulesetArgs:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['TagPipelineRulesetRuleArgs']]]] = None):
         """
         The set of arguments for constructing a TagPipelineRuleset resource.
+
         :param pulumi.Input[_builtins.str] name: The name of the ruleset.
         :param pulumi.Input[_builtins.bool] enabled: Whether the ruleset is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['TagPipelineRulesetRuleArgs']]] rules: The rules in the ruleset.
@@ -83,6 +84,7 @@ class _TagPipelineRulesetState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering TagPipelineRuleset resources.
+
         :param pulumi.Input[_builtins.bool] enabled: Whether the ruleset is enabled.
         :param pulumi.Input[_builtins.str] name: The name of the ruleset.
         :param pulumi.Input[_builtins.int] position: The position of the ruleset in the pipeline.
@@ -241,6 +243,7 @@ class TagPipelineRuleset(pulumi.CustomResource):
         $ pulumi import datadog:index/tagPipelineRuleset:TagPipelineRuleset example "your-ruleset-id-here"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Whether the ruleset is enabled.
@@ -322,6 +325,7 @@ class TagPipelineRuleset(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/tagPipelineRuleset:TagPipelineRuleset example "your-ruleset-id-here"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TagPipelineRulesetArgs args: The arguments to use to populate this resource's properties.

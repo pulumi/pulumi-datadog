@@ -23,6 +23,7 @@ class LogsRestrictionQueryArgs:
                  role_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LogsRestrictionQuery resource.
+
         :param pulumi.Input[_builtins.str] restriction_query: The query that defines the restriction. Only the content matching the query can be returned.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] role_ids: An array of role IDs that have access to this restriction query.
         """
@@ -64,6 +65,7 @@ class _LogsRestrictionQueryState:
                  role_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LogsRestrictionQuery resources.
+
         :param pulumi.Input[_builtins.str] created_at: Creation time of the restriction query (in ISO 8601).
         :param pulumi.Input[_builtins.str] modified_at: Time of last restriction query modification (in ISO 8601).
         :param pulumi.Input[_builtins.str] restriction_query: The query that defines the restriction. Only the content matching the query can be returned.
@@ -162,6 +164,7 @@ class LogsRestrictionQuery(pulumi.CustomResource):
         $ pulumi import datadog:index/logsRestrictionQuery:LogsRestrictionQuery test_lrq "<restriction_query_id>"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] restriction_query: The query that defines the restriction. Only the content matching the query can be returned.
@@ -198,6 +201,7 @@ class LogsRestrictionQuery(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/logsRestrictionQuery:LogsRestrictionQuery test_lrq "<restriction_query_id>"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogsRestrictionQueryArgs args: The arguments to use to populate this resource's properties.

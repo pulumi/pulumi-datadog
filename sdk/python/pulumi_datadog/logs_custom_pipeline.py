@@ -374,6 +374,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
         $ pulumi import datadog:index/logsCustomPipeline:LogsCustomPipeline name> <pipelineID>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -567,6 +568,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/logsCustomPipeline:LogsCustomPipeline name> <pipelineID>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogsCustomPipelineArgs args: The arguments to use to populate this resource's properties.

@@ -22,6 +22,7 @@ class SecurityMonitoringRuleJsonArgs:
                  json: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a SecurityMonitoringRuleJson resource.
+
         :param pulumi.Input[_builtins.str] json: The JSON definition of the Security Monitoring Rule.
         """
         pulumi.set(__self__, "json", json)
@@ -45,6 +46,7 @@ class _SecurityMonitoringRuleJsonState:
                  json: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecurityMonitoringRuleJson resources.
+
         :param pulumi.Input[_builtins.str] json: The JSON definition of the Security Monitoring Rule.
         """
         if json is not None:
@@ -129,6 +131,7 @@ class SecurityMonitoringRuleJson(pulumi.CustomResource):
         $ pulumi import datadog:index/securityMonitoringRuleJson:SecurityMonitoringRuleJson security_rule_json aaa-yyy-vvv
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] json: The JSON definition of the Security Monitoring Rule.
@@ -196,6 +199,7 @@ class SecurityMonitoringRuleJson(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/securityMonitoringRuleJson:SecurityMonitoringRuleJson security_rule_json aaa-yyy-vvv
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecurityMonitoringRuleJsonArgs args: The arguments to use to populate this resource's properties.

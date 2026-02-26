@@ -24,6 +24,7 @@ class TeamMembershipArgs:
                  role: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TeamMembership resource.
+
         :param pulumi.Input[_builtins.str] team_id: ID of the team the team membership is associated with.
         :param pulumi.Input[_builtins.str] user_id: The ID of the user.
         :param pulumi.Input[_builtins.str] role: The user's role within the team. Valid values are `admin`.
@@ -78,6 +79,7 @@ class _TeamMembershipState:
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TeamMembership resources.
+
         :param pulumi.Input[_builtins.str] role: The user's role within the team. Valid values are `admin`.
         :param pulumi.Input[_builtins.str] team_id: ID of the team the team membership is associated with.
         :param pulumi.Input[_builtins.str] user_id: The ID of the user.
@@ -167,6 +169,7 @@ class TeamMembership(pulumi.CustomResource):
         $ pulumi import datadog:index/teamMembership:TeamMembership foo "${team_id}:${user_id}"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] role: The user's role within the team. Valid values are `admin`.
@@ -209,6 +212,7 @@ class TeamMembership(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/teamMembership:TeamMembership foo "${team_id}:${user_id}"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TeamMembershipArgs args: The arguments to use to populate this resource's properties.

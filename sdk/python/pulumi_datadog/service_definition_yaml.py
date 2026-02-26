@@ -22,6 +22,7 @@ class ServiceDefinitionYamlArgs:
                  service_definition: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ServiceDefinitionYaml resource.
+
         :param pulumi.Input[_builtins.str] service_definition: The YAML/JSON formatted definition of the service
         """
         pulumi.set(__self__, "service_definition", service_definition)
@@ -45,6 +46,7 @@ class _ServiceDefinitionYamlState:
                  service_definition: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceDefinitionYaml resources.
+
         :param pulumi.Input[_builtins.str] service_definition: The YAML/JSON formatted definition of the service
         """
         if service_definition is not None:
@@ -239,6 +241,7 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
         $ pulumi import datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml service_definition "<dd-service>"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] service_definition: The YAML/JSON formatted definition of the service
@@ -416,6 +419,7 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml service_definition "<dd-service>"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceDefinitionYamlArgs args: The arguments to use to populate this resource's properties.

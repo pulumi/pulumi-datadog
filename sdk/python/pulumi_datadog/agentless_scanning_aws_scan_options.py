@@ -26,6 +26,7 @@ class AgentlessScanningAwsScanOptionsArgs:
                  vuln_host_os: pulumi.Input[_builtins.bool]):
         """
         The set of arguments for constructing a AgentlessScanningAwsScanOptions resource.
+
         :param pulumi.Input[_builtins.str] aws_account_id: The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
         :param pulumi.Input[_builtins.bool] lambda_: Indicates if scanning of Lambda functions is enabled.
         :param pulumi.Input[_builtins.bool] sensitive_data: Indicates if scanning for sensitive data is enabled.
@@ -109,6 +110,7 @@ class _AgentlessScanningAwsScanOptionsState:
                  vuln_host_os: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering AgentlessScanningAwsScanOptions resources.
+
         :param pulumi.Input[_builtins.str] aws_account_id: The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
         :param pulumi.Input[_builtins.bool] lambda_: Indicates if scanning of Lambda functions is enabled.
         :param pulumi.Input[_builtins.bool] sensitive_data: Indicates if scanning for sensitive data is enabled.
@@ -229,6 +231,7 @@ class AgentlessScanningAwsScanOptions(pulumi.CustomResource):
         $ pulumi import datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions example 123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
@@ -272,6 +275,7 @@ class AgentlessScanningAwsScanOptions(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions example 123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentlessScanningAwsScanOptionsArgs args: The arguments to use to populate this resource's properties.

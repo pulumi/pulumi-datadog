@@ -28,6 +28,7 @@ class CustomAllocationRuleArgs:
                  strategy: Optional[pulumi.Input['CustomAllocationRuleStrategyArgs']] = None):
         """
         The set of arguments for constructing a CustomAllocationRule resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Whether the custom allocation rule is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] providernames: List of cloud providers the rule applies to. Valid values include `aws`, `azure`, and `gcp`.
         :param pulumi.Input[_builtins.str] rule_name: The name of the custom allocation rule. This field is immutable - changing it will force replacement of the resource.
@@ -111,6 +112,7 @@ class _CustomAllocationRuleState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CustomAllocationRule resources.
+
         :param pulumi.Input[_builtins.str] created: The timestamp (in ISO 8601 format) when the rule was created.
         :param pulumi.Input[_builtins.bool] enabled: Whether the custom allocation rule is enabled.
         :param pulumi.Input[_builtins.str] last_modified_user_uuid: The UUID of the user who last modified the rule.
@@ -322,6 +324,7 @@ class CustomAllocationRule(pulumi.CustomResource):
         $ pulumi import datadog:index/customAllocationRule:CustomAllocationRule new_list <rule_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Whether the custom allocation rule is enabled.
@@ -372,6 +375,7 @@ class CustomAllocationRule(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/customAllocationRule:CustomAllocationRule new_list <rule_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomAllocationRuleArgs args: The arguments to use to populate this resource's properties.

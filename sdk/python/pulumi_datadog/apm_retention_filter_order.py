@@ -22,6 +22,7 @@ class ApmRetentionFilterOrderArgs:
                  filter_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The set of arguments for constructing a ApmRetentionFilterOrder resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] filter_ids: The filter IDs list. The order of filters IDs in this attribute defines the overall APM retention filters order.
         """
         pulumi.set(__self__, "filter_ids", filter_ids)
@@ -45,6 +46,7 @@ class _ApmRetentionFilterOrderState:
                  filter_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ApmRetentionFilterOrder resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] filter_ids: The filter IDs list. The order of filters IDs in this attribute defines the overall APM retention filters order.
         """
         if filter_ids is not None:
@@ -104,6 +106,7 @@ class ApmRetentionFilterOrder(pulumi.CustomResource):
         $ pulumi import datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder bar <foo>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] filter_ids: The filter IDs list. The order of filters IDs in this attribute defines the overall APM retention filters order.
@@ -146,6 +149,7 @@ class ApmRetentionFilterOrder(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder bar <foo>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApmRetentionFilterOrderArgs args: The arguments to use to populate this resource's properties.

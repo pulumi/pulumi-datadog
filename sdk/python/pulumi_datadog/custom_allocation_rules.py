@@ -23,6 +23,7 @@ class CustomAllocationRulesArgs:
                  override_ui_defined_resources: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a CustomAllocationRules resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rule_ids: The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `CustomAllocationRule` resource.
         :param pulumi.Input[_builtins.bool] override_ui_defined_resources: Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
         """
@@ -62,6 +63,7 @@ class _CustomAllocationRulesState:
                  rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CustomAllocationRules resources.
+
         :param pulumi.Input[_builtins.bool] override_ui_defined_resources: Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rule_ids: The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `CustomAllocationRule` resource.
         """
@@ -193,6 +195,7 @@ class CustomAllocationRules(pulumi.CustomResource):
         $ pulumi import datadog:index/customAllocationRules:CustomAllocationRules order order
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] override_ui_defined_resources: Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
@@ -292,6 +295,7 @@ class CustomAllocationRules(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/customAllocationRules:CustomAllocationRules order order
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomAllocationRulesArgs args: The arguments to use to populate this resource's properties.

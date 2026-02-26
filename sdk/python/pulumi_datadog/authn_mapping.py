@@ -25,6 +25,7 @@ class AuthnMappingArgs:
                  team: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AuthnMapping resource.
+
         :param pulumi.Input[_builtins.str] key: Identity provider key.
         :param pulumi.Input[_builtins.str] value: Identity provider value.
         :param pulumi.Input[_builtins.str] role: The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
@@ -95,6 +96,7 @@ class _AuthnMappingState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AuthnMapping resources.
+
         :param pulumi.Input[_builtins.str] key: Identity provider key.
         :param pulumi.Input[_builtins.str] role: The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
         :param pulumi.Input[_builtins.str] team: The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
@@ -197,6 +199,7 @@ class AuthnMapping(pulumi.CustomResource):
         $ pulumi import datadog:index/authnMapping:AuthnMapping dev_ro_mapping 000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key: Identity provider key.
@@ -237,6 +240,7 @@ class AuthnMapping(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/authnMapping:AuthnMapping dev_ro_mapping 000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AuthnMappingArgs args: The arguments to use to populate this resource's properties.

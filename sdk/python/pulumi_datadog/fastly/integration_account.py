@@ -23,6 +23,7 @@ class IntegrationAccountArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a IntegrationAccount resource.
+
         :param pulumi.Input[_builtins.str] api_key: The API key for the Fastly account.
         :param pulumi.Input[_builtins.str] name: The name of the Fastly account.
         """
@@ -61,6 +62,7 @@ class _IntegrationAccountState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationAccount resources.
+
         :param pulumi.Input[_builtins.str] api_key: The API key for the Fastly account.
         :param pulumi.Input[_builtins.str] name: The name of the Fastly account.
         """
@@ -126,6 +128,7 @@ class IntegrationAccount(pulumi.CustomResource):
         $ pulumi import datadog:fastly/integrationAccount:IntegrationAccount new_list "a8f5f167f44f4964e6c998dee827110c"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_key: The API key for the Fastly account.
@@ -159,6 +162,7 @@ class IntegrationAccount(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:fastly/integrationAccount:IntegrationAccount new_list "a8f5f167f44f4964e6c998dee827110c"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class CostBudgetArgs:
                  entries: Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetEntryArgs']]]] = None):
         """
         The set of arguments for constructing a CostBudget resource.
+
         :param pulumi.Input[_builtins.int] end_month: The month when the budget ends (YYYYMM).
         :param pulumi.Input[_builtins.str] metrics_query: The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
         :param pulumi.Input[_builtins.str] name: The name of the budget.
@@ -151,6 +152,7 @@ class _CostBudgetState:
                  total_amount: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Input properties used for looking up and filtering CostBudget resources.
+
         :param pulumi.Input[_builtins.str] budget_id: The ID of the budget.
         :param pulumi.Input[Sequence[pulumi.Input['CostBudgetBudgetLineArgs']]] budget_lines: Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
         :param pulumi.Input[_builtins.int] end_month: The month when the budget ends (YYYYMM).
@@ -429,6 +431,7 @@ class CostBudget(pulumi.CustomResource):
         $ pulumi import datadog:index/costBudget:CostBudget example a1b2c3d4-e5f6-7890-abcd-ef1234567890
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] budget_id: The ID of the budget.
@@ -581,6 +584,7 @@ class CostBudget(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/costBudget:CostBudget example a1b2c3d4-e5f6-7890-abcd-ef1234567890
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CostBudgetArgs args: The arguments to use to populate this resource's properties.

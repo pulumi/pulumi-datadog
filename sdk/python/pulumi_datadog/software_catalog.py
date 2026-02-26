@@ -22,6 +22,7 @@ class SoftwareCatalogArgs:
                  entity: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a SoftwareCatalog resource.
+
         :param pulumi.Input[_builtins.str] entity: The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
         """
         pulumi.set(__self__, "entity", entity)
@@ -45,6 +46,7 @@ class _SoftwareCatalogState:
                  entity: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SoftwareCatalog resources.
+
         :param pulumi.Input[_builtins.str] entity: The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
         """
         if entity is not None:
@@ -303,6 +305,7 @@ class SoftwareCatalog(pulumi.CustomResource):
         $ pulumi import datadog:index/softwareCatalog:SoftwareCatalog this <name>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] entity: The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
@@ -544,6 +547,7 @@ class SoftwareCatalog(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/softwareCatalog:SoftwareCatalog this <name>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SoftwareCatalogArgs args: The arguments to use to populate this resource's properties.

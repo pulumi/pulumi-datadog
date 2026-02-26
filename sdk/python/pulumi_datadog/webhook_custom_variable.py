@@ -24,6 +24,7 @@ class WebhookCustomVariableArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a WebhookCustomVariable resource.
+
         :param pulumi.Input[_builtins.bool] is_secret: Whether the custom variable is secret or not.
         :param pulumi.Input[_builtins.str] name: The name of the variable. It corresponds with `<CUSTOM_VARIABLE_NAME>`.
         :param pulumi.Input[_builtins.str] value: The value of the custom variable.
@@ -77,6 +78,7 @@ class _WebhookCustomVariableState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WebhookCustomVariable resources.
+
         :param pulumi.Input[_builtins.bool] is_secret: Whether the custom variable is secret or not.
         :param pulumi.Input[_builtins.str] name: The name of the variable. It corresponds with `<CUSTOM_VARIABLE_NAME>`.
         :param pulumi.Input[_builtins.str] value: The value of the custom variable.
@@ -159,6 +161,7 @@ class WebhookCustomVariable(pulumi.CustomResource):
         $ pulumi import datadog:index/webhookCustomVariable:WebhookCustomVariable foo EXAMPLE_VARIABLE
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] is_secret: Whether the custom variable is secret or not.
@@ -194,6 +197,7 @@ class WebhookCustomVariable(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/webhookCustomVariable:WebhookCustomVariable foo EXAMPLE_VARIABLE
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WebhookCustomVariableArgs args: The arguments to use to populate this resource's properties.
