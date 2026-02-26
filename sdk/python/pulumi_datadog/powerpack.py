@@ -31,6 +31,7 @@ class PowerpackArgs:
                  widgets: Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetArgs']]]] = None):
         """
         The set of arguments for constructing a Powerpack resource.
+
         :param pulumi.Input[_builtins.str] description: The description of the powerpack.
         :param pulumi.Input['PowerpackLayoutArgs'] layout: The layout of the powerpack on a free-form dashboard.
         :param pulumi.Input[_builtins.str] live_span: The timeframe to use when displaying the powerpack. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
@@ -167,6 +168,7 @@ class _PowerpackState:
                  widgets: Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetArgs']]]] = None):
         """
         Input properties used for looking up and filtering Powerpack resources.
+
         :param pulumi.Input[_builtins.str] description: The description of the powerpack.
         :param pulumi.Input['PowerpackLayoutArgs'] layout: The layout of the powerpack on a free-form dashboard.
         :param pulumi.Input[_builtins.str] live_span: The timeframe to use when displaying the powerpack. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
@@ -347,6 +349,7 @@ class Powerpack(pulumi.CustomResource):
         $ pulumi import datadog:index/powerpack:Powerpack foo 11111111-2222-3333-4444-555555555555
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the powerpack.
@@ -405,6 +408,7 @@ class Powerpack(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/powerpack:Powerpack foo 11111111-2222-3333-4444-555555555555
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PowerpackArgs args: The arguments to use to populate this resource's properties.

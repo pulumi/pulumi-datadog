@@ -40,6 +40,7 @@ class SecurityMonitoringRuleArgs:
                  validate: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SecurityMonitoringRule resource.
+
         :param pulumi.Input[_builtins.str] message: Message for generated signals.
         :param pulumi.Input[_builtins.str] name: The name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCalculatedFieldArgs']]] calculated_fields: One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
@@ -318,6 +319,7 @@ class _SecurityMonitoringRuleState:
                  validate: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SecurityMonitoringRule resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCalculatedFieldArgs']]] calculated_fields: One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]] cases: Cases for generating signals.
         :param pulumi.Input[_builtins.bool] enabled: Whether the rule is enabled. Defaults to `true`.
@@ -652,6 +654,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         $ pulumi import datadog:index/securityMonitoringRule:SecurityMonitoringRule my_rule m0o-hto-lkb
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleCalculatedFieldArgs', 'SecurityMonitoringRuleCalculatedFieldArgsDict']]]] calculated_fields: One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
@@ -729,6 +732,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/securityMonitoringRule:SecurityMonitoringRule my_rule m0o-hto-lkb
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecurityMonitoringRuleArgs args: The arguments to use to populate this resource's properties.

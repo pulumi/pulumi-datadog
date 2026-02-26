@@ -28,6 +28,7 @@ class SyntheticsSuiteArgs:
                  tests: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsSuiteTestArgs']]]] = None):
         """
         The set of arguments for constructing a SyntheticsSuite resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the Synthetics suite.
         :param pulumi.Input[_builtins.str] message: Message of the Synthetics suite.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsSuiteOptionArgs']]] options: Options for the Synthetics suite.
@@ -115,6 +116,7 @@ class _SyntheticsSuiteState:
                  tests: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsSuiteTestArgs']]]] = None):
         """
         Input properties used for looking up and filtering SyntheticsSuite resources.
+
         :param pulumi.Input[_builtins.str] message: Message of the Synthetics suite.
         :param pulumi.Input[_builtins.str] name: Name of the Synthetics suite.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsSuiteOptionArgs']]] options: Options for the Synthetics suite.
@@ -208,6 +210,7 @@ class SyntheticsSuite(pulumi.CustomResource):
         """
         Provides a Datadog Synthetics Suite resource. This can be used to create and manage Synthetics test suites.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] message: Message of the Synthetics suite.
@@ -224,6 +227,7 @@ class SyntheticsSuite(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Synthetics Suite resource. This can be used to create and manage Synthetics test suites.
+
 
         :param str resource_name: The name of the resource.
         :param SyntheticsSuiteArgs args: The arguments to use to populate this resource's properties.

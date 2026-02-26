@@ -27,6 +27,7 @@ class GcpUcConfigArgs:
                  export_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GcpUcConfig resource.
+
         :param pulumi.Input[_builtins.str] billing_account_id: The Google Cloud account ID.
         :param pulumi.Input[_builtins.str] bucket_name: The Google Cloud bucket name used to store the Usage Cost export.
         :param pulumi.Input[_builtins.str] export_dataset_name: The export dataset name used for the Google Cloud Usage Cost report.
@@ -133,6 +134,7 @@ class _GcpUcConfigState:
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GcpUcConfig resources.
+
         :param pulumi.Input[_builtins.str] billing_account_id: The Google Cloud account ID.
         :param pulumi.Input[_builtins.str] bucket_name: The Google Cloud bucket name used to store the Usage Cost export.
         :param pulumi.Input[_builtins.str] created_at: The timestamp when the GCP UC configuration was created.
@@ -371,6 +373,7 @@ class GcpUcConfig(pulumi.CustomResource):
         $ pulumi import datadog:index/gcpUcConfig:GcpUcConfig example <cloud_account_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] billing_account_id: The Google Cloud account ID.
@@ -412,6 +415,7 @@ class GcpUcConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/gcpUcConfig:GcpUcConfig example <cloud_account_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GcpUcConfigArgs args: The arguments to use to populate this resource's properties.

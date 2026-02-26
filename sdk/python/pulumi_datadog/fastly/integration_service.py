@@ -24,6 +24,7 @@ class IntegrationServiceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IntegrationService resource.
+
         :param pulumi.Input[_builtins.str] service_id: The ID of the Fastly service.
         :param pulumi.Input[_builtins.str] account_id: Fastly Account id.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags for the Fastly service.
@@ -79,6 +80,7 @@ class _IntegrationServiceState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering IntegrationService resources.
+
         :param pulumi.Input[_builtins.str] account_id: Fastly Account id.
         :param pulumi.Input[_builtins.str] service_id: The ID of the Fastly service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags for the Fastly service.
@@ -167,6 +169,7 @@ class IntegrationService(pulumi.CustomResource):
         $ pulumi import datadog:fastly/integrationService:IntegrationService new_list "account-id:service-id"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Fastly Account id.
@@ -208,6 +211,7 @@ class IntegrationService(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:fastly/integrationService:IntegrationService new_list "account-id:service-id"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationServiceArgs args: The arguments to use to populate this resource's properties.

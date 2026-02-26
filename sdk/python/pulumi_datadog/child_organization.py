@@ -24,6 +24,7 @@ class ChildOrganizationArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ChildOrganization resource.
+
         :param pulumi.Input[_builtins.str] name: Name for Child Organization after creation.
         """
         pulumi.set(__self__, "name", name)
@@ -53,6 +54,7 @@ class _ChildOrganizationState:
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['ChildOrganizationUserArgs']]]] = None):
         """
         Input properties used for looking up and filtering ChildOrganization resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['ChildOrganizationApiKeyArgs']]] api_keys: Datadog API key.
         :param pulumi.Input[Sequence[pulumi.Input['ChildOrganizationApplicationKeyArgs']]] application_keys: An application key with its associated metadata.
         :param pulumi.Input[_builtins.str] description: Description of the organization.
@@ -182,6 +184,7 @@ class ChildOrganization(pulumi.CustomResource):
         organization = datadog.ChildOrganization("organization", name="foo-organization")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name for Child Organization after creation.
@@ -204,6 +207,7 @@ class ChildOrganization(pulumi.CustomResource):
         # Create a new Datadog Child Organization
         organization = datadog.ChildOrganization("organization", name="foo-organization")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ChildOrganizationArgs args: The arguments to use to populate this resource's properties.

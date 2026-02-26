@@ -28,6 +28,7 @@ class DeploymentGateArgs:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGateRuleArgs']]]] = None):
         """
         The set of arguments for constructing a DeploymentGate resource.
+
         :param pulumi.Input[_builtins.str] env: The target environment (example: dev).
         :param pulumi.Input[_builtins.str] service: The service name (example: transaction-backend).
         :param pulumi.Input[_builtins.bool] dry_run: Enable Dry Run to test gate behavior without impacting deployments. The evaluation of a dry run gate always responds with a pass status, but the in-app result is the real status based on rules evaluation. This is particularly useful when performing an initial evaluation of the gate behavior without impacting the deployment pipeline.
@@ -116,6 +117,7 @@ class _DeploymentGateState:
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DeploymentGate resources.
+
         :param pulumi.Input[_builtins.str] created_at: Creation timestamp of the deployment gate.
         :param pulumi.Input[_builtins.bool] dry_run: Enable Dry Run to test gate behavior without impacting deployments. The evaluation of a dry run gate always responds with a pass status, but the in-app result is the real status based on rules evaluation. This is particularly useful when performing an initial evaluation of the gate behavior without impacting the deployment pipeline.
         :param pulumi.Input[_builtins.str] env: The target environment (example: dev).
@@ -281,6 +283,7 @@ class DeploymentGate(pulumi.CustomResource):
         $ pulumi import datadog:index/deploymentGate:DeploymentGate new_list ""
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] dry_run: Enable Dry Run to test gate behavior without impacting deployments. The evaluation of a dry run gate always responds with a pass status, but the in-app result is the real status based on rules evaluation. This is particularly useful when performing an initial evaluation of the gate behavior without impacting the deployment pipeline.
@@ -339,6 +342,7 @@ class DeploymentGate(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/deploymentGate:DeploymentGate new_list ""
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentGateArgs args: The arguments to use to populate this resource's properties.

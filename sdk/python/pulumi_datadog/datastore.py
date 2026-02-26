@@ -26,6 +26,7 @@ class DatastoreArgs:
                  primary_key_generation_strategy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Datastore resource.
+
         :param pulumi.Input[_builtins.str] name: The display name for the new datastore.
         :param pulumi.Input[_builtins.str] primary_column_name: The name of the primary key column for this datastore. Primary column names:   - Must abide by both [PostgreSQL naming conventions](https://www.postgresql.org/docs/7.0/syntax525.htm)   - Cannot exceed 63 characters
         :param pulumi.Input[_builtins.str] description: A human-readable description about the datastore.
@@ -117,6 +118,7 @@ class _DatastoreState:
                  primary_key_generation_strategy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Datastore resources.
+
         :param pulumi.Input[_builtins.str] created_at: Timestamp when the datastore was created.
         :param pulumi.Input[_builtins.int] creator_user_id: The numeric ID of the user who created the datastore.
         :param pulumi.Input[_builtins.str] creator_user_uuid: The UUID of the user who created the datastore.
@@ -314,6 +316,7 @@ class Datastore(pulumi.CustomResource):
         $ pulumi import datadog:index/datastore:Datastore foo "datastore-id"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A human-readable description about the datastore.
@@ -359,6 +362,7 @@ class Datastore(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/datastore:Datastore foo "datastore-id"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DatastoreArgs args: The arguments to use to populate this resource's properties.

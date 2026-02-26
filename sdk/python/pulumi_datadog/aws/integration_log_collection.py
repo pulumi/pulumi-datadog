@@ -23,6 +23,7 @@ class IntegrationLogCollectionArgs:
                  services: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The set of arguments for constructing a IntegrationLogCollection resource.
+
         :param pulumi.Input[_builtins.str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] services: A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
         """
@@ -61,6 +62,7 @@ class _IntegrationLogCollectionState:
                  services: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering IntegrationLogCollection resources.
+
         :param pulumi.Input[_builtins.str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] services: A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
         """
@@ -130,6 +132,7 @@ class IntegrationLogCollection(pulumi.CustomResource):
         $ pulumi import datadog:aws/integrationLogCollection:IntegrationLogCollection test 1234567890
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Your AWS Account ID without dashes.
@@ -167,6 +170,7 @@ class IntegrationLogCollection(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:aws/integrationLogCollection:IntegrationLogCollection test 1234567890
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationLogCollectionArgs args: The arguments to use to populate this resource's properties.

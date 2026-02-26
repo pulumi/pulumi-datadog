@@ -27,6 +27,7 @@ class CloudInventorySyncConfigArgs:
                  gcp: Optional[pulumi.Input['CloudInventorySyncConfigGcpArgs']] = None):
         """
         The set of arguments for constructing a CloudInventorySyncConfig resource.
+
         :param pulumi.Input[_builtins.str] cloud_provider: The cloud provider type. Valid values are `aws`, `azure`, `gcp`.
         :param pulumi.Input['CloudInventorySyncConfigAwsArgs'] aws: AWS-specific configuration. Required when cloud_provider is `aws`.
         :param pulumi.Input['CloudInventorySyncConfigAzureArgs'] azure: Azure-specific configuration. Required when cloud_provider is `azure`.
@@ -98,6 +99,7 @@ class _CloudInventorySyncConfigState:
                  gcp: Optional[pulumi.Input['CloudInventorySyncConfigGcpArgs']] = None):
         """
         Input properties used for looking up and filtering CloudInventorySyncConfig resources.
+
         :param pulumi.Input['CloudInventorySyncConfigAwsArgs'] aws: AWS-specific configuration. Required when cloud_provider is `aws`.
         :param pulumi.Input['CloudInventorySyncConfigAzureArgs'] azure: Azure-specific configuration. Required when cloud_provider is `azure`.
         :param pulumi.Input[_builtins.str] cloud_provider: The cloud provider type. Valid values are `aws`, `azure`, `gcp`.
@@ -222,6 +224,7 @@ class CloudInventorySyncConfig(pulumi.CustomResource):
         $ pulumi import datadog:index/cloudInventorySyncConfig:CloudInventorySyncConfig example "<sync-config-id>"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CloudInventorySyncConfigAwsArgs', 'CloudInventorySyncConfigAwsArgsDict']] aws: AWS-specific configuration. Required when cloud_provider is `aws`.
@@ -284,6 +287,7 @@ class CloudInventorySyncConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/cloudInventorySyncConfig:CloudInventorySyncConfig example "<sync-config-id>"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CloudInventorySyncConfigArgs args: The arguments to use to populate this resource's properties.

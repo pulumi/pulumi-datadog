@@ -31,6 +31,7 @@ class LogsArchiveArgs:
                  s3_archive: Optional[pulumi.Input['LogsArchiveS3ArchiveArgs']] = None):
         """
         The set of arguments for constructing a LogsArchive resource.
+
         :param pulumi.Input[_builtins.str] name: Your archive name.
         :param pulumi.Input[_builtins.str] query: The archive query/filter. Logs matching this query are included in the archive.
         :param pulumi.Input['LogsArchiveAzureArchiveArgs'] azure_archive: Definition of an azure archive.
@@ -165,6 +166,7 @@ class _LogsArchiveState:
                  s3_archive: Optional[pulumi.Input['LogsArchiveS3ArchiveArgs']] = None):
         """
         Input properties used for looking up and filtering LogsArchive resources.
+
         :param pulumi.Input['LogsArchiveAzureArchiveArgs'] azure_archive: Definition of an azure archive.
         :param pulumi.Input['LogsArchiveGcsArchiveArgs'] gcs_archive: Definition of a GCS archive.
         :param pulumi.Input[_builtins.bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
@@ -331,6 +333,7 @@ class LogsArchive(pulumi.CustomResource):
         $ pulumi import datadog:index/logsArchive:LogsArchive my_s3_archive 1Aabc2_dfQPLnXy3HlfK4hi
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['LogsArchiveAzureArchiveArgs', 'LogsArchiveAzureArchiveArgsDict']] azure_archive: Definition of an azure archive.
@@ -375,6 +378,7 @@ class LogsArchive(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/logsArchive:LogsArchive my_s3_archive 1Aabc2_dfQPLnXy3HlfK4hi
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogsArchiveArgs args: The arguments to use to populate this resource's properties.

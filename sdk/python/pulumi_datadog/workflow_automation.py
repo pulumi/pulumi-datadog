@@ -27,6 +27,7 @@ class WorkflowAutomationArgs:
                  webhook_secret: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkflowAutomation resource.
+
         :param pulumi.Input[_builtins.str] description: Description of the workflow.
         :param pulumi.Input[_builtins.str] name: Name of the workflow. String length must be at least 1.
         :param pulumi.Input[_builtins.bool] published: Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
@@ -126,6 +127,7 @@ class _WorkflowAutomationState:
                  webhook_secret: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkflowAutomation resources.
+
         :param pulumi.Input[_builtins.str] description: Description of the workflow.
         :param pulumi.Input[_builtins.str] name: Name of the workflow. String length must be at least 1.
         :param pulumi.Input[_builtins.bool] published: Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
@@ -294,6 +296,7 @@ class WorkflowAutomation(pulumi.CustomResource):
         $ pulumi import datadog:index/workflowAutomation:WorkflowAutomation my_workflow 11111111-2222-3333-4444-555555555555
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the workflow.
@@ -370,6 +373,7 @@ class WorkflowAutomation(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/workflowAutomation:WorkflowAutomation my_workflow 11111111-2222-3333-4444-555555555555
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkflowAutomationArgs args: The arguments to use to populate this resource's properties.

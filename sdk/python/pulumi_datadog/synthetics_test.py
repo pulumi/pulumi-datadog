@@ -51,6 +51,7 @@ class SyntheticsTestArgs:
                  variables_from_script: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SyntheticsTest resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] locations: Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
         :param pulumi.Input[_builtins.str] name: Name of Datadog synthetics test.
         :param pulumi.Input[_builtins.str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
@@ -496,6 +497,7 @@ class _SyntheticsTestState:
                  variables_from_script: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SyntheticsTest resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]] api_steps: Steps for multistep API tests
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]] browser_steps: Steps for browser tests.
@@ -1837,6 +1839,7 @@ class SyntheticsTest(pulumi.CustomResource):
         $ pulumi import datadog:index/syntheticsTest:SyntheticsTest fizz abc-123-xyz
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict']]]] api_steps: Steps for multistep API tests
@@ -2747,6 +2750,7 @@ class SyntheticsTest(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/syntheticsTest:SyntheticsTest fizz abc-123-xyz
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SyntheticsTestArgs args: The arguments to use to populate this resource's properties.

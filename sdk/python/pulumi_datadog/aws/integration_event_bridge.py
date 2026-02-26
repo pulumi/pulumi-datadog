@@ -25,6 +25,7 @@ class IntegrationEventBridgeArgs:
                  create_event_bus: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a IntegrationEventBridge resource.
+
         :param pulumi.Input[_builtins.str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[_builtins.str] event_generator_name: The given part of the event source name, which is then combined with an assigned suffix to form the full name.
         :param pulumi.Input[_builtins.str] region: The event source's [AWS region](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints).
@@ -94,6 +95,7 @@ class _IntegrationEventBridgeState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationEventBridge resources.
+
         :param pulumi.Input[_builtins.str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[_builtins.bool] create_event_bus: True if Datadog should create the event bus in addition to the event source. Requires the `events:CreateEventBus` permission. Defaults to `true`.
         :param pulumi.Input[_builtins.str] event_generator_name: The given part of the event source name, which is then combined with an assigned suffix to form the full name.
@@ -195,6 +197,7 @@ class IntegrationEventBridge(pulumi.CustomResource):
         $ pulumi import datadog:aws/integrationEventBridge:IntegrationEventBridge foo event-source-name-abc12345
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Your AWS Account ID without dashes.
@@ -234,6 +237,7 @@ class IntegrationEventBridge(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:aws/integrationEventBridge:IntegrationEventBridge foo event-source-name-abc12345
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationEventBridgeArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class AzureUcConfigArgs:
                  amortized_bill_config: Optional[pulumi.Input['AzureUcConfigAmortizedBillConfigArgs']] = None):
         """
         The set of arguments for constructing a AzureUcConfig resource.
+
         :param pulumi.Input[_builtins.str] account_id: The tenant ID of the Azure account.
         :param pulumi.Input[_builtins.str] client_id: The client ID of the Azure account.
         :param pulumi.Input[_builtins.str] scope: The scope of your observed subscription.
@@ -118,6 +119,7 @@ class _AzureUcConfigState:
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AzureUcConfig resources.
+
         :param pulumi.Input[_builtins.str] account_id: The tenant ID of the Azure account.
         :param pulumi.Input['AzureUcConfigActualBillConfigArgs'] actual_bill_config: Configuration for the actual cost export.
         :param pulumi.Input['AzureUcConfigAmortizedBillConfigArgs'] amortized_bill_config: Configuration for the amortized cost export.
@@ -319,6 +321,7 @@ class AzureUcConfig(pulumi.CustomResource):
         $ pulumi import datadog:index/azureUcConfig:AzureUcConfig example <cloud_account_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The tenant ID of the Azure account.
@@ -368,6 +371,7 @@ class AzureUcConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/azureUcConfig:AzureUcConfig example <cloud_account_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AzureUcConfigArgs args: The arguments to use to populate this resource's properties.

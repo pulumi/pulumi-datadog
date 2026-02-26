@@ -25,6 +25,7 @@ class OnCallTeamRoutingRulesArgs:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['OnCallTeamRoutingRulesRuleArgs']]]] = None):
         """
         The set of arguments for constructing a OnCallTeamRoutingRules resource.
+
         :param pulumi.Input[_builtins.str] team_id: ID of the team to associate the routing rules with.
         :param pulumi.Input[Sequence[pulumi.Input['OnCallTeamRoutingRulesRuleArgs']]] rules: List of team routing rules.
         """
@@ -64,6 +65,7 @@ class _OnCallTeamRoutingRulesState:
                  team_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OnCallTeamRoutingRules resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['OnCallTeamRoutingRulesRuleArgs']]] rules: List of team routing rules.
         :param pulumi.Input[_builtins.str] team_id: ID of the team to associate the routing rules with.
         """
@@ -153,6 +155,7 @@ class OnCallTeamRoutingRules(pulumi.CustomResource):
         $ pulumi import datadog:index/onCallTeamRoutingRules:OnCallTeamRoutingRules test "b03a07d5-49da-43e9-83b4-5d84969b588b"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OnCallTeamRoutingRulesRuleArgs', 'OnCallTeamRoutingRulesRuleArgsDict']]]] rules: List of team routing rules.
@@ -210,6 +213,7 @@ class OnCallTeamRoutingRules(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/onCallTeamRoutingRules:OnCallTeamRoutingRules test "b03a07d5-49da-43e9-83b4-5d84969b588b"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OnCallTeamRoutingRulesArgs args: The arguments to use to populate this resource's properties.

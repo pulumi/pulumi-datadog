@@ -23,6 +23,7 @@ class ApplicationKeyArgs:
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ApplicationKey resource.
+
         :param pulumi.Input[_builtins.str] name: Name for Application Key.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
         """
@@ -63,6 +64,7 @@ class _ApplicationKeyState:
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ApplicationKey resources.
+
         :param pulumi.Input[_builtins.str] key: The value of the Application Key.
         :param pulumi.Input[_builtins.str] name: Name for Application Key.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
@@ -150,6 +152,7 @@ class ApplicationKey(pulumi.CustomResource):
         $ pulumi import datadog:index/applicationKey:ApplicationKey foo 11111111-2222-3333-4444-555555555555
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name for Application Key.
@@ -190,6 +193,7 @@ class ApplicationKey(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/applicationKey:ApplicationKey foo 11111111-2222-3333-4444-555555555555
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationKeyArgs args: The arguments to use to populate this resource's properties.

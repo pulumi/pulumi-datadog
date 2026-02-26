@@ -27,6 +27,7 @@ class OnCallScheduleArgs:
                  teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a OnCallSchedule resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['OnCallScheduleLayerArgs']]] layers: List of layers for the schedule.
         :param pulumi.Input[_builtins.str] name: A human-readable name for the new schedule.
         :param pulumi.Input[_builtins.str] time_zone: The time zone in which the schedule is defined.
@@ -96,6 +97,7 @@ class _OnCallScheduleState:
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OnCallSchedule resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['OnCallScheduleLayerArgs']]] layers: List of layers for the schedule.
         :param pulumi.Input[_builtins.str] name: A human-readable name for the new schedule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] teams: A list of team ids associated with the schedule.
@@ -224,6 +226,7 @@ class OnCallSchedule(pulumi.CustomResource):
         $ pulumi import datadog:index/onCallSchedule:OnCallSchedule test "b03a07d5-49da-43e9-83b4-5d84969b588b"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OnCallScheduleLayerArgs', 'OnCallScheduleLayerArgsDict']]]] layers: List of layers for the schedule.
@@ -290,6 +293,7 @@ class OnCallSchedule(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/onCallSchedule:OnCallSchedule test "b03a07d5-49da-43e9-83b4-5d84969b588b"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OnCallScheduleArgs args: The arguments to use to populate this resource's properties.

@@ -22,6 +22,7 @@ class SensitiveDataScannerGroupOrderArgs:
                  group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The set of arguments for constructing a SensitiveDataScannerGroupOrder resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_ids: The list of Sensitive Data Scanner group IDs, in order. Logs are tested against the query filter of each index one by one following the order of the list.
         """
         pulumi.set(__self__, "group_ids", group_ids)
@@ -45,6 +46,7 @@ class _SensitiveDataScannerGroupOrderState:
                  group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SensitiveDataScannerGroupOrder resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_ids: The list of Sensitive Data Scanner group IDs, in order. Logs are tested against the query filter of each index one by one following the order of the list.
         """
         if group_ids is not None:
@@ -96,6 +98,7 @@ class SensitiveDataScannerGroupOrder(pulumi.CustomResource):
         $ pulumi import datadog:index/sensitiveDataScannerGroupOrder:SensitiveDataScannerGroupOrder mygrouporder order
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_ids: The list of Sensitive Data Scanner group IDs, in order. Logs are tested against the query filter of each index one by one following the order of the list.
@@ -130,6 +133,7 @@ class SensitiveDataScannerGroupOrder(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/sensitiveDataScannerGroupOrder:SensitiveDataScannerGroupOrder mygrouporder order
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SensitiveDataScannerGroupOrderArgs args: The arguments to use to populate this resource's properties.

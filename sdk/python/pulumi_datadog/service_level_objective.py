@@ -37,6 +37,7 @@ class ServiceLevelObjectiveArgs:
                  warning_threshold: Optional[pulumi.Input[_builtins.float]] = None):
         """
         The set of arguments for constructing a ServiceLevelObjective resource.
+
         :param pulumi.Input[_builtins.str] name: Name of Datadog service level objective
         :param pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
         :param pulumi.Input[_builtins.str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `time_slice`.
@@ -266,6 +267,7 @@ class _ServiceLevelObjectiveState:
                  warning_threshold: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Input properties used for looking up and filtering ServiceLevelObjective resources.
+
         :param pulumi.Input[_builtins.str] description: A description of this service level objective.
         :param pulumi.Input[_builtins.bool] force_delete: A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: A static set of groups to filter monitor-based SLOs
@@ -658,6 +660,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
         $ pulumi import datadog:index/serviceLevelObjective:ServiceLevelObjective baz 12345678901234567890123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of this service level objective.
@@ -838,6 +841,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/serviceLevelObjective:ServiceLevelObjective baz 12345678901234567890123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceLevelObjectiveArgs args: The arguments to use to populate this resource's properties.

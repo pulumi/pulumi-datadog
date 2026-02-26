@@ -27,6 +27,7 @@ class SpansMetricArgs:
                  group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['SpansMetricGroupByArgs']]]] = None):
         """
         The set of arguments for constructing a SpansMetric resource.
+
         :param pulumi.Input[_builtins.str] name: The name of the span-based metric. This field can't be updated after creation.
         """
         pulumi.set(__self__, "compute", compute)
@@ -84,6 +85,7 @@ class _SpansMetricState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpansMetric resources.
+
         :param pulumi.Input[_builtins.str] name: The name of the span-based metric. This field can't be updated after creation.
         """
         if compute is not None:
@@ -180,6 +182,7 @@ class SpansMetric(pulumi.CustomResource):
         $ pulumi import datadog:index/spansMetric:SpansMetric testing_spans_metric testing.span.metric
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the span-based metric. This field can't be updated after creation.
@@ -223,6 +226,7 @@ class SpansMetric(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/spansMetric:SpansMetric testing_spans_metric testing.span.metric
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpansMetricArgs args: The arguments to use to populate this resource's properties.

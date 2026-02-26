@@ -27,6 +27,7 @@ class LogsMetricArgs:
                  group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['LogsMetricGroupByArgs']]]] = None):
         """
         The set of arguments for constructing a LogsMetric resource.
+
         :param pulumi.Input['LogsMetricComputeArgs'] compute: The compute rule to compute the log-based metric. This field can't be updated after creation.
         :param pulumi.Input['LogsMetricFilterArgs'] filter: The log-based metric filter. Logs matching this filter will be aggregated in this metric.
         :param pulumi.Input[_builtins.str] name: The name of the log-based metric. This field can't be updated after creation.
@@ -96,6 +97,7 @@ class _LogsMetricState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogsMetric resources.
+
         :param pulumi.Input['LogsMetricComputeArgs'] compute: The compute rule to compute the log-based metric. This field can't be updated after creation.
         :param pulumi.Input['LogsMetricFilterArgs'] filter: The log-based metric filter. Logs matching this filter will be aggregated in this metric.
         :param pulumi.Input[Sequence[pulumi.Input['LogsMetricGroupByArgs']]] group_bies: The rules for the group by.
@@ -208,6 +210,7 @@ class LogsMetric(pulumi.CustomResource):
         $ pulumi import datadog:index/logsMetric:LogsMetric testing_logs_metric testing.logs.metric
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['LogsMetricComputeArgs', 'LogsMetricComputeArgsDict']] compute: The compute rule to compute the log-based metric. This field can't be updated after creation.
@@ -258,6 +261,7 @@ class LogsMetric(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/logsMetric:LogsMetric testing_logs_metric testing.logs.metric
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogsMetricArgs args: The arguments to use to populate this resource's properties.

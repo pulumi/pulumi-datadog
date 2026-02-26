@@ -26,6 +26,7 @@ class DatasetArgs:
                  product_filters: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetProductFilterArgs']]]] = None):
         """
         The set of arguments for constructing a Dataset resource.
+
         :param pulumi.Input[_builtins.str] name: The name of the dataset.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
         """
@@ -78,6 +79,7 @@ class _DatasetState:
                  product_filters: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetProductFilterArgs']]]] = None):
         """
         Input properties used for looking up and filtering Dataset resources.
+
         :param pulumi.Input[_builtins.str] created_at: Indicates when the dataset was created (in ISO 8601).
         :param pulumi.Input[_builtins.str] created_by: Indicates who created the dataset.
         :param pulumi.Input[_builtins.str] name: The name of the dataset.
@@ -189,6 +191,7 @@ class Dataset(pulumi.CustomResource):
         $ pulumi import datadog:index/dataset:Dataset foo "<dataset_id>"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the dataset.
@@ -226,6 +229,7 @@ class Dataset(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/dataset:Dataset foo "<dataset_id>"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DatasetArgs args: The arguments to use to populate this resource's properties.

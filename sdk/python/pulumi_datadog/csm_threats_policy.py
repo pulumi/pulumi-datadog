@@ -26,6 +26,7 @@ class CsmThreatsPolicyArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CsmThreatsPolicy resource.
+
         :param pulumi.Input[_builtins.str] name: The name of the policy.
         :param pulumi.Input[_builtins.str] description: A description for the policy.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the policy is enabled. Defaults to `false`.
@@ -113,6 +114,7 @@ class _CsmThreatsPolicyState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CsmThreatsPolicy resources.
+
         :param pulumi.Input[_builtins.str] description: A description for the policy.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the policy is enabled. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]] host_tags_lists: Host tags that define where the policy is deployed. Inner values are ANDed, outer arrays are ORed.
@@ -238,6 +240,7 @@ class CsmThreatsPolicy(pulumi.CustomResource):
         $ pulumi import datadog:index/csmThreatsPolicy:CsmThreatsPolicy my_policy jm4-lwh-8cs
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the policy.
@@ -286,6 +289,7 @@ class CsmThreatsPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/csmThreatsPolicy:CsmThreatsPolicy my_policy jm4-lwh-8cs
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CsmThreatsPolicyArgs args: The arguments to use to populate this resource's properties.

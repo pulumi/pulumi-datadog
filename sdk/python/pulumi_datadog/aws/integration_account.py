@@ -32,6 +32,7 @@ class IntegrationAccountArgs:
                  traces_config: Optional[pulumi.Input['IntegrationAccountTracesConfigArgs']] = None):
         """
         The set of arguments for constructing a IntegrationAccount resource.
+
         :param pulumi.Input[_builtins.str] aws_account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[_builtins.str] aws_partition: AWS Account partition.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_tags: Tags to apply to all metrics in the account. Defaults to `[]`.
@@ -182,6 +183,7 @@ class _IntegrationAccountState:
                  traces_config: Optional[pulumi.Input['IntegrationAccountTracesConfigArgs']] = None):
         """
         Input properties used for looking up and filtering IntegrationAccount resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_tags: Tags to apply to all metrics in the account. Defaults to `[]`.
         :param pulumi.Input['IntegrationAccountAuthConfigArgs'] auth_config: Configure how Datadog authenticates to your AWS account. Either `aws_auth_config_keys` or `aws_auth_config_role` block is required within.
         :param pulumi.Input[_builtins.str] aws_account_id: Your AWS Account ID without dashes.
@@ -438,6 +440,7 @@ class IntegrationAccount(pulumi.CustomResource):
         ```
          AWS Account Config ID can be retrieved by using the [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations) endpoint and querying by AWS Account ID.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_tags: Tags to apply to all metrics in the account. Defaults to `[]`.
@@ -557,6 +560,7 @@ class IntegrationAccount(pulumi.CustomResource):
         $ pulumi import datadog:aws/integrationAccount:IntegrationAccount example "<datadog-aws-account-config-id>"
         ```
          AWS Account Config ID can be retrieved by using the [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations) endpoint and querying by AWS Account ID.
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountArgs args: The arguments to use to populate this resource's properties.

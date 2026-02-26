@@ -28,6 +28,7 @@ class OnCallEscalationPolicyArgs:
                  teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a OnCallEscalationPolicy resource.
+
         :param pulumi.Input[_builtins.str] name: A human-readable name for the escalation policy.
         :param pulumi.Input[Sequence[pulumi.Input['OnCallEscalationPolicyStepArgs']]] steps: List of steps for the escalation policy.
         :param pulumi.Input[_builtins.bool] resolve_page_on_policy_end: If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
@@ -114,6 +115,7 @@ class _OnCallEscalationPolicyState:
                  teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering OnCallEscalationPolicy resources.
+
         :param pulumi.Input[_builtins.str] name: A human-readable name for the escalation policy.
         :param pulumi.Input[_builtins.bool] resolve_page_on_policy_end: If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
         :param pulumi.Input[_builtins.int] retries: If set, policy will be retried this many times after the final step. Must be in the range 0-10. Value must be between 0 and 10. Defaults to `0`.
@@ -244,6 +246,7 @@ class OnCallEscalationPolicy(pulumi.CustomResource):
         $ pulumi import datadog:index/onCallEscalationPolicy:OnCallEscalationPolicy policy_test "b03a07d5-49da-43e9-83b4-5d84969b588b"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: A human-readable name for the escalation policy.
@@ -297,6 +300,7 @@ class OnCallEscalationPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/onCallEscalationPolicy:OnCallEscalationPolicy policy_test "b03a07d5-49da-43e9-83b4-5d84969b588b"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OnCallEscalationPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class SecurityMonitoringSuppressionArgs:
                  validate: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SecurityMonitoringSuppression resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Whether the suppression rule is enabled.
         :param pulumi.Input[_builtins.str] name: The name of the suppression rule.
         :param pulumi.Input[_builtins.str] rule_query: The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
@@ -196,6 +197,7 @@ class _SecurityMonitoringSuppressionState:
                  validate: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SecurityMonitoringSuppression resources.
+
         :param pulumi.Input[_builtins.str] data_exclusion_query: An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
         :param pulumi.Input[_builtins.str] description: A description for the suppression rule.
         :param pulumi.Input[_builtins.bool] enabled: Whether the suppression rule is enabled.
@@ -396,6 +398,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
         $ pulumi import datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression my_suppression m0o-hto-lkb
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_exclusion_query: An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
@@ -444,6 +447,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression my_suppression m0o-hto-lkb
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecurityMonitoringSuppressionArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class IntegrationTagFilterArgs:
                  tag_filter_str: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a IntegrationTagFilter resource.
+
         :param pulumi.Input[_builtins.str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[_builtins.str] namespace: The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`, `step_functions`.
         :param pulumi.Input[_builtins.str] tag_filter_str: The tag filter string.
@@ -77,6 +78,7 @@ class _IntegrationTagFilterState:
                  tag_filter_str: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationTagFilter resources.
+
         :param pulumi.Input[_builtins.str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[_builtins.str] namespace: The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`, `step_functions`.
         :param pulumi.Input[_builtins.str] tag_filter_str: The tag filter string.
@@ -163,6 +165,7 @@ class IntegrationTagFilter(pulumi.CustomResource):
         $ pulumi import datadog:aws/integrationTagFilter:IntegrationTagFilter foo ${account_id}:${namespace}
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Your AWS Account ID without dashes.
@@ -202,6 +205,7 @@ class IntegrationTagFilter(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:aws/integrationTagFilter:IntegrationTagFilter foo ${account_id}:${namespace}
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationTagFilterArgs args: The arguments to use to populate this resource's properties.

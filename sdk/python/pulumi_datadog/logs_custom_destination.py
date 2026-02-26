@@ -33,6 +33,7 @@ class LogsCustomDestinationArgs:
                  splunk_destination: Optional[pulumi.Input['LogsCustomDestinationSplunkDestinationArgs']] = None):
         """
         The set of arguments for constructing a LogsCustomDestination resource.
+
         :param pulumi.Input[_builtins.str] name: The custom destination name.
         :param pulumi.Input['LogsCustomDestinationElasticsearchDestinationArgs'] elasticsearch_destination: The Elasticsearch destination.
         :param pulumi.Input[_builtins.bool] enabled: Whether logs matching this custom destination should be forwarded or not.
@@ -210,6 +211,7 @@ class _LogsCustomDestinationState:
                  splunk_destination: Optional[pulumi.Input['LogsCustomDestinationSplunkDestinationArgs']] = None):
         """
         Input properties used for looking up and filtering LogsCustomDestination resources.
+
         :param pulumi.Input['LogsCustomDestinationElasticsearchDestinationArgs'] elasticsearch_destination: The Elasticsearch destination.
         :param pulumi.Input[_builtins.bool] enabled: Whether logs matching this custom destination should be forwarded or not.
         :param pulumi.Input[_builtins.bool] forward_tags: Whether tags from the forwarded logs should be forwarded or not.
@@ -422,6 +424,7 @@ class LogsCustomDestination(pulumi.CustomResource):
         $ pulumi import datadog:index/logsCustomDestination:LogsCustomDestination sample_destination "destination-id"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['LogsCustomDestinationElasticsearchDestinationArgs', 'LogsCustomDestinationElasticsearchDestinationArgsDict']] elasticsearch_destination: The Elasticsearch destination.
@@ -477,6 +480,7 @@ class LogsCustomDestination(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/logsCustomDestination:LogsCustomDestination sample_destination "destination-id"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogsCustomDestinationArgs args: The arguments to use to populate this resource's properties.

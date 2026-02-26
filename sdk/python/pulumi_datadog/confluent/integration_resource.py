@@ -26,6 +26,7 @@ class IntegrationResourceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IntegrationResource resource.
+
         :param pulumi.Input[_builtins.str] account_id: Confluent Account ID.
         :param pulumi.Input[_builtins.str] resource_id: The ID associated with a Confluent resource.
         :param pulumi.Input[_builtins.bool] enable_custom_metrics: Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags. Defaults to `false`.
@@ -112,6 +113,7 @@ class _IntegrationResourceState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering IntegrationResource resources.
+
         :param pulumi.Input[_builtins.str] account_id: Confluent Account ID.
         :param pulumi.Input[_builtins.bool] enable_custom_metrics: Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags. Defaults to `false`.
         :param pulumi.Input[_builtins.str] resource_id: The ID associated with a Confluent resource.
@@ -237,6 +239,7 @@ class IntegrationResource(pulumi.CustomResource):
         $ pulumi import datadog:confluent/integrationResource:IntegrationResource new_list "confluent_account_id:confluent_resource_id"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Confluent Account ID.
@@ -285,6 +288,7 @@ class IntegrationResource(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:confluent/integrationResource:IntegrationResource new_list "confluent_account_id:confluent_resource_id"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationResourceArgs args: The arguments to use to populate this resource's properties.

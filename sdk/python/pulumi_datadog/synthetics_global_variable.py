@@ -36,6 +36,7 @@ class SyntheticsGlobalVariableArgs:
                  value_wo_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SyntheticsGlobalVariable resource.
+
         :param pulumi.Input[_builtins.str] name: Synthetics global variable name. Must be all uppercase with underscores.
         :param pulumi.Input[_builtins.str] description: Description of the global variable. Defaults to `""`.
         :param pulumi.Input[_builtins.bool] is_fido: If set to true, the global variable is a FIDO variable. Defaults to `false`.
@@ -257,6 +258,7 @@ class _SyntheticsGlobalVariableState:
                  value_wo_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SyntheticsGlobalVariable resources.
+
         :param pulumi.Input[_builtins.str] description: Description of the global variable. Defaults to `""`.
         :param pulumi.Input[_builtins.bool] is_fido: If set to true, the global variable is a FIDO variable. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] is_totp: If set to true, the global variable is a TOTP variable. Defaults to `false`.
@@ -543,6 +545,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         $ pulumi import datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable fizz abcde123-fghi-456-jkl-mnopqrstuv
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the global variable. Defaults to `""`.
@@ -627,6 +630,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable fizz abcde123-fghi-456-jkl-mnopqrstuv
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SyntheticsGlobalVariableArgs args: The arguments to use to populate this resource's properties.

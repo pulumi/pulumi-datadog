@@ -34,6 +34,7 @@ class DowntimeArgs:
                  timezone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Downtime resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: specify the group scope to which this downtime applies. For everything use '*'
         :param pulumi.Input[_builtins.int] end: Optionally specify an end date when this downtime should expire. Accepts a Unix timestamp in UTC.
         :param pulumi.Input[_builtins.str] end_date: String representing date and time to end the downtime in RFC3339 format.
@@ -220,6 +221,7 @@ class _DowntimeState:
                  timezone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Downtime resources.
+
         :param pulumi.Input[_builtins.bool] active: When true indicates this downtime is being actively applied
         :param pulumi.Input[_builtins.int] active_child_id: The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
         :param pulumi.Input[_builtins.bool] disabled: When true indicates this downtime is not being applied
@@ -462,6 +464,7 @@ class Downtime(pulumi.CustomResource):
         $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] end: Optionally specify an end date when this downtime should expire. Accepts a Unix timestamp in UTC.
@@ -492,6 +495,7 @@ class Downtime(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DowntimeArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class ObservabilityPipelineArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ObservabilityPipeline resource.
+
         :param pulumi.Input['ObservabilityPipelineConfigArgs'] config: Configuration for the pipeline.
         :param pulumi.Input[_builtins.str] name: The pipeline name.
         """
@@ -63,6 +64,7 @@ class _ObservabilityPipelineState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ObservabilityPipeline resources.
+
         :param pulumi.Input['ObservabilityPipelineConfigArgs'] config: Configuration for the pipeline.
         :param pulumi.Input[_builtins.str] name: The pipeline name.
         """
@@ -170,6 +172,7 @@ class ObservabilityPipeline(pulumi.CustomResource):
         $ pulumi import datadog:index/observabilityPipeline:ObservabilityPipeline example_pipeline 8beabbc4-1f4d-11f0-942b-da7ad0900001
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ObservabilityPipelineConfigArgs', 'ObservabilityPipelineConfigArgsDict']] config: Configuration for the pipeline.
@@ -245,6 +248,7 @@ class ObservabilityPipeline(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/observabilityPipeline:ObservabilityPipeline example_pipeline 8beabbc4-1f4d-11f0-942b-da7ad0900001
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ObservabilityPipelineArgs args: The arguments to use to populate this resource's properties.

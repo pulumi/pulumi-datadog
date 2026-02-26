@@ -26,6 +26,7 @@ class UserArgs:
                  send_user_invitation: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a User resource.
+
         :param pulumi.Input[_builtins.str] email: Email address for user.
         :param pulumi.Input[_builtins.bool] disabled: Whether the user is disabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] name: User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
@@ -115,6 +116,7 @@ class _UserState:
                  verified: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering User resources.
+
         :param pulumi.Input[_builtins.bool] disabled: Whether the user is disabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] email: Email address for user.
         :param pulumi.Input[_builtins.str] name: User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
@@ -260,6 +262,7 @@ class User(pulumi.CustomResource):
         $ pulumi import datadog:index/user:User example_user 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] disabled: Whether the user is disabled. Defaults to `false`.
@@ -298,6 +301,7 @@ class User(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/user:User example_user 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

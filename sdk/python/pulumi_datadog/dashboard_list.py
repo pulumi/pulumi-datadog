@@ -25,6 +25,7 @@ class DashboardListArgs:
                  dash_items: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]]] = None):
         """
         The set of arguments for constructing a DashboardList resource.
+
         :param pulumi.Input[_builtins.str] name: The name of the Dashboard List
         :param pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]] dash_items: A set of dashboard items that belong to this list
         """
@@ -64,6 +65,7 @@ class _DashboardListState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DashboardList resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]] dash_items: A set of dashboard items that belong to this list
         :param pulumi.Input[_builtins.str] name: The name of the Dashboard List
         """
@@ -172,6 +174,7 @@ class DashboardList(pulumi.CustomResource):
         $ pulumi import datadog:index/dashboardList:DashboardList new_list 123456
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardListDashItemArgs', 'DashboardListDashItemArgsDict']]]] dash_items: A set of dashboard items that belong to this list
@@ -248,6 +251,7 @@ class DashboardList(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/dashboardList:DashboardList new_list 123456
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DashboardListArgs args: The arguments to use to populate this resource's properties.

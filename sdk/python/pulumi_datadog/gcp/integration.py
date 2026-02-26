@@ -36,6 +36,7 @@ class IntegrationArgs:
                  resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Integration resource.
+
         :param pulumi.Input[_builtins.str] client_email: Your email found in your JSON service account key.
         :param pulumi.Input[_builtins.str] client_id: Your ID found in your JSON service account key.
         :param pulumi.Input[_builtins.str] private_key: Your private key name found in your JSON service account key.
@@ -255,6 +256,7 @@ class _IntegrationState:
                  resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Integration resources.
+
         :param pulumi.Input[_builtins.bool] automute: Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
         :param pulumi.Input[_builtins.str] client_email: Your email found in your JSON service account key.
         :param pulumi.Input[_builtins.str] client_id: Your ID found in your JSON service account key.
@@ -494,6 +496,7 @@ class Integration(pulumi.CustomResource):
         $ pulumi import datadog:gcp/integration:Integration awesome_gcp_project_integration project_id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] automute: Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
@@ -528,6 +531,7 @@ class Integration(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:gcp/integration:Integration awesome_gcp_project_integration project_id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationArgs args: The arguments to use to populate this resource's properties.

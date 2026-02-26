@@ -26,6 +26,7 @@ class WebhookArgs:
                  payload: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Webhook resource.
+
         :param pulumi.Input[_builtins.str] name: The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
         :param pulumi.Input[_builtins.str] url: The URL of the webhook.
         :param pulumi.Input[_builtins.str] custom_headers: The headers attached to the webhook.
@@ -112,6 +113,7 @@ class _WebhookState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Webhook resources.
+
         :param pulumi.Input[_builtins.str] custom_headers: The headers attached to the webhook.
         :param pulumi.Input[_builtins.str] encode_as: Encoding type. Valid values are `json`, `form`.
         :param pulumi.Input[_builtins.str] name: The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
@@ -233,6 +235,7 @@ class Webhook(pulumi.CustomResource):
         $ pulumi import datadog:index/webhook:Webhook foo example-webhook
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_headers: The headers attached to the webhook.
@@ -277,6 +280,7 @@ class Webhook(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/webhook:Webhook foo example-webhook
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WebhookArgs args: The arguments to use to populate this resource's properties.

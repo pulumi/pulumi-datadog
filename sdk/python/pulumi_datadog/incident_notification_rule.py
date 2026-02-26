@@ -31,6 +31,7 @@ class IncidentNotificationRuleArgs:
                  visibility: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IncidentNotificationRule resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] handles: The notification handles (targets) for this rule. Examples: @team-email@company.com, @slack-channel.
         :param pulumi.Input[_builtins.str] incident_type: The ID of the incident type this notification rule is associated with.
         :param pulumi.Input[_builtins.str] trigger: The trigger event for this notification rule. Valid values are: incident*created*trigger, incident*saved*trigger.
@@ -166,6 +167,7 @@ class _IncidentNotificationRuleState:
                  visibility: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IncidentNotificationRule resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['IncidentNotificationRuleConditionArgs']]] conditions: The conditions that trigger this notification rule. At least one condition is required.
         :param pulumi.Input[_builtins.str] created: Timestamp when the notification rule was created.
         :param pulumi.Input[_builtins.bool] enabled: Whether the notification rule is enabled. Defaults to `false`.
@@ -401,6 +403,7 @@ class IncidentNotificationRule(pulumi.CustomResource):
         $ pulumi import datadog:index/incidentNotificationRule:IncidentNotificationRule example "00000000-0000-0000-0000-000000000000"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IncidentNotificationRuleConditionArgs', 'IncidentNotificationRuleConditionArgsDict']]]] conditions: The conditions that trigger this notification rule. At least one condition is required.
@@ -484,6 +487,7 @@ class IncidentNotificationRule(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/incidentNotificationRule:IncidentNotificationRule example "00000000-0000-0000-0000-000000000000"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IncidentNotificationRuleArgs args: The arguments to use to populate this resource's properties.

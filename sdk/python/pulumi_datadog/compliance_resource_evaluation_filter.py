@@ -24,6 +24,7 @@ class ComplianceResourceEvaluationFilterArgs:
                  tags: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The set of arguments for constructing a ComplianceResourceEvaluationFilter resource.
+
         :param pulumi.Input[_builtins.str] cloud_provider: The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
         :param pulumi.Input[_builtins.str] resource_id: The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:
                  - `aws`: account ID
@@ -83,6 +84,7 @@ class _ComplianceResourceEvaluationFilterState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ComplianceResourceEvaluationFilter resources.
+
         :param pulumi.Input[_builtins.str] cloud_provider: The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
         :param pulumi.Input[_builtins.str] resource_id: The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:
                  - `aws`: account ID
@@ -171,6 +173,7 @@ class ComplianceResourceEvaluationFilter(pulumi.CustomResource):
         $ pulumi import datadog:index/complianceResourceEvaluationFilter:ComplianceResourceEvaluationFilter test_filter aws:00000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cloud_provider: The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
@@ -209,6 +212,7 @@ class ComplianceResourceEvaluationFilter(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/complianceResourceEvaluationFilter:ComplianceResourceEvaluationFilter test_filter aws:00000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ComplianceResourceEvaluationFilterArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class ChannelArgs:
                  display: pulumi.Input['ChannelDisplayArgs']):
         """
         The set of arguments for constructing a Channel resource.
+
         :param pulumi.Input[_builtins.str] account_name: Slack account name.
         :param pulumi.Input[_builtins.str] channel_name: Slack channel name.
         :param pulumi.Input['ChannelDisplayArgs'] display: Configuration options for what is shown in an alert event message.
@@ -79,6 +80,7 @@ class _ChannelState:
                  display: Optional[pulumi.Input['ChannelDisplayArgs']] = None):
         """
         Input properties used for looking up and filtering Channel resources.
+
         :param pulumi.Input[_builtins.str] account_name: Slack account name.
         :param pulumi.Input[_builtins.str] channel_name: Slack channel name.
         :param pulumi.Input['ChannelDisplayArgs'] display: Configuration options for what is shown in an alert event message.
@@ -167,6 +169,7 @@ class Channel(pulumi.CustomResource):
         $ pulumi import datadog:slack/channel:Channel test_channel "foo:#test_channel"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: Slack account name.
@@ -208,6 +211,7 @@ class Channel(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:slack/channel:Channel test_channel "foo:#test_channel"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ChannelArgs args: The arguments to use to populate this resource's properties.

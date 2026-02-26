@@ -55,8 +55,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         final var token1 = config.get("token1");
- *         final var token2 = config.get("token2");
+ *         final var token1 = config.require("token1");
+ *         final var token2 = config.require("token2");
  *         var httpConnection = new ActionConnection("httpConnection", ActionConnectionArgs.builder()
  *             .name("My HTTP connection with token auth")
  *             .http(ActionConnectionHttpArgs.builder()

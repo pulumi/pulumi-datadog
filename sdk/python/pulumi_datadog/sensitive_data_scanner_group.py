@@ -29,6 +29,7 @@ class SensitiveDataScannerGroupArgs:
                  samplings: Optional[pulumi.Input[Sequence[pulumi.Input['SensitiveDataScannerGroupSamplingArgs']]]] = None):
         """
         The set of arguments for constructing a SensitiveDataScannerGroup resource.
+
         :param pulumi.Input['SensitiveDataScannerGroupFilterArgs'] filter: Filter object the scanning group applies.
         :param pulumi.Input[_builtins.bool] is_enabled: Whether or not the scanning group is enabled. If the group doesn't contain any rule or if all the rules in it are disabled, the group is force-disabled by our backend
         :param pulumi.Input[_builtins.str] name: Name of the Datadog scanning group.
@@ -129,6 +130,7 @@ class _SensitiveDataScannerGroupState:
                  samplings: Optional[pulumi.Input[Sequence[pulumi.Input['SensitiveDataScannerGroupSamplingArgs']]]] = None):
         """
         Input properties used for looking up and filtering SensitiveDataScannerGroup resources.
+
         :param pulumi.Input[_builtins.str] description: Description of the Datadog scanning group.
         :param pulumi.Input['SensitiveDataScannerGroupFilterArgs'] filter: Filter object the scanning group applies.
         :param pulumi.Input[_builtins.bool] is_enabled: Whether or not the scanning group is enabled. If the group doesn't contain any rule or if all the rules in it are disabled, the group is force-disabled by our backend
@@ -276,6 +278,7 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
         $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list "<group_id>"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the Datadog scanning group.
@@ -331,6 +334,7 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list "<group_id>"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SensitiveDataScannerGroupArgs args: The arguments to use to populate this resource's properties.

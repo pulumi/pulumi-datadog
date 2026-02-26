@@ -24,6 +24,7 @@ class TeamArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Team resource.
+
         :param pulumi.Input[_builtins.str] description: Free-form markdown description/content for the team's homepage.
         :param pulumi.Input[_builtins.str] handle: The team's identifier
         :param pulumi.Input[_builtins.str] name: The name of the team.
@@ -80,6 +81,7 @@ class _TeamState:
                  user_count: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Team resources.
+
         :param pulumi.Input[_builtins.str] description: Free-form markdown description/content for the team's homepage.
         :param pulumi.Input[_builtins.str] handle: The team's identifier
         :param pulumi.Input[_builtins.int] link_count: The number of links belonging to the team.
@@ -207,6 +209,7 @@ class Team(pulumi.CustomResource):
         $ pulumi import datadog:index/team:Team foo "bf064c56-edb0-11ed-ae91-da7ad0900002"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Free-form markdown description/content for the team's homepage.
@@ -242,6 +245,7 @@ class Team(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/team:Team foo "bf064c56-edb0-11ed-ae91-da7ad0900002"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TeamArgs args: The arguments to use to populate this resource's properties.

@@ -23,6 +23,7 @@ class RumRetentionFiltersOrderArgs:
                  retention_filter_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The set of arguments for constructing a RumRetentionFiltersOrder resource.
+
         :param pulumi.Input[_builtins.str] application_id: RUM application ID.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] retention_filter_ids: RUM retention filter ID list. The order of IDs in this attribute defines the order of RUM retention filters.
         """
@@ -61,6 +62,7 @@ class _RumRetentionFiltersOrderState:
                  retention_filter_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RumRetentionFiltersOrder resources.
+
         :param pulumi.Input[_builtins.str] application_id: RUM application ID.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] retention_filter_ids: RUM retention filter ID list. The order of IDs in this attribute defines the order of RUM retention filters.
         """
@@ -148,6 +150,7 @@ class RumRetentionFiltersOrder(pulumi.CustomResource):
         $ pulumi import datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder testing_rum_retention_filters_order "<application_id>"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: RUM application ID.
@@ -203,6 +206,7 @@ class RumRetentionFiltersOrder(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder testing_rum_retention_filters_order "<application_id>"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RumRetentionFiltersOrderArgs args: The arguments to use to populate this resource's properties.

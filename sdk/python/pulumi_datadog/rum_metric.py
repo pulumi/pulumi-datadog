@@ -29,6 +29,7 @@ class RumMetricArgs:
                  uniqueness: Optional[pulumi.Input['RumMetricUniquenessArgs']] = None):
         """
         The set of arguments for constructing a RumMetric resource.
+
         :param pulumi.Input[_builtins.str] event_type: The type of RUM events to filter on.
         :param pulumi.Input[_builtins.str] name: The name of the RUM-based metric. This field can't be updated after creation.
         """
@@ -115,6 +116,7 @@ class _RumMetricState:
                  uniqueness: Optional[pulumi.Input['RumMetricUniquenessArgs']] = None):
         """
         Input properties used for looking up and filtering RumMetric resources.
+
         :param pulumi.Input[_builtins.str] event_type: The type of RUM events to filter on.
         :param pulumi.Input[_builtins.str] name: The name of the RUM-based metric. This field can't be updated after creation.
         """
@@ -243,6 +245,7 @@ class RumMetric(pulumi.CustomResource):
         $ pulumi import datadog:index/rumMetric:RumMetric testing_rum_metric "testing.rum.metric"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] event_type: The type of RUM events to filter on.
@@ -291,6 +294,7 @@ class RumMetric(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/rumMetric:RumMetric testing_rum_metric "testing.rum.metric"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RumMetricArgs args: The arguments to use to populate this resource's properties.

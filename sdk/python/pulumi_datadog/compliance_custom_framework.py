@@ -28,6 +28,7 @@ class ComplianceCustomFrameworkArgs:
                  icon_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ComplianceCustomFramework resource.
+
         :param pulumi.Input[_builtins.str] handle: The framework handle. String length must be at least 1. This field is immutable.
         :param pulumi.Input[_builtins.str] name: The framework name. String length must be at least 1.
         :param pulumi.Input[Sequence[pulumi.Input['ComplianceCustomFrameworkRequirementArgs']]] requirements: The requirements of the framework. Length must be at least 1.
@@ -112,6 +113,7 @@ class _ComplianceCustomFrameworkState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ComplianceCustomFramework resources.
+
         :param pulumi.Input[_builtins.str] handle: The framework handle. String length must be at least 1. This field is immutable.
         :param pulumi.Input[_builtins.str] icon_url: The URL of the icon representing the framework
         :param pulumi.Input[_builtins.str] name: The framework name. String length must be at least 1.
@@ -265,6 +267,7 @@ class ComplianceCustomFramework(pulumi.CustomResource):
             ])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] handle: The framework handle. String length must be at least 1. This field is immutable.
@@ -341,6 +344,7 @@ class ComplianceCustomFramework(pulumi.CustomResource):
                 },
             ])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ComplianceCustomFrameworkArgs args: The arguments to use to populate this resource's properties.

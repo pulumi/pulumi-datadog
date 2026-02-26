@@ -26,6 +26,7 @@ class OrganizationSettingsArgs:
                  settings: Optional[pulumi.Input['OrganizationSettingsSettingsArgs']] = None):
         """
         The set of arguments for constructing a OrganizationSettings resource.
+
         :param pulumi.Input[_builtins.str] name: Name for Organization.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_contacts: List of emails used for security event notifications from the organization.
         :param pulumi.Input['OrganizationSettingsSettingsArgs'] settings: Organization settings
@@ -84,6 +85,7 @@ class _OrganizationSettingsState:
                  settings: Optional[pulumi.Input['OrganizationSettingsSettingsArgs']] = None):
         """
         Input properties used for looking up and filtering OrganizationSettings resources.
+
         :param pulumi.Input[_builtins.str] description: Description of the organization.
         :param pulumi.Input[_builtins.str] name: Name for Organization.
         :param pulumi.Input[_builtins.str] public_id: The `public_id` of the organization you are operating within.
@@ -193,6 +195,7 @@ class OrganizationSettings(pulumi.CustomResource):
         $ pulumi import datadog:index/organizationSettings:OrganizationSettings organization 11111111-2222-3333-4444-555555555555
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name for Organization.
@@ -225,6 +228,7 @@ class OrganizationSettings(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/organizationSettings:OrganizationSettings organization 11111111-2222-3333-4444-555555555555
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationSettingsArgs args: The arguments to use to populate this resource's properties.

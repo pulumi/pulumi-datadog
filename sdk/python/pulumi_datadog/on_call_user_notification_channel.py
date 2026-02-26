@@ -26,6 +26,7 @@ class OnCallUserNotificationChannelArgs:
                  phone: Optional[pulumi.Input['OnCallUserNotificationChannelPhoneArgs']] = None):
         """
         The set of arguments for constructing a OnCallUserNotificationChannel resource.
+
         :param pulumi.Input[_builtins.str] user_id: ID of the user to associate the notification channel with.
         """
         pulumi.set(__self__, "user_id", user_id)
@@ -73,6 +74,7 @@ class _OnCallUserNotificationChannelState:
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OnCallUserNotificationChannel resources.
+
         :param pulumi.Input[_builtins.str] user_id: ID of the user to associate the notification channel with.
         """
         if email is not None:
@@ -126,6 +128,7 @@ class OnCallUserNotificationChannel(pulumi.CustomResource):
         """
         Provides a Datadog On-Call user notification channel resource.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] user_id: ID of the user to associate the notification channel with.
@@ -138,6 +141,7 @@ class OnCallUserNotificationChannel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog On-Call user notification channel resource.
+
 
         :param str resource_name: The name of the resource.
         :param OnCallUserNotificationChannelArgs args: The arguments to use to populate this resource's properties.

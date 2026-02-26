@@ -24,6 +24,7 @@ class DashboardJsonArgs:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DashboardJson resource.
+
         :param pulumi.Input[_builtins.str] dashboard: The JSON formatted definition of the Dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
         :param pulumi.Input[_builtins.str] url: The URL of the dashboard.
@@ -80,6 +81,7 @@ class _DashboardJsonState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DashboardJson resources.
+
         :param pulumi.Input[_builtins.str] dashboard: The JSON formatted definition of the Dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dashboard_lists_removeds: The list of dashboard lists this dashboard should be removed from. Internal only.
@@ -658,6 +660,7 @@ class DashboardJson(pulumi.CustomResource):
         $ pulumi import datadog:index/dashboardJson:DashboardJson my_service_dashboard sv7-gyh-kas
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dashboard: The JSON formatted definition of the Dashboard.
@@ -1174,6 +1177,7 @@ class DashboardJson(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/dashboardJson:DashboardJson my_service_dashboard sv7-gyh-kas
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DashboardJsonArgs args: The arguments to use to populate this resource's properties.

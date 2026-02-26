@@ -22,6 +22,7 @@ class LogsArchiveOrderArgs:
                  archive_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LogsArchiveOrder resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] archive_ids: The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
         """
         if archive_ids is not None:
@@ -46,6 +47,7 @@ class _LogsArchiveOrderState:
                  archive_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LogsArchiveOrder resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] archive_ids: The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
         """
         if archive_ids is not None:
@@ -97,6 +99,7 @@ class LogsArchiveOrder(pulumi.CustomResource):
         $ pulumi import datadog:index/logsArchiveOrder:LogsArchiveOrder name> archiveOrderID
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] archive_ids: The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
@@ -131,6 +134,7 @@ class LogsArchiveOrder(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/logsArchiveOrder:LogsArchiveOrder name> archiveOrderID
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogsArchiveOrderArgs args: The arguments to use to populate this resource's properties.

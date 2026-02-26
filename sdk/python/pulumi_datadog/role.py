@@ -27,6 +27,7 @@ class RoleArgs:
                  validate: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Role resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the role.
         :param pulumi.Input[_builtins.bool] default_permissions_opt_out: If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `include_restricted` attribute for the `get_permissions` data source must be set to `true` to manage default permissions in Terraform.
         :param pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
@@ -99,6 +100,7 @@ class _RoleState:
                  validate: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Role resources.
+
         :param pulumi.Input[_builtins.bool] default_permissions_opt_out: If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `include_restricted` attribute for the `get_permissions` data source must be set to `true` to manage default permissions in Terraform.
         :param pulumi.Input[_builtins.str] name: Name of the role.
         :param pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
@@ -222,6 +224,7 @@ class Role(pulumi.CustomResource):
         $ pulumi import datadog:index/role:Role example_role 000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] default_permissions_opt_out: If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `include_restricted` attribute for the `get_permissions` data source must be set to `true` to manage default permissions in Terraform.
@@ -268,6 +271,7 @@ class Role(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/role:Role example_role 000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RoleArgs args: The arguments to use to populate this resource's properties.

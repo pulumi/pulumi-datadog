@@ -25,6 +25,7 @@ class CloudWorkloadSecurityAgentRuleArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a CloudWorkloadSecurityAgentRule resource.
+
         :param pulumi.Input[_builtins.str] expression: The SECL expression of the Agent rule.
         :param pulumi.Input[_builtins.str] name: The name of the Agent rule.
         :param pulumi.Input[_builtins.str] description: The description of the Agent rule. Defaults to `""`.
@@ -95,6 +96,7 @@ class _CloudWorkloadSecurityAgentRuleState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CloudWorkloadSecurityAgentRule resources.
+
         :param pulumi.Input[_builtins.str] description: The description of the Agent rule. Defaults to `""`.
         :param pulumi.Input[_builtins.bool] enabled: Whether the Agent rule is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] expression: The SECL expression of the Agent rule.
@@ -195,6 +197,7 @@ class CloudWorkloadSecurityAgentRule(pulumi.CustomResource):
         $ pulumi import datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule my_agent_rule m0o-hto-lkb
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the Agent rule. Defaults to `""`.
@@ -233,6 +236,7 @@ class CloudWorkloadSecurityAgentRule(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule my_agent_rule m0o-hto-lkb
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CloudWorkloadSecurityAgentRuleArgs args: The arguments to use to populate this resource's properties.

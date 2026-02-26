@@ -24,6 +24,7 @@ class IntegrationAccountArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IntegrationAccount resource.
+
         :param pulumi.Input[_builtins.str] api_key: The API key associated with your Confluent account.
         :param pulumi.Input[_builtins.str] api_secret: The API secret associated with your Confluent account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
@@ -78,6 +79,7 @@ class _IntegrationAccountState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering IntegrationAccount resources.
+
         :param pulumi.Input[_builtins.str] api_key: The API key associated with your Confluent account.
         :param pulumi.Input[_builtins.str] api_secret: The API secret associated with your Confluent account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
@@ -166,6 +168,7 @@ class IntegrationAccount(pulumi.CustomResource):
         $ pulumi import datadog:confluent/integrationAccount:IntegrationAccount new_list "<ID>"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_key: The API key associated with your Confluent account.
@@ -207,6 +210,7 @@ class IntegrationAccount(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:confluent/integrationAccount:IntegrationAccount new_list "<ID>"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountArgs args: The arguments to use to populate this resource's properties.

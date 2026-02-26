@@ -28,6 +28,7 @@ class MetricMetadataArgs:
                  unit: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MetricMetadata resource.
+
         :param pulumi.Input[_builtins.str] metric: The name of the metric.
         :param pulumi.Input[_builtins.str] description: A description of the metric.
         :param pulumi.Input[_builtins.str] per_unit: Per unit of the metric such as `second` in `bytes per second`.
@@ -147,6 +148,7 @@ class _MetricMetadataState:
                  unit: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MetricMetadata resources.
+
         :param pulumi.Input[_builtins.str] description: A description of the metric.
         :param pulumi.Input[_builtins.str] metric: The name of the metric.
         :param pulumi.Input[_builtins.str] per_unit: Per unit of the metric such as `second` in `bytes per second`.
@@ -295,6 +297,7 @@ class MetricMetadata(pulumi.CustomResource):
         $ pulumi import datadog:index/metricMetadata:MetricMetadata request_time request.time
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the metric.
@@ -336,6 +339,7 @@ class MetricMetadata(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/metricMetadata:MetricMetadata request_time request.time
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MetricMetadataArgs args: The arguments to use to populate this resource's properties.

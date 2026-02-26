@@ -23,6 +23,7 @@ class MonitorJsonArgs:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MonitorJson resource.
+
         :param pulumi.Input[_builtins.str] monitor: The JSON formatted definition of the monitor.
         :param pulumi.Input[_builtins.str] url: The URL of the monitor.
         """
@@ -62,6 +63,7 @@ class _MonitorJsonState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MonitorJson resources.
+
         :param pulumi.Input[_builtins.str] monitor: The JSON formatted definition of the monitor.
         :param pulumi.Input[_builtins.str] url: The URL of the monitor.
         """
@@ -146,6 +148,7 @@ class MonitorJson(pulumi.CustomResource):
         $ pulumi import datadog:index/monitorJson:MonitorJson monitor_json 123456
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] monitor: The JSON formatted definition of the monitor.
@@ -198,6 +201,7 @@ class MonitorJson(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/monitorJson:MonitorJson monitor_json 123456
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MonitorJsonArgs args: The arguments to use to populate this resource's properties.

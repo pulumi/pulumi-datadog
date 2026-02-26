@@ -24,6 +24,7 @@ class ServiceAccountApplicationKeyArgs:
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServiceAccountApplicationKey resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the application key.
         :param pulumi.Input[_builtins.str] service_account_id: ID of the service account that owns this key.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
@@ -81,6 +82,7 @@ class _ServiceAccountApplicationKeyState:
                  service_account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceAccountApplicationKey resources.
+
         :param pulumi.Input[_builtins.str] created_at: Creation date of the application key.
         :param pulumi.Input[_builtins.str] key: The value of the service account application key. This value cannot be imported.
         :param pulumi.Input[_builtins.str] last4: The last four characters of the application key.
@@ -220,6 +222,7 @@ class ServiceAccountApplicationKey(pulumi.CustomResource):
         $ pulumi import datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey this "<service_account_id>:<application_key_id>"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the application key.
@@ -267,6 +270,7 @@ class ServiceAccountApplicationKey(pulumi.CustomResource):
         ```sh
         $ pulumi import datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey this "<service_account_id>:<application_key_id>"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceAccountApplicationKeyArgs args: The arguments to use to populate this resource's properties.
