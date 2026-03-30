@@ -87,7 +87,7 @@ import (
 //				},
 //				Secure:         pulumi.Bool(true),
 //				ValueWo:        pulumi.Any(secretValue),
-//				ValueWoVersion: pulumi.String(secretVersion),
+//				ValueWoVersion: pulumi.String(pulumi.String(secretVersion)),
 //			})
 //			if err != nil {
 //				return err

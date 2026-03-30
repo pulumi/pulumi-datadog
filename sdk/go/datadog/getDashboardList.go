@@ -38,7 +38,7 @@ import (
 //				Title:       pulumi.String("TF Test Layout Dashboard"),
 //				Description: pulumi.String("Created using the Datadog provider in Pulumi"),
 //				DashboardLists: pulumi.IntArray{
-//					pulumi.String(test.Id),
+//					pulumi.Int(pulumi.String(test.Id)),
 //				},
 //				LayoutType: pulumi.String("ordered"),
 //				IsReadOnly: pulumi.Bool(true),

@@ -47,8 +47,8 @@ import (
 //				ServiceAccountId: pulumi.String("00000000-0000-1234-0000-000000000000"),
 //				Name:             pulumi.String("Monitor Management Service Account Key"),
 //				Scopes: pulumi.StringArray{
-//					pulumi.String(ddPerms.Permissions.MonitorsRead),
-//					pulumi.String(ddPerms.Permissions.MonitorsWrite),
+//					pulumi.String(pulumi.String(ddPerms.Permissions.MonitorsRead)),
+//					pulumi.String(pulumi.String(ddPerms.Permissions.MonitorsWrite)),
 //				},
 //			})
 //			if err != nil {
