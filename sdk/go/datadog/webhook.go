@@ -49,8 +49,8 @@ import (
 //				Name:          pulumi.String("test-webhook"),
 //				Url:           pulumi.String("example.com"),
 //				EncodeAs:      pulumi.String("json"),
-//				CustomHeaders: pulumi.String(json0),
-//				Payload:       pulumi.String(json1),
+//				CustomHeaders: pulumi.String(pulumi.String(json0)),
+//				Payload:       pulumi.String(pulumi.String(json1)),
 //			})
 //			if err != nil {
 //				return err

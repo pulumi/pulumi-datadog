@@ -80,7 +80,7 @@ import (
 //					pulumi.String("team:bar"),
 //				},
 //				Published: pulumi.Bool(true),
-//				SpecJson:  pulumi.String(json0),
+//				SpecJson:  pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

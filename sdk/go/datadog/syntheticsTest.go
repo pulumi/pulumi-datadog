@@ -521,35 +521,35 @@ import (
 //				Name: pulumi.String("Test a downloaded file"),
 //				Type: pulumi.String("assertFileDownload"),
 //				Params: &datadog.SyntheticsTestBrowserStepParamsArgs{
-//					File: pulumi.String(json0),
+//					File: pulumi.String(pulumi.String(json0)),
 //				},
 //			},
 //			&datadog.SyntheticsTestBrowserStepArgs{
 //				Name: pulumi.String("Upload a file"),
 //				Type: pulumi.String("uploadFiles"),
 //				Params: &datadog.SyntheticsTestBrowserStepParamsArgs{
-//					Files: pulumi.String(json1),
+//					Files: pulumi.String(pulumi.String(json1)),
 //					ElementUserLocator: &datadog.SyntheticsTestBrowserStepParamsElementUserLocatorArgs{
 //						Value: &datadog.SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs{
 //							Type:  pulumi.String("css"),
 //							Value: pulumi.String("#simple-file-upload"),
 //						},
 //					},
-//					Element: pulumi.String(json2),
+//					Element: pulumi.String(pulumi.String(json2)),
 //				},
 //			},
 //			&datadog.SyntheticsTestBrowserStepArgs{
 //				Name: pulumi.String("Test sending http requests"),
 //				Type: pulumi.String("assertRequests"),
 //				Params: &datadog.SyntheticsTestBrowserStepParamsArgs{
-//					Requests: pulumi.String(json3),
+//					Requests: pulumi.String(pulumi.String(json3)),
 //				},
 //			},
 //			&datadog.SyntheticsTestBrowserStepArgs{
 //				Name: pulumi.String("Run api test"),
 //				Type: pulumi.String("runApiTest"),
 //				Params: &datadog.SyntheticsTestBrowserStepParamsArgs{
-//					Request: pulumi.String(json4),
+//					Request: pulumi.String(pulumi.String(json4)),
 //				},
 //			},
 //		},
