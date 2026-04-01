@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute;
 import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy;
+import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields;
 import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -36,6 +37,11 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
      * 
      */
     private @Nullable List<DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy> groupBies;
+    /**
+     * @return Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields groupByFields;
     /**
      * @return An array of index names to query in the stream.
      * 
@@ -87,6 +93,13 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
         return this.groupBies == null ? List.of() : this.groupBies;
     }
     /**
+     * @return Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields> groupByFields() {
+        return Optional.ofNullable(this.groupByFields);
+    }
+    /**
      * @return An array of index names to query in the stream.
      * 
      */
@@ -128,6 +141,7 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
         private @Nullable String crossOrgUuids;
         private String dataSource;
         private @Nullable List<DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy> groupBies;
+        private @Nullable DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields groupByFields;
         private @Nullable List<String> indexes;
         private String name;
         private @Nullable DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch search;
@@ -139,6 +153,7 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
     	      this.crossOrgUuids = defaults.crossOrgUuids;
     	      this.dataSource = defaults.dataSource;
     	      this.groupBies = defaults.groupBies;
+    	      this.groupByFields = defaults.groupByFields;
     	      this.indexes = defaults.indexes;
     	      this.name = defaults.name;
     	      this.search = defaults.search;
@@ -180,6 +195,12 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
             return groupBies(List.of(groupBies));
         }
         @CustomType.Setter
+        public Builder groupByFields(@Nullable DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields groupByFields) {
+
+            this.groupByFields = groupByFields;
+            return this;
+        }
+        @CustomType.Setter
         public Builder indexes(@Nullable List<String> indexes) {
 
             this.indexes = indexes;
@@ -214,6 +235,7 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
             _resultValue.crossOrgUuids = crossOrgUuids;
             _resultValue.dataSource = dataSource;
             _resultValue.groupBies = groupBies;
+            _resultValue.groupByFields = groupByFields;
             _resultValue.indexes = indexes;
             _resultValue.name = name;
             _resultValue.search = search;

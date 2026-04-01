@@ -14,13 +14,21 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigSourceFluentd
     {
         /// <summary>
+        /// Name of the environment variable or secret that holds the listen address.
+        /// </summary>
+        public readonly string? AddressKey;
+        /// <summary>
         /// Configuration for enabling TLS encryption between the pipeline component and external services.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigSourceFluentdTls? Tls;
 
         [OutputConstructor]
-        private ObservabilityPipelineConfigSourceFluentd(Outputs.ObservabilityPipelineConfigSourceFluentdTls? tls)
+        private ObservabilityPipelineConfigSourceFluentd(
+            string? addressKey,
+
+            Outputs.ObservabilityPipelineConfigSourceFluentdTls? tls)
         {
+            AddressKey = addressKey;
             Tls = tls;
         }
     }

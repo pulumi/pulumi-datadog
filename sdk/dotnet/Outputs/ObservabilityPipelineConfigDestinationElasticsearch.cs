@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? ApiVersion;
         /// <summary>
+        /// Authentication settings for the Elasticsearch destination.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationElasticsearchAuth? Auth;
+        /// <summary>
         /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationElasticsearchBuffer? Buffer;
@@ -29,21 +33,31 @@ namespace Pulumi.Datadog.Outputs
         /// Configuration options for writing to Elasticsearch Data Streams instead of a fixed index.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationElasticsearchDataStream? DataStream;
+        /// <summary>
+        /// Name of the environment variable or secret that holds the Elasticsearch endpoint URL.
+        /// </summary>
+        public readonly string? EndpointUrlKey;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationElasticsearch(
             string? apiVersion,
 
+            Outputs.ObservabilityPipelineConfigDestinationElasticsearchAuth? auth,
+
             Outputs.ObservabilityPipelineConfigDestinationElasticsearchBuffer? buffer,
 
             string? bulkIndex,
 
-            Outputs.ObservabilityPipelineConfigDestinationElasticsearchDataStream? dataStream)
+            Outputs.ObservabilityPipelineConfigDestinationElasticsearchDataStream? dataStream,
+
+            string? endpointUrlKey)
         {
             ApiVersion = apiVersion;
+            Auth = auth;
             Buffer = buffer;
             BulkIndex = bulkIndex;
             DataStream = dataStream;
+            EndpointUrlKey = endpointUrlKey;
         }
     }
 }

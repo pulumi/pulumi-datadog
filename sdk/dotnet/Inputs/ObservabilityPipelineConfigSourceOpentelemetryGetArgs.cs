@@ -13,6 +13,18 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigSourceOpentelemetryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Environment variable name containing the gRPC server address for receiving OTLP data.
+        /// </summary>
+        [Input("grpcAddressKey")]
+        public Input<string>? GrpcAddressKey { get; set; }
+
+        /// <summary>
+        /// Environment variable name containing the HTTP server address for receiving OTLP data.
+        /// </summary>
+        [Input("httpAddressKey")]
+        public Input<string>? HttpAddressKey { get; set; }
+
+        /// <summary>
         /// Configuration for enabling TLS encryption between the pipeline component and external services.
         /// </summary>
         [Input("tls")]

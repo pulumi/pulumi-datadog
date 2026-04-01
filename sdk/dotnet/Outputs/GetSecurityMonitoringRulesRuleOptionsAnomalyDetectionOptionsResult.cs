@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly int? DetectionTolerance;
         /// <summary>
+        /// When set to true, Datadog uses previous values that fall within the defined learning window to construct the baseline, enabling the system to establish an accurate baseline more rapidly rather than relying solely on gradual learning over time.
+        /// </summary>
+        public readonly bool? InstantaneousBaseline;
+        /// <summary>
         /// Learning duration in hours. Anomaly detection waits for at least this amount of historical data before it starts evaluating. Valid values are 1, 6, 12, 24, 48, 168, 336.
         /// </summary>
         public readonly int? LearningDuration;
@@ -36,12 +40,15 @@ namespace Pulumi.Datadog.Outputs
 
             int? detectionTolerance,
 
+            bool? instantaneousBaseline,
+
             int? learningDuration,
 
             int? learningPeriodBaseline)
         {
             BucketDuration = bucketDuration;
             DetectionTolerance = detectionTolerance;
+            InstantaneousBaseline = instantaneousBaseline;
             LearningDuration = learningDuration;
             LearningPeriodBaseline = learningPeriodBaseline;
         }

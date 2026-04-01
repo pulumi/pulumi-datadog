@@ -95,14 +95,14 @@ public final class ObservabilityPipelineConfigSourceArgs extends com.pulumi.reso
     }
 
     /**
-     * The `fluentd source ingests logs from a Fluentd-compatible service.
+     * The `fluentd` source ingests logs from a Fluentd-compatible service.
      * 
      */
     @Import(name="fluentds")
     private @Nullable Output<List<ObservabilityPipelineConfigSourceFluentdArgs>> fluentds;
 
     /**
-     * @return The `fluentd source ingests logs from a Fluentd-compatible service.
+     * @return The `fluentd` source ingests logs from a Fluentd-compatible service.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigSourceFluentdArgs>>> fluentds() {
@@ -470,7 +470,7 @@ public final class ObservabilityPipelineConfigSourceArgs extends com.pulumi.reso
         }
 
         /**
-         * @param fluentds The `fluentd source ingests logs from a Fluentd-compatible service.
+         * @param fluentds The `fluentd` source ingests logs from a Fluentd-compatible service.
          * 
          * @return builder
          * 
@@ -481,7 +481,7 @@ public final class ObservabilityPipelineConfigSourceArgs extends com.pulumi.reso
         }
 
         /**
-         * @param fluentds The `fluentd source ingests logs from a Fluentd-compatible service.
+         * @param fluentds The `fluentd` source ingests logs from a Fluentd-compatible service.
          * 
          * @return builder
          * 
@@ -491,7 +491,7 @@ public final class ObservabilityPipelineConfigSourceArgs extends com.pulumi.reso
         }
 
         /**
-         * @param fluentds The `fluentd source ingests logs from a Fluentd-compatible service.
+         * @param fluentds The `fluentd` source ingests logs from a Fluentd-compatible service.
          * 
          * @return builder
          * 

@@ -30,6 +30,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("keyFile")]
         public Input<string>? KeyFile { get; set; }
 
+        /// <summary>
+        /// Name of the environment variable or secret that holds the passphrase for the private key file.
+        /// </summary>
+        [Input("keyPassKey")]
+        public Input<string>? KeyPassKey { get; set; }
+
         public ObservabilityPipelineConfigDestinationSocketTlsGetArgs()
         {
         }

@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigDestinationGooglePubsub {
     /**
-     * @return GCP credentials used to authenticate with Google Cloud services.
+     * @return Google Cloud credentials used to authenticate with Google Cloud services.
      * 
      */
     private @Nullable ObservabilityPipelineConfigDestinationGooglePubsubAuth auth;
@@ -31,7 +31,12 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsub {
      */
     private String encoding;
     /**
-     * @return The GCP project ID that owns the Pub/Sub topic.
+     * @return Name of the environment variable or secret that holds the Google Cloud Pub/Sub endpoint URL.
+     * 
+     */
+    private @Nullable String endpointUrlKey;
+    /**
+     * @return The Google Cloud project ID that owns the Pub/Sub topic.
      * 
      */
     private String project;
@@ -48,7 +53,7 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsub {
 
     private ObservabilityPipelineConfigDestinationGooglePubsub() {}
     /**
-     * @return GCP credentials used to authenticate with Google Cloud services.
+     * @return Google Cloud credentials used to authenticate with Google Cloud services.
      * 
      */
     public Optional<ObservabilityPipelineConfigDestinationGooglePubsubAuth> auth() {
@@ -69,7 +74,14 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsub {
         return this.encoding;
     }
     /**
-     * @return The GCP project ID that owns the Pub/Sub topic.
+     * @return Name of the environment variable or secret that holds the Google Cloud Pub/Sub endpoint URL.
+     * 
+     */
+    public Optional<String> endpointUrlKey() {
+        return Optional.ofNullable(this.endpointUrlKey);
+    }
+    /**
+     * @return The Google Cloud project ID that owns the Pub/Sub topic.
      * 
      */
     public String project() {
@@ -102,6 +114,7 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsub {
         private @Nullable ObservabilityPipelineConfigDestinationGooglePubsubAuth auth;
         private @Nullable ObservabilityPipelineConfigDestinationGooglePubsubBuffer buffer;
         private String encoding;
+        private @Nullable String endpointUrlKey;
         private String project;
         private @Nullable ObservabilityPipelineConfigDestinationGooglePubsubTls tls;
         private String topic;
@@ -111,6 +124,7 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsub {
     	      this.auth = defaults.auth;
     	      this.buffer = defaults.buffer;
     	      this.encoding = defaults.encoding;
+    	      this.endpointUrlKey = defaults.endpointUrlKey;
     	      this.project = defaults.project;
     	      this.tls = defaults.tls;
     	      this.topic = defaults.topic;
@@ -134,6 +148,12 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsub {
               throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationGooglePubsub", "encoding");
             }
             this.encoding = encoding;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder endpointUrlKey(@Nullable String endpointUrlKey) {
+
+            this.endpointUrlKey = endpointUrlKey;
             return this;
         }
         @CustomType.Setter
@@ -163,6 +183,7 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsub {
             _resultValue.auth = auth;
             _resultValue.buffer = buffer;
             _resultValue.encoding = encoding;
+            _resultValue.endpointUrlKey = endpointUrlKey;
             _resultValue.project = project;
             _resultValue.tls = tls;
             _resultValue.topic = topic;

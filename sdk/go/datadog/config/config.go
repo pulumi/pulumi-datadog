@@ -4,7 +4,7 @@
 package config
 
 import (
-	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
+	"github.com/pulumi/pulumi-datadog/sdk/v5/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )

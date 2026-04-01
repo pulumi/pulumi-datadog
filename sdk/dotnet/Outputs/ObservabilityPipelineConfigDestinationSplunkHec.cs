@@ -26,6 +26,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Encoding;
         /// <summary>
+        /// Name of the environment variable or secret that holds the Splunk HEC endpoint URL.
+        /// </summary>
+        public readonly string? EndpointUrlKey;
+        /// <summary>
         /// Optional name of the Splunk index where logs are written.
         /// </summary>
         public readonly string? Index;
@@ -33,6 +37,10 @@ namespace Pulumi.Datadog.Outputs
         /// The Splunk sourcetype to assign to log events.
         /// </summary>
         public readonly string? Sourcetype;
+        /// <summary>
+        /// Name of the environment variable or secret that holds the Splunk HEC token.
+        /// </summary>
+        public readonly string? TokenKey;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationSplunkHec(
@@ -42,15 +50,21 @@ namespace Pulumi.Datadog.Outputs
 
             string encoding,
 
+            string? endpointUrlKey,
+
             string? index,
 
-            string? sourcetype)
+            string? sourcetype,
+
+            string? tokenKey)
         {
             AutoExtractTimestamp = autoExtractTimestamp;
             Buffer = buffer;
             Encoding = encoding;
+            EndpointUrlKey = endpointUrlKey;
             Index = index;
             Sourcetype = sourcetype;
+            TokenKey = tokenKey;
         }
     }
 }

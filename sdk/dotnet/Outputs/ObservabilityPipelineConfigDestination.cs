@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationAmazonOpensearch> AmazonOpensearches;
         /// <summary>
+        /// The `AmazonS3Generic` destination sends your logs to an Amazon S3 bucket.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationAmazonS3Generic? AmazonS3Generic;
+        /// <summary>
         /// The `AmazonS3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationAmazonS3> AmazonS3s;
@@ -118,6 +122,8 @@ namespace Pulumi.Datadog.Outputs
         private ObservabilityPipelineConfigDestination(
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationAmazonOpensearch> amazonOpensearches,
 
+            Outputs.ObservabilityPipelineConfigDestinationAmazonS3Generic? amazonS3Generic,
+
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationAmazonS3> amazonS3s,
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationAmazonSecurityLake> amazonSecurityLakes,
@@ -167,6 +173,7 @@ namespace Pulumi.Datadog.Outputs
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationSyslogNg> syslogNgs)
         {
             AmazonOpensearches = amazonOpensearches;
+            AmazonS3Generic = amazonS3Generic;
             AmazonS3s = amazonS3s;
             AmazonSecurityLakes = amazonSecurityLakes;
             AzureStorages = azureStorages;

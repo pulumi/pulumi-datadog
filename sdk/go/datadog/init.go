@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
+	"github.com/pulumi/pulumi-datadog/sdk/v5/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -167,6 +167,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RumRetentionFilter{}
 	case "datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder":
 		r = &RumRetentionFiltersOrder{}
+	case "datadog:index/secureEmbedDashboard:SecureEmbedDashboard":
+		r = &SecureEmbedDashboard{}
 	case "datadog:index/securityMonitoringCriticalAsset:SecurityMonitoringCriticalAsset":
 		r = &SecurityMonitoringCriticalAsset{}
 	case "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule":
@@ -631,6 +633,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/rumRetentionFiltersOrder",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/secureEmbedDashboard",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

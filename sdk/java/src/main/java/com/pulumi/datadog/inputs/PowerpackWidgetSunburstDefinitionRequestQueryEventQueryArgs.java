@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.PowerpackWidgetSunburstDefinitionRequestQueryEventQueryComputeArgs;
 import com.pulumi.datadog.inputs.PowerpackWidgetSunburstDefinitionRequestQueryEventQueryGroupByArgs;
+import com.pulumi.datadog.inputs.PowerpackWidgetSunburstDefinitionRequestQueryEventQueryGroupByFieldsArgs;
 import com.pulumi.datadog.inputs.PowerpackWidgetSunburstDefinitionRequestQueryEventQuerySearchArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -81,6 +82,21 @@ public final class PowerpackWidgetSunburstDefinitionRequestQueryEventQueryArgs e
     }
 
     /**
+     * Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     * 
+     */
+    @Import(name="groupByFields")
+    private @Nullable Output<PowerpackWidgetSunburstDefinitionRequestQueryEventQueryGroupByFieldsArgs> groupByFields;
+
+    /**
+     * @return Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     * 
+     */
+    public Optional<Output<PowerpackWidgetSunburstDefinitionRequestQueryEventQueryGroupByFieldsArgs>> groupByFields() {
+        return Optional.ofNullable(this.groupByFields);
+    }
+
+    /**
      * An array of index names to query in the stream.
      * 
      */
@@ -147,6 +163,7 @@ public final class PowerpackWidgetSunburstDefinitionRequestQueryEventQueryArgs e
         this.crossOrgUuids = $.crossOrgUuids;
         this.dataSource = $.dataSource;
         this.groupBies = $.groupBies;
+        this.groupByFields = $.groupByFields;
         this.indexes = $.indexes;
         this.name = $.name;
         this.search = $.search;
@@ -273,6 +290,27 @@ public final class PowerpackWidgetSunburstDefinitionRequestQueryEventQueryArgs e
          */
         public Builder groupBies(PowerpackWidgetSunburstDefinitionRequestQueryEventQueryGroupByArgs... groupBies) {
             return groupBies(List.of(groupBies));
+        }
+
+        /**
+         * @param groupByFields Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupByFields(@Nullable Output<PowerpackWidgetSunburstDefinitionRequestQueryEventQueryGroupByFieldsArgs> groupByFields) {
+            $.groupByFields = groupByFields;
+            return this;
+        }
+
+        /**
+         * @param groupByFields Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupByFields(PowerpackWidgetSunburstDefinitionRequestQueryEventQueryGroupByFieldsArgs groupByFields) {
+            return groupByFields(Output.of(groupByFields));
         }
 
         /**

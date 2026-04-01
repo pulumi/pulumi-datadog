@@ -12,6 +12,12 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ObservabilityPipelineConfigDestinationCloudPremGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the environment variable or secret that holds the endpoint URL.
+        /// </summary>
+        [Input("endpointUrlKey")]
+        public Input<string>? EndpointUrlKey { get; set; }
+
         public ObservabilityPipelineConfigDestinationCloudPremGetArgs()
         {
         }

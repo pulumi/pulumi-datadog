@@ -206,15 +206,15 @@ namespace Pulumi.Datadog.Aws
     /// });
     /// ```
     /// 
-    /// ## Upgrading from `datadog.aws.Integration` resources
+    /// ## Upgrading from `DatadogIntegrationAws` resources
     /// 
     ///  To migrate your account configuration from `datadog_integration_aws*` resources to `datadog.aws.IntegrationAccount`:
     ///  1. Import your integrated accounts into `datadog.aws.IntegrationAccount` resources using the import command below.
     ///  2. Once successfully imported, you can run `terraform state rm` to delete all resources of the deprecated types from state:
-    ///     - `datadog.aws.Integration`
-    ///     - `datadog.aws.IntegrationLambdaArn`
-    ///     - `datadog.aws.IntegrationLogCollection`
-    ///     - `datadog.aws.IntegrationTagFilter`
+    ///     - `DatadogIntegrationAws`
+    ///     - `DatadogIntegrationAwsLambdaArn`
+    ///     - `DatadogIntegrationAwsLogCollection`
+    ///     - `DatadogIntegrationAwsTagFilter`
     /// 
     /// ## Import
     /// 

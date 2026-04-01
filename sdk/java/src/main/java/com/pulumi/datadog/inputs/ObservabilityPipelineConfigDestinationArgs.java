@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonOpensearchArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonS3Args;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonS3GenericArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonSecurityLakeArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAzureStorageArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationCloudPremArgs;
@@ -53,6 +54,21 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
      */
     public Optional<Output<List<ObservabilityPipelineConfigDestinationAmazonOpensearchArgs>>> amazonOpensearches() {
         return Optional.ofNullable(this.amazonOpensearches);
+    }
+
+    /**
+     * The `amazonS3Generic` destination sends your logs to an Amazon S3 bucket.
+     * 
+     */
+    @Import(name="amazonS3Generic")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationAmazonS3GenericArgs> amazonS3Generic;
+
+    /**
+     * @return The `amazonS3Generic` destination sends your logs to an Amazon S3 bucket.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationAmazonS3GenericArgs>> amazonS3Generic() {
+        return Optional.ofNullable(this.amazonS3Generic);
     }
 
     /**
@@ -419,6 +435,7 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
 
     private ObservabilityPipelineConfigDestinationArgs(ObservabilityPipelineConfigDestinationArgs $) {
         this.amazonOpensearches = $.amazonOpensearches;
+        this.amazonS3Generic = $.amazonS3Generic;
         this.amazonS3s = $.amazonS3s;
         this.amazonSecurityLakes = $.amazonSecurityLakes;
         this.azureStorages = $.azureStorages;
@@ -492,6 +509,27 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
          */
         public Builder amazonOpensearches(ObservabilityPipelineConfigDestinationAmazonOpensearchArgs... amazonOpensearches) {
             return amazonOpensearches(List.of(amazonOpensearches));
+        }
+
+        /**
+         * @param amazonS3Generic The `amazonS3Generic` destination sends your logs to an Amazon S3 bucket.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder amazonS3Generic(@Nullable Output<ObservabilityPipelineConfigDestinationAmazonS3GenericArgs> amazonS3Generic) {
+            $.amazonS3Generic = amazonS3Generic;
+            return this;
+        }
+
+        /**
+         * @param amazonS3Generic The `amazonS3Generic` destination sends your logs to an Amazon S3 bucket.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder amazonS3Generic(ObservabilityPipelineConfigDestinationAmazonS3GenericArgs amazonS3Generic) {
+            return amazonS3Generic(Output.of(amazonS3Generic));
         }
 
         /**

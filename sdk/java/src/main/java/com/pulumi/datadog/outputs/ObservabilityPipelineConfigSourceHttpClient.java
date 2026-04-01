@@ -20,10 +20,25 @@ public final class ObservabilityPipelineConfigSourceHttpClient {
      */
     private @Nullable String authStrategy;
     /**
+     * @return Name of the environment variable or secret that holds a custom header value (used with custom auth strategies).
+     * 
+     */
+    private @Nullable String customKey;
+    /**
      * @return The decoding format used to interpret incoming logs.
      * 
      */
     private String decoding;
+    /**
+     * @return Name of the environment variable or secret that holds the HTTP endpoint URL.
+     * 
+     */
+    private @Nullable String endpointUrlKey;
+    /**
+     * @return Name of the environment variable or secret that holds the password.
+     * 
+     */
+    private @Nullable String passwordKey;
     /**
      * @return The interval (in seconds) between HTTP scrape requests.
      * 
@@ -39,6 +54,16 @@ public final class ObservabilityPipelineConfigSourceHttpClient {
      * 
      */
     private @Nullable ObservabilityPipelineConfigSourceHttpClientTls tls;
+    /**
+     * @return Name of the environment variable or secret that holds the authentication token.
+     * 
+     */
+    private @Nullable String tokenKey;
+    /**
+     * @return Name of the environment variable or secret that holds the username.
+     * 
+     */
+    private @Nullable String usernameKey;
 
     private ObservabilityPipelineConfigSourceHttpClient() {}
     /**
@@ -49,11 +74,32 @@ public final class ObservabilityPipelineConfigSourceHttpClient {
         return Optional.ofNullable(this.authStrategy);
     }
     /**
+     * @return Name of the environment variable or secret that holds a custom header value (used with custom auth strategies).
+     * 
+     */
+    public Optional<String> customKey() {
+        return Optional.ofNullable(this.customKey);
+    }
+    /**
      * @return The decoding format used to interpret incoming logs.
      * 
      */
     public String decoding() {
         return this.decoding;
+    }
+    /**
+     * @return Name of the environment variable or secret that holds the HTTP endpoint URL.
+     * 
+     */
+    public Optional<String> endpointUrlKey() {
+        return Optional.ofNullable(this.endpointUrlKey);
+    }
+    /**
+     * @return Name of the environment variable or secret that holds the password.
+     * 
+     */
+    public Optional<String> passwordKey() {
+        return Optional.ofNullable(this.passwordKey);
     }
     /**
      * @return The interval (in seconds) between HTTP scrape requests.
@@ -76,6 +122,20 @@ public final class ObservabilityPipelineConfigSourceHttpClient {
     public Optional<ObservabilityPipelineConfigSourceHttpClientTls> tls() {
         return Optional.ofNullable(this.tls);
     }
+    /**
+     * @return Name of the environment variable or secret that holds the authentication token.
+     * 
+     */
+    public Optional<String> tokenKey() {
+        return Optional.ofNullable(this.tokenKey);
+    }
+    /**
+     * @return Name of the environment variable or secret that holds the username.
+     * 
+     */
+    public Optional<String> usernameKey() {
+        return Optional.ofNullable(this.usernameKey);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -87,18 +147,28 @@ public final class ObservabilityPipelineConfigSourceHttpClient {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String authStrategy;
+        private @Nullable String customKey;
         private String decoding;
+        private @Nullable String endpointUrlKey;
+        private @Nullable String passwordKey;
         private @Nullable Integer scrapeIntervalSecs;
         private @Nullable Integer scrapeTimeoutSecs;
         private @Nullable ObservabilityPipelineConfigSourceHttpClientTls tls;
+        private @Nullable String tokenKey;
+        private @Nullable String usernameKey;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigSourceHttpClient defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authStrategy = defaults.authStrategy;
+    	      this.customKey = defaults.customKey;
     	      this.decoding = defaults.decoding;
+    	      this.endpointUrlKey = defaults.endpointUrlKey;
+    	      this.passwordKey = defaults.passwordKey;
     	      this.scrapeIntervalSecs = defaults.scrapeIntervalSecs;
     	      this.scrapeTimeoutSecs = defaults.scrapeTimeoutSecs;
     	      this.tls = defaults.tls;
+    	      this.tokenKey = defaults.tokenKey;
+    	      this.usernameKey = defaults.usernameKey;
         }
 
         @CustomType.Setter
@@ -108,11 +178,29 @@ public final class ObservabilityPipelineConfigSourceHttpClient {
             return this;
         }
         @CustomType.Setter
+        public Builder customKey(@Nullable String customKey) {
+
+            this.customKey = customKey;
+            return this;
+        }
+        @CustomType.Setter
         public Builder decoding(String decoding) {
             if (decoding == null) {
               throw new MissingRequiredPropertyException("ObservabilityPipelineConfigSourceHttpClient", "decoding");
             }
             this.decoding = decoding;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder endpointUrlKey(@Nullable String endpointUrlKey) {
+
+            this.endpointUrlKey = endpointUrlKey;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder passwordKey(@Nullable String passwordKey) {
+
+            this.passwordKey = passwordKey;
             return this;
         }
         @CustomType.Setter
@@ -133,13 +221,30 @@ public final class ObservabilityPipelineConfigSourceHttpClient {
             this.tls = tls;
             return this;
         }
+        @CustomType.Setter
+        public Builder tokenKey(@Nullable String tokenKey) {
+
+            this.tokenKey = tokenKey;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder usernameKey(@Nullable String usernameKey) {
+
+            this.usernameKey = usernameKey;
+            return this;
+        }
         public ObservabilityPipelineConfigSourceHttpClient build() {
             final var _resultValue = new ObservabilityPipelineConfigSourceHttpClient();
             _resultValue.authStrategy = authStrategy;
+            _resultValue.customKey = customKey;
             _resultValue.decoding = decoding;
+            _resultValue.endpointUrlKey = endpointUrlKey;
+            _resultValue.passwordKey = passwordKey;
             _resultValue.scrapeIntervalSecs = scrapeIntervalSecs;
             _resultValue.scrapeTimeoutSecs = scrapeTimeoutSecs;
             _resultValue.tls = tls;
+            _resultValue.tokenKey = tokenKey;
+            _resultValue.usernameKey = usernameKey;
             return _resultValue;
         }
     }

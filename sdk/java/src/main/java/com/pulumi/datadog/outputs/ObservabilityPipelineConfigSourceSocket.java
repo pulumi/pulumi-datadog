@@ -15,6 +15,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigSourceSocket {
     /**
+     * @return Name of the environment variable or secret that holds the listen address for the socket.
+     * 
+     */
+    private @Nullable String addressKey;
+    /**
      * @return Defines the framing method for incoming messages.
      * 
      */
@@ -31,6 +36,13 @@ public final class ObservabilityPipelineConfigSourceSocket {
     private @Nullable ObservabilityPipelineConfigSourceSocketTls tls;
 
     private ObservabilityPipelineConfigSourceSocket() {}
+    /**
+     * @return Name of the environment variable or secret that holds the listen address for the socket.
+     * 
+     */
+    public Optional<String> addressKey() {
+        return Optional.ofNullable(this.addressKey);
+    }
     /**
      * @return Defines the framing method for incoming messages.
      * 
@@ -62,17 +74,25 @@ public final class ObservabilityPipelineConfigSourceSocket {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String addressKey;
         private ObservabilityPipelineConfigSourceSocketFraming framing;
         private String mode;
         private @Nullable ObservabilityPipelineConfigSourceSocketTls tls;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigSourceSocket defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.addressKey = defaults.addressKey;
     	      this.framing = defaults.framing;
     	      this.mode = defaults.mode;
     	      this.tls = defaults.tls;
         }
 
+        @CustomType.Setter
+        public Builder addressKey(@Nullable String addressKey) {
+
+            this.addressKey = addressKey;
+            return this;
+        }
         @CustomType.Setter
         public Builder framing(ObservabilityPipelineConfigSourceSocketFraming framing) {
             if (framing == null) {
@@ -97,6 +117,7 @@ public final class ObservabilityPipelineConfigSourceSocket {
         }
         public ObservabilityPipelineConfigSourceSocket build() {
             final var _resultValue = new ObservabilityPipelineConfigSourceSocket();
+            _resultValue.addressKey = addressKey;
             _resultValue.framing = framing;
             _resultValue.mode = mode;
             _resultValue.tls = tls;

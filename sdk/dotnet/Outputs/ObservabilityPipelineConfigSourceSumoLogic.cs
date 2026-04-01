@@ -13,9 +13,15 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class ObservabilityPipelineConfigSourceSumoLogic
     {
+        /// <summary>
+        /// Name of the environment variable or secret that holds the listen address.
+        /// </summary>
+        public readonly string? AddressKey;
+
         [OutputConstructor]
-        private ObservabilityPipelineConfigSourceSumoLogic()
+        private ObservabilityPipelineConfigSourceSumoLogic(string? addressKey)
         {
+            AddressKey = addressKey;
         }
     }
 }

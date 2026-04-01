@@ -30,7 +30,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigSourceFluentBit> FluentBits;
         /// <summary>
-        /// The `fluentd source ingests logs from a Fluentd-compatible service.
+        /// The `Fluentd` source ingests logs from a Fluentd-compatible service.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigSourceFluentd> Fluentds;
         /// <summary>

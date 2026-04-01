@@ -14,9 +14,17 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationNewRelic
     {
         /// <summary>
+        /// Name of the environment variable or secret that holds the New Relic account ID.
+        /// </summary>
+        public readonly string? AccountIdKey;
+        /// <summary>
         /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationNewRelicBuffer? Buffer;
+        /// <summary>
+        /// Name of the environment variable or secret that holds the New Relic license key.
+        /// </summary>
+        public readonly string? LicenseKeyKey;
         /// <summary>
         /// The New Relic region.
         /// </summary>
@@ -24,11 +32,17 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationNewRelic(
+            string? accountIdKey,
+
             Outputs.ObservabilityPipelineConfigDestinationNewRelicBuffer? buffer,
+
+            string? licenseKeyKey,
 
             string region)
         {
+            AccountIdKey = accountIdKey;
             Buffer = buffer;
+            LicenseKeyKey = licenseKeyKey;
             Region = region;
         }
     }

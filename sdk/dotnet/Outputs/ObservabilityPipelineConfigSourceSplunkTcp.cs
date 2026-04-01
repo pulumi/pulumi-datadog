@@ -14,13 +14,21 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigSourceSplunkTcp
     {
         /// <summary>
+        /// Name of the environment variable or secret that holds the listen address for the Splunk TCP receiver.
+        /// </summary>
+        public readonly string? AddressKey;
+        /// <summary>
         /// Configuration for enabling TLS encryption between the pipeline component and external services.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigSourceSplunkTcpTls? Tls;
 
         [OutputConstructor]
-        private ObservabilityPipelineConfigSourceSplunkTcp(Outputs.ObservabilityPipelineConfigSourceSplunkTcpTls? tls)
+        private ObservabilityPipelineConfigSourceSplunkTcp(
+            string? addressKey,
+
+            Outputs.ObservabilityPipelineConfigSourceSplunkTcpTls? tls)
         {
+            AddressKey = addressKey;
             Tls = tls;
         }
     }

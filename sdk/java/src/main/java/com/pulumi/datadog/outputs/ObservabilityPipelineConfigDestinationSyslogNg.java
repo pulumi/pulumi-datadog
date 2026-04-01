@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationSyslogNgBuffer;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationSyslogNgTls;
 import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -18,6 +19,11 @@ public final class ObservabilityPipelineConfigDestinationSyslogNg {
      * 
      */
     private @Nullable ObservabilityPipelineConfigDestinationSyslogNgBuffer buffer;
+    /**
+     * @return Name of the environment variable or secret that holds the syslog-ng endpoint URL.
+     * 
+     */
+    private @Nullable String endpointUrlKey;
     /**
      * @return Optional socket keepalive duration in milliseconds.
      * 
@@ -36,6 +42,13 @@ public final class ObservabilityPipelineConfigDestinationSyslogNg {
      */
     public Optional<ObservabilityPipelineConfigDestinationSyslogNgBuffer> buffer() {
         return Optional.ofNullable(this.buffer);
+    }
+    /**
+     * @return Name of the environment variable or secret that holds the syslog-ng endpoint URL.
+     * 
+     */
+    public Optional<String> endpointUrlKey() {
+        return Optional.ofNullable(this.endpointUrlKey);
     }
     /**
      * @return Optional socket keepalive duration in milliseconds.
@@ -62,12 +75,14 @@ public final class ObservabilityPipelineConfigDestinationSyslogNg {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable ObservabilityPipelineConfigDestinationSyslogNgBuffer buffer;
+        private @Nullable String endpointUrlKey;
         private @Nullable Integer keepalive;
         private @Nullable ObservabilityPipelineConfigDestinationSyslogNgTls tls;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationSyslogNg defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.buffer = defaults.buffer;
+    	      this.endpointUrlKey = defaults.endpointUrlKey;
     	      this.keepalive = defaults.keepalive;
     	      this.tls = defaults.tls;
         }
@@ -76,6 +91,12 @@ public final class ObservabilityPipelineConfigDestinationSyslogNg {
         public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationSyslogNgBuffer buffer) {
 
             this.buffer = buffer;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder endpointUrlKey(@Nullable String endpointUrlKey) {
+
+            this.endpointUrlKey = endpointUrlKey;
             return this;
         }
         @CustomType.Setter
@@ -93,6 +114,7 @@ public final class ObservabilityPipelineConfigDestinationSyslogNg {
         public ObservabilityPipelineConfigDestinationSyslogNg build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationSyslogNg();
             _resultValue.buffer = buffer;
+            _resultValue.endpointUrlKey = endpointUrlKey;
             _resultValue.keepalive = keepalive;
             _resultValue.tls = tls;
             return _resultValue;

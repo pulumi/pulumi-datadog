@@ -12,6 +12,12 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTableArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the environment variable or secret that holds the Datadog application key for the reference table.
+        /// </summary>
+        [Input("appKeyKey")]
+        public Input<string>? AppKeyKey { get; set; }
+
         [Input("columns")]
         private InputList<string>? _columns;
 

@@ -61,12 +61,28 @@ public final class ObservabilityPipelineConfigSourceAmazonS3TlsArgs extends com.
         return Optional.ofNullable(this.keyFile);
     }
 
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     * 
+     */
+    @Import(name="keyPassKey")
+    private @Nullable Output<String> keyPassKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the passphrase for the private key file.
+     * 
+     */
+    public Optional<Output<String>> keyPassKey() {
+        return Optional.ofNullable(this.keyPassKey);
+    }
+
     private ObservabilityPipelineConfigSourceAmazonS3TlsArgs() {}
 
     private ObservabilityPipelineConfigSourceAmazonS3TlsArgs(ObservabilityPipelineConfigSourceAmazonS3TlsArgs $) {
         this.caFile = $.caFile;
         this.crtFile = $.crtFile;
         this.keyFile = $.keyFile;
+        this.keyPassKey = $.keyPassKey;
     }
 
     public static Builder builder() {
@@ -148,6 +164,27 @@ public final class ObservabilityPipelineConfigSourceAmazonS3TlsArgs extends com.
          */
         public Builder keyFile(String keyFile) {
             return keyFile(Output.of(keyFile));
+        }
+
+        /**
+         * @param keyPassKey Name of the environment variable or secret that holds the passphrase for the private key file.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyPassKey(@Nullable Output<String> keyPassKey) {
+            $.keyPassKey = keyPassKey;
+            return this;
+        }
+
+        /**
+         * @param keyPassKey Name of the environment variable or secret that holds the passphrase for the private key file.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyPassKey(String keyPassKey) {
+            return keyPassKey(Output.of(keyPassKey));
         }
 
         public ObservabilityPipelineConfigSourceAmazonS3TlsArgs build() {

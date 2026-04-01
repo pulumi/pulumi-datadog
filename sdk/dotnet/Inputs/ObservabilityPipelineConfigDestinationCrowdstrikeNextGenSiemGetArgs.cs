@@ -31,10 +31,22 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Encoding { get; set; } = null!;
 
         /// <summary>
+        /// Name of the environment variable or secret that holds the endpoint URL.
+        /// </summary>
+        [Input("endpointUrlKey")]
+        public Input<string>? EndpointUrlKey { get; set; }
+
+        /// <summary>
         /// Configuration for enabling TLS encryption between the pipeline component and external services.
         /// </summary>
         [Input("tls")]
         public Input<Inputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemTlsGetArgs>? Tls { get; set; }
+
+        /// <summary>
+        /// Name of the environment variable or secret that holds the authentication token.
+        /// </summary>
+        [Input("tokenKey")]
+        public Input<string>? TokenKey { get; set; }
 
         public ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemGetArgs()
         {

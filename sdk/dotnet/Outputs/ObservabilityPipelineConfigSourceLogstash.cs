@@ -14,13 +14,21 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigSourceLogstash
     {
         /// <summary>
+        /// Name of the environment variable or secret that holds the listen address.
+        /// </summary>
+        public readonly string? AddressKey;
+        /// <summary>
         /// Configuration for enabling TLS encryption between the pipeline component and external services.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigSourceLogstashTls? Tls;
 
         [OutputConstructor]
-        private ObservabilityPipelineConfigSourceLogstash(Outputs.ObservabilityPipelineConfigSourceLogstashTls? tls)
+        private ObservabilityPipelineConfigSourceLogstash(
+            string? addressKey,
+
+            Outputs.ObservabilityPipelineConfigSourceLogstashTls? tls)
         {
+            AddressKey = addressKey;
             Tls = tls;
         }
     }

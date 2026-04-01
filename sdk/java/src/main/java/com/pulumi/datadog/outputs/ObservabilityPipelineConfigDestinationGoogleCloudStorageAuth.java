@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ObservabilityPipelineConfigDestinationGoogleCloudStorageAuth {
     /**
-     * @return Path to the GCP service account key file.
+     * @return Path to the Google Cloud service account key file.
      * 
      */
     private String credentialsFile;
 
     private ObservabilityPipelineConfigDestinationGoogleCloudStorageAuth() {}
     /**
-     * @return Path to the GCP service account key file.
+     * @return Path to the Google Cloud service account key file.
      * 
      */
     public String credentialsFile() {

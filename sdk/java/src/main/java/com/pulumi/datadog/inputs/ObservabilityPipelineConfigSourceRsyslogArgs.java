@@ -17,6 +17,21 @@ public final class ObservabilityPipelineConfigSourceRsyslogArgs extends com.pulu
     public static final ObservabilityPipelineConfigSourceRsyslogArgs Empty = new ObservabilityPipelineConfigSourceRsyslogArgs();
 
     /**
+     * Name of the environment variable or secret that holds the listen address.
+     * 
+     */
+    @Import(name="addressKey")
+    private @Nullable Output<String> addressKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the listen address.
+     * 
+     */
+    public Optional<Output<String>> addressKey() {
+        return Optional.ofNullable(this.addressKey);
+    }
+
+    /**
      * Protocol used by the syslog source to receive messages.
      * 
      */
@@ -49,6 +64,7 @@ public final class ObservabilityPipelineConfigSourceRsyslogArgs extends com.pulu
     private ObservabilityPipelineConfigSourceRsyslogArgs() {}
 
     private ObservabilityPipelineConfigSourceRsyslogArgs(ObservabilityPipelineConfigSourceRsyslogArgs $) {
+        this.addressKey = $.addressKey;
         this.mode = $.mode;
         this.tls = $.tls;
     }
@@ -69,6 +85,27 @@ public final class ObservabilityPipelineConfigSourceRsyslogArgs extends com.pulu
 
         public Builder(ObservabilityPipelineConfigSourceRsyslogArgs defaults) {
             $ = new ObservabilityPipelineConfigSourceRsyslogArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param addressKey Name of the environment variable or secret that holds the listen address.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addressKey(@Nullable Output<String> addressKey) {
+            $.addressKey = addressKey;
+            return this;
+        }
+
+        /**
+         * @param addressKey Name of the environment variable or secret that holds the listen address.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addressKey(String addressKey) {
+            return addressKey(Output.of(addressKey));
         }
 
         /**

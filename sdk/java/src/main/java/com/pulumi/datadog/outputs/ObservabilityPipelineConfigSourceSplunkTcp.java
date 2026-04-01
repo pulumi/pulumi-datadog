@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceSplunkTcpTls;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -12,12 +13,24 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigSourceSplunkTcp {
     /**
+     * @return Name of the environment variable or secret that holds the listen address for the Splunk TCP receiver.
+     * 
+     */
+    private @Nullable String addressKey;
+    /**
      * @return Configuration for enabling TLS encryption between the pipeline component and external services.
      * 
      */
     private @Nullable ObservabilityPipelineConfigSourceSplunkTcpTls tls;
 
     private ObservabilityPipelineConfigSourceSplunkTcp() {}
+    /**
+     * @return Name of the environment variable or secret that holds the listen address for the Splunk TCP receiver.
+     * 
+     */
+    public Optional<String> addressKey() {
+        return Optional.ofNullable(this.addressKey);
+    }
     /**
      * @return Configuration for enabling TLS encryption between the pipeline component and external services.
      * 
@@ -35,13 +48,21 @@ public final class ObservabilityPipelineConfigSourceSplunkTcp {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String addressKey;
         private @Nullable ObservabilityPipelineConfigSourceSplunkTcpTls tls;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigSourceSplunkTcp defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.addressKey = defaults.addressKey;
     	      this.tls = defaults.tls;
         }
 
+        @CustomType.Setter
+        public Builder addressKey(@Nullable String addressKey) {
+
+            this.addressKey = addressKey;
+            return this;
+        }
         @CustomType.Setter
         public Builder tls(@Nullable ObservabilityPipelineConfigSourceSplunkTcpTls tls) {
 
@@ -50,6 +71,7 @@ public final class ObservabilityPipelineConfigSourceSplunkTcp {
         }
         public ObservabilityPipelineConfigSourceSplunkTcp build() {
             final var _resultValue = new ObservabilityPipelineConfigSourceSplunkTcp();
+            _resultValue.addressKey = addressKey;
             _resultValue.tls = tls;
             return _resultValue;
         }

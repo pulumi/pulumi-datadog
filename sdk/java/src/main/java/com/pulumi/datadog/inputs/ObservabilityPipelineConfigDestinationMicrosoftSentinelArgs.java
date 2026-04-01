@@ -48,6 +48,36 @@ public final class ObservabilityPipelineConfigDestinationMicrosoftSentinelArgs e
     }
 
     /**
+     * Name of the environment variable or secret that holds the Azure AD client secret.
+     * 
+     */
+    @Import(name="clientSecretKey")
+    private @Nullable Output<String> clientSecretKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the Azure AD client secret.
+     * 
+     */
+    public Optional<Output<String>> clientSecretKey() {
+        return Optional.ofNullable(this.clientSecretKey);
+    }
+
+    /**
+     * Name of the environment variable or secret that holds the Data Collection Endpoint (DCE) URI.
+     * 
+     */
+    @Import(name="dceUriKey")
+    private @Nullable Output<String> dceUriKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the Data Collection Endpoint (DCE) URI.
+     * 
+     */
+    public Optional<Output<String>> dceUriKey() {
+        return Optional.ofNullable(this.dceUriKey);
+    }
+
+    /**
      * The immutable ID of the Data Collection Rule (DCR).
      * 
      */
@@ -97,6 +127,8 @@ public final class ObservabilityPipelineConfigDestinationMicrosoftSentinelArgs e
     private ObservabilityPipelineConfigDestinationMicrosoftSentinelArgs(ObservabilityPipelineConfigDestinationMicrosoftSentinelArgs $) {
         this.buffer = $.buffer;
         this.clientId = $.clientId;
+        this.clientSecretKey = $.clientSecretKey;
+        this.dceUriKey = $.dceUriKey;
         this.dcrImmutableId = $.dcrImmutableId;
         this.table = $.table;
         this.tenantId = $.tenantId;
@@ -160,6 +192,48 @@ public final class ObservabilityPipelineConfigDestinationMicrosoftSentinelArgs e
          */
         public Builder clientId(String clientId) {
             return clientId(Output.of(clientId));
+        }
+
+        /**
+         * @param clientSecretKey Name of the environment variable or secret that holds the Azure AD client secret.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientSecretKey(@Nullable Output<String> clientSecretKey) {
+            $.clientSecretKey = clientSecretKey;
+            return this;
+        }
+
+        /**
+         * @param clientSecretKey Name of the environment variable or secret that holds the Azure AD client secret.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientSecretKey(String clientSecretKey) {
+            return clientSecretKey(Output.of(clientSecretKey));
+        }
+
+        /**
+         * @param dceUriKey Name of the environment variable or secret that holds the Data Collection Endpoint (DCE) URI.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dceUriKey(@Nullable Output<String> dceUriKey) {
+            $.dceUriKey = dceUriKey;
+            return this;
+        }
+
+        /**
+         * @param dceUriKey Name of the environment variable or secret that holds the Data Collection Endpoint (DCE) URI.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dceUriKey(String dceUriKey) {
+            return dceUriKey(Output.of(dceUriKey));
         }
 
         /**

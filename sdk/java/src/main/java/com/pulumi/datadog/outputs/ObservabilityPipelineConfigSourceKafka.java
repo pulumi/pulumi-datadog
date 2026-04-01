@@ -17,6 +17,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigSourceKafka {
     /**
+     * @return Name of the environment variable or secret that holds the Kafka bootstrap servers connection string.
+     * 
+     */
+    private @Nullable String bootstrapServersKey;
+    /**
      * @return The Kafka consumer group ID.
      * 
      */
@@ -43,6 +48,13 @@ public final class ObservabilityPipelineConfigSourceKafka {
     private List<String> topics;
 
     private ObservabilityPipelineConfigSourceKafka() {}
+    /**
+     * @return Name of the environment variable or secret that holds the Kafka bootstrap servers connection string.
+     * 
+     */
+    public Optional<String> bootstrapServersKey() {
+        return Optional.ofNullable(this.bootstrapServersKey);
+    }
     /**
      * @return The Kafka consumer group ID.
      * 
@@ -88,6 +100,7 @@ public final class ObservabilityPipelineConfigSourceKafka {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String bootstrapServersKey;
         private String groupId;
         private @Nullable List<ObservabilityPipelineConfigSourceKafkaLibrdkafkaOption> librdkafkaOptions;
         private @Nullable ObservabilityPipelineConfigSourceKafkaSasl sasl;
@@ -96,6 +109,7 @@ public final class ObservabilityPipelineConfigSourceKafka {
         public Builder() {}
         public Builder(ObservabilityPipelineConfigSourceKafka defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.bootstrapServersKey = defaults.bootstrapServersKey;
     	      this.groupId = defaults.groupId;
     	      this.librdkafkaOptions = defaults.librdkafkaOptions;
     	      this.sasl = defaults.sasl;
@@ -103,6 +117,12 @@ public final class ObservabilityPipelineConfigSourceKafka {
     	      this.topics = defaults.topics;
         }
 
+        @CustomType.Setter
+        public Builder bootstrapServersKey(@Nullable String bootstrapServersKey) {
+
+            this.bootstrapServersKey = bootstrapServersKey;
+            return this;
+        }
         @CustomType.Setter
         public Builder groupId(String groupId) {
             if (groupId == null) {
@@ -145,6 +165,7 @@ public final class ObservabilityPipelineConfigSourceKafka {
         }
         public ObservabilityPipelineConfigSourceKafka build() {
             final var _resultValue = new ObservabilityPipelineConfigSourceKafka();
+            _resultValue.bootstrapServersKey = bootstrapServersKey;
             _resultValue.groupId = groupId;
             _resultValue.librdkafkaOptions = librdkafkaOptions;
             _resultValue.sasl = sasl;

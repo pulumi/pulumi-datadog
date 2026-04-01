@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigSourceFluentdGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of the environment variable or secret that holds the listen address.
+        /// </summary>
+        [Input("addressKey")]
+        public Input<string>? AddressKey { get; set; }
+
+        /// <summary>
         /// Configuration for enabling TLS encryption between the pipeline component and external services.
         /// </summary>
         [Input("tls")]

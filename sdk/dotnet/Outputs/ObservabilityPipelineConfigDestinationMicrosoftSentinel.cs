@@ -22,6 +22,14 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string ClientId;
         /// <summary>
+        /// Name of the environment variable or secret that holds the Azure AD client secret.
+        /// </summary>
+        public readonly string? ClientSecretKey;
+        /// <summary>
+        /// Name of the environment variable or secret that holds the Data Collection Endpoint (DCE) URI.
+        /// </summary>
+        public readonly string? DceUriKey;
+        /// <summary>
         /// The immutable ID of the Data Collection Rule (DCR).
         /// </summary>
         public readonly string DcrImmutableId;
@@ -40,6 +48,10 @@ namespace Pulumi.Datadog.Outputs
 
             string clientId,
 
+            string? clientSecretKey,
+
+            string? dceUriKey,
+
             string dcrImmutableId,
 
             string table,
@@ -48,6 +60,8 @@ namespace Pulumi.Datadog.Outputs
         {
             Buffer = buffer;
             ClientId = clientId;
+            ClientSecretKey = clientSecretKey;
+            DceUriKey = dceUriKey;
             DcrImmutableId = dcrImmutableId;
             Table = table;
             TenantId = tenantId;

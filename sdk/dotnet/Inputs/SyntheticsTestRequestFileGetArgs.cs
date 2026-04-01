@@ -25,6 +25,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Content { get; set; }
 
         /// <summary>
+        /// Encoding of the file content. Must be `Base64` when content contains base64-encoded data.
+        /// </summary>
+        [Input("encoding")]
+        public Input<string>? Encoding { get; set; }
+
+        /// <summary>
         /// Name of the file.
         /// </summary>
         [Input("name", required: true)]

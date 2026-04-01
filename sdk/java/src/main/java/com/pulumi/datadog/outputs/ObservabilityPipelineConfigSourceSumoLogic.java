@@ -4,11 +4,27 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigSourceSumoLogic {
+    /**
+     * @return Name of the environment variable or secret that holds the listen address.
+     * 
+     */
+    private @Nullable String addressKey;
+
     private ObservabilityPipelineConfigSourceSumoLogic() {}
+    /**
+     * @return Name of the environment variable or secret that holds the listen address.
+     * 
+     */
+    public Optional<String> addressKey() {
+        return Optional.ofNullable(this.addressKey);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -19,13 +35,22 @@ public final class ObservabilityPipelineConfigSourceSumoLogic {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String addressKey;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigSourceSumoLogic defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.addressKey = defaults.addressKey;
         }
 
+        @CustomType.Setter
+        public Builder addressKey(@Nullable String addressKey) {
+
+            this.addressKey = addressKey;
+            return this;
+        }
         public ObservabilityPipelineConfigSourceSumoLogic build() {
             final var _resultValue = new ObservabilityPipelineConfigSourceSumoLogic();
+            _resultValue.addressKey = addressKey;
             return _resultValue;
         }
     }

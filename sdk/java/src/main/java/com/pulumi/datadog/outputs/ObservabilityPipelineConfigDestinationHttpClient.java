@@ -30,10 +30,30 @@ public final class ObservabilityPipelineConfigDestinationHttpClient {
      */
     private String encoding;
     /**
+     * @return Name of the environment variable or secret that holds the password.
+     * 
+     */
+    private @Nullable String passwordKey;
+    /**
      * @return Configuration for enabling TLS encryption between the pipeline component and external services.
      * 
      */
     private @Nullable ObservabilityPipelineConfigDestinationHttpClientTls tls;
+    /**
+     * @return Name of the environment variable or secret that holds the authentication token.
+     * 
+     */
+    private @Nullable String tokenKey;
+    /**
+     * @return Name of the environment variable or secret that holds the request URI.
+     * 
+     */
+    private @Nullable String uriKey;
+    /**
+     * @return Name of the environment variable or secret that holds the username.
+     * 
+     */
+    private @Nullable String usernameKey;
 
     private ObservabilityPipelineConfigDestinationHttpClient() {}
     /**
@@ -58,11 +78,39 @@ public final class ObservabilityPipelineConfigDestinationHttpClient {
         return this.encoding;
     }
     /**
+     * @return Name of the environment variable or secret that holds the password.
+     * 
+     */
+    public Optional<String> passwordKey() {
+        return Optional.ofNullable(this.passwordKey);
+    }
+    /**
      * @return Configuration for enabling TLS encryption between the pipeline component and external services.
      * 
      */
     public Optional<ObservabilityPipelineConfigDestinationHttpClientTls> tls() {
         return Optional.ofNullable(this.tls);
+    }
+    /**
+     * @return Name of the environment variable or secret that holds the authentication token.
+     * 
+     */
+    public Optional<String> tokenKey() {
+        return Optional.ofNullable(this.tokenKey);
+    }
+    /**
+     * @return Name of the environment variable or secret that holds the request URI.
+     * 
+     */
+    public Optional<String> uriKey() {
+        return Optional.ofNullable(this.uriKey);
+    }
+    /**
+     * @return Name of the environment variable or secret that holds the username.
+     * 
+     */
+    public Optional<String> usernameKey() {
+        return Optional.ofNullable(this.usernameKey);
     }
 
     public static Builder builder() {
@@ -77,14 +125,22 @@ public final class ObservabilityPipelineConfigDestinationHttpClient {
         private @Nullable String authStrategy;
         private @Nullable ObservabilityPipelineConfigDestinationHttpClientCompression compression;
         private String encoding;
+        private @Nullable String passwordKey;
         private @Nullable ObservabilityPipelineConfigDestinationHttpClientTls tls;
+        private @Nullable String tokenKey;
+        private @Nullable String uriKey;
+        private @Nullable String usernameKey;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationHttpClient defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authStrategy = defaults.authStrategy;
     	      this.compression = defaults.compression;
     	      this.encoding = defaults.encoding;
+    	      this.passwordKey = defaults.passwordKey;
     	      this.tls = defaults.tls;
+    	      this.tokenKey = defaults.tokenKey;
+    	      this.uriKey = defaults.uriKey;
+    	      this.usernameKey = defaults.usernameKey;
         }
 
         @CustomType.Setter
@@ -108,9 +164,33 @@ public final class ObservabilityPipelineConfigDestinationHttpClient {
             return this;
         }
         @CustomType.Setter
+        public Builder passwordKey(@Nullable String passwordKey) {
+
+            this.passwordKey = passwordKey;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tls(@Nullable ObservabilityPipelineConfigDestinationHttpClientTls tls) {
 
             this.tls = tls;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tokenKey(@Nullable String tokenKey) {
+
+            this.tokenKey = tokenKey;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder uriKey(@Nullable String uriKey) {
+
+            this.uriKey = uriKey;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder usernameKey(@Nullable String usernameKey) {
+
+            this.usernameKey = usernameKey;
             return this;
         }
         public ObservabilityPipelineConfigDestinationHttpClient build() {
@@ -118,7 +198,11 @@ public final class ObservabilityPipelineConfigDestinationHttpClient {
             _resultValue.authStrategy = authStrategy;
             _resultValue.compression = compression;
             _resultValue.encoding = encoding;
+            _resultValue.passwordKey = passwordKey;
             _resultValue.tls = tls;
+            _resultValue.tokenKey = tokenKey;
+            _resultValue.uriKey = uriKey;
+            _resultValue.usernameKey = usernameKey;
             return _resultValue;
         }
     }

@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? ApiVersion { get; set; }
 
         /// <summary>
+        /// Authentication settings for the Elasticsearch destination.
+        /// </summary>
+        [Input("auth")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationElasticsearchAuthGetArgs>? Auth { get; set; }
+
+        /// <summary>
         /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
         /// </summary>
         [Input("buffer")]
@@ -35,6 +41,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("dataStream")]
         public Input<Inputs.ObservabilityPipelineConfigDestinationElasticsearchDataStreamGetArgs>? DataStream { get; set; }
+
+        /// <summary>
+        /// Name of the environment variable or secret that holds the Elasticsearch endpoint URL.
+        /// </summary>
+        [Input("endpointUrlKey")]
+        public Input<string>? EndpointUrlKey { get; set; }
 
         public ObservabilityPipelineConfigDestinationElasticsearchGetArgs()
         {

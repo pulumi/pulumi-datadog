@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationSyslogNgBufferArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationSyslogNgTlsArgs;
 import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -30,6 +31,21 @@ public final class ObservabilityPipelineConfigDestinationSyslogNgArgs extends co
      */
     public Optional<Output<ObservabilityPipelineConfigDestinationSyslogNgBufferArgs>> buffer() {
         return Optional.ofNullable(this.buffer);
+    }
+
+    /**
+     * Name of the environment variable or secret that holds the syslog-ng endpoint URL.
+     * 
+     */
+    @Import(name="endpointUrlKey")
+    private @Nullable Output<String> endpointUrlKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the syslog-ng endpoint URL.
+     * 
+     */
+    public Optional<Output<String>> endpointUrlKey() {
+        return Optional.ofNullable(this.endpointUrlKey);
     }
 
     /**
@@ -66,6 +82,7 @@ public final class ObservabilityPipelineConfigDestinationSyslogNgArgs extends co
 
     private ObservabilityPipelineConfigDestinationSyslogNgArgs(ObservabilityPipelineConfigDestinationSyslogNgArgs $) {
         this.buffer = $.buffer;
+        this.endpointUrlKey = $.endpointUrlKey;
         this.keepalive = $.keepalive;
         this.tls = $.tls;
     }
@@ -107,6 +124,27 @@ public final class ObservabilityPipelineConfigDestinationSyslogNgArgs extends co
          */
         public Builder buffer(ObservabilityPipelineConfigDestinationSyslogNgBufferArgs buffer) {
             return buffer(Output.of(buffer));
+        }
+
+        /**
+         * @param endpointUrlKey Name of the environment variable or secret that holds the syslog-ng endpoint URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointUrlKey(@Nullable Output<String> endpointUrlKey) {
+            $.endpointUrlKey = endpointUrlKey;
+            return this;
+        }
+
+        /**
+         * @param endpointUrlKey Name of the environment variable or secret that holds the syslog-ng endpoint URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointUrlKey(String endpointUrlKey) {
+            return endpointUrlKey(Output.of(endpointUrlKey));
         }
 
         /**

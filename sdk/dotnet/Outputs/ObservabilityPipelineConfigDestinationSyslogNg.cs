@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationSyslogNgBuffer? Buffer;
         /// <summary>
+        /// Name of the environment variable or secret that holds the syslog-ng endpoint URL.
+        /// </summary>
+        public readonly string? EndpointUrlKey;
+        /// <summary>
         /// Optional socket keepalive duration in milliseconds.
         /// </summary>
         public readonly int? Keepalive;
@@ -30,11 +34,14 @@ namespace Pulumi.Datadog.Outputs
         private ObservabilityPipelineConfigDestinationSyslogNg(
             Outputs.ObservabilityPipelineConfigDestinationSyslogNgBuffer? buffer,
 
+            string? endpointUrlKey,
+
             int? keepalive,
 
             Outputs.ObservabilityPipelineConfigDestinationSyslogNgTls? tls)
         {
             Buffer = buffer;
+            EndpointUrlKey = endpointUrlKey;
             Keepalive = keepalive;
             Tls = tls;
         }

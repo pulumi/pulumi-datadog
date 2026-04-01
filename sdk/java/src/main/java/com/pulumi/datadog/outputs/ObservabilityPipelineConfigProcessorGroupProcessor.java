@@ -102,7 +102,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
      */
     private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorMetricTags metricTags;
     /**
-     * @return The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
+     * @return The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings or custom mapping configuration.
      * 
      */
     private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper ocsfMapper;
@@ -258,7 +258,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
         return Optional.ofNullable(this.metricTags);
     }
     /**
-     * @return The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
+     * @return The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings or custom mapping configuration.
      * 
      */
     public Optional<ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper> ocsfMapper() {

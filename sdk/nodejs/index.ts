@@ -205,11 +205,6 @@ export const getAppBuilderApp: typeof import("./getAppBuilderApp").getAppBuilder
 export const getAppBuilderAppOutput: typeof import("./getAppBuilderApp").getAppBuilderAppOutput = null as any;
 utilities.lazyLoad(exports, ["getAppBuilderApp","getAppBuilderAppOutput"], () => require("./getAppBuilderApp"));
 
-export { GetApplicationKeyArgs, GetApplicationKeyResult, GetApplicationKeyOutputArgs } from "./getApplicationKey";
-export const getApplicationKey: typeof import("./getApplicationKey").getApplicationKey = null as any;
-export const getApplicationKeyOutput: typeof import("./getApplicationKey").getApplicationKeyOutput = null as any;
-utilities.lazyLoad(exports, ["getApplicationKey","getApplicationKeyOutput"], () => require("./getApplicationKey"));
-
 export { GetAwsCurConfigArgs, GetAwsCurConfigResult, GetAwsCurConfigOutputArgs } from "./getAwsCurConfig";
 export const getAwsCurConfig: typeof import("./getAwsCurConfig").getAwsCurConfig = null as any;
 export const getAwsCurConfigOutput: typeof import("./getAwsCurConfig").getAwsCurConfigOutput = null as any;
@@ -713,6 +708,11 @@ export type RumRetentionFiltersOrder = import("./rumRetentionFiltersOrder").RumR
 export const RumRetentionFiltersOrder: typeof import("./rumRetentionFiltersOrder").RumRetentionFiltersOrder = null as any;
 utilities.lazyLoad(exports, ["RumRetentionFiltersOrder"], () => require("./rumRetentionFiltersOrder"));
 
+export { SecureEmbedDashboardArgs, SecureEmbedDashboardState } from "./secureEmbedDashboard";
+export type SecureEmbedDashboard = import("./secureEmbedDashboard").SecureEmbedDashboard;
+export const SecureEmbedDashboard: typeof import("./secureEmbedDashboard").SecureEmbedDashboard = null as any;
+utilities.lazyLoad(exports, ["SecureEmbedDashboard"], () => require("./secureEmbedDashboard"));
+
 export { SecurityMonitoringCriticalAssetArgs, SecurityMonitoringCriticalAssetState } from "./securityMonitoringCriticalAsset";
 export type SecurityMonitoringCriticalAsset = import("./securityMonitoringCriticalAsset").SecurityMonitoringCriticalAsset;
 export const SecurityMonitoringCriticalAsset: typeof import("./securityMonitoringCriticalAsset").SecurityMonitoringCriticalAsset = null as any;
@@ -1068,6 +1068,8 @@ const _module = {
                 return new RumRetentionFilter(name, <any>undefined, { urn })
             case "datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder":
                 return new RumRetentionFiltersOrder(name, <any>undefined, { urn })
+            case "datadog:index/secureEmbedDashboard:SecureEmbedDashboard":
+                return new SecureEmbedDashboard(name, <any>undefined, { urn })
             case "datadog:index/securityMonitoringCriticalAsset:SecurityMonitoringCriticalAsset":
                 return new SecurityMonitoringCriticalAsset(name, <any>undefined, { urn })
             case "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule":
@@ -1216,6 +1218,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/rumApplication", _module
 pulumi.runtime.registerResourceModule("datadog", "index/rumMetric", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/rumRetentionFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/rumRetentionFiltersOrder", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/secureEmbedDashboard", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringCriticalAsset", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringDefaultRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringFilter", _module)

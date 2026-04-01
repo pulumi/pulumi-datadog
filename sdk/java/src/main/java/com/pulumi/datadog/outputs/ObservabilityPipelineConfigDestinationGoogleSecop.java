@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigDestinationGoogleSecop {
     /**
-     * @return GCP credentials used to authenticate with Google Cloud services.
+     * @return Google Cloud credentials used to authenticate with Google Cloud services.
      * 
      */
     private @Nullable ObservabilityPipelineConfigDestinationGoogleSecopAuth auth;
@@ -35,6 +35,11 @@ public final class ObservabilityPipelineConfigDestinationGoogleSecop {
      */
     private String encoding;
     /**
+     * @return Name of the environment variable or secret that holds the Google Chronicle endpoint URL.
+     * 
+     */
+    private @Nullable String endpointUrlKey;
+    /**
      * @return The log type metadata associated with the Google SecOps destination.
      * 
      */
@@ -42,7 +47,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleSecop {
 
     private ObservabilityPipelineConfigDestinationGoogleSecop() {}
     /**
-     * @return GCP credentials used to authenticate with Google Cloud services.
+     * @return Google Cloud credentials used to authenticate with Google Cloud services.
      * 
      */
     public Optional<ObservabilityPipelineConfigDestinationGoogleSecopAuth> auth() {
@@ -70,6 +75,13 @@ public final class ObservabilityPipelineConfigDestinationGoogleSecop {
         return this.encoding;
     }
     /**
+     * @return Name of the environment variable or secret that holds the Google Chronicle endpoint URL.
+     * 
+     */
+    public Optional<String> endpointUrlKey() {
+        return Optional.ofNullable(this.endpointUrlKey);
+    }
+    /**
      * @return The log type metadata associated with the Google SecOps destination.
      * 
      */
@@ -90,6 +102,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleSecop {
         private @Nullable ObservabilityPipelineConfigDestinationGoogleSecopBuffer buffer;
         private String customerId;
         private String encoding;
+        private @Nullable String endpointUrlKey;
         private String logType;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationGoogleSecop defaults) {
@@ -98,6 +111,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleSecop {
     	      this.buffer = defaults.buffer;
     	      this.customerId = defaults.customerId;
     	      this.encoding = defaults.encoding;
+    	      this.endpointUrlKey = defaults.endpointUrlKey;
     	      this.logType = defaults.logType;
         }
 
@@ -130,6 +144,12 @@ public final class ObservabilityPipelineConfigDestinationGoogleSecop {
             return this;
         }
         @CustomType.Setter
+        public Builder endpointUrlKey(@Nullable String endpointUrlKey) {
+
+            this.endpointUrlKey = endpointUrlKey;
+            return this;
+        }
+        @CustomType.Setter
         public Builder logType(String logType) {
             if (logType == null) {
               throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationGoogleSecop", "logType");
@@ -143,6 +163,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleSecop {
             _resultValue.buffer = buffer;
             _resultValue.customerId = customerId;
             _resultValue.encoding = encoding;
+            _resultValue.endpointUrlKey = endpointUrlKey;
             _resultValue.logType = logType;
             return _resultValue;
         }

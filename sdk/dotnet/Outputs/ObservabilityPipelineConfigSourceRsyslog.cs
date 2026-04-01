@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigSourceRsyslog
     {
         /// <summary>
+        /// Name of the environment variable or secret that holds the listen address.
+        /// </summary>
+        public readonly string? AddressKey;
+        /// <summary>
         /// Protocol used by the syslog source to receive messages.
         /// </summary>
         public readonly string? Mode;
@@ -24,10 +28,13 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private ObservabilityPipelineConfigSourceRsyslog(
+            string? addressKey,
+
             string? mode,
 
             Outputs.ObservabilityPipelineConfigSourceRsyslogTls? tls)
         {
+            AddressKey = addressKey;
             Mode = mode;
             Tls = tls;
         }

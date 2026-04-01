@@ -30,6 +30,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("tls")]
         public Input<Inputs.ObservabilityPipelineConfigSourceAmazonS3TlsGetArgs>? Tls { get; set; }
 
+        /// <summary>
+        /// Name of the environment variable or secret that holds the S3 bucket URL.
+        /// </summary>
+        [Input("urlKey")]
+        public Input<string>? UrlKey { get; set; }
+
         public ObservabilityPipelineConfigSourceAmazonS3GetArgs()
         {
         }

@@ -48,6 +48,21 @@ public final class SyntheticsTestRequestFileArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * Encoding of the file content. Must be `base64` when content contains base64-encoded data.
+     * 
+     */
+    @Import(name="encoding")
+    private @Nullable Output<String> encoding;
+
+    /**
+     * @return Encoding of the file content. Must be `base64` when content contains base64-encoded data.
+     * 
+     */
+    public Optional<Output<String>> encoding() {
+        return Optional.ofNullable(this.encoding);
+    }
+
+    /**
      * Name of the file.
      * 
      */
@@ -112,6 +127,7 @@ public final class SyntheticsTestRequestFileArgs extends com.pulumi.resources.Re
     private SyntheticsTestRequestFileArgs(SyntheticsTestRequestFileArgs $) {
         this.bucketKey = $.bucketKey;
         this.content = $.content;
+        this.encoding = $.encoding;
         this.name = $.name;
         this.originalFileName = $.originalFileName;
         this.size = $.size;
@@ -176,6 +192,27 @@ public final class SyntheticsTestRequestFileArgs extends com.pulumi.resources.Re
          */
         public Builder content(String content) {
             return content(Output.of(content));
+        }
+
+        /**
+         * @param encoding Encoding of the file content. Must be `base64` when content contains base64-encoded data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encoding(@Nullable Output<String> encoding) {
+            $.encoding = encoding;
+            return this;
+        }
+
+        /**
+         * @param encoding Encoding of the file content. Must be `base64` when content contains base64-encoded data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encoding(String encoding) {
+            return encoding(Output.of(encoding));
         }
 
         /**

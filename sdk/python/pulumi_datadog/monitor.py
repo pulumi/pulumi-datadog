@@ -35,7 +35,6 @@ class MonitorArgs:
                  group_retention_duration: Optional[pulumi.Input[_builtins.str]] = None,
                  groupby_simple_monitor: Optional[pulumi.Input[_builtins.bool]] = None,
                  include_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 locked: Optional[pulumi.Input[_builtins.bool]] = None,
                  monitor_threshold_windows: Optional[pulumi.Input['MonitorMonitorThresholdWindowsArgs']] = None,
                  monitor_thresholds: Optional[pulumi.Input['MonitorMonitorThresholdsArgs']] = None,
                  new_group_delay: Optional[pulumi.Input[_builtins.int]] = None,
@@ -52,7 +51,7 @@ class MonitorArgs:
                  renotify_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  require_full_window: Optional[pulumi.Input[_builtins.bool]] = None,
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 scheduling_options: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorSchedulingOptionArgs']]]] = None,
+                 scheduling_options: Optional[pulumi.Input['MonitorSchedulingOptionsArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  timeout_h: Optional[pulumi.Input[_builtins.int]] = None,
                  validate: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -78,7 +77,6 @@ class MonitorArgs:
         :param pulumi.Input[_builtins.str] group_retention_duration: The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
         :param pulumi.Input[_builtins.bool] groupby_simple_monitor: Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-        :param pulumi.Input[_builtins.bool] locked: A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
         :param pulumi.Input['MonitorMonitorThresholdWindowsArgs'] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
         :param pulumi.Input['MonitorMonitorThresholdsArgs'] monitor_thresholds: Alert thresholds of the monitor.
         :param pulumi.Input[_builtins.int] new_group_delay: The time (in seconds) to skip evaluations for new groups.
@@ -99,8 +97,7 @@ class MonitorArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] renotify_statuses: The types of statuses for which re-notification messages should be sent.
         :param pulumi.Input[_builtins.bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] restricted_roles: A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
-                > **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restricted_roles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `RestrictionPolicy` resource.
-        :param pulumi.Input[Sequence[pulumi.Input['MonitorSchedulingOptionArgs']]] scheduling_options: Configuration options for scheduling.
+        :param pulumi.Input['MonitorSchedulingOptionsArgs'] scheduling_options: Configuration options for scheduling.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[_builtins.int] timeout_h: The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
         :param pulumi.Input[_builtins.bool] validate: If set to `false`, skip the validation call done during plan.
@@ -129,11 +126,6 @@ class MonitorArgs:
             pulumi.set(__self__, "groupby_simple_monitor", groupby_simple_monitor)
         if include_tags is not None:
             pulumi.set(__self__, "include_tags", include_tags)
-        if locked is not None:
-            warnings.warn("""Use `restricted_roles`.""", DeprecationWarning)
-            pulumi.log.warn("""locked is deprecated: Use `restricted_roles`.""")
-        if locked is not None:
-            pulumi.set(__self__, "locked", locked)
         if monitor_threshold_windows is not None:
             pulumi.set(__self__, "monitor_threshold_windows", monitor_threshold_windows)
         if monitor_thresholds is not None:
@@ -167,6 +159,9 @@ class MonitorArgs:
             pulumi.set(__self__, "renotify_statuses", renotify_statuses)
         if require_full_window is not None:
             pulumi.set(__self__, "require_full_window", require_full_window)
+        if restricted_roles is not None:
+            warnings.warn("""Use `RestrictionPolicy` resource to manage permission.""", DeprecationWarning)
+            pulumi.log.warn("""restricted_roles is deprecated: Use `RestrictionPolicy` resource to manage permission.""")
         if restricted_roles is not None:
             pulumi.set(__self__, "restricted_roles", restricted_roles)
         if scheduling_options is not None:
@@ -351,19 +346,6 @@ class MonitorArgs:
     @include_tags.setter
     def include_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "include_tags", value)
-
-    @_builtins.property
-    @pulumi.getter
-    @_utilities.deprecated("""Use `restricted_roles`.""")
-    def locked(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
-        """
-        return pulumi.get(self, "locked")
-
-    @locked.setter
-    def locked(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "locked", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorThresholdWindows")
@@ -552,10 +534,10 @@ class MonitorArgs:
 
     @_builtins.property
     @pulumi.getter(name="restrictedRoles")
+    @_utilities.deprecated("""Use `RestrictionPolicy` resource to manage permission.""")
     def restricted_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
-         > **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restricted_roles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `RestrictionPolicy` resource.
         """
         return pulumi.get(self, "restricted_roles")
 
@@ -565,14 +547,14 @@ class MonitorArgs:
 
     @_builtins.property
     @pulumi.getter(name="schedulingOptions")
-    def scheduling_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorSchedulingOptionArgs']]]]:
+    def scheduling_options(self) -> Optional[pulumi.Input['MonitorSchedulingOptionsArgs']]:
         """
         Configuration options for scheduling.
         """
         return pulumi.get(self, "scheduling_options")
 
     @scheduling_options.setter
-    def scheduling_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorSchedulingOptionArgs']]]]):
+    def scheduling_options(self, value: Optional[pulumi.Input['MonitorSchedulingOptionsArgs']]):
         pulumi.set(self, "scheduling_options", value)
 
     @_builtins.property
@@ -634,7 +616,6 @@ class _MonitorState:
                  group_retention_duration: Optional[pulumi.Input[_builtins.str]] = None,
                  groupby_simple_monitor: Optional[pulumi.Input[_builtins.bool]] = None,
                  include_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 locked: Optional[pulumi.Input[_builtins.bool]] = None,
                  message: Optional[pulumi.Input[_builtins.str]] = None,
                  monitor_threshold_windows: Optional[pulumi.Input['MonitorMonitorThresholdWindowsArgs']] = None,
                  monitor_thresholds: Optional[pulumi.Input['MonitorMonitorThresholdsArgs']] = None,
@@ -654,7 +635,7 @@ class _MonitorState:
                  renotify_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  require_full_window: Optional[pulumi.Input[_builtins.bool]] = None,
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 scheduling_options: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorSchedulingOptionArgs']]]] = None,
+                 scheduling_options: Optional[pulumi.Input['MonitorSchedulingOptionsArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  timeout_h: Optional[pulumi.Input[_builtins.int]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -675,7 +656,6 @@ class _MonitorState:
         :param pulumi.Input[_builtins.str] group_retention_duration: The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
         :param pulumi.Input[_builtins.bool] groupby_simple_monitor: Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-        :param pulumi.Input[_builtins.bool] locked: A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
         :param pulumi.Input[_builtins.str] message: A message to include with notifications for this monitor.
         :param pulumi.Input['MonitorMonitorThresholdWindowsArgs'] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
         :param pulumi.Input['MonitorMonitorThresholdsArgs'] monitor_thresholds: Alert thresholds of the monitor.
@@ -701,8 +681,7 @@ class _MonitorState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] renotify_statuses: The types of statuses for which re-notification messages should be sent.
         :param pulumi.Input[_builtins.bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] restricted_roles: A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
-                > **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restricted_roles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `RestrictionPolicy` resource.
-        :param pulumi.Input[Sequence[pulumi.Input['MonitorSchedulingOptionArgs']]] scheduling_options: Configuration options for scheduling.
+        :param pulumi.Input['MonitorSchedulingOptionsArgs'] scheduling_options: Configuration options for scheduling.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[_builtins.int] timeout_h: The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
         :param pulumi.Input[_builtins.str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type cannot be changed after a monitor is created.
@@ -728,11 +707,6 @@ class _MonitorState:
             pulumi.set(__self__, "groupby_simple_monitor", groupby_simple_monitor)
         if include_tags is not None:
             pulumi.set(__self__, "include_tags", include_tags)
-        if locked is not None:
-            warnings.warn("""Use `restricted_roles`.""", DeprecationWarning)
-            pulumi.log.warn("""locked is deprecated: Use `restricted_roles`.""")
-        if locked is not None:
-            pulumi.set(__self__, "locked", locked)
         if message is not None:
             pulumi.set(__self__, "message", message)
         if monitor_threshold_windows is not None:
@@ -772,6 +746,9 @@ class _MonitorState:
             pulumi.set(__self__, "renotify_statuses", renotify_statuses)
         if require_full_window is not None:
             pulumi.set(__self__, "require_full_window", require_full_window)
+        if restricted_roles is not None:
+            warnings.warn("""Use `RestrictionPolicy` resource to manage permission.""", DeprecationWarning)
+            pulumi.log.warn("""restricted_roles is deprecated: Use `RestrictionPolicy` resource to manage permission.""")
         if restricted_roles is not None:
             pulumi.set(__self__, "restricted_roles", restricted_roles)
         if scheduling_options is not None:
@@ -908,19 +885,6 @@ class _MonitorState:
     @include_tags.setter
     def include_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "include_tags", value)
-
-    @_builtins.property
-    @pulumi.getter
-    @_utilities.deprecated("""Use `restricted_roles`.""")
-    def locked(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
-        """
-        return pulumi.get(self, "locked")
-
-    @locked.setter
-    def locked(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "locked", value)
 
     @_builtins.property
     @pulumi.getter
@@ -1147,10 +1111,10 @@ class _MonitorState:
 
     @_builtins.property
     @pulumi.getter(name="restrictedRoles")
+    @_utilities.deprecated("""Use `RestrictionPolicy` resource to manage permission.""")
     def restricted_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
-         > **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restricted_roles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `RestrictionPolicy` resource.
         """
         return pulumi.get(self, "restricted_roles")
 
@@ -1160,14 +1124,14 @@ class _MonitorState:
 
     @_builtins.property
     @pulumi.getter(name="schedulingOptions")
-    def scheduling_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorSchedulingOptionArgs']]]]:
+    def scheduling_options(self) -> Optional[pulumi.Input['MonitorSchedulingOptionsArgs']]:
         """
         Configuration options for scheduling.
         """
         return pulumi.get(self, "scheduling_options")
 
     @scheduling_options.setter
-    def scheduling_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorSchedulingOptionArgs']]]]):
+    def scheduling_options(self, value: Optional[pulumi.Input['MonitorSchedulingOptionsArgs']]):
         pulumi.set(self, "scheduling_options", value)
 
     @_builtins.property
@@ -1244,7 +1208,6 @@ class Monitor(pulumi.CustomResource):
                  group_retention_duration: Optional[pulumi.Input[_builtins.str]] = None,
                  groupby_simple_monitor: Optional[pulumi.Input[_builtins.bool]] = None,
                  include_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 locked: Optional[pulumi.Input[_builtins.bool]] = None,
                  message: Optional[pulumi.Input[_builtins.str]] = None,
                  monitor_threshold_windows: Optional[pulumi.Input[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']]] = None,
                  monitor_thresholds: Optional[pulumi.Input[Union['MonitorMonitorThresholdsArgs', 'MonitorMonitorThresholdsArgsDict']]] = None,
@@ -1264,7 +1227,7 @@ class Monitor(pulumi.CustomResource):
                  renotify_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  require_full_window: Optional[pulumi.Input[_builtins.bool]] = None,
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 scheduling_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorSchedulingOptionArgs', 'MonitorSchedulingOptionArgsDict']]]]] = None,
+                 scheduling_options: Optional[pulumi.Input[Union['MonitorSchedulingOptionsArgs', 'MonitorSchedulingOptionsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  timeout_h: Optional[pulumi.Input[_builtins.int]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1320,7 +1283,6 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] group_retention_duration: The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
         :param pulumi.Input[_builtins.bool] groupby_simple_monitor: Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-        :param pulumi.Input[_builtins.bool] locked: A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
         :param pulumi.Input[_builtins.str] message: A message to include with notifications for this monitor.
         :param pulumi.Input[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
         :param pulumi.Input[Union['MonitorMonitorThresholdsArgs', 'MonitorMonitorThresholdsArgsDict']] monitor_thresholds: Alert thresholds of the monitor.
@@ -1346,8 +1308,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] renotify_statuses: The types of statuses for which re-notification messages should be sent.
         :param pulumi.Input[_builtins.bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] restricted_roles: A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
-                > **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restricted_roles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `RestrictionPolicy` resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorSchedulingOptionArgs', 'MonitorSchedulingOptionArgsDict']]]] scheduling_options: Configuration options for scheduling.
+        :param pulumi.Input[Union['MonitorSchedulingOptionsArgs', 'MonitorSchedulingOptionsArgsDict']] scheduling_options: Configuration options for scheduling.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[_builtins.int] timeout_h: The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
         :param pulumi.Input[_builtins.str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type cannot be changed after a monitor is created.
@@ -1419,7 +1380,6 @@ class Monitor(pulumi.CustomResource):
                  group_retention_duration: Optional[pulumi.Input[_builtins.str]] = None,
                  groupby_simple_monitor: Optional[pulumi.Input[_builtins.bool]] = None,
                  include_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 locked: Optional[pulumi.Input[_builtins.bool]] = None,
                  message: Optional[pulumi.Input[_builtins.str]] = None,
                  monitor_threshold_windows: Optional[pulumi.Input[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']]] = None,
                  monitor_thresholds: Optional[pulumi.Input[Union['MonitorMonitorThresholdsArgs', 'MonitorMonitorThresholdsArgsDict']]] = None,
@@ -1439,7 +1399,7 @@ class Monitor(pulumi.CustomResource):
                  renotify_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  require_full_window: Optional[pulumi.Input[_builtins.bool]] = None,
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 scheduling_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorSchedulingOptionArgs', 'MonitorSchedulingOptionArgsDict']]]]] = None,
+                 scheduling_options: Optional[pulumi.Input[Union['MonitorSchedulingOptionsArgs', 'MonitorSchedulingOptionsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  timeout_h: Optional[pulumi.Input[_builtins.int]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1464,7 +1424,6 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["group_retention_duration"] = group_retention_duration
             __props__.__dict__["groupby_simple_monitor"] = groupby_simple_monitor
             __props__.__dict__["include_tags"] = include_tags
-            __props__.__dict__["locked"] = locked
             if message is None and not opts.urn:
                 raise TypeError("Missing required property 'message'")
             __props__.__dict__["message"] = message
@@ -1518,7 +1477,6 @@ class Monitor(pulumi.CustomResource):
             group_retention_duration: Optional[pulumi.Input[_builtins.str]] = None,
             groupby_simple_monitor: Optional[pulumi.Input[_builtins.bool]] = None,
             include_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-            locked: Optional[pulumi.Input[_builtins.bool]] = None,
             message: Optional[pulumi.Input[_builtins.str]] = None,
             monitor_threshold_windows: Optional[pulumi.Input[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']]] = None,
             monitor_thresholds: Optional[pulumi.Input[Union['MonitorMonitorThresholdsArgs', 'MonitorMonitorThresholdsArgsDict']]] = None,
@@ -1538,7 +1496,7 @@ class Monitor(pulumi.CustomResource):
             renotify_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             require_full_window: Optional[pulumi.Input[_builtins.bool]] = None,
             restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            scheduling_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorSchedulingOptionArgs', 'MonitorSchedulingOptionArgsDict']]]]] = None,
+            scheduling_options: Optional[pulumi.Input[Union['MonitorSchedulingOptionsArgs', 'MonitorSchedulingOptionsArgsDict']]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             timeout_h: Optional[pulumi.Input[_builtins.int]] = None,
             type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1563,7 +1521,6 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] group_retention_duration: The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
         :param pulumi.Input[_builtins.bool] groupby_simple_monitor: Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-        :param pulumi.Input[_builtins.bool] locked: A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
         :param pulumi.Input[_builtins.str] message: A message to include with notifications for this monitor.
         :param pulumi.Input[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
         :param pulumi.Input[Union['MonitorMonitorThresholdsArgs', 'MonitorMonitorThresholdsArgsDict']] monitor_thresholds: Alert thresholds of the monitor.
@@ -1589,8 +1546,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] renotify_statuses: The types of statuses for which re-notification messages should be sent.
         :param pulumi.Input[_builtins.bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] restricted_roles: A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
-                > **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restricted_roles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `RestrictionPolicy` resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorSchedulingOptionArgs', 'MonitorSchedulingOptionArgsDict']]]] scheduling_options: Configuration options for scheduling.
+        :param pulumi.Input[Union['MonitorSchedulingOptionsArgs', 'MonitorSchedulingOptionsArgsDict']] scheduling_options: Configuration options for scheduling.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[_builtins.int] timeout_h: The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
         :param pulumi.Input[_builtins.str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type cannot be changed after a monitor is created.
@@ -1610,7 +1566,6 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["group_retention_duration"] = group_retention_duration
         __props__.__dict__["groupby_simple_monitor"] = groupby_simple_monitor
         __props__.__dict__["include_tags"] = include_tags
-        __props__.__dict__["locked"] = locked
         __props__.__dict__["message"] = message
         __props__.__dict__["monitor_threshold_windows"] = monitor_threshold_windows
         __props__.__dict__["monitor_thresholds"] = monitor_thresholds
@@ -1719,15 +1674,6 @@ class Monitor(pulumi.CustomResource):
         A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
         """
         return pulumi.get(self, "include_tags")
-
-    @_builtins.property
-    @pulumi.getter
-    @_utilities.deprecated("""Use `restricted_roles`.""")
-    def locked(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
-        """
-        return pulumi.get(self, "locked")
 
     @_builtins.property
     @pulumi.getter
@@ -1882,16 +1828,16 @@ class Monitor(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="restrictedRoles")
-    def restricted_roles(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    @_utilities.deprecated("""Use `RestrictionPolicy` resource to manage permission.""")
+    def restricted_roles(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
         A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
-         > **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restricted_roles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `RestrictionPolicy` resource.
         """
         return pulumi.get(self, "restricted_roles")
 
     @_builtins.property
     @pulumi.getter(name="schedulingOptions")
-    def scheduling_options(self) -> pulumi.Output[Optional[Sequence['outputs.MonitorSchedulingOption']]]:
+    def scheduling_options(self) -> pulumi.Output[Optional['outputs.MonitorSchedulingOptions']]:
         """
         Configuration options for scheduling.
         """

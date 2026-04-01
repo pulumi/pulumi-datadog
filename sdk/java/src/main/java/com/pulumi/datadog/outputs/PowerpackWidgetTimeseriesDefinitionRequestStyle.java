@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -11,6 +12,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PowerpackWidgetTimeseriesDefinitionRequestStyle {
+    /**
+     * @return If true, the value is displayed as a label relative to the data point.
+     * 
+     */
+    private @Nullable Boolean hasValueLabels;
     /**
      * @return The type of lines displayed. Valid values are `dashed`, `dotted`, `solid`.
      * 
@@ -33,6 +39,13 @@ public final class PowerpackWidgetTimeseriesDefinitionRequestStyle {
     private @Nullable String palette;
 
     private PowerpackWidgetTimeseriesDefinitionRequestStyle() {}
+    /**
+     * @return If true, the value is displayed as a label relative to the data point.
+     * 
+     */
+    public Optional<Boolean> hasValueLabels() {
+        return Optional.ofNullable(this.hasValueLabels);
+    }
     /**
      * @return The type of lines displayed. Valid values are `dashed`, `dotted`, `solid`.
      * 
@@ -71,6 +84,7 @@ public final class PowerpackWidgetTimeseriesDefinitionRequestStyle {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean hasValueLabels;
         private @Nullable String lineType;
         private @Nullable String lineWidth;
         private @Nullable String orderBy;
@@ -78,12 +92,19 @@ public final class PowerpackWidgetTimeseriesDefinitionRequestStyle {
         public Builder() {}
         public Builder(PowerpackWidgetTimeseriesDefinitionRequestStyle defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.hasValueLabels = defaults.hasValueLabels;
     	      this.lineType = defaults.lineType;
     	      this.lineWidth = defaults.lineWidth;
     	      this.orderBy = defaults.orderBy;
     	      this.palette = defaults.palette;
         }
 
+        @CustomType.Setter
+        public Builder hasValueLabels(@Nullable Boolean hasValueLabels) {
+
+            this.hasValueLabels = hasValueLabels;
+            return this;
+        }
         @CustomType.Setter
         public Builder lineType(@Nullable String lineType) {
 
@@ -110,6 +131,7 @@ public final class PowerpackWidgetTimeseriesDefinitionRequestStyle {
         }
         public PowerpackWidgetTimeseriesDefinitionRequestStyle build() {
             final var _resultValue = new PowerpackWidgetTimeseriesDefinitionRequestStyle();
+            _resultValue.hasValueLabels = hasValueLabels;
             _resultValue.lineType = lineType;
             _resultValue.lineWidth = lineWidth;
             _resultValue.orderBy = orderBy;

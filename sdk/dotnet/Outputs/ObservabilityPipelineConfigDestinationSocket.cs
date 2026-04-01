@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationSocket
     {
         /// <summary>
+        /// Name of the environment variable or secret that holds the socket address (host:port).
+        /// </summary>
+        public readonly string? AddressKey;
+        /// <summary>
         /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationSocketBuffer? Buffer;
@@ -36,6 +40,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationSocket(
+            string? addressKey,
+
             Outputs.ObservabilityPipelineConfigDestinationSocketBuffer? buffer,
 
             string encoding,
@@ -46,6 +52,7 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.ObservabilityPipelineConfigDestinationSocketTls? tls)
         {
+            AddressKey = addressKey;
             Buffer = buffer;
             Encoding = encoding;
             Framing = framing;

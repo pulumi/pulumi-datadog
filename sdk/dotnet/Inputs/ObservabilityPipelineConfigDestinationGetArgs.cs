@@ -24,6 +24,12 @@ namespace Pulumi.Datadog.Inputs
             set => _amazonOpensearches = value;
         }
 
+        /// <summary>
+        /// The `AmazonS3Generic` destination sends your logs to an Amazon S3 bucket.
+        /// </summary>
+        [Input("amazonS3Generic")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationAmazonS3GenericGetArgs>? AmazonS3Generic { get; set; }
+
         [Input("amazonS3s")]
         private InputList<Inputs.ObservabilityPipelineConfigDestinationAmazonS3GetArgs>? _amazonS3s;
 

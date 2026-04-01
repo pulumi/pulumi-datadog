@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Acl { get; set; }
 
         /// <summary>
-        /// GCP credentials used to authenticate with Google Cloud services.
+        /// Google Cloud credentials used to authenticate with Google Cloud services.
         /// </summary>
         [Input("auth")]
         public Input<Inputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageAuthArgs>? Auth { get; set; }

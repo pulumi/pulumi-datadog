@@ -48,6 +48,12 @@ namespace Pulumi.Datadog.Inputs
             set => _groupBies = value;
         }
 
+        /// <summary>
+        /// Alternative group-by configuration that groups by multiple event facet fields. Use this or `GroupBy`, not both.
+        /// </summary>
+        [Input("groupByFields")]
+        public Input<Inputs.PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsArgs>? GroupByFields { get; set; }
+
         [Input("indexes")]
         private InputList<string>? _indexes;
 

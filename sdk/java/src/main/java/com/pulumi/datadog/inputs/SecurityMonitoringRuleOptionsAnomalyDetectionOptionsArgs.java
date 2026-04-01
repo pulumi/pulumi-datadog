@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -46,6 +47,21 @@ public final class SecurityMonitoringRuleOptionsAnomalyDetectionOptionsArgs exte
     }
 
     /**
+     * When set to true, Datadog uses previous values that fall within the defined learning window to construct the baseline, enabling the system to establish an accurate baseline more rapidly rather than relying solely on gradual learning over time. Defaults to `false`.
+     * 
+     */
+    @Import(name="instantaneousBaseline")
+    private @Nullable Output<Boolean> instantaneousBaseline;
+
+    /**
+     * @return When set to true, Datadog uses previous values that fall within the defined learning window to construct the baseline, enabling the system to establish an accurate baseline more rapidly rather than relying solely on gradual learning over time. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> instantaneousBaseline() {
+        return Optional.ofNullable(this.instantaneousBaseline);
+    }
+
+    /**
      * Learning duration in hours. Anomaly detection waits for at least this amount of historical data before it starts evaluating. Valid values are 1, 6, 12, 24, 48, 168, 336. Valid values are `1`, `6`, `12`, `24`, `48`, `168`, `336`.
      * 
      */
@@ -80,6 +96,7 @@ public final class SecurityMonitoringRuleOptionsAnomalyDetectionOptionsArgs exte
     private SecurityMonitoringRuleOptionsAnomalyDetectionOptionsArgs(SecurityMonitoringRuleOptionsAnomalyDetectionOptionsArgs $) {
         this.bucketDuration = $.bucketDuration;
         this.detectionTolerance = $.detectionTolerance;
+        this.instantaneousBaseline = $.instantaneousBaseline;
         this.learningDuration = $.learningDuration;
         this.learningPeriodBaseline = $.learningPeriodBaseline;
     }
@@ -142,6 +159,27 @@ public final class SecurityMonitoringRuleOptionsAnomalyDetectionOptionsArgs exte
          */
         public Builder detectionTolerance(Integer detectionTolerance) {
             return detectionTolerance(Output.of(detectionTolerance));
+        }
+
+        /**
+         * @param instantaneousBaseline When set to true, Datadog uses previous values that fall within the defined learning window to construct the baseline, enabling the system to establish an accurate baseline more rapidly rather than relying solely on gradual learning over time. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instantaneousBaseline(@Nullable Output<Boolean> instantaneousBaseline) {
+            $.instantaneousBaseline = instantaneousBaseline;
+            return this;
+        }
+
+        /**
+         * @param instantaneousBaseline When set to true, Datadog uses previous values that fall within the defined learning window to construct the baseline, enabling the system to establish an accurate baseline more rapidly rather than relying solely on gradual learning over time. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instantaneousBaseline(Boolean instantaneousBaseline) {
+            return instantaneousBaseline(Output.of(instantaneousBaseline));
         }
 
         /**

@@ -13,16 +13,22 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Custom OCSF mapping configuration for transforming logs.
+        /// </summary>
+        [Input("customMapping")]
+        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingCustomMappingArgs>? CustomMapping { get; set; }
+
+        /// <summary>
         /// Search query for selecting which logs the mapping applies to.
         /// </summary>
         [Input("include", required: true)]
         public Input<string> Include { get; set; } = null!;
 
         /// <summary>
-        /// Predefined library mapping for log transformation.
+        /// Predefined library mapping for log transformation. Use this or custom_mapping, not both.
         /// </summary>
-        [Input("libraryMapping", required: true)]
-        public Input<string> LibraryMapping { get; set; } = null!;
+        [Input("libraryMapping")]
+        public Input<string>? LibraryMapping { get; set; }
 
         public ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingArgs()
         {

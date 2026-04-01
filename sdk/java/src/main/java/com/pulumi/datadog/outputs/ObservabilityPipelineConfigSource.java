@@ -51,7 +51,7 @@ public final class ObservabilityPipelineConfigSource {
      */
     private @Nullable List<ObservabilityPipelineConfigSourceFluentBit> fluentBits;
     /**
-     * @return The `fluentd source ingests logs from a Fluentd-compatible service.
+     * @return The `fluentd` source ingests logs from a Fluentd-compatible service.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigSourceFluentd> fluentds;
@@ -151,7 +151,7 @@ public final class ObservabilityPipelineConfigSource {
         return this.fluentBits == null ? List.of() : this.fluentBits;
     }
     /**
-     * @return The `fluentd source ingests logs from a Fluentd-compatible service.
+     * @return The `fluentd` source ingests logs from a Fluentd-compatible service.
      * 
      */
     public List<ObservabilityPipelineConfigSourceFluentd> fluentds() {

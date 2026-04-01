@@ -3,15 +3,44 @@
 
 package com.pulumi.datadog.inputs;
 
-
+import com.pulumi.core.Output;
+import com.pulumi.core.annotations.Import;
+import java.lang.String;
+import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ObservabilityPipelineConfigDestinationCloudPremArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ObservabilityPipelineConfigDestinationCloudPremArgs Empty = new ObservabilityPipelineConfigDestinationCloudPremArgs();
 
+    /**
+     * Name of the environment variable or secret that holds the endpoint URL.
+     * 
+     */
+    @Import(name="endpointUrlKey")
+    private @Nullable Output<String> endpointUrlKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the endpoint URL.
+     * 
+     */
+    public Optional<Output<String>> endpointUrlKey() {
+        return Optional.ofNullable(this.endpointUrlKey);
+    }
+
+    private ObservabilityPipelineConfigDestinationCloudPremArgs() {}
+
+    private ObservabilityPipelineConfigDestinationCloudPremArgs(ObservabilityPipelineConfigDestinationCloudPremArgs $) {
+        this.endpointUrlKey = $.endpointUrlKey;
+    }
+
     public static Builder builder() {
         return new Builder();
+    }
+    public static Builder builder(ObservabilityPipelineConfigDestinationCloudPremArgs defaults) {
+        return new Builder(defaults);
     }
 
     public static final class Builder {
@@ -20,6 +49,32 @@ public final class ObservabilityPipelineConfigDestinationCloudPremArgs extends c
         public Builder() {
             $ = new ObservabilityPipelineConfigDestinationCloudPremArgs();
         }
+
+        public Builder(ObservabilityPipelineConfigDestinationCloudPremArgs defaults) {
+            $ = new ObservabilityPipelineConfigDestinationCloudPremArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param endpointUrlKey Name of the environment variable or secret that holds the endpoint URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointUrlKey(@Nullable Output<String> endpointUrlKey) {
+            $.endpointUrlKey = endpointUrlKey;
+            return this;
+        }
+
+        /**
+         * @param endpointUrlKey Name of the environment variable or secret that holds the endpoint URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointUrlKey(String endpointUrlKey) {
+            return endpointUrlKey(Output.of(endpointUrlKey));
+        }
+
         public ObservabilityPipelineConfigDestinationCloudPremArgs build() {
             return $;
         }

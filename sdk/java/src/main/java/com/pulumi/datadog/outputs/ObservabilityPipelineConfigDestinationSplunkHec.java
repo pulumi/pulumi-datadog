@@ -30,6 +30,11 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
      */
     private String encoding;
     /**
+     * @return Name of the environment variable or secret that holds the Splunk HEC endpoint URL.
+     * 
+     */
+    private @Nullable String endpointUrlKey;
+    /**
      * @return Optional name of the Splunk index where logs are written.
      * 
      */
@@ -39,6 +44,11 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
      * 
      */
     private @Nullable String sourcetype;
+    /**
+     * @return Name of the environment variable or secret that holds the Splunk HEC token.
+     * 
+     */
+    private @Nullable String tokenKey;
 
     private ObservabilityPipelineConfigDestinationSplunkHec() {}
     /**
@@ -63,6 +73,13 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
         return this.encoding;
     }
     /**
+     * @return Name of the environment variable or secret that holds the Splunk HEC endpoint URL.
+     * 
+     */
+    public Optional<String> endpointUrlKey() {
+        return Optional.ofNullable(this.endpointUrlKey);
+    }
+    /**
      * @return Optional name of the Splunk index where logs are written.
      * 
      */
@@ -75,6 +92,13 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
      */
     public Optional<String> sourcetype() {
         return Optional.ofNullable(this.sourcetype);
+    }
+    /**
+     * @return Name of the environment variable or secret that holds the Splunk HEC token.
+     * 
+     */
+    public Optional<String> tokenKey() {
+        return Optional.ofNullable(this.tokenKey);
     }
 
     public static Builder builder() {
@@ -89,16 +113,20 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
         private @Nullable Boolean autoExtractTimestamp;
         private @Nullable ObservabilityPipelineConfigDestinationSplunkHecBuffer buffer;
         private String encoding;
+        private @Nullable String endpointUrlKey;
         private @Nullable String index;
         private @Nullable String sourcetype;
+        private @Nullable String tokenKey;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationSplunkHec defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoExtractTimestamp = defaults.autoExtractTimestamp;
     	      this.buffer = defaults.buffer;
     	      this.encoding = defaults.encoding;
+    	      this.endpointUrlKey = defaults.endpointUrlKey;
     	      this.index = defaults.index;
     	      this.sourcetype = defaults.sourcetype;
+    	      this.tokenKey = defaults.tokenKey;
         }
 
         @CustomType.Setter
@@ -122,6 +150,12 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
             return this;
         }
         @CustomType.Setter
+        public Builder endpointUrlKey(@Nullable String endpointUrlKey) {
+
+            this.endpointUrlKey = endpointUrlKey;
+            return this;
+        }
+        @CustomType.Setter
         public Builder index(@Nullable String index) {
 
             this.index = index;
@@ -133,13 +167,21 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
             this.sourcetype = sourcetype;
             return this;
         }
+        @CustomType.Setter
+        public Builder tokenKey(@Nullable String tokenKey) {
+
+            this.tokenKey = tokenKey;
+            return this;
+        }
         public ObservabilityPipelineConfigDestinationSplunkHec build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationSplunkHec();
             _resultValue.autoExtractTimestamp = autoExtractTimestamp;
             _resultValue.buffer = buffer;
             _resultValue.encoding = encoding;
+            _resultValue.endpointUrlKey = endpointUrlKey;
             _resultValue.index = index;
             _resultValue.sourcetype = sourcetype;
+            _resultValue.tokenKey = tokenKey;
             return _resultValue;
         }
     }

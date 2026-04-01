@@ -27,7 +27,7 @@ class GetMonitorResult:
     """
     A collection of values returned by getMonitor.
     """
-    def __init__(__self__, enable_logs_sample=None, enable_samples=None, escalation_message=None, evaluation_delay=None, group_retention_duration=None, groupby_simple_monitor=None, id=None, include_tags=None, locked=None, message=None, monitor_tags_filters=None, monitor_threshold_windows=None, monitor_thresholds=None, name=None, name_filter=None, new_group_delay=None, new_host_delay=None, no_data_timeframe=None, notification_preset_name=None, notify_audit=None, notify_bies=None, notify_no_data=None, on_missing_data=None, query=None, renotify_interval=None, renotify_occurrences=None, renotify_statuses=None, require_full_window=None, restricted_roles=None, scheduling_options=None, tags=None, tags_filters=None, timeout_h=None, type=None):
+    def __init__(__self__, enable_logs_sample=None, enable_samples=None, escalation_message=None, evaluation_delay=None, group_retention_duration=None, groupby_simple_monitor=None, id=None, include_tags=None, message=None, monitor_tags_filters=None, monitor_threshold_windows=None, monitor_thresholds=None, name=None, name_filter=None, new_group_delay=None, new_host_delay=None, no_data_timeframe=None, notification_preset_name=None, notify_audit=None, notify_bies=None, notify_no_data=None, on_missing_data=None, query=None, renotify_interval=None, renotify_occurrences=None, renotify_statuses=None, require_full_window=None, restricted_roles=None, scheduling_options=None, tags=None, tags_filters=None, timeout_h=None, type=None):
         if enable_logs_sample and not isinstance(enable_logs_sample, bool):
             raise TypeError("Expected argument 'enable_logs_sample' to be a bool")
         pulumi.set(__self__, "enable_logs_sample", enable_logs_sample)
@@ -52,9 +52,6 @@ class GetMonitorResult:
         if include_tags and not isinstance(include_tags, bool):
             raise TypeError("Expected argument 'include_tags' to be a bool")
         pulumi.set(__self__, "include_tags", include_tags)
-        if locked and not isinstance(locked, bool):
-            raise TypeError("Expected argument 'locked' to be a bool")
-        pulumi.set(__self__, "locked", locked)
         if message and not isinstance(message, str):
             raise TypeError("Expected argument 'message' to be a str")
         pulumi.set(__self__, "message", message)
@@ -194,14 +191,6 @@ class GetMonitorResult:
         Whether or not notifications from the monitor automatically inserts its triggering tags into the title.
         """
         return pulumi.get(self, "include_tags")
-
-    @_builtins.property
-    @pulumi.getter
-    def locked(self) -> _builtins.bool:
-        """
-        Whether or not changes to the monitor are restricted to the creator or admins.
-        """
-        return pulumi.get(self, "locked")
 
     @_builtins.property
     @pulumi.getter
@@ -415,7 +404,6 @@ class AwaitableGetMonitorResult(GetMonitorResult):
             groupby_simple_monitor=self.groupby_simple_monitor,
             id=self.id,
             include_tags=self.include_tags,
-            locked=self.locked,
             message=self.message,
             monitor_tags_filters=self.monitor_tags_filters,
             monitor_threshold_windows=self.monitor_threshold_windows,
@@ -481,7 +469,6 @@ def get_monitor(monitor_tags_filters: Optional[Sequence[_builtins.str]] = None,
         groupby_simple_monitor=pulumi.get(__ret__, 'groupby_simple_monitor'),
         id=pulumi.get(__ret__, 'id'),
         include_tags=pulumi.get(__ret__, 'include_tags'),
-        locked=pulumi.get(__ret__, 'locked'),
         message=pulumi.get(__ret__, 'message'),
         monitor_tags_filters=pulumi.get(__ret__, 'monitor_tags_filters'),
         monitor_threshold_windows=pulumi.get(__ret__, 'monitor_threshold_windows'),
@@ -544,7 +531,6 @@ def get_monitor_output(monitor_tags_filters: Optional[pulumi.Input[Optional[Sequ
         groupby_simple_monitor=pulumi.get(__response__, 'groupby_simple_monitor'),
         id=pulumi.get(__response__, 'id'),
         include_tags=pulumi.get(__response__, 'include_tags'),
-        locked=pulumi.get(__response__, 'locked'),
         message=pulumi.get(__response__, 'message'),
         monitor_tags_filters=pulumi.get(__response__, 'monitor_tags_filters'),
         monitor_threshold_windows=pulumi.get(__response__, 'monitor_threshold_windows'),

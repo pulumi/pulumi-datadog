@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
+	"github.com/pulumi/pulumi-datadog/sdk/v5/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi-datadog/sdk/v5/go/datadog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -79,8 +79,6 @@ type LookupMonitorResult struct {
 	Id string `pulumi:"id"`
 	// Whether or not notifications from the monitor automatically inserts its triggering tags into the title.
 	IncludeTags bool `pulumi:"includeTags"`
-	// Whether or not changes to the monitor are restricted to the creator or admins.
-	Locked bool `pulumi:"locked"`
 	// Message included with notifications for this monitor
 	Message string `pulumi:"message"`
 	// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
@@ -208,11 +206,6 @@ func (o LookupMonitorResultOutput) Id() pulumi.StringOutput {
 // Whether or not notifications from the monitor automatically inserts its triggering tags into the title.
 func (o LookupMonitorResultOutput) IncludeTags() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupMonitorResult) bool { return v.IncludeTags }).(pulumi.BoolOutput)
-}
-
-// Whether or not changes to the monitor are restricted to the creator or admins.
-func (o LookupMonitorResultOutput) Locked() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupMonitorResult) bool { return v.Locked }).(pulumi.BoolOutput)
 }
 
 // Message included with notifications for this monitor

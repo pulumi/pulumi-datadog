@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Acl;
         /// <summary>
-        /// GCP credentials used to authenticate with Google Cloud services.
+        /// Google Cloud credentials used to authenticate with Google Cloud services.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageAuth? Auth;
         /// <summary>

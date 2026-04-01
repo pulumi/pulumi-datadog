@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigSourceKafka
     {
         /// <summary>
+        /// Name of the environment variable or secret that holds the Kafka bootstrap servers connection string.
+        /// </summary>
+        public readonly string? BootstrapServersKey;
+        /// <summary>
         /// The Kafka consumer group ID.
         /// </summary>
         public readonly string GroupId;
@@ -36,6 +40,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private ObservabilityPipelineConfigSourceKafka(
+            string? bootstrapServersKey,
+
             string groupId,
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigSourceKafkaLibrdkafkaOption> librdkafkaOptions,
@@ -46,6 +52,7 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<string> topics)
         {
+            BootstrapServersKey = bootstrapServersKey;
             GroupId = groupId;
             LibrdkafkaOptions = librdkafkaOptions;
             Sasl = sasl;

@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryComputeArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByFieldsArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetChangeDefinitionRequestQueryEventQuerySearchArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -81,6 +82,21 @@ public final class DashboardWidgetChangeDefinitionRequestQueryEventQueryArgs ext
     }
 
     /**
+     * Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     * 
+     */
+    @Import(name="groupByFields")
+    private @Nullable Output<DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByFieldsArgs> groupByFields;
+
+    /**
+     * @return Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     * 
+     */
+    public Optional<Output<DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByFieldsArgs>> groupByFields() {
+        return Optional.ofNullable(this.groupByFields);
+    }
+
+    /**
      * An array of index names to query in the stream.
      * 
      */
@@ -147,6 +163,7 @@ public final class DashboardWidgetChangeDefinitionRequestQueryEventQueryArgs ext
         this.crossOrgUuids = $.crossOrgUuids;
         this.dataSource = $.dataSource;
         this.groupBies = $.groupBies;
+        this.groupByFields = $.groupByFields;
         this.indexes = $.indexes;
         this.name = $.name;
         this.search = $.search;
@@ -273,6 +290,27 @@ public final class DashboardWidgetChangeDefinitionRequestQueryEventQueryArgs ext
          */
         public Builder groupBies(DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByArgs... groupBies) {
             return groupBies(List.of(groupBies));
+        }
+
+        /**
+         * @param groupByFields Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupByFields(@Nullable Output<DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByFieldsArgs> groupByFields) {
+            $.groupByFields = groupByFields;
+            return this;
+        }
+
+        /**
+         * @param groupByFields Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupByFields(DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByFieldsArgs groupByFields) {
+            return groupByFields(Output.of(groupByFields));
         }
 
         /**

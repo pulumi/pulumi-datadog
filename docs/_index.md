@@ -11,7 +11,7 @@ The Datadog provider is available as a package in all Pulumi languages:
 
 * JavaScript/TypeScript: [`@pulumi/datadog`](https://www.npmjs.com/package/@pulumi/datadog)
 * Python: [`pulumi-datadog`](https://pypi.org/project/pulumi-datadog/)
-* Go: [`github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog`](https://github.com/pulumi/pulumi-datadog)
+* Go: [`github.com/pulumi/pulumi-datadog/sdk/v5/go/datadog`](https://github.com/pulumi/pulumi-datadog)
 * .NET: [`Pulumi.Datadog`](https://www.nuget.org/packages/Pulumi.Datadog)
 * Java: [`com.pulumi/datadog`](https://central.sonatype.com/artifact/com.pulumi/datadog)
 

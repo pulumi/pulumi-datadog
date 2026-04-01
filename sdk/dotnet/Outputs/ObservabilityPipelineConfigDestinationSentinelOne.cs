@@ -21,15 +21,22 @@ namespace Pulumi.Datadog.Outputs
         /// The SentinelOne region to send logs to.
         /// </summary>
         public readonly string Region;
+        /// <summary>
+        /// Name of the environment variable or secret that holds the SentinelOne API token.
+        /// </summary>
+        public readonly string? TokenKey;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationSentinelOne(
             Outputs.ObservabilityPipelineConfigDestinationSentinelOneBuffer? buffer,
 
-            string region)
+            string region,
+
+            string? tokenKey)
         {
             Buffer = buffer;
             Region = region;
+            TokenKey = tokenKey;
         }
     }
 }

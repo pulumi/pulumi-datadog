@@ -242,14 +242,14 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
     }
 
     /**
-     * The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
+     * The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings or custom mapping configuration.
      * 
      */
     @Import(name="ocsfMapper")
     private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperArgs> ocsfMapper;
 
     /**
-     * @return The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
+     * @return The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings or custom mapping configuration.
      * 
      */
     public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperArgs>> ocsfMapper() {
@@ -753,7 +753,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
         }
 
         /**
-         * @param ocsfMapper The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
+         * @param ocsfMapper The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings or custom mapping configuration.
          * 
          * @return builder
          * 
@@ -764,7 +764,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
         }
 
         /**
-         * @param ocsfMapper The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
+         * @param ocsfMapper The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings or custom mapping configuration.
          * 
          * @return builder
          * 

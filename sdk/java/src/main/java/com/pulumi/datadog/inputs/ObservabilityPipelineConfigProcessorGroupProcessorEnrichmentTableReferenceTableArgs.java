@@ -18,6 +18,21 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
     public static final ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTableArgs Empty = new ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTableArgs();
 
     /**
+     * Name of the environment variable or secret that holds the Datadog application key for the reference table.
+     * 
+     */
+    @Import(name="appKeyKey")
+    private @Nullable Output<String> appKeyKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the Datadog application key for the reference table.
+     * 
+     */
+    public Optional<Output<String>> appKeyKey() {
+        return Optional.ofNullable(this.appKeyKey);
+    }
+
+    /**
      * List of column names to include from the reference table. If not provided, all columns are included.
      * 
      */
@@ -65,6 +80,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
     private ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTableArgs() {}
 
     private ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTableArgs(ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTableArgs $) {
+        this.appKeyKey = $.appKeyKey;
         this.columns = $.columns;
         this.keyField = $.keyField;
         this.tableId = $.tableId;
@@ -86,6 +102,27 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
 
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTableArgs defaults) {
             $ = new ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTableArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param appKeyKey Name of the environment variable or secret that holds the Datadog application key for the reference table.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appKeyKey(@Nullable Output<String> appKeyKey) {
+            $.appKeyKey = appKeyKey;
+            return this;
+        }
+
+        /**
+         * @param appKeyKey Name of the environment variable or secret that holds the Datadog application key for the reference table.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appKeyKey(String appKeyKey) {
+            return appKeyKey(Output.of(appKeyKey));
         }
 
         /**

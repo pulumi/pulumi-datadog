@@ -24,6 +24,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("encoding")]
         public Input<string>? Encoding { get; set; }
 
+        /// <summary>
+        /// Name of the environment variable or secret that holds the Sumo Logic endpoint URL.
+        /// </summary>
+        [Input("endpointUrlKey")]
+        public Input<string>? EndpointUrlKey { get; set; }
+
         [Input("headerCustomFields")]
         private InputList<Inputs.ObservabilityPipelineConfigDestinationSumoLogicHeaderCustomFieldArgs>? _headerCustomFields;
 

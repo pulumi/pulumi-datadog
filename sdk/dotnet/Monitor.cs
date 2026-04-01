@@ -119,12 +119,6 @@ namespace Pulumi.Datadog
         public Output<bool?> IncludeTags { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `False`.
-        /// </summary>
-        [Output("locked")]
-        public Output<bool?> Locked { get; private set; } = null!;
-
-        /// <summary>
         /// A message to include with notifications for this monitor.
         /// </summary>
         [Output("message")]
@@ -240,7 +234,6 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
-        ///  &gt; **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `True`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `RestrictedRoles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `datadog.RestrictionPolicy` resource.
         /// </summary>
         [Output("restrictedRoles")]
         public Output<ImmutableArray<string>> RestrictedRoles { get; private set; } = null!;
@@ -249,7 +242,7 @@ namespace Pulumi.Datadog
         /// Configuration options for scheduling.
         /// </summary>
         [Output("schedulingOptions")]
-        public Output<ImmutableArray<Outputs.MonitorSchedulingOption>> SchedulingOptions { get; private set; } = null!;
+        public Output<Outputs.MonitorSchedulingOptions?> SchedulingOptions { get; private set; } = null!;
 
         /// <summary>
         /// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
@@ -393,12 +386,6 @@ namespace Pulumi.Datadog
         public Input<bool>? IncludeTags { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `False`.
-        /// </summary>
-        [Input("locked")]
-        public Input<bool>? Locked { get; set; }
-
-        /// <summary>
         /// A message to include with notifications for this monitor.
         /// </summary>
         [Input("message", required: true)]
@@ -529,25 +516,19 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
-        ///  &gt; **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `True`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `RestrictedRoles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `datadog.RestrictionPolicy` resource.
         /// </summary>
+        [Obsolete(@"Use `datadog.RestrictionPolicy` resource to manage permission.")]
         public InputList<string> RestrictedRoles
         {
             get => _restrictedRoles ?? (_restrictedRoles = new InputList<string>());
             set => _restrictedRoles = value;
         }
 
-        [Input("schedulingOptions")]
-        private InputList<Inputs.MonitorSchedulingOptionArgs>? _schedulingOptions;
-
         /// <summary>
         /// Configuration options for scheduling.
         /// </summary>
-        public InputList<Inputs.MonitorSchedulingOptionArgs> SchedulingOptions
-        {
-            get => _schedulingOptions ?? (_schedulingOptions = new InputList<Inputs.MonitorSchedulingOptionArgs>());
-            set => _schedulingOptions = value;
-        }
+        [Input("schedulingOptions")]
+        public Input<Inputs.MonitorSchedulingOptionsArgs>? SchedulingOptions { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;
@@ -657,12 +638,6 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("includeTags")]
         public Input<bool>? IncludeTags { get; set; }
-
-        /// <summary>
-        /// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `False`.
-        /// </summary>
-        [Input("locked")]
-        public Input<bool>? Locked { get; set; }
 
         /// <summary>
         /// A message to include with notifications for this monitor.
@@ -795,25 +770,19 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
-        ///  &gt; **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `True`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `RestrictedRoles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `datadog.RestrictionPolicy` resource.
         /// </summary>
+        [Obsolete(@"Use `datadog.RestrictionPolicy` resource to manage permission.")]
         public InputList<string> RestrictedRoles
         {
             get => _restrictedRoles ?? (_restrictedRoles = new InputList<string>());
             set => _restrictedRoles = value;
         }
 
-        [Input("schedulingOptions")]
-        private InputList<Inputs.MonitorSchedulingOptionGetArgs>? _schedulingOptions;
-
         /// <summary>
         /// Configuration options for scheduling.
         /// </summary>
-        public InputList<Inputs.MonitorSchedulingOptionGetArgs> SchedulingOptions
-        {
-            get => _schedulingOptions ?? (_schedulingOptions = new InputList<Inputs.MonitorSchedulingOptionGetArgs>());
-            set => _schedulingOptions = value;
-        }
+        [Input("schedulingOptions")]
+        public Input<Inputs.MonitorSchedulingOptionsGetArgs>? SchedulingOptions { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;

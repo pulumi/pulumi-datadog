@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationKafka
     {
         /// <summary>
+        /// Name of the environment variable or secret that holds the Kafka bootstrap servers.
+        /// </summary>
+        public readonly string? BootstrapServersKey;
+        /// <summary>
         /// Compression codec for Kafka messages. Valid values are `None`, `Gzip`, `Snappy`, `Lz4`, `Zstd`.
         /// </summary>
         public readonly string? Compression;
@@ -64,6 +68,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationKafka(
+            string? bootstrapServersKey,
+
             string? compression,
 
             string encoding,
@@ -88,6 +94,7 @@ namespace Pulumi.Datadog.Outputs
 
             string topic)
         {
+            BootstrapServersKey = bootstrapServersKey;
             Compression = compression;
             Encoding = encoding;
             HeadersKey = headersKey;

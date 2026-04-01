@@ -6,12 +6,18 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceAmazonDataFirehoseTls;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigSourceAmazonDataFirehose {
+    /**
+     * @return Name of the environment variable or secret that holds the listen address.
+     * 
+     */
+    private @Nullable String addressKey;
     /**
      * @return AWS authentication credentials used for accessing AWS services. If omitted, the system&#39;s default credentials are used (for example, the IAM role and environment variables).
      * 
@@ -24,6 +30,13 @@ public final class ObservabilityPipelineConfigSourceAmazonDataFirehose {
     private @Nullable ObservabilityPipelineConfigSourceAmazonDataFirehoseTls tls;
 
     private ObservabilityPipelineConfigSourceAmazonDataFirehose() {}
+    /**
+     * @return Name of the environment variable or secret that holds the listen address.
+     * 
+     */
+    public Optional<String> addressKey() {
+        return Optional.ofNullable(this.addressKey);
+    }
     /**
      * @return AWS authentication credentials used for accessing AWS services. If omitted, the system&#39;s default credentials are used (for example, the IAM role and environment variables).
      * 
@@ -48,15 +61,23 @@ public final class ObservabilityPipelineConfigSourceAmazonDataFirehose {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String addressKey;
         private @Nullable ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth auth;
         private @Nullable ObservabilityPipelineConfigSourceAmazonDataFirehoseTls tls;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigSourceAmazonDataFirehose defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.addressKey = defaults.addressKey;
     	      this.auth = defaults.auth;
     	      this.tls = defaults.tls;
         }
 
+        @CustomType.Setter
+        public Builder addressKey(@Nullable String addressKey) {
+
+            this.addressKey = addressKey;
+            return this;
+        }
         @CustomType.Setter
         public Builder auth(@Nullable ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth auth) {
 
@@ -71,6 +92,7 @@ public final class ObservabilityPipelineConfigSourceAmazonDataFirehose {
         }
         public ObservabilityPipelineConfigSourceAmazonDataFirehose build() {
             final var _resultValue = new ObservabilityPipelineConfigSourceAmazonDataFirehose();
+            _resultValue.addressKey = addressKey;
             _resultValue.auth = auth;
             _resultValue.tls = tls;
             return _resultValue;

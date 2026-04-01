@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
+	"github.com/pulumi/pulumi-datadog/sdk/v5/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi-datadog/sdk/v5/go/datadog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -96,7 +96,7 @@ type LogsIndex struct {
 	DailyLimitReset LogsIndexDailyLimitResetOutput `pulumi:"dailyLimitReset"`
 	// A percentage threshold of the daily quota at which a Datadog warning event is generated.
 	DailyLimitWarningThresholdPercentage pulumi.Float64Output `pulumi:"dailyLimitWarningThresholdPercentage"`
-	// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current dailyLimit is maintained.
+	// If true, disables the daily limit and sets `dailyLimit` to null. If false, enables the daily limit. When creating an index, if this attribute is omitted, the daily limit is enabled by default. When updating an index, if this attribute is omitted, the existing value is preserved. Providing a `dailyLimit` value does not re-enable the limit if it was previously disabled unless `disableDailyLimit` is explicitly set to false.
 	DisableDailyLimit pulumi.BoolOutput `pulumi:"disableDailyLimit"`
 	// List of exclusion filters.
 	ExclusionFilters LogsIndexExclusionFilterArrayOutput `pulumi:"exclusionFilters"`
@@ -154,7 +154,7 @@ type logsIndexState struct {
 	DailyLimitReset *LogsIndexDailyLimitReset `pulumi:"dailyLimitReset"`
 	// A percentage threshold of the daily quota at which a Datadog warning event is generated.
 	DailyLimitWarningThresholdPercentage *float64 `pulumi:"dailyLimitWarningThresholdPercentage"`
-	// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current dailyLimit is maintained.
+	// If true, disables the daily limit and sets `dailyLimit` to null. If false, enables the daily limit. When creating an index, if this attribute is omitted, the daily limit is enabled by default. When updating an index, if this attribute is omitted, the existing value is preserved. Providing a `dailyLimit` value does not re-enable the limit if it was previously disabled unless `disableDailyLimit` is explicitly set to false.
 	DisableDailyLimit *bool `pulumi:"disableDailyLimit"`
 	// List of exclusion filters.
 	ExclusionFilters []LogsIndexExclusionFilter `pulumi:"exclusionFilters"`
@@ -177,7 +177,7 @@ type LogsIndexState struct {
 	DailyLimitReset LogsIndexDailyLimitResetPtrInput
 	// A percentage threshold of the daily quota at which a Datadog warning event is generated.
 	DailyLimitWarningThresholdPercentage pulumi.Float64PtrInput
-	// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current dailyLimit is maintained.
+	// If true, disables the daily limit and sets `dailyLimit` to null. If false, enables the daily limit. When creating an index, if this attribute is omitted, the daily limit is enabled by default. When updating an index, if this attribute is omitted, the existing value is preserved. Providing a `dailyLimit` value does not re-enable the limit if it was previously disabled unless `disableDailyLimit` is explicitly set to false.
 	DisableDailyLimit pulumi.BoolPtrInput
 	// List of exclusion filters.
 	ExclusionFilters LogsIndexExclusionFilterArrayInput
@@ -204,7 +204,7 @@ type logsIndexArgs struct {
 	DailyLimitReset *LogsIndexDailyLimitReset `pulumi:"dailyLimitReset"`
 	// A percentage threshold of the daily quota at which a Datadog warning event is generated.
 	DailyLimitWarningThresholdPercentage *float64 `pulumi:"dailyLimitWarningThresholdPercentage"`
-	// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current dailyLimit is maintained.
+	// If true, disables the daily limit and sets `dailyLimit` to null. If false, enables the daily limit. When creating an index, if this attribute is omitted, the daily limit is enabled by default. When updating an index, if this attribute is omitted, the existing value is preserved. Providing a `dailyLimit` value does not re-enable the limit if it was previously disabled unless `disableDailyLimit` is explicitly set to false.
 	DisableDailyLimit *bool `pulumi:"disableDailyLimit"`
 	// List of exclusion filters.
 	ExclusionFilters []LogsIndexExclusionFilter `pulumi:"exclusionFilters"`
@@ -228,7 +228,7 @@ type LogsIndexArgs struct {
 	DailyLimitReset LogsIndexDailyLimitResetPtrInput
 	// A percentage threshold of the daily quota at which a Datadog warning event is generated.
 	DailyLimitWarningThresholdPercentage pulumi.Float64PtrInput
-	// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current dailyLimit is maintained.
+	// If true, disables the daily limit and sets `dailyLimit` to null. If false, enables the daily limit. When creating an index, if this attribute is omitted, the daily limit is enabled by default. When updating an index, if this attribute is omitted, the existing value is preserved. Providing a `dailyLimit` value does not re-enable the limit if it was previously disabled unless `disableDailyLimit` is explicitly set to false.
 	DisableDailyLimit pulumi.BoolPtrInput
 	// List of exclusion filters.
 	ExclusionFilters LogsIndexExclusionFilterArrayInput
@@ -346,7 +346,7 @@ func (o LogsIndexOutput) DailyLimitWarningThresholdPercentage() pulumi.Float64Ou
 	return o.ApplyT(func(v *LogsIndex) pulumi.Float64Output { return v.DailyLimitWarningThresholdPercentage }).(pulumi.Float64Output)
 }
 
-// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current dailyLimit is maintained.
+// If true, disables the daily limit and sets `dailyLimit` to null. If false, enables the daily limit. When creating an index, if this attribute is omitted, the daily limit is enabled by default. When updating an index, if this attribute is omitted, the existing value is preserved. Providing a `dailyLimit` value does not re-enable the limit if it was previously disabled unless `disableDailyLimit` is explicitly set to false.
 func (o LogsIndexOutput) DisableDailyLimit() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LogsIndex) pulumi.BoolOutput { return v.DisableDailyLimit }).(pulumi.BoolOutput)
 }

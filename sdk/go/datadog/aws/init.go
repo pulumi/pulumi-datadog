@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
+	"github.com/pulumi/pulumi-datadog/sdk/v5/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,20 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "datadog:aws/integration:Integration":
-		r = &Integration{}
 	case "datadog:aws/integrationAccount:IntegrationAccount":
 		r = &IntegrationAccount{}
 	case "datadog:aws/integrationEventBridge:IntegrationEventBridge":
 		r = &IntegrationEventBridge{}
 	case "datadog:aws/integrationExternalId:IntegrationExternalId":
 		r = &IntegrationExternalId{}
-	case "datadog:aws/integrationLambdaArn:IntegrationLambdaArn":
-		r = &IntegrationLambdaArn{}
-	case "datadog:aws/integrationLogCollection:IntegrationLogCollection":
-		r = &IntegrationLogCollection{}
-	case "datadog:aws/integrationTagFilter:IntegrationTagFilter":
-		r = &IntegrationTagFilter{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -50,11 +42,6 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"datadog",
-		"aws/integration",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"datadog",
 		"aws/integrationAccount",
 		&module{version},
 	)
@@ -66,21 +53,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"aws/integrationExternalId",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"datadog",
-		"aws/integrationLambdaArn",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"datadog",
-		"aws/integrationLogCollection",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"datadog",
-		"aws/integrationTagFilter",
 		&module{version},
 	)
 }

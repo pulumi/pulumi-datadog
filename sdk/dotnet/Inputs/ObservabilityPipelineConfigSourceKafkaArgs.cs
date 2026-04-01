@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigSourceKafkaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of the environment variable or secret that holds the Kafka bootstrap servers connection string.
+        /// </summary>
+        [Input("bootstrapServersKey")]
+        public Input<string>? BootstrapServersKey { get; set; }
+
+        /// <summary>
         /// The Kafka consumer group ID.
         /// </summary>
         [Input("groupId", required: true)]

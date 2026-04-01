@@ -25,6 +25,11 @@ public final class ObservabilityPipelineConfigDestinationSumoLogic {
      */
     private @Nullable String encoding;
     /**
+     * @return Name of the environment variable or secret that holds the Sumo Logic endpoint URL.
+     * 
+     */
+    private @Nullable String endpointUrlKey;
+    /**
      * @return A list of custom headers to include in the request to Sumo Logic.
      * 
      */
@@ -59,6 +64,13 @@ public final class ObservabilityPipelineConfigDestinationSumoLogic {
      */
     public Optional<String> encoding() {
         return Optional.ofNullable(this.encoding);
+    }
+    /**
+     * @return Name of the environment variable or secret that holds the Sumo Logic endpoint URL.
+     * 
+     */
+    public Optional<String> endpointUrlKey() {
+        return Optional.ofNullable(this.endpointUrlKey);
     }
     /**
      * @return A list of custom headers to include in the request to Sumo Logic.
@@ -100,6 +112,7 @@ public final class ObservabilityPipelineConfigDestinationSumoLogic {
     public static final class Builder {
         private @Nullable ObservabilityPipelineConfigDestinationSumoLogicBuffer buffer;
         private @Nullable String encoding;
+        private @Nullable String endpointUrlKey;
         private @Nullable List<ObservabilityPipelineConfigDestinationSumoLogicHeaderCustomField> headerCustomFields;
         private @Nullable String headerHostName;
         private @Nullable String headerSourceCategory;
@@ -109,6 +122,7 @@ public final class ObservabilityPipelineConfigDestinationSumoLogic {
     	      Objects.requireNonNull(defaults);
     	      this.buffer = defaults.buffer;
     	      this.encoding = defaults.encoding;
+    	      this.endpointUrlKey = defaults.endpointUrlKey;
     	      this.headerCustomFields = defaults.headerCustomFields;
     	      this.headerHostName = defaults.headerHostName;
     	      this.headerSourceCategory = defaults.headerSourceCategory;
@@ -125,6 +139,12 @@ public final class ObservabilityPipelineConfigDestinationSumoLogic {
         public Builder encoding(@Nullable String encoding) {
 
             this.encoding = encoding;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder endpointUrlKey(@Nullable String endpointUrlKey) {
+
+            this.endpointUrlKey = endpointUrlKey;
             return this;
         }
         @CustomType.Setter
@@ -158,6 +178,7 @@ public final class ObservabilityPipelineConfigDestinationSumoLogic {
             final var _resultValue = new ObservabilityPipelineConfigDestinationSumoLogic();
             _resultValue.buffer = buffer;
             _resultValue.encoding = encoding;
+            _resultValue.endpointUrlKey = endpointUrlKey;
             _resultValue.headerCustomFields = headerCustomFields;
             _resultValue.headerHostName = headerHostName;
             _resultValue.headerSourceCategory = headerSourceCategory;

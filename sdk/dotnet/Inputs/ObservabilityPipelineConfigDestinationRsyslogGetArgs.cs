@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.ObservabilityPipelineConfigDestinationRsyslogBufferGetArgs>? Buffer { get; set; }
 
         /// <summary>
+        /// Name of the environment variable or secret that holds the rsyslog endpoint URL.
+        /// </summary>
+        [Input("endpointUrlKey")]
+        public Input<string>? EndpointUrlKey { get; set; }
+
+        /// <summary>
         /// Optional socket keepalive duration in milliseconds.
         /// </summary>
         [Input("keepalive")]

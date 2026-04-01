@@ -46,7 +46,6 @@ from .get_action_connection import *
 from .get_api_key import *
 from .get_apm_retention_filters_order import *
 from .get_app_builder_app import *
-from .get_application_key import *
 from .get_aws_cur_config import *
 from .get_azure_uc_config import *
 from .get_cloud_workload_security_agent_rules import *
@@ -148,6 +147,7 @@ from .rum_application import *
 from .rum_metric import *
 from .rum_retention_filter import *
 from .rum_retention_filters_order import *
+from .secure_embed_dashboard import *
 from .security_monitoring_critical_asset import *
 from .security_monitoring_default_rule import *
 from .security_monitoring_filter import *
@@ -228,14 +228,6 @@ _utilities.register(
 [
  {
   "pkg": "datadog",
-  "mod": "aws/integration",
-  "fqn": "pulumi_datadog.aws",
-  "classes": {
-   "datadog:aws/integration:Integration": "Integration"
-  }
- },
- {
-  "pkg": "datadog",
   "mod": "aws/integrationAccount",
   "fqn": "pulumi_datadog.aws",
   "classes": {
@@ -256,30 +248,6 @@ _utilities.register(
   "fqn": "pulumi_datadog.aws",
   "classes": {
    "datadog:aws/integrationExternalId:IntegrationExternalId": "IntegrationExternalId"
-  }
- },
- {
-  "pkg": "datadog",
-  "mod": "aws/integrationLambdaArn",
-  "fqn": "pulumi_datadog.aws",
-  "classes": {
-   "datadog:aws/integrationLambdaArn:IntegrationLambdaArn": "IntegrationLambdaArn"
-  }
- },
- {
-  "pkg": "datadog",
-  "mod": "aws/integrationLogCollection",
-  "fqn": "pulumi_datadog.aws",
-  "classes": {
-   "datadog:aws/integrationLogCollection:IntegrationLogCollection": "IntegrationLogCollection"
-  }
- },
- {
-  "pkg": "datadog",
-  "mod": "aws/integrationTagFilter",
-  "fqn": "pulumi_datadog.aws",
-  "classes": {
-   "datadog:aws/integrationTagFilter:IntegrationTagFilter": "IntegrationTagFilter"
   }
  },
  {
@@ -928,6 +896,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder": "RumRetentionFiltersOrder"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/secureEmbedDashboard",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/secureEmbedDashboard:SecureEmbedDashboard": "SecureEmbedDashboard"
   }
  },
  {
