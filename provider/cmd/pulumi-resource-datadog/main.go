@@ -23,7 +23,7 @@ import (
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 
-	datadog "github.com/pulumi/pulumi-datadog/provider/v4"
+	datadog "github.com/pulumi/pulumi-datadog/provider/v5"
 )
 
 //go:embed schema-embed.json

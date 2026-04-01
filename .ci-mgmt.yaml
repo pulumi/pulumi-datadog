@@ -1,5 +1,5 @@
 provider: datadog
-major-version: 4
+major-version: 5
 upstreamProviderOrg: DataDog
 lint: false
 makeTemplate: bridged

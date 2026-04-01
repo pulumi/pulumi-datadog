@@ -3,7 +3,7 @@
         "resources": {
             "datadog_action_connection": {
                 "current": "datadog:index/actionConnection:ActionConnection",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "http": {
                         "fields": {
@@ -26,23 +26,23 @@
             },
             "datadog_agentless_scanning_aws_scan_options": {
                 "current": "datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_agentless_scanning_gcp_scan_options": {
                 "current": "datadog:index/agentlessScanningGcpScanOptions:AgentlessScanningGcpScanOptions",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_api_key": {
                 "current": "datadog:index/apiKey:ApiKey",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_apm_retention_filter": {
                 "current": "datadog:index/apmRetentionFilter:ApmRetentionFilter",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_apm_retention_filter_order": {
                 "current": "datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "filter_ids": {
                         "maxItemsOne": false
@@ -51,15 +51,15 @@
             },
             "datadog_app_builder_app": {
                 "current": "datadog:index/appBuilderApp:AppBuilderApp",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_app_key_registration": {
                 "current": "datadog:index/appKeyRegistration:AppKeyRegistration",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_application_key": {
                 "current": "datadog:index/applicationKey:ApplicationKey",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "scopes": {
                         "maxItemsOne": false
@@ -68,7 +68,7 @@
             },
             "datadog_appsec_waf_custom_rule": {
                 "current": "datadog:index/appsecWafCustomRule:AppsecWafCustomRule",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "condition": {
                         "maxItemsOne": false,
@@ -101,7 +101,7 @@
             },
             "datadog_appsec_waf_exclusion_filter": {
                 "current": "datadog:index/appsecWafExclusionFilter:AppsecWafExclusionFilter",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "ip_list": {
                         "maxItemsOne": false
@@ -119,11 +119,11 @@
             },
             "datadog_authn_mapping": {
                 "current": "datadog:index/authnMapping:AuthnMapping",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_aws_cur_config": {
                 "current": "datadog:index/awsCurConfig:AwsCurConfig",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "account_filters": {
                         "fields": {
@@ -142,7 +142,7 @@
             },
             "datadog_azure_uc_config": {
                 "current": "datadog:index/azureUcConfig:AzureUcConfig",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "error_messages": {
                         "maxItemsOne": false
@@ -151,7 +151,7 @@
             },
             "datadog_child_organization": {
                 "current": "datadog:index/childOrganization:ChildOrganization",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "api_key": {
                         "maxItemsOne": false
@@ -192,7 +192,7 @@
             },
             "datadog_cloud_configuration_rule": {
                 "current": "datadog:index/cloudConfigurationRule:CloudConfigurationRule",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "filter": {
                         "maxItemsOne": false
@@ -213,15 +213,15 @@
             },
             "datadog_cloud_inventory_sync_config": {
                 "current": "datadog:index/cloudInventorySyncConfig:CloudInventorySyncConfig",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_cloud_workload_security_agent_rule": {
                 "current": "datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_compliance_custom_framework": {
                 "current": "datadog:index/complianceCustomFramework:ComplianceCustomFramework",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "requirements": {
                         "maxItemsOne": false,
@@ -244,7 +244,7 @@
             },
             "datadog_compliance_resource_evaluation_filter": {
                 "current": "datadog:index/complianceResourceEvaluationFilter:ComplianceResourceEvaluationFilter",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "tags": {
                         "maxItemsOne": false
@@ -253,7 +253,7 @@
             },
             "datadog_cost_budget": {
                 "current": "datadog:index/costBudget:CostBudget",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "budget_line": {
                         "maxItemsOne": false,
@@ -285,7 +285,7 @@
             },
             "datadog_csm_threats_agent_rule": {
                 "current": "datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "actions": {
                         "maxItemsOne": false
@@ -297,7 +297,7 @@
             },
             "datadog_csm_threats_policy": {
                 "current": "datadog:index/csmThreatsPolicy:CsmThreatsPolicy",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "host_tags_lists": {
                         "maxItemsOne": false,
@@ -312,7 +312,7 @@
             },
             "datadog_custom_allocation_rule": {
                 "current": "datadog:index/customAllocationRule:CustomAllocationRule",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "costs_to_allocate": {
                         "maxItemsOne": false,
@@ -381,7 +381,7 @@
             },
             "datadog_custom_allocation_rules": {
                 "current": "datadog:index/customAllocationRules:CustomAllocationRules",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "rule_ids": {
                         "maxItemsOne": false
@@ -390,7 +390,7 @@
             },
             "datadog_dashboard": {
                 "current": "datadog:index/dashboard:Dashboard",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "dashboard_lists": {
                         "maxItemsOne": false
@@ -604,6 +604,19 @@
                                                                                     "maxItemsOne": false,
                                                                                     "elem": {
                                                                                         "fields": {
+                                                                                            "sort": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "group_by_fields": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "fields": {
+                                                                                                "maxItemsOne": false
+                                                                                            },
                                                                                             "sort": {
                                                                                                 "maxItemsOne": true
                                                                                             }
@@ -994,6 +1007,19 @@
                                                                                         }
                                                                                     }
                                                                                 },
+                                                                                "group_by_fields": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "fields": {
+                                                                                                "maxItemsOne": false
+                                                                                            },
+                                                                                            "sort": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
                                                                                 "indexes": {
                                                                                     "maxItemsOne": false
                                                                                 },
@@ -1245,6 +1271,19 @@
                                                                                                             "maxItemsOne": false,
                                                                                                             "elem": {
                                                                                                                 "fields": {
+                                                                                                                    "sort": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "group_by_fields": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "fields": {
+                                                                                                                        "maxItemsOne": false
+                                                                                                                    },
                                                                                                                     "sort": {
                                                                                                                         "maxItemsOne": true
                                                                                                                     }
@@ -1635,6 +1674,19 @@
                                                                                                                 }
                                                                                                             }
                                                                                                         },
+                                                                                                        "group_by_fields": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "fields": {
+                                                                                                                        "maxItemsOne": false
+                                                                                                                    },
+                                                                                                                    "sort": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
                                                                                                         "indexes": {
                                                                                                             "maxItemsOne": false
                                                                                                         },
@@ -1875,6 +1927,19 @@
                                                                                                             "maxItemsOne": false,
                                                                                                             "elem": {
                                                                                                                 "fields": {
+                                                                                                                    "sort": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "group_by_fields": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "fields": {
+                                                                                                                        "maxItemsOne": false
+                                                                                                                    },
                                                                                                                     "sort": {
                                                                                                                         "maxItemsOne": true
                                                                                                                     }
@@ -2505,6 +2570,19 @@
                                                                                                                 }
                                                                                                             }
                                                                                                         },
+                                                                                                        "group_by_fields": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "fields": {
+                                                                                                                        "maxItemsOne": false
+                                                                                                                    },
+                                                                                                                    "sort": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
                                                                                                         "indexes": {
                                                                                                             "maxItemsOne": false
                                                                                                         },
@@ -2811,6 +2889,19 @@
                                                                                                                 }
                                                                                                             }
                                                                                                         },
+                                                                                                        "group_by_fields": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "fields": {
+                                                                                                                        "maxItemsOne": false
+                                                                                                                    },
+                                                                                                                    "sort": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
                                                                                                         "indexes": {
                                                                                                             "maxItemsOne": false
                                                                                                         },
@@ -3003,6 +3094,19 @@
                                                                                                                         "maxItemsOne": false,
                                                                                                                         "elem": {
                                                                                                                             "fields": {
+                                                                                                                                "sort": {
+                                                                                                                                    "maxItemsOne": true
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                    },
+                                                                                                                    "group_by_fields": {
+                                                                                                                        "maxItemsOne": true,
+                                                                                                                        "elem": {
+                                                                                                                            "fields": {
+                                                                                                                                "fields": {
+                                                                                                                                    "maxItemsOne": false
+                                                                                                                                },
                                                                                                                                 "sort": {
                                                                                                                                     "maxItemsOne": true
                                                                                                                                 }
@@ -3505,6 +3609,19 @@
                                                                                                                                         }
                                                                                                                                     }
                                                                                                                                 },
+                                                                                                                                "group_by_fields": {
+                                                                                                                                    "maxItemsOne": true,
+                                                                                                                                    "elem": {
+                                                                                                                                        "fields": {
+                                                                                                                                            "fields": {
+                                                                                                                                                "maxItemsOne": false
+                                                                                                                                            },
+                                                                                                                                            "sort": {
+                                                                                                                                                "maxItemsOne": true
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    }
+                                                                                                                                },
                                                                                                                                 "indexes": {
                                                                                                                                     "maxItemsOne": false
                                                                                                                                 },
@@ -3726,6 +3843,19 @@
                                                                                                                                     "maxItemsOne": false,
                                                                                                                                     "elem": {
                                                                                                                                         "fields": {
+                                                                                                                                            "sort": {
+                                                                                                                                                "maxItemsOne": true
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    }
+                                                                                                                                },
+                                                                                                                                "group_by_fields": {
+                                                                                                                                    "maxItemsOne": true,
+                                                                                                                                    "elem": {
+                                                                                                                                        "fields": {
+                                                                                                                                            "fields": {
+                                                                                                                                                "maxItemsOne": false
+                                                                                                                                            },
                                                                                                                                             "sort": {
                                                                                                                                                 "maxItemsOne": true
                                                                                                                                             }
@@ -3988,6 +4118,19 @@
                                                                                                                                     "maxItemsOne": false,
                                                                                                                                     "elem": {
                                                                                                                                         "fields": {
+                                                                                                                                            "sort": {
+                                                                                                                                                "maxItemsOne": true
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    }
+                                                                                                                                },
+                                                                                                                                "group_by_fields": {
+                                                                                                                                    "maxItemsOne": true,
+                                                                                                                                    "elem": {
+                                                                                                                                        "fields": {
+                                                                                                                                            "fields": {
+                                                                                                                                                "maxItemsOne": false
+                                                                                                                                            },
                                                                                                                                             "sort": {
                                                                                                                                                 "maxItemsOne": true
                                                                                                                                             }
@@ -4300,6 +4443,19 @@
                                                                                                                                         }
                                                                                                                                     }
                                                                                                                                 },
+                                                                                                                                "group_by_fields": {
+                                                                                                                                    "maxItemsOne": true,
+                                                                                                                                    "elem": {
+                                                                                                                                        "fields": {
+                                                                                                                                            "fields": {
+                                                                                                                                                "maxItemsOne": false
+                                                                                                                                            },
+                                                                                                                                            "sort": {
+                                                                                                                                                "maxItemsOne": true
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    }
+                                                                                                                                },
                                                                                                                                 "indexes": {
                                                                                                                                     "maxItemsOne": false
                                                                                                                                 },
@@ -4479,6 +4635,19 @@
                                                                                                                                                 "maxItemsOne": false,
                                                                                                                                                 "elem": {
                                                                                                                                                     "fields": {
+                                                                                                                                                        "sort": {
+                                                                                                                                                            "maxItemsOne": true
+                                                                                                                                                        }
+                                                                                                                                                    }
+                                                                                                                                                }
+                                                                                                                                            },
+                                                                                                                                            "group_by_fields": {
+                                                                                                                                                "maxItemsOne": true,
+                                                                                                                                                "elem": {
+                                                                                                                                                    "fields": {
+                                                                                                                                                        "fields": {
+                                                                                                                                                            "maxItemsOne": false
+                                                                                                                                                        },
                                                                                                                                                         "sort": {
                                                                                                                                                             "maxItemsOne": true
                                                                                                                                                         }
@@ -4978,6 +5147,19 @@
                                                                                                                                         }
                                                                                                                                     }
                                                                                                                                 },
+                                                                                                                                "group_by_fields": {
+                                                                                                                                    "maxItemsOne": true,
+                                                                                                                                    "elem": {
+                                                                                                                                        "fields": {
+                                                                                                                                            "fields": {
+                                                                                                                                                "maxItemsOne": false
+                                                                                                                                            },
+                                                                                                                                            "sort": {
+                                                                                                                                                "maxItemsOne": true
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    }
+                                                                                                                                },
                                                                                                                                 "indexes": {
                                                                                                                                     "maxItemsOne": false
                                                                                                                                 },
@@ -5299,6 +5481,19 @@
                                                                                                                                         }
                                                                                                                                     }
                                                                                                                                 },
+                                                                                                                                "group_by_fields": {
+                                                                                                                                    "maxItemsOne": true,
+                                                                                                                                    "elem": {
+                                                                                                                                        "fields": {
+                                                                                                                                            "fields": {
+                                                                                                                                                "maxItemsOne": false
+                                                                                                                                            },
+                                                                                                                                            "sort": {
+                                                                                                                                                "maxItemsOne": true
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    }
+                                                                                                                                },
                                                                                                                                 "indexes": {
                                                                                                                                     "maxItemsOne": false
                                                                                                                                 },
@@ -5594,6 +5789,19 @@
                                                                                                                                         }
                                                                                                                                     }
                                                                                                                                 },
+                                                                                                                                "group_by_fields": {
+                                                                                                                                    "maxItemsOne": true,
+                                                                                                                                    "elem": {
+                                                                                                                                        "fields": {
+                                                                                                                                            "fields": {
+                                                                                                                                                "maxItemsOne": false
+                                                                                                                                            },
+                                                                                                                                            "sort": {
+                                                                                                                                                "maxItemsOne": true
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    }
+                                                                                                                                },
                                                                                                                                 "indexes": {
                                                                                                                                     "maxItemsOne": false
                                                                                                                                 },
@@ -5805,6 +6013,19 @@
                                                                                                                                     "maxItemsOne": false,
                                                                                                                                     "elem": {
                                                                                                                                         "fields": {
+                                                                                                                                            "sort": {
+                                                                                                                                                "maxItemsOne": true
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    }
+                                                                                                                                },
+                                                                                                                                "group_by_fields": {
+                                                                                                                                    "maxItemsOne": true,
+                                                                                                                                    "elem": {
+                                                                                                                                        "fields": {
+                                                                                                                                            "fields": {
+                                                                                                                                                "maxItemsOne": false
+                                                                                                                                            },
                                                                                                                                             "sort": {
                                                                                                                                                 "maxItemsOne": true
                                                                                                                                             }
@@ -6114,6 +6335,19 @@
                                                                                                             "maxItemsOne": false,
                                                                                                             "elem": {
                                                                                                                 "fields": {
+                                                                                                                    "sort": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "group_by_fields": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "fields": {
+                                                                                                                        "maxItemsOne": false
+                                                                                                                    },
                                                                                                                     "sort": {
                                                                                                                         "maxItemsOne": true
                                                                                                                     }
@@ -6441,6 +6675,19 @@
                                                                                                                 }
                                                                                                             }
                                                                                                         },
+                                                                                                        "group_by_fields": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "fields": {
+                                                                                                                        "maxItemsOne": false
+                                                                                                                    },
+                                                                                                                    "sort": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
                                                                                                         "indexes": {
                                                                                                             "maxItemsOne": false
                                                                                                         },
@@ -6736,6 +6983,19 @@
                                                                                                                 }
                                                                                                             }
                                                                                                         },
+                                                                                                        "group_by_fields": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "fields": {
+                                                                                                                        "maxItemsOne": false
+                                                                                                                    },
+                                                                                                                    "sort": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
                                                                                                         "indexes": {
                                                                                                             "maxItemsOne": false
                                                                                                         },
@@ -6983,6 +7243,19 @@
                                                                                                                 }
                                                                                                             }
                                                                                                         },
+                                                                                                        "group_by_fields": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "fields": {
+                                                                                                                        "maxItemsOne": false
+                                                                                                                    },
+                                                                                                                    "sort": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
                                                                                                         "indexes": {
                                                                                                             "maxItemsOne": false
                                                                                                         },
@@ -7203,6 +7476,19 @@
                                                                                     "maxItemsOne": false,
                                                                                     "elem": {
                                                                                         "fields": {
+                                                                                            "sort": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "group_by_fields": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "fields": {
+                                                                                                "maxItemsOne": false
+                                                                                            },
                                                                                             "sort": {
                                                                                                 "maxItemsOne": true
                                                                                             }
@@ -7833,6 +8119,19 @@
                                                                                         }
                                                                                     }
                                                                                 },
+                                                                                "group_by_fields": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "fields": {
+                                                                                                "maxItemsOne": false
+                                                                                            },
+                                                                                            "sort": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
                                                                                 "indexes": {
                                                                                     "maxItemsOne": false
                                                                                 },
@@ -8139,6 +8438,19 @@
                                                                                         }
                                                                                     }
                                                                                 },
+                                                                                "group_by_fields": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "fields": {
+                                                                                                "maxItemsOne": false
+                                                                                            },
+                                                                                            "sort": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
                                                                                 "indexes": {
                                                                                     "maxItemsOne": false
                                                                                 },
@@ -8331,6 +8643,19 @@
                                                                                                 "maxItemsOne": false,
                                                                                                 "elem": {
                                                                                                     "fields": {
+                                                                                                        "sort": {
+                                                                                                            "maxItemsOne": true
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            },
+                                                                                            "group_by_fields": {
+                                                                                                "maxItemsOne": true,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "fields": {
+                                                                                                            "maxItemsOne": false
+                                                                                                        },
                                                                                                         "sort": {
                                                                                                             "maxItemsOne": true
                                                                                                         }
@@ -8833,6 +9158,19 @@
                                                                                                                 }
                                                                                                             }
                                                                                                         },
+                                                                                                        "group_by_fields": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "fields": {
+                                                                                                                        "maxItemsOne": false
+                                                                                                                    },
+                                                                                                                    "sort": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
                                                                                                         "indexes": {
                                                                                                             "maxItemsOne": false
                                                                                                         },
@@ -9054,6 +9392,19 @@
                                                                                                             "maxItemsOne": false,
                                                                                                             "elem": {
                                                                                                                 "fields": {
+                                                                                                                    "sort": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "group_by_fields": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "fields": {
+                                                                                                                        "maxItemsOne": false
+                                                                                                                    },
                                                                                                                     "sort": {
                                                                                                                         "maxItemsOne": true
                                                                                                                     }
@@ -9316,6 +9667,19 @@
                                                                                                             "maxItemsOne": false,
                                                                                                             "elem": {
                                                                                                                 "fields": {
+                                                                                                                    "sort": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "group_by_fields": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "fields": {
+                                                                                                                        "maxItemsOne": false
+                                                                                                                    },
                                                                                                                     "sort": {
                                                                                                                         "maxItemsOne": true
                                                                                                                     }
@@ -9628,6 +9992,19 @@
                                                                                                                 }
                                                                                                             }
                                                                                                         },
+                                                                                                        "group_by_fields": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "fields": {
+                                                                                                                        "maxItemsOne": false
+                                                                                                                    },
+                                                                                                                    "sort": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
                                                                                                         "indexes": {
                                                                                                             "maxItemsOne": false
                                                                                                         },
@@ -9807,6 +10184,19 @@
                                                                                                                         "maxItemsOne": false,
                                                                                                                         "elem": {
                                                                                                                             "fields": {
+                                                                                                                                "sort": {
+                                                                                                                                    "maxItemsOne": true
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                    },
+                                                                                                                    "group_by_fields": {
+                                                                                                                        "maxItemsOne": true,
+                                                                                                                        "elem": {
+                                                                                                                            "fields": {
+                                                                                                                                "fields": {
+                                                                                                                                    "maxItemsOne": false
+                                                                                                                                },
                                                                                                                                 "sort": {
                                                                                                                                     "maxItemsOne": true
                                                                                                                                 }
@@ -10306,6 +10696,19 @@
                                                                                                                 }
                                                                                                             }
                                                                                                         },
+                                                                                                        "group_by_fields": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "fields": {
+                                                                                                                        "maxItemsOne": false
+                                                                                                                    },
+                                                                                                                    "sort": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
                                                                                                         "indexes": {
                                                                                                             "maxItemsOne": false
                                                                                                         },
@@ -10627,6 +11030,19 @@
                                                                                                                 }
                                                                                                             }
                                                                                                         },
+                                                                                                        "group_by_fields": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "fields": {
+                                                                                                                        "maxItemsOne": false
+                                                                                                                    },
+                                                                                                                    "sort": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
                                                                                                         "indexes": {
                                                                                                             "maxItemsOne": false
                                                                                                         },
@@ -10922,6 +11338,19 @@
                                                                                                                 }
                                                                                                             }
                                                                                                         },
+                                                                                                        "group_by_fields": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "fields": {
+                                                                                                                        "maxItemsOne": false
+                                                                                                                    },
+                                                                                                                    "sort": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
                                                                                                         "indexes": {
                                                                                                             "maxItemsOne": false
                                                                                                         },
@@ -11133,6 +11562,19 @@
                                                                                                             "maxItemsOne": false,
                                                                                                             "elem": {
                                                                                                                 "fields": {
+                                                                                                                    "sort": {
+                                                                                                                        "maxItemsOne": true
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "group_by_fields": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "fields": {
+                                                                                                                        "maxItemsOne": false
+                                                                                                                    },
                                                                                                                     "sort": {
                                                                                                                         "maxItemsOne": true
                                                                                                                     }
@@ -11442,6 +11884,19 @@
                                                                                     "maxItemsOne": false,
                                                                                     "elem": {
                                                                                         "fields": {
+                                                                                            "sort": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "group_by_fields": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "fields": {
+                                                                                                "maxItemsOne": false
+                                                                                            },
                                                                                             "sort": {
                                                                                                 "maxItemsOne": true
                                                                                             }
@@ -11769,6 +12224,19 @@
                                                                                         }
                                                                                     }
                                                                                 },
+                                                                                "group_by_fields": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "fields": {
+                                                                                                "maxItemsOne": false
+                                                                                            },
+                                                                                            "sort": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
                                                                                 "indexes": {
                                                                                     "maxItemsOne": false
                                                                                 },
@@ -12064,6 +12532,19 @@
                                                                                         }
                                                                                     }
                                                                                 },
+                                                                                "group_by_fields": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "fields": {
+                                                                                                "maxItemsOne": false
+                                                                                            },
+                                                                                            "sort": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
                                                                                 "indexes": {
                                                                                     "maxItemsOne": false
                                                                                 },
@@ -12311,6 +12792,19 @@
                                                                                         }
                                                                                     }
                                                                                 },
+                                                                                "group_by_fields": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "fields": {
+                                                                                                "maxItemsOne": false
+                                                                                            },
+                                                                                            "sort": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
                                                                                 "indexes": {
                                                                                     "maxItemsOne": false
                                                                                 },
@@ -12372,7 +12866,7 @@
             },
             "datadog_dashboard_json": {
                 "current": "datadog:index/dashboardJson:DashboardJson",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "dashboard_lists": {
                         "maxItemsOne": false
@@ -12384,7 +12878,7 @@
             },
             "datadog_dashboard_list": {
                 "current": "datadog:index/dashboardList:DashboardList",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "dash_item": {
                         "maxItemsOne": false
@@ -12393,7 +12887,7 @@
             },
             "datadog_dataset": {
                 "current": "datadog:index/dataset:Dataset",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "principals": {
                         "maxItemsOne": false
@@ -12412,15 +12906,15 @@
             },
             "datadog_datastore": {
                 "current": "datadog:index/datastore:Datastore",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_datastore_item": {
                 "current": "datadog:index/datastoreItem:DatastoreItem",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_deployment_gate": {
                 "current": "datadog:index/deploymentGate:DeploymentGate",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "rule": {
                         "maxItemsOne": false,
@@ -12440,7 +12934,7 @@
             },
             "datadog_domain_allowlist": {
                 "current": "datadog:index/domainAllowlist:DomainAllowlist",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "domains": {
                         "maxItemsOne": false
@@ -12449,7 +12943,7 @@
             },
             "datadog_downtime": {
                 "current": "datadog:index/downtime:Downtime",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "monitor_tags": {
                         "maxItemsOne": false
@@ -12471,7 +12965,7 @@
             },
             "datadog_downtime_schedule": {
                 "current": "datadog:index/downtimeSchedule:DowntimeSchedule",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "monitor_identifier": {
                         "fields": {
@@ -12497,7 +12991,7 @@
             },
             "datadog_gcp_uc_config": {
                 "current": "datadog:index/gcpUcConfig:GcpUcConfig",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "error_messages": {
                         "maxItemsOne": false
@@ -12506,7 +13000,7 @@
             },
             "datadog_incident_notification_rule": {
                 "current": "datadog:index/incidentNotificationRule:IncidentNotificationRule",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "conditions": {
                         "maxItemsOne": false,
@@ -12528,30 +13022,15 @@
             },
             "datadog_incident_notification_template": {
                 "current": "datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_incident_type": {
                 "current": "datadog:index/incidentType:IncidentType",
-                "majorVersion": 4
-            },
-            "datadog_integration_aws": {
-                "current": "datadog:aws/integration:Integration",
-                "majorVersion": 4,
-                "fields": {
-                    "excluded_regions": {
-                        "maxItemsOne": false
-                    },
-                    "filter_tags": {
-                        "maxItemsOne": false
-                    },
-                    "host_tags": {
-                        "maxItemsOne": false
-                    }
-                }
+                "majorVersion": 5
             },
             "datadog_integration_aws_account": {
                 "current": "datadog:aws/integrationAccount:IntegrationAccount",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "account_tags": {
                         "maxItemsOne": false
@@ -12630,32 +13109,15 @@
             },
             "datadog_integration_aws_event_bridge": {
                 "current": "datadog:aws/integrationEventBridge:IntegrationEventBridge",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_integration_aws_external_id": {
                 "current": "datadog:aws/integrationExternalId:IntegrationExternalId",
-                "majorVersion": 4
-            },
-            "datadog_integration_aws_lambda_arn": {
-                "current": "datadog:aws/integrationLambdaArn:IntegrationLambdaArn",
-                "majorVersion": 4
-            },
-            "datadog_integration_aws_log_collection": {
-                "current": "datadog:aws/integrationLogCollection:IntegrationLogCollection",
-                "majorVersion": 4,
-                "fields": {
-                    "services": {
-                        "maxItemsOne": false
-                    }
-                }
-            },
-            "datadog_integration_aws_tag_filter": {
-                "current": "datadog:aws/integrationTagFilter:IntegrationTagFilter",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_integration_azure": {
                 "current": "datadog:azure/integration:Integration",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "resource_provider_configs": {
                         "maxItemsOne": false
@@ -12664,7 +13126,7 @@
             },
             "datadog_integration_cloudflare_account": {
                 "current": "datadog:cloudflare/integrationAccount:IntegrationAccount",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "resources": {
                         "maxItemsOne": false
@@ -12673,7 +13135,7 @@
             },
             "datadog_integration_confluent_account": {
                 "current": "datadog:confluent/integrationAccount:IntegrationAccount",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "tags": {
                         "maxItemsOne": false
@@ -12682,7 +13144,7 @@
             },
             "datadog_integration_confluent_resource": {
                 "current": "datadog:confluent/integrationResource:IntegrationResource",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "tags": {
                         "maxItemsOne": false
@@ -12691,11 +13153,11 @@
             },
             "datadog_integration_fastly_account": {
                 "current": "datadog:fastly/integrationAccount:IntegrationAccount",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_integration_fastly_service": {
                 "current": "datadog:fastly/integrationService:IntegrationService",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "tags": {
                         "maxItemsOne": false
@@ -12704,7 +13166,7 @@
             },
             "datadog_integration_gcp": {
                 "current": "datadog:gcp/integration:Integration",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "cloud_run_revision_filters": {
                         "maxItemsOne": false
@@ -12723,7 +13185,7 @@
             },
             "datadog_integration_gcp_sts": {
                 "current": "datadog:gcp/integrationSts:IntegrationSts",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "account_tags": {
                         "maxItemsOne": false
@@ -12761,19 +13223,19 @@
             },
             "datadog_integration_ms_teams_tenant_based_handle": {
                 "current": "datadog:ms/integrationTeamsTenantBasedHandle:IntegrationTeamsTenantBasedHandle",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_integration_ms_teams_workflows_webhook_handle": {
                 "current": "datadog:ms/integrationTeamsWorkflowsWebhookHandle:IntegrationTeamsWorkflowsWebhookHandle",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_integration_opsgenie_service_object": {
                 "current": "datadog:opsgenie/serviceObject:ServiceObject",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_integration_pagerduty": {
                 "current": "datadog:pagerduty/integration:Integration",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "schedules": {
                         "maxItemsOne": false
@@ -12782,11 +13244,11 @@
             },
             "datadog_integration_pagerduty_service_object": {
                 "current": "datadog:pagerduty/serviceObject:ServiceObject",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_integration_slack_channel": {
                 "current": "datadog:slack/channel:Channel",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "display": {
                         "maxItemsOne": true
@@ -12795,7 +13257,7 @@
             },
             "datadog_ip_allowlist": {
                 "current": "datadog:index/ipAllowlist:IpAllowlist",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "entry": {
                         "maxItemsOne": false
@@ -12804,7 +13266,7 @@
             },
             "datadog_logs_archive": {
                 "current": "datadog:index/logsArchive:LogsArchive",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "azure_archive": {
                         "maxItemsOne": true
@@ -12822,7 +13284,7 @@
             },
             "datadog_logs_archive_order": {
                 "current": "datadog:index/logsArchiveOrder:LogsArchiveOrder",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "archive_ids": {
                         "maxItemsOne": false
@@ -12831,7 +13293,7 @@
             },
             "datadog_logs_custom_destination": {
                 "current": "datadog:index/logsCustomDestination:LogsCustomDestination",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "elasticsearch_destination": {
                         "maxItemsOne": true,
@@ -12869,7 +13331,7 @@
             },
             "datadog_logs_custom_pipeline": {
                 "current": "datadog:index/logsCustomPipeline:LogsCustomPipeline",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "filter": {
                         "maxItemsOne": false
@@ -13378,7 +13840,7 @@
             },
             "datadog_logs_index": {
                 "current": "datadog:index/logsIndex:LogsIndex",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "daily_limit_reset": {
                         "maxItemsOne": true
@@ -13403,7 +13865,7 @@
             },
             "datadog_logs_index_order": {
                 "current": "datadog:index/logsIndexOrder:LogsIndexOrder",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "indexes": {
                         "maxItemsOne": false
@@ -13412,11 +13874,11 @@
             },
             "datadog_logs_integration_pipeline": {
                 "current": "datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_logs_metric": {
                 "current": "datadog:index/logsMetric:LogsMetric",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "compute": {
                         "maxItemsOne": true
@@ -13431,7 +13893,7 @@
             },
             "datadog_logs_pipeline_order": {
                 "current": "datadog:index/logsPipelineOrder:LogsPipelineOrder",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "pipelines": {
                         "maxItemsOne": false
@@ -13440,7 +13902,7 @@
             },
             "datadog_logs_restriction_query": {
                 "current": "datadog:index/logsRestrictionQuery:LogsRestrictionQuery",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "role_ids": {
                         "maxItemsOne": false
@@ -13449,11 +13911,11 @@
             },
             "datadog_metric_metadata": {
                 "current": "datadog:index/metricMetadata:MetricMetadata",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_metric_tag_configuration": {
                 "current": "datadog:index/metricTagConfiguration:MetricTagConfiguration",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "aggregations": {
                         "maxItemsOne": false
@@ -13465,7 +13927,7 @@
             },
             "datadog_monitor": {
                 "current": "datadog:index/monitor:Monitor",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "assets": {
                         "maxItemsOne": false
@@ -13486,11 +13948,11 @@
                         "maxItemsOne": false
                     },
                     "scheduling_options": {
-                        "maxItemsOne": false,
+                        "maxItemsOne": true,
                         "elem": {
                             "fields": {
                                 "custom_schedule": {
-                                    "maxItemsOne": false,
+                                    "maxItemsOne": true,
                                     "elem": {
                                         "fields": {
                                             "recurrence": {
@@ -13500,7 +13962,7 @@
                                     }
                                 },
                                 "evaluation_window": {
-                                    "maxItemsOne": false
+                                    "maxItemsOne": true
                                 }
                             }
                         }
@@ -13568,7 +14030,7 @@
             },
             "datadog_monitor_config_policy": {
                 "current": "datadog:index/monitorConfigPolicy:MonitorConfigPolicy",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "tag_policy": {
                         "maxItemsOne": true,
@@ -13584,11 +14046,11 @@
             },
             "datadog_monitor_json": {
                 "current": "datadog:index/monitorJson:MonitorJson",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_monitor_notification_rule": {
                 "current": "datadog:index/monitorNotificationRule:MonitorNotificationRule",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "conditional_recipients": {
                         "fields": {
@@ -13621,7 +14083,7 @@
             },
             "datadog_observability_pipeline": {
                 "current": "datadog:index/observabilityPipeline:ObservabilityPipeline",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "config": {
                         "maxItemsOne": true,
@@ -13673,6 +14135,25 @@
                                                                     }
                                                                 }
                                                             }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "amazon_s3_generic": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "auth": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "batch_settings": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "compression": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "encoding": {
+                                                            "maxItemsOne": true
                                                         }
                                                     }
                                                 }
@@ -13799,6 +14280,9 @@
                                                 "maxItemsOne": false,
                                                 "elem": {
                                                     "fields": {
+                                                        "auth": {
+                                                            "maxItemsOne": true
+                                                        },
                                                         "buffer": {
                                                             "maxItemsOne": true,
                                                             "elem": {
@@ -14275,7 +14759,48 @@
                                                             "elem": {
                                                                 "fields": {
                                                                     "mapping": {
-                                                                        "maxItemsOne": false
+                                                                        "maxItemsOne": false,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "custom_mapping": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "mapping": {
+                                                                                                "maxItemsOne": false,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "lookup": {
+                                                                                                            "maxItemsOne": true,
+                                                                                                            "elem": {
+                                                                                                                "fields": {
+                                                                                                                    "table": {
+                                                                                                                        "maxItemsOne": false
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "sources": {
+                                                                                                            "maxItemsOne": false
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            },
+                                                                                            "metadata": {
+                                                                                                "maxItemsOne": true,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "profiles": {
+                                                                                                            "maxItemsOne": false
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
                                                                     }
                                                                 }
                                                             }
@@ -14689,7 +15214,7 @@
             },
             "datadog_on_call_escalation_policy": {
                 "current": "datadog:index/onCallEscalationPolicy:OnCallEscalationPolicy",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "step": {
                         "maxItemsOne": false,
@@ -14708,7 +15233,7 @@
             },
             "datadog_on_call_schedule": {
                 "current": "datadog:index/onCallSchedule:OnCallSchedule",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "layer": {
                         "maxItemsOne": false,
@@ -14730,7 +15255,7 @@
             },
             "datadog_on_call_team_routing_rules": {
                 "current": "datadog:index/onCallTeamRoutingRules:OnCallTeamRoutingRules",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "rule": {
                         "maxItemsOne": false,
@@ -14753,7 +15278,7 @@
             },
             "datadog_on_call_user_notification_channel": {
                 "current": "datadog:index/onCallUserNotificationChannel:OnCallUserNotificationChannel",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "email": {
                         "fields": {
@@ -14766,15 +15291,15 @@
             },
             "datadog_on_call_user_notification_rule": {
                 "current": "datadog:index/onCallUserNotificationRule:OnCallUserNotificationRule",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_openapi_api": {
                 "current": "datadog:index/openapiApi:OpenapiApi",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_org_connection": {
                 "current": "datadog:index/orgConnection:OrgConnection",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "connection_types": {
                         "maxItemsOne": false
@@ -14783,7 +15308,7 @@
             },
             "datadog_organization_settings": {
                 "current": "datadog:index/organizationSettings:OrganizationSettings",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "security_contacts": {
                         "maxItemsOne": false
@@ -14818,7 +15343,7 @@
             },
             "datadog_powerpack": {
                 "current": "datadog:index/powerpack:Powerpack",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "layout": {
                         "maxItemsOne": true
@@ -15003,6 +15528,19 @@
                                                                                     "maxItemsOne": false,
                                                                                     "elem": {
                                                                                         "fields": {
+                                                                                            "sort": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "group_by_fields": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "fields": {
+                                                                                                "maxItemsOne": false
+                                                                                            },
                                                                                             "sort": {
                                                                                                 "maxItemsOne": true
                                                                                             }
@@ -15393,6 +15931,19 @@
                                                                                         }
                                                                                     }
                                                                                 },
+                                                                                "group_by_fields": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "fields": {
+                                                                                                "maxItemsOne": false
+                                                                                            },
+                                                                                            "sort": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
                                                                                 "indexes": {
                                                                                     "maxItemsOne": false
                                                                                 },
@@ -15633,6 +16184,19 @@
                                                                                     "maxItemsOne": false,
                                                                                     "elem": {
                                                                                         "fields": {
+                                                                                            "sort": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "group_by_fields": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "fields": {
+                                                                                                "maxItemsOne": false
+                                                                                            },
                                                                                             "sort": {
                                                                                                 "maxItemsOne": true
                                                                                             }
@@ -16229,6 +16793,19 @@
                                                                                         }
                                                                                     }
                                                                                 },
+                                                                                "group_by_fields": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "fields": {
+                                                                                                "maxItemsOne": false
+                                                                                            },
+                                                                                            "sort": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
                                                                                 "indexes": {
                                                                                     "maxItemsOne": false
                                                                                 },
@@ -16535,6 +17112,19 @@
                                                                                         }
                                                                                     }
                                                                                 },
+                                                                                "group_by_fields": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "fields": {
+                                                                                                "maxItemsOne": false
+                                                                                            },
+                                                                                            "sort": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
                                                                                 "indexes": {
                                                                                     "maxItemsOne": false
                                                                                 },
@@ -16727,6 +17317,19 @@
                                                                                                 "maxItemsOne": false,
                                                                                                 "elem": {
                                                                                                     "fields": {
+                                                                                                        "sort": {
+                                                                                                            "maxItemsOne": true
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            },
+                                                                                            "group_by_fields": {
+                                                                                                "maxItemsOne": true,
+                                                                                                "elem": {
+                                                                                                    "fields": {
+                                                                                                        "fields": {
+                                                                                                            "maxItemsOne": false
+                                                                                                        },
                                                                                                         "sort": {
                                                                                                             "maxItemsOne": true
                                                                                                         }
@@ -17273,6 +17876,19 @@
                                                                                         }
                                                                                     }
                                                                                 },
+                                                                                "group_by_fields": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "fields": {
+                                                                                                "maxItemsOne": false
+                                                                                            },
+                                                                                            "sort": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
                                                                                 "indexes": {
                                                                                     "maxItemsOne": false
                                                                                 },
@@ -17594,6 +18210,19 @@
                                                                                         }
                                                                                     }
                                                                                 },
+                                                                                "group_by_fields": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "fields": {
+                                                                                                "maxItemsOne": false
+                                                                                            },
+                                                                                            "sort": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
                                                                                 "indexes": {
                                                                                     "maxItemsOne": false
                                                                                 },
@@ -17889,6 +18518,19 @@
                                                                                         }
                                                                                     }
                                                                                 },
+                                                                                "group_by_fields": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "fields": {
+                                                                                                "maxItemsOne": false
+                                                                                            },
+                                                                                            "sort": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
                                                                                 "indexes": {
                                                                                     "maxItemsOne": false
                                                                                 },
@@ -18136,6 +18778,19 @@
                                                                                         }
                                                                                     }
                                                                                 },
+                                                                                "group_by_fields": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "fields": {
+                                                                                                "maxItemsOne": false
+                                                                                            },
+                                                                                            "sort": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
                                                                                 "indexes": {
                                                                                     "maxItemsOne": false
                                                                                 },
@@ -18197,7 +18852,7 @@
             },
             "datadog_reference_table": {
                 "current": "datadog:index/referenceTable:ReferenceTable",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "schema": {
                         "fields": {
@@ -18216,7 +18871,7 @@
             },
             "datadog_restriction_policy": {
                 "current": "datadog:index/restrictionPolicy:RestrictionPolicy",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "bindings": {
                         "maxItemsOne": false,
@@ -18232,7 +18887,7 @@
             },
             "datadog_role": {
                 "current": "datadog:index/role:Role",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "permission": {
                         "maxItemsOne": false
@@ -18241,11 +18896,11 @@
             },
             "datadog_rum_application": {
                 "current": "datadog:index/rumApplication:RumApplication",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_rum_metric": {
                 "current": "datadog:index/rumMetric:RumMetric",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "group_by": {
                         "maxItemsOne": false
@@ -18254,20 +18909,39 @@
             },
             "datadog_rum_retention_filter": {
                 "current": "datadog:index/rumRetentionFilter:RumRetentionFilter",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_rum_retention_filters_order": {
                 "current": "datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "retention_filter_ids": {
                         "maxItemsOne": false
                     }
                 }
             },
+            "datadog_secure_embed_dashboard": {
+                "current": "datadog:index/secureEmbedDashboard:SecureEmbedDashboard",
+                "majorVersion": 5,
+                "fields": {
+                    "selectable_template_vars": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "default_values": {
+                                    "maxItemsOne": false
+                                },
+                                "visible_tags": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "datadog_security_monitoring_critical_asset": {
                 "current": "datadog:index/securityMonitoringCriticalAsset:SecurityMonitoringCriticalAsset",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "tags": {
                         "maxItemsOne": false
@@ -18276,7 +18950,7 @@
             },
             "datadog_security_monitoring_default_rule": {
                 "current": "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "case": {
                         "maxItemsOne": false,
@@ -18320,7 +18994,7 @@
             },
             "datadog_security_monitoring_filter": {
                 "current": "datadog:index/securityMonitoringFilter:SecurityMonitoringFilter",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "exclusion_filter": {
                         "maxItemsOne": false
@@ -18329,7 +19003,7 @@
             },
             "datadog_security_monitoring_rule": {
                 "current": "datadog:index/securityMonitoringRule:SecurityMonitoringRule",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "calculated_field": {
                         "maxItemsOne": false
@@ -18464,11 +19138,11 @@
             },
             "datadog_security_monitoring_rule_json": {
                 "current": "datadog:index/securityMonitoringRuleJson:SecurityMonitoringRuleJson",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_security_monitoring_suppression": {
                 "current": "datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "tags": {
                         "maxItemsOne": false
@@ -18477,7 +19151,7 @@
             },
             "datadog_security_notification_rule": {
                 "current": "datadog:index/securityNotificationRule:SecurityNotificationRule",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "selectors": {
                         "fields": {
@@ -18496,7 +19170,7 @@
             },
             "datadog_sensitive_data_scanner_group": {
                 "current": "datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "filter": {
                         "maxItemsOne": true
@@ -18511,7 +19185,7 @@
             },
             "datadog_sensitive_data_scanner_group_order": {
                 "current": "datadog:index/sensitiveDataScannerGroupOrder:SensitiveDataScannerGroupOrder",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "group_ids": {
                         "maxItemsOne": false
@@ -18520,7 +19194,7 @@
             },
             "datadog_sensitive_data_scanner_rule": {
                 "current": "datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "excluded_namespaces": {
                         "maxItemsOne": false
@@ -18548,7 +19222,7 @@
             },
             "datadog_service_account": {
                 "current": "datadog:index/serviceAccount:ServiceAccount",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "roles": {
                         "maxItemsOne": false
@@ -18557,7 +19231,7 @@
             },
             "datadog_service_account_application_key": {
                 "current": "datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "scopes": {
                         "maxItemsOne": false
@@ -18566,11 +19240,11 @@
             },
             "datadog_service_definition_yaml": {
                 "current": "datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_service_level_objective": {
                 "current": "datadog:index/serviceLevelObjective:ServiceLevelObjective",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "groups": {
                         "maxItemsOne": false
@@ -18642,15 +19316,15 @@
             },
             "datadog_slo_correction": {
                 "current": "datadog:index/sloCorrection:SloCorrection",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_software_catalog": {
                 "current": "datadog:index/softwareCatalog:SoftwareCatalog",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_spans_metric": {
                 "current": "datadog:index/spansMetric:SpansMetric",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "group_by": {
                         "maxItemsOne": false
@@ -18659,11 +19333,11 @@
             },
             "datadog_synthetics_concurrency_cap": {
                 "current": "datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_synthetics_global_variable": {
                 "current": "datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "options": {
                         "maxItemsOne": true,
@@ -18695,7 +19369,7 @@
             },
             "datadog_synthetics_private_location": {
                 "current": "datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "metadata": {
                         "maxItemsOne": true,
@@ -18714,7 +19388,7 @@
             },
             "datadog_synthetics_suite": {
                 "current": "datadog:index/syntheticsSuite:SyntheticsSuite",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "options": {
                         "maxItemsOne": false
@@ -18729,7 +19403,7 @@
             },
             "datadog_synthetics_test": {
                 "current": "datadog:index/syntheticsTest:SyntheticsTest",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "api_step": {
                         "maxItemsOne": false,
@@ -19019,7 +19693,7 @@
             },
             "datadog_tag_pipeline_ruleset": {
                 "current": "datadog:index/tagPipelineRuleset:TagPipelineRuleset",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "rules": {
                         "maxItemsOne": false,
@@ -19049,7 +19723,7 @@
             },
             "datadog_tag_pipeline_rulesets": {
                 "current": "datadog:index/tagPipelineRulesets:TagPipelineRulesets",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "ruleset_ids": {
                         "maxItemsOne": false
@@ -19058,31 +19732,31 @@
             },
             "datadog_team": {
                 "current": "datadog:index/team:Team",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_team_hierarchy_links": {
                 "current": "datadog:index/teamHierarchyLinks:TeamHierarchyLinks",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_team_link": {
                 "current": "datadog:index/teamLink:TeamLink",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_team_membership": {
                 "current": "datadog:index/teamMembership:TeamMembership",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_team_notification_rule": {
                 "current": "datadog:index/teamNotificationRule:TeamNotificationRule",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_team_permission_setting": {
                 "current": "datadog:index/teamPermissionSetting:TeamPermissionSetting",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_user": {
                 "current": "datadog:index/user:User",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "roles": {
                         "maxItemsOne": false
@@ -19091,19 +19765,19 @@
             },
             "datadog_user_role": {
                 "current": "datadog:index/userRole:UserRole",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_webhook": {
                 "current": "datadog:index/webhook:Webhook",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_webhook_custom_variable": {
                 "current": "datadog:index/webhookCustomVariable:WebhookCustomVariable",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_workflow_automation": {
                 "current": "datadog:index/workflowAutomation:WorkflowAutomation",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "tags": {
                         "maxItemsOne": false
@@ -19114,7 +19788,7 @@
         "datasources": {
             "datadog_action_connection": {
                 "current": "datadog:index/getActionConnection:getActionConnection",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "http": {
                         "fields": {
@@ -19137,11 +19811,11 @@
             },
             "datadog_api_key": {
                 "current": "datadog:index/getApiKey:getApiKey",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_apm_retention_filters_order": {
                 "current": "datadog:index/getApmRetentionFiltersOrder:getApmRetentionFiltersOrder",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "filter_ids": {
                         "maxItemsOne": false
@@ -19150,15 +19824,11 @@
             },
             "datadog_app_builder_app": {
                 "current": "datadog:index/getAppBuilderApp:getAppBuilderApp",
-                "majorVersion": 4
-            },
-            "datadog_application_key": {
-                "current": "datadog:index/getApplicationKey:getApplicationKey",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_aws_cur_config": {
                 "current": "datadog:index/getAwsCurConfig:getAwsCurConfig",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "account_filters": {
                         "fields": {
@@ -19177,7 +19847,7 @@
             },
             "datadog_azure_uc_config": {
                 "current": "datadog:index/getAzureUcConfig:getAzureUcConfig",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "error_messages": {
                         "maxItemsOne": false
@@ -19186,7 +19856,7 @@
             },
             "datadog_cloud_workload_security_agent_rules": {
                 "current": "datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "agent_rules": {
                         "maxItemsOne": false
@@ -19195,7 +19865,7 @@
             },
             "datadog_cost_budget": {
                 "current": "datadog:index/getCostBudget:getCostBudget",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "budget_line": {
                         "maxItemsOne": false,
@@ -19227,7 +19897,7 @@
             },
             "datadog_csm_threats_agent_rules": {
                 "current": "datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "agent_rules": {
                         "maxItemsOne": false,
@@ -19249,7 +19919,7 @@
             },
             "datadog_csm_threats_policies": {
                 "current": "datadog:index/getCsmThreatsPolicies:getCsmThreatsPolicies",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "policies": {
                         "maxItemsOne": false,
@@ -19274,7 +19944,7 @@
             },
             "datadog_custom_allocation_rule": {
                 "current": "datadog:index/getCustomAllocationRule:getCustomAllocationRule",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "costs_to_allocate": {
                         "maxItemsOne": false,
@@ -19343,23 +20013,23 @@
             },
             "datadog_dashboard": {
                 "current": "datadog:index/getDashboard:getDashboard",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_dashboard_list": {
                 "current": "datadog:index/getDashboardList:getDashboardList",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_datastore": {
                 "current": "datadog:index/getDatastore:getDatastore",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_datastore_item": {
                 "current": "datadog:index/getDatastoreItem:getDatastoreItem",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_gcp_uc_config": {
                 "current": "datadog:index/getGcpUcConfig:getGcpUcConfig",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "error_messages": {
                         "maxItemsOne": false
@@ -19368,7 +20038,7 @@
             },
             "datadog_hosts": {
                 "current": "datadog:index/getHosts:getHosts",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "host_list": {
                         "maxItemsOne": false,
@@ -19395,7 +20065,7 @@
             },
             "datadog_incident_notification_rule": {
                 "current": "datadog:index/getIncidentNotificationRule:getIncidentNotificationRule",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "conditions": {
                         "maxItemsOne": false,
@@ -19417,15 +20087,15 @@
             },
             "datadog_incident_notification_template": {
                 "current": "datadog:index/getIncidentNotificationTemplate:getIncidentNotificationTemplate",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_incident_type": {
                 "current": "datadog:index/getIncidentType:getIncidentType",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_integration_aws_available_logs_services": {
                 "current": "datadog:aws/getIntegrationAvailableLogsServices:getIntegrationAvailableLogsServices",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "aws_logs_services": {
                         "maxItemsOne": false
@@ -19434,7 +20104,7 @@
             },
             "datadog_integration_aws_available_namespaces": {
                 "current": "datadog:aws/getIntegrationAvailableNamespaces:getIntegrationAvailableNamespaces",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "aws_namespaces": {
                         "maxItemsOne": false
@@ -19443,11 +20113,11 @@
             },
             "datadog_integration_aws_external_id": {
                 "current": "datadog:aws/getIntegrationExternalId:getIntegrationExternalId",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_integration_aws_iam_permissions": {
                 "current": "datadog:aws/getIntegrationIamPermissions:getIntegrationIamPermissions",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "iam_permissions": {
                         "maxItemsOne": false
@@ -19456,7 +20126,7 @@
             },
             "datadog_integration_aws_iam_permissions_resource_collection": {
                 "current": "datadog:aws/getIntegrationIamPermissionsResourceCollection:getIntegrationIamPermissionsResourceCollection",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "iam_permissions": {
                         "maxItemsOne": false
@@ -19465,7 +20135,7 @@
             },
             "datadog_integration_aws_iam_permissions_standard": {
                 "current": "datadog:aws/getIntegrationIamPermissionsStandard:getIntegrationIamPermissionsStandard",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "iam_permissions": {
                         "maxItemsOne": false
@@ -19474,7 +20144,7 @@
             },
             "datadog_integration_aws_logs_services": {
                 "current": "datadog:aws/getIntegrationLogsServices:getIntegrationLogsServices",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "aws_logs_services": {
                         "maxItemsOne": false
@@ -19483,7 +20153,7 @@
             },
             "datadog_integration_aws_namespace_rules": {
                 "current": "datadog:aws/getIntegrationNamespaceRules:getIntegrationNamespaceRules",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "namespace_rules": {
                         "maxItemsOne": false
@@ -19492,7 +20162,7 @@
             },
             "datadog_ip_ranges": {
                 "current": "datadog:index/getIpRanges:getIpRanges",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "agents_ipv4": {
                         "maxItemsOne": false
@@ -19552,7 +20222,7 @@
             },
             "datadog_logs_archives_order": {
                 "current": "datadog:index/getLogsArchivesOrder:getLogsArchivesOrder",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "archive_ids": {
                         "maxItemsOne": false
@@ -19561,7 +20231,7 @@
             },
             "datadog_logs_indexes": {
                 "current": "datadog:index/getLogsIndexes:getLogsIndexes",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "logs_indexes": {
                         "maxItemsOne": false,
@@ -19593,7 +20263,7 @@
             },
             "datadog_logs_indexes_order": {
                 "current": "datadog:index/getLogsIndexesOrder:getLogsIndexesOrder",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "index_names": {
                         "maxItemsOne": false
@@ -19602,7 +20272,7 @@
             },
             "datadog_logs_pipelines": {
                 "current": "datadog:index/getLogsPipelines:getLogsPipelines",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "logs_pipelines": {
                         "maxItemsOne": false,
@@ -19621,7 +20291,7 @@
             },
             "datadog_logs_pipelines_order": {
                 "current": "datadog:index/getLogsPipelinesOrder:getLogsPipelinesOrder",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "pipeline_ids": {
                         "maxItemsOne": false
@@ -19630,7 +20300,7 @@
             },
             "datadog_metric_active_tags_and_aggregations": {
                 "current": "datadog:index/getMetricActiveTagsAndAggregations:getMetricActiveTagsAndAggregations",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "active_aggregations": {
                         "maxItemsOne": false
@@ -19642,11 +20312,11 @@
             },
             "datadog_metric_metadata": {
                 "current": "datadog:index/getMetricMetadata:getMetricMetadata",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_metric_tags": {
                 "current": "datadog:index/getMetricTags:getMetricTags",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "tags": {
                         "maxItemsOne": false
@@ -19655,7 +20325,7 @@
             },
             "datadog_metrics": {
                 "current": "datadog:index/getMetrics:getMetrics",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "metrics": {
                         "maxItemsOne": false
@@ -19664,7 +20334,7 @@
             },
             "datadog_monitor": {
                 "current": "datadog:index/getMonitor:getMonitor",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "monitor_tags_filter": {
                         "maxItemsOne": false
@@ -19714,7 +20384,7 @@
             },
             "datadog_monitor_config_policies": {
                 "current": "datadog:index/getMonitorConfigPolicies:getMonitorConfigPolicies",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "monitor_config_policies": {
                         "maxItemsOne": false,
@@ -19737,7 +20407,7 @@
             },
             "datadog_monitors": {
                 "current": "datadog:index/getMonitors:getMonitors",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "monitor_tags_filter": {
                         "maxItemsOne": false
@@ -19752,7 +20422,7 @@
             },
             "datadog_organization_settings": {
                 "current": "datadog:index/getOrganizationSettings:getOrganizationSettings",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "settings": {
                         "maxItemsOne": false,
@@ -19784,15 +20454,15 @@
             },
             "datadog_permissions": {
                 "current": "datadog:index/getPermissions:getPermissions",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_powerpack": {
                 "current": "datadog:index/getPowerpack:getPowerpack",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_reference_table": {
                 "current": "datadog:index/getReferenceTable:getReferenceTable",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "schema": {
                         "fields": {
@@ -19811,7 +20481,7 @@
             },
             "datadog_reference_table_rows": {
                 "current": "datadog:index/getReferenceTableRows:getReferenceTableRows",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "row_ids": {
                         "maxItemsOne": false
@@ -19823,11 +20493,11 @@
             },
             "datadog_role": {
                 "current": "datadog:index/getRole:getRole",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_role_users": {
                 "current": "datadog:index/getRoleUsers:getRoleUsers",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "role_users": {
                         "maxItemsOne": false
@@ -19836,7 +20506,7 @@
             },
             "datadog_roles": {
                 "current": "datadog:index/getRoles:getRoles",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "roles": {
                         "maxItemsOne": false
@@ -19845,11 +20515,11 @@
             },
             "datadog_rum_application": {
                 "current": "datadog:index/getRumApplication:getRumApplication",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_rum_retention_filters": {
                 "current": "datadog:index/getRumRetentionFilters:getRumRetentionFilters",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "retention_filters": {
                         "maxItemsOne": false
@@ -19858,7 +20528,7 @@
             },
             "datadog_security_monitoring_critical_asset": {
                 "current": "datadog:index/getSecurityMonitoringCriticalAsset:getSecurityMonitoringCriticalAsset",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "tags": {
                         "maxItemsOne": false
@@ -19867,7 +20537,7 @@
             },
             "datadog_security_monitoring_critical_assets": {
                 "current": "datadog:index/getSecurityMonitoringCriticalAssets:getSecurityMonitoringCriticalAssets",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "critical_assets": {
                         "maxItemsOne": false,
@@ -19883,7 +20553,7 @@
             },
             "datadog_security_monitoring_filters": {
                 "current": "datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "filters": {
                         "maxItemsOne": false,
@@ -19902,7 +20572,7 @@
             },
             "datadog_security_monitoring_rules": {
                 "current": "datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "rule_ids": {
                         "maxItemsOne": false
@@ -20050,7 +20720,7 @@
             },
             "datadog_security_monitoring_suppressions": {
                 "current": "datadog:index/getSecurityMonitoringSuppressions:getSecurityMonitoringSuppressions",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "suppression_ids": {
                         "maxItemsOne": false
@@ -20069,7 +20739,7 @@
             },
             "datadog_sensitive_data_scanner_group_order": {
                 "current": "datadog:index/getSensitiveDataScannerGroupOrder:getSensitiveDataScannerGroupOrder",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "group_ids": {
                         "maxItemsOne": false
@@ -20078,7 +20748,7 @@
             },
             "datadog_sensitive_data_scanner_standard_pattern": {
                 "current": "datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "included_keywords": {
                         "maxItemsOne": false
@@ -20090,7 +20760,7 @@
             },
             "datadog_service_account": {
                 "current": "datadog:index/getServiceAccount:getServiceAccount",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "roles": {
                         "maxItemsOne": false
@@ -20099,7 +20769,7 @@
             },
             "datadog_service_level_objective": {
                 "current": "datadog:index/getServiceLevelObjective:getServiceLevelObjective",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "query": {
                         "maxItemsOne": false
@@ -20111,7 +20781,7 @@
             },
             "datadog_service_level_objectives": {
                 "current": "datadog:index/getServiceLevelObjectives:getServiceLevelObjectives",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
@@ -20123,7 +20793,7 @@
             },
             "datadog_software_catalog": {
                 "current": "datadog:index/getSoftwareCatalog:getSoftwareCatalog",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "entities": {
                         "maxItemsOne": false,
@@ -20139,7 +20809,7 @@
             },
             "datadog_synthetics_global_variable": {
                 "current": "datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "tags": {
                         "maxItemsOne": false
@@ -20148,11 +20818,11 @@
             },
             "datadog_synthetics_locations": {
                 "current": "datadog:index/getSyntheticsLocations:getSyntheticsLocations",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_synthetics_test": {
                 "current": "datadog:index/getSyntheticsTest:getSyntheticsTest",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "tags": {
                         "maxItemsOne": false
@@ -20161,7 +20831,7 @@
             },
             "datadog_tag_pipeline_ruleset": {
                 "current": "datadog:index/getTagPipelineRuleset:getTagPipelineRuleset",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "rules": {
                         "maxItemsOne": false,
@@ -20191,15 +20861,15 @@
             },
             "datadog_team": {
                 "current": "datadog:index/getTeam:getTeam",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_team_hierarchy_links": {
                 "current": "datadog:index/getTeamHierarchyLinks:getTeamHierarchyLinks",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_team_memberships": {
                 "current": "datadog:index/getTeamMemberships:getTeamMemberships",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "team_memberships": {
                         "maxItemsOne": false
@@ -20208,11 +20878,11 @@
             },
             "datadog_team_notification_rule": {
                 "current": "datadog:index/getTeamNotificationRule:getTeamNotificationRule",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_team_notification_rules": {
                 "current": "datadog:index/getTeamNotificationRules:getTeamNotificationRules",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "notification_rules": {
                         "maxItemsOne": false
@@ -20221,7 +20891,7 @@
             },
             "datadog_teams": {
                 "current": "datadog:index/getTeams:getTeams",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "teams": {
                         "maxItemsOne": false
@@ -20230,11 +20900,11 @@
             },
             "datadog_user": {
                 "current": "datadog:index/getUser:getUser",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "datadog_users": {
                 "current": "datadog:index/getUsers:getUsers",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "users": {
                         "maxItemsOne": false
@@ -20243,7 +20913,7 @@
             },
             "datadog_workflow_automation": {
                 "current": "datadog:index/getWorkflowAutomation:getWorkflowAutomation",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "tags": {
                         "maxItemsOne": false
@@ -20252,26 +20922,12 @@
             }
         }
     },
-    "auto-settings": {
-        "resources": {
-            "datadog_monitor": {
-                "maxItemsOneOverrides": {
-                    "scheduling_options": false,
-                    "scheduling_options.$.custom_schedule": false,
-                    "scheduling_options.$.evaluation_window": false
-                }
-            }
-        }
-    },
+    "auto-settings": {},
     "mux": {
         "resources": {
-            "datadog:aws/integration:Integration": 0,
             "datadog:aws/integrationAccount:IntegrationAccount": 1,
             "datadog:aws/integrationEventBridge:IntegrationEventBridge": 1,
             "datadog:aws/integrationExternalId:IntegrationExternalId": 1,
-            "datadog:aws/integrationLambdaArn:IntegrationLambdaArn": 0,
-            "datadog:aws/integrationLogCollection:IntegrationLogCollection": 0,
-            "datadog:aws/integrationTagFilter:IntegrationTagFilter": 0,
             "datadog:azure/integration:Integration": 1,
             "datadog:cloudflare/integrationAccount:IntegrationAccount": 1,
             "datadog:confluent/integrationAccount:IntegrationAccount": 1,
@@ -20353,6 +21009,7 @@
             "datadog:index/rumMetric:RumMetric": 1,
             "datadog:index/rumRetentionFilter:RumRetentionFilter": 1,
             "datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder": 1,
+            "datadog:index/secureEmbedDashboard:SecureEmbedDashboard": 1,
             "datadog:index/securityMonitoringCriticalAsset:SecurityMonitoringCriticalAsset": 1,
             "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule": 0,
             "datadog:index/securityMonitoringFilter:SecurityMonitoringFilter": 0,
@@ -20408,7 +21065,6 @@
             "datadog:index/getApiKey:getApiKey": 1,
             "datadog:index/getApmRetentionFiltersOrder:getApmRetentionFiltersOrder": 1,
             "datadog:index/getAppBuilderApp:getAppBuilderApp": 1,
-            "datadog:index/getApplicationKey:getApplicationKey": 1,
             "datadog:index/getAwsCurConfig:getAwsCurConfig": 1,
             "datadog:index/getAzureUcConfig:getAzureUcConfig": 1,
             "datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules": 0,

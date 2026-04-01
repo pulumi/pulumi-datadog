@@ -34,7 +34,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 
-	"github.com/pulumi/pulumi-datadog/provider/v4/pkg/version"
+	"github.com/pulumi/pulumi-datadog/provider/v5/pkg/version"
 )
 
 const (
@@ -117,12 +117,6 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Azure Integrations
 			"datadog_integration_azure": {Tok: makeResource(azureMod, "Integration")},
-
-			// AWS Integrations
-			"datadog_integration_aws":                {Tok: makeResource(awsMod, "Integration")},
-			"datadog_integration_aws_tag_filter":     {Tok: makeResource(awsMod, "IntegrationTagFilter")},
-			"datadog_integration_aws_lambda_arn":     {Tok: makeResource(awsMod, "IntegrationLambdaArn")},
-			"datadog_integration_aws_log_collection": {Tok: makeResource(awsMod, "IntegrationLogCollection")},
 
 			// PagerDuty Integrations
 			"datadog_integration_pagerduty":                {Tok: makeResource(pdMod, "Integration")},
