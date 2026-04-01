@@ -3,7 +3,7 @@ module dashboard
 go 1.25.6
 
 require (
-	github.com/pulumi/pulumi-datadog/sdk/v4 v4.68.0
+	github.com/pulumi/pulumi-datadog/sdk/v5 v5.0.0-alpha.0
 	github.com/pulumi/pulumi/sdk/v3 v3.226.0
 )
 
@@ -117,4 +117,4 @@ require (
 	lukechampine.com/frand v1.4.2 // indirect
 )
 
-replace github.com/pulumi/pulumi-datadog/sdk/v4 => ../../sdk
+replace github.com/pulumi/pulumi-datadog/sdk/v5 => ../../sdk
