@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigSourceAmazonDataFirehose
     {
         /// <summary>
+        /// Name of the environment variable or secret that holds the listen address.
+        /// </summary>
+        public readonly string? AddressKey;
+        /// <summary>
         /// AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth? Auth;
@@ -24,10 +28,13 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private ObservabilityPipelineConfigSourceAmazonDataFirehose(
+            string? addressKey,
+
             Outputs.ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth? auth,
 
             Outputs.ObservabilityPipelineConfigSourceAmazonDataFirehoseTls? tls)
         {
+            AddressKey = addressKey;
             Auth = auth;
             Tls = tls;
         }

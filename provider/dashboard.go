@@ -25,7 +25,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 
-	"github.com/pulumi/pulumi-datadog/provider/v4/psed"
+	"github.com/pulumi/pulumi-datadog/provider/v5/psed"
 )
 
 type recType struct{ prefix, suffix string }
@@ -60,7 +60,6 @@ func rerollRecursiveDashboardWidget(spec *schema.PackageSpec) {
 	rerollRecursiveTypes(spec, defs)
 
 	mkRec := func(prefix, postfix, example string) recType {
-
 		psed.CopyType(spec,
 			tokens.Type(datadogPkg+":"+mainMod+"/"+example+":"+example),
 			tokens.Type(datadogPkg+":"+mainMod+"/"+prefix+postfix+":"+prefix+postfix),

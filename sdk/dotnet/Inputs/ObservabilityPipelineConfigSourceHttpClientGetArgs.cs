@@ -19,10 +19,28 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? AuthStrategy { get; set; }
 
         /// <summary>
+        /// Name of the environment variable or secret that holds a custom header value (used with custom auth strategies).
+        /// </summary>
+        [Input("customKey")]
+        public Input<string>? CustomKey { get; set; }
+
+        /// <summary>
         /// The decoding format used to interpret incoming logs.
         /// </summary>
         [Input("decoding", required: true)]
         public Input<string> Decoding { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the environment variable or secret that holds the HTTP endpoint URL.
+        /// </summary>
+        [Input("endpointUrlKey")]
+        public Input<string>? EndpointUrlKey { get; set; }
+
+        /// <summary>
+        /// Name of the environment variable or secret that holds the password.
+        /// </summary>
+        [Input("passwordKey")]
+        public Input<string>? PasswordKey { get; set; }
 
         /// <summary>
         /// The interval (in seconds) between HTTP scrape requests.
@@ -41,6 +59,18 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("tls")]
         public Input<Inputs.ObservabilityPipelineConfigSourceHttpClientTlsGetArgs>? Tls { get; set; }
+
+        /// <summary>
+        /// Name of the environment variable or secret that holds the authentication token.
+        /// </summary>
+        [Input("tokenKey")]
+        public Input<string>? TokenKey { get; set; }
+
+        /// <summary>
+        /// Name of the environment variable or secret that holds the username.
+        /// </summary>
+        [Input("usernameKey")]
+        public Input<string>? UsernameKey { get; set; }
 
         public ObservabilityPipelineConfigSourceHttpClientGetArgs()
         {

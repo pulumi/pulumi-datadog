@@ -47,11 +47,27 @@ public final class ObservabilityPipelineConfigDestinationSentinelOneArgs extends
         return this.region;
     }
 
+    /**
+     * Name of the environment variable or secret that holds the SentinelOne API token.
+     * 
+     */
+    @Import(name="tokenKey")
+    private @Nullable Output<String> tokenKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the SentinelOne API token.
+     * 
+     */
+    public Optional<Output<String>> tokenKey() {
+        return Optional.ofNullable(this.tokenKey);
+    }
+
     private ObservabilityPipelineConfigDestinationSentinelOneArgs() {}
 
     private ObservabilityPipelineConfigDestinationSentinelOneArgs(ObservabilityPipelineConfigDestinationSentinelOneArgs $) {
         this.buffer = $.buffer;
         this.region = $.region;
+        this.tokenKey = $.tokenKey;
     }
 
     public static Builder builder() {
@@ -112,6 +128,27 @@ public final class ObservabilityPipelineConfigDestinationSentinelOneArgs extends
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param tokenKey Name of the environment variable or secret that holds the SentinelOne API token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenKey(@Nullable Output<String> tokenKey) {
+            $.tokenKey = tokenKey;
+            return this;
+        }
+
+        /**
+         * @param tokenKey Name of the environment variable or secret that holds the SentinelOne API token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenKey(String tokenKey) {
+            return tokenKey(Output.of(tokenKey));
         }
 
         public ObservabilityPipelineConfigDestinationSentinelOneArgs build() {

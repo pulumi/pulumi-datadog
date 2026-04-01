@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTable
     {
         /// <summary>
+        /// Name of the environment variable or secret that holds the Datadog application key for the reference table.
+        /// </summary>
+        public readonly string? AppKeyKey;
+        /// <summary>
         /// List of column names to include from the reference table. If not provided, all columns are included.
         /// </summary>
         public readonly ImmutableArray<string> Columns;
@@ -28,12 +32,15 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTable(
+            string? appKeyKey,
+
             ImmutableArray<string> columns,
 
             string keyField,
 
             string tableId)
         {
+            AppKeyKey = appKeyKey;
             Columns = columns;
             KeyField = keyField;
             TableId = tableId;

@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-datadog/sdk/v4
+module github.com/pulumi/pulumi-datadog/sdk/v5
 
 go 1.25.6
 

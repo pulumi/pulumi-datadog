@@ -210,10 +210,6 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly bool IncludeTags;
         /// <summary>
-        /// Whether or not changes to the monitor are restricted to the creator or admins.
-        /// </summary>
-        public readonly bool Locked;
-        /// <summary>
         /// Message included with notifications for this monitor
         /// </summary>
         public readonly string Message;
@@ -329,8 +325,6 @@ namespace Pulumi.Datadog
 
             bool includeTags,
 
-            bool locked,
-
             string message,
 
             ImmutableArray<string> monitorTagsFilters,
@@ -389,7 +383,6 @@ namespace Pulumi.Datadog
             GroupbySimpleMonitor = groupbySimpleMonitor;
             Id = id;
             IncludeTags = includeTags;
-            Locked = locked;
             Message = message;
             MonitorTagsFilters = monitorTagsFilters;
             MonitorThresholdWindows = monitorThresholdWindows;

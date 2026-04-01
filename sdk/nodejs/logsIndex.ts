@@ -103,7 +103,7 @@ export class LogsIndex extends pulumi.CustomResource {
      */
     declare public readonly dailyLimitWarningThresholdPercentage: pulumi.Output<number>;
     /**
-     * If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current dailyLimit is maintained.
+     * If true, disables the daily limit and sets `dailyLimit` to null. If false, enables the daily limit. When creating an index, if this attribute is omitted, the daily limit is enabled by default. When updating an index, if this attribute is omitted, the existing value is preserved. Providing a `dailyLimit` value does not re-enable the limit if it was previously disabled unless `disableDailyLimit` is explicitly set to false.
      */
     declare public readonly disableDailyLimit: pulumi.Output<boolean>;
     /**
@@ -195,7 +195,7 @@ export interface LogsIndexState {
      */
     dailyLimitWarningThresholdPercentage?: pulumi.Input<number>;
     /**
-     * If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current dailyLimit is maintained.
+     * If true, disables the daily limit and sets `dailyLimit` to null. If false, enables the daily limit. When creating an index, if this attribute is omitted, the daily limit is enabled by default. When updating an index, if this attribute is omitted, the existing value is preserved. Providing a `dailyLimit` value does not re-enable the limit if it was previously disabled unless `disableDailyLimit` is explicitly set to false.
      */
     disableDailyLimit?: pulumi.Input<boolean>;
     /**
@@ -241,7 +241,7 @@ export interface LogsIndexArgs {
      */
     dailyLimitWarningThresholdPercentage?: pulumi.Input<number>;
     /**
-     * If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current dailyLimit is maintained.
+     * If true, disables the daily limit and sets `dailyLimit` to null. If false, enables the daily limit. When creating an index, if this attribute is omitted, the daily limit is enabled by default. When updating an index, if this attribute is omitted, the existing value is preserved. Providing a `dailyLimit` value does not re-enable the limit if it was previously disabled unless `disableDailyLimit` is explicitly set to false.
      */
     disableDailyLimit?: pulumi.Input<boolean>;
     /**

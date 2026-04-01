@@ -22,6 +22,21 @@ public final class ObservabilityPipelineConfigDestinationKafkaArgs extends com.p
     public static final ObservabilityPipelineConfigDestinationKafkaArgs Empty = new ObservabilityPipelineConfigDestinationKafkaArgs();
 
     /**
+     * Name of the environment variable or secret that holds the Kafka bootstrap servers.
+     * 
+     */
+    @Import(name="bootstrapServersKey")
+    private @Nullable Output<String> bootstrapServersKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the Kafka bootstrap servers.
+     * 
+     */
+    public Optional<Output<String>> bootstrapServersKey() {
+        return Optional.ofNullable(this.bootstrapServersKey);
+    }
+
+    /**
      * Compression codec for Kafka messages. Valid values are `none`, `gzip`, `snappy`, `lz4`, `zstd`.
      * 
      */
@@ -204,6 +219,7 @@ public final class ObservabilityPipelineConfigDestinationKafkaArgs extends com.p
     private ObservabilityPipelineConfigDestinationKafkaArgs() {}
 
     private ObservabilityPipelineConfigDestinationKafkaArgs(ObservabilityPipelineConfigDestinationKafkaArgs $) {
+        this.bootstrapServersKey = $.bootstrapServersKey;
         this.compression = $.compression;
         this.encoding = $.encoding;
         this.headersKey = $.headersKey;
@@ -234,6 +250,27 @@ public final class ObservabilityPipelineConfigDestinationKafkaArgs extends com.p
 
         public Builder(ObservabilityPipelineConfigDestinationKafkaArgs defaults) {
             $ = new ObservabilityPipelineConfigDestinationKafkaArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param bootstrapServersKey Name of the environment variable or secret that holds the Kafka bootstrap servers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapServersKey(@Nullable Output<String> bootstrapServersKey) {
+            $.bootstrapServersKey = bootstrapServersKey;
+            return this;
+        }
+
+        /**
+         * @param bootstrapServersKey Name of the environment variable or secret that holds the Kafka bootstrap servers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapServersKey(String bootstrapServersKey) {
+            return bootstrapServersKey(Output.of(bootstrapServersKey));
         }
 
         /**

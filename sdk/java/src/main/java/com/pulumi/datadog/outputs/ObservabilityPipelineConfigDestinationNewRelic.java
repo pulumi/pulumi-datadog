@@ -14,10 +14,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigDestinationNewRelic {
     /**
+     * @return Name of the environment variable or secret that holds the New Relic account ID.
+     * 
+     */
+    private @Nullable String accountIdKey;
+    /**
      * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
      * 
      */
     private @Nullable ObservabilityPipelineConfigDestinationNewRelicBuffer buffer;
+    /**
+     * @return Name of the environment variable or secret that holds the New Relic license key.
+     * 
+     */
+    private @Nullable String licenseKeyKey;
     /**
      * @return The New Relic region.
      * 
@@ -26,11 +36,25 @@ public final class ObservabilityPipelineConfigDestinationNewRelic {
 
     private ObservabilityPipelineConfigDestinationNewRelic() {}
     /**
+     * @return Name of the environment variable or secret that holds the New Relic account ID.
+     * 
+     */
+    public Optional<String> accountIdKey() {
+        return Optional.ofNullable(this.accountIdKey);
+    }
+    /**
      * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
      * 
      */
     public Optional<ObservabilityPipelineConfigDestinationNewRelicBuffer> buffer() {
         return Optional.ofNullable(this.buffer);
+    }
+    /**
+     * @return Name of the environment variable or secret that holds the New Relic license key.
+     * 
+     */
+    public Optional<String> licenseKeyKey() {
+        return Optional.ofNullable(this.licenseKeyKey);
     }
     /**
      * @return The New Relic region.
@@ -49,19 +73,35 @@ public final class ObservabilityPipelineConfigDestinationNewRelic {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String accountIdKey;
         private @Nullable ObservabilityPipelineConfigDestinationNewRelicBuffer buffer;
+        private @Nullable String licenseKeyKey;
         private String region;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationNewRelic defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.accountIdKey = defaults.accountIdKey;
     	      this.buffer = defaults.buffer;
+    	      this.licenseKeyKey = defaults.licenseKeyKey;
     	      this.region = defaults.region;
         }
 
         @CustomType.Setter
+        public Builder accountIdKey(@Nullable String accountIdKey) {
+
+            this.accountIdKey = accountIdKey;
+            return this;
+        }
+        @CustomType.Setter
         public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationNewRelicBuffer buffer) {
 
             this.buffer = buffer;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder licenseKeyKey(@Nullable String licenseKeyKey) {
+
+            this.licenseKeyKey = licenseKeyKey;
             return this;
         }
         @CustomType.Setter
@@ -74,7 +114,9 @@ public final class ObservabilityPipelineConfigDestinationNewRelic {
         }
         public ObservabilityPipelineConfigDestinationNewRelic build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationNewRelic();
+            _resultValue.accountIdKey = accountIdKey;
             _resultValue.buffer = buffer;
+            _resultValue.licenseKeyKey = licenseKeyKey;
             _resultValue.region = region;
             return _resultValue;
         }

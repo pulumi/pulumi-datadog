@@ -8,7 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.MonitorAssetArgs;
 import com.pulumi.datadog.inputs.MonitorMonitorThresholdWindowsArgs;
 import com.pulumi.datadog.inputs.MonitorMonitorThresholdsArgs;
-import com.pulumi.datadog.inputs.MonitorSchedulingOptionArgs;
+import com.pulumi.datadog.inputs.MonitorSchedulingOptionsArgs;
 import com.pulumi.datadog.inputs.MonitorVariablesArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -176,29 +176,6 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> includeTags() {
         return Optional.ofNullable(this.includeTags);
-    }
-
-    /**
-     * A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
-     * 
-     * @deprecated
-     * Use `restrictedRoles`.
-     * 
-     */
-    @Deprecated /* Use `restrictedRoles`. */
-    @Import(name="locked")
-    private @Nullable Output<Boolean> locked;
-
-    /**
-     * @return A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
-     * 
-     * @deprecated
-     * Use `restrictedRoles`.
-     * 
-     */
-    @Deprecated /* Use `restrictedRoles`. */
-    public Optional<Output<Boolean>> locked() {
-        return Optional.ofNullable(this.locked);
     }
 
     /**
@@ -493,17 +470,23 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
-     *  &gt; **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restrictedRoles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `datadog.RestrictionPolicy` resource.
+     * 
+     * @deprecated
+     * Use `datadog.RestrictionPolicy` resource to manage permission.
      * 
      */
+    @Deprecated /* Use `datadog.RestrictionPolicy` resource to manage permission. */
     @Import(name="restrictedRoles")
     private @Nullable Output<List<String>> restrictedRoles;
 
     /**
      * @return A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
-     *  &gt; **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restrictedRoles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `datadog.RestrictionPolicy` resource.
+     * 
+     * @deprecated
+     * Use `datadog.RestrictionPolicy` resource to manage permission.
      * 
      */
+    @Deprecated /* Use `datadog.RestrictionPolicy` resource to manage permission. */
     public Optional<Output<List<String>>> restrictedRoles() {
         return Optional.ofNullable(this.restrictedRoles);
     }
@@ -513,13 +496,13 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="schedulingOptions")
-    private @Nullable Output<List<MonitorSchedulingOptionArgs>> schedulingOptions;
+    private @Nullable Output<MonitorSchedulingOptionsArgs> schedulingOptions;
 
     /**
      * @return Configuration options for scheduling.
      * 
      */
-    public Optional<Output<List<MonitorSchedulingOptionArgs>>> schedulingOptions() {
+    public Optional<Output<MonitorSchedulingOptionsArgs>> schedulingOptions() {
         return Optional.ofNullable(this.schedulingOptions);
     }
 
@@ -603,7 +586,6 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         this.groupRetentionDuration = $.groupRetentionDuration;
         this.groupbySimpleMonitor = $.groupbySimpleMonitor;
         this.includeTags = $.includeTags;
-        this.locked = $.locked;
         this.message = $.message;
         this.monitorThresholdWindows = $.monitorThresholdWindows;
         this.monitorThresholds = $.monitorThresholds;
@@ -871,35 +853,6 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder includeTags(Boolean includeTags) {
             return includeTags(Output.of(includeTags));
-        }
-
-        /**
-         * @param locked A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use `restrictedRoles`.
-         * 
-         */
-        @Deprecated /* Use `restrictedRoles`. */
-        public Builder locked(@Nullable Output<Boolean> locked) {
-            $.locked = locked;
-            return this;
-        }
-
-        /**
-         * @param locked A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use `restrictedRoles`.
-         * 
-         */
-        @Deprecated /* Use `restrictedRoles`. */
-        public Builder locked(Boolean locked) {
-            return locked(Output.of(locked));
         }
 
         /**
@@ -1322,11 +1275,14 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param restrictedRoles A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
-         *  &gt; **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restrictedRoles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `datadog.RestrictionPolicy` resource.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use `datadog.RestrictionPolicy` resource to manage permission.
+         * 
          */
+        @Deprecated /* Use `datadog.RestrictionPolicy` resource to manage permission. */
         public Builder restrictedRoles(@Nullable Output<List<String>> restrictedRoles) {
             $.restrictedRoles = restrictedRoles;
             return this;
@@ -1334,22 +1290,28 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param restrictedRoles A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
-         *  &gt; **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restrictedRoles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `datadog.RestrictionPolicy` resource.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use `datadog.RestrictionPolicy` resource to manage permission.
+         * 
          */
+        @Deprecated /* Use `datadog.RestrictionPolicy` resource to manage permission. */
         public Builder restrictedRoles(List<String> restrictedRoles) {
             return restrictedRoles(Output.of(restrictedRoles));
         }
 
         /**
          * @param restrictedRoles A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
-         *  &gt; **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restrictedRoles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `datadog.RestrictionPolicy` resource.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use `datadog.RestrictionPolicy` resource to manage permission.
+         * 
          */
+        @Deprecated /* Use `datadog.RestrictionPolicy` resource to manage permission. */
         public Builder restrictedRoles(String... restrictedRoles) {
             return restrictedRoles(List.of(restrictedRoles));
         }
@@ -1360,7 +1322,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder schedulingOptions(@Nullable Output<List<MonitorSchedulingOptionArgs>> schedulingOptions) {
+        public Builder schedulingOptions(@Nullable Output<MonitorSchedulingOptionsArgs> schedulingOptions) {
             $.schedulingOptions = schedulingOptions;
             return this;
         }
@@ -1371,18 +1333,8 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder schedulingOptions(List<MonitorSchedulingOptionArgs> schedulingOptions) {
+        public Builder schedulingOptions(MonitorSchedulingOptionsArgs schedulingOptions) {
             return schedulingOptions(Output.of(schedulingOptions));
-        }
-
-        /**
-         * @param schedulingOptions Configuration options for scheduling.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder schedulingOptions(MonitorSchedulingOptionArgs... schedulingOptions) {
-            return schedulingOptions(List.of(schedulingOptions));
         }
 
         /**

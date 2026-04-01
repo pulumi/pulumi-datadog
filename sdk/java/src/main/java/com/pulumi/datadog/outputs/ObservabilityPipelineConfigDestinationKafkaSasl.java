@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigDestinationKafkaSasl {
@@ -15,6 +17,16 @@ public final class ObservabilityPipelineConfigDestinationKafkaSasl {
      * 
      */
     private String mechanism;
+    /**
+     * @return Name of the environment variable or secret that holds the SASL password.
+     * 
+     */
+    private @Nullable String passwordKey;
+    /**
+     * @return Name of the environment variable or secret that holds the SASL username.
+     * 
+     */
+    private @Nullable String usernameKey;
 
     private ObservabilityPipelineConfigDestinationKafkaSasl() {}
     /**
@@ -23,6 +35,20 @@ public final class ObservabilityPipelineConfigDestinationKafkaSasl {
      */
     public String mechanism() {
         return this.mechanism;
+    }
+    /**
+     * @return Name of the environment variable or secret that holds the SASL password.
+     * 
+     */
+    public Optional<String> passwordKey() {
+        return Optional.ofNullable(this.passwordKey);
+    }
+    /**
+     * @return Name of the environment variable or secret that holds the SASL username.
+     * 
+     */
+    public Optional<String> usernameKey() {
+        return Optional.ofNullable(this.usernameKey);
     }
 
     public static Builder builder() {
@@ -35,10 +61,14 @@ public final class ObservabilityPipelineConfigDestinationKafkaSasl {
     @CustomType.Builder
     public static final class Builder {
         private String mechanism;
+        private @Nullable String passwordKey;
+        private @Nullable String usernameKey;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationKafkaSasl defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.mechanism = defaults.mechanism;
+    	      this.passwordKey = defaults.passwordKey;
+    	      this.usernameKey = defaults.usernameKey;
         }
 
         @CustomType.Setter
@@ -49,9 +79,23 @@ public final class ObservabilityPipelineConfigDestinationKafkaSasl {
             this.mechanism = mechanism;
             return this;
         }
+        @CustomType.Setter
+        public Builder passwordKey(@Nullable String passwordKey) {
+
+            this.passwordKey = passwordKey;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder usernameKey(@Nullable String usernameKey) {
+
+            this.usernameKey = usernameKey;
+            return this;
+        }
         public ObservabilityPipelineConfigDestinationKafkaSasl build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationKafkaSasl();
             _resultValue.mechanism = mechanism;
+            _resultValue.passwordKey = passwordKey;
+            _resultValue.usernameKey = usernameKey;
             return _resultValue;
         }
     }

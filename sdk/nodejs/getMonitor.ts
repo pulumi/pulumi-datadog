@@ -86,10 +86,6 @@ export interface GetMonitorResult {
      */
     readonly includeTags: boolean;
     /**
-     * Whether or not changes to the monitor are restricted to the creator or admins.
-     */
-    readonly locked: boolean;
-    /**
      * Message included with notifications for this monitor
      */
     readonly message: string;

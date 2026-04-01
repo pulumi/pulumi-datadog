@@ -24,6 +24,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the environment variable or secret that holds the SentinelOne API token.
+        /// </summary>
+        [Input("tokenKey")]
+        public Input<string>? TokenKey { get; set; }
+
         public ObservabilityPipelineConfigDestinationSentinelOneGetArgs()
         {
         }

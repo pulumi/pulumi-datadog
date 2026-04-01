@@ -17,14 +17,14 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperA
     public static final ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperArgs Empty = new ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperArgs();
 
     /**
-     * List of OCSF mapping entries using library mapping.
+     * List of OCSF mapping entries. Each entry uses either a library mapping or a custom mapping.
      * 
      */
     @Import(name="mappings")
     private @Nullable Output<List<ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingArgs>> mappings;
 
     /**
-     * @return List of OCSF mapping entries using library mapping.
+     * @return List of OCSF mapping entries. Each entry uses either a library mapping or a custom mapping.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingArgs>>> mappings() {
@@ -56,7 +56,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperA
         }
 
         /**
-         * @param mappings List of OCSF mapping entries using library mapping.
+         * @param mappings List of OCSF mapping entries. Each entry uses either a library mapping or a custom mapping.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperA
         }
 
         /**
-         * @param mappings List of OCSF mapping entries using library mapping.
+         * @param mappings List of OCSF mapping entries. Each entry uses either a library mapping or a custom mapping.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperA
         }
 
         /**
-         * @param mappings List of OCSF mapping entries using library mapping.
+         * @param mappings List of OCSF mapping entries. Each entry uses either a library mapping or a custom mapping.
          * 
          * @return builder
          * 

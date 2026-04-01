@@ -34,6 +34,21 @@ public final class ObservabilityPipelineConfigSourceHttpClientArgs extends com.p
     }
 
     /**
+     * Name of the environment variable or secret that holds a custom header value (used with custom auth strategies).
+     * 
+     */
+    @Import(name="customKey")
+    private @Nullable Output<String> customKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds a custom header value (used with custom auth strategies).
+     * 
+     */
+    public Optional<Output<String>> customKey() {
+        return Optional.ofNullable(this.customKey);
+    }
+
+    /**
      * The decoding format used to interpret incoming logs.
      * 
      */
@@ -46,6 +61,36 @@ public final class ObservabilityPipelineConfigSourceHttpClientArgs extends com.p
      */
     public Output<String> decoding() {
         return this.decoding;
+    }
+
+    /**
+     * Name of the environment variable or secret that holds the HTTP endpoint URL.
+     * 
+     */
+    @Import(name="endpointUrlKey")
+    private @Nullable Output<String> endpointUrlKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the HTTP endpoint URL.
+     * 
+     */
+    public Optional<Output<String>> endpointUrlKey() {
+        return Optional.ofNullable(this.endpointUrlKey);
+    }
+
+    /**
+     * Name of the environment variable or secret that holds the password.
+     * 
+     */
+    @Import(name="passwordKey")
+    private @Nullable Output<String> passwordKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the password.
+     * 
+     */
+    public Optional<Output<String>> passwordKey() {
+        return Optional.ofNullable(this.passwordKey);
     }
 
     /**
@@ -93,14 +138,49 @@ public final class ObservabilityPipelineConfigSourceHttpClientArgs extends com.p
         return Optional.ofNullable(this.tls);
     }
 
+    /**
+     * Name of the environment variable or secret that holds the authentication token.
+     * 
+     */
+    @Import(name="tokenKey")
+    private @Nullable Output<String> tokenKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the authentication token.
+     * 
+     */
+    public Optional<Output<String>> tokenKey() {
+        return Optional.ofNullable(this.tokenKey);
+    }
+
+    /**
+     * Name of the environment variable or secret that holds the username.
+     * 
+     */
+    @Import(name="usernameKey")
+    private @Nullable Output<String> usernameKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the username.
+     * 
+     */
+    public Optional<Output<String>> usernameKey() {
+        return Optional.ofNullable(this.usernameKey);
+    }
+
     private ObservabilityPipelineConfigSourceHttpClientArgs() {}
 
     private ObservabilityPipelineConfigSourceHttpClientArgs(ObservabilityPipelineConfigSourceHttpClientArgs $) {
         this.authStrategy = $.authStrategy;
+        this.customKey = $.customKey;
         this.decoding = $.decoding;
+        this.endpointUrlKey = $.endpointUrlKey;
+        this.passwordKey = $.passwordKey;
         this.scrapeIntervalSecs = $.scrapeIntervalSecs;
         this.scrapeTimeoutSecs = $.scrapeTimeoutSecs;
         this.tls = $.tls;
+        this.tokenKey = $.tokenKey;
+        this.usernameKey = $.usernameKey;
     }
 
     public static Builder builder() {
@@ -143,6 +223,27 @@ public final class ObservabilityPipelineConfigSourceHttpClientArgs extends com.p
         }
 
         /**
+         * @param customKey Name of the environment variable or secret that holds a custom header value (used with custom auth strategies).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customKey(@Nullable Output<String> customKey) {
+            $.customKey = customKey;
+            return this;
+        }
+
+        /**
+         * @param customKey Name of the environment variable or secret that holds a custom header value (used with custom auth strategies).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customKey(String customKey) {
+            return customKey(Output.of(customKey));
+        }
+
+        /**
          * @param decoding The decoding format used to interpret incoming logs.
          * 
          * @return builder
@@ -161,6 +262,48 @@ public final class ObservabilityPipelineConfigSourceHttpClientArgs extends com.p
          */
         public Builder decoding(String decoding) {
             return decoding(Output.of(decoding));
+        }
+
+        /**
+         * @param endpointUrlKey Name of the environment variable or secret that holds the HTTP endpoint URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointUrlKey(@Nullable Output<String> endpointUrlKey) {
+            $.endpointUrlKey = endpointUrlKey;
+            return this;
+        }
+
+        /**
+         * @param endpointUrlKey Name of the environment variable or secret that holds the HTTP endpoint URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointUrlKey(String endpointUrlKey) {
+            return endpointUrlKey(Output.of(endpointUrlKey));
+        }
+
+        /**
+         * @param passwordKey Name of the environment variable or secret that holds the password.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordKey(@Nullable Output<String> passwordKey) {
+            $.passwordKey = passwordKey;
+            return this;
+        }
+
+        /**
+         * @param passwordKey Name of the environment variable or secret that holds the password.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordKey(String passwordKey) {
+            return passwordKey(Output.of(passwordKey));
         }
 
         /**
@@ -224,6 +367,48 @@ public final class ObservabilityPipelineConfigSourceHttpClientArgs extends com.p
          */
         public Builder tls(ObservabilityPipelineConfigSourceHttpClientTlsArgs tls) {
             return tls(Output.of(tls));
+        }
+
+        /**
+         * @param tokenKey Name of the environment variable or secret that holds the authentication token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenKey(@Nullable Output<String> tokenKey) {
+            $.tokenKey = tokenKey;
+            return this;
+        }
+
+        /**
+         * @param tokenKey Name of the environment variable or secret that holds the authentication token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenKey(String tokenKey) {
+            return tokenKey(Output.of(tokenKey));
+        }
+
+        /**
+         * @param usernameKey Name of the environment variable or secret that holds the username.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usernameKey(@Nullable Output<String> usernameKey) {
+            $.usernameKey = usernameKey;
+            return this;
+        }
+
+        /**
+         * @param usernameKey Name of the environment variable or secret that holds the username.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usernameKey(String usernameKey) {
+            return usernameKey(Output.of(usernameKey));
         }
 
         public ObservabilityPipelineConfigSourceHttpClientArgs build() {

@@ -18,6 +18,18 @@ namespace Pulumi.Datadog.Inputs
         [Input("mechanism", required: true)]
         public Input<string> Mechanism { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the environment variable or secret that holds the SASL password.
+        /// </summary>
+        [Input("passwordKey")]
+        public Input<string>? PasswordKey { get; set; }
+
+        /// <summary>
+        /// Name of the environment variable or secret that holds the SASL username.
+        /// </summary>
+        [Input("usernameKey")]
+        public Input<string>? UsernameKey { get; set; }
+
         public ObservabilityPipelineConfigSourceKafkaSaslGetArgs()
         {
         }

@@ -30,6 +30,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy> GroupBies;
         /// <summary>
+        /// Alternative group-by configuration that groups by multiple event facet fields. Use this or `GroupBy`, not both.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields? GroupByFields;
+        /// <summary>
         /// An array of index names to query in the stream.
         /// </summary>
         public readonly ImmutableArray<string> Indexes;
@@ -56,6 +60,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy> groupBies,
 
+            Outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields? groupByFields,
+
             ImmutableArray<string> indexes,
 
             string name,
@@ -68,6 +74,7 @@ namespace Pulumi.Datadog.Outputs
             CrossOrgUuids = crossOrgUuids;
             DataSource = dataSource;
             GroupBies = groupBies;
+            GroupByFields = groupByFields;
             Indexes = indexes;
             Name = name;
             Search = search;

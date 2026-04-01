@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceFluentBitTlsArgs;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class ObservabilityPipelineConfigSourceFluentBitArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ObservabilityPipelineConfigSourceFluentBitArgs Empty = new ObservabilityPipelineConfigSourceFluentBitArgs();
+
+    /**
+     * Name of the environment variable or secret that holds the listen address.
+     * 
+     */
+    @Import(name="addressKey")
+    private @Nullable Output<String> addressKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the listen address.
+     * 
+     */
+    public Optional<Output<String>> addressKey() {
+        return Optional.ofNullable(this.addressKey);
+    }
 
     /**
      * Configuration for enabling TLS encryption between the pipeline component and external services.
@@ -33,6 +49,7 @@ public final class ObservabilityPipelineConfigSourceFluentBitArgs extends com.pu
     private ObservabilityPipelineConfigSourceFluentBitArgs() {}
 
     private ObservabilityPipelineConfigSourceFluentBitArgs(ObservabilityPipelineConfigSourceFluentBitArgs $) {
+        this.addressKey = $.addressKey;
         this.tls = $.tls;
     }
 
@@ -52,6 +69,27 @@ public final class ObservabilityPipelineConfigSourceFluentBitArgs extends com.pu
 
         public Builder(ObservabilityPipelineConfigSourceFluentBitArgs defaults) {
             $ = new ObservabilityPipelineConfigSourceFluentBitArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param addressKey Name of the environment variable or secret that holds the listen address.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addressKey(@Nullable Output<String> addressKey) {
+            $.addressKey = addressKey;
+            return this;
+        }
+
+        /**
+         * @param addressKey Name of the environment variable or secret that holds the listen address.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addressKey(String addressKey) {
+            return addressKey(Output.of(addressKey));
         }
 
         /**

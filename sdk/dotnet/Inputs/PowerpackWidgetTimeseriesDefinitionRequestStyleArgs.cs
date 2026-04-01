@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class PowerpackWidgetTimeseriesDefinitionRequestStyleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// If true, the value is displayed as a label relative to the data point.
+        /// </summary>
+        [Input("hasValueLabels")]
+        public Input<bool>? HasValueLabels { get; set; }
+
+        /// <summary>
         /// The type of lines displayed. Valid values are `Dashed`, `Dotted`, `Solid`.
         /// </summary>
         [Input("lineType")]

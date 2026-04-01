@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceOpentelemetryTlsArgs;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,6 +15,36 @@ import javax.annotation.Nullable;
 public final class ObservabilityPipelineConfigSourceOpentelemetryArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ObservabilityPipelineConfigSourceOpentelemetryArgs Empty = new ObservabilityPipelineConfigSourceOpentelemetryArgs();
+
+    /**
+     * Environment variable name containing the gRPC server address for receiving OTLP data.
+     * 
+     */
+    @Import(name="grpcAddressKey")
+    private @Nullable Output<String> grpcAddressKey;
+
+    /**
+     * @return Environment variable name containing the gRPC server address for receiving OTLP data.
+     * 
+     */
+    public Optional<Output<String>> grpcAddressKey() {
+        return Optional.ofNullable(this.grpcAddressKey);
+    }
+
+    /**
+     * Environment variable name containing the HTTP server address for receiving OTLP data.
+     * 
+     */
+    @Import(name="httpAddressKey")
+    private @Nullable Output<String> httpAddressKey;
+
+    /**
+     * @return Environment variable name containing the HTTP server address for receiving OTLP data.
+     * 
+     */
+    public Optional<Output<String>> httpAddressKey() {
+        return Optional.ofNullable(this.httpAddressKey);
+    }
 
     /**
      * Configuration for enabling TLS encryption between the pipeline component and external services.
@@ -33,6 +64,8 @@ public final class ObservabilityPipelineConfigSourceOpentelemetryArgs extends co
     private ObservabilityPipelineConfigSourceOpentelemetryArgs() {}
 
     private ObservabilityPipelineConfigSourceOpentelemetryArgs(ObservabilityPipelineConfigSourceOpentelemetryArgs $) {
+        this.grpcAddressKey = $.grpcAddressKey;
+        this.httpAddressKey = $.httpAddressKey;
         this.tls = $.tls;
     }
 
@@ -52,6 +85,48 @@ public final class ObservabilityPipelineConfigSourceOpentelemetryArgs extends co
 
         public Builder(ObservabilityPipelineConfigSourceOpentelemetryArgs defaults) {
             $ = new ObservabilityPipelineConfigSourceOpentelemetryArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param grpcAddressKey Environment variable name containing the gRPC server address for receiving OTLP data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder grpcAddressKey(@Nullable Output<String> grpcAddressKey) {
+            $.grpcAddressKey = grpcAddressKey;
+            return this;
+        }
+
+        /**
+         * @param grpcAddressKey Environment variable name containing the gRPC server address for receiving OTLP data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder grpcAddressKey(String grpcAddressKey) {
+            return grpcAddressKey(Output.of(grpcAddressKey));
+        }
+
+        /**
+         * @param httpAddressKey Environment variable name containing the HTTP server address for receiving OTLP data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpAddressKey(@Nullable Output<String> httpAddressKey) {
+            $.httpAddressKey = httpAddressKey;
+            return this;
+        }
+
+        /**
+         * @param httpAddressKey Environment variable name containing the HTTP server address for receiving OTLP data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpAddressKey(String httpAddressKey) {
+            return httpAddressKey(Output.of(httpAddressKey));
         }
 
         /**

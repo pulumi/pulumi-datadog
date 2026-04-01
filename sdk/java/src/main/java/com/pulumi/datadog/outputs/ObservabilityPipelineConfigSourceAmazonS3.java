@@ -29,6 +29,11 @@ public final class ObservabilityPipelineConfigSourceAmazonS3 {
      * 
      */
     private @Nullable ObservabilityPipelineConfigSourceAmazonS3Tls tls;
+    /**
+     * @return Name of the environment variable or secret that holds the S3 bucket URL.
+     * 
+     */
+    private @Nullable String urlKey;
 
     private ObservabilityPipelineConfigSourceAmazonS3() {}
     /**
@@ -52,6 +57,13 @@ public final class ObservabilityPipelineConfigSourceAmazonS3 {
     public Optional<ObservabilityPipelineConfigSourceAmazonS3Tls> tls() {
         return Optional.ofNullable(this.tls);
     }
+    /**
+     * @return Name of the environment variable or secret that holds the S3 bucket URL.
+     * 
+     */
+    public Optional<String> urlKey() {
+        return Optional.ofNullable(this.urlKey);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -65,12 +77,14 @@ public final class ObservabilityPipelineConfigSourceAmazonS3 {
         private @Nullable ObservabilityPipelineConfigSourceAmazonS3Auth auth;
         private String region;
         private @Nullable ObservabilityPipelineConfigSourceAmazonS3Tls tls;
+        private @Nullable String urlKey;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigSourceAmazonS3 defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.auth = defaults.auth;
     	      this.region = defaults.region;
     	      this.tls = defaults.tls;
+    	      this.urlKey = defaults.urlKey;
         }
 
         @CustomType.Setter
@@ -93,11 +107,18 @@ public final class ObservabilityPipelineConfigSourceAmazonS3 {
             this.tls = tls;
             return this;
         }
+        @CustomType.Setter
+        public Builder urlKey(@Nullable String urlKey) {
+
+            this.urlKey = urlKey;
+            return this;
+        }
         public ObservabilityPipelineConfigSourceAmazonS3 build() {
             final var _resultValue = new ObservabilityPipelineConfigSourceAmazonS3();
             _resultValue.auth = auth;
             _resultValue.region = region;
             _resultValue.tls = tls;
+            _resultValue.urlKey = urlKey;
             return _resultValue;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceSplunkHecTlsArgs;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class ObservabilityPipelineConfigSourceSplunkHecArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ObservabilityPipelineConfigSourceSplunkHecArgs Empty = new ObservabilityPipelineConfigSourceSplunkHecArgs();
+
+    /**
+     * Name of the environment variable or secret that holds the listen address for the HEC API.
+     * 
+     */
+    @Import(name="addressKey")
+    private @Nullable Output<String> addressKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the listen address for the HEC API.
+     * 
+     */
+    public Optional<Output<String>> addressKey() {
+        return Optional.ofNullable(this.addressKey);
+    }
 
     /**
      * Configuration for enabling TLS encryption between the pipeline component and external services.
@@ -33,6 +49,7 @@ public final class ObservabilityPipelineConfigSourceSplunkHecArgs extends com.pu
     private ObservabilityPipelineConfigSourceSplunkHecArgs() {}
 
     private ObservabilityPipelineConfigSourceSplunkHecArgs(ObservabilityPipelineConfigSourceSplunkHecArgs $) {
+        this.addressKey = $.addressKey;
         this.tls = $.tls;
     }
 
@@ -52,6 +69,27 @@ public final class ObservabilityPipelineConfigSourceSplunkHecArgs extends com.pu
 
         public Builder(ObservabilityPipelineConfigSourceSplunkHecArgs defaults) {
             $ = new ObservabilityPipelineConfigSourceSplunkHecArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param addressKey Name of the environment variable or secret that holds the listen address for the HEC API.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addressKey(@Nullable Output<String> addressKey) {
+            $.addressKey = addressKey;
+            return this;
+        }
+
+        /**
+         * @param addressKey Name of the environment variable or secret that holds the listen address for the HEC API.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addressKey(String addressKey) {
+            return addressKey(Output.of(addressKey));
         }
 
         /**

@@ -26,9 +26,25 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Encoding;
         /// <summary>
+        /// Name of the environment variable or secret that holds the password.
+        /// </summary>
+        public readonly string? PasswordKey;
+        /// <summary>
         /// Configuration for enabling TLS encryption between the pipeline component and external services.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationHttpClientTls? Tls;
+        /// <summary>
+        /// Name of the environment variable or secret that holds the authentication token.
+        /// </summary>
+        public readonly string? TokenKey;
+        /// <summary>
+        /// Name of the environment variable or secret that holds the request URI.
+        /// </summary>
+        public readonly string? UriKey;
+        /// <summary>
+        /// Name of the environment variable or secret that holds the username.
+        /// </summary>
+        public readonly string? UsernameKey;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationHttpClient(
@@ -38,12 +54,24 @@ namespace Pulumi.Datadog.Outputs
 
             string encoding,
 
-            Outputs.ObservabilityPipelineConfigDestinationHttpClientTls? tls)
+            string? passwordKey,
+
+            Outputs.ObservabilityPipelineConfigDestinationHttpClientTls? tls,
+
+            string? tokenKey,
+
+            string? uriKey,
+
+            string? usernameKey)
         {
             AuthStrategy = authStrategy;
             Compression = compression;
             Encoding = encoding;
+            PasswordKey = passwordKey;
             Tls = tls;
+            TokenKey = tokenKey;
+            UriKey = uriKey;
+            UsernameKey = usernameKey;
         }
     }
 }

@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigSourceSocketArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of the environment variable or secret that holds the listen address for the socket.
+        /// </summary>
+        [Input("addressKey")]
+        public Input<string>? AddressKey { get; set; }
+
+        /// <summary>
         /// Defines the framing method for incoming messages.
         /// </summary>
         [Input("framing", required: true)]

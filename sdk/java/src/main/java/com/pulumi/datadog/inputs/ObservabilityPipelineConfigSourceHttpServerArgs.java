@@ -18,6 +18,21 @@ public final class ObservabilityPipelineConfigSourceHttpServerArgs extends com.p
     public static final ObservabilityPipelineConfigSourceHttpServerArgs Empty = new ObservabilityPipelineConfigSourceHttpServerArgs();
 
     /**
+     * Name of the environment variable or secret that holds the listen address.
+     * 
+     */
+    @Import(name="addressKey")
+    private @Nullable Output<String> addressKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the listen address.
+     * 
+     */
+    public Optional<Output<String>> addressKey() {
+        return Optional.ofNullable(this.addressKey);
+    }
+
+    /**
      * HTTP authentication method. Valid values are `none`, `plain`.
      * 
      */
@@ -48,6 +63,21 @@ public final class ObservabilityPipelineConfigSourceHttpServerArgs extends com.p
     }
 
     /**
+     * Name of the environment variable or secret that holds the password.
+     * 
+     */
+    @Import(name="passwordKey")
+    private @Nullable Output<String> passwordKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the password.
+     * 
+     */
+    public Optional<Output<String>> passwordKey() {
+        return Optional.ofNullable(this.passwordKey);
+    }
+
+    /**
      * Configuration for enabling TLS encryption between the pipeline component and external services.
      * 
      */
@@ -62,12 +92,30 @@ public final class ObservabilityPipelineConfigSourceHttpServerArgs extends com.p
         return Optional.ofNullable(this.tls);
     }
 
+    /**
+     * Name of the environment variable or secret that holds the username.
+     * 
+     */
+    @Import(name="usernameKey")
+    private @Nullable Output<String> usernameKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the username.
+     * 
+     */
+    public Optional<Output<String>> usernameKey() {
+        return Optional.ofNullable(this.usernameKey);
+    }
+
     private ObservabilityPipelineConfigSourceHttpServerArgs() {}
 
     private ObservabilityPipelineConfigSourceHttpServerArgs(ObservabilityPipelineConfigSourceHttpServerArgs $) {
+        this.addressKey = $.addressKey;
         this.authStrategy = $.authStrategy;
         this.decoding = $.decoding;
+        this.passwordKey = $.passwordKey;
         this.tls = $.tls;
+        this.usernameKey = $.usernameKey;
     }
 
     public static Builder builder() {
@@ -86,6 +134,27 @@ public final class ObservabilityPipelineConfigSourceHttpServerArgs extends com.p
 
         public Builder(ObservabilityPipelineConfigSourceHttpServerArgs defaults) {
             $ = new ObservabilityPipelineConfigSourceHttpServerArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param addressKey Name of the environment variable or secret that holds the listen address.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addressKey(@Nullable Output<String> addressKey) {
+            $.addressKey = addressKey;
+            return this;
+        }
+
+        /**
+         * @param addressKey Name of the environment variable or secret that holds the listen address.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addressKey(String addressKey) {
+            return addressKey(Output.of(addressKey));
         }
 
         /**
@@ -131,6 +200,27 @@ public final class ObservabilityPipelineConfigSourceHttpServerArgs extends com.p
         }
 
         /**
+         * @param passwordKey Name of the environment variable or secret that holds the password.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordKey(@Nullable Output<String> passwordKey) {
+            $.passwordKey = passwordKey;
+            return this;
+        }
+
+        /**
+         * @param passwordKey Name of the environment variable or secret that holds the password.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordKey(String passwordKey) {
+            return passwordKey(Output.of(passwordKey));
+        }
+
+        /**
          * @param tls Configuration for enabling TLS encryption between the pipeline component and external services.
          * 
          * @return builder
@@ -149,6 +239,27 @@ public final class ObservabilityPipelineConfigSourceHttpServerArgs extends com.p
          */
         public Builder tls(ObservabilityPipelineConfigSourceHttpServerTlsArgs tls) {
             return tls(Output.of(tls));
+        }
+
+        /**
+         * @param usernameKey Name of the environment variable or secret that holds the username.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usernameKey(@Nullable Output<String> usernameKey) {
+            $.usernameKey = usernameKey;
+            return this;
+        }
+
+        /**
+         * @param usernameKey Name of the environment variable or secret that holds the username.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usernameKey(String usernameKey) {
+            return usernameKey(Output.of(usernameKey));
         }
 
         public ObservabilityPipelineConfigSourceHttpServerArgs build() {

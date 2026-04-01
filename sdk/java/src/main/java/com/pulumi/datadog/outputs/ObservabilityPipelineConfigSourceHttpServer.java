@@ -14,6 +14,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigSourceHttpServer {
     /**
+     * @return Name of the environment variable or secret that holds the listen address.
+     * 
+     */
+    private @Nullable String addressKey;
+    /**
      * @return HTTP authentication method. Valid values are `none`, `plain`.
      * 
      */
@@ -24,12 +29,29 @@ public final class ObservabilityPipelineConfigSourceHttpServer {
      */
     private String decoding;
     /**
+     * @return Name of the environment variable or secret that holds the password.
+     * 
+     */
+    private @Nullable String passwordKey;
+    /**
      * @return Configuration for enabling TLS encryption between the pipeline component and external services.
      * 
      */
     private @Nullable ObservabilityPipelineConfigSourceHttpServerTls tls;
+    /**
+     * @return Name of the environment variable or secret that holds the username.
+     * 
+     */
+    private @Nullable String usernameKey;
 
     private ObservabilityPipelineConfigSourceHttpServer() {}
+    /**
+     * @return Name of the environment variable or secret that holds the listen address.
+     * 
+     */
+    public Optional<String> addressKey() {
+        return Optional.ofNullable(this.addressKey);
+    }
     /**
      * @return HTTP authentication method. Valid values are `none`, `plain`.
      * 
@@ -45,11 +67,25 @@ public final class ObservabilityPipelineConfigSourceHttpServer {
         return this.decoding;
     }
     /**
+     * @return Name of the environment variable or secret that holds the password.
+     * 
+     */
+    public Optional<String> passwordKey() {
+        return Optional.ofNullable(this.passwordKey);
+    }
+    /**
      * @return Configuration for enabling TLS encryption between the pipeline component and external services.
      * 
      */
     public Optional<ObservabilityPipelineConfigSourceHttpServerTls> tls() {
         return Optional.ofNullable(this.tls);
+    }
+    /**
+     * @return Name of the environment variable or secret that holds the username.
+     * 
+     */
+    public Optional<String> usernameKey() {
+        return Optional.ofNullable(this.usernameKey);
     }
 
     public static Builder builder() {
@@ -61,17 +97,29 @@ public final class ObservabilityPipelineConfigSourceHttpServer {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String addressKey;
         private String authStrategy;
         private String decoding;
+        private @Nullable String passwordKey;
         private @Nullable ObservabilityPipelineConfigSourceHttpServerTls tls;
+        private @Nullable String usernameKey;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigSourceHttpServer defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.addressKey = defaults.addressKey;
     	      this.authStrategy = defaults.authStrategy;
     	      this.decoding = defaults.decoding;
+    	      this.passwordKey = defaults.passwordKey;
     	      this.tls = defaults.tls;
+    	      this.usernameKey = defaults.usernameKey;
         }
 
+        @CustomType.Setter
+        public Builder addressKey(@Nullable String addressKey) {
+
+            this.addressKey = addressKey;
+            return this;
+        }
         @CustomType.Setter
         public Builder authStrategy(String authStrategy) {
             if (authStrategy == null) {
@@ -89,16 +137,31 @@ public final class ObservabilityPipelineConfigSourceHttpServer {
             return this;
         }
         @CustomType.Setter
+        public Builder passwordKey(@Nullable String passwordKey) {
+
+            this.passwordKey = passwordKey;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tls(@Nullable ObservabilityPipelineConfigSourceHttpServerTls tls) {
 
             this.tls = tls;
             return this;
         }
+        @CustomType.Setter
+        public Builder usernameKey(@Nullable String usernameKey) {
+
+            this.usernameKey = usernameKey;
+            return this;
+        }
         public ObservabilityPipelineConfigSourceHttpServer build() {
             final var _resultValue = new ObservabilityPipelineConfigSourceHttpServer();
+            _resultValue.addressKey = addressKey;
             _resultValue.authStrategy = authStrategy;
             _resultValue.decoding = decoding;
+            _resultValue.passwordKey = passwordKey;
             _resultValue.tls = tls;
+            _resultValue.usernameKey = usernameKey;
             return _resultValue;
         }
     }

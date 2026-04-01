@@ -111,7 +111,7 @@ namespace Pulumi.Datadog
         public Output<double> DailyLimitWarningThresholdPercentage { get; private set; } = null!;
 
         /// <summary>
-        /// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current DailyLimit is maintained.
+        /// If true, disables the daily limit and sets `DailyLimit` to null. If false, enables the daily limit. When creating an index, if this attribute is omitted, the daily limit is enabled by default. When updating an index, if this attribute is omitted, the existing value is preserved. Providing a `DailyLimit` value does not re-enable the limit if it was previously disabled unless `DisableDailyLimit` is explicitly set to false.
         /// </summary>
         [Output("disableDailyLimit")]
         public Output<bool> DisableDailyLimit { get; private set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Datadog
         public Input<double>? DailyLimitWarningThresholdPercentage { get; set; }
 
         /// <summary>
-        /// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current DailyLimit is maintained.
+        /// If true, disables the daily limit and sets `DailyLimit` to null. If false, enables the daily limit. When creating an index, if this attribute is omitted, the daily limit is enabled by default. When updating an index, if this attribute is omitted, the existing value is preserved. Providing a `DailyLimit` value does not re-enable the limit if it was previously disabled unless `DisableDailyLimit` is explicitly set to false.
         /// </summary>
         [Input("disableDailyLimit")]
         public Input<bool>? DisableDailyLimit { get; set; }
@@ -303,7 +303,7 @@ namespace Pulumi.Datadog
         public Input<double>? DailyLimitWarningThresholdPercentage { get; set; }
 
         /// <summary>
-        /// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current DailyLimit is maintained.
+        /// If true, disables the daily limit and sets `DailyLimit` to null. If false, enables the daily limit. When creating an index, if this attribute is omitted, the daily limit is enabled by default. When updating an index, if this attribute is omitted, the existing value is preserved. Providing a `DailyLimit` value does not re-enable the limit if it was previously disabled unless `DisableDailyLimit` is explicitly set to false.
         /// </summary>
         [Input("disableDailyLimit")]
         public Input<bool>? DisableDailyLimit { get; set; }

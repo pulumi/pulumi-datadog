@@ -22,7 +22,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorage {
      */
     private @Nullable String acl;
     /**
-     * @return GCP credentials used to authenticate with Google Cloud services.
+     * @return Google Cloud credentials used to authenticate with Google Cloud services.
      * 
      */
     private @Nullable ObservabilityPipelineConfigDestinationGoogleCloudStorageAuth auth;
@@ -61,7 +61,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorage {
         return Optional.ofNullable(this.acl);
     }
     /**
-     * @return GCP credentials used to authenticate with Google Cloud services.
+     * @return Google Cloud credentials used to authenticate with Google Cloud services.
      * 
      */
     public Optional<ObservabilityPipelineConfigDestinationGoogleCloudStorageAuth> auth() {

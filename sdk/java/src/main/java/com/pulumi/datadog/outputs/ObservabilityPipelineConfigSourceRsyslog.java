@@ -13,6 +13,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigSourceRsyslog {
     /**
+     * @return Name of the environment variable or secret that holds the listen address.
+     * 
+     */
+    private @Nullable String addressKey;
+    /**
      * @return Protocol used by the syslog source to receive messages.
      * 
      */
@@ -24,6 +29,13 @@ public final class ObservabilityPipelineConfigSourceRsyslog {
     private @Nullable ObservabilityPipelineConfigSourceRsyslogTls tls;
 
     private ObservabilityPipelineConfigSourceRsyslog() {}
+    /**
+     * @return Name of the environment variable or secret that holds the listen address.
+     * 
+     */
+    public Optional<String> addressKey() {
+        return Optional.ofNullable(this.addressKey);
+    }
     /**
      * @return Protocol used by the syslog source to receive messages.
      * 
@@ -48,15 +60,23 @@ public final class ObservabilityPipelineConfigSourceRsyslog {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String addressKey;
         private @Nullable String mode;
         private @Nullable ObservabilityPipelineConfigSourceRsyslogTls tls;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigSourceRsyslog defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.addressKey = defaults.addressKey;
     	      this.mode = defaults.mode;
     	      this.tls = defaults.tls;
         }
 
+        @CustomType.Setter
+        public Builder addressKey(@Nullable String addressKey) {
+
+            this.addressKey = addressKey;
+            return this;
+        }
         @CustomType.Setter
         public Builder mode(@Nullable String mode) {
 
@@ -71,6 +91,7 @@ public final class ObservabilityPipelineConfigSourceRsyslog {
         }
         public ObservabilityPipelineConfigSourceRsyslog build() {
             final var _resultValue = new ObservabilityPipelineConfigSourceRsyslog();
+            _resultValue.addressKey = addressKey;
             _resultValue.mode = mode;
             _resultValue.tls = tls;
             return _resultValue;

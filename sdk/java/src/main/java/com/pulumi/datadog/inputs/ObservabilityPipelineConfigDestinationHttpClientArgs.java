@@ -64,6 +64,21 @@ public final class ObservabilityPipelineConfigDestinationHttpClientArgs extends 
     }
 
     /**
+     * Name of the environment variable or secret that holds the password.
+     * 
+     */
+    @Import(name="passwordKey")
+    private @Nullable Output<String> passwordKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the password.
+     * 
+     */
+    public Optional<Output<String>> passwordKey() {
+        return Optional.ofNullable(this.passwordKey);
+    }
+
+    /**
      * Configuration for enabling TLS encryption between the pipeline component and external services.
      * 
      */
@@ -78,13 +93,62 @@ public final class ObservabilityPipelineConfigDestinationHttpClientArgs extends 
         return Optional.ofNullable(this.tls);
     }
 
+    /**
+     * Name of the environment variable or secret that holds the authentication token.
+     * 
+     */
+    @Import(name="tokenKey")
+    private @Nullable Output<String> tokenKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the authentication token.
+     * 
+     */
+    public Optional<Output<String>> tokenKey() {
+        return Optional.ofNullable(this.tokenKey);
+    }
+
+    /**
+     * Name of the environment variable or secret that holds the request URI.
+     * 
+     */
+    @Import(name="uriKey")
+    private @Nullable Output<String> uriKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the request URI.
+     * 
+     */
+    public Optional<Output<String>> uriKey() {
+        return Optional.ofNullable(this.uriKey);
+    }
+
+    /**
+     * Name of the environment variable or secret that holds the username.
+     * 
+     */
+    @Import(name="usernameKey")
+    private @Nullable Output<String> usernameKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the username.
+     * 
+     */
+    public Optional<Output<String>> usernameKey() {
+        return Optional.ofNullable(this.usernameKey);
+    }
+
     private ObservabilityPipelineConfigDestinationHttpClientArgs() {}
 
     private ObservabilityPipelineConfigDestinationHttpClientArgs(ObservabilityPipelineConfigDestinationHttpClientArgs $) {
         this.authStrategy = $.authStrategy;
         this.compression = $.compression;
         this.encoding = $.encoding;
+        this.passwordKey = $.passwordKey;
         this.tls = $.tls;
+        this.tokenKey = $.tokenKey;
+        this.uriKey = $.uriKey;
+        this.usernameKey = $.usernameKey;
     }
 
     public static Builder builder() {
@@ -169,6 +233,27 @@ public final class ObservabilityPipelineConfigDestinationHttpClientArgs extends 
         }
 
         /**
+         * @param passwordKey Name of the environment variable or secret that holds the password.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordKey(@Nullable Output<String> passwordKey) {
+            $.passwordKey = passwordKey;
+            return this;
+        }
+
+        /**
+         * @param passwordKey Name of the environment variable or secret that holds the password.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordKey(String passwordKey) {
+            return passwordKey(Output.of(passwordKey));
+        }
+
+        /**
          * @param tls Configuration for enabling TLS encryption between the pipeline component and external services.
          * 
          * @return builder
@@ -187,6 +272,69 @@ public final class ObservabilityPipelineConfigDestinationHttpClientArgs extends 
          */
         public Builder tls(ObservabilityPipelineConfigDestinationHttpClientTlsArgs tls) {
             return tls(Output.of(tls));
+        }
+
+        /**
+         * @param tokenKey Name of the environment variable or secret that holds the authentication token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenKey(@Nullable Output<String> tokenKey) {
+            $.tokenKey = tokenKey;
+            return this;
+        }
+
+        /**
+         * @param tokenKey Name of the environment variable or secret that holds the authentication token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenKey(String tokenKey) {
+            return tokenKey(Output.of(tokenKey));
+        }
+
+        /**
+         * @param uriKey Name of the environment variable or secret that holds the request URI.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder uriKey(@Nullable Output<String> uriKey) {
+            $.uriKey = uriKey;
+            return this;
+        }
+
+        /**
+         * @param uriKey Name of the environment variable or secret that holds the request URI.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder uriKey(String uriKey) {
+            return uriKey(Output.of(uriKey));
+        }
+
+        /**
+         * @param usernameKey Name of the environment variable or secret that holds the username.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usernameKey(@Nullable Output<String> usernameKey) {
+            $.usernameKey = usernameKey;
+            return this;
+        }
+
+        /**
+         * @param usernameKey Name of the environment variable or secret that holds the username.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usernameKey(String usernameKey) {
+            return usernameKey(Output.of(usernameKey));
         }
 
         public ObservabilityPipelineConfigDestinationHttpClientArgs build() {

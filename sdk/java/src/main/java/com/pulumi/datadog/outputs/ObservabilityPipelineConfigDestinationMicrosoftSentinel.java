@@ -24,6 +24,16 @@ public final class ObservabilityPipelineConfigDestinationMicrosoftSentinel {
      */
     private String clientId;
     /**
+     * @return Name of the environment variable or secret that holds the Azure AD client secret.
+     * 
+     */
+    private @Nullable String clientSecretKey;
+    /**
+     * @return Name of the environment variable or secret that holds the Data Collection Endpoint (DCE) URI.
+     * 
+     */
+    private @Nullable String dceUriKey;
+    /**
      * @return The immutable ID of the Data Collection Rule (DCR).
      * 
      */
@@ -53,6 +63,20 @@ public final class ObservabilityPipelineConfigDestinationMicrosoftSentinel {
      */
     public String clientId() {
         return this.clientId;
+    }
+    /**
+     * @return Name of the environment variable or secret that holds the Azure AD client secret.
+     * 
+     */
+    public Optional<String> clientSecretKey() {
+        return Optional.ofNullable(this.clientSecretKey);
+    }
+    /**
+     * @return Name of the environment variable or secret that holds the Data Collection Endpoint (DCE) URI.
+     * 
+     */
+    public Optional<String> dceUriKey() {
+        return Optional.ofNullable(this.dceUriKey);
     }
     /**
      * @return The immutable ID of the Data Collection Rule (DCR).
@@ -87,6 +111,8 @@ public final class ObservabilityPipelineConfigDestinationMicrosoftSentinel {
     public static final class Builder {
         private @Nullable ObservabilityPipelineConfigDestinationMicrosoftSentinelBuffer buffer;
         private String clientId;
+        private @Nullable String clientSecretKey;
+        private @Nullable String dceUriKey;
         private String dcrImmutableId;
         private String table;
         private String tenantId;
@@ -95,6 +121,8 @@ public final class ObservabilityPipelineConfigDestinationMicrosoftSentinel {
     	      Objects.requireNonNull(defaults);
     	      this.buffer = defaults.buffer;
     	      this.clientId = defaults.clientId;
+    	      this.clientSecretKey = defaults.clientSecretKey;
+    	      this.dceUriKey = defaults.dceUriKey;
     	      this.dcrImmutableId = defaults.dcrImmutableId;
     	      this.table = defaults.table;
     	      this.tenantId = defaults.tenantId;
@@ -112,6 +140,18 @@ public final class ObservabilityPipelineConfigDestinationMicrosoftSentinel {
               throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationMicrosoftSentinel", "clientId");
             }
             this.clientId = clientId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder clientSecretKey(@Nullable String clientSecretKey) {
+
+            this.clientSecretKey = clientSecretKey;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dceUriKey(@Nullable String dceUriKey) {
+
+            this.dceUriKey = dceUriKey;
             return this;
         }
         @CustomType.Setter
@@ -142,6 +182,8 @@ public final class ObservabilityPipelineConfigDestinationMicrosoftSentinel {
             final var _resultValue = new ObservabilityPipelineConfigDestinationMicrosoftSentinel();
             _resultValue.buffer = buffer;
             _resultValue.clientId = clientId;
+            _resultValue.clientSecretKey = clientSecretKey;
+            _resultValue.dceUriKey = dceUriKey;
             _resultValue.dcrImmutableId = dcrImmutableId;
             _resultValue.table = table;
             _resultValue.tenantId = tenantId;

@@ -31,6 +31,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Encoding { get; set; } = null!;
 
         /// <summary>
+        /// Name of the environment variable or secret that holds the Splunk HEC endpoint URL.
+        /// </summary>
+        [Input("endpointUrlKey")]
+        public Input<string>? EndpointUrlKey { get; set; }
+
+        /// <summary>
         /// Optional name of the Splunk index where logs are written.
         /// </summary>
         [Input("index")]
@@ -41,6 +47,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("sourcetype")]
         public Input<string>? Sourcetype { get; set; }
+
+        /// <summary>
+        /// Name of the environment variable or secret that holds the Splunk HEC token.
+        /// </summary>
+        [Input("tokenKey")]
+        public Input<string>? TokenKey { get; set; }
 
         public ObservabilityPipelineConfigDestinationSplunkHecArgs()
         {

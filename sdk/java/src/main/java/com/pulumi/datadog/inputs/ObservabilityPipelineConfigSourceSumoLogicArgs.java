@@ -3,15 +3,44 @@
 
 package com.pulumi.datadog.inputs;
 
-
+import com.pulumi.core.Output;
+import com.pulumi.core.annotations.Import;
+import java.lang.String;
+import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ObservabilityPipelineConfigSourceSumoLogicArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ObservabilityPipelineConfigSourceSumoLogicArgs Empty = new ObservabilityPipelineConfigSourceSumoLogicArgs();
 
+    /**
+     * Name of the environment variable or secret that holds the listen address.
+     * 
+     */
+    @Import(name="addressKey")
+    private @Nullable Output<String> addressKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the listen address.
+     * 
+     */
+    public Optional<Output<String>> addressKey() {
+        return Optional.ofNullable(this.addressKey);
+    }
+
+    private ObservabilityPipelineConfigSourceSumoLogicArgs() {}
+
+    private ObservabilityPipelineConfigSourceSumoLogicArgs(ObservabilityPipelineConfigSourceSumoLogicArgs $) {
+        this.addressKey = $.addressKey;
+    }
+
     public static Builder builder() {
         return new Builder();
+    }
+    public static Builder builder(ObservabilityPipelineConfigSourceSumoLogicArgs defaults) {
+        return new Builder(defaults);
     }
 
     public static final class Builder {
@@ -20,6 +49,32 @@ public final class ObservabilityPipelineConfigSourceSumoLogicArgs extends com.pu
         public Builder() {
             $ = new ObservabilityPipelineConfigSourceSumoLogicArgs();
         }
+
+        public Builder(ObservabilityPipelineConfigSourceSumoLogicArgs defaults) {
+            $ = new ObservabilityPipelineConfigSourceSumoLogicArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param addressKey Name of the environment variable or secret that holds the listen address.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addressKey(@Nullable Output<String> addressKey) {
+            $.addressKey = addressKey;
+            return this;
+        }
+
+        /**
+         * @param addressKey Name of the environment variable or secret that holds the listen address.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addressKey(String addressKey) {
+            return addressKey(Output.of(addressKey));
+        }
+
         public ObservabilityPipelineConfigSourceSumoLogicArgs build() {
             return $;
         }

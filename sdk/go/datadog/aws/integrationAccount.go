@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
+	"github.com/pulumi/pulumi-datadog/sdk/v5/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws"
+//	"github.com/pulumi/pulumi-datadog/sdk/v5/go/datadog/aws"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -170,15 +170,15 @@ import (
 //
 // ```
 //
-// ## Upgrading from `aws.Integration` resources
+// ## Upgrading from `datadogIntegrationAws` resources
 //
 //	To migrate your account configuration from `datadog_integration_aws*` resources to `aws.IntegrationAccount`:
 //	1. Import your integrated accounts into `aws.IntegrationAccount` resources using the import command below.
 //	2. Once successfully imported, you can run `terraform state rm` to delete all resources of the deprecated types from state:
-//	   - `aws.Integration`
-//	   - `aws.IntegrationLambdaArn`
-//	   - `aws.IntegrationLogCollection`
-//	   - `aws.IntegrationTagFilter`
+//	   - `datadogIntegrationAws`
+//	   - `datadogIntegrationAwsLambdaArn`
+//	   - `datadogIntegrationAwsLogCollection`
+//	   - `datadogIntegrationAwsTagFilter`
 //
 // ## Import
 //

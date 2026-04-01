@@ -18,6 +18,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigDestinationKafka {
     /**
+     * @return Name of the environment variable or secret that holds the Kafka bootstrap servers.
+     * 
+     */
+    private @Nullable String bootstrapServersKey;
+    /**
      * @return Compression codec for Kafka messages. Valid values are `none`, `gzip`, `snappy`, `lz4`, `zstd`.
      * 
      */
@@ -79,6 +84,13 @@ public final class ObservabilityPipelineConfigDestinationKafka {
     private String topic;
 
     private ObservabilityPipelineConfigDestinationKafka() {}
+    /**
+     * @return Name of the environment variable or secret that holds the Kafka bootstrap servers.
+     * 
+     */
+    public Optional<String> bootstrapServersKey() {
+        return Optional.ofNullable(this.bootstrapServersKey);
+    }
     /**
      * @return Compression codec for Kafka messages. Valid values are `none`, `gzip`, `snappy`, `lz4`, `zstd`.
      * 
@@ -173,6 +185,7 @@ public final class ObservabilityPipelineConfigDestinationKafka {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String bootstrapServersKey;
         private @Nullable String compression;
         private String encoding;
         private @Nullable String headersKey;
@@ -188,6 +201,7 @@ public final class ObservabilityPipelineConfigDestinationKafka {
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationKafka defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.bootstrapServersKey = defaults.bootstrapServersKey;
     	      this.compression = defaults.compression;
     	      this.encoding = defaults.encoding;
     	      this.headersKey = defaults.headersKey;
@@ -202,6 +216,12 @@ public final class ObservabilityPipelineConfigDestinationKafka {
     	      this.topic = defaults.topic;
         }
 
+        @CustomType.Setter
+        public Builder bootstrapServersKey(@Nullable String bootstrapServersKey) {
+
+            this.bootstrapServersKey = bootstrapServersKey;
+            return this;
+        }
         @CustomType.Setter
         public Builder compression(@Nullable String compression) {
 
@@ -283,6 +303,7 @@ public final class ObservabilityPipelineConfigDestinationKafka {
         }
         public ObservabilityPipelineConfigDestinationKafka build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationKafka();
+            _resultValue.bootstrapServersKey = bootstrapServersKey;
             _resultValue.compression = compression;
             _resultValue.encoding = encoding;
             _resultValue.headersKey = headersKey;

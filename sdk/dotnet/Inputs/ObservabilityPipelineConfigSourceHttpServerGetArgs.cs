@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigSourceHttpServerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of the environment variable or secret that holds the listen address.
+        /// </summary>
+        [Input("addressKey")]
+        public Input<string>? AddressKey { get; set; }
+
+        /// <summary>
         /// HTTP authentication method. Valid values are `None`, `Plain`.
         /// </summary>
         [Input("authStrategy", required: true)]
@@ -25,10 +31,22 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Decoding { get; set; } = null!;
 
         /// <summary>
+        /// Name of the environment variable or secret that holds the password.
+        /// </summary>
+        [Input("passwordKey")]
+        public Input<string>? PasswordKey { get; set; }
+
+        /// <summary>
         /// Configuration for enabling TLS encryption between the pipeline component and external services.
         /// </summary>
         [Input("tls")]
         public Input<Inputs.ObservabilityPipelineConfigSourceHttpServerTlsGetArgs>? Tls { get; set; }
+
+        /// <summary>
+        /// Name of the environment variable or secret that holds the username.
+        /// </summary>
+        [Input("usernameKey")]
+        public Input<string>? UsernameKey { get; set; }
 
         public ObservabilityPipelineConfigSourceHttpServerGetArgs()
         {

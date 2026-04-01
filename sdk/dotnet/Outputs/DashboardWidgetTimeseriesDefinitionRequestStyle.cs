@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetTimeseriesDefinitionRequestStyle
     {
         /// <summary>
+        /// If true, the value is displayed as a label relative to the data point.
+        /// </summary>
+        public readonly bool? HasValueLabels;
+        /// <summary>
         /// The type of lines displayed. Valid values are `Dashed`, `Dotted`, `Solid`.
         /// </summary>
         public readonly string? LineType;
@@ -32,6 +36,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetTimeseriesDefinitionRequestStyle(
+            bool? hasValueLabels,
+
             string? lineType,
 
             string? lineWidth,
@@ -40,6 +46,7 @@ namespace Pulumi.Datadog.Outputs
 
             string? palette)
         {
+            HasValueLabels = hasValueLabels;
             LineType = lineType;
             LineWidth = lineWidth;
             OrderBy = orderBy;

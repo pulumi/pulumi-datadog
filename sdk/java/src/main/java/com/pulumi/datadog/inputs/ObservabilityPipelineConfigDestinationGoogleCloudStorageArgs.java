@@ -36,14 +36,14 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorageArgs 
     }
 
     /**
-     * GCP credentials used to authenticate with Google Cloud services.
+     * Google Cloud credentials used to authenticate with Google Cloud services.
      * 
      */
     @Import(name="auth")
     private @Nullable Output<ObservabilityPipelineConfigDestinationGoogleCloudStorageAuthArgs> auth;
 
     /**
-     * @return GCP credentials used to authenticate with Google Cloud services.
+     * @return Google Cloud credentials used to authenticate with Google Cloud services.
      * 
      */
     public Optional<Output<ObservabilityPipelineConfigDestinationGoogleCloudStorageAuthArgs>> auth() {
@@ -177,7 +177,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorageArgs 
         }
 
         /**
-         * @param auth GCP credentials used to authenticate with Google Cloud services.
+         * @param auth Google Cloud credentials used to authenticate with Google Cloud services.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorageArgs 
         }
 
         /**
-         * @param auth GCP credentials used to authenticate with Google Cloud services.
+         * @param auth Google Cloud credentials used to authenticate with Google Cloud services.
          * 
          * @return builder
          * 

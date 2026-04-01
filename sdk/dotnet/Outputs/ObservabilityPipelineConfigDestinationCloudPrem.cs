@@ -13,9 +13,15 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class ObservabilityPipelineConfigDestinationCloudPrem
     {
+        /// <summary>
+        /// Name of the environment variable or secret that holds the endpoint URL.
+        /// </summary>
+        public readonly string? EndpointUrlKey;
+
         [OutputConstructor]
-        private ObservabilityPipelineConfigDestinationCloudPrem()
+        private ObservabilityPipelineConfigDestinationCloudPrem(string? endpointUrlKey)
         {
+            EndpointUrlKey = endpointUrlKey;
         }
     }
 }

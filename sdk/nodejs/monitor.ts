@@ -112,12 +112,6 @@ export class Monitor extends pulumi.CustomResource {
      */
     declare public readonly includeTags: pulumi.Output<boolean | undefined>;
     /**
-     * A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
-     *
-     * @deprecated Use `restrictedRoles`.
-     */
-    declare public readonly locked: pulumi.Output<boolean | undefined>;
-    /**
      * A message to include with notifications for this monitor.
      */
     declare public readonly message: pulumi.Output<string>;
@@ -199,13 +193,14 @@ export class Monitor extends pulumi.CustomResource {
     declare public readonly requireFullWindow: pulumi.Output<boolean | undefined>;
     /**
      * A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
-     *  > **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restrictedRoles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `datadog.RestrictionPolicy` resource.
+     *
+     * @deprecated Use `datadog.RestrictionPolicy` resource to manage permission.
      */
-    declare public readonly restrictedRoles: pulumi.Output<string[] | undefined>;
+    declare public readonly restrictedRoles: pulumi.Output<string[]>;
     /**
      * Configuration options for scheduling.
      */
-    declare public readonly schedulingOptions: pulumi.Output<outputs.MonitorSchedulingOption[] | undefined>;
+    declare public readonly schedulingOptions: pulumi.Output<outputs.MonitorSchedulingOptions | undefined>;
     /**
      * A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
      */
@@ -247,7 +242,6 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["groupRetentionDuration"] = state?.groupRetentionDuration;
             resourceInputs["groupbySimpleMonitor"] = state?.groupbySimpleMonitor;
             resourceInputs["includeTags"] = state?.includeTags;
-            resourceInputs["locked"] = state?.locked;
             resourceInputs["message"] = state?.message;
             resourceInputs["monitorThresholdWindows"] = state?.monitorThresholdWindows;
             resourceInputs["monitorThresholds"] = state?.monitorThresholds;
@@ -297,7 +291,6 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["groupRetentionDuration"] = args?.groupRetentionDuration;
             resourceInputs["groupbySimpleMonitor"] = args?.groupbySimpleMonitor;
             resourceInputs["includeTags"] = args?.includeTags;
-            resourceInputs["locked"] = args?.locked;
             resourceInputs["message"] = args?.message;
             resourceInputs["monitorThresholdWindows"] = args?.monitorThresholdWindows;
             resourceInputs["monitorThresholds"] = args?.monitorThresholds;
@@ -375,12 +368,6 @@ export interface MonitorState {
      * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
      */
     includeTags?: pulumi.Input<boolean>;
-    /**
-     * A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
-     *
-     * @deprecated Use `restrictedRoles`.
-     */
-    locked?: pulumi.Input<boolean>;
     /**
      * A message to include with notifications for this monitor.
      */
@@ -463,13 +450,14 @@ export interface MonitorState {
     requireFullWindow?: pulumi.Input<boolean>;
     /**
      * A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
-     *  > **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restrictedRoles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `datadog.RestrictionPolicy` resource.
+     *
+     * @deprecated Use `datadog.RestrictionPolicy` resource to manage permission.
      */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Configuration options for scheduling.
      */
-    schedulingOptions?: pulumi.Input<pulumi.Input<inputs.MonitorSchedulingOption>[]>;
+    schedulingOptions?: pulumi.Input<inputs.MonitorSchedulingOptions>;
     /**
      * A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
      */
@@ -535,12 +523,6 @@ export interface MonitorArgs {
      * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
      */
     includeTags?: pulumi.Input<boolean>;
-    /**
-     * A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
-     *
-     * @deprecated Use `restrictedRoles`.
-     */
-    locked?: pulumi.Input<boolean>;
     /**
      * A message to include with notifications for this monitor.
      */
@@ -623,13 +605,14 @@ export interface MonitorArgs {
     requireFullWindow?: pulumi.Input<boolean>;
     /**
      * A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
-     *  > **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restrictedRoles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `datadog.RestrictionPolicy` resource.
+     *
+     * @deprecated Use `datadog.RestrictionPolicy` resource to manage permission.
      */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Configuration options for scheduling.
      */
-    schedulingOptions?: pulumi.Input<pulumi.Input<inputs.MonitorSchedulingOption>[]>;
+    schedulingOptions?: pulumi.Input<inputs.MonitorSchedulingOptions>;
     /**
      * A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
      */

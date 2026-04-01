@@ -18,6 +18,21 @@ public final class ObservabilityPipelineConfigDestinationNewRelicArgs extends co
     public static final ObservabilityPipelineConfigDestinationNewRelicArgs Empty = new ObservabilityPipelineConfigDestinationNewRelicArgs();
 
     /**
+     * Name of the environment variable or secret that holds the New Relic account ID.
+     * 
+     */
+    @Import(name="accountIdKey")
+    private @Nullable Output<String> accountIdKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the New Relic account ID.
+     * 
+     */
+    public Optional<Output<String>> accountIdKey() {
+        return Optional.ofNullable(this.accountIdKey);
+    }
+
+    /**
      * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
      * 
      */
@@ -30,6 +45,21 @@ public final class ObservabilityPipelineConfigDestinationNewRelicArgs extends co
      */
     public Optional<Output<ObservabilityPipelineConfigDestinationNewRelicBufferArgs>> buffer() {
         return Optional.ofNullable(this.buffer);
+    }
+
+    /**
+     * Name of the environment variable or secret that holds the New Relic license key.
+     * 
+     */
+    @Import(name="licenseKeyKey")
+    private @Nullable Output<String> licenseKeyKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the New Relic license key.
+     * 
+     */
+    public Optional<Output<String>> licenseKeyKey() {
+        return Optional.ofNullable(this.licenseKeyKey);
     }
 
     /**
@@ -50,7 +80,9 @@ public final class ObservabilityPipelineConfigDestinationNewRelicArgs extends co
     private ObservabilityPipelineConfigDestinationNewRelicArgs() {}
 
     private ObservabilityPipelineConfigDestinationNewRelicArgs(ObservabilityPipelineConfigDestinationNewRelicArgs $) {
+        this.accountIdKey = $.accountIdKey;
         this.buffer = $.buffer;
+        this.licenseKeyKey = $.licenseKeyKey;
         this.region = $.region;
     }
 
@@ -73,6 +105,27 @@ public final class ObservabilityPipelineConfigDestinationNewRelicArgs extends co
         }
 
         /**
+         * @param accountIdKey Name of the environment variable or secret that holds the New Relic account ID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountIdKey(@Nullable Output<String> accountIdKey) {
+            $.accountIdKey = accountIdKey;
+            return this;
+        }
+
+        /**
+         * @param accountIdKey Name of the environment variable or secret that holds the New Relic account ID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountIdKey(String accountIdKey) {
+            return accountIdKey(Output.of(accountIdKey));
+        }
+
+        /**
          * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
          * 
          * @return builder
@@ -91,6 +144,27 @@ public final class ObservabilityPipelineConfigDestinationNewRelicArgs extends co
          */
         public Builder buffer(ObservabilityPipelineConfigDestinationNewRelicBufferArgs buffer) {
             return buffer(Output.of(buffer));
+        }
+
+        /**
+         * @param licenseKeyKey Name of the environment variable or secret that holds the New Relic license key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder licenseKeyKey(@Nullable Output<String> licenseKeyKey) {
+            $.licenseKeyKey = licenseKeyKey;
+            return this;
+        }
+
+        /**
+         * @param licenseKeyKey Name of the environment variable or secret that holds the New Relic license key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder licenseKeyKey(String licenseKeyKey) {
+            return licenseKeyKey(Output.of(licenseKeyKey));
         }
 
         /**

@@ -14,13 +14,28 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigSourceOpentelemetry
     {
         /// <summary>
+        /// Environment variable name containing the gRPC server address for receiving OTLP data.
+        /// </summary>
+        public readonly string? GrpcAddressKey;
+        /// <summary>
+        /// Environment variable name containing the HTTP server address for receiving OTLP data.
+        /// </summary>
+        public readonly string? HttpAddressKey;
+        /// <summary>
         /// Configuration for enabling TLS encryption between the pipeline component and external services.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigSourceOpentelemetryTls? Tls;
 
         [OutputConstructor]
-        private ObservabilityPipelineConfigSourceOpentelemetry(Outputs.ObservabilityPipelineConfigSourceOpentelemetryTls? tls)
+        private ObservabilityPipelineConfigSourceOpentelemetry(
+            string? grpcAddressKey,
+
+            string? httpAddressKey,
+
+            Outputs.ObservabilityPipelineConfigSourceOpentelemetryTls? tls)
         {
+            GrpcAddressKey = grpcAddressKey;
+            HttpAddressKey = httpAddressKey;
             Tls = tls;
         }
     }

@@ -20,6 +20,21 @@ public final class ObservabilityPipelineConfigDestinationSocketArgs extends com.
     public static final ObservabilityPipelineConfigDestinationSocketArgs Empty = new ObservabilityPipelineConfigDestinationSocketArgs();
 
     /**
+     * Name of the environment variable or secret that holds the socket address (host:port).
+     * 
+     */
+    @Import(name="addressKey")
+    private @Nullable Output<String> addressKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the socket address (host:port).
+     * 
+     */
+    public Optional<Output<String>> addressKey() {
+        return Optional.ofNullable(this.addressKey);
+    }
+
+    /**
      * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
      * 
      */
@@ -97,6 +112,7 @@ public final class ObservabilityPipelineConfigDestinationSocketArgs extends com.
     private ObservabilityPipelineConfigDestinationSocketArgs() {}
 
     private ObservabilityPipelineConfigDestinationSocketArgs(ObservabilityPipelineConfigDestinationSocketArgs $) {
+        this.addressKey = $.addressKey;
         this.buffer = $.buffer;
         this.encoding = $.encoding;
         this.framing = $.framing;
@@ -120,6 +136,27 @@ public final class ObservabilityPipelineConfigDestinationSocketArgs extends com.
 
         public Builder(ObservabilityPipelineConfigDestinationSocketArgs defaults) {
             $ = new ObservabilityPipelineConfigDestinationSocketArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param addressKey Name of the environment variable or secret that holds the socket address (host:port).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addressKey(@Nullable Output<String> addressKey) {
+            $.addressKey = addressKey;
+            return this;
+        }
+
+        /**
+         * @param addressKey Name of the environment variable or secret that holds the socket address (host:port).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addressKey(String addressKey) {
+            return addressKey(Output.of(addressKey));
         }
 
         /**

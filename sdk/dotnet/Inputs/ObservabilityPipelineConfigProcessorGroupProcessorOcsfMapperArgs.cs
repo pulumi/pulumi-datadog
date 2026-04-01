@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingArgs>? _mappings;
 
         /// <summary>
-        /// List of OCSF mapping entries using library mapping.
+        /// List of OCSF mapping entries. Each entry uses either a library mapping or a custom mapping.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingArgs> Mappings
         {

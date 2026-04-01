@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigSourceAmazonDataFirehoseGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of the environment variable or secret that holds the listen address.
+        /// </summary>
+        [Input("addressKey")]
+        public Input<string>? AddressKey { get; set; }
+
+        /// <summary>
         /// AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
         /// </summary>
         [Input("auth")]

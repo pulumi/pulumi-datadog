@@ -34,7 +34,7 @@ func getGoBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	checkProviderCredentials(t)
 	return getBaseOptions().With(integration.ProgramTestOptions{
 		Dependencies: []string{
-			"github.com/pulumi/pulumi-datadog/sdk/v4",
+			"github.com/pulumi/pulumi-datadog/sdk/v5",
 		},
 	})
 }

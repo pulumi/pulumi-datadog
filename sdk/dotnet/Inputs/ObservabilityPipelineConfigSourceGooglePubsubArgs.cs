@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigSourceGooglePubsubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// GCP credentials used to authenticate with Google Cloud services.
+        /// Google Cloud credentials used to authenticate with Google Cloud services.
         /// </summary>
         [Input("auth")]
         public Input<Inputs.ObservabilityPipelineConfigSourceGooglePubsubAuthArgs>? Auth { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Decoding { get; set; } = null!;
 
         /// <summary>
-        /// The GCP project ID that owns the Pub/Sub subscription.
+        /// The Google Cloud project ID that owns the Pub/Sub subscription.
         /// </summary>
         [Input("project", required: true)]
         public Input<string> Project { get; set; } = null!;

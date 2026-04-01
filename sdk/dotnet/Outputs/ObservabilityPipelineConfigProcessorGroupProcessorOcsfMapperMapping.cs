@@ -14,20 +14,27 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMapping
     {
         /// <summary>
+        /// Custom OCSF mapping configuration for transforming logs.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingCustomMapping? CustomMapping;
+        /// <summary>
         /// Search query for selecting which logs the mapping applies to.
         /// </summary>
         public readonly string Include;
         /// <summary>
-        /// Predefined library mapping for log transformation.
+        /// Predefined library mapping for log transformation. Use this or custom_mapping, not both.
         /// </summary>
-        public readonly string LibraryMapping;
+        public readonly string? LibraryMapping;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMapping(
+            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingCustomMapping? customMapping,
+
             string include,
 
-            string libraryMapping)
+            string? libraryMapping)
         {
+            CustomMapping = customMapping;
             Include = include;
             LibraryMapping = libraryMapping;
         }

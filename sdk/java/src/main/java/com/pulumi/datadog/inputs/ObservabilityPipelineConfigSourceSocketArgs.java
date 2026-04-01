@@ -19,6 +19,21 @@ public final class ObservabilityPipelineConfigSourceSocketArgs extends com.pulum
     public static final ObservabilityPipelineConfigSourceSocketArgs Empty = new ObservabilityPipelineConfigSourceSocketArgs();
 
     /**
+     * Name of the environment variable or secret that holds the listen address for the socket.
+     * 
+     */
+    @Import(name="addressKey")
+    private @Nullable Output<String> addressKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the listen address for the socket.
+     * 
+     */
+    public Optional<Output<String>> addressKey() {
+        return Optional.ofNullable(this.addressKey);
+    }
+
+    /**
      * Defines the framing method for incoming messages.
      * 
      */
@@ -66,6 +81,7 @@ public final class ObservabilityPipelineConfigSourceSocketArgs extends com.pulum
     private ObservabilityPipelineConfigSourceSocketArgs() {}
 
     private ObservabilityPipelineConfigSourceSocketArgs(ObservabilityPipelineConfigSourceSocketArgs $) {
+        this.addressKey = $.addressKey;
         this.framing = $.framing;
         this.mode = $.mode;
         this.tls = $.tls;
@@ -87,6 +103,27 @@ public final class ObservabilityPipelineConfigSourceSocketArgs extends com.pulum
 
         public Builder(ObservabilityPipelineConfigSourceSocketArgs defaults) {
             $ = new ObservabilityPipelineConfigSourceSocketArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param addressKey Name of the environment variable or secret that holds the listen address for the socket.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addressKey(@Nullable Output<String> addressKey) {
+            $.addressKey = addressKey;
+            return this;
+        }
+
+        /**
+         * @param addressKey Name of the environment variable or secret that holds the listen address for the socket.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addressKey(String addressKey) {
+            return addressKey(Output.of(addressKey));
         }
 
         /**

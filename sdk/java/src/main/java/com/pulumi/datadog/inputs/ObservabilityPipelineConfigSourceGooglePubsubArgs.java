@@ -19,14 +19,14 @@ public final class ObservabilityPipelineConfigSourceGooglePubsubArgs extends com
     public static final ObservabilityPipelineConfigSourceGooglePubsubArgs Empty = new ObservabilityPipelineConfigSourceGooglePubsubArgs();
 
     /**
-     * GCP credentials used to authenticate with Google Cloud services.
+     * Google Cloud credentials used to authenticate with Google Cloud services.
      * 
      */
     @Import(name="auth")
     private @Nullable Output<ObservabilityPipelineConfigSourceGooglePubsubAuthArgs> auth;
 
     /**
-     * @return GCP credentials used to authenticate with Google Cloud services.
+     * @return Google Cloud credentials used to authenticate with Google Cloud services.
      * 
      */
     public Optional<Output<ObservabilityPipelineConfigSourceGooglePubsubAuthArgs>> auth() {
@@ -49,14 +49,14 @@ public final class ObservabilityPipelineConfigSourceGooglePubsubArgs extends com
     }
 
     /**
-     * The GCP project ID that owns the Pub/Sub subscription.
+     * The Google Cloud project ID that owns the Pub/Sub subscription.
      * 
      */
     @Import(name="project", required=true)
     private Output<String> project;
 
     /**
-     * @return The GCP project ID that owns the Pub/Sub subscription.
+     * @return The Google Cloud project ID that owns the Pub/Sub subscription.
      * 
      */
     public Output<String> project() {
@@ -122,7 +122,7 @@ public final class ObservabilityPipelineConfigSourceGooglePubsubArgs extends com
         }
 
         /**
-         * @param auth GCP credentials used to authenticate with Google Cloud services.
+         * @param auth Google Cloud credentials used to authenticate with Google Cloud services.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class ObservabilityPipelineConfigSourceGooglePubsubArgs extends com
         }
 
         /**
-         * @param auth GCP credentials used to authenticate with Google Cloud services.
+         * @param auth Google Cloud credentials used to authenticate with Google Cloud services.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class ObservabilityPipelineConfigSourceGooglePubsubArgs extends com
         }
 
         /**
-         * @param project The GCP project ID that owns the Pub/Sub subscription.
+         * @param project The Google Cloud project ID that owns the Pub/Sub subscription.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class ObservabilityPipelineConfigSourceGooglePubsubArgs extends com
         }
 
         /**
-         * @param project The GCP project ID that owns the Pub/Sub subscription.
+         * @param project The Google Cloud project ID that owns the Pub/Sub subscription.
          * 
          * @return builder
          * 

@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ObservabilityPipelineConfigDestinationKafkaSaslArgs extends com.pulumi.resources.ResourceArgs {
@@ -29,10 +31,42 @@ public final class ObservabilityPipelineConfigDestinationKafkaSaslArgs extends c
         return this.mechanism;
     }
 
+    /**
+     * Name of the environment variable or secret that holds the SASL password.
+     * 
+     */
+    @Import(name="passwordKey")
+    private @Nullable Output<String> passwordKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the SASL password.
+     * 
+     */
+    public Optional<Output<String>> passwordKey() {
+        return Optional.ofNullable(this.passwordKey);
+    }
+
+    /**
+     * Name of the environment variable or secret that holds the SASL username.
+     * 
+     */
+    @Import(name="usernameKey")
+    private @Nullable Output<String> usernameKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the SASL username.
+     * 
+     */
+    public Optional<Output<String>> usernameKey() {
+        return Optional.ofNullable(this.usernameKey);
+    }
+
     private ObservabilityPipelineConfigDestinationKafkaSaslArgs() {}
 
     private ObservabilityPipelineConfigDestinationKafkaSaslArgs(ObservabilityPipelineConfigDestinationKafkaSaslArgs $) {
         this.mechanism = $.mechanism;
+        this.passwordKey = $.passwordKey;
+        this.usernameKey = $.usernameKey;
     }
 
     public static Builder builder() {
@@ -72,6 +106,48 @@ public final class ObservabilityPipelineConfigDestinationKafkaSaslArgs extends c
          */
         public Builder mechanism(String mechanism) {
             return mechanism(Output.of(mechanism));
+        }
+
+        /**
+         * @param passwordKey Name of the environment variable or secret that holds the SASL password.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordKey(@Nullable Output<String> passwordKey) {
+            $.passwordKey = passwordKey;
+            return this;
+        }
+
+        /**
+         * @param passwordKey Name of the environment variable or secret that holds the SASL password.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordKey(String passwordKey) {
+            return passwordKey(Output.of(passwordKey));
+        }
+
+        /**
+         * @param usernameKey Name of the environment variable or secret that holds the SASL username.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usernameKey(@Nullable Output<String> usernameKey) {
+            $.usernameKey = usernameKey;
+            return this;
+        }
+
+        /**
+         * @param usernameKey Name of the environment variable or secret that holds the SASL username.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usernameKey(String usernameKey) {
+            return usernameKey(Output.of(usernameKey));
         }
 
         public ObservabilityPipelineConfigDestinationKafkaSaslArgs build() {

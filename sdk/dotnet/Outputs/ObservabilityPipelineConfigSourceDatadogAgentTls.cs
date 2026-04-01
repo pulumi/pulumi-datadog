@@ -25,6 +25,10 @@ namespace Pulumi.Datadog.Outputs
         /// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
         /// </summary>
         public readonly string? KeyFile;
+        /// <summary>
+        /// Name of the environment variable or secret that holds the passphrase for the private key file.
+        /// </summary>
+        public readonly string? KeyPassKey;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigSourceDatadogAgentTls(
@@ -32,11 +36,14 @@ namespace Pulumi.Datadog.Outputs
 
             string crtFile,
 
-            string? keyFile)
+            string? keyFile,
+
+            string? keyPassKey)
         {
             CaFile = caFile;
             CrtFile = crtFile;
             KeyFile = keyFile;
+            KeyPassKey = keyPassKey;
         }
     }
 }

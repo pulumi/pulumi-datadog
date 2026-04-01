@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-datadog/provider/v4
+module github.com/pulumi/pulumi-datadog/provider/v5
 
 go 1.25.6
 
@@ -31,7 +31,7 @@ require (
 	cloud.google.com/go/storage v1.50.0 // indirect
 	dario.cat/mergo v1.0.0 // indirect
 	github.com/BurntSushi/toml v1.6.0 // indirect
-	github.com/DataDog/datadog-api-client-go/v2 v2.55.1-0.20260219212849-69694405d6e8 // indirect
+	github.com/DataDog/datadog-api-client-go/v2 v2.56.1-0.20260317124049-8ad96a8de1ab // indirect
 	github.com/DataDog/zstd v1.5.7 // indirect
 	github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp v1.30.0 // indirect
 	github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric v0.50.0 // indirect

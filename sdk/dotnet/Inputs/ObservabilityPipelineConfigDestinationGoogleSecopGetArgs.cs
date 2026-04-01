@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigDestinationGoogleSecopGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// GCP credentials used to authenticate with Google Cloud services.
+        /// Google Cloud credentials used to authenticate with Google Cloud services.
         /// </summary>
         [Input("auth")]
         public Input<Inputs.ObservabilityPipelineConfigDestinationGoogleSecopAuthGetArgs>? Auth { get; set; }
@@ -35,6 +35,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("encoding", required: true)]
         public Input<string> Encoding { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the environment variable or secret that holds the Google Chronicle endpoint URL.
+        /// </summary>
+        [Input("endpointUrlKey")]
+        public Input<string>? EndpointUrlKey { get; set; }
 
         /// <summary>
         /// The log type metadata associated with the Google SecOps destination.

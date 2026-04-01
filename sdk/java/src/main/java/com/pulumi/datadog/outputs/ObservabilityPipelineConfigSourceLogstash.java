@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceLogstashTls;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -12,12 +13,24 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigSourceLogstash {
     /**
+     * @return Name of the environment variable or secret that holds the listen address.
+     * 
+     */
+    private @Nullable String addressKey;
+    /**
      * @return Configuration for enabling TLS encryption between the pipeline component and external services.
      * 
      */
     private @Nullable ObservabilityPipelineConfigSourceLogstashTls tls;
 
     private ObservabilityPipelineConfigSourceLogstash() {}
+    /**
+     * @return Name of the environment variable or secret that holds the listen address.
+     * 
+     */
+    public Optional<String> addressKey() {
+        return Optional.ofNullable(this.addressKey);
+    }
     /**
      * @return Configuration for enabling TLS encryption between the pipeline component and external services.
      * 
@@ -35,13 +48,21 @@ public final class ObservabilityPipelineConfigSourceLogstash {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String addressKey;
         private @Nullable ObservabilityPipelineConfigSourceLogstashTls tls;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigSourceLogstash defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.addressKey = defaults.addressKey;
     	      this.tls = defaults.tls;
         }
 
+        @CustomType.Setter
+        public Builder addressKey(@Nullable String addressKey) {
+
+            this.addressKey = addressKey;
+            return this;
+        }
         @CustomType.Setter
         public Builder tls(@Nullable ObservabilityPipelineConfigSourceLogstashTls tls) {
 
@@ -50,6 +71,7 @@ public final class ObservabilityPipelineConfigSourceLogstash {
         }
         public ObservabilityPipelineConfigSourceLogstash build() {
             final var _resultValue = new ObservabilityPipelineConfigSourceLogstash();
+            _resultValue.addressKey = addressKey;
             _resultValue.tls = tls;
             return _resultValue;
         }

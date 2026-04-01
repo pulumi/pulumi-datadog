@@ -4,24 +4,39 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingCustomMapping;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMapping {
+    /**
+     * @return Custom OCSF mapping configuration for transforming logs.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingCustomMapping customMapping;
     /**
      * @return Search query for selecting which logs the mapping applies to.
      * 
      */
     private String include;
     /**
-     * @return Predefined library mapping for log transformation.
+     * @return Predefined library mapping for log transformation. Use this or custom_mapping, not both.
      * 
      */
-    private String libraryMapping;
+    private @Nullable String libraryMapping;
 
     private ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMapping() {}
+    /**
+     * @return Custom OCSF mapping configuration for transforming logs.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingCustomMapping> customMapping() {
+        return Optional.ofNullable(this.customMapping);
+    }
     /**
      * @return Search query for selecting which logs the mapping applies to.
      * 
@@ -30,11 +45,11 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperM
         return this.include;
     }
     /**
-     * @return Predefined library mapping for log transformation.
+     * @return Predefined library mapping for log transformation. Use this or custom_mapping, not both.
      * 
      */
-    public String libraryMapping() {
-        return this.libraryMapping;
+    public Optional<String> libraryMapping() {
+        return Optional.ofNullable(this.libraryMapping);
     }
 
     public static Builder builder() {
@@ -46,15 +61,23 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperM
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingCustomMapping customMapping;
         private String include;
-        private String libraryMapping;
+        private @Nullable String libraryMapping;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMapping defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.customMapping = defaults.customMapping;
     	      this.include = defaults.include;
     	      this.libraryMapping = defaults.libraryMapping;
         }
 
+        @CustomType.Setter
+        public Builder customMapping(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingCustomMapping customMapping) {
+
+            this.customMapping = customMapping;
+            return this;
+        }
         @CustomType.Setter
         public Builder include(String include) {
             if (include == null) {
@@ -64,15 +87,14 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperM
             return this;
         }
         @CustomType.Setter
-        public Builder libraryMapping(String libraryMapping) {
-            if (libraryMapping == null) {
-              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMapping", "libraryMapping");
-            }
+        public Builder libraryMapping(@Nullable String libraryMapping) {
+
             this.libraryMapping = libraryMapping;
             return this;
         }
         public ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMapping build() {
             final var _resultValue = new ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMapping();
+            _resultValue.customMapping = customMapping;
             _resultValue.include = include;
             _resultValue.libraryMapping = libraryMapping;
             return _resultValue;

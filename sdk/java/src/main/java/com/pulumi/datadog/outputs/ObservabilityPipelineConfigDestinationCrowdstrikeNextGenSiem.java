@@ -31,10 +31,20 @@ public final class ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem 
      */
     private String encoding;
     /**
+     * @return Name of the environment variable or secret that holds the endpoint URL.
+     * 
+     */
+    private @Nullable String endpointUrlKey;
+    /**
      * @return Configuration for enabling TLS encryption between the pipeline component and external services.
      * 
      */
     private @Nullable ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemTls tls;
+    /**
+     * @return Name of the environment variable or secret that holds the authentication token.
+     * 
+     */
+    private @Nullable String tokenKey;
 
     private ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem() {}
     /**
@@ -59,11 +69,25 @@ public final class ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem 
         return this.encoding;
     }
     /**
+     * @return Name of the environment variable or secret that holds the endpoint URL.
+     * 
+     */
+    public Optional<String> endpointUrlKey() {
+        return Optional.ofNullable(this.endpointUrlKey);
+    }
+    /**
      * @return Configuration for enabling TLS encryption between the pipeline component and external services.
      * 
      */
     public Optional<ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemTls> tls() {
         return Optional.ofNullable(this.tls);
+    }
+    /**
+     * @return Name of the environment variable or secret that holds the authentication token.
+     * 
+     */
+    public Optional<String> tokenKey() {
+        return Optional.ofNullable(this.tokenKey);
     }
 
     public static Builder builder() {
@@ -78,14 +102,18 @@ public final class ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem 
         private @Nullable ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBuffer buffer;
         private @Nullable ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemCompression compression;
         private String encoding;
+        private @Nullable String endpointUrlKey;
         private @Nullable ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemTls tls;
+        private @Nullable String tokenKey;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.buffer = defaults.buffer;
     	      this.compression = defaults.compression;
     	      this.encoding = defaults.encoding;
+    	      this.endpointUrlKey = defaults.endpointUrlKey;
     	      this.tls = defaults.tls;
+    	      this.tokenKey = defaults.tokenKey;
         }
 
         @CustomType.Setter
@@ -109,9 +137,21 @@ public final class ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem 
             return this;
         }
         @CustomType.Setter
+        public Builder endpointUrlKey(@Nullable String endpointUrlKey) {
+
+            this.endpointUrlKey = endpointUrlKey;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tls(@Nullable ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemTls tls) {
 
             this.tls = tls;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tokenKey(@Nullable String tokenKey) {
+
+            this.tokenKey = tokenKey;
             return this;
         }
         public ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem build() {
@@ -119,7 +159,9 @@ public final class ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem 
             _resultValue.buffer = buffer;
             _resultValue.compression = compression;
             _resultValue.encoding = encoding;
+            _resultValue.endpointUrlKey = endpointUrlKey;
             _resultValue.tls = tls;
+            _resultValue.tokenKey = tokenKey;
             return _resultValue;
         }
     }

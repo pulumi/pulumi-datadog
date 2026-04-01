@@ -25,6 +25,18 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
+        /// Name of the environment variable or secret that holds the Azure AD client secret.
+        /// </summary>
+        [Input("clientSecretKey")]
+        public Input<string>? ClientSecretKey { get; set; }
+
+        /// <summary>
+        /// Name of the environment variable or secret that holds the Data Collection Endpoint (DCE) URI.
+        /// </summary>
+        [Input("dceUriKey")]
+        public Input<string>? DceUriKey { get; set; }
+
+        /// <summary>
         /// The immutable ID of the Data Collection Rule (DCR).
         /// </summary>
         [Input("dcrImmutableId", required: true)]

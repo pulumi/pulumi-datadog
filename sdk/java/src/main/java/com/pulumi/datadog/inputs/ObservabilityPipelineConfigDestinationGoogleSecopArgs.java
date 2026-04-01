@@ -19,14 +19,14 @@ public final class ObservabilityPipelineConfigDestinationGoogleSecopArgs extends
     public static final ObservabilityPipelineConfigDestinationGoogleSecopArgs Empty = new ObservabilityPipelineConfigDestinationGoogleSecopArgs();
 
     /**
-     * GCP credentials used to authenticate with Google Cloud services.
+     * Google Cloud credentials used to authenticate with Google Cloud services.
      * 
      */
     @Import(name="auth")
     private @Nullable Output<ObservabilityPipelineConfigDestinationGoogleSecopAuthArgs> auth;
 
     /**
-     * @return GCP credentials used to authenticate with Google Cloud services.
+     * @return Google Cloud credentials used to authenticate with Google Cloud services.
      * 
      */
     public Optional<Output<ObservabilityPipelineConfigDestinationGoogleSecopAuthArgs>> auth() {
@@ -79,6 +79,21 @@ public final class ObservabilityPipelineConfigDestinationGoogleSecopArgs extends
     }
 
     /**
+     * Name of the environment variable or secret that holds the Google Chronicle endpoint URL.
+     * 
+     */
+    @Import(name="endpointUrlKey")
+    private @Nullable Output<String> endpointUrlKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the Google Chronicle endpoint URL.
+     * 
+     */
+    public Optional<Output<String>> endpointUrlKey() {
+        return Optional.ofNullable(this.endpointUrlKey);
+    }
+
+    /**
      * The log type metadata associated with the Google SecOps destination.
      * 
      */
@@ -100,6 +115,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleSecopArgs extends
         this.buffer = $.buffer;
         this.customerId = $.customerId;
         this.encoding = $.encoding;
+        this.endpointUrlKey = $.endpointUrlKey;
         this.logType = $.logType;
     }
 
@@ -122,7 +138,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleSecopArgs extends
         }
 
         /**
-         * @param auth GCP credentials used to authenticate with Google Cloud services.
+         * @param auth Google Cloud credentials used to authenticate with Google Cloud services.
          * 
          * @return builder
          * 
@@ -133,7 +149,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleSecopArgs extends
         }
 
         /**
-         * @param auth GCP credentials used to authenticate with Google Cloud services.
+         * @param auth Google Cloud credentials used to authenticate with Google Cloud services.
          * 
          * @return builder
          * 
@@ -203,6 +219,27 @@ public final class ObservabilityPipelineConfigDestinationGoogleSecopArgs extends
          */
         public Builder encoding(String encoding) {
             return encoding(Output.of(encoding));
+        }
+
+        /**
+         * @param endpointUrlKey Name of the environment variable or secret that holds the Google Chronicle endpoint URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointUrlKey(@Nullable Output<String> endpointUrlKey) {
+            $.endpointUrlKey = endpointUrlKey;
+            return this;
+        }
+
+        /**
+         * @param endpointUrlKey Name of the environment variable or secret that holds the Google Chronicle endpoint URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointUrlKey(String endpointUrlKey) {
+            return endpointUrlKey(Output.of(endpointUrlKey));
         }
 
         /**

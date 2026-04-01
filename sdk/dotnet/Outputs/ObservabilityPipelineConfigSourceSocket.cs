@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigSourceSocket
     {
         /// <summary>
+        /// Name of the environment variable or secret that holds the listen address for the socket.
+        /// </summary>
+        public readonly string? AddressKey;
+        /// <summary>
         /// Defines the framing method for incoming messages.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigSourceSocketFraming Framing;
@@ -28,12 +32,15 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private ObservabilityPipelineConfigSourceSocket(
+            string? addressKey,
+
             Outputs.ObservabilityPipelineConfigSourceSocketFraming framing,
 
             string mode,
 
             Outputs.ObservabilityPipelineConfigSourceSocketTls? tls)
         {
+            AddressKey = addressKey;
             Framing = framing;
             Mode = mode;
             Tls = tls;

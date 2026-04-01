@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigSourceHttpServer
     {
         /// <summary>
+        /// Name of the environment variable or secret that holds the listen address.
+        /// </summary>
+        public readonly string? AddressKey;
+        /// <summary>
         /// HTTP authentication method. Valid values are `None`, `Plain`.
         /// </summary>
         public readonly string AuthStrategy;
@@ -22,21 +26,38 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Decoding;
         /// <summary>
+        /// Name of the environment variable or secret that holds the password.
+        /// </summary>
+        public readonly string? PasswordKey;
+        /// <summary>
         /// Configuration for enabling TLS encryption between the pipeline component and external services.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigSourceHttpServerTls? Tls;
+        /// <summary>
+        /// Name of the environment variable or secret that holds the username.
+        /// </summary>
+        public readonly string? UsernameKey;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigSourceHttpServer(
+            string? addressKey,
+
             string authStrategy,
 
             string decoding,
 
-            Outputs.ObservabilityPipelineConfigSourceHttpServerTls? tls)
+            string? passwordKey,
+
+            Outputs.ObservabilityPipelineConfigSourceHttpServerTls? tls,
+
+            string? usernameKey)
         {
+            AddressKey = addressKey;
             AuthStrategy = authStrategy;
             Decoding = decoding;
+            PasswordKey = passwordKey;
             Tls = tls;
+            UsernameKey = usernameKey;
         }
     }
 }

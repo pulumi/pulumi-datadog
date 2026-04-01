@@ -25,6 +25,10 @@ namespace Pulumi.Datadog.Outputs
         /// Configuration for enabling TLS encryption between the pipeline component and external services.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigSourceAmazonS3Tls? Tls;
+        /// <summary>
+        /// Name of the environment variable or secret that holds the S3 bucket URL.
+        /// </summary>
+        public readonly string? UrlKey;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigSourceAmazonS3(
@@ -32,11 +36,14 @@ namespace Pulumi.Datadog.Outputs
 
             string region,
 
-            Outputs.ObservabilityPipelineConfigSourceAmazonS3Tls? tls)
+            Outputs.ObservabilityPipelineConfigSourceAmazonS3Tls? tls,
+
+            string? urlKey)
         {
             Auth = auth;
             Region = region;
             Tls = tls;
+            UrlKey = urlKey;
         }
     }
 }

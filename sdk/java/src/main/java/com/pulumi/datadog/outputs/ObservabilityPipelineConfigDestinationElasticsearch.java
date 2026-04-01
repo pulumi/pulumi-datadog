@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationElasticsearchAuth;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationElasticsearchBuffer;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationElasticsearchDataStream;
 import java.lang.String;
@@ -19,6 +20,11 @@ public final class ObservabilityPipelineConfigDestinationElasticsearch {
      */
     private @Nullable String apiVersion;
     /**
+     * @return Authentication settings for the Elasticsearch destination.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationElasticsearchAuth auth;
+    /**
      * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
      * 
      */
@@ -33,6 +39,11 @@ public final class ObservabilityPipelineConfigDestinationElasticsearch {
      * 
      */
     private @Nullable ObservabilityPipelineConfigDestinationElasticsearchDataStream dataStream;
+    /**
+     * @return Name of the environment variable or secret that holds the Elasticsearch endpoint URL.
+     * 
+     */
+    private @Nullable String endpointUrlKey;
 
     private ObservabilityPipelineConfigDestinationElasticsearch() {}
     /**
@@ -41,6 +52,13 @@ public final class ObservabilityPipelineConfigDestinationElasticsearch {
      */
     public Optional<String> apiVersion() {
         return Optional.ofNullable(this.apiVersion);
+    }
+    /**
+     * @return Authentication settings for the Elasticsearch destination.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationElasticsearchAuth> auth() {
+        return Optional.ofNullable(this.auth);
     }
     /**
      * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
@@ -63,6 +81,13 @@ public final class ObservabilityPipelineConfigDestinationElasticsearch {
     public Optional<ObservabilityPipelineConfigDestinationElasticsearchDataStream> dataStream() {
         return Optional.ofNullable(this.dataStream);
     }
+    /**
+     * @return Name of the environment variable or secret that holds the Elasticsearch endpoint URL.
+     * 
+     */
+    public Optional<String> endpointUrlKey() {
+        return Optional.ofNullable(this.endpointUrlKey);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -74,22 +99,32 @@ public final class ObservabilityPipelineConfigDestinationElasticsearch {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String apiVersion;
+        private @Nullable ObservabilityPipelineConfigDestinationElasticsearchAuth auth;
         private @Nullable ObservabilityPipelineConfigDestinationElasticsearchBuffer buffer;
         private @Nullable String bulkIndex;
         private @Nullable ObservabilityPipelineConfigDestinationElasticsearchDataStream dataStream;
+        private @Nullable String endpointUrlKey;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationElasticsearch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiVersion = defaults.apiVersion;
+    	      this.auth = defaults.auth;
     	      this.buffer = defaults.buffer;
     	      this.bulkIndex = defaults.bulkIndex;
     	      this.dataStream = defaults.dataStream;
+    	      this.endpointUrlKey = defaults.endpointUrlKey;
         }
 
         @CustomType.Setter
         public Builder apiVersion(@Nullable String apiVersion) {
 
             this.apiVersion = apiVersion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder auth(@Nullable ObservabilityPipelineConfigDestinationElasticsearchAuth auth) {
+
+            this.auth = auth;
             return this;
         }
         @CustomType.Setter
@@ -110,12 +145,20 @@ public final class ObservabilityPipelineConfigDestinationElasticsearch {
             this.dataStream = dataStream;
             return this;
         }
+        @CustomType.Setter
+        public Builder endpointUrlKey(@Nullable String endpointUrlKey) {
+
+            this.endpointUrlKey = endpointUrlKey;
+            return this;
+        }
         public ObservabilityPipelineConfigDestinationElasticsearch build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationElasticsearch();
             _resultValue.apiVersion = apiVersion;
+            _resultValue.auth = auth;
             _resultValue.buffer = buffer;
             _resultValue.bulkIndex = bulkIndex;
             _resultValue.dataStream = dataStream;
+            _resultValue.endpointUrlKey = endpointUrlKey;
             return _resultValue;
         }
     }

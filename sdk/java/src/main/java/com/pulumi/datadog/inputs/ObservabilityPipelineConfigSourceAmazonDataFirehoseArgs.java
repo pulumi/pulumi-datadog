@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs Empty = new ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs();
+
+    /**
+     * Name of the environment variable or secret that holds the listen address.
+     * 
+     */
+    @Import(name="addressKey")
+    private @Nullable Output<String> addressKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the listen address.
+     * 
+     */
+    public Optional<Output<String>> addressKey() {
+        return Optional.ofNullable(this.addressKey);
+    }
 
     /**
      * AWS authentication credentials used for accessing AWS services. If omitted, the system&#39;s default credentials are used (for example, the IAM role and environment variables).
@@ -49,6 +65,7 @@ public final class ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs exten
     private ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs() {}
 
     private ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs(ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs $) {
+        this.addressKey = $.addressKey;
         this.auth = $.auth;
         this.tls = $.tls;
     }
@@ -69,6 +86,27 @@ public final class ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs exten
 
         public Builder(ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs defaults) {
             $ = new ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param addressKey Name of the environment variable or secret that holds the listen address.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addressKey(@Nullable Output<String> addressKey) {
+            $.addressKey = addressKey;
+            return this;
+        }
+
+        /**
+         * @param addressKey Name of the environment variable or secret that holds the listen address.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addressKey(String addressKey) {
+            return addressKey(Output.of(addressKey));
         }
 
         /**

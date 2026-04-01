@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class PowerpackWidgetTimeseriesDefinitionRequestStyleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final PowerpackWidgetTimeseriesDefinitionRequestStyleArgs Empty = new PowerpackWidgetTimeseriesDefinitionRequestStyleArgs();
+
+    /**
+     * If true, the value is displayed as a label relative to the data point.
+     * 
+     */
+    @Import(name="hasValueLabels")
+    private @Nullable Output<Boolean> hasValueLabels;
+
+    /**
+     * @return If true, the value is displayed as a label relative to the data point.
+     * 
+     */
+    public Optional<Output<Boolean>> hasValueLabels() {
+        return Optional.ofNullable(this.hasValueLabels);
+    }
 
     /**
      * The type of lines displayed. Valid values are `dashed`, `dotted`, `solid`.
@@ -78,6 +94,7 @@ public final class PowerpackWidgetTimeseriesDefinitionRequestStyleArgs extends c
     private PowerpackWidgetTimeseriesDefinitionRequestStyleArgs() {}
 
     private PowerpackWidgetTimeseriesDefinitionRequestStyleArgs(PowerpackWidgetTimeseriesDefinitionRequestStyleArgs $) {
+        this.hasValueLabels = $.hasValueLabels;
         this.lineType = $.lineType;
         this.lineWidth = $.lineWidth;
         this.orderBy = $.orderBy;
@@ -100,6 +117,27 @@ public final class PowerpackWidgetTimeseriesDefinitionRequestStyleArgs extends c
 
         public Builder(PowerpackWidgetTimeseriesDefinitionRequestStyleArgs defaults) {
             $ = new PowerpackWidgetTimeseriesDefinitionRequestStyleArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param hasValueLabels If true, the value is displayed as a label relative to the data point.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hasValueLabels(@Nullable Output<Boolean> hasValueLabels) {
+            $.hasValueLabels = hasValueLabels;
+            return this;
+        }
+
+        /**
+         * @param hasValueLabels If true, the value is displayed as a label relative to the data point.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hasValueLabels(Boolean hasValueLabels) {
+            return hasValueLabels(Output.of(hasValueLabels));
         }
 
         /**

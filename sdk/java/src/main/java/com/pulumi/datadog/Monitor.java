@@ -13,7 +13,7 @@ import com.pulumi.datadog.inputs.MonitorState;
 import com.pulumi.datadog.outputs.MonitorAsset;
 import com.pulumi.datadog.outputs.MonitorMonitorThresholdWindows;
 import com.pulumi.datadog.outputs.MonitorMonitorThresholds;
-import com.pulumi.datadog.outputs.MonitorSchedulingOption;
+import com.pulumi.datadog.outputs.MonitorSchedulingOptions;
 import com.pulumi.datadog.outputs.MonitorVariables;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -225,24 +225,6 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> includeTags() {
         return Codegen.optional(this.includeTags);
-    }
-    /**
-     * A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
-     * 
-     * @deprecated
-     * Use `restrictedRoles`.
-     * 
-     */
-    @Deprecated /* Use `restrictedRoles`. */
-    @Export(name="locked", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> locked;
-
-    /**
-     * @return A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
-     * 
-     */
-    public Output<Optional<Boolean>> locked() {
-        return Codegen.optional(this.locked);
     }
     /**
      * A message to include with notifications for this monitor.
@@ -514,32 +496,34 @@ public class Monitor extends com.pulumi.resources.CustomResource {
     }
     /**
      * A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
-     *  &gt; **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restrictedRoles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `datadog.RestrictionPolicy` resource.
+     * 
+     * @deprecated
+     * Use `datadog.RestrictionPolicy` resource to manage permission.
      * 
      */
+    @Deprecated /* Use `datadog.RestrictionPolicy` resource to manage permission. */
     @Export(name="restrictedRoles", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> restrictedRoles;
+    private Output<List<String>> restrictedRoles;
 
     /**
      * @return A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
-     *  &gt; **Note:** When the `TERRAFORM_MONITOR_EXPLICIT_RESTRICTED_ROLES` environment variable is set to `true`, this argument is treated as `Computed`. Terraform will automatically read the current restricted roles list from the Datadog API whenever the attribute is omitted. If `restrictedRoles` is explicitly set in the configuration, that value always takes precedence over whatever is discovered during the read. This opt-in behaviour lets you migrate responsibility for monitor permissions to the `datadog.RestrictionPolicy` resource.
      * 
      */
-    public Output<Optional<List<String>>> restrictedRoles() {
-        return Codegen.optional(this.restrictedRoles);
+    public Output<List<String>> restrictedRoles() {
+        return this.restrictedRoles;
     }
     /**
      * Configuration options for scheduling.
      * 
      */
-    @Export(name="schedulingOptions", refs={List.class,MonitorSchedulingOption.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<MonitorSchedulingOption>> schedulingOptions;
+    @Export(name="schedulingOptions", refs={MonitorSchedulingOptions.class}, tree="[0]")
+    private Output</* @Nullable */ MonitorSchedulingOptions> schedulingOptions;
 
     /**
      * @return Configuration options for scheduling.
      * 
      */
-    public Output<Optional<List<MonitorSchedulingOption>>> schedulingOptions() {
+    public Output<Optional<MonitorSchedulingOptions>> schedulingOptions() {
         return Codegen.optional(this.schedulingOptions);
     }
     /**

@@ -4,11 +4,27 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigDestinationCloudPrem {
+    /**
+     * @return Name of the environment variable or secret that holds the endpoint URL.
+     * 
+     */
+    private @Nullable String endpointUrlKey;
+
     private ObservabilityPipelineConfigDestinationCloudPrem() {}
+    /**
+     * @return Name of the environment variable or secret that holds the endpoint URL.
+     * 
+     */
+    public Optional<String> endpointUrlKey() {
+        return Optional.ofNullable(this.endpointUrlKey);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -19,13 +35,22 @@ public final class ObservabilityPipelineConfigDestinationCloudPrem {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String endpointUrlKey;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationCloudPrem defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.endpointUrlKey = defaults.endpointUrlKey;
         }
 
+        @CustomType.Setter
+        public Builder endpointUrlKey(@Nullable String endpointUrlKey) {
+
+            this.endpointUrlKey = endpointUrlKey;
+            return this;
+        }
         public ObservabilityPipelineConfigDestinationCloudPrem build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationCloudPrem();
+            _resultValue.endpointUrlKey = endpointUrlKey;
             return _resultValue;
         }
     }

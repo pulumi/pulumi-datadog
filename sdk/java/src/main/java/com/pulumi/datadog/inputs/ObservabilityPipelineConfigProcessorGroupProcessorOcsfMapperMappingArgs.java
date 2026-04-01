@@ -5,14 +5,32 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingCustomMappingArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingArgs Empty = new ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingArgs();
+
+    /**
+     * Custom OCSF mapping configuration for transforming logs.
+     * 
+     */
+    @Import(name="customMapping")
+    private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingCustomMappingArgs> customMapping;
+
+    /**
+     * @return Custom OCSF mapping configuration for transforming logs.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingCustomMappingArgs>> customMapping() {
+        return Optional.ofNullable(this.customMapping);
+    }
 
     /**
      * Search query for selecting which logs the mapping applies to.
@@ -30,23 +48,24 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperM
     }
 
     /**
-     * Predefined library mapping for log transformation.
+     * Predefined library mapping for log transformation. Use this or custom_mapping, not both.
      * 
      */
-    @Import(name="libraryMapping", required=true)
-    private Output<String> libraryMapping;
+    @Import(name="libraryMapping")
+    private @Nullable Output<String> libraryMapping;
 
     /**
-     * @return Predefined library mapping for log transformation.
+     * @return Predefined library mapping for log transformation. Use this or custom_mapping, not both.
      * 
      */
-    public Output<String> libraryMapping() {
-        return this.libraryMapping;
+    public Optional<Output<String>> libraryMapping() {
+        return Optional.ofNullable(this.libraryMapping);
     }
 
     private ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingArgs() {}
 
     private ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingArgs(ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingArgs $) {
+        this.customMapping = $.customMapping;
         this.include = $.include;
         this.libraryMapping = $.libraryMapping;
     }
@@ -67,6 +86,27 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperM
 
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingArgs defaults) {
             $ = new ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param customMapping Custom OCSF mapping configuration for transforming logs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customMapping(@Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingCustomMappingArgs> customMapping) {
+            $.customMapping = customMapping;
+            return this;
+        }
+
+        /**
+         * @param customMapping Custom OCSF mapping configuration for transforming logs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customMapping(ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingCustomMappingArgs customMapping) {
+            return customMapping(Output.of(customMapping));
         }
 
         /**
@@ -91,18 +131,18 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperM
         }
 
         /**
-         * @param libraryMapping Predefined library mapping for log transformation.
+         * @param libraryMapping Predefined library mapping for log transformation. Use this or custom_mapping, not both.
          * 
          * @return builder
          * 
          */
-        public Builder libraryMapping(Output<String> libraryMapping) {
+        public Builder libraryMapping(@Nullable Output<String> libraryMapping) {
             $.libraryMapping = libraryMapping;
             return this;
         }
 
         /**
-         * @param libraryMapping Predefined library mapping for log transformation.
+         * @param libraryMapping Predefined library mapping for log transformation. Use this or custom_mapping, not both.
          * 
          * @return builder
          * 
@@ -114,9 +154,6 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperM
         public ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingArgs build() {
             if ($.include == null) {
                 throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingArgs", "include");
-            }
-            if ($.libraryMapping == null) {
-                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingArgs", "libraryMapping");
             }
             return $;
         }

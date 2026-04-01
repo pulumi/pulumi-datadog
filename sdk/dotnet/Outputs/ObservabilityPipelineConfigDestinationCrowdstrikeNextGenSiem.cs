@@ -26,9 +26,17 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Encoding;
         /// <summary>
+        /// Name of the environment variable or secret that holds the endpoint URL.
+        /// </summary>
+        public readonly string? EndpointUrlKey;
+        /// <summary>
         /// Configuration for enabling TLS encryption between the pipeline component and external services.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemTls? Tls;
+        /// <summary>
+        /// Name of the environment variable or secret that holds the authentication token.
+        /// </summary>
+        public readonly string? TokenKey;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem(
@@ -38,12 +46,18 @@ namespace Pulumi.Datadog.Outputs
 
             string encoding,
 
-            Outputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemTls? tls)
+            string? endpointUrlKey,
+
+            Outputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemTls? tls,
+
+            string? tokenKey)
         {
             Buffer = buffer;
             Compression = compression;
             Encoding = encoding;
+            EndpointUrlKey = endpointUrlKey;
             Tls = tls;
+            TokenKey = tokenKey;
         }
     }
 }

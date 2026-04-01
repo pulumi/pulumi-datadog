@@ -65,6 +65,21 @@ public final class ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemA
     }
 
     /**
+     * Name of the environment variable or secret that holds the endpoint URL.
+     * 
+     */
+    @Import(name="endpointUrlKey")
+    private @Nullable Output<String> endpointUrlKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the endpoint URL.
+     * 
+     */
+    public Optional<Output<String>> endpointUrlKey() {
+        return Optional.ofNullable(this.endpointUrlKey);
+    }
+
+    /**
      * Configuration for enabling TLS encryption between the pipeline component and external services.
      * 
      */
@@ -79,13 +94,30 @@ public final class ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemA
         return Optional.ofNullable(this.tls);
     }
 
+    /**
+     * Name of the environment variable or secret that holds the authentication token.
+     * 
+     */
+    @Import(name="tokenKey")
+    private @Nullable Output<String> tokenKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the authentication token.
+     * 
+     */
+    public Optional<Output<String>> tokenKey() {
+        return Optional.ofNullable(this.tokenKey);
+    }
+
     private ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemArgs() {}
 
     private ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemArgs(ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemArgs $) {
         this.buffer = $.buffer;
         this.compression = $.compression;
         this.encoding = $.encoding;
+        this.endpointUrlKey = $.endpointUrlKey;
         this.tls = $.tls;
+        this.tokenKey = $.tokenKey;
     }
 
     public static Builder builder() {
@@ -170,6 +202,27 @@ public final class ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemA
         }
 
         /**
+         * @param endpointUrlKey Name of the environment variable or secret that holds the endpoint URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointUrlKey(@Nullable Output<String> endpointUrlKey) {
+            $.endpointUrlKey = endpointUrlKey;
+            return this;
+        }
+
+        /**
+         * @param endpointUrlKey Name of the environment variable or secret that holds the endpoint URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointUrlKey(String endpointUrlKey) {
+            return endpointUrlKey(Output.of(endpointUrlKey));
+        }
+
+        /**
          * @param tls Configuration for enabling TLS encryption between the pipeline component and external services.
          * 
          * @return builder
@@ -188,6 +241,27 @@ public final class ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemA
          */
         public Builder tls(ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemTlsArgs tls) {
             return tls(Output.of(tls));
+        }
+
+        /**
+         * @param tokenKey Name of the environment variable or secret that holds the authentication token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenKey(@Nullable Output<String> tokenKey) {
+            $.tokenKey = tokenKey;
+            return this;
+        }
+
+        /**
+         * @param tokenKey Name of the environment variable or secret that holds the authentication token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenKey(String tokenKey) {
+            return tokenKey(Output.of(tokenKey));
         }
 
         public ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemArgs build() {

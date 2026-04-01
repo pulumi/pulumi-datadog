@@ -17,11 +17,26 @@ namespace Pulumi.Datadog.Outputs
         /// SASL authentication mechanism. Valid values are `PLAIN`, `SCRAM-SHA-256`, `SCRAM-SHA-512`.
         /// </summary>
         public readonly string Mechanism;
+        /// <summary>
+        /// Name of the environment variable or secret that holds the SASL password.
+        /// </summary>
+        public readonly string? PasswordKey;
+        /// <summary>
+        /// Name of the environment variable or secret that holds the SASL username.
+        /// </summary>
+        public readonly string? UsernameKey;
 
         [OutputConstructor]
-        private ObservabilityPipelineConfigDestinationKafkaSasl(string mechanism)
+        private ObservabilityPipelineConfigDestinationKafkaSasl(
+            string mechanism,
+
+            string? passwordKey,
+
+            string? usernameKey)
         {
             Mechanism = mechanism;
+            PasswordKey = passwordKey;
+            UsernameKey = usernameKey;
         }
     }
 }

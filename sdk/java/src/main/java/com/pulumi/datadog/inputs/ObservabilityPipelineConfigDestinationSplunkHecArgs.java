@@ -64,6 +64,21 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
     }
 
     /**
+     * Name of the environment variable or secret that holds the Splunk HEC endpoint URL.
+     * 
+     */
+    @Import(name="endpointUrlKey")
+    private @Nullable Output<String> endpointUrlKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the Splunk HEC endpoint URL.
+     * 
+     */
+    public Optional<Output<String>> endpointUrlKey() {
+        return Optional.ofNullable(this.endpointUrlKey);
+    }
+
+    /**
      * Optional name of the Splunk index where logs are written.
      * 
      */
@@ -93,14 +108,31 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
         return Optional.ofNullable(this.sourcetype);
     }
 
+    /**
+     * Name of the environment variable or secret that holds the Splunk HEC token.
+     * 
+     */
+    @Import(name="tokenKey")
+    private @Nullable Output<String> tokenKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the Splunk HEC token.
+     * 
+     */
+    public Optional<Output<String>> tokenKey() {
+        return Optional.ofNullable(this.tokenKey);
+    }
+
     private ObservabilityPipelineConfigDestinationSplunkHecArgs() {}
 
     private ObservabilityPipelineConfigDestinationSplunkHecArgs(ObservabilityPipelineConfigDestinationSplunkHecArgs $) {
         this.autoExtractTimestamp = $.autoExtractTimestamp;
         this.buffer = $.buffer;
         this.encoding = $.encoding;
+        this.endpointUrlKey = $.endpointUrlKey;
         this.index = $.index;
         this.sourcetype = $.sourcetype;
+        this.tokenKey = $.tokenKey;
     }
 
     public static Builder builder() {
@@ -185,6 +217,27 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
         }
 
         /**
+         * @param endpointUrlKey Name of the environment variable or secret that holds the Splunk HEC endpoint URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointUrlKey(@Nullable Output<String> endpointUrlKey) {
+            $.endpointUrlKey = endpointUrlKey;
+            return this;
+        }
+
+        /**
+         * @param endpointUrlKey Name of the environment variable or secret that holds the Splunk HEC endpoint URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointUrlKey(String endpointUrlKey) {
+            return endpointUrlKey(Output.of(endpointUrlKey));
+        }
+
+        /**
          * @param index Optional name of the Splunk index where logs are written.
          * 
          * @return builder
@@ -224,6 +277,27 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
          */
         public Builder sourcetype(String sourcetype) {
             return sourcetype(Output.of(sourcetype));
+        }
+
+        /**
+         * @param tokenKey Name of the environment variable or secret that holds the Splunk HEC token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenKey(@Nullable Output<String> tokenKey) {
+            $.tokenKey = tokenKey;
+            return this;
+        }
+
+        /**
+         * @param tokenKey Name of the environment variable or secret that holds the Splunk HEC token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenKey(String tokenKey) {
+            return tokenKey(Output.of(tokenKey));
         }
 
         public ObservabilityPipelineConfigDestinationSplunkHecArgs build() {

@@ -39,7 +39,7 @@ class LogsIndexArgs:
         :param pulumi.Input[_builtins.int] daily_limit: The number of log events you can send in this index per day before you are rate-limited.
         :param pulumi.Input['LogsIndexDailyLimitResetArgs'] daily_limit_reset: Object containing options to override the default daily limit reset time.
         :param pulumi.Input[_builtins.float] daily_limit_warning_threshold_percentage: A percentage threshold of the daily quota at which a Datadog warning event is generated.
-        :param pulumi.Input[_builtins.bool] disable_daily_limit: If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        :param pulumi.Input[_builtins.bool] disable_daily_limit: If true, disables the daily limit and sets `daily_limit` to null. If false, enables the daily limit. When creating an index, if this attribute is omitted, the daily limit is enabled by default. When updating an index, if this attribute is omitted, the existing value is preserved. Providing a `daily_limit` value does not re-enable the limit if it was previously disabled unless `disable_daily_limit` is explicitly set to false.
         :param pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[_builtins.int] flex_retention_days: The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
         :param pulumi.Input[_builtins.int] retention_days: The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
@@ -128,7 +128,7 @@ class LogsIndexArgs:
     @pulumi.getter(name="disableDailyLimit")
     def disable_daily_limit(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        If true, disables the daily limit and sets `daily_limit` to null. If false, enables the daily limit. When creating an index, if this attribute is omitted, the daily limit is enabled by default. When updating an index, if this attribute is omitted, the existing value is preserved. Providing a `daily_limit` value does not re-enable the limit if it was previously disabled unless `disable_daily_limit` is explicitly set to false.
         """
         return pulumi.get(self, "disable_daily_limit")
 
@@ -204,7 +204,7 @@ class _LogsIndexState:
         :param pulumi.Input[_builtins.int] daily_limit: The number of log events you can send in this index per day before you are rate-limited.
         :param pulumi.Input['LogsIndexDailyLimitResetArgs'] daily_limit_reset: Object containing options to override the default daily limit reset time.
         :param pulumi.Input[_builtins.float] daily_limit_warning_threshold_percentage: A percentage threshold of the daily quota at which a Datadog warning event is generated.
-        :param pulumi.Input[_builtins.bool] disable_daily_limit: If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        :param pulumi.Input[_builtins.bool] disable_daily_limit: If true, disables the daily limit and sets `daily_limit` to null. If false, enables the daily limit. When creating an index, if this attribute is omitted, the daily limit is enabled by default. When updating an index, if this attribute is omitted, the existing value is preserved. Providing a `daily_limit` value does not re-enable the limit if it was previously disabled unless `disable_daily_limit` is explicitly set to false.
         :param pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]] filters: Logs filter
         :param pulumi.Input[_builtins.int] flex_retention_days: The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
@@ -273,7 +273,7 @@ class _LogsIndexState:
     @pulumi.getter(name="disableDailyLimit")
     def disable_daily_limit(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        If true, disables the daily limit and sets `daily_limit` to null. If false, enables the daily limit. When creating an index, if this attribute is omitted, the daily limit is enabled by default. When updating an index, if this attribute is omitted, the existing value is preserved. Providing a `daily_limit` value does not re-enable the limit if it was previously disabled unless `disable_daily_limit` is explicitly set to false.
         """
         return pulumi.get(self, "disable_daily_limit")
 
@@ -432,7 +432,7 @@ class LogsIndex(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] daily_limit: The number of log events you can send in this index per day before you are rate-limited.
         :param pulumi.Input[Union['LogsIndexDailyLimitResetArgs', 'LogsIndexDailyLimitResetArgsDict']] daily_limit_reset: Object containing options to override the default daily limit reset time.
         :param pulumi.Input[_builtins.float] daily_limit_warning_threshold_percentage: A percentage threshold of the daily quota at which a Datadog warning event is generated.
-        :param pulumi.Input[_builtins.bool] disable_daily_limit: If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        :param pulumi.Input[_builtins.bool] disable_daily_limit: If true, disables the daily limit and sets `daily_limit` to null. If false, enables the daily limit. When creating an index, if this attribute is omitted, the daily limit is enabled by default. When updating an index, if this attribute is omitted, the existing value is preserved. Providing a `daily_limit` value does not re-enable the limit if it was previously disabled unless `disable_daily_limit` is explicitly set to false.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexExclusionFilterArgs', 'LogsIndexExclusionFilterArgsDict']]]] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexFilterArgs', 'LogsIndexFilterArgsDict']]]] filters: Logs filter
         :param pulumi.Input[_builtins.int] flex_retention_days: The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
@@ -580,7 +580,7 @@ class LogsIndex(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] daily_limit: The number of log events you can send in this index per day before you are rate-limited.
         :param pulumi.Input[Union['LogsIndexDailyLimitResetArgs', 'LogsIndexDailyLimitResetArgsDict']] daily_limit_reset: Object containing options to override the default daily limit reset time.
         :param pulumi.Input[_builtins.float] daily_limit_warning_threshold_percentage: A percentage threshold of the daily quota at which a Datadog warning event is generated.
-        :param pulumi.Input[_builtins.bool] disable_daily_limit: If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        :param pulumi.Input[_builtins.bool] disable_daily_limit: If true, disables the daily limit and sets `daily_limit` to null. If false, enables the daily limit. When creating an index, if this attribute is omitted, the daily limit is enabled by default. When updating an index, if this attribute is omitted, the existing value is preserved. Providing a `daily_limit` value does not re-enable the limit if it was previously disabled unless `disable_daily_limit` is explicitly set to false.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexExclusionFilterArgs', 'LogsIndexExclusionFilterArgsDict']]]] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexFilterArgs', 'LogsIndexFilterArgsDict']]]] filters: Logs filter
         :param pulumi.Input[_builtins.int] flex_retention_days: The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
@@ -632,7 +632,7 @@ class LogsIndex(pulumi.CustomResource):
     @pulumi.getter(name="disableDailyLimit")
     def disable_daily_limit(self) -> pulumi.Output[_builtins.bool]:
         """
-        If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        If true, disables the daily limit and sets `daily_limit` to null. If false, enables the daily limit. When creating an index, if this attribute is omitted, the daily limit is enabled by default. When updating an index, if this attribute is omitted, the existing value is preserved. Providing a `daily_limit` value does not re-enable the limit if it was previously disabled unless `disable_daily_limit` is explicitly set to false.
         """
         return pulumi.get(self, "disable_daily_limit")
 

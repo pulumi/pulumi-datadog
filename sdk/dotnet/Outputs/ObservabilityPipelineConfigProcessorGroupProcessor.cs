@@ -67,7 +67,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricTags? MetricTags;
         /// <summary>
-        /// The `OcsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
+        /// The `OcsfMapper` processor transforms logs into the OCSF schema using predefined library mappings or custom mapping configuration.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper? OcsfMapper;
         /// <summary>

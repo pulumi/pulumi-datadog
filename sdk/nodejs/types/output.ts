@@ -1507,6 +1507,10 @@ export interface DashboardWidgetChangeDefinitionRequestQueryEventQuery {
      */
     groupBies?: outputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBy[];
     /**
+     * Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     */
+    groupByFields?: outputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByFields;
+    /**
      * An array of index names to query in the stream.
      */
     indexes?: string[];
@@ -1552,6 +1556,36 @@ export interface DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBy {
      * The options for sorting group by results.
      */
     sort?: outputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByFields {
+    /**
+     * List of event facets to group by.
+     */
+    fields: string[];
+    /**
+     * The number of groups to return.
+     */
+    limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: outputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByFieldsSort;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByFieldsSort {
+    /**
+     * The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: string;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: string;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBySort {
@@ -2376,6 +2410,10 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryEventQuery {
      */
     groupBies?: outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBy[];
     /**
+     * Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     */
+    groupByFields?: outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupByFields;
+    /**
      * An array of index names to query in the stream.
      */
     indexes?: string[];
@@ -2421,6 +2459,36 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBy {
      * The options for sorting group by results.
      */
     sort?: outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupByFields {
+    /**
+     * List of event facets to group by.
+     */
+    fields: string[];
+    /**
+     * The number of groups to return.
+     */
+    limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupByFieldsSort;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupByFieldsSort {
+    /**
+     * The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: string;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: string;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: string;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort {
@@ -3185,6 +3253,10 @@ export interface DashboardWidgetHeatmapDefinitionRequestQueryEventQuery {
      */
     groupBies?: outputs.DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBy[];
     /**
+     * Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     */
+    groupByFields?: outputs.DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupByFields;
+    /**
      * An array of index names to query in the stream.
      */
     indexes?: string[];
@@ -3230,6 +3302,36 @@ export interface DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBy {
      * The options for sorting group by results.
      */
     sort?: outputs.DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupByFields {
+    /**
+     * List of event facets to group by.
+     */
+    fields: string[];
+    /**
+     * The number of groups to return.
+     */
+    limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: outputs.DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupByFieldsSort;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupByFieldsSort {
+    /**
+     * The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: string;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: string;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: string;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBySort {
@@ -4550,6 +4652,10 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQuery {
      */
     groupBies?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy[];
     /**
+     * Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     */
+    groupByFields?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFields;
+    /**
      * An array of index names to query in the stream.
      */
     indexes?: string[];
@@ -4595,6 +4701,36 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupB
      * The options for sorting group by results.
      */
     sort?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFields {
+    /**
+     * List of event facets to group by.
+     */
+    fields: string[];
+    /**
+     * The number of groups to return.
+     */
+    limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSort;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSort {
+    /**
+     * The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: string;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: string;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort {
@@ -5331,6 +5467,10 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQuery {
      */
     groupBies?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy[];
     /**
+     * Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     */
+    groupByFields?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields;
+    /**
      * An array of index names to query in the stream.
      */
     indexes?: string[];
@@ -5376,6 +5516,36 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupB
      * The options for sorting group by results.
      */
     sort?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields {
+    /**
+     * List of event facets to group by.
+     */
+    fields: string[];
+    /**
+     * The number of groups to return.
+     */
+    limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsSort;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsSort {
+    /**
+     * The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: string;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: string;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort {
@@ -5950,6 +6120,10 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     groupBies?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy[];
     /**
+     * Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     */
+    groupByFields?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByFields;
+    /**
      * An array of index names to query in the stream.
      */
     indexes?: string[];
@@ -5995,6 +6169,36 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      * The options for sorting group by results.
      */
     sort?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByFields {
+    /**
+     * List of event facets to group by.
+     */
+    fields: string[];
+    /**
+     * The number of groups to return.
+     */
+    limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByFieldsSort;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByFieldsSort {
+    /**
+     * The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: string;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: string;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort {
@@ -7237,6 +7441,10 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryEventQuery {
      */
     groupBies?: outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBy[];
     /**
+     * Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     */
+    groupByFields?: outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupByFields;
+    /**
      * An array of index names to query in the stream.
      */
     indexes?: string[];
@@ -7282,6 +7490,36 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBy 
      * The options for sorting group by results.
      */
     sort?: outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupByFields {
+    /**
+     * List of event facets to group by.
+     */
+    fields: string[];
+    /**
+     * The number of groups to return.
+     */
+    limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupByFieldsSort;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupByFieldsSort {
+    /**
+     * The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: string;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: string;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: string;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort {
@@ -8074,6 +8312,10 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery {
      */
     groupBies?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBy[];
     /**
+     * Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     */
+    groupByFields?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByFields;
+    /**
      * An array of index names to query in the stream.
      */
     indexes?: string[];
@@ -8119,6 +8361,36 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupB
      * The options for sorting group by results.
      */
     sort?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByFields {
+    /**
+     * List of event facets to group by.
+     */
+    fields: string[];
+    /**
+     * The number of groups to return.
+     */
+    limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByFieldsSort;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByFieldsSort {
+    /**
+     * The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: string;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: string;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBySort {
@@ -8249,6 +8521,10 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery {
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestStyle {
+    /**
+     * If true, the value is displayed as a label relative to the data point.
+     */
+    hasValueLabels?: boolean;
     /**
      * The type of lines displayed. Valid values are `dashed`, `dotted`, `solid`.
      */
@@ -8848,6 +9124,10 @@ export interface DashboardWidgetToplistDefinitionRequestQueryEventQuery {
      */
     groupBies?: outputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy[];
     /**
+     * Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     */
+    groupByFields?: outputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByFields;
+    /**
      * An array of index names to query in the stream.
      */
     indexes?: string[];
@@ -8893,6 +9173,36 @@ export interface DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy {
      * The options for sorting group by results.
      */
     sort?: outputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByFields {
+    /**
+     * List of event facets to group by.
+     */
+    fields: string[];
+    /**
+     * The number of groups to return.
+     */
+    limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: outputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSort;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSort {
+    /**
+     * The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: string;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: string;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort {
@@ -9524,6 +9834,10 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
      */
     groupBies?: outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy[];
     /**
+     * Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     */
+    groupByFields?: outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields;
+    /**
      * An array of index names to query in the stream.
      */
     indexes?: string[];
@@ -9569,6 +9883,36 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy {
      * The options for sorting group by results.
      */
     sort?: outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields {
+    /**
+     * List of event facets to group by.
+     */
+    fields: string[];
+    /**
+     * The number of groups to return.
+     */
+    limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSort;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSort {
+    /**
+     * The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: string;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: string;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: string;
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort {
@@ -10972,6 +11316,10 @@ export interface GetSecurityMonitoringRulesRuleOptionsAnomalyDetectionOptions {
      * An optional parameter that sets how permissive anomaly detection is. Higher values require higher deviations before triggering a signal. Valid values are 1, 2, 3, 4, 5.
      */
     detectionTolerance?: number;
+    /**
+     * When set to true, Datadog uses previous values that fall within the defined learning window to construct the baseline, enabling the system to establish an accurate baseline more rapidly rather than relying solely on gradual learning over time.
+     */
+    instantaneousBaseline?: boolean;
     /**
      * Learning duration in hours. Anomaly detection waits for at least this amount of historical data before it starts evaluating. Valid values are 1, 6, 12, 24, 48, 168, 336.
      */
@@ -13319,25 +13667,25 @@ export interface MonitorNotificationRuleFilter {
     tags?: string[];
 }
 
-export interface MonitorSchedulingOption {
+export interface MonitorSchedulingOptions {
     /**
      * Configuration options for the custom schedules. If `start` is omitted, the monitor creation time will be used.
      */
-    customSchedules?: outputs.MonitorSchedulingOptionCustomSchedule[];
+    customSchedule?: outputs.MonitorSchedulingOptionsCustomSchedule;
     /**
      * Configuration options for the evaluation window. If `hourStarts` is set, no other fields may be set. Otherwise, `dayStarts` and `monthStarts` must be set together.
      */
-    evaluationWindows?: outputs.MonitorSchedulingOptionEvaluationWindow[];
+    evaluationWindow?: outputs.MonitorSchedulingOptionsEvaluationWindow;
 }
 
-export interface MonitorSchedulingOptionCustomSchedule {
+export interface MonitorSchedulingOptionsCustomSchedule {
     /**
      * A list of recurrence definitions. Length must be 1.
      */
-    recurrence: outputs.MonitorSchedulingOptionCustomScheduleRecurrence;
+    recurrence: outputs.MonitorSchedulingOptionsCustomScheduleRecurrence;
 }
 
-export interface MonitorSchedulingOptionCustomScheduleRecurrence {
+export interface MonitorSchedulingOptionsCustomScheduleRecurrence {
     /**
      * Must be a valid `rrule`. See API docs for supported fields
      */
@@ -13352,7 +13700,7 @@ export interface MonitorSchedulingOptionCustomScheduleRecurrence {
     timezone: string;
 }
 
-export interface MonitorSchedulingOptionEvaluationWindow {
+export interface MonitorSchedulingOptionsEvaluationWindow {
     /**
      * The time of the day at which a one day cumulative evaluation window starts. Must be defined in UTC time in `HH:mm` format.
      */
@@ -13570,6 +13918,10 @@ export interface ObservabilityPipelineConfigDestination {
      * The `amazonOpensearch` destination writes logs to Amazon OpenSearch.
      */
     amazonOpensearches?: outputs.ObservabilityPipelineConfigDestinationAmazonOpensearch[];
+    /**
+     * The `amazonS3Generic` destination sends your logs to an Amazon S3 bucket.
+     */
+    amazonS3Generic?: outputs.ObservabilityPipelineConfigDestinationAmazonS3Generic;
     /**
      * The `amazonS3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
      */
@@ -13819,6 +14171,85 @@ export interface ObservabilityPipelineConfigDestinationAmazonS3BufferMemory {
     whenFull: string;
 }
 
+export interface ObservabilityPipelineConfigDestinationAmazonS3Generic {
+    /**
+     * AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
+     */
+    auth?: outputs.ObservabilityPipelineConfigDestinationAmazonS3GenericAuth;
+    /**
+     * Event batching settings.
+     */
+    batchSettings?: outputs.ObservabilityPipelineConfigDestinationAmazonS3GenericBatchSettings;
+    /**
+     * S3 bucket name.
+     */
+    bucket: string;
+    /**
+     * Compression configuration.
+     */
+    compression: outputs.ObservabilityPipelineConfigDestinationAmazonS3GenericCompression;
+    /**
+     * Encoding format for the destination.
+     */
+    encoding: outputs.ObservabilityPipelineConfigDestinationAmazonS3GenericEncoding;
+    /**
+     * Optional prefix for object keys.
+     */
+    keyPrefix?: string;
+    /**
+     * AWS region of the S3 bucket.
+     */
+    region: string;
+    /**
+     * S3 storage class. Valid values are `STANDARD`, `REDUCED_REDUNDANCY`, `INTELLIGENT_TIERING`, `STANDARD_IA`, `EXPRESS_ONEZONE`, `ONEZONE_IA`, `GLACIER`, `GLACIER_IR`, `DEEP_ARCHIVE`.
+     */
+    storageClass: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationAmazonS3GenericAuth {
+    /**
+     * The Amazon Resource Name (ARN) of the role to assume.
+     */
+    assumeRole?: string;
+    /**
+     * A unique identifier for cross-account role assumption.
+     */
+    externalId?: string;
+    /**
+     * A session identifier used for logging and tracing the assumed role session.
+     */
+    sessionName?: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationAmazonS3GenericBatchSettings {
+    /**
+     * Maximum batch size in bytes.
+     */
+    batchSize?: number;
+    /**
+     * Maximum number of seconds to wait before flushing the batch.
+     */
+    timeoutSecs?: number;
+}
+
+export interface ObservabilityPipelineConfigDestinationAmazonS3GenericCompression {
+    /**
+     * Compression algorithm. Valid values are `gzip`, `zstd`, `snappy`.
+     */
+    algorithm: string;
+    /**
+     * Compression level.
+     */
+    level?: number;
+}
+
+export interface ObservabilityPipelineConfigDestinationAmazonS3GenericEncoding {
+    /**
+     * The encoding type. Valid values are `json`, `parquet`.
+     */
+    type: string;
+}
+
 export interface ObservabilityPipelineConfigDestinationAmazonSecurityLake {
     /**
      * AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
@@ -13911,6 +14342,10 @@ export interface ObservabilityPipelineConfigDestinationAmazonSecurityLakeTls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationAzureStorage {
@@ -13966,6 +14401,10 @@ export interface ObservabilityPipelineConfigDestinationAzureStorageBufferMemory 
 }
 
 export interface ObservabilityPipelineConfigDestinationCloudPrem {
+    /**
+     * Name of the environment variable or secret that holds the endpoint URL.
+     */
+    endpointUrlKey?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem {
@@ -13982,9 +14421,17 @@ export interface ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem {
      */
     encoding: string;
     /**
+     * Name of the environment variable or secret that holds the endpoint URL.
+     */
+    endpointUrlKey?: string;
+    /**
      * Configuration for enabling TLS encryption between the pipeline component and external services.
      */
     tls?: outputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemTls;
+    /**
+     * Name of the environment variable or secret that holds the authentication token.
+     */
+    tokenKey?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemBuffer {
@@ -14048,6 +14495,10 @@ export interface ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemTls
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationDatadogLog {
@@ -14167,6 +14618,10 @@ export interface ObservabilityPipelineConfigDestinationElasticsearch {
      */
     apiVersion?: string;
     /**
+     * Authentication settings for the Elasticsearch destination.
+     */
+    auth?: outputs.ObservabilityPipelineConfigDestinationElasticsearchAuth;
+    /**
      * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
      */
     buffer?: outputs.ObservabilityPipelineConfigDestinationElasticsearchBuffer;
@@ -14178,6 +14633,25 @@ export interface ObservabilityPipelineConfigDestinationElasticsearch {
      * Configuration options for writing to Elasticsearch Data Streams instead of a fixed index.
      */
     dataStream?: outputs.ObservabilityPipelineConfigDestinationElasticsearchDataStream;
+    /**
+     * Name of the environment variable or secret that holds the Elasticsearch endpoint URL.
+     */
+    endpointUrlKey?: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationElasticsearchAuth {
+    /**
+     * Name of the environment variable or secret that holds the Elasticsearch password (used when strategy is `basic`).
+     */
+    passwordKey?: string;
+    /**
+     * The authentication strategy. Use `basic` for username/password. Valid values are `basic`, `aws`.
+     */
+    strategy: string;
+    /**
+     * Name of the environment variable or secret that holds the Elasticsearch username (used when strategy is `basic`).
+     */
+    usernameKey?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationElasticsearchBuffer {
@@ -14238,7 +14712,7 @@ export interface ObservabilityPipelineConfigDestinationGoogleCloudStorage {
      */
     acl?: string;
     /**
-     * GCP credentials used to authenticate with Google Cloud services.
+     * Google Cloud credentials used to authenticate with Google Cloud services.
      */
     auth?: outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageAuth;
     /**
@@ -14265,7 +14739,7 @@ export interface ObservabilityPipelineConfigDestinationGoogleCloudStorage {
 
 export interface ObservabilityPipelineConfigDestinationGoogleCloudStorageAuth {
     /**
-     * Path to the GCP service account key file.
+     * Path to the Google Cloud service account key file.
      */
     credentialsFile: string;
 }
@@ -14320,7 +14794,7 @@ export interface ObservabilityPipelineConfigDestinationGoogleCloudStorageMetadat
 
 export interface ObservabilityPipelineConfigDestinationGooglePubsub {
     /**
-     * GCP credentials used to authenticate with Google Cloud services.
+     * Google Cloud credentials used to authenticate with Google Cloud services.
      */
     auth?: outputs.ObservabilityPipelineConfigDestinationGooglePubsubAuth;
     /**
@@ -14332,7 +14806,11 @@ export interface ObservabilityPipelineConfigDestinationGooglePubsub {
      */
     encoding: string;
     /**
-     * The GCP project ID that owns the Pub/Sub topic.
+     * Name of the environment variable or secret that holds the Google Cloud Pub/Sub endpoint URL.
+     */
+    endpointUrlKey?: string;
+    /**
+     * The Google Cloud project ID that owns the Pub/Sub topic.
      */
     project: string;
     /**
@@ -14347,7 +14825,7 @@ export interface ObservabilityPipelineConfigDestinationGooglePubsub {
 
 export interface ObservabilityPipelineConfigDestinationGooglePubsubAuth {
     /**
-     * Path to the GCP service account key file.
+     * Path to the Google Cloud service account key file.
      */
     credentialsFile: string;
 }
@@ -14402,11 +14880,15 @@ export interface ObservabilityPipelineConfigDestinationGooglePubsubTls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationGoogleSecop {
     /**
-     * GCP credentials used to authenticate with Google Cloud services.
+     * Google Cloud credentials used to authenticate with Google Cloud services.
      */
     auth?: outputs.ObservabilityPipelineConfigDestinationGoogleSecopAuth;
     /**
@@ -14422,6 +14904,10 @@ export interface ObservabilityPipelineConfigDestinationGoogleSecop {
      */
     encoding: string;
     /**
+     * Name of the environment variable or secret that holds the Google Chronicle endpoint URL.
+     */
+    endpointUrlKey?: string;
+    /**
      * The log type metadata associated with the Google SecOps destination.
      */
     logType: string;
@@ -14429,7 +14915,7 @@ export interface ObservabilityPipelineConfigDestinationGoogleSecop {
 
 export interface ObservabilityPipelineConfigDestinationGoogleSecopAuth {
     /**
-     * Path to the GCP service account key file.
+     * Path to the Google Cloud service account key file.
      */
     credentialsFile: string;
 }
@@ -14485,9 +14971,25 @@ export interface ObservabilityPipelineConfigDestinationHttpClient {
      */
     encoding: string;
     /**
+     * Name of the environment variable or secret that holds the password.
+     */
+    passwordKey?: string;
+    /**
      * Configuration for enabling TLS encryption between the pipeline component and external services.
      */
     tls?: outputs.ObservabilityPipelineConfigDestinationHttpClientTls;
+    /**
+     * Name of the environment variable or secret that holds the authentication token.
+     */
+    tokenKey?: string;
+    /**
+     * Name of the environment variable or secret that holds the request URI.
+     */
+    uriKey?: string;
+    /**
+     * Name of the environment variable or secret that holds the username.
+     */
+    usernameKey?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationHttpClientCompression {
@@ -14510,9 +15012,17 @@ export interface ObservabilityPipelineConfigDestinationHttpClientTls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationKafka {
+    /**
+     * Name of the environment variable or secret that holds the Kafka bootstrap servers.
+     */
+    bootstrapServersKey?: string;
     /**
      * Compression codec for Kafka messages. Valid values are `none`, `gzip`, `snappy`, `lz4`, `zstd`.
      */
@@ -14579,6 +15089,14 @@ export interface ObservabilityPipelineConfigDestinationKafkaSasl {
      * SASL authentication mechanism. Valid values are `PLAIN`, `SCRAM-SHA-256`, `SCRAM-SHA-512`.
      */
     mechanism: string;
+    /**
+     * Name of the environment variable or secret that holds the SASL password.
+     */
+    passwordKey?: string;
+    /**
+     * Name of the environment variable or secret that holds the SASL username.
+     */
+    usernameKey?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationKafkaTls {
@@ -14594,6 +15112,10 @@ export interface ObservabilityPipelineConfigDestinationKafkaTls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationMicrosoftSentinel {
@@ -14605,6 +15127,14 @@ export interface ObservabilityPipelineConfigDestinationMicrosoftSentinel {
      * Azure AD client ID used for authentication.
      */
     clientId: string;
+    /**
+     * Name of the environment variable or secret that holds the Azure AD client secret.
+     */
+    clientSecretKey?: string;
+    /**
+     * Name of the environment variable or secret that holds the Data Collection Endpoint (DCE) URI.
+     */
+    dceUriKey?: string;
     /**
      * The immutable ID of the Data Collection Rule (DCR).
      */
@@ -14658,9 +15188,17 @@ export interface ObservabilityPipelineConfigDestinationMicrosoftSentinelBufferMe
 
 export interface ObservabilityPipelineConfigDestinationNewRelic {
     /**
+     * Name of the environment variable or secret that holds the New Relic account ID.
+     */
+    accountIdKey?: string;
+    /**
      * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
      */
     buffer?: outputs.ObservabilityPipelineConfigDestinationNewRelicBuffer;
+    /**
+     * Name of the environment variable or secret that holds the New Relic license key.
+     */
+    licenseKeyKey?: string;
     /**
      * The New Relic region.
      */
@@ -14777,6 +15315,10 @@ export interface ObservabilityPipelineConfigDestinationRsyslog {
      */
     buffer?: outputs.ObservabilityPipelineConfigDestinationRsyslogBuffer;
     /**
+     * Name of the environment variable or secret that holds the rsyslog endpoint URL.
+     */
+    endpointUrlKey?: string;
+    /**
      * Optional socket keepalive duration in milliseconds.
      */
     keepalive?: number;
@@ -14836,6 +15378,10 @@ export interface ObservabilityPipelineConfigDestinationRsyslogTls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationSentinelOne {
@@ -14847,6 +15393,10 @@ export interface ObservabilityPipelineConfigDestinationSentinelOne {
      * The SentinelOne region to send logs to.
      */
     region: string;
+    /**
+     * Name of the environment variable or secret that holds the SentinelOne API token.
+     */
+    tokenKey?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationSentinelOneBuffer {
@@ -14887,6 +15437,10 @@ export interface ObservabilityPipelineConfigDestinationSentinelOneBufferMemory {
 }
 
 export interface ObservabilityPipelineConfigDestinationSocket {
+    /**
+     * Name of the environment variable or secret that holds the socket address (host:port).
+     */
+    addressKey?: string;
     /**
      * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
      */
@@ -14977,6 +15531,10 @@ export interface ObservabilityPipelineConfigDestinationSocketTls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationSplunkHec {
@@ -14993,6 +15551,10 @@ export interface ObservabilityPipelineConfigDestinationSplunkHec {
      */
     encoding: string;
     /**
+     * Name of the environment variable or secret that holds the Splunk HEC endpoint URL.
+     */
+    endpointUrlKey?: string;
+    /**
      * Optional name of the Splunk index where logs are written.
      */
     index?: string;
@@ -15000,6 +15562,10 @@ export interface ObservabilityPipelineConfigDestinationSplunkHec {
      * The Splunk sourcetype to assign to log events.
      */
     sourcetype?: string;
+    /**
+     * Name of the environment variable or secret that holds the Splunk HEC token.
+     */
+    tokenKey?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationSplunkHecBuffer {
@@ -15048,6 +15614,10 @@ export interface ObservabilityPipelineConfigDestinationSumoLogic {
      * The output encoding format.
      */
     encoding?: string;
+    /**
+     * Name of the environment variable or secret that holds the Sumo Logic endpoint URL.
+     */
+    endpointUrlKey?: string;
     /**
      * A list of custom headers to include in the request to Sumo Logic.
      */
@@ -15120,6 +15690,10 @@ export interface ObservabilityPipelineConfigDestinationSyslogNg {
      */
     buffer?: outputs.ObservabilityPipelineConfigDestinationSyslogNgBuffer;
     /**
+     * Name of the environment variable or secret that holds the syslog-ng endpoint URL.
+     */
+    endpointUrlKey?: string;
+    /**
      * Optional socket keepalive duration in milliseconds.
      */
     keepalive?: number;
@@ -15179,6 +15753,10 @@ export interface ObservabilityPipelineConfigDestinationSyslogNgTls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroup {
@@ -15263,7 +15841,7 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessor {
      */
     metricTags?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricTags;
     /**
-     * The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings.
+     * The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings or custom mapping configuration.
      */
     ocsfMapper?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper;
     /**
@@ -15482,6 +16060,10 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTab
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTable {
     /**
+     * Name of the environment variable or secret that holds the Datadog application key for the reference table.
+     */
+    appKeyKey?: string;
+    /**
      * List of column names to include from the reference table. If not provided, all columns are included.
      */
     columns?: string[];
@@ -15567,20 +16149,119 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRul
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper {
     /**
-     * List of OCSF mapping entries using library mapping.
+     * List of OCSF mapping entries. Each entry uses either a library mapping or a custom mapping.
      */
     mappings?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMapping[];
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMapping {
     /**
+     * Custom OCSF mapping configuration for transforming logs.
+     */
+    customMapping?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingCustomMapping;
+    /**
      * Search query for selecting which logs the mapping applies to.
      */
     include: string;
     /**
-     * Predefined library mapping for log transformation.
+     * Predefined library mapping for log transformation. Use this or custom_mapping, not both.
      */
-    libraryMapping: string;
+    libraryMapping?: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingCustomMapping {
+    /**
+     * A list of field mapping rules for transforming log fields to OCSF schema fields.
+     */
+    mappings?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingCustomMappingMapping[];
+    /**
+     * Metadata for the custom OCSF mapping.
+     */
+    metadata: outputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingCustomMappingMetadata;
+    /**
+     * The version of the custom mapping configuration.
+     */
+    version: number;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingCustomMappingMapping {
+    /**
+     * The default value to use if the source field is missing or empty.
+     */
+    default?: string;
+    /**
+     * The destination OCSF field path.
+     */
+    dest: string;
+    /**
+     * Lookup table configuration for mapping source values to destination values.
+     */
+    lookup?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingCustomMappingMappingLookup;
+    /**
+     * The source field path from the log event.
+     */
+    source?: string;
+    /**
+     * Multiple source field paths for combined mapping.
+     */
+    sources?: string[];
+    /**
+     * A static value to use for the destination field.
+     */
+    value?: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingCustomMappingMappingLookup {
+    /**
+     * The default value to use if no lookup match is found.
+     */
+    default?: string;
+    /**
+     * A list of lookup table entries for value transformation.
+     */
+    tables?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingCustomMappingMappingLookupTable[];
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingCustomMappingMappingLookupTable {
+    /**
+     * The substring to match in the source value.
+     */
+    contains?: string;
+    /**
+     * The exact value to match in the source.
+     */
+    equals?: string;
+    /**
+     * The source field to match against.
+     */
+    equalsSource?: string;
+    /**
+     * A regex pattern to match in the source value.
+     */
+    matches?: string;
+    /**
+     * A regex pattern that must not match the source value.
+     */
+    notMatches?: string;
+    /**
+     * The value to use when a match is found.
+     */
+    value?: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingCustomMappingMetadata {
+    /**
+     * The OCSF event class name.
+     */
+    class: string;
+    /**
+     * A list of OCSF profiles to apply.
+     */
+    profiles?: string[];
+    /**
+     * The OCSF schema version.
+     */
+    version: string;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorParseGrok {
@@ -16006,7 +16687,7 @@ export interface ObservabilityPipelineConfigSource {
      */
     fluentBits?: outputs.ObservabilityPipelineConfigSourceFluentBit[];
     /**
-     * The `fluentd source ingests logs from a Fluentd-compatible service.
+     * The `fluentd` source ingests logs from a Fluentd-compatible service.
      */
     fluentds?: outputs.ObservabilityPipelineConfigSourceFluentd[];
     /**
@@ -16065,6 +16746,10 @@ export interface ObservabilityPipelineConfigSource {
 
 export interface ObservabilityPipelineConfigSourceAmazonDataFirehose {
     /**
+     * Name of the environment variable or secret that holds the listen address.
+     */
+    addressKey?: string;
+    /**
      * AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
      */
     auth?: outputs.ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth;
@@ -16102,6 +16787,10 @@ export interface ObservabilityPipelineConfigSourceAmazonDataFirehoseTls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
 }
 
 export interface ObservabilityPipelineConfigSourceAmazonS3 {
@@ -16117,6 +16806,10 @@ export interface ObservabilityPipelineConfigSourceAmazonS3 {
      * Configuration for enabling TLS encryption between the pipeline component and external services.
      */
     tls?: outputs.ObservabilityPipelineConfigSourceAmazonS3Tls;
+    /**
+     * Name of the environment variable or secret that holds the S3 bucket URL.
+     */
+    urlKey?: string;
 }
 
 export interface ObservabilityPipelineConfigSourceAmazonS3Auth {
@@ -16147,6 +16840,10 @@ export interface ObservabilityPipelineConfigSourceAmazonS3Tls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
 }
 
 export interface ObservabilityPipelineConfigSourceDatadogAgent {
@@ -16169,9 +16866,17 @@ export interface ObservabilityPipelineConfigSourceDatadogAgentTls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
 }
 
 export interface ObservabilityPipelineConfigSourceFluentBit {
+    /**
+     * Name of the environment variable or secret that holds the listen address.
+     */
+    addressKey?: string;
     /**
      * Configuration for enabling TLS encryption between the pipeline component and external services.
      */
@@ -16191,9 +16896,17 @@ export interface ObservabilityPipelineConfigSourceFluentBitTls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
 }
 
 export interface ObservabilityPipelineConfigSourceFluentd {
+    /**
+     * Name of the environment variable or secret that holds the listen address.
+     */
+    addressKey?: string;
     /**
      * Configuration for enabling TLS encryption between the pipeline component and external services.
      */
@@ -16213,11 +16926,15 @@ export interface ObservabilityPipelineConfigSourceFluentdTls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
 }
 
 export interface ObservabilityPipelineConfigSourceGooglePubsub {
     /**
-     * GCP credentials used to authenticate with Google Cloud services.
+     * Google Cloud credentials used to authenticate with Google Cloud services.
      */
     auth?: outputs.ObservabilityPipelineConfigSourceGooglePubsubAuth;
     /**
@@ -16225,7 +16942,7 @@ export interface ObservabilityPipelineConfigSourceGooglePubsub {
      */
     decoding: string;
     /**
-     * The GCP project ID that owns the Pub/Sub subscription.
+     * The Google Cloud project ID that owns the Pub/Sub subscription.
      */
     project: string;
     /**
@@ -16240,7 +16957,7 @@ export interface ObservabilityPipelineConfigSourceGooglePubsub {
 
 export interface ObservabilityPipelineConfigSourceGooglePubsubAuth {
     /**
-     * Path to the GCP service account key file.
+     * Path to the Google Cloud service account key file.
      */
     credentialsFile: string;
 }
@@ -16258,6 +16975,10 @@ export interface ObservabilityPipelineConfigSourceGooglePubsubTls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
 }
 
 export interface ObservabilityPipelineConfigSourceHttpClient {
@@ -16266,9 +16987,21 @@ export interface ObservabilityPipelineConfigSourceHttpClient {
      */
     authStrategy?: string;
     /**
+     * Name of the environment variable or secret that holds a custom header value (used with custom auth strategies).
+     */
+    customKey?: string;
+    /**
      * The decoding format used to interpret incoming logs.
      */
     decoding: string;
+    /**
+     * Name of the environment variable or secret that holds the HTTP endpoint URL.
+     */
+    endpointUrlKey?: string;
+    /**
+     * Name of the environment variable or secret that holds the password.
+     */
+    passwordKey?: string;
     /**
      * The interval (in seconds) between HTTP scrape requests.
      */
@@ -16281,6 +17014,14 @@ export interface ObservabilityPipelineConfigSourceHttpClient {
      * Configuration for enabling TLS encryption between the pipeline component and external services.
      */
     tls?: outputs.ObservabilityPipelineConfigSourceHttpClientTls;
+    /**
+     * Name of the environment variable or secret that holds the authentication token.
+     */
+    tokenKey?: string;
+    /**
+     * Name of the environment variable or secret that holds the username.
+     */
+    usernameKey?: string;
 }
 
 export interface ObservabilityPipelineConfigSourceHttpClientTls {
@@ -16296,9 +17037,17 @@ export interface ObservabilityPipelineConfigSourceHttpClientTls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
 }
 
 export interface ObservabilityPipelineConfigSourceHttpServer {
+    /**
+     * Name of the environment variable or secret that holds the listen address.
+     */
+    addressKey?: string;
     /**
      * HTTP authentication method. Valid values are `none`, `plain`.
      */
@@ -16308,9 +17057,17 @@ export interface ObservabilityPipelineConfigSourceHttpServer {
      */
     decoding: string;
     /**
+     * Name of the environment variable or secret that holds the password.
+     */
+    passwordKey?: string;
+    /**
      * Configuration for enabling TLS encryption between the pipeline component and external services.
      */
     tls?: outputs.ObservabilityPipelineConfigSourceHttpServerTls;
+    /**
+     * Name of the environment variable or secret that holds the username.
+     */
+    usernameKey?: string;
 }
 
 export interface ObservabilityPipelineConfigSourceHttpServerTls {
@@ -16326,9 +17083,17 @@ export interface ObservabilityPipelineConfigSourceHttpServerTls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
 }
 
 export interface ObservabilityPipelineConfigSourceKafka {
+    /**
+     * Name of the environment variable or secret that holds the Kafka bootstrap servers connection string.
+     */
+    bootstrapServersKey?: string;
     /**
      * The Kafka consumer group ID.
      */
@@ -16367,6 +17132,14 @@ export interface ObservabilityPipelineConfigSourceKafkaSasl {
      * SASL mechanism to use (e.g., PLAIN, SCRAM-SHA-256, SCRAM-SHA-512). Valid values are `PLAIN`, `SCRAM-SHA-256`, `SCRAM-SHA-512`.
      */
     mechanism: string;
+    /**
+     * Name of the environment variable or secret that holds the SASL password.
+     */
+    passwordKey?: string;
+    /**
+     * Name of the environment variable or secret that holds the SASL username.
+     */
+    usernameKey?: string;
 }
 
 export interface ObservabilityPipelineConfigSourceKafkaTls {
@@ -16382,9 +17155,17 @@ export interface ObservabilityPipelineConfigSourceKafkaTls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
 }
 
 export interface ObservabilityPipelineConfigSourceLogstash {
+    /**
+     * Name of the environment variable or secret that holds the listen address.
+     */
+    addressKey?: string;
     /**
      * Configuration for enabling TLS encryption between the pipeline component and external services.
      */
@@ -16404,9 +17185,21 @@ export interface ObservabilityPipelineConfigSourceLogstashTls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
 }
 
 export interface ObservabilityPipelineConfigSourceOpentelemetry {
+    /**
+     * Environment variable name containing the gRPC server address for receiving OTLP data.
+     */
+    grpcAddressKey?: string;
+    /**
+     * Environment variable name containing the HTTP server address for receiving OTLP data.
+     */
+    httpAddressKey?: string;
     /**
      * Configuration for enabling TLS encryption between the pipeline component and external services.
      */
@@ -16426,9 +17219,17 @@ export interface ObservabilityPipelineConfigSourceOpentelemetryTls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
 }
 
 export interface ObservabilityPipelineConfigSourceRsyslog {
+    /**
+     * Name of the environment variable or secret that holds the listen address.
+     */
+    addressKey?: string;
     /**
      * Protocol used by the syslog source to receive messages.
      */
@@ -16452,9 +17253,17 @@ export interface ObservabilityPipelineConfigSourceRsyslogTls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
 }
 
 export interface ObservabilityPipelineConfigSourceSocket {
+    /**
+     * Name of the environment variable or secret that holds the listen address for the socket.
+     */
+    addressKey?: string;
     /**
      * Defines the framing method for incoming messages.
      */
@@ -16500,9 +17309,17 @@ export interface ObservabilityPipelineConfigSourceSocketTls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
 }
 
 export interface ObservabilityPipelineConfigSourceSplunkHec {
+    /**
+     * Name of the environment variable or secret that holds the listen address for the HEC API.
+     */
+    addressKey?: string;
     /**
      * Configuration for enabling TLS encryption between the pipeline component and external services.
      */
@@ -16522,9 +17339,17 @@ export interface ObservabilityPipelineConfigSourceSplunkHecTls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
 }
 
 export interface ObservabilityPipelineConfigSourceSplunkTcp {
+    /**
+     * Name of the environment variable or secret that holds the listen address for the Splunk TCP receiver.
+     */
+    addressKey?: string;
     /**
      * Configuration for enabling TLS encryption between the pipeline component and external services.
      */
@@ -16544,12 +17369,24 @@ export interface ObservabilityPipelineConfigSourceSplunkTcpTls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
 }
 
 export interface ObservabilityPipelineConfigSourceSumoLogic {
+    /**
+     * Name of the environment variable or secret that holds the listen address.
+     */
+    addressKey?: string;
 }
 
 export interface ObservabilityPipelineConfigSourceSyslogNg {
+    /**
+     * Name of the environment variable or secret that holds the listen address.
+     */
+    addressKey?: string;
     /**
      * Protocol used by the syslog source to receive messages.
      */
@@ -16573,6 +17410,10 @@ export interface ObservabilityPipelineConfigSourceSyslogNgTls {
      * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
      */
     keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
 }
 
 export interface OnCallEscalationPolicyStep {
@@ -17680,6 +18521,10 @@ export interface PowerpackWidgetChangeDefinitionRequestQueryEventQuery {
      */
     groupBies?: outputs.PowerpackWidgetChangeDefinitionRequestQueryEventQueryGroupBy[];
     /**
+     * Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     */
+    groupByFields?: outputs.PowerpackWidgetChangeDefinitionRequestQueryEventQueryGroupByFields;
+    /**
      * An array of index names to query in the stream.
      */
     indexes?: string[];
@@ -17725,6 +18570,36 @@ export interface PowerpackWidgetChangeDefinitionRequestQueryEventQueryGroupBy {
      * The options for sorting group by results.
      */
     sort?: outputs.PowerpackWidgetChangeDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface PowerpackWidgetChangeDefinitionRequestQueryEventQueryGroupByFields {
+    /**
+     * List of event facets to group by.
+     */
+    fields: string[];
+    /**
+     * The number of groups to return.
+     */
+    limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: outputs.PowerpackWidgetChangeDefinitionRequestQueryEventQueryGroupByFieldsSort;
+}
+
+export interface PowerpackWidgetChangeDefinitionRequestQueryEventQueryGroupByFieldsSort {
+    /**
+     * The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: string;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: string;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: string;
 }
 
 export interface PowerpackWidgetChangeDefinitionRequestQueryEventQueryGroupBySort {
@@ -19130,6 +20005,10 @@ export interface PowerpackWidgetGeomapDefinitionRequestQueryEventQuery {
      */
     groupBies?: outputs.PowerpackWidgetGeomapDefinitionRequestQueryEventQueryGroupBy[];
     /**
+     * Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     */
+    groupByFields?: outputs.PowerpackWidgetGeomapDefinitionRequestQueryEventQueryGroupByFields;
+    /**
      * An array of index names to query in the stream.
      */
     indexes?: string[];
@@ -19175,6 +20054,36 @@ export interface PowerpackWidgetGeomapDefinitionRequestQueryEventQueryGroupBy {
      * The options for sorting group by results.
      */
     sort?: outputs.PowerpackWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface PowerpackWidgetGeomapDefinitionRequestQueryEventQueryGroupByFields {
+    /**
+     * List of event facets to group by.
+     */
+    fields: string[];
+    /**
+     * The number of groups to return.
+     */
+    limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: outputs.PowerpackWidgetGeomapDefinitionRequestQueryEventQueryGroupByFieldsSort;
+}
+
+export interface PowerpackWidgetGeomapDefinitionRequestQueryEventQueryGroupByFieldsSort {
+    /**
+     * The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: string;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: string;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: string;
 }
 
 export interface PowerpackWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort {
@@ -19999,6 +20908,10 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQueryEventQuery {
      */
     groupBies?: outputs.PowerpackWidgetHeatmapDefinitionRequestQueryEventQueryGroupBy[];
     /**
+     * Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     */
+    groupByFields?: outputs.PowerpackWidgetHeatmapDefinitionRequestQueryEventQueryGroupByFields;
+    /**
      * An array of index names to query in the stream.
      */
     indexes?: string[];
@@ -20044,6 +20957,36 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQueryEventQueryGroupBy {
      * The options for sorting group by results.
      */
     sort?: outputs.PowerpackWidgetHeatmapDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface PowerpackWidgetHeatmapDefinitionRequestQueryEventQueryGroupByFields {
+    /**
+     * List of event facets to group by.
+     */
+    fields: string[];
+    /**
+     * The number of groups to return.
+     */
+    limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: outputs.PowerpackWidgetHeatmapDefinitionRequestQueryEventQueryGroupByFieldsSort;
+}
+
+export interface PowerpackWidgetHeatmapDefinitionRequestQueryEventQueryGroupByFieldsSort {
+    /**
+     * The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: string;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: string;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: string;
 }
 
 export interface PowerpackWidgetHeatmapDefinitionRequestQueryEventQueryGroupBySort {
@@ -22209,6 +23152,10 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQueryEventQuery {
      */
     groupBies?: outputs.PowerpackWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy[];
     /**
+     * Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     */
+    groupByFields?: outputs.PowerpackWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFields;
+    /**
      * An array of index names to query in the stream.
      */
     indexes?: string[];
@@ -22254,6 +23201,36 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQueryEventQueryGroupB
      * The options for sorting group by results.
      */
     sort?: outputs.PowerpackWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface PowerpackWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFields {
+    /**
+     * List of event facets to group by.
+     */
+    fields: string[];
+    /**
+     * The number of groups to return.
+     */
+    limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: outputs.PowerpackWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSort;
+}
+
+export interface PowerpackWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSort {
+    /**
+     * The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: string;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: string;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: string;
 }
 
 export interface PowerpackWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort {
@@ -23322,6 +24299,10 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQueryEventQuery {
      */
     groupBies?: outputs.PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy[];
     /**
+     * Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     */
+    groupByFields?: outputs.PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields;
+    /**
      * An array of index names to query in the stream.
      */
     indexes?: string[];
@@ -23367,6 +24348,36 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryGroupB
      * The options for sorting group by results.
      */
     sort?: outputs.PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields {
+    /**
+     * List of event facets to group by.
+     */
+    fields: string[];
+    /**
+     * The number of groups to return.
+     */
+    limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: outputs.PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsSort;
+}
+
+export interface PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsSort {
+    /**
+     * The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: string;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: string;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: string;
 }
 
 export interface PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort {
@@ -24024,6 +25035,10 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     groupBies?: outputs.PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy[];
     /**
+     * Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     */
+    groupByFields?: outputs.PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByFields;
+    /**
      * An array of index names to query in the stream.
      */
     indexes?: string[];
@@ -24069,6 +25084,36 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
      * The options for sorting group by results.
      */
     sort?: outputs.PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort;
+}
+
+export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByFields {
+    /**
+     * List of event facets to group by.
+     */
+    fields: string[];
+    /**
+     * The number of groups to return.
+     */
+    limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: outputs.PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByFieldsSort;
+}
+
+export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByFieldsSort {
+    /**
+     * The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: string;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: string;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: string;
 }
 
 export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort {
@@ -25928,6 +26973,10 @@ export interface PowerpackWidgetSunburstDefinitionRequestQueryEventQuery {
      */
     groupBies?: outputs.PowerpackWidgetSunburstDefinitionRequestQueryEventQueryGroupBy[];
     /**
+     * Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     */
+    groupByFields?: outputs.PowerpackWidgetSunburstDefinitionRequestQueryEventQueryGroupByFields;
+    /**
      * An array of index names to query in the stream.
      */
     indexes?: string[];
@@ -25973,6 +27022,36 @@ export interface PowerpackWidgetSunburstDefinitionRequestQueryEventQueryGroupBy 
      * The options for sorting group by results.
      */
     sort?: outputs.PowerpackWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface PowerpackWidgetSunburstDefinitionRequestQueryEventQueryGroupByFields {
+    /**
+     * List of event facets to group by.
+     */
+    fields: string[];
+    /**
+     * The number of groups to return.
+     */
+    limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: outputs.PowerpackWidgetSunburstDefinitionRequestQueryEventQueryGroupByFieldsSort;
+}
+
+export interface PowerpackWidgetSunburstDefinitionRequestQueryEventQueryGroupByFieldsSort {
+    /**
+     * The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: string;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: string;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: string;
 }
 
 export interface PowerpackWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort {
@@ -27097,6 +28176,10 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQueryEventQuery {
      */
     groupBies?: outputs.PowerpackWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBy[];
     /**
+     * Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     */
+    groupByFields?: outputs.PowerpackWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByFields;
+    /**
      * An array of index names to query in the stream.
      */
     indexes?: string[];
@@ -27142,6 +28225,36 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQueryEventQueryGroupB
      * The options for sorting group by results.
      */
     sort?: outputs.PowerpackWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface PowerpackWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByFields {
+    /**
+     * List of event facets to group by.
+     */
+    fields: string[];
+    /**
+     * The number of groups to return.
+     */
+    limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: outputs.PowerpackWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByFieldsSort;
+}
+
+export interface PowerpackWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByFieldsSort {
+    /**
+     * The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: string;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: string;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: string;
 }
 
 export interface PowerpackWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBySort {
@@ -27438,6 +28551,10 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestSecurityQueryMultiCom
 }
 
 export interface PowerpackWidgetTimeseriesDefinitionRequestStyle {
+    /**
+     * If true, the value is displayed as a label relative to the data point.
+     */
+    hasValueLabels?: boolean;
     /**
      * The type of lines displayed. Valid values are `dashed`, `dotted`, `solid`.
      */
@@ -28203,6 +29320,10 @@ export interface PowerpackWidgetToplistDefinitionRequestQueryEventQuery {
      */
     groupBies?: outputs.PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBy[];
     /**
+     * Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     */
+    groupByFields?: outputs.PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFields;
+    /**
      * An array of index names to query in the stream.
      */
     indexes?: string[];
@@ -28248,6 +29369,36 @@ export interface PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBy {
      * The options for sorting group by results.
      */
     sort?: outputs.PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFields {
+    /**
+     * List of event facets to group by.
+     */
+    fields: string[];
+    /**
+     * The number of groups to return.
+     */
+    limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: outputs.PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSort;
+}
+
+export interface PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSort {
+    /**
+     * The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: string;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: string;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: string;
 }
 
 export interface PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort {
@@ -29045,6 +30196,10 @@ export interface PowerpackWidgetTreemapDefinitionRequestQueryEventQuery {
      */
     groupBies?: outputs.PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBy[];
     /**
+     * Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+     */
+    groupByFields?: outputs.PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields;
+    /**
      * An array of index names to query in the stream.
      */
     indexes?: string[];
@@ -29090,6 +30245,36 @@ export interface PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBy {
      * The options for sorting group by results.
      */
     sort?: outputs.PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields {
+    /**
+     * List of event facets to group by.
+     */
+    fields: string[];
+    /**
+     * The number of groups to return.
+     */
+    limit?: number;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: outputs.PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSort;
+}
+
+export interface PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSort {
+    /**
+     * The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: string;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: string;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: string;
 }
 
 export interface PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort {
@@ -29421,6 +30606,29 @@ export interface RumMetricUniqueness {
     when?: string;
 }
 
+export interface SecureEmbedDashboardSelectableTemplateVar {
+    /**
+     * The default values for this template variable.
+     */
+    defaultValues: string[];
+    /**
+     * The name of the template variable.
+     */
+    name: string;
+    /**
+     * The tag prefix for this template variable. Defaults to `""`.
+     */
+    prefix: string;
+    /**
+     * The type of the template variable. Defaults to `""`.
+     */
+    type: string;
+    /**
+     * The visible tag values for this template variable.
+     */
+    visibleTags: string[];
+}
+
 export interface SecurityMonitoringDefaultRuleCase {
     /**
      * Status of the rule case to override. Valid values are `info`, `low`, `medium`, `high`, `critical`.
@@ -29642,6 +30850,10 @@ export interface SecurityMonitoringRuleOptionsAnomalyDetectionOptions {
      * An optional parameter that sets how permissive anomaly detection is. Higher values require higher deviations before triggering a signal. Valid values are 1, 2, 3, 4, 5. Valid values are `1`, `2`, `3`, `4`, `5`.
      */
     detectionTolerance?: number;
+    /**
+     * When set to true, Datadog uses previous values that fall within the defined learning window to construct the baseline, enabling the system to establish an accurate baseline more rapidly rather than relying solely on gradual learning over time. Defaults to `false`.
+     */
+    instantaneousBaseline?: boolean;
     /**
      * Learning duration in hours. Anomaly detection waits for at least this amount of historical data before it starts evaluating. Valid values are 1, 6, 12, 24, 48, 168, 336. Valid values are `1`, `6`, `12`, `24`, `48`, `168`, `336`.
      */
@@ -30326,7 +31538,7 @@ export interface SyntheticsTestApiStepAssertion {
      */
     timingsScope?: string;
     /**
-     * Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#synthetics-create-a-network-path-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `multiNetworkHop`, `jitter`, `bodyHash`, `javascript`.
+     * Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-a-network-path-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `multiNetworkHop`, `jitter`, `bodyHash`, `javascript`.
      */
     type: string;
 }
@@ -30653,6 +31865,10 @@ export interface SyntheticsTestApiStepRequestFile {
      */
     content?: string;
     /**
+     * Encoding of the file content. Must be `base64` when content contains base64-encoded data.
+     */
+    encoding?: string;
+    /**
      * Name of the file.
      */
     name: string;
@@ -30726,7 +31942,7 @@ export interface SyntheticsTestAssertion {
      */
     timingsScope?: string;
     /**
-     * Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#synthetics-create-a-network-path-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `multiNetworkHop`, `jitter`, `bodyHash`, `javascript`.
+     * Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-a-network-path-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `multiNetworkHop`, `jitter`, `bodyHash`, `javascript`.
      */
     type: string;
 }
@@ -31670,6 +32886,10 @@ export interface SyntheticsTestRequestFile {
      * Content of the file.
      */
     content?: string;
+    /**
+     * Encoding of the file content. Must be `base64` when content contains base64-encoded data.
+     */
+    encoding?: string;
     /**
      * Name of the file.
      */

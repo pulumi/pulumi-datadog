@@ -17,6 +17,21 @@ public final class ObservabilityPipelineConfigSourceSyslogNgArgs extends com.pul
     public static final ObservabilityPipelineConfigSourceSyslogNgArgs Empty = new ObservabilityPipelineConfigSourceSyslogNgArgs();
 
     /**
+     * Name of the environment variable or secret that holds the listen address.
+     * 
+     */
+    @Import(name="addressKey")
+    private @Nullable Output<String> addressKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the listen address.
+     * 
+     */
+    public Optional<Output<String>> addressKey() {
+        return Optional.ofNullable(this.addressKey);
+    }
+
+    /**
      * Protocol used by the syslog source to receive messages.
      * 
      */
@@ -49,6 +64,7 @@ public final class ObservabilityPipelineConfigSourceSyslogNgArgs extends com.pul
     private ObservabilityPipelineConfigSourceSyslogNgArgs() {}
 
     private ObservabilityPipelineConfigSourceSyslogNgArgs(ObservabilityPipelineConfigSourceSyslogNgArgs $) {
+        this.addressKey = $.addressKey;
         this.mode = $.mode;
         this.tls = $.tls;
     }
@@ -69,6 +85,27 @@ public final class ObservabilityPipelineConfigSourceSyslogNgArgs extends com.pul
 
         public Builder(ObservabilityPipelineConfigSourceSyslogNgArgs defaults) {
             $ = new ObservabilityPipelineConfigSourceSyslogNgArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param addressKey Name of the environment variable or secret that holds the listen address.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addressKey(@Nullable Output<String> addressKey) {
+            $.addressKey = addressKey;
+            return this;
+        }
+
+        /**
+         * @param addressKey Name of the environment variable or secret that holds the listen address.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addressKey(String addressKey) {
+            return addressKey(Output.of(addressKey));
         }
 
         /**

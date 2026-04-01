@@ -8,10 +8,16 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTable {
+    /**
+     * @return Name of the environment variable or secret that holds the Datadog application key for the reference table.
+     * 
+     */
+    private @Nullable String appKeyKey;
     /**
      * @return List of column names to include from the reference table. If not provided, all columns are included.
      * 
@@ -29,6 +35,13 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
     private String tableId;
 
     private ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTable() {}
+    /**
+     * @return Name of the environment variable or secret that holds the Datadog application key for the reference table.
+     * 
+     */
+    public Optional<String> appKeyKey() {
+        return Optional.ofNullable(this.appKeyKey);
+    }
     /**
      * @return List of column names to include from the reference table. If not provided, all columns are included.
      * 
@@ -60,17 +73,25 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String appKeyKey;
         private @Nullable List<String> columns;
         private String keyField;
         private String tableId;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTable defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.appKeyKey = defaults.appKeyKey;
     	      this.columns = defaults.columns;
     	      this.keyField = defaults.keyField;
     	      this.tableId = defaults.tableId;
         }
 
+        @CustomType.Setter
+        public Builder appKeyKey(@Nullable String appKeyKey) {
+
+            this.appKeyKey = appKeyKey;
+            return this;
+        }
         @CustomType.Setter
         public Builder columns(@Nullable List<String> columns) {
 
@@ -98,6 +119,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
         }
         public ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTable build() {
             final var _resultValue = new ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableReferenceTable();
+            _resultValue.appKeyKey = appKeyKey;
             _resultValue.columns = columns;
             _resultValue.keyField = keyField;
             _resultValue.tableId = tableId;

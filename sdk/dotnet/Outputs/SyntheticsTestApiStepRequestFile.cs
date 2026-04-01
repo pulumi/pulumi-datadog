@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Content;
         /// <summary>
+        /// Encoding of the file content. Must be `Base64` when content contains base64-encoded data.
+        /// </summary>
+        public readonly string? Encoding;
+        /// <summary>
         /// Name of the file.
         /// </summary>
         public readonly string Name;
@@ -44,6 +48,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? content,
 
+            string? encoding,
+
             string name,
 
             string? originalFileName,
@@ -54,6 +60,7 @@ namespace Pulumi.Datadog.Outputs
         {
             BucketKey = bucketKey;
             Content = content;
+            Encoding = encoding;
             Name = name;
             OriginalFileName = originalFileName;
             Size = size;

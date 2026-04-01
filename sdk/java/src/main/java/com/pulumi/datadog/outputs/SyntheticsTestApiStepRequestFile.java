@@ -24,6 +24,11 @@ public final class SyntheticsTestApiStepRequestFile {
      */
     private @Nullable String content;
     /**
+     * @return Encoding of the file content. Must be `base64` when content contains base64-encoded data.
+     * 
+     */
+    private @Nullable String encoding;
+    /**
      * @return Name of the file.
      * 
      */
@@ -58,6 +63,13 @@ public final class SyntheticsTestApiStepRequestFile {
      */
     public Optional<String> content() {
         return Optional.ofNullable(this.content);
+    }
+    /**
+     * @return Encoding of the file content. Must be `base64` when content contains base64-encoded data.
+     * 
+     */
+    public Optional<String> encoding() {
+        return Optional.ofNullable(this.encoding);
     }
     /**
      * @return Name of the file.
@@ -99,6 +111,7 @@ public final class SyntheticsTestApiStepRequestFile {
     public static final class Builder {
         private @Nullable String bucketKey;
         private @Nullable String content;
+        private @Nullable String encoding;
         private String name;
         private @Nullable String originalFileName;
         private Integer size;
@@ -108,6 +121,7 @@ public final class SyntheticsTestApiStepRequestFile {
     	      Objects.requireNonNull(defaults);
     	      this.bucketKey = defaults.bucketKey;
     	      this.content = defaults.content;
+    	      this.encoding = defaults.encoding;
     	      this.name = defaults.name;
     	      this.originalFileName = defaults.originalFileName;
     	      this.size = defaults.size;
@@ -124,6 +138,12 @@ public final class SyntheticsTestApiStepRequestFile {
         public Builder content(@Nullable String content) {
 
             this.content = content;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder encoding(@Nullable String encoding) {
+
+            this.encoding = encoding;
             return this;
         }
         @CustomType.Setter
@@ -160,6 +180,7 @@ public final class SyntheticsTestApiStepRequestFile {
             final var _resultValue = new SyntheticsTestApiStepRequestFile();
             _resultValue.bucketKey = bucketKey;
             _resultValue.content = content;
+            _resultValue.encoding = encoding;
             _resultValue.name = name;
             _resultValue.originalFileName = originalFileName;
             _resultValue.size = size;

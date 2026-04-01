@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigDestinationGoogleSecopAuthArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Path to the GCP service account key file.
+        /// Path to the Google Cloud service account key file.
         /// </summary>
         [Input("credentialsFile", required: true)]
         public Input<string> CredentialsFile { get; set; } = null!;

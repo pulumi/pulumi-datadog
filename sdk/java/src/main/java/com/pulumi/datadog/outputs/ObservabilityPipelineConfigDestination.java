@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonOpensearch;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonS3;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonS3Generic;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonSecurityLake;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAzureStorage;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationCloudPrem;
@@ -41,6 +42,11 @@ public final class ObservabilityPipelineConfigDestination {
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationAmazonOpensearch> amazonOpensearches;
+    /**
+     * @return The `amazonS3Generic` destination sends your logs to an Amazon S3 bucket.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationAmazonS3Generic amazonS3Generic;
     /**
      * @return The `amazonS3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
      * 
@@ -169,6 +175,13 @@ public final class ObservabilityPipelineConfigDestination {
      */
     public List<ObservabilityPipelineConfigDestinationAmazonOpensearch> amazonOpensearches() {
         return this.amazonOpensearches == null ? List.of() : this.amazonOpensearches;
+    }
+    /**
+     * @return The `amazonS3Generic` destination sends your logs to an Amazon S3 bucket.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationAmazonS3Generic> amazonS3Generic() {
+        return Optional.ofNullable(this.amazonS3Generic);
     }
     /**
      * @return The `amazonS3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
@@ -349,6 +362,7 @@ public final class ObservabilityPipelineConfigDestination {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ObservabilityPipelineConfigDestinationAmazonOpensearch> amazonOpensearches;
+        private @Nullable ObservabilityPipelineConfigDestinationAmazonS3Generic amazonS3Generic;
         private @Nullable List<ObservabilityPipelineConfigDestinationAmazonS3> amazonS3s;
         private @Nullable List<ObservabilityPipelineConfigDestinationAmazonSecurityLake> amazonSecurityLakes;
         private @Nullable List<ObservabilityPipelineConfigDestinationAzureStorage> azureStorages;
@@ -377,6 +391,7 @@ public final class ObservabilityPipelineConfigDestination {
         public Builder(ObservabilityPipelineConfigDestination defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amazonOpensearches = defaults.amazonOpensearches;
+    	      this.amazonS3Generic = defaults.amazonS3Generic;
     	      this.amazonS3s = defaults.amazonS3s;
     	      this.amazonSecurityLakes = defaults.amazonSecurityLakes;
     	      this.azureStorages = defaults.azureStorages;
@@ -411,6 +426,12 @@ public final class ObservabilityPipelineConfigDestination {
         }
         public Builder amazonOpensearches(ObservabilityPipelineConfigDestinationAmazonOpensearch... amazonOpensearches) {
             return amazonOpensearches(List.of(amazonOpensearches));
+        }
+        @CustomType.Setter
+        public Builder amazonS3Generic(@Nullable ObservabilityPipelineConfigDestinationAmazonS3Generic amazonS3Generic) {
+
+            this.amazonS3Generic = amazonS3Generic;
+            return this;
         }
         @CustomType.Setter
         public Builder amazonS3s(@Nullable List<ObservabilityPipelineConfigDestinationAmazonS3> amazonS3s) {
@@ -626,6 +647,7 @@ public final class ObservabilityPipelineConfigDestination {
         public ObservabilityPipelineConfigDestination build() {
             final var _resultValue = new ObservabilityPipelineConfigDestination();
             _resultValue.amazonOpensearches = amazonOpensearches;
+            _resultValue.amazonS3Generic = amazonS3Generic;
             _resultValue.amazonS3s = amazonS3s;
             _resultValue.amazonSecurityLakes = amazonSecurityLakes;
             _resultValue.azureStorages = azureStorages;

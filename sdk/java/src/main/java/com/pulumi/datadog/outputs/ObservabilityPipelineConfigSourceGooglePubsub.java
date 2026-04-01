@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigSourceGooglePubsub {
     /**
-     * @return GCP credentials used to authenticate with Google Cloud services.
+     * @return Google Cloud credentials used to authenticate with Google Cloud services.
      * 
      */
     private @Nullable ObservabilityPipelineConfigSourceGooglePubsubAuth auth;
@@ -25,7 +25,7 @@ public final class ObservabilityPipelineConfigSourceGooglePubsub {
      */
     private String decoding;
     /**
-     * @return The GCP project ID that owns the Pub/Sub subscription.
+     * @return The Google Cloud project ID that owns the Pub/Sub subscription.
      * 
      */
     private String project;
@@ -42,7 +42,7 @@ public final class ObservabilityPipelineConfigSourceGooglePubsub {
 
     private ObservabilityPipelineConfigSourceGooglePubsub() {}
     /**
-     * @return GCP credentials used to authenticate with Google Cloud services.
+     * @return Google Cloud credentials used to authenticate with Google Cloud services.
      * 
      */
     public Optional<ObservabilityPipelineConfigSourceGooglePubsubAuth> auth() {
@@ -56,7 +56,7 @@ public final class ObservabilityPipelineConfigSourceGooglePubsub {
         return this.decoding;
     }
     /**
-     * @return The GCP project ID that owns the Pub/Sub subscription.
+     * @return The Google Cloud project ID that owns the Pub/Sub subscription.
      * 
      */
     public String project() {

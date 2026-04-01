@@ -49,6 +49,21 @@ public final class ObservabilityPipelineConfigDestinationSumoLogicArgs extends c
     }
 
     /**
+     * Name of the environment variable or secret that holds the Sumo Logic endpoint URL.
+     * 
+     */
+    @Import(name="endpointUrlKey")
+    private @Nullable Output<String> endpointUrlKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the Sumo Logic endpoint URL.
+     * 
+     */
+    public Optional<Output<String>> endpointUrlKey() {
+        return Optional.ofNullable(this.endpointUrlKey);
+    }
+
+    /**
      * A list of custom headers to include in the request to Sumo Logic.
      * 
      */
@@ -113,6 +128,7 @@ public final class ObservabilityPipelineConfigDestinationSumoLogicArgs extends c
     private ObservabilityPipelineConfigDestinationSumoLogicArgs(ObservabilityPipelineConfigDestinationSumoLogicArgs $) {
         this.buffer = $.buffer;
         this.encoding = $.encoding;
+        this.endpointUrlKey = $.endpointUrlKey;
         this.headerCustomFields = $.headerCustomFields;
         this.headerHostName = $.headerHostName;
         this.headerSourceCategory = $.headerSourceCategory;
@@ -177,6 +193,27 @@ public final class ObservabilityPipelineConfigDestinationSumoLogicArgs extends c
          */
         public Builder encoding(String encoding) {
             return encoding(Output.of(encoding));
+        }
+
+        /**
+         * @param endpointUrlKey Name of the environment variable or secret that holds the Sumo Logic endpoint URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointUrlKey(@Nullable Output<String> endpointUrlKey) {
+            $.endpointUrlKey = endpointUrlKey;
+            return this;
+        }
+
+        /**
+         * @param endpointUrlKey Name of the environment variable or secret that holds the Sumo Logic endpoint URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointUrlKey(String endpointUrlKey) {
+            return endpointUrlKey(Output.of(endpointUrlKey));
         }
 
         /**

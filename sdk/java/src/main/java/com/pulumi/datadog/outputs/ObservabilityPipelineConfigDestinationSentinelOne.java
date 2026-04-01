@@ -23,6 +23,11 @@ public final class ObservabilityPipelineConfigDestinationSentinelOne {
      * 
      */
     private String region;
+    /**
+     * @return Name of the environment variable or secret that holds the SentinelOne API token.
+     * 
+     */
+    private @Nullable String tokenKey;
 
     private ObservabilityPipelineConfigDestinationSentinelOne() {}
     /**
@@ -39,6 +44,13 @@ public final class ObservabilityPipelineConfigDestinationSentinelOne {
     public String region() {
         return this.region;
     }
+    /**
+     * @return Name of the environment variable or secret that holds the SentinelOne API token.
+     * 
+     */
+    public Optional<String> tokenKey() {
+        return Optional.ofNullable(this.tokenKey);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -51,11 +63,13 @@ public final class ObservabilityPipelineConfigDestinationSentinelOne {
     public static final class Builder {
         private @Nullable ObservabilityPipelineConfigDestinationSentinelOneBuffer buffer;
         private String region;
+        private @Nullable String tokenKey;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationSentinelOne defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.buffer = defaults.buffer;
     	      this.region = defaults.region;
+    	      this.tokenKey = defaults.tokenKey;
         }
 
         @CustomType.Setter
@@ -72,10 +86,17 @@ public final class ObservabilityPipelineConfigDestinationSentinelOne {
             this.region = region;
             return this;
         }
+        @CustomType.Setter
+        public Builder tokenKey(@Nullable String tokenKey) {
+
+            this.tokenKey = tokenKey;
+            return this;
+        }
         public ObservabilityPipelineConfigDestinationSentinelOne build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationSentinelOne();
             _resultValue.buffer = buffer;
             _resultValue.region = region;
+            _resultValue.tokenKey = tokenKey;
             return _resultValue;
         }
     }

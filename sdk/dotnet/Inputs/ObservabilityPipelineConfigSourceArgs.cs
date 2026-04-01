@@ -64,7 +64,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigSourceFluentdArgs>? _fluentds;
 
         /// <summary>
-        /// The `fluentd source ingests logs from a Fluentd-compatible service.
+        /// The `Fluentd` source ingests logs from a Fluentd-compatible service.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigSourceFluentdArgs> Fluentds
         {

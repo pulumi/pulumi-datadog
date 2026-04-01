@@ -27,6 +27,11 @@ public final class ObservabilityPipelineConfigSourceFluentdTls {
      * 
      */
     private @Nullable String keyFile;
+    /**
+     * @return Name of the environment variable or secret that holds the passphrase for the private key file.
+     * 
+     */
+    private @Nullable String keyPassKey;
 
     private ObservabilityPipelineConfigSourceFluentdTls() {}
     /**
@@ -50,6 +55,13 @@ public final class ObservabilityPipelineConfigSourceFluentdTls {
     public Optional<String> keyFile() {
         return Optional.ofNullable(this.keyFile);
     }
+    /**
+     * @return Name of the environment variable or secret that holds the passphrase for the private key file.
+     * 
+     */
+    public Optional<String> keyPassKey() {
+        return Optional.ofNullable(this.keyPassKey);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -63,12 +75,14 @@ public final class ObservabilityPipelineConfigSourceFluentdTls {
         private @Nullable String caFile;
         private String crtFile;
         private @Nullable String keyFile;
+        private @Nullable String keyPassKey;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigSourceFluentdTls defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.caFile = defaults.caFile;
     	      this.crtFile = defaults.crtFile;
     	      this.keyFile = defaults.keyFile;
+    	      this.keyPassKey = defaults.keyPassKey;
         }
 
         @CustomType.Setter
@@ -91,11 +105,18 @@ public final class ObservabilityPipelineConfigSourceFluentdTls {
             this.keyFile = keyFile;
             return this;
         }
+        @CustomType.Setter
+        public Builder keyPassKey(@Nullable String keyPassKey) {
+
+            this.keyPassKey = keyPassKey;
+            return this;
+        }
         public ObservabilityPipelineConfigSourceFluentdTls build() {
             final var _resultValue = new ObservabilityPipelineConfigSourceFluentdTls();
             _resultValue.caFile = caFile;
             _resultValue.crtFile = crtFile;
             _resultValue.keyFile = keyFile;
+            _resultValue.keyPassKey = keyPassKey;
             return _resultValue;
         }
     }

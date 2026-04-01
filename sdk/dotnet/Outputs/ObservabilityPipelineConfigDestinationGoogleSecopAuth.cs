@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationGoogleSecopAuth
     {
         /// <summary>
-        /// Path to the GCP service account key file.
+        /// Path to the Google Cloud service account key file.
         /// </summary>
         public readonly string CredentialsFile;
 

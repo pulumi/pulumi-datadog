@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,6 +22,11 @@ public final class SecurityMonitoringRuleOptionsAnomalyDetectionOptions {
      * 
      */
     private @Nullable Integer detectionTolerance;
+    /**
+     * @return When set to true, Datadog uses previous values that fall within the defined learning window to construct the baseline, enabling the system to establish an accurate baseline more rapidly rather than relying solely on gradual learning over time. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean instantaneousBaseline;
     /**
      * @return Learning duration in hours. Anomaly detection waits for at least this amount of historical data before it starts evaluating. Valid values are 1, 6, 12, 24, 48, 168, 336. Valid values are `1`, `6`, `12`, `24`, `48`, `168`, `336`.
      * 
@@ -48,6 +54,13 @@ public final class SecurityMonitoringRuleOptionsAnomalyDetectionOptions {
         return Optional.ofNullable(this.detectionTolerance);
     }
     /**
+     * @return When set to true, Datadog uses previous values that fall within the defined learning window to construct the baseline, enabling the system to establish an accurate baseline more rapidly rather than relying solely on gradual learning over time. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> instantaneousBaseline() {
+        return Optional.ofNullable(this.instantaneousBaseline);
+    }
+    /**
      * @return Learning duration in hours. Anomaly detection waits for at least this amount of historical data before it starts evaluating. Valid values are 1, 6, 12, 24, 48, 168, 336. Valid values are `1`, `6`, `12`, `24`, `48`, `168`, `336`.
      * 
      */
@@ -73,6 +86,7 @@ public final class SecurityMonitoringRuleOptionsAnomalyDetectionOptions {
     public static final class Builder {
         private @Nullable Integer bucketDuration;
         private @Nullable Integer detectionTolerance;
+        private @Nullable Boolean instantaneousBaseline;
         private @Nullable Integer learningDuration;
         private @Nullable Integer learningPeriodBaseline;
         public Builder() {}
@@ -80,6 +94,7 @@ public final class SecurityMonitoringRuleOptionsAnomalyDetectionOptions {
     	      Objects.requireNonNull(defaults);
     	      this.bucketDuration = defaults.bucketDuration;
     	      this.detectionTolerance = defaults.detectionTolerance;
+    	      this.instantaneousBaseline = defaults.instantaneousBaseline;
     	      this.learningDuration = defaults.learningDuration;
     	      this.learningPeriodBaseline = defaults.learningPeriodBaseline;
         }
@@ -94,6 +109,12 @@ public final class SecurityMonitoringRuleOptionsAnomalyDetectionOptions {
         public Builder detectionTolerance(@Nullable Integer detectionTolerance) {
 
             this.detectionTolerance = detectionTolerance;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder instantaneousBaseline(@Nullable Boolean instantaneousBaseline) {
+
+            this.instantaneousBaseline = instantaneousBaseline;
             return this;
         }
         @CustomType.Setter
@@ -112,6 +133,7 @@ public final class SecurityMonitoringRuleOptionsAnomalyDetectionOptions {
             final var _resultValue = new SecurityMonitoringRuleOptionsAnomalyDetectionOptions();
             _resultValue.bucketDuration = bucketDuration;
             _resultValue.detectionTolerance = detectionTolerance;
+            _resultValue.instantaneousBaseline = instantaneousBaseline;
             _resultValue.learningDuration = learningDuration;
             _resultValue.learningPeriodBaseline = learningPeriodBaseline;
             return _resultValue;

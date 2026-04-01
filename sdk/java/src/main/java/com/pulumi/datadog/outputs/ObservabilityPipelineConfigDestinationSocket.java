@@ -16,6 +16,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigDestinationSocket {
     /**
+     * @return Name of the environment variable or secret that holds the socket address (host:port).
+     * 
+     */
+    private @Nullable String addressKey;
+    /**
      * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
      * 
      */
@@ -42,6 +47,13 @@ public final class ObservabilityPipelineConfigDestinationSocket {
     private @Nullable ObservabilityPipelineConfigDestinationSocketTls tls;
 
     private ObservabilityPipelineConfigDestinationSocket() {}
+    /**
+     * @return Name of the environment variable or secret that holds the socket address (host:port).
+     * 
+     */
+    public Optional<String> addressKey() {
+        return Optional.ofNullable(this.addressKey);
+    }
     /**
      * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
      * 
@@ -87,6 +99,7 @@ public final class ObservabilityPipelineConfigDestinationSocket {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String addressKey;
         private @Nullable ObservabilityPipelineConfigDestinationSocketBuffer buffer;
         private String encoding;
         private ObservabilityPipelineConfigDestinationSocketFraming framing;
@@ -95,6 +108,7 @@ public final class ObservabilityPipelineConfigDestinationSocket {
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationSocket defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.addressKey = defaults.addressKey;
     	      this.buffer = defaults.buffer;
     	      this.encoding = defaults.encoding;
     	      this.framing = defaults.framing;
@@ -102,6 +116,12 @@ public final class ObservabilityPipelineConfigDestinationSocket {
     	      this.tls = defaults.tls;
         }
 
+        @CustomType.Setter
+        public Builder addressKey(@Nullable String addressKey) {
+
+            this.addressKey = addressKey;
+            return this;
+        }
         @CustomType.Setter
         public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationSocketBuffer buffer) {
 
@@ -140,6 +160,7 @@ public final class ObservabilityPipelineConfigDestinationSocket {
         }
         public ObservabilityPipelineConfigDestinationSocket build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationSocket();
+            _resultValue.addressKey = addressKey;
             _resultValue.buffer = buffer;
             _resultValue.encoding = encoding;
             _resultValue.framing = framing;

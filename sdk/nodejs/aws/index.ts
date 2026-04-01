@@ -45,11 +45,6 @@ export const getIntegrationNamespaceRules: typeof import("./getIntegrationNamesp
 export const getIntegrationNamespaceRulesOutput: typeof import("./getIntegrationNamespaceRules").getIntegrationNamespaceRulesOutput = null as any;
 utilities.lazyLoad(exports, ["getIntegrationNamespaceRules","getIntegrationNamespaceRulesOutput"], () => require("./getIntegrationNamespaceRules"));
 
-export { IntegrationArgs, IntegrationState } from "./integration";
-export type Integration = import("./integration").Integration;
-export const Integration: typeof import("./integration").Integration = null as any;
-utilities.lazyLoad(exports, ["Integration"], () => require("./integration"));
-
 export { IntegrationAccountArgs, IntegrationAccountState } from "./integrationAccount";
 export type IntegrationAccount = import("./integrationAccount").IntegrationAccount;
 export const IntegrationAccount: typeof import("./integrationAccount").IntegrationAccount = null as any;
@@ -65,49 +60,22 @@ export type IntegrationExternalId = import("./integrationExternalId").Integratio
 export const IntegrationExternalId: typeof import("./integrationExternalId").IntegrationExternalId = null as any;
 utilities.lazyLoad(exports, ["IntegrationExternalId"], () => require("./integrationExternalId"));
 
-export { IntegrationLambdaArnArgs, IntegrationLambdaArnState } from "./integrationLambdaArn";
-export type IntegrationLambdaArn = import("./integrationLambdaArn").IntegrationLambdaArn;
-export const IntegrationLambdaArn: typeof import("./integrationLambdaArn").IntegrationLambdaArn = null as any;
-utilities.lazyLoad(exports, ["IntegrationLambdaArn"], () => require("./integrationLambdaArn"));
-
-export { IntegrationLogCollectionArgs, IntegrationLogCollectionState } from "./integrationLogCollection";
-export type IntegrationLogCollection = import("./integrationLogCollection").IntegrationLogCollection;
-export const IntegrationLogCollection: typeof import("./integrationLogCollection").IntegrationLogCollection = null as any;
-utilities.lazyLoad(exports, ["IntegrationLogCollection"], () => require("./integrationLogCollection"));
-
-export { IntegrationTagFilterArgs, IntegrationTagFilterState } from "./integrationTagFilter";
-export type IntegrationTagFilter = import("./integrationTagFilter").IntegrationTagFilter;
-export const IntegrationTagFilter: typeof import("./integrationTagFilter").IntegrationTagFilter = null as any;
-utilities.lazyLoad(exports, ["IntegrationTagFilter"], () => require("./integrationTagFilter"));
-
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "datadog:aws/integration:Integration":
-                return new Integration(name, <any>undefined, { urn })
             case "datadog:aws/integrationAccount:IntegrationAccount":
                 return new IntegrationAccount(name, <any>undefined, { urn })
             case "datadog:aws/integrationEventBridge:IntegrationEventBridge":
                 return new IntegrationEventBridge(name, <any>undefined, { urn })
             case "datadog:aws/integrationExternalId:IntegrationExternalId":
                 return new IntegrationExternalId(name, <any>undefined, { urn })
-            case "datadog:aws/integrationLambdaArn:IntegrationLambdaArn":
-                return new IntegrationLambdaArn(name, <any>undefined, { urn })
-            case "datadog:aws/integrationLogCollection:IntegrationLogCollection":
-                return new IntegrationLogCollection(name, <any>undefined, { urn })
-            case "datadog:aws/integrationTagFilter:IntegrationTagFilter":
-                return new IntegrationTagFilter(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("datadog", "aws/integration", _module)
 pulumi.runtime.registerResourceModule("datadog", "aws/integrationAccount", _module)
 pulumi.runtime.registerResourceModule("datadog", "aws/integrationEventBridge", _module)
 pulumi.runtime.registerResourceModule("datadog", "aws/integrationExternalId", _module)
-pulumi.runtime.registerResourceModule("datadog", "aws/integrationLambdaArn", _module)
-pulumi.runtime.registerResourceModule("datadog", "aws/integrationLogCollection", _module)
-pulumi.runtime.registerResourceModule("datadog", "aws/integrationTagFilter", _module)

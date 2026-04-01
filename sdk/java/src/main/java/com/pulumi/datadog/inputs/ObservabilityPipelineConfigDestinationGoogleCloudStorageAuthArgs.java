@@ -15,14 +15,14 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorageAuthA
     public static final ObservabilityPipelineConfigDestinationGoogleCloudStorageAuthArgs Empty = new ObservabilityPipelineConfigDestinationGoogleCloudStorageAuthArgs();
 
     /**
-     * Path to the GCP service account key file.
+     * Path to the Google Cloud service account key file.
      * 
      */
     @Import(name="credentialsFile", required=true)
     private Output<String> credentialsFile;
 
     /**
-     * @return Path to the GCP service account key file.
+     * @return Path to the Google Cloud service account key file.
      * 
      */
     public Output<String> credentialsFile() {
@@ -54,7 +54,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorageAuthA
         }
 
         /**
-         * @param credentialsFile Path to the GCP service account key file.
+         * @param credentialsFile Path to the Google Cloud service account key file.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorageAuthA
         }
 
         /**
-         * @param credentialsFile Path to the GCP service account key file.
+         * @param credentialsFile Path to the Google Cloud service account key file.
          * 
          * @return builder
          * 

@@ -21,6 +21,21 @@ public final class ObservabilityPipelineConfigSourceKafkaArgs extends com.pulumi
     public static final ObservabilityPipelineConfigSourceKafkaArgs Empty = new ObservabilityPipelineConfigSourceKafkaArgs();
 
     /**
+     * Name of the environment variable or secret that holds the Kafka bootstrap servers connection string.
+     * 
+     */
+    @Import(name="bootstrapServersKey")
+    private @Nullable Output<String> bootstrapServersKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the Kafka bootstrap servers connection string.
+     * 
+     */
+    public Optional<Output<String>> bootstrapServersKey() {
+        return Optional.ofNullable(this.bootstrapServersKey);
+    }
+
+    /**
      * The Kafka consumer group ID.
      * 
      */
@@ -98,6 +113,7 @@ public final class ObservabilityPipelineConfigSourceKafkaArgs extends com.pulumi
     private ObservabilityPipelineConfigSourceKafkaArgs() {}
 
     private ObservabilityPipelineConfigSourceKafkaArgs(ObservabilityPipelineConfigSourceKafkaArgs $) {
+        this.bootstrapServersKey = $.bootstrapServersKey;
         this.groupId = $.groupId;
         this.librdkafkaOptions = $.librdkafkaOptions;
         this.sasl = $.sasl;
@@ -121,6 +137,27 @@ public final class ObservabilityPipelineConfigSourceKafkaArgs extends com.pulumi
 
         public Builder(ObservabilityPipelineConfigSourceKafkaArgs defaults) {
             $ = new ObservabilityPipelineConfigSourceKafkaArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param bootstrapServersKey Name of the environment variable or secret that holds the Kafka bootstrap servers connection string.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapServersKey(@Nullable Output<String> bootstrapServersKey) {
+            $.bootstrapServersKey = bootstrapServersKey;
+            return this;
+        }
+
+        /**
+         * @param bootstrapServersKey Name of the environment variable or secret that holds the Kafka bootstrap servers connection string.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapServersKey(String bootstrapServersKey) {
+            return bootstrapServersKey(Output.of(bootstrapServersKey));
         }
 
         /**

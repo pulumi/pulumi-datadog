@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationGoogleSecop
     {
         /// <summary>
-        /// GCP credentials used to authenticate with Google Cloud services.
+        /// Google Cloud credentials used to authenticate with Google Cloud services.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationGoogleSecopAuth? Auth;
         /// <summary>
@@ -30,6 +30,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Encoding;
         /// <summary>
+        /// Name of the environment variable or secret that holds the Google Chronicle endpoint URL.
+        /// </summary>
+        public readonly string? EndpointUrlKey;
+        /// <summary>
         /// The log type metadata associated with the Google SecOps destination.
         /// </summary>
         public readonly string LogType;
@@ -44,12 +48,15 @@ namespace Pulumi.Datadog.Outputs
 
             string encoding,
 
+            string? endpointUrlKey,
+
             string logType)
         {
             Auth = auth;
             Buffer = buffer;
             CustomerId = customerId;
             Encoding = encoding;
+            EndpointUrlKey = endpointUrlKey;
             LogType = logType;
         }
     }

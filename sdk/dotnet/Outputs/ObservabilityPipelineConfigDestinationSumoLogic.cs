@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Encoding;
         /// <summary>
+        /// Name of the environment variable or secret that holds the Sumo Logic endpoint URL.
+        /// </summary>
+        public readonly string? EndpointUrlKey;
+        /// <summary>
         /// A list of custom headers to include in the request to Sumo Logic.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationSumoLogicHeaderCustomField> HeaderCustomFields;
@@ -44,6 +48,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? encoding,
 
+            string? endpointUrlKey,
+
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationSumoLogicHeaderCustomField> headerCustomFields,
 
             string? headerHostName,
@@ -54,6 +60,7 @@ namespace Pulumi.Datadog.Outputs
         {
             Buffer = buffer;
             Encoding = encoding;
+            EndpointUrlKey = endpointUrlKey;
             HeaderCustomFields = headerCustomFields;
             HeaderHostName = headerHostName;
             HeaderSourceCategory = headerSourceCategory;

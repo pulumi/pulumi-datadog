@@ -14,13 +14,21 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigSourceSplunkHec
     {
         /// <summary>
+        /// Name of the environment variable or secret that holds the listen address for the HEC API.
+        /// </summary>
+        public readonly string? AddressKey;
+        /// <summary>
         /// Configuration for enabling TLS encryption between the pipeline component and external services.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigSourceSplunkHecTls? Tls;
 
         [OutputConstructor]
-        private ObservabilityPipelineConfigSourceSplunkHec(Outputs.ObservabilityPipelineConfigSourceSplunkHecTls? tls)
+        private ObservabilityPipelineConfigSourceSplunkHec(
+            string? addressKey,
+
+            Outputs.ObservabilityPipelineConfigSourceSplunkHecTls? tls)
         {
+            AddressKey = addressKey;
             Tls = tls;
         }
     }

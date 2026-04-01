@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper {
     /**
-     * @return List of OCSF mapping entries using library mapping.
+     * @return List of OCSF mapping entries. Each entry uses either a library mapping or a custom mapping.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMapping> mappings;
 
     private ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper() {}
     /**
-     * @return List of OCSF mapping entries using library mapping.
+     * @return List of OCSF mapping entries. Each entry uses either a library mapping or a custom mapping.
      * 
      */
     public List<ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMapping> mappings() {

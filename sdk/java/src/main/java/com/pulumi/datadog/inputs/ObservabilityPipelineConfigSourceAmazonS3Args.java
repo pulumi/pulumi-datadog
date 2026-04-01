@@ -63,12 +63,28 @@ public final class ObservabilityPipelineConfigSourceAmazonS3Args extends com.pul
         return Optional.ofNullable(this.tls);
     }
 
+    /**
+     * Name of the environment variable or secret that holds the S3 bucket URL.
+     * 
+     */
+    @Import(name="urlKey")
+    private @Nullable Output<String> urlKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the S3 bucket URL.
+     * 
+     */
+    public Optional<Output<String>> urlKey() {
+        return Optional.ofNullable(this.urlKey);
+    }
+
     private ObservabilityPipelineConfigSourceAmazonS3Args() {}
 
     private ObservabilityPipelineConfigSourceAmazonS3Args(ObservabilityPipelineConfigSourceAmazonS3Args $) {
         this.auth = $.auth;
         this.region = $.region;
         this.tls = $.tls;
+        this.urlKey = $.urlKey;
     }
 
     public static Builder builder() {
@@ -150,6 +166,27 @@ public final class ObservabilityPipelineConfigSourceAmazonS3Args extends com.pul
          */
         public Builder tls(ObservabilityPipelineConfigSourceAmazonS3TlsArgs tls) {
             return tls(Output.of(tls));
+        }
+
+        /**
+         * @param urlKey Name of the environment variable or secret that holds the S3 bucket URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder urlKey(@Nullable Output<String> urlKey) {
+            $.urlKey = urlKey;
+            return this;
+        }
+
+        /**
+         * @param urlKey Name of the environment variable or secret that holds the S3 bucket URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder urlKey(String urlKey) {
+            return urlKey(Output.of(urlKey));
         }
 
         public ObservabilityPipelineConfigSourceAmazonS3Args build() {

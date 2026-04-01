@@ -18,9 +18,21 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? AuthStrategy;
         /// <summary>
+        /// Name of the environment variable or secret that holds a custom header value (used with custom auth strategies).
+        /// </summary>
+        public readonly string? CustomKey;
+        /// <summary>
         /// The decoding format used to interpret incoming logs.
         /// </summary>
         public readonly string Decoding;
+        /// <summary>
+        /// Name of the environment variable or secret that holds the HTTP endpoint URL.
+        /// </summary>
+        public readonly string? EndpointUrlKey;
+        /// <summary>
+        /// Name of the environment variable or secret that holds the password.
+        /// </summary>
+        public readonly string? PasswordKey;
         /// <summary>
         /// The interval (in seconds) between HTTP scrape requests.
         /// </summary>
@@ -33,24 +45,47 @@ namespace Pulumi.Datadog.Outputs
         /// Configuration for enabling TLS encryption between the pipeline component and external services.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigSourceHttpClientTls? Tls;
+        /// <summary>
+        /// Name of the environment variable or secret that holds the authentication token.
+        /// </summary>
+        public readonly string? TokenKey;
+        /// <summary>
+        /// Name of the environment variable or secret that holds the username.
+        /// </summary>
+        public readonly string? UsernameKey;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigSourceHttpClient(
             string? authStrategy,
 
+            string? customKey,
+
             string decoding,
+
+            string? endpointUrlKey,
+
+            string? passwordKey,
 
             int? scrapeIntervalSecs,
 
             int? scrapeTimeoutSecs,
 
-            Outputs.ObservabilityPipelineConfigSourceHttpClientTls? tls)
+            Outputs.ObservabilityPipelineConfigSourceHttpClientTls? tls,
+
+            string? tokenKey,
+
+            string? usernameKey)
         {
             AuthStrategy = authStrategy;
+            CustomKey = customKey;
             Decoding = decoding;
+            EndpointUrlKey = endpointUrlKey;
+            PasswordKey = passwordKey;
             ScrapeIntervalSecs = scrapeIntervalSecs;
             ScrapeTimeoutSecs = scrapeTimeoutSecs;
             Tls = tls;
+            TokenKey = tokenKey;
+            UsernameKey = usernameKey;
         }
     }
 }

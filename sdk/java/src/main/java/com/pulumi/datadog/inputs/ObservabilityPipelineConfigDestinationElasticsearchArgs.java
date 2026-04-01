@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationElasticsearchAuthArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationElasticsearchBufferArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationElasticsearchDataStreamArgs;
 import java.lang.String;
@@ -30,6 +31,21 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchArgs exten
      */
     public Optional<Output<String>> apiVersion() {
         return Optional.ofNullable(this.apiVersion);
+    }
+
+    /**
+     * Authentication settings for the Elasticsearch destination.
+     * 
+     */
+    @Import(name="auth")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationElasticsearchAuthArgs> auth;
+
+    /**
+     * @return Authentication settings for the Elasticsearch destination.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationElasticsearchAuthArgs>> auth() {
+        return Optional.ofNullable(this.auth);
     }
 
     /**
@@ -77,13 +93,30 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchArgs exten
         return Optional.ofNullable(this.dataStream);
     }
 
+    /**
+     * Name of the environment variable or secret that holds the Elasticsearch endpoint URL.
+     * 
+     */
+    @Import(name="endpointUrlKey")
+    private @Nullable Output<String> endpointUrlKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the Elasticsearch endpoint URL.
+     * 
+     */
+    public Optional<Output<String>> endpointUrlKey() {
+        return Optional.ofNullable(this.endpointUrlKey);
+    }
+
     private ObservabilityPipelineConfigDestinationElasticsearchArgs() {}
 
     private ObservabilityPipelineConfigDestinationElasticsearchArgs(ObservabilityPipelineConfigDestinationElasticsearchArgs $) {
         this.apiVersion = $.apiVersion;
+        this.auth = $.auth;
         this.buffer = $.buffer;
         this.bulkIndex = $.bulkIndex;
         this.dataStream = $.dataStream;
+        this.endpointUrlKey = $.endpointUrlKey;
     }
 
     public static Builder builder() {
@@ -123,6 +156,27 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchArgs exten
          */
         public Builder apiVersion(String apiVersion) {
             return apiVersion(Output.of(apiVersion));
+        }
+
+        /**
+         * @param auth Authentication settings for the Elasticsearch destination.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder auth(@Nullable Output<ObservabilityPipelineConfigDestinationElasticsearchAuthArgs> auth) {
+            $.auth = auth;
+            return this;
+        }
+
+        /**
+         * @param auth Authentication settings for the Elasticsearch destination.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder auth(ObservabilityPipelineConfigDestinationElasticsearchAuthArgs auth) {
+            return auth(Output.of(auth));
         }
 
         /**
@@ -186,6 +240,27 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchArgs exten
          */
         public Builder dataStream(ObservabilityPipelineConfigDestinationElasticsearchDataStreamArgs dataStream) {
             return dataStream(Output.of(dataStream));
+        }
+
+        /**
+         * @param endpointUrlKey Name of the environment variable or secret that holds the Elasticsearch endpoint URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointUrlKey(@Nullable Output<String> endpointUrlKey) {
+            $.endpointUrlKey = endpointUrlKey;
+            return this;
+        }
+
+        /**
+         * @param endpointUrlKey Name of the environment variable or secret that holds the Elasticsearch endpoint URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointUrlKey(String endpointUrlKey) {
+            return endpointUrlKey(Output.of(endpointUrlKey));
         }
 
         public ObservabilityPipelineConfigDestinationElasticsearchArgs build() {

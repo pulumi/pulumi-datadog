@@ -59,11 +59,6 @@ public final class GetMonitorResult {
      */
     private Boolean includeTags;
     /**
-     * @return Whether or not changes to the monitor are restricted to the creator or admins.
-     * 
-     */
-    private Boolean locked;
-    /**
      * @return Message included with notifications for this monitor
      * 
      */
@@ -241,13 +236,6 @@ public final class GetMonitorResult {
      */
     public Boolean includeTags() {
         return this.includeTags;
-    }
-    /**
-     * @return Whether or not changes to the monitor are restricted to the creator or admins.
-     * 
-     */
-    public Boolean locked() {
-        return this.locked;
     }
     /**
      * @return Message included with notifications for this monitor
@@ -438,7 +426,6 @@ public final class GetMonitorResult {
         private Boolean groupbySimpleMonitor;
         private String id;
         private Boolean includeTags;
-        private Boolean locked;
         private String message;
         private @Nullable List<String> monitorTagsFilters;
         private List<GetMonitorMonitorThresholdWindow> monitorThresholdWindows;
@@ -475,7 +462,6 @@ public final class GetMonitorResult {
     	      this.groupbySimpleMonitor = defaults.groupbySimpleMonitor;
     	      this.id = defaults.id;
     	      this.includeTags = defaults.includeTags;
-    	      this.locked = defaults.locked;
     	      this.message = defaults.message;
     	      this.monitorTagsFilters = defaults.monitorTagsFilters;
     	      this.monitorThresholdWindows = defaults.monitorThresholdWindows;
@@ -565,14 +551,6 @@ public final class GetMonitorResult {
               throw new MissingRequiredPropertyException("GetMonitorResult", "includeTags");
             }
             this.includeTags = includeTags;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder locked(Boolean locked) {
-            if (locked == null) {
-              throw new MissingRequiredPropertyException("GetMonitorResult", "locked");
-            }
-            this.locked = locked;
             return this;
         }
         @CustomType.Setter
@@ -806,7 +784,6 @@ public final class GetMonitorResult {
             _resultValue.groupbySimpleMonitor = groupbySimpleMonitor;
             _resultValue.id = id;
             _resultValue.includeTags = includeTags;
-            _resultValue.locked = locked;
             _resultValue.message = message;
             _resultValue.monitorTagsFilters = monitorTagsFilters;
             _resultValue.monitorThresholdWindows = monitorThresholdWindows;

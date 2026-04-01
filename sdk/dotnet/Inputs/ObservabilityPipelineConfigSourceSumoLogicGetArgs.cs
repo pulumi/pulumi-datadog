@@ -12,6 +12,12 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ObservabilityPipelineConfigSourceSumoLogicGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the environment variable or secret that holds the listen address.
+        /// </summary>
+        [Input("addressKey")]
+        public Input<string>? AddressKey { get; set; }
+
         public ObservabilityPipelineConfigSourceSumoLogicGetArgs()
         {
         }

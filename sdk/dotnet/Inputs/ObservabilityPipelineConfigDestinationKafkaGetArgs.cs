@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigDestinationKafkaGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of the environment variable or secret that holds the Kafka bootstrap servers.
+        /// </summary>
+        [Input("bootstrapServersKey")]
+        public Input<string>? BootstrapServersKey { get; set; }
+
+        /// <summary>
         /// Compression codec for Kafka messages. Valid values are `None`, `Gzip`, `Snappy`, `Lz4`, `Zstd`.
         /// </summary>
         [Input("compression")]

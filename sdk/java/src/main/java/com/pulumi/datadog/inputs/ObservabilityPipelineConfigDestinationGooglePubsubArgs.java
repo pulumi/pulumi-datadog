@@ -20,14 +20,14 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsubArgs extend
     public static final ObservabilityPipelineConfigDestinationGooglePubsubArgs Empty = new ObservabilityPipelineConfigDestinationGooglePubsubArgs();
 
     /**
-     * GCP credentials used to authenticate with Google Cloud services.
+     * Google Cloud credentials used to authenticate with Google Cloud services.
      * 
      */
     @Import(name="auth")
     private @Nullable Output<ObservabilityPipelineConfigDestinationGooglePubsubAuthArgs> auth;
 
     /**
-     * @return GCP credentials used to authenticate with Google Cloud services.
+     * @return Google Cloud credentials used to authenticate with Google Cloud services.
      * 
      */
     public Optional<Output<ObservabilityPipelineConfigDestinationGooglePubsubAuthArgs>> auth() {
@@ -65,14 +65,29 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsubArgs extend
     }
 
     /**
-     * The GCP project ID that owns the Pub/Sub topic.
+     * Name of the environment variable or secret that holds the Google Cloud Pub/Sub endpoint URL.
+     * 
+     */
+    @Import(name="endpointUrlKey")
+    private @Nullable Output<String> endpointUrlKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the Google Cloud Pub/Sub endpoint URL.
+     * 
+     */
+    public Optional<Output<String>> endpointUrlKey() {
+        return Optional.ofNullable(this.endpointUrlKey);
+    }
+
+    /**
+     * The Google Cloud project ID that owns the Pub/Sub topic.
      * 
      */
     @Import(name="project", required=true)
     private Output<String> project;
 
     /**
-     * @return The GCP project ID that owns the Pub/Sub topic.
+     * @return The Google Cloud project ID that owns the Pub/Sub topic.
      * 
      */
     public Output<String> project() {
@@ -115,6 +130,7 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsubArgs extend
         this.auth = $.auth;
         this.buffer = $.buffer;
         this.encoding = $.encoding;
+        this.endpointUrlKey = $.endpointUrlKey;
         this.project = $.project;
         this.tls = $.tls;
         this.topic = $.topic;
@@ -139,7 +155,7 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsubArgs extend
         }
 
         /**
-         * @param auth GCP credentials used to authenticate with Google Cloud services.
+         * @param auth Google Cloud credentials used to authenticate with Google Cloud services.
          * 
          * @return builder
          * 
@@ -150,7 +166,7 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsubArgs extend
         }
 
         /**
-         * @param auth GCP credentials used to authenticate with Google Cloud services.
+         * @param auth Google Cloud credentials used to authenticate with Google Cloud services.
          * 
          * @return builder
          * 
@@ -202,7 +218,28 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsubArgs extend
         }
 
         /**
-         * @param project The GCP project ID that owns the Pub/Sub topic.
+         * @param endpointUrlKey Name of the environment variable or secret that holds the Google Cloud Pub/Sub endpoint URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointUrlKey(@Nullable Output<String> endpointUrlKey) {
+            $.endpointUrlKey = endpointUrlKey;
+            return this;
+        }
+
+        /**
+         * @param endpointUrlKey Name of the environment variable or secret that holds the Google Cloud Pub/Sub endpoint URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointUrlKey(String endpointUrlKey) {
+            return endpointUrlKey(Output.of(endpointUrlKey));
+        }
+
+        /**
+         * @param project The Google Cloud project ID that owns the Pub/Sub topic.
          * 
          * @return builder
          * 
@@ -213,7 +250,7 @@ public final class ObservabilityPipelineConfigDestinationGooglePubsubArgs extend
         }
 
         /**
-         * @param project The GCP project ID that owns the Pub/Sub topic.
+         * @param project The Google Cloud project ID that owns the Pub/Sub topic.
          * 
          * @return builder
          * 
