@@ -745,6 +745,21 @@ export interface DashboardListDashItem {
     type: pulumi.Input<string>;
 }
 
+export interface DashboardTab {
+    /**
+     * The UUID of the tab.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The name of the tab.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * List of widget references for this tab. Use @N format to reference widgets by position (1-indexed).
+     */
+    widgetIds: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export interface DashboardTemplateVariable {
     /**
      * The list of values that the template variable drop-down is be limited to
@@ -15396,7 +15411,7 @@ export interface ObservabilityPipelineConfigDestinationSplunkHec {
      */
     buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationSplunkHecBuffer>;
     /**
-     * Encoding format for log events. Valid values: `json`, `rawMessage`.
+     * Encoding format for log events. Valid values are `json`, `rawMessage`.
      */
     encoding: pulumi.Input<string>;
     /**
@@ -15407,6 +15422,10 @@ export interface ObservabilityPipelineConfigDestinationSplunkHec {
      * Optional name of the Splunk index where logs are written.
      */
     index?: pulumi.Input<string>;
+    /**
+     * List of log field names to send as indexed fields to Splunk HEC. Available only when `encoding` is `json`.
+     */
+    indexedFields?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Splunk sourcetype to assign to log events.
      */
@@ -15997,6 +16016,10 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRul
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper {
+    /**
+     * Whether to keep an event that does not match any of the mapping filters.
+     */
+    keepUnmatched?: pulumi.Input<boolean>;
     /**
      * List of OCSF mapping entries. Each entry uses either a library mapping or a custom mapping.
      */
@@ -31047,7 +31070,7 @@ export interface ServiceLevelObjectiveQuery {
 
 export interface ServiceLevelObjectiveSliSpecification {
     /**
-     * A count-based (metric) SLI specification. Composed of a good events formula, a total events formula, and the underlying metric queries.
+     * A count-based (metric) SLI specification. Composed of a good events formula, either a total events formula or a bad events formula (but not both), and the underlying metric queries.
      */
     count?: pulumi.Input<inputs.ServiceLevelObjectiveSliSpecificationCount>;
     /**
@@ -31058,6 +31081,10 @@ export interface ServiceLevelObjectiveSliSpecification {
 
 export interface ServiceLevelObjectiveSliSpecificationCount {
     /**
+     * The formula that specifies how to compute the bad events. Mutually exclusive with `totalEventsFormula`.
+     */
+    badEventsFormula?: pulumi.Input<string>;
+    /**
      * The formula that specifies how to compute the good events.
      */
     goodEventsFormula: pulumi.Input<string>;
@@ -31066,9 +31093,9 @@ export interface ServiceLevelObjectiveSliSpecificationCount {
      */
     queries: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveSliSpecificationCountQuery>[]>;
     /**
-     * The formula that specifies how to compute the total events.
+     * The formula that specifies how to compute the total events. Mutually exclusive with `badEventsFormula`.
      */
-    totalEventsFormula: pulumi.Input<string>;
+    totalEventsFormula?: pulumi.Input<string>;
 }
 
 export interface ServiceLevelObjectiveSliSpecificationCountQuery {

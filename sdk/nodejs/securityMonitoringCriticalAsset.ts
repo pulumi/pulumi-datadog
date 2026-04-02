@@ -74,7 +74,7 @@ export class SecurityMonitoringCriticalAsset extends pulumi.CustomResource {
      */
     declare public readonly ruleQuery: pulumi.Output<string>;
     /**
-     * The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `increase`, `decrease`.
+     * The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `no-op`, `increase`, `decrease`.
      */
     declare public readonly severity: pulumi.Output<string>;
     /**
@@ -139,7 +139,7 @@ export interface SecurityMonitoringCriticalAssetState {
      */
     ruleQuery?: pulumi.Input<string>;
     /**
-     * The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `increase`, `decrease`.
+     * The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `no-op`, `increase`, `decrease`.
      */
     severity?: pulumi.Input<string>;
     /**
@@ -165,7 +165,7 @@ export interface SecurityMonitoringCriticalAssetArgs {
      */
     ruleQuery: pulumi.Input<string>;
     /**
-     * The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `increase`, `decrease`.
+     * The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `no-op`, `increase`, `decrease`.
      */
     severity: pulumi.Input<string>;
     /**

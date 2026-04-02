@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.DashboardArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.DashboardState;
+import com.pulumi.datadog.outputs.DashboardTab;
 import com.pulumi.datadog.outputs.DashboardTemplateVariable;
 import com.pulumi.datadog.outputs.DashboardTemplateVariablePreset;
 import com.pulumi.datadog.outputs.DashboardWidget;
@@ -934,6 +935,20 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> restrictedRoles() {
         return Codegen.optional(this.restrictedRoles);
+    }
+    /**
+     * The list of tabs for organizing widgets on the dashboard.
+     * 
+     */
+    @Export(name="tabs", refs={List.class,DashboardTab.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<DashboardTab>> tabs;
+
+    /**
+     * @return The list of tabs for organizing widgets on the dashboard.
+     * 
+     */
+    public Output<Optional<List<DashboardTab>>> tabs() {
+        return Codegen.optional(this.tabs);
     }
     /**
      * A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.

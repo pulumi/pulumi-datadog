@@ -549,7 +549,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
             sli_specification={
                 "count": {
                     "good_events_formula": "query1",
-                    "total_events_formula": "query2",
+                    "bad_events_formula": "query2",
                     "queries": [
                         {
                             "metric_query": {
@@ -560,7 +560,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
                         {
                             "metric_query": {
                                 "name": "query2",
-                                "query": "sum:my.custom.count.metric{*}.as_count()",
+                                "query": "sum:my.custom.count.metric{type:bad_events}.as_count()",
                             },
                         },
                     ],
@@ -731,7 +731,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
             sli_specification={
                 "count": {
                     "good_events_formula": "query1",
-                    "total_events_formula": "query2",
+                    "bad_events_formula": "query2",
                     "queries": [
                         {
                             "metric_query": {
@@ -742,7 +742,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
                         {
                             "metric_query": {
                                 "name": "query2",
-                                "query": "sum:my.custom.count.metric{*}.as_count()",
+                                "query": "sum:my.custom.count.metric{type:bad_events}.as_count()",
                             },
                         },
                     ],

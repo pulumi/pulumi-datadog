@@ -81,14 +81,14 @@ public class SecurityMonitoringDefaultRule extends com.pulumi.resources.CustomRe
      * 
      */
     @Export(name="cases", refs={List.class,SecurityMonitoringDefaultRuleCase.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<SecurityMonitoringDefaultRuleCase>> cases;
+    private Output<List<SecurityMonitoringDefaultRuleCase>> cases;
 
     /**
      * @return Cases of the rule, this is used to update notifications.
      * 
      */
-    public Output<Optional<List<SecurityMonitoringDefaultRuleCase>>> cases() {
-        return Codegen.optional(this.cases);
+    public Output<List<SecurityMonitoringDefaultRuleCase>> cases() {
+        return this.cases;
     }
     /**
      * Custom Message (will override default message) for generated signals.
@@ -179,14 +179,14 @@ public class SecurityMonitoringDefaultRule extends com.pulumi.resources.CustomRe
      * 
      */
     @Export(name="queries", refs={List.class,SecurityMonitoringDefaultRuleQuery.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<SecurityMonitoringDefaultRuleQuery>> queries;
+    private Output<List<SecurityMonitoringDefaultRuleQuery>> queries;
 
     /**
      * @return Queries for selecting logs which are part of the rule.
      * 
      */
-    public Output<Optional<List<SecurityMonitoringDefaultRuleQuery>>> queries() {
-        return Codegen.optional(this.queries);
+    public Output<List<SecurityMonitoringDefaultRuleQuery>> queries() {
+        return this.queries;
     }
     /**
      * The rule type.

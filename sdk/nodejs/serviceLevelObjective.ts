@@ -54,7 +54,7 @@ import * as utilities from "./utilities";
  *     sliSpecification: {
  *         count: {
  *             goodEventsFormula: "query1",
- *             totalEventsFormula: "query2",
+ *             badEventsFormula: "query2",
  *             queries: [
  *                 {
  *                     metricQuery: {
@@ -65,7 +65,7 @@ import * as utilities from "./utilities";
  *                 {
  *                     metricQuery: {
  *                         name: "query2",
- *                         query: "sum:my.custom.count.metric{*}.as_count()",
+ *                         query: "sum:my.custom.count.metric{type:bad_events}.as_count()",
  *                     },
  *                 },
  *             ],

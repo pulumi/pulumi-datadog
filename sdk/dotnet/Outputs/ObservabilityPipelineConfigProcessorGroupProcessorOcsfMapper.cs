@@ -14,13 +14,21 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper
     {
         /// <summary>
+        /// Whether to keep an event that does not match any of the mapping filters.
+        /// </summary>
+        public readonly bool? KeepUnmatched;
+        /// <summary>
         /// List of OCSF mapping entries. Each entry uses either a library mapping or a custom mapping.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMapping> Mappings;
 
         [OutputConstructor]
-        private ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper(ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMapping> mappings)
+        private ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper(
+            bool? keepUnmatched,
+
+            ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMapping> mappings)
         {
+            KeepUnmatched = keepUnmatched;
             Mappings = mappings;
         }
     }

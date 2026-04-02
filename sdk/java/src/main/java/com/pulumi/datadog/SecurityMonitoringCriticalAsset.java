@@ -112,14 +112,14 @@ public class SecurityMonitoringCriticalAsset extends com.pulumi.resources.Custom
         return this.ruleQuery;
     }
     /**
-     * The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `increase`, `decrease`.
+     * The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `no-op`, `increase`, `decrease`.
      * 
      */
     @Export(name="severity", refs={String.class}, tree="[0]")
     private Output<String> severity;
 
     /**
-     * @return The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `increase`, `decrease`.
+     * @return The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `no-op`, `increase`, `decrease`.
      * 
      */
     public Output<String> severity() {

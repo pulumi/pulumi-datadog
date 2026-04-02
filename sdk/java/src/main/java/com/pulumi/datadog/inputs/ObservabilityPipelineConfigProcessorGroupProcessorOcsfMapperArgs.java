@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingArgs;
+import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperArgs Empty = new ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperArgs();
+
+    /**
+     * Whether to keep an event that does not match any of the mapping filters.
+     * 
+     */
+    @Import(name="keepUnmatched")
+    private @Nullable Output<Boolean> keepUnmatched;
+
+    /**
+     * @return Whether to keep an event that does not match any of the mapping filters.
+     * 
+     */
+    public Optional<Output<Boolean>> keepUnmatched() {
+        return Optional.ofNullable(this.keepUnmatched);
+    }
 
     /**
      * List of OCSF mapping entries. Each entry uses either a library mapping or a custom mapping.
@@ -34,6 +50,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperA
     private ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperArgs() {}
 
     private ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperArgs(ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperArgs $) {
+        this.keepUnmatched = $.keepUnmatched;
         this.mappings = $.mappings;
     }
 
@@ -53,6 +70,27 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperA
 
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperArgs defaults) {
             $ = new ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param keepUnmatched Whether to keep an event that does not match any of the mapping filters.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keepUnmatched(@Nullable Output<Boolean> keepUnmatched) {
+            $.keepUnmatched = keepUnmatched;
+            return this;
+        }
+
+        /**
+         * @param keepUnmatched Whether to keep an event that does not match any of the mapping filters.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keepUnmatched(Boolean keepUnmatched) {
+            return keepUnmatched(Output.of(keepUnmatched));
         }
 
         /**

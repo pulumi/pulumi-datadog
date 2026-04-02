@@ -1108,6 +1108,12 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> RestrictedRoles { get; private set; } = null!;
 
         /// <summary>
+        /// The list of tabs for organizing widgets on the dashboard.
+        /// </summary>
+        [Output("tabs")]
+        public Output<ImmutableArray<Outputs.DashboardTab>> Tabs { get; private set; } = null!;
+
+        /// <summary>
         /// A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
         /// </summary>
         [Output("tags")]
@@ -1249,6 +1255,18 @@ namespace Pulumi.Datadog
             set => _restrictedRoles = value;
         }
 
+        [Input("tabs")]
+        private InputList<Inputs.DashboardTabArgs>? _tabs;
+
+        /// <summary>
+        /// The list of tabs for organizing widgets on the dashboard.
+        /// </summary>
+        public InputList<Inputs.DashboardTabArgs> Tabs
+        {
+            get => _tabs ?? (_tabs = new InputList<Inputs.DashboardTabArgs>());
+            set => _tabs = value;
+        }
+
         [Input("tags")]
         private InputList<string>? _tags;
 
@@ -1387,6 +1405,18 @@ namespace Pulumi.Datadog
         {
             get => _restrictedRoles ?? (_restrictedRoles = new InputList<string>());
             set => _restrictedRoles = value;
+        }
+
+        [Input("tabs")]
+        private InputList<Inputs.DashboardTabGetArgs>? _tabs;
+
+        /// <summary>
+        /// The list of tabs for organizing widgets on the dashboard.
+        /// </summary>
+        public InputList<Inputs.DashboardTabGetArgs> Tabs
+        {
+            get => _tabs ?? (_tabs = new InputList<Inputs.DashboardTabGetArgs>());
+            set => _tabs = value;
         }
 
         [Input("tags")]

@@ -5,12 +5,19 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMapping;
+import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper {
+    /**
+     * @return Whether to keep an event that does not match any of the mapping filters.
+     * 
+     */
+    private @Nullable Boolean keepUnmatched;
     /**
      * @return List of OCSF mapping entries. Each entry uses either a library mapping or a custom mapping.
      * 
@@ -18,6 +25,13 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper 
     private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMapping> mappings;
 
     private ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper() {}
+    /**
+     * @return Whether to keep an event that does not match any of the mapping filters.
+     * 
+     */
+    public Optional<Boolean> keepUnmatched() {
+        return Optional.ofNullable(this.keepUnmatched);
+    }
     /**
      * @return List of OCSF mapping entries. Each entry uses either a library mapping or a custom mapping.
      * 
@@ -35,13 +49,21 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper 
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean keepUnmatched;
         private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMapping> mappings;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.keepUnmatched = defaults.keepUnmatched;
     	      this.mappings = defaults.mappings;
         }
 
+        @CustomType.Setter
+        public Builder keepUnmatched(@Nullable Boolean keepUnmatched) {
+
+            this.keepUnmatched = keepUnmatched;
+            return this;
+        }
         @CustomType.Setter
         public Builder mappings(@Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMapping> mappings) {
 
@@ -53,6 +75,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper 
         }
         public ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper build() {
             final var _resultValue = new ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper();
+            _resultValue.keepUnmatched = keepUnmatched;
             _resultValue.mappings = mappings;
             return _resultValue;
         }

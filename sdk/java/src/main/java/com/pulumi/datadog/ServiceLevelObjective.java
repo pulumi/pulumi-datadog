@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *             .sliSpecification(ServiceLevelObjectiveSliSpecificationArgs.builder()
  *                 .count(ServiceLevelObjectiveSliSpecificationCountArgs.builder()
  *                     .goodEventsFormula("query1")
- *                     .totalEventsFormula("query2")
+ *                     .badEventsFormula("query2")
  *                     .queries(                    
  *                         ServiceLevelObjectiveSliSpecificationCountQueryArgs.builder()
  *                             .metricQuery(ServiceLevelObjectiveSliSpecificationCountQueryMetricQueryArgs.builder()
@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  *                         ServiceLevelObjectiveSliSpecificationCountQueryArgs.builder()
  *                             .metricQuery(ServiceLevelObjectiveSliSpecificationCountQueryMetricQueryArgs.builder()
  *                                 .name("query2")
- *                                 .query("sum:my.custom.count.metric{*}.as_count()")
+ *                                 .query("sum:my.custom.count.metric{type:bad_events}.as_count()")
  *                                 .build())
  *                             .build())
  *                     .build())

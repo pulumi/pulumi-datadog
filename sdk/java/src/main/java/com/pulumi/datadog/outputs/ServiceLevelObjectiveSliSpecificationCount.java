@@ -9,9 +9,16 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceLevelObjectiveSliSpecificationCount {
+    /**
+     * @return The formula that specifies how to compute the bad events. Mutually exclusive with `totalEventsFormula`.
+     * 
+     */
+    private @Nullable String badEventsFormula;
     /**
      * @return The formula that specifies how to compute the good events.
      * 
@@ -23,12 +30,19 @@ public final class ServiceLevelObjectiveSliSpecificationCount {
      */
     private List<ServiceLevelObjectiveSliSpecificationCountQuery> queries;
     /**
-     * @return The formula that specifies how to compute the total events.
+     * @return The formula that specifies how to compute the total events. Mutually exclusive with `badEventsFormula`.
      * 
      */
-    private String totalEventsFormula;
+    private @Nullable String totalEventsFormula;
 
     private ServiceLevelObjectiveSliSpecificationCount() {}
+    /**
+     * @return The formula that specifies how to compute the bad events. Mutually exclusive with `totalEventsFormula`.
+     * 
+     */
+    public Optional<String> badEventsFormula() {
+        return Optional.ofNullable(this.badEventsFormula);
+    }
     /**
      * @return The formula that specifies how to compute the good events.
      * 
@@ -44,11 +58,11 @@ public final class ServiceLevelObjectiveSliSpecificationCount {
         return this.queries;
     }
     /**
-     * @return The formula that specifies how to compute the total events.
+     * @return The formula that specifies how to compute the total events. Mutually exclusive with `badEventsFormula`.
      * 
      */
-    public String totalEventsFormula() {
-        return this.totalEventsFormula;
+    public Optional<String> totalEventsFormula() {
+        return Optional.ofNullable(this.totalEventsFormula);
     }
 
     public static Builder builder() {
@@ -60,17 +74,25 @@ public final class ServiceLevelObjectiveSliSpecificationCount {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String badEventsFormula;
         private String goodEventsFormula;
         private List<ServiceLevelObjectiveSliSpecificationCountQuery> queries;
-        private String totalEventsFormula;
+        private @Nullable String totalEventsFormula;
         public Builder() {}
         public Builder(ServiceLevelObjectiveSliSpecificationCount defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.badEventsFormula = defaults.badEventsFormula;
     	      this.goodEventsFormula = defaults.goodEventsFormula;
     	      this.queries = defaults.queries;
     	      this.totalEventsFormula = defaults.totalEventsFormula;
         }
 
+        @CustomType.Setter
+        public Builder badEventsFormula(@Nullable String badEventsFormula) {
+
+            this.badEventsFormula = badEventsFormula;
+            return this;
+        }
         @CustomType.Setter
         public Builder goodEventsFormula(String goodEventsFormula) {
             if (goodEventsFormula == null) {
@@ -91,15 +113,14 @@ public final class ServiceLevelObjectiveSliSpecificationCount {
             return queries(List.of(queries));
         }
         @CustomType.Setter
-        public Builder totalEventsFormula(String totalEventsFormula) {
-            if (totalEventsFormula == null) {
-              throw new MissingRequiredPropertyException("ServiceLevelObjectiveSliSpecificationCount", "totalEventsFormula");
-            }
+        public Builder totalEventsFormula(@Nullable String totalEventsFormula) {
+
             this.totalEventsFormula = totalEventsFormula;
             return this;
         }
         public ServiceLevelObjectiveSliSpecificationCount build() {
             final var _resultValue = new ServiceLevelObjectiveSliSpecificationCount();
+            _resultValue.badEventsFormula = badEventsFormula;
             _resultValue.goodEventsFormula = goodEventsFormula;
             _resultValue.queries = queries;
             _resultValue.totalEventsFormula = totalEventsFormula;

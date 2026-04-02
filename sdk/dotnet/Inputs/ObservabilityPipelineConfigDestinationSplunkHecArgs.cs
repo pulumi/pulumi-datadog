@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.ObservabilityPipelineConfigDestinationSplunkHecBufferArgs>? Buffer { get; set; }
 
         /// <summary>
-        /// Encoding format for log events. Valid values: `Json`, `RawMessage`.
+        /// Encoding format for log events. Valid values are `Json`, `RawMessage`.
         /// </summary>
         [Input("encoding", required: true)]
         public Input<string> Encoding { get; set; } = null!;
@@ -41,6 +41,18 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("index")]
         public Input<string>? Index { get; set; }
+
+        [Input("indexedFields")]
+        private InputList<string>? _indexedFields;
+
+        /// <summary>
+        /// List of log field names to send as indexed fields to Splunk HEC. Available only when `Encoding` is `Json`.
+        /// </summary>
+        public InputList<string> IndexedFields
+        {
+            get => _indexedFields ?? (_indexedFields = new InputList<string>());
+            set => _indexedFields = value;
+        }
 
         /// <summary>
         /// The Splunk sourcetype to assign to log events.

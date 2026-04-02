@@ -17,14 +17,14 @@ public final class ServiceLevelObjectiveSliSpecificationArgs extends com.pulumi.
     public static final ServiceLevelObjectiveSliSpecificationArgs Empty = new ServiceLevelObjectiveSliSpecificationArgs();
 
     /**
-     * A count-based (metric) SLI specification. Composed of a good events formula, a total events formula, and the underlying metric queries.
+     * A count-based (metric) SLI specification. Composed of a good events formula, either a total events formula or a bad events formula (but not both), and the underlying metric queries.
      * 
      */
     @Import(name="count")
     private @Nullable Output<ServiceLevelObjectiveSliSpecificationCountArgs> count;
 
     /**
-     * @return A count-based (metric) SLI specification. Composed of a good events formula, a total events formula, and the underlying metric queries.
+     * @return A count-based (metric) SLI specification. Composed of a good events formula, either a total events formula or a bad events formula (but not both), and the underlying metric queries.
      * 
      */
     public Optional<Output<ServiceLevelObjectiveSliSpecificationCountArgs>> count() {
@@ -72,7 +72,7 @@ public final class ServiceLevelObjectiveSliSpecificationArgs extends com.pulumi.
         }
 
         /**
-         * @param count A count-based (metric) SLI specification. Composed of a good events formula, a total events formula, and the underlying metric queries.
+         * @param count A count-based (metric) SLI specification. Composed of a good events formula, either a total events formula or a bad events formula (but not both), and the underlying metric queries.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ServiceLevelObjectiveSliSpecificationArgs extends com.pulumi.
         }
 
         /**
-         * @param count A count-based (metric) SLI specification. Composed of a good events formula, a total events formula, and the underlying metric queries.
+         * @param count A count-based (metric) SLI specification. Composed of a good events formula, either a total events formula or a bad events formula (but not both), and the underlying metric queries.
          * 
          * @return builder
          * 

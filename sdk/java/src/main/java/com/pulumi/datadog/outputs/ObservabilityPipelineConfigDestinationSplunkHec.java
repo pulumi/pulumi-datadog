@@ -8,6 +8,7 @@ import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationSplunkHe
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -25,7 +26,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
      */
     private @Nullable ObservabilityPipelineConfigDestinationSplunkHecBuffer buffer;
     /**
-     * @return Encoding format for log events. Valid values: `json`, `rawMessage`.
+     * @return Encoding format for log events. Valid values are `json`, `rawMessage`.
      * 
      */
     private String encoding;
@@ -39,6 +40,11 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
      * 
      */
     private @Nullable String index;
+    /**
+     * @return List of log field names to send as indexed fields to Splunk HEC. Available only when `encoding` is `json`.
+     * 
+     */
+    private @Nullable List<String> indexedFields;
     /**
      * @return The Splunk sourcetype to assign to log events.
      * 
@@ -66,7 +72,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
         return Optional.ofNullable(this.buffer);
     }
     /**
-     * @return Encoding format for log events. Valid values: `json`, `rawMessage`.
+     * @return Encoding format for log events. Valid values are `json`, `rawMessage`.
      * 
      */
     public String encoding() {
@@ -85,6 +91,13 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
      */
     public Optional<String> index() {
         return Optional.ofNullable(this.index);
+    }
+    /**
+     * @return List of log field names to send as indexed fields to Splunk HEC. Available only when `encoding` is `json`.
+     * 
+     */
+    public List<String> indexedFields() {
+        return this.indexedFields == null ? List.of() : this.indexedFields;
     }
     /**
      * @return The Splunk sourcetype to assign to log events.
@@ -115,6 +128,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
         private String encoding;
         private @Nullable String endpointUrlKey;
         private @Nullable String index;
+        private @Nullable List<String> indexedFields;
         private @Nullable String sourcetype;
         private @Nullable String tokenKey;
         public Builder() {}
@@ -125,6 +139,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
     	      this.encoding = defaults.encoding;
     	      this.endpointUrlKey = defaults.endpointUrlKey;
     	      this.index = defaults.index;
+    	      this.indexedFields = defaults.indexedFields;
     	      this.sourcetype = defaults.sourcetype;
     	      this.tokenKey = defaults.tokenKey;
         }
@@ -162,6 +177,15 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
             return this;
         }
         @CustomType.Setter
+        public Builder indexedFields(@Nullable List<String> indexedFields) {
+
+            this.indexedFields = indexedFields;
+            return this;
+        }
+        public Builder indexedFields(String... indexedFields) {
+            return indexedFields(List.of(indexedFields));
+        }
+        @CustomType.Setter
         public Builder sourcetype(@Nullable String sourcetype) {
 
             this.sourcetype = sourcetype;
@@ -180,6 +204,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
             _resultValue.encoding = encoding;
             _resultValue.endpointUrlKey = endpointUrlKey;
             _resultValue.index = index;
+            _resultValue.indexedFields = indexedFields;
             _resultValue.sourcetype = sourcetype;
             _resultValue.tokenKey = tokenKey;
             return _resultValue;

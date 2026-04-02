@@ -10,11 +10,28 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ServiceLevelObjectiveSliSpecificationCountArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ServiceLevelObjectiveSliSpecificationCountArgs Empty = new ServiceLevelObjectiveSliSpecificationCountArgs();
+
+    /**
+     * The formula that specifies how to compute the bad events. Mutually exclusive with `totalEventsFormula`.
+     * 
+     */
+    @Import(name="badEventsFormula")
+    private @Nullable Output<String> badEventsFormula;
+
+    /**
+     * @return The formula that specifies how to compute the bad events. Mutually exclusive with `totalEventsFormula`.
+     * 
+     */
+    public Optional<Output<String>> badEventsFormula() {
+        return Optional.ofNullable(this.badEventsFormula);
+    }
 
     /**
      * The formula that specifies how to compute the good events.
@@ -47,23 +64,24 @@ public final class ServiceLevelObjectiveSliSpecificationCountArgs extends com.pu
     }
 
     /**
-     * The formula that specifies how to compute the total events.
+     * The formula that specifies how to compute the total events. Mutually exclusive with `badEventsFormula`.
      * 
      */
-    @Import(name="totalEventsFormula", required=true)
-    private Output<String> totalEventsFormula;
+    @Import(name="totalEventsFormula")
+    private @Nullable Output<String> totalEventsFormula;
 
     /**
-     * @return The formula that specifies how to compute the total events.
+     * @return The formula that specifies how to compute the total events. Mutually exclusive with `badEventsFormula`.
      * 
      */
-    public Output<String> totalEventsFormula() {
-        return this.totalEventsFormula;
+    public Optional<Output<String>> totalEventsFormula() {
+        return Optional.ofNullable(this.totalEventsFormula);
     }
 
     private ServiceLevelObjectiveSliSpecificationCountArgs() {}
 
     private ServiceLevelObjectiveSliSpecificationCountArgs(ServiceLevelObjectiveSliSpecificationCountArgs $) {
+        this.badEventsFormula = $.badEventsFormula;
         this.goodEventsFormula = $.goodEventsFormula;
         this.queries = $.queries;
         this.totalEventsFormula = $.totalEventsFormula;
@@ -85,6 +103,27 @@ public final class ServiceLevelObjectiveSliSpecificationCountArgs extends com.pu
 
         public Builder(ServiceLevelObjectiveSliSpecificationCountArgs defaults) {
             $ = new ServiceLevelObjectiveSliSpecificationCountArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param badEventsFormula The formula that specifies how to compute the bad events. Mutually exclusive with `totalEventsFormula`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder badEventsFormula(@Nullable Output<String> badEventsFormula) {
+            $.badEventsFormula = badEventsFormula;
+            return this;
+        }
+
+        /**
+         * @param badEventsFormula The formula that specifies how to compute the bad events. Mutually exclusive with `totalEventsFormula`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder badEventsFormula(String badEventsFormula) {
+            return badEventsFormula(Output.of(badEventsFormula));
         }
 
         /**
@@ -140,18 +179,18 @@ public final class ServiceLevelObjectiveSliSpecificationCountArgs extends com.pu
         }
 
         /**
-         * @param totalEventsFormula The formula that specifies how to compute the total events.
+         * @param totalEventsFormula The formula that specifies how to compute the total events. Mutually exclusive with `badEventsFormula`.
          * 
          * @return builder
          * 
          */
-        public Builder totalEventsFormula(Output<String> totalEventsFormula) {
+        public Builder totalEventsFormula(@Nullable Output<String> totalEventsFormula) {
             $.totalEventsFormula = totalEventsFormula;
             return this;
         }
 
         /**
-         * @param totalEventsFormula The formula that specifies how to compute the total events.
+         * @param totalEventsFormula The formula that specifies how to compute the total events. Mutually exclusive with `badEventsFormula`.
          * 
          * @return builder
          * 
@@ -166,9 +205,6 @@ public final class ServiceLevelObjectiveSliSpecificationCountArgs extends com.pu
             }
             if ($.queries == null) {
                 throw new MissingRequiredPropertyException("ServiceLevelObjectiveSliSpecificationCountArgs", "queries");
-            }
-            if ($.totalEventsFormula == null) {
-                throw new MissingRequiredPropertyException("ServiceLevelObjectiveSliSpecificationCountArgs", "totalEventsFormula");
             }
             return $;
         }
