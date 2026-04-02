@@ -404,6 +404,16 @@
                     "restricted_roles": {
                         "maxItemsOne": false
                     },
+                    "tab": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "widget_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "tags": {
                         "maxItemsOne": false
                     },
@@ -14564,6 +14574,9 @@
                                                                     }
                                                                 }
                                                             }
+                                                        },
+                                                        "indexed_fields": {
+                                                            "maxItemsOne": false
                                                         }
                                                     }
                                                 }
@@ -20922,7 +20935,15 @@
             }
         }
     },
-    "auto-settings": {},
+    "auto-settings": {
+        "resources": {
+            "datadog_observability_pipeline": {
+                "maxItemsOneOverrides": {
+                    "config.$.destination.$.splunk_hec": false
+                }
+            }
+        }
+    },
     "mux": {
         "resources": {
             "datadog:aws/integrationAccount:IntegrationAccount": 1,
