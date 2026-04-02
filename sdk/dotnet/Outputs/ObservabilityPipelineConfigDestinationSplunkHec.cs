@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationSplunkHecBuffer? Buffer;
         /// <summary>
-        /// Encoding format for log events. Valid values: `Json`, `RawMessage`.
+        /// Encoding format for log events. Valid values are `Json`, `RawMessage`.
         /// </summary>
         public readonly string Encoding;
         /// <summary>
@@ -33,6 +33,10 @@ namespace Pulumi.Datadog.Outputs
         /// Optional name of the Splunk index where logs are written.
         /// </summary>
         public readonly string? Index;
+        /// <summary>
+        /// List of log field names to send as indexed fields to Splunk HEC. Available only when `Encoding` is `Json`.
+        /// </summary>
+        public readonly ImmutableArray<string> IndexedFields;
         /// <summary>
         /// The Splunk sourcetype to assign to log events.
         /// </summary>
@@ -54,6 +58,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? index,
 
+            ImmutableArray<string> indexedFields,
+
             string? sourcetype,
 
             string? tokenKey)
@@ -63,6 +69,7 @@ namespace Pulumi.Datadog.Outputs
             Encoding = encoding;
             EndpointUrlKey = endpointUrlKey;
             Index = index;
+            IndexedFields = indexedFields;
             Sourcetype = sourcetype;
             TokenKey = tokenKey;
         }

@@ -69,8 +69,8 @@ import (
 //				Description: pulumi.String("My custom metric count spec SLO"),
 //				SliSpecification: &datadog.ServiceLevelObjectiveSliSpecificationArgs{
 //					Count: &datadog.ServiceLevelObjectiveSliSpecificationCountArgs{
-//						GoodEventsFormula:  pulumi.String("query1"),
-//						TotalEventsFormula: pulumi.String("query2"),
+//						GoodEventsFormula: pulumi.String("query1"),
+//						BadEventsFormula:  pulumi.String("query2"),
 //						Queries: datadog.ServiceLevelObjectiveSliSpecificationCountQueryArray{
 //							&datadog.ServiceLevelObjectiveSliSpecificationCountQueryArgs{
 //								MetricQuery: &datadog.ServiceLevelObjectiveSliSpecificationCountQueryMetricQueryArgs{
@@ -81,7 +81,7 @@ import (
 //							&datadog.ServiceLevelObjectiveSliSpecificationCountQueryArgs{
 //								MetricQuery: &datadog.ServiceLevelObjectiveSliSpecificationCountQueryMetricQueryArgs{
 //									Name:  pulumi.String("query2"),
-//									Query: pulumi.String("sum:my.custom.count.metric{*}.as_count()"),
+//									Query: pulumi.String("sum:my.custom.count.metric{type:bad_events}.as_count()"),
 //								},
 //							},
 //						},

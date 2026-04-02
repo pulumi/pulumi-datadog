@@ -12,6 +12,12 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to keep an event that does not match any of the mapping filters.
+        /// </summary>
+        [Input("keepUnmatched")]
+        public Input<bool>? KeepUnmatched { get; set; }
+
         [Input("mappings")]
         private InputList<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperMappingArgs>? _mappings;
 

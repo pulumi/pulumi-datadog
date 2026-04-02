@@ -63,7 +63,7 @@ type SecurityMonitoringCriticalAsset struct {
 	Query pulumi.StringOutput `pulumi:"query"`
 	// The rule query to filter which detection rules this critical asset applies to. Uses the same syntax as the search bar for detection rules.
 	RuleQuery pulumi.StringOutput `pulumi:"ruleQuery"`
-	// The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `increase`, `decrease`.
+	// The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `no-op`, `increase`, `decrease`.
 	Severity pulumi.StringOutput `pulumi:"severity"`
 	// A list of tags associated with the critical asset.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
@@ -114,7 +114,7 @@ type securityMonitoringCriticalAssetState struct {
 	Query *string `pulumi:"query"`
 	// The rule query to filter which detection rules this critical asset applies to. Uses the same syntax as the search bar for detection rules.
 	RuleQuery *string `pulumi:"ruleQuery"`
-	// The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `increase`, `decrease`.
+	// The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `no-op`, `increase`, `decrease`.
 	Severity *string `pulumi:"severity"`
 	// A list of tags associated with the critical asset.
 	Tags []string `pulumi:"tags"`
@@ -127,7 +127,7 @@ type SecurityMonitoringCriticalAssetState struct {
 	Query pulumi.StringPtrInput
 	// The rule query to filter which detection rules this critical asset applies to. Uses the same syntax as the search bar for detection rules.
 	RuleQuery pulumi.StringPtrInput
-	// The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `increase`, `decrease`.
+	// The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `no-op`, `increase`, `decrease`.
 	Severity pulumi.StringPtrInput
 	// A list of tags associated with the critical asset.
 	Tags pulumi.StringArrayInput
@@ -144,7 +144,7 @@ type securityMonitoringCriticalAssetArgs struct {
 	Query string `pulumi:"query"`
 	// The rule query to filter which detection rules this critical asset applies to. Uses the same syntax as the search bar for detection rules.
 	RuleQuery string `pulumi:"ruleQuery"`
-	// The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `increase`, `decrease`.
+	// The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `no-op`, `increase`, `decrease`.
 	Severity string `pulumi:"severity"`
 	// A list of tags associated with the critical asset.
 	Tags []string `pulumi:"tags"`
@@ -158,7 +158,7 @@ type SecurityMonitoringCriticalAssetArgs struct {
 	Query pulumi.StringInput
 	// The rule query to filter which detection rules this critical asset applies to. Uses the same syntax as the search bar for detection rules.
 	RuleQuery pulumi.StringInput
-	// The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `increase`, `decrease`.
+	// The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `no-op`, `increase`, `decrease`.
 	Severity pulumi.StringInput
 	// A list of tags associated with the critical asset.
 	Tags pulumi.StringArrayInput
@@ -266,7 +266,7 @@ func (o SecurityMonitoringCriticalAssetOutput) RuleQuery() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityMonitoringCriticalAsset) pulumi.StringOutput { return v.RuleQuery }).(pulumi.StringOutput)
 }
 
-// The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `increase`, `decrease`.
+// The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `no-op`, `increase`, `decrease`.
 func (o SecurityMonitoringCriticalAssetOutput) Severity() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityMonitoringCriticalAsset) pulumi.StringOutput { return v.Severity }).(pulumi.StringOutput)
 }

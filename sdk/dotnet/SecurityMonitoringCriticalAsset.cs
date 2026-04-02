@@ -68,7 +68,7 @@ namespace Pulumi.Datadog
         public Output<string> RuleQuery { get; private set; } = null!;
 
         /// <summary>
-        /// The severity change applied to signals matching this critical asset. Valid values are `Critical`, `High`, `Medium`, `Low`, `Info`, `Increase`, `Decrease`.
+        /// The severity change applied to signals matching this critical asset. Valid values are `Critical`, `High`, `Medium`, `Low`, `Info`, `no-op`, `Increase`, `Decrease`.
         /// </summary>
         [Output("severity")]
         public Output<string> Severity { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Datadog
         public Input<string> RuleQuery { get; set; } = null!;
 
         /// <summary>
-        /// The severity change applied to signals matching this critical asset. Valid values are `Critical`, `High`, `Medium`, `Low`, `Info`, `Increase`, `Decrease`.
+        /// The severity change applied to signals matching this critical asset. Valid values are `Critical`, `High`, `Medium`, `Low`, `Info`, `no-op`, `Increase`, `Decrease`.
         /// </summary>
         [Input("severity", required: true)]
         public Input<string> Severity { get; set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Datadog
         public Input<string>? RuleQuery { get; set; }
 
         /// <summary>
-        /// The severity change applied to signals matching this critical asset. Valid values are `Critical`, `High`, `Medium`, `Low`, `Info`, `Increase`, `Decrease`.
+        /// The severity change applied to signals matching this critical asset. Valid values are `Critical`, `High`, `Medium`, `Low`, `Info`, `no-op`, `Increase`, `Decrease`.
         /// </summary>
         [Input("severity")]
         public Input<string>? Severity { get; set; }

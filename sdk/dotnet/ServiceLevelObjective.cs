@@ -71,7 +71,7 @@ namespace Pulumi.Datadog
     ///             Count = new Datadog.Inputs.ServiceLevelObjectiveSliSpecificationCountArgs
     ///             {
     ///                 GoodEventsFormula = "query1",
-    ///                 TotalEventsFormula = "query2",
+    ///                 BadEventsFormula = "query2",
     ///                 Queries = new[]
     ///                 {
     ///                     new Datadog.Inputs.ServiceLevelObjectiveSliSpecificationCountQueryArgs
@@ -87,7 +87,7 @@ namespace Pulumi.Datadog
     ///                         MetricQuery = new Datadog.Inputs.ServiceLevelObjectiveSliSpecificationCountQueryMetricQueryArgs
     ///                         {
     ///                             Name = "query2",
-    ///                             Query = "sum:my.custom.count.metric{*}.as_count()",
+    ///                             Query = "sum:my.custom.count.metric{type:bad_events}.as_count()",
     ///                         },
     ///                     },
     ///                 },

@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ServiceLevelObjectiveSliSpecificationCount
     {
         /// <summary>
+        /// The formula that specifies how to compute the bad events. Mutually exclusive with `TotalEventsFormula`.
+        /// </summary>
+        public readonly string? BadEventsFormula;
+        /// <summary>
         /// The formula that specifies how to compute the good events.
         /// </summary>
         public readonly string GoodEventsFormula;
@@ -22,18 +26,21 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceLevelObjectiveSliSpecificationCountQuery> Queries;
         /// <summary>
-        /// The formula that specifies how to compute the total events.
+        /// The formula that specifies how to compute the total events. Mutually exclusive with `BadEventsFormula`.
         /// </summary>
-        public readonly string TotalEventsFormula;
+        public readonly string? TotalEventsFormula;
 
         [OutputConstructor]
         private ServiceLevelObjectiveSliSpecificationCount(
+            string? badEventsFormula,
+
             string goodEventsFormula,
 
             ImmutableArray<Outputs.ServiceLevelObjectiveSliSpecificationCountQuery> queries,
 
-            string totalEventsFormula)
+            string? totalEventsFormula)
         {
+            BadEventsFormula = badEventsFormula;
             GoodEventsFormula = goodEventsFormula;
             Queries = queries;
             TotalEventsFormula = totalEventsFormula;

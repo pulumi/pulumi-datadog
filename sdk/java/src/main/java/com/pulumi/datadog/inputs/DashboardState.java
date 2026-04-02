@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.DashboardTabArgs;
 import com.pulumi.datadog.inputs.DashboardTemplateVariableArgs;
 import com.pulumi.datadog.inputs.DashboardTemplateVariablePresetArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetArgs;
@@ -150,6 +151,21 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The list of tabs for organizing widgets on the dashboard.
+     * 
+     */
+    @Import(name="tabs")
+    private @Nullable Output<List<DashboardTabArgs>> tabs;
+
+    /**
+     * @return The list of tabs for organizing widgets on the dashboard.
+     * 
+     */
+    public Optional<Output<List<DashboardTabArgs>>> tabs() {
+        return Optional.ofNullable(this.tabs);
+    }
+
+    /**
      * A list of tags assigned to the Dashboard. Only team names of the form `team:&lt;name&gt;` are supported.
      * 
      */
@@ -250,6 +266,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         this.notifyLists = $.notifyLists;
         this.reflowType = $.reflowType;
         this.restrictedRoles = $.restrictedRoles;
+        this.tabs = $.tabs;
         this.tags = $.tags;
         this.templateVariablePresets = $.templateVariablePresets;
         this.templateVariables = $.templateVariables;
@@ -490,6 +507,37 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder restrictedRoles(String... restrictedRoles) {
             return restrictedRoles(List.of(restrictedRoles));
+        }
+
+        /**
+         * @param tabs The list of tabs for organizing widgets on the dashboard.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tabs(@Nullable Output<List<DashboardTabArgs>> tabs) {
+            $.tabs = tabs;
+            return this;
+        }
+
+        /**
+         * @param tabs The list of tabs for organizing widgets on the dashboard.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tabs(List<DashboardTabArgs> tabs) {
+            return tabs(Output.of(tabs));
+        }
+
+        /**
+         * @param tabs The list of tabs for organizing widgets on the dashboard.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tabs(DashboardTabArgs... tabs) {
+            return tabs(List.of(tabs));
         }
 
         /**

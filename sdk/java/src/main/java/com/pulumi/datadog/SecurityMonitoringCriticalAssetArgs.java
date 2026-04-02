@@ -64,14 +64,14 @@ public final class SecurityMonitoringCriticalAssetArgs extends com.pulumi.resour
     }
 
     /**
-     * The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `increase`, `decrease`.
+     * The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `no-op`, `increase`, `decrease`.
      * 
      */
     @Import(name="severity", required=true)
     private Output<String> severity;
 
     /**
-     * @return The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `increase`, `decrease`.
+     * @return The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `no-op`, `increase`, `decrease`.
      * 
      */
     public Output<String> severity() {
@@ -185,7 +185,7 @@ public final class SecurityMonitoringCriticalAssetArgs extends com.pulumi.resour
         }
 
         /**
-         * @param severity The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `increase`, `decrease`.
+         * @param severity The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `no-op`, `increase`, `decrease`.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class SecurityMonitoringCriticalAssetArgs extends com.pulumi.resour
         }
 
         /**
-         * @param severity The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `increase`, `decrease`.
+         * @param severity The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `no-op`, `increase`, `decrease`.
          * 
          * @return builder
          * 

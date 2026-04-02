@@ -13,6 +13,112 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type SensitiveDataScannerGroupSampling struct {
+	// Product that the sampling rate applies to. Valid values are `logs`, `rum`, `events`, `apm`.
+	Product string `pulumi:"product"`
+	// Percentage rate at which data for the product type is scanned.
+	Rate float64 `pulumi:"rate"`
+}
+
+// SensitiveDataScannerGroupSamplingInput is an input type that accepts SensitiveDataScannerGroupSamplingArgs and SensitiveDataScannerGroupSamplingOutput values.
+// You can construct a concrete instance of `SensitiveDataScannerGroupSamplingInput` via:
+//
+//	SensitiveDataScannerGroupSamplingArgs{...}
+type SensitiveDataScannerGroupSamplingInput interface {
+	pulumi.Input
+
+	ToSensitiveDataScannerGroupSamplingOutput() SensitiveDataScannerGroupSamplingOutput
+	ToSensitiveDataScannerGroupSamplingOutputWithContext(context.Context) SensitiveDataScannerGroupSamplingOutput
+}
+
+type SensitiveDataScannerGroupSamplingArgs struct {
+	// Product that the sampling rate applies to. Valid values are `logs`, `rum`, `events`, `apm`.
+	Product pulumi.StringInput `pulumi:"product"`
+	// Percentage rate at which data for the product type is scanned.
+	Rate pulumi.Float64Input `pulumi:"rate"`
+}
+
+func (SensitiveDataScannerGroupSamplingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SensitiveDataScannerGroupSampling)(nil)).Elem()
+}
+
+func (i SensitiveDataScannerGroupSamplingArgs) ToSensitiveDataScannerGroupSamplingOutput() SensitiveDataScannerGroupSamplingOutput {
+	return i.ToSensitiveDataScannerGroupSamplingOutputWithContext(context.Background())
+}
+
+func (i SensitiveDataScannerGroupSamplingArgs) ToSensitiveDataScannerGroupSamplingOutputWithContext(ctx context.Context) SensitiveDataScannerGroupSamplingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerGroupSamplingOutput)
+}
+
+// SensitiveDataScannerGroupSamplingArrayInput is an input type that accepts SensitiveDataScannerGroupSamplingArray and SensitiveDataScannerGroupSamplingArrayOutput values.
+// You can construct a concrete instance of `SensitiveDataScannerGroupSamplingArrayInput` via:
+//
+//	SensitiveDataScannerGroupSamplingArray{ SensitiveDataScannerGroupSamplingArgs{...} }
+type SensitiveDataScannerGroupSamplingArrayInput interface {
+	pulumi.Input
+
+	ToSensitiveDataScannerGroupSamplingArrayOutput() SensitiveDataScannerGroupSamplingArrayOutput
+	ToSensitiveDataScannerGroupSamplingArrayOutputWithContext(context.Context) SensitiveDataScannerGroupSamplingArrayOutput
+}
+
+type SensitiveDataScannerGroupSamplingArray []SensitiveDataScannerGroupSamplingInput
+
+func (SensitiveDataScannerGroupSamplingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SensitiveDataScannerGroupSampling)(nil)).Elem()
+}
+
+func (i SensitiveDataScannerGroupSamplingArray) ToSensitiveDataScannerGroupSamplingArrayOutput() SensitiveDataScannerGroupSamplingArrayOutput {
+	return i.ToSensitiveDataScannerGroupSamplingArrayOutputWithContext(context.Background())
+}
+
+func (i SensitiveDataScannerGroupSamplingArray) ToSensitiveDataScannerGroupSamplingArrayOutputWithContext(ctx context.Context) SensitiveDataScannerGroupSamplingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerGroupSamplingArrayOutput)
+}
+
+type SensitiveDataScannerGroupSamplingOutput struct{ *pulumi.OutputState }
+
+func (SensitiveDataScannerGroupSamplingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SensitiveDataScannerGroupSampling)(nil)).Elem()
+}
+
+func (o SensitiveDataScannerGroupSamplingOutput) ToSensitiveDataScannerGroupSamplingOutput() SensitiveDataScannerGroupSamplingOutput {
+	return o
+}
+
+func (o SensitiveDataScannerGroupSamplingOutput) ToSensitiveDataScannerGroupSamplingOutputWithContext(ctx context.Context) SensitiveDataScannerGroupSamplingOutput {
+	return o
+}
+
+// Product that the sampling rate applies to. Valid values are `logs`, `rum`, `events`, `apm`.
+func (o SensitiveDataScannerGroupSamplingOutput) Product() pulumi.StringOutput {
+	return o.ApplyT(func(v SensitiveDataScannerGroupSampling) string { return v.Product }).(pulumi.StringOutput)
+}
+
+// Percentage rate at which data for the product type is scanned.
+func (o SensitiveDataScannerGroupSamplingOutput) Rate() pulumi.Float64Output {
+	return o.ApplyT(func(v SensitiveDataScannerGroupSampling) float64 { return v.Rate }).(pulumi.Float64Output)
+}
+
+type SensitiveDataScannerGroupSamplingArrayOutput struct{ *pulumi.OutputState }
+
+func (SensitiveDataScannerGroupSamplingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SensitiveDataScannerGroupSampling)(nil)).Elem()
+}
+
+func (o SensitiveDataScannerGroupSamplingArrayOutput) ToSensitiveDataScannerGroupSamplingArrayOutput() SensitiveDataScannerGroupSamplingArrayOutput {
+	return o
+}
+
+func (o SensitiveDataScannerGroupSamplingArrayOutput) ToSensitiveDataScannerGroupSamplingArrayOutputWithContext(ctx context.Context) SensitiveDataScannerGroupSamplingArrayOutput {
+	return o
+}
+
+func (o SensitiveDataScannerGroupSamplingArrayOutput) Index(i pulumi.IntInput) SensitiveDataScannerGroupSamplingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SensitiveDataScannerGroupSampling {
+		return vs[0].([]SensitiveDataScannerGroupSampling)[vs[1].(int)]
+	}).(SensitiveDataScannerGroupSamplingOutput)
+}
+
 type SensitiveDataScannerRuleIncludedKeywordConfiguration struct {
 	// Number of characters before the match to find a keyword validating the match. It must be between 1 and 50 (inclusive).
 	CharacterCount int `pulumi:"characterCount"`
@@ -520,7 +626,7 @@ func (o ServiceLevelObjectiveQueryPtrOutput) Numerator() pulumi.StringPtrOutput 
 }
 
 type ServiceLevelObjectiveSliSpecification struct {
-	// A count-based (metric) SLI specification. Composed of a good events formula, a total events formula, and the underlying metric queries.
+	// A count-based (metric) SLI specification. Composed of a good events formula, either a total events formula or a bad events formula (but not both), and the underlying metric queries.
 	Count *ServiceLevelObjectiveSliSpecificationCount `pulumi:"count"`
 	// The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
 	TimeSlice *ServiceLevelObjectiveSliSpecificationTimeSlice `pulumi:"timeSlice"`
@@ -538,7 +644,7 @@ type ServiceLevelObjectiveSliSpecificationInput interface {
 }
 
 type ServiceLevelObjectiveSliSpecificationArgs struct {
-	// A count-based (metric) SLI specification. Composed of a good events formula, a total events formula, and the underlying metric queries.
+	// A count-based (metric) SLI specification. Composed of a good events formula, either a total events formula or a bad events formula (but not both), and the underlying metric queries.
 	Count ServiceLevelObjectiveSliSpecificationCountPtrInput `pulumi:"count"`
 	// The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
 	TimeSlice ServiceLevelObjectiveSliSpecificationTimeSlicePtrInput `pulumi:"timeSlice"`
@@ -621,7 +727,7 @@ func (o ServiceLevelObjectiveSliSpecificationOutput) ToServiceLevelObjectiveSliS
 	}).(ServiceLevelObjectiveSliSpecificationPtrOutput)
 }
 
-// A count-based (metric) SLI specification. Composed of a good events formula, a total events formula, and the underlying metric queries.
+// A count-based (metric) SLI specification. Composed of a good events formula, either a total events formula or a bad events formula (but not both), and the underlying metric queries.
 func (o ServiceLevelObjectiveSliSpecificationOutput) Count() ServiceLevelObjectiveSliSpecificationCountPtrOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecification) *ServiceLevelObjectiveSliSpecificationCount {
 		return v.Count
@@ -659,7 +765,7 @@ func (o ServiceLevelObjectiveSliSpecificationPtrOutput) Elem() ServiceLevelObjec
 	}).(ServiceLevelObjectiveSliSpecificationOutput)
 }
 
-// A count-based (metric) SLI specification. Composed of a good events formula, a total events formula, and the underlying metric queries.
+// A count-based (metric) SLI specification. Composed of a good events formula, either a total events formula or a bad events formula (but not both), and the underlying metric queries.
 func (o ServiceLevelObjectiveSliSpecificationPtrOutput) Count() ServiceLevelObjectiveSliSpecificationCountPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecification) *ServiceLevelObjectiveSliSpecificationCount {
 		if v == nil {
@@ -680,12 +786,14 @@ func (o ServiceLevelObjectiveSliSpecificationPtrOutput) TimeSlice() ServiceLevel
 }
 
 type ServiceLevelObjectiveSliSpecificationCount struct {
+	// The formula that specifies how to compute the bad events. Mutually exclusive with `totalEventsFormula`.
+	BadEventsFormula *string `pulumi:"badEventsFormula"`
 	// The formula that specifies how to compute the good events.
 	GoodEventsFormula string `pulumi:"goodEventsFormula"`
 	// A list of data-source-specific queries that are referenced in the formulas.
 	Queries []ServiceLevelObjectiveSliSpecificationCountQuery `pulumi:"queries"`
-	// The formula that specifies how to compute the total events.
-	TotalEventsFormula string `pulumi:"totalEventsFormula"`
+	// The formula that specifies how to compute the total events. Mutually exclusive with `badEventsFormula`.
+	TotalEventsFormula *string `pulumi:"totalEventsFormula"`
 }
 
 // ServiceLevelObjectiveSliSpecificationCountInput is an input type that accepts ServiceLevelObjectiveSliSpecificationCountArgs and ServiceLevelObjectiveSliSpecificationCountOutput values.
@@ -700,12 +808,14 @@ type ServiceLevelObjectiveSliSpecificationCountInput interface {
 }
 
 type ServiceLevelObjectiveSliSpecificationCountArgs struct {
+	// The formula that specifies how to compute the bad events. Mutually exclusive with `totalEventsFormula`.
+	BadEventsFormula pulumi.StringPtrInput `pulumi:"badEventsFormula"`
 	// The formula that specifies how to compute the good events.
 	GoodEventsFormula pulumi.StringInput `pulumi:"goodEventsFormula"`
 	// A list of data-source-specific queries that are referenced in the formulas.
 	Queries ServiceLevelObjectiveSliSpecificationCountQueryArrayInput `pulumi:"queries"`
-	// The formula that specifies how to compute the total events.
-	TotalEventsFormula pulumi.StringInput `pulumi:"totalEventsFormula"`
+	// The formula that specifies how to compute the total events. Mutually exclusive with `badEventsFormula`.
+	TotalEventsFormula pulumi.StringPtrInput `pulumi:"totalEventsFormula"`
 }
 
 func (ServiceLevelObjectiveSliSpecificationCountArgs) ElementType() reflect.Type {
@@ -785,6 +895,11 @@ func (o ServiceLevelObjectiveSliSpecificationCountOutput) ToServiceLevelObjectiv
 	}).(ServiceLevelObjectiveSliSpecificationCountPtrOutput)
 }
 
+// The formula that specifies how to compute the bad events. Mutually exclusive with `totalEventsFormula`.
+func (o ServiceLevelObjectiveSliSpecificationCountOutput) BadEventsFormula() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationCount) *string { return v.BadEventsFormula }).(pulumi.StringPtrOutput)
+}
+
 // The formula that specifies how to compute the good events.
 func (o ServiceLevelObjectiveSliSpecificationCountOutput) GoodEventsFormula() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationCount) string { return v.GoodEventsFormula }).(pulumi.StringOutput)
@@ -797,9 +912,9 @@ func (o ServiceLevelObjectiveSliSpecificationCountOutput) Queries() ServiceLevel
 	}).(ServiceLevelObjectiveSliSpecificationCountQueryArrayOutput)
 }
 
-// The formula that specifies how to compute the total events.
-func (o ServiceLevelObjectiveSliSpecificationCountOutput) TotalEventsFormula() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationCount) string { return v.TotalEventsFormula }).(pulumi.StringOutput)
+// The formula that specifies how to compute the total events. Mutually exclusive with `badEventsFormula`.
+func (o ServiceLevelObjectiveSliSpecificationCountOutput) TotalEventsFormula() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationCount) *string { return v.TotalEventsFormula }).(pulumi.StringPtrOutput)
 }
 
 type ServiceLevelObjectiveSliSpecificationCountPtrOutput struct{ *pulumi.OutputState }
@@ -826,6 +941,16 @@ func (o ServiceLevelObjectiveSliSpecificationCountPtrOutput) Elem() ServiceLevel
 	}).(ServiceLevelObjectiveSliSpecificationCountOutput)
 }
 
+// The formula that specifies how to compute the bad events. Mutually exclusive with `totalEventsFormula`.
+func (o ServiceLevelObjectiveSliSpecificationCountPtrOutput) BadEventsFormula() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationCount) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BadEventsFormula
+	}).(pulumi.StringPtrOutput)
+}
+
 // The formula that specifies how to compute the good events.
 func (o ServiceLevelObjectiveSliSpecificationCountPtrOutput) GoodEventsFormula() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationCount) *string {
@@ -846,13 +971,13 @@ func (o ServiceLevelObjectiveSliSpecificationCountPtrOutput) Queries() ServiceLe
 	}).(ServiceLevelObjectiveSliSpecificationCountQueryArrayOutput)
 }
 
-// The formula that specifies how to compute the total events.
+// The formula that specifies how to compute the total events. Mutually exclusive with `badEventsFormula`.
 func (o ServiceLevelObjectiveSliSpecificationCountPtrOutput) TotalEventsFormula() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationCount) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.TotalEventsFormula
+		return v.TotalEventsFormula
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -32166,6 +32291,8 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerGroupSamplingInput)(nil)).Elem(), SensitiveDataScannerGroupSamplingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerGroupSamplingArrayInput)(nil)).Elem(), SensitiveDataScannerGroupSamplingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerRuleIncludedKeywordConfigurationInput)(nil)).Elem(), SensitiveDataScannerRuleIncludedKeywordConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerRuleIncludedKeywordConfigurationPtrInput)(nil)).Elem(), SensitiveDataScannerRuleIncludedKeywordConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerRuleTextReplacementInput)(nil)).Elem(), SensitiveDataScannerRuleTextReplacementArgs{})
@@ -32566,6 +32693,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamArrayInput)(nil)).Elem(), GetTeamsTeamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
+	pulumi.RegisterOutputType(SensitiveDataScannerGroupSamplingOutput{})
+	pulumi.RegisterOutputType(SensitiveDataScannerGroupSamplingArrayOutput{})
 	pulumi.RegisterOutputType(SensitiveDataScannerRuleIncludedKeywordConfigurationOutput{})
 	pulumi.RegisterOutputType(SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SensitiveDataScannerRuleTextReplacementOutput{})

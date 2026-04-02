@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ServiceLevelObjectiveSliSpecificationCountGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The formula that specifies how to compute the bad events. Mutually exclusive with `TotalEventsFormula`.
+        /// </summary>
+        [Input("badEventsFormula")]
+        public Input<string>? BadEventsFormula { get; set; }
+
+        /// <summary>
         /// The formula that specifies how to compute the good events.
         /// </summary>
         [Input("goodEventsFormula", required: true)]
@@ -31,10 +37,10 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The formula that specifies how to compute the total events.
+        /// The formula that specifies how to compute the total events. Mutually exclusive with `BadEventsFormula`.
         /// </summary>
-        [Input("totalEventsFormula", required: true)]
-        public Input<string> TotalEventsFormula { get; set; } = null!;
+        [Input("totalEventsFormula")]
+        public Input<string>? TotalEventsFormula { get; set; }
 
         public ServiceLevelObjectiveSliSpecificationCountGetArgs()
         {

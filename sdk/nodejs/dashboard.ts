@@ -829,6 +829,10 @@ export class Dashboard extends pulumi.CustomResource {
      */
     declare public readonly restrictedRoles: pulumi.Output<string[] | undefined>;
     /**
+     * The list of tabs for organizing widgets on the dashboard.
+     */
+    declare public readonly tabs: pulumi.Output<outputs.DashboardTab[] | undefined>;
+    /**
      * A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
      */
     declare public readonly tags: pulumi.Output<string[] | undefined>;
@@ -874,6 +878,7 @@ export class Dashboard extends pulumi.CustomResource {
             resourceInputs["notifyLists"] = state?.notifyLists;
             resourceInputs["reflowType"] = state?.reflowType;
             resourceInputs["restrictedRoles"] = state?.restrictedRoles;
+            resourceInputs["tabs"] = state?.tabs;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["templateVariablePresets"] = state?.templateVariablePresets;
             resourceInputs["templateVariables"] = state?.templateVariables;
@@ -895,6 +900,7 @@ export class Dashboard extends pulumi.CustomResource {
             resourceInputs["notifyLists"] = args?.notifyLists;
             resourceInputs["reflowType"] = args?.reflowType;
             resourceInputs["restrictedRoles"] = args?.restrictedRoles;
+            resourceInputs["tabs"] = args?.tabs;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["templateVariablePresets"] = args?.templateVariablePresets;
             resourceInputs["templateVariables"] = args?.templateVariables;
@@ -946,6 +952,10 @@ export interface DashboardState {
      * UUIDs of roles whose associated users are authorized to edit the dashboard.
      */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The list of tabs for organizing widgets on the dashboard.
+     */
+    tabs?: pulumi.Input<pulumi.Input<inputs.DashboardTab>[]>;
     /**
      * A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
      */
@@ -1006,6 +1016,10 @@ export interface DashboardArgs {
      * UUIDs of roles whose associated users are authorized to edit the dashboard.
      */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The list of tabs for organizing widgets on the dashboard.
+     */
+    tabs?: pulumi.Input<pulumi.Input<inputs.DashboardTab>[]>;
     /**
      * A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
      */

@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ServiceLevelObjectiveSliSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A count-based (metric) SLI specification. Composed of a good events formula, a total events formula, and the underlying metric queries.
+        /// A count-based (metric) SLI specification. Composed of a good events formula, either a total events formula or a bad events formula (but not both), and the underlying metric queries.
         /// </summary>
         [Input("count")]
         public Input<Inputs.ServiceLevelObjectiveSliSpecificationCountGetArgs>? Count { get; set; }

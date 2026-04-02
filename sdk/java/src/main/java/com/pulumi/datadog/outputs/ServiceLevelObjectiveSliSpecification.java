@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceLevelObjectiveSliSpecification {
     /**
-     * @return A count-based (metric) SLI specification. Composed of a good events formula, a total events formula, and the underlying metric queries.
+     * @return A count-based (metric) SLI specification. Composed of a good events formula, either a total events formula or a bad events formula (but not both), and the underlying metric queries.
      * 
      */
     private @Nullable ServiceLevelObjectiveSliSpecificationCount count;
@@ -25,7 +25,7 @@ public final class ServiceLevelObjectiveSliSpecification {
 
     private ServiceLevelObjectiveSliSpecification() {}
     /**
-     * @return A count-based (metric) SLI specification. Composed of a good events formula, a total events formula, and the underlying metric queries.
+     * @return A count-based (metric) SLI specification. Composed of a good events formula, either a total events formula or a bad events formula (but not both), and the underlying metric queries.
      * 
      */
     public Optional<ServiceLevelObjectiveSliSpecificationCount> count() {

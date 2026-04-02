@@ -9,6 +9,7 @@ import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationSplunkHec
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -49,14 +50,14 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
     }
 
     /**
-     * Encoding format for log events. Valid values: `json`, `rawMessage`.
+     * Encoding format for log events. Valid values are `json`, `rawMessage`.
      * 
      */
     @Import(name="encoding", required=true)
     private Output<String> encoding;
 
     /**
-     * @return Encoding format for log events. Valid values: `json`, `rawMessage`.
+     * @return Encoding format for log events. Valid values are `json`, `rawMessage`.
      * 
      */
     public Output<String> encoding() {
@@ -91,6 +92,21 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
      */
     public Optional<Output<String>> index() {
         return Optional.ofNullable(this.index);
+    }
+
+    /**
+     * List of log field names to send as indexed fields to Splunk HEC. Available only when `encoding` is `json`.
+     * 
+     */
+    @Import(name="indexedFields")
+    private @Nullable Output<List<String>> indexedFields;
+
+    /**
+     * @return List of log field names to send as indexed fields to Splunk HEC. Available only when `encoding` is `json`.
+     * 
+     */
+    public Optional<Output<List<String>>> indexedFields() {
+        return Optional.ofNullable(this.indexedFields);
     }
 
     /**
@@ -131,6 +147,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
         this.encoding = $.encoding;
         this.endpointUrlKey = $.endpointUrlKey;
         this.index = $.index;
+        this.indexedFields = $.indexedFields;
         this.sourcetype = $.sourcetype;
         this.tokenKey = $.tokenKey;
     }
@@ -196,7 +213,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
         }
 
         /**
-         * @param encoding Encoding format for log events. Valid values: `json`, `rawMessage`.
+         * @param encoding Encoding format for log events. Valid values are `json`, `rawMessage`.
          * 
          * @return builder
          * 
@@ -207,7 +224,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
         }
 
         /**
-         * @param encoding Encoding format for log events. Valid values: `json`, `rawMessage`.
+         * @param encoding Encoding format for log events. Valid values are `json`, `rawMessage`.
          * 
          * @return builder
          * 
@@ -256,6 +273,37 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
          */
         public Builder index(String index) {
             return index(Output.of(index));
+        }
+
+        /**
+         * @param indexedFields List of log field names to send as indexed fields to Splunk HEC. Available only when `encoding` is `json`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder indexedFields(@Nullable Output<List<String>> indexedFields) {
+            $.indexedFields = indexedFields;
+            return this;
+        }
+
+        /**
+         * @param indexedFields List of log field names to send as indexed fields to Splunk HEC. Available only when `encoding` is `json`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder indexedFields(List<String> indexedFields) {
+            return indexedFields(Output.of(indexedFields));
+        }
+
+        /**
+         * @param indexedFields List of log field names to send as indexed fields to Splunk HEC. Available only when `encoding` is `json`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder indexedFields(String... indexedFields) {
+            return indexedFields(List.of(indexedFields));
         }
 
         /**

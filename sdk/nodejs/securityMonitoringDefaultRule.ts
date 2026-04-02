@@ -67,7 +67,7 @@ export class SecurityMonitoringDefaultRule extends pulumi.CustomResource {
     /**
      * Cases of the rule, this is used to update notifications.
      */
-    declare public readonly cases: pulumi.Output<outputs.SecurityMonitoringDefaultRuleCase[] | undefined>;
+    declare public readonly cases: pulumi.Output<outputs.SecurityMonitoringDefaultRuleCase[]>;
     /**
      * Custom Message (will override default message) for generated signals.
      */
@@ -95,7 +95,7 @@ export class SecurityMonitoringDefaultRule extends pulumi.CustomResource {
     /**
      * Queries for selecting logs which are part of the rule.
      */
-    declare public readonly queries: pulumi.Output<outputs.SecurityMonitoringDefaultRuleQuery[] | undefined>;
+    declare public readonly queries: pulumi.Output<outputs.SecurityMonitoringDefaultRuleQuery[]>;
     /**
      * The rule type.
      */
