@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Manage Datadog compliance resource evaluation filters
-    ///     var basicFilter = new Datadog.ComplianceResourceEvaluationFilter("basic_filter", new()
+    ///     var basicFilter = new Datadog.Index.ComplianceResourceEvaluationFilter("basic_filter", new()
     ///     {
     ///         Tags = new[]
     ///         {

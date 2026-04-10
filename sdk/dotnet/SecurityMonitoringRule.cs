@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myrule = new Datadog.SecurityMonitoringRule("myrule", new()
+    ///     var myrule = new Datadog.Index.SecurityMonitoringRule("myrule", new()
     ///     {
     ///         Name = "My rule",
     ///         Message = "The rule has triggered.",

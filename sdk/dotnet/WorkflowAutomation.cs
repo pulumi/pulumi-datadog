@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var workflow = new Datadog.WorkflowAutomation("workflow", new()
+    ///     var workflow = new Datadog.Index.WorkflowAutomation("workflow", new()
     ///     {
     ///         Name = "Send Email when Monitor Alerts",
     ///         Description = "This workflow alerts me by email when my monitor goes off. ",

@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Datadog.MonitorConfigPolicy("test", new()
+    ///     var test = new Datadog.Index.MonitorConfigPolicy("test", new()
     ///     {
     ///         PolicyType = "tag",
     ///         TagPolicy = new Datadog.Inputs.MonitorConfigPolicyTagPolicyArgs

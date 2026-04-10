@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new WAF custom rule to block a custom IoC
-    ///     var ioc000 = new Datadog.AppsecWafCustomRule("ioc000", new()
+    ///     var ioc000 = new Datadog.Index.AppsecWafCustomRule("ioc000", new()
     ///     {
     ///         Name = "Block requests from a bad actor",
     ///         Blocking = true,
@@ -73,7 +73,7 @@ namespace Pulumi.Datadog
     ///     });
     /// 
     ///     // Create a WAF custom rule to track business logic events
-    ///     var biz000 = new Datadog.AppsecWafCustomRule("biz000", new()
+    ///     var biz000 = new Datadog.Index.AppsecWafCustomRule("biz000", new()
     ///     {
     ///         Name = "Track payments",
     ///         Blocking = false,

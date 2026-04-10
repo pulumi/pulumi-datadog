@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new Datadog Child Organization
-    ///     var organization = new Datadog.ChildOrganization("organization", new()
+    ///     var organization = new Datadog.Index.ChildOrganization("organization", new()
     ///     {
     ///         Name = "foo-organization",
     ///     });

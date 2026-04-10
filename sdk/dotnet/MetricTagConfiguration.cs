@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Manage a tag configuration for a Datadog distribution metric with/without percentiles
-    ///     var exampleDistMetric = new Datadog.MetricTagConfiguration("example_dist_metric", new()
+    ///     var exampleDistMetric = new Datadog.Index.MetricTagConfiguration("example_dist_metric", new()
     ///     {
     ///         MetricName = "example.terraform.dist.metric",
     ///         MetricType = "distribution",
@@ -36,7 +36,7 @@ namespace Pulumi.Datadog
     ///     });
     /// 
     ///     // Manage tag configurations for a Datadog count or gauge metric
-    ///     var exampleCountMetric = new Datadog.MetricTagConfiguration("example_count_metric", new()
+    ///     var exampleCountMetric = new Datadog.Index.MetricTagConfiguration("example_count_metric", new()
     ///     {
     ///         MetricName = "example.terraform.count.metric",
     ///         MetricType = "count",

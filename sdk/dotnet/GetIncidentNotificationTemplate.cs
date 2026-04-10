@@ -24,7 +24,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Datadog.GetIncidentNotificationTemplate.Invoke(new()
+        ///     var example = Datadog.Index.GetIncidentNotificationTemplate.Invoke(new()
         ///     {
         ///         Id = "52600bb1-e83a-48a1-aa77-6889ddb269b2",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Datadog.GetIncidentNotificationTemplate.Invoke(new()
+        ///     var example = Datadog.Index.GetIncidentNotificationTemplate.Invoke(new()
         ///     {
         ///         Id = "52600bb1-e83a-48a1-aa77-6889ddb269b2",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Datadog.GetIncidentNotificationTemplate.Invoke(new()
+        ///     var example = Datadog.Index.GetIncidentNotificationTemplate.Invoke(new()
         ///     {
         ///         Id = "52600bb1-e83a-48a1-aa77-6889ddb269b2",
         ///     });

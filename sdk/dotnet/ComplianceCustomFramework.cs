@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var framework = new Datadog.ComplianceCustomFramework("framework", new()
+    ///     var framework = new Datadog.Index.ComplianceCustomFramework("framework", new()
     ///     {
     ///         Name = "my-custom-framework-terraform-2",
     ///         Version = "2.0.0",

@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Manage a Datadog log restriction query
-    ///     var testLrq = new Datadog.LogsRestrictionQuery("test_lrq", new()
+    ///     var testLrq = new Datadog.Index.LogsRestrictionQuery("test_lrq", new()
     ///     {
     ///         RestrictionQuery = "service:foo",
     ///         RoleIds = new[]

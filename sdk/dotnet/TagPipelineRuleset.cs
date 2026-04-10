@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Datadog.TagPipelineRuleset("example", new()
+    ///     var example = new Datadog.Index.TagPipelineRuleset("example", new()
     ///     {
     ///         Name = "Complete Tag Pipeline Example",
     ///         Enabled = true,

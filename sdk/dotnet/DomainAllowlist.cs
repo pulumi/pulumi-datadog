@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Datadog.DomainAllowlist("example", new()
+    ///     var example = new Datadog.Index.DomainAllowlist("example", new()
     ///     {
     ///         Enabled = true,
     ///         Domains = new[]

@@ -133,11 +133,11 @@ class RumRetentionFiltersOrder(pulumi.CustomResource):
         # Please note that the IDs of all default retention filters have the prefix 'default', and you need to populate the retention_filter_ids field with all retention filter IDs.
         my_rum_retention_filters_order = datadog.RumRetentionFiltersOrder("my_rum_retention_filters_order",
             application_id=datadog_rum_application["myRumApplication"]["id"],
-            retention_filter_ids=std.index.concat(input=[
-                [rf.id for rf in my_retention_filters.retention_filters if std.index.startswith(input=rf.id,
+            retention_filter_ids=std.concat(input=[
+                [rf.id for rf in my_retention_filters.retention_filters if std.startswith(input=rf.id,
                     prefix="default")["result"]],
                 [new_rum_retention_filter.id],
-                [rf.id for rf in my_retention_filters.retention_filters if not std.index.startswith(input=rf.id,
+                [rf.id for rf in my_retention_filters.retention_filters if not std.startswith(input=rf.id,
                     prefix="default")["result"] and rf.id != _arg0_],
             ])["result"])
         ```
@@ -190,11 +190,11 @@ class RumRetentionFiltersOrder(pulumi.CustomResource):
         # Please note that the IDs of all default retention filters have the prefix 'default', and you need to populate the retention_filter_ids field with all retention filter IDs.
         my_rum_retention_filters_order = datadog.RumRetentionFiltersOrder("my_rum_retention_filters_order",
             application_id=datadog_rum_application["myRumApplication"]["id"],
-            retention_filter_ids=std.index.concat(input=[
-                [rf.id for rf in my_retention_filters.retention_filters if std.index.startswith(input=rf.id,
+            retention_filter_ids=std.concat(input=[
+                [rf.id for rf in my_retention_filters.retention_filters if std.startswith(input=rf.id,
                     prefix="default")["result"]],
                 [new_rum_retention_filter.id],
-                [rf.id for rf in my_retention_filters.retention_filters if not std.index.startswith(input=rf.id,
+                [rf.id for rf in my_retention_filters.retention_filters if not std.startswith(input=rf.id,
                     prefix="default")["result"] and rf.id != _arg0_],
             ])["result"])
         ```

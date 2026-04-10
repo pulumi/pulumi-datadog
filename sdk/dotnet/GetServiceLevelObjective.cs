@@ -24,13 +24,13 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Datadog.GetServiceLevelObjective.Invoke(new()
+        ///     var test = Datadog.Index.GetServiceLevelObjective.Invoke(new()
         ///     {
         ///         NameQuery = "My test SLO",
         ///         TagsQuery = "foo:bar",
         ///     });
         /// 
-        ///     var apiSlo = Datadog.GetServiceLevelObjective.Invoke(new()
+        ///     var apiSlo = Datadog.Index.GetServiceLevelObjective.Invoke(new()
         ///     {
         ///         Id = api.Outputs.Slo,
         ///     });
@@ -54,13 +54,13 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Datadog.GetServiceLevelObjective.Invoke(new()
+        ///     var test = Datadog.Index.GetServiceLevelObjective.Invoke(new()
         ///     {
         ///         NameQuery = "My test SLO",
         ///         TagsQuery = "foo:bar",
         ///     });
         /// 
-        ///     var apiSlo = Datadog.GetServiceLevelObjective.Invoke(new()
+        ///     var apiSlo = Datadog.Index.GetServiceLevelObjective.Invoke(new()
         ///     {
         ///         Id = api.Outputs.Slo,
         ///     });
@@ -84,13 +84,13 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Datadog.GetServiceLevelObjective.Invoke(new()
+        ///     var test = Datadog.Index.GetServiceLevelObjective.Invoke(new()
         ///     {
         ///         NameQuery = "My test SLO",
         ///         TagsQuery = "foo:bar",
         ///     });
         /// 
-        ///     var apiSlo = Datadog.GetServiceLevelObjective.Invoke(new()
+        ///     var apiSlo = Datadog.Index.GetServiceLevelObjective.Invoke(new()
         ///     {
         ///         Id = api.Outputs.Slo,
         ///     });

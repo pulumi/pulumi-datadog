@@ -25,7 +25,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Example Ordered Layout
-    ///     var orderedDashboard = new Datadog.Dashboard("ordered_dashboard", new()
+    ///     var orderedDashboard = new Datadog.Index.Dashboard("ordered_dashboard", new()
     ///     {
     ///         Title = "Ordered Layout Dashboard",
     ///         Description = "Created using the Datadog provider in Pulumi",
@@ -591,7 +591,7 @@ namespace Pulumi.Datadog
     ///     });
     /// 
     ///     // Example Free Layout
-    ///     var freeDashboard = new Datadog.Dashboard("free_dashboard", new()
+    ///     var freeDashboard = new Datadog.Index.Dashboard("free_dashboard", new()
     ///     {
     ///         Title = "Free Layout Dashboard",
     ///         Description = "Created using the Datadog provider in Pulumi",

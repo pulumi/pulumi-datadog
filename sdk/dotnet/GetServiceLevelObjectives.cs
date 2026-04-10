@@ -24,7 +24,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var ftFooSlos = Datadog.GetServiceLevelObjectives.Invoke(new()
+        ///     var ftFooSlos = Datadog.Index.GetServiceLevelObjectives.Invoke(new()
         ///     {
         ///         TagsQuery = "owner:ft-foo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var ftFooSlos = Datadog.GetServiceLevelObjectives.Invoke(new()
+        ///     var ftFooSlos = Datadog.Index.GetServiceLevelObjectives.Invoke(new()
         ///     {
         ///         TagsQuery = "owner:ft-foo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var ftFooSlos = Datadog.GetServiceLevelObjectives.Invoke(new()
+        ///     var ftFooSlos = Datadog.Index.GetServiceLevelObjectives.Invoke(new()
         ///     {
         ///         TagsQuery = "owner:ft-foo",
         ///     });

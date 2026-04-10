@@ -24,7 +24,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Datadog.ObservabilityPipeline("test", new()
+    ///     var test = new Datadog.Index.ObservabilityPipeline("test", new()
     ///     {
     ///         Name = "test pipeline",
     ///         Config = new Datadog.Inputs.ObservabilityPipelineConfigArgs

@@ -24,7 +24,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = Datadog.GetTeamMemberships.Invoke(new()
+        ///     var foo = Datadog.Index.GetTeamMemberships.Invoke(new()
         ///     {
         ///         TeamId = "e6723c40-edb1-11ed-b816-da7ad0900002",
         ///         FilterKeyword = "foo@example.com",
@@ -49,7 +49,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = Datadog.GetTeamMemberships.Invoke(new()
+        ///     var foo = Datadog.Index.GetTeamMemberships.Invoke(new()
         ///     {
         ///         TeamId = "e6723c40-edb1-11ed-b816-da7ad0900002",
         ///         FilterKeyword = "foo@example.com",
@@ -74,7 +74,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = Datadog.GetTeamMemberships.Invoke(new()
+        ///     var foo = Datadog.Index.GetTeamMemberships.Invoke(new()
         ///     {
         ///         TeamId = "e6723c40-edb1-11ed-b816-da7ad0900002",
         ///         FilterKeyword = "foo@example.com",

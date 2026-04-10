@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Source a role
-//			roRole, err := datadog.LookupRole(ctx, &datadog.LookupRoleArgs{
+//			roRole, err := datadog.GetRole(ctx, &datadog.LookupRoleArgs{
 //				Filter: "Datadog Read Only Role",
 //			}, nil)
 //			if err != nil {

@@ -24,7 +24,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Datadog.GetUser.Invoke(new()
+        ///     var test = Datadog.Index.GetUser.Invoke(new()
         ///     {
         ///         Filter = "user.name@company.com",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Datadog.GetUser.Invoke(new()
+        ///     var test = Datadog.Index.GetUser.Invoke(new()
         ///     {
         ///         Filter = "user.name@company.com",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Datadog.GetUser.Invoke(new()
+        ///     var test = Datadog.Index.GetUser.Invoke(new()
         ///     {
         ///         Filter = "user.name@company.com",
         ///     });

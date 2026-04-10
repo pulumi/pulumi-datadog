@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var adefaultrule = new Datadog.SecurityMonitoringDefaultRule("adefaultrule", new()
+    ///     var adefaultrule = new Datadog.Index.SecurityMonitoringDefaultRule("adefaultrule", new()
     ///     {
     ///         Enabled = true,
     ///         Cases = new[]

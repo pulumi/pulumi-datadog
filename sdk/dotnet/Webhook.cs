@@ -24,7 +24,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new Datadog webhook
-    ///     var foo = new Datadog.Webhook("foo", new()
+    ///     var foo = new Datadog.Index.Webhook("foo", new()
     ///     {
     ///         Name = "test-webhook",
     ///         Url = "example.com",

@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create new downtime_schedule resource
-    ///     var downtimeScheduleExample = new Datadog.DowntimeSchedule("downtime_schedule_example", new()
+    ///     var downtimeScheduleExample = new Datadog.Index.DowntimeSchedule("downtime_schedule_example", new()
     ///     {
     ///         Scope = "env:us9-prod7 AND team:test123",
     ///         MonitorIdentifier = new[]

@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myAgentRule = new Datadog.CloudWorkloadSecurityAgentRule("my_agent_rule", new()
+    ///     var myAgentRule = new Datadog.Index.CloudWorkloadSecurityAgentRule("my_agent_rule", new()
     ///     {
     ///         Name = "my_agent_rule",
     ///         Description = "My agent rule",

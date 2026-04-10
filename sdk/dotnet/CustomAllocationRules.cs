@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var rule1 = new Datadog.CustomAllocationRule("rule_1", new()
+    ///     var rule1 = new Datadog.Index.CustomAllocationRule("rule_1", new()
     ///     {
     ///         CostsToAllocates = new[]
     ///         {
@@ -61,7 +61,7 @@ namespace Pulumi.Datadog
     ///         },
     ///     });
     /// 
-    ///     var rule2 = new Datadog.CustomAllocationRule("rule_2", new()
+    ///     var rule2 = new Datadog.Index.CustomAllocationRule("rule_2", new()
     ///     {
     ///         CostsToAllocates = new[]
     ///         {
@@ -100,7 +100,7 @@ namespace Pulumi.Datadog
     ///         },
     ///     });
     /// 
-    ///     var rule3 = new Datadog.CustomAllocationRule("rule_3", new()
+    ///     var rule3 = new Datadog.Index.CustomAllocationRule("rule_3", new()
     ///     {
     ///         CostsToAllocates = new[]
     ///         {
@@ -141,7 +141,7 @@ namespace Pulumi.Datadog
     /// 
     ///     // Example 1: Preserve mode (default) - allows unmanaged rules to exist at the end
     ///     // This will preserve any existing rules created outside of Terraform as long as they are at the end
-    ///     var preserveOrder = new Datadog.CustomAllocationRules("preserve_order", new()
+    ///     var preserveOrder = new Datadog.Index.CustomAllocationRules("preserve_order", new()
     ///     {
     ///         RuleIds = new[]
     ///         {
@@ -153,7 +153,7 @@ namespace Pulumi.Datadog
     /// 
     ///     // Example 2: Override mode - deletes all unmanaged rules and maintains strict order
     ///     // This will delete any rules not defined in Terraform and enforce the exact order specified
-    ///     var overrideOrder = new Datadog.CustomAllocationRules("override_order", new()
+    ///     var overrideOrder = new Datadog.Index.CustomAllocationRules("override_order", new()
     ///     {
     ///         OverrideUiDefinedResources = true,
     ///         RuleIds = new[]

@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.LookupIncidentNotificationRule(ctx, &datadog.LookupIncidentNotificationRuleArgs{
+//			_, err := datadog.GetIncidentNotificationRule(ctx, &datadog.LookupIncidentNotificationRuleArgs{
 //				Id: "00000000-0000-0000-0000-000000000000",
 //			}, nil)
 //			if err != nil {

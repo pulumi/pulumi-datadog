@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myCriticalAsset = new Datadog.SecurityMonitoringCriticalAsset("my_critical_asset", new()
+    ///     var myCriticalAsset = new Datadog.Index.SecurityMonitoringCriticalAsset("my_critical_asset", new()
     ///     {
     ///         Enabled = true,
     ///         Query = "source:runtime-security-agent",

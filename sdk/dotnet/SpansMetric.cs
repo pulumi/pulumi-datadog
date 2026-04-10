@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create new spans_metric resource
-    ///     var testingSpansMetric = new Datadog.SpansMetric("testing_spans_metric", new()
+    ///     var testingSpansMetric = new Datadog.Index.SpansMetric("testing_spans_metric", new()
     ///     {
     ///         Name = "testing.span.metric",
     ///         Compute = new[]

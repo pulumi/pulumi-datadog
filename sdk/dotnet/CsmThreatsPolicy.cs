@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myPolicy = new Datadog.CsmThreatsPolicy("my_policy", new()
+    ///     var myPolicy = new Datadog.Index.CsmThreatsPolicy("my_policy", new()
     ///     {
     ///         Name = "my_policy",
     ///         Description = "My policy",

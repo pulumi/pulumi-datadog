@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create new team resource
-    ///     var foo = new Datadog.Team("foo", new()
+    ///     var foo = new Datadog.Index.Team("foo", new()
     ///     {
     ///         Description = "Team description",
     ///         Handle = "example-team",

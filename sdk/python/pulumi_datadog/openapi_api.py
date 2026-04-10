@@ -84,7 +84,7 @@ class OpenapiApi(pulumi.CustomResource):
         import pulumi_std as std
 
         # Uploads an OpenAPI file from the given local path to Datadog's API catalog
-        my_api = datadog.OpenapiApi("my-api", spec=std.index.file(input="./path/my-api.yaml")["result"])
+        my_api = datadog.OpenapiApi("my-api", spec=std.file(input="./path/my-api.yaml")["result"])
         ```
 
         ## Import
@@ -117,7 +117,7 @@ class OpenapiApi(pulumi.CustomResource):
         import pulumi_std as std
 
         # Uploads an OpenAPI file from the given local path to Datadog's API catalog
-        my_api = datadog.OpenapiApi("my-api", spec=std.index.file(input="./path/my-api.yaml")["result"])
+        my_api = datadog.OpenapiApi("my-api", spec=std.file(input="./path/my-api.yaml")["result"])
         ```
 
         ## Import

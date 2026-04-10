@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as std from "@pulumi/std";
  *
  * // Uploads an OpenAPI file from the given local path to Datadog's API catalog
- * const my_api = new datadog.OpenapiApi("my-api", {spec: std.index.file({
+ * const my_api = new datadog.OpenapiApi("my-api", {spec: std.file({
  *     input: "./path/my-api.yaml",
  * }).result});
  * ```

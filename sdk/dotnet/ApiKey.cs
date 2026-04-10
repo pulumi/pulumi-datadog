@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new Datadog API Key
-    ///     var foo = new Datadog.ApiKey("foo", new()
+    ///     var foo = new Datadog.Index.ApiKey("foo", new()
     ///     {
     ///         Name = "foo-application",
     ///     });

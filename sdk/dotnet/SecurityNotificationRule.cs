@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var signalRule = new Datadog.SecurityNotificationRule("signal_rule", new()
+    ///     var signalRule = new Datadog.Index.SecurityNotificationRule("signal_rule", new()
     ///     {
     ///         Name = "My signal notification rule",
     ///         Selectors = new[]
@@ -45,7 +45,7 @@ namespace Pulumi.Datadog
     ///         },
     ///     });
     /// 
-    ///     var vulnerabilityRule = new Datadog.SecurityNotificationRule("vulnerability_rule", new()
+    ///     var vulnerabilityRule = new Datadog.Index.SecurityNotificationRule("vulnerability_rule", new()
     ///     {
     ///         Name = "My vulnerability notification rule",
     ///         Selectors = new[]

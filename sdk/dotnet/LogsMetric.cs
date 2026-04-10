@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testingLogsMetric = new Datadog.LogsMetric("testing_logs_metric", new()
+    ///     var testingLogsMetric = new Datadog.Index.LogsMetric("testing_logs_metric", new()
     ///     {
     ///         Name = "testing.logs.metric",
     ///         Compute = new Datadog.Inputs.LogsMetricComputeArgs

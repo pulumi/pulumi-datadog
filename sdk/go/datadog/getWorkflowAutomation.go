@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.LookupWorkflowAutomation(ctx, &datadog.LookupWorkflowAutomationArgs{
+//			_, err := datadog.GetWorkflowAutomation(ctx, &datadog.LookupWorkflowAutomationArgs{
 //				Id: "11111111-2222-3333-4444-555555555555",
 //			}, nil)
 //			if err != nil {
