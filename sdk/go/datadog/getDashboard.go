@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.LookupDashboard(ctx, &datadog.LookupDashboardArgs{
+//			_, err := datadog.GetDashboard(ctx, &datadog.LookupDashboardArgs{
 //				Name: "My super dashboard",
 //			}, nil)
 //			if err != nil {

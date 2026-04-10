@@ -24,7 +24,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = Datadog.GetApiKey.Invoke(new()
+        ///     var foo = Datadog.Index.GetApiKey.Invoke(new()
         ///     {
         ///         Name = "foo-application",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = Datadog.GetApiKey.Invoke(new()
+        ///     var foo = Datadog.Index.GetApiKey.Invoke(new()
         ///     {
         ///         Name = "foo-application",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = Datadog.GetApiKey.Invoke(new()
+        ///     var foo = Datadog.Index.GetApiKey.Invoke(new()
         ///     {
         ///         Name = "foo-application",
         ///     });

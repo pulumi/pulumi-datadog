@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var teamCheckoutNotificationRule = new Datadog.MonitorNotificationRule("team_checkout_notification_rule", new()
+    ///     var teamCheckoutNotificationRule = new Datadog.Index.MonitorNotificationRule("team_checkout_notification_rule", new()
     ///     {
     ///         Name = "Route alerts from checkout team",
     ///         Recipients = new[]
@@ -42,7 +42,7 @@ namespace Pulumi.Datadog
     ///         },
     ///     });
     /// 
-    ///     var teamPaymentNotificationRule = new Datadog.MonitorNotificationRule("team_payment_notification_rule", new()
+    ///     var teamPaymentNotificationRule = new Datadog.Index.MonitorNotificationRule("team_payment_notification_rule", new()
     ///     {
     ///         Name = "Routing logic for team payment",
     ///         Filter = new[]

@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.LookupTeam(ctx, &datadog.LookupTeamArgs{
+//			_, err := datadog.GetTeam(ctx, &datadog.LookupTeamArgs{
 //				TeamId: pulumi.StringRef("e6723c40-edb1-11ed-b816-da7ad0900002"),
 //			}, nil)
 //			if err != nil {

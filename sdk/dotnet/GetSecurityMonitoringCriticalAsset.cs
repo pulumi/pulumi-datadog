@@ -24,7 +24,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var myCriticalAsset = Datadog.GetSecurityMonitoringCriticalAsset.Invoke(new()
+        ///     var myCriticalAsset = Datadog.Index.GetSecurityMonitoringCriticalAsset.Invoke(new()
         ///     {
         ///         Id = "1dab677c-5eb4-4ac8-b1d3-444bf0117e19",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var myCriticalAsset = Datadog.GetSecurityMonitoringCriticalAsset.Invoke(new()
+        ///     var myCriticalAsset = Datadog.Index.GetSecurityMonitoringCriticalAsset.Invoke(new()
         ///     {
         ///         Id = "1dab677c-5eb4-4ac8-b1d3-444bf0117e19",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var myCriticalAsset = Datadog.GetSecurityMonitoringCriticalAsset.Invoke(new()
+        ///     var myCriticalAsset = Datadog.Index.GetSecurityMonitoringCriticalAsset.Invoke(new()
         ///     {
         ///         Id = "1dab677c-5eb4-4ac8-b1d3-444bf0117e19",
         ///     });

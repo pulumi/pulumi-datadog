@@ -23,14 +23,14 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Reference incident type
-    ///     var security = new Datadog.IncidentType("security", new()
+    ///     var security = new Datadog.Index.IncidentType("security", new()
     ///     {
     ///         Name = "Security Incident",
     ///         Description = "Security-related incidents requiring immediate attention",
     ///     });
     /// 
     ///     // Create a notification template for incident alerts
-    ///     var securityIncident = new Datadog.IncidentNotificationTemplate("security_incident", new()
+    ///     var securityIncident = new Datadog.Index.IncidentNotificationTemplate("security_incident", new()
     ///     {
     ///         Name = "Security Incident Template",
     ///         Subject = "SEV-1 Security Incident: {{incident.title}}",

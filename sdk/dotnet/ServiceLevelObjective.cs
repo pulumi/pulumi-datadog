@@ -24,7 +24,7 @@ namespace Pulumi.Datadog
     /// {
     ///     // Metric-Based SLO
     ///     // Create a new Datadog service level objective
-    ///     var foo = new Datadog.ServiceLevelObjective("foo", new()
+    ///     var foo = new Datadog.Index.ServiceLevelObjective("foo", new()
     ///     {
     ///         Name = "Example Metric SLO",
     ///         Type = "metric",
@@ -61,7 +61,7 @@ namespace Pulumi.Datadog
     /// 
     ///     // Metric-Based SLO using sli_specification.count
     ///     // Create a new Datadog service level objective
-    ///     var metricCountSpecSlo = new Datadog.ServiceLevelObjective("metric_count_spec_slo", new()
+    ///     var metricCountSpecSlo = new Datadog.Index.ServiceLevelObjective("metric_count_spec_slo", new()
     ///     {
     ///         Name = "Example Metric Count Spec SLO",
     ///         Type = "metric",
@@ -120,7 +120,7 @@ namespace Pulumi.Datadog
     /// 
     ///     // Monitor-Based SLO
     ///     // Create a new Datadog service level objective
-    ///     var bar = new Datadog.ServiceLevelObjective("bar", new()
+    ///     var bar = new Datadog.Index.ServiceLevelObjective("bar", new()
     ///     {
     ///         Name = "Example Monitor SLO",
     ///         Type = "monitor",
@@ -156,7 +156,7 @@ namespace Pulumi.Datadog
     ///         },
     ///     });
     /// 
-    ///     var timeSliceSlo = new Datadog.ServiceLevelObjective("time_slice_slo", new()
+    ///     var timeSliceSlo = new Datadog.Index.ServiceLevelObjective("time_slice_slo", new()
     ///     {
     ///         Name = "Example Time Slice SLO",
     ///         Type = "time_slice",

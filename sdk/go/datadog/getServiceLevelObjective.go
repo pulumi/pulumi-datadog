@@ -27,14 +27,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.LookupServiceLevelObjective(ctx, &datadog.LookupServiceLevelObjectiveArgs{
+//			_, err := datadog.GetServiceLevelObjective(ctx, &datadog.LookupServiceLevelObjectiveArgs{
 //				NameQuery: pulumi.StringRef("My test SLO"),
 //				TagsQuery: pulumi.StringRef("foo:bar"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = datadog.LookupServiceLevelObjective(ctx, &datadog.LookupServiceLevelObjectiveArgs{
+//			_, err = datadog.GetServiceLevelObjective(ctx, &datadog.LookupServiceLevelObjectiveArgs{
 //				Id: pulumi.StringRef(api.Outputs.Slo),
 //			}, nil)
 //			if err != nil {

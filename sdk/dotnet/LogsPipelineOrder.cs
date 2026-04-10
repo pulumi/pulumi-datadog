@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var samplePipelineOrder = new Datadog.LogsPipelineOrder("sample_pipeline_order", new()
+    ///     var samplePipelineOrder = new Datadog.Index.LogsPipelineOrder("sample_pipeline_order", new()
     ///     {
     ///         Name = "sample_pipeline_order",
     ///         Pipelines = new[]

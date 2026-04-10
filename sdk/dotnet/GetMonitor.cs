@@ -24,7 +24,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Datadog.GetMonitor.Invoke(new()
+        ///     var test = Datadog.Index.GetMonitor.Invoke(new()
         ///     {
         ///         NameFilter = "My awesome monitor",
         ///         MonitorTagsFilters = new[]
@@ -52,7 +52,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Datadog.GetMonitor.Invoke(new()
+        ///     var test = Datadog.Index.GetMonitor.Invoke(new()
         ///     {
         ///         NameFilter = "My awesome monitor",
         ///         MonitorTagsFilters = new[]
@@ -80,7 +80,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Datadog.GetMonitor.Invoke(new()
+        ///     var test = Datadog.Index.GetMonitor.Invoke(new()
         ///     {
         ///         NameFilter = "My awesome monitor",
         ///         MonitorTagsFilters = new[]

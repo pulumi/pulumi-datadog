@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Manage Datadog Powerpacks
-    ///     var foo = new Datadog.Powerpack("foo", new()
+    ///     var foo = new Datadog.Index.Powerpack("foo", new()
     ///     {
     ///         Description = "Created using the Datadog provider in terraform",
     ///         LiveSpan = "4h",

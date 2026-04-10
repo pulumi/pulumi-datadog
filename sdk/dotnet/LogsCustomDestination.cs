@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sampleDestination = new Datadog.LogsCustomDestination("sample_destination", new()
+    ///     var sampleDestination = new Datadog.Index.LogsCustomDestination("sample_destination", new()
     ///     {
     ///         Name = "sample destination",
     ///         Query = "service:my-service",

@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create APM retention filter
-    ///     var foo = new Datadog.ApmRetentionFilter("foo", new()
+    ///     var foo = new Datadog.Index.ApmRetentionFilter("foo", new()
     ///     {
     ///         Name = "Sample order",
     ///         Rate = "1.0",
@@ -39,7 +39,7 @@ namespace Pulumi.Datadog
     ///     });
     /// 
     ///     // Create APM retention filter order
-    ///     var bar = new Datadog.ApmRetentionFilterOrder("bar", new()
+    ///     var bar = new Datadog.Index.ApmRetentionFilterOrder("bar", new()
     ///     {
     ///         FilterIds = new[]
     ///         {

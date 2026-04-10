@@ -36,14 +36,14 @@ import * as utilities from "./utilities";
  * // Please note that the IDs of all default retention filters have the prefix 'default', and you need to populate the retention_filter_ids field with all retention filter IDs.
  * const myRumRetentionFiltersOrder = new datadog.RumRetentionFiltersOrder("my_rum_retention_filters_order", {
  *     applicationId: datadogRumApplication.myRumApplication.id,
- *     retentionFilterIds: std.index.concat({
+ *     retentionFilterIds: std.concat({
  *         input: [
- *             myRetentionFilters.then(myRetentionFilters => .filter(rf => std.index.startswith({
+ *             myRetentionFilters.then(myRetentionFilters => .filter(rf => std.startswith({
  *                 input: rf.id,
  *                 prefix: "default",
  *             }).result).map(rf => (rf.id))),
  *             [newRumRetentionFilter.id],
- *             pulumi.all([myRetentionFilters, newRumRetentionFilter.id]).apply(([myRetentionFilters, id]) => .filter(rf => !std.index.startswith({
+ *             pulumi.all([myRetentionFilters, newRumRetentionFilter.id]).apply(([myRetentionFilters, id]) => .filter(rf => !std.startswith({
  *                 input: rf.id,
  *                 prefix: "default",
  *             }).result && rf.id != id).map(rf => (rf.id))),

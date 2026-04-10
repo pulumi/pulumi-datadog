@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var python = new Datadog.LogsIntegrationPipeline("python", new()
+    ///     var python = new Datadog.Index.LogsIntegrationPipeline("python", new()
     ///     {
     ///         IsEnabled = true,
     ///     });

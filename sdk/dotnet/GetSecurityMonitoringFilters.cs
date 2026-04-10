@@ -24,7 +24,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Datadog.GetSecurityMonitoringFilters.Invoke();
+        ///     var test = Datadog.Index.GetSecurityMonitoringFilters.Invoke();
         /// 
         /// });
         /// ```
@@ -45,7 +45,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Datadog.GetSecurityMonitoringFilters.Invoke();
+        ///     var test = Datadog.Index.GetSecurityMonitoringFilters.Invoke();
         /// 
         /// });
         /// ```
@@ -66,7 +66,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Datadog.GetSecurityMonitoringFilters.Invoke();
+        ///     var test = Datadog.Index.GetSecurityMonitoringFilters.Invoke();
         /// 
         /// });
         /// ```

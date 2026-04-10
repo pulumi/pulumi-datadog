@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var awsConnection = new Datadog.ActionConnection("aws_connection", new()
+    ///     var awsConnection = new Datadog.Index.ActionConnection("aws_connection", new()
     ///     {
     ///         Name = "My AWS Connection",
     ///         Aws = new[]
@@ -45,7 +45,7 @@ namespace Pulumi.Datadog
     ///     var config = new Config();
     ///     var token1 = config.Require("token1");
     ///     var token2 = config.Require("token2");
-    ///     var httpConnection = new Datadog.ActionConnection("http_connection", new()
+    ///     var httpConnection = new Datadog.Index.ActionConnection("http_connection", new()
     ///     {
     ///         Name = "My HTTP connection with token auth",
     ///         Http = new[]

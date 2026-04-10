@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myFilter = new Datadog.SecurityMonitoringFilter("my_filter", new()
+    ///     var myFilter = new Datadog.Index.SecurityMonitoringFilter("my_filter", new()
     ///     {
     ///         Name = "My filter",
     ///         Query = "The filter is filtering.",

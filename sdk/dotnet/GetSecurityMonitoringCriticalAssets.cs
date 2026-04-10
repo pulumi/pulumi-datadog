@@ -24,7 +24,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = Datadog.GetSecurityMonitoringCriticalAssets.Invoke();
+        ///     var all = Datadog.Index.GetSecurityMonitoringCriticalAssets.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
@@ -50,7 +50,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = Datadog.GetSecurityMonitoringCriticalAssets.Invoke();
+        ///     var all = Datadog.Index.GetSecurityMonitoringCriticalAssets.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
@@ -76,7 +76,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = Datadog.GetSecurityMonitoringCriticalAssets.Invoke();
+        ///     var all = Datadog.Index.GetSecurityMonitoringCriticalAssets.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {

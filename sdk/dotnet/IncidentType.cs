@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Basic incident type
-    ///     var example = new Datadog.IncidentType("example", new()
+    ///     var example = new Datadog.Index.IncidentType("example", new()
     ///     {
     ///         Name = "Security Incident",
     ///         Description = "Security-related incidents requiring immediate attention",

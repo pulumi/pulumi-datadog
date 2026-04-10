@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create new Azure Usage Cost configuration resource
-    ///     var example = new Datadog.AzureUcConfig("example", new()
+    ///     var example = new Datadog.Index.AzureUcConfig("example", new()
     ///     {
     ///         AccountId = "12345678-1234-abcd-1234-123456789012",
     ///         ClientId = "87654321-4321-dcba-4321-210987654321",

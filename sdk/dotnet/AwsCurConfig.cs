@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create new aws_cur_config resource
-    ///     var foo = new Datadog.AwsCurConfig("foo", new()
+    ///     var foo = new Datadog.Index.AwsCurConfig("foo", new()
     ///     {
     ///         AccountId = "123456789123",
     ///         BucketName = "dd-cost-bucket",

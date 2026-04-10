@@ -520,7 +520,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             "securityPolicy": "v3.1",
         }
         # Auto-generate version from keepers
-        secret_version = f"rotation-{std.index.substr(input=std.index.md5(input=json.dumps(secret_keepers))['result'],
+        secret_version = f"rotation-{std.substr(input=std.md5(input=json.dumps(secret_keepers))['result'],
             length=0,
             offset=8)['result']}"
         automated_rotation = datadog.SyntheticsGlobalVariable("automated_rotation",
@@ -606,7 +606,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             "securityPolicy": "v3.1",
         }
         # Auto-generate version from keepers
-        secret_version = f"rotation-{std.index.substr(input=std.index.md5(input=json.dumps(secret_keepers))['result'],
+        secret_version = f"rotation-{std.substr(input=std.md5(input=json.dumps(secret_keepers))['result'],
             length=0,
             offset=8)['result']}"
         automated_rotation = datadog.SyntheticsGlobalVariable("automated_rotation",

@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a datastore and add items to it
-    ///     var example = new Datadog.Datastore("example", new()
+    ///     var example = new Datadog.Index.Datastore("example", new()
     ///     {
     ///         Name = "users-datastore",
     ///         Description = "Datastore for user data",
@@ -32,7 +32,7 @@ namespace Pulumi.Datadog
     ///     });
     /// 
     ///     // Create a datastore item with the primary key specified in the value map
-    ///     var user1 = new Datadog.DatastoreItem("user1", new()
+    ///     var user1 = new Datadog.Index.DatastoreItem("user1", new()
     ///     {
     ///         DatastoreId = example.Id,
     ///         ItemKey = "user-123",
@@ -46,7 +46,7 @@ namespace Pulumi.Datadog
     ///     });
     /// 
     ///     // Create another datastore item
-    ///     var user2 = new Datadog.DatastoreItem("user2", new()
+    ///     var user2 = new Datadog.Index.DatastoreItem("user2", new()
     ///     {
     ///         DatastoreId = example.Id,
     ///         ItemKey = "user-456",

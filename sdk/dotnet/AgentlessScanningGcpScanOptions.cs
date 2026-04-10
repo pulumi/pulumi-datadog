@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Configure agentless scanning for a GCP project
-    ///     var example = new Datadog.AgentlessScanningGcpScanOptions("example", new()
+    ///     var example = new Datadog.Index.AgentlessScanningGcpScanOptions("example", new()
     ///     {
     ///         GcpProjectId = "company-project-prod",
     ///         VulnContainersOs = true,

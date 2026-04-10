@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var samplePipeline = new Datadog.LogsCustomPipeline("sample_pipeline", new()
+    ///     var samplePipeline = new Datadog.Index.LogsCustomPipeline("sample_pipeline", new()
     ///     {
     ///         Filters = new[]
     ///         {

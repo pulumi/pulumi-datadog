@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // AWS Cloud Inventory Sync Config
-    ///     var awsExample = new Datadog.CloudInventorySyncConfig("aws_example", new()
+    ///     var awsExample = new Datadog.Index.CloudInventorySyncConfig("aws_example", new()
     ///     {
     ///         CloudProvider = "aws",
     ///         Aws = new[]
@@ -39,7 +39,7 @@ namespace Pulumi.Datadog
     ///     });
     /// 
     ///     // Azure Cloud Inventory Sync Config
-    ///     var azureExample = new Datadog.CloudInventorySyncConfig("azure_example", new()
+    ///     var azureExample = new Datadog.Index.CloudInventorySyncConfig("azure_example", new()
     ///     {
     ///         CloudProvider = "azure",
     ///         Azure = new[]
@@ -57,7 +57,7 @@ namespace Pulumi.Datadog
     ///     });
     /// 
     ///     // GCP Cloud Inventory Sync Config
-    ///     var gcpExample = new Datadog.CloudInventorySyncConfig("gcp_example", new()
+    ///     var gcpExample = new Datadog.Index.CloudInventorySyncConfig("gcp_example", new()
     ///     {
     ///         CloudProvider = "gcp",
     ///         Gcp = new[]

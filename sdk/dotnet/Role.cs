@@ -23,10 +23,10 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Source the permissions
-    ///     var ddPerms = Datadog.GetPermissions.Invoke();
+    ///     var ddPerms = Datadog.Index.GetPermissions.Invoke();
     /// 
     ///     // Create an API Key Manager role
-    ///     var apiKeyManager = new Datadog.Role("api_key_manager", new()
+    ///     var apiKeyManager = new Datadog.Index.Role("api_key_manager", new()
     ///     {
     ///         Name = "API Key Manager",
     ///         Permissions = new[]

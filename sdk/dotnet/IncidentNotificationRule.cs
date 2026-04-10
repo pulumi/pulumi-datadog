@@ -22,13 +22,13 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Datadog.IncidentType("example", new()
+    ///     var example = new Datadog.Index.IncidentType("example", new()
     ///     {
     ///         Name = "My Incident Type",
     ///         Description = "Incident type for critical production issues",
     ///     });
     /// 
-    ///     var exampleIncidentNotificationTemplate = new Datadog.IncidentNotificationTemplate("example", new()
+    ///     var exampleIncidentNotificationTemplate = new Datadog.Index.IncidentNotificationTemplate("example", new()
     ///     {
     ///         Name = "My Notification Template",
     ///         Subject = "SEV-1 Incident: {{incident.title}}",
@@ -44,7 +44,7 @@ namespace Pulumi.Datadog
     ///         IncidentType = example.Id,
     ///     });
     /// 
-    ///     var exampleIncidentNotificationRule = new Datadog.IncidentNotificationRule("example", new()
+    ///     var exampleIncidentNotificationRule = new Datadog.Index.IncidentNotificationRule("example", new()
     ///     {
     ///         Enabled = true,
     ///         Trigger = "incident_created_trigger",

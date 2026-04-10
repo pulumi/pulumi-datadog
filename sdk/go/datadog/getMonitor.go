@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.LookupMonitor(ctx, &datadog.LookupMonitorArgs{
+//			_, err := datadog.GetMonitor(ctx, &datadog.LookupMonitorArgs{
 //				NameFilter: pulumi.StringRef("My awesome monitor"),
 //				MonitorTagsFilters: []string{
 //					"foo:bar",

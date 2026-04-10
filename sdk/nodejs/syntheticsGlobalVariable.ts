@@ -44,8 +44,8 @@ import * as utilities from "./utilities";
  *     securityPolicy: "v3.1",
  * };
  * // Auto-generate version from keepers
- * const secretVersion = `rotation-${std.index.substr({
- *     input: std.index.md5({
+ * const secretVersion = `rotation-${std.substr({
+ *     input: std.md5({
  *         input: JSON.stringify(secretKeepers),
  *     }).result,
  *     length: 0,

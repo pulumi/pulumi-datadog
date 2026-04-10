@@ -332,7 +332,7 @@ class AppsecWafExclusionFilter(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         # Create a WAF exclusion filter on a path
-        exclude_on_path = datadog.index.AppsecExclusionFilter("exclude_on_path",
+        exclude_on_path = datadog.AppsecExclusionFilter("exclude_on_path",
             description=Exclude false positives on a path,
             enabled=True,
             path_glob=/accounts/*,
@@ -347,7 +347,7 @@ class AppsecWafExclusionFilter(pulumi.CustomResource):
                 service: prod,
             }])
         # Create a WAF exclusion filter for trusted IPs
-        trusted_ips = datadog.index.AppsecExclusionFilter("trusted_ips",
+        trusted_ips = datadog.AppsecExclusionFilter("trusted_ips",
             description=Do not block office IP network,
             enabled=True,
             ip_list=[198.10.14.53/24],
@@ -389,7 +389,7 @@ class AppsecWafExclusionFilter(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         # Create a WAF exclusion filter on a path
-        exclude_on_path = datadog.index.AppsecExclusionFilter("exclude_on_path",
+        exclude_on_path = datadog.AppsecExclusionFilter("exclude_on_path",
             description=Exclude false positives on a path,
             enabled=True,
             path_glob=/accounts/*,
@@ -404,7 +404,7 @@ class AppsecWafExclusionFilter(pulumi.CustomResource):
                 service: prod,
             }])
         # Create a WAF exclusion filter for trusted IPs
-        trusted_ips = datadog.index.AppsecExclusionFilter("trusted_ips",
+        trusted_ips = datadog.AppsecExclusionFilter("trusted_ips",
             description=Do not block office IP network,
             enabled=True,
             ip_list=[198.10.14.53/24],

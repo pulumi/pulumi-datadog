@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Get a specific notification rule for a team
-//			_, err := datadog.LookupTeamNotificationRule(ctx, &datadog.LookupTeamNotificationRuleArgs{
+//			_, err := datadog.GetTeamNotificationRule(ctx, &datadog.LookupTeamNotificationRuleArgs{
 //				TeamId: "00000000-0000-0000-0000-000000000000",
 //				RuleId: "11111111-1111-1111-1111-111111111111",
 //			}, nil)

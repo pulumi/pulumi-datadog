@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create new org connection resource
-    ///     var foo = new Datadog.OrgConnection("foo", new()
+    ///     var foo = new Datadog.Index.OrgConnection("foo", new()
     ///     {
     ///         ConnectionTypes = new[]
     ///         {

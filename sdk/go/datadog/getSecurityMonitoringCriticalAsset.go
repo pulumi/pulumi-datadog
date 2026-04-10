@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.LookupSecurityMonitoringCriticalAsset(ctx, &datadog.LookupSecurityMonitoringCriticalAssetArgs{
+//			_, err := datadog.GetSecurityMonitoringCriticalAsset(ctx, &datadog.LookupSecurityMonitoringCriticalAssetArgs{
 //				Id: "1dab677c-5eb4-4ac8-b1d3-444bf0117e19",
 //			}, nil)
 //			if err != nil {

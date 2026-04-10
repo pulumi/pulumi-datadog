@@ -23,18 +23,18 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Source the permissions for scoped keys
-    ///     var ddPerms = Datadog.GetPermissions.Invoke();
+    ///     var ddPerms = Datadog.Index.GetPermissions.Invoke();
     /// 
     ///     // Create an unrestricted Service Account Application Key
     ///     // This key inherits all permissions of the service account that owns the key
-    ///     var unrestrictedKey = new Datadog.ServiceAccountApplicationKey("unrestricted_key", new()
+    ///     var unrestrictedKey = new Datadog.Index.ServiceAccountApplicationKey("unrestricted_key", new()
     ///     {
     ///         ServiceAccountId = "00000000-0000-1234-0000-000000000000",
     ///         Name = "Unrestricted Service Account Key",
     ///     });
     /// 
     ///     // Create a scoped Service Account Application Key for monitor management
-    ///     var monitorManagementKey = new Datadog.ServiceAccountApplicationKey("monitor_management_key", new()
+    ///     var monitorManagementKey = new Datadog.Index.ServiceAccountApplicationKey("monitor_management_key", new()
     ///     {
     ///         ServiceAccountId = "00000000-0000-1234-0000-000000000000",
     ///         Name = "Monitor Management Service Account Key",

@@ -24,7 +24,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Uploads an OpenAPI file from the given local path to Datadog's API catalog
-    ///     var my_api = new Datadog.OpenapiApi("my-api", new()
+    ///     var my_api = new Datadog.Index.OpenapiApi("my-api", new()
     ///     {
     ///         Spec = Std.Index.File.Invoke(new()
     ///         {

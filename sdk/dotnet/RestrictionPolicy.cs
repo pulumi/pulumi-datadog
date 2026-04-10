@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create new restriction_policy resource
-    ///     var foo = new Datadog.RestrictionPolicy("foo", new()
+    ///     var foo = new Datadog.Index.RestrictionPolicy("foo", new()
     ///     {
     ///         ResourceId = "security-rule:abc-def-ghi",
     ///         Bindings = new[]

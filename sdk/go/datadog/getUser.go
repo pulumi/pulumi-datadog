@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.LookupUser(ctx, &datadog.LookupUserArgs{
+//			_, err := datadog.GetUser(ctx, &datadog.LookupUserArgs{
 //				Filter: "user.name@company.com",
 //			}, nil)
 //			if err != nil {
