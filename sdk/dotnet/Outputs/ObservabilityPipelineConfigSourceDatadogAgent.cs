@@ -14,13 +14,21 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigSourceDatadogAgent
     {
         /// <summary>
+        /// Name of the environment variable or secret that holds the listen address for the Datadog Agent source.
+        /// </summary>
+        public readonly string? AddressKey;
+        /// <summary>
         /// Configuration for enabling TLS encryption between the pipeline component and external services.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigSourceDatadogAgentTls? Tls;
 
         [OutputConstructor]
-        private ObservabilityPipelineConfigSourceDatadogAgent(Outputs.ObservabilityPipelineConfigSourceDatadogAgentTls? tls)
+        private ObservabilityPipelineConfigSourceDatadogAgent(
+            string? addressKey,
+
+            Outputs.ObservabilityPipelineConfigSourceDatadogAgentTls? tls)
         {
+            AddressKey = addressKey;
             Tls = tls;
         }
     }

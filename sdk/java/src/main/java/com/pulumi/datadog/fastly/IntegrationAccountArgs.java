@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceArgs {
@@ -15,18 +17,50 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
     public static final IntegrationAccountArgs Empty = new IntegrationAccountArgs();
 
     /**
-     * The API key for the Fastly account.
+     * The API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set.
      * 
      */
-    @Import(name="apiKey", required=true)
-    private Output<String> apiKey;
+    @Import(name="apiKey")
+    private @Nullable Output<String> apiKey;
 
     /**
-     * @return The API key for the Fastly account.
+     * @return The API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set.
      * 
      */
-    public Output<String> apiKey() {
-        return this.apiKey;
+    public Optional<Output<String>> apiKey() {
+        return Optional.ofNullable(this.apiKey);
+    }
+
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set. Must be used with `apiKeyWoVersion`.
+     * 
+     */
+    @Import(name="apiKeyWo")
+    private @Nullable Output<String> apiKeyWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set. Must be used with `apiKeyWoVersion`.
+     * 
+     */
+    public Optional<Output<String>> apiKeyWo() {
+        return Optional.ofNullable(this.apiKeyWo);
+    }
+
+    /**
+     * Version for `apiKeyWo` rotation. Changing this triggers an update. String length must be at least 1.
+     * 
+     */
+    @Import(name="apiKeyWoVersion")
+    private @Nullable Output<String> apiKeyWoVersion;
+
+    /**
+     * @return Version for `apiKeyWo` rotation. Changing this triggers an update. String length must be at least 1.
+     * 
+     */
+    public Optional<Output<String>> apiKeyWoVersion() {
+        return Optional.ofNullable(this.apiKeyWoVersion);
     }
 
     /**
@@ -48,6 +82,8 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
 
     private IntegrationAccountArgs(IntegrationAccountArgs $) {
         this.apiKey = $.apiKey;
+        this.apiKeyWo = $.apiKeyWo;
+        this.apiKeyWoVersion = $.apiKeyWoVersion;
         this.name = $.name;
     }
 
@@ -70,24 +106,68 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param apiKey The API key for the Fastly account.
+         * @param apiKey The API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set.
          * 
          * @return builder
          * 
          */
-        public Builder apiKey(Output<String> apiKey) {
+        public Builder apiKey(@Nullable Output<String> apiKey) {
             $.apiKey = apiKey;
             return this;
         }
 
         /**
-         * @param apiKey The API key for the Fastly account.
+         * @param apiKey The API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set.
          * 
          * @return builder
          * 
          */
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
+        }
+
+        /**
+         * @param apiKeyWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set. Must be used with `apiKeyWoVersion`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyWo(@Nullable Output<String> apiKeyWo) {
+            $.apiKeyWo = apiKeyWo;
+            return this;
+        }
+
+        /**
+         * @param apiKeyWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set. Must be used with `apiKeyWoVersion`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyWo(String apiKeyWo) {
+            return apiKeyWo(Output.of(apiKeyWo));
+        }
+
+        /**
+         * @param apiKeyWoVersion Version for `apiKeyWo` rotation. Changing this triggers an update. String length must be at least 1.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyWoVersion(@Nullable Output<String> apiKeyWoVersion) {
+            $.apiKeyWoVersion = apiKeyWoVersion;
+            return this;
+        }
+
+        /**
+         * @param apiKeyWoVersion Version for `apiKeyWo` rotation. Changing this triggers an update. String length must be at least 1.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyWoVersion(String apiKeyWoVersion) {
+            return apiKeyWoVersion(Output.of(apiKeyWoVersion));
         }
 
         /**
@@ -112,9 +192,6 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
         }
 
         public IntegrationAccountArgs build() {
-            if ($.apiKey == null) {
-                throw new MissingRequiredPropertyException("IntegrationAccountArgs", "apiKey");
-            }
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("IntegrationAccountArgs", "name");
             }

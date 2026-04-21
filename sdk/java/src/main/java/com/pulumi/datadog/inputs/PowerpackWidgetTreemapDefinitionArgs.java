@@ -34,6 +34,21 @@ public final class PowerpackWidgetTreemapDefinitionArgs extends com.pulumi.resou
     }
 
     /**
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * Nested block describing the request to use when displaying the widget.
      * 
      */
@@ -67,6 +82,7 @@ public final class PowerpackWidgetTreemapDefinitionArgs extends com.pulumi.resou
 
     private PowerpackWidgetTreemapDefinitionArgs(PowerpackWidgetTreemapDefinitionArgs $) {
         this.customLinks = $.customLinks;
+        this.description = $.description;
         this.requests = $.requests;
         this.title = $.title;
     }
@@ -118,6 +134,27 @@ public final class PowerpackWidgetTreemapDefinitionArgs extends com.pulumi.resou
          */
         public Builder customLinks(PowerpackWidgetTreemapDefinitionCustomLinkArgs... customLinks) {
             return customLinks(List.of(customLinks));
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

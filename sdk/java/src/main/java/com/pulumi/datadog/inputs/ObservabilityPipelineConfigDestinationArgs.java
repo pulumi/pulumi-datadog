@@ -177,14 +177,14 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
     }
 
     /**
-     * The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+     * The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
      * 
      */
     @Import(name="elasticsearches")
     private @Nullable Output<List<ObservabilityPipelineConfigDestinationElasticsearchArgs>> elasticsearches;
 
     /**
-     * @return The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+     * @return The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigDestinationElasticsearchArgs>>> elasticsearches() {
@@ -740,7 +740,7 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
         }
 
         /**
-         * @param elasticsearches The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+         * @param elasticsearches The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
          * 
          * @return builder
          * 
@@ -751,7 +751,7 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
         }
 
         /**
-         * @param elasticsearches The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+         * @param elasticsearches The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
          * 
          * @return builder
          * 
@@ -761,7 +761,7 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
         }
 
         /**
-         * @param elasticsearches The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+         * @param elasticsearches The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
          * 
          * @return builder
          * 

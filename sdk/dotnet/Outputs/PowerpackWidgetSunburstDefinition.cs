@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetSunburstDefinitionCustomLink> CustomLinks;
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
         /// </summary>
         public readonly bool? HideIncompleteCostData;
@@ -58,6 +62,8 @@ namespace Pulumi.Datadog.Outputs
         private PowerpackWidgetSunburstDefinition(
             ImmutableArray<Outputs.PowerpackWidgetSunburstDefinitionCustomLink> customLinks,
 
+            string? description,
+
             bool? hideIncompleteCostData,
 
             bool? hideTotal,
@@ -77,6 +83,7 @@ namespace Pulumi.Datadog.Outputs
             string? titleSize)
         {
             CustomLinks = customLinks;
+            Description = description;
             HideIncompleteCostData = hideIncompleteCostData;
             HideTotal = hideTotal;
             LegendInline = legendInline;

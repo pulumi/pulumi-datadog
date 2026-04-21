@@ -31,6 +31,7 @@ class SensitiveDataScannerRuleArgs:
                  pattern: Optional[pulumi.Input[_builtins.str]] = None,
                  priority: Optional[pulumi.Input[_builtins.int]] = None,
                  standard_pattern_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 suppressions: Optional[pulumi.Input['SensitiveDataScannerRuleSuppressionsArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  text_replacement: Optional[pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs']] = None):
         """
@@ -46,6 +47,7 @@ class SensitiveDataScannerRuleArgs:
         :param pulumi.Input[_builtins.str] pattern: Not included if there is a relationship to a standard pattern.
         :param pulumi.Input[_builtins.int] priority: Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
         :param pulumi.Input[_builtins.str] standard_pattern_id: Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
+        :param pulumi.Input['SensitiveDataScannerRuleSuppressionsArgs'] suppressions: Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `starts_with`, `ends_with`, and `exact_match`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of tags.
         :param pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs'] text_replacement: Object describing how the scanned event will be replaced. Defaults to `type: none`
         """
@@ -68,6 +70,8 @@ class SensitiveDataScannerRuleArgs:
             pulumi.set(__self__, "priority", priority)
         if standard_pattern_id is not None:
             pulumi.set(__self__, "standard_pattern_id", standard_pattern_id)
+        if suppressions is not None:
+            pulumi.set(__self__, "suppressions", suppressions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if text_replacement is not None:
@@ -195,6 +199,18 @@ class SensitiveDataScannerRuleArgs:
 
     @_builtins.property
     @pulumi.getter
+    def suppressions(self) -> Optional[pulumi.Input['SensitiveDataScannerRuleSuppressionsArgs']]:
+        """
+        Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `starts_with`, `ends_with`, and `exact_match`.
+        """
+        return pulumi.get(self, "suppressions")
+
+    @suppressions.setter
+    def suppressions(self, value: Optional[pulumi.Input['SensitiveDataScannerRuleSuppressionsArgs']]):
+        pulumi.set(self, "suppressions", value)
+
+    @_builtins.property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags.
@@ -231,6 +247,7 @@ class _SensitiveDataScannerRuleState:
                  pattern: Optional[pulumi.Input[_builtins.str]] = None,
                  priority: Optional[pulumi.Input[_builtins.int]] = None,
                  standard_pattern_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 suppressions: Optional[pulumi.Input['SensitiveDataScannerRuleSuppressionsArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  text_replacement: Optional[pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs']] = None):
         """
@@ -246,6 +263,7 @@ class _SensitiveDataScannerRuleState:
         :param pulumi.Input[_builtins.str] pattern: Not included if there is a relationship to a standard pattern.
         :param pulumi.Input[_builtins.int] priority: Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
         :param pulumi.Input[_builtins.str] standard_pattern_id: Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
+        :param pulumi.Input['SensitiveDataScannerRuleSuppressionsArgs'] suppressions: Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `starts_with`, `ends_with`, and `exact_match`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of tags.
         :param pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs'] text_replacement: Object describing how the scanned event will be replaced. Defaults to `type: none`
         """
@@ -269,6 +287,8 @@ class _SensitiveDataScannerRuleState:
             pulumi.set(__self__, "priority", priority)
         if standard_pattern_id is not None:
             pulumi.set(__self__, "standard_pattern_id", standard_pattern_id)
+        if suppressions is not None:
+            pulumi.set(__self__, "suppressions", suppressions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if text_replacement is not None:
@@ -396,6 +416,18 @@ class _SensitiveDataScannerRuleState:
 
     @_builtins.property
     @pulumi.getter
+    def suppressions(self) -> Optional[pulumi.Input['SensitiveDataScannerRuleSuppressionsArgs']]:
+        """
+        Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `starts_with`, `ends_with`, and `exact_match`.
+        """
+        return pulumi.get(self, "suppressions")
+
+    @suppressions.setter
+    def suppressions(self, value: Optional[pulumi.Input['SensitiveDataScannerRuleSuppressionsArgs']]):
+        pulumi.set(self, "suppressions", value)
+
+    @_builtins.property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags.
@@ -435,6 +467,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
                  pattern: Optional[pulumi.Input[_builtins.str]] = None,
                  priority: Optional[pulumi.Input[_builtins.int]] = None,
                  standard_pattern_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 suppressions: Optional[pulumi.Input[Union['SensitiveDataScannerRuleSuppressionsArgs', 'SensitiveDataScannerRuleSuppressionsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  text_replacement: Optional[pulumi.Input[Union['SensitiveDataScannerRuleTextReplacementArgs', 'SensitiveDataScannerRuleTextReplacementArgsDict']]] = None,
                  __props__=None):
@@ -462,6 +495,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] pattern: Not included if there is a relationship to a standard pattern.
         :param pulumi.Input[_builtins.int] priority: Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
         :param pulumi.Input[_builtins.str] standard_pattern_id: Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
+        :param pulumi.Input[Union['SensitiveDataScannerRuleSuppressionsArgs', 'SensitiveDataScannerRuleSuppressionsArgsDict']] suppressions: Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `starts_with`, `ends_with`, and `exact_match`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of tags.
         :param pulumi.Input[Union['SensitiveDataScannerRuleTextReplacementArgs', 'SensitiveDataScannerRuleTextReplacementArgsDict']] text_replacement: Object describing how the scanned event will be replaced. Defaults to `type: none`
         """
@@ -508,6 +542,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
                  pattern: Optional[pulumi.Input[_builtins.str]] = None,
                  priority: Optional[pulumi.Input[_builtins.int]] = None,
                  standard_pattern_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 suppressions: Optional[pulumi.Input[Union['SensitiveDataScannerRuleSuppressionsArgs', 'SensitiveDataScannerRuleSuppressionsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  text_replacement: Optional[pulumi.Input[Union['SensitiveDataScannerRuleTextReplacementArgs', 'SensitiveDataScannerRuleTextReplacementArgsDict']]] = None,
                  __props__=None):
@@ -531,6 +566,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
             __props__.__dict__["pattern"] = pattern
             __props__.__dict__["priority"] = priority
             __props__.__dict__["standard_pattern_id"] = standard_pattern_id
+            __props__.__dict__["suppressions"] = suppressions
             __props__.__dict__["tags"] = tags
             __props__.__dict__["text_replacement"] = text_replacement
         super(SensitiveDataScannerRule, __self__).__init__(
@@ -553,6 +589,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
             pattern: Optional[pulumi.Input[_builtins.str]] = None,
             priority: Optional[pulumi.Input[_builtins.int]] = None,
             standard_pattern_id: Optional[pulumi.Input[_builtins.str]] = None,
+            suppressions: Optional[pulumi.Input[Union['SensitiveDataScannerRuleSuppressionsArgs', 'SensitiveDataScannerRuleSuppressionsArgsDict']]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             text_replacement: Optional[pulumi.Input[Union['SensitiveDataScannerRuleTextReplacementArgs', 'SensitiveDataScannerRuleTextReplacementArgsDict']]] = None) -> 'SensitiveDataScannerRule':
         """
@@ -572,6 +609,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] pattern: Not included if there is a relationship to a standard pattern.
         :param pulumi.Input[_builtins.int] priority: Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
         :param pulumi.Input[_builtins.str] standard_pattern_id: Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
+        :param pulumi.Input[Union['SensitiveDataScannerRuleSuppressionsArgs', 'SensitiveDataScannerRuleSuppressionsArgsDict']] suppressions: Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `starts_with`, `ends_with`, and `exact_match`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of tags.
         :param pulumi.Input[Union['SensitiveDataScannerRuleTextReplacementArgs', 'SensitiveDataScannerRuleTextReplacementArgsDict']] text_replacement: Object describing how the scanned event will be replaced. Defaults to `type: none`
         """
@@ -589,6 +627,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         __props__.__dict__["pattern"] = pattern
         __props__.__dict__["priority"] = priority
         __props__.__dict__["standard_pattern_id"] = standard_pattern_id
+        __props__.__dict__["suppressions"] = suppressions
         __props__.__dict__["tags"] = tags
         __props__.__dict__["text_replacement"] = text_replacement
         return SensitiveDataScannerRule(resource_name, opts=opts, __props__=__props__)
@@ -672,6 +711,14 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
         """
         return pulumi.get(self, "standard_pattern_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def suppressions(self) -> pulumi.Output[Optional['outputs.SensitiveDataScannerRuleSuppressions']]:
+        """
+        Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `starts_with`, `ends_with`, and `exact_match`.
+        """
+        return pulumi.get(self, "suppressions")
 
     @_builtins.property
     @pulumi.getter

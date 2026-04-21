@@ -18,6 +18,11 @@ public final class DashboardWidgetFreeTextDefinition {
      */
     private @Nullable String color;
     /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return The size of the text in the widget.
      * 
      */
@@ -40,6 +45,13 @@ public final class DashboardWidgetFreeTextDefinition {
      */
     public Optional<String> color() {
         return Optional.ofNullable(this.color);
+    }
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The size of the text in the widget.
@@ -73,6 +85,7 @@ public final class DashboardWidgetFreeTextDefinition {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String color;
+        private @Nullable String description;
         private @Nullable String fontSize;
         private String text;
         private @Nullable String textAlign;
@@ -80,6 +93,7 @@ public final class DashboardWidgetFreeTextDefinition {
         public Builder(DashboardWidgetFreeTextDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.color = defaults.color;
+    	      this.description = defaults.description;
     	      this.fontSize = defaults.fontSize;
     	      this.text = defaults.text;
     	      this.textAlign = defaults.textAlign;
@@ -89,6 +103,12 @@ public final class DashboardWidgetFreeTextDefinition {
         public Builder color(@Nullable String color) {
 
             this.color = color;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -114,6 +134,7 @@ public final class DashboardWidgetFreeTextDefinition {
         public DashboardWidgetFreeTextDefinition build() {
             final var _resultValue = new DashboardWidgetFreeTextDefinition();
             _resultValue.color = color;
+            _resultValue.description = description;
             _resultValue.fontSize = fontSize;
             _resultValue.text = text;
             _resultValue.textAlign = textAlign;

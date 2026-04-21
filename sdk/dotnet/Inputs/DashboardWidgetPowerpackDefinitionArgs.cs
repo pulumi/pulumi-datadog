@@ -25,6 +25,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? BannerImg { get; set; }
 
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// UUID of the associated powerpack.
         /// </summary>
         [Input("powerpackId", required: true)]

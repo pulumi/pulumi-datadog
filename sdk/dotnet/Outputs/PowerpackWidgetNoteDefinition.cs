@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Content;
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// The size of the text.
         /// </summary>
         public readonly string? FontSize;
@@ -56,6 +60,8 @@ namespace Pulumi.Datadog.Outputs
 
             string content,
 
+            string? description,
+
             string? fontSize,
 
             bool? hasPadding,
@@ -72,6 +78,7 @@ namespace Pulumi.Datadog.Outputs
         {
             BackgroundColor = backgroundColor;
             Content = content;
+            Description = description;
             FontSize = fontSize;
             HasPadding = hasPadding;
             ShowTick = showTick;

@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> AlertId { get; set; } = null!;
 
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The precision to use when displaying the value. Use `*` for maximum precision.
         /// </summary>
         [Input("precision")]

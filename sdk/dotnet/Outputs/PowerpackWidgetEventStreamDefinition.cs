@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackWidgetEventStreamDefinition
     {
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// The size to use to display an event. Valid values are `S`, `L`.
         /// </summary>
         public readonly string? EventSize;
@@ -48,6 +52,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private PowerpackWidgetEventStreamDefinition(
+            string? description,
+
             string? eventSize,
 
             bool? hideIncompleteCostData,
@@ -64,6 +70,7 @@ namespace Pulumi.Datadog.Outputs
 
             string? titleSize)
         {
+            Description = description;
             EventSize = eventSize;
             HideIncompleteCostData = hideIncompleteCostData;
             LiveSpan = liveSpan;

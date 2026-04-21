@@ -100,15 +100,15 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
      * Tags assigned to this rule for filtering and classification.
      * 
      */
-    @Import(name="tags", required=true)
-    private Output<List<String>> tags;
+    @Import(name="tags")
+    private @Nullable Output<List<String>> tags;
 
     /**
      * @return Tags assigned to this rule for filtering and classification.
      * 
      */
-    public Output<List<String>> tags() {
-        return this.tags;
+    public Optional<Output<List<String>>> tags() {
+        return Optional.ofNullable(this.tags);
     }
 
     private ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleArgs() {}
@@ -251,7 +251,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
          * @return builder
          * 
          */
-        public Builder tags(Output<List<String>> tags) {
+        public Builder tags(@Nullable Output<List<String>> tags) {
             $.tags = tags;
             return this;
         }
@@ -279,9 +279,6 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
         public ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleArgs build() {
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleArgs", "name");
-            }
-            if ($.tags == null) {
-                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleArgs", "tags");
             }
             return $;
         }

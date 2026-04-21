@@ -21,6 +21,21 @@ public final class PowerpackWidgetDistributionDefinitionArgs extends com.pulumi.
     public static final PowerpackWidgetDistributionDefinitionArgs Empty = new PowerpackWidgetDistributionDefinitionArgs();
 
     /**
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
      * 
      */
@@ -173,6 +188,7 @@ public final class PowerpackWidgetDistributionDefinitionArgs extends com.pulumi.
     private PowerpackWidgetDistributionDefinitionArgs() {}
 
     private PowerpackWidgetDistributionDefinitionArgs(PowerpackWidgetDistributionDefinitionArgs $) {
+        this.description = $.description;
         this.hideIncompleteCostData = $.hideIncompleteCostData;
         this.legendSize = $.legendSize;
         this.liveSpan = $.liveSpan;
@@ -201,6 +217,27 @@ public final class PowerpackWidgetDistributionDefinitionArgs extends com.pulumi.
 
         public Builder(PowerpackWidgetDistributionDefinitionArgs defaults) {
             $ = new PowerpackWidgetDistributionDefinitionArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

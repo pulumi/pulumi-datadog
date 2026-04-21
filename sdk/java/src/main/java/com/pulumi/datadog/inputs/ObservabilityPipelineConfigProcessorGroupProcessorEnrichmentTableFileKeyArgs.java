@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKeyFieldArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -46,17 +47,17 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
     }
 
     /**
-     * The `items` `field`.
+     * Specifies the source of the key value for enrichment table lookups. Set exactly one of `stringPath`, `event`, `vrl`, or `secret`.
      * 
      */
     @Import(name="field")
-    private @Nullable Output<String> field;
+    private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKeyFieldArgs> field;
 
     /**
-     * @return The `items` `field`.
+     * @return Specifies the source of the key value for enrichment table lookups. Set exactly one of `stringPath`, `event`, `vrl`, or `secret`.
      * 
      */
-    public Optional<Output<String>> field() {
+    public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKeyFieldArgs>> field() {
         return Optional.ofNullable(this.field);
     }
 
@@ -129,23 +130,23 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
         }
 
         /**
-         * @param field The `items` `field`.
+         * @param field Specifies the source of the key value for enrichment table lookups. Set exactly one of `stringPath`, `event`, `vrl`, or `secret`.
          * 
          * @return builder
          * 
          */
-        public Builder field(@Nullable Output<String> field) {
+        public Builder field(@Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKeyFieldArgs> field) {
             $.field = field;
             return this;
         }
 
         /**
-         * @param field The `items` `field`.
+         * @param field Specifies the source of the key value for enrichment table lookups. Set exactly one of `stringPath`, `event`, `vrl`, or `secret`.
          * 
          * @return builder
          * 
          */
-        public Builder field(String field) {
+        public Builder field(ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKeyFieldArgs field) {
             return field(Output.of(field));
         }
 

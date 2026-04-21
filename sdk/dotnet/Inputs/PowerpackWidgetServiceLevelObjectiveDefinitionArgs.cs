@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? AdditionalQueryFilters { get; set; }
 
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The global time target of the widget.
         /// </summary>
         [Input("globalTimeTarget")]

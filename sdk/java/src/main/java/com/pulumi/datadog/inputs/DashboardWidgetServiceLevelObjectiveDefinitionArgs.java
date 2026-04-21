@@ -34,6 +34,21 @@ public final class DashboardWidgetServiceLevelObjectiveDefinitionArgs extends co
     }
 
     /**
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * The global time target of the widget.
      * 
      */
@@ -172,6 +187,7 @@ public final class DashboardWidgetServiceLevelObjectiveDefinitionArgs extends co
 
     private DashboardWidgetServiceLevelObjectiveDefinitionArgs(DashboardWidgetServiceLevelObjectiveDefinitionArgs $) {
         this.additionalQueryFilters = $.additionalQueryFilters;
+        this.description = $.description;
         this.globalTimeTarget = $.globalTimeTarget;
         this.showErrorBudget = $.showErrorBudget;
         this.sloId = $.sloId;
@@ -220,6 +236,27 @@ public final class DashboardWidgetServiceLevelObjectiveDefinitionArgs extends co
          */
         public Builder additionalQueryFilters(String additionalQueryFilters) {
             return additionalQueryFilters(Output.of(additionalQueryFilters));
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

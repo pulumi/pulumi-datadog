@@ -8,9 +8,16 @@ import com.pulumi.datadog.outputs.DashboardWidgetSloListDefinitionRequestQuery;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetSloListDefinitionRequest {
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
     /**
      * @return Updated SLO List widget.
      * 
@@ -23,6 +30,13 @@ public final class DashboardWidgetSloListDefinitionRequest {
     private String requestType;
 
     private DashboardWidgetSloListDefinitionRequest() {}
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
+    }
     /**
      * @return Updated SLO List widget.
      * 
@@ -47,15 +61,23 @@ public final class DashboardWidgetSloListDefinitionRequest {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String description;
         private DashboardWidgetSloListDefinitionRequestQuery query;
         private String requestType;
         public Builder() {}
         public Builder(DashboardWidgetSloListDefinitionRequest defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.description = defaults.description;
     	      this.query = defaults.query;
     	      this.requestType = defaults.requestType;
         }
 
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
+        }
         @CustomType.Setter
         public Builder query(DashboardWidgetSloListDefinitionRequestQuery query) {
             if (query == null) {
@@ -74,6 +96,7 @@ public final class DashboardWidgetSloListDefinitionRequest {
         }
         public DashboardWidgetSloListDefinitionRequest build() {
             final var _resultValue = new DashboardWidgetSloListDefinitionRequest();
+            _resultValue.description = description;
             _resultValue.query = query;
             _resultValue.requestType = requestType;
             return _resultValue;

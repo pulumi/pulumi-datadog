@@ -104,7 +104,7 @@ class _RoleState:
         :param pulumi.Input[_builtins.bool] default_permissions_opt_out: If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `include_restricted` attribute for the `get_permissions` data source must be set to `true` to manage default permissions in Terraform.
         :param pulumi.Input[_builtins.str] name: Name of the role.
         :param pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
-        :param pulumi.Input[_builtins.int] user_count: Number of users that have this role.
+        :param pulumi.Input[_builtins.int] user_count: Number of users that have this role. **Deprecated.** This field is no longer set and will be removed in a future release.
         :param pulumi.Input[_builtins.bool] validate: If set to `false`, skip the validation call done during plan.
         """
         if default_permissions_opt_out is not None:
@@ -113,6 +113,9 @@ class _RoleState:
             pulumi.set(__self__, "name", name)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
+        if user_count is not None:
+            warnings.warn("""This field is no longer set and will be removed in a future release.""", DeprecationWarning)
+            pulumi.log.warn("""user_count is deprecated: This field is no longer set and will be removed in a future release.""")
         if user_count is not None:
             pulumi.set(__self__, "user_count", user_count)
         if validate is not None:
@@ -156,9 +159,10 @@ class _RoleState:
 
     @_builtins.property
     @pulumi.getter(name="userCount")
+    @_utilities.deprecated("""This field is no longer set and will be removed in a future release.""")
     def user_count(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Number of users that have this role.
+        Number of users that have this role. **Deprecated.** This field is no longer set and will be removed in a future release.
         """
         return pulumi.get(self, "user_count")
 
@@ -333,7 +337,7 @@ class Role(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] default_permissions_opt_out: If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `include_restricted` attribute for the `get_permissions` data source must be set to `true` to manage default permissions in Terraform.
         :param pulumi.Input[_builtins.str] name: Name of the role.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict']]]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
-        :param pulumi.Input[_builtins.int] user_count: Number of users that have this role.
+        :param pulumi.Input[_builtins.int] user_count: Number of users that have this role. **Deprecated.** This field is no longer set and will be removed in a future release.
         :param pulumi.Input[_builtins.bool] validate: If set to `false`, skip the validation call done during plan.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -373,9 +377,10 @@ class Role(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="userCount")
+    @_utilities.deprecated("""This field is no longer set and will be removed in a future release.""")
     def user_count(self) -> pulumi.Output[_builtins.int]:
         """
-        Number of users that have this role.
+        Number of users that have this role. **Deprecated.** This field is no longer set and will be removed in a future release.
         """
         return pulumi.get(self, "user_count")
 

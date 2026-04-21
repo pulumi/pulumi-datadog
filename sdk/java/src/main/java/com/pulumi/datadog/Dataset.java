@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Datadog Dataset resource. This can be used to create and manage Datadog datasets.
+ * Provides a Datadog Dataset resource. This can be used to create and manage Datadog datasets, also known as restricted datasets, for Data Access Control.
  * 
  * ## Example Usage
  * 

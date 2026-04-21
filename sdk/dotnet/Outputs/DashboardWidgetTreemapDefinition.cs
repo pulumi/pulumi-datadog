@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetTreemapDefinitionCustomLink> CustomLinks;
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Nested block describing the request to use when displaying the widget.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetTreemapDefinitionRequest> Requests;
@@ -30,11 +34,14 @@ namespace Pulumi.Datadog.Outputs
         private DashboardWidgetTreemapDefinition(
             ImmutableArray<Outputs.DashboardWidgetTreemapDefinitionCustomLink> customLinks,
 
+            string? description,
+
             ImmutableArray<Outputs.DashboardWidgetTreemapDefinitionRequest> requests,
 
             string? title)
         {
             CustomLinks = customLinks;
+            Description = description;
             Requests = requests;
             Title = title;
         }

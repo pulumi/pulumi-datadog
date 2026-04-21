@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,14 +17,29 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchDataStream
     public static final ObservabilityPipelineConfigDestinationElasticsearchDataStreamArgs Empty = new ObservabilityPipelineConfigDestinationElasticsearchDataStreamArgs();
 
     /**
-     * The data stream dataset for your logs. This groups logs by their source or application.
+     * When `true`, automatically routes events to the appropriate data stream based on the event content.
+     * 
+     */
+    @Import(name="autoRouting")
+    private @Nullable Output<Boolean> autoRouting;
+
+    /**
+     * @return When `true`, automatically routes events to the appropriate data stream based on the event content.
+     * 
+     */
+    public Optional<Output<Boolean>> autoRouting() {
+        return Optional.ofNullable(this.autoRouting);
+    }
+
+    /**
+     * The data stream dataset. This groups events by their source or application.
      * 
      */
     @Import(name="dataset")
     private @Nullable Output<String> dataset;
 
     /**
-     * @return The data stream dataset for your logs. This groups logs by their source or application.
+     * @return The data stream dataset. This groups events by their source or application.
      * 
      */
     public Optional<Output<String>> dataset() {
@@ -31,14 +47,14 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchDataStream
     }
 
     /**
-     * The data stream type for your logs. This determines how logs are categorized within the data stream.
+     * The data stream type. This determines how events are categorized within the data stream.
      * 
      */
     @Import(name="dtype")
     private @Nullable Output<String> dtype;
 
     /**
-     * @return The data stream type for your logs. This determines how logs are categorized within the data stream.
+     * @return The data stream type. This determines how events are categorized within the data stream.
      * 
      */
     public Optional<Output<String>> dtype() {
@@ -46,26 +62,43 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchDataStream
     }
 
     /**
-     * The data stream namespace for your logs. This separates logs into different environments or domains.
+     * The data stream namespace. This separates events into different environments or domains.
      * 
      */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
     /**
-     * @return The data stream namespace for your logs. This separates logs into different environments or domains.
+     * @return The data stream namespace. This separates events into different environments or domains.
      * 
      */
     public Optional<Output<String>> namespace() {
         return Optional.ofNullable(this.namespace);
     }
 
+    /**
+     * When `true`, synchronizes data stream fields with the Elasticsearch index mapping.
+     * 
+     */
+    @Import(name="syncFields")
+    private @Nullable Output<Boolean> syncFields;
+
+    /**
+     * @return When `true`, synchronizes data stream fields with the Elasticsearch index mapping.
+     * 
+     */
+    public Optional<Output<Boolean>> syncFields() {
+        return Optional.ofNullable(this.syncFields);
+    }
+
     private ObservabilityPipelineConfigDestinationElasticsearchDataStreamArgs() {}
 
     private ObservabilityPipelineConfigDestinationElasticsearchDataStreamArgs(ObservabilityPipelineConfigDestinationElasticsearchDataStreamArgs $) {
+        this.autoRouting = $.autoRouting;
         this.dataset = $.dataset;
         this.dtype = $.dtype;
         this.namespace = $.namespace;
+        this.syncFields = $.syncFields;
     }
 
     public static Builder builder() {
@@ -87,7 +120,28 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchDataStream
         }
 
         /**
-         * @param dataset The data stream dataset for your logs. This groups logs by their source or application.
+         * @param autoRouting When `true`, automatically routes events to the appropriate data stream based on the event content.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoRouting(@Nullable Output<Boolean> autoRouting) {
+            $.autoRouting = autoRouting;
+            return this;
+        }
+
+        /**
+         * @param autoRouting When `true`, automatically routes events to the appropriate data stream based on the event content.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoRouting(Boolean autoRouting) {
+            return autoRouting(Output.of(autoRouting));
+        }
+
+        /**
+         * @param dataset The data stream dataset. This groups events by their source or application.
          * 
          * @return builder
          * 
@@ -98,7 +152,7 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchDataStream
         }
 
         /**
-         * @param dataset The data stream dataset for your logs. This groups logs by their source or application.
+         * @param dataset The data stream dataset. This groups events by their source or application.
          * 
          * @return builder
          * 
@@ -108,7 +162,7 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchDataStream
         }
 
         /**
-         * @param dtype The data stream type for your logs. This determines how logs are categorized within the data stream.
+         * @param dtype The data stream type. This determines how events are categorized within the data stream.
          * 
          * @return builder
          * 
@@ -119,7 +173,7 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchDataStream
         }
 
         /**
-         * @param dtype The data stream type for your logs. This determines how logs are categorized within the data stream.
+         * @param dtype The data stream type. This determines how events are categorized within the data stream.
          * 
          * @return builder
          * 
@@ -129,7 +183,7 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchDataStream
         }
 
         /**
-         * @param namespace The data stream namespace for your logs. This separates logs into different environments or domains.
+         * @param namespace The data stream namespace. This separates events into different environments or domains.
          * 
          * @return builder
          * 
@@ -140,13 +194,34 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchDataStream
         }
 
         /**
-         * @param namespace The data stream namespace for your logs. This separates logs into different environments or domains.
+         * @param namespace The data stream namespace. This separates events into different environments or domains.
          * 
          * @return builder
          * 
          */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
+        }
+
+        /**
+         * @param syncFields When `true`, synchronizes data stream fields with the Elasticsearch index mapping.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder syncFields(@Nullable Output<Boolean> syncFields) {
+            $.syncFields = syncFields;
+            return this;
+        }
+
+        /**
+         * @param syncFields When `true`, synchronizes data stream fields with the Elasticsearch index mapping.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder syncFields(Boolean syncFields) {
+            return syncFields(Output.of(syncFields));
         }
 
         public ObservabilityPipelineConfigDestinationElasticsearchDataStreamArgs build() {

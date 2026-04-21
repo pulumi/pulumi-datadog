@@ -7997,35 +7997,280 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invokeAsync("datadog:index/getSensitiveDataScannerGroupOrder:getSensitiveDataScannerGroupOrder", TypeShape.of(GetSensitiveDataScannerGroupOrderResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
+     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern. You can look up a pattern by its stable standard pattern ID or by name.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSensitiveDataScannerStandardPatternArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var awsAccessKeyById = DatadogFunctions.getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs.builder()
+     *             .standardPatternId("OfGqX8R9TRqAcorxenl2fQ")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSensitiveDataScannerStandardPatternResult> getSensitiveDataScannerStandardPattern() {
+        return getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern. You can look up a pattern by its stable standard pattern ID or by name.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSensitiveDataScannerStandardPatternArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var awsAccessKeyById = DatadogFunctions.getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs.builder()
+     *             .standardPatternId("OfGqX8R9TRqAcorxenl2fQ")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSensitiveDataScannerStandardPatternResult> getSensitiveDataScannerStandardPatternPlain() {
+        return getSensitiveDataScannerStandardPatternPlain(GetSensitiveDataScannerStandardPatternPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern. You can look up a pattern by its stable standard pattern ID or by name.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSensitiveDataScannerStandardPatternArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var awsAccessKeyById = DatadogFunctions.getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs.builder()
+     *             .standardPatternId("OfGqX8R9TRqAcorxenl2fQ")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetSensitiveDataScannerStandardPatternResult> getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs args) {
         return getSensitiveDataScannerStandardPattern(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
+     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern. You can look up a pattern by its stable standard pattern ID or by name.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSensitiveDataScannerStandardPatternArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var awsAccessKeyById = DatadogFunctions.getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs.builder()
+     *             .standardPatternId("OfGqX8R9TRqAcorxenl2fQ")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetSensitiveDataScannerStandardPatternResult> getSensitiveDataScannerStandardPatternPlain(GetSensitiveDataScannerStandardPatternPlainArgs args) {
         return getSensitiveDataScannerStandardPatternPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
+     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern. You can look up a pattern by its stable standard pattern ID or by name.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSensitiveDataScannerStandardPatternArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var awsAccessKeyById = DatadogFunctions.getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs.builder()
+     *             .standardPatternId("OfGqX8R9TRqAcorxenl2fQ")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetSensitiveDataScannerStandardPatternResult> getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern", TypeShape.of(GetSensitiveDataScannerStandardPatternResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
+     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern. You can look up a pattern by its stable standard pattern ID or by name.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSensitiveDataScannerStandardPatternArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var awsAccessKeyById = DatadogFunctions.getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs.builder()
+     *             .standardPatternId("OfGqX8R9TRqAcorxenl2fQ")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetSensitiveDataScannerStandardPatternResult> getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern", TypeShape.of(GetSensitiveDataScannerStandardPatternResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
+     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern. You can look up a pattern by its stable standard pattern ID or by name.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSensitiveDataScannerStandardPatternArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var awsAccessKeyById = DatadogFunctions.getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs.builder()
+     *             .standardPatternId("OfGqX8R9TRqAcorxenl2fQ")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetSensitiveDataScannerStandardPatternResult> getSensitiveDataScannerStandardPatternPlain(GetSensitiveDataScannerStandardPatternPlainArgs args, InvokeOptions options) {

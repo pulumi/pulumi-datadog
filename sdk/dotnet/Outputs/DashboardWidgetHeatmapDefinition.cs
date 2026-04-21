@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionCustomLink> CustomLinks;
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// The definition of the event to overlay on the graph. Multiple `Event` blocks are allowed using the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionEvent> Events;
@@ -62,6 +66,8 @@ namespace Pulumi.Datadog.Outputs
         private DashboardWidgetHeatmapDefinition(
             ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionCustomLink> customLinks,
 
+            string? description,
+
             ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionEvent> events,
 
             bool? hideIncompleteCostData,
@@ -83,6 +89,7 @@ namespace Pulumi.Datadog.Outputs
             Outputs.DashboardWidgetHeatmapDefinitionYaxis? yaxis)
         {
             CustomLinks = customLinks;
+            Description = description;
             Events = events;
             HideIncompleteCostData = hideIncompleteCostData;
             LegendSize = legendSize;

@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The name of the field in the log event to apply the Grok rules to.
+        /// The value of the source field in log events which should be processed by the Grok rules.
         /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;

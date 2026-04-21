@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationAzureStorageBuffer? Buffer;
         /// <summary>
+        /// Name of the environment variable or secret that holds the Azure Storage connection string.
+        /// </summary>
+        public readonly string? ConnectionStringKey;
+        /// <summary>
         /// The name of the Azure Blob Storage container to store logs in.
         /// </summary>
         public readonly string ContainerName;
@@ -32,10 +36,13 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.ObservabilityPipelineConfigDestinationAzureStorageBuffer? buffer,
 
+            string? connectionStringKey,
+
             string containerName)
         {
             BlobPrefix = blobPrefix;
             Buffer = buffer;
+            ConnectionStringKey = connectionStringKey;
             ContainerName = containerName;
         }
     }

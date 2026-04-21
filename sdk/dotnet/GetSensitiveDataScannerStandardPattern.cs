@@ -12,19 +12,73 @@ namespace Pulumi.Datadog
     public static class GetSensitiveDataScannerStandardPattern
     {
         /// <summary>
-        /// Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
+        /// Use this data source to retrieve information about an existing sensitive data scanner standard pattern. You can look up a pattern by its stable standard pattern ID or by name.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var awsAccessKeyById = Datadog.Index.GetSensitiveDataScannerStandardPattern.Invoke(new()
+        ///     {
+        ///         StandardPatternId = "OfGqX8R9TRqAcorxenl2fQ",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
-        public static Task<GetSensitiveDataScannerStandardPatternResult> InvokeAsync(GetSensitiveDataScannerStandardPatternArgs args, InvokeOptions? options = null)
+        public static Task<GetSensitiveDataScannerStandardPatternResult> InvokeAsync(GetSensitiveDataScannerStandardPatternArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSensitiveDataScannerStandardPatternResult>("datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern", args ?? new GetSensitiveDataScannerStandardPatternArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
+        /// Use this data source to retrieve information about an existing sensitive data scanner standard pattern. You can look up a pattern by its stable standard pattern ID or by name.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var awsAccessKeyById = Datadog.Index.GetSensitiveDataScannerStandardPattern.Invoke(new()
+        ///     {
+        ///         StandardPatternId = "OfGqX8R9TRqAcorxenl2fQ",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
-        public static Output<GetSensitiveDataScannerStandardPatternResult> Invoke(GetSensitiveDataScannerStandardPatternInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetSensitiveDataScannerStandardPatternResult> Invoke(GetSensitiveDataScannerStandardPatternInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSensitiveDataScannerStandardPatternResult>("datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern", args ?? new GetSensitiveDataScannerStandardPatternInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
+        /// Use this data source to retrieve information about an existing sensitive data scanner standard pattern. You can look up a pattern by its stable standard pattern ID or by name.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var awsAccessKeyById = Datadog.Index.GetSensitiveDataScannerStandardPattern.Invoke(new()
+        ///     {
+        ///         StandardPatternId = "OfGqX8R9TRqAcorxenl2fQ",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetSensitiveDataScannerStandardPatternResult> Invoke(GetSensitiveDataScannerStandardPatternInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSensitiveDataScannerStandardPatternResult>("datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern", args ?? new GetSensitiveDataScannerStandardPatternInvokeArgs(), options.WithDefaults());
@@ -36,8 +90,14 @@ namespace Pulumi.Datadog
         /// <summary>
         /// Filter all the Datadog standard patterns by name.
         /// </summary>
-        [Input("filter", required: true)]
-        public string Filter { get; set; } = null!;
+        [Input("filter")]
+        public string? Filter { get; set; }
+
+        /// <summary>
+        /// Stable ID of the Datadog standard pattern to retrieve. This can be set directly to avoid Terraform configs breaking when Datadog renames a standard pattern.
+        /// </summary>
+        [Input("standardPatternId")]
+        public string? StandardPatternId { get; set; }
 
         public GetSensitiveDataScannerStandardPatternArgs()
         {
@@ -50,8 +110,14 @@ namespace Pulumi.Datadog
         /// <summary>
         /// Filter all the Datadog standard patterns by name.
         /// </summary>
-        [Input("filter", required: true)]
-        public Input<string> Filter { get; set; } = null!;
+        [Input("filter")]
+        public Input<string>? Filter { get; set; }
+
+        /// <summary>
+        /// Stable ID of the Datadog standard pattern to retrieve. This can be set directly to avoid Terraform configs breaking when Datadog renames a standard pattern.
+        /// </summary>
+        [Input("standardPatternId")]
+        public Input<string>? StandardPatternId { get; set; }
 
         public GetSensitiveDataScannerStandardPatternInvokeArgs()
         {
@@ -70,7 +136,7 @@ namespace Pulumi.Datadog
         /// <summary>
         /// Filter all the Datadog standard patterns by name.
         /// </summary>
-        public readonly string Filter;
+        public readonly string? Filter;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -88,6 +154,10 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string Pattern;
         /// <summary>
+        /// Stable ID of the Datadog standard pattern to retrieve. This can be set directly to avoid Terraform configs breaking when Datadog renames a standard pattern.
+        /// </summary>
+        public readonly string? StandardPatternId;
+        /// <summary>
         /// List of tags.
         /// </summary>
         public readonly ImmutableArray<string> Tags;
@@ -96,7 +166,7 @@ namespace Pulumi.Datadog
         private GetSensitiveDataScannerStandardPatternResult(
             string description,
 
-            string filter,
+            string? filter,
 
             string id,
 
@@ -106,6 +176,8 @@ namespace Pulumi.Datadog
 
             string pattern,
 
+            string? standardPatternId,
+
             ImmutableArray<string> tags)
         {
             Description = description;
@@ -114,6 +186,7 @@ namespace Pulumi.Datadog
             IncludedKeywords = includedKeywords;
             Name = name;
             Pattern = pattern;
+            StandardPatternId = standardPatternId;
             Tags = tags;
         }
     }

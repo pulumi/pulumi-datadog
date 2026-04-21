@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigSourceAmazonDataFirehose> AmazonDataFirehoses;
         /// <summary>
-        /// The `AmazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
+        /// The `AmazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication, TLS encryption, and configurable compression.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigSourceAmazonS3> AmazonS3s;
         /// <summary>
