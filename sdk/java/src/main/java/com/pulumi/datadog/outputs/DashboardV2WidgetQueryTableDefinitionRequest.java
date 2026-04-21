@@ -4,16 +4,16 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.DashboardV2WidgetQueryTableDefinitionRequestApmQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetApmQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetLogQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetQueryTableDefinitionRequestApmStatsQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetQueryTableDefinitionRequestConditionalFormat;
 import com.pulumi.datadog.outputs.DashboardV2WidgetQueryTableDefinitionRequestFormula;
-import com.pulumi.datadog.outputs.DashboardV2WidgetQueryTableDefinitionRequestLogQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetQueryTableDefinitionRequestProcessQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetQueryTableDefinitionRequestQuery;
-import com.pulumi.datadog.outputs.DashboardV2WidgetQueryTableDefinitionRequestRumQuery;
-import com.pulumi.datadog.outputs.DashboardV2WidgetQueryTableDefinitionRequestSecurityQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetQueryTableDefinitionRequestTextFormat;
+import com.pulumi.datadog.outputs.DashboardV2WidgetRumQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetSecurityQuery;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -41,7 +41,7 @@ public final class DashboardV2WidgetQueryTableDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetQueryTableDefinitionRequestApmQuery apmQuery;
+    private @Nullable DashboardV2WidgetApmQuery apmQuery;
     /**
      * @return The APM stats query for table and distribution widgets. **Deprecated.** Use queries and formulas instead.
      * 
@@ -79,7 +79,7 @@ public final class DashboardV2WidgetQueryTableDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetQueryTableDefinitionRequestLogQuery logQuery;
+    private @Nullable DashboardV2WidgetLogQuery logQuery;
     /**
      * @return The sort order for the rows. Valid values are `asc`, `desc`.
      * 
@@ -116,7 +116,7 @@ public final class DashboardV2WidgetQueryTableDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetQueryTableDefinitionRequestRumQuery rumQuery;
+    private @Nullable DashboardV2WidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -125,7 +125,7 @@ public final class DashboardV2WidgetQueryTableDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetQueryTableDefinitionRequestSecurityQuery securityQuery;
+    private @Nullable DashboardV2WidgetSecurityQuery securityQuery;
     /**
      * @return Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
      * 
@@ -155,7 +155,7 @@ public final class DashboardV2WidgetQueryTableDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetQueryTableDefinitionRequestApmQuery> apmQuery() {
+    public Optional<DashboardV2WidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
@@ -205,7 +205,7 @@ public final class DashboardV2WidgetQueryTableDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetQueryTableDefinitionRequestLogQuery> logQuery() {
+    public Optional<DashboardV2WidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
@@ -252,7 +252,7 @@ public final class DashboardV2WidgetQueryTableDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetQueryTableDefinitionRequestRumQuery> rumQuery() {
+    public Optional<DashboardV2WidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
@@ -263,7 +263,7 @@ public final class DashboardV2WidgetQueryTableDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetQueryTableDefinitionRequestSecurityQuery> securityQuery() {
+    public Optional<DashboardV2WidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
     /**
@@ -285,19 +285,19 @@ public final class DashboardV2WidgetQueryTableDefinitionRequest {
     public static final class Builder {
         private @Nullable String aggregator;
         private @Nullable String alias;
-        private @Nullable DashboardV2WidgetQueryTableDefinitionRequestApmQuery apmQuery;
+        private @Nullable DashboardV2WidgetApmQuery apmQuery;
         private @Nullable DashboardV2WidgetQueryTableDefinitionRequestApmStatsQuery apmStatsQuery;
         private @Nullable List<String> cellDisplayModes;
         private @Nullable List<DashboardV2WidgetQueryTableDefinitionRequestConditionalFormat> conditionalFormats;
         private @Nullable List<DashboardV2WidgetQueryTableDefinitionRequestFormula> formulas;
         private @Nullable Integer limit;
-        private @Nullable DashboardV2WidgetQueryTableDefinitionRequestLogQuery logQuery;
+        private @Nullable DashboardV2WidgetLogQuery logQuery;
         private @Nullable String order;
         private @Nullable DashboardV2WidgetQueryTableDefinitionRequestProcessQuery processQuery;
         private @Nullable String q;
         private @Nullable List<DashboardV2WidgetQueryTableDefinitionRequestQuery> queries;
-        private @Nullable DashboardV2WidgetQueryTableDefinitionRequestRumQuery rumQuery;
-        private @Nullable DashboardV2WidgetQueryTableDefinitionRequestSecurityQuery securityQuery;
+        private @Nullable DashboardV2WidgetRumQuery rumQuery;
+        private @Nullable DashboardV2WidgetSecurityQuery securityQuery;
         private @Nullable List<DashboardV2WidgetQueryTableDefinitionRequestTextFormat> textFormats;
         public Builder() {}
         public Builder(DashboardV2WidgetQueryTableDefinitionRequest defaults) {
@@ -333,7 +333,7 @@ public final class DashboardV2WidgetQueryTableDefinitionRequest {
             return this;
         }
         @CustomType.Setter
-        public Builder apmQuery(@Nullable DashboardV2WidgetQueryTableDefinitionRequestApmQuery apmQuery) {
+        public Builder apmQuery(@Nullable DashboardV2WidgetApmQuery apmQuery) {
 
             this.apmQuery = apmQuery;
             return this;
@@ -378,7 +378,7 @@ public final class DashboardV2WidgetQueryTableDefinitionRequest {
             return this;
         }
         @CustomType.Setter
-        public Builder logQuery(@Nullable DashboardV2WidgetQueryTableDefinitionRequestLogQuery logQuery) {
+        public Builder logQuery(@Nullable DashboardV2WidgetLogQuery logQuery) {
 
             this.logQuery = logQuery;
             return this;
@@ -411,13 +411,13 @@ public final class DashboardV2WidgetQueryTableDefinitionRequest {
             return queries(List.of(queries));
         }
         @CustomType.Setter
-        public Builder rumQuery(@Nullable DashboardV2WidgetQueryTableDefinitionRequestRumQuery rumQuery) {
+        public Builder rumQuery(@Nullable DashboardV2WidgetRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
-        public Builder securityQuery(@Nullable DashboardV2WidgetQueryTableDefinitionRequestSecurityQuery securityQuery) {
+        public Builder securityQuery(@Nullable DashboardV2WidgetSecurityQuery securityQuery) {
 
             this.securityQuery = securityQuery;
             return this;

@@ -4,14 +4,14 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.DashboardV2WidgetHeatmapDefinitionRequestApmQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetApmQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetHeatmapDefinitionRequestFormula;
-import com.pulumi.datadog.outputs.DashboardV2WidgetHeatmapDefinitionRequestLogQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetHeatmapDefinitionRequestProcessQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetHeatmapDefinitionRequestQuery;
-import com.pulumi.datadog.outputs.DashboardV2WidgetHeatmapDefinitionRequestRumQuery;
-import com.pulumi.datadog.outputs.DashboardV2WidgetHeatmapDefinitionRequestSecurityQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetHeatmapDefinitionRequestStyle;
+import com.pulumi.datadog.outputs.DashboardV2WidgetLogQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetRumQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetSecurityQuery;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -28,7 +28,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetHeatmapDefinitionRequestApmQuery apmQuery;
+    private @Nullable DashboardV2WidgetApmQuery apmQuery;
     /**
      * @return A list of formulas to use in the widget.
      * 
@@ -42,7 +42,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetHeatmapDefinitionRequestLogQuery logQuery;
+    private @Nullable DashboardV2WidgetLogQuery logQuery;
     /**
      * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
      * 
@@ -74,7 +74,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetHeatmapDefinitionRequestRumQuery rumQuery;
+    private @Nullable DashboardV2WidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -83,7 +83,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetHeatmapDefinitionRequestSecurityQuery securityQuery;
+    private @Nullable DashboardV2WidgetSecurityQuery securityQuery;
     /**
      * @return The style of the widget graph. One nested block is allowed using the structure below.
      * 
@@ -99,7 +99,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetHeatmapDefinitionRequestApmQuery> apmQuery() {
+    public Optional<DashboardV2WidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
@@ -117,7 +117,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetHeatmapDefinitionRequestLogQuery> logQuery() {
+    public Optional<DashboardV2WidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
@@ -157,7 +157,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetHeatmapDefinitionRequestRumQuery> rumQuery() {
+    public Optional<DashboardV2WidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
@@ -168,7 +168,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetHeatmapDefinitionRequestSecurityQuery> securityQuery() {
+    public Optional<DashboardV2WidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
     /**
@@ -188,14 +188,14 @@ public final class DashboardV2WidgetHeatmapDefinitionRequest {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable DashboardV2WidgetHeatmapDefinitionRequestApmQuery apmQuery;
+        private @Nullable DashboardV2WidgetApmQuery apmQuery;
         private @Nullable List<DashboardV2WidgetHeatmapDefinitionRequestFormula> formulas;
-        private @Nullable DashboardV2WidgetHeatmapDefinitionRequestLogQuery logQuery;
+        private @Nullable DashboardV2WidgetLogQuery logQuery;
         private @Nullable DashboardV2WidgetHeatmapDefinitionRequestProcessQuery processQuery;
         private @Nullable String q;
         private @Nullable List<DashboardV2WidgetHeatmapDefinitionRequestQuery> queries;
-        private @Nullable DashboardV2WidgetHeatmapDefinitionRequestRumQuery rumQuery;
-        private @Nullable DashboardV2WidgetHeatmapDefinitionRequestSecurityQuery securityQuery;
+        private @Nullable DashboardV2WidgetRumQuery rumQuery;
+        private @Nullable DashboardV2WidgetSecurityQuery securityQuery;
         private @Nullable DashboardV2WidgetHeatmapDefinitionRequestStyle style;
         public Builder() {}
         public Builder(DashboardV2WidgetHeatmapDefinitionRequest defaults) {
@@ -212,7 +212,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequest {
         }
 
         @CustomType.Setter
-        public Builder apmQuery(@Nullable DashboardV2WidgetHeatmapDefinitionRequestApmQuery apmQuery) {
+        public Builder apmQuery(@Nullable DashboardV2WidgetApmQuery apmQuery) {
 
             this.apmQuery = apmQuery;
             return this;
@@ -227,7 +227,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequest {
             return formulas(List.of(formulas));
         }
         @CustomType.Setter
-        public Builder logQuery(@Nullable DashboardV2WidgetHeatmapDefinitionRequestLogQuery logQuery) {
+        public Builder logQuery(@Nullable DashboardV2WidgetLogQuery logQuery) {
 
             this.logQuery = logQuery;
             return this;
@@ -254,13 +254,13 @@ public final class DashboardV2WidgetHeatmapDefinitionRequest {
             return queries(List.of(queries));
         }
         @CustomType.Setter
-        public Builder rumQuery(@Nullable DashboardV2WidgetHeatmapDefinitionRequestRumQuery rumQuery) {
+        public Builder rumQuery(@Nullable DashboardV2WidgetRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
-        public Builder securityQuery(@Nullable DashboardV2WidgetHeatmapDefinitionRequestSecurityQuery securityQuery) {
+        public Builder securityQuery(@Nullable DashboardV2WidgetSecurityQuery securityQuery) {
 
             this.securityQuery = securityQuery;
             return this;

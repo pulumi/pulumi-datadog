@@ -127,7 +127,7 @@ namespace Pulumi.Datadog
     ///                     {
     ///                         new Datadog.Inputs.DashboardV2WidgetGroupDefinitionWidgetArgs
     ///                         {
-    ///                             NoteDefinition = new Datadog.Inputs.DashboardV2WidgetGroupDefinitionWidgetNoteDefinitionArgs
+    ///                             NoteDefinition = new Datadog.Inputs.DashboardV2WidgetNoteDefinitionArgs
     ///                             {
     ///                                 Content = "cluster note widget",
     ///                                 BackgroundColor = "pink",

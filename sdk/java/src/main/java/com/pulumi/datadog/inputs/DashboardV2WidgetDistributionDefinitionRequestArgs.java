@@ -5,15 +5,15 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.datadog.inputs.DashboardV2WidgetDistributionDefinitionRequestApmQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetApmQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetDistributionDefinitionRequestApmStatsQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetDistributionDefinitionRequestFormulaArgs;
-import com.pulumi.datadog.inputs.DashboardV2WidgetDistributionDefinitionRequestLogQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetDistributionDefinitionRequestProcessQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetDistributionDefinitionRequestQueryArgs;
-import com.pulumi.datadog.inputs.DashboardV2WidgetDistributionDefinitionRequestRumQueryArgs;
-import com.pulumi.datadog.inputs.DashboardV2WidgetDistributionDefinitionRequestSecurityQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetDistributionDefinitionRequestStyleArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetLogQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetRumQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetSecurityQueryArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -34,7 +34,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequestArgs extends co
      */
     @Deprecated /* Use queries and formulas instead. */
     @Import(name="apmQuery")
-    private @Nullable Output<DashboardV2WidgetDistributionDefinitionRequestApmQueryArgs> apmQuery;
+    private @Nullable Output<DashboardV2WidgetApmQueryArgs> apmQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
@@ -44,7 +44,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequestArgs extends co
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<Output<DashboardV2WidgetDistributionDefinitionRequestApmQueryArgs>> apmQuery() {
+    public Optional<Output<DashboardV2WidgetApmQueryArgs>> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
 
@@ -87,7 +87,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequestArgs extends co
      */
     @Deprecated /* Use queries and formulas instead. */
     @Import(name="logQuery")
-    private @Nullable Output<DashboardV2WidgetDistributionDefinitionRequestLogQueryArgs> logQuery;
+    private @Nullable Output<DashboardV2WidgetLogQueryArgs> logQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
@@ -97,7 +97,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequestArgs extends co
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<Output<DashboardV2WidgetDistributionDefinitionRequestLogQueryArgs>> logQuery() {
+    public Optional<Output<DashboardV2WidgetLogQueryArgs>> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
 
@@ -171,7 +171,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequestArgs extends co
      */
     @Deprecated /* Use queries and formulas instead. */
     @Import(name="rumQuery")
-    private @Nullable Output<DashboardV2WidgetDistributionDefinitionRequestRumQueryArgs> rumQuery;
+    private @Nullable Output<DashboardV2WidgetRumQueryArgs> rumQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
@@ -181,7 +181,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequestArgs extends co
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<Output<DashboardV2WidgetDistributionDefinitionRequestRumQueryArgs>> rumQuery() {
+    public Optional<Output<DashboardV2WidgetRumQueryArgs>> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
 
@@ -194,7 +194,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequestArgs extends co
      */
     @Deprecated /* Use queries and formulas instead. */
     @Import(name="securityQuery")
-    private @Nullable Output<DashboardV2WidgetDistributionDefinitionRequestSecurityQueryArgs> securityQuery;
+    private @Nullable Output<DashboardV2WidgetSecurityQueryArgs> securityQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
@@ -204,7 +204,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequestArgs extends co
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<Output<DashboardV2WidgetDistributionDefinitionRequestSecurityQueryArgs>> securityQuery() {
+    public Optional<Output<DashboardV2WidgetSecurityQueryArgs>> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
 
@@ -266,7 +266,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequestArgs extends co
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder apmQuery(@Nullable Output<DashboardV2WidgetDistributionDefinitionRequestApmQueryArgs> apmQuery) {
+        public Builder apmQuery(@Nullable Output<DashboardV2WidgetApmQueryArgs> apmQuery) {
             $.apmQuery = apmQuery;
             return this;
         }
@@ -281,7 +281,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequestArgs extends co
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder apmQuery(DashboardV2WidgetDistributionDefinitionRequestApmQueryArgs apmQuery) {
+        public Builder apmQuery(DashboardV2WidgetApmQueryArgs apmQuery) {
             return apmQuery(Output.of(apmQuery));
         }
 
@@ -347,7 +347,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequestArgs extends co
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder logQuery(@Nullable Output<DashboardV2WidgetDistributionDefinitionRequestLogQueryArgs> logQuery) {
+        public Builder logQuery(@Nullable Output<DashboardV2WidgetLogQueryArgs> logQuery) {
             $.logQuery = logQuery;
             return this;
         }
@@ -362,7 +362,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequestArgs extends co
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder logQuery(DashboardV2WidgetDistributionDefinitionRequestLogQueryArgs logQuery) {
+        public Builder logQuery(DashboardV2WidgetLogQueryArgs logQuery) {
             return logQuery(Output.of(logQuery));
         }
 
@@ -465,7 +465,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequestArgs extends co
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder rumQuery(@Nullable Output<DashboardV2WidgetDistributionDefinitionRequestRumQueryArgs> rumQuery) {
+        public Builder rumQuery(@Nullable Output<DashboardV2WidgetRumQueryArgs> rumQuery) {
             $.rumQuery = rumQuery;
             return this;
         }
@@ -480,7 +480,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequestArgs extends co
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder rumQuery(DashboardV2WidgetDistributionDefinitionRequestRumQueryArgs rumQuery) {
+        public Builder rumQuery(DashboardV2WidgetRumQueryArgs rumQuery) {
             return rumQuery(Output.of(rumQuery));
         }
 
@@ -494,7 +494,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequestArgs extends co
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder securityQuery(@Nullable Output<DashboardV2WidgetDistributionDefinitionRequestSecurityQueryArgs> securityQuery) {
+        public Builder securityQuery(@Nullable Output<DashboardV2WidgetSecurityQueryArgs> securityQuery) {
             $.securityQuery = securityQuery;
             return this;
         }
@@ -509,7 +509,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequestArgs extends co
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder securityQuery(DashboardV2WidgetDistributionDefinitionRequestSecurityQueryArgs securityQuery) {
+        public Builder securityQuery(DashboardV2WidgetSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
         }
 

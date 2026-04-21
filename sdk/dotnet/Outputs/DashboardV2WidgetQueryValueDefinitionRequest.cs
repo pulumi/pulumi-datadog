@@ -20,7 +20,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetQueryValueDefinitionRequestApmQuery? ApmQuery;
+        public readonly Outputs.DashboardV2WidgetApmQuery? ApmQuery;
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetQueryValueDefinitionRequestLogQuery? LogQuery;
+        public readonly Outputs.DashboardV2WidgetLogQuery? LogQuery;
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
@@ -52,17 +52,17 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetQueryValueDefinitionRequestRumQuery? RumQuery;
+        public readonly Outputs.DashboardV2WidgetRumQuery? RumQuery;
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetQueryValueDefinitionRequestSecurityQuery? SecurityQuery;
+        public readonly Outputs.DashboardV2WidgetSecurityQuery? SecurityQuery;
 
         [OutputConstructor]
         private DashboardV2WidgetQueryValueDefinitionRequest(
             string? aggregator,
 
-            Outputs.DashboardV2WidgetQueryValueDefinitionRequestApmQuery? apmQuery,
+            Outputs.DashboardV2WidgetApmQuery? apmQuery,
 
             Outputs.DashboardV2WidgetQueryValueDefinitionRequestAuditQuery? auditQuery,
 
@@ -70,7 +70,7 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardV2WidgetQueryValueDefinitionRequestFormula> formulas,
 
-            Outputs.DashboardV2WidgetQueryValueDefinitionRequestLogQuery? logQuery,
+            Outputs.DashboardV2WidgetLogQuery? logQuery,
 
             Outputs.DashboardV2WidgetQueryValueDefinitionRequestProcessQuery? processQuery,
 
@@ -78,9 +78,9 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardV2WidgetQueryValueDefinitionRequestQuery> queries,
 
-            Outputs.DashboardV2WidgetQueryValueDefinitionRequestRumQuery? rumQuery,
+            Outputs.DashboardV2WidgetRumQuery? rumQuery,
 
-            Outputs.DashboardV2WidgetQueryValueDefinitionRequestSecurityQuery? securityQuery)
+            Outputs.DashboardV2WidgetSecurityQuery? securityQuery)
         {
             Aggregator = aggregator;
             ApmQuery = apmQuery;

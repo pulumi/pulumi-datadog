@@ -16,59 +16,59 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The definition for a Change widget.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinition? ChangeDefinition;
+        public readonly Outputs.DashboardV2WidgetChangeDefinition? ChangeDefinition;
         /// <summary>
         /// The definition for a Geomap widget.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinition? GeomapDefinition;
+        public readonly Outputs.DashboardV2WidgetGeomapDefinition? GeomapDefinition;
         /// <summary>
         /// The definition for a Query Table widget.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinition? QueryTableDefinition;
+        public readonly Outputs.DashboardV2WidgetQueryTableDefinition? QueryTableDefinition;
         /// <summary>
         /// The definition for a Query Value widget.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinition? QueryValueDefinition;
+        public readonly Outputs.DashboardV2WidgetQueryValueDefinition? QueryValueDefinition;
         /// <summary>
         /// The definition for a Scatterplot widget.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinition? ScatterplotDefinition;
+        public readonly Outputs.DashboardV2WidgetScatterplotDefinition? ScatterplotDefinition;
         /// <summary>
         /// The definition for a Sunburst widget.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinition? SunburstDefinition;
+        public readonly Outputs.DashboardV2WidgetSunburstDefinition? SunburstDefinition;
         /// <summary>
         /// The definition for a Timeseries widget.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinition? TimeseriesDefinition;
+        public readonly Outputs.DashboardV2WidgetTimeseriesDefinition? TimeseriesDefinition;
         /// <summary>
         /// The definition for a Toplist widget.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinition? ToplistDefinition;
+        public readonly Outputs.DashboardV2WidgetToplistDefinition? ToplistDefinition;
         /// <summary>
         /// The definition for a Treemap widget.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinition? TreemapDefinition;
+        public readonly Outputs.DashboardV2WidgetTreemapDefinition? TreemapDefinition;
 
         [OutputConstructor]
         private DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinition(
-            Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinition? changeDefinition,
+            Outputs.DashboardV2WidgetChangeDefinition? changeDefinition,
 
-            Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinition? geomapDefinition,
+            Outputs.DashboardV2WidgetGeomapDefinition? geomapDefinition,
 
-            Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinition? queryTableDefinition,
+            Outputs.DashboardV2WidgetQueryTableDefinition? queryTableDefinition,
 
-            Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinition? queryValueDefinition,
+            Outputs.DashboardV2WidgetQueryValueDefinition? queryValueDefinition,
 
-            Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinition? scatterplotDefinition,
+            Outputs.DashboardV2WidgetScatterplotDefinition? scatterplotDefinition,
 
-            Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinition? sunburstDefinition,
+            Outputs.DashboardV2WidgetSunburstDefinition? sunburstDefinition,
 
-            Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinition? timeseriesDefinition,
+            Outputs.DashboardV2WidgetTimeseriesDefinition? timeseriesDefinition,
 
-            Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinition? toplistDefinition,
+            Outputs.DashboardV2WidgetToplistDefinition? toplistDefinition,
 
-            Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinition? treemapDefinition)
+            Outputs.DashboardV2WidgetTreemapDefinition? treemapDefinition)
         {
             ChangeDefinition = changeDefinition;
             GeomapDefinition = geomapDefinition;

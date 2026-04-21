@@ -24,7 +24,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetQueryTableDefinitionRequestApmQuery? ApmQuery;
+        public readonly Outputs.DashboardV2WidgetApmQuery? ApmQuery;
         /// <summary>
         /// The APM stats query for table and distribution widgets. **Deprecated.** Use queries and formulas instead.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetQueryTableDefinitionRequestLogQuery? LogQuery;
+        public readonly Outputs.DashboardV2WidgetLogQuery? LogQuery;
         /// <summary>
         /// The sort order for the rows. Valid values are `Asc`, `Desc`.
         /// </summary>
@@ -68,11 +68,11 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetQueryTableDefinitionRequestRumQuery? RumQuery;
+        public readonly Outputs.DashboardV2WidgetRumQuery? RumQuery;
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetQueryTableDefinitionRequestSecurityQuery? SecurityQuery;
+        public readonly Outputs.DashboardV2WidgetSecurityQuery? SecurityQuery;
         /// <summary>
         /// Text formats define how to format text in table widget content. Multiple `TextFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.Datadog.Outputs
 
             string? alias,
 
-            Outputs.DashboardV2WidgetQueryTableDefinitionRequestApmQuery? apmQuery,
+            Outputs.DashboardV2WidgetApmQuery? apmQuery,
 
             Outputs.DashboardV2WidgetQueryTableDefinitionRequestApmStatsQuery? apmStatsQuery,
 
@@ -96,7 +96,7 @@ namespace Pulumi.Datadog.Outputs
 
             int? limit,
 
-            Outputs.DashboardV2WidgetQueryTableDefinitionRequestLogQuery? logQuery,
+            Outputs.DashboardV2WidgetLogQuery? logQuery,
 
             string? order,
 
@@ -106,9 +106,9 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardV2WidgetQueryTableDefinitionRequestQuery> queries,
 
-            Outputs.DashboardV2WidgetQueryTableDefinitionRequestRumQuery? rumQuery,
+            Outputs.DashboardV2WidgetRumQuery? rumQuery,
 
-            Outputs.DashboardV2WidgetQueryTableDefinitionRequestSecurityQuery? securityQuery,
+            Outputs.DashboardV2WidgetSecurityQuery? securityQuery,
 
             ImmutableArray<Outputs.DashboardV2WidgetQueryTableDefinitionRequestTextFormat> textFormats)
         {

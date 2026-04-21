@@ -6,9 +6,9 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGeomapDefinitionRequestFormulaArgs;
-import com.pulumi.datadog.inputs.DashboardV2WidgetGeomapDefinitionRequestLogQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGeomapDefinitionRequestQueryArgs;
-import com.pulumi.datadog.inputs.DashboardV2WidgetGeomapDefinitionRequestRumQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetLogQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetRumQueryArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -44,7 +44,7 @@ public final class DashboardV2WidgetGeomapDefinitionRequestArgs extends com.pulu
      */
     @Deprecated /* Use queries and formulas instead. */
     @Import(name="logQuery")
-    private @Nullable Output<DashboardV2WidgetGeomapDefinitionRequestLogQueryArgs> logQuery;
+    private @Nullable Output<DashboardV2WidgetLogQueryArgs> logQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
@@ -54,7 +54,7 @@ public final class DashboardV2WidgetGeomapDefinitionRequestArgs extends com.pulu
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<Output<DashboardV2WidgetGeomapDefinitionRequestLogQueryArgs>> logQuery() {
+    public Optional<Output<DashboardV2WidgetLogQueryArgs>> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
 
@@ -105,7 +105,7 @@ public final class DashboardV2WidgetGeomapDefinitionRequestArgs extends com.pulu
      */
     @Deprecated /* Use queries and formulas instead. */
     @Import(name="rumQuery")
-    private @Nullable Output<DashboardV2WidgetGeomapDefinitionRequestRumQueryArgs> rumQuery;
+    private @Nullable Output<DashboardV2WidgetRumQueryArgs> rumQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
@@ -115,7 +115,7 @@ public final class DashboardV2WidgetGeomapDefinitionRequestArgs extends com.pulu
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<Output<DashboardV2WidgetGeomapDefinitionRequestRumQueryArgs>> rumQuery() {
+    public Optional<Output<DashboardV2WidgetRumQueryArgs>> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
 
@@ -188,7 +188,7 @@ public final class DashboardV2WidgetGeomapDefinitionRequestArgs extends com.pulu
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder logQuery(@Nullable Output<DashboardV2WidgetGeomapDefinitionRequestLogQueryArgs> logQuery) {
+        public Builder logQuery(@Nullable Output<DashboardV2WidgetLogQueryArgs> logQuery) {
             $.logQuery = logQuery;
             return this;
         }
@@ -203,7 +203,7 @@ public final class DashboardV2WidgetGeomapDefinitionRequestArgs extends com.pulu
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder logQuery(DashboardV2WidgetGeomapDefinitionRequestLogQueryArgs logQuery) {
+        public Builder logQuery(DashboardV2WidgetLogQueryArgs logQuery) {
             return logQuery(Output.of(logQuery));
         }
 
@@ -277,7 +277,7 @@ public final class DashboardV2WidgetGeomapDefinitionRequestArgs extends com.pulu
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder rumQuery(@Nullable Output<DashboardV2WidgetGeomapDefinitionRequestRumQueryArgs> rumQuery) {
+        public Builder rumQuery(@Nullable Output<DashboardV2WidgetRumQueryArgs> rumQuery) {
             $.rumQuery = rumQuery;
             return this;
         }
@@ -292,7 +292,7 @@ public final class DashboardV2WidgetGeomapDefinitionRequestArgs extends com.pulu
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder rumQuery(DashboardV2WidgetGeomapDefinitionRequestRumQueryArgs rumQuery) {
+        public Builder rumQuery(DashboardV2WidgetRumQueryArgs rumQuery) {
             return rumQuery(Output.of(rumQuery));
         }
 

@@ -42,8 +42,19 @@ func (r recType) canonical() string {
 }
 
 func rerollRecursiveDashboardWidget(spec *schema.PackageSpec) {
-	widget, ok := spec.Types["datadog:index/DashboardWidget:DashboardWidget"]
-	contract.Assertf(ok, "must be able to find top level widget")
+	rerollRecursiveDashboardWidgetType(spec, "DashboardWidget", true)
+	rerollRecursiveDashboardWidgetType(spec, "DashboardV2Widget", false)
+}
+
+func rerollRecursiveDashboardWidgetType(spec *schema.PackageSpec, widgetName string, required bool) {
+	widgetToken := fmt.Sprintf("%s:%s/%s:%[3]s", datadogPkg, mainMod, widgetName)
+	widget, ok := spec.Types[widgetToken]
+	if !ok {
+		if required {
+			contract.Failf("must be able to find top level widget: %s", widgetToken)
+		}
+		return
+	}
 
 	var defs []recType
 
@@ -52,7 +63,7 @@ func rerollRecursiveDashboardWidget(spec *schema.PackageSpec) {
 			continue
 		}
 		defs = append(defs, recType{
-			prefix: "DashboardWidget",
+			prefix: widgetName,
 			suffix: cases.Title(language.English, cases.NoLower).String(prop),
 		})
 	}
@@ -68,10 +79,10 @@ func rerollRecursiveDashboardWidget(spec *schema.PackageSpec) {
 	}
 
 	rerollRecursiveTypes(spec, []recType{
-		mkRec("DashboardWidget", "RumQuery", "DashboardWidgetToplistDefinitionRequestRumQuery"),
-		mkRec("DashboardWidget", "SecurityQuery", "DashboardWidgetToplistDefinitionRequestSecurityQuery"),
-		mkRec("DashboardWidget", "ApmQuery", "DashboardWidgetQueryTableDefinitionRequestApmQuery"),
-		mkRec("DashboardWidget", "LogQuery", "DashboardWidgetHostmapDefinitionRequestFillLogQuery"),
+		mkRec(widgetName, "RumQuery", widgetName+"ToplistDefinitionRequestRumQuery"),
+		mkRec(widgetName, "SecurityQuery", widgetName+"ToplistDefinitionRequestSecurityQuery"),
+		mkRec(widgetName, "ApmQuery", widgetName+"QueryTableDefinitionRequestApmQuery"),
+		mkRec(widgetName, "LogQuery", widgetName+"HostmapDefinitionRequestFillLogQuery"),
 	})
 }
 

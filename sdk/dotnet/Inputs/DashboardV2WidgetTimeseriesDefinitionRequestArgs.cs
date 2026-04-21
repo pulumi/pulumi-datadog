@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("apmQuery")]
-        public Input<Inputs.DashboardV2WidgetTimeseriesDefinitionRequestApmQueryArgs>? ApmQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetApmQueryArgs>? ApmQuery { get; set; }
 
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
@@ -52,7 +52,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("logQuery")]
-        public Input<Inputs.DashboardV2WidgetTimeseriesDefinitionRequestLogQueryArgs>? LogQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetLogQueryArgs>? LogQuery { get; set; }
 
         [Input("metadatas")]
         private InputList<Inputs.DashboardV2WidgetTimeseriesDefinitionRequestMetadataArgs>? _metadatas;
@@ -112,13 +112,13 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("rumQuery")]
-        public Input<Inputs.DashboardV2WidgetTimeseriesDefinitionRequestRumQueryArgs>? RumQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetRumQueryArgs>? RumQuery { get; set; }
 
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("securityQuery")]
-        public Input<Inputs.DashboardV2WidgetTimeseriesDefinitionRequestSecurityQueryArgs>? SecurityQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetSecurityQueryArgs>? SecurityQuery { get; set; }
 
         /// <summary>
         /// The style of the widget graph. Exactly one `Style` block is allowed using the structure below.

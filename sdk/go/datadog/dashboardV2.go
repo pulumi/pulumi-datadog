@@ -106,7 +106,7 @@ import (
 //							Title:      pulumi.String("Group Widget"),
 //							Widgets: datadog.DashboardV2WidgetGroupDefinitionWidgetArray{
 //								&datadog.DashboardV2WidgetGroupDefinitionWidgetArgs{
-//									NoteDefinition: &datadog.DashboardV2WidgetGroupDefinitionWidgetNoteDefinitionArgs{
+//									NoteDefinition: &datadog.DashboardV2WidgetNoteDefinitionArgs{
 //										Content:         pulumi.String("cluster note widget"),
 //										BackgroundColor: pulumi.String("pink"),
 //										FontSize:        pulumi.String("14"),

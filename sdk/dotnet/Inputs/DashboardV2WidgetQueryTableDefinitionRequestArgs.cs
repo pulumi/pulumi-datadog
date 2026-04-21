@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("apmQuery")]
-        public Input<Inputs.DashboardV2WidgetQueryTableDefinitionRequestApmQueryArgs>? ApmQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetApmQueryArgs>? ApmQuery { get; set; }
 
         /// <summary>
         /// The APM stats query for table and distribution widgets. **Deprecated.** Use queries and formulas instead.
@@ -82,7 +82,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("logQuery")]
-        public Input<Inputs.DashboardV2WidgetQueryTableDefinitionRequestLogQueryArgs>? LogQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetLogQueryArgs>? LogQuery { get; set; }
 
         /// <summary>
         /// The sort order for the rows. Valid values are `Asc`, `Desc`.
@@ -118,13 +118,13 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("rumQuery")]
-        public Input<Inputs.DashboardV2WidgetQueryTableDefinitionRequestRumQueryArgs>? RumQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetRumQueryArgs>? RumQuery { get; set; }
 
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("securityQuery")]
-        public Input<Inputs.DashboardV2WidgetQueryTableDefinitionRequestSecurityQueryArgs>? SecurityQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetSecurityQueryArgs>? SecurityQuery { get; set; }
 
         [Input("textFormats")]
         private InputList<Inputs.DashboardV2WidgetQueryTableDefinitionRequestTextFormatArgs>? _textFormats;

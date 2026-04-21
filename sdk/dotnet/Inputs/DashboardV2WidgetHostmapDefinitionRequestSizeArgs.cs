@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("apmQuery")]
-        public Input<Inputs.DashboardV2WidgetHostmapDefinitionRequestSizeApmQueryArgs>? ApmQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetApmQueryArgs>? ApmQuery { get; set; }
 
         [Input("formulas")]
         private InputList<Inputs.DashboardV2WidgetHostmapDefinitionRequestSizeFormulaArgs>? _formulas;
@@ -34,7 +34,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("logQuery")]
-        public Input<Inputs.DashboardV2WidgetHostmapDefinitionRequestSizeLogQueryArgs>? LogQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetLogQueryArgs>? LogQuery { get; set; }
 
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
@@ -64,13 +64,13 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("rumQuery")]
-        public Input<Inputs.DashboardV2WidgetHostmapDefinitionRequestSizeRumQueryArgs>? RumQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetRumQueryArgs>? RumQuery { get; set; }
 
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("securityQuery")]
-        public Input<Inputs.DashboardV2WidgetHostmapDefinitionRequestSizeSecurityQueryArgs>? SecurityQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetSecurityQueryArgs>? SecurityQuery { get; set; }
 
         public DashboardV2WidgetHostmapDefinitionRequestSizeArgs()
         {

@@ -5,18 +5,18 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestApmQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetApmQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetLogQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetRumQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetSecurityQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestAuditQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestEventQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestFormulaArgs;
-import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestLogQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestMetadataArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestNetworkQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestProcessQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestProfileMetricsQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestQueryArgs;
-import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestRumQueryArgs;
-import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestSecurityQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestStyleArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -39,7 +39,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequestArgs extends com.
      */
     @Deprecated /* Use queries and formulas instead. */
     @Import(name="apmQuery")
-    private @Nullable Output<DashboardV2WidgetTimeseriesDefinitionRequestApmQueryArgs> apmQuery;
+    private @Nullable Output<DashboardV2WidgetApmQueryArgs> apmQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
@@ -49,7 +49,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequestArgs extends com.
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<Output<DashboardV2WidgetTimeseriesDefinitionRequestApmQueryArgs>> apmQuery() {
+    public Optional<Output<DashboardV2WidgetApmQueryArgs>> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
 
@@ -138,7 +138,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequestArgs extends com.
      */
     @Deprecated /* Use queries and formulas instead. */
     @Import(name="logQuery")
-    private @Nullable Output<DashboardV2WidgetTimeseriesDefinitionRequestLogQueryArgs> logQuery;
+    private @Nullable Output<DashboardV2WidgetLogQueryArgs> logQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
@@ -148,7 +148,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequestArgs extends com.
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<Output<DashboardV2WidgetTimeseriesDefinitionRequestLogQueryArgs>> logQuery() {
+    public Optional<Output<DashboardV2WidgetLogQueryArgs>> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
 
@@ -290,7 +290,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequestArgs extends com.
      */
     @Deprecated /* Use queries and formulas instead. */
     @Import(name="rumQuery")
-    private @Nullable Output<DashboardV2WidgetTimeseriesDefinitionRequestRumQueryArgs> rumQuery;
+    private @Nullable Output<DashboardV2WidgetRumQueryArgs> rumQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
@@ -300,7 +300,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequestArgs extends com.
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<Output<DashboardV2WidgetTimeseriesDefinitionRequestRumQueryArgs>> rumQuery() {
+    public Optional<Output<DashboardV2WidgetRumQueryArgs>> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
 
@@ -313,7 +313,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequestArgs extends com.
      */
     @Deprecated /* Use queries and formulas instead. */
     @Import(name="securityQuery")
-    private @Nullable Output<DashboardV2WidgetTimeseriesDefinitionRequestSecurityQueryArgs> securityQuery;
+    private @Nullable Output<DashboardV2WidgetSecurityQueryArgs> securityQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
@@ -323,7 +323,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequestArgs extends com.
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<Output<DashboardV2WidgetTimeseriesDefinitionRequestSecurityQueryArgs>> securityQuery() {
+    public Optional<Output<DashboardV2WidgetSecurityQueryArgs>> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
 
@@ -391,7 +391,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequestArgs extends com.
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder apmQuery(@Nullable Output<DashboardV2WidgetTimeseriesDefinitionRequestApmQueryArgs> apmQuery) {
+        public Builder apmQuery(@Nullable Output<DashboardV2WidgetApmQueryArgs> apmQuery) {
             $.apmQuery = apmQuery;
             return this;
         }
@@ -406,7 +406,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequestArgs extends com.
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder apmQuery(DashboardV2WidgetTimeseriesDefinitionRequestApmQueryArgs apmQuery) {
+        public Builder apmQuery(DashboardV2WidgetApmQueryArgs apmQuery) {
             return apmQuery(Output.of(apmQuery));
         }
 
@@ -530,7 +530,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequestArgs extends com.
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder logQuery(@Nullable Output<DashboardV2WidgetTimeseriesDefinitionRequestLogQueryArgs> logQuery) {
+        public Builder logQuery(@Nullable Output<DashboardV2WidgetLogQueryArgs> logQuery) {
             $.logQuery = logQuery;
             return this;
         }
@@ -545,7 +545,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequestArgs extends com.
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder logQuery(DashboardV2WidgetTimeseriesDefinitionRequestLogQueryArgs logQuery) {
+        public Builder logQuery(DashboardV2WidgetLogQueryArgs logQuery) {
             return logQuery(Output.of(logQuery));
         }
 
@@ -750,7 +750,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequestArgs extends com.
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder rumQuery(@Nullable Output<DashboardV2WidgetTimeseriesDefinitionRequestRumQueryArgs> rumQuery) {
+        public Builder rumQuery(@Nullable Output<DashboardV2WidgetRumQueryArgs> rumQuery) {
             $.rumQuery = rumQuery;
             return this;
         }
@@ -765,7 +765,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequestArgs extends com.
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder rumQuery(DashboardV2WidgetTimeseriesDefinitionRequestRumQueryArgs rumQuery) {
+        public Builder rumQuery(DashboardV2WidgetRumQueryArgs rumQuery) {
             return rumQuery(Output.of(rumQuery));
         }
 
@@ -779,7 +779,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequestArgs extends com.
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder securityQuery(@Nullable Output<DashboardV2WidgetTimeseriesDefinitionRequestSecurityQueryArgs> securityQuery) {
+        public Builder securityQuery(@Nullable Output<DashboardV2WidgetSecurityQueryArgs> securityQuery) {
             $.securityQuery = securityQuery;
             return this;
         }
@@ -794,7 +794,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequestArgs extends com.
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder securityQuery(DashboardV2WidgetTimeseriesDefinitionRequestSecurityQueryArgs securityQuery) {
+        public Builder securityQuery(DashboardV2WidgetSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
         }
 

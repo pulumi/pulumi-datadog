@@ -4,38 +4,38 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetAlertGraphDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetAlertValueDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetChangeDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetCheckStatusDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetDistributionDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetEventStreamDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetEventTimelineDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetFreeTextDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetFunnelDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetGeomapDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetHeatmapDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetHostmapDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetIframeDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetImageDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetListStreamDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetLogStreamDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetManageStatusDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetNoteDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetRunWorkflowDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetScatterplotDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetServicemapDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetSloListDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetSunburstDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetTimeseriesDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetToplistDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetTopologyMapDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetTraceServiceDefinition;
-import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetTreemapDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetAlertGraphDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetAlertValueDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetChangeDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetCheckStatusDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetDistributionDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetEventStreamDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetEventTimelineDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetFreeTextDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetFunnelDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetGeomapDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetWidgetLayout;
+import com.pulumi.datadog.outputs.DashboardV2WidgetHeatmapDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetHostmapDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetIframeDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetImageDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetListStreamDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetLogStreamDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetManageStatusDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetNoteDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetQueryTableDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetQueryValueDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetRunWorkflowDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetScatterplotDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetServiceLevelObjectiveDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetServicemapDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetSloListDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetSunburstDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetTimeseriesDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetToplistDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetTopologyMapDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetTraceServiceDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetTreemapDefinition;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -47,62 +47,62 @@ public final class DashboardV2WidgetGroupDefinitionWidget {
      * @return The definition for a Alert Graph widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetAlertGraphDefinition alertGraphDefinition;
+    private @Nullable DashboardV2WidgetAlertGraphDefinition alertGraphDefinition;
     /**
      * @return The definition for a Alert Value widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetAlertValueDefinition alertValueDefinition;
+    private @Nullable DashboardV2WidgetAlertValueDefinition alertValueDefinition;
     /**
      * @return The definition for a Change widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetChangeDefinition changeDefinition;
+    private @Nullable DashboardV2WidgetChangeDefinition changeDefinition;
     /**
      * @return The definition for a Check Status widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetCheckStatusDefinition checkStatusDefinition;
+    private @Nullable DashboardV2WidgetCheckStatusDefinition checkStatusDefinition;
     /**
      * @return The definition for a Distribution widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetDistributionDefinition distributionDefinition;
+    private @Nullable DashboardV2WidgetDistributionDefinition distributionDefinition;
     /**
      * @return The definition for a Event Stream widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetEventStreamDefinition eventStreamDefinition;
+    private @Nullable DashboardV2WidgetEventStreamDefinition eventStreamDefinition;
     /**
      * @return The definition for a Event Timeline widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetEventTimelineDefinition eventTimelineDefinition;
+    private @Nullable DashboardV2WidgetEventTimelineDefinition eventTimelineDefinition;
     /**
      * @return The definition for a Free Text widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetFreeTextDefinition freeTextDefinition;
+    private @Nullable DashboardV2WidgetFreeTextDefinition freeTextDefinition;
     /**
      * @return The definition for a Funnel widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetFunnelDefinition funnelDefinition;
+    private @Nullable DashboardV2WidgetFunnelDefinition funnelDefinition;
     /**
      * @return The definition for a Geomap widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetGeomapDefinition geomapDefinition;
+    private @Nullable DashboardV2WidgetGeomapDefinition geomapDefinition;
     /**
      * @return The definition for a Heatmap widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetHeatmapDefinition heatmapDefinition;
+    private @Nullable DashboardV2WidgetHeatmapDefinition heatmapDefinition;
     /**
      * @return The definition for a Hostmap widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetHostmapDefinition hostmapDefinition;
+    private @Nullable DashboardV2WidgetHostmapDefinition hostmapDefinition;
     /**
      * @return The ID of the widget.
      * 
@@ -112,97 +112,97 @@ public final class DashboardV2WidgetGroupDefinitionWidget {
      * @return The definition for an Iframe widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetIframeDefinition iframeDefinition;
+    private @Nullable DashboardV2WidgetIframeDefinition iframeDefinition;
     /**
      * @return The definition for an Image widget
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetImageDefinition imageDefinition;
+    private @Nullable DashboardV2WidgetImageDefinition imageDefinition;
     /**
      * @return The definition for a List Stream widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetListStreamDefinition listStreamDefinition;
+    private @Nullable DashboardV2WidgetListStreamDefinition listStreamDefinition;
     /**
      * @return The definition for an Log Stream widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetLogStreamDefinition logStreamDefinition;
+    private @Nullable DashboardV2WidgetLogStreamDefinition logStreamDefinition;
     /**
      * @return The definition for an Manage Status widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetManageStatusDefinition manageStatusDefinition;
+    private @Nullable DashboardV2WidgetManageStatusDefinition manageStatusDefinition;
     /**
      * @return The definition for a Note widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetNoteDefinition noteDefinition;
+    private @Nullable DashboardV2WidgetNoteDefinition noteDefinition;
     /**
      * @return The definition for a Query Table widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinition queryTableDefinition;
+    private @Nullable DashboardV2WidgetQueryTableDefinition queryTableDefinition;
     /**
      * @return The definition for a Query Value widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinition queryValueDefinition;
+    private @Nullable DashboardV2WidgetQueryValueDefinition queryValueDefinition;
     /**
      * @return The definition for a Run Workflow widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetRunWorkflowDefinition runWorkflowDefinition;
+    private @Nullable DashboardV2WidgetRunWorkflowDefinition runWorkflowDefinition;
     /**
      * @return The definition for a Scatterplot widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetScatterplotDefinition scatterplotDefinition;
+    private @Nullable DashboardV2WidgetScatterplotDefinition scatterplotDefinition;
     /**
      * @return The definition for a Service Level Objective widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition serviceLevelObjectiveDefinition;
+    private @Nullable DashboardV2WidgetServiceLevelObjectiveDefinition serviceLevelObjectiveDefinition;
     /**
      * @return The definition for a Service Map widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetServicemapDefinition servicemapDefinition;
+    private @Nullable DashboardV2WidgetServicemapDefinition servicemapDefinition;
     /**
      * @return The definition for an SLO (Service Level Objective) List widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetSloListDefinition sloListDefinition;
+    private @Nullable DashboardV2WidgetSloListDefinition sloListDefinition;
     /**
      * @return The definition for a Sunburst widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetSunburstDefinition sunburstDefinition;
+    private @Nullable DashboardV2WidgetSunburstDefinition sunburstDefinition;
     /**
      * @return The definition for a Timeseries widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetTimeseriesDefinition timeseriesDefinition;
+    private @Nullable DashboardV2WidgetTimeseriesDefinition timeseriesDefinition;
     /**
      * @return The definition for a Toplist widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetToplistDefinition toplistDefinition;
+    private @Nullable DashboardV2WidgetToplistDefinition toplistDefinition;
     /**
      * @return The definition for a Topology Map widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetTopologyMapDefinition topologyMapDefinition;
+    private @Nullable DashboardV2WidgetTopologyMapDefinition topologyMapDefinition;
     /**
      * @return The definition for a Trace Service widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetTraceServiceDefinition traceServiceDefinition;
+    private @Nullable DashboardV2WidgetTraceServiceDefinition traceServiceDefinition;
     /**
      * @return The definition for a Treemap widget.
      * 
      */
-    private @Nullable DashboardV2WidgetGroupDefinitionWidgetTreemapDefinition treemapDefinition;
+    private @Nullable DashboardV2WidgetTreemapDefinition treemapDefinition;
     /**
      * @return The layout of the widget on a &#39;free&#39; dashboard.
      * 
@@ -214,84 +214,84 @@ public final class DashboardV2WidgetGroupDefinitionWidget {
      * @return The definition for a Alert Graph widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetAlertGraphDefinition> alertGraphDefinition() {
+    public Optional<DashboardV2WidgetAlertGraphDefinition> alertGraphDefinition() {
         return Optional.ofNullable(this.alertGraphDefinition);
     }
     /**
      * @return The definition for a Alert Value widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetAlertValueDefinition> alertValueDefinition() {
+    public Optional<DashboardV2WidgetAlertValueDefinition> alertValueDefinition() {
         return Optional.ofNullable(this.alertValueDefinition);
     }
     /**
      * @return The definition for a Change widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetChangeDefinition> changeDefinition() {
+    public Optional<DashboardV2WidgetChangeDefinition> changeDefinition() {
         return Optional.ofNullable(this.changeDefinition);
     }
     /**
      * @return The definition for a Check Status widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetCheckStatusDefinition> checkStatusDefinition() {
+    public Optional<DashboardV2WidgetCheckStatusDefinition> checkStatusDefinition() {
         return Optional.ofNullable(this.checkStatusDefinition);
     }
     /**
      * @return The definition for a Distribution widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetDistributionDefinition> distributionDefinition() {
+    public Optional<DashboardV2WidgetDistributionDefinition> distributionDefinition() {
         return Optional.ofNullable(this.distributionDefinition);
     }
     /**
      * @return The definition for a Event Stream widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetEventStreamDefinition> eventStreamDefinition() {
+    public Optional<DashboardV2WidgetEventStreamDefinition> eventStreamDefinition() {
         return Optional.ofNullable(this.eventStreamDefinition);
     }
     /**
      * @return The definition for a Event Timeline widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetEventTimelineDefinition> eventTimelineDefinition() {
+    public Optional<DashboardV2WidgetEventTimelineDefinition> eventTimelineDefinition() {
         return Optional.ofNullable(this.eventTimelineDefinition);
     }
     /**
      * @return The definition for a Free Text widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetFreeTextDefinition> freeTextDefinition() {
+    public Optional<DashboardV2WidgetFreeTextDefinition> freeTextDefinition() {
         return Optional.ofNullable(this.freeTextDefinition);
     }
     /**
      * @return The definition for a Funnel widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetFunnelDefinition> funnelDefinition() {
+    public Optional<DashboardV2WidgetFunnelDefinition> funnelDefinition() {
         return Optional.ofNullable(this.funnelDefinition);
     }
     /**
      * @return The definition for a Geomap widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetGeomapDefinition> geomapDefinition() {
+    public Optional<DashboardV2WidgetGeomapDefinition> geomapDefinition() {
         return Optional.ofNullable(this.geomapDefinition);
     }
     /**
      * @return The definition for a Heatmap widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetHeatmapDefinition> heatmapDefinition() {
+    public Optional<DashboardV2WidgetHeatmapDefinition> heatmapDefinition() {
         return Optional.ofNullable(this.heatmapDefinition);
     }
     /**
      * @return The definition for a Hostmap widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetHostmapDefinition> hostmapDefinition() {
+    public Optional<DashboardV2WidgetHostmapDefinition> hostmapDefinition() {
         return Optional.ofNullable(this.hostmapDefinition);
     }
     /**
@@ -305,133 +305,133 @@ public final class DashboardV2WidgetGroupDefinitionWidget {
      * @return The definition for an Iframe widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetIframeDefinition> iframeDefinition() {
+    public Optional<DashboardV2WidgetIframeDefinition> iframeDefinition() {
         return Optional.ofNullable(this.iframeDefinition);
     }
     /**
      * @return The definition for an Image widget
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetImageDefinition> imageDefinition() {
+    public Optional<DashboardV2WidgetImageDefinition> imageDefinition() {
         return Optional.ofNullable(this.imageDefinition);
     }
     /**
      * @return The definition for a List Stream widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetListStreamDefinition> listStreamDefinition() {
+    public Optional<DashboardV2WidgetListStreamDefinition> listStreamDefinition() {
         return Optional.ofNullable(this.listStreamDefinition);
     }
     /**
      * @return The definition for an Log Stream widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetLogStreamDefinition> logStreamDefinition() {
+    public Optional<DashboardV2WidgetLogStreamDefinition> logStreamDefinition() {
         return Optional.ofNullable(this.logStreamDefinition);
     }
     /**
      * @return The definition for an Manage Status widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetManageStatusDefinition> manageStatusDefinition() {
+    public Optional<DashboardV2WidgetManageStatusDefinition> manageStatusDefinition() {
         return Optional.ofNullable(this.manageStatusDefinition);
     }
     /**
      * @return The definition for a Note widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetNoteDefinition> noteDefinition() {
+    public Optional<DashboardV2WidgetNoteDefinition> noteDefinition() {
         return Optional.ofNullable(this.noteDefinition);
     }
     /**
      * @return The definition for a Query Table widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinition> queryTableDefinition() {
+    public Optional<DashboardV2WidgetQueryTableDefinition> queryTableDefinition() {
         return Optional.ofNullable(this.queryTableDefinition);
     }
     /**
      * @return The definition for a Query Value widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinition> queryValueDefinition() {
+    public Optional<DashboardV2WidgetQueryValueDefinition> queryValueDefinition() {
         return Optional.ofNullable(this.queryValueDefinition);
     }
     /**
      * @return The definition for a Run Workflow widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetRunWorkflowDefinition> runWorkflowDefinition() {
+    public Optional<DashboardV2WidgetRunWorkflowDefinition> runWorkflowDefinition() {
         return Optional.ofNullable(this.runWorkflowDefinition);
     }
     /**
      * @return The definition for a Scatterplot widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetScatterplotDefinition> scatterplotDefinition() {
+    public Optional<DashboardV2WidgetScatterplotDefinition> scatterplotDefinition() {
         return Optional.ofNullable(this.scatterplotDefinition);
     }
     /**
      * @return The definition for a Service Level Objective widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition> serviceLevelObjectiveDefinition() {
+    public Optional<DashboardV2WidgetServiceLevelObjectiveDefinition> serviceLevelObjectiveDefinition() {
         return Optional.ofNullable(this.serviceLevelObjectiveDefinition);
     }
     /**
      * @return The definition for a Service Map widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetServicemapDefinition> servicemapDefinition() {
+    public Optional<DashboardV2WidgetServicemapDefinition> servicemapDefinition() {
         return Optional.ofNullable(this.servicemapDefinition);
     }
     /**
      * @return The definition for an SLO (Service Level Objective) List widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetSloListDefinition> sloListDefinition() {
+    public Optional<DashboardV2WidgetSloListDefinition> sloListDefinition() {
         return Optional.ofNullable(this.sloListDefinition);
     }
     /**
      * @return The definition for a Sunburst widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetSunburstDefinition> sunburstDefinition() {
+    public Optional<DashboardV2WidgetSunburstDefinition> sunburstDefinition() {
         return Optional.ofNullable(this.sunburstDefinition);
     }
     /**
      * @return The definition for a Timeseries widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetTimeseriesDefinition> timeseriesDefinition() {
+    public Optional<DashboardV2WidgetTimeseriesDefinition> timeseriesDefinition() {
         return Optional.ofNullable(this.timeseriesDefinition);
     }
     /**
      * @return The definition for a Toplist widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetToplistDefinition> toplistDefinition() {
+    public Optional<DashboardV2WidgetToplistDefinition> toplistDefinition() {
         return Optional.ofNullable(this.toplistDefinition);
     }
     /**
      * @return The definition for a Topology Map widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetTopologyMapDefinition> topologyMapDefinition() {
+    public Optional<DashboardV2WidgetTopologyMapDefinition> topologyMapDefinition() {
         return Optional.ofNullable(this.topologyMapDefinition);
     }
     /**
      * @return The definition for a Trace Service widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetTraceServiceDefinition> traceServiceDefinition() {
+    public Optional<DashboardV2WidgetTraceServiceDefinition> traceServiceDefinition() {
         return Optional.ofNullable(this.traceServiceDefinition);
     }
     /**
      * @return The definition for a Treemap widget.
      * 
      */
-    public Optional<DashboardV2WidgetGroupDefinitionWidgetTreemapDefinition> treemapDefinition() {
+    public Optional<DashboardV2WidgetTreemapDefinition> treemapDefinition() {
         return Optional.ofNullable(this.treemapDefinition);
     }
     /**
@@ -451,38 +451,38 @@ public final class DashboardV2WidgetGroupDefinitionWidget {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetAlertGraphDefinition alertGraphDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetAlertValueDefinition alertValueDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetChangeDefinition changeDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetCheckStatusDefinition checkStatusDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetDistributionDefinition distributionDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetEventStreamDefinition eventStreamDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetEventTimelineDefinition eventTimelineDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetFreeTextDefinition freeTextDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetFunnelDefinition funnelDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetGeomapDefinition geomapDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetHeatmapDefinition heatmapDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetHostmapDefinition hostmapDefinition;
+        private @Nullable DashboardV2WidgetAlertGraphDefinition alertGraphDefinition;
+        private @Nullable DashboardV2WidgetAlertValueDefinition alertValueDefinition;
+        private @Nullable DashboardV2WidgetChangeDefinition changeDefinition;
+        private @Nullable DashboardV2WidgetCheckStatusDefinition checkStatusDefinition;
+        private @Nullable DashboardV2WidgetDistributionDefinition distributionDefinition;
+        private @Nullable DashboardV2WidgetEventStreamDefinition eventStreamDefinition;
+        private @Nullable DashboardV2WidgetEventTimelineDefinition eventTimelineDefinition;
+        private @Nullable DashboardV2WidgetFreeTextDefinition freeTextDefinition;
+        private @Nullable DashboardV2WidgetFunnelDefinition funnelDefinition;
+        private @Nullable DashboardV2WidgetGeomapDefinition geomapDefinition;
+        private @Nullable DashboardV2WidgetHeatmapDefinition heatmapDefinition;
+        private @Nullable DashboardV2WidgetHostmapDefinition hostmapDefinition;
         private @Nullable Integer id;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetIframeDefinition iframeDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetImageDefinition imageDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetListStreamDefinition listStreamDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetLogStreamDefinition logStreamDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetManageStatusDefinition manageStatusDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetNoteDefinition noteDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinition queryTableDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinition queryValueDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetRunWorkflowDefinition runWorkflowDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetScatterplotDefinition scatterplotDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition serviceLevelObjectiveDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetServicemapDefinition servicemapDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetSloListDefinition sloListDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetSunburstDefinition sunburstDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetTimeseriesDefinition timeseriesDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetToplistDefinition toplistDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetTopologyMapDefinition topologyMapDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetTraceServiceDefinition traceServiceDefinition;
-        private @Nullable DashboardV2WidgetGroupDefinitionWidgetTreemapDefinition treemapDefinition;
+        private @Nullable DashboardV2WidgetIframeDefinition iframeDefinition;
+        private @Nullable DashboardV2WidgetImageDefinition imageDefinition;
+        private @Nullable DashboardV2WidgetListStreamDefinition listStreamDefinition;
+        private @Nullable DashboardV2WidgetLogStreamDefinition logStreamDefinition;
+        private @Nullable DashboardV2WidgetManageStatusDefinition manageStatusDefinition;
+        private @Nullable DashboardV2WidgetNoteDefinition noteDefinition;
+        private @Nullable DashboardV2WidgetQueryTableDefinition queryTableDefinition;
+        private @Nullable DashboardV2WidgetQueryValueDefinition queryValueDefinition;
+        private @Nullable DashboardV2WidgetRunWorkflowDefinition runWorkflowDefinition;
+        private @Nullable DashboardV2WidgetScatterplotDefinition scatterplotDefinition;
+        private @Nullable DashboardV2WidgetServiceLevelObjectiveDefinition serviceLevelObjectiveDefinition;
+        private @Nullable DashboardV2WidgetServicemapDefinition servicemapDefinition;
+        private @Nullable DashboardV2WidgetSloListDefinition sloListDefinition;
+        private @Nullable DashboardV2WidgetSunburstDefinition sunburstDefinition;
+        private @Nullable DashboardV2WidgetTimeseriesDefinition timeseriesDefinition;
+        private @Nullable DashboardV2WidgetToplistDefinition toplistDefinition;
+        private @Nullable DashboardV2WidgetTopologyMapDefinition topologyMapDefinition;
+        private @Nullable DashboardV2WidgetTraceServiceDefinition traceServiceDefinition;
+        private @Nullable DashboardV2WidgetTreemapDefinition treemapDefinition;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetWidgetLayout widgetLayout;
         public Builder() {}
         public Builder(DashboardV2WidgetGroupDefinitionWidget defaults) {
@@ -523,73 +523,73 @@ public final class DashboardV2WidgetGroupDefinitionWidget {
         }
 
         @CustomType.Setter
-        public Builder alertGraphDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetAlertGraphDefinition alertGraphDefinition) {
+        public Builder alertGraphDefinition(@Nullable DashboardV2WidgetAlertGraphDefinition alertGraphDefinition) {
 
             this.alertGraphDefinition = alertGraphDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder alertValueDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetAlertValueDefinition alertValueDefinition) {
+        public Builder alertValueDefinition(@Nullable DashboardV2WidgetAlertValueDefinition alertValueDefinition) {
 
             this.alertValueDefinition = alertValueDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder changeDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetChangeDefinition changeDefinition) {
+        public Builder changeDefinition(@Nullable DashboardV2WidgetChangeDefinition changeDefinition) {
 
             this.changeDefinition = changeDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder checkStatusDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetCheckStatusDefinition checkStatusDefinition) {
+        public Builder checkStatusDefinition(@Nullable DashboardV2WidgetCheckStatusDefinition checkStatusDefinition) {
 
             this.checkStatusDefinition = checkStatusDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder distributionDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetDistributionDefinition distributionDefinition) {
+        public Builder distributionDefinition(@Nullable DashboardV2WidgetDistributionDefinition distributionDefinition) {
 
             this.distributionDefinition = distributionDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder eventStreamDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetEventStreamDefinition eventStreamDefinition) {
+        public Builder eventStreamDefinition(@Nullable DashboardV2WidgetEventStreamDefinition eventStreamDefinition) {
 
             this.eventStreamDefinition = eventStreamDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder eventTimelineDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetEventTimelineDefinition eventTimelineDefinition) {
+        public Builder eventTimelineDefinition(@Nullable DashboardV2WidgetEventTimelineDefinition eventTimelineDefinition) {
 
             this.eventTimelineDefinition = eventTimelineDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder freeTextDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetFreeTextDefinition freeTextDefinition) {
+        public Builder freeTextDefinition(@Nullable DashboardV2WidgetFreeTextDefinition freeTextDefinition) {
 
             this.freeTextDefinition = freeTextDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder funnelDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetFunnelDefinition funnelDefinition) {
+        public Builder funnelDefinition(@Nullable DashboardV2WidgetFunnelDefinition funnelDefinition) {
 
             this.funnelDefinition = funnelDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder geomapDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetGeomapDefinition geomapDefinition) {
+        public Builder geomapDefinition(@Nullable DashboardV2WidgetGeomapDefinition geomapDefinition) {
 
             this.geomapDefinition = geomapDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder heatmapDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetHeatmapDefinition heatmapDefinition) {
+        public Builder heatmapDefinition(@Nullable DashboardV2WidgetHeatmapDefinition heatmapDefinition) {
 
             this.heatmapDefinition = heatmapDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder hostmapDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetHostmapDefinition hostmapDefinition) {
+        public Builder hostmapDefinition(@Nullable DashboardV2WidgetHostmapDefinition hostmapDefinition) {
 
             this.hostmapDefinition = hostmapDefinition;
             return this;
@@ -601,115 +601,115 @@ public final class DashboardV2WidgetGroupDefinitionWidget {
             return this;
         }
         @CustomType.Setter
-        public Builder iframeDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetIframeDefinition iframeDefinition) {
+        public Builder iframeDefinition(@Nullable DashboardV2WidgetIframeDefinition iframeDefinition) {
 
             this.iframeDefinition = iframeDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder imageDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetImageDefinition imageDefinition) {
+        public Builder imageDefinition(@Nullable DashboardV2WidgetImageDefinition imageDefinition) {
 
             this.imageDefinition = imageDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder listStreamDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetListStreamDefinition listStreamDefinition) {
+        public Builder listStreamDefinition(@Nullable DashboardV2WidgetListStreamDefinition listStreamDefinition) {
 
             this.listStreamDefinition = listStreamDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder logStreamDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetLogStreamDefinition logStreamDefinition) {
+        public Builder logStreamDefinition(@Nullable DashboardV2WidgetLogStreamDefinition logStreamDefinition) {
 
             this.logStreamDefinition = logStreamDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder manageStatusDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetManageStatusDefinition manageStatusDefinition) {
+        public Builder manageStatusDefinition(@Nullable DashboardV2WidgetManageStatusDefinition manageStatusDefinition) {
 
             this.manageStatusDefinition = manageStatusDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder noteDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetNoteDefinition noteDefinition) {
+        public Builder noteDefinition(@Nullable DashboardV2WidgetNoteDefinition noteDefinition) {
 
             this.noteDefinition = noteDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder queryTableDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinition queryTableDefinition) {
+        public Builder queryTableDefinition(@Nullable DashboardV2WidgetQueryTableDefinition queryTableDefinition) {
 
             this.queryTableDefinition = queryTableDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder queryValueDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinition queryValueDefinition) {
+        public Builder queryValueDefinition(@Nullable DashboardV2WidgetQueryValueDefinition queryValueDefinition) {
 
             this.queryValueDefinition = queryValueDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder runWorkflowDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetRunWorkflowDefinition runWorkflowDefinition) {
+        public Builder runWorkflowDefinition(@Nullable DashboardV2WidgetRunWorkflowDefinition runWorkflowDefinition) {
 
             this.runWorkflowDefinition = runWorkflowDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder scatterplotDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetScatterplotDefinition scatterplotDefinition) {
+        public Builder scatterplotDefinition(@Nullable DashboardV2WidgetScatterplotDefinition scatterplotDefinition) {
 
             this.scatterplotDefinition = scatterplotDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceLevelObjectiveDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition serviceLevelObjectiveDefinition) {
+        public Builder serviceLevelObjectiveDefinition(@Nullable DashboardV2WidgetServiceLevelObjectiveDefinition serviceLevelObjectiveDefinition) {
 
             this.serviceLevelObjectiveDefinition = serviceLevelObjectiveDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder servicemapDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetServicemapDefinition servicemapDefinition) {
+        public Builder servicemapDefinition(@Nullable DashboardV2WidgetServicemapDefinition servicemapDefinition) {
 
             this.servicemapDefinition = servicemapDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder sloListDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetSloListDefinition sloListDefinition) {
+        public Builder sloListDefinition(@Nullable DashboardV2WidgetSloListDefinition sloListDefinition) {
 
             this.sloListDefinition = sloListDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder sunburstDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetSunburstDefinition sunburstDefinition) {
+        public Builder sunburstDefinition(@Nullable DashboardV2WidgetSunburstDefinition sunburstDefinition) {
 
             this.sunburstDefinition = sunburstDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder timeseriesDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetTimeseriesDefinition timeseriesDefinition) {
+        public Builder timeseriesDefinition(@Nullable DashboardV2WidgetTimeseriesDefinition timeseriesDefinition) {
 
             this.timeseriesDefinition = timeseriesDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder toplistDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetToplistDefinition toplistDefinition) {
+        public Builder toplistDefinition(@Nullable DashboardV2WidgetToplistDefinition toplistDefinition) {
 
             this.toplistDefinition = toplistDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder topologyMapDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetTopologyMapDefinition topologyMapDefinition) {
+        public Builder topologyMapDefinition(@Nullable DashboardV2WidgetTopologyMapDefinition topologyMapDefinition) {
 
             this.topologyMapDefinition = topologyMapDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder traceServiceDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetTraceServiceDefinition traceServiceDefinition) {
+        public Builder traceServiceDefinition(@Nullable DashboardV2WidgetTraceServiceDefinition traceServiceDefinition) {
 
             this.traceServiceDefinition = traceServiceDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder treemapDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetTreemapDefinition treemapDefinition) {
+        public Builder treemapDefinition(@Nullable DashboardV2WidgetTreemapDefinition treemapDefinition) {
 
             this.treemapDefinition = treemapDefinition;
             return this;

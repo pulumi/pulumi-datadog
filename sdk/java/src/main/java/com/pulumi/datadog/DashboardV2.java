@@ -118,7 +118,7 @@ import javax.annotation.Nullable;
  *                         .layoutType("ordered")
  *                         .title("Group Widget")
  *                         .widgets(DashboardV2WidgetGroupDefinitionWidgetArgs.builder()
- *                             .noteDefinition(DashboardV2WidgetGroupDefinitionWidgetNoteDefinitionArgs.builder()
+ *                             .noteDefinition(DashboardV2WidgetNoteDefinitionArgs.builder()
  *                                 .content("cluster note widget")
  *                                 .backgroundColor("pink")
  *                                 .fontSize("14")
