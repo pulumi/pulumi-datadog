@@ -135,7 +135,7 @@ build_go: .make/build_go
 	$(GEN_ENVS) $(WORKING_DIR)/bin/$(CODEGEN) go --out sdk/go/
 	@touch $@
 .make/build_go: .make/generate_go
-	cd sdk && go build "$$(grep -e "^module" go.mod | cut -d ' ' -f 2)/go/..."
+	cd sdk && go build -gcflags=all='-N -l' "$$(grep -e "^module" go.mod | cut -d ' ' -f 2)/go/..."
 	@touch $@
 .PHONY: generate_go build_go
 
