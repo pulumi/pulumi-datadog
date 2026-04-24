@@ -52,8 +52,13 @@ import (
 type IntegrationAccount struct {
 	pulumi.CustomResourceState
 
-	// The API key for the Fastly account.
-	ApiKey pulumi.StringOutput `pulumi:"apiKey"`
+	// The API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set.
+	ApiKey pulumi.StringPtrOutput `pulumi:"apiKey"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set. Must be used with `apiKeyWoVersion`.
+	ApiKeyWo pulumi.StringPtrOutput `pulumi:"apiKeyWo"`
+	// Version for `apiKeyWo` rotation. Changing this triggers an update. String length must be at least 1.
+	ApiKeyWoVersion pulumi.StringPtrOutput `pulumi:"apiKeyWoVersion"`
 	// The name of the Fastly account.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
@@ -65,12 +70,20 @@ func NewIntegrationAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ApiKey == nil {
-		return nil, errors.New("invalid value for required argument 'ApiKey'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
+	if args.ApiKey != nil {
+		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringPtrInput)
+	}
+	if args.ApiKeyWo != nil {
+		args.ApiKeyWo = pulumi.ToSecret(args.ApiKeyWo).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"apiKey",
+		"apiKeyWo",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IntegrationAccount
 	err := ctx.RegisterResource("datadog:fastly/integrationAccount:IntegrationAccount", name, args, &resource, opts...)
@@ -94,15 +107,25 @@ func GetIntegrationAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationAccount resources.
 type integrationAccountState struct {
-	// The API key for the Fastly account.
+	// The API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set.
 	ApiKey *string `pulumi:"apiKey"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set. Must be used with `apiKeyWoVersion`.
+	ApiKeyWo *string `pulumi:"apiKeyWo"`
+	// Version for `apiKeyWo` rotation. Changing this triggers an update. String length must be at least 1.
+	ApiKeyWoVersion *string `pulumi:"apiKeyWoVersion"`
 	// The name of the Fastly account.
 	Name *string `pulumi:"name"`
 }
 
 type IntegrationAccountState struct {
-	// The API key for the Fastly account.
+	// The API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set.
 	ApiKey pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set. Must be used with `apiKeyWoVersion`.
+	ApiKeyWo pulumi.StringPtrInput
+	// Version for `apiKeyWo` rotation. Changing this triggers an update. String length must be at least 1.
+	ApiKeyWoVersion pulumi.StringPtrInput
 	// The name of the Fastly account.
 	Name pulumi.StringPtrInput
 }
@@ -112,16 +135,26 @@ func (IntegrationAccountState) ElementType() reflect.Type {
 }
 
 type integrationAccountArgs struct {
-	// The API key for the Fastly account.
-	ApiKey string `pulumi:"apiKey"`
+	// The API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set.
+	ApiKey *string `pulumi:"apiKey"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set. Must be used with `apiKeyWoVersion`.
+	ApiKeyWo *string `pulumi:"apiKeyWo"`
+	// Version for `apiKeyWo` rotation. Changing this triggers an update. String length must be at least 1.
+	ApiKeyWoVersion *string `pulumi:"apiKeyWoVersion"`
 	// The name of the Fastly account.
 	Name string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a IntegrationAccount resource.
 type IntegrationAccountArgs struct {
-	// The API key for the Fastly account.
-	ApiKey pulumi.StringInput
+	// The API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set.
+	ApiKey pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set. Must be used with `apiKeyWoVersion`.
+	ApiKeyWo pulumi.StringPtrInput
+	// Version for `apiKeyWo` rotation. Changing this triggers an update. String length must be at least 1.
+	ApiKeyWoVersion pulumi.StringPtrInput
 	// The name of the Fastly account.
 	Name pulumi.StringInput
 }
@@ -213,9 +246,20 @@ func (o IntegrationAccountOutput) ToIntegrationAccountOutputWithContext(ctx cont
 	return o
 }
 
-// The API key for the Fastly account.
-func (o IntegrationAccountOutput) ApiKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *IntegrationAccount) pulumi.StringOutput { return v.ApiKey }).(pulumi.StringOutput)
+// The API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set.
+func (o IntegrationAccountOutput) ApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccount) pulumi.StringPtrOutput { return v.ApiKey }).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// Write-only API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set. Must be used with `apiKeyWoVersion`.
+func (o IntegrationAccountOutput) ApiKeyWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccount) pulumi.StringPtrOutput { return v.ApiKeyWo }).(pulumi.StringPtrOutput)
+}
+
+// Version for `apiKeyWo` rotation. Changing this triggers an update. String length must be at least 1.
+func (o IntegrationAccountOutput) ApiKeyWoVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccount) pulumi.StringPtrOutput { return v.ApiKeyWoVersion }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Fastly account.

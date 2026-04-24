@@ -28,6 +28,11 @@ public final class DashboardWidgetScatterplotDefinition {
      */
     private @Nullable List<DashboardWidgetScatterplotDefinitionCustomLink> customLinks;
     /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
      * 
      */
@@ -82,6 +87,13 @@ public final class DashboardWidgetScatterplotDefinition {
      */
     public List<DashboardWidgetScatterplotDefinitionCustomLink> customLinks() {
         return this.customLinks == null ? List.of() : this.customLinks;
+    }
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
@@ -151,6 +163,7 @@ public final class DashboardWidgetScatterplotDefinition {
     public static final class Builder {
         private @Nullable List<String> colorByGroups;
         private @Nullable List<DashboardWidgetScatterplotDefinitionCustomLink> customLinks;
+        private @Nullable String description;
         private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String liveSpan;
         private @Nullable DashboardWidgetScatterplotDefinitionRequest request;
@@ -164,6 +177,7 @@ public final class DashboardWidgetScatterplotDefinition {
     	      Objects.requireNonNull(defaults);
     	      this.colorByGroups = defaults.colorByGroups;
     	      this.customLinks = defaults.customLinks;
+    	      this.description = defaults.description;
     	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.liveSpan = defaults.liveSpan;
     	      this.request = defaults.request;
@@ -191,6 +205,12 @@ public final class DashboardWidgetScatterplotDefinition {
         }
         public Builder customLinks(DashboardWidgetScatterplotDefinitionCustomLink... customLinks) {
             return customLinks(List.of(customLinks));
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
         }
         @CustomType.Setter
         public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
@@ -244,6 +264,7 @@ public final class DashboardWidgetScatterplotDefinition {
             final var _resultValue = new DashboardWidgetScatterplotDefinition();
             _resultValue.colorByGroups = colorByGroups;
             _resultValue.customLinks = customLinks;
+            _resultValue.description = description;
             _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.liveSpan = liveSpan;
             _resultValue.request = request;

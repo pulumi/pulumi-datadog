@@ -25,6 +25,12 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Controls the display of the search bar. Valid values are `Always`, `Never`, `Auto`.
         /// </summary>
         [Input("hasSearchBar")]

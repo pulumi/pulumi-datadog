@@ -25,6 +25,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Content { get; set; } = null!;
 
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The size of the text.
         /// </summary>
         [Input("fontSize")]

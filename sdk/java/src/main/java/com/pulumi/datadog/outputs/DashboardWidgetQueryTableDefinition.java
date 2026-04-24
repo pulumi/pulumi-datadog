@@ -21,6 +21,11 @@ public final class DashboardWidgetQueryTableDefinition {
      */
     private @Nullable List<DashboardWidgetQueryTableDefinitionCustomLink> customLinks;
     /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return Controls the display of the search bar. Valid values are `always`, `never`, `auto`.
      * 
      */
@@ -63,6 +68,13 @@ public final class DashboardWidgetQueryTableDefinition {
      */
     public List<DashboardWidgetQueryTableDefinitionCustomLink> customLinks() {
         return this.customLinks == null ? List.of() : this.customLinks;
+    }
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Controls the display of the search bar. Valid values are `always`, `never`, `auto`.
@@ -124,6 +136,7 @@ public final class DashboardWidgetQueryTableDefinition {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<DashboardWidgetQueryTableDefinitionCustomLink> customLinks;
+        private @Nullable String description;
         private @Nullable String hasSearchBar;
         private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String liveSpan;
@@ -135,6 +148,7 @@ public final class DashboardWidgetQueryTableDefinition {
         public Builder(DashboardWidgetQueryTableDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customLinks = defaults.customLinks;
+    	      this.description = defaults.description;
     	      this.hasSearchBar = defaults.hasSearchBar;
     	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.liveSpan = defaults.liveSpan;
@@ -152,6 +166,12 @@ public final class DashboardWidgetQueryTableDefinition {
         }
         public Builder customLinks(DashboardWidgetQueryTableDefinitionCustomLink... customLinks) {
             return customLinks(List.of(customLinks));
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
         }
         @CustomType.Setter
         public Builder hasSearchBar(@Nullable String hasSearchBar) {
@@ -201,6 +221,7 @@ public final class DashboardWidgetQueryTableDefinition {
         public DashboardWidgetQueryTableDefinition build() {
             final var _resultValue = new DashboardWidgetQueryTableDefinition();
             _resultValue.customLinks = customLinks;
+            _resultValue.description = description;
             _resultValue.hasSearchBar = hasSearchBar;
             _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.liveSpan = liveSpan;

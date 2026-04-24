@@ -83,7 +83,7 @@ public final class ObservabilityPipelineConfigDestination {
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationDatadogMetric> datadogMetrics;
     /**
-     * @return The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+     * @return The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationElasticsearch> elasticsearches;
@@ -233,7 +233,7 @@ public final class ObservabilityPipelineConfigDestination {
         return this.datadogMetrics == null ? List.of() : this.datadogMetrics;
     }
     /**
-     * @return The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+     * @return The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
      * 
      */
     public List<ObservabilityPipelineConfigDestinationElasticsearch> elasticsearches() {

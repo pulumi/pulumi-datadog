@@ -39,6 +39,21 @@ public final class PowerpackWidgetTimeseriesDefinitionArgs extends com.pulumi.re
     }
 
     /**
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * The definition of the event to overlay on the graph. Multiple `event` blocks are allowed using the structure below.
      * 
      */
@@ -252,6 +267,7 @@ public final class PowerpackWidgetTimeseriesDefinitionArgs extends com.pulumi.re
 
     private PowerpackWidgetTimeseriesDefinitionArgs(PowerpackWidgetTimeseriesDefinitionArgs $) {
         this.customLinks = $.customLinks;
+        this.description = $.description;
         this.events = $.events;
         this.hideIncompleteCostData = $.hideIncompleteCostData;
         this.legendColumns = $.legendColumns;
@@ -315,6 +331,27 @@ public final class PowerpackWidgetTimeseriesDefinitionArgs extends com.pulumi.re
          */
         public Builder customLinks(PowerpackWidgetTimeseriesDefinitionCustomLinkArgs... customLinks) {
             return customLinks(List.of(customLinks));
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

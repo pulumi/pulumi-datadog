@@ -34,6 +34,21 @@ public final class PowerpackWidgetTopologyMapDefinitionArgs extends com.pulumi.r
     }
 
     /**
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `requestType` are required within the request).
      * 
      */
@@ -97,6 +112,7 @@ public final class PowerpackWidgetTopologyMapDefinitionArgs extends com.pulumi.r
 
     private PowerpackWidgetTopologyMapDefinitionArgs(PowerpackWidgetTopologyMapDefinitionArgs $) {
         this.customLinks = $.customLinks;
+        this.description = $.description;
         this.requests = $.requests;
         this.title = $.title;
         this.titleAlign = $.titleAlign;
@@ -150,6 +166,27 @@ public final class PowerpackWidgetTopologyMapDefinitionArgs extends com.pulumi.r
          */
         public Builder customLinks(PowerpackWidgetTopologyMapDefinitionCustomLinkArgs... customLinks) {
             return customLinks(List.of(customLinks));
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

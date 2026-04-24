@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetListStreamDefinitionRequestColumn> Columns;
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Updated list stream widget.
         /// </summary>
         public readonly Outputs.DashboardWidgetListStreamDefinitionRequestQuery Query;
@@ -30,11 +34,14 @@ namespace Pulumi.Datadog.Outputs
         private DashboardWidgetListStreamDefinitionRequest(
             ImmutableArray<Outputs.DashboardWidgetListStreamDefinitionRequestColumn> columns,
 
+            string? description,
+
             Outputs.DashboardWidgetListStreamDefinitionRequestQuery query,
 
             string responseFormat)
         {
             Columns = columns;
+            Description = description;
             Query = query;
             ResponseFormat = responseFormat;
         }

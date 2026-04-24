@@ -165,7 +165,7 @@ class Dataset(pulumi.CustomResource):
                  product_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetProductFilterArgs', 'DatasetProductFilterArgsDict']]]]] = None,
                  __props__=None):
         """
-        Provides a Datadog Dataset resource. This can be used to create and manage Datadog datasets.
+        Provides a Datadog Dataset resource. This can be used to create and manage Datadog datasets, also known as restricted datasets, for Data Access Control.
 
         ## Example Usage
 
@@ -204,7 +204,7 @@ class Dataset(pulumi.CustomResource):
                  args: DatasetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog Dataset resource. This can be used to create and manage Datadog datasets.
+        Provides a Datadog Dataset resource. This can be used to create and manage Datadog datasets, also known as restricted datasets, for Data Access Control.
 
         ## Example Usage
 

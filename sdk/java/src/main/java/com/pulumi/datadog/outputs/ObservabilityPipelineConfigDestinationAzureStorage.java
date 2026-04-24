@@ -24,6 +24,11 @@ public final class ObservabilityPipelineConfigDestinationAzureStorage {
      */
     private @Nullable ObservabilityPipelineConfigDestinationAzureStorageBuffer buffer;
     /**
+     * @return Name of the environment variable or secret that holds the Azure Storage connection string.
+     * 
+     */
+    private @Nullable String connectionStringKey;
+    /**
      * @return The name of the Azure Blob Storage container to store logs in.
      * 
      */
@@ -45,6 +50,13 @@ public final class ObservabilityPipelineConfigDestinationAzureStorage {
         return Optional.ofNullable(this.buffer);
     }
     /**
+     * @return Name of the environment variable or secret that holds the Azure Storage connection string.
+     * 
+     */
+    public Optional<String> connectionStringKey() {
+        return Optional.ofNullable(this.connectionStringKey);
+    }
+    /**
      * @return The name of the Azure Blob Storage container to store logs in.
      * 
      */
@@ -63,12 +75,14 @@ public final class ObservabilityPipelineConfigDestinationAzureStorage {
     public static final class Builder {
         private @Nullable String blobPrefix;
         private @Nullable ObservabilityPipelineConfigDestinationAzureStorageBuffer buffer;
+        private @Nullable String connectionStringKey;
         private String containerName;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationAzureStorage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.blobPrefix = defaults.blobPrefix;
     	      this.buffer = defaults.buffer;
+    	      this.connectionStringKey = defaults.connectionStringKey;
     	      this.containerName = defaults.containerName;
         }
 
@@ -85,6 +99,12 @@ public final class ObservabilityPipelineConfigDestinationAzureStorage {
             return this;
         }
         @CustomType.Setter
+        public Builder connectionStringKey(@Nullable String connectionStringKey) {
+
+            this.connectionStringKey = connectionStringKey;
+            return this;
+        }
+        @CustomType.Setter
         public Builder containerName(String containerName) {
             if (containerName == null) {
               throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationAzureStorage", "containerName");
@@ -96,6 +116,7 @@ public final class ObservabilityPipelineConfigDestinationAzureStorage {
             final var _resultValue = new ObservabilityPipelineConfigDestinationAzureStorage();
             _resultValue.blobPrefix = blobPrefix;
             _resultValue.buffer = buffer;
+            _resultValue.connectionStringKey = connectionStringKey;
             _resultValue.containerName = containerName;
             return _resultValue;
         }

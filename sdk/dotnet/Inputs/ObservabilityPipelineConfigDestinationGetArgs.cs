@@ -112,7 +112,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigDestinationElasticsearchGetArgs>? _elasticsearches;
 
         /// <summary>
-        /// The `Elasticsearch` destination writes logs to an Elasticsearch cluster.
+        /// The `Elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigDestinationElasticsearchGetArgs> Elasticsearches
         {

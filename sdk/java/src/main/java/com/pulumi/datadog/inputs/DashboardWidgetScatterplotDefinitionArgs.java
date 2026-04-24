@@ -52,6 +52,21 @@ public final class DashboardWidgetScatterplotDefinitionArgs extends com.pulumi.r
     }
 
     /**
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
      * 
      */
@@ -176,6 +191,7 @@ public final class DashboardWidgetScatterplotDefinitionArgs extends com.pulumi.r
     private DashboardWidgetScatterplotDefinitionArgs(DashboardWidgetScatterplotDefinitionArgs $) {
         this.colorByGroups = $.colorByGroups;
         this.customLinks = $.customLinks;
+        this.description = $.description;
         this.hideIncompleteCostData = $.hideIncompleteCostData;
         this.liveSpan = $.liveSpan;
         this.request = $.request;
@@ -264,6 +280,27 @@ public final class DashboardWidgetScatterplotDefinitionArgs extends com.pulumi.r
          */
         public Builder customLinks(DashboardWidgetScatterplotDefinitionCustomLinkArgs... customLinks) {
             return customLinks(List.of(customLinks));
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

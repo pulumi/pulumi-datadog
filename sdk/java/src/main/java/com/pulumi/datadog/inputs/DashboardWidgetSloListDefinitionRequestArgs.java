@@ -9,11 +9,28 @@ import com.pulumi.datadog.inputs.DashboardWidgetSloListDefinitionRequestQueryArg
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class DashboardWidgetSloListDefinitionRequestArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DashboardWidgetSloListDefinitionRequestArgs Empty = new DashboardWidgetSloListDefinitionRequestArgs();
+
+    /**
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
 
     /**
      * Updated SLO List widget.
@@ -48,6 +65,7 @@ public final class DashboardWidgetSloListDefinitionRequestArgs extends com.pulum
     private DashboardWidgetSloListDefinitionRequestArgs() {}
 
     private DashboardWidgetSloListDefinitionRequestArgs(DashboardWidgetSloListDefinitionRequestArgs $) {
+        this.description = $.description;
         this.query = $.query;
         this.requestType = $.requestType;
     }
@@ -68,6 +86,27 @@ public final class DashboardWidgetSloListDefinitionRequestArgs extends com.pulum
 
         public Builder(DashboardWidgetSloListDefinitionRequestArgs defaults) {
             $ = new DashboardWidgetSloListDefinitionRequestArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

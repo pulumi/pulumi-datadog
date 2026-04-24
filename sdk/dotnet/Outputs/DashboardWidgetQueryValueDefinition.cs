@@ -26,6 +26,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? CustomUnit;
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
         /// </summary>
         public readonly bool? HideIncompleteCostData;
@@ -70,6 +74,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? customUnit,
 
+            string? description,
+
             bool? hideIncompleteCostData,
 
             string? liveSpan,
@@ -91,6 +97,7 @@ namespace Pulumi.Datadog.Outputs
             Autoscale = autoscale;
             CustomLinks = customLinks;
             CustomUnit = customUnit;
+            Description = description;
             HideIncompleteCostData = hideIncompleteCostData;
             LiveSpan = liveSpan;
             Precision = precision;

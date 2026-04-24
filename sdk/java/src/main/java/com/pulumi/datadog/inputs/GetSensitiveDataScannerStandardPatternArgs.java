@@ -5,9 +5,10 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetSensitiveDataScannerStandardPatternArgs extends com.pulumi.resources.InvokeArgs {
@@ -18,21 +19,37 @@ public final class GetSensitiveDataScannerStandardPatternArgs extends com.pulumi
      * Filter all the Datadog standard patterns by name.
      * 
      */
-    @Import(name="filter", required=true)
-    private Output<String> filter;
+    @Import(name="filter")
+    private @Nullable Output<String> filter;
 
     /**
      * @return Filter all the Datadog standard patterns by name.
      * 
      */
-    public Output<String> filter() {
-        return this.filter;
+    public Optional<Output<String>> filter() {
+        return Optional.ofNullable(this.filter);
+    }
+
+    /**
+     * Stable ID of the Datadog standard pattern to retrieve. This can be set directly to avoid Terraform configs breaking when Datadog renames a standard pattern.
+     * 
+     */
+    @Import(name="standardPatternId")
+    private @Nullable Output<String> standardPatternId;
+
+    /**
+     * @return Stable ID of the Datadog standard pattern to retrieve. This can be set directly to avoid Terraform configs breaking when Datadog renames a standard pattern.
+     * 
+     */
+    public Optional<Output<String>> standardPatternId() {
+        return Optional.ofNullable(this.standardPatternId);
     }
 
     private GetSensitiveDataScannerStandardPatternArgs() {}
 
     private GetSensitiveDataScannerStandardPatternArgs(GetSensitiveDataScannerStandardPatternArgs $) {
         this.filter = $.filter;
+        this.standardPatternId = $.standardPatternId;
     }
 
     public static Builder builder() {
@@ -59,7 +76,7 @@ public final class GetSensitiveDataScannerStandardPatternArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder filter(Output<String> filter) {
+        public Builder filter(@Nullable Output<String> filter) {
             $.filter = filter;
             return this;
         }
@@ -74,10 +91,28 @@ public final class GetSensitiveDataScannerStandardPatternArgs extends com.pulumi
             return filter(Output.of(filter));
         }
 
+        /**
+         * @param standardPatternId Stable ID of the Datadog standard pattern to retrieve. This can be set directly to avoid Terraform configs breaking when Datadog renames a standard pattern.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder standardPatternId(@Nullable Output<String> standardPatternId) {
+            $.standardPatternId = standardPatternId;
+            return this;
+        }
+
+        /**
+         * @param standardPatternId Stable ID of the Datadog standard pattern to retrieve. This can be set directly to avoid Terraform configs breaking when Datadog renames a standard pattern.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder standardPatternId(String standardPatternId) {
+            return standardPatternId(Output.of(standardPatternId));
+        }
+
         public GetSensitiveDataScannerStandardPatternArgs build() {
-            if ($.filter == null) {
-                throw new MissingRequiredPropertyException("GetSensitiveDataScannerStandardPatternArgs", "filter");
-            }
             return $;
         }
     }

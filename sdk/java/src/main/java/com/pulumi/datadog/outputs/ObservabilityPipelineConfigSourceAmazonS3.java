@@ -20,6 +20,11 @@ public final class ObservabilityPipelineConfigSourceAmazonS3 {
      */
     private @Nullable ObservabilityPipelineConfigSourceAmazonS3Auth auth;
     /**
+     * @return Compression format for objects retrieved from the S3 bucket. Use `auto` to detect compression from the object&#39;s Content-Encoding header or file extension. Valid values are `auto`, `none`, `gzip`, `zstd`.
+     * 
+     */
+    private @Nullable String compression;
+    /**
      * @return AWS region where the S3 bucket resides.
      * 
      */
@@ -42,6 +47,13 @@ public final class ObservabilityPipelineConfigSourceAmazonS3 {
      */
     public Optional<ObservabilityPipelineConfigSourceAmazonS3Auth> auth() {
         return Optional.ofNullable(this.auth);
+    }
+    /**
+     * @return Compression format for objects retrieved from the S3 bucket. Use `auto` to detect compression from the object&#39;s Content-Encoding header or file extension. Valid values are `auto`, `none`, `gzip`, `zstd`.
+     * 
+     */
+    public Optional<String> compression() {
+        return Optional.ofNullable(this.compression);
     }
     /**
      * @return AWS region where the S3 bucket resides.
@@ -75,6 +87,7 @@ public final class ObservabilityPipelineConfigSourceAmazonS3 {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable ObservabilityPipelineConfigSourceAmazonS3Auth auth;
+        private @Nullable String compression;
         private String region;
         private @Nullable ObservabilityPipelineConfigSourceAmazonS3Tls tls;
         private @Nullable String urlKey;
@@ -82,6 +95,7 @@ public final class ObservabilityPipelineConfigSourceAmazonS3 {
         public Builder(ObservabilityPipelineConfigSourceAmazonS3 defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.auth = defaults.auth;
+    	      this.compression = defaults.compression;
     	      this.region = defaults.region;
     	      this.tls = defaults.tls;
     	      this.urlKey = defaults.urlKey;
@@ -91,6 +105,12 @@ public final class ObservabilityPipelineConfigSourceAmazonS3 {
         public Builder auth(@Nullable ObservabilityPipelineConfigSourceAmazonS3Auth auth) {
 
             this.auth = auth;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder compression(@Nullable String compression) {
+
+            this.compression = compression;
             return this;
         }
         @CustomType.Setter
@@ -116,6 +136,7 @@ public final class ObservabilityPipelineConfigSourceAmazonS3 {
         public ObservabilityPipelineConfigSourceAmazonS3 build() {
             final var _resultValue = new ObservabilityPipelineConfigSourceAmazonS3();
             _resultValue.auth = auth;
+            _resultValue.compression = compression;
             _resultValue.region = region;
             _resultValue.tls = tls;
             _resultValue.urlKey = urlKey;

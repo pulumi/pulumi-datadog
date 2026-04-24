@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? CustomQueryExtension;
         /// <summary>
-        /// Source of events. Valid values are `Logs`, `Audit`, `AppSecSpans`, `Spans`, `SecurityRuntime`, `Network`, `Events`.
+        /// Source of events. Valid values are `Logs`, `Audit`, `AppSecSpans`, `Spans`, `SecurityRuntime`, `Network`, `Events`, `SecuritySignals`.
         /// </summary>
         public readonly string? DataSource;
         /// <summary>

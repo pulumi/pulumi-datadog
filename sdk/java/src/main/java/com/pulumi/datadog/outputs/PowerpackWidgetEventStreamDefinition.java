@@ -14,6 +14,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PowerpackWidgetEventStreamDefinition {
     /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return The size to use to display an event. Valid values are `s`, `l`.
      * 
      */
@@ -55,6 +60,13 @@ public final class PowerpackWidgetEventStreamDefinition {
     private @Nullable String titleSize;
 
     private PowerpackWidgetEventStreamDefinition() {}
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
+    }
     /**
      * @return The size to use to display an event. Valid values are `s`, `l`.
      * 
@@ -121,6 +133,7 @@ public final class PowerpackWidgetEventStreamDefinition {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String description;
         private @Nullable String eventSize;
         private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String liveSpan;
@@ -132,6 +145,7 @@ public final class PowerpackWidgetEventStreamDefinition {
         public Builder() {}
         public Builder(PowerpackWidgetEventStreamDefinition defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.description = defaults.description;
     	      this.eventSize = defaults.eventSize;
     	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.liveSpan = defaults.liveSpan;
@@ -142,6 +156,12 @@ public final class PowerpackWidgetEventStreamDefinition {
     	      this.titleSize = defaults.titleSize;
         }
 
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
+        }
         @CustomType.Setter
         public Builder eventSize(@Nullable String eventSize) {
 
@@ -194,6 +214,7 @@ public final class PowerpackWidgetEventStreamDefinition {
         }
         public PowerpackWidgetEventStreamDefinition build() {
             final var _resultValue = new PowerpackWidgetEventStreamDefinition();
+            _resultValue.description = description;
             _resultValue.eventSize = eventSize;
             _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.liveSpan = liveSpan;

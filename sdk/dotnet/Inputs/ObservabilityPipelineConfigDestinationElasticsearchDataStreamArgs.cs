@@ -13,22 +13,34 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigDestinationElasticsearchDataStreamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The data stream dataset for your logs. This groups logs by their source or application.
+        /// When `True`, automatically routes events to the appropriate data stream based on the event content.
+        /// </summary>
+        [Input("autoRouting")]
+        public Input<bool>? AutoRouting { get; set; }
+
+        /// <summary>
+        /// The data stream dataset. This groups events by their source or application.
         /// </summary>
         [Input("dataset")]
         public Input<string>? Dataset { get; set; }
 
         /// <summary>
-        /// The data stream type for your logs. This determines how logs are categorized within the data stream.
+        /// The data stream type. This determines how events are categorized within the data stream.
         /// </summary>
         [Input("dtype")]
         public Input<string>? Dtype { get; set; }
 
         /// <summary>
-        /// The data stream namespace for your logs. This separates logs into different environments or domains.
+        /// The data stream namespace. This separates events into different environments or domains.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
+
+        /// <summary>
+        /// When `True`, synchronizes data stream fields with the Elasticsearch index mapping.
+        /// </summary>
+        [Input("syncFields")]
+        public Input<bool>? SyncFields { get; set; }
 
         public ObservabilityPipelineConfigDestinationElasticsearchDataStreamArgs()
         {

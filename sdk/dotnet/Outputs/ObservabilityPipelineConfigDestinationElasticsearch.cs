@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationElasticsearch
     {
         /// <summary>
-        /// The Elasticsearch API version to use. Set to `Auto` to auto-detect.
+        /// The Elasticsearch API version to use. Set to `Auto` to auto-detect. Valid values are `Auto`, `V6`, `V7`, `V8`.
         /// </summary>
         public readonly string? ApiVersion;
         /// <summary>
@@ -26,9 +26,13 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationElasticsearchBuffer? Buffer;
         /// <summary>
-        /// The index or datastream to write logs to in Elasticsearch.
+        /// The name of the index to write events to in Elasticsearch.
         /// </summary>
         public readonly string? BulkIndex;
+        /// <summary>
+        /// Compression configuration for the Elasticsearch destination.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationElasticsearchCompression? Compression;
         /// <summary>
         /// Configuration options for writing to Elasticsearch Data Streams instead of a fixed index.
         /// </summary>
@@ -37,6 +41,22 @@ namespace Pulumi.Datadog.Outputs
         /// Name of the environment variable or secret that holds the Elasticsearch endpoint URL.
         /// </summary>
         public readonly string? EndpointUrlKey;
+        /// <summary>
+        /// The name of the field used as the document ID in Elasticsearch.
+        /// </summary>
+        public readonly string? IdKey;
+        /// <summary>
+        /// The name of an Elasticsearch ingest pipeline to apply to events before indexing.
+        /// </summary>
+        public readonly string? Pipeline;
+        /// <summary>
+        /// When `True`, retries failed partial bulk requests when some events in a batch fail while others succeed.
+        /// </summary>
+        public readonly bool? RequestRetryPartial;
+        /// <summary>
+        /// Configuration for enabling TLS encryption between the pipeline component and external services.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationElasticsearchTls? Tls;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationElasticsearch(
@@ -48,16 +68,31 @@ namespace Pulumi.Datadog.Outputs
 
             string? bulkIndex,
 
+            Outputs.ObservabilityPipelineConfigDestinationElasticsearchCompression? compression,
+
             Outputs.ObservabilityPipelineConfigDestinationElasticsearchDataStream? dataStream,
 
-            string? endpointUrlKey)
+            string? endpointUrlKey,
+
+            string? idKey,
+
+            string? pipeline,
+
+            bool? requestRetryPartial,
+
+            Outputs.ObservabilityPipelineConfigDestinationElasticsearchTls? tls)
         {
             ApiVersion = apiVersion;
             Auth = auth;
             Buffer = buffer;
             BulkIndex = bulkIndex;
+            Compression = compression;
             DataStream = dataStream;
             EndpointUrlKey = endpointUrlKey;
+            IdKey = idKey;
+            Pipeline = pipeline;
+            RequestRetryPartial = requestRetryPartial;
+            Tls = tls;
         }
     }
 }

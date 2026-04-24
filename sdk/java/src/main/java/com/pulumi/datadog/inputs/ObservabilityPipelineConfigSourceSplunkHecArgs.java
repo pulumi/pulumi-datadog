@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceSplunkHecTlsArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -32,6 +33,21 @@ public final class ObservabilityPipelineConfigSourceSplunkHecArgs extends com.pu
     }
 
     /**
+     * When `true`, the Splunk HEC token from the incoming request is stored in the event, allowing downstream components to forward it to other Splunk HEC destinations.
+     * 
+     */
+    @Import(name="storeHecToken")
+    private @Nullable Output<Boolean> storeHecToken;
+
+    /**
+     * @return When `true`, the Splunk HEC token from the incoming request is stored in the event, allowing downstream components to forward it to other Splunk HEC destinations.
+     * 
+     */
+    public Optional<Output<Boolean>> storeHecToken() {
+        return Optional.ofNullable(this.storeHecToken);
+    }
+
+    /**
      * Configuration for enabling TLS encryption between the pipeline component and external services.
      * 
      */
@@ -50,6 +66,7 @@ public final class ObservabilityPipelineConfigSourceSplunkHecArgs extends com.pu
 
     private ObservabilityPipelineConfigSourceSplunkHecArgs(ObservabilityPipelineConfigSourceSplunkHecArgs $) {
         this.addressKey = $.addressKey;
+        this.storeHecToken = $.storeHecToken;
         this.tls = $.tls;
     }
 
@@ -90,6 +107,27 @@ public final class ObservabilityPipelineConfigSourceSplunkHecArgs extends com.pu
          */
         public Builder addressKey(String addressKey) {
             return addressKey(Output.of(addressKey));
+        }
+
+        /**
+         * @param storeHecToken When `true`, the Splunk HEC token from the incoming request is stored in the event, allowing downstream components to forward it to other Splunk HEC destinations.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storeHecToken(@Nullable Output<Boolean> storeHecToken) {
+            $.storeHecToken = storeHecToken;
+            return this;
+        }
+
+        /**
+         * @param storeHecToken When `true`, the Splunk HEC token from the incoming request is stored in the event, allowing downstream components to forward it to other Splunk HEC destinations.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storeHecToken(Boolean storeHecToken) {
+            return storeHecToken(Output.of(storeHecToken));
         }
 
         /**

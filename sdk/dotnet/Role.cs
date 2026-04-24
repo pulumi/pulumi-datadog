@@ -77,7 +77,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.RolePermission>> Permissions { get; private set; } = null!;
 
         /// <summary>
-        /// Number of users that have this role.
+        /// Number of users that have this role. **Deprecated.** This field is no longer set and will be removed in a future release.
         /// </summary>
         [Output("userCount")]
         public Output<int> UserCount { get; private set; } = null!;
@@ -197,7 +197,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Number of users that have this role.
+        /// Number of users that have this role. **Deprecated.** This field is no longer set and will be removed in a future release.
         /// </summary>
         [Input("userCount")]
         public Input<int>? UserCount { get; set; }

@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternCustom? Custom;
         /// <summary>
-        /// Pattern detection using a predefined pattern from the sensitive data scanner pattern library.
+        /// Pattern detection using a predefined pattern from the Sensitive Data Scanner library. For Terraform setup (standard pattern data source and library rules), see the Sensitive Data Scanner processor documentation.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternLibrary? Library;
 

@@ -58,14 +58,14 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
     }
 
     /**
-     * Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`. Defaults to `&#34;logs&#34;`.
+     * Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`, `securitySignals`. Defaults to `&#34;logs&#34;`.
      * 
      */
     @Import(name="dataSource")
     private @Nullable Output<String> dataSource;
 
     /**
-     * @return Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`. Defaults to `&#34;logs&#34;`.
+     * @return Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`, `securitySignals`. Defaults to `&#34;logs&#34;`.
      * 
      */
     public Optional<Output<String>> dataSource() {
@@ -299,7 +299,7 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param dataSource Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`. Defaults to `&#34;logs&#34;`.
+         * @param dataSource Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`, `securitySignals`. Defaults to `&#34;logs&#34;`.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param dataSource Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`. Defaults to `&#34;logs&#34;`.
+         * @param dataSource Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`, `securitySignals`. Defaults to `&#34;logs&#34;`.
          * 
          * @return builder
          * 

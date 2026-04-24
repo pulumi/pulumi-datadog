@@ -48,6 +48,21 @@ public final class PowerpackWidgetNoteDefinitionArgs extends com.pulumi.resource
     }
 
     /**
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * The size of the text.
      * 
      */
@@ -157,6 +172,7 @@ public final class PowerpackWidgetNoteDefinitionArgs extends com.pulumi.resource
     private PowerpackWidgetNoteDefinitionArgs(PowerpackWidgetNoteDefinitionArgs $) {
         this.backgroundColor = $.backgroundColor;
         this.content = $.content;
+        this.description = $.description;
         this.fontSize = $.fontSize;
         this.hasPadding = $.hasPadding;
         this.showTick = $.showTick;
@@ -224,6 +240,27 @@ public final class PowerpackWidgetNoteDefinitionArgs extends com.pulumi.resource
          */
         public Builder content(String content) {
             return content(Output.of(content));
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

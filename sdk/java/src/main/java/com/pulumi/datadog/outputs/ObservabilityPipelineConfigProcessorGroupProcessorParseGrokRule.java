@@ -20,7 +20,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRu
      */
     private List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleMatchRule> matchRules;
     /**
-     * @return The name of the field in the log event to apply the Grok rules to.
+     * @return The value of the source field in log events which should be processed by the Grok rules.
      * 
      */
     private String source;
@@ -39,7 +39,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRu
         return this.matchRules;
     }
     /**
-     * @return The name of the field in the log event to apply the Grok rules to.
+     * @return The value of the source field in log events which should be processed by the Grok rules.
      * 
      */
     public String source() {

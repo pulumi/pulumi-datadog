@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Color;
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// The size of the text in the widget.
         /// </summary>
         public readonly string? FontSize;
@@ -34,6 +38,8 @@ namespace Pulumi.Datadog.Outputs
         private DashboardWidgetFreeTextDefinition(
             string? color,
 
+            string? description,
+
             string? fontSize,
 
             string text,
@@ -41,6 +47,7 @@ namespace Pulumi.Datadog.Outputs
             string? textAlign)
         {
             Color = color;
+            Description = description;
             FontSize = fontSize;
             Text = text;
             TextAlign = textAlign;

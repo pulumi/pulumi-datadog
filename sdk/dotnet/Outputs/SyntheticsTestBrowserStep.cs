@@ -58,7 +58,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly int? Timeout;
         /// <summary>
-        /// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `assertRequests`, `Click`, `extractFromJavascript`, `extractFromEmailBody`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `Hover`, `playSubTest`, `pressKey`, `Refresh`, `runApiTest`, `Scroll`, `selectOption`, `typeText`, `uploadFiles`, `Wait`.
+        /// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `assertRequests`, `Click`, `Drag`, `Drop`, `extractFromJavascript`, `extractFromEmailBody`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `Hover`, `playSubTest`, `pressKey`, `Refresh`, `runApiTest`, `Scroll`, `selectOption`, `typeText`, `uploadFiles`, `Wait`.
         /// </summary>
         public readonly string Type;
 

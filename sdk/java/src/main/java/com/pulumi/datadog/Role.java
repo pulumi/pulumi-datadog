@@ -125,14 +125,18 @@ public class Role extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.permissions);
     }
     /**
-     * Number of users that have this role.
+     * Number of users that have this role. **Deprecated.** This field is no longer set and will be removed in a future release.
+     * 
+     * @deprecated
+     * This field is no longer set and will be removed in a future release.
      * 
      */
+    @Deprecated /* This field is no longer set and will be removed in a future release. */
     @Export(name="userCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> userCount;
 
     /**
-     * @return Number of users that have this role.
+     * @return Number of users that have this role. **Deprecated.** This field is no longer set and will be removed in a future release.
      * 
      */
     public Output<Integer> userCount() {

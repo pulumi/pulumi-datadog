@@ -20,6 +20,11 @@ public final class PowerpackWidgetTreemapDefinition {
      */
     private @Nullable List<PowerpackWidgetTreemapDefinitionCustomLink> customLinks;
     /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return Nested block describing the request to use when displaying the widget.
      * 
      */
@@ -37,6 +42,13 @@ public final class PowerpackWidgetTreemapDefinition {
      */
     public List<PowerpackWidgetTreemapDefinitionCustomLink> customLinks() {
         return this.customLinks == null ? List.of() : this.customLinks;
+    }
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Nested block describing the request to use when displaying the widget.
@@ -63,12 +75,14 @@ public final class PowerpackWidgetTreemapDefinition {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<PowerpackWidgetTreemapDefinitionCustomLink> customLinks;
+        private @Nullable String description;
         private @Nullable List<PowerpackWidgetTreemapDefinitionRequest> requests;
         private @Nullable String title;
         public Builder() {}
         public Builder(PowerpackWidgetTreemapDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customLinks = defaults.customLinks;
+    	      this.description = defaults.description;
     	      this.requests = defaults.requests;
     	      this.title = defaults.title;
         }
@@ -81,6 +95,12 @@ public final class PowerpackWidgetTreemapDefinition {
         }
         public Builder customLinks(PowerpackWidgetTreemapDefinitionCustomLink... customLinks) {
             return customLinks(List.of(customLinks));
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
         }
         @CustomType.Setter
         public Builder requests(@Nullable List<PowerpackWidgetTreemapDefinitionRequest> requests) {
@@ -100,6 +120,7 @@ public final class PowerpackWidgetTreemapDefinition {
         public PowerpackWidgetTreemapDefinition build() {
             final var _resultValue = new PowerpackWidgetTreemapDefinition();
             _resultValue.customLinks = customLinks;
+            _resultValue.description = description;
             _resultValue.requests = requests;
             _resultValue.title = title;
             return _resultValue;

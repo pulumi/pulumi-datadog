@@ -45,6 +45,10 @@ namespace Pulumi.Datadog.Outputs
         /// Name of the environment variable or secret that holds the Splunk HEC token.
         /// </summary>
         public readonly string? TokenKey;
+        /// <summary>
+        /// Controls how the Splunk HEC token is supplied. Use `Custom` to provide a token via `TokenKey`, or `FromSource` to forward the token received from an upstream Splunk HEC source. Valid values are `Custom`, `FromSource`.
+        /// </summary>
+        public readonly string? TokenStrategy;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationSplunkHec(
@@ -62,7 +66,9 @@ namespace Pulumi.Datadog.Outputs
 
             string? sourcetype,
 
-            string? tokenKey)
+            string? tokenKey,
+
+            string? tokenStrategy)
         {
             AutoExtractTimestamp = autoExtractTimestamp;
             Buffer = buffer;
@@ -72,6 +78,7 @@ namespace Pulumi.Datadog.Outputs
             IndexedFields = indexedFields;
             Sourcetype = sourcetype;
             TokenKey = tokenKey;
+            TokenStrategy = tokenStrategy;
         }
     }
 }

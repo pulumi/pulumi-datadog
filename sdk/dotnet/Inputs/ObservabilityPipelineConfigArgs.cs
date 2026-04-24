@@ -55,7 +55,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// Set to `True` to continue using the legacy search syntax while migrating filter queries. After migrating all queries to the new syntax, set to `False`. The legacy syntax is deprecated and will eventually be removed. Requires Observability Pipelines Worker 2.11 or later. See https://docs.datadoghq.com/observability*pipelines/guide/upgrade*your*filter*queries*to*the*new*search_syntax/ for more information.
+        /// Set to `True` to continue using the legacy search syntax while migrating filter queries. After migrating all queries to the new syntax, set to `False`. The legacy syntax is deprecated and will eventually be removed. Requires Observability Pipelines Worker 2.11 or later. Only applies to `Logs` pipelines. This field is ignored for `Metrics` pipelines. See https://docs.datadoghq.com/observability*pipelines/guide/upgrade*your*filter*queries*to*the*new*search_syntax/ for more information.
         /// </summary>
         [Input("useLegacySearchSyntax")]
         public Input<bool>? UseLegacySearchSyntax { get; set; }
