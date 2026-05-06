@@ -23,10 +23,10 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Source the permissions
-    ///     var ddPerms = Datadog.Index.GetPermissions.Invoke();
+    ///     var ddPerms = Datadog.GetPermissions.Invoke();
     /// 
     ///     // Create an API Key Manager role
-    ///     var apiKeyManager = new Datadog.Index.Role("api_key_manager", new()
+    ///     var apiKeyManager = new Datadog.Role("api_key_manager", new()
     ///     {
     ///         Name = "API Key Manager",
     ///         Permissions = new[]
@@ -42,13 +42,13 @@ namespace Pulumi.Datadog
     ///         },
     ///     });
     /// 
-    ///     var newUser = new Datadog.Index.User("new_user", new()
+    ///     var newUser = new Datadog.User("new_user", new()
     ///     {
     ///         Email = "new@example.com",
     ///     });
     /// 
     ///     // Assign the API Key Manager role to the user
-    ///     var newUserWithApiKeyManagerRole = new Datadog.Index.UserRole("new_user_with_api_key_manager_role", new()
+    ///     var newUserWithApiKeyManagerRole = new Datadog.UserRole("new_user_with_api_key_manager_role", new()
     ///     {
     ///         RoleId = apiKeyManager.Id,
     ///         UserId = newUser.Id,

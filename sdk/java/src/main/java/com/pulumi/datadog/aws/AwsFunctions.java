@@ -135,8 +135,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.aws.AwsFunctions;
      * import com.pulumi.datadog.aws.inputs.GetIntegrationExternalIdArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -176,8 +176,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.aws.AwsFunctions;
      * import com.pulumi.datadog.aws.inputs.GetIntegrationExternalIdArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -217,8 +217,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.aws.AwsFunctions;
      * import com.pulumi.datadog.aws.inputs.GetIntegrationExternalIdArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -258,8 +258,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.aws.AwsFunctions;
      * import com.pulumi.datadog.aws.inputs.GetIntegrationExternalIdArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -299,8 +299,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.aws.AwsFunctions;
      * import com.pulumi.datadog.aws.inputs.GetIntegrationExternalIdArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -535,8 +535,8 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.aws.AwsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -572,8 +572,8 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.aws.AwsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -609,8 +609,8 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.aws.AwsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -646,8 +646,8 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.aws.AwsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -683,8 +683,8 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.aws.AwsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -720,8 +720,8 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.aws.AwsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -757,8 +757,8 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.aws.AwsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

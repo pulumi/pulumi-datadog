@@ -313,9 +313,9 @@ class CostBudget(pulumi.CustomResource):
             budget_lines=[
                 {
                     "amounts": {
-                        "202601": 2000,
-                        "202602": 2200,
-                        "202603": 2000,
+                        "202601": float(2000),
+                        "202602": float(2200),
+                        "202603": float(2000),
                     },
                     "tag_filters": [{
                         "tag_key": "environment",
@@ -324,9 +324,9 @@ class CostBudget(pulumi.CustomResource):
                 },
                 {
                     "amounts": {
-                        "202601": 1000,
-                        "202602": 1100,
-                        "202603": 1000,
+                        "202601": float(1000),
+                        "202602": float(1100),
+                        "202603": float(1000),
                     },
                     "tag_filters": [{
                         "tag_key": "environment",
@@ -351,9 +351,9 @@ class CostBudget(pulumi.CustomResource):
             budget_lines=[
                 {
                     "amounts": {
-                        "202601": 1500,
-                        "202602": 1600,
-                        "202603": 1500,
+                        "202601": float(1500),
+                        "202602": float(1600),
+                        "202603": float(1500),
                     },
                     "parent_tag_filters": [{
                         "tag_key": "team",
@@ -366,9 +366,9 @@ class CostBudget(pulumi.CustomResource):
                 },
                 {
                     "amounts": {
-                        "202601": 500,
-                        "202602": 550,
-                        "202603": 500,
+                        "202601": float(500),
+                        "202602": float(550),
+                        "202603": float(500),
                     },
                     "parent_tag_filters": [{
                         "tag_key": "team",
@@ -396,7 +396,7 @@ class CostBudget(pulumi.CustomResource):
             entries=[
                 {
                     "month": 202601,
-                    "amount": 2000,
+                    "amount": float(2000),
                     "tag_filters": [{
                         "tag_key": "environment",
                         "tag_value": "production",
@@ -404,7 +404,7 @@ class CostBudget(pulumi.CustomResource):
                 },
                 {
                     "month": 202602,
-                    "amount": 2200,
+                    "amount": float(2200),
                     "tag_filters": [{
                         "tag_key": "environment",
                         "tag_value": "production",
@@ -412,7 +412,7 @@ class CostBudget(pulumi.CustomResource):
                 },
                 {
                     "month": 202603,
-                    "amount": 2000,
+                    "amount": float(2000),
                     "tag_filters": [{
                         "tag_key": "environment",
                         "tag_value": "production",
@@ -467,9 +467,9 @@ class CostBudget(pulumi.CustomResource):
             budget_lines=[
                 {
                     "amounts": {
-                        "202601": 2000,
-                        "202602": 2200,
-                        "202603": 2000,
+                        "202601": float(2000),
+                        "202602": float(2200),
+                        "202603": float(2000),
                     },
                     "tag_filters": [{
                         "tag_key": "environment",
@@ -478,9 +478,9 @@ class CostBudget(pulumi.CustomResource):
                 },
                 {
                     "amounts": {
-                        "202601": 1000,
-                        "202602": 1100,
-                        "202603": 1000,
+                        "202601": float(1000),
+                        "202602": float(1100),
+                        "202603": float(1000),
                     },
                     "tag_filters": [{
                         "tag_key": "environment",
@@ -505,9 +505,9 @@ class CostBudget(pulumi.CustomResource):
             budget_lines=[
                 {
                     "amounts": {
-                        "202601": 1500,
-                        "202602": 1600,
-                        "202603": 1500,
+                        "202601": float(1500),
+                        "202602": float(1600),
+                        "202603": float(1500),
                     },
                     "parent_tag_filters": [{
                         "tag_key": "team",
@@ -520,9 +520,9 @@ class CostBudget(pulumi.CustomResource):
                 },
                 {
                     "amounts": {
-                        "202601": 500,
-                        "202602": 550,
-                        "202603": 500,
+                        "202601": float(500),
+                        "202602": float(550),
+                        "202603": float(500),
                     },
                     "parent_tag_filters": [{
                         "tag_key": "team",
@@ -550,7 +550,7 @@ class CostBudget(pulumi.CustomResource):
             entries=[
                 {
                     "month": 202601,
-                    "amount": 2000,
+                    "amount": float(2000),
                     "tag_filters": [{
                         "tag_key": "environment",
                         "tag_value": "production",
@@ -558,7 +558,7 @@ class CostBudget(pulumi.CustomResource):
                 },
                 {
                     "month": 202602,
-                    "amount": 2200,
+                    "amount": float(2200),
                     "tag_filters": [{
                         "tag_key": "environment",
                         "tag_value": "production",
@@ -566,7 +566,7 @@ class CostBudget(pulumi.CustomResource):
                 },
                 {
                     "month": 202603,
-                    "amount": 2000,
+                    "amount": float(2000),
                     "tag_filters": [{
                         "tag_key": "environment",
                         "tag_value": "production",

@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mySuppression = new Datadog.Index.SecurityMonitoringSuppression("my_suppression", new()
+    ///     var mySuppression = new Datadog.SecurityMonitoringSuppression("my_suppression", new()
     ///     {
     ///         Name = "My suppression",
     ///         Description = "Suppression for low severity CloudTrail signals from John Doe, excluding test environments from analysis, limited to 2024",

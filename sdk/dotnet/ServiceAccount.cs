@@ -23,13 +23,13 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Source a role
-    ///     var roRole = Datadog.Index.GetRole.Invoke(new()
+    ///     var roRole = Datadog.GetRole.Invoke(new()
     ///     {
     ///         Filter = "Datadog Read Only Role",
     ///     });
     /// 
     ///     // Create a new Datadog service account
-    ///     var bar = new Datadog.Index.ServiceAccount("bar", new()
+    ///     var bar = new Datadog.ServiceAccount("bar", new()
     ///     {
     ///         Email = "new@example.com",
     ///         Name = "Service Account Bar",

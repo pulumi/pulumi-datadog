@@ -23,13 +23,13 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Source the role
-    ///     var roRole = Datadog.Index.GetRole.Invoke(new()
+    ///     var roRole = Datadog.GetRole.Invoke(new()
     ///     {
     ///         Filter = "Datadog Read Only Role",
     ///     });
     /// 
     ///     // Create a new AuthN mapping
-    ///     var devRoRoleMapping = new Datadog.Index.AuthnMapping("dev_ro_role_mapping", new()
+    ///     var devRoRoleMapping = new Datadog.AuthnMapping("dev_ro_role_mapping", new()
     ///     {
     ///         Key = "Member-of",
     ///         Value = "Development",

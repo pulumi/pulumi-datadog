@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myrule = new Datadog.Index.CloudConfigurationRule("myrule", new()
+    ///     var myrule = new Datadog.CloudConfigurationRule("myrule", new()
     ///     {
     ///         Name = "My cloud configuration rule",
     ///         Message = "Rule has triggered",

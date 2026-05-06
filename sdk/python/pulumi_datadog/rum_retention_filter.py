@@ -249,7 +249,7 @@ class RumRetentionFilter(pulumi.CustomResource):
             application_id="<APPLICATION_ID>",
             name="testing.rum.retention_filter",
             event_type="session",
-            sample_rate=41,
+            sample_rate=float(41),
             query="@session.has_replay:true",
             enabled=False)
         ```
@@ -292,7 +292,7 @@ class RumRetentionFilter(pulumi.CustomResource):
             application_id="<APPLICATION_ID>",
             name="testing.rum.retention_filter",
             event_type="session",
-            sample_rate=41,
+            sample_rate=float(41),
             query="@session.has_replay:true",
             enabled=False)
         ```

@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  * const time = new datadog.Dashboard("time", {
  *     title: "TF Test Layout Dashboard",
  *     description: "Created using the Datadog provider in Pulumi",
- *     dashboardLists: [test.then(test => test.id)],
+ *     dashboardLists: [output(test.then(test => test.id)).apply(x =>Number(x))],
  *     layoutType: "ordered",
  *     isReadOnly: true,
  *     widgets: [{
@@ -80,7 +80,7 @@ export interface GetDashboardListResult {
  * const time = new datadog.Dashboard("time", {
  *     title: "TF Test Layout Dashboard",
  *     description: "Created using the Datadog provider in Pulumi",
- *     dashboardLists: [test.then(test => test.id)],
+ *     dashboardLists: [output(test.then(test => test.id)).apply(x =>Number(x))],
  *     layoutType: "ordered",
  *     isReadOnly: true,
  *     widgets: [{

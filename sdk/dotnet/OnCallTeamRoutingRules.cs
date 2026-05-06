@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var teamRulesTest = new Datadog.Index.OnCallTeamRoutingRules("team_rules_test", new()
+    ///     var teamRulesTest = new Datadog.OnCallTeamRoutingRules("team_rules_test", new()
     ///     {
     ///         TeamId = "00000000-aba2-0000-0000-000000000000",
     ///         Rules = new[]

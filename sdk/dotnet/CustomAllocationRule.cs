@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create new datadog_custom_allocation_rule resource
-    ///     var myAllocationRule = new Datadog.Index.CustomAllocationRule("my_allocation_rule", new()
+    ///     var myAllocationRule = new Datadog.CustomAllocationRule("my_allocation_rule", new()
     ///     {
     ///         CostsToAllocates = new[]
     ///         {

@@ -261,11 +261,11 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
             samplings=[
                 {
                     "product": "apm",
-                    "rate": 100,
+                    "rate": float(100),
                 },
                 {
                     "product": "logs",
-                    "rate": 10,
+                    "rate": float(10),
                 },
             ])
         ```
@@ -318,11 +318,11 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
             samplings=[
                 {
                     "product": "apm",
-                    "rate": 100,
+                    "rate": float(100),
                 },
                 {
                     "product": "logs",
-                    "rate": 10,
+                    "rate": float(10),
                 },
             ])
         ```

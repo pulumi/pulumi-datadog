@@ -24,7 +24,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Datadog.Index.GetSecurityMonitoringRules.Invoke(new()
+        ///     var test = Datadog.GetSecurityMonitoringRules.Invoke(new()
         ///     {
         ///         NameFilter = "attack",
         ///         TagsFilters = new[]
@@ -53,7 +53,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Datadog.Index.GetSecurityMonitoringRules.Invoke(new()
+        ///     var test = Datadog.GetSecurityMonitoringRules.Invoke(new()
         ///     {
         ///         NameFilter = "attack",
         ///         TagsFilters = new[]
@@ -82,7 +82,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Datadog.Index.GetSecurityMonitoringRules.Invoke(new()
+        ///     var test = Datadog.GetSecurityMonitoringRules.Invoke(new()
         ///     {
         ///         NameFilter = "attack",
         ///         TagsFilters = new[]

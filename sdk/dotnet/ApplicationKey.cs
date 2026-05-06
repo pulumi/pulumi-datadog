@@ -25,13 +25,13 @@ namespace Pulumi.Datadog
     ///     // See the permissions available for scoped keys at https://docs.datadoghq.com/account_management/rbac/permissions/#permissions-list
     ///     // Create an unrestricted Application Key
     ///     // This key inherits all permissions of the user that owns the key
-    ///     var unrestrictedKey = new Datadog.Index.ApplicationKey("unrestricted_key", new()
+    ///     var unrestrictedKey = new Datadog.ApplicationKey("unrestricted_key", new()
     ///     {
     ///         Name = "Unrestricted Application Key",
     ///     });
     /// 
     ///     // Create a scoped Application Key for monitor management
-    ///     var monitorManagementKey = new Datadog.Index.ApplicationKey("monitor_management_key", new()
+    ///     var monitorManagementKey = new Datadog.ApplicationKey("monitor_management_key", new()
     ///     {
     ///         Name = "Monitor Management Key",
     ///         Scopes = new[]

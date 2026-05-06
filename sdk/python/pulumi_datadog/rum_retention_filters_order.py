@@ -126,7 +126,7 @@ class RumRetentionFiltersOrder(pulumi.CustomResource):
             application_id=datadog_rum_application["myRumApplication"]["id"],
             name="testing.rum.retention_filter",
             event_type="action",
-            sample_rate=60,
+            sample_rate=float(60),
             query="@session.has_replay:true",
             enabled=True)
         # Create a new rum_retention_filters_order resource for reordering.
@@ -183,7 +183,7 @@ class RumRetentionFiltersOrder(pulumi.CustomResource):
             application_id=datadog_rum_application["myRumApplication"]["id"],
             name="testing.rum.retention_filter",
             event_type="action",
-            sample_rate=60,
+            sample_rate=float(60),
             query="@session.has_replay:true",
             enabled=True)
         # Create a new rum_retention_filters_order resource for reordering.

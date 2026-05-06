@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a reference table from an S3 bucket
-    ///     var s3Table = new Datadog.Index.ReferenceTable("s3_table", new()
+    ///     var s3Table = new Datadog.ReferenceTable("s3_table", new()
     ///     {
     ///         TableName = "products_catalog",
     ///         Description = "Product catalog synced from S3",

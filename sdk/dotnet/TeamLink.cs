@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Datadog.Index.Team("foo", new()
+    ///     var foo = new Datadog.Team("foo", new()
     ///     {
     ///         Description = "Example team",
     ///         Handle = "example-team-updated",
@@ -30,7 +30,7 @@ namespace Pulumi.Datadog
     ///     });
     /// 
     ///     // Create new team_link resource
-    ///     var fooTeamLink = new Datadog.Index.TeamLink("foo", new()
+    ///     var fooTeamLink = new Datadog.TeamLink("foo", new()
     ///     {
     ///         TeamId = foo.Id,
     ///         Label = "Link label",

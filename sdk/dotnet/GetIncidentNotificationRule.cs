@@ -24,7 +24,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Datadog.Index.GetIncidentNotificationRule.Invoke(new()
+        ///     var example = Datadog.GetIncidentNotificationRule.Invoke(new()
         ///     {
         ///         Id = "00000000-0000-0000-0000-000000000000",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Datadog.Index.GetIncidentNotificationRule.Invoke(new()
+        ///     var example = Datadog.GetIncidentNotificationRule.Invoke(new()
         ///     {
         ///         Id = "00000000-0000-0000-0000-000000000000",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Datadog.Index.GetIncidentNotificationRule.Invoke(new()
+        ///     var example = Datadog.GetIncidentNotificationRule.Invoke(new()
         ///     {
         ///         Id = "00000000-0000-0000-0000-000000000000",
         ///     });

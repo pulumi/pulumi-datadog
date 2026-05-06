@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var time = new Datadog.Index.Dashboard("time", new()
+    ///     var time = new Datadog.Dashboard("time", new()
     ///     {
     ///         Title = "TF Test Layout Dashboard",
     ///         Description = "Created using the Datadog provider in Pulumi",
@@ -43,7 +43,7 @@ namespace Pulumi.Datadog
     ///         },
     ///     });
     /// 
-    ///     var screen = new Datadog.Index.Dashboard("screen", new()
+    ///     var screen = new Datadog.Dashboard("screen", new()
     ///     {
     ///         Title = "TF Test Free Layout Dashboard",
     ///         Description = "Created using the Datadog provider in Pulumi",
@@ -74,7 +74,7 @@ namespace Pulumi.Datadog
     ///     });
     /// 
     ///     // Create a new Dashboard List with two Dashboards
-    ///     var newList = new Datadog.Index.DashboardList("new_list", new()
+    ///     var newList = new Datadog.DashboardList("new_list", new()
     ///     {
     ///         Name = "Terraform Created List",
     ///         DashItems = new[]

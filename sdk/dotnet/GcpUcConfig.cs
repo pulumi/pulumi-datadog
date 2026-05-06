@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create new GCP Usage Cost configuration resource
-    ///     var example = new Datadog.Index.GcpUcConfig("example", new()
+    ///     var example = new Datadog.GcpUcConfig("example", new()
     ///     {
     ///         BillingAccountId = "123456_ABCDEF_123456",
     ///         BucketName = "my-gcp-cost-bucket",

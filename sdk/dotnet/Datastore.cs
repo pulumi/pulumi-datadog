@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new datastore resource
-    ///     var foo = new Datadog.Index.Datastore("foo", new()
+    ///     var foo = new Datadog.Datastore("foo", new()
     ///     {
     ///         Name = "my-datastore",
     ///         Description = "My application datastore",
@@ -33,7 +33,7 @@ namespace Pulumi.Datadog
     ///     });
     /// 
     ///     // Create a datastore with auto-generated UUIDs for primary keys
-    ///     var autoUuid = new Datadog.Index.Datastore("auto_uuid", new()
+    ///     var autoUuid = new Datadog.Datastore("auto_uuid", new()
     ///     {
     ///         Name = "my-uuid-datastore",
     ///         Description = "Datastore with auto-generated primary keys",

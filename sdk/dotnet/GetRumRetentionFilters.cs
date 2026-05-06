@@ -24,7 +24,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var testingRumRetentionFilters = Datadog.Index.GetRumRetentionFilters.Invoke(new()
+        ///     var testingRumRetentionFilters = Datadog.GetRumRetentionFilters.Invoke(new()
         ///     {
         ///         ApplicationId = "&lt;APPLICATION_ID&gt;",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var testingRumRetentionFilters = Datadog.Index.GetRumRetentionFilters.Invoke(new()
+        ///     var testingRumRetentionFilters = Datadog.GetRumRetentionFilters.Invoke(new()
         ///     {
         ///         ApplicationId = "&lt;APPLICATION_ID&gt;",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var testingRumRetentionFilters = Datadog.Index.GetRumRetentionFilters.Invoke(new()
+        ///     var testingRumRetentionFilters = Datadog.GetRumRetentionFilters.Invoke(new()
         ///     {
         ///         ApplicationId = "&lt;APPLICATION_ID&gt;",
         ///     });

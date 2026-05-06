@@ -680,7 +680,7 @@ class Dashboard(pulumi.CustomResource):
                             "conditional_formats": [
                                 {
                                     "comparator": "<",
-                                    "value": 2,
+                                    "value": float(2),
                                     "palette": "white_on_green",
                                 },
                                 {
@@ -707,7 +707,7 @@ class Dashboard(pulumi.CustomResource):
                             "conditional_formats": [
                                 {
                                     "comparator": "<",
-                                    "value": 2,
+                                    "value": float(2),
                                     "palette": "white_on_green",
                                 },
                                 {
@@ -873,7 +873,7 @@ class Dashboard(pulumi.CustomResource):
                             "conditional_formats": [
                                 {
                                     "comparator": "<",
-                                    "value": 2,
+                                    "value": float(2),
                                     "palette": "white_on_green",
                                 },
                                 {
@@ -1462,7 +1462,7 @@ class Dashboard(pulumi.CustomResource):
                             "conditional_formats": [
                                 {
                                     "comparator": "<",
-                                    "value": 2,
+                                    "value": float(2),
                                     "palette": "white_on_green",
                                 },
                                 {
@@ -1489,7 +1489,7 @@ class Dashboard(pulumi.CustomResource):
                             "conditional_formats": [
                                 {
                                     "comparator": "<",
-                                    "value": 2,
+                                    "value": float(2),
                                     "palette": "white_on_green",
                                 },
                                 {
@@ -1655,7 +1655,7 @@ class Dashboard(pulumi.CustomResource):
                             "conditional_formats": [
                                 {
                                     "comparator": "<",
-                                    "value": 2,
+                                    "value": float(2),
                                     "palette": "white_on_green",
                                 },
                                 {

@@ -388,7 +388,7 @@ class LogsIndex(pulumi.CustomResource):
                 "reset_time": "14:00",
                 "reset_utc_offset": "+02:00",
             },
-            daily_limit_warning_threshold_percentage=50,
+            daily_limit_warning_threshold_percentage=float(50),
             retention_days=7,
             flex_retention_days=180,
             filters=[{
@@ -408,7 +408,7 @@ class LogsIndex(pulumi.CustomResource):
                     "is_enabled": True,
                     "filters": [{
                         "query": "service:kube_apiserver",
-                        "sample_rate": 1,
+                        "sample_rate": float(1),
                     }],
                 },
             ],
@@ -463,7 +463,7 @@ class LogsIndex(pulumi.CustomResource):
                 "reset_time": "14:00",
                 "reset_utc_offset": "+02:00",
             },
-            daily_limit_warning_threshold_percentage=50,
+            daily_limit_warning_threshold_percentage=float(50),
             retention_days=7,
             flex_retention_days=180,
             filters=[{
@@ -483,7 +483,7 @@ class LogsIndex(pulumi.CustomResource):
                     "is_enabled": True,
                     "filters": [{
                         "query": "service:kube_apiserver",
-                        "sample_rate": 1,
+                        "sample_rate": float(1),
                     }],
                 },
             ],

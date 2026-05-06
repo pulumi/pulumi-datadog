@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Datadog.Index.Monitor("foo", new()
+    ///     var foo = new Datadog.Monitor("foo", new()
     ///     {
     ///         Name = "Name for monitor foo",
     ///         Type = "metric alert",
