@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceSplunkHecTls;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -18,6 +19,11 @@ public final class ObservabilityPipelineConfigSourceSplunkHec {
      */
     private @Nullable String addressKey;
     /**
+     * @return When `true`, the Splunk HEC token from the incoming request is stored in the event, allowing downstream components to forward it to other Splunk HEC destinations.
+     * 
+     */
+    private @Nullable Boolean storeHecToken;
+    /**
      * @return Configuration for enabling TLS encryption between the pipeline component and external services.
      * 
      */
@@ -30,6 +36,13 @@ public final class ObservabilityPipelineConfigSourceSplunkHec {
      */
     public Optional<String> addressKey() {
         return Optional.ofNullable(this.addressKey);
+    }
+    /**
+     * @return When `true`, the Splunk HEC token from the incoming request is stored in the event, allowing downstream components to forward it to other Splunk HEC destinations.
+     * 
+     */
+    public Optional<Boolean> storeHecToken() {
+        return Optional.ofNullable(this.storeHecToken);
     }
     /**
      * @return Configuration for enabling TLS encryption between the pipeline component and external services.
@@ -49,11 +62,13 @@ public final class ObservabilityPipelineConfigSourceSplunkHec {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String addressKey;
+        private @Nullable Boolean storeHecToken;
         private @Nullable ObservabilityPipelineConfigSourceSplunkHecTls tls;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigSourceSplunkHec defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addressKey = defaults.addressKey;
+    	      this.storeHecToken = defaults.storeHecToken;
     	      this.tls = defaults.tls;
         }
 
@@ -61,6 +76,12 @@ public final class ObservabilityPipelineConfigSourceSplunkHec {
         public Builder addressKey(@Nullable String addressKey) {
 
             this.addressKey = addressKey;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder storeHecToken(@Nullable Boolean storeHecToken) {
+
+            this.storeHecToken = storeHecToken;
             return this;
         }
         @CustomType.Setter
@@ -72,6 +93,7 @@ public final class ObservabilityPipelineConfigSourceSplunkHec {
         public ObservabilityPipelineConfigSourceSplunkHec build() {
             final var _resultValue = new ObservabilityPipelineConfigSourceSplunkHec();
             _resultValue.addressKey = addressKey;
+            _resultValue.storeHecToken = storeHecToken;
             _resultValue.tls = tls;
             return _resultValue;
         }

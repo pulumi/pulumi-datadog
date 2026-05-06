@@ -25,6 +25,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.ObservabilityPipelineConfigDestinationAzureStorageBufferArgs>? Buffer { get; set; }
 
         /// <summary>
+        /// Name of the environment variable or secret that holds the Azure Storage connection string.
+        /// </summary>
+        [Input("connectionStringKey")]
+        public Input<string>? ConnectionStringKey { get; set; }
+
+        /// <summary>
         /// The name of the Azure Blob Storage container to store logs in.
         /// </summary>
         [Input("containerName", required: true)]

@@ -42,7 +42,7 @@ namespace Pulumi.Datadog.Inputs
         [Input("scope")]
         public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScopeArgs>? Scope { get; set; }
 
-        [Input("tags", required: true)]
+        [Input("tags")]
         private InputList<string>? _tags;
 
         /// <summary>

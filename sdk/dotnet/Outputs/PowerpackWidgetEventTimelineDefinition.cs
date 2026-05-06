@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackWidgetEventTimelineDefinition
     {
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
         /// </summary>
         public readonly bool? HideIncompleteCostData;
@@ -44,6 +48,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private PowerpackWidgetEventTimelineDefinition(
+            string? description,
+
             bool? hideIncompleteCostData,
 
             string? liveSpan,
@@ -58,6 +64,7 @@ namespace Pulumi.Datadog.Outputs
 
             string? titleSize)
         {
+            Description = description;
             HideIncompleteCostData = hideIncompleteCostData;
             LiveSpan = liveSpan;
             Query = query;

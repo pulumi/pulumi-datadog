@@ -38,7 +38,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? CustomQueryExtension { get; set; }
 
         /// <summary>
-        /// Source of events. Valid values are `Logs`, `Audit`, `AppSecSpans`, `Spans`, `SecurityRuntime`, `Network`, `Events`.
+        /// Source of events. Valid values are `Logs`, `Audit`, `AppSecSpans`, `Spans`, `SecurityRuntime`, `Network`, `Events`, `SecuritySignals`.
         /// </summary>
         [Input("dataSource")]
         public Input<string>? DataSource { get; set; }

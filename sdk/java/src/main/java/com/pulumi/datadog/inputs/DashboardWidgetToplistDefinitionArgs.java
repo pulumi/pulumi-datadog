@@ -36,6 +36,21 @@ public final class DashboardWidgetToplistDefinitionArgs extends com.pulumi.resou
     }
 
     /**
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
      * 
      */
@@ -144,6 +159,7 @@ public final class DashboardWidgetToplistDefinitionArgs extends com.pulumi.resou
 
     private DashboardWidgetToplistDefinitionArgs(DashboardWidgetToplistDefinitionArgs $) {
         this.customLinks = $.customLinks;
+        this.description = $.description;
         this.hideIncompleteCostData = $.hideIncompleteCostData;
         this.liveSpan = $.liveSpan;
         this.requests = $.requests;
@@ -200,6 +216,27 @@ public final class DashboardWidgetToplistDefinitionArgs extends com.pulumi.resou
          */
         public Builder customLinks(DashboardWidgetToplistDefinitionCustomLinkArgs... customLinks) {
             return customLinks(List.of(customLinks));
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

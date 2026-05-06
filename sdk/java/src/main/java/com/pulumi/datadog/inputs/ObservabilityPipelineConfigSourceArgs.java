@@ -50,14 +50,14 @@ public final class ObservabilityPipelineConfigSourceArgs extends com.pulumi.reso
     }
 
     /**
-     * The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
+     * The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication, TLS encryption, and configurable compression.
      * 
      */
     @Import(name="amazonS3s")
     private @Nullable Output<List<ObservabilityPipelineConfigSourceAmazonS3Args>> amazonS3s;
 
     /**
-     * @return The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
+     * @return The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication, TLS encryption, and configurable compression.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigSourceAmazonS3Args>>> amazonS3s() {
@@ -377,7 +377,7 @@ public final class ObservabilityPipelineConfigSourceArgs extends com.pulumi.reso
         }
 
         /**
-         * @param amazonS3s The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
+         * @param amazonS3s The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication, TLS encryption, and configurable compression.
          * 
          * @return builder
          * 
@@ -388,7 +388,7 @@ public final class ObservabilityPipelineConfigSourceArgs extends com.pulumi.reso
         }
 
         /**
-         * @param amazonS3s The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
+         * @param amazonS3s The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication, TLS encryption, and configurable compression.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class ObservabilityPipelineConfigSourceArgs extends com.pulumi.reso
         }
 
         /**
-         * @param amazonS3s The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
+         * @param amazonS3s The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication, TLS encryption, and configurable compression.
          * 
          * @return builder
          * 

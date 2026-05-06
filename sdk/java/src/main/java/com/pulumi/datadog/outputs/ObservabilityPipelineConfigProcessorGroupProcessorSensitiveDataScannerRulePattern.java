@@ -18,7 +18,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
      */
     private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternCustom custom;
     /**
-     * @return Pattern detection using a predefined pattern from the sensitive data scanner pattern library.
+     * @return Pattern detection using a predefined pattern from the Sensitive Data Scanner library. For Terraform setup (standard pattern data source and library rules), see the Sensitive Data Scanner processor documentation.
      * 
      */
     private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternLibrary library;
@@ -32,7 +32,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
         return Optional.ofNullable(this.custom);
     }
     /**
-     * @return Pattern detection using a predefined pattern from the sensitive data scanner pattern library.
+     * @return Pattern detection using a predefined pattern from the Sensitive Data Scanner library. For Terraform setup (standard pattern data source and library rules), see the Sensitive Data Scanner processor documentation.
      * 
      */
     public Optional<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternLibrary> library() {

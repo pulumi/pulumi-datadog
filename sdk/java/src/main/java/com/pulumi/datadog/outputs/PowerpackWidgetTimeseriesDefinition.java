@@ -25,6 +25,11 @@ public final class PowerpackWidgetTimeseriesDefinition {
      */
     private @Nullable List<PowerpackWidgetTimeseriesDefinitionCustomLink> customLinks;
     /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return The definition of the event to overlay on the graph. Multiple `event` blocks are allowed using the structure below.
      * 
      */
@@ -102,6 +107,13 @@ public final class PowerpackWidgetTimeseriesDefinition {
      */
     public List<PowerpackWidgetTimeseriesDefinitionCustomLink> customLinks() {
         return this.customLinks == null ? List.of() : this.customLinks;
+    }
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The definition of the event to overlay on the graph. Multiple `event` blocks are allowed using the structure below.
@@ -212,6 +224,7 @@ public final class PowerpackWidgetTimeseriesDefinition {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<PowerpackWidgetTimeseriesDefinitionCustomLink> customLinks;
+        private @Nullable String description;
         private @Nullable List<PowerpackWidgetTimeseriesDefinitionEvent> events;
         private @Nullable Boolean hideIncompleteCostData;
         private @Nullable List<String> legendColumns;
@@ -230,6 +243,7 @@ public final class PowerpackWidgetTimeseriesDefinition {
         public Builder(PowerpackWidgetTimeseriesDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customLinks = defaults.customLinks;
+    	      this.description = defaults.description;
     	      this.events = defaults.events;
     	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.legendColumns = defaults.legendColumns;
@@ -254,6 +268,12 @@ public final class PowerpackWidgetTimeseriesDefinition {
         }
         public Builder customLinks(PowerpackWidgetTimeseriesDefinitionCustomLink... customLinks) {
             return customLinks(List.of(customLinks));
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
         }
         @CustomType.Setter
         public Builder events(@Nullable List<PowerpackWidgetTimeseriesDefinitionEvent> events) {
@@ -354,6 +374,7 @@ public final class PowerpackWidgetTimeseriesDefinition {
         public PowerpackWidgetTimeseriesDefinition build() {
             final var _resultValue = new PowerpackWidgetTimeseriesDefinition();
             _resultValue.customLinks = customLinks;
+            _resultValue.description = description;
             _resultValue.events = events;
             _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.legendColumns = legendColumns;

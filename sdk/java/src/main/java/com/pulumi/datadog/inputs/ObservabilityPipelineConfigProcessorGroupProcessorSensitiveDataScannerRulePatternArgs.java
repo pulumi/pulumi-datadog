@@ -32,14 +32,14 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
     }
 
     /**
-     * Pattern detection using a predefined pattern from the sensitive data scanner pattern library.
+     * Pattern detection using a predefined pattern from the Sensitive Data Scanner library. For Terraform setup (standard pattern data source and library rules), see the Sensitive Data Scanner processor documentation.
      * 
      */
     @Import(name="library")
     private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternLibraryArgs> library;
 
     /**
-     * @return Pattern detection using a predefined pattern from the sensitive data scanner pattern library.
+     * @return Pattern detection using a predefined pattern from the Sensitive Data Scanner library. For Terraform setup (standard pattern data source and library rules), see the Sensitive Data Scanner processor documentation.
      * 
      */
     public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternLibraryArgs>> library() {
@@ -93,7 +93,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
         }
 
         /**
-         * @param library Pattern detection using a predefined pattern from the sensitive data scanner pattern library.
+         * @param library Pattern detection using a predefined pattern from the Sensitive Data Scanner library. For Terraform setup (standard pattern data source and library rules), see the Sensitive Data Scanner processor documentation.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
         }
 
         /**
-         * @param library Pattern detection using a predefined pattern from the sensitive data scanner pattern library.
+         * @param library Pattern detection using a predefined pattern from the Sensitive Data Scanner library. For Terraform setup (standard pattern data source and library rules), see the Sensitive Data Scanner processor documentation.
          * 
          * @return builder
          * 

@@ -8,6 +8,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSensitiveDataScannerStandardPatternResult {
@@ -20,7 +22,7 @@ public final class GetSensitiveDataScannerStandardPatternResult {
      * @return Filter all the Datadog standard patterns by name.
      * 
      */
-    private String filter;
+    private @Nullable String filter;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -46,6 +48,11 @@ public final class GetSensitiveDataScannerStandardPatternResult {
     @Deprecated /* Refer to the description field to understand what the rule does. */
     private String pattern;
     /**
+     * @return Stable ID of the Datadog standard pattern to retrieve. This can be set directly to avoid Terraform configs breaking when Datadog renames a standard pattern.
+     * 
+     */
+    private @Nullable String standardPatternId;
+    /**
      * @return List of tags.
      * 
      */
@@ -63,8 +70,8 @@ public final class GetSensitiveDataScannerStandardPatternResult {
      * @return Filter all the Datadog standard patterns by name.
      * 
      */
-    public String filter() {
-        return this.filter;
+    public Optional<String> filter() {
+        return Optional.ofNullable(this.filter);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -99,6 +106,13 @@ public final class GetSensitiveDataScannerStandardPatternResult {
         return this.pattern;
     }
     /**
+     * @return Stable ID of the Datadog standard pattern to retrieve. This can be set directly to avoid Terraform configs breaking when Datadog renames a standard pattern.
+     * 
+     */
+    public Optional<String> standardPatternId() {
+        return Optional.ofNullable(this.standardPatternId);
+    }
+    /**
      * @return List of tags.
      * 
      */
@@ -116,11 +130,12 @@ public final class GetSensitiveDataScannerStandardPatternResult {
     @CustomType.Builder
     public static final class Builder {
         private String description;
-        private String filter;
+        private @Nullable String filter;
         private String id;
         private List<String> includedKeywords;
         private String name;
         private String pattern;
+        private @Nullable String standardPatternId;
         private List<String> tags;
         public Builder() {}
         public Builder(GetSensitiveDataScannerStandardPatternResult defaults) {
@@ -131,6 +146,7 @@ public final class GetSensitiveDataScannerStandardPatternResult {
     	      this.includedKeywords = defaults.includedKeywords;
     	      this.name = defaults.name;
     	      this.pattern = defaults.pattern;
+    	      this.standardPatternId = defaults.standardPatternId;
     	      this.tags = defaults.tags;
         }
 
@@ -143,10 +159,8 @@ public final class GetSensitiveDataScannerStandardPatternResult {
             return this;
         }
         @CustomType.Setter
-        public Builder filter(String filter) {
-            if (filter == null) {
-              throw new MissingRequiredPropertyException("GetSensitiveDataScannerStandardPatternResult", "filter");
-            }
+        public Builder filter(@Nullable String filter) {
+
             this.filter = filter;
             return this;
         }
@@ -186,6 +200,12 @@ public final class GetSensitiveDataScannerStandardPatternResult {
             return this;
         }
         @CustomType.Setter
+        public Builder standardPatternId(@Nullable String standardPatternId) {
+
+            this.standardPatternId = standardPatternId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(List<String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetSensitiveDataScannerStandardPatternResult", "tags");
@@ -204,6 +224,7 @@ public final class GetSensitiveDataScannerStandardPatternResult {
             _resultValue.includedKeywords = includedKeywords;
             _resultValue.name = name;
             _resultValue.pattern = pattern;
+            _resultValue.standardPatternId = standardPatternId;
             _resultValue.tags = tags;
             return _resultValue;
         }

@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleMatchRule> MatchRules;
         /// <summary>
-        /// The name of the field in the log event to apply the Grok rules to.
+        /// The value of the source field in log events which should be processed by the Grok rules.
         /// </summary>
         public readonly string Source;
         /// <summary>

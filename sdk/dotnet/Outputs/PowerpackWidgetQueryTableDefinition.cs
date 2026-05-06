@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetQueryTableDefinitionCustomLink> CustomLinks;
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Controls the display of the search bar. Valid values are `Always`, `Never`, `Auto`.
         /// </summary>
         public readonly string? HasSearchBar;
@@ -50,6 +54,8 @@ namespace Pulumi.Datadog.Outputs
         private PowerpackWidgetQueryTableDefinition(
             ImmutableArray<Outputs.PowerpackWidgetQueryTableDefinitionCustomLink> customLinks,
 
+            string? description,
+
             string? hasSearchBar,
 
             bool? hideIncompleteCostData,
@@ -65,6 +71,7 @@ namespace Pulumi.Datadog.Outputs
             string? titleSize)
         {
             CustomLinks = customLinks;
+            Description = description;
             HasSearchBar = hasSearchBar;
             HideIncompleteCostData = hideIncompleteCostData;
             LiveSpan = liveSpan;

@@ -50,7 +50,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationDatadogMetric> DatadogMetrics;
         /// <summary>
-        /// The `Elasticsearch` destination writes logs to an Elasticsearch cluster.
+        /// The `Elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationElasticsearch> Elasticsearches;
         /// <summary>

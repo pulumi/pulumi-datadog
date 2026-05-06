@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetSloListDefinitionRequestQuerySort {
@@ -15,6 +17,11 @@ public final class DashboardWidgetSloListDefinitionRequestQuerySort {
      * 
      */
     private String column;
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
     /**
      * @return Widget sorting methods. Valid values are `asc`, `desc`.
      * 
@@ -28,6 +35,13 @@ public final class DashboardWidgetSloListDefinitionRequestQuerySort {
      */
     public String column() {
         return this.column;
+    }
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Widget sorting methods. Valid values are `asc`, `desc`.
@@ -47,11 +61,13 @@ public final class DashboardWidgetSloListDefinitionRequestQuerySort {
     @CustomType.Builder
     public static final class Builder {
         private String column;
+        private @Nullable String description;
         private String order;
         public Builder() {}
         public Builder(DashboardWidgetSloListDefinitionRequestQuerySort defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.column = defaults.column;
+    	      this.description = defaults.description;
     	      this.order = defaults.order;
         }
 
@@ -61,6 +77,12 @@ public final class DashboardWidgetSloListDefinitionRequestQuerySort {
               throw new MissingRequiredPropertyException("DashboardWidgetSloListDefinitionRequestQuerySort", "column");
             }
             this.column = column;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -74,6 +96,7 @@ public final class DashboardWidgetSloListDefinitionRequestQuerySort {
         public DashboardWidgetSloListDefinitionRequestQuerySort build() {
             final var _resultValue = new DashboardWidgetSloListDefinitionRequestQuerySort();
             _resultValue.column = column;
+            _resultValue.description = description;
             _resultValue.order = order;
             return _resultValue;
         }

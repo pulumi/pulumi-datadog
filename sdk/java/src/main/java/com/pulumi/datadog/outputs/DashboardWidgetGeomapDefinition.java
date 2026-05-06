@@ -24,6 +24,11 @@ public final class DashboardWidgetGeomapDefinition {
      */
     private @Nullable List<DashboardWidgetGeomapDefinitionCustomLink> customLinks;
     /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
      * 
      */
@@ -71,6 +76,13 @@ public final class DashboardWidgetGeomapDefinition {
      */
     public List<DashboardWidgetGeomapDefinitionCustomLink> customLinks() {
         return this.customLinks == null ? List.of() : this.customLinks;
+    }
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
@@ -139,6 +151,7 @@ public final class DashboardWidgetGeomapDefinition {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<DashboardWidgetGeomapDefinitionCustomLink> customLinks;
+        private @Nullable String description;
         private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String liveSpan;
         private @Nullable List<DashboardWidgetGeomapDefinitionRequest> requests;
@@ -151,6 +164,7 @@ public final class DashboardWidgetGeomapDefinition {
         public Builder(DashboardWidgetGeomapDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customLinks = defaults.customLinks;
+    	      this.description = defaults.description;
     	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.liveSpan = defaults.liveSpan;
     	      this.requests = defaults.requests;
@@ -169,6 +183,12 @@ public final class DashboardWidgetGeomapDefinition {
         }
         public Builder customLinks(DashboardWidgetGeomapDefinitionCustomLink... customLinks) {
             return customLinks(List.of(customLinks));
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
         }
         @CustomType.Setter
         public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
@@ -226,6 +246,7 @@ public final class DashboardWidgetGeomapDefinition {
         public DashboardWidgetGeomapDefinition build() {
             final var _resultValue = new DashboardWidgetGeomapDefinition();
             _resultValue.customLinks = customLinks;
+            _resultValue.description = description;
             _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.liveSpan = liveSpan;
             _resultValue.requests = requests;

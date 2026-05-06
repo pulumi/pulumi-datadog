@@ -21,15 +21,22 @@ namespace Pulumi.Datadog.Outputs
         /// The destination for which logs will be forwarded to. Must have HTTPS scheme. Forwarding back to Datadog is not allowed.
         /// </summary>
         public readonly string Endpoint;
+        /// <summary>
+        /// The Splunk source type for forwarded events. Omitting `Sourcetype` when you create a custom destination leaves `Sourcetype` unconfigured, and events are forwarded to Splunk with `_json` as the source type. When updating a custom destination, omitting `Sourcetype` preserves the previously set value; if none was set, the `Sourcetype` field stays unconfigured and events are forwarded with `_json` (same as when creating a custom destination). Setting `value = null` omits the `Sourcetype` field in the forwarded events entirely.
+        /// </summary>
+        public readonly Outputs.LogsCustomDestinationSplunkDestinationSourcetype? Sourcetype;
 
         [OutputConstructor]
         private LogsCustomDestinationSplunkDestination(
             string accessToken,
 
-            string endpoint)
+            string endpoint,
+
+            Outputs.LogsCustomDestinationSplunkDestinationSourcetype? sourcetype)
         {
             AccessToken = accessToken;
             Endpoint = endpoint;
+            Sourcetype = sourcetype;
         }
     }
 }

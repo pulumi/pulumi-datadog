@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigDestinationElasticsearchGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Elasticsearch API version to use. Set to `Auto` to auto-detect.
+        /// The Elasticsearch API version to use. Set to `Auto` to auto-detect. Valid values are `Auto`, `V6`, `V7`, `V8`.
         /// </summary>
         [Input("apiVersion")]
         public Input<string>? ApiVersion { get; set; }
@@ -31,10 +31,16 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.ObservabilityPipelineConfigDestinationElasticsearchBufferGetArgs>? Buffer { get; set; }
 
         /// <summary>
-        /// The index or datastream to write logs to in Elasticsearch.
+        /// The name of the index to write events to in Elasticsearch.
         /// </summary>
         [Input("bulkIndex")]
         public Input<string>? BulkIndex { get; set; }
+
+        /// <summary>
+        /// Compression configuration for the Elasticsearch destination.
+        /// </summary>
+        [Input("compression")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationElasticsearchCompressionGetArgs>? Compression { get; set; }
 
         /// <summary>
         /// Configuration options for writing to Elasticsearch Data Streams instead of a fixed index.
@@ -47,6 +53,30 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("endpointUrlKey")]
         public Input<string>? EndpointUrlKey { get; set; }
+
+        /// <summary>
+        /// The name of the field used as the document ID in Elasticsearch.
+        /// </summary>
+        [Input("idKey")]
+        public Input<string>? IdKey { get; set; }
+
+        /// <summary>
+        /// The name of an Elasticsearch ingest pipeline to apply to events before indexing.
+        /// </summary>
+        [Input("pipeline")]
+        public Input<string>? Pipeline { get; set; }
+
+        /// <summary>
+        /// When `True`, retries failed partial bulk requests when some events in a batch fail while others succeed.
+        /// </summary>
+        [Input("requestRetryPartial")]
+        public Input<bool>? RequestRetryPartial { get; set; }
+
+        /// <summary>
+        /// Configuration for enabling TLS encryption between the pipeline component and external services.
+        /// </summary>
+        [Input("tls")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationElasticsearchTlsGetArgs>? Tls { get; set; }
 
         public ObservabilityPipelineConfigDestinationElasticsearchGetArgs()
         {

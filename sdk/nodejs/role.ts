@@ -82,7 +82,9 @@ export class Role extends pulumi.CustomResource {
      */
     declare public readonly permissions: pulumi.Output<outputs.RolePermission[] | undefined>;
     /**
-     * Number of users that have this role.
+     * Number of users that have this role. **Deprecated.** This field is no longer set and will be removed in a future release.
+     *
+     * @deprecated This field is no longer set and will be removed in a future release.
      */
     declare public /*out*/ readonly userCount: pulumi.Output<number>;
     /**
@@ -141,7 +143,9 @@ export interface RoleState {
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.RolePermission>[]>;
     /**
-     * Number of users that have this role.
+     * Number of users that have this role. **Deprecated.** This field is no longer set and will be removed in a future release.
+     *
+     * @deprecated This field is no longer set and will be removed in a future release.
      */
     userCount?: pulumi.Input<number>;
     /**

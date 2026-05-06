@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? AddressKey;
         /// <summary>
+        /// When `True`, the Splunk HEC token from the incoming request is stored in the event, allowing downstream components to forward it to other Splunk HEC destinations.
+        /// </summary>
+        public readonly bool? StoreHecToken;
+        /// <summary>
         /// Configuration for enabling TLS encryption between the pipeline component and external services.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigSourceSplunkHecTls? Tls;
@@ -26,9 +30,12 @@ namespace Pulumi.Datadog.Outputs
         private ObservabilityPipelineConfigSourceSplunkHec(
             string? addressKey,
 
+            bool? storeHecToken,
+
             Outputs.ObservabilityPipelineConfigSourceSplunkHecTls? tls)
         {
             AddressKey = addressKey;
+            StoreHecToken = storeHecToken;
             Tls = tls;
         }
     }
