@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Column { get; set; } = null!;
 
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Widget sorting methods. Valid values are `Asc`, `Desc`.
         /// </summary>
         [Input("order", required: true)]

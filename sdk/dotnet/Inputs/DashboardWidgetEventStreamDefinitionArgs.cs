@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetEventStreamDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The size to use to display an event. Valid values are `S`, `L`.
         /// </summary>
         [Input("eventSize")]

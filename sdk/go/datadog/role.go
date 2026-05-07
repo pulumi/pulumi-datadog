@@ -72,7 +72,9 @@ type Role struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Set of objects containing the permission ID and the name of the permissions granted to this role.
 	Permissions RolePermissionArrayOutput `pulumi:"permissions"`
-	// Number of users that have this role.
+	// Number of users that have this role. **Deprecated.** This field is no longer set and will be removed in a future release.
+	//
+	// Deprecated: This field is no longer set and will be removed in a future release.
 	UserCount pulumi.IntOutput `pulumi:"userCount"`
 	// If set to `false`, skip the validation call done during plan.
 	Validate pulumi.BoolPtrOutput `pulumi:"validate"`
@@ -117,7 +119,9 @@ type roleState struct {
 	Name *string `pulumi:"name"`
 	// Set of objects containing the permission ID and the name of the permissions granted to this role.
 	Permissions []RolePermission `pulumi:"permissions"`
-	// Number of users that have this role.
+	// Number of users that have this role. **Deprecated.** This field is no longer set and will be removed in a future release.
+	//
+	// Deprecated: This field is no longer set and will be removed in a future release.
 	UserCount *int `pulumi:"userCount"`
 	// If set to `false`, skip the validation call done during plan.
 	Validate *bool `pulumi:"validate"`
@@ -130,7 +134,9 @@ type RoleState struct {
 	Name pulumi.StringPtrInput
 	// Set of objects containing the permission ID and the name of the permissions granted to this role.
 	Permissions RolePermissionArrayInput
-	// Number of users that have this role.
+	// Number of users that have this role. **Deprecated.** This field is no longer set and will be removed in a future release.
+	//
+	// Deprecated: This field is no longer set and will be removed in a future release.
 	UserCount pulumi.IntPtrInput
 	// If set to `false`, skip the validation call done during plan.
 	Validate pulumi.BoolPtrInput
@@ -265,7 +271,9 @@ func (o RoleOutput) Permissions() RolePermissionArrayOutput {
 	return o.ApplyT(func(v *Role) RolePermissionArrayOutput { return v.Permissions }).(RolePermissionArrayOutput)
 }
 
-// Number of users that have this role.
+// Number of users that have this role. **Deprecated.** This field is no longer set and will be removed in a future release.
+//
+// Deprecated: This field is no longer set and will be removed in a future release.
 func (o RoleOutput) UserCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *Role) pulumi.IntOutput { return v.UserCount }).(pulumi.IntOutput)
 }

@@ -37,6 +37,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? CustomUnit { get; set; }
 
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
         /// </summary>
         [Input("hideIncompleteCostData")]

@@ -11,6 +11,7 @@ import com.pulumi.datadog.SensitiveDataScannerRuleArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.SensitiveDataScannerRuleState;
 import com.pulumi.datadog.outputs.SensitiveDataScannerRuleIncludedKeywordConfiguration;
+import com.pulumi.datadog.outputs.SensitiveDataScannerRuleSuppressions;
 import com.pulumi.datadog.outputs.SensitiveDataScannerRuleTextReplacement;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -172,6 +173,20 @@ public class SensitiveDataScannerRule extends com.pulumi.resources.CustomResourc
      */
     public Output<Optional<String>> standardPatternId() {
         return Codegen.optional(this.standardPatternId);
+    }
+    /**
+     * Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+     * 
+     */
+    @Export(name="suppressions", refs={SensitiveDataScannerRuleSuppressions.class}, tree="[0]")
+    private Output</* @Nullable */ SensitiveDataScannerRuleSuppressions> suppressions;
+
+    /**
+     * @return Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+     * 
+     */
+    public Output<Optional<SensitiveDataScannerRuleSuppressions>> suppressions() {
+        return Codegen.optional(this.suppressions);
     }
     /**
      * List of tags.

@@ -17,6 +17,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PowerpackWidgetDistributionDefinition {
     /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
      * 
      */
@@ -68,6 +73,13 @@ public final class PowerpackWidgetDistributionDefinition {
     private @Nullable PowerpackWidgetDistributionDefinitionYaxis yaxis;
 
     private PowerpackWidgetDistributionDefinition() {}
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
+    }
     /**
      * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
      * 
@@ -148,6 +160,7 @@ public final class PowerpackWidgetDistributionDefinition {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String description;
         private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String legendSize;
         private @Nullable String liveSpan;
@@ -161,6 +174,7 @@ public final class PowerpackWidgetDistributionDefinition {
         public Builder() {}
         public Builder(PowerpackWidgetDistributionDefinition defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.description = defaults.description;
     	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.legendSize = defaults.legendSize;
     	      this.liveSpan = defaults.liveSpan;
@@ -173,6 +187,12 @@ public final class PowerpackWidgetDistributionDefinition {
     	      this.yaxis = defaults.yaxis;
         }
 
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
+        }
         @CustomType.Setter
         public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
 
@@ -238,6 +258,7 @@ public final class PowerpackWidgetDistributionDefinition {
         }
         public PowerpackWidgetDistributionDefinition build() {
             final var _resultValue = new PowerpackWidgetDistributionDefinition();
+            _resultValue.description = description;
             _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.legendSize = legendSize;
             _resultValue.liveSpan = liveSpan;

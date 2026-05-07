@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetScatterplotDefinitionCustomLink> CustomLinks;
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
         /// </summary>
         public readonly bool? HideIncompleteCostData;
@@ -60,6 +64,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.PowerpackWidgetScatterplotDefinitionCustomLink> customLinks,
 
+            string? description,
+
             bool? hideIncompleteCostData,
 
             string? liveSpan,
@@ -78,6 +84,7 @@ namespace Pulumi.Datadog.Outputs
         {
             ColorByGroups = colorByGroups;
             CustomLinks = customLinks;
+            Description = description;
             HideIncompleteCostData = hideIncompleteCostData;
             LiveSpan = liveSpan;
             Request = request;

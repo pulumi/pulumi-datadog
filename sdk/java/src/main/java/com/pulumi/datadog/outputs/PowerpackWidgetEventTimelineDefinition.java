@@ -14,6 +14,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PowerpackWidgetEventTimelineDefinition {
     /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
      * 
      */
@@ -50,6 +55,13 @@ public final class PowerpackWidgetEventTimelineDefinition {
     private @Nullable String titleSize;
 
     private PowerpackWidgetEventTimelineDefinition() {}
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
+    }
     /**
      * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
      * 
@@ -109,6 +121,7 @@ public final class PowerpackWidgetEventTimelineDefinition {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String description;
         private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String liveSpan;
         private String query;
@@ -119,6 +132,7 @@ public final class PowerpackWidgetEventTimelineDefinition {
         public Builder() {}
         public Builder(PowerpackWidgetEventTimelineDefinition defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.description = defaults.description;
     	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.liveSpan = defaults.liveSpan;
     	      this.query = defaults.query;
@@ -128,6 +142,12 @@ public final class PowerpackWidgetEventTimelineDefinition {
     	      this.titleSize = defaults.titleSize;
         }
 
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
+        }
         @CustomType.Setter
         public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
 
@@ -174,6 +194,7 @@ public final class PowerpackWidgetEventTimelineDefinition {
         }
         public PowerpackWidgetEventTimelineDefinition build() {
             final var _resultValue = new PowerpackWidgetEventTimelineDefinition();
+            _resultValue.description = description;
             _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.liveSpan = liveSpan;
             _resultValue.query = query;

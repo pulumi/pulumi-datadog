@@ -25,6 +25,12 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Updated list stream widget.
         /// </summary>
         [Input("query", required: true)]

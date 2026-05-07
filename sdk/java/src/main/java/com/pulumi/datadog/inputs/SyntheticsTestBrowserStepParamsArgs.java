@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepParamsDragDropOptionsArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepParamsElementUserLocatorArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepParamsPatternArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepParamsVariableArgs;
@@ -124,6 +125,21 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
      */
     public Optional<Output<Integer>> delay() {
         return Optional.ofNullable(this.delay);
+    }
+
+    /**
+     * Options for a &#34;drag&#34; or &#34;drop&#34; step.
+     * 
+     */
+    @Import(name="dragDropOptions")
+    private @Nullable Output<SyntheticsTestBrowserStepParamsDragDropOptionsArgs> dragDropOptions;
+
+    /**
+     * @return Options for a &#34;drag&#34; or &#34;drop&#34; step.
+     * 
+     */
+    public Optional<Output<SyntheticsTestBrowserStepParamsDragDropOptionsArgs>> dragDropOptions() {
+        return Optional.ofNullable(this.dragDropOptions);
     }
 
     /**
@@ -376,6 +392,7 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
         this.clickWithJavascript = $.clickWithJavascript;
         this.code = $.code;
         this.delay = $.delay;
+        this.dragDropOptions = $.dragDropOptions;
         this.element = $.element;
         this.elementUserLocator = $.elementUserLocator;
         this.email = $.email;
@@ -557,6 +574,27 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
          */
         public Builder delay(Integer delay) {
             return delay(Output.of(delay));
+        }
+
+        /**
+         * @param dragDropOptions Options for a &#34;drag&#34; or &#34;drop&#34; step.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dragDropOptions(@Nullable Output<SyntheticsTestBrowserStepParamsDragDropOptionsArgs> dragDropOptions) {
+            $.dragDropOptions = dragDropOptions;
+            return this;
+        }
+
+        /**
+         * @param dragDropOptions Options for a &#34;drag&#34; or &#34;drop&#34; step.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dragDropOptions(SyntheticsTestBrowserStepParamsDragDropOptionsArgs dragDropOptions) {
+            return dragDropOptions(Output.of(dragDropOptions));
         }
 
         /**

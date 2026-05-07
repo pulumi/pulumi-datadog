@@ -36,7 +36,7 @@ public final class ObservabilityPipelineConfigSource {
      */
     private @Nullable List<ObservabilityPipelineConfigSourceAmazonDataFirehose> amazonDataFirehoses;
     /**
-     * @return The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
+     * @return The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication, TLS encryption, and configurable compression.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigSourceAmazonS3> amazonS3s;
@@ -130,7 +130,7 @@ public final class ObservabilityPipelineConfigSource {
         return this.amazonDataFirehoses == null ? List.of() : this.amazonDataFirehoses;
     }
     /**
-     * @return The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
+     * @return The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication, TLS encryption, and configurable compression.
      * 
      */
     public List<ObservabilityPipelineConfigSourceAmazonS3> amazonS3s() {

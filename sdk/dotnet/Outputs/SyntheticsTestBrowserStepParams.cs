@@ -42,6 +42,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly int? Delay;
         /// <summary>
+        /// Options for a "drag" or "drop" step.
+        /// </summary>
+        public readonly Outputs.SyntheticsTestBrowserStepParamsDragDropOptions? DragDropOptions;
+        /// <summary>
         /// Element to use for the step, JSON encoded string. Refer to the examples for a usage example showing the schema.
         /// </summary>
         public readonly string? Element;
@@ -122,6 +126,8 @@ namespace Pulumi.Datadog.Outputs
 
             int? delay,
 
+            Outputs.SyntheticsTestBrowserStepParamsDragDropOptions? dragDropOptions,
+
             string? element,
 
             Outputs.SyntheticsTestBrowserStepParamsElementUserLocator? elementUserLocator,
@@ -161,6 +167,7 @@ namespace Pulumi.Datadog.Outputs
             ClickWithJavascript = clickWithJavascript;
             Code = code;
             Delay = delay;
+            DragDropOptions = dragDropOptions;
             Element = element;
             ElementUserLocator = elementUserLocator;
             Email = email;

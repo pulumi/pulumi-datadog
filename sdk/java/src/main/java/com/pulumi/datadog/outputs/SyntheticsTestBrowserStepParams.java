@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.SyntheticsTestBrowserStepParamsDragDropOptions;
 import com.pulumi.datadog.outputs.SyntheticsTestBrowserStepParamsElementUserLocator;
 import com.pulumi.datadog.outputs.SyntheticsTestBrowserStepParamsPattern;
 import com.pulumi.datadog.outputs.SyntheticsTestBrowserStepParamsVariable;
@@ -52,6 +53,11 @@ public final class SyntheticsTestBrowserStepParams {
      * 
      */
     private @Nullable Integer delay;
+    /**
+     * @return Options for a &#34;drag&#34; or &#34;drop&#34; step.
+     * 
+     */
+    private @Nullable SyntheticsTestBrowserStepParamsDragDropOptions dragDropOptions;
     /**
      * @return Element to use for the step, JSON encoded string. Refer to the examples for a usage example showing the schema.
      * 
@@ -184,6 +190,13 @@ public final class SyntheticsTestBrowserStepParams {
         return Optional.ofNullable(this.delay);
     }
     /**
+     * @return Options for a &#34;drag&#34; or &#34;drop&#34; step.
+     * 
+     */
+    public Optional<SyntheticsTestBrowserStepParamsDragDropOptions> dragDropOptions() {
+        return Optional.ofNullable(this.dragDropOptions);
+    }
+    /**
      * @return Element to use for the step, JSON encoded string. Refer to the examples for a usage example showing the schema.
      * 
      */
@@ -312,6 +325,7 @@ public final class SyntheticsTestBrowserStepParams {
         private @Nullable Boolean clickWithJavascript;
         private @Nullable String code;
         private @Nullable Integer delay;
+        private @Nullable SyntheticsTestBrowserStepParamsDragDropOptions dragDropOptions;
         private @Nullable String element;
         private @Nullable SyntheticsTestBrowserStepParamsElementUserLocator elementUserLocator;
         private @Nullable String email;
@@ -338,6 +352,7 @@ public final class SyntheticsTestBrowserStepParams {
     	      this.clickWithJavascript = defaults.clickWithJavascript;
     	      this.code = defaults.code;
     	      this.delay = defaults.delay;
+    	      this.dragDropOptions = defaults.dragDropOptions;
     	      this.element = defaults.element;
     	      this.elementUserLocator = defaults.elementUserLocator;
     	      this.email = defaults.email;
@@ -396,6 +411,12 @@ public final class SyntheticsTestBrowserStepParams {
         public Builder delay(@Nullable Integer delay) {
 
             this.delay = delay;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dragDropOptions(@Nullable SyntheticsTestBrowserStepParamsDragDropOptions dragDropOptions) {
+
+            this.dragDropOptions = dragDropOptions;
             return this;
         }
         @CustomType.Setter
@@ -506,6 +527,7 @@ public final class SyntheticsTestBrowserStepParams {
             _resultValue.clickWithJavascript = clickWithJavascript;
             _resultValue.code = code;
             _resultValue.delay = delay;
+            _resultValue.dragDropOptions = dragDropOptions;
             _resultValue.element = element;
             _resultValue.elementUserLocator = elementUserLocator;
             _resultValue.email = email;

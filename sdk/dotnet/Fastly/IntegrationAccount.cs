@@ -44,10 +44,23 @@ namespace Pulumi.Datadog.Fastly
     public partial class IntegrationAccount : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The API key for the Fastly account.
+        /// The API key for the Fastly account. Exactly one of `ApiKey` or `ApiKeyWo` must be set.
         /// </summary>
         [Output("apiKey")]
-        public Output<string> ApiKey { get; private set; } = null!;
+        public Output<string?> ApiKey { get; private set; } = null!;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only API key for the Fastly account. Exactly one of `ApiKey` or `ApiKeyWo` must be set. Must be used with `ApiKeyWoVersion`.
+        /// </summary>
+        [Output("apiKeyWo")]
+        public Output<string?> ApiKeyWo { get; private set; } = null!;
+
+        /// <summary>
+        /// Version for `ApiKeyWo` rotation. Changing this triggers an update. String length must be at least 1.
+        /// </summary>
+        [Output("apiKeyWoVersion")]
+        public Output<string?> ApiKeyWoVersion { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Fastly account.
@@ -78,6 +91,11 @@ namespace Pulumi.Datadog.Fastly
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "apiKey",
+                    "apiKeyWo",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -101,11 +119,44 @@ namespace Pulumi.Datadog.Fastly
 
     public sealed class IntegrationAccountArgs : global::Pulumi.ResourceArgs
     {
+        [Input("apiKey")]
+        private Input<string>? _apiKey;
+
         /// <summary>
-        /// The API key for the Fastly account.
+        /// The API key for the Fastly account. Exactly one of `ApiKey` or `ApiKeyWo` must be set.
         /// </summary>
-        [Input("apiKey", required: true)]
-        public Input<string> ApiKey { get; set; } = null!;
+        public Input<string>? ApiKey
+        {
+            get => _apiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("apiKeyWo")]
+        private Input<string>? _apiKeyWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only API key for the Fastly account. Exactly one of `ApiKey` or `ApiKeyWo` must be set. Must be used with `ApiKeyWoVersion`.
+        /// </summary>
+        public Input<string>? ApiKeyWo
+        {
+            get => _apiKeyWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiKeyWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Version for `ApiKeyWo` rotation. Changing this triggers an update. String length must be at least 1.
+        /// </summary>
+        [Input("apiKeyWoVersion")]
+        public Input<string>? ApiKeyWoVersion { get; set; }
 
         /// <summary>
         /// The name of the Fastly account.
@@ -121,11 +172,44 @@ namespace Pulumi.Datadog.Fastly
 
     public sealed class IntegrationAccountState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The API key for the Fastly account.
-        /// </summary>
         [Input("apiKey")]
-        public Input<string>? ApiKey { get; set; }
+        private Input<string>? _apiKey;
+
+        /// <summary>
+        /// The API key for the Fastly account. Exactly one of `ApiKey` or `ApiKeyWo` must be set.
+        /// </summary>
+        public Input<string>? ApiKey
+        {
+            get => _apiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("apiKeyWo")]
+        private Input<string>? _apiKeyWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only API key for the Fastly account. Exactly one of `ApiKey` or `ApiKeyWo` must be set. Must be used with `ApiKeyWoVersion`.
+        /// </summary>
+        public Input<string>? ApiKeyWo
+        {
+            get => _apiKeyWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiKeyWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Version for `ApiKeyWo` rotation. Changing this triggers an update. String length must be at least 1.
+        /// </summary>
+        [Input("apiKeyWoVersion")]
+        public Input<string>? ApiKeyWoVersion { get; set; }
 
         /// <summary>
         /// The name of the Fastly account.

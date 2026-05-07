@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? BannerImg;
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// UUID of the associated powerpack.
         /// </summary>
         public readonly string PowerpackId;
@@ -44,6 +48,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? bannerImg,
 
+            string? description,
+
             string powerpackId,
 
             bool? showTitle,
@@ -54,6 +60,7 @@ namespace Pulumi.Datadog.Outputs
         {
             BackgroundColor = backgroundColor;
             BannerImg = bannerImg;
+            Description = description;
             PowerpackId = powerpackId;
             ShowTitle = showTitle;
             TemplateVariables = templateVariables;

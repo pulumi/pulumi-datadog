@@ -552,6 +552,40 @@ import (
 //					Request: pulumi.String(pulumi.String(json4)),
 //				},
 //			},
+//			&datadog.SyntheticsTestBrowserStepArgs{
+//				Name: pulumi.String("Drag element to target"),
+//				Type: pulumi.String("drag"),
+//				Params: &datadog.SyntheticsTestBrowserStepParamsArgs{
+//					ElementUserLocator: &datadog.SyntheticsTestBrowserStepParamsElementUserLocatorArgs{
+//						Value: &datadog.SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs{
+//							Type:  pulumi.String("css"),
+//							Value: pulumi.String("#drag-source"),
+//						},
+//					},
+//					DragDropOptions: &datadog.SyntheticsTestBrowserStepParamsDragDropOptionsArgs{
+//						Delay: pulumi.Int(120),
+//						Offset: &datadog.SyntheticsTestBrowserStepParamsDragDropOptionsOffsetArgs{
+//							X: pulumi.Int(100),
+//							Y: pulumi.Int(100),
+//						},
+//					},
+//				},
+//			},
+//			&datadog.SyntheticsTestBrowserStepArgs{
+//				Name: pulumi.String("Drop on target"),
+//				Type: pulumi.String("drop"),
+//				Params: &datadog.SyntheticsTestBrowserStepParamsArgs{
+//					ElementUserLocator: &datadog.SyntheticsTestBrowserStepParamsElementUserLocatorArgs{
+//						Value: &datadog.SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs{
+//							Type:  pulumi.String("css"),
+//							Value: pulumi.String("#drop-target"),
+//						},
+//					},
+//					DragDropOptions: &datadog.SyntheticsTestBrowserStepParamsDragDropOptionsArgs{
+//						Delay: pulumi.Int(100),
+//					},
+//				},
+//			},
 //		},
 //		BrowserVariables: datadog.SyntheticsTestBrowserVariableArray{
 //			&datadog.SyntheticsTestBrowserVariableArgs{

@@ -65,16 +65,24 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of users that have this role.
+     * Number of users that have this role. **Deprecated.** This field is no longer set and will be removed in a future release.
+     * 
+     * @deprecated
+     * This field is no longer set and will be removed in a future release.
      * 
      */
+    @Deprecated /* This field is no longer set and will be removed in a future release. */
     @Import(name="userCount")
     private @Nullable Output<Integer> userCount;
 
     /**
-     * @return Number of users that have this role.
+     * @return Number of users that have this role. **Deprecated.** This field is no longer set and will be removed in a future release.
+     * 
+     * @deprecated
+     * This field is no longer set and will be removed in a future release.
      * 
      */
+    @Deprecated /* This field is no longer set and will be removed in a future release. */
     public Optional<Output<Integer>> userCount() {
         return Optional.ofNullable(this.userCount);
     }
@@ -196,22 +204,30 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userCount Number of users that have this role.
+         * @param userCount Number of users that have this role. **Deprecated.** This field is no longer set and will be removed in a future release.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field is no longer set and will be removed in a future release.
+         * 
          */
+        @Deprecated /* This field is no longer set and will be removed in a future release. */
         public Builder userCount(@Nullable Output<Integer> userCount) {
             $.userCount = userCount;
             return this;
         }
 
         /**
-         * @param userCount Number of users that have this role.
+         * @param userCount Number of users that have this role. **Deprecated.** This field is no longer set and will be removed in a future release.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field is no longer set and will be removed in a future release.
+         * 
          */
+        @Deprecated /* This field is no longer set and will be removed in a future release. */
         public Builder userCount(Integer userCount) {
             return userCount(Output.of(userCount));
         }

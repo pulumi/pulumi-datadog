@@ -20,6 +20,11 @@ public final class DashboardWidgetServicemapDefinition {
      */
     private @Nullable List<DashboardWidgetServicemapDefinitionCustomLink> customLinks;
     /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return Your environment and primary tag (or `*` if enabled for your account).
      * 
      */
@@ -52,6 +57,13 @@ public final class DashboardWidgetServicemapDefinition {
      */
     public List<DashboardWidgetServicemapDefinitionCustomLink> customLinks() {
         return this.customLinks == null ? List.of() : this.customLinks;
+    }
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Your environment and primary tag (or `*` if enabled for your account).
@@ -99,6 +111,7 @@ public final class DashboardWidgetServicemapDefinition {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<DashboardWidgetServicemapDefinitionCustomLink> customLinks;
+        private @Nullable String description;
         private List<String> filters;
         private String service;
         private @Nullable String title;
@@ -108,6 +121,7 @@ public final class DashboardWidgetServicemapDefinition {
         public Builder(DashboardWidgetServicemapDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customLinks = defaults.customLinks;
+    	      this.description = defaults.description;
     	      this.filters = defaults.filters;
     	      this.service = defaults.service;
     	      this.title = defaults.title;
@@ -123,6 +137,12 @@ public final class DashboardWidgetServicemapDefinition {
         }
         public Builder customLinks(DashboardWidgetServicemapDefinitionCustomLink... customLinks) {
             return customLinks(List.of(customLinks));
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
         }
         @CustomType.Setter
         public Builder filters(List<String> filters) {
@@ -164,6 +184,7 @@ public final class DashboardWidgetServicemapDefinition {
         public DashboardWidgetServicemapDefinition build() {
             final var _resultValue = new DashboardWidgetServicemapDefinition();
             _resultValue.customLinks = customLinks;
+            _resultValue.description = description;
             _resultValue.filters = filters;
             _resultValue.service = service;
             _resultValue.title = title;

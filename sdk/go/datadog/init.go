@@ -77,6 +77,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DashboardJson{}
 	case "datadog:index/dashboardList:DashboardList":
 		r = &DashboardList{}
+	case "datadog:index/dashboardV2:DashboardV2":
+		r = &DashboardV2{}
 	case "datadog:index/dataset:Dataset":
 		r = &Dataset{}
 	case "datadog:index/datastore:Datastore":
@@ -153,6 +155,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OrganizationSettings{}
 	case "datadog:index/powerpack:Powerpack":
 		r = &Powerpack{}
+	case "datadog:index/powerpackV2:PowerpackV2":
+		r = &PowerpackV2{}
 	case "datadog:index/referenceTable:ReferenceTable":
 		r = &ReferenceTable{}
 	case "datadog:index/restrictionPolicy:RestrictionPolicy":
@@ -219,6 +223,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TagPipelineRulesets{}
 	case "datadog:index/team:Team":
 		r = &Team{}
+	case "datadog:index/teamConnection:TeamConnection":
+		r = &TeamConnection{}
 	case "datadog:index/teamHierarchyLinks:TeamHierarchyLinks":
 		r = &TeamHierarchyLinks{}
 	case "datadog:index/teamLink:TeamLink":
@@ -229,6 +235,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TeamNotificationRule{}
 	case "datadog:index/teamPermissionSetting:TeamPermissionSetting":
 		r = &TeamPermissionSetting{}
+	case "datadog:index/teamSync:TeamSync":
+		r = &TeamSync{}
 	case "datadog:index/user:User":
 		r = &User{}
 	case "datadog:index/userRole:UserRole":
@@ -408,6 +416,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/dashboardList",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/dashboardV2",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -602,6 +615,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/powerpackV2",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/referenceTable",
 		&module{version},
 	)
@@ -767,6 +785,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/teamConnection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/teamHierarchyLinks",
 		&module{version},
 	)
@@ -788,6 +811,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/teamPermissionSetting",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/teamSync",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

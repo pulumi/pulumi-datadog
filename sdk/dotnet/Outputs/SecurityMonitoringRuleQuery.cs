@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Aggregation;
         /// <summary>
-        /// Source of events. Valid values are `Logs`, `Audit`, `AppSecSpans`, `Spans`, `SecurityRuntime`, `Network`, `Events`. Defaults to `"logs"`.
+        /// Source of events. Valid values are `Logs`, `Audit`, `AppSecSpans`, `Spans`, `SecurityRuntime`, `Network`, `Events`, `SecuritySignals`. Defaults to `"logs"`.
         /// </summary>
         public readonly string? DataSource;
         /// <summary>

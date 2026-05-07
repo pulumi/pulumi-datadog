@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetTimeseriesDefinitionCustomLink> CustomLinks;
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// The definition of the event to overlay on the graph. Multiple `Event` blocks are allowed using the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetTimeseriesDefinitionEvent> Events;
@@ -78,6 +82,8 @@ namespace Pulumi.Datadog.Outputs
         private PowerpackWidgetTimeseriesDefinition(
             ImmutableArray<Outputs.PowerpackWidgetTimeseriesDefinitionCustomLink> customLinks,
 
+            string? description,
+
             ImmutableArray<Outputs.PowerpackWidgetTimeseriesDefinitionEvent> events,
 
             bool? hideIncompleteCostData,
@@ -107,6 +113,7 @@ namespace Pulumi.Datadog.Outputs
             Outputs.PowerpackWidgetTimeseriesDefinitionYaxis? yaxis)
         {
             CustomLinks = customLinks;
+            Description = description;
             Events = events;
             HideIncompleteCostData = hideIncompleteCostData;
             LegendColumns = legendColumns;

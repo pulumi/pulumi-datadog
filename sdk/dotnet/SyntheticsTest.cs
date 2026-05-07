@@ -612,6 +612,51 @@ namespace Pulumi.Datadog
     ///                     }),
     ///                 },
     ///             },
+    ///             new Datadog.Inputs.SyntheticsTestBrowserStepArgs
+    ///             {
+    ///                 Name = "Drag element to target",
+    ///                 Type = "drag",
+    ///                 Params = new Datadog.Inputs.SyntheticsTestBrowserStepParamsArgs
+    ///                 {
+    ///                     ElementUserLocator = new Datadog.Inputs.SyntheticsTestBrowserStepParamsElementUserLocatorArgs
+    ///                     {
+    ///                         Value = new Datadog.Inputs.SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs
+    ///                         {
+    ///                             Type = "css",
+    ///                             Value = "#drag-source",
+    ///                         },
+    ///                     },
+    ///                     DragDropOptions = new Datadog.Inputs.SyntheticsTestBrowserStepParamsDragDropOptionsArgs
+    ///                     {
+    ///                         Delay = 120,
+    ///                         Offset = new Datadog.Inputs.SyntheticsTestBrowserStepParamsDragDropOptionsOffsetArgs
+    ///                         {
+    ///                             X = 100,
+    ///                             Y = 100,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestBrowserStepArgs
+    ///             {
+    ///                 Name = "Drop on target",
+    ///                 Type = "drop",
+    ///                 Params = new Datadog.Inputs.SyntheticsTestBrowserStepParamsArgs
+    ///                 {
+    ///                     ElementUserLocator = new Datadog.Inputs.SyntheticsTestBrowserStepParamsElementUserLocatorArgs
+    ///                     {
+    ///                         Value = new Datadog.Inputs.SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs
+    ///                         {
+    ///                             Type = "css",
+    ///                             Value = "#drop-target",
+    ///                         },
+    ///                     },
+    ///                     DragDropOptions = new Datadog.Inputs.SyntheticsTestBrowserStepParamsDragDropOptionsArgs
+    ///                     {
+    ///                         Delay = 100,
+    ///                     },
+    ///                 },
+    ///             },
     ///         },
     ///         BrowserVariables = new[]
     ///         {

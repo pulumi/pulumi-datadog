@@ -68,6 +68,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepParamsArgs;
  * import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepParamsElementUserLocatorArgs;
  * import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepParamsDragDropOptionsArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepParamsDragDropOptionsOffsetArgs;
  * import com.pulumi.datadog.inputs.SyntheticsTestBrowserVariableArgs;
  * import com.pulumi.datadog.inputs.SyntheticsTestMobileOptionsListArgs;
  * import com.pulumi.datadog.inputs.SyntheticsTestMobileOptionsListRetryArgs;
@@ -512,6 +514,40 @@ import javax.annotation.Nullable;
  *                                 )),
  *                                 jsonProperty("subtype", "http")
  *                             )))
+ *                         .build())
+ *                     .build(),
+ *                 SyntheticsTestBrowserStepArgs.builder()
+ *                     .name("Drag element to target")
+ *                     .type("drag")
+ *                     .params(SyntheticsTestBrowserStepParamsArgs.builder()
+ *                         .elementUserLocator(SyntheticsTestBrowserStepParamsElementUserLocatorArgs.builder()
+ *                             .value(SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs.builder()
+ *                                 .type("css")
+ *                                 .value("#drag-source")
+ *                                 .build())
+ *                             .build())
+ *                         .dragDropOptions(SyntheticsTestBrowserStepParamsDragDropOptionsArgs.builder()
+ *                             .delay(120)
+ *                             .offset(SyntheticsTestBrowserStepParamsDragDropOptionsOffsetArgs.builder()
+ *                                 .x(100)
+ *                                 .y(100)
+ *                                 .build())
+ *                             .build())
+ *                         .build())
+ *                     .build(),
+ *                 SyntheticsTestBrowserStepArgs.builder()
+ *                     .name("Drop on target")
+ *                     .type("drop")
+ *                     .params(SyntheticsTestBrowserStepParamsArgs.builder()
+ *                         .elementUserLocator(SyntheticsTestBrowserStepParamsElementUserLocatorArgs.builder()
+ *                             .value(SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs.builder()
+ *                                 .type("css")
+ *                                 .value("#drop-target")
+ *                                 .build())
+ *                             .build())
+ *                         .dragDropOptions(SyntheticsTestBrowserStepParamsDragDropOptionsArgs.builder()
+ *                             .delay(100)
+ *                             .build())
  *                         .build())
  *                     .build())
  *             .browserVariables(            

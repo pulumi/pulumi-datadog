@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? AddressKey { get; set; }
 
         /// <summary>
+        /// When `True`, the Splunk HEC token from the incoming request is stored in the event, allowing downstream components to forward it to other Splunk HEC destinations.
+        /// </summary>
+        [Input("storeHecToken")]
+        public Input<bool>? StoreHecToken { get; set; }
+
+        /// <summary>
         /// Configuration for enabling TLS encryption between the pipeline component and external services.
         /// </summary>
         [Input("tls")]

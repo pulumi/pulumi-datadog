@@ -44,6 +44,8 @@ type SensitiveDataScannerRule struct {
 	Priority pulumi.IntOutput `pulumi:"priority"`
 	// Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
 	StandardPatternId pulumi.StringPtrOutput `pulumi:"standardPatternId"`
+	// Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+	Suppressions SensitiveDataScannerRuleSuppressionsPtrOutput `pulumi:"suppressions"`
 	// List of tags.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// Object describing how the scanned event will be replaced. Defaults to `type: none`
@@ -103,6 +105,8 @@ type sensitiveDataScannerRuleState struct {
 	Priority *int `pulumi:"priority"`
 	// Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
 	StandardPatternId *string `pulumi:"standardPatternId"`
+	// Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+	Suppressions *SensitiveDataScannerRuleSuppressions `pulumi:"suppressions"`
 	// List of tags.
 	Tags []string `pulumi:"tags"`
 	// Object describing how the scanned event will be replaced. Defaults to `type: none`
@@ -130,6 +134,8 @@ type SensitiveDataScannerRuleState struct {
 	Priority pulumi.IntPtrInput
 	// Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
 	StandardPatternId pulumi.StringPtrInput
+	// Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+	Suppressions SensitiveDataScannerRuleSuppressionsPtrInput
 	// List of tags.
 	Tags pulumi.StringArrayInput
 	// Object describing how the scanned event will be replaced. Defaults to `type: none`
@@ -161,6 +167,8 @@ type sensitiveDataScannerRuleArgs struct {
 	Priority *int `pulumi:"priority"`
 	// Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
 	StandardPatternId *string `pulumi:"standardPatternId"`
+	// Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+	Suppressions *SensitiveDataScannerRuleSuppressions `pulumi:"suppressions"`
 	// List of tags.
 	Tags []string `pulumi:"tags"`
 	// Object describing how the scanned event will be replaced. Defaults to `type: none`
@@ -189,6 +197,8 @@ type SensitiveDataScannerRuleArgs struct {
 	Priority pulumi.IntPtrInput
 	// Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
 	StandardPatternId pulumi.StringPtrInput
+	// Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+	Suppressions SensitiveDataScannerRuleSuppressionsPtrInput
 	// List of tags.
 	Tags pulumi.StringArrayInput
 	// Object describing how the scanned event will be replaced. Defaults to `type: none`
@@ -332,6 +342,11 @@ func (o SensitiveDataScannerRuleOutput) Priority() pulumi.IntOutput {
 // Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
 func (o SensitiveDataScannerRuleOutput) StandardPatternId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SensitiveDataScannerRule) pulumi.StringPtrOutput { return v.StandardPatternId }).(pulumi.StringPtrOutput)
+}
+
+// Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+func (o SensitiveDataScannerRuleOutput) Suppressions() SensitiveDataScannerRuleSuppressionsPtrOutput {
+	return o.ApplyT(func(v *SensitiveDataScannerRule) SensitiveDataScannerRuleSuppressionsPtrOutput { return v.Suppressions }).(SensitiveDataScannerRuleSuppressionsPtrOutput)
 }
 
 // List of tags.

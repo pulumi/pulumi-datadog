@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionCustomLink> CustomLinks;
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// The definition of the event to overlay on the graph. Multiple `Event` blocks are allowed using the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionEvent> Events;
@@ -78,6 +82,8 @@ namespace Pulumi.Datadog.Outputs
         private DashboardWidgetTimeseriesDefinition(
             ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionCustomLink> customLinks,
 
+            string? description,
+
             ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionEvent> events,
 
             bool? hideIncompleteCostData,
@@ -107,6 +113,7 @@ namespace Pulumi.Datadog.Outputs
             Outputs.DashboardWidgetTimeseriesDefinitionYaxis? yaxis)
         {
             CustomLinks = customLinks;
+            Description = description;
             Events = events;
             HideIncompleteCostData = hideIncompleteCostData;
             LegendColumns = legendColumns;

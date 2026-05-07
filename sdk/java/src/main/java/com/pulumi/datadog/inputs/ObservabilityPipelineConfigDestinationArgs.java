@@ -12,6 +12,7 @@ import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonSec
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAzureStorageArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationCloudPremArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationDatabricksZerobusArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationDatadogLogArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationDatadogMetricArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationElasticsearchArgs;
@@ -147,6 +148,21 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
     }
 
     /**
+     * The `databricksZerobus` destination sends logs to Databricks via the Zerobus ingestion API.
+     * 
+     */
+    @Import(name="databricksZerobuses")
+    private @Nullable Output<List<ObservabilityPipelineConfigDestinationDatabricksZerobusArgs>> databricksZerobuses;
+
+    /**
+     * @return The `databricksZerobus` destination sends logs to Databricks via the Zerobus ingestion API.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigDestinationDatabricksZerobusArgs>>> databricksZerobuses() {
+        return Optional.ofNullable(this.databricksZerobuses);
+    }
+
+    /**
      * The `datadogLogs` destination forwards logs to Datadog Log Management.
      * 
      */
@@ -177,14 +193,14 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
     }
 
     /**
-     * The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+     * The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
      * 
      */
     @Import(name="elasticsearches")
     private @Nullable Output<List<ObservabilityPipelineConfigDestinationElasticsearchArgs>> elasticsearches;
 
     /**
-     * @return The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+     * @return The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigDestinationElasticsearchArgs>>> elasticsearches() {
@@ -441,6 +457,7 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
         this.azureStorages = $.azureStorages;
         this.cloudPrem = $.cloudPrem;
         this.crowdstrikeNextGenSiems = $.crowdstrikeNextGenSiems;
+        this.databricksZerobuses = $.databricksZerobuses;
         this.datadogLogs = $.datadogLogs;
         this.datadogMetrics = $.datadogMetrics;
         this.elasticsearches = $.elasticsearches;
@@ -678,6 +695,37 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
         }
 
         /**
+         * @param databricksZerobuses The `databricksZerobus` destination sends logs to Databricks via the Zerobus ingestion API.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databricksZerobuses(@Nullable Output<List<ObservabilityPipelineConfigDestinationDatabricksZerobusArgs>> databricksZerobuses) {
+            $.databricksZerobuses = databricksZerobuses;
+            return this;
+        }
+
+        /**
+         * @param databricksZerobuses The `databricksZerobus` destination sends logs to Databricks via the Zerobus ingestion API.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databricksZerobuses(List<ObservabilityPipelineConfigDestinationDatabricksZerobusArgs> databricksZerobuses) {
+            return databricksZerobuses(Output.of(databricksZerobuses));
+        }
+
+        /**
+         * @param databricksZerobuses The `databricksZerobus` destination sends logs to Databricks via the Zerobus ingestion API.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databricksZerobuses(ObservabilityPipelineConfigDestinationDatabricksZerobusArgs... databricksZerobuses) {
+            return databricksZerobuses(List.of(databricksZerobuses));
+        }
+
+        /**
          * @param datadogLogs The `datadogLogs` destination forwards logs to Datadog Log Management.
          * 
          * @return builder
@@ -740,7 +788,7 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
         }
 
         /**
-         * @param elasticsearches The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+         * @param elasticsearches The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
          * 
          * @return builder
          * 
@@ -751,7 +799,7 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
         }
 
         /**
-         * @param elasticsearches The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+         * @param elasticsearches The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
          * 
          * @return builder
          * 
@@ -761,7 +809,7 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
         }
 
         /**
-         * @param elasticsearches The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+         * @param elasticsearches The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
          * 
          * @return builder
          * 

@@ -86,6 +86,10 @@ export class SensitiveDataScannerRule extends pulumi.CustomResource {
      */
     declare public readonly standardPatternId: pulumi.Output<string | undefined>;
     /**
+     * Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+     */
+    declare public readonly suppressions: pulumi.Output<outputs.SensitiveDataScannerRuleSuppressions | undefined>;
+    /**
      * List of tags.
      */
     declare public readonly tags: pulumi.Output<string[] | undefined>;
@@ -117,6 +121,7 @@ export class SensitiveDataScannerRule extends pulumi.CustomResource {
             resourceInputs["pattern"] = state?.pattern;
             resourceInputs["priority"] = state?.priority;
             resourceInputs["standardPatternId"] = state?.standardPatternId;
+            resourceInputs["suppressions"] = state?.suppressions;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["textReplacement"] = state?.textReplacement;
         } else {
@@ -134,6 +139,7 @@ export class SensitiveDataScannerRule extends pulumi.CustomResource {
             resourceInputs["pattern"] = args?.pattern;
             resourceInputs["priority"] = args?.priority;
             resourceInputs["standardPatternId"] = args?.standardPatternId;
+            resourceInputs["suppressions"] = args?.suppressions;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["textReplacement"] = args?.textReplacement;
         }
@@ -186,6 +192,10 @@ export interface SensitiveDataScannerRuleState {
      * Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
      */
     standardPatternId?: pulumi.Input<string>;
+    /**
+     * Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+     */
+    suppressions?: pulumi.Input<inputs.SensitiveDataScannerRuleSuppressions>;
     /**
      * List of tags.
      */
@@ -240,6 +250,10 @@ export interface SensitiveDataScannerRuleArgs {
      * Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
      */
     standardPatternId?: pulumi.Input<string>;
+    /**
+     * Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+     */
+    suppressions?: pulumi.Input<inputs.SensitiveDataScannerRuleSuppressions>;
     /**
      * List of tags.
      */

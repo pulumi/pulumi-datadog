@@ -13,19 +13,19 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigDestinationElasticsearchAuthArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the environment variable or secret that holds the Elasticsearch password (used when strategy is `Basic`).
+        /// Name of the environment variable or secret that holds the Elasticsearch password (used when `Strategy` is `Basic`).
         /// </summary>
         [Input("passwordKey")]
         public Input<string>? PasswordKey { get; set; }
 
         /// <summary>
-        /// The authentication strategy. Use `Basic` for username/password. Valid values are `Basic`, `Aws`.
+        /// The authentication strategy to use. Valid values are `Basic`, `Aws`.
         /// </summary>
         [Input("strategy", required: true)]
         public Input<string> Strategy { get; set; } = null!;
 
         /// <summary>
-        /// Name of the environment variable or secret that holds the Elasticsearch username (used when strategy is `Basic`).
+        /// Name of the environment variable or secret that holds the Elasticsearch username (used when `Strategy` is `Basic`).
         /// </summary>
         [Input("usernameKey")]
         public Input<string>? UsernameKey { get; set; }

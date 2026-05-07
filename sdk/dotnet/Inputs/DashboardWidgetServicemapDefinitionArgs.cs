@@ -24,6 +24,12 @@ namespace Pulumi.Datadog.Inputs
             set => _customLinks = value;
         }
 
+        /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
         [Input("filters", required: true)]
         private InputList<string>? _filters;
 
