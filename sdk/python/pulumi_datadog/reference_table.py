@@ -23,10 +23,10 @@ class ReferenceTableArgs:
     def __init__(__self__, *,
                  source: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_metadata: Optional[pulumi.Input['ReferenceTableFileMetadataArgs']] = None,
-                 schema: Optional[pulumi.Input['ReferenceTableSchemaArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_metadata: pulumi.Input[Optional['ReferenceTableFileMetadataArgs']] = None,
+                 schema: pulumi.Input[Optional['ReferenceTableSchemaArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReferenceTable resource.
 
@@ -74,67 +74,67 @@ class ReferenceTableArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the reference table.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="fileMetadata")
-    def file_metadata(self) -> Optional[pulumi.Input['ReferenceTableFileMetadataArgs']]:
+    def file_metadata(self) -> pulumi.Input[Optional['ReferenceTableFileMetadataArgs']]:
         """
         Configuration for cloud storage file access and sync settings.
         """
         return pulumi.get(self, "file_metadata")
 
     @file_metadata.setter
-    def file_metadata(self, value: Optional[pulumi.Input['ReferenceTableFileMetadataArgs']]):
+    def file_metadata(self, value: pulumi.Input[Optional['ReferenceTableFileMetadataArgs']]):
         pulumi.set(self, "file_metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input['ReferenceTableSchemaArgs']]:
+    def schema(self) -> pulumi.Input[Optional['ReferenceTableSchemaArgs']]:
         """
         The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input['ReferenceTableSchemaArgs']]):
+    def schema(self, value: pulumi.Input[Optional['ReferenceTableSchemaArgs']]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of tags to associate with the reference table.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ReferenceTableState:
     def __init__(__self__, *,
-                 created_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_metadata: Optional[pulumi.Input['ReferenceTableFileMetadataArgs']] = None,
-                 last_updated_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 row_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 schema: Optional[pulumi.Input['ReferenceTableSchemaArgs']] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 updated_at: Optional[pulumi.Input[_builtins.str]] = None):
+                 created_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_metadata: pulumi.Input[Optional['ReferenceTableFileMetadataArgs']] = None,
+                 last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 row_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 schema: pulumi.Input[Optional['ReferenceTableSchemaArgs']] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 updated_at: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReferenceTable resources.
 
@@ -175,134 +175,134 @@ class _ReferenceTableState:
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         UUID of the user who created the reference table.
         """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_by", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the reference table.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="fileMetadata")
-    def file_metadata(self) -> Optional[pulumi.Input['ReferenceTableFileMetadataArgs']]:
+    def file_metadata(self) -> pulumi.Input[Optional['ReferenceTableFileMetadataArgs']]:
         """
         Configuration for cloud storage file access and sync settings.
         """
         return pulumi.get(self, "file_metadata")
 
     @file_metadata.setter
-    def file_metadata(self, value: Optional[pulumi.Input['ReferenceTableFileMetadataArgs']]):
+    def file_metadata(self, value: pulumi.Input[Optional['ReferenceTableFileMetadataArgs']]):
         pulumi.set(self, "file_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedBy")
-    def last_updated_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         UUID of the user who last updated the reference table.
         """
         return pulumi.get(self, "last_updated_by")
 
     @last_updated_by.setter
-    def last_updated_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_by", value)
 
     @_builtins.property
     @pulumi.getter(name="rowCount")
-    def row_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def row_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of successfully processed rows in the reference table.
         """
         return pulumi.get(self, "row_count")
 
     @row_count.setter
-    def row_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def row_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "row_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input['ReferenceTableSchemaArgs']]:
+    def schema(self) -> pulumi.Input[Optional['ReferenceTableSchemaArgs']]:
         """
         The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input['ReferenceTableSchemaArgs']]):
+    def schema(self, value: pulumi.Input[Optional['ReferenceTableSchemaArgs']]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source type for the reference table. Valid values are `S3`, `GCS`, `AZURE`.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the reference table (e.g., DONE, PROCESSING, ERROR).
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the reference table. This must be unique within your organization.
         """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of tags to associate with the reference table.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timestamp of the last update to the reference table in ISO 8601 format.
         """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
-    def updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated_at", value)
 
 
@@ -312,12 +312,12 @@ class ReferenceTable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_metadata: Optional[pulumi.Input[Union['ReferenceTableFileMetadataArgs', 'ReferenceTableFileMetadataArgsDict']]] = None,
-                 schema: Optional[pulumi.Input[Union['ReferenceTableSchemaArgs', 'ReferenceTableSchemaArgsDict']]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_metadata: pulumi.Input[Optional[Union['ReferenceTableFileMetadataArgs', 'ReferenceTableFileMetadataArgsDict']]] = None,
+                 schema: pulumi.Input[Optional[Union['ReferenceTableSchemaArgs', 'ReferenceTableSchemaArgsDict']]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a Datadog Reference Table resource for cloud storage sources (S3, GCS, Azure). This can be used to create and manage Datadog reference tables that sync data from cloud storage. For setup instructions including granting Datadog read access to your cloud storage bucket, see the [Reference Tables documentation](https://docs.datadoghq.com/reference_tables/?tab=cloudstorage#create-a-reference-table).
@@ -553,12 +553,12 @@ class ReferenceTable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_metadata: Optional[pulumi.Input[Union['ReferenceTableFileMetadataArgs', 'ReferenceTableFileMetadataArgsDict']]] = None,
-                 schema: Optional[pulumi.Input[Union['ReferenceTableSchemaArgs', 'ReferenceTableSchemaArgsDict']]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_metadata: pulumi.Input[Optional[Union['ReferenceTableFileMetadataArgs', 'ReferenceTableFileMetadataArgsDict']]] = None,
+                 schema: pulumi.Input[Optional[Union['ReferenceTableSchemaArgs', 'ReferenceTableSchemaArgsDict']]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -593,17 +593,17 @@ class ReferenceTable(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            created_by: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            file_metadata: Optional[pulumi.Input[Union['ReferenceTableFileMetadataArgs', 'ReferenceTableFileMetadataArgsDict']]] = None,
-            last_updated_by: Optional[pulumi.Input[_builtins.str]] = None,
-            row_count: Optional[pulumi.Input[_builtins.int]] = None,
-            schema: Optional[pulumi.Input[Union['ReferenceTableSchemaArgs', 'ReferenceTableSchemaArgsDict']]] = None,
-            source: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            table_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            updated_at: Optional[pulumi.Input[_builtins.str]] = None) -> 'ReferenceTable':
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            file_metadata: pulumi.Input[Optional[Union['ReferenceTableFileMetadataArgs', 'ReferenceTableFileMetadataArgsDict']]] = None,
+            last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
+            row_count: pulumi.Input[Optional[_builtins.int]] = None,
+            schema: pulumi.Input[Optional[Union['ReferenceTableSchemaArgs', 'ReferenceTableSchemaArgsDict']]] = None,
+            source: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            table_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> 'ReferenceTable':
         """
         Get an existing ReferenceTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

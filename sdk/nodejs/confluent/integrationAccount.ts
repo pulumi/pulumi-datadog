@@ -118,15 +118,15 @@ export interface IntegrationAccountState {
     /**
      * The API key associated with your Confluent account.
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * The API secret associated with your Confluent account.
      */
-    apiSecret?: pulumi.Input<string>;
+    apiSecret?: pulumi.Input<string | undefined>;
     /**
      * A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -144,5 +144,5 @@ export interface IntegrationAccountArgs {
     /**
      * A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

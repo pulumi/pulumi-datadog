@@ -137,27 +137,27 @@ export interface RumRetentionFilterState {
     /**
      * RUM application ID.
      */
-    applicationId?: pulumi.Input<string>;
+    applicationId?: pulumi.Input<string | undefined>;
     /**
      * Whether the retention filter is to be enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The type of RUM events to filter on.
      */
-    eventType?: pulumi.Input<string>;
+    eventType?: pulumi.Input<string | undefined>;
     /**
      * The name of a RUM retention filter.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Query string for a RUM retention filter. Defaults to `""`.
      */
-    query?: pulumi.Input<string>;
+    query?: pulumi.Input<string | undefined>;
     /**
      * The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
      */
-    sampleRate?: pulumi.Input<number>;
+    sampleRate?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -171,7 +171,7 @@ export interface RumRetentionFilterArgs {
     /**
      * Whether the retention filter is to be enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The type of RUM events to filter on.
      */
@@ -183,7 +183,7 @@ export interface RumRetentionFilterArgs {
     /**
      * The Query string for a RUM retention filter. Defaults to `""`.
      */
-    query?: pulumi.Input<string>;
+    query?: pulumi.Input<string | undefined>;
     /**
      * The sample rate for a RUM retention filter, between 0.1 and 100. Supports one decimal place (for example, 50.5).
      */

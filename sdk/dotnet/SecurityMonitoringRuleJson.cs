@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Example Security Monitoring Rule JSON
-    ///     var securityRuleJson = new Datadog.Index.SecurityMonitoringRuleJson("security_rule_json", new()
+    ///     var securityRuleJson = new Datadog.SecurityMonitoringRuleJson("security_rule_json", new()
     ///     {
     ///         Rule = @"{
     ///   ""name"": ""High error rate security monitoring"",

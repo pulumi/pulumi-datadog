@@ -20,7 +20,7 @@ __all__ = ['TagPipelineRulesetsArgs', 'TagPipelineRulesets']
 class TagPipelineRulesetsArgs:
     def __init__(__self__, *,
                  ruleset_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 override_ui_defined_resources: Optional[pulumi.Input[_builtins.bool]] = None):
+                 override_ui_defined_resources: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a TagPipelineRulesets resource.
 
@@ -45,22 +45,22 @@ class TagPipelineRulesetsArgs:
 
     @_builtins.property
     @pulumi.getter(name="overrideUiDefinedResources")
-    def override_ui_defined_resources(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def override_ui_defined_resources(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to override UI-defined rulesets. When set to true, any rulesets created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rulesets created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
         """
         return pulumi.get(self, "override_ui_defined_resources")
 
     @override_ui_defined_resources.setter
-    def override_ui_defined_resources(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def override_ui_defined_resources(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "override_ui_defined_resources", value)
 
 
 @pulumi.input_type
 class _TagPipelineRulesetsState:
     def __init__(__self__, *,
-                 override_ui_defined_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ruleset_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 override_ui_defined_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ruleset_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering TagPipelineRulesets resources.
 
@@ -74,26 +74,26 @@ class _TagPipelineRulesetsState:
 
     @_builtins.property
     @pulumi.getter(name="overrideUiDefinedResources")
-    def override_ui_defined_resources(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def override_ui_defined_resources(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to override UI-defined rulesets. When set to true, any rulesets created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rulesets created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
         """
         return pulumi.get(self, "override_ui_defined_resources")
 
     @override_ui_defined_resources.setter
-    def override_ui_defined_resources(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def override_ui_defined_resources(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "override_ui_defined_resources", value)
 
     @_builtins.property
     @pulumi.getter(name="rulesetIds")
-    def ruleset_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ruleset_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
         """
         return pulumi.get(self, "ruleset_ids")
 
     @ruleset_ids.setter
-    def ruleset_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ruleset_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ruleset_ids", value)
 
 
@@ -103,8 +103,8 @@ class TagPipelineRulesets(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 override_ui_defined_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ruleset_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 override_ui_defined_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ruleset_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a Datadog Tag Pipeline Ruleset Order resource that can be used to manage the order of Tag Pipeline Rulesets.
@@ -476,8 +476,8 @@ class TagPipelineRulesets(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 override_ui_defined_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ruleset_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 override_ui_defined_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ruleset_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -501,8 +501,8 @@ class TagPipelineRulesets(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            override_ui_defined_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-            ruleset_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'TagPipelineRulesets':
+            override_ui_defined_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+            ruleset_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'TagPipelineRulesets':
         """
         Get an existing TagPipelineRulesets resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

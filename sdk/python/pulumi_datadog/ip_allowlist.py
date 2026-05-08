@@ -22,7 +22,7 @@ __all__ = ['IpAllowlistArgs', 'IpAllowlist']
 class IpAllowlistArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 entries: Optional[pulumi.Input[Sequence[pulumi.Input['IpAllowlistEntryArgs']]]] = None):
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input['IpAllowlistEntryArgs']]]] = None):
         """
         The set of arguments for constructing a IpAllowlist resource.
 
@@ -47,22 +47,22 @@ class IpAllowlistArgs:
 
     @_builtins.property
     @pulumi.getter
-    def entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpAllowlistEntryArgs']]]]:
+    def entries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IpAllowlistEntryArgs']]]]:
         """
         Set of objects containing an IP address or range of IP addresses in the allowlist and an accompanying note.
         """
         return pulumi.get(self, "entries")
 
     @entries.setter
-    def entries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpAllowlistEntryArgs']]]]):
+    def entries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IpAllowlistEntryArgs']]]]):
         pulumi.set(self, "entries", value)
 
 
 @pulumi.input_type
 class _IpAllowlistState:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entries: Optional[pulumi.Input[Sequence[pulumi.Input['IpAllowlistEntryArgs']]]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input['IpAllowlistEntryArgs']]]] = None):
         """
         Input properties used for looking up and filtering IpAllowlist resources.
 
@@ -76,26 +76,26 @@ class _IpAllowlistState:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the IP Allowlist is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpAllowlistEntryArgs']]]]:
+    def entries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IpAllowlistEntryArgs']]]]:
         """
         Set of objects containing an IP address or range of IP addresses in the allowlist and an accompanying note.
         """
         return pulumi.get(self, "entries")
 
     @entries.setter
-    def entries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpAllowlistEntryArgs']]]]):
+    def entries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IpAllowlistEntryArgs']]]]):
         pulumi.set(self, "entries", value)
 
 
@@ -105,8 +105,8 @@ class IpAllowlist(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpAllowlistEntryArgs', 'IpAllowlistEntryArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpAllowlistEntryArgs', 'IpAllowlistEntryArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides the Datadog IP allowlist resource. This can be used to manage the Datadog IP allowlist
@@ -182,8 +182,8 @@ class IpAllowlist(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpAllowlistEntryArgs', 'IpAllowlistEntryArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpAllowlistEntryArgs', 'IpAllowlistEntryArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -207,8 +207,8 @@ class IpAllowlist(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpAllowlistEntryArgs', 'IpAllowlistEntryArgsDict']]]]] = None) -> 'IpAllowlist':
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpAllowlistEntryArgs', 'IpAllowlistEntryArgsDict']]]]] = None) -> 'IpAllowlist':
         """
         Get an existing IpAllowlist resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

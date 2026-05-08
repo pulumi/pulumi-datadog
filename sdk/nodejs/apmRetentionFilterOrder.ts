@@ -104,7 +104,7 @@ export interface ApmRetentionFilterOrderState {
     /**
      * The filter IDs list. The order of filters IDs in this attribute defines the overall APM retention filters order.
      */
-    filterIds?: pulumi.Input<pulumi.Input<string>[]>;
+    filterIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**

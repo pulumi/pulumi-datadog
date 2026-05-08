@@ -171,8 +171,8 @@ def get_datastore_item(datastore_id: Optional[_builtins.str] = None,
         signature=pulumi.get(__ret__, 'signature'),
         store_id=pulumi.get(__ret__, 'store_id'),
         value=pulumi.get(__ret__, 'value'))
-def get_datastore_item_output(datastore_id: Optional[pulumi.Input[_builtins.str]] = None,
-                              item_key: Optional[pulumi.Input[_builtins.str]] = None,
+def get_datastore_item_output(datastore_id: pulumi.Input[Optional[_builtins.str]] = None,
+                              item_key: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatastoreItemResult]:
     """
     Use this data source to retrieve information about an existing Datadog datastore item.

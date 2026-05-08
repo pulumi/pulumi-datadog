@@ -75,9 +75,9 @@ class ChannelArgs:
 @pulumi.input_type
 class _ChannelState:
     def __init__(__self__, *,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 display: Optional[pulumi.Input['ChannelDisplayArgs']] = None):
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 display: pulumi.Input[Optional['ChannelDisplayArgs']] = None):
         """
         Input properties used for looking up and filtering Channel resources.
 
@@ -94,38 +94,38 @@ class _ChannelState:
 
     @_builtins.property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Slack account name.
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="channelName")
-    def channel_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def channel_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Slack channel name.
         """
         return pulumi.get(self, "channel_name")
 
     @channel_name.setter
-    def channel_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def channel_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "channel_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def display(self) -> Optional[pulumi.Input['ChannelDisplayArgs']]:
+    def display(self) -> pulumi.Input[Optional['ChannelDisplayArgs']]:
         """
         Configuration options for what is shown in an alert event message.
         """
         return pulumi.get(self, "display")
 
     @display.setter
-    def display(self, value: Optional[pulumi.Input['ChannelDisplayArgs']]):
+    def display(self, value: pulumi.Input[Optional['ChannelDisplayArgs']]):
         pulumi.set(self, "display", value)
 
 
@@ -135,9 +135,9 @@ class Channel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 display: Optional[pulumi.Input[Union['ChannelDisplayArgs', 'ChannelDisplayArgsDict']]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 display: pulumi.Input[Optional[Union['ChannelDisplayArgs', 'ChannelDisplayArgsDict']]] = None,
                  __props__=None):
         """
         Resource for interacting with the Datadog Slack channel API
@@ -228,9 +228,9 @@ class Channel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 display: Optional[pulumi.Input[Union['ChannelDisplayArgs', 'ChannelDisplayArgsDict']]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 display: pulumi.Input[Optional[Union['ChannelDisplayArgs', 'ChannelDisplayArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -259,9 +259,9 @@ class Channel(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-            display: Optional[pulumi.Input[Union['ChannelDisplayArgs', 'ChannelDisplayArgsDict']]] = None) -> 'Channel':
+            account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+            display: pulumi.Input[Optional[Union['ChannelDisplayArgs', 'ChannelDisplayArgsDict']]] = None) -> 'Channel':
         """
         Get an existing Channel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

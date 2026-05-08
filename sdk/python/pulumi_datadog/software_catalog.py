@@ -43,7 +43,7 @@ class SoftwareCatalogArgs:
 @pulumi.input_type
 class _SoftwareCatalogState:
     def __init__(__self__, *,
-                 entity: Optional[pulumi.Input[_builtins.str]] = None):
+                 entity: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SoftwareCatalog resources.
 
@@ -54,14 +54,14 @@ class _SoftwareCatalogState:
 
     @_builtins.property
     @pulumi.getter
-    def entity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
         """
         return pulumi.get(self, "entity")
 
     @entity.setter
-    def entity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity", value)
 
 
@@ -71,7 +71,7 @@ class SoftwareCatalog(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 entity: Optional[pulumi.Input[_builtins.str]] = None,
+                 entity: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog Software Catalog Entity resource. This can be used to create and manage entities in Datadog Software Catalog using the YAML/JSON definition.
@@ -564,7 +564,7 @@ class SoftwareCatalog(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 entity: Optional[pulumi.Input[_builtins.str]] = None,
+                 entity: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -587,7 +587,7 @@ class SoftwareCatalog(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            entity: Optional[pulumi.Input[_builtins.str]] = None) -> 'SoftwareCatalog':
+            entity: pulumi.Input[Optional[_builtins.str]] = None) -> 'SoftwareCatalog':
         """
         Get an existing SoftwareCatalog resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

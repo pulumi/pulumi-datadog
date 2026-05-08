@@ -32,13 +32,21 @@ import (
 //				return err
 //			}
 //			_, err = datadog.NewSensitiveDataScannerGroupOrder(ctx, "foobar", &datadog.SensitiveDataScannerGroupOrderArgs{
-//				GroupIds: interface{}(foo.GroupIds),
+//				GroupIds: toPulumiStringArray(foo.GroupIds),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			return nil
 //		})
+//	}
+//
+//	func toPulumiStringArray(arr []string) pulumi.StringArray {
+//		var pulumiArr pulumi.StringArray
+//		for _, v := range arr {
+//			pulumiArr = append(pulumiArr, pulumi.String(v))
+//		}
+//		return pulumiArr
 //	}
 //
 // ```

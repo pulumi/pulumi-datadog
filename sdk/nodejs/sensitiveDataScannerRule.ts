@@ -149,51 +149,51 @@ export interface SensitiveDataScannerRuleState {
     /**
      * Description of the rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
      */
-    excludedNamespaces?: pulumi.Input<pulumi.Input<string>[]>;
+    excludedNamespaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Id of the scanning group the rule belongs to.
      */
-    groupId?: pulumi.Input<string>;
+    groupId?: pulumi.Input<string | undefined>;
     /**
      * Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standardPatternId` field, then discarding this field will apply the recommended keywords. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
      */
-    includedKeywordConfiguration?: pulumi.Input<inputs.SensitiveDataScannerRuleIncludedKeywordConfiguration>;
+    includedKeywordConfiguration?: pulumi.Input<inputs.SensitiveDataScannerRuleIncludedKeywordConfiguration | undefined>;
     /**
      * Whether or not the rule is enabled.
      */
-    isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Attributes included in the scan. If namespaces is empty or missing, all attributes except excludedNamespaces are scanned. If both are missing the whole event is scanned.
      */
-    namespaces?: pulumi.Input<pulumi.Input<string>[]>;
+    namespaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Not included if there is a relationship to a standard pattern.
      */
-    pattern?: pulumi.Input<string>;
+    pattern?: pulumi.Input<string | undefined>;
     /**
      * Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
      */
-    standardPatternId?: pulumi.Input<string>;
+    standardPatternId?: pulumi.Input<string | undefined>;
     /**
      * List of tags.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Object describing how the scanned event will be replaced. Defaults to `type: none`
      */
-    textReplacement?: pulumi.Input<inputs.SensitiveDataScannerRuleTextReplacement>;
+    textReplacement?: pulumi.Input<inputs.SensitiveDataScannerRuleTextReplacement | undefined>;
 }
 
 /**
@@ -203,11 +203,11 @@ export interface SensitiveDataScannerRuleArgs {
     /**
      * Description of the rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
      */
-    excludedNamespaces?: pulumi.Input<pulumi.Input<string>[]>;
+    excludedNamespaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Id of the scanning group the rule belongs to.
      */
@@ -215,37 +215,37 @@ export interface SensitiveDataScannerRuleArgs {
     /**
      * Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standardPatternId` field, then discarding this field will apply the recommended keywords. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
      */
-    includedKeywordConfiguration?: pulumi.Input<inputs.SensitiveDataScannerRuleIncludedKeywordConfiguration>;
+    includedKeywordConfiguration?: pulumi.Input<inputs.SensitiveDataScannerRuleIncludedKeywordConfiguration | undefined>;
     /**
      * Whether or not the rule is enabled.
      */
-    isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Attributes included in the scan. If namespaces is empty or missing, all attributes except excludedNamespaces are scanned. If both are missing the whole event is scanned.
      */
-    namespaces?: pulumi.Input<pulumi.Input<string>[]>;
+    namespaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Not included if there is a relationship to a standard pattern.
      */
-    pattern?: pulumi.Input<string>;
+    pattern?: pulumi.Input<string | undefined>;
     /**
      * Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
      */
-    standardPatternId?: pulumi.Input<string>;
+    standardPatternId?: pulumi.Input<string | undefined>;
     /**
      * List of tags.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Object describing how the scanned event will be replaced. Defaults to `type: none`
      */
-    textReplacement?: pulumi.Input<inputs.SensitiveDataScannerRuleTextReplacement>;
+    textReplacement?: pulumi.Input<inputs.SensitiveDataScannerRuleTextReplacement | undefined>;
 }

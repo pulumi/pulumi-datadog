@@ -208,8 +208,8 @@ def get_incident_notification_rule(conditions: Optional[Sequence[Union['GetIncid
         renotify_ons=pulumi.get(__ret__, 'renotify_ons'),
         trigger=pulumi.get(__ret__, 'trigger'),
         visibility=pulumi.get(__ret__, 'visibility'))
-def get_incident_notification_rule_output(conditions: Optional[pulumi.Input[Optional[Sequence[Union['GetIncidentNotificationRuleConditionArgs', 'GetIncidentNotificationRuleConditionArgsDict']]]]] = None,
-                                          id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_incident_notification_rule_output(conditions: pulumi.Input[Optional[Optional[Sequence[Union['GetIncidentNotificationRuleConditionArgs', 'GetIncidentNotificationRuleConditionArgsDict']]]]] = None,
+                                          id: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIncidentNotificationRuleResult]:
     """
     Use this data source to retrieve information about an existing incident notification rule.

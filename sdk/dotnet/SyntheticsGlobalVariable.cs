@@ -25,7 +25,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Basic Usage
-    ///     var testVariable = new Datadog.Index.SyntheticsGlobalVariable("test_variable", new()
+    ///     var testVariable = new Datadog.SyntheticsGlobalVariable("test_variable", new()
     ///     {
     ///         Name = "EXAMPLE_VARIABLE",
     ///         Description = "Description of the variable",
@@ -38,7 +38,7 @@ namespace Pulumi.Datadog
     ///     });
     /// 
     ///     // Write-Only Value (Recommended for Terraform 1.11+)
-    ///     var secureVariable = new Datadog.Index.SyntheticsGlobalVariable("secure_variable", new()
+    ///     var secureVariable = new Datadog.SyntheticsGlobalVariable("secure_variable", new()
     ///     {
     ///         Name = "SECURE_VARIABLE",
     ///         Description = "Secure global variable with write-only value",
@@ -60,9 +60,9 @@ namespace Pulumi.Datadog
     ///     };
     /// 
     ///     // Auto-generate version from keepers
-    ///     var secretVersion = $"rotation-{Std.Index.Substr.Invoke(new()
+    ///     var secretVersion = $"rotation-{Std.Substr.Invoke(new()
     ///     {
-    ///         Input = Std.Index.Md5.Invoke(new()
+    ///         Input = Std.Md5.Invoke(new()
     ///         {
     ///             Input = JsonSerializer.Serialize(secretKeepers),
     ///         }).Result,
@@ -70,7 +70,7 @@ namespace Pulumi.Datadog
     ///         Offset = 8,
     ///     }).Result}";
     /// 
-    ///     var automatedRotation = new Datadog.Index.SyntheticsGlobalVariable("automated_rotation", new()
+    ///     var automatedRotation = new Datadog.SyntheticsGlobalVariable("automated_rotation", new()
     ///     {
     ///         Name = "AUTO_ROTATED_VARIABLE",
     ///         Description = "Variable with automated rotation",

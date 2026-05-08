@@ -90,7 +90,7 @@ def get_metric_tags(metric: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         metric=pulumi.get(__ret__, 'metric'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_metric_tags_output(metric: Optional[pulumi.Input[_builtins.str]] = None,
+def get_metric_tags_output(metric: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMetricTagsResult]:
     """
     Use this data source to retrieve tags associated with a metric to use in other resources.

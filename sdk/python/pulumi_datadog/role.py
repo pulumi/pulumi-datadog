@@ -22,9 +22,9 @@ __all__ = ['RoleArgs', 'Role']
 class RoleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 default_permissions_opt_out: Optional[pulumi.Input[_builtins.bool]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]]] = None,
-                 validate: Optional[pulumi.Input[_builtins.bool]] = None):
+                 default_permissions_opt_out: pulumi.Input[Optional[_builtins.bool]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input['RolePermissionArgs']]]] = None,
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Role resource.
 
@@ -55,49 +55,49 @@ class RoleArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultPermissionsOptOut")
-    def default_permissions_opt_out(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def default_permissions_opt_out(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `include_restricted` attribute for the `get_permissions` data source must be set to `true` to manage default permissions in Terraform.
         """
         return pulumi.get(self, "default_permissions_opt_out")
 
     @default_permissions_opt_out.setter
-    def default_permissions_opt_out(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def default_permissions_opt_out(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "default_permissions_opt_out", value)
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]]]:
+    def permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RolePermissionArgs']]]]:
         """
         Set of objects containing the permission ID and the name of the permissions granted to this role.
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]]]):
+    def permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RolePermissionArgs']]]]):
         pulumi.set(self, "permissions", value)
 
     @_builtins.property
     @pulumi.getter
-    def validate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to `false`, skip the validation call done during plan.
         """
         return pulumi.get(self, "validate")
 
     @validate.setter
-    def validate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate", value)
 
 
 @pulumi.input_type
 class _RoleState:
     def __init__(__self__, *,
-                 default_permissions_opt_out: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]]] = None,
-                 user_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 validate: Optional[pulumi.Input[_builtins.bool]] = None):
+                 default_permissions_opt_out: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input['RolePermissionArgs']]]] = None,
+                 user_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Role resources.
 
@@ -120,62 +120,62 @@ class _RoleState:
 
     @_builtins.property
     @pulumi.getter(name="defaultPermissionsOptOut")
-    def default_permissions_opt_out(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def default_permissions_opt_out(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `include_restricted` attribute for the `get_permissions` data source must be set to `true` to manage default permissions in Terraform.
         """
         return pulumi.get(self, "default_permissions_opt_out")
 
     @default_permissions_opt_out.setter
-    def default_permissions_opt_out(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def default_permissions_opt_out(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "default_permissions_opt_out", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the role.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]]]:
+    def permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RolePermissionArgs']]]]:
         """
         Set of objects containing the permission ID and the name of the permissions granted to this role.
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]]]):
+    def permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RolePermissionArgs']]]]):
         pulumi.set(self, "permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="userCount")
-    def user_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def user_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of users that have this role.
         """
         return pulumi.get(self, "user_count")
 
     @user_count.setter
-    def user_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def user_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "user_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def validate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to `false`, skip the validation call done during plan.
         """
         return pulumi.get(self, "validate")
 
     @validate.setter
-    def validate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate", value)
 
 
@@ -185,10 +185,10 @@ class Role(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_permissions_opt_out: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict']]]]] = None,
-                 validate: Optional[pulumi.Input[_builtins.bool]] = None,
+                 default_permissions_opt_out: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict']]]]] = None,
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Provides a Datadog role resource. This can be used to create and manage Datadog roles.
@@ -288,10 +288,10 @@ class Role(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_permissions_opt_out: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict']]]]] = None,
-                 validate: Optional[pulumi.Input[_builtins.bool]] = None,
+                 default_permissions_opt_out: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict']]]]] = None,
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -318,11 +318,11 @@ class Role(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            default_permissions_opt_out: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict']]]]] = None,
-            user_count: Optional[pulumi.Input[_builtins.int]] = None,
-            validate: Optional[pulumi.Input[_builtins.bool]] = None) -> 'Role':
+            default_permissions_opt_out: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict']]]]] = None,
+            user_count: pulumi.Input[Optional[_builtins.int]] = None,
+            validate: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Role':
         """
         Get an existing Role resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -90,7 +90,7 @@ def get_metrics(query: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         metrics=pulumi.get(__ret__, 'metrics'),
         query=pulumi.get(__ret__, 'query'))
-def get_metrics_output(query: Optional[pulumi.Input[_builtins.str]] = None,
+def get_metrics_output(query: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMetricsResult]:
     """
     Use this data source to list metrics for use in other resources.

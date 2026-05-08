@@ -20,22 +20,22 @@ __all__ = ['ProviderArgs', 'Provider']
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_access_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_secret_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_session_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_provider_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_tags: Optional[pulumi.Input['ProviderDefaultTagsArgs']] = None,
-                 http_client_retry_backoff_base: Optional[pulumi.Input[_builtins.int]] = None,
-                 http_client_retry_backoff_multiplier: Optional[pulumi.Input[_builtins.int]] = None,
-                 http_client_retry_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_client_retry_max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 http_client_retry_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 org_uuid: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_access_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_secret_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_session_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_provider_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_tags: pulumi.Input[Optional['ProviderDefaultTagsArgs']] = None,
+                 http_client_retry_backoff_base: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_client_retry_backoff_multiplier: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_client_retry_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_client_retry_max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_client_retry_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 org_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Provider resource.
 
@@ -91,194 +91,194 @@ class ProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
-    def api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
         """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
-    def api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="apiUrl")
-    def api_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions.
         """
         return pulumi.get(self, "api_url")
 
     @api_url.setter
-    def api_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_url", value)
 
     @_builtins.property
     @pulumi.getter(name="appKey")
-    def app_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
         """
         return pulumi.get(self, "app_key")
 
     @app_key.setter
-    def app_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_key", value)
 
     @_builtins.property
     @pulumi.getter(name="awsAccessKeyId")
-    def aws_access_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_access_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
         """
         return pulumi.get(self, "aws_access_key_id")
 
     @aws_access_key_id.setter
-    def aws_access_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_access_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_access_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="awsSecretAccessKey")
-    def aws_secret_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_secret_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
         """
         return pulumi.get(self, "aws_secret_access_key")
 
     @aws_secret_access_key.setter
-    def aws_secret_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_secret_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_secret_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="awsSessionToken")
-    def aws_session_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_session_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
         """
         return pulumi.get(self, "aws_session_token")
 
     @aws_session_token.setter
-    def aws_session_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_session_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_session_token", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudProviderRegion")
-    def cloud_provider_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud_provider_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
         """
         return pulumi.get(self, "cloud_provider_region")
 
     @cloud_provider_region.setter
-    def cloud_provider_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud_provider_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud_provider_region", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudProviderType")
-    def cloud_provider_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud_provider_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
         """
         return pulumi.get(self, "cloud_provider_type")
 
     @cloud_provider_type.setter
-    def cloud_provider_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud_provider_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud_provider_type", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultTags")
-    def default_tags(self) -> Optional[pulumi.Input['ProviderDefaultTagsArgs']]:
+    def default_tags(self) -> pulumi.Input[Optional['ProviderDefaultTagsArgs']]:
         """
         [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
         """
         return pulumi.get(self, "default_tags")
 
     @default_tags.setter
-    def default_tags(self, value: Optional[pulumi.Input['ProviderDefaultTagsArgs']]):
+    def default_tags(self, value: pulumi.Input[Optional['ProviderDefaultTagsArgs']]):
         pulumi.set(self, "default_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="httpClientRetryBackoffBase")
-    def http_client_retry_backoff_base(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def http_client_retry_backoff_base(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The HTTP request retry back off base. Defaults to 2.
         """
         return pulumi.get(self, "http_client_retry_backoff_base")
 
     @http_client_retry_backoff_base.setter
-    def http_client_retry_backoff_base(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def http_client_retry_backoff_base(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "http_client_retry_backoff_base", value)
 
     @_builtins.property
     @pulumi.getter(name="httpClientRetryBackoffMultiplier")
-    def http_client_retry_backoff_multiplier(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def http_client_retry_backoff_multiplier(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The HTTP request retry back off multiplier. Defaults to 2.
         """
         return pulumi.get(self, "http_client_retry_backoff_multiplier")
 
     @http_client_retry_backoff_multiplier.setter
-    def http_client_retry_backoff_multiplier(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def http_client_retry_backoff_multiplier(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "http_client_retry_backoff_multiplier", value)
 
     @_builtins.property
     @pulumi.getter(name="httpClientRetryEnabled")
-    def http_client_retry_enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_client_retry_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
         """
         return pulumi.get(self, "http_client_retry_enabled")
 
     @http_client_retry_enabled.setter
-    def http_client_retry_enabled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_client_retry_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_client_retry_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="httpClientRetryMaxRetries")
-    def http_client_retry_max_retries(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def http_client_retry_max_retries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The HTTP request maximum retry number. Defaults to 3.
         """
         return pulumi.get(self, "http_client_retry_max_retries")
 
     @http_client_retry_max_retries.setter
-    def http_client_retry_max_retries(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def http_client_retry_max_retries(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "http_client_retry_max_retries", value)
 
     @_builtins.property
     @pulumi.getter(name="httpClientRetryTimeout")
-    def http_client_retry_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def http_client_retry_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The HTTP request retry timeout period. Defaults to 60 seconds.
         """
         return pulumi.get(self, "http_client_retry_timeout")
 
     @http_client_retry_timeout.setter
-    def http_client_retry_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def http_client_retry_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "http_client_retry_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="orgUuid")
-    def org_uuid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def org_uuid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
         """
         return pulumi.get(self, "org_uuid")
 
     @org_uuid.setter
-    def org_uuid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def org_uuid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "org_uuid", value)
 
     @_builtins.property
     @pulumi.getter
-    def validate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def validate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won't be checked.
         """
         return pulumi.get(self, "validate")
 
     @validate.setter
-    def validate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def validate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "validate", value)
 
 
@@ -288,22 +288,22 @@ class Provider(pulumi.ProviderResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_access_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_secret_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_session_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_provider_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_tags: Optional[pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
-                 http_client_retry_backoff_base: Optional[pulumi.Input[_builtins.int]] = None,
-                 http_client_retry_backoff_multiplier: Optional[pulumi.Input[_builtins.int]] = None,
-                 http_client_retry_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_client_retry_max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 http_client_retry_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 org_uuid: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_access_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_secret_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_session_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_provider_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_tags: pulumi.Input[Optional[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
+                 http_client_retry_backoff_base: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_client_retry_backoff_multiplier: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_client_retry_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_client_retry_max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_client_retry_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 org_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The provider type for the datadog package. By default, resources use package-wide configuration
@@ -359,22 +359,22 @@ class Provider(pulumi.ProviderResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_access_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_secret_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_session_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_provider_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_tags: Optional[pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
-                 http_client_retry_backoff_base: Optional[pulumi.Input[_builtins.int]] = None,
-                 http_client_retry_backoff_multiplier: Optional[pulumi.Input[_builtins.int]] = None,
-                 http_client_retry_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_client_retry_max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 http_client_retry_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 org_uuid: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_access_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_secret_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_session_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_provider_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_tags: pulumi.Input[Optional[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
+                 http_client_retry_backoff_base: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_client_retry_backoff_multiplier: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_client_retry_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_client_retry_max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_client_retry_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 org_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

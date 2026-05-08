@@ -102,13 +102,13 @@ export interface GetApiKeyOutputArgs {
     /**
      * Whether to use exact match when searching by name.
      */
-    exactMatch?: pulumi.Input<boolean>;
+    exactMatch?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of this resource.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Name for API Key.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

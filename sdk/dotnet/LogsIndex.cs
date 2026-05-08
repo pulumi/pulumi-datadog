@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // A sample Datadog logs index resource definition.
-    ///     var sampleIndex = new Datadog.Index.LogsIndex("sample_index", new()
+    ///     var sampleIndex = new Datadog.LogsIndex("sample_index", new()
     ///     {
     ///         Name = "your index",
     ///         DailyLimit = 200000,

@@ -102,13 +102,13 @@ export interface GetTeamsOutputArgs {
     /**
      * Search query. Can be team name, team handle, or email of team member.
      */
-    filterKeyword?: pulumi.Input<string>;
+    filterKeyword?: pulumi.Input<string | undefined>;
     /**
      * When true, only returns teams the current user belongs to.
      */
-    filterMe?: pulumi.Input<boolean>;
+    filterMe?: pulumi.Input<boolean | undefined>;
     /**
      * List of teams
      */
-    teams?: pulumi.Input<pulumi.Input<inputs.GetTeamsTeamArgs>[]>;
+    teams?: pulumi.Input<pulumi.Input<inputs.GetTeamsTeamArgs>[] | undefined>;
 }

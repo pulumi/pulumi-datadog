@@ -132,15 +132,15 @@ export interface GetTeamNotificationRuleOutputArgs {
     /**
      * The email notification settings.
      */
-    email?: pulumi.Input<inputs.GetTeamNotificationRuleEmailArgs>;
+    email?: pulumi.Input<inputs.GetTeamNotificationRuleEmailArgs | undefined>;
     /**
      * The MS Teams notification settings.
      */
-    msTeams?: pulumi.Input<inputs.GetTeamNotificationRuleMsTeamsArgs>;
+    msTeams?: pulumi.Input<inputs.GetTeamNotificationRuleMsTeamsArgs | undefined>;
     /**
      * The PagerDuty notification settings.
      */
-    pagerduty?: pulumi.Input<inputs.GetTeamNotificationRulePagerdutyArgs>;
+    pagerduty?: pulumi.Input<inputs.GetTeamNotificationRulePagerdutyArgs | undefined>;
     /**
      * The notification rule ID to fetch.
      */
@@ -148,7 +148,7 @@ export interface GetTeamNotificationRuleOutputArgs {
     /**
      * The Slack notification settings.
      */
-    slack?: pulumi.Input<inputs.GetTeamNotificationRuleSlackArgs>;
+    slack?: pulumi.Input<inputs.GetTeamNotificationRuleSlackArgs | undefined>;
     /**
      * The team ID to fetch the notification rule for.
      */

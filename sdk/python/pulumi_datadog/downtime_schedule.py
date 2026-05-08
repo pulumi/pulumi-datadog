@@ -23,13 +23,13 @@ class DowntimeScheduleArgs:
     def __init__(__self__, *,
                  monitor_identifier: pulumi.Input['DowntimeScheduleMonitorIdentifierArgs'],
                  scope: pulumi.Input[_builtins.str],
-                 display_timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 mute_first_recovery_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_end_states: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 notify_end_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 one_time_schedule: Optional[pulumi.Input['DowntimeScheduleOneTimeScheduleArgs']] = None,
-                 recurring_schedule: Optional[pulumi.Input['DowntimeScheduleRecurringScheduleArgs']] = None):
+                 display_timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 mute_first_recovery_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_end_states: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 notify_end_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 one_time_schedule: pulumi.Input[Optional['DowntimeScheduleOneTimeScheduleArgs']] = None,
+                 recurring_schedule: pulumi.Input[Optional['DowntimeScheduleRecurringScheduleArgs']] = None):
         """
         The set of arguments for constructing a DowntimeSchedule resource.
 
@@ -80,95 +80,95 @@ class DowntimeScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayTimezone")
-    def display_timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timezone in which to display the downtime's start and end times in Datadog applications. This is not used as an offset for scheduling.
         """
         return pulumi.get(self, "display_timezone")
 
     @display_timezone.setter
-    def display_timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_timezone", value)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
     @_builtins.property
     @pulumi.getter(name="muteFirstRecoveryNotification")
-    def mute_first_recovery_notification(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def mute_first_recovery_notification(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If the first recovery notification during a downtime should be muted.
         """
         return pulumi.get(self, "mute_first_recovery_notification")
 
     @mute_first_recovery_notification.setter
-    def mute_first_recovery_notification(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def mute_first_recovery_notification(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "mute_first_recovery_notification", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyEndStates")
-    def notify_end_states(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def notify_end_states(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         States that will trigger a monitor notification when the `notify_end_types` action occurs.
         """
         return pulumi.get(self, "notify_end_states")
 
     @notify_end_states.setter
-    def notify_end_states(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def notify_end_states(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "notify_end_states", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyEndTypes")
-    def notify_end_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def notify_end_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
         """
         return pulumi.get(self, "notify_end_types")
 
     @notify_end_types.setter
-    def notify_end_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def notify_end_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "notify_end_types", value)
 
     @_builtins.property
     @pulumi.getter(name="oneTimeSchedule")
-    def one_time_schedule(self) -> Optional[pulumi.Input['DowntimeScheduleOneTimeScheduleArgs']]:
+    def one_time_schedule(self) -> pulumi.Input[Optional['DowntimeScheduleOneTimeScheduleArgs']]:
         return pulumi.get(self, "one_time_schedule")
 
     @one_time_schedule.setter
-    def one_time_schedule(self, value: Optional[pulumi.Input['DowntimeScheduleOneTimeScheduleArgs']]):
+    def one_time_schedule(self, value: pulumi.Input[Optional['DowntimeScheduleOneTimeScheduleArgs']]):
         pulumi.set(self, "one_time_schedule", value)
 
     @_builtins.property
     @pulumi.getter(name="recurringSchedule")
-    def recurring_schedule(self) -> Optional[pulumi.Input['DowntimeScheduleRecurringScheduleArgs']]:
+    def recurring_schedule(self) -> pulumi.Input[Optional['DowntimeScheduleRecurringScheduleArgs']]:
         return pulumi.get(self, "recurring_schedule")
 
     @recurring_schedule.setter
-    def recurring_schedule(self, value: Optional[pulumi.Input['DowntimeScheduleRecurringScheduleArgs']]):
+    def recurring_schedule(self, value: pulumi.Input[Optional['DowntimeScheduleRecurringScheduleArgs']]):
         pulumi.set(self, "recurring_schedule", value)
 
 
 @pulumi.input_type
 class _DowntimeScheduleState:
     def __init__(__self__, *,
-                 display_timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_identifier: Optional[pulumi.Input['DowntimeScheduleMonitorIdentifierArgs']] = None,
-                 mute_first_recovery_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_end_states: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 notify_end_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 one_time_schedule: Optional[pulumi.Input['DowntimeScheduleOneTimeScheduleArgs']] = None,
-                 recurring_schedule: Optional[pulumi.Input['DowntimeScheduleRecurringScheduleArgs']] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None):
+                 display_timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_identifier: pulumi.Input[Optional['DowntimeScheduleMonitorIdentifierArgs']] = None,
+                 mute_first_recovery_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_end_states: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 notify_end_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 one_time_schedule: pulumi.Input[Optional['DowntimeScheduleOneTimeScheduleArgs']] = None,
+                 recurring_schedule: pulumi.Input[Optional['DowntimeScheduleRecurringScheduleArgs']] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DowntimeSchedule resources.
 
@@ -200,101 +200,101 @@ class _DowntimeScheduleState:
 
     @_builtins.property
     @pulumi.getter(name="displayTimezone")
-    def display_timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timezone in which to display the downtime's start and end times in Datadog applications. This is not used as an offset for scheduling.
         """
         return pulumi.get(self, "display_timezone")
 
     @display_timezone.setter
-    def display_timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_timezone", value)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorIdentifier")
-    def monitor_identifier(self) -> Optional[pulumi.Input['DowntimeScheduleMonitorIdentifierArgs']]:
+    def monitor_identifier(self) -> pulumi.Input[Optional['DowntimeScheduleMonitorIdentifierArgs']]:
         return pulumi.get(self, "monitor_identifier")
 
     @monitor_identifier.setter
-    def monitor_identifier(self, value: Optional[pulumi.Input['DowntimeScheduleMonitorIdentifierArgs']]):
+    def monitor_identifier(self, value: pulumi.Input[Optional['DowntimeScheduleMonitorIdentifierArgs']]):
         pulumi.set(self, "monitor_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="muteFirstRecoveryNotification")
-    def mute_first_recovery_notification(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def mute_first_recovery_notification(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If the first recovery notification during a downtime should be muted.
         """
         return pulumi.get(self, "mute_first_recovery_notification")
 
     @mute_first_recovery_notification.setter
-    def mute_first_recovery_notification(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def mute_first_recovery_notification(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "mute_first_recovery_notification", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyEndStates")
-    def notify_end_states(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def notify_end_states(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         States that will trigger a monitor notification when the `notify_end_types` action occurs.
         """
         return pulumi.get(self, "notify_end_states")
 
     @notify_end_states.setter
-    def notify_end_states(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def notify_end_states(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "notify_end_states", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyEndTypes")
-    def notify_end_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def notify_end_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
         """
         return pulumi.get(self, "notify_end_types")
 
     @notify_end_types.setter
-    def notify_end_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def notify_end_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "notify_end_types", value)
 
     @_builtins.property
     @pulumi.getter(name="oneTimeSchedule")
-    def one_time_schedule(self) -> Optional[pulumi.Input['DowntimeScheduleOneTimeScheduleArgs']]:
+    def one_time_schedule(self) -> pulumi.Input[Optional['DowntimeScheduleOneTimeScheduleArgs']]:
         return pulumi.get(self, "one_time_schedule")
 
     @one_time_schedule.setter
-    def one_time_schedule(self, value: Optional[pulumi.Input['DowntimeScheduleOneTimeScheduleArgs']]):
+    def one_time_schedule(self, value: pulumi.Input[Optional['DowntimeScheduleOneTimeScheduleArgs']]):
         pulumi.set(self, "one_time_schedule", value)
 
     @_builtins.property
     @pulumi.getter(name="recurringSchedule")
-    def recurring_schedule(self) -> Optional[pulumi.Input['DowntimeScheduleRecurringScheduleArgs']]:
+    def recurring_schedule(self) -> pulumi.Input[Optional['DowntimeScheduleRecurringScheduleArgs']]:
         return pulumi.get(self, "recurring_schedule")
 
     @recurring_schedule.setter
-    def recurring_schedule(self, value: Optional[pulumi.Input['DowntimeScheduleRecurringScheduleArgs']]):
+    def recurring_schedule(self, value: pulumi.Input[Optional['DowntimeScheduleRecurringScheduleArgs']]):
         pulumi.set(self, "recurring_schedule", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The scope to which the downtime applies. Must follow the [common search syntax](https://docs.datadoghq.com/logs/explorer/search_syntax/).
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
 
@@ -304,15 +304,15 @@ class DowntimeSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_identifier: Optional[pulumi.Input[Union['DowntimeScheduleMonitorIdentifierArgs', 'DowntimeScheduleMonitorIdentifierArgsDict']]] = None,
-                 mute_first_recovery_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_end_states: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 notify_end_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 one_time_schedule: Optional[pulumi.Input[Union['DowntimeScheduleOneTimeScheduleArgs', 'DowntimeScheduleOneTimeScheduleArgsDict']]] = None,
-                 recurring_schedule: Optional[pulumi.Input[Union['DowntimeScheduleRecurringScheduleArgs', 'DowntimeScheduleRecurringScheduleArgsDict']]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_identifier: pulumi.Input[Optional[Union['DowntimeScheduleMonitorIdentifierArgs', 'DowntimeScheduleMonitorIdentifierArgsDict']]] = None,
+                 mute_first_recovery_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_end_states: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 notify_end_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 one_time_schedule: pulumi.Input[Optional[Union['DowntimeScheduleOneTimeScheduleArgs', 'DowntimeScheduleOneTimeScheduleArgsDict']]] = None,
+                 recurring_schedule: pulumi.Input[Optional[Union['DowntimeScheduleRecurringScheduleArgs', 'DowntimeScheduleRecurringScheduleArgsDict']]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog DowntimeSchedule resource. This can be used to create and manage Datadog downtimes.
@@ -440,15 +440,15 @@ class DowntimeSchedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_identifier: Optional[pulumi.Input[Union['DowntimeScheduleMonitorIdentifierArgs', 'DowntimeScheduleMonitorIdentifierArgsDict']]] = None,
-                 mute_first_recovery_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_end_states: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 notify_end_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 one_time_schedule: Optional[pulumi.Input[Union['DowntimeScheduleOneTimeScheduleArgs', 'DowntimeScheduleOneTimeScheduleArgsDict']]] = None,
-                 recurring_schedule: Optional[pulumi.Input[Union['DowntimeScheduleRecurringScheduleArgs', 'DowntimeScheduleRecurringScheduleArgsDict']]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_identifier: pulumi.Input[Optional[Union['DowntimeScheduleMonitorIdentifierArgs', 'DowntimeScheduleMonitorIdentifierArgsDict']]] = None,
+                 mute_first_recovery_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_end_states: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 notify_end_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 one_time_schedule: pulumi.Input[Optional[Union['DowntimeScheduleOneTimeScheduleArgs', 'DowntimeScheduleOneTimeScheduleArgsDict']]] = None,
+                 recurring_schedule: pulumi.Input[Optional[Union['DowntimeScheduleRecurringScheduleArgs', 'DowntimeScheduleRecurringScheduleArgsDict']]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -481,15 +481,15 @@ class DowntimeSchedule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            display_timezone: Optional[pulumi.Input[_builtins.str]] = None,
-            message: Optional[pulumi.Input[_builtins.str]] = None,
-            monitor_identifier: Optional[pulumi.Input[Union['DowntimeScheduleMonitorIdentifierArgs', 'DowntimeScheduleMonitorIdentifierArgsDict']]] = None,
-            mute_first_recovery_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-            notify_end_states: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            notify_end_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            one_time_schedule: Optional[pulumi.Input[Union['DowntimeScheduleOneTimeScheduleArgs', 'DowntimeScheduleOneTimeScheduleArgsDict']]] = None,
-            recurring_schedule: Optional[pulumi.Input[Union['DowntimeScheduleRecurringScheduleArgs', 'DowntimeScheduleRecurringScheduleArgsDict']]] = None,
-            scope: Optional[pulumi.Input[_builtins.str]] = None) -> 'DowntimeSchedule':
+            display_timezone: pulumi.Input[Optional[_builtins.str]] = None,
+            message: pulumi.Input[Optional[_builtins.str]] = None,
+            monitor_identifier: pulumi.Input[Optional[Union['DowntimeScheduleMonitorIdentifierArgs', 'DowntimeScheduleMonitorIdentifierArgsDict']]] = None,
+            mute_first_recovery_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+            notify_end_states: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            notify_end_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            one_time_schedule: pulumi.Input[Optional[Union['DowntimeScheduleOneTimeScheduleArgs', 'DowntimeScheduleOneTimeScheduleArgsDict']]] = None,
+            recurring_schedule: pulumi.Input[Optional[Union['DowntimeScheduleRecurringScheduleArgs', 'DowntimeScheduleRecurringScheduleArgsDict']]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None) -> 'DowntimeSchedule':
         """
         Get an existing DowntimeSchedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

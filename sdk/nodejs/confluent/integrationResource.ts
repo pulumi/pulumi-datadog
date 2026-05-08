@@ -134,23 +134,23 @@ export interface IntegrationResourceState {
     /**
      * Confluent Account ID.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags. Defaults to `false`.
      */
-    enableCustomMetrics?: pulumi.Input<boolean>;
+    enableCustomMetrics?: pulumi.Input<boolean | undefined>;
     /**
      * The ID associated with a Confluent resource.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schemaRegistry`.
      */
-    resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
     /**
      * A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -164,7 +164,7 @@ export interface IntegrationResourceArgs {
     /**
      * Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags. Defaults to `false`.
      */
-    enableCustomMetrics?: pulumi.Input<boolean>;
+    enableCustomMetrics?: pulumi.Input<boolean | undefined>;
     /**
      * The ID associated with a Confluent resource.
      */
@@ -172,9 +172,9 @@ export interface IntegrationResourceArgs {
     /**
      * The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schemaRegistry`.
      */
-    resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
     /**
      * A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

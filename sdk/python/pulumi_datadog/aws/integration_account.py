@@ -23,13 +23,13 @@ class IntegrationAccountArgs:
     def __init__(__self__, *,
                  aws_account_id: pulumi.Input[_builtins.str],
                  aws_partition: pulumi.Input[_builtins.str],
-                 account_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 auth_config: Optional[pulumi.Input['IntegrationAccountAuthConfigArgs']] = None,
-                 aws_regions: Optional[pulumi.Input['IntegrationAccountAwsRegionsArgs']] = None,
-                 logs_config: Optional[pulumi.Input['IntegrationAccountLogsConfigArgs']] = None,
-                 metrics_config: Optional[pulumi.Input['IntegrationAccountMetricsConfigArgs']] = None,
-                 resources_config: Optional[pulumi.Input['IntegrationAccountResourcesConfigArgs']] = None,
-                 traces_config: Optional[pulumi.Input['IntegrationAccountTracesConfigArgs']] = None):
+                 account_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auth_config: pulumi.Input[Optional['IntegrationAccountAuthConfigArgs']] = None,
+                 aws_regions: pulumi.Input[Optional['IntegrationAccountAwsRegionsArgs']] = None,
+                 logs_config: pulumi.Input[Optional['IntegrationAccountLogsConfigArgs']] = None,
+                 metrics_config: pulumi.Input[Optional['IntegrationAccountMetricsConfigArgs']] = None,
+                 resources_config: pulumi.Input[Optional['IntegrationAccountResourcesConfigArgs']] = None,
+                 traces_config: pulumi.Input[Optional['IntegrationAccountTracesConfigArgs']] = None):
         """
         The set of arguments for constructing a IntegrationAccount resource.
 
@@ -86,101 +86,101 @@ class IntegrationAccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountTags")
-    def account_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def account_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Tags to apply to all metrics in the account. Defaults to `[]`.
         """
         return pulumi.get(self, "account_tags")
 
     @account_tags.setter
-    def account_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def account_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "account_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="authConfig")
-    def auth_config(self) -> Optional[pulumi.Input['IntegrationAccountAuthConfigArgs']]:
+    def auth_config(self) -> pulumi.Input[Optional['IntegrationAccountAuthConfigArgs']]:
         """
         Configure how Datadog authenticates to your AWS account. Either `aws_auth_config_keys` or `aws_auth_config_role` block is required within.
         """
         return pulumi.get(self, "auth_config")
 
     @auth_config.setter
-    def auth_config(self, value: Optional[pulumi.Input['IntegrationAccountAuthConfigArgs']]):
+    def auth_config(self, value: pulumi.Input[Optional['IntegrationAccountAuthConfigArgs']]):
         pulumi.set(self, "auth_config", value)
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input['IntegrationAccountAwsRegionsArgs']]:
+    def aws_regions(self) -> pulumi.Input[Optional['IntegrationAccountAwsRegionsArgs']]:
         """
         AWS regions to collect data from. Defaults to `include_all` if block is empty.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input['IntegrationAccountAwsRegionsArgs']]):
+    def aws_regions(self, value: pulumi.Input[Optional['IntegrationAccountAwsRegionsArgs']]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="logsConfig")
-    def logs_config(self) -> Optional[pulumi.Input['IntegrationAccountLogsConfigArgs']]:
+    def logs_config(self) -> pulumi.Input[Optional['IntegrationAccountLogsConfigArgs']]:
         """
         Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.
         """
         return pulumi.get(self, "logs_config")
 
     @logs_config.setter
-    def logs_config(self, value: Optional[pulumi.Input['IntegrationAccountLogsConfigArgs']]):
+    def logs_config(self, value: pulumi.Input[Optional['IntegrationAccountLogsConfigArgs']]):
         pulumi.set(self, "logs_config", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsConfig")
-    def metrics_config(self) -> Optional[pulumi.Input['IntegrationAccountMetricsConfigArgs']]:
+    def metrics_config(self) -> pulumi.Input[Optional['IntegrationAccountMetricsConfigArgs']]:
         """
         Configure metrics collection from AWS CloudWatch. The `namespace_filters` block is required within, but may be empty to use defaults.
         """
         return pulumi.get(self, "metrics_config")
 
     @metrics_config.setter
-    def metrics_config(self, value: Optional[pulumi.Input['IntegrationAccountMetricsConfigArgs']]):
+    def metrics_config(self, value: pulumi.Input[Optional['IntegrationAccountMetricsConfigArgs']]):
         pulumi.set(self, "metrics_config", value)
 
     @_builtins.property
     @pulumi.getter(name="resourcesConfig")
-    def resources_config(self) -> Optional[pulumi.Input['IntegrationAccountResourcesConfigArgs']]:
+    def resources_config(self) -> pulumi.Input[Optional['IntegrationAccountResourcesConfigArgs']]:
         """
         AWS resources collection config. May be empty to use defaults.
         """
         return pulumi.get(self, "resources_config")
 
     @resources_config.setter
-    def resources_config(self, value: Optional[pulumi.Input['IntegrationAccountResourcesConfigArgs']]):
+    def resources_config(self, value: pulumi.Input[Optional['IntegrationAccountResourcesConfigArgs']]):
         pulumi.set(self, "resources_config", value)
 
     @_builtins.property
     @pulumi.getter(name="tracesConfig")
-    def traces_config(self) -> Optional[pulumi.Input['IntegrationAccountTracesConfigArgs']]:
+    def traces_config(self) -> pulumi.Input[Optional['IntegrationAccountTracesConfigArgs']]:
         """
         AWS traces collection config. The `xray_services` block is required within, but may be empty to use defaults.
         """
         return pulumi.get(self, "traces_config")
 
     @traces_config.setter
-    def traces_config(self, value: Optional[pulumi.Input['IntegrationAccountTracesConfigArgs']]):
+    def traces_config(self, value: pulumi.Input[Optional['IntegrationAccountTracesConfigArgs']]):
         pulumi.set(self, "traces_config", value)
 
 
 @pulumi.input_type
 class _IntegrationAccountState:
     def __init__(__self__, *,
-                 account_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 auth_config: Optional[pulumi.Input['IntegrationAccountAuthConfigArgs']] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_regions: Optional[pulumi.Input['IntegrationAccountAwsRegionsArgs']] = None,
-                 logs_config: Optional[pulumi.Input['IntegrationAccountLogsConfigArgs']] = None,
-                 metrics_config: Optional[pulumi.Input['IntegrationAccountMetricsConfigArgs']] = None,
-                 resources_config: Optional[pulumi.Input['IntegrationAccountResourcesConfigArgs']] = None,
-                 traces_config: Optional[pulumi.Input['IntegrationAccountTracesConfigArgs']] = None):
+                 account_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auth_config: pulumi.Input[Optional['IntegrationAccountAuthConfigArgs']] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_regions: pulumi.Input[Optional['IntegrationAccountAwsRegionsArgs']] = None,
+                 logs_config: pulumi.Input[Optional['IntegrationAccountLogsConfigArgs']] = None,
+                 metrics_config: pulumi.Input[Optional['IntegrationAccountMetricsConfigArgs']] = None,
+                 resources_config: pulumi.Input[Optional['IntegrationAccountResourcesConfigArgs']] = None,
+                 traces_config: pulumi.Input[Optional['IntegrationAccountTracesConfigArgs']] = None):
         """
         Input properties used for looking up and filtering IntegrationAccount resources.
 
@@ -215,110 +215,110 @@ class _IntegrationAccountState:
 
     @_builtins.property
     @pulumi.getter(name="accountTags")
-    def account_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def account_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Tags to apply to all metrics in the account. Defaults to `[]`.
         """
         return pulumi.get(self, "account_tags")
 
     @account_tags.setter
-    def account_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def account_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "account_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="authConfig")
-    def auth_config(self) -> Optional[pulumi.Input['IntegrationAccountAuthConfigArgs']]:
+    def auth_config(self) -> pulumi.Input[Optional['IntegrationAccountAuthConfigArgs']]:
         """
         Configure how Datadog authenticates to your AWS account. Either `aws_auth_config_keys` or `aws_auth_config_role` block is required within.
         """
         return pulumi.get(self, "auth_config")
 
     @auth_config.setter
-    def auth_config(self, value: Optional[pulumi.Input['IntegrationAccountAuthConfigArgs']]):
+    def auth_config(self, value: pulumi.Input[Optional['IntegrationAccountAuthConfigArgs']]):
         pulumi.set(self, "auth_config", value)
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Your AWS Account ID without dashes.
         """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
-    def aws_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="awsPartition")
-    def aws_partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS Account partition.
         """
         return pulumi.get(self, "aws_partition")
 
     @aws_partition.setter
-    def aws_partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_partition", value)
 
     @_builtins.property
     @pulumi.getter(name="awsRegions")
-    def aws_regions(self) -> Optional[pulumi.Input['IntegrationAccountAwsRegionsArgs']]:
+    def aws_regions(self) -> pulumi.Input[Optional['IntegrationAccountAwsRegionsArgs']]:
         """
         AWS regions to collect data from. Defaults to `include_all` if block is empty.
         """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
-    def aws_regions(self, value: Optional[pulumi.Input['IntegrationAccountAwsRegionsArgs']]):
+    def aws_regions(self, value: pulumi.Input[Optional['IntegrationAccountAwsRegionsArgs']]):
         pulumi.set(self, "aws_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="logsConfig")
-    def logs_config(self) -> Optional[pulumi.Input['IntegrationAccountLogsConfigArgs']]:
+    def logs_config(self) -> pulumi.Input[Optional['IntegrationAccountLogsConfigArgs']]:
         """
         Configure log autosubscription for your Datadog Forwarder Lambda functions. The `lambda_forwarder` block is required within, but may be empty to use defaults.
         """
         return pulumi.get(self, "logs_config")
 
     @logs_config.setter
-    def logs_config(self, value: Optional[pulumi.Input['IntegrationAccountLogsConfigArgs']]):
+    def logs_config(self, value: pulumi.Input[Optional['IntegrationAccountLogsConfigArgs']]):
         pulumi.set(self, "logs_config", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsConfig")
-    def metrics_config(self) -> Optional[pulumi.Input['IntegrationAccountMetricsConfigArgs']]:
+    def metrics_config(self) -> pulumi.Input[Optional['IntegrationAccountMetricsConfigArgs']]:
         """
         Configure metrics collection from AWS CloudWatch. The `namespace_filters` block is required within, but may be empty to use defaults.
         """
         return pulumi.get(self, "metrics_config")
 
     @metrics_config.setter
-    def metrics_config(self, value: Optional[pulumi.Input['IntegrationAccountMetricsConfigArgs']]):
+    def metrics_config(self, value: pulumi.Input[Optional['IntegrationAccountMetricsConfigArgs']]):
         pulumi.set(self, "metrics_config", value)
 
     @_builtins.property
     @pulumi.getter(name="resourcesConfig")
-    def resources_config(self) -> Optional[pulumi.Input['IntegrationAccountResourcesConfigArgs']]:
+    def resources_config(self) -> pulumi.Input[Optional['IntegrationAccountResourcesConfigArgs']]:
         """
         AWS resources collection config. May be empty to use defaults.
         """
         return pulumi.get(self, "resources_config")
 
     @resources_config.setter
-    def resources_config(self, value: Optional[pulumi.Input['IntegrationAccountResourcesConfigArgs']]):
+    def resources_config(self, value: pulumi.Input[Optional['IntegrationAccountResourcesConfigArgs']]):
         pulumi.set(self, "resources_config", value)
 
     @_builtins.property
     @pulumi.getter(name="tracesConfig")
-    def traces_config(self) -> Optional[pulumi.Input['IntegrationAccountTracesConfigArgs']]:
+    def traces_config(self) -> pulumi.Input[Optional['IntegrationAccountTracesConfigArgs']]:
         """
         AWS traces collection config. The `xray_services` block is required within, but may be empty to use defaults.
         """
         return pulumi.get(self, "traces_config")
 
     @traces_config.setter
-    def traces_config(self, value: Optional[pulumi.Input['IntegrationAccountTracesConfigArgs']]):
+    def traces_config(self, value: pulumi.Input[Optional['IntegrationAccountTracesConfigArgs']]):
         pulumi.set(self, "traces_config", value)
 
 
@@ -328,15 +328,15 @@ class IntegrationAccount(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 auth_config: Optional[pulumi.Input[Union['IntegrationAccountAuthConfigArgs', 'IntegrationAccountAuthConfigArgsDict']]] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_regions: Optional[pulumi.Input[Union['IntegrationAccountAwsRegionsArgs', 'IntegrationAccountAwsRegionsArgsDict']]] = None,
-                 logs_config: Optional[pulumi.Input[Union['IntegrationAccountLogsConfigArgs', 'IntegrationAccountLogsConfigArgsDict']]] = None,
-                 metrics_config: Optional[pulumi.Input[Union['IntegrationAccountMetricsConfigArgs', 'IntegrationAccountMetricsConfigArgsDict']]] = None,
-                 resources_config: Optional[pulumi.Input[Union['IntegrationAccountResourcesConfigArgs', 'IntegrationAccountResourcesConfigArgsDict']]] = None,
-                 traces_config: Optional[pulumi.Input[Union['IntegrationAccountTracesConfigArgs', 'IntegrationAccountTracesConfigArgsDict']]] = None,
+                 account_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auth_config: pulumi.Input[Optional[Union['IntegrationAccountAuthConfigArgs', 'IntegrationAccountAuthConfigArgsDict']]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_regions: pulumi.Input[Optional[Union['IntegrationAccountAwsRegionsArgs', 'IntegrationAccountAwsRegionsArgsDict']]] = None,
+                 logs_config: pulumi.Input[Optional[Union['IntegrationAccountLogsConfigArgs', 'IntegrationAccountLogsConfigArgsDict']]] = None,
+                 metrics_config: pulumi.Input[Optional[Union['IntegrationAccountMetricsConfigArgs', 'IntegrationAccountMetricsConfigArgsDict']]] = None,
+                 resources_config: pulumi.Input[Optional[Union['IntegrationAccountResourcesConfigArgs', 'IntegrationAccountResourcesConfigArgsDict']]] = None,
+                 traces_config: pulumi.Input[Optional[Union['IntegrationAccountTracesConfigArgs', 'IntegrationAccountTracesConfigArgsDict']]] = None,
                  __props__=None):
         """
         Provides a Datadog—Amazon Web Services integration resource. This can be used to create and manage Datadog—Amazon Web Services integration.
@@ -577,15 +577,15 @@ class IntegrationAccount(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 auth_config: Optional[pulumi.Input[Union['IntegrationAccountAuthConfigArgs', 'IntegrationAccountAuthConfigArgsDict']]] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_regions: Optional[pulumi.Input[Union['IntegrationAccountAwsRegionsArgs', 'IntegrationAccountAwsRegionsArgsDict']]] = None,
-                 logs_config: Optional[pulumi.Input[Union['IntegrationAccountLogsConfigArgs', 'IntegrationAccountLogsConfigArgsDict']]] = None,
-                 metrics_config: Optional[pulumi.Input[Union['IntegrationAccountMetricsConfigArgs', 'IntegrationAccountMetricsConfigArgsDict']]] = None,
-                 resources_config: Optional[pulumi.Input[Union['IntegrationAccountResourcesConfigArgs', 'IntegrationAccountResourcesConfigArgsDict']]] = None,
-                 traces_config: Optional[pulumi.Input[Union['IntegrationAccountTracesConfigArgs', 'IntegrationAccountTracesConfigArgsDict']]] = None,
+                 account_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auth_config: pulumi.Input[Optional[Union['IntegrationAccountAuthConfigArgs', 'IntegrationAccountAuthConfigArgsDict']]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_regions: pulumi.Input[Optional[Union['IntegrationAccountAwsRegionsArgs', 'IntegrationAccountAwsRegionsArgsDict']]] = None,
+                 logs_config: pulumi.Input[Optional[Union['IntegrationAccountLogsConfigArgs', 'IntegrationAccountLogsConfigArgsDict']]] = None,
+                 metrics_config: pulumi.Input[Optional[Union['IntegrationAccountMetricsConfigArgs', 'IntegrationAccountMetricsConfigArgsDict']]] = None,
+                 resources_config: pulumi.Input[Optional[Union['IntegrationAccountResourcesConfigArgs', 'IntegrationAccountResourcesConfigArgsDict']]] = None,
+                 traces_config: pulumi.Input[Optional[Union['IntegrationAccountTracesConfigArgs', 'IntegrationAccountTracesConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -618,15 +618,15 @@ class IntegrationAccount(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            auth_config: Optional[pulumi.Input[Union['IntegrationAccountAuthConfigArgs', 'IntegrationAccountAuthConfigArgsDict']]] = None,
-            aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            aws_partition: Optional[pulumi.Input[_builtins.str]] = None,
-            aws_regions: Optional[pulumi.Input[Union['IntegrationAccountAwsRegionsArgs', 'IntegrationAccountAwsRegionsArgsDict']]] = None,
-            logs_config: Optional[pulumi.Input[Union['IntegrationAccountLogsConfigArgs', 'IntegrationAccountLogsConfigArgsDict']]] = None,
-            metrics_config: Optional[pulumi.Input[Union['IntegrationAccountMetricsConfigArgs', 'IntegrationAccountMetricsConfigArgsDict']]] = None,
-            resources_config: Optional[pulumi.Input[Union['IntegrationAccountResourcesConfigArgs', 'IntegrationAccountResourcesConfigArgsDict']]] = None,
-            traces_config: Optional[pulumi.Input[Union['IntegrationAccountTracesConfigArgs', 'IntegrationAccountTracesConfigArgsDict']]] = None) -> 'IntegrationAccount':
+            account_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            auth_config: pulumi.Input[Optional[Union['IntegrationAccountAuthConfigArgs', 'IntegrationAccountAuthConfigArgsDict']]] = None,
+            aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_partition: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_regions: pulumi.Input[Optional[Union['IntegrationAccountAwsRegionsArgs', 'IntegrationAccountAwsRegionsArgsDict']]] = None,
+            logs_config: pulumi.Input[Optional[Union['IntegrationAccountLogsConfigArgs', 'IntegrationAccountLogsConfigArgsDict']]] = None,
+            metrics_config: pulumi.Input[Optional[Union['IntegrationAccountMetricsConfigArgs', 'IntegrationAccountMetricsConfigArgsDict']]] = None,
+            resources_config: pulumi.Input[Optional[Union['IntegrationAccountResourcesConfigArgs', 'IntegrationAccountResourcesConfigArgsDict']]] = None,
+            traces_config: pulumi.Input[Optional[Union['IntegrationAccountTracesConfigArgs', 'IntegrationAccountTracesConfigArgsDict']]] = None) -> 'IntegrationAccount':
         """
         Get an existing IntegrationAccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

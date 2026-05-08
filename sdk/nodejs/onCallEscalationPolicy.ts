@@ -140,23 +140,23 @@ export interface OnCallEscalationPolicyState {
     /**
      * A human-readable name for the escalation policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
      */
-    resolvePageOnPolicyEnd?: pulumi.Input<boolean>;
+    resolvePageOnPolicyEnd?: pulumi.Input<boolean | undefined>;
     /**
      * If set, policy will be retried this many times after the final step. Must be in the range 0-10. Value must be between 0 and 10. Defaults to `0`.
      */
-    retries?: pulumi.Input<number>;
+    retries?: pulumi.Input<number | undefined>;
     /**
      * List of steps for the escalation policy.
      */
-    steps?: pulumi.Input<pulumi.Input<inputs.OnCallEscalationPolicyStep>[]>;
+    steps?: pulumi.Input<pulumi.Input<inputs.OnCallEscalationPolicyStep>[] | undefined>;
     /**
      * A list of team ids associated with the escalation policy.
      */
-    teams?: pulumi.Input<pulumi.Input<string>[]>;
+    teams?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -170,11 +170,11 @@ export interface OnCallEscalationPolicyArgs {
     /**
      * If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
      */
-    resolvePageOnPolicyEnd?: pulumi.Input<boolean>;
+    resolvePageOnPolicyEnd?: pulumi.Input<boolean | undefined>;
     /**
      * If set, policy will be retried this many times after the final step. Must be in the range 0-10. Value must be between 0 and 10. Defaults to `0`.
      */
-    retries?: pulumi.Input<number>;
+    retries?: pulumi.Input<number | undefined>;
     /**
      * List of steps for the escalation policy.
      */
@@ -182,5 +182,5 @@ export interface OnCallEscalationPolicyArgs {
     /**
      * A list of team ids associated with the escalation policy.
      */
-    teams?: pulumi.Input<pulumi.Input<string>[]>;
+    teams?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

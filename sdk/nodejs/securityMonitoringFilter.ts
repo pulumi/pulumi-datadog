@@ -144,27 +144,27 @@ export interface SecurityMonitoringFilterState {
     /**
      * Exclusion filters to exclude some logs from the security filter.
      */
-    exclusionFilters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringFilterExclusionFilter>[]>;
+    exclusionFilters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringFilterExclusionFilter>[] | undefined>;
     /**
      * The filtered data type. Valid values are `logs`. Defaults to `"logs"`.
      */
-    filteredDataType?: pulumi.Input<string>;
+    filteredDataType?: pulumi.Input<string | undefined>;
     /**
      * Whether the security filter is enabled.
      */
-    isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the security filter.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The query of the security filter.
      */
-    query?: pulumi.Input<string>;
+    query?: pulumi.Input<string | undefined>;
     /**
      * The version of the security filter.
      */
-    version?: pulumi.Input<number>;
+    version?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -174,11 +174,11 @@ export interface SecurityMonitoringFilterArgs {
     /**
      * Exclusion filters to exclude some logs from the security filter.
      */
-    exclusionFilters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringFilterExclusionFilter>[]>;
+    exclusionFilters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringFilterExclusionFilter>[] | undefined>;
     /**
      * The filtered data type. Valid values are `logs`. Defaults to `"logs"`.
      */
-    filteredDataType?: pulumi.Input<string>;
+    filteredDataType?: pulumi.Input<string | undefined>;
     /**
      * Whether the security filter is enabled.
      */

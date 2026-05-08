@@ -218,10 +218,10 @@ def get_reference_table(file_metadata: Optional[Union['GetReferenceTableFileMeta
         table_name=pulumi.get(__ret__, 'table_name'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_reference_table_output(file_metadata: Optional[pulumi.Input[Optional[Union['GetReferenceTableFileMetadataArgs', 'GetReferenceTableFileMetadataArgsDict']]]] = None,
-                               id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               schema: Optional[pulumi.Input[Optional[Union['GetReferenceTableSchemaArgs', 'GetReferenceTableSchemaArgsDict']]]] = None,
-                               table_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_reference_table_output(file_metadata: pulumi.Input[Optional[Optional[Union['GetReferenceTableFileMetadataArgs', 'GetReferenceTableFileMetadataArgsDict']]]] = None,
+                               id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               schema: pulumi.Input[Optional[Optional[Union['GetReferenceTableSchemaArgs', 'GetReferenceTableSchemaArgsDict']]]] = None,
+                               table_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReferenceTableResult]:
     """
     Use this data source to retrieve information about an existing Datadog reference table. Query by either table_name or id (mutually exclusive). Supports all source types including cloud storage (S3, GCS, Azure) and external integrations (ServiceNow, Salesforce, Databricks, Snowflake, LOCAL_FILE).

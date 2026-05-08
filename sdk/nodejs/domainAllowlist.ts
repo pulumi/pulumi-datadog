@@ -94,11 +94,11 @@ export interface DomainAllowlistState {
     /**
      * The domains within the domain allowlist.
      */
-    domains?: pulumi.Input<pulumi.Input<string>[]>;
+    domains?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether the Email Domain Allowlist is enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**

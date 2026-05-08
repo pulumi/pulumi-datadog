@@ -161,43 +161,43 @@ export interface DatastoreState {
     /**
      * Timestamp when the datastore was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * The numeric ID of the user who created the datastore.
      */
-    creatorUserId?: pulumi.Input<number>;
+    creatorUserId?: pulumi.Input<number | undefined>;
     /**
      * The UUID of the user who created the datastore.
      */
-    creatorUserUuid?: pulumi.Input<string>;
+    creatorUserUuid?: pulumi.Input<string | undefined>;
     /**
      * A human-readable description about the datastore.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Timestamp when the datastore was last modified.
      */
-    modifiedAt?: pulumi.Input<string>;
+    modifiedAt?: pulumi.Input<string | undefined>;
     /**
      * The display name for the new datastore.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The organization access level for the datastore. For example, 'contributor'.
      */
-    orgAccess?: pulumi.Input<string>;
+    orgAccess?: pulumi.Input<string | undefined>;
     /**
      * The ID of the organization that owns this datastore.
      */
-    orgId?: pulumi.Input<number>;
+    orgId?: pulumi.Input<number | undefined>;
     /**
      * The name of the primary key column for this datastore. Primary column names:   - Must abide by both [PostgreSQL naming conventions](https://www.postgresql.org/docs/7.0/syntax525.htm)   - Cannot exceed 63 characters
      */
-    primaryColumnName?: pulumi.Input<string>;
+    primaryColumnName?: pulumi.Input<string | undefined>;
     /**
      * Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
      */
-    primaryKeyGenerationStrategy?: pulumi.Input<string>;
+    primaryKeyGenerationStrategy?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -207,7 +207,7 @@ export interface DatastoreArgs {
     /**
      * A human-readable description about the datastore.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name for the new datastore.
      */
@@ -215,7 +215,7 @@ export interface DatastoreArgs {
     /**
      * The organization access level for the datastore. For example, 'contributor'.
      */
-    orgAccess?: pulumi.Input<string>;
+    orgAccess?: pulumi.Input<string | undefined>;
     /**
      * The name of the primary key column for this datastore. Primary column names:   - Must abide by both [PostgreSQL naming conventions](https://www.postgresql.org/docs/7.0/syntax525.htm)   - Cannot exceed 63 characters
      */
@@ -223,5 +223,5 @@ export interface DatastoreArgs {
     /**
      * Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
      */
-    primaryKeyGenerationStrategy?: pulumi.Input<string>;
+    primaryKeyGenerationStrategy?: pulumi.Input<string | undefined>;
 }

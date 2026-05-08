@@ -82,5 +82,5 @@ export interface GetTagPipelineRulesetOutputArgs {
     /**
      * The rules in the ruleset.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.GetTagPipelineRulesetRuleArgs>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.GetTagPipelineRulesetRuleArgs>[] | undefined>;
 }

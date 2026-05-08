@@ -131,27 +131,27 @@ export interface TeamState {
     /**
      * Free-form markdown description/content for the team's homepage.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The team's identifier
      */
-    handle?: pulumi.Input<string>;
+    handle?: pulumi.Input<string | undefined>;
     /**
      * The number of links belonging to the team.
      */
-    linkCount?: pulumi.Input<number>;
+    linkCount?: pulumi.Input<number | undefined>;
     /**
      * The name of the team.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A brief summary of the team, derived from the `description`.
      */
-    summary?: pulumi.Input<string>;
+    summary?: pulumi.Input<string | undefined>;
     /**
      * The number of users belonging to the team.
      */
-    userCount?: pulumi.Input<number>;
+    userCount?: pulumi.Input<number | undefined>;
 }
 
 /**

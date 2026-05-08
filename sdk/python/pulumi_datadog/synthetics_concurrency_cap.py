@@ -43,7 +43,7 @@ class SyntheticsConcurrencyCapArgs:
 @pulumi.input_type
 class _SyntheticsConcurrencyCapState:
     def __init__(__self__, *,
-                 on_demand_concurrency_cap: Optional[pulumi.Input[_builtins.int]] = None):
+                 on_demand_concurrency_cap: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SyntheticsConcurrencyCap resources.
 
@@ -54,14 +54,14 @@ class _SyntheticsConcurrencyCapState:
 
     @_builtins.property
     @pulumi.getter(name="onDemandConcurrencyCap")
-    def on_demand_concurrency_cap(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def on_demand_concurrency_cap(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
         """
         return pulumi.get(self, "on_demand_concurrency_cap")
 
     @on_demand_concurrency_cap.setter
-    def on_demand_concurrency_cap(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def on_demand_concurrency_cap(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "on_demand_concurrency_cap", value)
 
 
@@ -71,7 +71,7 @@ class SyntheticsConcurrencyCap(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 on_demand_concurrency_cap: Optional[pulumi.Input[_builtins.int]] = None,
+                 on_demand_concurrency_cap: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Provides a Datadog Synthetics On Demand Concurrency Cap API resource. This can be used to manage the Concurrency Cap for Synthetic tests.
@@ -146,7 +146,7 @@ class SyntheticsConcurrencyCap(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 on_demand_concurrency_cap: Optional[pulumi.Input[_builtins.int]] = None,
+                 on_demand_concurrency_cap: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -169,7 +169,7 @@ class SyntheticsConcurrencyCap(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            on_demand_concurrency_cap: Optional[pulumi.Input[_builtins.int]] = None) -> 'SyntheticsConcurrencyCap':
+            on_demand_concurrency_cap: pulumi.Input[Optional[_builtins.int]] = None) -> 'SyntheticsConcurrencyCap':
         """
         Get an existing SyntheticsConcurrencyCap resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

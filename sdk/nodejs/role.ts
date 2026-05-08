@@ -131,23 +131,23 @@ export interface RoleState {
     /**
      * If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `includeRestricted` attribute for the `datadog.getPermissions` data source must be set to `true` to manage default permissions in Terraform.
      */
-    defaultPermissionsOptOut?: pulumi.Input<boolean>;
+    defaultPermissionsOptOut?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the role.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Set of objects containing the permission ID and the name of the permissions granted to this role.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.RolePermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.RolePermission>[] | undefined>;
     /**
      * Number of users that have this role.
      */
-    userCount?: pulumi.Input<number>;
+    userCount?: pulumi.Input<number | undefined>;
     /**
      * If set to `false`, skip the validation call done during plan.
      */
-    validate?: pulumi.Input<boolean>;
+    validate?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -157,7 +157,7 @@ export interface RoleArgs {
     /**
      * If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `includeRestricted` attribute for the `datadog.getPermissions` data source must be set to `true` to manage default permissions in Terraform.
      */
-    defaultPermissionsOptOut?: pulumi.Input<boolean>;
+    defaultPermissionsOptOut?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the role.
      */
@@ -165,9 +165,9 @@ export interface RoleArgs {
     /**
      * Set of objects containing the permission ID and the name of the permissions granted to this role.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.RolePermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.RolePermission>[] | undefined>;
     /**
      * If set to `false`, skip the validation call done during plan.
      */
-    validate?: pulumi.Input<boolean>;
+    validate?: pulumi.Input<boolean | undefined>;
 }

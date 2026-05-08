@@ -169,23 +169,23 @@ export interface ComplianceCustomFrameworkState {
     /**
      * The framework handle. String length must be at least 1. This field is immutable.
      */
-    handle?: pulumi.Input<string>;
+    handle?: pulumi.Input<string | undefined>;
     /**
      * The URL of the icon representing the framework
      */
-    iconUrl?: pulumi.Input<string>;
+    iconUrl?: pulumi.Input<string | undefined>;
     /**
      * The framework name. String length must be at least 1.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The requirements of the framework. Length must be at least 1.
      */
-    requirements?: pulumi.Input<pulumi.Input<inputs.ComplianceCustomFrameworkRequirement>[]>;
+    requirements?: pulumi.Input<pulumi.Input<inputs.ComplianceCustomFrameworkRequirement>[] | undefined>;
     /**
      * The framework version. String length must be at least 1. This field is immutable.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -199,7 +199,7 @@ export interface ComplianceCustomFrameworkArgs {
     /**
      * The URL of the icon representing the framework
      */
-    iconUrl?: pulumi.Input<string>;
+    iconUrl?: pulumi.Input<string | undefined>;
     /**
      * The framework name. String length must be at least 1.
      */

@@ -131,9 +131,9 @@ def get_api_key(exact_match: Optional[_builtins.bool] = None,
         key=pulumi.get(__ret__, 'key'),
         name=pulumi.get(__ret__, 'name'),
         remote_config_read_enabled=pulumi.get(__ret__, 'remote_config_read_enabled'))
-def get_api_key_output(exact_match: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                       id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_api_key_output(exact_match: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                       id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiKeyResult]:
     """
     Use this data source to retrieve information about an existing api key. Deprecated. This will be removed in a future release with prior notice. Securely store your API keys using a secret management system or use the ApiKey resource to manage API keys in your Datadog account.

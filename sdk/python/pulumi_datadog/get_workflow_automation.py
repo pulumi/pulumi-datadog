@@ -138,7 +138,7 @@ def get_workflow_automation(id: Optional[_builtins.str] = None,
         published=pulumi.get(__ret__, 'published'),
         spec_json=pulumi.get(__ret__, 'spec_json'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_workflow_automation_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workflow_automation_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkflowAutomationResult]:
     """
     This data source retrieves the definition of an existing Datadog workflow from Workflow Automation for use in other resources. This data source requires a registered application key.

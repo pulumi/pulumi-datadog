@@ -24,11 +24,11 @@ class IncidentNotificationRuleArgs:
                  handles: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  incident_type: pulumi.Input[_builtins.str],
                  trigger: pulumi.Input[_builtins.str],
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentNotificationRuleConditionArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notification_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 renotify_ons: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 visibility: Optional[pulumi.Input[_builtins.str]] = None):
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['IncidentNotificationRuleConditionArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notification_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 renotify_ons: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 visibility: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IncidentNotificationRule resource.
 
@@ -93,78 +93,78 @@ class IncidentNotificationRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IncidentNotificationRuleConditionArgs']]]]:
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IncidentNotificationRuleConditionArgs']]]]:
         """
         The conditions that trigger this notification rule. At least one condition is required.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentNotificationRuleConditionArgs']]]]):
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IncidentNotificationRuleConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the notification rule is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationTemplate")
-    def notification_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the notification template to use for this rule.
         """
         return pulumi.get(self, "notification_template")
 
     @notification_template.setter
-    def notification_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_template", value)
 
     @_builtins.property
     @pulumi.getter(name="renotifyOns")
-    def renotify_ons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def renotify_ons(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of incident fields that trigger re-notification when changed. Valid values are: status, severity, customer*impact, title, description, detected, root*cause, services, state.
         """
         return pulumi.get(self, "renotify_ons")
 
     @renotify_ons.setter
-    def renotify_ons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def renotify_ons(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "renotify_ons", value)
 
     @_builtins.property
     @pulumi.getter
-    def visibility(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def visibility(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The visibility of the notification rule. Valid values are: all, organization, private. Defaults to organization.
         """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
-    def visibility(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def visibility(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "visibility", value)
 
 
 @pulumi.input_type
 class _IncidentNotificationRuleState:
     def __init__(__self__, *,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentNotificationRuleConditionArgs']]]] = None,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 handles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 incident_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 modified: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 renotify_ons: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 trigger: Optional[pulumi.Input[_builtins.str]] = None,
-                 visibility: Optional[pulumi.Input[_builtins.str]] = None):
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['IncidentNotificationRuleConditionArgs']]]] = None,
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 handles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 incident_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 modified: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 renotify_ons: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 trigger: pulumi.Input[Optional[_builtins.str]] = None,
+                 visibility: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IncidentNotificationRule resources.
 
@@ -202,122 +202,122 @@ class _IncidentNotificationRuleState:
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IncidentNotificationRuleConditionArgs']]]]:
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IncidentNotificationRuleConditionArgs']]]]:
         """
         The conditions that trigger this notification rule. At least one condition is required.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentNotificationRuleConditionArgs']]]]):
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IncidentNotificationRuleConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter
-    def created(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp when the notification rule was created.
         """
         return pulumi.get(self, "created")
 
     @created.setter
-    def created(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the notification rule is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def handles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def handles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The notification handles (targets) for this rule. Examples: @team-email@company.com, @slack-channel.
         """
         return pulumi.get(self, "handles")
 
     @handles.setter
-    def handles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def handles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "handles", value)
 
     @_builtins.property
     @pulumi.getter(name="incidentType")
-    def incident_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def incident_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the incident type this notification rule is associated with.
         """
         return pulumi.get(self, "incident_type")
 
     @incident_type.setter
-    def incident_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def incident_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "incident_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def modified(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def modified(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp when the notification rule was last modified.
         """
         return pulumi.get(self, "modified")
 
     @modified.setter
-    def modified(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def modified(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "modified", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationTemplate")
-    def notification_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the notification template to use for this rule.
         """
         return pulumi.get(self, "notification_template")
 
     @notification_template.setter
-    def notification_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_template", value)
 
     @_builtins.property
     @pulumi.getter(name="renotifyOns")
-    def renotify_ons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def renotify_ons(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of incident fields that trigger re-notification when changed. Valid values are: status, severity, customer*impact, title, description, detected, root*cause, services, state.
         """
         return pulumi.get(self, "renotify_ons")
 
     @renotify_ons.setter
-    def renotify_ons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def renotify_ons(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "renotify_ons", value)
 
     @_builtins.property
     @pulumi.getter
-    def trigger(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trigger(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The trigger event for this notification rule. Valid values are: incident*created*trigger, incident*saved*trigger.
         """
         return pulumi.get(self, "trigger")
 
     @trigger.setter
-    def trigger(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trigger(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trigger", value)
 
     @_builtins.property
     @pulumi.getter
-    def visibility(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def visibility(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The visibility of the notification rule. Valid values are: all, organization, private. Defaults to organization.
         """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
-    def visibility(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def visibility(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "visibility", value)
 
 
@@ -327,14 +327,14 @@ class IncidentNotificationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IncidentNotificationRuleConditionArgs', 'IncidentNotificationRuleConditionArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 handles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 incident_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 renotify_ons: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 trigger: Optional[pulumi.Input[_builtins.str]] = None,
-                 visibility: Optional[pulumi.Input[_builtins.str]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentNotificationRuleConditionArgs', 'IncidentNotificationRuleConditionArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 handles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 incident_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 renotify_ons: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 trigger: pulumi.Input[Optional[_builtins.str]] = None,
+                 visibility: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog incident notification rule resource. This can be used to create and manage Datadog incident notification rules.
@@ -504,14 +504,14 @@ class IncidentNotificationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IncidentNotificationRuleConditionArgs', 'IncidentNotificationRuleConditionArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 handles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 incident_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 renotify_ons: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 trigger: Optional[pulumi.Input[_builtins.str]] = None,
-                 visibility: Optional[pulumi.Input[_builtins.str]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentNotificationRuleConditionArgs', 'IncidentNotificationRuleConditionArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 handles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 incident_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 renotify_ons: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 trigger: pulumi.Input[Optional[_builtins.str]] = None,
+                 visibility: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -547,16 +547,16 @@ class IncidentNotificationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IncidentNotificationRuleConditionArgs', 'IncidentNotificationRuleConditionArgsDict']]]]] = None,
-            created: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            handles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            incident_type: Optional[pulumi.Input[_builtins.str]] = None,
-            modified: Optional[pulumi.Input[_builtins.str]] = None,
-            notification_template: Optional[pulumi.Input[_builtins.str]] = None,
-            renotify_ons: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            trigger: Optional[pulumi.Input[_builtins.str]] = None,
-            visibility: Optional[pulumi.Input[_builtins.str]] = None) -> 'IncidentNotificationRule':
+            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentNotificationRuleConditionArgs', 'IncidentNotificationRuleConditionArgsDict']]]]] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            handles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            incident_type: pulumi.Input[Optional[_builtins.str]] = None,
+            modified: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_template: pulumi.Input[Optional[_builtins.str]] = None,
+            renotify_ons: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            trigger: pulumi.Input[Optional[_builtins.str]] = None,
+            visibility: pulumi.Input[Optional[_builtins.str]] = None) -> 'IncidentNotificationRule':
         """
         Get an existing IncidentNotificationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

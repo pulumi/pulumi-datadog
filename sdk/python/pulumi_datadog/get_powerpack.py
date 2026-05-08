@@ -77,7 +77,7 @@ def get_powerpack(name: Optional[_builtins.str] = None,
     return AwaitableGetPowerpackResult(
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-def get_powerpack_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_powerpack_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPowerpackResult]:
     """
     Use this data source to retrieve information about an existing Datadog Powerpack.

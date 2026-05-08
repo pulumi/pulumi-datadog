@@ -117,19 +117,19 @@ export interface ServiceAccountState {
     /**
      * Whether the service account is disabled. Defaults to `false`.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * Email of the associated user.
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * Name for the service account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of role IDs to assign to the service account.
      */
-    roles?: pulumi.Input<pulumi.Input<string>[]>;
+    roles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -139,7 +139,7 @@ export interface ServiceAccountArgs {
     /**
      * Whether the service account is disabled. Defaults to `false`.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * Email of the associated user.
      */
@@ -147,9 +147,9 @@ export interface ServiceAccountArgs {
     /**
      * Name for the service account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of role IDs to assign to the service account.
      */
-    roles?: pulumi.Input<pulumi.Input<string>[]>;
+    roles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

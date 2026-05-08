@@ -162,15 +162,15 @@ export interface ActionConnectionState {
     /**
      * Configuration for an AWS connection
      */
-    aws?: pulumi.Input<inputs.ActionConnectionAws>;
+    aws?: pulumi.Input<inputs.ActionConnectionAws | undefined>;
     /**
      * Configuration for an HTTP connection
      */
-    http?: pulumi.Input<inputs.ActionConnectionHttp>;
+    http?: pulumi.Input<inputs.ActionConnectionHttp | undefined>;
     /**
      * Name of the connection
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -180,11 +180,11 @@ export interface ActionConnectionArgs {
     /**
      * Configuration for an AWS connection
      */
-    aws?: pulumi.Input<inputs.ActionConnectionAws>;
+    aws?: pulumi.Input<inputs.ActionConnectionAws | undefined>;
     /**
      * Configuration for an HTTP connection
      */
-    http?: pulumi.Input<inputs.ActionConnectionHttp>;
+    http?: pulumi.Input<inputs.ActionConnectionHttp | undefined>;
     /**
      * Name of the connection
      */

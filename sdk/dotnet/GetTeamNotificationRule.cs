@@ -25,7 +25,7 @@ namespace Pulumi.Datadog
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get a specific notification rule for a team
-        ///     var example = Datadog.Index.GetTeamNotificationRule.Invoke(new()
+        ///     var example = Datadog.GetTeamNotificationRule.Invoke(new()
         ///     {
         ///         TeamId = "00000000-0000-0000-0000-000000000000",
         ///         RuleId = "11111111-1111-1111-1111-111111111111",
@@ -51,7 +51,7 @@ namespace Pulumi.Datadog
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get a specific notification rule for a team
-        ///     var example = Datadog.Index.GetTeamNotificationRule.Invoke(new()
+        ///     var example = Datadog.GetTeamNotificationRule.Invoke(new()
         ///     {
         ///         TeamId = "00000000-0000-0000-0000-000000000000",
         ///         RuleId = "11111111-1111-1111-1111-111111111111",
@@ -77,7 +77,7 @@ namespace Pulumi.Datadog
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get a specific notification rule for a team
-        ///     var example = Datadog.Index.GetTeamNotificationRule.Invoke(new()
+        ///     var example = Datadog.GetTeamNotificationRule.Invoke(new()
         ///     {
         ///         TeamId = "00000000-0000-0000-0000-000000000000",
         ///         RuleId = "11111111-1111-1111-1111-111111111111",

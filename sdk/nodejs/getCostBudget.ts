@@ -96,13 +96,13 @@ export interface GetCostBudgetOutputArgs {
     /**
      * Budget entries grouped by tag combination with amounts map (month > amount).
      */
-    budgetLines?: pulumi.Input<pulumi.Input<inputs.GetCostBudgetBudgetLineArgs>[]>;
+    budgetLines?: pulumi.Input<pulumi.Input<inputs.GetCostBudgetBudgetLineArgs>[] | undefined>;
     /**
      * The flat list of budget entries (deprecated - use budgetLine instead).
      *
      * @deprecated Use budgetLine instead. The entries block will be removed in a future version.
      */
-    entries?: pulumi.Input<pulumi.Input<inputs.GetCostBudgetEntryArgs>[]>;
+    entries?: pulumi.Input<pulumi.Input<inputs.GetCostBudgetEntryArgs>[] | undefined>;
     /**
      * The ID of the budget.
      */

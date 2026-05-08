@@ -265,37 +265,37 @@ export interface CostBudgetState {
     /**
      * The ID of the budget.
      */
-    budgetId?: pulumi.Input<string>;
+    budgetId?: pulumi.Input<string | undefined>;
     /**
      * Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
      */
-    budgetLines?: pulumi.Input<pulumi.Input<inputs.CostBudgetBudgetLine>[]>;
+    budgetLines?: pulumi.Input<pulumi.Input<inputs.CostBudgetBudgetLine>[] | undefined>;
     /**
      * The month when the budget ends (YYYYMM).
      */
-    endMonth?: pulumi.Input<number>;
+    endMonth?: pulumi.Input<number | undefined>;
     /**
      * The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
      *
      * @deprecated Use budgetLine instead. This field will be removed in a future version.
      */
-    entries?: pulumi.Input<pulumi.Input<inputs.CostBudgetEntry>[]>;
+    entries?: pulumi.Input<pulumi.Input<inputs.CostBudgetEntry>[] | undefined>;
     /**
      * The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
      */
-    metricsQuery?: pulumi.Input<string>;
+    metricsQuery?: pulumi.Input<string | undefined>;
     /**
      * The name of the budget.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The month when the budget starts (YYYYMM).
      */
-    startMonth?: pulumi.Input<number>;
+    startMonth?: pulumi.Input<number | undefined>;
     /**
      * The sum of all budget entries' amounts.
      */
-    totalAmount?: pulumi.Input<number>;
+    totalAmount?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -305,11 +305,11 @@ export interface CostBudgetArgs {
     /**
      * The ID of the budget.
      */
-    budgetId?: pulumi.Input<string>;
+    budgetId?: pulumi.Input<string | undefined>;
     /**
      * Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
      */
-    budgetLines?: pulumi.Input<pulumi.Input<inputs.CostBudgetBudgetLine>[]>;
+    budgetLines?: pulumi.Input<pulumi.Input<inputs.CostBudgetBudgetLine>[] | undefined>;
     /**
      * The month when the budget ends (YYYYMM).
      */
@@ -319,7 +319,7 @@ export interface CostBudgetArgs {
      *
      * @deprecated Use budgetLine instead. This field will be removed in a future version.
      */
-    entries?: pulumi.Input<pulumi.Input<inputs.CostBudgetEntry>[]>;
+    entries?: pulumi.Input<pulumi.Input<inputs.CostBudgetEntry>[] | undefined>;
     /**
      * The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
      */

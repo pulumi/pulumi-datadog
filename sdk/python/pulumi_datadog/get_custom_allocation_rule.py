@@ -233,9 +233,9 @@ def get_custom_allocation_rule(costs_to_allocates: Optional[Sequence[Union['GetC
         type=pulumi.get(__ret__, 'type'),
         updated=pulumi.get(__ret__, 'updated'),
         version=pulumi.get(__ret__, 'version'))
-def get_custom_allocation_rule_output(costs_to_allocates: Optional[pulumi.Input[Optional[Sequence[Union['GetCustomAllocationRuleCostsToAllocateArgs', 'GetCustomAllocationRuleCostsToAllocateArgsDict']]]]] = None,
-                                      rule_id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                                      strategy: Optional[pulumi.Input[Optional[Union['GetCustomAllocationRuleStrategyArgs', 'GetCustomAllocationRuleStrategyArgsDict']]]] = None,
+def get_custom_allocation_rule_output(costs_to_allocates: pulumi.Input[Optional[Optional[Sequence[Union['GetCustomAllocationRuleCostsToAllocateArgs', 'GetCustomAllocationRuleCostsToAllocateArgsDict']]]]] = None,
+                                      rule_id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                                      strategy: pulumi.Input[Optional[Optional[Union['GetCustomAllocationRuleStrategyArgs', 'GetCustomAllocationRuleStrategyArgsDict']]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomAllocationRuleResult]:
     """
     Use this data source to retrieve information about an existing custom allocation rule.

@@ -164,9 +164,9 @@ def get_cost_budget(budget_lines: Optional[Sequence[Union['GetCostBudgetBudgetLi
         name=pulumi.get(__ret__, 'name'),
         start_month=pulumi.get(__ret__, 'start_month'),
         total_amount=pulumi.get(__ret__, 'total_amount'))
-def get_cost_budget_output(budget_lines: Optional[pulumi.Input[Optional[Sequence[Union['GetCostBudgetBudgetLineArgs', 'GetCostBudgetBudgetLineArgsDict']]]]] = None,
-                           entries: Optional[pulumi.Input[Optional[Sequence[Union['GetCostBudgetEntryArgs', 'GetCostBudgetEntryArgsDict']]]]] = None,
-                           id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cost_budget_output(budget_lines: pulumi.Input[Optional[Optional[Sequence[Union['GetCostBudgetBudgetLineArgs', 'GetCostBudgetBudgetLineArgsDict']]]]] = None,
+                           entries: pulumi.Input[Optional[Optional[Sequence[Union['GetCostBudgetEntryArgs', 'GetCostBudgetEntryArgsDict']]]]] = None,
+                           id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCostBudgetResult]:
     """
     Use this data source to retrieve information about an existing Datadog cost budget.

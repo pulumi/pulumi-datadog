@@ -24,8 +24,8 @@ class SecurityNotificationRuleArgs:
                  name: pulumi.Input[_builtins.str],
                  selectors: pulumi.Input['SecurityNotificationRuleSelectorsArgs'],
                  targets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 time_aggregation: Optional[pulumi.Input[_builtins.int]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 time_aggregation: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a SecurityNotificationRule resource.
 
@@ -81,44 +81,44 @@ class SecurityNotificationRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the rule is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="timeAggregation")
-    def time_aggregation(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def time_aggregation(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the time period, in seconds, used to aggregate the notification. Defaults to `0`.
         """
         return pulumi.get(self, "time_aggregation")
 
     @time_aggregation.setter
-    def time_aggregation(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def time_aggregation(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "time_aggregation", value)
 
 
 @pulumi.input_type
 class _SecurityNotificationRuleState:
     def __init__(__self__, *,
-                 created_at: Optional[pulumi.Input[_builtins.int]] = None,
-                 created_by_handle: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_by_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 modified_at: Optional[pulumi.Input[_builtins.int]] = None,
-                 modified_by_handle: Optional[pulumi.Input[_builtins.str]] = None,
-                 modified_by_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 selectors: Optional[pulumi.Input['SecurityNotificationRuleSelectorsArgs']] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 time_aggregation: Optional[pulumi.Input[_builtins.int]] = None,
-                 version: Optional[pulumi.Input[_builtins.int]] = None):
+                 created_at: pulumi.Input[Optional[_builtins.int]] = None,
+                 created_by_handle: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_by_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 modified_at: pulumi.Input[Optional[_builtins.int]] = None,
+                 modified_by_handle: pulumi.Input[Optional[_builtins.str]] = None,
+                 modified_by_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 selectors: pulumi.Input[Optional['SecurityNotificationRuleSelectorsArgs']] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 time_aggregation: pulumi.Input[Optional[_builtins.int]] = None,
+                 version: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SecurityNotificationRule resources.
 
@@ -162,146 +162,146 @@ class _SecurityNotificationRuleState:
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates when this rule was created.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="createdByHandle")
-    def created_by_handle(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_by_handle(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The handle of the rule creator.
         """
         return pulumi.get(self, "created_by_handle")
 
     @created_by_handle.setter
-    def created_by_handle(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_by_handle(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_by_handle", value)
 
     @_builtins.property
     @pulumi.getter(name="createdByName")
-    def created_by_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_by_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the rule creator.
         """
         return pulumi.get(self, "created_by_name")
 
     @created_by_name.setter
-    def created_by_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_by_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_by_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the rule is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="modifiedAt")
-    def modified_at(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def modified_at(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates when this rule was last modified.
         """
         return pulumi.get(self, "modified_at")
 
     @modified_at.setter
-    def modified_at(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def modified_at(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "modified_at", value)
 
     @_builtins.property
     @pulumi.getter(name="modifiedByHandle")
-    def modified_by_handle(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def modified_by_handle(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The handle of the rule last modifier.
         """
         return pulumi.get(self, "modified_by_handle")
 
     @modified_by_handle.setter
-    def modified_by_handle(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def modified_by_handle(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "modified_by_handle", value)
 
     @_builtins.property
     @pulumi.getter(name="modifiedByName")
-    def modified_by_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def modified_by_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the rule last modifier.
         """
         return pulumi.get(self, "modified_by_name")
 
     @modified_by_name.setter
-    def modified_by_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def modified_by_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "modified_by_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the rule (must be unique).
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def selectors(self) -> Optional[pulumi.Input['SecurityNotificationRuleSelectorsArgs']]:
+    def selectors(self) -> pulumi.Input[Optional['SecurityNotificationRuleSelectorsArgs']]:
         """
         Defines selectors to filter security issues that generate notifications.
         """
         return pulumi.get(self, "selectors")
 
     @selectors.setter
-    def selectors(self, value: Optional[pulumi.Input['SecurityNotificationRuleSelectorsArgs']]):
+    def selectors(self, value: pulumi.Input[Optional['SecurityNotificationRuleSelectorsArgs']]):
         pulumi.set(self, "selectors", value)
 
     @_builtins.property
     @pulumi.getter
-    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
         """
         return pulumi.get(self, "targets")
 
     @targets.setter
-    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "targets", value)
 
     @_builtins.property
     @pulumi.getter(name="timeAggregation")
-    def time_aggregation(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def time_aggregation(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the time period, in seconds, used to aggregate the notification. Defaults to `0`.
         """
         return pulumi.get(self, "time_aggregation")
 
     @time_aggregation.setter
-    def time_aggregation(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def time_aggregation(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "time_aggregation", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The rule version (incremented at each update).
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "version", value)
 
 
@@ -311,11 +311,11 @@ class SecurityNotificationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 selectors: Optional[pulumi.Input[Union['SecurityNotificationRuleSelectorsArgs', 'SecurityNotificationRuleSelectorsArgsDict']]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 time_aggregation: Optional[pulumi.Input[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 selectors: pulumi.Input[Optional[Union['SecurityNotificationRuleSelectorsArgs', 'SecurityNotificationRuleSelectorsArgsDict']]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 time_aggregation: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Provides a Datadog Security Monitoring Notification Rule API resource for creating and managing Datadog security notification rules.
@@ -440,11 +440,11 @@ class SecurityNotificationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 selectors: Optional[pulumi.Input[Union['SecurityNotificationRuleSelectorsArgs', 'SecurityNotificationRuleSelectorsArgsDict']]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 time_aggregation: Optional[pulumi.Input[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 selectors: pulumi.Input[Optional[Union['SecurityNotificationRuleSelectorsArgs', 'SecurityNotificationRuleSelectorsArgsDict']]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 time_aggregation: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -482,18 +482,18 @@ class SecurityNotificationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            created_at: Optional[pulumi.Input[_builtins.int]] = None,
-            created_by_handle: Optional[pulumi.Input[_builtins.str]] = None,
-            created_by_name: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            modified_at: Optional[pulumi.Input[_builtins.int]] = None,
-            modified_by_handle: Optional[pulumi.Input[_builtins.str]] = None,
-            modified_by_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            selectors: Optional[pulumi.Input[Union['SecurityNotificationRuleSelectorsArgs', 'SecurityNotificationRuleSelectorsArgsDict']]] = None,
-            targets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            time_aggregation: Optional[pulumi.Input[_builtins.int]] = None,
-            version: Optional[pulumi.Input[_builtins.int]] = None) -> 'SecurityNotificationRule':
+            created_at: pulumi.Input[Optional[_builtins.int]] = None,
+            created_by_handle: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            modified_at: pulumi.Input[Optional[_builtins.int]] = None,
+            modified_by_handle: pulumi.Input[Optional[_builtins.str]] = None,
+            modified_by_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            selectors: pulumi.Input[Optional[Union['SecurityNotificationRuleSelectorsArgs', 'SecurityNotificationRuleSelectorsArgsDict']]] = None,
+            targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            time_aggregation: pulumi.Input[Optional[_builtins.int]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> 'SecurityNotificationRule':
         """
         Get an existing SecurityNotificationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

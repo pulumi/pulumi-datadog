@@ -23,12 +23,12 @@ class LogsArchiveArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  query: pulumi.Input[_builtins.str],
-                 azure_archive: Optional[pulumi.Input['LogsArchiveAzureArchiveArgs']] = None,
-                 gcs_archive: Optional[pulumi.Input['LogsArchiveGcsArchiveArgs']] = None,
-                 include_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rehydration_max_scan_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 rehydration_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 s3_archive: Optional[pulumi.Input['LogsArchiveS3ArchiveArgs']] = None):
+                 azure_archive: pulumi.Input[Optional['LogsArchiveAzureArchiveArgs']] = None,
+                 gcs_archive: pulumi.Input[Optional['LogsArchiveGcsArchiveArgs']] = None,
+                 include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rehydration_max_scan_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 rehydration_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 s3_archive: pulumi.Input[Optional['LogsArchiveS3ArchiveArgs']] = None):
         """
         The set of arguments for constructing a LogsArchive resource.
 
@@ -82,88 +82,88 @@ class LogsArchiveArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureArchive")
-    def azure_archive(self) -> Optional[pulumi.Input['LogsArchiveAzureArchiveArgs']]:
+    def azure_archive(self) -> pulumi.Input[Optional['LogsArchiveAzureArchiveArgs']]:
         """
         Definition of an azure archive.
         """
         return pulumi.get(self, "azure_archive")
 
     @azure_archive.setter
-    def azure_archive(self, value: Optional[pulumi.Input['LogsArchiveAzureArchiveArgs']]):
+    def azure_archive(self, value: pulumi.Input[Optional['LogsArchiveAzureArchiveArgs']]):
         pulumi.set(self, "azure_archive", value)
 
     @_builtins.property
     @pulumi.getter(name="gcsArchive")
-    def gcs_archive(self) -> Optional[pulumi.Input['LogsArchiveGcsArchiveArgs']]:
+    def gcs_archive(self) -> pulumi.Input[Optional['LogsArchiveGcsArchiveArgs']]:
         """
         Definition of a GCS archive.
         """
         return pulumi.get(self, "gcs_archive")
 
     @gcs_archive.setter
-    def gcs_archive(self, value: Optional[pulumi.Input['LogsArchiveGcsArchiveArgs']]):
+    def gcs_archive(self, value: pulumi.Input[Optional['LogsArchiveGcsArchiveArgs']]):
         pulumi.set(self, "gcs_archive", value)
 
     @_builtins.property
     @pulumi.getter(name="includeTags")
-    def include_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
         """
         return pulumi.get(self, "include_tags")
 
     @include_tags.setter
-    def include_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="rehydrationMaxScanSizeInGb")
-    def rehydration_max_scan_size_in_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def rehydration_max_scan_size_in_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         To limit the rehydration scan size for the archive, set a value in GB.
         """
         return pulumi.get(self, "rehydration_max_scan_size_in_gb")
 
     @rehydration_max_scan_size_in_gb.setter
-    def rehydration_max_scan_size_in_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def rehydration_max_scan_size_in_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rehydration_max_scan_size_in_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="rehydrationTags")
-    def rehydration_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def rehydration_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of tags to add to rehydrated logs from an archive.
         """
         return pulumi.get(self, "rehydration_tags")
 
     @rehydration_tags.setter
-    def rehydration_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def rehydration_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "rehydration_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Archive")
-    def s3_archive(self) -> Optional[pulumi.Input['LogsArchiveS3ArchiveArgs']]:
+    def s3_archive(self) -> pulumi.Input[Optional['LogsArchiveS3ArchiveArgs']]:
         """
         Definition of an s3 archive.
         """
         return pulumi.get(self, "s3_archive")
 
     @s3_archive.setter
-    def s3_archive(self, value: Optional[pulumi.Input['LogsArchiveS3ArchiveArgs']]):
+    def s3_archive(self, value: pulumi.Input[Optional['LogsArchiveS3ArchiveArgs']]):
         pulumi.set(self, "s3_archive", value)
 
 
 @pulumi.input_type
 class _LogsArchiveState:
     def __init__(__self__, *,
-                 azure_archive: Optional[pulumi.Input['LogsArchiveAzureArchiveArgs']] = None,
-                 gcs_archive: Optional[pulumi.Input['LogsArchiveGcsArchiveArgs']] = None,
-                 include_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 rehydration_max_scan_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 rehydration_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 s3_archive: Optional[pulumi.Input['LogsArchiveS3ArchiveArgs']] = None):
+                 azure_archive: pulumi.Input[Optional['LogsArchiveAzureArchiveArgs']] = None,
+                 gcs_archive: pulumi.Input[Optional['LogsArchiveGcsArchiveArgs']] = None,
+                 include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 rehydration_max_scan_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 rehydration_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 s3_archive: pulumi.Input[Optional['LogsArchiveS3ArchiveArgs']] = None):
         """
         Input properties used for looking up and filtering LogsArchive resources.
 
@@ -195,98 +195,98 @@ class _LogsArchiveState:
 
     @_builtins.property
     @pulumi.getter(name="azureArchive")
-    def azure_archive(self) -> Optional[pulumi.Input['LogsArchiveAzureArchiveArgs']]:
+    def azure_archive(self) -> pulumi.Input[Optional['LogsArchiveAzureArchiveArgs']]:
         """
         Definition of an azure archive.
         """
         return pulumi.get(self, "azure_archive")
 
     @azure_archive.setter
-    def azure_archive(self, value: Optional[pulumi.Input['LogsArchiveAzureArchiveArgs']]):
+    def azure_archive(self, value: pulumi.Input[Optional['LogsArchiveAzureArchiveArgs']]):
         pulumi.set(self, "azure_archive", value)
 
     @_builtins.property
     @pulumi.getter(name="gcsArchive")
-    def gcs_archive(self) -> Optional[pulumi.Input['LogsArchiveGcsArchiveArgs']]:
+    def gcs_archive(self) -> pulumi.Input[Optional['LogsArchiveGcsArchiveArgs']]:
         """
         Definition of a GCS archive.
         """
         return pulumi.get(self, "gcs_archive")
 
     @gcs_archive.setter
-    def gcs_archive(self, value: Optional[pulumi.Input['LogsArchiveGcsArchiveArgs']]):
+    def gcs_archive(self, value: pulumi.Input[Optional['LogsArchiveGcsArchiveArgs']]):
         pulumi.set(self, "gcs_archive", value)
 
     @_builtins.property
     @pulumi.getter(name="includeTags")
-    def include_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
         """
         return pulumi.get(self, "include_tags")
 
     @include_tags.setter
-    def include_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Your archive name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The archive query/filter. Logs matching this query are included in the archive.
         """
         return pulumi.get(self, "query")
 
     @query.setter
-    def query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query", value)
 
     @_builtins.property
     @pulumi.getter(name="rehydrationMaxScanSizeInGb")
-    def rehydration_max_scan_size_in_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def rehydration_max_scan_size_in_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         To limit the rehydration scan size for the archive, set a value in GB.
         """
         return pulumi.get(self, "rehydration_max_scan_size_in_gb")
 
     @rehydration_max_scan_size_in_gb.setter
-    def rehydration_max_scan_size_in_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def rehydration_max_scan_size_in_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rehydration_max_scan_size_in_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="rehydrationTags")
-    def rehydration_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def rehydration_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of tags to add to rehydrated logs from an archive.
         """
         return pulumi.get(self, "rehydration_tags")
 
     @rehydration_tags.setter
-    def rehydration_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def rehydration_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "rehydration_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Archive")
-    def s3_archive(self) -> Optional[pulumi.Input['LogsArchiveS3ArchiveArgs']]:
+    def s3_archive(self) -> pulumi.Input[Optional['LogsArchiveS3ArchiveArgs']]:
         """
         Definition of an s3 archive.
         """
         return pulumi.get(self, "s3_archive")
 
     @s3_archive.setter
-    def s3_archive(self, value: Optional[pulumi.Input['LogsArchiveS3ArchiveArgs']]):
+    def s3_archive(self, value: pulumi.Input[Optional['LogsArchiveS3ArchiveArgs']]):
         pulumi.set(self, "s3_archive", value)
 
 
@@ -296,14 +296,14 @@ class LogsArchive(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_archive: Optional[pulumi.Input[Union['LogsArchiveAzureArchiveArgs', 'LogsArchiveAzureArchiveArgsDict']]] = None,
-                 gcs_archive: Optional[pulumi.Input[Union['LogsArchiveGcsArchiveArgs', 'LogsArchiveGcsArchiveArgsDict']]] = None,
-                 include_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 rehydration_max_scan_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 rehydration_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 s3_archive: Optional[pulumi.Input[Union['LogsArchiveS3ArchiveArgs', 'LogsArchiveS3ArchiveArgsDict']]] = None,
+                 azure_archive: pulumi.Input[Optional[Union['LogsArchiveAzureArchiveArgs', 'LogsArchiveAzureArchiveArgsDict']]] = None,
+                 gcs_archive: pulumi.Input[Optional[Union['LogsArchiveGcsArchiveArgs', 'LogsArchiveGcsArchiveArgsDict']]] = None,
+                 include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 rehydration_max_scan_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 rehydration_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 s3_archive: pulumi.Input[Optional[Union['LogsArchiveS3ArchiveArgs', 'LogsArchiveS3ArchiveArgsDict']]] = None,
                  __props__=None):
         """
         Provides a Datadog Logs Archive API resource, which is used to create and manage Datadog logs archives.
@@ -395,14 +395,14 @@ class LogsArchive(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_archive: Optional[pulumi.Input[Union['LogsArchiveAzureArchiveArgs', 'LogsArchiveAzureArchiveArgsDict']]] = None,
-                 gcs_archive: Optional[pulumi.Input[Union['LogsArchiveGcsArchiveArgs', 'LogsArchiveGcsArchiveArgsDict']]] = None,
-                 include_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 rehydration_max_scan_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 rehydration_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 s3_archive: Optional[pulumi.Input[Union['LogsArchiveS3ArchiveArgs', 'LogsArchiveS3ArchiveArgsDict']]] = None,
+                 azure_archive: pulumi.Input[Optional[Union['LogsArchiveAzureArchiveArgs', 'LogsArchiveAzureArchiveArgsDict']]] = None,
+                 gcs_archive: pulumi.Input[Optional[Union['LogsArchiveGcsArchiveArgs', 'LogsArchiveGcsArchiveArgsDict']]] = None,
+                 include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 rehydration_max_scan_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 rehydration_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 s3_archive: pulumi.Input[Optional[Union['LogsArchiveS3ArchiveArgs', 'LogsArchiveS3ArchiveArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -434,14 +434,14 @@ class LogsArchive(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            azure_archive: Optional[pulumi.Input[Union['LogsArchiveAzureArchiveArgs', 'LogsArchiveAzureArchiveArgsDict']]] = None,
-            gcs_archive: Optional[pulumi.Input[Union['LogsArchiveGcsArchiveArgs', 'LogsArchiveGcsArchiveArgsDict']]] = None,
-            include_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            query: Optional[pulumi.Input[_builtins.str]] = None,
-            rehydration_max_scan_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-            rehydration_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            s3_archive: Optional[pulumi.Input[Union['LogsArchiveS3ArchiveArgs', 'LogsArchiveS3ArchiveArgsDict']]] = None) -> 'LogsArchive':
+            azure_archive: pulumi.Input[Optional[Union['LogsArchiveAzureArchiveArgs', 'LogsArchiveAzureArchiveArgsDict']]] = None,
+            gcs_archive: pulumi.Input[Optional[Union['LogsArchiveGcsArchiveArgs', 'LogsArchiveGcsArchiveArgsDict']]] = None,
+            include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query: pulumi.Input[Optional[_builtins.str]] = None,
+            rehydration_max_scan_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+            rehydration_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            s3_archive: pulumi.Input[Optional[Union['LogsArchiveS3ArchiveArgs', 'LogsArchiveS3ArchiveArgsDict']]] = None) -> 'LogsArchive':
         """
         Get an existing LogsArchive resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

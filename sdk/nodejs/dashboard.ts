@@ -921,65 +921,65 @@ export interface DashboardState {
     /**
      * A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
      */
-    dashboardLists?: pulumi.Input<pulumi.Input<number>[]>;
+    dashboardLists?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * A list of dashboard lists this dashboard should be removed from. Internal only.
      */
-    dashboardListsRemoveds?: pulumi.Input<pulumi.Input<number>[]>;
+    dashboardListsRemoveds?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * The description of the dashboard.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
      *
      * @deprecated This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard.
      */
-    isReadOnly?: pulumi.Input<boolean>;
+    isReadOnly?: pulumi.Input<boolean | undefined>;
     /**
      * The layout type of the dashboard. Valid values are `ordered`, `free`.
      */
-    layoutType?: pulumi.Input<string>;
+    layoutType?: pulumi.Input<string | undefined>;
     /**
      * The list of handles for the users to notify when changes are made to this dashboard.
      */
-    notifyLists?: pulumi.Input<pulumi.Input<string>[]>;
+    notifyLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
      */
-    reflowType?: pulumi.Input<string>;
+    reflowType?: pulumi.Input<string | undefined>;
     /**
      * UUIDs of roles whose associated users are authorized to edit the dashboard.
      */
-    restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    restrictedRoles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The list of tabs for organizing widgets on the dashboard.
      */
-    tabs?: pulumi.Input<pulumi.Input<inputs.DashboardTab>[]>;
+    tabs?: pulumi.Input<pulumi.Input<inputs.DashboardTab>[] | undefined>;
     /**
      * A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The list of selectable template variable presets for this dashboard.
      */
-    templateVariablePresets?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariablePreset>[]>;
+    templateVariablePresets?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariablePreset>[] | undefined>;
     /**
      * The list of template variables for this dashboard.
      */
-    templateVariables?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariable>[]>;
+    templateVariables?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariable>[] | undefined>;
     /**
      * The title of the dashboard.
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
     /**
      * The URL of the dashboard.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
     /**
      * The list of widgets to display on the dashboard.
      */
-    widgets?: pulumi.Input<pulumi.Input<inputs.DashboardWidget>[]>;
+    widgets?: pulumi.Input<pulumi.Input<inputs.DashboardWidget>[] | undefined>;
 }
 
 /**
@@ -989,17 +989,17 @@ export interface DashboardArgs {
     /**
      * A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
      */
-    dashboardLists?: pulumi.Input<pulumi.Input<number>[]>;
+    dashboardLists?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * The description of the dashboard.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
      *
      * @deprecated This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard.
      */
-    isReadOnly?: pulumi.Input<boolean>;
+    isReadOnly?: pulumi.Input<boolean | undefined>;
     /**
      * The layout type of the dashboard. Valid values are `ordered`, `free`.
      */
@@ -1007,31 +1007,31 @@ export interface DashboardArgs {
     /**
      * The list of handles for the users to notify when changes are made to this dashboard.
      */
-    notifyLists?: pulumi.Input<pulumi.Input<string>[]>;
+    notifyLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
      */
-    reflowType?: pulumi.Input<string>;
+    reflowType?: pulumi.Input<string | undefined>;
     /**
      * UUIDs of roles whose associated users are authorized to edit the dashboard.
      */
-    restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    restrictedRoles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The list of tabs for organizing widgets on the dashboard.
      */
-    tabs?: pulumi.Input<pulumi.Input<inputs.DashboardTab>[]>;
+    tabs?: pulumi.Input<pulumi.Input<inputs.DashboardTab>[] | undefined>;
     /**
      * A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The list of selectable template variable presets for this dashboard.
      */
-    templateVariablePresets?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariablePreset>[]>;
+    templateVariablePresets?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariablePreset>[] | undefined>;
     /**
      * The list of template variables for this dashboard.
      */
-    templateVariables?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariable>[]>;
+    templateVariables?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariable>[] | undefined>;
     /**
      * The title of the dashboard.
      */
@@ -1039,9 +1039,9 @@ export interface DashboardArgs {
     /**
      * The URL of the dashboard.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
     /**
      * The list of widgets to display on the dashboard.
      */
-    widgets?: pulumi.Input<pulumi.Input<inputs.DashboardWidget>[]>;
+    widgets?: pulumi.Input<pulumi.Input<inputs.DashboardWidget>[] | undefined>;
 }

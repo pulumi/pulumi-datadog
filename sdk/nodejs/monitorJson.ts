@@ -118,11 +118,11 @@ export interface MonitorJsonState {
     /**
      * The JSON formatted definition of the monitor.
      */
-    monitor?: pulumi.Input<string>;
+    monitor?: pulumi.Input<string | undefined>;
     /**
      * The URL of the monitor.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -136,5 +136,5 @@ export interface MonitorJsonArgs {
     /**
      * The URL of the monitor.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }

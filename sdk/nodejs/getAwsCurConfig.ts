@@ -97,7 +97,7 @@ export function getAwsCurConfigOutput(args: GetAwsCurConfigOutputArgs, opts?: pu
  * A collection of arguments for invoking getAwsCurConfig.
  */
 export interface GetAwsCurConfigOutputArgs {
-    accountFilters?: pulumi.Input<inputs.GetAwsCurConfigAccountFiltersArgs>;
+    accountFilters?: pulumi.Input<inputs.GetAwsCurConfigAccountFiltersArgs | undefined>;
     /**
      * The Datadog cloud account ID for the AWS CUR configuration you want to retrieve information about.
      */

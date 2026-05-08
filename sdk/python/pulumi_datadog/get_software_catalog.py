@@ -196,13 +196,13 @@ def get_software_catalog(filter_exclude_snapshot: Optional[_builtins.str] = None
         filter_ref=pulumi.get(__ret__, 'filter_ref'),
         filter_relation_type=pulumi.get(__ret__, 'filter_relation_type'),
         id=pulumi.get(__ret__, 'id'))
-def get_software_catalog_output(filter_exclude_snapshot: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                filter_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                filter_kind: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                filter_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                filter_owner: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                filter_ref: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                filter_relation_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_software_catalog_output(filter_exclude_snapshot: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                filter_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                filter_kind: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                filter_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                filter_owner: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                filter_ref: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                filter_relation_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSoftwareCatalogResult]:
     """
     Use this data source to list software catalog entities to use in other resources.

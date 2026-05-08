@@ -182,55 +182,55 @@ export interface GcpUcConfigState {
     /**
      * The Google Cloud account ID.
      */
-    billingAccountId?: pulumi.Input<string>;
+    billingAccountId?: pulumi.Input<string | undefined>;
     /**
      * The Google Cloud bucket name used to store the Usage Cost export.
      */
-    bucketName?: pulumi.Input<string>;
+    bucketName?: pulumi.Input<string | undefined>;
     /**
      * The timestamp when the GCP UC configuration was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * The dataset name used for the GCP Usage Cost export.
      */
-    dataset?: pulumi.Input<string>;
+    dataset?: pulumi.Input<string | undefined>;
     /**
      * List of error messages if the GCP UC configuration encountered any issues during setup or data processing.
      */
-    errorMessages?: pulumi.Input<pulumi.Input<string>[]>;
+    errorMessages?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The export dataset name used for the Google Cloud Usage Cost report.
      */
-    exportDatasetName?: pulumi.Input<string>;
+    exportDatasetName?: pulumi.Input<string | undefined>;
     /**
      * The export prefix used for the Google Cloud Usage Cost report.
      */
-    exportPrefix?: pulumi.Input<string>;
+    exportPrefix?: pulumi.Input<string | undefined>;
     /**
      * The name of the Google Cloud Usage Cost report.
      */
-    exportProjectName?: pulumi.Input<string>;
+    exportProjectName?: pulumi.Input<string | undefined>;
     /**
      * The number of months of usage data to include in the export.
      */
-    months?: pulumi.Input<number>;
+    months?: pulumi.Input<number | undefined>;
     /**
      * The unique Google Cloud service account email.
      */
-    serviceAccount?: pulumi.Input<string>;
+    serviceAccount?: pulumi.Input<string | undefined>;
     /**
      * The current status of the GCP UC configuration.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The timestamp when the configuration status was last updated.
      */
-    statusUpdatedAt?: pulumi.Input<string>;
+    statusUpdatedAt?: pulumi.Input<string | undefined>;
     /**
      * The timestamp when the GCP UC configuration was last modified.
      */
-    updatedAt?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -252,7 +252,7 @@ export interface GcpUcConfigArgs {
     /**
      * The export prefix used for the Google Cloud Usage Cost report.
      */
-    exportPrefix?: pulumi.Input<string>;
+    exportPrefix?: pulumi.Input<string | undefined>;
     /**
      * The name of the Google Cloud Usage Cost report.
      */

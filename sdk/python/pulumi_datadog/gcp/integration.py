@@ -26,14 +26,14 @@ class IntegrationArgs:
                  private_key: pulumi.Input[_builtins.str],
                  private_key_id: pulumi.Input[_builtins.str],
                  project_id: pulumi.Input[_builtins.str],
-                 automute: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cloud_run_revision_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cspm_resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_filters: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_resource_change_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_security_command_center_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitored_resource_configs: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationMonitoredResourceConfigArgs']]]] = None,
-                 resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 automute: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cloud_run_revision_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cspm_resource_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_filters: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_resource_change_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_security_command_center_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitored_resource_configs: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationMonitoredResourceConfigArgs']]]] = None,
+                 resource_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Integration resource.
 
@@ -141,119 +141,119 @@ class IntegrationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def automute(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automute(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
         """
         return pulumi.get(self, "automute")
 
     @automute.setter
-    def automute(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automute(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automute", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudRunRevisionFilters")
     @_utilities.deprecated("""**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`""")
-    def cloud_run_revision_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cloud_run_revision_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
         """
         return pulumi.get(self, "cloud_run_revision_filters")
 
     @cloud_run_revision_filters.setter
-    def cloud_run_revision_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cloud_run_revision_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cloud_run_revision_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="cspmResourceCollectionEnabled")
-    def cspm_resource_collection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cspm_resource_collection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "cspm_resource_collection_enabled")
 
     @cspm_resource_collection_enabled.setter
-    def cspm_resource_collection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cspm_resource_collection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cspm_resource_collection_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hostFilters")
     @_utilities.deprecated("""**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`""")
-    def host_filters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_filters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         """
         return pulumi.get(self, "host_filters")
 
     @host_filters.setter
-    def host_filters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_filters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="isResourceChangeCollectionEnabled")
-    def is_resource_change_collection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_resource_change_collection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         """
         return pulumi.get(self, "is_resource_change_collection_enabled")
 
     @is_resource_change_collection_enabled.setter
-    def is_resource_change_collection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_resource_change_collection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_resource_change_collection_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="isSecurityCommandCenterEnabled")
-    def is_security_command_center_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_security_command_center_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
         """
         return pulumi.get(self, "is_security_command_center_enabled")
 
     @is_security_command_center_enabled.setter
-    def is_security_command_center_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_security_command_center_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_security_command_center_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoredResourceConfigs")
-    def monitored_resource_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationMonitoredResourceConfigArgs']]]]:
+    def monitored_resource_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationMonitoredResourceConfigArgs']]]]:
         """
         Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
         """
         return pulumi.get(self, "monitored_resource_configs")
 
     @monitored_resource_configs.setter
-    def monitored_resource_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationMonitoredResourceConfigArgs']]]]):
+    def monitored_resource_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationMonitoredResourceConfigArgs']]]]):
         pulumi.set(self, "monitored_resource_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceCollectionEnabled")
-    def resource_collection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def resource_collection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When enabled, Datadog scans for all resources in your GCP environment.
         """
         return pulumi.get(self, "resource_collection_enabled")
 
     @resource_collection_enabled.setter
-    def resource_collection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def resource_collection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "resource_collection_enabled", value)
 
 
 @pulumi.input_type
 class _IntegrationState:
     def __init__(__self__, *,
-                 automute: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_run_revision_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cspm_resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_filters: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_resource_change_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_security_command_center_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitored_resource_configs: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationMonitoredResourceConfigArgs']]]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 automute: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_run_revision_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cspm_resource_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_filters: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_resource_change_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_security_command_center_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitored_resource_configs: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationMonitoredResourceConfigArgs']]]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Integration resources.
 
@@ -306,160 +306,160 @@ class _IntegrationState:
 
     @_builtins.property
     @pulumi.getter
-    def automute(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automute(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
         """
         return pulumi.get(self, "automute")
 
     @automute.setter
-    def automute(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automute(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automute", value)
 
     @_builtins.property
     @pulumi.getter(name="clientEmail")
-    def client_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Your email found in your JSON service account key.
         """
         return pulumi.get(self, "client_email")
 
     @client_email.setter
-    def client_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_email", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Your ID found in your JSON service account key.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudRunRevisionFilters")
     @_utilities.deprecated("""**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=cloud_run_revision`""")
-    def cloud_run_revision_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cloud_run_revision_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
         """
         return pulumi.get(self, "cloud_run_revision_filters")
 
     @cloud_run_revision_filters.setter
-    def cloud_run_revision_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cloud_run_revision_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cloud_run_revision_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="cspmResourceCollectionEnabled")
-    def cspm_resource_collection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cspm_resource_collection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "cspm_resource_collection_enabled")
 
     @cspm_resource_collection_enabled.setter
-    def cspm_resource_collection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cspm_resource_collection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cspm_resource_collection_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hostFilters")
     @_utilities.deprecated("""**Note:** This field is deprecated. Instead, use `monitored_resource_configs` with `type=gce_instance`""")
-    def host_filters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_filters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         """
         return pulumi.get(self, "host_filters")
 
     @host_filters.setter
-    def host_filters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_filters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="isResourceChangeCollectionEnabled")
-    def is_resource_change_collection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_resource_change_collection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         """
         return pulumi.get(self, "is_resource_change_collection_enabled")
 
     @is_resource_change_collection_enabled.setter
-    def is_resource_change_collection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_resource_change_collection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_resource_change_collection_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="isSecurityCommandCenterEnabled")
-    def is_security_command_center_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_security_command_center_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
         """
         return pulumi.get(self, "is_security_command_center_enabled")
 
     @is_security_command_center_enabled.setter
-    def is_security_command_center_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_security_command_center_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_security_command_center_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoredResourceConfigs")
-    def monitored_resource_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationMonitoredResourceConfigArgs']]]]:
+    def monitored_resource_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationMonitoredResourceConfigArgs']]]]:
         """
         Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
         """
         return pulumi.get(self, "monitored_resource_configs")
 
     @monitored_resource_configs.setter
-    def monitored_resource_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationMonitoredResourceConfigArgs']]]]):
+    def monitored_resource_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationMonitoredResourceConfigArgs']]]]):
         pulumi.set(self, "monitored_resource_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Your private key name found in your JSON service account key.
         """
         return pulumi.get(self, "private_key")
 
     @private_key.setter
-    def private_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKeyId")
-    def private_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Your private key ID found in your JSON service account key.
         """
         return pulumi.get(self, "private_key_id")
 
     @private_key_id.setter
-    def private_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Your Google Cloud project ID found in your JSON service account key.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceCollectionEnabled")
-    def resource_collection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def resource_collection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When enabled, Datadog scans for all resources in your GCP environment.
         """
         return pulumi.get(self, "resource_collection_enabled")
 
     @resource_collection_enabled.setter
-    def resource_collection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def resource_collection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "resource_collection_enabled", value)
 
 
@@ -469,19 +469,19 @@ class Integration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automute: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_run_revision_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cspm_resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_filters: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_resource_change_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_security_command_center_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitored_resource_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationMonitoredResourceConfigArgs', 'IntegrationMonitoredResourceConfigArgsDict']]]]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 automute: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_run_revision_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cspm_resource_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_filters: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_resource_change_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_security_command_center_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitored_resource_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationMonitoredResourceConfigArgs', 'IntegrationMonitoredResourceConfigArgsDict']]]]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         This resource is deprecated—use the `gcp.IntegrationSts` resource instead. Provides a Datadog - Google Cloud Platform integration resource. This can be used to create and manage Datadog - Google Cloud Platform integration.
@@ -548,19 +548,19 @@ class Integration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automute: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_run_revision_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cspm_resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_filters: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_resource_change_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_security_command_center_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitored_resource_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationMonitoredResourceConfigArgs', 'IntegrationMonitoredResourceConfigArgsDict']]]]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 automute: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_run_revision_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cspm_resource_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_filters: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_resource_change_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_security_command_center_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitored_resource_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationMonitoredResourceConfigArgs', 'IntegrationMonitoredResourceConfigArgsDict']]]]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -605,19 +605,19 @@ class Integration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            automute: Optional[pulumi.Input[_builtins.bool]] = None,
-            client_email: Optional[pulumi.Input[_builtins.str]] = None,
-            client_id: Optional[pulumi.Input[_builtins.str]] = None,
-            cloud_run_revision_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            cspm_resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            host_filters: Optional[pulumi.Input[_builtins.str]] = None,
-            is_resource_change_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            is_security_command_center_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            monitored_resource_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationMonitoredResourceConfigArgs', 'IntegrationMonitoredResourceConfigArgsDict']]]]] = None,
-            private_key: Optional[pulumi.Input[_builtins.str]] = None,
-            private_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'Integration':
+            automute: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_email: pulumi.Input[Optional[_builtins.str]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud_run_revision_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cspm_resource_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            host_filters: pulumi.Input[Optional[_builtins.str]] = None,
+            is_resource_change_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_security_command_center_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            monitored_resource_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationMonitoredResourceConfigArgs', 'IntegrationMonitoredResourceConfigArgsDict']]]]] = None,
+            private_key: pulumi.Input[Optional[_builtins.str]] = None,
+            private_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Integration':
         """
         Get an existing Integration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

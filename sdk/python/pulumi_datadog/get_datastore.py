@@ -194,7 +194,7 @@ def get_datastore(datastore_id: Optional[_builtins.str] = None,
         org_id=pulumi.get(__ret__, 'org_id'),
         primary_column_name=pulumi.get(__ret__, 'primary_column_name'),
         primary_key_generation_strategy=pulumi.get(__ret__, 'primary_key_generation_strategy'))
-def get_datastore_output(datastore_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_datastore_output(datastore_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatastoreResult]:
     """
     Use this data source to retrieve information about an existing Datadog datastore.

@@ -138,7 +138,7 @@ def get_security_monitoring_critical_asset(id: Optional[_builtins.str] = None,
         rule_query=pulumi.get(__ret__, 'rule_query'),
         severity=pulumi.get(__ret__, 'severity'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_security_monitoring_critical_asset_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_security_monitoring_critical_asset_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityMonitoringCriticalAssetResult]:
     """
     Use this data source to retrieve information about an existing critical asset.

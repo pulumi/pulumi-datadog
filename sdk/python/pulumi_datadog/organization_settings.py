@@ -21,9 +21,9 @@ __all__ = ['OrganizationSettingsArgs', 'OrganizationSettings']
 @pulumi.input_type
 class OrganizationSettingsArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_contacts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 settings: Optional[pulumi.Input['OrganizationSettingsSettingsArgs']] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 settings: pulumi.Input[Optional['OrganizationSettingsSettingsArgs']] = None):
         """
         The set of arguments for constructing a OrganizationSettings resource.
 
@@ -40,49 +40,49 @@ class OrganizationSettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for Organization.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="securityContacts")
-    def security_contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_contacts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of emails used for security event notifications from the organization.
         """
         return pulumi.get(self, "security_contacts")
 
     @security_contacts.setter
-    def security_contacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_contacts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_contacts", value)
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input['OrganizationSettingsSettingsArgs']]:
+    def settings(self) -> pulumi.Input[Optional['OrganizationSettingsSettingsArgs']]:
         """
         Organization settings
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input['OrganizationSettingsSettingsArgs']]):
+    def settings(self, value: pulumi.Input[Optional['OrganizationSettingsSettingsArgs']]):
         pulumi.set(self, "settings", value)
 
 
 @pulumi.input_type
 class _OrganizationSettingsState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_contacts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 settings: Optional[pulumi.Input['OrganizationSettingsSettingsArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 settings: pulumi.Input[Optional['OrganizationSettingsSettingsArgs']] = None):
         """
         Input properties used for looking up and filtering OrganizationSettings resources.
 
@@ -105,62 +105,62 @@ class _OrganizationSettingsState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the organization.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for Organization.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicId")
-    def public_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The `public_id` of the organization you are operating within.
         """
         return pulumi.get(self, "public_id")
 
     @public_id.setter
-    def public_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_id", value)
 
     @_builtins.property
     @pulumi.getter(name="securityContacts")
-    def security_contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_contacts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of emails used for security event notifications from the organization.
         """
         return pulumi.get(self, "security_contacts")
 
     @security_contacts.setter
-    def security_contacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_contacts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_contacts", value)
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input['OrganizationSettingsSettingsArgs']]:
+    def settings(self) -> pulumi.Input[Optional['OrganizationSettingsSettingsArgs']]:
         """
         Organization settings
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input['OrganizationSettingsSettingsArgs']]):
+    def settings(self, value: pulumi.Input[Optional['OrganizationSettingsSettingsArgs']]):
         pulumi.set(self, "settings", value)
 
 
@@ -170,9 +170,9 @@ class OrganizationSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_contacts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 settings: Optional[pulumi.Input[Union['OrganizationSettingsSettingsArgs', 'OrganizationSettingsSettingsArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 settings: pulumi.Input[Optional[Union['OrganizationSettingsSettingsArgs', 'OrganizationSettingsSettingsArgsDict']]] = None,
                  __props__=None):
         """
         Provides a Datadog Organization resource. This can be used to manage your Datadog organization's settings.
@@ -245,9 +245,9 @@ class OrganizationSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_contacts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 settings: Optional[pulumi.Input[Union['OrganizationSettingsSettingsArgs', 'OrganizationSettingsSettingsArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 settings: pulumi.Input[Optional[Union['OrganizationSettingsSettingsArgs', 'OrganizationSettingsSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -272,11 +272,11 @@ class OrganizationSettings(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            public_id: Optional[pulumi.Input[_builtins.str]] = None,
-            security_contacts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            settings: Optional[pulumi.Input[Union['OrganizationSettingsSettingsArgs', 'OrganizationSettingsSettingsArgsDict']]] = None) -> 'OrganizationSettings':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_id: pulumi.Input[Optional[_builtins.str]] = None,
+            security_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            settings: pulumi.Input[Optional[Union['OrganizationSettingsSettingsArgs', 'OrganizationSettingsSettingsArgsDict']]] = None) -> 'OrganizationSettings':
         """
         Get an existing OrganizationSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

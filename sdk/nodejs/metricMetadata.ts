@@ -133,31 +133,31 @@ export interface MetricMetadataState {
     /**
      * A description of the metric.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the metric.
      */
-    metric?: pulumi.Input<string>;
+    metric?: pulumi.Input<string | undefined>;
     /**
      * Per unit of the metric such as `second` in `bytes per second`.
      */
-    perUnit?: pulumi.Input<string>;
+    perUnit?: pulumi.Input<string | undefined>;
     /**
      * A short name of the metric.
      */
-    shortName?: pulumi.Input<string>;
+    shortName?: pulumi.Input<string | undefined>;
     /**
      * If applicable, statsd flush interval in seconds for the metric.
      */
-    statsdInterval?: pulumi.Input<number>;
+    statsdInterval?: pulumi.Input<number | undefined>;
     /**
      * Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Primary unit of the metric such as `byte` or `operation`. For a list of allowed units, refer to [Datadog metric unit documentation](https://docs.datadoghq.com/metrics/units/#unit-list).
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -167,7 +167,7 @@ export interface MetricMetadataArgs {
     /**
      * A description of the metric.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the metric.
      */
@@ -175,21 +175,21 @@ export interface MetricMetadataArgs {
     /**
      * Per unit of the metric such as `second` in `bytes per second`.
      */
-    perUnit?: pulumi.Input<string>;
+    perUnit?: pulumi.Input<string | undefined>;
     /**
      * A short name of the metric.
      */
-    shortName?: pulumi.Input<string>;
+    shortName?: pulumi.Input<string | undefined>;
     /**
      * If applicable, statsd flush interval in seconds for the metric.
      */
-    statsdInterval?: pulumi.Input<number>;
+    statsdInterval?: pulumi.Input<number | undefined>;
     /**
      * Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Primary unit of the metric such as `byte` or `operation`. For a list of allowed units, refer to [Datadog metric unit documentation](https://docs.datadoghq.com/metrics/units/#unit-list).
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }

@@ -24,20 +24,20 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new rum_application resource.
-    ///     var myRumApplication = new Datadog.Index.RumApplication("my_rum_application", new()
+    ///     var myRumApplication = new Datadog.RumApplication("my_rum_application", new()
     ///     {
     ///         Name = "my-rum-application-test",
     ///         Type = "browser",
     ///     });
     /// 
     ///     // Retrieve rum_retention_filters for the rum_application created above.
-    ///     var myRetentionFilters = Datadog.Index.GetRumRetentionFilters.Invoke(new()
+    ///     var myRetentionFilters = Datadog.GetRumRetentionFilters.Invoke(new()
     ///     {
     ///         ApplicationId = datadogRumApplication.MyRumApplication.Id,
     ///     });
     /// 
     ///     // Create a new rum_retention_filter resource.
-    ///     var newRumRetentionFilter = new Datadog.Index.RumRetentionFilter("new_rum_retention_filter", new()
+    ///     var newRumRetentionFilter = new Datadog.RumRetentionFilter("new_rum_retention_filter", new()
     ///     {
     ///         ApplicationId = datadogRumApplication.MyRumApplication.Id,
     ///         Name = "testing.rum.retention_filter",
@@ -49,14 +49,14 @@ namespace Pulumi.Datadog
     /// 
     ///     // Create a new rum_retention_filters_order resource for reordering.
     ///     // Please note that the IDs of all default retention filters have the prefix 'default', and you need to populate the retention_filter_ids field with all retention filter IDs.
-    ///     var myRumRetentionFiltersOrder = new Datadog.Index.RumRetentionFiltersOrder("my_rum_retention_filters_order", new()
+    ///     var myRumRetentionFiltersOrder = new Datadog.RumRetentionFiltersOrder("my_rum_retention_filters_order", new()
     ///     {
     ///         ApplicationId = datadogRumApplication.MyRumApplication.Id,
-    ///         RetentionFilterIds = Std.Index.Concat.Invoke(new()
+    ///         RetentionFilterIds = Std.Concat.Invoke(new()
     ///         {
     ///             Input = new[]
     ///             {
-    ///                 .Where(rf =&gt; Std.Index.Startswith.Invoke(new()
+    ///                 .Where(rf =&gt; Std.Startswith.Invoke(new()
     ///                 {
     ///                     Input = rf.Id,
     ///                     Prefix = "default",
@@ -72,7 +72,7 @@ namespace Pulumi.Datadog
     ///                 {
     ///                     var myRetentionFilters = values.Item1;
     ///                     var id = values.Item2;
-    ///                     return .Where(rf =&gt; !Std.Index.Startswith.Invoke(new()
+    ///                     return .Where(rf =&gt; !Std.Startswith.Invoke(new()
     ///                     {
     ///                         Input = rf.Id,
     ///                         Prefix = "default",

@@ -23,10 +23,10 @@ class RumMetricArgs:
     def __init__(__self__, *,
                  event_type: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 compute: Optional[pulumi.Input['RumMetricComputeArgs']] = None,
-                 filter: Optional[pulumi.Input['RumMetricFilterArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['RumMetricGroupByArgs']]]] = None,
-                 uniqueness: Optional[pulumi.Input['RumMetricUniquenessArgs']] = None):
+                 compute: pulumi.Input[Optional['RumMetricComputeArgs']] = None,
+                 filter: pulumi.Input[Optional['RumMetricFilterArgs']] = None,
+                 group_bies: pulumi.Input[Optional[Sequence[pulumi.Input['RumMetricGroupByArgs']]]] = None,
+                 uniqueness: pulumi.Input[Optional['RumMetricUniquenessArgs']] = None):
         """
         The set of arguments for constructing a RumMetric resource.
 
@@ -70,50 +70,50 @@ class RumMetricArgs:
 
     @_builtins.property
     @pulumi.getter
-    def compute(self) -> Optional[pulumi.Input['RumMetricComputeArgs']]:
+    def compute(self) -> pulumi.Input[Optional['RumMetricComputeArgs']]:
         return pulumi.get(self, "compute")
 
     @compute.setter
-    def compute(self, value: Optional[pulumi.Input['RumMetricComputeArgs']]):
+    def compute(self, value: pulumi.Input[Optional['RumMetricComputeArgs']]):
         pulumi.set(self, "compute", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['RumMetricFilterArgs']]:
+    def filter(self) -> pulumi.Input[Optional['RumMetricFilterArgs']]:
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['RumMetricFilterArgs']]):
+    def filter(self, value: pulumi.Input[Optional['RumMetricFilterArgs']]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RumMetricGroupByArgs']]]]:
+    def group_bies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RumMetricGroupByArgs']]]]:
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RumMetricGroupByArgs']]]]):
+    def group_bies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RumMetricGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @_builtins.property
     @pulumi.getter
-    def uniqueness(self) -> Optional[pulumi.Input['RumMetricUniquenessArgs']]:
+    def uniqueness(self) -> pulumi.Input[Optional['RumMetricUniquenessArgs']]:
         return pulumi.get(self, "uniqueness")
 
     @uniqueness.setter
-    def uniqueness(self, value: Optional[pulumi.Input['RumMetricUniquenessArgs']]):
+    def uniqueness(self, value: pulumi.Input[Optional['RumMetricUniquenessArgs']]):
         pulumi.set(self, "uniqueness", value)
 
 
 @pulumi.input_type
 class _RumMetricState:
     def __init__(__self__, *,
-                 compute: Optional[pulumi.Input['RumMetricComputeArgs']] = None,
-                 event_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input['RumMetricFilterArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['RumMetricGroupByArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 uniqueness: Optional[pulumi.Input['RumMetricUniquenessArgs']] = None):
+                 compute: pulumi.Input[Optional['RumMetricComputeArgs']] = None,
+                 event_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional['RumMetricFilterArgs']] = None,
+                 group_bies: pulumi.Input[Optional[Sequence[pulumi.Input['RumMetricGroupByArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 uniqueness: pulumi.Input[Optional['RumMetricUniquenessArgs']] = None):
         """
         Input properties used for looking up and filtering RumMetric resources.
 
@@ -135,62 +135,62 @@ class _RumMetricState:
 
     @_builtins.property
     @pulumi.getter
-    def compute(self) -> Optional[pulumi.Input['RumMetricComputeArgs']]:
+    def compute(self) -> pulumi.Input[Optional['RumMetricComputeArgs']]:
         return pulumi.get(self, "compute")
 
     @compute.setter
-    def compute(self, value: Optional[pulumi.Input['RumMetricComputeArgs']]):
+    def compute(self, value: pulumi.Input[Optional['RumMetricComputeArgs']]):
         pulumi.set(self, "compute", value)
 
     @_builtins.property
     @pulumi.getter(name="eventType")
-    def event_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of RUM events to filter on.
         """
         return pulumi.get(self, "event_type")
 
     @event_type.setter
-    def event_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['RumMetricFilterArgs']]:
+    def filter(self) -> pulumi.Input[Optional['RumMetricFilterArgs']]:
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['RumMetricFilterArgs']]):
+    def filter(self, value: pulumi.Input[Optional['RumMetricFilterArgs']]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RumMetricGroupByArgs']]]]:
+    def group_bies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RumMetricGroupByArgs']]]]:
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RumMetricGroupByArgs']]]]):
+    def group_bies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RumMetricGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the RUM-based metric. This field can't be updated after creation.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def uniqueness(self) -> Optional[pulumi.Input['RumMetricUniquenessArgs']]:
+    def uniqueness(self) -> pulumi.Input[Optional['RumMetricUniquenessArgs']]:
         return pulumi.get(self, "uniqueness")
 
     @uniqueness.setter
-    def uniqueness(self, value: Optional[pulumi.Input['RumMetricUniquenessArgs']]):
+    def uniqueness(self, value: pulumi.Input[Optional['RumMetricUniquenessArgs']]):
         pulumi.set(self, "uniqueness", value)
 
 
@@ -200,12 +200,12 @@ class RumMetric(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute: Optional[pulumi.Input[Union['RumMetricComputeArgs', 'RumMetricComputeArgsDict']]] = None,
-                 event_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input[Union['RumMetricFilterArgs', 'RumMetricFilterArgsDict']]] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RumMetricGroupByArgs', 'RumMetricGroupByArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 uniqueness: Optional[pulumi.Input[Union['RumMetricUniquenessArgs', 'RumMetricUniquenessArgsDict']]] = None,
+                 compute: pulumi.Input[Optional[Union['RumMetricComputeArgs', 'RumMetricComputeArgsDict']]] = None,
+                 event_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[Union['RumMetricFilterArgs', 'RumMetricFilterArgsDict']]] = None,
+                 group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RumMetricGroupByArgs', 'RumMetricGroupByArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 uniqueness: pulumi.Input[Optional[Union['RumMetricUniquenessArgs', 'RumMetricUniquenessArgsDict']]] = None,
                  __props__=None):
         """
         Provides a Datadog RumMetric resource. This can be used to create and manage Datadog rum_metric.
@@ -311,12 +311,12 @@ class RumMetric(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute: Optional[pulumi.Input[Union['RumMetricComputeArgs', 'RumMetricComputeArgsDict']]] = None,
-                 event_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input[Union['RumMetricFilterArgs', 'RumMetricFilterArgsDict']]] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RumMetricGroupByArgs', 'RumMetricGroupByArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 uniqueness: Optional[pulumi.Input[Union['RumMetricUniquenessArgs', 'RumMetricUniquenessArgsDict']]] = None,
+                 compute: pulumi.Input[Optional[Union['RumMetricComputeArgs', 'RumMetricComputeArgsDict']]] = None,
+                 event_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[Union['RumMetricFilterArgs', 'RumMetricFilterArgsDict']]] = None,
+                 group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RumMetricGroupByArgs', 'RumMetricGroupByArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 uniqueness: pulumi.Input[Optional[Union['RumMetricUniquenessArgs', 'RumMetricUniquenessArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -346,12 +346,12 @@ class RumMetric(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            compute: Optional[pulumi.Input[Union['RumMetricComputeArgs', 'RumMetricComputeArgsDict']]] = None,
-            event_type: Optional[pulumi.Input[_builtins.str]] = None,
-            filter: Optional[pulumi.Input[Union['RumMetricFilterArgs', 'RumMetricFilterArgsDict']]] = None,
-            group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RumMetricGroupByArgs', 'RumMetricGroupByArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            uniqueness: Optional[pulumi.Input[Union['RumMetricUniquenessArgs', 'RumMetricUniquenessArgsDict']]] = None) -> 'RumMetric':
+            compute: pulumi.Input[Optional[Union['RumMetricComputeArgs', 'RumMetricComputeArgsDict']]] = None,
+            event_type: pulumi.Input[Optional[_builtins.str]] = None,
+            filter: pulumi.Input[Optional[Union['RumMetricFilterArgs', 'RumMetricFilterArgsDict']]] = None,
+            group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RumMetricGroupByArgs', 'RumMetricGroupByArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            uniqueness: pulumi.Input[Optional[Union['RumMetricUniquenessArgs', 'RumMetricUniquenessArgsDict']]] = None) -> 'RumMetric':
         """
         Get an existing RumMetric resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

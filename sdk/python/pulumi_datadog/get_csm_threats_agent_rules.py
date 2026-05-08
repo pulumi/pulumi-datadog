@@ -113,7 +113,7 @@ def get_csm_threats_agent_rules(policy_id: Optional[_builtins.str] = None,
         agent_rules_ids=pulumi.get(__ret__, 'agent_rules_ids'),
         id=pulumi.get(__ret__, 'id'),
         policy_id=pulumi.get(__ret__, 'policy_id'))
-def get_csm_threats_agent_rules_output(policy_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_csm_threats_agent_rules_output(policy_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCsmThreatsAgentRulesResult]:
     """
     Use this data source to retrieve information about existing Agent rules.

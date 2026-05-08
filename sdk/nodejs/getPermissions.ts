@@ -102,5 +102,5 @@ export interface GetPermissionsOutputArgs {
     /**
      * Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.
      */
-    includeRestricted?: pulumi.Input<boolean>;
+    includeRestricted?: pulumi.Input<boolean | undefined>;
 }

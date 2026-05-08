@@ -100,7 +100,7 @@ def get_roles(filter: Optional[_builtins.str] = None,
         filter=pulumi.get(__ret__, 'filter'),
         id=pulumi.get(__ret__, 'id'),
         roles=pulumi.get(__ret__, 'roles'))
-def get_roles_output(filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_roles_output(filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRolesResult]:
     """
     Use this data source to retrieve information about multiple roles for use in other resources.

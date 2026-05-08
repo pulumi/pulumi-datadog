@@ -94,19 +94,19 @@ export interface TeamHierarchyLinksState {
     /**
      * Timestamp when the team hierarchy link was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * ID of the parent team the team hierarchy link is associated with.
      */
-    parentTeamId?: pulumi.Input<string>;
+    parentTeamId?: pulumi.Input<string | undefined>;
     /**
      * The user who created the team hierarchy link.
      */
-    provisionedBy?: pulumi.Input<string>;
+    provisionedBy?: pulumi.Input<string | undefined>;
     /**
      * ID of the sub team the team hierarchy link is associated with.
      */
-    subTeamId?: pulumi.Input<string>;
+    subTeamId?: pulumi.Input<string | undefined>;
 }
 
 /**

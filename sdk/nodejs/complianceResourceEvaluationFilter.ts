@@ -116,18 +116,18 @@ export interface ComplianceResourceEvaluationFilterState {
     /**
      * The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
      */
-    cloudProvider?: pulumi.Input<string>;
+    cloudProvider?: pulumi.Input<string | undefined>;
     /**
      * The ID of the of the filter's targeted resource. Different cloud providers target different resource IDs:
      *   - `aws`: account ID
      *   - `gcp`: project ID
      *   - `azure`: subscription ID
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * List of tags to filter misconfiguration detections. Each entry should follow the format: "key":"value".
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**

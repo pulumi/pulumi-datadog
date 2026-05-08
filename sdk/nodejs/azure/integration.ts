@@ -193,60 +193,60 @@ export interface IntegrationState {
     /**
      * This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure App Service Plans. Only App Service Plans that match one of the defined tags are imported into Datadog. The rest, including the apps and functions running on them, are ignored. This also filters the metrics for any App or Function running on the App Service Plan(s). Defaults to `""`.
      */
-    appServicePlanFilters?: pulumi.Input<string>;
+    appServicePlanFilters?: pulumi.Input<string | undefined>;
     /**
      * Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
      */
-    automute?: pulumi.Input<boolean>;
+    automute?: pulumi.Input<boolean | undefined>;
     /**
      * Your Azure web application ID.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * (Required for Initial Creation) Your Azure web application secret key.
      */
-    clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string | undefined>;
     /**
      * This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog. Defaults to `""`.
      */
-    containerAppFilters?: pulumi.Input<string>;
+    containerAppFilters?: pulumi.Input<string | undefined>;
     /**
      * When enabled, Datadog’s Cloud Security Management product scans resource configurations monitored by this app registration.
      * Note: This requires `resourceCollectionEnabled` to be set to true. Defaults to `false`.
      */
-    cspmEnabled?: pulumi.Input<boolean>;
+    cspmEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Enable custom metrics for your organization. Defaults to `false`.
      */
-    customMetricsEnabled?: pulumi.Input<boolean>;
+    customMetricsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red` Defaults to `""`.
      */
-    hostFilters?: pulumi.Input<string>;
+    hostFilters?: pulumi.Input<string | undefined>;
     /**
      * Enable Azure metrics for your organization. Defaults to `true`.
      */
-    metricsEnabled?: pulumi.Input<boolean>;
+    metricsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
      */
-    metricsEnabledDefault?: pulumi.Input<boolean>;
+    metricsEnabledDefault?: pulumi.Input<boolean | undefined>;
     /**
      * When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
      */
-    resourceCollectionEnabled?: pulumi.Input<boolean>;
+    resourceCollectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Configuration settings applied to resources from the specified Azure resource providers.
      */
-    resourceProviderConfigs?: pulumi.Input<pulumi.Input<inputs.azure.IntegrationResourceProviderConfig>[]>;
+    resourceProviderConfigs?: pulumi.Input<pulumi.Input<inputs.azure.IntegrationResourceProviderConfig>[] | undefined>;
     /**
      * Your Azure Active Directory ID.
      */
-    tenantName?: pulumi.Input<string>;
+    tenantName?: pulumi.Input<string | undefined>;
     /**
      * Enable azure.usage metrics for your organization. Defaults to `true`.
      */
-    usageMetricsEnabled?: pulumi.Input<boolean>;
+    usageMetricsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -256,11 +256,11 @@ export interface IntegrationArgs {
     /**
      * This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure App Service Plans. Only App Service Plans that match one of the defined tags are imported into Datadog. The rest, including the apps and functions running on them, are ignored. This also filters the metrics for any App or Function running on the App Service Plan(s). Defaults to `""`.
      */
-    appServicePlanFilters?: pulumi.Input<string>;
+    appServicePlanFilters?: pulumi.Input<string | undefined>;
     /**
      * Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
      */
-    automute?: pulumi.Input<boolean>;
+    automute?: pulumi.Input<boolean | undefined>;
     /**
      * Your Azure web application ID.
      */
@@ -272,36 +272,36 @@ export interface IntegrationArgs {
     /**
      * This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog. Defaults to `""`.
      */
-    containerAppFilters?: pulumi.Input<string>;
+    containerAppFilters?: pulumi.Input<string | undefined>;
     /**
      * When enabled, Datadog’s Cloud Security Management product scans resource configurations monitored by this app registration.
      * Note: This requires `resourceCollectionEnabled` to be set to true. Defaults to `false`.
      */
-    cspmEnabled?: pulumi.Input<boolean>;
+    cspmEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Enable custom metrics for your organization. Defaults to `false`.
      */
-    customMetricsEnabled?: pulumi.Input<boolean>;
+    customMetricsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red` Defaults to `""`.
      */
-    hostFilters?: pulumi.Input<string>;
+    hostFilters?: pulumi.Input<string | undefined>;
     /**
      * Enable Azure metrics for your organization. Defaults to `true`.
      */
-    metricsEnabled?: pulumi.Input<boolean>;
+    metricsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
      */
-    metricsEnabledDefault?: pulumi.Input<boolean>;
+    metricsEnabledDefault?: pulumi.Input<boolean | undefined>;
     /**
      * When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
      */
-    resourceCollectionEnabled?: pulumi.Input<boolean>;
+    resourceCollectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Configuration settings applied to resources from the specified Azure resource providers.
      */
-    resourceProviderConfigs?: pulumi.Input<pulumi.Input<inputs.azure.IntegrationResourceProviderConfig>[]>;
+    resourceProviderConfigs?: pulumi.Input<pulumi.Input<inputs.azure.IntegrationResourceProviderConfig>[] | undefined>;
     /**
      * Your Azure Active Directory ID.
      */
@@ -309,5 +309,5 @@ export interface IntegrationArgs {
     /**
      * Enable azure.usage metrics for your organization. Defaults to `true`.
      */
-    usageMetricsEnabled?: pulumi.Input<boolean>;
+    usageMetricsEnabled?: pulumi.Input<boolean | undefined>;
 }

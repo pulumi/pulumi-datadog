@@ -112,11 +112,11 @@ export interface GetRoleUsersOutputArgs {
     /**
      * When true, `filterKeyword` string is exact matched against the user's `name`.
      */
-    exactMatch?: pulumi.Input<boolean>;
+    exactMatch?: pulumi.Input<boolean | undefined>;
     /**
      * Search query, can be user name.
      */
-    filter?: pulumi.Input<string>;
+    filter?: pulumi.Input<string | undefined>;
     /**
      * The role's identifier.
      */

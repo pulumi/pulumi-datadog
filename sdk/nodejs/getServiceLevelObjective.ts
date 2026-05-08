@@ -146,17 +146,17 @@ export interface GetServiceLevelObjectiveOutputArgs {
     /**
      * A SLO ID to limit the search.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Filter results based on SLO numerator and denominator.
      */
-    metricsQuery?: pulumi.Input<string>;
+    metricsQuery?: pulumi.Input<string | undefined>;
     /**
      * Filter results based on SLO names.
      */
-    nameQuery?: pulumi.Input<string>;
+    nameQuery?: pulumi.Input<string | undefined>;
     /**
      * Filter results based on a single SLO tag.
      */
-    tagsQuery?: pulumi.Input<string>;
+    tagsQuery?: pulumi.Input<string | undefined>;
 }

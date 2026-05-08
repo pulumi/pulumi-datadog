@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Service Definition with v2.2 Schema Definition
-    ///     var serviceDefinitionV22 = new Datadog.Index.ServiceDefinitionYaml("service_definition_v2_2", new()
+    ///     var serviceDefinitionV22 = new Datadog.ServiceDefinitionYaml("service_definition_v2_2", new()
     ///     {
     ///         ServiceDefinition = @"schema-version: v2.2
     /// dd-service: shopping-cart
@@ -75,7 +75,7 @@ namespace Pulumi.Datadog
     ///     });
     /// 
     ///     // Service Definition with v2.1 Schema Definition
-    ///     var serviceDefinitionV21 = new Datadog.Index.ServiceDefinitionYaml("service_definition_v2_1", new()
+    ///     var serviceDefinitionV21 = new Datadog.ServiceDefinitionYaml("service_definition_v2_1", new()
     ///     {
     ///         ServiceDefinition = @"schema-version: v2.1
     /// dd-service: shopping-cart
@@ -120,7 +120,7 @@ namespace Pulumi.Datadog
     ///     });
     /// 
     ///     // Service Definition with v2 Schema Definition
-    ///     var serviceDefinitionV2 = new Datadog.Index.ServiceDefinitionYaml("service_definition_v2", new()
+    ///     var serviceDefinitionV2 = new Datadog.ServiceDefinitionYaml("service_definition_v2", new()
     ///     {
     ///         ServiceDefinition = @"schema-version: v2
     /// dd-service: shopping-cart
@@ -159,7 +159,7 @@ namespace Pulumi.Datadog
     ///     });
     /// 
     ///     // Service Definition with backstage.io Schema
-    ///     var serviceDefinitionBackstage = new Datadog.Index.ServiceDefinitionYaml("service_definition_backstage", new()
+    ///     var serviceDefinitionBackstage = new Datadog.ServiceDefinitionYaml("service_definition_backstage", new()
     ///     {
     ///         ServiceDefinition = @"apiVersion: backstage.io/v1alpha1
     /// kind: Component

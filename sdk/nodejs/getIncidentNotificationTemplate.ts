@@ -108,9 +108,9 @@ export interface GetIncidentNotificationTemplateOutputArgs {
     /**
      * The ID of the incident notification template.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The name of the notification template.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

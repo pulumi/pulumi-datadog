@@ -24,9 +24,9 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = Datadog.Index.GetSensitiveDataScannerGroupOrder.Invoke();
+        ///     var foo = Datadog.GetSensitiveDataScannerGroupOrder.Invoke();
         /// 
-        ///     var foobar = new Datadog.Index.SensitiveDataScannerGroupOrder("foobar", new()
+        ///     var foobar = new Datadog.SensitiveDataScannerGroupOrder("foobar", new()
         ///     {
         ///         GroupIds = foo.Apply(getSensitiveDataScannerGroupOrderResult =&gt; getSensitiveDataScannerGroupOrderResult.GroupIds),
         ///     });
@@ -50,9 +50,9 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = Datadog.Index.GetSensitiveDataScannerGroupOrder.Invoke();
+        ///     var foo = Datadog.GetSensitiveDataScannerGroupOrder.Invoke();
         /// 
-        ///     var foobar = new Datadog.Index.SensitiveDataScannerGroupOrder("foobar", new()
+        ///     var foobar = new Datadog.SensitiveDataScannerGroupOrder("foobar", new()
         ///     {
         ///         GroupIds = foo.Apply(getSensitiveDataScannerGroupOrderResult =&gt; getSensitiveDataScannerGroupOrderResult.GroupIds),
         ///     });
@@ -76,9 +76,9 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = Datadog.Index.GetSensitiveDataScannerGroupOrder.Invoke();
+        ///     var foo = Datadog.GetSensitiveDataScannerGroupOrder.Invoke();
         /// 
-        ///     var foobar = new Datadog.Index.SensitiveDataScannerGroupOrder("foobar", new()
+        ///     var foobar = new Datadog.SensitiveDataScannerGroupOrder("foobar", new()
         ///     {
         ///         GroupIds = foo.Apply(getSensitiveDataScannerGroupOrderResult =&gt; getSensitiveDataScannerGroupOrderResult.GroupIds),
         ///     });

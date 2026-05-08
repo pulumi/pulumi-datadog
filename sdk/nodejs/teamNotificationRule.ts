@@ -139,23 +139,23 @@ export interface TeamNotificationRuleState {
     /**
      * The email notification settings.
      */
-    email?: pulumi.Input<inputs.TeamNotificationRuleEmail>;
+    email?: pulumi.Input<inputs.TeamNotificationRuleEmail | undefined>;
     /**
      * The MS Teams notification settings.
      */
-    msTeams?: pulumi.Input<inputs.TeamNotificationRuleMsTeams>;
+    msTeams?: pulumi.Input<inputs.TeamNotificationRuleMsTeams | undefined>;
     /**
      * The PagerDuty notification settings.
      */
-    pagerduty?: pulumi.Input<inputs.TeamNotificationRulePagerduty>;
+    pagerduty?: pulumi.Input<inputs.TeamNotificationRulePagerduty | undefined>;
     /**
      * The Slack notification settings.
      */
-    slack?: pulumi.Input<inputs.TeamNotificationRuleSlack>;
+    slack?: pulumi.Input<inputs.TeamNotificationRuleSlack | undefined>;
     /**
      * The ID of the team that this notification rule belongs to.
      */
-    teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -165,19 +165,19 @@ export interface TeamNotificationRuleArgs {
     /**
      * The email notification settings.
      */
-    email?: pulumi.Input<inputs.TeamNotificationRuleEmail>;
+    email?: pulumi.Input<inputs.TeamNotificationRuleEmail | undefined>;
     /**
      * The MS Teams notification settings.
      */
-    msTeams?: pulumi.Input<inputs.TeamNotificationRuleMsTeams>;
+    msTeams?: pulumi.Input<inputs.TeamNotificationRuleMsTeams | undefined>;
     /**
      * The PagerDuty notification settings.
      */
-    pagerduty?: pulumi.Input<inputs.TeamNotificationRulePagerduty>;
+    pagerduty?: pulumi.Input<inputs.TeamNotificationRulePagerduty | undefined>;
     /**
      * The Slack notification settings.
      */
-    slack?: pulumi.Input<inputs.TeamNotificationRuleSlack>;
+    slack?: pulumi.Input<inputs.TeamNotificationRuleSlack | undefined>;
     /**
      * The ID of the team that this notification rule belongs to.
      */

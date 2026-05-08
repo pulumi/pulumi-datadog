@@ -100,7 +100,7 @@ def get_rum_retention_filters(application_id: Optional[_builtins.str] = None,
         application_id=pulumi.get(__ret__, 'application_id'),
         id=pulumi.get(__ret__, 'id'),
         retention_filters=pulumi.get(__ret__, 'retention_filters'))
-def get_rum_retention_filters_output(application_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_rum_retention_filters_output(application_id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRumRetentionFiltersResult]:
     """
     Provides a Datadog RUM retention filters datasource. This can be used to retrieve all RUM retention filters for a given RUM application.

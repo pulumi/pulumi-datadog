@@ -139,31 +139,31 @@ export interface SyntheticsPrivateLocationState {
     /**
      * API key used to generate the private location configuration.
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
      */
-    config?: pulumi.Input<string>;
+    config?: pulumi.Input<string | undefined>;
     /**
      * Description of the private location. Defaults to `""`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The private location metadata
      */
-    metadata?: pulumi.Input<inputs.SyntheticsPrivateLocationMetadata>;
+    metadata?: pulumi.Input<inputs.SyntheticsPrivateLocationMetadata | undefined>;
     /**
      * Synthetics private location name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Resource ID to use when setting restrictions with a `datadog.RestrictionPolicy` resource.
      */
-    restrictionPolicyResourceId?: pulumi.Input<string>;
+    restrictionPolicyResourceId?: pulumi.Input<string | undefined>;
     /**
      * A list of tags to associate with your synthetics private location.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -173,15 +173,15 @@ export interface SyntheticsPrivateLocationArgs {
     /**
      * API key used to generate the private location configuration.
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * Description of the private location. Defaults to `""`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The private location metadata
      */
-    metadata?: pulumi.Input<inputs.SyntheticsPrivateLocationMetadata>;
+    metadata?: pulumi.Input<inputs.SyntheticsPrivateLocationMetadata | undefined>;
     /**
      * Synthetics private location name.
      */
@@ -189,5 +189,5 @@ export interface SyntheticsPrivateLocationArgs {
     /**
      * A list of tags to associate with your synthetics private location.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

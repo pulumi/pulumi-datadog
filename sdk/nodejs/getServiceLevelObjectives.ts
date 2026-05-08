@@ -134,25 +134,25 @@ export interface GetServiceLevelObjectivesOutputArgs {
     /**
      * Throw an error if no results are found. Defaults to `true`.
      */
-    errorOnEmptyResult?: pulumi.Input<boolean>;
+    errorOnEmptyResult?: pulumi.Input<boolean | undefined>;
     /**
      * An array of SLO IDs to limit the search.
      */
-    ids?: pulumi.Input<pulumi.Input<string>[]>;
+    ids?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Filter results based on SLO numerator and denominator.
      */
-    metricsQuery?: pulumi.Input<string>;
+    metricsQuery?: pulumi.Input<string | undefined>;
     /**
      * Filter results based on SLO names.
      */
-    nameQuery?: pulumi.Input<string>;
+    nameQuery?: pulumi.Input<string | undefined>;
     /**
      * The query string to filter results based on SLO names. Some examples of queries include service:\n\n and \n\n.
      */
-    query?: pulumi.Input<string>;
+    query?: pulumi.Input<string | undefined>;
     /**
      * Filter results based on a single SLO tag.
      */
-    tagsQuery?: pulumi.Input<string>;
+    tagsQuery?: pulumi.Input<string | undefined>;
 }

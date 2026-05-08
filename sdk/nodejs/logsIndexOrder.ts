@@ -102,11 +102,11 @@ export interface LogsIndexOrderState {
     /**
      * The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
      */
-    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    indexes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The unique name of the index order resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -120,5 +120,5 @@ export interface LogsIndexOrderArgs {
     /**
      * The unique name of the index order resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

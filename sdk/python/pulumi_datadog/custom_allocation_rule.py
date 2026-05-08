@@ -24,8 +24,8 @@ class CustomAllocationRuleArgs:
                  enabled: pulumi.Input[_builtins.bool],
                  providernames: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  rule_name: pulumi.Input[_builtins.str],
-                 costs_to_allocates: Optional[pulumi.Input[Sequence[pulumi.Input['CustomAllocationRuleCostsToAllocateArgs']]]] = None,
-                 strategy: Optional[pulumi.Input['CustomAllocationRuleStrategyArgs']] = None):
+                 costs_to_allocates: pulumi.Input[Optional[Sequence[pulumi.Input['CustomAllocationRuleCostsToAllocateArgs']]]] = None,
+                 strategy: pulumi.Input[Optional['CustomAllocationRuleStrategyArgs']] = None):
         """
         The set of arguments for constructing a CustomAllocationRule resource.
 
@@ -79,37 +79,37 @@ class CustomAllocationRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="costsToAllocates")
-    def costs_to_allocates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomAllocationRuleCostsToAllocateArgs']]]]:
+    def costs_to_allocates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomAllocationRuleCostsToAllocateArgs']]]]:
         return pulumi.get(self, "costs_to_allocates")
 
     @costs_to_allocates.setter
-    def costs_to_allocates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomAllocationRuleCostsToAllocateArgs']]]]):
+    def costs_to_allocates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomAllocationRuleCostsToAllocateArgs']]]]):
         pulumi.set(self, "costs_to_allocates", value)
 
     @_builtins.property
     @pulumi.getter
-    def strategy(self) -> Optional[pulumi.Input['CustomAllocationRuleStrategyArgs']]:
+    def strategy(self) -> pulumi.Input[Optional['CustomAllocationRuleStrategyArgs']]:
         return pulumi.get(self, "strategy")
 
     @strategy.setter
-    def strategy(self, value: Optional[pulumi.Input['CustomAllocationRuleStrategyArgs']]):
+    def strategy(self, value: pulumi.Input[Optional['CustomAllocationRuleStrategyArgs']]):
         pulumi.set(self, "strategy", value)
 
 
 @pulumi.input_type
 class _CustomAllocationRuleState:
     def __init__(__self__, *,
-                 costs_to_allocates: Optional[pulumi.Input[Sequence[pulumi.Input['CustomAllocationRuleCostsToAllocateArgs']]]] = None,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_modified_user_uuid: Optional[pulumi.Input[_builtins.str]] = None,
-                 order_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 providernames: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 rejected: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 strategy: Optional[pulumi.Input['CustomAllocationRuleStrategyArgs']] = None,
-                 updated: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.int]] = None):
+                 costs_to_allocates: pulumi.Input[Optional[Sequence[pulumi.Input['CustomAllocationRuleCostsToAllocateArgs']]]] = None,
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_modified_user_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+                 order_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 providernames: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 rejected: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 strategy: pulumi.Input[Optional['CustomAllocationRuleStrategyArgs']] = None,
+                 updated: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CustomAllocationRule resources.
 
@@ -148,128 +148,128 @@ class _CustomAllocationRuleState:
 
     @_builtins.property
     @pulumi.getter(name="costsToAllocates")
-    def costs_to_allocates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomAllocationRuleCostsToAllocateArgs']]]]:
+    def costs_to_allocates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomAllocationRuleCostsToAllocateArgs']]]]:
         return pulumi.get(self, "costs_to_allocates")
 
     @costs_to_allocates.setter
-    def costs_to_allocates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomAllocationRuleCostsToAllocateArgs']]]]):
+    def costs_to_allocates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomAllocationRuleCostsToAllocateArgs']]]]):
         pulumi.set(self, "costs_to_allocates", value)
 
     @_builtins.property
     @pulumi.getter
-    def created(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timestamp (in ISO 8601 format) when the rule was created.
         """
         return pulumi.get(self, "created")
 
     @created.setter
-    def created(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the custom allocation rule is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedUserUuid")
-    def last_modified_user_uuid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_modified_user_uuid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The UUID of the user who last modified the rule.
         """
         return pulumi.get(self, "last_modified_user_uuid")
 
     @last_modified_user_uuid.setter
-    def last_modified_user_uuid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_modified_user_uuid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_modified_user_uuid", value)
 
     @_builtins.property
     @pulumi.getter(name="orderId")
-    def order_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The order of the rule in the list of custom allocation rules. This field is read-only. Use the `CustomAllocationRules` resource to manage rule order.
         """
         return pulumi.get(self, "order_id")
 
     @order_id.setter
-    def order_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def providernames(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def providernames(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of cloud providers the rule applies to. Valid values include `aws`, `azure`, and `gcp`.
         """
         return pulumi.get(self, "providernames")
 
     @providernames.setter
-    def providernames(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def providernames(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "providernames", value)
 
     @_builtins.property
     @pulumi.getter
-    def rejected(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def rejected(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the rule was rejected by the API during creation due to validation errors. This field is read-only.
         """
         return pulumi.get(self, "rejected")
 
     @rejected.setter
-    def rejected(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def rejected(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "rejected", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
-    def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the custom allocation rule. This field is immutable - changing it will force replacement of the resource.
         """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
-    def rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def strategy(self) -> Optional[pulumi.Input['CustomAllocationRuleStrategyArgs']]:
+    def strategy(self) -> pulumi.Input[Optional['CustomAllocationRuleStrategyArgs']]:
         return pulumi.get(self, "strategy")
 
     @strategy.setter
-    def strategy(self, value: Optional[pulumi.Input['CustomAllocationRuleStrategyArgs']]):
+    def strategy(self, value: pulumi.Input[Optional['CustomAllocationRuleStrategyArgs']]):
         pulumi.set(self, "strategy", value)
 
     @_builtins.property
     @pulumi.getter
-    def updated(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def updated(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timestamp (in ISO 8601 format) when the rule was last updated.
         """
         return pulumi.get(self, "updated")
 
     @updated.setter
-    def updated(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def updated(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The version number of the rule. This increments each time the rule is updated.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "version", value)
 
 
@@ -279,11 +279,11 @@ class CustomAllocationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 costs_to_allocates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomAllocationRuleCostsToAllocateArgs', 'CustomAllocationRuleCostsToAllocateArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 providernames: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 strategy: Optional[pulumi.Input[Union['CustomAllocationRuleStrategyArgs', 'CustomAllocationRuleStrategyArgsDict']]] = None,
+                 costs_to_allocates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomAllocationRuleCostsToAllocateArgs', 'CustomAllocationRuleCostsToAllocateArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 providernames: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 strategy: pulumi.Input[Optional[Union['CustomAllocationRuleStrategyArgs', 'CustomAllocationRuleStrategyArgsDict']]] = None,
                  __props__=None):
         """
         Provides a Datadog Custom Allocation Rule resource. Custom allocation rules allow you to allocate cloud costs based on tags and filters.
@@ -392,11 +392,11 @@ class CustomAllocationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 costs_to_allocates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomAllocationRuleCostsToAllocateArgs', 'CustomAllocationRuleCostsToAllocateArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 providernames: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 strategy: Optional[pulumi.Input[Union['CustomAllocationRuleStrategyArgs', 'CustomAllocationRuleStrategyArgsDict']]] = None,
+                 costs_to_allocates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomAllocationRuleCostsToAllocateArgs', 'CustomAllocationRuleCostsToAllocateArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 providernames: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 strategy: pulumi.Input[Optional[Union['CustomAllocationRuleStrategyArgs', 'CustomAllocationRuleStrategyArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -433,17 +433,17 @@ class CustomAllocationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            costs_to_allocates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomAllocationRuleCostsToAllocateArgs', 'CustomAllocationRuleCostsToAllocateArgsDict']]]]] = None,
-            created: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            last_modified_user_uuid: Optional[pulumi.Input[_builtins.str]] = None,
-            order_id: Optional[pulumi.Input[_builtins.int]] = None,
-            providernames: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            rejected: Optional[pulumi.Input[_builtins.bool]] = None,
-            rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-            strategy: Optional[pulumi.Input[Union['CustomAllocationRuleStrategyArgs', 'CustomAllocationRuleStrategyArgsDict']]] = None,
-            updated: Optional[pulumi.Input[_builtins.str]] = None,
-            version: Optional[pulumi.Input[_builtins.int]] = None) -> 'CustomAllocationRule':
+            costs_to_allocates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomAllocationRuleCostsToAllocateArgs', 'CustomAllocationRuleCostsToAllocateArgsDict']]]]] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_modified_user_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+            order_id: pulumi.Input[Optional[_builtins.int]] = None,
+            providernames: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            rejected: pulumi.Input[Optional[_builtins.bool]] = None,
+            rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+            strategy: pulumi.Input[Optional[Union['CustomAllocationRuleStrategyArgs', 'CustomAllocationRuleStrategyArgsDict']]] = None,
+            updated: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> 'CustomAllocationRule':
         """
         Get an existing CustomAllocationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -162,30 +162,30 @@ export interface DowntimeScheduleState {
     /**
      * The timezone in which to display the downtime's start and end times in Datadog applications. This is not used as an offset for scheduling.
      */
-    displayTimezone?: pulumi.Input<string>;
+    displayTimezone?: pulumi.Input<string | undefined>;
     /**
      * A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.
      */
-    message?: pulumi.Input<string>;
-    monitorIdentifier?: pulumi.Input<inputs.DowntimeScheduleMonitorIdentifier>;
+    message?: pulumi.Input<string | undefined>;
+    monitorIdentifier?: pulumi.Input<inputs.DowntimeScheduleMonitorIdentifier | undefined>;
     /**
      * If the first recovery notification during a downtime should be muted.
      */
-    muteFirstRecoveryNotification?: pulumi.Input<boolean>;
+    muteFirstRecoveryNotification?: pulumi.Input<boolean | undefined>;
     /**
      * States that will trigger a monitor notification when the `notifyEndTypes` action occurs.
      */
-    notifyEndStates?: pulumi.Input<pulumi.Input<string>[]>;
+    notifyEndStates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Actions that will trigger a monitor notification if the downtime is in the `notifyEndTypes` state.
      */
-    notifyEndTypes?: pulumi.Input<pulumi.Input<string>[]>;
-    oneTimeSchedule?: pulumi.Input<inputs.DowntimeScheduleOneTimeSchedule>;
-    recurringSchedule?: pulumi.Input<inputs.DowntimeScheduleRecurringSchedule>;
+    notifyEndTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    oneTimeSchedule?: pulumi.Input<inputs.DowntimeScheduleOneTimeSchedule | undefined>;
+    recurringSchedule?: pulumi.Input<inputs.DowntimeScheduleRecurringSchedule | undefined>;
     /**
      * The scope to which the downtime applies. Must follow the [common search syntax](https://docs.datadoghq.com/logs/explorer/search_syntax/).
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -195,26 +195,26 @@ export interface DowntimeScheduleArgs {
     /**
      * The timezone in which to display the downtime's start and end times in Datadog applications. This is not used as an offset for scheduling.
      */
-    displayTimezone?: pulumi.Input<string>;
+    displayTimezone?: pulumi.Input<string | undefined>;
     /**
      * A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.
      */
-    message?: pulumi.Input<string>;
+    message?: pulumi.Input<string | undefined>;
     monitorIdentifier: pulumi.Input<inputs.DowntimeScheduleMonitorIdentifier>;
     /**
      * If the first recovery notification during a downtime should be muted.
      */
-    muteFirstRecoveryNotification?: pulumi.Input<boolean>;
+    muteFirstRecoveryNotification?: pulumi.Input<boolean | undefined>;
     /**
      * States that will trigger a monitor notification when the `notifyEndTypes` action occurs.
      */
-    notifyEndStates?: pulumi.Input<pulumi.Input<string>[]>;
+    notifyEndStates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Actions that will trigger a monitor notification if the downtime is in the `notifyEndTypes` state.
      */
-    notifyEndTypes?: pulumi.Input<pulumi.Input<string>[]>;
-    oneTimeSchedule?: pulumi.Input<inputs.DowntimeScheduleOneTimeSchedule>;
-    recurringSchedule?: pulumi.Input<inputs.DowntimeScheduleRecurringSchedule>;
+    notifyEndTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    oneTimeSchedule?: pulumi.Input<inputs.DowntimeScheduleOneTimeSchedule | undefined>;
+    recurringSchedule?: pulumi.Input<inputs.DowntimeScheduleRecurringSchedule | undefined>;
     /**
      * The scope to which the downtime applies. Must follow the [common search syntax](https://docs.datadoghq.com/logs/explorer/search_syntax/).
      */

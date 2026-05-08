@@ -153,27 +153,27 @@ export interface SensitiveDataScannerGroupState {
     /**
      * Description of the Datadog scanning group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Filter object the scanning group applies.
      */
-    filter?: pulumi.Input<inputs.SensitiveDataScannerGroupFilter>;
+    filter?: pulumi.Input<inputs.SensitiveDataScannerGroupFilter | undefined>;
     /**
      * Whether or not the scanning group is enabled. If the group doesn't contain any rule or if all the rules in it are disabled, the group is force-disabled by our backend
      */
-    isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the Datadog scanning group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
      */
-    productLists?: pulumi.Input<pulumi.Input<string>[]>;
+    productLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of sampling configurations per product type for the scanning group.
      */
-    samplings?: pulumi.Input<pulumi.Input<inputs.SensitiveDataScannerGroupSampling>[]>;
+    samplings?: pulumi.Input<pulumi.Input<inputs.SensitiveDataScannerGroupSampling>[] | undefined>;
 }
 
 /**
@@ -183,7 +183,7 @@ export interface SensitiveDataScannerGroupArgs {
     /**
      * Description of the Datadog scanning group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Filter object the scanning group applies.
      */
@@ -203,5 +203,5 @@ export interface SensitiveDataScannerGroupArgs {
     /**
      * List of sampling configurations per product type for the scanning group.
      */
-    samplings?: pulumi.Input<pulumi.Input<inputs.SensitiveDataScannerGroupSampling>[]>;
+    samplings?: pulumi.Input<pulumi.Input<inputs.SensitiveDataScannerGroupSampling>[] | undefined>;
 }

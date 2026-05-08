@@ -95,7 +95,7 @@ export interface SensitiveDataScannerGroupOrderState {
     /**
      * The list of Sensitive Data Scanner group IDs, in order. Logs are tested against the query filter of each index one by one following the order of the list.
      */
-    groupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    groupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**

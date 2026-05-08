@@ -117,15 +117,15 @@ export interface AgentlessScanningGcpScanOptionsState {
     /**
      * The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
      */
-    gcpProjectId?: pulumi.Input<string>;
+    gcpProjectId?: pulumi.Input<string | undefined>;
     /**
      * Indicates if scanning for vulnerabilities in containers is enabled.
      */
-    vulnContainersOs?: pulumi.Input<boolean>;
+    vulnContainersOs?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates if scanning for vulnerabilities in hosts is enabled.
      */
-    vulnHostOs?: pulumi.Input<boolean>;
+    vulnHostOs?: pulumi.Input<boolean | undefined>;
 }
 
 /**

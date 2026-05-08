@@ -43,7 +43,7 @@ class AppKeyRegistrationArgs:
 @pulumi.input_type
 class _AppKeyRegistrationState:
     def __init__(__self__, *,
-                 app_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AppKeyRegistration resources.
 
@@ -54,14 +54,14 @@ class _AppKeyRegistrationState:
 
     @_builtins.property
     @pulumi.getter(name="appKeyId")
-    def app_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Application Key ID to register.
         """
         return pulumi.get(self, "app_key_id")
 
     @app_key_id.setter
-    def app_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_key_id", value)
 
 
@@ -71,7 +71,7 @@ class AppKeyRegistration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Registers App Keys to be used for Action Connection, App Builder, and Workflow Automation. This registration is required to enable API and Terraform use in these products.
@@ -140,7 +140,7 @@ class AppKeyRegistration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -163,7 +163,7 @@ class AppKeyRegistration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_key_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'AppKeyRegistration':
+            app_key_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'AppKeyRegistration':
         """
         Get an existing AppKeyRegistration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

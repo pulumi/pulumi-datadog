@@ -25,10 +25,10 @@ namespace Pulumi.Datadog
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Gets all pipelines
-        ///     var pipelines = Datadog.Index.GetLogsPipelines.Invoke();
+        ///     var pipelines = Datadog.GetLogsPipelines.Invoke();
         /// 
         ///     // Using data source to set pipeline order
-        ///     var lpo = new Datadog.Index.LogsPipelineOrder("lpo", new()
+        ///     var lpo = new Datadog.LogsPipelineOrder("lpo", new()
         ///     {
         ///         Name = "lpo",
         ///         Pipelines = .Select(pipeline =&gt; 
@@ -57,10 +57,10 @@ namespace Pulumi.Datadog
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Gets all pipelines
-        ///     var pipelines = Datadog.Index.GetLogsPipelines.Invoke();
+        ///     var pipelines = Datadog.GetLogsPipelines.Invoke();
         /// 
         ///     // Using data source to set pipeline order
-        ///     var lpo = new Datadog.Index.LogsPipelineOrder("lpo", new()
+        ///     var lpo = new Datadog.LogsPipelineOrder("lpo", new()
         ///     {
         ///         Name = "lpo",
         ///         Pipelines = .Select(pipeline =&gt; 
@@ -89,10 +89,10 @@ namespace Pulumi.Datadog
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Gets all pipelines
-        ///     var pipelines = Datadog.Index.GetLogsPipelines.Invoke();
+        ///     var pipelines = Datadog.GetLogsPipelines.Invoke();
         /// 
         ///     // Using data source to set pipeline order
-        ///     var lpo = new Datadog.Index.LogsPipelineOrder("lpo", new()
+        ///     var lpo = new Datadog.LogsPipelineOrder("lpo", new()
         ///     {
         ///         Name = "lpo",
         ///         Pipelines = .Select(pipeline =&gt; 

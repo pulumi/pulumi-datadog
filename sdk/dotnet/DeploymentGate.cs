@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create new deployment_gate resource
-    ///     var foo = new Datadog.Index.DeploymentGate("foo", new()
+    ///     var foo = new Datadog.DeploymentGate("foo", new()
     ///     {
     ///         DryRun = false,
     ///         Env = "production",

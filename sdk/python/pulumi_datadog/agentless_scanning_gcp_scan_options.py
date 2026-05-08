@@ -73,9 +73,9 @@ class AgentlessScanningGcpScanOptionsArgs:
 @pulumi.input_type
 class _AgentlessScanningGcpScanOptionsState:
     def __init__(__self__, *,
-                 gcp_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vuln_containers_os: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vuln_host_os: Optional[pulumi.Input[_builtins.bool]] = None):
+                 gcp_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vuln_containers_os: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vuln_host_os: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering AgentlessScanningGcpScanOptions resources.
 
@@ -92,38 +92,38 @@ class _AgentlessScanningGcpScanOptionsState:
 
     @_builtins.property
     @pulumi.getter(name="gcpProjectId")
-    def gcp_project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gcp_project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
         """
         return pulumi.get(self, "gcp_project_id")
 
     @gcp_project_id.setter
-    def gcp_project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gcp_project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gcp_project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vulnContainersOs")
-    def vuln_containers_os(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def vuln_containers_os(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if scanning for vulnerabilities in containers is enabled.
         """
         return pulumi.get(self, "vuln_containers_os")
 
     @vuln_containers_os.setter
-    def vuln_containers_os(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def vuln_containers_os(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "vuln_containers_os", value)
 
     @_builtins.property
     @pulumi.getter(name="vulnHostOs")
-    def vuln_host_os(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def vuln_host_os(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if scanning for vulnerabilities in hosts is enabled.
         """
         return pulumi.get(self, "vuln_host_os")
 
     @vuln_host_os.setter
-    def vuln_host_os(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def vuln_host_os(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "vuln_host_os", value)
 
 
@@ -133,9 +133,9 @@ class AgentlessScanningGcpScanOptions(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 gcp_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vuln_containers_os: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vuln_host_os: Optional[pulumi.Input[_builtins.bool]] = None,
+                 gcp_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vuln_containers_os: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vuln_host_os: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Provides a Datadog Agentless Scanning GCP scan options resource. This can be used to activate and configure Agentless scan options for a GCP project.
@@ -222,9 +222,9 @@ class AgentlessScanningGcpScanOptions(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 gcp_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vuln_containers_os: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vuln_host_os: Optional[pulumi.Input[_builtins.bool]] = None,
+                 gcp_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vuln_containers_os: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vuln_host_os: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -253,9 +253,9 @@ class AgentlessScanningGcpScanOptions(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            gcp_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            vuln_containers_os: Optional[pulumi.Input[_builtins.bool]] = None,
-            vuln_host_os: Optional[pulumi.Input[_builtins.bool]] = None) -> 'AgentlessScanningGcpScanOptions':
+            gcp_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vuln_containers_os: pulumi.Input[Optional[_builtins.bool]] = None,
+            vuln_host_os: pulumi.Input[Optional[_builtins.bool]] = None) -> 'AgentlessScanningGcpScanOptions':
         """
         Get an existing AgentlessScanningGcpScanOptions resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

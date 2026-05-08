@@ -70,5 +70,5 @@ export interface GetOrganizationSettingsOutputArgs {
     /**
      * Organization settings.
      */
-    settings?: pulumi.Input<pulumi.Input<inputs.GetOrganizationSettingsSettingArgs>[]>;
+    settings?: pulumi.Input<pulumi.Input<inputs.GetOrganizationSettingsSettingArgs>[] | undefined>;
 }

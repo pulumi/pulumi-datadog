@@ -169,54 +169,54 @@ export class AwsCurConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AwsCurConfig resources.
  */
 export interface AwsCurConfigState {
-    accountFilters?: pulumi.Input<inputs.AwsCurConfigAccountFilters>;
+    accountFilters?: pulumi.Input<inputs.AwsCurConfigAccountFilters | undefined>;
     /**
      * The AWS account ID of your billing/payer account. For AWS Organizations, this is typically the management account ID.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The S3 bucket name where your AWS Cost and Usage Report files are stored. This bucket must have appropriate IAM permissions for Datadog access and should be in the same AWS account as the CUR report.
      */
-    bucketName?: pulumi.Input<string>;
+    bucketName?: pulumi.Input<string | undefined>;
     /**
      * The AWS region where the S3 bucket containing your Cost and Usage Report is located (e.g., us-east-1, eu-west-1).
      */
-    bucketRegion?: pulumi.Input<string>;
+    bucketRegion?: pulumi.Input<string | undefined>;
     /**
      * The timestamp when the AWS CUR configuration was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * List of error messages if the AWS CUR configuration encountered any issues during setup or data processing.
      */
-    errorMessages?: pulumi.Input<pulumi.Input<string>[]>;
+    errorMessages?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The exact name of your AWS Cost and Usage Report as configured in AWS Billing preferences. This must match the report name exactly as it appears in your AWS billing settings.
      */
-    reportName?: pulumi.Input<string>;
+    reportName?: pulumi.Input<string | undefined>;
     /**
      * The S3 key prefix where your Cost and Usage Report files are stored within the bucket (e.g., 'cur-reports/', 'billing/cur/').
      */
-    reportPrefix?: pulumi.Input<string>;
+    reportPrefix?: pulumi.Input<string | undefined>;
     /**
      * The current status of the AWS CUR configuration.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The timestamp when the configuration status was last updated.
      */
-    statusUpdatedAt?: pulumi.Input<string>;
+    statusUpdatedAt?: pulumi.Input<string | undefined>;
     /**
      * The timestamp when the AWS CUR configuration was last modified.
      */
-    updatedAt?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string | undefined>;
 }
 
 /**
  * The set of arguments for constructing a AwsCurConfig resource.
  */
 export interface AwsCurConfigArgs {
-    accountFilters?: pulumi.Input<inputs.AwsCurConfigAccountFilters>;
+    accountFilters?: pulumi.Input<inputs.AwsCurConfigAccountFilters | undefined>;
     /**
      * The AWS account ID of your billing/payer account. For AWS Organizations, this is typically the management account ID.
      */
@@ -228,7 +228,7 @@ export interface AwsCurConfigArgs {
     /**
      * The AWS region where the S3 bucket containing your Cost and Usage Report is located (e.g., us-east-1, eu-west-1).
      */
-    bucketRegion?: pulumi.Input<string>;
+    bucketRegion?: pulumi.Input<string | undefined>;
     /**
      * The exact name of your AWS Cost and Usage Report as configured in AWS Billing preferences. This must match the report name exactly as it appears in your AWS billing settings.
      */

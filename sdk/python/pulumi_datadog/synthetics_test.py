@@ -25,30 +25,30 @@ class SyntheticsTestArgs:
                  name: pulumi.Input[_builtins.str],
                  status: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 api_steps: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]]] = None,
-                 assertions: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]]] = None,
-                 browser_steps: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]]] = None,
-                 browser_variables: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]]] = None,
-                 config_initial_application_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 config_variables: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]]] = None,
-                 device_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 force_delete_dependencies: Optional[pulumi.Input[_builtins.bool]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 mobile_options_list: Optional[pulumi.Input['SyntheticsTestMobileOptionsListArgs']] = None,
-                 mobile_steps: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestMobileStepArgs']]]] = None,
-                 options_list: Optional[pulumi.Input['SyntheticsTestOptionsListArgs']] = None,
-                 request_basicauth: Optional[pulumi.Input['SyntheticsTestRequestBasicauthArgs']] = None,
-                 request_client_certificate: Optional[pulumi.Input['SyntheticsTestRequestClientCertificateArgs']] = None,
-                 request_definition: Optional[pulumi.Input['SyntheticsTestRequestDefinitionArgs']] = None,
-                 request_files: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestRequestFileArgs']]]] = None,
-                 request_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 request_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 request_proxy: Optional[pulumi.Input['SyntheticsTestRequestProxyArgs']] = None,
-                 request_query: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 set_cookie: Optional[pulumi.Input[_builtins.str]] = None,
-                 subtype: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 variables_from_script: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_steps: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]]] = None,
+                 assertions: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]]] = None,
+                 browser_steps: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]]] = None,
+                 browser_variables: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]]] = None,
+                 config_initial_application_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 config_variables: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]]] = None,
+                 device_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 force_delete_dependencies: pulumi.Input[Optional[_builtins.bool]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 mobile_options_list: pulumi.Input[Optional['SyntheticsTestMobileOptionsListArgs']] = None,
+                 mobile_steps: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestMobileStepArgs']]]] = None,
+                 options_list: pulumi.Input[Optional['SyntheticsTestOptionsListArgs']] = None,
+                 request_basicauth: pulumi.Input[Optional['SyntheticsTestRequestBasicauthArgs']] = None,
+                 request_client_certificate: pulumi.Input[Optional['SyntheticsTestRequestClientCertificateArgs']] = None,
+                 request_definition: pulumi.Input[Optional['SyntheticsTestRequestDefinitionArgs']] = None,
+                 request_files: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestRequestFileArgs']]]] = None,
+                 request_headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 request_metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 request_proxy: pulumi.Input[Optional['SyntheticsTestRequestProxyArgs']] = None,
+                 request_query: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 set_cookie: pulumi.Input[Optional[_builtins.str]] = None,
+                 subtype: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 variables_from_script: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SyntheticsTest resource.
 
@@ -182,319 +182,319 @@ class SyntheticsTestArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiSteps")
-    def api_steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]]]:
+    def api_steps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]]]:
         """
         Steps for multistep API tests
         """
         return pulumi.get(self, "api_steps")
 
     @api_steps.setter
-    def api_steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]]]):
+    def api_steps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]]]):
         pulumi.set(self, "api_steps", value)
 
     @_builtins.property
     @pulumi.getter
-    def assertions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]]]:
+    def assertions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]]]:
         """
         Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         """
         return pulumi.get(self, "assertions")
 
     @assertions.setter
-    def assertions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]]]):
+    def assertions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]]]):
         pulumi.set(self, "assertions", value)
 
     @_builtins.property
     @pulumi.getter(name="browserSteps")
-    def browser_steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]]]:
+    def browser_steps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]]]:
         """
         Steps for browser tests.
         """
         return pulumi.get(self, "browser_steps")
 
     @browser_steps.setter
-    def browser_steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]]]):
+    def browser_steps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]]]):
         pulumi.set(self, "browser_steps", value)
 
     @_builtins.property
     @pulumi.getter(name="browserVariables")
-    def browser_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]]]:
+    def browser_variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]]]:
         """
         Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
         """
         return pulumi.get(self, "browser_variables")
 
     @browser_variables.setter
-    def browser_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]]]):
+    def browser_variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]]]):
         pulumi.set(self, "browser_variables", value)
 
     @_builtins.property
     @pulumi.getter(name="configInitialApplicationArguments")
-    def config_initial_application_arguments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def config_initial_application_arguments(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Initial application arguments for the mobile test.
         """
         return pulumi.get(self, "config_initial_application_arguments")
 
     @config_initial_application_arguments.setter
-    def config_initial_application_arguments(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def config_initial_application_arguments(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "config_initial_application_arguments", value)
 
     @_builtins.property
     @pulumi.getter(name="configVariables")
-    def config_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]]]:
+    def config_variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]]]:
         """
         Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
         """
         return pulumi.get(self, "config_variables")
 
     @config_variables.setter
-    def config_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]]]):
+    def config_variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]]]):
         pulumi.set(self, "config_variables", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceIds")
-    def device_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def device_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Required if `type = "browser"`. Array with the different device IDs used to run the test.
         """
         return pulumi.get(self, "device_ids")
 
     @device_ids.setter
-    def device_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def device_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "device_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="forceDeleteDependencies")
-    def force_delete_dependencies(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_delete_dependencies(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
         """
         return pulumi.get(self, "force_delete_dependencies")
 
     @force_delete_dependencies.setter
-    def force_delete_dependencies(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_delete_dependencies(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_delete_dependencies", value)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
     @_builtins.property
     @pulumi.getter(name="mobileOptionsList")
-    def mobile_options_list(self) -> Optional[pulumi.Input['SyntheticsTestMobileOptionsListArgs']]:
+    def mobile_options_list(self) -> pulumi.Input[Optional['SyntheticsTestMobileOptionsListArgs']]:
         return pulumi.get(self, "mobile_options_list")
 
     @mobile_options_list.setter
-    def mobile_options_list(self, value: Optional[pulumi.Input['SyntheticsTestMobileOptionsListArgs']]):
+    def mobile_options_list(self, value: pulumi.Input[Optional['SyntheticsTestMobileOptionsListArgs']]):
         pulumi.set(self, "mobile_options_list", value)
 
     @_builtins.property
     @pulumi.getter(name="mobileSteps")
-    def mobile_steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestMobileStepArgs']]]]:
+    def mobile_steps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestMobileStepArgs']]]]:
         """
         Steps for mobile tests
         """
         return pulumi.get(self, "mobile_steps")
 
     @mobile_steps.setter
-    def mobile_steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestMobileStepArgs']]]]):
+    def mobile_steps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestMobileStepArgs']]]]):
         pulumi.set(self, "mobile_steps", value)
 
     @_builtins.property
     @pulumi.getter(name="optionsList")
-    def options_list(self) -> Optional[pulumi.Input['SyntheticsTestOptionsListArgs']]:
+    def options_list(self) -> pulumi.Input[Optional['SyntheticsTestOptionsListArgs']]:
         return pulumi.get(self, "options_list")
 
     @options_list.setter
-    def options_list(self, value: Optional[pulumi.Input['SyntheticsTestOptionsListArgs']]):
+    def options_list(self, value: pulumi.Input[Optional['SyntheticsTestOptionsListArgs']]):
         pulumi.set(self, "options_list", value)
 
     @_builtins.property
     @pulumi.getter(name="requestBasicauth")
-    def request_basicauth(self) -> Optional[pulumi.Input['SyntheticsTestRequestBasicauthArgs']]:
+    def request_basicauth(self) -> pulumi.Input[Optional['SyntheticsTestRequestBasicauthArgs']]:
         """
         The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
         """
         return pulumi.get(self, "request_basicauth")
 
     @request_basicauth.setter
-    def request_basicauth(self, value: Optional[pulumi.Input['SyntheticsTestRequestBasicauthArgs']]):
+    def request_basicauth(self, value: pulumi.Input[Optional['SyntheticsTestRequestBasicauthArgs']]):
         pulumi.set(self, "request_basicauth", value)
 
     @_builtins.property
     @pulumi.getter(name="requestClientCertificate")
-    def request_client_certificate(self) -> Optional[pulumi.Input['SyntheticsTestRequestClientCertificateArgs']]:
+    def request_client_certificate(self) -> pulumi.Input[Optional['SyntheticsTestRequestClientCertificateArgs']]:
         """
         Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
         """
         return pulumi.get(self, "request_client_certificate")
 
     @request_client_certificate.setter
-    def request_client_certificate(self, value: Optional[pulumi.Input['SyntheticsTestRequestClientCertificateArgs']]):
+    def request_client_certificate(self, value: pulumi.Input[Optional['SyntheticsTestRequestClientCertificateArgs']]):
         pulumi.set(self, "request_client_certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="requestDefinition")
-    def request_definition(self) -> Optional[pulumi.Input['SyntheticsTestRequestDefinitionArgs']]:
+    def request_definition(self) -> pulumi.Input[Optional['SyntheticsTestRequestDefinitionArgs']]:
         """
         Required if `type = "api"`. The synthetics test request.
         """
         return pulumi.get(self, "request_definition")
 
     @request_definition.setter
-    def request_definition(self, value: Optional[pulumi.Input['SyntheticsTestRequestDefinitionArgs']]):
+    def request_definition(self, value: pulumi.Input[Optional['SyntheticsTestRequestDefinitionArgs']]):
         pulumi.set(self, "request_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="requestFiles")
-    def request_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestRequestFileArgs']]]]:
+    def request_files(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestRequestFileArgs']]]]:
         """
         Files to be used as part of the request in the test.
         """
         return pulumi.get(self, "request_files")
 
     @request_files.setter
-    def request_files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestRequestFileArgs']]]]):
+    def request_files(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestRequestFileArgs']]]]):
         pulumi.set(self, "request_files", value)
 
     @_builtins.property
     @pulumi.getter(name="requestHeaders")
-    def request_headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def request_headers(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Header name and value map.
         """
         return pulumi.get(self, "request_headers")
 
     @request_headers.setter
-    def request_headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def request_headers(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "request_headers", value)
 
     @_builtins.property
     @pulumi.getter(name="requestMetadata")
-    def request_metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def request_metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Metadata to include when performing the gRPC request.
         """
         return pulumi.get(self, "request_metadata")
 
     @request_metadata.setter
-    def request_metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def request_metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "request_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="requestProxy")
-    def request_proxy(self) -> Optional[pulumi.Input['SyntheticsTestRequestProxyArgs']]:
+    def request_proxy(self) -> pulumi.Input[Optional['SyntheticsTestRequestProxyArgs']]:
         """
         The proxy to perform the test.
         """
         return pulumi.get(self, "request_proxy")
 
     @request_proxy.setter
-    def request_proxy(self, value: Optional[pulumi.Input['SyntheticsTestRequestProxyArgs']]):
+    def request_proxy(self, value: pulumi.Input[Optional['SyntheticsTestRequestProxyArgs']]):
         pulumi.set(self, "request_proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="requestQuery")
-    def request_query(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def request_query(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Query arguments name and value map.
         """
         return pulumi.get(self, "request_query")
 
     @request_query.setter
-    def request_query(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def request_query(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "request_query", value)
 
     @_builtins.property
     @pulumi.getter(name="setCookie")
-    def set_cookie(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def set_cookie(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         """
         return pulumi.get(self, "set_cookie")
 
     @set_cookie.setter
-    def set_cookie(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def set_cookie(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "set_cookie", value)
 
     @_builtins.property
     @pulumi.getter
-    def subtype(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subtype(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subtype for API or Network Path tests. For API tests, defaults to `http`. For Network Path tests, only `tcp`, `udp`, `icmp` are available. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
         """
         return pulumi.get(self, "subtype")
 
     @subtype.setter
-    def subtype(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subtype(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subtype", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="variablesFromScript")
-    def variables_from_script(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def variables_from_script(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Variables defined from JavaScript code for API HTTP tests.
         """
         return pulumi.get(self, "variables_from_script")
 
     @variables_from_script.setter
-    def variables_from_script(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def variables_from_script(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "variables_from_script", value)
 
 
 @pulumi.input_type
 class _SyntheticsTestState:
     def __init__(__self__, *,
-                 api_steps: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]]] = None,
-                 assertions: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]]] = None,
-                 browser_steps: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]]] = None,
-                 browser_variables: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]]] = None,
-                 config_initial_application_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 config_variables: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]]] = None,
-                 device_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 force_delete_dependencies: Optional[pulumi.Input[_builtins.bool]] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 mobile_options_list: Optional[pulumi.Input['SyntheticsTestMobileOptionsListArgs']] = None,
-                 mobile_steps: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestMobileStepArgs']]]] = None,
-                 monitor_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 options_list: Optional[pulumi.Input['SyntheticsTestOptionsListArgs']] = None,
-                 request_basicauth: Optional[pulumi.Input['SyntheticsTestRequestBasicauthArgs']] = None,
-                 request_client_certificate: Optional[pulumi.Input['SyntheticsTestRequestClientCertificateArgs']] = None,
-                 request_definition: Optional[pulumi.Input['SyntheticsTestRequestDefinitionArgs']] = None,
-                 request_files: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestRequestFileArgs']]]] = None,
-                 request_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 request_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 request_proxy: Optional[pulumi.Input['SyntheticsTestRequestProxyArgs']] = None,
-                 request_query: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 set_cookie: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subtype: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 variables_from_script: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_steps: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]]] = None,
+                 assertions: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]]] = None,
+                 browser_steps: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]]] = None,
+                 browser_variables: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]]] = None,
+                 config_initial_application_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 config_variables: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]]] = None,
+                 device_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 force_delete_dependencies: pulumi.Input[Optional[_builtins.bool]] = None,
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 mobile_options_list: pulumi.Input[Optional['SyntheticsTestMobileOptionsListArgs']] = None,
+                 mobile_steps: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestMobileStepArgs']]]] = None,
+                 monitor_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 options_list: pulumi.Input[Optional['SyntheticsTestOptionsListArgs']] = None,
+                 request_basicauth: pulumi.Input[Optional['SyntheticsTestRequestBasicauthArgs']] = None,
+                 request_client_certificate: pulumi.Input[Optional['SyntheticsTestRequestClientCertificateArgs']] = None,
+                 request_definition: pulumi.Input[Optional['SyntheticsTestRequestDefinitionArgs']] = None,
+                 request_files: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestRequestFileArgs']]]] = None,
+                 request_headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 request_metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 request_proxy: pulumi.Input[Optional['SyntheticsTestRequestProxyArgs']] = None,
+                 request_query: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 set_cookie: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subtype: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 variables_from_script: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SyntheticsTest resources.
 
@@ -587,344 +587,344 @@ class _SyntheticsTestState:
 
     @_builtins.property
     @pulumi.getter(name="apiSteps")
-    def api_steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]]]:
+    def api_steps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]]]:
         """
         Steps for multistep API tests
         """
         return pulumi.get(self, "api_steps")
 
     @api_steps.setter
-    def api_steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]]]):
+    def api_steps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]]]):
         pulumi.set(self, "api_steps", value)
 
     @_builtins.property
     @pulumi.getter
-    def assertions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]]]:
+    def assertions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]]]:
         """
         Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         """
         return pulumi.get(self, "assertions")
 
     @assertions.setter
-    def assertions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]]]):
+    def assertions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]]]):
         pulumi.set(self, "assertions", value)
 
     @_builtins.property
     @pulumi.getter(name="browserSteps")
-    def browser_steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]]]:
+    def browser_steps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]]]:
         """
         Steps for browser tests.
         """
         return pulumi.get(self, "browser_steps")
 
     @browser_steps.setter
-    def browser_steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]]]):
+    def browser_steps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]]]):
         pulumi.set(self, "browser_steps", value)
 
     @_builtins.property
     @pulumi.getter(name="browserVariables")
-    def browser_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]]]:
+    def browser_variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]]]:
         """
         Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
         """
         return pulumi.get(self, "browser_variables")
 
     @browser_variables.setter
-    def browser_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]]]):
+    def browser_variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]]]):
         pulumi.set(self, "browser_variables", value)
 
     @_builtins.property
     @pulumi.getter(name="configInitialApplicationArguments")
-    def config_initial_application_arguments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def config_initial_application_arguments(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Initial application arguments for the mobile test.
         """
         return pulumi.get(self, "config_initial_application_arguments")
 
     @config_initial_application_arguments.setter
-    def config_initial_application_arguments(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def config_initial_application_arguments(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "config_initial_application_arguments", value)
 
     @_builtins.property
     @pulumi.getter(name="configVariables")
-    def config_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]]]:
+    def config_variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]]]:
         """
         Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
         """
         return pulumi.get(self, "config_variables")
 
     @config_variables.setter
-    def config_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]]]):
+    def config_variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]]]):
         pulumi.set(self, "config_variables", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceIds")
-    def device_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def device_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Required if `type = "browser"`. Array with the different device IDs used to run the test.
         """
         return pulumi.get(self, "device_ids")
 
     @device_ids.setter
-    def device_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def device_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "device_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="forceDeleteDependencies")
-    def force_delete_dependencies(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_delete_dependencies(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
         """
         return pulumi.get(self, "force_delete_dependencies")
 
     @force_delete_dependencies.setter
-    def force_delete_dependencies(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_delete_dependencies(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_delete_dependencies", value)
 
     @_builtins.property
     @pulumi.getter
-    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
         """
         return pulumi.get(self, "locations")
 
     @locations.setter
-    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "locations", value)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
     @_builtins.property
     @pulumi.getter(name="mobileOptionsList")
-    def mobile_options_list(self) -> Optional[pulumi.Input['SyntheticsTestMobileOptionsListArgs']]:
+    def mobile_options_list(self) -> pulumi.Input[Optional['SyntheticsTestMobileOptionsListArgs']]:
         return pulumi.get(self, "mobile_options_list")
 
     @mobile_options_list.setter
-    def mobile_options_list(self, value: Optional[pulumi.Input['SyntheticsTestMobileOptionsListArgs']]):
+    def mobile_options_list(self, value: pulumi.Input[Optional['SyntheticsTestMobileOptionsListArgs']]):
         pulumi.set(self, "mobile_options_list", value)
 
     @_builtins.property
     @pulumi.getter(name="mobileSteps")
-    def mobile_steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestMobileStepArgs']]]]:
+    def mobile_steps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestMobileStepArgs']]]]:
         """
         Steps for mobile tests
         """
         return pulumi.get(self, "mobile_steps")
 
     @mobile_steps.setter
-    def mobile_steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestMobileStepArgs']]]]):
+    def mobile_steps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestMobileStepArgs']]]]):
         pulumi.set(self, "mobile_steps", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorId")
-    def monitor_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def monitor_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ID of the monitor associated with the Datadog synthetics test.
         """
         return pulumi.get(self, "monitor_id")
 
     @monitor_id.setter
-    def monitor_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def monitor_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "monitor_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Datadog synthetics test.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="optionsList")
-    def options_list(self) -> Optional[pulumi.Input['SyntheticsTestOptionsListArgs']]:
+    def options_list(self) -> pulumi.Input[Optional['SyntheticsTestOptionsListArgs']]:
         return pulumi.get(self, "options_list")
 
     @options_list.setter
-    def options_list(self, value: Optional[pulumi.Input['SyntheticsTestOptionsListArgs']]):
+    def options_list(self, value: pulumi.Input[Optional['SyntheticsTestOptionsListArgs']]):
         pulumi.set(self, "options_list", value)
 
     @_builtins.property
     @pulumi.getter(name="requestBasicauth")
-    def request_basicauth(self) -> Optional[pulumi.Input['SyntheticsTestRequestBasicauthArgs']]:
+    def request_basicauth(self) -> pulumi.Input[Optional['SyntheticsTestRequestBasicauthArgs']]:
         """
         The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
         """
         return pulumi.get(self, "request_basicauth")
 
     @request_basicauth.setter
-    def request_basicauth(self, value: Optional[pulumi.Input['SyntheticsTestRequestBasicauthArgs']]):
+    def request_basicauth(self, value: pulumi.Input[Optional['SyntheticsTestRequestBasicauthArgs']]):
         pulumi.set(self, "request_basicauth", value)
 
     @_builtins.property
     @pulumi.getter(name="requestClientCertificate")
-    def request_client_certificate(self) -> Optional[pulumi.Input['SyntheticsTestRequestClientCertificateArgs']]:
+    def request_client_certificate(self) -> pulumi.Input[Optional['SyntheticsTestRequestClientCertificateArgs']]:
         """
         Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
         """
         return pulumi.get(self, "request_client_certificate")
 
     @request_client_certificate.setter
-    def request_client_certificate(self, value: Optional[pulumi.Input['SyntheticsTestRequestClientCertificateArgs']]):
+    def request_client_certificate(self, value: pulumi.Input[Optional['SyntheticsTestRequestClientCertificateArgs']]):
         pulumi.set(self, "request_client_certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="requestDefinition")
-    def request_definition(self) -> Optional[pulumi.Input['SyntheticsTestRequestDefinitionArgs']]:
+    def request_definition(self) -> pulumi.Input[Optional['SyntheticsTestRequestDefinitionArgs']]:
         """
         Required if `type = "api"`. The synthetics test request.
         """
         return pulumi.get(self, "request_definition")
 
     @request_definition.setter
-    def request_definition(self, value: Optional[pulumi.Input['SyntheticsTestRequestDefinitionArgs']]):
+    def request_definition(self, value: pulumi.Input[Optional['SyntheticsTestRequestDefinitionArgs']]):
         pulumi.set(self, "request_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="requestFiles")
-    def request_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestRequestFileArgs']]]]:
+    def request_files(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestRequestFileArgs']]]]:
         """
         Files to be used as part of the request in the test.
         """
         return pulumi.get(self, "request_files")
 
     @request_files.setter
-    def request_files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestRequestFileArgs']]]]):
+    def request_files(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsTestRequestFileArgs']]]]):
         pulumi.set(self, "request_files", value)
 
     @_builtins.property
     @pulumi.getter(name="requestHeaders")
-    def request_headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def request_headers(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Header name and value map.
         """
         return pulumi.get(self, "request_headers")
 
     @request_headers.setter
-    def request_headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def request_headers(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "request_headers", value)
 
     @_builtins.property
     @pulumi.getter(name="requestMetadata")
-    def request_metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def request_metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Metadata to include when performing the gRPC request.
         """
         return pulumi.get(self, "request_metadata")
 
     @request_metadata.setter
-    def request_metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def request_metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "request_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="requestProxy")
-    def request_proxy(self) -> Optional[pulumi.Input['SyntheticsTestRequestProxyArgs']]:
+    def request_proxy(self) -> pulumi.Input[Optional['SyntheticsTestRequestProxyArgs']]:
         """
         The proxy to perform the test.
         """
         return pulumi.get(self, "request_proxy")
 
     @request_proxy.setter
-    def request_proxy(self, value: Optional[pulumi.Input['SyntheticsTestRequestProxyArgs']]):
+    def request_proxy(self, value: pulumi.Input[Optional['SyntheticsTestRequestProxyArgs']]):
         pulumi.set(self, "request_proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="requestQuery")
-    def request_query(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def request_query(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Query arguments name and value map.
         """
         return pulumi.get(self, "request_query")
 
     @request_query.setter
-    def request_query(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def request_query(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "request_query", value)
 
     @_builtins.property
     @pulumi.getter(name="setCookie")
-    def set_cookie(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def set_cookie(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         """
         return pulumi.get(self, "set_cookie")
 
     @set_cookie.setter
-    def set_cookie(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def set_cookie(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "set_cookie", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def subtype(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subtype(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subtype for API or Network Path tests. For API tests, defaults to `http`. For Network Path tests, only `tcp`, `udp`, `icmp` are available. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
         """
         return pulumi.get(self, "subtype")
 
     @subtype.setter
-    def subtype(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subtype(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subtype", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of Synthetics test. Valid values are `api`, `browser`, `mobile`, `network`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="variablesFromScript")
-    def variables_from_script(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def variables_from_script(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Variables defined from JavaScript code for API HTTP tests.
         """
         return pulumi.get(self, "variables_from_script")
 
     @variables_from_script.setter
-    def variables_from_script(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def variables_from_script(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "variables_from_script", value)
 
 
@@ -934,34 +934,34 @@ class SyntheticsTest(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict']]]]] = None,
-                 assertions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict']]]]] = None,
-                 browser_steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict']]]]] = None,
-                 browser_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict']]]]] = None,
-                 config_initial_application_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 config_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict']]]]] = None,
-                 device_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 force_delete_dependencies: Optional[pulumi.Input[_builtins.bool]] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 mobile_options_list: Optional[pulumi.Input[Union['SyntheticsTestMobileOptionsListArgs', 'SyntheticsTestMobileOptionsListArgsDict']]] = None,
-                 mobile_steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestMobileStepArgs', 'SyntheticsTestMobileStepArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 options_list: Optional[pulumi.Input[Union['SyntheticsTestOptionsListArgs', 'SyntheticsTestOptionsListArgsDict']]] = None,
-                 request_basicauth: Optional[pulumi.Input[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict']]] = None,
-                 request_client_certificate: Optional[pulumi.Input[Union['SyntheticsTestRequestClientCertificateArgs', 'SyntheticsTestRequestClientCertificateArgsDict']]] = None,
-                 request_definition: Optional[pulumi.Input[Union['SyntheticsTestRequestDefinitionArgs', 'SyntheticsTestRequestDefinitionArgsDict']]] = None,
-                 request_files: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestRequestFileArgs', 'SyntheticsTestRequestFileArgsDict']]]]] = None,
-                 request_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 request_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 request_proxy: Optional[pulumi.Input[Union['SyntheticsTestRequestProxyArgs', 'SyntheticsTestRequestProxyArgsDict']]] = None,
-                 request_query: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 set_cookie: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subtype: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 variables_from_script: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict']]]]] = None,
+                 assertions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict']]]]] = None,
+                 browser_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict']]]]] = None,
+                 browser_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict']]]]] = None,
+                 config_initial_application_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 config_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict']]]]] = None,
+                 device_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 force_delete_dependencies: pulumi.Input[Optional[_builtins.bool]] = None,
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 mobile_options_list: pulumi.Input[Optional[Union['SyntheticsTestMobileOptionsListArgs', 'SyntheticsTestMobileOptionsListArgsDict']]] = None,
+                 mobile_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestMobileStepArgs', 'SyntheticsTestMobileStepArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 options_list: pulumi.Input[Optional[Union['SyntheticsTestOptionsListArgs', 'SyntheticsTestOptionsListArgsDict']]] = None,
+                 request_basicauth: pulumi.Input[Optional[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict']]] = None,
+                 request_client_certificate: pulumi.Input[Optional[Union['SyntheticsTestRequestClientCertificateArgs', 'SyntheticsTestRequestClientCertificateArgsDict']]] = None,
+                 request_definition: pulumi.Input[Optional[Union['SyntheticsTestRequestDefinitionArgs', 'SyntheticsTestRequestDefinitionArgsDict']]] = None,
+                 request_files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestRequestFileArgs', 'SyntheticsTestRequestFileArgsDict']]]]] = None,
+                 request_headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 request_metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 request_proxy: pulumi.Input[Optional[Union['SyntheticsTestRequestProxyArgs', 'SyntheticsTestRequestProxyArgsDict']]] = None,
+                 request_query: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 set_cookie: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subtype: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 variables_from_script: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog synthetics test resource. This can be used to create and manage Datadog synthetics test.
@@ -2767,34 +2767,34 @@ class SyntheticsTest(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict']]]]] = None,
-                 assertions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict']]]]] = None,
-                 browser_steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict']]]]] = None,
-                 browser_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict']]]]] = None,
-                 config_initial_application_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 config_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict']]]]] = None,
-                 device_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 force_delete_dependencies: Optional[pulumi.Input[_builtins.bool]] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 mobile_options_list: Optional[pulumi.Input[Union['SyntheticsTestMobileOptionsListArgs', 'SyntheticsTestMobileOptionsListArgsDict']]] = None,
-                 mobile_steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestMobileStepArgs', 'SyntheticsTestMobileStepArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 options_list: Optional[pulumi.Input[Union['SyntheticsTestOptionsListArgs', 'SyntheticsTestOptionsListArgsDict']]] = None,
-                 request_basicauth: Optional[pulumi.Input[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict']]] = None,
-                 request_client_certificate: Optional[pulumi.Input[Union['SyntheticsTestRequestClientCertificateArgs', 'SyntheticsTestRequestClientCertificateArgsDict']]] = None,
-                 request_definition: Optional[pulumi.Input[Union['SyntheticsTestRequestDefinitionArgs', 'SyntheticsTestRequestDefinitionArgsDict']]] = None,
-                 request_files: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestRequestFileArgs', 'SyntheticsTestRequestFileArgsDict']]]]] = None,
-                 request_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 request_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 request_proxy: Optional[pulumi.Input[Union['SyntheticsTestRequestProxyArgs', 'SyntheticsTestRequestProxyArgsDict']]] = None,
-                 request_query: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 set_cookie: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subtype: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 variables_from_script: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict']]]]] = None,
+                 assertions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict']]]]] = None,
+                 browser_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict']]]]] = None,
+                 browser_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict']]]]] = None,
+                 config_initial_application_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 config_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict']]]]] = None,
+                 device_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 force_delete_dependencies: pulumi.Input[Optional[_builtins.bool]] = None,
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 mobile_options_list: pulumi.Input[Optional[Union['SyntheticsTestMobileOptionsListArgs', 'SyntheticsTestMobileOptionsListArgsDict']]] = None,
+                 mobile_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestMobileStepArgs', 'SyntheticsTestMobileStepArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 options_list: pulumi.Input[Optional[Union['SyntheticsTestOptionsListArgs', 'SyntheticsTestOptionsListArgsDict']]] = None,
+                 request_basicauth: pulumi.Input[Optional[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict']]] = None,
+                 request_client_certificate: pulumi.Input[Optional[Union['SyntheticsTestRequestClientCertificateArgs', 'SyntheticsTestRequestClientCertificateArgsDict']]] = None,
+                 request_definition: pulumi.Input[Optional[Union['SyntheticsTestRequestDefinitionArgs', 'SyntheticsTestRequestDefinitionArgsDict']]] = None,
+                 request_files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestRequestFileArgs', 'SyntheticsTestRequestFileArgsDict']]]]] = None,
+                 request_headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 request_metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 request_proxy: pulumi.Input[Optional[Union['SyntheticsTestRequestProxyArgs', 'SyntheticsTestRequestProxyArgsDict']]] = None,
+                 request_query: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 set_cookie: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subtype: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 variables_from_script: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -2851,35 +2851,35 @@ class SyntheticsTest(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict']]]]] = None,
-            assertions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict']]]]] = None,
-            browser_steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict']]]]] = None,
-            browser_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict']]]]] = None,
-            config_initial_application_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            config_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict']]]]] = None,
-            device_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            force_delete_dependencies: Optional[pulumi.Input[_builtins.bool]] = None,
-            locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            message: Optional[pulumi.Input[_builtins.str]] = None,
-            mobile_options_list: Optional[pulumi.Input[Union['SyntheticsTestMobileOptionsListArgs', 'SyntheticsTestMobileOptionsListArgsDict']]] = None,
-            mobile_steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestMobileStepArgs', 'SyntheticsTestMobileStepArgsDict']]]]] = None,
-            monitor_id: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            options_list: Optional[pulumi.Input[Union['SyntheticsTestOptionsListArgs', 'SyntheticsTestOptionsListArgsDict']]] = None,
-            request_basicauth: Optional[pulumi.Input[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict']]] = None,
-            request_client_certificate: Optional[pulumi.Input[Union['SyntheticsTestRequestClientCertificateArgs', 'SyntheticsTestRequestClientCertificateArgsDict']]] = None,
-            request_definition: Optional[pulumi.Input[Union['SyntheticsTestRequestDefinitionArgs', 'SyntheticsTestRequestDefinitionArgsDict']]] = None,
-            request_files: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestRequestFileArgs', 'SyntheticsTestRequestFileArgsDict']]]]] = None,
-            request_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            request_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            request_proxy: Optional[pulumi.Input[Union['SyntheticsTestRequestProxyArgs', 'SyntheticsTestRequestProxyArgsDict']]] = None,
-            request_query: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            set_cookie: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            subtype: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            variables_from_script: Optional[pulumi.Input[_builtins.str]] = None) -> 'SyntheticsTest':
+            api_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict']]]]] = None,
+            assertions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict']]]]] = None,
+            browser_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict']]]]] = None,
+            browser_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict']]]]] = None,
+            config_initial_application_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            config_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict']]]]] = None,
+            device_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            force_delete_dependencies: pulumi.Input[Optional[_builtins.bool]] = None,
+            locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            message: pulumi.Input[Optional[_builtins.str]] = None,
+            mobile_options_list: pulumi.Input[Optional[Union['SyntheticsTestMobileOptionsListArgs', 'SyntheticsTestMobileOptionsListArgsDict']]] = None,
+            mobile_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestMobileStepArgs', 'SyntheticsTestMobileStepArgsDict']]]]] = None,
+            monitor_id: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            options_list: pulumi.Input[Optional[Union['SyntheticsTestOptionsListArgs', 'SyntheticsTestOptionsListArgsDict']]] = None,
+            request_basicauth: pulumi.Input[Optional[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict']]] = None,
+            request_client_certificate: pulumi.Input[Optional[Union['SyntheticsTestRequestClientCertificateArgs', 'SyntheticsTestRequestClientCertificateArgsDict']]] = None,
+            request_definition: pulumi.Input[Optional[Union['SyntheticsTestRequestDefinitionArgs', 'SyntheticsTestRequestDefinitionArgsDict']]] = None,
+            request_files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestRequestFileArgs', 'SyntheticsTestRequestFileArgsDict']]]]] = None,
+            request_headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            request_metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            request_proxy: pulumi.Input[Optional[Union['SyntheticsTestRequestProxyArgs', 'SyntheticsTestRequestProxyArgsDict']]] = None,
+            request_query: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            set_cookie: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            subtype: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            variables_from_script: pulumi.Input[Optional[_builtins.str]] = None) -> 'SyntheticsTest':
         """
         Get an existing SyntheticsTest resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

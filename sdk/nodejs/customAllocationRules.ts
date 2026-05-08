@@ -169,11 +169,11 @@ export interface CustomAllocationRulesState {
     /**
      * Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
      */
-    overrideUiDefinedResources?: pulumi.Input<boolean>;
+    overrideUiDefinedResources?: pulumi.Input<boolean | undefined>;
     /**
      * The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `datadog.CustomAllocationRule` resource.
      */
-    ruleIds?: pulumi.Input<pulumi.Input<string>[]>;
+    ruleIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -183,7 +183,7 @@ export interface CustomAllocationRulesArgs {
     /**
      * Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
      */
-    overrideUiDefinedResources?: pulumi.Input<boolean>;
+    overrideUiDefinedResources?: pulumi.Input<boolean | undefined>;
     /**
      * The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `datadog.CustomAllocationRule` resource.
      */

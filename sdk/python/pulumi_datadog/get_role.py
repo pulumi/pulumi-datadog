@@ -112,7 +112,7 @@ def get_role(filter: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         user_count=pulumi.get(__ret__, 'user_count'))
-def get_role_output(filter: Optional[pulumi.Input[_builtins.str]] = None,
+def get_role_output(filter: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleResult]:
     """
     Use this data source to retrieve information about an existing role for use in other resources.

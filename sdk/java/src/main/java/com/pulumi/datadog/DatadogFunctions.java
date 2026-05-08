@@ -200,8 +200,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetActionConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -240,8 +240,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetActionConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -280,8 +280,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetActionConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -320,8 +320,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetActionConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -360,8 +360,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetActionConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -400,8 +400,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetApiKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -440,8 +440,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetApiKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -480,8 +480,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetApiKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -520,8 +520,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetApiKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -560,8 +560,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetApiKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -600,8 +600,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetApiKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -640,8 +640,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetApiKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -679,8 +679,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -716,8 +716,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -753,8 +753,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -790,8 +790,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -827,8 +827,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -864,8 +864,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -901,8 +901,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -939,8 +939,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetAppBuilderAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -979,8 +979,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetAppBuilderAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1019,8 +1019,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetAppBuilderAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1059,8 +1059,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetAppBuilderAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1099,8 +1099,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetAppBuilderAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1208,8 +1208,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1245,8 +1245,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1282,8 +1282,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1319,8 +1319,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1356,8 +1356,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1393,8 +1393,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1430,8 +1430,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1503,8 +1503,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetCsmThreatsAgentRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1542,8 +1542,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetCsmThreatsAgentRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1581,8 +1581,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetCsmThreatsAgentRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1620,8 +1620,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetCsmThreatsAgentRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1659,8 +1659,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetCsmThreatsAgentRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1698,8 +1698,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetCsmThreatsAgentRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1737,8 +1737,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetCsmThreatsAgentRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1874,8 +1874,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetDashboardArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1914,8 +1914,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetDashboardArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1954,8 +1954,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetDashboardArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1994,8 +1994,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetDashboardArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2034,8 +2034,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetDashboardArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2078,8 +2078,8 @@ public final class DatadogFunctions {
      * import com.pulumi.datadog.DashboardArgs;
      * import com.pulumi.datadog.inputs.DashboardWidgetArgs;
      * import com.pulumi.datadog.inputs.DashboardWidgetAlertGraphDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2139,8 +2139,8 @@ public final class DatadogFunctions {
      * import com.pulumi.datadog.DashboardArgs;
      * import com.pulumi.datadog.inputs.DashboardWidgetArgs;
      * import com.pulumi.datadog.inputs.DashboardWidgetAlertGraphDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2200,8 +2200,8 @@ public final class DatadogFunctions {
      * import com.pulumi.datadog.DashboardArgs;
      * import com.pulumi.datadog.inputs.DashboardWidgetArgs;
      * import com.pulumi.datadog.inputs.DashboardWidgetAlertGraphDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2261,8 +2261,8 @@ public final class DatadogFunctions {
      * import com.pulumi.datadog.DashboardArgs;
      * import com.pulumi.datadog.inputs.DashboardWidgetArgs;
      * import com.pulumi.datadog.inputs.DashboardWidgetAlertGraphDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2322,8 +2322,8 @@ public final class DatadogFunctions {
      * import com.pulumi.datadog.DashboardArgs;
      * import com.pulumi.datadog.inputs.DashboardWidgetArgs;
      * import com.pulumi.datadog.inputs.DashboardWidgetAlertGraphDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2561,8 +2561,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetIncidentNotificationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2601,8 +2601,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetIncidentNotificationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2641,8 +2641,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetIncidentNotificationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2681,8 +2681,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetIncidentNotificationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2721,8 +2721,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetIncidentNotificationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2761,8 +2761,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetIncidentNotificationTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2801,8 +2801,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetIncidentNotificationTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2841,8 +2841,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetIncidentNotificationTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2881,8 +2881,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetIncidentNotificationTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2921,8 +2921,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetIncidentNotificationTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2961,8 +2961,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetIncidentNotificationTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3001,8 +3001,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetIncidentNotificationTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3041,8 +3041,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetIncidentTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3081,8 +3081,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetIncidentTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3121,8 +3121,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetIncidentTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3161,8 +3161,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetIncidentTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3201,8 +3201,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetIncidentTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3240,8 +3240,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3277,8 +3277,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3314,8 +3314,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3351,8 +3351,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3388,8 +3388,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3425,8 +3425,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3462,8 +3462,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3548,8 +3548,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3585,8 +3585,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3622,8 +3622,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3659,8 +3659,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3696,8 +3696,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3733,8 +3733,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3770,8 +3770,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3807,8 +3807,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3844,8 +3844,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3881,8 +3881,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3918,8 +3918,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3955,8 +3955,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3992,8 +3992,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4029,8 +4029,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4129,8 +4129,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4166,8 +4166,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4203,8 +4203,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4240,8 +4240,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4277,8 +4277,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4314,8 +4314,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4351,8 +4351,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4529,8 +4529,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetMonitorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4570,8 +4570,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetMonitorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4611,8 +4611,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetMonitorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4652,8 +4652,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetMonitorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4693,8 +4693,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetMonitorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4734,8 +4734,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetMonitorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4775,8 +4775,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetMonitorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4815,8 +4815,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4852,8 +4852,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4889,8 +4889,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4926,8 +4926,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4963,8 +4963,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5000,8 +5000,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5037,8 +5037,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5176,8 +5176,8 @@ public final class DatadogFunctions {
      * import com.pulumi.datadog.Role;
      * import com.pulumi.datadog.RoleArgs;
      * import com.pulumi.datadog.inputs.RolePermissionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5230,8 +5230,8 @@ public final class DatadogFunctions {
      * import com.pulumi.datadog.Role;
      * import com.pulumi.datadog.RoleArgs;
      * import com.pulumi.datadog.inputs.RolePermissionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5284,8 +5284,8 @@ public final class DatadogFunctions {
      * import com.pulumi.datadog.Role;
      * import com.pulumi.datadog.RoleArgs;
      * import com.pulumi.datadog.inputs.RolePermissionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5338,8 +5338,8 @@ public final class DatadogFunctions {
      * import com.pulumi.datadog.Role;
      * import com.pulumi.datadog.RoleArgs;
      * import com.pulumi.datadog.inputs.RolePermissionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5392,8 +5392,8 @@ public final class DatadogFunctions {
      * import com.pulumi.datadog.Role;
      * import com.pulumi.datadog.RoleArgs;
      * import com.pulumi.datadog.inputs.RolePermissionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5446,8 +5446,8 @@ public final class DatadogFunctions {
      * import com.pulumi.datadog.Role;
      * import com.pulumi.datadog.RoleArgs;
      * import com.pulumi.datadog.inputs.RolePermissionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5500,8 +5500,8 @@ public final class DatadogFunctions {
      * import com.pulumi.datadog.Role;
      * import com.pulumi.datadog.RoleArgs;
      * import com.pulumi.datadog.inputs.RolePermissionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5670,8 +5670,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5710,8 +5710,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5750,8 +5750,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5790,8 +5790,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5830,8 +5830,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5871,8 +5871,8 @@ public final class DatadogFunctions {
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetRoleArgs;
      * import com.pulumi.datadog.inputs.GetRoleUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5918,8 +5918,8 @@ public final class DatadogFunctions {
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetRoleArgs;
      * import com.pulumi.datadog.inputs.GetRoleUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5965,8 +5965,8 @@ public final class DatadogFunctions {
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetRoleArgs;
      * import com.pulumi.datadog.inputs.GetRoleUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6012,8 +6012,8 @@ public final class DatadogFunctions {
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetRoleArgs;
      * import com.pulumi.datadog.inputs.GetRoleUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6059,8 +6059,8 @@ public final class DatadogFunctions {
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetRoleArgs;
      * import com.pulumi.datadog.inputs.GetRoleUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6105,8 +6105,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetRolesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6145,8 +6145,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetRolesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6185,8 +6185,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetRolesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6225,8 +6225,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetRolesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6265,8 +6265,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetRolesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6305,8 +6305,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetRolesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6345,8 +6345,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetRolesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6434,8 +6434,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetRumRetentionFiltersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6474,8 +6474,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetRumRetentionFiltersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6514,8 +6514,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetRumRetentionFiltersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6554,8 +6554,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetRumRetentionFiltersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6594,8 +6594,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetRumRetentionFiltersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6634,8 +6634,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetSecurityMonitoringCriticalAssetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6674,8 +6674,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetSecurityMonitoringCriticalAssetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6714,8 +6714,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetSecurityMonitoringCriticalAssetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6754,8 +6754,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetSecurityMonitoringCriticalAssetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6794,8 +6794,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetSecurityMonitoringCriticalAssetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6833,8 +6833,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6872,8 +6872,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6911,8 +6911,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6950,8 +6950,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6989,8 +6989,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7028,8 +7028,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7067,8 +7067,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7106,8 +7106,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7143,8 +7143,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7180,8 +7180,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7217,8 +7217,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7254,8 +7254,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7291,8 +7291,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7328,8 +7328,8 @@ public final class DatadogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7366,8 +7366,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetSecurityMonitoringRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7408,8 +7408,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetSecurityMonitoringRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7450,8 +7450,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetSecurityMonitoringRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7492,8 +7492,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetSecurityMonitoringRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7534,8 +7534,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetSecurityMonitoringRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7576,8 +7576,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetSecurityMonitoringRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7618,8 +7618,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetSecurityMonitoringRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7710,8 +7710,8 @@ public final class DatadogFunctions {
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.SensitiveDataScannerGroupOrder;
      * import com.pulumi.datadog.SensitiveDataScannerGroupOrderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7753,8 +7753,8 @@ public final class DatadogFunctions {
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.SensitiveDataScannerGroupOrder;
      * import com.pulumi.datadog.SensitiveDataScannerGroupOrderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7796,8 +7796,8 @@ public final class DatadogFunctions {
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.SensitiveDataScannerGroupOrder;
      * import com.pulumi.datadog.SensitiveDataScannerGroupOrderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7839,8 +7839,8 @@ public final class DatadogFunctions {
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.SensitiveDataScannerGroupOrder;
      * import com.pulumi.datadog.SensitiveDataScannerGroupOrderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7882,8 +7882,8 @@ public final class DatadogFunctions {
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.SensitiveDataScannerGroupOrder;
      * import com.pulumi.datadog.SensitiveDataScannerGroupOrderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7925,8 +7925,8 @@ public final class DatadogFunctions {
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.SensitiveDataScannerGroupOrder;
      * import com.pulumi.datadog.SensitiveDataScannerGroupOrderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7968,8 +7968,8 @@ public final class DatadogFunctions {
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.SensitiveDataScannerGroupOrder;
      * import com.pulumi.datadog.SensitiveDataScannerGroupOrderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8094,8 +8094,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetServiceLevelObjectiveArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8139,8 +8139,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetServiceLevelObjectiveArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8184,8 +8184,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetServiceLevelObjectiveArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8229,8 +8229,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetServiceLevelObjectiveArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8274,8 +8274,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetServiceLevelObjectiveArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8319,8 +8319,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetServiceLevelObjectiveArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8364,8 +8364,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetServiceLevelObjectiveArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8409,8 +8409,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetServiceLevelObjectivesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8449,8 +8449,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetServiceLevelObjectivesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8489,8 +8489,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetServiceLevelObjectivesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8529,8 +8529,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetServiceLevelObjectivesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8569,8 +8569,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetServiceLevelObjectivesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8609,8 +8609,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetServiceLevelObjectivesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8649,8 +8649,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetServiceLevelObjectivesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8689,8 +8689,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetSoftwareCatalogArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8728,8 +8728,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetSoftwareCatalogArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8767,8 +8767,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetSoftwareCatalogArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8806,8 +8806,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetSoftwareCatalogArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8845,8 +8845,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetSoftwareCatalogArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8884,8 +8884,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetSoftwareCatalogArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8923,8 +8923,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetSoftwareCatalogArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9116,8 +9116,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9156,8 +9156,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9196,8 +9196,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9236,8 +9236,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9276,8 +9276,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9316,8 +9316,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9356,8 +9356,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9445,8 +9445,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamMembershipsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9486,8 +9486,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamMembershipsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9527,8 +9527,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamMembershipsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9568,8 +9568,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamMembershipsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9609,8 +9609,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamMembershipsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9650,8 +9650,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamNotificationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9692,8 +9692,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamNotificationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9734,8 +9734,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamNotificationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9776,8 +9776,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamNotificationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9818,8 +9818,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamNotificationRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9860,8 +9860,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamNotificationRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9901,8 +9901,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamNotificationRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9942,8 +9942,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamNotificationRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9983,8 +9983,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamNotificationRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10024,8 +10024,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamNotificationRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10065,8 +10065,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10106,8 +10106,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10147,8 +10147,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10188,8 +10188,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10229,8 +10229,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10270,8 +10270,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10311,8 +10311,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10352,8 +10352,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10392,8 +10392,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10432,8 +10432,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10472,8 +10472,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10512,8 +10512,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10552,8 +10552,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10593,8 +10593,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10634,8 +10634,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10675,8 +10675,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10716,8 +10716,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10757,8 +10757,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10798,8 +10798,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10839,8 +10839,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetWorkflowAutomationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10879,8 +10879,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetWorkflowAutomationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10919,8 +10919,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetWorkflowAutomationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10959,8 +10959,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetWorkflowAutomationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10999,8 +10999,8 @@ public final class DatadogFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.datadog.DatadogFunctions;
      * import com.pulumi.datadog.inputs.GetWorkflowAutomationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

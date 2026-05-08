@@ -105,8 +105,8 @@ def get_team_notification_rules(notification_rules: Optional[Sequence[Union['Get
         id=pulumi.get(__ret__, 'id'),
         notification_rules=pulumi.get(__ret__, 'notification_rules'),
         team_id=pulumi.get(__ret__, 'team_id'))
-def get_team_notification_rules_output(notification_rules: Optional[pulumi.Input[Optional[Sequence[Union['GetTeamNotificationRulesNotificationRuleArgs', 'GetTeamNotificationRulesNotificationRuleArgsDict']]]]] = None,
-                                       team_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_team_notification_rules_output(notification_rules: pulumi.Input[Optional[Optional[Sequence[Union['GetTeamNotificationRulesNotificationRuleArgs', 'GetTeamNotificationRulesNotificationRuleArgsDict']]]]] = None,
+                                       team_id: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTeamNotificationRulesResult]:
     """
     Use this data source to retrieve information about all Datadog team notification rules for a specific team.

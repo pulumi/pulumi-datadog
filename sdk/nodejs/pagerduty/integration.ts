@@ -117,15 +117,15 @@ export interface IntegrationState {
     /**
      * Your PagerDuty API token.
      */
-    apiToken?: pulumi.Input<string>;
+    apiToken?: pulumi.Input<string | undefined>;
     /**
      * Array of your schedule URLs.
      */
-    schedules?: pulumi.Input<pulumi.Input<string>[]>;
+    schedules?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Your PagerDuty account’s personalized subdomain name.
      */
-    subdomain?: pulumi.Input<string>;
+    subdomain?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -135,11 +135,11 @@ export interface IntegrationArgs {
     /**
      * Your PagerDuty API token.
      */
-    apiToken?: pulumi.Input<string>;
+    apiToken?: pulumi.Input<string | undefined>;
     /**
      * Array of your schedule URLs.
      */
-    schedules?: pulumi.Input<pulumi.Input<string>[]>;
+    schedules?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Your PagerDuty account’s personalized subdomain name.
      */

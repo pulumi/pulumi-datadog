@@ -24,7 +24,7 @@ class WorkflowAutomationArgs:
                  published: pulumi.Input[_builtins.bool],
                  spec_json: pulumi.Input[_builtins.str],
                  tags: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 webhook_secret: Optional[pulumi.Input[_builtins.str]] = None):
+                 webhook_secret: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkflowAutomation resource.
 
@@ -105,26 +105,26 @@ class WorkflowAutomationArgs:
 
     @_builtins.property
     @pulumi.getter(name="webhookSecret")
-    def webhook_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def webhook_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
         """
         return pulumi.get(self, "webhook_secret")
 
     @webhook_secret.setter
-    def webhook_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def webhook_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "webhook_secret", value)
 
 
 @pulumi.input_type
 class _WorkflowAutomationState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 published: Optional[pulumi.Input[_builtins.bool]] = None,
-                 spec_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 webhook_secret: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 published: pulumi.Input[Optional[_builtins.bool]] = None,
+                 spec_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 webhook_secret: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkflowAutomation resources.
 
@@ -150,74 +150,74 @@ class _WorkflowAutomationState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the workflow.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the workflow. String length must be at least 1.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def published(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def published(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
         """
         return pulumi.get(self, "published")
 
     @published.setter
-    def published(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def published(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "published", value)
 
     @_builtins.property
     @pulumi.getter(name="specJson")
-    def spec_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spec_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The spec defines what the workflow does.
         """
         return pulumi.get(self, "spec_json")
 
     @spec_json.setter
-    def spec_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spec_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spec_json", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Tags of the workflow.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="webhookSecret")
-    def webhook_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def webhook_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
         """
         return pulumi.get(self, "webhook_secret")
 
     @webhook_secret.setter
-    def webhook_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def webhook_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "webhook_secret", value)
 
 
@@ -227,12 +227,12 @@ class WorkflowAutomation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 published: Optional[pulumi.Input[_builtins.bool]] = None,
-                 spec_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 webhook_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 published: pulumi.Input[Optional[_builtins.bool]] = None,
+                 spec_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 webhook_secret: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Enables the creation and management of Datadog workflows using Workflow Automation. To easily export a workflow for use with Terraform, use the export button in the Datadog Workflow Automation UI. This resource requires a registered application key.
@@ -390,12 +390,12 @@ class WorkflowAutomation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 published: Optional[pulumi.Input[_builtins.bool]] = None,
-                 spec_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 webhook_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 published: pulumi.Input[Optional[_builtins.bool]] = None,
+                 spec_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 webhook_secret: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -433,12 +433,12 @@ class WorkflowAutomation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            published: Optional[pulumi.Input[_builtins.bool]] = None,
-            spec_json: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            webhook_secret: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkflowAutomation':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            published: pulumi.Input[Optional[_builtins.bool]] = None,
+            spec_json: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            webhook_secret: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkflowAutomation':
         """
         Get an existing WorkflowAutomation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

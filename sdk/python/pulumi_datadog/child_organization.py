@@ -45,13 +45,13 @@ class ChildOrganizationArgs:
 @pulumi.input_type
 class _ChildOrganizationState:
     def __init__(__self__, *,
-                 api_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ChildOrganizationApiKeyArgs']]]] = None,
-                 application_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ChildOrganizationApplicationKeyArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[Sequence[pulumi.Input['ChildOrganizationSettingArgs']]]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input['ChildOrganizationUserArgs']]]] = None):
+                 api_keys: pulumi.Input[Optional[Sequence[pulumi.Input['ChildOrganizationApiKeyArgs']]]] = None,
+                 application_keys: pulumi.Input[Optional[Sequence[pulumi.Input['ChildOrganizationApplicationKeyArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[Sequence[pulumi.Input['ChildOrganizationSettingArgs']]]] = None,
+                 users: pulumi.Input[Optional[Sequence[pulumi.Input['ChildOrganizationUserArgs']]]] = None):
         """
         Input properties used for looking up and filtering ChildOrganization resources.
 
@@ -80,86 +80,86 @@ class _ChildOrganizationState:
 
     @_builtins.property
     @pulumi.getter(name="apiKeys")
-    def api_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChildOrganizationApiKeyArgs']]]]:
+    def api_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChildOrganizationApiKeyArgs']]]]:
         """
         Datadog API key.
         """
         return pulumi.get(self, "api_keys")
 
     @api_keys.setter
-    def api_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChildOrganizationApiKeyArgs']]]]):
+    def api_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ChildOrganizationApiKeyArgs']]]]):
         pulumi.set(self, "api_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationKeys")
-    def application_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChildOrganizationApplicationKeyArgs']]]]:
+    def application_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChildOrganizationApplicationKeyArgs']]]]:
         """
         An application key with its associated metadata.
         """
         return pulumi.get(self, "application_keys")
 
     @application_keys.setter
-    def application_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChildOrganizationApplicationKeyArgs']]]]):
+    def application_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ChildOrganizationApplicationKeyArgs']]]]):
         pulumi.set(self, "application_keys", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the organization.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for Child Organization after creation.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicId")
-    def public_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The `public_id` of the organization you are operating within.
         """
         return pulumi.get(self, "public_id")
 
     @public_id.setter
-    def public_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChildOrganizationSettingArgs']]]]:
+    def settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChildOrganizationSettingArgs']]]]:
         """
         Organization settings
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChildOrganizationSettingArgs']]]]):
+    def settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ChildOrganizationSettingArgs']]]]):
         pulumi.set(self, "settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChildOrganizationUserArgs']]]]:
+    def users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChildOrganizationUserArgs']]]]:
         """
         Information about a user
         """
         return pulumi.get(self, "users")
 
     @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChildOrganizationUserArgs']]]]):
+    def users(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ChildOrganizationUserArgs']]]]):
         pulumi.set(self, "users", value)
 
 
@@ -169,7 +169,7 @@ class ChildOrganization(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog Child Organization resource. This can be used to create Datadog Child Organizations. To manage created organization use `OrganizationSettings`.
@@ -224,7 +224,7 @@ class ChildOrganization(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -253,13 +253,13 @@ class ChildOrganization(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChildOrganizationApiKeyArgs', 'ChildOrganizationApiKeyArgsDict']]]]] = None,
-            application_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChildOrganizationApplicationKeyArgs', 'ChildOrganizationApplicationKeyArgsDict']]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            public_id: Optional[pulumi.Input[_builtins.str]] = None,
-            settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChildOrganizationSettingArgs', 'ChildOrganizationSettingArgsDict']]]]] = None,
-            users: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChildOrganizationUserArgs', 'ChildOrganizationUserArgsDict']]]]] = None) -> 'ChildOrganization':
+            api_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChildOrganizationApiKeyArgs', 'ChildOrganizationApiKeyArgsDict']]]]] = None,
+            application_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChildOrganizationApplicationKeyArgs', 'ChildOrganizationApplicationKeyArgsDict']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_id: pulumi.Input[Optional[_builtins.str]] = None,
+            settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChildOrganizationSettingArgs', 'ChildOrganizationSettingArgsDict']]]]] = None,
+            users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChildOrganizationUserArgs', 'ChildOrganizationUserArgsDict']]]]] = None) -> 'ChildOrganization':
         """
         Get an existing ChildOrganization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

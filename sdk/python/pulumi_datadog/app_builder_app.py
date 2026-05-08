@@ -20,11 +20,11 @@ __all__ = ['AppBuilderAppArgs', 'AppBuilderApp']
 class AppBuilderAppArgs:
     def __init__(__self__, *,
                  app_json: pulumi.Input[_builtins.str],
-                 action_query_names_to_connection_ids: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 published: Optional[pulumi.Input[_builtins.bool]] = None,
-                 root_instance_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 action_query_names_to_connection_ids: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 published: pulumi.Input[Optional[_builtins.bool]] = None,
+                 root_instance_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AppBuilderApp resource.
 
@@ -61,74 +61,74 @@ class AppBuilderAppArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionQueryNamesToConnectionIds")
-    def action_query_names_to_connection_ids(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def action_query_names_to_connection_ids(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         If specified, this will override the Action Connection IDs for the specified Action Query Names in the App JSON. Otherwise, a map of the App's Action Query Names to Action Connection IDs will be returned in output.
         """
         return pulumi.get(self, "action_query_names_to_connection_ids")
 
     @action_query_names_to_connection_ids.setter
-    def action_query_names_to_connection_ids(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def action_query_names_to_connection_ids(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "action_query_names_to_connection_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If specified, this will override the human-readable description of the App in the App JSON. String length must be at least 1.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If specified, this will override the name of the App in the App JSON. String length must be at least 1.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def published(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def published(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set the app to published or unpublished. Published apps are available to other users. To ensure the app is accessible to the correct users, you also need to set a [Restriction Policy](https://docs.datadoghq.com/api/latest/restriction-policies/) on the app if a policy does not yet exist. Defaults to `false`.
         """
         return pulumi.get(self, "published")
 
     @published.setter
-    def published(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def published(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "published", value)
 
     @_builtins.property
     @pulumi.getter(name="rootInstanceName")
-    def root_instance_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def root_instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the root component of the app. This must be a grid component that contains all other components. If specified, this will override the root instance name of the App in the App JSON. String length must be at least 1.
         """
         return pulumi.get(self, "root_instance_name")
 
     @root_instance_name.setter
-    def root_instance_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def root_instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "root_instance_name", value)
 
 
 @pulumi.input_type
 class _AppBuilderAppState:
     def __init__(__self__, *,
-                 action_query_names_to_connection_ids: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 app_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 published: Optional[pulumi.Input[_builtins.bool]] = None,
-                 root_instance_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 action_query_names_to_connection_ids: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 app_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 published: pulumi.Input[Optional[_builtins.bool]] = None,
+                 root_instance_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AppBuilderApp resources.
 
@@ -154,74 +154,74 @@ class _AppBuilderAppState:
 
     @_builtins.property
     @pulumi.getter(name="actionQueryNamesToConnectionIds")
-    def action_query_names_to_connection_ids(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def action_query_names_to_connection_ids(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         If specified, this will override the Action Connection IDs for the specified Action Query Names in the App JSON. Otherwise, a map of the App's Action Query Names to Action Connection IDs will be returned in output.
         """
         return pulumi.get(self, "action_query_names_to_connection_ids")
 
     @action_query_names_to_connection_ids.setter
-    def action_query_names_to_connection_ids(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def action_query_names_to_connection_ids(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "action_query_names_to_connection_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="appJson")
-    def app_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The JSON representation of the App. String length must be at least 1.
         """
         return pulumi.get(self, "app_json")
 
     @app_json.setter
-    def app_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_json", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If specified, this will override the human-readable description of the App in the App JSON. String length must be at least 1.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If specified, this will override the name of the App in the App JSON. String length must be at least 1.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def published(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def published(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set the app to published or unpublished. Published apps are available to other users. To ensure the app is accessible to the correct users, you also need to set a [Restriction Policy](https://docs.datadoghq.com/api/latest/restriction-policies/) on the app if a policy does not yet exist. Defaults to `false`.
         """
         return pulumi.get(self, "published")
 
     @published.setter
-    def published(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def published(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "published", value)
 
     @_builtins.property
     @pulumi.getter(name="rootInstanceName")
-    def root_instance_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def root_instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the root component of the app. This must be a grid component that contains all other components. If specified, this will override the root instance name of the App in the App JSON. String length must be at least 1.
         """
         return pulumi.get(self, "root_instance_name")
 
     @root_instance_name.setter
-    def root_instance_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def root_instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "root_instance_name", value)
 
 
@@ -231,12 +231,12 @@ class AppBuilderApp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_query_names_to_connection_ids: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 app_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 published: Optional[pulumi.Input[_builtins.bool]] = None,
-                 root_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 action_query_names_to_connection_ids: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 app_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 published: pulumi.Input[Optional[_builtins.bool]] = None,
+                 root_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog App resource for creating and managing Datadog Apps from App Builder using the JSON definition. To easily export an App for use with Terraform, use the export button in the Datadog App Builder UI. This resource requires a registered application key.
@@ -292,12 +292,12 @@ class AppBuilderApp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_query_names_to_connection_ids: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 app_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 published: Optional[pulumi.Input[_builtins.bool]] = None,
-                 root_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 action_query_names_to_connection_ids: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 app_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 published: pulumi.Input[Optional[_builtins.bool]] = None,
+                 root_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -325,12 +325,12 @@ class AppBuilderApp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action_query_names_to_connection_ids: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            app_json: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            published: Optional[pulumi.Input[_builtins.bool]] = None,
-            root_instance_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'AppBuilderApp':
+            action_query_names_to_connection_ids: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            app_json: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            published: pulumi.Input[Optional[_builtins.bool]] = None,
+            root_instance_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'AppBuilderApp':
         """
         Get an existing AppBuilderApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

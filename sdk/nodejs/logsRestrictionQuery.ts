@@ -115,19 +115,19 @@ export interface LogsRestrictionQueryState {
     /**
      * Creation time of the restriction query (in ISO 8601).
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * Time of last restriction query modification (in ISO 8601).
      */
-    modifiedAt?: pulumi.Input<string>;
+    modifiedAt?: pulumi.Input<string | undefined>;
     /**
      * The query that defines the restriction. Only the content matching the query can be returned.
      */
-    restrictionQuery?: pulumi.Input<string>;
+    restrictionQuery?: pulumi.Input<string | undefined>;
     /**
      * An array of role IDs that have access to this restriction query.
      */
-    roleIds?: pulumi.Input<pulumi.Input<string>[]>;
+    roleIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -141,5 +141,5 @@ export interface LogsRestrictionQueryArgs {
     /**
      * An array of role IDs that have access to this restriction query.
      */
-    roleIds?: pulumi.Input<pulumi.Input<string>[]>;
+    roleIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

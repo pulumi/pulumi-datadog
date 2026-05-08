@@ -58,13 +58,13 @@ class OrgConnectionArgs:
 @pulumi.input_type
 class _OrgConnectionState:
     def __init__(__self__, *,
-                 connection_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 sink_org_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sink_org_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_org_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_org_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 connection_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 sink_org_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sink_org_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_org_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_org_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrgConnection resources.
 
@@ -93,86 +93,86 @@ class _OrgConnectionState:
 
     @_builtins.property
     @pulumi.getter(name="connectionTypes")
-    def connection_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def connection_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of connection types to enable for this connection (., metrics, logs).
         """
         return pulumi.get(self, "connection_types")
 
     @connection_types.setter
-    def connection_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def connection_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "connection_types", value)
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp when the connection was created (RFC 3339).
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creator user ID (UUID).
         """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_by", value)
 
     @_builtins.property
     @pulumi.getter(name="sinkOrgId")
-    def sink_org_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sink_org_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         UUID of the sink (destination) organization. Must be a valid UUID.
         """
         return pulumi.get(self, "sink_org_id")
 
     @sink_org_id.setter
-    def sink_org_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sink_org_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sink_org_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sinkOrgName")
-    def sink_org_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sink_org_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the sink (destination) organization.
         """
         return pulumi.get(self, "sink_org_name")
 
     @sink_org_name.setter
-    def sink_org_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sink_org_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sink_org_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceOrgId")
-    def source_org_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_org_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         UUID of the source (current) organization.
         """
         return pulumi.get(self, "source_org_id")
 
     @source_org_id.setter
-    def source_org_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_org_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_org_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceOrgName")
-    def source_org_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_org_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the source organization.
         """
         return pulumi.get(self, "source_org_name")
 
     @source_org_name.setter
-    def source_org_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_org_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_org_name", value)
 
 
@@ -182,8 +182,8 @@ class OrgConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sink_org_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 connection_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sink_org_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog Org Connection resource. Org Connections make data from a source org available in the destination org for selected connection data types (for example, logs or metrics). Org Connections can only be created from a source org to a specified destination org
@@ -265,8 +265,8 @@ class OrgConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sink_org_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 connection_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sink_org_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -297,13 +297,13 @@ class OrgConnection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            connection_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            created_by: Optional[pulumi.Input[_builtins.str]] = None,
-            sink_org_id: Optional[pulumi.Input[_builtins.str]] = None,
-            sink_org_name: Optional[pulumi.Input[_builtins.str]] = None,
-            source_org_id: Optional[pulumi.Input[_builtins.str]] = None,
-            source_org_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'OrgConnection':
+            connection_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            sink_org_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sink_org_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_org_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_org_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'OrgConnection':
         """
         Get an existing OrgConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

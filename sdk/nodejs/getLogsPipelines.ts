@@ -92,5 +92,5 @@ export interface GetLogsPipelinesOutputArgs {
     /**
      * Filter parameter for retrieved pipelines
      */
-    isReadOnly?: pulumi.Input<string>;
+    isReadOnly?: pulumi.Input<string | undefined>;
 }

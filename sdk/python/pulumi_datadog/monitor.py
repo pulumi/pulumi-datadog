@@ -25,37 +25,37 @@ class MonitorArgs:
                  name: pulumi.Input[_builtins.str],
                  query: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 assets: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorAssetArgs']]]] = None,
-                 draft_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_logs_sample: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_samples: Optional[pulumi.Input[_builtins.bool]] = None,
-                 escalation_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluation_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 force_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 group_retention_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 groupby_simple_monitor: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitor_threshold_windows: Optional[pulumi.Input['MonitorMonitorThresholdWindowsArgs']] = None,
-                 monitor_thresholds: Optional[pulumi.Input['MonitorMonitorThresholdsArgs']] = None,
-                 new_group_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 new_host_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 no_data_timeframe: Optional[pulumi.Input[_builtins.int]] = None,
-                 notification_preset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_audit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_bies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 notify_no_data: Optional[pulumi.Input[_builtins.bool]] = None,
-                 on_missing_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 renotify_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 renotify_occurrences: Optional[pulumi.Input[_builtins.int]] = None,
-                 renotify_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 require_full_window: Optional[pulumi.Input[_builtins.bool]] = None,
-                 restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 scheduling_options: Optional[pulumi.Input['MonitorSchedulingOptionsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 timeout_h: Optional[pulumi.Input[_builtins.int]] = None,
-                 validate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 variables: Optional[pulumi.Input['MonitorVariablesArgs']] = None):
+                 assets: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorAssetArgs']]]] = None,
+                 draft_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_logs_sample: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_samples: pulumi.Input[Optional[_builtins.bool]] = None,
+                 escalation_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluation_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 group_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 groupby_simple_monitor: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitor_threshold_windows: pulumi.Input[Optional['MonitorMonitorThresholdWindowsArgs']] = None,
+                 monitor_thresholds: pulumi.Input[Optional['MonitorMonitorThresholdsArgs']] = None,
+                 new_group_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 new_host_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 no_data_timeframe: pulumi.Input[Optional[_builtins.int]] = None,
+                 notification_preset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_audit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 notify_no_data: pulumi.Input[Optional[_builtins.bool]] = None,
+                 on_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 renotify_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 renotify_occurrences: pulumi.Input[Optional[_builtins.int]] = None,
+                 renotify_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 require_full_window: pulumi.Input[Optional[_builtins.bool]] = None,
+                 restricted_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 scheduling_options: pulumi.Input[Optional['MonitorSchedulingOptionsArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 timeout_h: pulumi.Input[Optional[_builtins.int]] = None,
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 variables: pulumi.Input[Optional['MonitorVariablesArgs']] = None):
         """
         The set of arguments for constructing a Monitor resource.
 
@@ -227,67 +227,67 @@ class MonitorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def assets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorAssetArgs']]]]:
+    def assets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MonitorAssetArgs']]]]:
         """
         List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
         """
         return pulumi.get(self, "assets")
 
     @assets.setter
-    def assets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorAssetArgs']]]]):
+    def assets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorAssetArgs']]]]):
         pulumi.set(self, "assets", value)
 
     @_builtins.property
     @pulumi.getter(name="draftStatus")
-    def draft_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def draft_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
         """
         return pulumi.get(self, "draft_status")
 
     @draft_status.setter
-    def draft_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def draft_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "draft_status", value)
 
     @_builtins.property
     @pulumi.getter(name="enableLogsSample")
-    def enable_logs_sample(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_logs_sample(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
         """
         return pulumi.get(self, "enable_logs_sample")
 
     @enable_logs_sample.setter
-    def enable_logs_sample(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_logs_sample(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_logs_sample", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSamples")
-    def enable_samples(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_samples(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
         """
         return pulumi.get(self, "enable_samples")
 
     @enable_samples.setter
-    def enable_samples(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_samples(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_samples", value)
 
     @_builtins.property
     @pulumi.getter(name="escalationMessage")
-    def escalation_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def escalation_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
         """
         return pulumi.get(self, "escalation_message")
 
     @escalation_message.setter
-    def escalation_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def escalation_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "escalation_message", value)
 
     @_builtins.property
     @pulumi.getter(name="evaluationDelay")
-    def evaluation_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def evaluation_delay(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
 
@@ -296,84 +296,84 @@ class MonitorArgs:
         return pulumi.get(self, "evaluation_delay")
 
     @evaluation_delay.setter
-    def evaluation_delay(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def evaluation_delay(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "evaluation_delay", value)
 
     @_builtins.property
     @pulumi.getter(name="forceDelete")
-    def force_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
         """
         return pulumi.get(self, "force_delete")
 
     @force_delete.setter
-    def force_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_delete", value)
 
     @_builtins.property
     @pulumi.getter(name="groupRetentionDuration")
-    def group_retention_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_retention_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
         """
         return pulumi.get(self, "group_retention_duration")
 
     @group_retention_duration.setter
-    def group_retention_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_retention_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_retention_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="groupbySimpleMonitor")
-    def groupby_simple_monitor(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def groupby_simple_monitor(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
         """
         return pulumi.get(self, "groupby_simple_monitor")
 
     @groupby_simple_monitor.setter
-    def groupby_simple_monitor(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def groupby_simple_monitor(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "groupby_simple_monitor", value)
 
     @_builtins.property
     @pulumi.getter(name="includeTags")
-    def include_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
         """
         return pulumi.get(self, "include_tags")
 
     @include_tags.setter
-    def include_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorThresholdWindows")
-    def monitor_threshold_windows(self) -> Optional[pulumi.Input['MonitorMonitorThresholdWindowsArgs']]:
+    def monitor_threshold_windows(self) -> pulumi.Input[Optional['MonitorMonitorThresholdWindowsArgs']]:
         """
         A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
         """
         return pulumi.get(self, "monitor_threshold_windows")
 
     @monitor_threshold_windows.setter
-    def monitor_threshold_windows(self, value: Optional[pulumi.Input['MonitorMonitorThresholdWindowsArgs']]):
+    def monitor_threshold_windows(self, value: pulumi.Input[Optional['MonitorMonitorThresholdWindowsArgs']]):
         pulumi.set(self, "monitor_threshold_windows", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorThresholds")
-    def monitor_thresholds(self) -> Optional[pulumi.Input['MonitorMonitorThresholdsArgs']]:
+    def monitor_thresholds(self) -> pulumi.Input[Optional['MonitorMonitorThresholdsArgs']]:
         """
         Alert thresholds of the monitor.
         """
         return pulumi.get(self, "monitor_thresholds")
 
     @monitor_thresholds.setter
-    def monitor_thresholds(self, value: Optional[pulumi.Input['MonitorMonitorThresholdsArgs']]):
+    def monitor_thresholds(self, value: pulumi.Input[Optional['MonitorMonitorThresholdsArgs']]):
         pulumi.set(self, "monitor_thresholds", value)
 
     @_builtins.property
     @pulumi.getter(name="newGroupDelay")
-    def new_group_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def new_group_delay(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time (in seconds) to skip evaluations for new groups.
 
@@ -382,25 +382,25 @@ class MonitorArgs:
         return pulumi.get(self, "new_group_delay")
 
     @new_group_delay.setter
-    def new_group_delay(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def new_group_delay(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "new_group_delay", value)
 
     @_builtins.property
     @pulumi.getter(name="newHostDelay")
     @_utilities.deprecated("""Use `new_group_delay` except when setting `new_host_delay` to zero.""")
-    def new_host_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def new_host_delay(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `new_host_delay` to zero for monitors grouped by host.
         """
         return pulumi.get(self, "new_host_delay")
 
     @new_host_delay.setter
-    def new_host_delay(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def new_host_delay(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "new_host_delay", value)
 
     @_builtins.property
     @pulumi.getter(name="noDataTimeframe")
-    def no_data_timeframe(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def no_data_timeframe(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of minutes before a monitor will notify when data stops reporting.
 
@@ -409,238 +409,238 @@ class MonitorArgs:
         return pulumi.get(self, "no_data_timeframe")
 
     @no_data_timeframe.setter
-    def no_data_timeframe(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def no_data_timeframe(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "no_data_timeframe", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationPresetName")
-    def notification_preset_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_preset_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Toggles the display of additional content sent in the monitor notification.
         """
         return pulumi.get(self, "notification_preset_name")
 
     @notification_preset_name.setter
-    def notification_preset_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_preset_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_preset_name", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyAudit")
-    def notify_audit(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notify_audit(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
         """
         return pulumi.get(self, "notify_audit")
 
     @notify_audit.setter
-    def notify_audit(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notify_audit(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notify_audit", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyBies")
-    def notify_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def notify_bies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
         """
         return pulumi.get(self, "notify_bies")
 
     @notify_bies.setter
-    def notify_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def notify_bies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "notify_bies", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyNoData")
-    def notify_no_data(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notify_no_data(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean indicating whether this monitor will notify when data stops reporting.
         """
         return pulumi.get(self, "notify_no_data")
 
     @notify_no_data.setter
-    def notify_no_data(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notify_no_data(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notify_no_data", value)
 
     @_builtins.property
     @pulumi.getter(name="onMissingData")
-    def on_missing_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_missing_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
         """
         return pulumi.get(self, "on_missing_data")
 
     @on_missing_data.setter
-    def on_missing_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_missing_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_missing_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Integer from 1 (high) to 5 (low) indicating alert severity.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="renotifyInterval")
-    def renotify_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def renotify_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of minutes after the last notification before a monitor will re-notify on the current status. It will only re-notify if it's not resolved.
         """
         return pulumi.get(self, "renotify_interval")
 
     @renotify_interval.setter
-    def renotify_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def renotify_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "renotify_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="renotifyOccurrences")
-    def renotify_occurrences(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def renotify_occurrences(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of re-notification messages that should be sent on the current status.
         """
         return pulumi.get(self, "renotify_occurrences")
 
     @renotify_occurrences.setter
-    def renotify_occurrences(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def renotify_occurrences(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "renotify_occurrences", value)
 
     @_builtins.property
     @pulumi.getter(name="renotifyStatuses")
-    def renotify_statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def renotify_statuses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The types of statuses for which re-notification messages should be sent.
         """
         return pulumi.get(self, "renotify_statuses")
 
     @renotify_statuses.setter
-    def renotify_statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def renotify_statuses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "renotify_statuses", value)
 
     @_builtins.property
     @pulumi.getter(name="requireFullWindow")
-    def require_full_window(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_full_window(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored.
         """
         return pulumi.get(self, "require_full_window")
 
     @require_full_window.setter
-    def require_full_window(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_full_window(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_full_window", value)
 
     @_builtins.property
     @pulumi.getter(name="restrictedRoles")
     @_utilities.deprecated("""Use `RestrictionPolicy` resource to manage permission.""")
-    def restricted_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def restricted_roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
         """
         return pulumi.get(self, "restricted_roles")
 
     @restricted_roles.setter
-    def restricted_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def restricted_roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "restricted_roles", value)
 
     @_builtins.property
     @pulumi.getter(name="schedulingOptions")
-    def scheduling_options(self) -> Optional[pulumi.Input['MonitorSchedulingOptionsArgs']]:
+    def scheduling_options(self) -> pulumi.Input[Optional['MonitorSchedulingOptionsArgs']]:
         """
         Configuration options for scheduling.
         """
         return pulumi.get(self, "scheduling_options")
 
     @scheduling_options.setter
-    def scheduling_options(self, value: Optional[pulumi.Input['MonitorSchedulingOptionsArgs']]):
+    def scheduling_options(self, value: pulumi.Input[Optional['MonitorSchedulingOptionsArgs']]):
         pulumi.set(self, "scheduling_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutH")
-    def timeout_h(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_h(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
         """
         return pulumi.get(self, "timeout_h")
 
     @timeout_h.setter
-    def timeout_h(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_h(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_h", value)
 
     @_builtins.property
     @pulumi.getter
-    def validate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to `false`, skip the validation call done during plan.
         """
         return pulumi.get(self, "validate")
 
     @validate.setter
-    def validate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate", value)
 
     @_builtins.property
     @pulumi.getter
-    def variables(self) -> Optional[pulumi.Input['MonitorVariablesArgs']]:
+    def variables(self) -> pulumi.Input[Optional['MonitorVariablesArgs']]:
         return pulumi.get(self, "variables")
 
     @variables.setter
-    def variables(self, value: Optional[pulumi.Input['MonitorVariablesArgs']]):
+    def variables(self, value: pulumi.Input[Optional['MonitorVariablesArgs']]):
         pulumi.set(self, "variables", value)
 
 
 @pulumi.input_type
 class _MonitorState:
     def __init__(__self__, *,
-                 assets: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorAssetArgs']]]] = None,
-                 draft_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_logs_sample: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_samples: Optional[pulumi.Input[_builtins.bool]] = None,
-                 escalation_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluation_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 force_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 group_retention_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 groupby_simple_monitor: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_threshold_windows: Optional[pulumi.Input['MonitorMonitorThresholdWindowsArgs']] = None,
-                 monitor_thresholds: Optional[pulumi.Input['MonitorMonitorThresholdsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 new_group_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 new_host_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 no_data_timeframe: Optional[pulumi.Input[_builtins.int]] = None,
-                 notification_preset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_audit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_bies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 notify_no_data: Optional[pulumi.Input[_builtins.bool]] = None,
-                 on_missing_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 renotify_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 renotify_occurrences: Optional[pulumi.Input[_builtins.int]] = None,
-                 renotify_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 require_full_window: Optional[pulumi.Input[_builtins.bool]] = None,
-                 restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 scheduling_options: Optional[pulumi.Input['MonitorSchedulingOptionsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 timeout_h: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 variables: Optional[pulumi.Input['MonitorVariablesArgs']] = None):
+                 assets: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorAssetArgs']]]] = None,
+                 draft_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_logs_sample: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_samples: pulumi.Input[Optional[_builtins.bool]] = None,
+                 escalation_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluation_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 group_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 groupby_simple_monitor: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_threshold_windows: pulumi.Input[Optional['MonitorMonitorThresholdWindowsArgs']] = None,
+                 monitor_thresholds: pulumi.Input[Optional['MonitorMonitorThresholdsArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 new_group_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 new_host_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 no_data_timeframe: pulumi.Input[Optional[_builtins.int]] = None,
+                 notification_preset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_audit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 notify_no_data: pulumi.Input[Optional[_builtins.bool]] = None,
+                 on_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 renotify_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 renotify_occurrences: pulumi.Input[Optional[_builtins.int]] = None,
+                 renotify_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 require_full_window: pulumi.Input[Optional[_builtins.bool]] = None,
+                 restricted_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 scheduling_options: pulumi.Input[Optional['MonitorSchedulingOptionsArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 timeout_h: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 variables: pulumi.Input[Optional['MonitorVariablesArgs']] = None):
         """
         Input properties used for looking up and filtering Monitor resources.
 
@@ -766,67 +766,67 @@ class _MonitorState:
 
     @_builtins.property
     @pulumi.getter
-    def assets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorAssetArgs']]]]:
+    def assets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MonitorAssetArgs']]]]:
         """
         List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
         """
         return pulumi.get(self, "assets")
 
     @assets.setter
-    def assets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorAssetArgs']]]]):
+    def assets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorAssetArgs']]]]):
         pulumi.set(self, "assets", value)
 
     @_builtins.property
     @pulumi.getter(name="draftStatus")
-    def draft_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def draft_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
         """
         return pulumi.get(self, "draft_status")
 
     @draft_status.setter
-    def draft_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def draft_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "draft_status", value)
 
     @_builtins.property
     @pulumi.getter(name="enableLogsSample")
-    def enable_logs_sample(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_logs_sample(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
         """
         return pulumi.get(self, "enable_logs_sample")
 
     @enable_logs_sample.setter
-    def enable_logs_sample(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_logs_sample(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_logs_sample", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSamples")
-    def enable_samples(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_samples(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
         """
         return pulumi.get(self, "enable_samples")
 
     @enable_samples.setter
-    def enable_samples(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_samples(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_samples", value)
 
     @_builtins.property
     @pulumi.getter(name="escalationMessage")
-    def escalation_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def escalation_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
         """
         return pulumi.get(self, "escalation_message")
 
     @escalation_message.setter
-    def escalation_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def escalation_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "escalation_message", value)
 
     @_builtins.property
     @pulumi.getter(name="evaluationDelay")
-    def evaluation_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def evaluation_delay(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
 
@@ -835,108 +835,108 @@ class _MonitorState:
         return pulumi.get(self, "evaluation_delay")
 
     @evaluation_delay.setter
-    def evaluation_delay(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def evaluation_delay(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "evaluation_delay", value)
 
     @_builtins.property
     @pulumi.getter(name="forceDelete")
-    def force_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
         """
         return pulumi.get(self, "force_delete")
 
     @force_delete.setter
-    def force_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_delete", value)
 
     @_builtins.property
     @pulumi.getter(name="groupRetentionDuration")
-    def group_retention_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_retention_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
         """
         return pulumi.get(self, "group_retention_duration")
 
     @group_retention_duration.setter
-    def group_retention_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_retention_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_retention_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="groupbySimpleMonitor")
-    def groupby_simple_monitor(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def groupby_simple_monitor(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
         """
         return pulumi.get(self, "groupby_simple_monitor")
 
     @groupby_simple_monitor.setter
-    def groupby_simple_monitor(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def groupby_simple_monitor(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "groupby_simple_monitor", value)
 
     @_builtins.property
     @pulumi.getter(name="includeTags")
-    def include_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
         """
         return pulumi.get(self, "include_tags")
 
     @include_tags.setter
-    def include_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message to include with notifications for this monitor.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorThresholdWindows")
-    def monitor_threshold_windows(self) -> Optional[pulumi.Input['MonitorMonitorThresholdWindowsArgs']]:
+    def monitor_threshold_windows(self) -> pulumi.Input[Optional['MonitorMonitorThresholdWindowsArgs']]:
         """
         A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
         """
         return pulumi.get(self, "monitor_threshold_windows")
 
     @monitor_threshold_windows.setter
-    def monitor_threshold_windows(self, value: Optional[pulumi.Input['MonitorMonitorThresholdWindowsArgs']]):
+    def monitor_threshold_windows(self, value: pulumi.Input[Optional['MonitorMonitorThresholdWindowsArgs']]):
         pulumi.set(self, "monitor_threshold_windows", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorThresholds")
-    def monitor_thresholds(self) -> Optional[pulumi.Input['MonitorMonitorThresholdsArgs']]:
+    def monitor_thresholds(self) -> pulumi.Input[Optional['MonitorMonitorThresholdsArgs']]:
         """
         Alert thresholds of the monitor.
         """
         return pulumi.get(self, "monitor_thresholds")
 
     @monitor_thresholds.setter
-    def monitor_thresholds(self, value: Optional[pulumi.Input['MonitorMonitorThresholdsArgs']]):
+    def monitor_thresholds(self, value: pulumi.Input[Optional['MonitorMonitorThresholdsArgs']]):
         pulumi.set(self, "monitor_thresholds", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Datadog monitor.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="newGroupDelay")
-    def new_group_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def new_group_delay(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time (in seconds) to skip evaluations for new groups.
 
@@ -945,25 +945,25 @@ class _MonitorState:
         return pulumi.get(self, "new_group_delay")
 
     @new_group_delay.setter
-    def new_group_delay(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def new_group_delay(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "new_group_delay", value)
 
     @_builtins.property
     @pulumi.getter(name="newHostDelay")
     @_utilities.deprecated("""Use `new_group_delay` except when setting `new_host_delay` to zero.""")
-    def new_host_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def new_host_delay(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `new_host_delay` to zero for monitors grouped by host.
         """
         return pulumi.get(self, "new_host_delay")
 
     @new_host_delay.setter
-    def new_host_delay(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def new_host_delay(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "new_host_delay", value)
 
     @_builtins.property
     @pulumi.getter(name="noDataTimeframe")
-    def no_data_timeframe(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def no_data_timeframe(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of minutes before a monitor will notify when data stops reporting.
 
@@ -972,84 +972,84 @@ class _MonitorState:
         return pulumi.get(self, "no_data_timeframe")
 
     @no_data_timeframe.setter
-    def no_data_timeframe(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def no_data_timeframe(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "no_data_timeframe", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationPresetName")
-    def notification_preset_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_preset_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Toggles the display of additional content sent in the monitor notification.
         """
         return pulumi.get(self, "notification_preset_name")
 
     @notification_preset_name.setter
-    def notification_preset_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_preset_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_preset_name", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyAudit")
-    def notify_audit(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notify_audit(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
         """
         return pulumi.get(self, "notify_audit")
 
     @notify_audit.setter
-    def notify_audit(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notify_audit(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notify_audit", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyBies")
-    def notify_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def notify_bies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
         """
         return pulumi.get(self, "notify_bies")
 
     @notify_bies.setter
-    def notify_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def notify_bies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "notify_bies", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyNoData")
-    def notify_no_data(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notify_no_data(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean indicating whether this monitor will notify when data stops reporting.
         """
         return pulumi.get(self, "notify_no_data")
 
     @notify_no_data.setter
-    def notify_no_data(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notify_no_data(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notify_no_data", value)
 
     @_builtins.property
     @pulumi.getter(name="onMissingData")
-    def on_missing_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_missing_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
         """
         return pulumi.get(self, "on_missing_data")
 
     @on_missing_data.setter
-    def on_missing_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_missing_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_missing_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Integer from 1 (high) to 5 (low) indicating alert severity.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. `terraform plan` will validate query contents unless `validate` is set to `false`.
 
@@ -1058,137 +1058,137 @@ class _MonitorState:
         return pulumi.get(self, "query")
 
     @query.setter
-    def query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query", value)
 
     @_builtins.property
     @pulumi.getter(name="renotifyInterval")
-    def renotify_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def renotify_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of minutes after the last notification before a monitor will re-notify on the current status. It will only re-notify if it's not resolved.
         """
         return pulumi.get(self, "renotify_interval")
 
     @renotify_interval.setter
-    def renotify_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def renotify_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "renotify_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="renotifyOccurrences")
-    def renotify_occurrences(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def renotify_occurrences(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of re-notification messages that should be sent on the current status.
         """
         return pulumi.get(self, "renotify_occurrences")
 
     @renotify_occurrences.setter
-    def renotify_occurrences(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def renotify_occurrences(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "renotify_occurrences", value)
 
     @_builtins.property
     @pulumi.getter(name="renotifyStatuses")
-    def renotify_statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def renotify_statuses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The types of statuses for which re-notification messages should be sent.
         """
         return pulumi.get(self, "renotify_statuses")
 
     @renotify_statuses.setter
-    def renotify_statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def renotify_statuses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "renotify_statuses", value)
 
     @_builtins.property
     @pulumi.getter(name="requireFullWindow")
-    def require_full_window(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_full_window(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored.
         """
         return pulumi.get(self, "require_full_window")
 
     @require_full_window.setter
-    def require_full_window(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_full_window(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_full_window", value)
 
     @_builtins.property
     @pulumi.getter(name="restrictedRoles")
     @_utilities.deprecated("""Use `RestrictionPolicy` resource to manage permission.""")
-    def restricted_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def restricted_roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
         """
         return pulumi.get(self, "restricted_roles")
 
     @restricted_roles.setter
-    def restricted_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def restricted_roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "restricted_roles", value)
 
     @_builtins.property
     @pulumi.getter(name="schedulingOptions")
-    def scheduling_options(self) -> Optional[pulumi.Input['MonitorSchedulingOptionsArgs']]:
+    def scheduling_options(self) -> pulumi.Input[Optional['MonitorSchedulingOptionsArgs']]:
         """
         Configuration options for scheduling.
         """
         return pulumi.get(self, "scheduling_options")
 
     @scheduling_options.setter
-    def scheduling_options(self, value: Optional[pulumi.Input['MonitorSchedulingOptionsArgs']]):
+    def scheduling_options(self, value: pulumi.Input[Optional['MonitorSchedulingOptionsArgs']]):
         pulumi.set(self, "scheduling_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutH")
-    def timeout_h(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_h(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
         """
         return pulumi.get(self, "timeout_h")
 
     @timeout_h.setter
-    def timeout_h(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_h(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_h", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type cannot be changed after a monitor is created.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def validate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to `false`, skip the validation call done during plan.
         """
         return pulumi.get(self, "validate")
 
     @validate.setter
-    def validate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate", value)
 
     @_builtins.property
     @pulumi.getter
-    def variables(self) -> Optional[pulumi.Input['MonitorVariablesArgs']]:
+    def variables(self) -> pulumi.Input[Optional['MonitorVariablesArgs']]:
         return pulumi.get(self, "variables")
 
     @variables.setter
-    def variables(self, value: Optional[pulumi.Input['MonitorVariablesArgs']]):
+    def variables(self, value: pulumi.Input[Optional['MonitorVariablesArgs']]):
         pulumi.set(self, "variables", value)
 
 
@@ -1198,41 +1198,41 @@ class Monitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorAssetArgs', 'MonitorAssetArgsDict']]]]] = None,
-                 draft_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_logs_sample: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_samples: Optional[pulumi.Input[_builtins.bool]] = None,
-                 escalation_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluation_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 force_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 group_retention_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 groupby_simple_monitor: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_threshold_windows: Optional[pulumi.Input[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']]] = None,
-                 monitor_thresholds: Optional[pulumi.Input[Union['MonitorMonitorThresholdsArgs', 'MonitorMonitorThresholdsArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 new_group_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 new_host_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 no_data_timeframe: Optional[pulumi.Input[_builtins.int]] = None,
-                 notification_preset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_audit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_bies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 notify_no_data: Optional[pulumi.Input[_builtins.bool]] = None,
-                 on_missing_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 renotify_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 renotify_occurrences: Optional[pulumi.Input[_builtins.int]] = None,
-                 renotify_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 require_full_window: Optional[pulumi.Input[_builtins.bool]] = None,
-                 restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 scheduling_options: Optional[pulumi.Input[Union['MonitorSchedulingOptionsArgs', 'MonitorSchedulingOptionsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 timeout_h: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 variables: Optional[pulumi.Input[Union['MonitorVariablesArgs', 'MonitorVariablesArgsDict']]] = None,
+                 assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorAssetArgs', 'MonitorAssetArgsDict']]]]] = None,
+                 draft_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_logs_sample: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_samples: pulumi.Input[Optional[_builtins.bool]] = None,
+                 escalation_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluation_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 group_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 groupby_simple_monitor: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_threshold_windows: pulumi.Input[Optional[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']]] = None,
+                 monitor_thresholds: pulumi.Input[Optional[Union['MonitorMonitorThresholdsArgs', 'MonitorMonitorThresholdsArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 new_group_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 new_host_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 no_data_timeframe: pulumi.Input[Optional[_builtins.int]] = None,
+                 notification_preset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_audit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 notify_no_data: pulumi.Input[Optional[_builtins.bool]] = None,
+                 on_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 renotify_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 renotify_occurrences: pulumi.Input[Optional[_builtins.int]] = None,
+                 renotify_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 require_full_window: pulumi.Input[Optional[_builtins.bool]] = None,
+                 restricted_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 scheduling_options: pulumi.Input[Optional[Union['MonitorSchedulingOptionsArgs', 'MonitorSchedulingOptionsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 timeout_h: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 variables: pulumi.Input[Optional[Union['MonitorVariablesArgs', 'MonitorVariablesArgsDict']]] = None,
                  __props__=None):
         """
         Provides a Datadog monitor resource. This can be used to create and manage Datadog monitors.
@@ -1370,41 +1370,41 @@ class Monitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorAssetArgs', 'MonitorAssetArgsDict']]]]] = None,
-                 draft_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_logs_sample: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_samples: Optional[pulumi.Input[_builtins.bool]] = None,
-                 escalation_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluation_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 force_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 group_retention_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 groupby_simple_monitor: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_threshold_windows: Optional[pulumi.Input[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']]] = None,
-                 monitor_thresholds: Optional[pulumi.Input[Union['MonitorMonitorThresholdsArgs', 'MonitorMonitorThresholdsArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 new_group_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 new_host_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 no_data_timeframe: Optional[pulumi.Input[_builtins.int]] = None,
-                 notification_preset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_audit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_bies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 notify_no_data: Optional[pulumi.Input[_builtins.bool]] = None,
-                 on_missing_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 renotify_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 renotify_occurrences: Optional[pulumi.Input[_builtins.int]] = None,
-                 renotify_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 require_full_window: Optional[pulumi.Input[_builtins.bool]] = None,
-                 restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 scheduling_options: Optional[pulumi.Input[Union['MonitorSchedulingOptionsArgs', 'MonitorSchedulingOptionsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 timeout_h: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 variables: Optional[pulumi.Input[Union['MonitorVariablesArgs', 'MonitorVariablesArgsDict']]] = None,
+                 assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorAssetArgs', 'MonitorAssetArgsDict']]]]] = None,
+                 draft_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_logs_sample: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_samples: pulumi.Input[Optional[_builtins.bool]] = None,
+                 escalation_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluation_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 group_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 groupby_simple_monitor: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_threshold_windows: pulumi.Input[Optional[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']]] = None,
+                 monitor_thresholds: pulumi.Input[Optional[Union['MonitorMonitorThresholdsArgs', 'MonitorMonitorThresholdsArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 new_group_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 new_host_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 no_data_timeframe: pulumi.Input[Optional[_builtins.int]] = None,
+                 notification_preset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_audit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 notify_no_data: pulumi.Input[Optional[_builtins.bool]] = None,
+                 on_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 renotify_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 renotify_occurrences: pulumi.Input[Optional[_builtins.int]] = None,
+                 renotify_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 require_full_window: pulumi.Input[Optional[_builtins.bool]] = None,
+                 restricted_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 scheduling_options: pulumi.Input[Optional[Union['MonitorSchedulingOptionsArgs', 'MonitorSchedulingOptionsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 timeout_h: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 variables: pulumi.Input[Optional[Union['MonitorVariablesArgs', 'MonitorVariablesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1467,41 +1467,41 @@ class Monitor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            assets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorAssetArgs', 'MonitorAssetArgsDict']]]]] = None,
-            draft_status: Optional[pulumi.Input[_builtins.str]] = None,
-            enable_logs_sample: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_samples: Optional[pulumi.Input[_builtins.bool]] = None,
-            escalation_message: Optional[pulumi.Input[_builtins.str]] = None,
-            evaluation_delay: Optional[pulumi.Input[_builtins.int]] = None,
-            force_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-            group_retention_duration: Optional[pulumi.Input[_builtins.str]] = None,
-            groupby_simple_monitor: Optional[pulumi.Input[_builtins.bool]] = None,
-            include_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-            message: Optional[pulumi.Input[_builtins.str]] = None,
-            monitor_threshold_windows: Optional[pulumi.Input[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']]] = None,
-            monitor_thresholds: Optional[pulumi.Input[Union['MonitorMonitorThresholdsArgs', 'MonitorMonitorThresholdsArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            new_group_delay: Optional[pulumi.Input[_builtins.int]] = None,
-            new_host_delay: Optional[pulumi.Input[_builtins.int]] = None,
-            no_data_timeframe: Optional[pulumi.Input[_builtins.int]] = None,
-            notification_preset_name: Optional[pulumi.Input[_builtins.str]] = None,
-            notify_audit: Optional[pulumi.Input[_builtins.bool]] = None,
-            notify_bies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            notify_no_data: Optional[pulumi.Input[_builtins.bool]] = None,
-            on_missing_data: Optional[pulumi.Input[_builtins.str]] = None,
-            priority: Optional[pulumi.Input[_builtins.str]] = None,
-            query: Optional[pulumi.Input[_builtins.str]] = None,
-            renotify_interval: Optional[pulumi.Input[_builtins.int]] = None,
-            renotify_occurrences: Optional[pulumi.Input[_builtins.int]] = None,
-            renotify_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            require_full_window: Optional[pulumi.Input[_builtins.bool]] = None,
-            restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            scheduling_options: Optional[pulumi.Input[Union['MonitorSchedulingOptionsArgs', 'MonitorSchedulingOptionsArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            timeout_h: Optional[pulumi.Input[_builtins.int]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            validate: Optional[pulumi.Input[_builtins.bool]] = None,
-            variables: Optional[pulumi.Input[Union['MonitorVariablesArgs', 'MonitorVariablesArgsDict']]] = None) -> 'Monitor':
+            assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorAssetArgs', 'MonitorAssetArgsDict']]]]] = None,
+            draft_status: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_logs_sample: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_samples: pulumi.Input[Optional[_builtins.bool]] = None,
+            escalation_message: pulumi.Input[Optional[_builtins.str]] = None,
+            evaluation_delay: pulumi.Input[Optional[_builtins.int]] = None,
+            force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            group_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            groupby_simple_monitor: pulumi.Input[Optional[_builtins.bool]] = None,
+            include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+            message: pulumi.Input[Optional[_builtins.str]] = None,
+            monitor_threshold_windows: pulumi.Input[Optional[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']]] = None,
+            monitor_thresholds: pulumi.Input[Optional[Union['MonitorMonitorThresholdsArgs', 'MonitorMonitorThresholdsArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            new_group_delay: pulumi.Input[Optional[_builtins.int]] = None,
+            new_host_delay: pulumi.Input[Optional[_builtins.int]] = None,
+            no_data_timeframe: pulumi.Input[Optional[_builtins.int]] = None,
+            notification_preset_name: pulumi.Input[Optional[_builtins.str]] = None,
+            notify_audit: pulumi.Input[Optional[_builtins.bool]] = None,
+            notify_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            notify_no_data: pulumi.Input[Optional[_builtins.bool]] = None,
+            on_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.str]] = None,
+            query: pulumi.Input[Optional[_builtins.str]] = None,
+            renotify_interval: pulumi.Input[Optional[_builtins.int]] = None,
+            renotify_occurrences: pulumi.Input[Optional[_builtins.int]] = None,
+            renotify_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            require_full_window: pulumi.Input[Optional[_builtins.bool]] = None,
+            restricted_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            scheduling_options: pulumi.Input[Optional[Union['MonitorSchedulingOptionsArgs', 'MonitorSchedulingOptionsArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            timeout_h: pulumi.Input[Optional[_builtins.int]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            validate: pulumi.Input[Optional[_builtins.bool]] = None,
+            variables: pulumi.Input[Optional[Union['MonitorVariablesArgs', 'MonitorVariablesArgsDict']]] = None) -> 'Monitor':
         """
         Get an existing Monitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

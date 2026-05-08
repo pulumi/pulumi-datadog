@@ -176,27 +176,27 @@ export interface WorkflowAutomationState {
     /**
      * Description of the workflow.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the workflow. String length must be at least 1.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
      */
-    published?: pulumi.Input<boolean>;
+    published?: pulumi.Input<boolean | undefined>;
     /**
      * The spec defines what the workflow does.
      */
-    specJson?: pulumi.Input<string>;
+    specJson?: pulumi.Input<string | undefined>;
     /**
      * Tags of the workflow.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
      */
-    webhookSecret?: pulumi.Input<string>;
+    webhookSecret?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -226,5 +226,5 @@ export interface WorkflowAutomationArgs {
     /**
      * If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
      */
-    webhookSecret?: pulumi.Input<string>;
+    webhookSecret?: pulumi.Input<string | undefined>;
 }

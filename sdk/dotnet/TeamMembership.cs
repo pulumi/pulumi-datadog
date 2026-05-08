@@ -22,20 +22,20 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Datadog.Index.Team("foo", new()
+    ///     var foo = new Datadog.Team("foo", new()
     ///     {
     ///         Description = "Example team",
     ///         Handle = "example-team-updated",
     ///         Name = "Example Team-updated",
     ///     });
     /// 
-    ///     var fooUser = new Datadog.Index.User("foo", new()
+    ///     var fooUser = new Datadog.User("foo", new()
     ///     {
     ///         Email = "new@example.com",
     ///     });
     /// 
     ///     // Create new team_membership resource
-    ///     var fooTeamMembership = new Datadog.Index.TeamMembership("foo", new()
+    ///     var fooTeamMembership = new Datadog.TeamMembership("foo", new()
     ///     {
     ///         TeamId = foo.Id,
     ///         UserId = fooUser.Id,

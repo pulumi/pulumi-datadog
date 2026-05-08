@@ -135,11 +135,11 @@ export interface RumRetentionFiltersOrderState {
     /**
      * RUM application ID.
      */
-    applicationId?: pulumi.Input<string>;
+    applicationId?: pulumi.Input<string | undefined>;
     /**
      * RUM retention filter ID list. The order of IDs in this attribute defines the order of RUM retention filters.
      */
-    retentionFilterIds?: pulumi.Input<pulumi.Input<string>[]>;
+    retentionFilterIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**

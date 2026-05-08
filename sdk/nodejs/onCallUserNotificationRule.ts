@@ -105,20 +105,20 @@ export interface OnCallUserNotificationRuleState {
     /**
      * Notification category to associate the rule with. Valid values are `highUrgency`, `lowUrgency`.
      */
-    category?: pulumi.Input<string>;
+    category?: pulumi.Input<string | undefined>;
     /**
      * ID of the notification channel to associate the notification rule with.
      */
-    channelId?: pulumi.Input<string>;
+    channelId?: pulumi.Input<string | undefined>;
     /**
      * Number of minutes to elapse before this rule is evaluated.  `0` indicates immediate evaluation.
      */
-    delayMinutes?: pulumi.Input<number>;
-    phone?: pulumi.Input<inputs.OnCallUserNotificationRulePhone>;
+    delayMinutes?: pulumi.Input<number | undefined>;
+    phone?: pulumi.Input<inputs.OnCallUserNotificationRulePhone | undefined>;
     /**
      * ID of the user to associate the notification rule with.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -137,7 +137,7 @@ export interface OnCallUserNotificationRuleArgs {
      * Number of minutes to elapse before this rule is evaluated.  `0` indicates immediate evaluation.
      */
     delayMinutes: pulumi.Input<number>;
-    phone?: pulumi.Input<inputs.OnCallUserNotificationRulePhone>;
+    phone?: pulumi.Input<inputs.OnCallUserNotificationRulePhone | undefined>;
     /**
      * ID of the user to associate the notification rule with.
      */

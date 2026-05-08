@@ -90,7 +90,7 @@ export interface GetTeamNotificationRulesOutputArgs {
     /**
      * List of notification rules for the team.
      */
-    notificationRules?: pulumi.Input<pulumi.Input<inputs.GetTeamNotificationRulesNotificationRuleArgs>[]>;
+    notificationRules?: pulumi.Input<pulumi.Input<inputs.GetTeamNotificationRulesNotificationRuleArgs>[] | undefined>;
     /**
      * The team ID to fetch notification rules for.
      */

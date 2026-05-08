@@ -128,7 +128,7 @@ export interface SecurityMonitoringRuleJsonState {
     /**
      * The JSON definition of the Security Monitoring Rule.
      */
-    json?: pulumi.Input<string>;
+    json?: pulumi.Input<string | undefined>;
 }
 
 /**

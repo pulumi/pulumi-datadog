@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a WAF exclusion filter on a path
-    ///     var excludeOnPath = new Datadog.Index.AppsecExclusionFilter("exclude_on_path", new()
+    ///     var excludeOnPath = new Datadog.AppsecExclusionFilter("exclude_on_path", new()
     ///     {
     ///         Description = "Exclude false positives on a path",
     ///         Enabled = true,
@@ -53,7 +53,7 @@ namespace Pulumi.Datadog
     ///     });
     /// 
     ///     // Create a WAF exclusion filter for trusted IPs
-    ///     var trustedIps = new Datadog.Index.AppsecExclusionFilter("trusted_ips", new()
+    ///     var trustedIps = new Datadog.AppsecExclusionFilter("trusted_ips", new()
     ///     {
     ///         Description = "Do not block office IP network",
     ///         Enabled = true,

@@ -238,7 +238,7 @@ export interface ServiceDefinitionYamlState {
     /**
      * The YAML/JSON formatted definition of the service
      */
-    serviceDefinition?: pulumi.Input<string>;
+    serviceDefinition?: pulumi.Input<string | undefined>;
 }
 
 /**

@@ -593,19 +593,19 @@ export interface DashboardJsonState {
     /**
      * The JSON formatted definition of the Dashboard.
      */
-    dashboard?: pulumi.Input<string>;
+    dashboard?: pulumi.Input<string | undefined>;
     /**
      * A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
      */
-    dashboardLists?: pulumi.Input<pulumi.Input<number>[]>;
+    dashboardLists?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * The list of dashboard lists this dashboard should be removed from. Internal only.
      */
-    dashboardListsRemoveds?: pulumi.Input<pulumi.Input<number>[]>;
+    dashboardListsRemoveds?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * The URL of the dashboard.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -619,9 +619,9 @@ export interface DashboardJsonArgs {
     /**
      * A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
      */
-    dashboardLists?: pulumi.Input<pulumi.Input<number>[]>;
+    dashboardLists?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * The URL of the dashboard.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }

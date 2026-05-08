@@ -123,9 +123,9 @@ def get_monitors(monitor_tags_filters: Optional[Sequence[_builtins.str]] = None,
         monitors=pulumi.get(__ret__, 'monitors'),
         name_filter=pulumi.get(__ret__, 'name_filter'),
         tags_filters=pulumi.get(__ret__, 'tags_filters'))
-def get_monitors_output(monitor_tags_filters: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                        name_filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        tags_filters: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
+def get_monitors_output(monitor_tags_filters: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                        name_filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        tags_filters: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitorsResult]:
     """
     Use this data source to list several existing monitors for use in other resources.

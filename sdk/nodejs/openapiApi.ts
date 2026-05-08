@@ -94,7 +94,7 @@ export interface OpenapiApiState {
     /**
      * The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
      */
-    spec?: pulumi.Input<string>;
+    spec?: pulumi.Input<string | undefined>;
 }
 
 /**

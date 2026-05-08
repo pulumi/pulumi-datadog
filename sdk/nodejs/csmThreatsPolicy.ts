@@ -130,23 +130,23 @@ export interface CsmThreatsPolicyState {
     /**
      * A description for the policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the policy is enabled. Defaults to `false`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Host tags that define where the policy is deployed. Inner values are ANDed, outer arrays are ORed.
      */
-    hostTagsLists?: pulumi.Input<pulumi.Input<pulumi.Input<string>[]>[]>;
+    hostTagsLists?: pulumi.Input<pulumi.Input<pulumi.Input<string>[]>[] | undefined>;
     /**
      * The name of the policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Host tags that define where the policy is deployed. Deprecated, use host*tags*lists instead.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -156,15 +156,15 @@ export interface CsmThreatsPolicyArgs {
     /**
      * A description for the policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the policy is enabled. Defaults to `false`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Host tags that define where the policy is deployed. Inner values are ANDed, outer arrays are ORed.
      */
-    hostTagsLists?: pulumi.Input<pulumi.Input<pulumi.Input<string>[]>[]>;
+    hostTagsLists?: pulumi.Input<pulumi.Input<pulumi.Input<string>[]>[] | undefined>;
     /**
      * The name of the policy.
      */
@@ -172,5 +172,5 @@ export interface CsmThreatsPolicyArgs {
     /**
      * Host tags that define where the policy is deployed. Deprecated, use host*tags*lists instead.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

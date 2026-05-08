@@ -25,7 +25,7 @@ class OnCallUserNotificationRuleArgs:
                  channel_id: pulumi.Input[_builtins.str],
                  delay_minutes: pulumi.Input[_builtins.int],
                  user_id: pulumi.Input[_builtins.str],
-                 phone: Optional[pulumi.Input['OnCallUserNotificationRulePhoneArgs']] = None):
+                 phone: pulumi.Input[Optional['OnCallUserNotificationRulePhoneArgs']] = None):
         """
         The set of arguments for constructing a OnCallUserNotificationRule resource.
 
@@ -91,22 +91,22 @@ class OnCallUserNotificationRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def phone(self) -> Optional[pulumi.Input['OnCallUserNotificationRulePhoneArgs']]:
+    def phone(self) -> pulumi.Input[Optional['OnCallUserNotificationRulePhoneArgs']]:
         return pulumi.get(self, "phone")
 
     @phone.setter
-    def phone(self, value: Optional[pulumi.Input['OnCallUserNotificationRulePhoneArgs']]):
+    def phone(self, value: pulumi.Input[Optional['OnCallUserNotificationRulePhoneArgs']]):
         pulumi.set(self, "phone", value)
 
 
 @pulumi.input_type
 class _OnCallUserNotificationRuleState:
     def __init__(__self__, *,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 delay_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 phone: Optional[pulumi.Input['OnCallUserNotificationRulePhoneArgs']] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 delay_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 phone: pulumi.Input[Optional['OnCallUserNotificationRulePhoneArgs']] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OnCallUserNotificationRule resources.
 
@@ -128,59 +128,59 @@ class _OnCallUserNotificationRuleState:
 
     @_builtins.property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def category(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Notification category to associate the rule with. Valid values are `high_urgency`, `low_urgency`.
         """
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def category(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "category", value)
 
     @_builtins.property
     @pulumi.getter(name="channelId")
-    def channel_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def channel_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the notification channel to associate the notification rule with.
         """
         return pulumi.get(self, "channel_id")
 
     @channel_id.setter
-    def channel_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def channel_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "channel_id", value)
 
     @_builtins.property
     @pulumi.getter(name="delayMinutes")
-    def delay_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def delay_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of minutes to elapse before this rule is evaluated.  `0` indicates immediate evaluation.
         """
         return pulumi.get(self, "delay_minutes")
 
     @delay_minutes.setter
-    def delay_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def delay_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "delay_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def phone(self) -> Optional[pulumi.Input['OnCallUserNotificationRulePhoneArgs']]:
+    def phone(self) -> pulumi.Input[Optional['OnCallUserNotificationRulePhoneArgs']]:
         return pulumi.get(self, "phone")
 
     @phone.setter
-    def phone(self, value: Optional[pulumi.Input['OnCallUserNotificationRulePhoneArgs']]):
+    def phone(self, value: pulumi.Input[Optional['OnCallUserNotificationRulePhoneArgs']]):
         pulumi.set(self, "phone", value)
 
     @_builtins.property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the user to associate the notification rule with.
         """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
-    def user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_id", value)
 
 
@@ -190,11 +190,11 @@ class OnCallUserNotificationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 delay_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 phone: Optional[pulumi.Input[Union['OnCallUserNotificationRulePhoneArgs', 'OnCallUserNotificationRulePhoneArgsDict']]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 delay_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 phone: pulumi.Input[Optional[Union['OnCallUserNotificationRulePhoneArgs', 'OnCallUserNotificationRulePhoneArgsDict']]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog On-Call user notification rule resource.
@@ -232,11 +232,11 @@ class OnCallUserNotificationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 delay_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 phone: Optional[pulumi.Input[Union['OnCallUserNotificationRulePhoneArgs', 'OnCallUserNotificationRulePhoneArgsDict']]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 delay_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 phone: pulumi.Input[Optional[Union['OnCallUserNotificationRulePhoneArgs', 'OnCallUserNotificationRulePhoneArgsDict']]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -269,11 +269,11 @@ class OnCallUserNotificationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            category: Optional[pulumi.Input[_builtins.str]] = None,
-            channel_id: Optional[pulumi.Input[_builtins.str]] = None,
-            delay_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            phone: Optional[pulumi.Input[Union['OnCallUserNotificationRulePhoneArgs', 'OnCallUserNotificationRulePhoneArgsDict']]] = None,
-            user_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'OnCallUserNotificationRule':
+            category: pulumi.Input[Optional[_builtins.str]] = None,
+            channel_id: pulumi.Input[Optional[_builtins.str]] = None,
+            delay_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            phone: pulumi.Input[Optional[Union['OnCallUserNotificationRulePhoneArgs', 'OnCallUserNotificationRulePhoneArgsDict']]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'OnCallUserNotificationRule':
         """
         Get an existing OnCallUserNotificationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

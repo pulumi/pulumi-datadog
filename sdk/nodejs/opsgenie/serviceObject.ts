@@ -117,19 +117,19 @@ export interface ServiceObjectState {
     /**
      * The custom url for a custom region.
      */
-    customUrl?: pulumi.Input<string>;
+    customUrl?: pulumi.Input<string | undefined>;
     /**
      * The name for the Opsgenie service.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts. The best way to solve a drift is to manually mark the Service Object resource with terraform taint to have it destroyed and recreated.
      */
-    opsgenieApiKey?: pulumi.Input<string>;
+    opsgenieApiKey?: pulumi.Input<string | undefined>;
     /**
      * The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -139,7 +139,7 @@ export interface ServiceObjectArgs {
     /**
      * The custom url for a custom region.
      */
-    customUrl?: pulumi.Input<string>;
+    customUrl?: pulumi.Input<string | undefined>;
     /**
      * The name for the Opsgenie service.
      */

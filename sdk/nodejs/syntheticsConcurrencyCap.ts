@@ -93,7 +93,7 @@ export interface SyntheticsConcurrencyCapState {
     /**
      * Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
      */
-    onDemandConcurrencyCap?: pulumi.Input<number>;
+    onDemandConcurrencyCap?: pulumi.Input<number | undefined>;
 }
 
 /**

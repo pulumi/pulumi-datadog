@@ -22,15 +22,15 @@ __all__ = ['LogsCustomDestinationArgs', 'LogsCustomDestination']
 class LogsCustomDestinationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 elasticsearch_destination: Optional[pulumi.Input['LogsCustomDestinationElasticsearchDestinationArgs']] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 forward_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 forward_tags_restriction_list_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 forward_tags_restriction_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 http_destination: Optional[pulumi.Input['LogsCustomDestinationHttpDestinationArgs']] = None,
-                 microsoft_sentinel_destination: Optional[pulumi.Input['LogsCustomDestinationMicrosoftSentinelDestinationArgs']] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 splunk_destination: Optional[pulumi.Input['LogsCustomDestinationSplunkDestinationArgs']] = None):
+                 elasticsearch_destination: pulumi.Input[Optional['LogsCustomDestinationElasticsearchDestinationArgs']] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 forward_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 forward_tags_restriction_list_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 forward_tags_restriction_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 http_destination: pulumi.Input[Optional['LogsCustomDestinationHttpDestinationArgs']] = None,
+                 microsoft_sentinel_destination: pulumi.Input[Optional['LogsCustomDestinationMicrosoftSentinelDestinationArgs']] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 splunk_destination: pulumi.Input[Optional['LogsCustomDestinationSplunkDestinationArgs']] = None):
         """
         The set of arguments for constructing a LogsCustomDestination resource.
 
@@ -84,43 +84,43 @@ class LogsCustomDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="elasticsearchDestination")
-    def elasticsearch_destination(self) -> Optional[pulumi.Input['LogsCustomDestinationElasticsearchDestinationArgs']]:
+    def elasticsearch_destination(self) -> pulumi.Input[Optional['LogsCustomDestinationElasticsearchDestinationArgs']]:
         """
         The Elasticsearch destination.
         """
         return pulumi.get(self, "elasticsearch_destination")
 
     @elasticsearch_destination.setter
-    def elasticsearch_destination(self, value: Optional[pulumi.Input['LogsCustomDestinationElasticsearchDestinationArgs']]):
+    def elasticsearch_destination(self, value: pulumi.Input[Optional['LogsCustomDestinationElasticsearchDestinationArgs']]):
         pulumi.set(self, "elasticsearch_destination", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether logs matching this custom destination should be forwarded or not.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardTags")
-    def forward_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def forward_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether tags from the forwarded logs should be forwarded or not.
         """
         return pulumi.get(self, "forward_tags")
 
     @forward_tags.setter
-    def forward_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def forward_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "forward_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardTagsRestrictionListType")
-    def forward_tags_restriction_list_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def forward_tags_restriction_list_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How the `forward_tags_restriction_list` parameter should be interpreted.
         			If `ALLOW_LIST`, then only tags whose keys on the forwarded logs match the ones on the restriction list
@@ -130,12 +130,12 @@ class LogsCustomDestinationArgs:
         return pulumi.get(self, "forward_tags_restriction_list_type")
 
     @forward_tags_restriction_list_type.setter
-    def forward_tags_restriction_list_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def forward_tags_restriction_list_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "forward_tags_restriction_list_type", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardTagsRestrictionLists")
-    def forward_tags_restriction_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def forward_tags_restriction_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of [tag keys](https://docs.datadoghq.com/getting_started/tagging/#define-tags) to be filtered.
         			An empty list represents no restriction is in place and either all or no tags will be
@@ -144,71 +144,71 @@ class LogsCustomDestinationArgs:
         return pulumi.get(self, "forward_tags_restriction_lists")
 
     @forward_tags_restriction_lists.setter
-    def forward_tags_restriction_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def forward_tags_restriction_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "forward_tags_restriction_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="httpDestination")
-    def http_destination(self) -> Optional[pulumi.Input['LogsCustomDestinationHttpDestinationArgs']]:
+    def http_destination(self) -> pulumi.Input[Optional['LogsCustomDestinationHttpDestinationArgs']]:
         """
         The HTTP destination.
         """
         return pulumi.get(self, "http_destination")
 
     @http_destination.setter
-    def http_destination(self, value: Optional[pulumi.Input['LogsCustomDestinationHttpDestinationArgs']]):
+    def http_destination(self, value: pulumi.Input[Optional['LogsCustomDestinationHttpDestinationArgs']]):
         pulumi.set(self, "http_destination", value)
 
     @_builtins.property
     @pulumi.getter(name="microsoftSentinelDestination")
-    def microsoft_sentinel_destination(self) -> Optional[pulumi.Input['LogsCustomDestinationMicrosoftSentinelDestinationArgs']]:
+    def microsoft_sentinel_destination(self) -> pulumi.Input[Optional['LogsCustomDestinationMicrosoftSentinelDestinationArgs']]:
         """
         The Microsoft Sentinel destination.
         """
         return pulumi.get(self, "microsoft_sentinel_destination")
 
     @microsoft_sentinel_destination.setter
-    def microsoft_sentinel_destination(self, value: Optional[pulumi.Input['LogsCustomDestinationMicrosoftSentinelDestinationArgs']]):
+    def microsoft_sentinel_destination(self, value: pulumi.Input[Optional['LogsCustomDestinationMicrosoftSentinelDestinationArgs']]):
         pulumi.set(self, "microsoft_sentinel_destination", value)
 
     @_builtins.property
     @pulumi.getter
-    def query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The custom destination query filter. Logs matching this query are forwarded to the destination.
         """
         return pulumi.get(self, "query")
 
     @query.setter
-    def query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query", value)
 
     @_builtins.property
     @pulumi.getter(name="splunkDestination")
-    def splunk_destination(self) -> Optional[pulumi.Input['LogsCustomDestinationSplunkDestinationArgs']]:
+    def splunk_destination(self) -> pulumi.Input[Optional['LogsCustomDestinationSplunkDestinationArgs']]:
         """
         The Splunk HTTP Event Collector (HEC) destination.
         """
         return pulumi.get(self, "splunk_destination")
 
     @splunk_destination.setter
-    def splunk_destination(self, value: Optional[pulumi.Input['LogsCustomDestinationSplunkDestinationArgs']]):
+    def splunk_destination(self, value: pulumi.Input[Optional['LogsCustomDestinationSplunkDestinationArgs']]):
         pulumi.set(self, "splunk_destination", value)
 
 
 @pulumi.input_type
 class _LogsCustomDestinationState:
     def __init__(__self__, *,
-                 elasticsearch_destination: Optional[pulumi.Input['LogsCustomDestinationElasticsearchDestinationArgs']] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 forward_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 forward_tags_restriction_list_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 forward_tags_restriction_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 http_destination: Optional[pulumi.Input['LogsCustomDestinationHttpDestinationArgs']] = None,
-                 microsoft_sentinel_destination: Optional[pulumi.Input['LogsCustomDestinationMicrosoftSentinelDestinationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 splunk_destination: Optional[pulumi.Input['LogsCustomDestinationSplunkDestinationArgs']] = None):
+                 elasticsearch_destination: pulumi.Input[Optional['LogsCustomDestinationElasticsearchDestinationArgs']] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 forward_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 forward_tags_restriction_list_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 forward_tags_restriction_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 http_destination: pulumi.Input[Optional['LogsCustomDestinationHttpDestinationArgs']] = None,
+                 microsoft_sentinel_destination: pulumi.Input[Optional['LogsCustomDestinationMicrosoftSentinelDestinationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 splunk_destination: pulumi.Input[Optional['LogsCustomDestinationSplunkDestinationArgs']] = None):
         """
         Input properties used for looking up and filtering LogsCustomDestination resources.
 
@@ -251,43 +251,43 @@ class _LogsCustomDestinationState:
 
     @_builtins.property
     @pulumi.getter(name="elasticsearchDestination")
-    def elasticsearch_destination(self) -> Optional[pulumi.Input['LogsCustomDestinationElasticsearchDestinationArgs']]:
+    def elasticsearch_destination(self) -> pulumi.Input[Optional['LogsCustomDestinationElasticsearchDestinationArgs']]:
         """
         The Elasticsearch destination.
         """
         return pulumi.get(self, "elasticsearch_destination")
 
     @elasticsearch_destination.setter
-    def elasticsearch_destination(self, value: Optional[pulumi.Input['LogsCustomDestinationElasticsearchDestinationArgs']]):
+    def elasticsearch_destination(self, value: pulumi.Input[Optional['LogsCustomDestinationElasticsearchDestinationArgs']]):
         pulumi.set(self, "elasticsearch_destination", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether logs matching this custom destination should be forwarded or not.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardTags")
-    def forward_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def forward_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether tags from the forwarded logs should be forwarded or not.
         """
         return pulumi.get(self, "forward_tags")
 
     @forward_tags.setter
-    def forward_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def forward_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "forward_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardTagsRestrictionListType")
-    def forward_tags_restriction_list_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def forward_tags_restriction_list_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How the `forward_tags_restriction_list` parameter should be interpreted.
         			If `ALLOW_LIST`, then only tags whose keys on the forwarded logs match the ones on the restriction list
@@ -297,12 +297,12 @@ class _LogsCustomDestinationState:
         return pulumi.get(self, "forward_tags_restriction_list_type")
 
     @forward_tags_restriction_list_type.setter
-    def forward_tags_restriction_list_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def forward_tags_restriction_list_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "forward_tags_restriction_list_type", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardTagsRestrictionLists")
-    def forward_tags_restriction_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def forward_tags_restriction_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of [tag keys](https://docs.datadoghq.com/getting_started/tagging/#define-tags) to be filtered.
         			An empty list represents no restriction is in place and either all or no tags will be
@@ -311,67 +311,67 @@ class _LogsCustomDestinationState:
         return pulumi.get(self, "forward_tags_restriction_lists")
 
     @forward_tags_restriction_lists.setter
-    def forward_tags_restriction_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def forward_tags_restriction_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "forward_tags_restriction_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="httpDestination")
-    def http_destination(self) -> Optional[pulumi.Input['LogsCustomDestinationHttpDestinationArgs']]:
+    def http_destination(self) -> pulumi.Input[Optional['LogsCustomDestinationHttpDestinationArgs']]:
         """
         The HTTP destination.
         """
         return pulumi.get(self, "http_destination")
 
     @http_destination.setter
-    def http_destination(self, value: Optional[pulumi.Input['LogsCustomDestinationHttpDestinationArgs']]):
+    def http_destination(self, value: pulumi.Input[Optional['LogsCustomDestinationHttpDestinationArgs']]):
         pulumi.set(self, "http_destination", value)
 
     @_builtins.property
     @pulumi.getter(name="microsoftSentinelDestination")
-    def microsoft_sentinel_destination(self) -> Optional[pulumi.Input['LogsCustomDestinationMicrosoftSentinelDestinationArgs']]:
+    def microsoft_sentinel_destination(self) -> pulumi.Input[Optional['LogsCustomDestinationMicrosoftSentinelDestinationArgs']]:
         """
         The Microsoft Sentinel destination.
         """
         return pulumi.get(self, "microsoft_sentinel_destination")
 
     @microsoft_sentinel_destination.setter
-    def microsoft_sentinel_destination(self, value: Optional[pulumi.Input['LogsCustomDestinationMicrosoftSentinelDestinationArgs']]):
+    def microsoft_sentinel_destination(self, value: pulumi.Input[Optional['LogsCustomDestinationMicrosoftSentinelDestinationArgs']]):
         pulumi.set(self, "microsoft_sentinel_destination", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The custom destination name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The custom destination query filter. Logs matching this query are forwarded to the destination.
         """
         return pulumi.get(self, "query")
 
     @query.setter
-    def query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query", value)
 
     @_builtins.property
     @pulumi.getter(name="splunkDestination")
-    def splunk_destination(self) -> Optional[pulumi.Input['LogsCustomDestinationSplunkDestinationArgs']]:
+    def splunk_destination(self) -> pulumi.Input[Optional['LogsCustomDestinationSplunkDestinationArgs']]:
         """
         The Splunk HTTP Event Collector (HEC) destination.
         """
         return pulumi.get(self, "splunk_destination")
 
     @splunk_destination.setter
-    def splunk_destination(self, value: Optional[pulumi.Input['LogsCustomDestinationSplunkDestinationArgs']]):
+    def splunk_destination(self, value: pulumi.Input[Optional['LogsCustomDestinationSplunkDestinationArgs']]):
         pulumi.set(self, "splunk_destination", value)
 
 
@@ -381,16 +381,16 @@ class LogsCustomDestination(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 elasticsearch_destination: Optional[pulumi.Input[Union['LogsCustomDestinationElasticsearchDestinationArgs', 'LogsCustomDestinationElasticsearchDestinationArgsDict']]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 forward_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 forward_tags_restriction_list_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 forward_tags_restriction_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 http_destination: Optional[pulumi.Input[Union['LogsCustomDestinationHttpDestinationArgs', 'LogsCustomDestinationHttpDestinationArgsDict']]] = None,
-                 microsoft_sentinel_destination: Optional[pulumi.Input[Union['LogsCustomDestinationMicrosoftSentinelDestinationArgs', 'LogsCustomDestinationMicrosoftSentinelDestinationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 splunk_destination: Optional[pulumi.Input[Union['LogsCustomDestinationSplunkDestinationArgs', 'LogsCustomDestinationSplunkDestinationArgsDict']]] = None,
+                 elasticsearch_destination: pulumi.Input[Optional[Union['LogsCustomDestinationElasticsearchDestinationArgs', 'LogsCustomDestinationElasticsearchDestinationArgsDict']]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 forward_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 forward_tags_restriction_list_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 forward_tags_restriction_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 http_destination: pulumi.Input[Optional[Union['LogsCustomDestinationHttpDestinationArgs', 'LogsCustomDestinationHttpDestinationArgsDict']]] = None,
+                 microsoft_sentinel_destination: pulumi.Input[Optional[Union['LogsCustomDestinationMicrosoftSentinelDestinationArgs', 'LogsCustomDestinationMicrosoftSentinelDestinationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 splunk_destination: pulumi.Input[Optional[Union['LogsCustomDestinationSplunkDestinationArgs', 'LogsCustomDestinationSplunkDestinationArgsDict']]] = None,
                  __props__=None):
         """
         Provides a Datadog Logs Custom Destination API resource, which is used to create and manage Datadog log forwarding.
@@ -497,16 +497,16 @@ class LogsCustomDestination(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 elasticsearch_destination: Optional[pulumi.Input[Union['LogsCustomDestinationElasticsearchDestinationArgs', 'LogsCustomDestinationElasticsearchDestinationArgsDict']]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 forward_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 forward_tags_restriction_list_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 forward_tags_restriction_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 http_destination: Optional[pulumi.Input[Union['LogsCustomDestinationHttpDestinationArgs', 'LogsCustomDestinationHttpDestinationArgsDict']]] = None,
-                 microsoft_sentinel_destination: Optional[pulumi.Input[Union['LogsCustomDestinationMicrosoftSentinelDestinationArgs', 'LogsCustomDestinationMicrosoftSentinelDestinationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 splunk_destination: Optional[pulumi.Input[Union['LogsCustomDestinationSplunkDestinationArgs', 'LogsCustomDestinationSplunkDestinationArgsDict']]] = None,
+                 elasticsearch_destination: pulumi.Input[Optional[Union['LogsCustomDestinationElasticsearchDestinationArgs', 'LogsCustomDestinationElasticsearchDestinationArgsDict']]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 forward_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 forward_tags_restriction_list_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 forward_tags_restriction_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 http_destination: pulumi.Input[Optional[Union['LogsCustomDestinationHttpDestinationArgs', 'LogsCustomDestinationHttpDestinationArgsDict']]] = None,
+                 microsoft_sentinel_destination: pulumi.Input[Optional[Union['LogsCustomDestinationMicrosoftSentinelDestinationArgs', 'LogsCustomDestinationMicrosoftSentinelDestinationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 splunk_destination: pulumi.Input[Optional[Union['LogsCustomDestinationSplunkDestinationArgs', 'LogsCustomDestinationSplunkDestinationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -538,16 +538,16 @@ class LogsCustomDestination(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            elasticsearch_destination: Optional[pulumi.Input[Union['LogsCustomDestinationElasticsearchDestinationArgs', 'LogsCustomDestinationElasticsearchDestinationArgsDict']]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            forward_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-            forward_tags_restriction_list_type: Optional[pulumi.Input[_builtins.str]] = None,
-            forward_tags_restriction_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            http_destination: Optional[pulumi.Input[Union['LogsCustomDestinationHttpDestinationArgs', 'LogsCustomDestinationHttpDestinationArgsDict']]] = None,
-            microsoft_sentinel_destination: Optional[pulumi.Input[Union['LogsCustomDestinationMicrosoftSentinelDestinationArgs', 'LogsCustomDestinationMicrosoftSentinelDestinationArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            query: Optional[pulumi.Input[_builtins.str]] = None,
-            splunk_destination: Optional[pulumi.Input[Union['LogsCustomDestinationSplunkDestinationArgs', 'LogsCustomDestinationSplunkDestinationArgsDict']]] = None) -> 'LogsCustomDestination':
+            elasticsearch_destination: pulumi.Input[Optional[Union['LogsCustomDestinationElasticsearchDestinationArgs', 'LogsCustomDestinationElasticsearchDestinationArgsDict']]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            forward_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+            forward_tags_restriction_list_type: pulumi.Input[Optional[_builtins.str]] = None,
+            forward_tags_restriction_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            http_destination: pulumi.Input[Optional[Union['LogsCustomDestinationHttpDestinationArgs', 'LogsCustomDestinationHttpDestinationArgsDict']]] = None,
+            microsoft_sentinel_destination: pulumi.Input[Optional[Union['LogsCustomDestinationMicrosoftSentinelDestinationArgs', 'LogsCustomDestinationMicrosoftSentinelDestinationArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query: pulumi.Input[Optional[_builtins.str]] = None,
+            splunk_destination: pulumi.Input[Optional[Union['LogsCustomDestinationSplunkDestinationArgs', 'LogsCustomDestinationSplunkDestinationArgsDict']]] = None) -> 'LogsCustomDestination':
         """
         Get an existing LogsCustomDestination resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

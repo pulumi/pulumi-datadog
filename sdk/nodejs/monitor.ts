@@ -329,152 +329,152 @@ export interface MonitorState {
     /**
      * List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
      */
-    assets?: pulumi.Input<pulumi.Input<inputs.MonitorAsset>[]>;
+    assets?: pulumi.Input<pulumi.Input<inputs.MonitorAsset>[] | undefined>;
     /**
      * Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
      */
-    draftStatus?: pulumi.Input<string>;
+    draftStatus?: pulumi.Input<string | undefined>;
     /**
      * A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
      */
-    enableLogsSample?: pulumi.Input<boolean>;
+    enableLogsSample?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
      */
-    enableSamples?: pulumi.Input<boolean>;
+    enableSamples?: pulumi.Input<boolean | undefined>;
     /**
      * A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
      */
-    escalationMessage?: pulumi.Input<string>;
+    escalationMessage?: pulumi.Input<string | undefined>;
     /**
      * (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
      *
      * For example, if the value is set to `300` (5min), the `timeframe` is set to `last5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
      */
-    evaluationDelay?: pulumi.Input<number>;
+    evaluationDelay?: pulumi.Input<number | undefined>;
     /**
      * A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
      */
-    forceDelete?: pulumi.Input<boolean>;
+    forceDelete?: pulumi.Input<boolean | undefined>;
     /**
      * The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
      */
-    groupRetentionDuration?: pulumi.Input<string>;
+    groupRetentionDuration?: pulumi.Input<string | undefined>;
     /**
      * Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
      */
-    groupbySimpleMonitor?: pulumi.Input<boolean>;
+    groupbySimpleMonitor?: pulumi.Input<boolean | undefined>;
     /**
      * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
      */
-    includeTags?: pulumi.Input<boolean>;
+    includeTags?: pulumi.Input<boolean | undefined>;
     /**
      * A message to include with notifications for this monitor.
      */
-    message?: pulumi.Input<string>;
+    message?: pulumi.Input<string | undefined>;
     /**
      * A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m` . Can only be used for, and are required for, anomaly monitors.
      */
-    monitorThresholdWindows?: pulumi.Input<inputs.MonitorMonitorThresholdWindows>;
+    monitorThresholdWindows?: pulumi.Input<inputs.MonitorMonitorThresholdWindows | undefined>;
     /**
      * Alert thresholds of the monitor.
      */
-    monitorThresholds?: pulumi.Input<inputs.MonitorMonitorThresholds>;
+    monitorThresholds?: pulumi.Input<inputs.MonitorMonitorThresholds | undefined>;
     /**
      * Name of Datadog monitor.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The time (in seconds) to skip evaluations for new groups.
      *
      * `newGroupDelay` overrides `newHostDelay` if it is set to a nonzero value.
      */
-    newGroupDelay?: pulumi.Input<number>;
+    newGroupDelay?: pulumi.Input<number | undefined>;
     /**
      * **Deprecated**. See `newGroupDelay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `newHostDelay` to zero for monitors grouped by host.
      *
      * @deprecated Use `newGroupDelay` except when setting `newHostDelay` to zero.
      */
-    newHostDelay?: pulumi.Input<number>;
+    newHostDelay?: pulumi.Input<number | undefined>;
     /**
      * The number of minutes before a monitor will notify when data stops reporting.
      *
      * We recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
      */
-    noDataTimeframe?: pulumi.Input<number>;
+    noDataTimeframe?: pulumi.Input<number | undefined>;
     /**
      * Toggles the display of additional content sent in the monitor notification.
      */
-    notificationPresetName?: pulumi.Input<string>;
+    notificationPresetName?: pulumi.Input<string | undefined>;
     /**
      * A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
      */
-    notifyAudit?: pulumi.Input<boolean>;
+    notifyAudit?: pulumi.Input<boolean | undefined>;
     /**
      * Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notifyBy` to `['cluster']`. Tags mentioned in `notifyBy` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notifyBy` to `[*]` configures the monitor to notify as a simple-alert.
      */
-    notifyBies?: pulumi.Input<pulumi.Input<string>[]>;
+    notifyBies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A boolean indicating whether this monitor will notify when data stops reporting.
      */
-    notifyNoData?: pulumi.Input<boolean>;
+    notifyNoData?: pulumi.Input<boolean | undefined>;
     /**
      * Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
      */
-    onMissingData?: pulumi.Input<string>;
+    onMissingData?: pulumi.Input<string | undefined>;
     /**
      * Integer from 1 (high) to 5 (low) indicating alert severity.
      */
-    priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string | undefined>;
     /**
      * The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. `terraform plan` will validate query contents unless `validate` is set to `false`.
      *
      * **Note:** APM latency data is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
      */
-    query?: pulumi.Input<string>;
+    query?: pulumi.Input<string | undefined>;
     /**
      * The number of minutes after the last notification before a monitor will re-notify on the current status. It will only re-notify if it's not resolved.
      */
-    renotifyInterval?: pulumi.Input<number>;
+    renotifyInterval?: pulumi.Input<number | undefined>;
     /**
      * The number of re-notification messages that should be sent on the current status.
      */
-    renotifyOccurrences?: pulumi.Input<number>;
+    renotifyOccurrences?: pulumi.Input<number | undefined>;
     /**
      * The types of statuses for which re-notification messages should be sent.
      */
-    renotifyStatuses?: pulumi.Input<pulumi.Input<string>[]>;
+    renotifyStatuses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a customSchedule set, `requireFullWindow` must be false and will be ignored.
      */
-    requireFullWindow?: pulumi.Input<boolean>;
+    requireFullWindow?: pulumi.Input<boolean | undefined>;
     /**
      * A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
      *
      * @deprecated Use `datadog.RestrictionPolicy` resource to manage permission.
      */
-    restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    restrictedRoles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configuration options for scheduling.
      */
-    schedulingOptions?: pulumi.Input<inputs.MonitorSchedulingOptions>;
+    schedulingOptions?: pulumi.Input<inputs.MonitorSchedulingOptions | undefined>;
     /**
      * A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
      */
-    timeoutH?: pulumi.Input<number>;
+    timeoutH?: pulumi.Input<number | undefined>;
     /**
      * The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type cannot be changed after a monitor is created.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * If set to `false`, skip the validation call done during plan.
      */
-    validate?: pulumi.Input<boolean>;
-    variables?: pulumi.Input<inputs.MonitorVariables>;
+    validate?: pulumi.Input<boolean | undefined>;
+    variables?: pulumi.Input<inputs.MonitorVariables | undefined>;
 }
 
 /**
@@ -484,45 +484,45 @@ export interface MonitorArgs {
     /**
      * List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
      */
-    assets?: pulumi.Input<pulumi.Input<inputs.MonitorAsset>[]>;
+    assets?: pulumi.Input<pulumi.Input<inputs.MonitorAsset>[] | undefined>;
     /**
      * Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
      */
-    draftStatus?: pulumi.Input<string>;
+    draftStatus?: pulumi.Input<string | undefined>;
     /**
      * A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
      */
-    enableLogsSample?: pulumi.Input<boolean>;
+    enableLogsSample?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
      */
-    enableSamples?: pulumi.Input<boolean>;
+    enableSamples?: pulumi.Input<boolean | undefined>;
     /**
      * A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
      */
-    escalationMessage?: pulumi.Input<string>;
+    escalationMessage?: pulumi.Input<string | undefined>;
     /**
      * (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
      *
      * For example, if the value is set to `300` (5min), the `timeframe` is set to `last5m` and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have data during evaluation.
      */
-    evaluationDelay?: pulumi.Input<number>;
+    evaluationDelay?: pulumi.Input<number | undefined>;
     /**
      * A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
      */
-    forceDelete?: pulumi.Input<boolean>;
+    forceDelete?: pulumi.Input<boolean | undefined>;
     /**
      * The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
      */
-    groupRetentionDuration?: pulumi.Input<string>;
+    groupRetentionDuration?: pulumi.Input<string | undefined>;
     /**
      * Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
      */
-    groupbySimpleMonitor?: pulumi.Input<boolean>;
+    groupbySimpleMonitor?: pulumi.Input<boolean | undefined>;
     /**
      * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
      */
-    includeTags?: pulumi.Input<boolean>;
+    includeTags?: pulumi.Input<boolean | undefined>;
     /**
      * A message to include with notifications for this monitor.
      */
@@ -530,11 +530,11 @@ export interface MonitorArgs {
     /**
      * A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m` . Can only be used for, and are required for, anomaly monitors.
      */
-    monitorThresholdWindows?: pulumi.Input<inputs.MonitorMonitorThresholdWindows>;
+    monitorThresholdWindows?: pulumi.Input<inputs.MonitorMonitorThresholdWindows | undefined>;
     /**
      * Alert thresholds of the monitor.
      */
-    monitorThresholds?: pulumi.Input<inputs.MonitorMonitorThresholds>;
+    monitorThresholds?: pulumi.Input<inputs.MonitorMonitorThresholds | undefined>;
     /**
      * Name of Datadog monitor.
      */
@@ -544,43 +544,43 @@ export interface MonitorArgs {
      *
      * `newGroupDelay` overrides `newHostDelay` if it is set to a nonzero value.
      */
-    newGroupDelay?: pulumi.Input<number>;
+    newGroupDelay?: pulumi.Input<number | undefined>;
     /**
      * **Deprecated**. See `newGroupDelay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `newHostDelay` to zero for monitors grouped by host.
      *
      * @deprecated Use `newGroupDelay` except when setting `newHostDelay` to zero.
      */
-    newHostDelay?: pulumi.Input<number>;
+    newHostDelay?: pulumi.Input<number | undefined>;
     /**
      * The number of minutes before a monitor will notify when data stops reporting.
      *
      * We recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
      */
-    noDataTimeframe?: pulumi.Input<number>;
+    noDataTimeframe?: pulumi.Input<number | undefined>;
     /**
      * Toggles the display of additional content sent in the monitor notification.
      */
-    notificationPresetName?: pulumi.Input<string>;
+    notificationPresetName?: pulumi.Input<string | undefined>;
     /**
      * A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
      */
-    notifyAudit?: pulumi.Input<boolean>;
+    notifyAudit?: pulumi.Input<boolean | undefined>;
     /**
      * Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notifyBy` to `['cluster']`. Tags mentioned in `notifyBy` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notifyBy` to `[*]` configures the monitor to notify as a simple-alert.
      */
-    notifyBies?: pulumi.Input<pulumi.Input<string>[]>;
+    notifyBies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A boolean indicating whether this monitor will notify when data stops reporting.
      */
-    notifyNoData?: pulumi.Input<boolean>;
+    notifyNoData?: pulumi.Input<boolean | undefined>;
     /**
      * Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is not available for Service Check, Composite, or SLO monitors. Valid values are: `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
      */
-    onMissingData?: pulumi.Input<string>;
+    onMissingData?: pulumi.Input<string | undefined>;
     /**
      * Integer from 1 (high) to 5 (low) indicating alert severity.
      */
-    priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string | undefined>;
     /**
      * The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. `terraform plan` will validate query contents unless `validate` is set to `false`.
      *
@@ -590,37 +590,37 @@ export interface MonitorArgs {
     /**
      * The number of minutes after the last notification before a monitor will re-notify on the current status. It will only re-notify if it's not resolved.
      */
-    renotifyInterval?: pulumi.Input<number>;
+    renotifyInterval?: pulumi.Input<number | undefined>;
     /**
      * The number of re-notification messages that should be sent on the current status.
      */
-    renotifyOccurrences?: pulumi.Input<number>;
+    renotifyOccurrences?: pulumi.Input<number | undefined>;
     /**
      * The types of statuses for which re-notification messages should be sent.
      */
-    renotifyStatuses?: pulumi.Input<pulumi.Input<string>[]>;
+    renotifyStatuses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a customSchedule set, `requireFullWindow` must be false and will be ignored.
      */
-    requireFullWindow?: pulumi.Input<boolean>;
+    requireFullWindow?: pulumi.Input<boolean | undefined>;
     /**
      * A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
      *
      * @deprecated Use `datadog.RestrictionPolicy` resource to manage permission.
      */
-    restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    restrictedRoles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configuration options for scheduling.
      */
-    schedulingOptions?: pulumi.Input<inputs.MonitorSchedulingOptions>;
+    schedulingOptions?: pulumi.Input<inputs.MonitorSchedulingOptions | undefined>;
     /**
      * A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
      */
-    timeoutH?: pulumi.Input<number>;
+    timeoutH?: pulumi.Input<number | undefined>;
     /**
      * The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type cannot be changed after a monitor is created.
      */
@@ -628,6 +628,6 @@ export interface MonitorArgs {
     /**
      * If set to `false`, skip the validation call done during plan.
      */
-    validate?: pulumi.Input<boolean>;
-    variables?: pulumi.Input<inputs.MonitorVariables>;
+    validate?: pulumi.Input<boolean | undefined>;
+    variables?: pulumi.Input<inputs.MonitorVariables | undefined>;
 }

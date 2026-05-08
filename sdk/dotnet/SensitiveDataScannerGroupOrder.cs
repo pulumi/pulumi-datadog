@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create new sensitive_data_scanner_group_order resource
-    ///     var mygrouporder = new Datadog.Index.SensitiveDataScannerGroupOrder("mygrouporder", new()
+    ///     var mygrouporder = new Datadog.SensitiveDataScannerGroupOrder("mygrouporder", new()
     ///     {
     ///         GroupIds = new[]
     ///         {

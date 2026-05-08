@@ -112,7 +112,7 @@ def get_dashboard(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         title=pulumi.get(__ret__, 'title'),
         url=pulumi.get(__ret__, 'url'))
-def get_dashboard_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dashboard_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDashboardResult]:
     """
     Use this data source to retrieve information about an existing dashboard, for use in other resources. In particular, it can be used in a monitor message to link to a specific dashboard.

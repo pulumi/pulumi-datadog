@@ -318,59 +318,59 @@ export interface ServiceLevelObjectiveState {
     /**
      * A description of this service level objective.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
      */
-    forceDelete?: pulumi.Input<boolean>;
+    forceDelete?: pulumi.Input<boolean | undefined>;
     /**
      * A static set of groups to filter monitor-based SLOs
      */
-    groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A static set of monitor IDs to use as part of the SLO
      */
-    monitorIds?: pulumi.Input<pulumi.Input<number>[]>;
+    monitorIds?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * Name of Datadog service level objective
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The metric query of good / total events. Use this for metric SLOs as an alternative to `sliSpecification`.
      */
-    query?: pulumi.Input<inputs.ServiceLevelObjectiveQuery>;
+    query?: pulumi.Input<inputs.ServiceLevelObjectiveQuery | undefined>;
     /**
      * A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
      */
-    sliSpecification?: pulumi.Input<inputs.ServiceLevelObjectiveSliSpecification>;
+    sliSpecification?: pulumi.Input<inputs.ServiceLevelObjectiveSliSpecification | undefined>;
     /**
      * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
      */
-    targetThreshold?: pulumi.Input<number>;
+    targetThreshold?: pulumi.Input<number | undefined>;
     /**
      * A list of thresholds and targets that define the service level objectives from the provided SLIs.
      */
-    thresholds?: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveThreshold>[]>;
+    thresholds?: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveThreshold>[] | undefined>;
     /**
      * The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      */
-    timeframe?: pulumi.Input<string>;
+    timeframe?: pulumi.Input<string | undefined>;
     /**
      * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `timeSlice`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
      */
-    validate?: pulumi.Input<boolean>;
+    validate?: pulumi.Input<boolean | undefined>;
     /**
      * The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
      */
-    warningThreshold?: pulumi.Input<number>;
+    warningThreshold?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -380,19 +380,19 @@ export interface ServiceLevelObjectiveArgs {
     /**
      * A description of this service level objective.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
      */
-    forceDelete?: pulumi.Input<boolean>;
+    forceDelete?: pulumi.Input<boolean | undefined>;
     /**
      * A static set of groups to filter monitor-based SLOs
      */
-    groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A static set of monitor IDs to use as part of the SLO
      */
-    monitorIds?: pulumi.Input<pulumi.Input<number>[]>;
+    monitorIds?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * Name of Datadog service level objective
      */
@@ -400,19 +400,19 @@ export interface ServiceLevelObjectiveArgs {
     /**
      * The metric query of good / total events. Use this for metric SLOs as an alternative to `sliSpecification`.
      */
-    query?: pulumi.Input<inputs.ServiceLevelObjectiveQuery>;
+    query?: pulumi.Input<inputs.ServiceLevelObjectiveQuery | undefined>;
     /**
      * A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
      */
-    sliSpecification?: pulumi.Input<inputs.ServiceLevelObjectiveSliSpecification>;
+    sliSpecification?: pulumi.Input<inputs.ServiceLevelObjectiveSliSpecification | undefined>;
     /**
      * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
      */
-    targetThreshold?: pulumi.Input<number>;
+    targetThreshold?: pulumi.Input<number | undefined>;
     /**
      * A list of thresholds and targets that define the service level objectives from the provided SLIs.
      */
@@ -420,7 +420,7 @@ export interface ServiceLevelObjectiveArgs {
     /**
      * The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      */
-    timeframe?: pulumi.Input<string>;
+    timeframe?: pulumi.Input<string | undefined>;
     /**
      * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `timeSlice`.
      */
@@ -428,9 +428,9 @@ export interface ServiceLevelObjectiveArgs {
     /**
      * Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
      */
-    validate?: pulumi.Input<boolean>;
+    validate?: pulumi.Input<boolean | undefined>;
     /**
      * The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
      */
-    warningThreshold?: pulumi.Input<number>;
+    warningThreshold?: pulumi.Input<number | undefined>;
 }

@@ -24,7 +24,7 @@ namespace Pulumi.Datadog
     /// {
     ///     // Budget with multiple tag combinations
     ///     // Note: Each unique tag combination needs its own budget_line block
-    ///     var withTags = new Datadog.Index.CostBudget("with_tags", new()
+    ///     var withTags = new Datadog.CostBudget("with_tags", new()
     ///     {
     ///         Name = "Multi-Environment Budget",
     ///         MetricsQuery = "sum:aws.cost.amortized{*} by {environment}",
@@ -83,7 +83,7 @@ namespace Pulumi.Datadog
     ///     // Hierarchical budget with parent/child tag structure
     ///     // Note: Order in "by {tag1,tag2}" determines hierarchy (parent,child)
     ///     // Each unique parent+child combination needs its own budget_line block
-    ///     var hierarchical = new Datadog.Index.CostBudget("hierarchical", new()
+    ///     var hierarchical = new Datadog.CostBudget("hierarchical", new()
     ///     {
     ///         Name = "Team-Based AWS Budget",
     ///         MetricsQuery = "sum:aws.cost.amortized{*} by {team,environment}",
@@ -157,7 +157,7 @@ namespace Pulumi.Datadog
     /// {
     ///     // Legacy entries with tag filters (deprecated - use budget_line instead)
     ///     // Note: Each unique tag combination must have entries for all months
-    ///     var legacyWithTags = new Datadog.Index.CostBudget("legacy_with_tags", new()
+    ///     var legacyWithTags = new Datadog.CostBudget("legacy_with_tags", new()
     ///     {
     ///         Name = "Production Budget (Legacy)",
     ///         MetricsQuery = "sum:aws.cost.amortized{*} by {environment}",

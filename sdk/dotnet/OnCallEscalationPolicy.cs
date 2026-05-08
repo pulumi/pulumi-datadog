@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var policyTest = new Datadog.Index.OnCallEscalationPolicy("policy_test", new()
+    ///     var policyTest = new Datadog.OnCallEscalationPolicy("policy_test", new()
     ///     {
     ///         Name = "Policy Name",
     ///         ResolvePageOnPolicyEnd = true,

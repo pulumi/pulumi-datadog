@@ -118,17 +118,17 @@ export interface GetServiceAccountOutputArgs {
     /**
      * When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
      */
-    exactMatch?: pulumi.Input<boolean>;
+    exactMatch?: pulumi.Input<boolean | undefined>;
     /**
      * Filter all users and service accounts by name, email, or role.
      */
-    filter?: pulumi.Input<string>;
+    filter?: pulumi.Input<string | undefined>;
     /**
      * Filter on status attribute. Comma separated list, with possible values `Active`, `Pending`, and `Disabled`.
      */
-    filterStatus?: pulumi.Input<string>;
+    filterStatus?: pulumi.Input<string | undefined>;
     /**
      * The service account's ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }

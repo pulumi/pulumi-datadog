@@ -161,35 +161,35 @@ export interface CsmThreatsAgentRuleState {
     /**
      * The list of actions the rule can perform
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.CsmThreatsAgentRuleAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.CsmThreatsAgentRuleAction>[] | undefined>;
     /**
      * A description for the Agent rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the Agent rule is enabled. Must not be used without policy_id.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The SECL expression of the Agent rule
      */
-    expression?: pulumi.Input<string>;
+    expression?: pulumi.Input<string | undefined>;
     /**
      * The name of the Agent rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the agent policy in which the rule is saved
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * The list of product tags associated with the rule
      */
-    productTags?: pulumi.Input<pulumi.Input<string>[]>;
+    productTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Indicates whether the Agent rule is silent.
      */
-    silent?: pulumi.Input<boolean>;
+    silent?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -199,15 +199,15 @@ export interface CsmThreatsAgentRuleArgs {
     /**
      * The list of actions the rule can perform
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.CsmThreatsAgentRuleAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.CsmThreatsAgentRuleAction>[] | undefined>;
     /**
      * A description for the Agent rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the Agent rule is enabled. Must not be used without policy_id.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The SECL expression of the Agent rule
      */
@@ -219,13 +219,13 @@ export interface CsmThreatsAgentRuleArgs {
     /**
      * The ID of the agent policy in which the rule is saved
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * The list of product tags associated with the rule
      */
-    productTags?: pulumi.Input<pulumi.Input<string>[]>;
+    productTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Indicates whether the Agent rule is silent.
      */
-    silent?: pulumi.Input<boolean>;
+    silent?: pulumi.Input<boolean | undefined>;
 }

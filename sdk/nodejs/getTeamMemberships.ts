@@ -104,11 +104,11 @@ export interface GetTeamMembershipsOutputArgs {
     /**
      * When true, `filterKeyword` string is exact matched against the user's `email`, followed by `name`.
      */
-    exactMatch?: pulumi.Input<boolean>;
+    exactMatch?: pulumi.Input<boolean | undefined>;
     /**
      * Search query, can be user email or name.
      */
-    filterKeyword?: pulumi.Input<string>;
+    filterKeyword?: pulumi.Input<string | undefined>;
     /**
      * The team's identifier.
      */

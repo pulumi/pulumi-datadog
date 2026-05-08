@@ -143,7 +143,7 @@ def get_sensitive_data_scanner_standard_pattern(filter: Optional[_builtins.str] 
         name=pulumi.get(__ret__, 'name'),
         pattern=pulumi.get(__ret__, 'pattern'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_sensitive_data_scanner_standard_pattern_output(filter: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sensitive_data_scanner_standard_pattern_output(filter: pulumi.Input[Optional[_builtins.str]] = None,
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSensitiveDataScannerStandardPatternResult]:
     """
     Use this data source to retrieve information about an existing sensitive data scanner standard pattern.

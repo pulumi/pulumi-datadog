@@ -215,13 +215,13 @@ export interface GetMonitorOutputArgs {
     /**
      * A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
      */
-    monitorTagsFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    monitorTagsFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A monitor name to limit the search.
      */
-    nameFilter?: pulumi.Input<string>;
+    nameFilter?: pulumi.Input<string | undefined>;
     /**
      * A list of tags to limit the search. This filters on the monitor scope.
      */
-    tagsFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    tagsFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Example Usage (Synthetics Concurrency Cap Configuration)
-    ///     var @this = new Datadog.Index.SyntheticsConcurrencyCap("this", new()
+    ///     var @this = new Datadog.SyntheticsConcurrencyCap("this", new()
     ///     {
     ///         OnDemandConcurrencyCap = 1,
     ///     });

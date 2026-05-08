@@ -105,18 +105,18 @@ export class RestrictionPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RestrictionPolicy resources.
  */
 export interface RestrictionPolicyState {
-    bindings?: pulumi.Input<pulumi.Input<inputs.RestrictionPolicyBinding>[]>;
+    bindings?: pulumi.Input<pulumi.Input<inputs.RestrictionPolicyBinding>[] | undefined>;
     /**
      * Identifier for the resource, formatted as resource*type:resource*id.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
 }
 
 /**
  * The set of arguments for constructing a RestrictionPolicy resource.
  */
 export interface RestrictionPolicyArgs {
-    bindings?: pulumi.Input<pulumi.Input<inputs.RestrictionPolicyBinding>[]>;
+    bindings?: pulumi.Input<pulumi.Input<inputs.RestrictionPolicyBinding>[] | undefined>;
     /**
      * Identifier for the resource, formatted as resource*type:resource*id.
      */

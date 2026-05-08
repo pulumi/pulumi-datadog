@@ -128,23 +128,23 @@ export interface WebhookState {
     /**
      * The headers attached to the webhook.
      */
-    customHeaders?: pulumi.Input<string>;
+    customHeaders?: pulumi.Input<string | undefined>;
     /**
      * Encoding type. Valid values are `json`, `form`.
      */
-    encodeAs?: pulumi.Input<string>;
+    encodeAs?: pulumi.Input<string | undefined>;
     /**
      * The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The payload of the webhook.
      */
-    payload?: pulumi.Input<string>;
+    payload?: pulumi.Input<string | undefined>;
     /**
      * The URL of the webhook.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -154,11 +154,11 @@ export interface WebhookArgs {
     /**
      * The headers attached to the webhook.
      */
-    customHeaders?: pulumi.Input<string>;
+    customHeaders?: pulumi.Input<string | undefined>;
     /**
      * Encoding type. Valid values are `json`, `form`.
      */
-    encodeAs?: pulumi.Input<string>;
+    encodeAs?: pulumi.Input<string | undefined>;
     /**
      * The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
      */
@@ -166,7 +166,7 @@ export interface WebhookArgs {
     /**
      * The payload of the webhook.
      */
-    payload?: pulumi.Input<string>;
+    payload?: pulumi.Input<string | undefined>;
     /**
      * The URL of the webhook.
      */

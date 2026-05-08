@@ -24,8 +24,8 @@ class AzureUcConfigArgs:
                  account_id: pulumi.Input[_builtins.str],
                  client_id: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
-                 actual_bill_config: Optional[pulumi.Input['AzureUcConfigActualBillConfigArgs']] = None,
-                 amortized_bill_config: Optional[pulumi.Input['AzureUcConfigAmortizedBillConfigArgs']] = None):
+                 actual_bill_config: pulumi.Input[Optional['AzureUcConfigActualBillConfigArgs']] = None,
+                 amortized_bill_config: pulumi.Input[Optional['AzureUcConfigAmortizedBillConfigArgs']] = None):
         """
         The set of arguments for constructing a AzureUcConfig resource.
 
@@ -81,42 +81,42 @@ class AzureUcConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="actualBillConfig")
-    def actual_bill_config(self) -> Optional[pulumi.Input['AzureUcConfigActualBillConfigArgs']]:
+    def actual_bill_config(self) -> pulumi.Input[Optional['AzureUcConfigActualBillConfigArgs']]:
         """
         Configuration for the actual cost export.
         """
         return pulumi.get(self, "actual_bill_config")
 
     @actual_bill_config.setter
-    def actual_bill_config(self, value: Optional[pulumi.Input['AzureUcConfigActualBillConfigArgs']]):
+    def actual_bill_config(self, value: pulumi.Input[Optional['AzureUcConfigActualBillConfigArgs']]):
         pulumi.set(self, "actual_bill_config", value)
 
     @_builtins.property
     @pulumi.getter(name="amortizedBillConfig")
-    def amortized_bill_config(self) -> Optional[pulumi.Input['AzureUcConfigAmortizedBillConfigArgs']]:
+    def amortized_bill_config(self) -> pulumi.Input[Optional['AzureUcConfigAmortizedBillConfigArgs']]:
         """
         Configuration for the amortized cost export.
         """
         return pulumi.get(self, "amortized_bill_config")
 
     @amortized_bill_config.setter
-    def amortized_bill_config(self, value: Optional[pulumi.Input['AzureUcConfigAmortizedBillConfigArgs']]):
+    def amortized_bill_config(self, value: pulumi.Input[Optional['AzureUcConfigAmortizedBillConfigArgs']]):
         pulumi.set(self, "amortized_bill_config", value)
 
 
 @pulumi.input_type
 class _AzureUcConfigState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 actual_bill_config: Optional[pulumi.Input['AzureUcConfigActualBillConfigArgs']] = None,
-                 amortized_bill_config: Optional[pulumi.Input['AzureUcConfigAmortizedBillConfigArgs']] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_messages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_updated_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated_at: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 actual_bill_config: pulumi.Input[Optional['AzureUcConfigActualBillConfigArgs']] = None,
+                 amortized_bill_config: pulumi.Input[Optional['AzureUcConfigAmortizedBillConfigArgs']] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_messages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated_at: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AzureUcConfig resources.
 
@@ -154,122 +154,122 @@ class _AzureUcConfigState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tenant ID of the Azure account.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="actualBillConfig")
-    def actual_bill_config(self) -> Optional[pulumi.Input['AzureUcConfigActualBillConfigArgs']]:
+    def actual_bill_config(self) -> pulumi.Input[Optional['AzureUcConfigActualBillConfigArgs']]:
         """
         Configuration for the actual cost export.
         """
         return pulumi.get(self, "actual_bill_config")
 
     @actual_bill_config.setter
-    def actual_bill_config(self, value: Optional[pulumi.Input['AzureUcConfigActualBillConfigArgs']]):
+    def actual_bill_config(self, value: pulumi.Input[Optional['AzureUcConfigActualBillConfigArgs']]):
         pulumi.set(self, "actual_bill_config", value)
 
     @_builtins.property
     @pulumi.getter(name="amortizedBillConfig")
-    def amortized_bill_config(self) -> Optional[pulumi.Input['AzureUcConfigAmortizedBillConfigArgs']]:
+    def amortized_bill_config(self) -> pulumi.Input[Optional['AzureUcConfigAmortizedBillConfigArgs']]:
         """
         Configuration for the amortized cost export.
         """
         return pulumi.get(self, "amortized_bill_config")
 
     @amortized_bill_config.setter
-    def amortized_bill_config(self, value: Optional[pulumi.Input['AzureUcConfigAmortizedBillConfigArgs']]):
+    def amortized_bill_config(self, value: pulumi.Input[Optional['AzureUcConfigAmortizedBillConfigArgs']]):
         pulumi.set(self, "amortized_bill_config", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client ID of the Azure account.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timestamp when the Azure Usage Cost configuration was created.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="errorMessages")
-    def error_messages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def error_messages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of error messages if the Azure Usage Cost configuration encountered any issues during setup or data processing.
         """
         return pulumi.get(self, "error_messages")
 
     @error_messages.setter
-    def error_messages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def error_messages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "error_messages", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The scope of your observed subscription.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current status of the Azure Usage Cost configuration.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="statusUpdatedAt")
-    def status_updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status_updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timestamp when the configuration status was last updated.
         """
         return pulumi.get(self, "status_updated_at")
 
     @status_updated_at.setter
-    def status_updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status_updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status_updated_at", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timestamp when the Azure Usage Cost configuration was last modified.
         """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
-    def updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated_at", value)
 
 
@@ -279,11 +279,11 @@ class AzureUcConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 actual_bill_config: Optional[pulumi.Input[Union['AzureUcConfigActualBillConfigArgs', 'AzureUcConfigActualBillConfigArgsDict']]] = None,
-                 amortized_bill_config: Optional[pulumi.Input[Union['AzureUcConfigAmortizedBillConfigArgs', 'AzureUcConfigAmortizedBillConfigArgsDict']]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 actual_bill_config: pulumi.Input[Optional[Union['AzureUcConfigActualBillConfigArgs', 'AzureUcConfigActualBillConfigArgsDict']]] = None,
+                 amortized_bill_config: pulumi.Input[Optional[Union['AzureUcConfigAmortizedBillConfigArgs', 'AzureUcConfigAmortizedBillConfigArgsDict']]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog Azure Usage Cost configuration resource. This can be used to create and manage Azure Cost Export configurations for Cloud Cost Management. Azure configurations require both actual and amortized cost export settings.
@@ -388,11 +388,11 @@ class AzureUcConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 actual_bill_config: Optional[pulumi.Input[Union['AzureUcConfigActualBillConfigArgs', 'AzureUcConfigActualBillConfigArgsDict']]] = None,
-                 amortized_bill_config: Optional[pulumi.Input[Union['AzureUcConfigAmortizedBillConfigArgs', 'AzureUcConfigAmortizedBillConfigArgsDict']]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 actual_bill_config: pulumi.Input[Optional[Union['AzureUcConfigActualBillConfigArgs', 'AzureUcConfigActualBillConfigArgsDict']]] = None,
+                 amortized_bill_config: pulumi.Input[Optional[Union['AzureUcConfigAmortizedBillConfigArgs', 'AzureUcConfigAmortizedBillConfigArgsDict']]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -428,16 +428,16 @@ class AzureUcConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            actual_bill_config: Optional[pulumi.Input[Union['AzureUcConfigActualBillConfigArgs', 'AzureUcConfigActualBillConfigArgsDict']]] = None,
-            amortized_bill_config: Optional[pulumi.Input[Union['AzureUcConfigAmortizedBillConfigArgs', 'AzureUcConfigAmortizedBillConfigArgsDict']]] = None,
-            client_id: Optional[pulumi.Input[_builtins.str]] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            error_messages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            scope: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            status_updated_at: Optional[pulumi.Input[_builtins.str]] = None,
-            updated_at: Optional[pulumi.Input[_builtins.str]] = None) -> 'AzureUcConfig':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            actual_bill_config: pulumi.Input[Optional[Union['AzureUcConfigActualBillConfigArgs', 'AzureUcConfigActualBillConfigArgsDict']]] = None,
+            amortized_bill_config: pulumi.Input[Optional[Union['AzureUcConfigAmortizedBillConfigArgs', 'AzureUcConfigAmortizedBillConfigArgsDict']]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            error_messages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> 'AzureUcConfig':
         """
         Get an existing AzureUcConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

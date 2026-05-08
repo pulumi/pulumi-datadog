@@ -20,10 +20,10 @@ __all__ = ['UserArgs', 'User']
 class UserArgs:
     def __init__(__self__, *,
                  email: pulumi.Input[_builtins.str],
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 send_user_invitation: Optional[pulumi.Input[_builtins.bool]] = None):
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 send_user_invitation: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a User resource.
 
@@ -57,63 +57,63 @@ class UserArgs:
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the user is disabled. Defaults to `false`.
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of role IDs to assign to the user.
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "roles", value)
 
     @_builtins.property
     @pulumi.getter(name="sendUserInvitation")
-    def send_user_invitation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_user_invitation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether an invitation email should be sent when the user is created. Defaults to `true`.
         """
         return pulumi.get(self, "send_user_invitation")
 
     @send_user_invitation.setter
-    def send_user_invitation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_user_invitation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_user_invitation", value)
 
 
 @pulumi.input_type
 class _UserState:
     def __init__(__self__, *,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 send_user_invitation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_invitation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 verified: Optional[pulumi.Input[_builtins.bool]] = None):
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 send_user_invitation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_invitation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 verified: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering User resources.
 
@@ -142,86 +142,86 @@ class _UserState:
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the user is disabled. Defaults to `false`.
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Email address for user.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of role IDs to assign to the user.
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "roles", value)
 
     @_builtins.property
     @pulumi.getter(name="sendUserInvitation")
-    def send_user_invitation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_user_invitation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether an invitation email should be sent when the user is created. Defaults to `true`.
         """
         return pulumi.get(self, "send_user_invitation")
 
     @send_user_invitation.setter
-    def send_user_invitation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_user_invitation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_user_invitation", value)
 
     @_builtins.property
     @pulumi.getter(name="userInvitationId")
-    def user_invitation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_invitation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the user invitation that was sent when creating the user.
         """
         return pulumi.get(self, "user_invitation_id")
 
     @user_invitation_id.setter
-    def user_invitation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_invitation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_invitation_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def verified(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def verified(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Returns `true` if the user is verified.
         """
         return pulumi.get(self, "verified")
 
     @verified.setter
-    def verified(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def verified(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "verified", value)
 
 
@@ -231,11 +231,11 @@ class User(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 send_user_invitation: Optional[pulumi.Input[_builtins.bool]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 send_user_invitation: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Provides a Datadog user resource. This can be used to create and manage Datadog users.
@@ -318,11 +318,11 @@ class User(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 send_user_invitation: Optional[pulumi.Input[_builtins.bool]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 send_user_invitation: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -351,13 +351,13 @@ class User(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            email: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            send_user_invitation: Optional[pulumi.Input[_builtins.bool]] = None,
-            user_invitation_id: Optional[pulumi.Input[_builtins.str]] = None,
-            verified: Optional[pulumi.Input[_builtins.bool]] = None) -> 'User':
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            send_user_invitation: pulumi.Input[Optional[_builtins.bool]] = None,
+            user_invitation_id: pulumi.Input[Optional[_builtins.str]] = None,
+            verified: pulumi.Input[Optional[_builtins.bool]] = None) -> 'User':
         """
         Get an existing User resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

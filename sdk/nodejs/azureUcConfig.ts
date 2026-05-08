@@ -169,43 +169,43 @@ export interface AzureUcConfigState {
     /**
      * The tenant ID of the Azure account.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Configuration for the actual cost export.
      */
-    actualBillConfig?: pulumi.Input<inputs.AzureUcConfigActualBillConfig>;
+    actualBillConfig?: pulumi.Input<inputs.AzureUcConfigActualBillConfig | undefined>;
     /**
      * Configuration for the amortized cost export.
      */
-    amortizedBillConfig?: pulumi.Input<inputs.AzureUcConfigAmortizedBillConfig>;
+    amortizedBillConfig?: pulumi.Input<inputs.AzureUcConfigAmortizedBillConfig | undefined>;
     /**
      * The client ID of the Azure account.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * The timestamp when the Azure Usage Cost configuration was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * List of error messages if the Azure Usage Cost configuration encountered any issues during setup or data processing.
      */
-    errorMessages?: pulumi.Input<pulumi.Input<string>[]>;
+    errorMessages?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The scope of your observed subscription.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
     /**
      * The current status of the Azure Usage Cost configuration.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The timestamp when the configuration status was last updated.
      */
-    statusUpdatedAt?: pulumi.Input<string>;
+    statusUpdatedAt?: pulumi.Input<string | undefined>;
     /**
      * The timestamp when the Azure Usage Cost configuration was last modified.
      */
-    updatedAt?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -219,11 +219,11 @@ export interface AzureUcConfigArgs {
     /**
      * Configuration for the actual cost export.
      */
-    actualBillConfig?: pulumi.Input<inputs.AzureUcConfigActualBillConfig>;
+    actualBillConfig?: pulumi.Input<inputs.AzureUcConfigActualBillConfig | undefined>;
     /**
      * Configuration for the amortized cost export.
      */
-    amortizedBillConfig?: pulumi.Input<inputs.AzureUcConfigAmortizedBillConfig>;
+    amortizedBillConfig?: pulumi.Input<inputs.AzureUcConfigAmortizedBillConfig | undefined>;
     /**
      * The client ID of the Azure account.
      */

@@ -192,51 +192,51 @@ export interface SecurityNotificationRuleState {
     /**
      * Indicates when this rule was created.
      */
-    createdAt?: pulumi.Input<number>;
+    createdAt?: pulumi.Input<number | undefined>;
     /**
      * The handle of the rule creator.
      */
-    createdByHandle?: pulumi.Input<string>;
+    createdByHandle?: pulumi.Input<string | undefined>;
     /**
      * The name of the rule creator.
      */
-    createdByName?: pulumi.Input<string>;
+    createdByName?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the rule is enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates when this rule was last modified.
      */
-    modifiedAt?: pulumi.Input<number>;
+    modifiedAt?: pulumi.Input<number | undefined>;
     /**
      * The handle of the rule last modifier.
      */
-    modifiedByHandle?: pulumi.Input<string>;
+    modifiedByHandle?: pulumi.Input<string | undefined>;
     /**
      * The name of the rule last modifier.
      */
-    modifiedByName?: pulumi.Input<string>;
+    modifiedByName?: pulumi.Input<string | undefined>;
     /**
      * The name of the rule (must be unique).
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Defines selectors to filter security issues that generate notifications.
      */
-    selectors?: pulumi.Input<inputs.SecurityNotificationRuleSelectors>;
+    selectors?: pulumi.Input<inputs.SecurityNotificationRuleSelectors | undefined>;
     /**
      * The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
      */
-    targets?: pulumi.Input<pulumi.Input<string>[]>;
+    targets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the time period, in seconds, used to aggregate the notification. Defaults to `0`.
      */
-    timeAggregation?: pulumi.Input<number>;
+    timeAggregation?: pulumi.Input<number | undefined>;
     /**
      * The rule version (incremented at each update).
      */
-    version?: pulumi.Input<number>;
+    version?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -246,7 +246,7 @@ export interface SecurityNotificationRuleArgs {
     /**
      * Indicates whether the rule is enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the rule (must be unique).
      */
@@ -262,5 +262,5 @@ export interface SecurityNotificationRuleArgs {
     /**
      * Specifies the time period, in seconds, used to aggregate the notification. Defaults to `0`.
      */
-    timeAggregation?: pulumi.Input<number>;
+    timeAggregation?: pulumi.Input<number | undefined>;
 }

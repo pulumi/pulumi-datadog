@@ -22,7 +22,7 @@ __all__ = ['MonitorConfigPolicyArgs', 'MonitorConfigPolicy']
 class MonitorConfigPolicyArgs:
     def __init__(__self__, *,
                  policy_type: pulumi.Input[_builtins.str],
-                 tag_policy: Optional[pulumi.Input['MonitorConfigPolicyTagPolicyArgs']] = None):
+                 tag_policy: pulumi.Input[Optional['MonitorConfigPolicyTagPolicyArgs']] = None):
         """
         The set of arguments for constructing a MonitorConfigPolicy resource.
 
@@ -47,22 +47,22 @@ class MonitorConfigPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="tagPolicy")
-    def tag_policy(self) -> Optional[pulumi.Input['MonitorConfigPolicyTagPolicyArgs']]:
+    def tag_policy(self) -> pulumi.Input[Optional['MonitorConfigPolicyTagPolicyArgs']]:
         """
         Config for a tag policy. Only set if `policy_type` is `tag`.
         """
         return pulumi.get(self, "tag_policy")
 
     @tag_policy.setter
-    def tag_policy(self, value: Optional[pulumi.Input['MonitorConfigPolicyTagPolicyArgs']]):
+    def tag_policy(self, value: pulumi.Input[Optional['MonitorConfigPolicyTagPolicyArgs']]):
         pulumi.set(self, "tag_policy", value)
 
 
 @pulumi.input_type
 class _MonitorConfigPolicyState:
     def __init__(__self__, *,
-                 policy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_policy: Optional[pulumi.Input['MonitorConfigPolicyTagPolicyArgs']] = None):
+                 policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_policy: pulumi.Input[Optional['MonitorConfigPolicyTagPolicyArgs']] = None):
         """
         Input properties used for looking up and filtering MonitorConfigPolicy resources.
 
@@ -76,26 +76,26 @@ class _MonitorConfigPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="policyType")
-    def policy_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The monitor config policy type Valid values are `tag`.
         """
         return pulumi.get(self, "policy_type")
 
     @policy_type.setter
-    def policy_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_type", value)
 
     @_builtins.property
     @pulumi.getter(name="tagPolicy")
-    def tag_policy(self) -> Optional[pulumi.Input['MonitorConfigPolicyTagPolicyArgs']]:
+    def tag_policy(self) -> pulumi.Input[Optional['MonitorConfigPolicyTagPolicyArgs']]:
         """
         Config for a tag policy. Only set if `policy_type` is `tag`.
         """
         return pulumi.get(self, "tag_policy")
 
     @tag_policy.setter
-    def tag_policy(self, value: Optional[pulumi.Input['MonitorConfigPolicyTagPolicyArgs']]):
+    def tag_policy(self, value: pulumi.Input[Optional['MonitorConfigPolicyTagPolicyArgs']]):
         pulumi.set(self, "tag_policy", value)
 
 
@@ -105,8 +105,8 @@ class MonitorConfigPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_policy: Optional[pulumi.Input[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict']]] = None,
+                 policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_policy: pulumi.Input[Optional[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict']]] = None,
                  __props__=None):
         """
         Provides a Datadog monitor config policy resource. This can be used to create and manage Datadog monitor config policies.
@@ -178,8 +178,8 @@ class MonitorConfigPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_policy: Optional[pulumi.Input[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict']]] = None,
+                 policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_policy: pulumi.Input[Optional[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -203,8 +203,8 @@ class MonitorConfigPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            policy_type: Optional[pulumi.Input[_builtins.str]] = None,
-            tag_policy: Optional[pulumi.Input[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict']]] = None) -> 'MonitorConfigPolicy':
+            policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tag_policy: pulumi.Input[Optional[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict']]] = None) -> 'MonitorConfigPolicy':
         """
         Get an existing MonitorConfigPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

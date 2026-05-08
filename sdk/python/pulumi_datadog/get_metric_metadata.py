@@ -168,7 +168,7 @@ def get_metric_metadata(metric_name: Optional[_builtins.str] = None,
         statsd_interval=pulumi.get(__ret__, 'statsd_interval'),
         type=pulumi.get(__ret__, 'type'),
         unit=pulumi.get(__ret__, 'unit'))
-def get_metric_metadata_output(metric_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_metric_metadata_output(metric_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMetricMetadataResult]:
     """
     Use this data source to retrieve metadata associated with a metric to use in other resources.

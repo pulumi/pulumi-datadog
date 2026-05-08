@@ -161,59 +161,59 @@ export interface DowntimeState {
     /**
      * When true indicates this downtime is being actively applied
      */
-    active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean | undefined>;
     /**
      * The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
      */
-    activeChildId?: pulumi.Input<number>;
+    activeChildId?: pulumi.Input<number | undefined>;
     /**
      * When true indicates this downtime is not being applied
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * Optionally specify an end date when this downtime should expire. Accepts a Unix timestamp in UTC.
      */
-    end?: pulumi.Input<number>;
+    end?: pulumi.Input<number | undefined>;
     /**
      * String representing date and time to end the downtime in RFC3339 format.
      */
-    endDate?: pulumi.Input<string>;
+    endDate?: pulumi.Input<string | undefined>;
     /**
      * An optional message to provide when creating the downtime, can include notification handles
      */
-    message?: pulumi.Input<string>;
+    message?: pulumi.Input<string | undefined>;
     /**
      * When specified, this downtime will only apply to this monitor
      */
-    monitorId?: pulumi.Input<number>;
+    monitorId?: pulumi.Input<number | undefined>;
     /**
      * A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
      */
-    monitorTags?: pulumi.Input<pulumi.Input<string>[]>;
+    monitorTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * When true the first recovery notification during the downtime will be muted Defaults to `false`.
      */
-    muteFirstRecoveryNotification?: pulumi.Input<boolean>;
+    muteFirstRecoveryNotification?: pulumi.Input<boolean | undefined>;
     /**
      * Optional recurring schedule for this downtime
      */
-    recurrence?: pulumi.Input<inputs.DowntimeRecurrence>;
+    recurrence?: pulumi.Input<inputs.DowntimeRecurrence | undefined>;
     /**
      * specify the group scope to which this downtime applies. For everything use '*'
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specify when this downtime should start. Accepts a Unix timestamp in UTC.
      */
-    start?: pulumi.Input<number>;
+    start?: pulumi.Input<number | undefined>;
     /**
      * String representing date and time to start the downtime in RFC3339 format.
      */
-    startDate?: pulumi.Input<string>;
+    startDate?: pulumi.Input<string | undefined>;
     /**
      * The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `"UTC"`.
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -223,31 +223,31 @@ export interface DowntimeArgs {
     /**
      * Optionally specify an end date when this downtime should expire. Accepts a Unix timestamp in UTC.
      */
-    end?: pulumi.Input<number>;
+    end?: pulumi.Input<number | undefined>;
     /**
      * String representing date and time to end the downtime in RFC3339 format.
      */
-    endDate?: pulumi.Input<string>;
+    endDate?: pulumi.Input<string | undefined>;
     /**
      * An optional message to provide when creating the downtime, can include notification handles
      */
-    message?: pulumi.Input<string>;
+    message?: pulumi.Input<string | undefined>;
     /**
      * When specified, this downtime will only apply to this monitor
      */
-    monitorId?: pulumi.Input<number>;
+    monitorId?: pulumi.Input<number | undefined>;
     /**
      * A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
      */
-    monitorTags?: pulumi.Input<pulumi.Input<string>[]>;
+    monitorTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * When true the first recovery notification during the downtime will be muted Defaults to `false`.
      */
-    muteFirstRecoveryNotification?: pulumi.Input<boolean>;
+    muteFirstRecoveryNotification?: pulumi.Input<boolean | undefined>;
     /**
      * Optional recurring schedule for this downtime
      */
-    recurrence?: pulumi.Input<inputs.DowntimeRecurrence>;
+    recurrence?: pulumi.Input<inputs.DowntimeRecurrence | undefined>;
     /**
      * specify the group scope to which this downtime applies. For everything use '*'
      */
@@ -255,13 +255,13 @@ export interface DowntimeArgs {
     /**
      * Specify when this downtime should start. Accepts a Unix timestamp in UTC.
      */
-    start?: pulumi.Input<number>;
+    start?: pulumi.Input<number | undefined>;
     /**
      * String representing date and time to start the downtime in RFC3339 format.
      */
-    startDate?: pulumi.Input<string>;
+    startDate?: pulumi.Input<string | undefined>;
     /**
      * The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `"UTC"`.
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
 }

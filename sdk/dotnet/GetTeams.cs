@@ -24,7 +24,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Datadog.Index.GetTeams.Invoke(new()
+        ///     var example = Datadog.GetTeams.Invoke(new()
         ///     {
         ///         FilterKeyword = "team-member@company.com",
         ///         FilterMe = true,
@@ -49,7 +49,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Datadog.Index.GetTeams.Invoke(new()
+        ///     var example = Datadog.GetTeams.Invoke(new()
         ///     {
         ///         FilterKeyword = "team-member@company.com",
         ///         FilterMe = true,
@@ -74,7 +74,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Datadog.Index.GetTeams.Invoke(new()
+        ///     var example = Datadog.GetTeams.Invoke(new()
         ///     {
         ///         FilterKeyword = "team-member@company.com",
         ///         FilterMe = true,
