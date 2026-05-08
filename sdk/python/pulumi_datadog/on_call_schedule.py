@@ -24,7 +24,7 @@ class OnCallScheduleArgs:
                  layers: pulumi.Input[Sequence[pulumi.Input['OnCallScheduleLayerArgs']]],
                  name: pulumi.Input[_builtins.str],
                  time_zone: pulumi.Input[_builtins.str],
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a OnCallSchedule resource.
 
@@ -77,24 +77,24 @@ class OnCallScheduleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def teams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def teams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of team ids associated with the schedule.
         """
         return pulumi.get(self, "teams")
 
     @teams.setter
-    def teams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def teams(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "teams", value)
 
 
 @pulumi.input_type
 class _OnCallScheduleState:
     def __init__(__self__, *,
-                 layers: Optional[pulumi.Input[Sequence[pulumi.Input['OnCallScheduleLayerArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 layers: pulumi.Input[Optional[Sequence[pulumi.Input['OnCallScheduleLayerArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OnCallSchedule resources.
 
@@ -114,50 +114,50 @@ class _OnCallScheduleState:
 
     @_builtins.property
     @pulumi.getter
-    def layers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OnCallScheduleLayerArgs']]]]:
+    def layers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OnCallScheduleLayerArgs']]]]:
         """
         List of layers for the schedule.
         """
         return pulumi.get(self, "layers")
 
     @layers.setter
-    def layers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OnCallScheduleLayerArgs']]]]):
+    def layers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OnCallScheduleLayerArgs']]]]):
         pulumi.set(self, "layers", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A human-readable name for the new schedule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def teams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def teams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of team ids associated with the schedule.
         """
         return pulumi.get(self, "teams")
 
     @teams.setter
-    def teams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def teams(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "teams", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time zone in which the schedule is defined.
         """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
 
@@ -167,10 +167,10 @@ class OnCallSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 layers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OnCallScheduleLayerArgs', 'OnCallScheduleLayerArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 layers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnCallScheduleLayerArgs', 'OnCallScheduleLayerArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog On-Call schedule resource. This can be used to create and manage Datadog On-Call schedules.
@@ -310,10 +310,10 @@ class OnCallSchedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 layers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OnCallScheduleLayerArgs', 'OnCallScheduleLayerArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 layers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnCallScheduleLayerArgs', 'OnCallScheduleLayerArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -343,10 +343,10 @@ class OnCallSchedule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            layers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OnCallScheduleLayerArgs', 'OnCallScheduleLayerArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            time_zone: Optional[pulumi.Input[_builtins.str]] = None) -> 'OnCallSchedule':
+            layers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnCallScheduleLayerArgs', 'OnCallScheduleLayerArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            time_zone: pulumi.Input[Optional[_builtins.str]] = None) -> 'OnCallSchedule':
         """
         Get an existing OnCallSchedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -122,19 +122,19 @@ export interface IntegrationEventBridgeState {
     /**
      * Your AWS Account ID without dashes.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * True if Datadog should create the event bus in addition to the event source. Requires the `events:CreateEventBus` permission. Defaults to `true`.
      */
-    createEventBus?: pulumi.Input<boolean>;
+    createEventBus?: pulumi.Input<boolean | undefined>;
     /**
      * The given part of the event source name, which is then combined with an assigned suffix to form the full name.
      */
-    eventGeneratorName?: pulumi.Input<string>;
+    eventGeneratorName?: pulumi.Input<string | undefined>;
     /**
      * The event source's [AWS region](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints).
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -148,7 +148,7 @@ export interface IntegrationEventBridgeArgs {
     /**
      * True if Datadog should create the event bus in addition to the event source. Requires the `events:CreateEventBus` permission. Defaults to `true`.
      */
-    createEventBus?: pulumi.Input<boolean>;
+    createEventBus?: pulumi.Input<boolean | undefined>;
     /**
      * The given part of the event source name, which is then combined with an assigned suffix to form the full name.
      */

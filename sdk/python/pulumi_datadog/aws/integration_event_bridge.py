@@ -22,7 +22,7 @@ class IntegrationEventBridgeArgs:
                  account_id: pulumi.Input[_builtins.str],
                  event_generator_name: pulumi.Input[_builtins.str],
                  region: pulumi.Input[_builtins.str],
-                 create_event_bus: Optional[pulumi.Input[_builtins.bool]] = None):
+                 create_event_bus: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a IntegrationEventBridge resource.
 
@@ -75,24 +75,24 @@ class IntegrationEventBridgeArgs:
 
     @_builtins.property
     @pulumi.getter(name="createEventBus")
-    def create_event_bus(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def create_event_bus(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         True if Datadog should create the event bus in addition to the event source. Requires the `events:CreateEventBus` permission. Defaults to `true`.
         """
         return pulumi.get(self, "create_event_bus")
 
     @create_event_bus.setter
-    def create_event_bus(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def create_event_bus(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "create_event_bus", value)
 
 
 @pulumi.input_type
 class _IntegrationEventBridgeState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_event_bus: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_generator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_event_bus: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_generator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationEventBridge resources.
 
@@ -112,50 +112,50 @@ class _IntegrationEventBridgeState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Your AWS Account ID without dashes.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="createEventBus")
-    def create_event_bus(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def create_event_bus(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         True if Datadog should create the event bus in addition to the event source. Requires the `events:CreateEventBus` permission. Defaults to `true`.
         """
         return pulumi.get(self, "create_event_bus")
 
     @create_event_bus.setter
-    def create_event_bus(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def create_event_bus(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "create_event_bus", value)
 
     @_builtins.property
     @pulumi.getter(name="eventGeneratorName")
-    def event_generator_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_generator_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The given part of the event source name, which is then combined with an assigned suffix to form the full name.
         """
         return pulumi.get(self, "event_generator_name")
 
     @event_generator_name.setter
-    def event_generator_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_generator_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_generator_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The event source's [AWS region](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints).
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -165,10 +165,10 @@ class IntegrationEventBridge(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_event_bus: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_generator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_event_bus: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_generator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog - Amazon Web Services integration EventBridge resource. This can be used to create and manage Event Sources for each Datadog integrated AWS account.
@@ -254,10 +254,10 @@ class IntegrationEventBridge(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_event_bus: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_generator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_event_bus: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_generator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -287,10 +287,10 @@ class IntegrationEventBridge(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            create_event_bus: Optional[pulumi.Input[_builtins.bool]] = None,
-            event_generator_name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'IntegrationEventBridge':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            create_event_bus: pulumi.Input[Optional[_builtins.bool]] = None,
+            event_generator_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'IntegrationEventBridge':
         """
         Get an existing IntegrationEventBridge resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

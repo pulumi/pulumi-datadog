@@ -24,17 +24,17 @@ class ServiceLevelObjectiveArgs:
                  name: pulumi.Input[_builtins.str],
                  thresholds: pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]],
                  type: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 monitor_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 query: Optional[pulumi.Input['ServiceLevelObjectiveQueryArgs']] = None,
-                 sli_specification: Optional[pulumi.Input['ServiceLevelObjectiveSliSpecificationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 target_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 timeframe: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 warning_threshold: Optional[pulumi.Input[_builtins.float]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 monitor_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 query: pulumi.Input[Optional['ServiceLevelObjectiveQueryArgs']] = None,
+                 sli_specification: pulumi.Input[Optional['ServiceLevelObjectiveSliSpecificationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 target_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 timeframe: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 warning_threshold: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The set of arguments for constructing a ServiceLevelObjective resource.
 
@@ -117,154 +117,154 @@ class ServiceLevelObjectiveArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of this service level objective.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="forceDelete")
-    def force_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
         """
         return pulumi.get(self, "force_delete")
 
     @force_delete.setter
-    def force_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A static set of groups to filter monitor-based SLOs
         """
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorIds")
-    def monitor_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def monitor_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         A static set of monitor IDs to use as part of the SLO
         """
         return pulumi.get(self, "monitor_ids")
 
     @monitor_ids.setter
-    def monitor_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def monitor_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "monitor_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def query(self) -> Optional[pulumi.Input['ServiceLevelObjectiveQueryArgs']]:
+    def query(self) -> pulumi.Input[Optional['ServiceLevelObjectiveQueryArgs']]:
         """
         The metric query of good / total events. Use this for metric SLOs as an alternative to `sli_specification`.
         """
         return pulumi.get(self, "query")
 
     @query.setter
-    def query(self, value: Optional[pulumi.Input['ServiceLevelObjectiveQueryArgs']]):
+    def query(self, value: pulumi.Input[Optional['ServiceLevelObjectiveQueryArgs']]):
         pulumi.set(self, "query", value)
 
     @_builtins.property
     @pulumi.getter(name="sliSpecification")
-    def sli_specification(self) -> Optional[pulumi.Input['ServiceLevelObjectiveSliSpecificationArgs']]:
+    def sli_specification(self) -> pulumi.Input[Optional['ServiceLevelObjectiveSliSpecificationArgs']]:
         """
         A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
         """
         return pulumi.get(self, "sli_specification")
 
     @sli_specification.setter
-    def sli_specification(self, value: Optional[pulumi.Input['ServiceLevelObjectiveSliSpecificationArgs']]):
+    def sli_specification(self, value: pulumi.Input[Optional['ServiceLevelObjectiveSliSpecificationArgs']]):
         pulumi.set(self, "sli_specification", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetThreshold")
-    def target_threshold(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def target_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
         """
         return pulumi.get(self, "target_threshold")
 
     @target_threshold.setter
-    def target_threshold(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def target_threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "target_threshold", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeframe(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timeframe(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         """
         return pulumi.get(self, "timeframe")
 
     @timeframe.setter
-    def timeframe(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timeframe(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timeframe", value)
 
     @_builtins.property
     @pulumi.getter
-    def validate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
         """
         return pulumi.get(self, "validate")
 
     @validate.setter
-    def validate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate", value)
 
     @_builtins.property
     @pulumi.getter(name="warningThreshold")
-    def warning_threshold(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def warning_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
         """
         return pulumi.get(self, "warning_threshold")
 
     @warning_threshold.setter
-    def warning_threshold(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def warning_threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "warning_threshold", value)
 
 
 @pulumi.input_type
 class _ServiceLevelObjectiveState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 monitor_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input['ServiceLevelObjectiveQueryArgs']] = None,
-                 sli_specification: Optional[pulumi.Input['ServiceLevelObjectiveSliSpecificationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 target_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 thresholds: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]]] = None,
-                 timeframe: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 warning_threshold: Optional[pulumi.Input[_builtins.float]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 monitor_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional['ServiceLevelObjectiveQueryArgs']] = None,
+                 sli_specification: pulumi.Input[Optional['ServiceLevelObjectiveSliSpecificationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 target_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 thresholds: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]]] = None,
+                 timeframe: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 warning_threshold: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Input properties used for looking up and filtering ServiceLevelObjective resources.
 
@@ -314,170 +314,170 @@ class _ServiceLevelObjectiveState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of this service level objective.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="forceDelete")
-    def force_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
         """
         return pulumi.get(self, "force_delete")
 
     @force_delete.setter
-    def force_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A static set of groups to filter monitor-based SLOs
         """
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorIds")
-    def monitor_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def monitor_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         A static set of monitor IDs to use as part of the SLO
         """
         return pulumi.get(self, "monitor_ids")
 
     @monitor_ids.setter
-    def monitor_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def monitor_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "monitor_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Datadog service level objective
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def query(self) -> Optional[pulumi.Input['ServiceLevelObjectiveQueryArgs']]:
+    def query(self) -> pulumi.Input[Optional['ServiceLevelObjectiveQueryArgs']]:
         """
         The metric query of good / total events. Use this for metric SLOs as an alternative to `sli_specification`.
         """
         return pulumi.get(self, "query")
 
     @query.setter
-    def query(self, value: Optional[pulumi.Input['ServiceLevelObjectiveQueryArgs']]):
+    def query(self, value: pulumi.Input[Optional['ServiceLevelObjectiveQueryArgs']]):
         pulumi.set(self, "query", value)
 
     @_builtins.property
     @pulumi.getter(name="sliSpecification")
-    def sli_specification(self) -> Optional[pulumi.Input['ServiceLevelObjectiveSliSpecificationArgs']]:
+    def sli_specification(self) -> pulumi.Input[Optional['ServiceLevelObjectiveSliSpecificationArgs']]:
         """
         A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
         """
         return pulumi.get(self, "sli_specification")
 
     @sli_specification.setter
-    def sli_specification(self, value: Optional[pulumi.Input['ServiceLevelObjectiveSliSpecificationArgs']]):
+    def sli_specification(self, value: pulumi.Input[Optional['ServiceLevelObjectiveSliSpecificationArgs']]):
         pulumi.set(self, "sli_specification", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetThreshold")
-    def target_threshold(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def target_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
         """
         return pulumi.get(self, "target_threshold")
 
     @target_threshold.setter
-    def target_threshold(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def target_threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "target_threshold", value)
 
     @_builtins.property
     @pulumi.getter
-    def thresholds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]]]:
+    def thresholds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]]]:
         """
         A list of thresholds and targets that define the service level objectives from the provided SLIs.
         """
         return pulumi.get(self, "thresholds")
 
     @thresholds.setter
-    def thresholds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]]]):
+    def thresholds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]]]):
         pulumi.set(self, "thresholds", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeframe(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timeframe(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         """
         return pulumi.get(self, "timeframe")
 
     @timeframe.setter
-    def timeframe(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timeframe(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timeframe", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `time_slice`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def validate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
         """
         return pulumi.get(self, "validate")
 
     @validate.setter
-    def validate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate", value)
 
     @_builtins.property
     @pulumi.getter(name="warningThreshold")
-    def warning_threshold(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def warning_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
         """
         return pulumi.get(self, "warning_threshold")
 
     @warning_threshold.setter
-    def warning_threshold(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def warning_threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "warning_threshold", value)
 
 
@@ -487,20 +487,20 @@ class ServiceLevelObjective(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 monitor_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict']]] = None,
-                 sli_specification: Optional[pulumi.Input[Union['ServiceLevelObjectiveSliSpecificationArgs', 'ServiceLevelObjectiveSliSpecificationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 target_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 thresholds: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict']]]]] = None,
-                 timeframe: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 warning_threshold: Optional[pulumi.Input[_builtins.float]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 monitor_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict']]] = None,
+                 sli_specification: pulumi.Input[Optional[Union['ServiceLevelObjectiveSliSpecificationArgs', 'ServiceLevelObjectiveSliSpecificationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 target_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 thresholds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict']]]]] = None,
+                 timeframe: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 warning_threshold: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         """
         Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
@@ -858,20 +858,20 @@ class ServiceLevelObjective(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 monitor_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict']]] = None,
-                 sli_specification: Optional[pulumi.Input[Union['ServiceLevelObjectiveSliSpecificationArgs', 'ServiceLevelObjectiveSliSpecificationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 target_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 thresholds: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict']]]]] = None,
-                 timeframe: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 warning_threshold: Optional[pulumi.Input[_builtins.float]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 monitor_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict']]] = None,
+                 sli_specification: pulumi.Input[Optional[Union['ServiceLevelObjectiveSliSpecificationArgs', 'ServiceLevelObjectiveSliSpecificationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 target_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 thresholds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict']]]]] = None,
+                 timeframe: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 warning_threshold: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -911,20 +911,20 @@ class ServiceLevelObjective(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            force_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-            groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            monitor_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            query: Optional[pulumi.Input[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict']]] = None,
-            sli_specification: Optional[pulumi.Input[Union['ServiceLevelObjectiveSliSpecificationArgs', 'ServiceLevelObjectiveSliSpecificationArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            target_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-            thresholds: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict']]]]] = None,
-            timeframe: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            validate: Optional[pulumi.Input[_builtins.bool]] = None,
-            warning_threshold: Optional[pulumi.Input[_builtins.float]] = None) -> 'ServiceLevelObjective':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            monitor_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query: pulumi.Input[Optional[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict']]] = None,
+            sli_specification: pulumi.Input[Optional[Union['ServiceLevelObjectiveSliSpecificationArgs', 'ServiceLevelObjectiveSliSpecificationArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            target_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+            thresholds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict']]]]] = None,
+            timeframe: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            validate: pulumi.Input[Optional[_builtins.bool]] = None,
+            warning_threshold: pulumi.Input[Optional[_builtins.float]] = None) -> 'ServiceLevelObjective':
         """
         Get an existing ServiceLevelObjective resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

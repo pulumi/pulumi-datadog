@@ -167,8 +167,8 @@ def get_incident_notification_template(id: Optional[_builtins.str] = None,
         modified=pulumi.get(__ret__, 'modified'),
         name=pulumi.get(__ret__, 'name'),
         subject=pulumi.get(__ret__, 'subject'))
-def get_incident_notification_template_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                              name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_incident_notification_template_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                              name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIncidentNotificationTemplateResult]:
     """
     Use this data source to retrieve information about an existing incident notification template.

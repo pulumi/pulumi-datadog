@@ -204,47 +204,47 @@ export interface CloudConfigurationRuleState {
     /**
      * Whether the cloud configuration rule is enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Additional queries to filter matched events before they are processed. Defaults to empty list
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.CloudConfigurationRuleFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.CloudConfigurationRuleFilter>[] | undefined>;
     /**
      * Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
      */
-    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The message associated to the rule that will be shown in findings and signals.
      */
-    message?: pulumi.Input<string>;
+    message?: pulumi.Input<string | undefined>;
     /**
      * The name of the cloud configuration rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
      */
-    notifications?: pulumi.Input<pulumi.Input<string>[]>;
+    notifications?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Policy written in Rego format.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | undefined>;
     /**
      * Related resource types to be checked by the rule. Defaults to empty list.
      */
-    relatedResourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    relatedResourceTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Main resource type to be checked by the rule.
      */
-    resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
     /**
      * Severity of the rule and associated signals. Valid values are `info`, `low`, `medium`, `high`, `critical`.
      */
-    severity?: pulumi.Input<string>;
+    severity?: pulumi.Input<string | undefined>;
     /**
      * Tags of the rule, propagated to findings and signals. Defaults to empty list.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -258,11 +258,11 @@ export interface CloudConfigurationRuleArgs {
     /**
      * Additional queries to filter matched events before they are processed. Defaults to empty list
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.CloudConfigurationRuleFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.CloudConfigurationRuleFilter>[] | undefined>;
     /**
      * Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
      */
-    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The message associated to the rule that will be shown in findings and signals.
      */
@@ -274,7 +274,7 @@ export interface CloudConfigurationRuleArgs {
     /**
      * This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
      */
-    notifications?: pulumi.Input<pulumi.Input<string>[]>;
+    notifications?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Policy written in Rego format.
      */
@@ -282,7 +282,7 @@ export interface CloudConfigurationRuleArgs {
     /**
      * Related resource types to be checked by the rule. Defaults to empty list.
      */
-    relatedResourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    relatedResourceTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Main resource type to be checked by the rule.
      */
@@ -294,5 +294,5 @@ export interface CloudConfigurationRuleArgs {
     /**
      * Tags of the rule, propagated to findings and signals. Defaults to empty list.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

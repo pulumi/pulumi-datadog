@@ -143,19 +143,19 @@ export interface CloudInventorySyncConfigState {
     /**
      * AWS-specific configuration. Required when cloudProvider is `aws`.
      */
-    aws?: pulumi.Input<inputs.CloudInventorySyncConfigAws>;
+    aws?: pulumi.Input<inputs.CloudInventorySyncConfigAws | undefined>;
     /**
      * Azure-specific configuration. Required when cloudProvider is `azure`.
      */
-    azure?: pulumi.Input<inputs.CloudInventorySyncConfigAzure>;
+    azure?: pulumi.Input<inputs.CloudInventorySyncConfigAzure | undefined>;
     /**
      * The cloud provider type. Valid values are `aws`, `azure`, `gcp`.
      */
-    cloudProvider?: pulumi.Input<string>;
+    cloudProvider?: pulumi.Input<string | undefined>;
     /**
      * GCP-specific configuration. Required when cloudProvider is `gcp`.
      */
-    gcp?: pulumi.Input<inputs.CloudInventorySyncConfigGcp>;
+    gcp?: pulumi.Input<inputs.CloudInventorySyncConfigGcp | undefined>;
 }
 
 /**
@@ -165,11 +165,11 @@ export interface CloudInventorySyncConfigArgs {
     /**
      * AWS-specific configuration. Required when cloudProvider is `aws`.
      */
-    aws?: pulumi.Input<inputs.CloudInventorySyncConfigAws>;
+    aws?: pulumi.Input<inputs.CloudInventorySyncConfigAws | undefined>;
     /**
      * Azure-specific configuration. Required when cloudProvider is `azure`.
      */
-    azure?: pulumi.Input<inputs.CloudInventorySyncConfigAzure>;
+    azure?: pulumi.Input<inputs.CloudInventorySyncConfigAzure | undefined>;
     /**
      * The cloud provider type. Valid values are `aws`, `azure`, `gcp`.
      */
@@ -177,5 +177,5 @@ export interface CloudInventorySyncConfigArgs {
     /**
      * GCP-specific configuration. Required when cloudProvider is `gcp`.
      */
-    gcp?: pulumi.Input<inputs.CloudInventorySyncConfigGcp>;
+    gcp?: pulumi.Input<inputs.CloudInventorySyncConfigGcp | undefined>;
 }

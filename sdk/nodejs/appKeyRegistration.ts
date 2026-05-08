@@ -90,7 +90,7 @@ export interface AppKeyRegistrationState {
     /**
      * The Application Key ID to register.
      */
-    appKeyId?: pulumi.Input<string>;
+    appKeyId?: pulumi.Input<string | undefined>;
 }
 
 /**

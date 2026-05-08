@@ -24,7 +24,7 @@ class LogsMetricArgs:
                  compute: pulumi.Input['LogsMetricComputeArgs'],
                  filter: pulumi.Input['LogsMetricFilterArgs'],
                  name: pulumi.Input[_builtins.str],
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['LogsMetricGroupByArgs']]]] = None):
+                 group_bies: pulumi.Input[Optional[Sequence[pulumi.Input['LogsMetricGroupByArgs']]]] = None):
         """
         The set of arguments for constructing a LogsMetric resource.
 
@@ -77,24 +77,24 @@ class LogsMetricArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogsMetricGroupByArgs']]]]:
+    def group_bies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LogsMetricGroupByArgs']]]]:
         """
         The rules for the group by.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogsMetricGroupByArgs']]]]):
+    def group_bies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LogsMetricGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
 
 @pulumi.input_type
 class _LogsMetricState:
     def __init__(__self__, *,
-                 compute: Optional[pulumi.Input['LogsMetricComputeArgs']] = None,
-                 filter: Optional[pulumi.Input['LogsMetricFilterArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['LogsMetricGroupByArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 compute: pulumi.Input[Optional['LogsMetricComputeArgs']] = None,
+                 filter: pulumi.Input[Optional['LogsMetricFilterArgs']] = None,
+                 group_bies: pulumi.Input[Optional[Sequence[pulumi.Input['LogsMetricGroupByArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogsMetric resources.
 
@@ -114,50 +114,50 @@ class _LogsMetricState:
 
     @_builtins.property
     @pulumi.getter
-    def compute(self) -> Optional[pulumi.Input['LogsMetricComputeArgs']]:
+    def compute(self) -> pulumi.Input[Optional['LogsMetricComputeArgs']]:
         """
         The compute rule to compute the log-based metric. This field can't be updated after creation.
         """
         return pulumi.get(self, "compute")
 
     @compute.setter
-    def compute(self, value: Optional[pulumi.Input['LogsMetricComputeArgs']]):
+    def compute(self, value: pulumi.Input[Optional['LogsMetricComputeArgs']]):
         pulumi.set(self, "compute", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['LogsMetricFilterArgs']]:
+    def filter(self) -> pulumi.Input[Optional['LogsMetricFilterArgs']]:
         """
         The log-based metric filter. Logs matching this filter will be aggregated in this metric.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['LogsMetricFilterArgs']]):
+    def filter(self, value: pulumi.Input[Optional['LogsMetricFilterArgs']]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogsMetricGroupByArgs']]]]:
+    def group_bies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LogsMetricGroupByArgs']]]]:
         """
         The rules for the group by.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogsMetricGroupByArgs']]]]):
+    def group_bies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LogsMetricGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the log-based metric. This field can't be updated after creation.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -167,10 +167,10 @@ class LogsMetric(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute: Optional[pulumi.Input[Union['LogsMetricComputeArgs', 'LogsMetricComputeArgsDict']]] = None,
-                 filter: Optional[pulumi.Input[Union['LogsMetricFilterArgs', 'LogsMetricFilterArgsDict']]] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsMetricGroupByArgs', 'LogsMetricGroupByArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 compute: pulumi.Input[Optional[Union['LogsMetricComputeArgs', 'LogsMetricComputeArgsDict']]] = None,
+                 filter: pulumi.Input[Optional[Union['LogsMetricFilterArgs', 'LogsMetricFilterArgsDict']]] = None,
+                 group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsMetricGroupByArgs', 'LogsMetricGroupByArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for interacting with the logs_metric API
@@ -278,10 +278,10 @@ class LogsMetric(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute: Optional[pulumi.Input[Union['LogsMetricComputeArgs', 'LogsMetricComputeArgsDict']]] = None,
-                 filter: Optional[pulumi.Input[Union['LogsMetricFilterArgs', 'LogsMetricFilterArgsDict']]] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsMetricGroupByArgs', 'LogsMetricGroupByArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 compute: pulumi.Input[Optional[Union['LogsMetricComputeArgs', 'LogsMetricComputeArgsDict']]] = None,
+                 filter: pulumi.Input[Optional[Union['LogsMetricFilterArgs', 'LogsMetricFilterArgsDict']]] = None,
+                 group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsMetricGroupByArgs', 'LogsMetricGroupByArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -311,10 +311,10 @@ class LogsMetric(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            compute: Optional[pulumi.Input[Union['LogsMetricComputeArgs', 'LogsMetricComputeArgsDict']]] = None,
-            filter: Optional[pulumi.Input[Union['LogsMetricFilterArgs', 'LogsMetricFilterArgsDict']]] = None,
-            group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsMetricGroupByArgs', 'LogsMetricGroupByArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'LogsMetric':
+            compute: pulumi.Input[Optional[Union['LogsMetricComputeArgs', 'LogsMetricComputeArgsDict']]] = None,
+            filter: pulumi.Input[Optional[Union['LogsMetricFilterArgs', 'LogsMetricFilterArgsDict']]] = None,
+            group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsMetricGroupByArgs', 'LogsMetricGroupByArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'LogsMetric':
         """
         Get an existing LogsMetric resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

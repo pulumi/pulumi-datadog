@@ -22,18 +22,18 @@ __all__ = ['SyntheticsGlobalVariableArgs', 'SyntheticsGlobalVariable']
 class SyntheticsGlobalVariableArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_fido: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_totp: Optional[pulumi.Input[_builtins.bool]] = None,
-                 options: Optional[pulumi.Input['SyntheticsGlobalVariableOptionsArgs']] = None,
-                 parse_test_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parse_test_options: Optional[pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs']] = None,
-                 restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 secure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_wo: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_wo_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_fido: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_totp: pulumi.Input[Optional[_builtins.bool]] = None,
+                 options: pulumi.Input[Optional['SyntheticsGlobalVariableOptionsArgs']] = None,
+                 parse_test_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parse_test_options: pulumi.Input[Optional['SyntheticsGlobalVariableParseTestOptionsArgs']] = None,
+                 restricted_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 secure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_wo_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SyntheticsGlobalVariable resource.
 
@@ -95,128 +95,128 @@ class SyntheticsGlobalVariableArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the global variable. Defaults to `""`.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="isFido")
-    def is_fido(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_fido(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, the global variable is a FIDO variable. Defaults to `false`.
         """
         return pulumi.get(self, "is_fido")
 
     @is_fido.setter
-    def is_fido(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_fido(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_fido", value)
 
     @_builtins.property
     @pulumi.getter(name="isTotp")
-    def is_totp(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_totp(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, the global variable is a TOTP variable. Defaults to `false`.
         """
         return pulumi.get(self, "is_totp")
 
     @is_totp.setter
-    def is_totp(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_totp(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_totp", value)
 
     @_builtins.property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input['SyntheticsGlobalVariableOptionsArgs']]:
+    def options(self) -> pulumi.Input[Optional['SyntheticsGlobalVariableOptionsArgs']]:
         """
         Additional options for the variable, such as a MFA token.
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input['SyntheticsGlobalVariableOptionsArgs']]):
+    def options(self, value: pulumi.Input[Optional['SyntheticsGlobalVariableOptionsArgs']]):
         pulumi.set(self, "options", value)
 
     @_builtins.property
     @pulumi.getter(name="parseTestId")
-    def parse_test_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parse_test_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of the Synthetics test to use for a variable from test.
         """
         return pulumi.get(self, "parse_test_id")
 
     @parse_test_id.setter
-    def parse_test_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parse_test_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parse_test_id", value)
 
     @_builtins.property
     @pulumi.getter(name="parseTestOptions")
-    def parse_test_options(self) -> Optional[pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs']]:
+    def parse_test_options(self) -> pulumi.Input[Optional['SyntheticsGlobalVariableParseTestOptionsArgs']]:
         """
         ID of the Synthetics test to use a source of the global variable value.
         """
         return pulumi.get(self, "parse_test_options")
 
     @parse_test_options.setter
-    def parse_test_options(self, value: Optional[pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs']]):
+    def parse_test_options(self, value: pulumi.Input[Optional['SyntheticsGlobalVariableParseTestOptionsArgs']]):
         pulumi.set(self, "parse_test_options", value)
 
     @_builtins.property
     @pulumi.getter(name="restrictedRoles")
     @_utilities.deprecated("""This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.""")
-    def restricted_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def restricted_roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
         """
         return pulumi.get(self, "restricted_roles")
 
     @restricted_roles.setter
-    def restricted_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def restricted_roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "restricted_roles", value)
 
     @_builtins.property
     @pulumi.getter
-    def secure(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secure(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, the value of the global variable is hidden. This setting is automatically set to `true` if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
         """
         return pulumi.get(self, "secure")
 
     @secure.setter
-    def secure(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secure(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secure", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of tags to associate with your synthetics global variable.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the global variable. Required unless `is_fido` is set to `true` or `value_wo` is used
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
     @_builtins.property
     @pulumi.getter(name="valueWo")
-    def value_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         Write-only value of the global variable. Must be used with `value_wo_version`.
@@ -224,38 +224,38 @@ class SyntheticsGlobalVariableArgs:
         return pulumi.get(self, "value_wo")
 
     @value_wo.setter
-    def value_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value_wo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value_wo", value)
 
     @_builtins.property
     @pulumi.getter(name="valueWoVersion")
-    def value_wo_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value_wo_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., '1', 'v2.1', '2024-Q1'). String length must be at least 1.
         """
         return pulumi.get(self, "value_wo_version")
 
     @value_wo_version.setter
-    def value_wo_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value_wo_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value_wo_version", value)
 
 
 @pulumi.input_type
 class _SyntheticsGlobalVariableState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_fido: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_totp: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input['SyntheticsGlobalVariableOptionsArgs']] = None,
-                 parse_test_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parse_test_options: Optional[pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs']] = None,
-                 restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 secure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_wo: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_wo_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_fido: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_totp: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional['SyntheticsGlobalVariableOptionsArgs']] = None,
+                 parse_test_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parse_test_options: pulumi.Input[Optional['SyntheticsGlobalVariableParseTestOptionsArgs']] = None,
+                 restricted_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 secure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_wo_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SyntheticsGlobalVariable resources.
 
@@ -306,140 +306,140 @@ class _SyntheticsGlobalVariableState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the global variable. Defaults to `""`.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="isFido")
-    def is_fido(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_fido(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, the global variable is a FIDO variable. Defaults to `false`.
         """
         return pulumi.get(self, "is_fido")
 
     @is_fido.setter
-    def is_fido(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_fido(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_fido", value)
 
     @_builtins.property
     @pulumi.getter(name="isTotp")
-    def is_totp(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_totp(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, the global variable is a TOTP variable. Defaults to `false`.
         """
         return pulumi.get(self, "is_totp")
 
     @is_totp.setter
-    def is_totp(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_totp(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_totp", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Synthetics global variable name. Must be all uppercase with underscores.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input['SyntheticsGlobalVariableOptionsArgs']]:
+    def options(self) -> pulumi.Input[Optional['SyntheticsGlobalVariableOptionsArgs']]:
         """
         Additional options for the variable, such as a MFA token.
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input['SyntheticsGlobalVariableOptionsArgs']]):
+    def options(self, value: pulumi.Input[Optional['SyntheticsGlobalVariableOptionsArgs']]):
         pulumi.set(self, "options", value)
 
     @_builtins.property
     @pulumi.getter(name="parseTestId")
-    def parse_test_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parse_test_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of the Synthetics test to use for a variable from test.
         """
         return pulumi.get(self, "parse_test_id")
 
     @parse_test_id.setter
-    def parse_test_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parse_test_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parse_test_id", value)
 
     @_builtins.property
     @pulumi.getter(name="parseTestOptions")
-    def parse_test_options(self) -> Optional[pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs']]:
+    def parse_test_options(self) -> pulumi.Input[Optional['SyntheticsGlobalVariableParseTestOptionsArgs']]:
         """
         ID of the Synthetics test to use a source of the global variable value.
         """
         return pulumi.get(self, "parse_test_options")
 
     @parse_test_options.setter
-    def parse_test_options(self, value: Optional[pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs']]):
+    def parse_test_options(self, value: pulumi.Input[Optional['SyntheticsGlobalVariableParseTestOptionsArgs']]):
         pulumi.set(self, "parse_test_options", value)
 
     @_builtins.property
     @pulumi.getter(name="restrictedRoles")
     @_utilities.deprecated("""This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.""")
-    def restricted_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def restricted_roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
         """
         return pulumi.get(self, "restricted_roles")
 
     @restricted_roles.setter
-    def restricted_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def restricted_roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "restricted_roles", value)
 
     @_builtins.property
     @pulumi.getter
-    def secure(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secure(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, the value of the global variable is hidden. This setting is automatically set to `true` if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
         """
         return pulumi.get(self, "secure")
 
     @secure.setter
-    def secure(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secure(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secure", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of tags to associate with your synthetics global variable.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the global variable. Required unless `is_fido` is set to `true` or `value_wo` is used
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
     @_builtins.property
     @pulumi.getter(name="valueWo")
-    def value_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         Write-only value of the global variable. Must be used with `value_wo_version`.
@@ -447,19 +447,19 @@ class _SyntheticsGlobalVariableState:
         return pulumi.get(self, "value_wo")
 
     @value_wo.setter
-    def value_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value_wo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value_wo", value)
 
     @_builtins.property
     @pulumi.getter(name="valueWoVersion")
-    def value_wo_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value_wo_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., '1', 'v2.1', '2024-Q1'). String length must be at least 1.
         """
         return pulumi.get(self, "value_wo_version")
 
     @value_wo_version.setter
-    def value_wo_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value_wo_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value_wo_version", value)
 
 
@@ -469,19 +469,19 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_fido: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_totp: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']]] = None,
-                 parse_test_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parse_test_options: Optional[pulumi.Input[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict']]] = None,
-                 restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 secure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_wo: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_wo_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_fido: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_totp: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']]] = None,
+                 parse_test_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parse_test_options: pulumi.Input[Optional[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict']]] = None,
+                 restricted_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 secure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_wo_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog synthetics global variable resource. This can be used to create and manage Datadog synthetics global variables.
@@ -647,19 +647,19 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_fido: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_totp: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']]] = None,
-                 parse_test_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parse_test_options: Optional[pulumi.Input[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict']]] = None,
-                 restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 secure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_wo: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_wo_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_fido: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_totp: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']]] = None,
+                 parse_test_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parse_test_options: pulumi.Input[Optional[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict']]] = None,
+                 restricted_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 secure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_wo_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -696,19 +696,19 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            is_fido: Optional[pulumi.Input[_builtins.bool]] = None,
-            is_totp: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            options: Optional[pulumi.Input[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']]] = None,
-            parse_test_id: Optional[pulumi.Input[_builtins.str]] = None,
-            parse_test_options: Optional[pulumi.Input[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict']]] = None,
-            restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            secure: Optional[pulumi.Input[_builtins.bool]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            value: Optional[pulumi.Input[_builtins.str]] = None,
-            value_wo: Optional[pulumi.Input[_builtins.str]] = None,
-            value_wo_version: Optional[pulumi.Input[_builtins.str]] = None) -> 'SyntheticsGlobalVariable':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            is_fido: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_totp: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            options: pulumi.Input[Optional[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']]] = None,
+            parse_test_id: pulumi.Input[Optional[_builtins.str]] = None,
+            parse_test_options: pulumi.Input[Optional[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict']]] = None,
+            restricted_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            secure: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None,
+            value_wo: pulumi.Input[Optional[_builtins.str]] = None,
+            value_wo_version: pulumi.Input[Optional[_builtins.str]] = None) -> 'SyntheticsGlobalVariable':
         """
         Get an existing SyntheticsGlobalVariable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

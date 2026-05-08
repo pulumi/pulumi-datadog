@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create new rum_metric resource
-    ///     var testingRumMetric = new Datadog.Index.RumMetric("testing_rum_metric", new()
+    ///     var testingRumMetric = new Datadog.RumMetric("testing_rum_metric", new()
     ///     {
     ///         Name = "testing.rum.metric",
     ///         Compute = new[]

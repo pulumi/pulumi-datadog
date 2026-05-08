@@ -221,8 +221,8 @@ def get_aws_cur_config(account_filters: Optional[Union['GetAwsCurConfigAccountFi
         status=pulumi.get(__ret__, 'status'),
         status_updated_at=pulumi.get(__ret__, 'status_updated_at'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_aws_cur_config_output(account_filters: Optional[pulumi.Input[Optional[Union['GetAwsCurConfigAccountFiltersArgs', 'GetAwsCurConfigAccountFiltersArgsDict']]]] = None,
-                              cloud_account_id: Optional[pulumi.Input[_builtins.int]] = None,
+def get_aws_cur_config_output(account_filters: pulumi.Input[Optional[Optional[Union['GetAwsCurConfigAccountFiltersArgs', 'GetAwsCurConfigAccountFiltersArgsDict']]]] = None,
+                              cloud_account_id: pulumi.Input[Optional[_builtins.int]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAwsCurConfigResult]:
     """
     Use this data source to retrieve information about a specific Datadog AWS CUR (Cost and Usage Report) configuration. This allows you to fetch details about an existing Cloud Cost Management configuration for AWS billing data access.

@@ -107,15 +107,15 @@ export interface IncidentTypeState {
     /**
      * Description of the incident type. The description can have a maximum of 512 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether this incident type is the default type.
      */
-    isDefault?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the incident type. Must be between 1 and 50 characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -125,11 +125,11 @@ export interface IncidentTypeArgs {
     /**
      * Description of the incident type. The description can have a maximum of 512 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether this incident type is the default type.
      */
-    isDefault?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the incident type. Must be between 1 and 50 characters.
      */

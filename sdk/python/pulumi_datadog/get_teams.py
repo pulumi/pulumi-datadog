@@ -121,9 +121,9 @@ def get_teams(filter_keyword: Optional[_builtins.str] = None,
         filter_me=pulumi.get(__ret__, 'filter_me'),
         id=pulumi.get(__ret__, 'id'),
         teams=pulumi.get(__ret__, 'teams'))
-def get_teams_output(filter_keyword: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     filter_me: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                     teams: Optional[pulumi.Input[Optional[Sequence[Union['GetTeamsTeamArgs', 'GetTeamsTeamArgsDict']]]]] = None,
+def get_teams_output(filter_keyword: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     filter_me: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                     teams: pulumi.Input[Optional[Optional[Sequence[Union['GetTeamsTeamArgs', 'GetTeamsTeamArgsDict']]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTeamsResult]:
     """
     Use this data source to retrieve information about existing teams for use in other resources.

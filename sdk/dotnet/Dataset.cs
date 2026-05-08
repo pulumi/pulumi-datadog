@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create new dataset resource
-    ///     var foo = new Datadog.Index.Dataset("foo", new()
+    ///     var foo = new Datadog.Dataset("foo", new()
     ///     {
     ///         Name = "HR Dataset",
     ///         Principals = new[]

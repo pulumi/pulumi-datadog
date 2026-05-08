@@ -24,8 +24,8 @@ class SecurityMonitoringFilterArgs:
                  is_enabled: pulumi.Input[_builtins.bool],
                  name: pulumi.Input[_builtins.str],
                  query: pulumi.Input[_builtins.str],
-                 exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringFilterExclusionFilterArgs']]]] = None,
-                 filtered_data_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityMonitoringFilterExclusionFilterArgs']]]] = None,
+                 filtered_data_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityMonitoringFilter resource.
 
@@ -81,38 +81,38 @@ class SecurityMonitoringFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="exclusionFilters")
-    def exclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringFilterExclusionFilterArgs']]]]:
+    def exclusion_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SecurityMonitoringFilterExclusionFilterArgs']]]]:
         """
         Exclusion filters to exclude some logs from the security filter.
         """
         return pulumi.get(self, "exclusion_filters")
 
     @exclusion_filters.setter
-    def exclusion_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringFilterExclusionFilterArgs']]]]):
+    def exclusion_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityMonitoringFilterExclusionFilterArgs']]]]):
         pulumi.set(self, "exclusion_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="filteredDataType")
-    def filtered_data_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filtered_data_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filtered data type. Valid values are `logs`. Defaults to `"logs"`.
         """
         return pulumi.get(self, "filtered_data_type")
 
     @filtered_data_type.setter
-    def filtered_data_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filtered_data_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filtered_data_type", value)
 
 
 @pulumi.input_type
 class _SecurityMonitoringFilterState:
     def __init__(__self__, *,
-                 exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringFilterExclusionFilterArgs']]]] = None,
-                 filtered_data_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.int]] = None):
+                 exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityMonitoringFilterExclusionFilterArgs']]]] = None,
+                 filtered_data_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SecurityMonitoringFilter resources.
 
@@ -138,74 +138,74 @@ class _SecurityMonitoringFilterState:
 
     @_builtins.property
     @pulumi.getter(name="exclusionFilters")
-    def exclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringFilterExclusionFilterArgs']]]]:
+    def exclusion_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SecurityMonitoringFilterExclusionFilterArgs']]]]:
         """
         Exclusion filters to exclude some logs from the security filter.
         """
         return pulumi.get(self, "exclusion_filters")
 
     @exclusion_filters.setter
-    def exclusion_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringFilterExclusionFilterArgs']]]]):
+    def exclusion_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityMonitoringFilterExclusionFilterArgs']]]]):
         pulumi.set(self, "exclusion_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="filteredDataType")
-    def filtered_data_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filtered_data_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filtered data type. Valid values are `logs`. Defaults to `"logs"`.
         """
         return pulumi.get(self, "filtered_data_type")
 
     @filtered_data_type.setter
-    def filtered_data_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filtered_data_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filtered_data_type", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the security filter is enabled.
         """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
-    def is_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the security filter.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The query of the security filter.
         """
         return pulumi.get(self, "query")
 
     @query.setter
-    def query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The version of the security filter.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "version", value)
 
 
@@ -215,11 +215,11 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringFilterExclusionFilterArgs', 'SecurityMonitoringFilterExclusionFilterArgsDict']]]]] = None,
-                 filtered_data_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
+                 exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityMonitoringFilterExclusionFilterArgs', 'SecurityMonitoringFilterExclusionFilterArgsDict']]]]] = None,
+                 filtered_data_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog Security Monitoring Rule API resource for security filters.
@@ -322,11 +322,11 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringFilterExclusionFilterArgs', 'SecurityMonitoringFilterExclusionFilterArgsDict']]]]] = None,
-                 filtered_data_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
+                 exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityMonitoringFilterExclusionFilterArgs', 'SecurityMonitoringFilterExclusionFilterArgsDict']]]]] = None,
+                 filtered_data_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -358,12 +358,12 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringFilterExclusionFilterArgs', 'SecurityMonitoringFilterExclusionFilterArgsDict']]]]] = None,
-            filtered_data_type: Optional[pulumi.Input[_builtins.str]] = None,
-            is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            query: Optional[pulumi.Input[_builtins.str]] = None,
-            version: Optional[pulumi.Input[_builtins.int]] = None) -> 'SecurityMonitoringFilter':
+            exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityMonitoringFilterExclusionFilterArgs', 'SecurityMonitoringFilterExclusionFilterArgsDict']]]]] = None,
+            filtered_data_type: pulumi.Input[Optional[_builtins.str]] = None,
+            is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> 'SecurityMonitoringFilter':
         """
         Get an existing SecurityMonitoringFilter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

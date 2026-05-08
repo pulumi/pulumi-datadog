@@ -80,7 +80,7 @@ export interface GetReferenceTableRowsOutputArgs {
     /**
      * List of retrieved rows. Each row contains its ID and field values.
      */
-    rows?: pulumi.Input<pulumi.Input<inputs.GetReferenceTableRowsRowArgs>[]>;
+    rows?: pulumi.Input<pulumi.Input<inputs.GetReferenceTableRowsRowArgs>[] | undefined>;
     /**
      * The UUID of the reference table to query rows from.
      */

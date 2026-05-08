@@ -26,7 +26,7 @@ class ApmRetentionFilterArgs:
                  filter_type: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  rate: pulumi.Input[_builtins.str],
-                 trace_rate: Optional[pulumi.Input[_builtins.str]] = None):
+                 trace_rate: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApmRetentionFilter resource.
 
@@ -107,26 +107,26 @@ class ApmRetentionFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="traceRate")
-    def trace_rate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trace_rate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sample rate to apply to traces with spans going through this retention filter as a string; a value of 1.0 keeps all traces matching the query. Value must be between 0.00 and 1.00.
         """
         return pulumi.get(self, "trace_rate")
 
     @trace_rate.setter
-    def trace_rate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trace_rate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trace_rate", value)
 
 
 @pulumi.input_type
 class _ApmRetentionFilterState:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 filter: Optional[pulumi.Input['ApmRetentionFilterFilterArgs']] = None,
-                 filter_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rate: Optional[pulumi.Input[_builtins.str]] = None,
-                 trace_rate: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 filter: pulumi.Input[Optional['ApmRetentionFilterFilterArgs']] = None,
+                 filter_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rate: pulumi.Input[Optional[_builtins.str]] = None,
+                 trace_rate: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApmRetentionFilter resources.
 
@@ -152,74 +152,74 @@ class _ApmRetentionFilterState:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         the status of the retention filter.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['ApmRetentionFilterFilterArgs']]:
+    def filter(self) -> pulumi.Input[Optional['ApmRetentionFilterFilterArgs']]:
         """
         The spans filter. Spans matching this filter will be indexed and stored.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['ApmRetentionFilterFilterArgs']]):
+    def filter(self, value: pulumi.Input[Optional['ApmRetentionFilterFilterArgs']]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter(name="filterType")
-    def filter_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.
         """
         return pulumi.get(self, "filter_type")
 
     @filter_type.setter
-    def filter_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the retention filter.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def rate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sample rate to apply to spans going through this retention filter as a string; a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
         """
         return pulumi.get(self, "rate")
 
     @rate.setter
-    def rate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rate", value)
 
     @_builtins.property
     @pulumi.getter(name="traceRate")
-    def trace_rate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trace_rate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sample rate to apply to traces with spans going through this retention filter as a string; a value of 1.0 keeps all traces matching the query. Value must be between 0.00 and 1.00.
         """
         return pulumi.get(self, "trace_rate")
 
     @trace_rate.setter
-    def trace_rate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trace_rate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trace_rate", value)
 
 
@@ -229,12 +229,12 @@ class ApmRetentionFilter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 filter: Optional[pulumi.Input[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict']]] = None,
-                 filter_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rate: Optional[pulumi.Input[_builtins.str]] = None,
-                 trace_rate: Optional[pulumi.Input[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 filter: pulumi.Input[Optional[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict']]] = None,
+                 filter_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rate: pulumi.Input[Optional[_builtins.str]] = None,
+                 trace_rate: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The object describing the configuration of the retention filter to create/update.
@@ -328,12 +328,12 @@ class ApmRetentionFilter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 filter: Optional[pulumi.Input[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict']]] = None,
-                 filter_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rate: Optional[pulumi.Input[_builtins.str]] = None,
-                 trace_rate: Optional[pulumi.Input[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 filter: pulumi.Input[Optional[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict']]] = None,
+                 filter_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rate: pulumi.Input[Optional[_builtins.str]] = None,
+                 trace_rate: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -369,12 +369,12 @@ class ApmRetentionFilter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            filter: Optional[pulumi.Input[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict']]] = None,
-            filter_type: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            rate: Optional[pulumi.Input[_builtins.str]] = None,
-            trace_rate: Optional[pulumi.Input[_builtins.str]] = None) -> 'ApmRetentionFilter':
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            filter: pulumi.Input[Optional[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict']]] = None,
+            filter_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            rate: pulumi.Input[Optional[_builtins.str]] = None,
+            trace_rate: pulumi.Input[Optional[_builtins.str]] = None) -> 'ApmRetentionFilter':
         """
         Get an existing ApmRetentionFilter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

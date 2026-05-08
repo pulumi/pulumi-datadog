@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Configure agentless scanning for an AWS account
-    ///     var example = new Datadog.Index.AgentlessScanningAwsScanOptions("example", new()
+    ///     var example = new Datadog.AgentlessScanningAwsScanOptions("example", new()
     ///     {
     ///         AwsAccountId = "123456789012",
     ///         Lambda = true,

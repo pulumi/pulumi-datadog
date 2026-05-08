@@ -147,39 +147,39 @@ export interface SecurityMonitoringDefaultRuleState {
     /**
      * Cases of the rule, this is used to update notifications.
      */
-    cases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleCase>[]>;
+    cases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleCase>[] | undefined>;
     /**
      * Custom Message (will override default message) for generated signals.
      */
-    customMessage?: pulumi.Input<string>;
+    customMessage?: pulumi.Input<string | undefined>;
     /**
      * The name (will override default name) of the rule.
      */
-    customName?: pulumi.Input<string>;
+    customName?: pulumi.Input<string | undefined>;
     /**
      * Custom tags for generated signals.
      */
-    customTags?: pulumi.Input<pulumi.Input<string>[]>;
+    customTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Enable the rule. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Additional queries to filter matched events before they are processed.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleFilter>[] | undefined>;
     /**
      * Options on default rules. Note that only a subset of fields can be updated on default rule options.
      */
-    options?: pulumi.Input<inputs.SecurityMonitoringDefaultRuleOptions>;
+    options?: pulumi.Input<inputs.SecurityMonitoringDefaultRuleOptions | undefined>;
     /**
      * Queries for selecting logs which are part of the rule.
      */
-    queries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleQuery>[]>;
+    queries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleQuery>[] | undefined>;
     /**
      * The rule type.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -189,33 +189,33 @@ export interface SecurityMonitoringDefaultRuleArgs {
     /**
      * Cases of the rule, this is used to update notifications.
      */
-    cases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleCase>[]>;
+    cases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleCase>[] | undefined>;
     /**
      * Custom Message (will override default message) for generated signals.
      */
-    customMessage?: pulumi.Input<string>;
+    customMessage?: pulumi.Input<string | undefined>;
     /**
      * The name (will override default name) of the rule.
      */
-    customName?: pulumi.Input<string>;
+    customName?: pulumi.Input<string | undefined>;
     /**
      * Custom tags for generated signals.
      */
-    customTags?: pulumi.Input<pulumi.Input<string>[]>;
+    customTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Enable the rule. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Additional queries to filter matched events before they are processed.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleFilter>[] | undefined>;
     /**
      * Options on default rules. Note that only a subset of fields can be updated on default rule options.
      */
-    options?: pulumi.Input<inputs.SecurityMonitoringDefaultRuleOptions>;
+    options?: pulumi.Input<inputs.SecurityMonitoringDefaultRuleOptions | undefined>;
     /**
      * Queries for selecting logs which are part of the rule.
      */
-    queries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleQuery>[]>;
+    queries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleQuery>[] | undefined>;
 }

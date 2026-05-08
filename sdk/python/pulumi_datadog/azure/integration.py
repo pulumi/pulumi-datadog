@@ -24,17 +24,17 @@ class IntegrationArgs:
                  client_id: pulumi.Input[_builtins.str],
                  client_secret: pulumi.Input[_builtins.str],
                  tenant_name: pulumi.Input[_builtins.str],
-                 app_service_plan_filters: Optional[pulumi.Input[_builtins.str]] = None,
-                 automute: Optional[pulumi.Input[_builtins.bool]] = None,
-                 container_app_filters: Optional[pulumi.Input[_builtins.str]] = None,
-                 cspm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_filters: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_enabled_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_provider_configs: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResourceProviderConfigArgs']]]] = None,
-                 usage_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 app_service_plan_filters: pulumi.Input[Optional[_builtins.str]] = None,
+                 automute: pulumi.Input[Optional[_builtins.bool]] = None,
+                 container_app_filters: pulumi.Input[Optional[_builtins.str]] = None,
+                 cspm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_filters: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_enabled_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_provider_configs: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationResourceProviderConfigArgs']]]] = None,
+                 usage_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Integration resource.
 
@@ -118,43 +118,43 @@ class IntegrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="appServicePlanFilters")
-    def app_service_plan_filters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service_plan_filters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure App Service Plans. Only App Service Plans that match one of the defined tags are imported into Datadog. The rest, including the apps and functions running on them, are ignored. This also filters the metrics for any App or Function running on the App Service Plan(s). Defaults to `""`.
         """
         return pulumi.get(self, "app_service_plan_filters")
 
     @app_service_plan_filters.setter
-    def app_service_plan_filters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service_plan_filters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service_plan_filters", value)
 
     @_builtins.property
     @pulumi.getter
-    def automute(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automute(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
         """
         return pulumi.get(self, "automute")
 
     @automute.setter
-    def automute(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automute(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automute", value)
 
     @_builtins.property
     @pulumi.getter(name="containerAppFilters")
-    def container_app_filters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_app_filters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog. Defaults to `""`.
         """
         return pulumi.get(self, "container_app_filters")
 
     @container_app_filters.setter
-    def container_app_filters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_app_filters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_app_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="cspmEnabled")
-    def cspm_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cspm_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When enabled, Datadog’s Cloud Security Management product scans resource configurations monitored by this app registration.
         Note: This requires `resource_collection_enabled` to be set to true. Defaults to `false`.
@@ -162,111 +162,111 @@ class IntegrationArgs:
         return pulumi.get(self, "cspm_enabled")
 
     @cspm_enabled.setter
-    def cspm_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cspm_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cspm_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="customMetricsEnabled")
-    def custom_metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def custom_metrics_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable custom metrics for your organization. Defaults to `false`.
         """
         return pulumi.get(self, "custom_metrics_enabled")
 
     @custom_metrics_enabled.setter
-    def custom_metrics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def custom_metrics_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "custom_metrics_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hostFilters")
-    def host_filters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_filters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red` Defaults to `""`.
         """
         return pulumi.get(self, "host_filters")
 
     @host_filters.setter
-    def host_filters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_filters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsEnabled")
-    def metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def metrics_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable Azure metrics for your organization. Defaults to `true`.
         """
         return pulumi.get(self, "metrics_enabled")
 
     @metrics_enabled.setter
-    def metrics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def metrics_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "metrics_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsEnabledDefault")
-    def metrics_enabled_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def metrics_enabled_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
         """
         return pulumi.get(self, "metrics_enabled_default")
 
     @metrics_enabled_default.setter
-    def metrics_enabled_default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def metrics_enabled_default(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "metrics_enabled_default", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceCollectionEnabled")
-    def resource_collection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def resource_collection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
         """
         return pulumi.get(self, "resource_collection_enabled")
 
     @resource_collection_enabled.setter
-    def resource_collection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def resource_collection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "resource_collection_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceProviderConfigs")
-    def resource_provider_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResourceProviderConfigArgs']]]]:
+    def resource_provider_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationResourceProviderConfigArgs']]]]:
         """
         Configuration settings applied to resources from the specified Azure resource providers.
         """
         return pulumi.get(self, "resource_provider_configs")
 
     @resource_provider_configs.setter
-    def resource_provider_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResourceProviderConfigArgs']]]]):
+    def resource_provider_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationResourceProviderConfigArgs']]]]):
         pulumi.set(self, "resource_provider_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="usageMetricsEnabled")
-    def usage_metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def usage_metrics_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable azure.usage metrics for your organization. Defaults to `true`.
         """
         return pulumi.get(self, "usage_metrics_enabled")
 
     @usage_metrics_enabled.setter
-    def usage_metrics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def usage_metrics_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "usage_metrics_enabled", value)
 
 
 @pulumi.input_type
 class _IntegrationState:
     def __init__(__self__, *,
-                 app_service_plan_filters: Optional[pulumi.Input[_builtins.str]] = None,
-                 automute: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_app_filters: Optional[pulumi.Input[_builtins.str]] = None,
-                 cspm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_filters: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_enabled_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_provider_configs: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResourceProviderConfigArgs']]]] = None,
-                 tenant_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 app_service_plan_filters: pulumi.Input[Optional[_builtins.str]] = None,
+                 automute: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_app_filters: pulumi.Input[Optional[_builtins.str]] = None,
+                 cspm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_filters: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_enabled_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_provider_configs: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationResourceProviderConfigArgs']]]] = None,
+                 tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Integration resources.
 
@@ -317,67 +317,67 @@ class _IntegrationState:
 
     @_builtins.property
     @pulumi.getter(name="appServicePlanFilters")
-    def app_service_plan_filters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service_plan_filters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure App Service Plans. Only App Service Plans that match one of the defined tags are imported into Datadog. The rest, including the apps and functions running on them, are ignored. This also filters the metrics for any App or Function running on the App Service Plan(s). Defaults to `""`.
         """
         return pulumi.get(self, "app_service_plan_filters")
 
     @app_service_plan_filters.setter
-    def app_service_plan_filters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service_plan_filters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service_plan_filters", value)
 
     @_builtins.property
     @pulumi.getter
-    def automute(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automute(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
         """
         return pulumi.get(self, "automute")
 
     @automute.setter
-    def automute(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automute(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automute", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Your Azure web application ID.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Required for Initial Creation) Your Azure web application secret key.
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="containerAppFilters")
-    def container_app_filters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_app_filters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog. Defaults to `""`.
         """
         return pulumi.get(self, "container_app_filters")
 
     @container_app_filters.setter
-    def container_app_filters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_app_filters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_app_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="cspmEnabled")
-    def cspm_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cspm_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When enabled, Datadog’s Cloud Security Management product scans resource configurations monitored by this app registration.
         Note: This requires `resource_collection_enabled` to be set to true. Defaults to `false`.
@@ -385,103 +385,103 @@ class _IntegrationState:
         return pulumi.get(self, "cspm_enabled")
 
     @cspm_enabled.setter
-    def cspm_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cspm_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cspm_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="customMetricsEnabled")
-    def custom_metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def custom_metrics_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable custom metrics for your organization. Defaults to `false`.
         """
         return pulumi.get(self, "custom_metrics_enabled")
 
     @custom_metrics_enabled.setter
-    def custom_metrics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def custom_metrics_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "custom_metrics_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hostFilters")
-    def host_filters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_filters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red` Defaults to `""`.
         """
         return pulumi.get(self, "host_filters")
 
     @host_filters.setter
-    def host_filters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_filters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsEnabled")
-    def metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def metrics_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable Azure metrics for your organization. Defaults to `true`.
         """
         return pulumi.get(self, "metrics_enabled")
 
     @metrics_enabled.setter
-    def metrics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def metrics_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "metrics_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsEnabledDefault")
-    def metrics_enabled_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def metrics_enabled_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
         """
         return pulumi.get(self, "metrics_enabled_default")
 
     @metrics_enabled_default.setter
-    def metrics_enabled_default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def metrics_enabled_default(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "metrics_enabled_default", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceCollectionEnabled")
-    def resource_collection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def resource_collection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
         """
         return pulumi.get(self, "resource_collection_enabled")
 
     @resource_collection_enabled.setter
-    def resource_collection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def resource_collection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "resource_collection_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceProviderConfigs")
-    def resource_provider_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResourceProviderConfigArgs']]]]:
+    def resource_provider_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationResourceProviderConfigArgs']]]]:
         """
         Configuration settings applied to resources from the specified Azure resource providers.
         """
         return pulumi.get(self, "resource_provider_configs")
 
     @resource_provider_configs.setter
-    def resource_provider_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResourceProviderConfigArgs']]]]):
+    def resource_provider_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationResourceProviderConfigArgs']]]]):
         pulumi.set(self, "resource_provider_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantName")
-    def tenant_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Your Azure Active Directory ID.
         """
         return pulumi.get(self, "tenant_name")
 
     @tenant_name.setter
-    def tenant_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_name", value)
 
     @_builtins.property
     @pulumi.getter(name="usageMetricsEnabled")
-    def usage_metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def usage_metrics_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable azure.usage metrics for your organization. Defaults to `true`.
         """
         return pulumi.get(self, "usage_metrics_enabled")
 
     @usage_metrics_enabled.setter
-    def usage_metrics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def usage_metrics_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "usage_metrics_enabled", value)
 
 
@@ -491,20 +491,20 @@ class Integration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_service_plan_filters: Optional[pulumi.Input[_builtins.str]] = None,
-                 automute: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_app_filters: Optional[pulumi.Input[_builtins.str]] = None,
-                 cspm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_filters: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_enabled_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_provider_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResourceProviderConfigArgs', 'IntegrationResourceProviderConfigArgsDict']]]]] = None,
-                 tenant_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 app_service_plan_filters: pulumi.Input[Optional[_builtins.str]] = None,
+                 automute: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_app_filters: pulumi.Input[Optional[_builtins.str]] = None,
+                 cspm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_filters: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_enabled_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_provider_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationResourceProviderConfigArgs', 'IntegrationResourceProviderConfigArgsDict']]]]] = None,
+                 tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Provides a Datadog - Microsoft Azure integration resource. This can be used to create and manage the integrations.
@@ -613,20 +613,20 @@ class Integration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_service_plan_filters: Optional[pulumi.Input[_builtins.str]] = None,
-                 automute: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_app_filters: Optional[pulumi.Input[_builtins.str]] = None,
-                 cspm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_filters: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics_enabled_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_provider_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResourceProviderConfigArgs', 'IntegrationResourceProviderConfigArgsDict']]]]] = None,
-                 tenant_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 app_service_plan_filters: pulumi.Input[Optional[_builtins.str]] = None,
+                 automute: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_app_filters: pulumi.Input[Optional[_builtins.str]] = None,
+                 cspm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_filters: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics_enabled_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_provider_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationResourceProviderConfigArgs', 'IntegrationResourceProviderConfigArgsDict']]]]] = None,
+                 tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -668,20 +668,20 @@ class Integration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_service_plan_filters: Optional[pulumi.Input[_builtins.str]] = None,
-            automute: Optional[pulumi.Input[_builtins.bool]] = None,
-            client_id: Optional[pulumi.Input[_builtins.str]] = None,
-            client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-            container_app_filters: Optional[pulumi.Input[_builtins.str]] = None,
-            cspm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            custom_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            host_filters: Optional[pulumi.Input[_builtins.str]] = None,
-            metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            metrics_enabled_default: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_collection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_provider_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResourceProviderConfigArgs', 'IntegrationResourceProviderConfigArgsDict']]]]] = None,
-            tenant_name: Optional[pulumi.Input[_builtins.str]] = None,
-            usage_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'Integration':
+            app_service_plan_filters: pulumi.Input[Optional[_builtins.str]] = None,
+            automute: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            container_app_filters: pulumi.Input[Optional[_builtins.str]] = None,
+            cspm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            custom_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            host_filters: pulumi.Input[Optional[_builtins.str]] = None,
+            metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            metrics_enabled_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_provider_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationResourceProviderConfigArgs', 'IntegrationResourceProviderConfigArgsDict']]]]] = None,
+            tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
+            usage_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Integration':
         """
         Get an existing Integration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

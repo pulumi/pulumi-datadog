@@ -24,7 +24,7 @@ class GcpUcConfigArgs:
                  export_dataset_name: pulumi.Input[_builtins.str],
                  export_project_name: pulumi.Input[_builtins.str],
                  service_account: pulumi.Input[_builtins.str],
-                 export_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 export_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a GcpUcConfig resource.
 
@@ -105,33 +105,33 @@ class GcpUcConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="exportPrefix")
-    def export_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The export prefix used for the Google Cloud Usage Cost report.
         """
         return pulumi.get(self, "export_prefix")
 
     @export_prefix.setter
-    def export_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export_prefix", value)
 
 
 @pulumi.input_type
 class _GcpUcConfigState:
     def __init__(__self__, *,
-                 billing_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 dataset: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_messages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 export_dataset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 months: Optional[pulumi.Input[_builtins.int]] = None,
-                 service_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_updated_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated_at: Optional[pulumi.Input[_builtins.str]] = None):
+                 billing_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 dataset: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_messages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 export_dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 months: pulumi.Input[Optional[_builtins.int]] = None,
+                 service_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated_at: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GcpUcConfig resources.
 
@@ -178,158 +178,158 @@ class _GcpUcConfigState:
 
     @_builtins.property
     @pulumi.getter(name="billingAccountId")
-    def billing_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Google Cloud account ID.
         """
         return pulumi.get(self, "billing_account_id")
 
     @billing_account_id.setter
-    def billing_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Google Cloud bucket name used to store the Usage Cost export.
         """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
-    def bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timestamp when the GCP UC configuration was created.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def dataset(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dataset(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The dataset name used for the GCP Usage Cost export.
         """
         return pulumi.get(self, "dataset")
 
     @dataset.setter
-    def dataset(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dataset(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dataset", value)
 
     @_builtins.property
     @pulumi.getter(name="errorMessages")
-    def error_messages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def error_messages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of error messages if the GCP UC configuration encountered any issues during setup or data processing.
         """
         return pulumi.get(self, "error_messages")
 
     @error_messages.setter
-    def error_messages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def error_messages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "error_messages", value)
 
     @_builtins.property
     @pulumi.getter(name="exportDatasetName")
-    def export_dataset_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export_dataset_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The export dataset name used for the Google Cloud Usage Cost report.
         """
         return pulumi.get(self, "export_dataset_name")
 
     @export_dataset_name.setter
-    def export_dataset_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export_dataset_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export_dataset_name", value)
 
     @_builtins.property
     @pulumi.getter(name="exportPrefix")
-    def export_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The export prefix used for the Google Cloud Usage Cost report.
         """
         return pulumi.get(self, "export_prefix")
 
     @export_prefix.setter
-    def export_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="exportProjectName")
-    def export_project_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export_project_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Google Cloud Usage Cost report.
         """
         return pulumi.get(self, "export_project_name")
 
     @export_project_name.setter
-    def export_project_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export_project_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export_project_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def months(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def months(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of months of usage data to include in the export.
         """
         return pulumi.get(self, "months")
 
     @months.setter
-    def months(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def months(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "months", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceAccount")
-    def service_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique Google Cloud service account email.
         """
         return pulumi.get(self, "service_account")
 
     @service_account.setter
-    def service_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_account", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current status of the GCP UC configuration.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="statusUpdatedAt")
-    def status_updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status_updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timestamp when the configuration status was last updated.
         """
         return pulumi.get(self, "status_updated_at")
 
     @status_updated_at.setter
-    def status_updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status_updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status_updated_at", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timestamp when the GCP UC configuration was last modified.
         """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
-    def updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated_at", value)
 
 
@@ -339,12 +339,12 @@ class GcpUcConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 billing_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_dataset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_account: Optional[pulumi.Input[_builtins.str]] = None,
+                 billing_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_account: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog GcpUcConfig resource. This can be used to create and manage Datadog gcp_uc_config.
@@ -432,12 +432,12 @@ class GcpUcConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 billing_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_dataset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_account: Optional[pulumi.Input[_builtins.str]] = None,
+                 billing_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_account: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -480,19 +480,19 @@ class GcpUcConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            billing_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            dataset: Optional[pulumi.Input[_builtins.str]] = None,
-            error_messages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            export_dataset_name: Optional[pulumi.Input[_builtins.str]] = None,
-            export_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            export_project_name: Optional[pulumi.Input[_builtins.str]] = None,
-            months: Optional[pulumi.Input[_builtins.int]] = None,
-            service_account: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            status_updated_at: Optional[pulumi.Input[_builtins.str]] = None,
-            updated_at: Optional[pulumi.Input[_builtins.str]] = None) -> 'GcpUcConfig':
+            billing_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            dataset: pulumi.Input[Optional[_builtins.str]] = None,
+            error_messages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            export_dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
+            export_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            export_project_name: pulumi.Input[Optional[_builtins.str]] = None,
+            months: pulumi.Input[Optional[_builtins.int]] = None,
+            service_account: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> 'GcpUcConfig':
         """
         Get an existing GcpUcConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

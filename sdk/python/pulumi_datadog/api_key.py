@@ -20,7 +20,7 @@ __all__ = ['ApiKeyArgs', 'ApiKey']
 class ApiKeyArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 remote_config_read_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 remote_config_read_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ApiKey resource.
 
@@ -45,23 +45,23 @@ class ApiKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="remoteConfigReadEnabled")
-    def remote_config_read_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def remote_config_read_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
         """
         return pulumi.get(self, "remote_config_read_enabled")
 
     @remote_config_read_enabled.setter
-    def remote_config_read_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def remote_config_read_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "remote_config_read_enabled", value)
 
 
 @pulumi.input_type
 class _ApiKeyState:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_config_read_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_config_read_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ApiKey resources.
 
@@ -78,38 +78,38 @@ class _ApiKeyState:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the API Key.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for API Key.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteConfigReadEnabled")
-    def remote_config_read_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def remote_config_read_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
         """
         return pulumi.get(self, "remote_config_read_enabled")
 
     @remote_config_read_enabled.setter
-    def remote_config_read_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def remote_config_read_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "remote_config_read_enabled", value)
 
 
@@ -119,8 +119,8 @@ class ApiKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_config_read_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_config_read_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Provides a Datadog API Key resource. This can be used to create and manage Datadog API Keys. Import functionality for this resource is deprecated and will be removed in a future release with prior notice. Securely store your API keys using a secret management system or use this resource to create and manage new API keys.
@@ -192,8 +192,8 @@ class ApiKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_config_read_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_config_read_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -220,9 +220,9 @@ class ApiKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            key: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            remote_config_read_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'ApiKey':
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_config_read_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ApiKey':
         """
         Get an existing ApiKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

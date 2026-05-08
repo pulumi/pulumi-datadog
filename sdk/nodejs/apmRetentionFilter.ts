@@ -145,27 +145,27 @@ export interface ApmRetentionFilterState {
     /**
      * the status of the retention filter.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The spans filter. Spans matching this filter will be indexed and stored.
      */
-    filter?: pulumi.Input<inputs.ApmRetentionFilterFilter>;
+    filter?: pulumi.Input<inputs.ApmRetentionFilterFilter | undefined>;
     /**
      * The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.
      */
-    filterType?: pulumi.Input<string>;
+    filterType?: pulumi.Input<string | undefined>;
     /**
      * The name of the retention filter.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Sample rate to apply to spans going through this retention filter as a string; a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
      */
-    rate?: pulumi.Input<string>;
+    rate?: pulumi.Input<string | undefined>;
     /**
      * Sample rate to apply to traces with spans going through this retention filter as a string; a value of 1.0 keeps all traces matching the query. Value must be between 0.00 and 1.00.
      */
-    traceRate?: pulumi.Input<string>;
+    traceRate?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -195,5 +195,5 @@ export interface ApmRetentionFilterArgs {
     /**
      * Sample rate to apply to traces with spans going through this retention filter as a string; a value of 1.0 keeps all traces matching the query. Value must be between 0.00 and 1.00.
      */
-    traceRate?: pulumi.Input<string>;
+    traceRate?: pulumi.Input<string | undefined>;
 }

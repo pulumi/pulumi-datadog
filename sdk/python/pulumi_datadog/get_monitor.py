@@ -494,9 +494,9 @@ def get_monitor(monitor_tags_filters: Optional[Sequence[_builtins.str]] = None,
         tags_filters=pulumi.get(__ret__, 'tags_filters'),
         timeout_h=pulumi.get(__ret__, 'timeout_h'),
         type=pulumi.get(__ret__, 'type'))
-def get_monitor_output(monitor_tags_filters: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                       name_filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       tags_filters: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
+def get_monitor_output(monitor_tags_filters: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                       name_filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       tags_filters: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitorResult]:
     """
     Use this data source to retrieve information about an existing monitor for use in other resources.

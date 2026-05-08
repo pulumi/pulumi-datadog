@@ -102,11 +102,11 @@ export interface IpAllowlistState {
     /**
      * Whether the IP Allowlist is enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Set of objects containing an IP address or range of IP addresses in the allowlist and an accompanying note.
      */
-    entries?: pulumi.Input<pulumi.Input<inputs.IpAllowlistEntry>[]>;
+    entries?: pulumi.Input<pulumi.Input<inputs.IpAllowlistEntry>[] | undefined>;
 }
 
 /**
@@ -120,5 +120,5 @@ export interface IpAllowlistArgs {
     /**
      * Set of objects containing an IP address or range of IP addresses in the allowlist and an accompanying note.
      */
-    entries?: pulumi.Input<pulumi.Input<inputs.IpAllowlistEntry>[]>;
+    entries?: pulumi.Input<pulumi.Input<inputs.IpAllowlistEntry>[] | undefined>;
 }

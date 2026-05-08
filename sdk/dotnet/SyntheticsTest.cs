@@ -36,7 +36,7 @@ namespace Pulumi.Datadog
     /// {
     ///     // Example Usage (Synthetics API test)
     ///     // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
-    ///     var testUptime = new Datadog.Index.SyntheticsTest("test_uptime", new()
+    ///     var testUptime = new Datadog.SyntheticsTest("test_uptime", new()
     ///     {
     ///         Name = "An Uptime test on example.org",
     ///         Type = "api",
@@ -88,7 +88,7 @@ namespace Pulumi.Datadog
     /// 
     ///     // Example Usage (Authenticated API test)
     ///     // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
-    ///     var testApi = new Datadog.Index.SyntheticsTest("test_api", new()
+    ///     var testApi = new Datadog.SyntheticsTest("test_api", new()
     ///     {
     ///         Name = "An API test on example.org",
     ///         Type = "api",
@@ -142,7 +142,7 @@ namespace Pulumi.Datadog
     /// 
     ///     // Example Usage (Synthetics SSL test)
     ///     // Create a new Datadog Synthetics API/SSL test on example.org
-    ///     var testSsl = new Datadog.Index.SyntheticsTest("test_ssl", new()
+    ///     var testSsl = new Datadog.SyntheticsTest("test_ssl", new()
     ///     {
     ///         Name = "An API test on example.org",
     ///         Type = "api",
@@ -182,7 +182,7 @@ namespace Pulumi.Datadog
     /// 
     ///     // Example Usage (Synthetics TCP test)
     ///     // Create a new Datadog Synthetics API/TCP test on example.org
-    ///     var testTcp = new Datadog.Index.SyntheticsTest("test_tcp", new()
+    ///     var testTcp = new Datadog.SyntheticsTest("test_tcp", new()
     ///     {
     ///         Name = "An API test on example.org",
     ///         Type = "api",
@@ -230,7 +230,7 @@ namespace Pulumi.Datadog
     /// 
     ///     // Example Usage (Synthetics DNS test)
     ///     // Create a new Datadog Synthetics API/DNS test on example.org
-    ///     var testDns = new Datadog.Index.SyntheticsTest("test_dns", new()
+    ///     var testDns = new Datadog.SyntheticsTest("test_dns", new()
     ///     {
     ///         Name = "An API test on example.org",
     ///         Type = "api",
@@ -269,7 +269,7 @@ namespace Pulumi.Datadog
     /// 
     ///     // Example Usage (Synthetics ICMP test)
     ///     // Create a new Datadog Synthetics ICMP test on example.org
-    ///     var testApiIcmp = new Datadog.Index.SyntheticsTest("test_api_icmp", new()
+    ///     var testApiIcmp = new Datadog.SyntheticsTest("test_api_icmp", new()
     ///     {
     ///         Name = "ICMP Test on example.com",
     ///         Type = "api",
@@ -333,7 +333,7 @@ namespace Pulumi.Datadog
     /// 
     ///     // Example Usage (Synthetics Multistep API test)
     ///     // Create a new Datadog Synthetics Multistep API test
-    ///     var testMultiStep = new Datadog.Index.SyntheticsTest("test_multi_step", new()
+    ///     var testMultiStep = new Datadog.SyntheticsTest("test_multi_step", new()
     ///     {
     ///         Name = "Multistep API test",
     ///         Type = "api",
@@ -469,7 +469,7 @@ namespace Pulumi.Datadog
     /// 
     ///     // Example Usage (Synthetics Browser test)
     ///     // Create a new Datadog Synthetics Browser test starting on https://www.example.org
-    ///     var testBrowser = new Datadog.Index.SyntheticsTest("test_browser", new()
+    ///     var testBrowser = new Datadog.SyntheticsTest("test_browser", new()
     ///     {
     ///         Name = "A Browser test on example.org",
     ///         Type = "browser",
@@ -644,7 +644,7 @@ namespace Pulumi.Datadog
     /// 
     ///     // Example Usage (Synthetics Mobile test)
     ///     // Create a new Datadog Synthetics Mobile test starting on https://www.example.org
-    ///     var testMobile = new Datadog.Index.SyntheticsTest("test_mobile", new()
+    ///     var testMobile = new Datadog.SyntheticsTest("test_mobile", new()
     ///     {
     ///         Type = "mobile",
     ///         Name = "A Mobile test on example.org",
@@ -823,7 +823,7 @@ namespace Pulumi.Datadog
     ///     // Create a new Datadog GRPC API test calling host example.org on port 443
     ///     // targeting service `greeter.Greeter` with the method `SayHello`
     ///     // and the message {"name": "John"}
-    ///     var testGrpcUnary = new Datadog.Index.SyntheticsTest("test_grpc_unary", new()
+    ///     var testGrpcUnary = new Datadog.SyntheticsTest("test_grpc_unary", new()
     ///     {
     ///         Name = "GRPC API behavior check test",
     ///         Type = "api",
@@ -909,7 +909,7 @@ namespace Pulumi.Datadog
     ///     // Example Usage (GRPC API health check test)
     ///     // Create a new Datadog GRPC API test calling host example.org on port 443
     ///     // testing the overall health of the service
-    ///     var testGrpcHealth = new Datadog.Index.SyntheticsTest("test_grpc_health", new()
+    ///     var testGrpcHealth = new Datadog.SyntheticsTest("test_grpc_health", new()
     ///     {
     ///         Name = "GRPC API health check test",
     ///         Type = "api",
@@ -956,7 +956,7 @@ namespace Pulumi.Datadog
     ///     // Example Usage (TCP Network Path Test)
     ///     // Create a new Datadog TCP Network Path test to example.com on port 443
     ///     // using the TCP traceroute strategy "syn"
-    ///     var networkTcp = new Datadog.Index.SyntheticsTest("network_tcp", new()
+    ///     var networkTcp = new Datadog.SyntheticsTest("network_tcp", new()
     ///     {
     ///         Name = "TCP Network Path Test",
     ///         Type = "network",
@@ -1036,7 +1036,7 @@ namespace Pulumi.Datadog
     /// 
     ///     // Example Usage (UDP Network Path Test)
     ///     // Create a new Datadog UDP Network Path test to example.com on port 53
-    ///     var networkUdp = new Datadog.Index.SyntheticsTest("network_udp", new()
+    ///     var networkUdp = new Datadog.SyntheticsTest("network_udp", new()
     ///     {
     ///         Name = "UDP Network Path Test",
     ///         Type = "network",
@@ -1101,7 +1101,7 @@ namespace Pulumi.Datadog
     /// 
     ///     // Example Usage (ICMP Network Path Test)
     ///     // Create a new Datadog ICMP Network Path test to example.com
-    ///     var networkIcmp = new Datadog.Index.SyntheticsTest("network_icmp", new()
+    ///     var networkIcmp = new Datadog.SyntheticsTest("network_icmp", new()
     ///     {
     ///         Name = "ICMP Network Path Test",
     ///         Type = "network",

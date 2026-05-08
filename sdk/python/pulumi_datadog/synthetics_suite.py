@@ -22,10 +22,10 @@ __all__ = ['SyntheticsSuiteArgs', 'SyntheticsSuite']
 class SyntheticsSuiteArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsSuiteOptionArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tests: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsSuiteTestArgs']]]] = None):
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsSuiteOptionArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tests: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsSuiteTestArgs']]]] = None):
         """
         The set of arguments for constructing a SyntheticsSuite resource.
 
@@ -59,61 +59,61 @@ class SyntheticsSuiteArgs:
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Message of the Synthetics suite.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
     @_builtins.property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsSuiteOptionArgs']]]]:
+    def options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsSuiteOptionArgs']]]]:
         """
         Options for the Synthetics suite.
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsSuiteOptionArgs']]]]):
+    def options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsSuiteOptionArgs']]]]):
         pulumi.set(self, "options", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A set of tags to associate with your synthetics suite.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def tests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsSuiteTestArgs']]]]:
+    def tests(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsSuiteTestArgs']]]]:
         """
         List of tests in the Synthetics suite. Can be empty but the field is always sent to the API.
         """
         return pulumi.get(self, "tests")
 
     @tests.setter
-    def tests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsSuiteTestArgs']]]]):
+    def tests(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsSuiteTestArgs']]]]):
         pulumi.set(self, "tests", value)
 
 
 @pulumi.input_type
 class _SyntheticsSuiteState:
     def __init__(__self__, *,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsSuiteOptionArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tests: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsSuiteTestArgs']]]] = None):
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsSuiteOptionArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tests: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsSuiteTestArgs']]]] = None):
         """
         Input properties used for looking up and filtering SyntheticsSuite resources.
 
@@ -136,62 +136,62 @@ class _SyntheticsSuiteState:
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Message of the Synthetics suite.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Synthetics suite.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsSuiteOptionArgs']]]]:
+    def options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsSuiteOptionArgs']]]]:
         """
         Options for the Synthetics suite.
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsSuiteOptionArgs']]]]):
+    def options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsSuiteOptionArgs']]]]):
         pulumi.set(self, "options", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A set of tags to associate with your synthetics suite.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def tests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsSuiteTestArgs']]]]:
+    def tests(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsSuiteTestArgs']]]]:
         """
         List of tests in the Synthetics suite. Can be empty but the field is always sent to the API.
         """
         return pulumi.get(self, "tests")
 
     @tests.setter
-    def tests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsSuiteTestArgs']]]]):
+    def tests(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SyntheticsSuiteTestArgs']]]]):
         pulumi.set(self, "tests", value)
 
 
@@ -201,11 +201,11 @@ class SyntheticsSuite(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsSuiteOptionArgs', 'SyntheticsSuiteOptionArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsSuiteTestArgs', 'SyntheticsSuiteTestArgsDict']]]]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsSuiteOptionArgs', 'SyntheticsSuiteOptionArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsSuiteTestArgs', 'SyntheticsSuiteTestArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a Datadog Synthetics Suite resource. This can be used to create and manage Synthetics test suites.
@@ -244,11 +244,11 @@ class SyntheticsSuite(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsSuiteOptionArgs', 'SyntheticsSuiteOptionArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsSuiteTestArgs', 'SyntheticsSuiteTestArgsDict']]]]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsSuiteOptionArgs', 'SyntheticsSuiteOptionArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsSuiteTestArgs', 'SyntheticsSuiteTestArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -275,11 +275,11 @@ class SyntheticsSuite(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            message: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsSuiteOptionArgs', 'SyntheticsSuiteOptionArgsDict']]]]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsSuiteTestArgs', 'SyntheticsSuiteTestArgsDict']]]]] = None) -> 'SyntheticsSuite':
+            message: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsSuiteOptionArgs', 'SyntheticsSuiteOptionArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsSuiteTestArgs', 'SyntheticsSuiteTestArgsDict']]]]] = None) -> 'SyntheticsSuite':
         """
         Get an existing SyntheticsSuite resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

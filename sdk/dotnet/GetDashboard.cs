@@ -24,7 +24,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Datadog.Index.GetDashboard.Invoke(new()
+        ///     var test = Datadog.GetDashboard.Invoke(new()
         ///     {
         ///         Name = "My super dashboard",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Datadog.Index.GetDashboard.Invoke(new()
+        ///     var test = Datadog.GetDashboard.Invoke(new()
         ///     {
         ///         Name = "My super dashboard",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Datadog.Index.GetDashboard.Invoke(new()
+        ///     var test = Datadog.GetDashboard.Invoke(new()
         ///     {
         ///         Name = "My super dashboard",
         ///     });

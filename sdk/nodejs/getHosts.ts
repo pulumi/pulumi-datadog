@@ -114,21 +114,21 @@ export interface GetHostsOutputArgs {
     /**
      * String to filter search results.
      */
-    filter?: pulumi.Input<string>;
+    filter?: pulumi.Input<string | undefined>;
     /**
      * Number of seconds since UNIX epoch from which you want to search your hosts.
      */
-    from?: pulumi.Input<number>;
+    from?: pulumi.Input<number | undefined>;
     /**
      * Include information on the muted status of hosts and when the mute expires.
      */
-    includeMutedHostsData?: pulumi.Input<boolean>;
+    includeMutedHostsData?: pulumi.Input<boolean | undefined>;
     /**
      * Direction of sort. Valid values are `asc`, `desc`.
      */
-    sortDir?: pulumi.Input<string>;
+    sortDir?: pulumi.Input<string | undefined>;
     /**
      * Sort hosts by this field.
      */
-    sortField?: pulumi.Input<string>;
+    sortField?: pulumi.Input<string | undefined>;
 }

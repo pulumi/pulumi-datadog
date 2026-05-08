@@ -114,15 +114,15 @@ export interface IntegrationServiceState {
     /**
      * Fastly Account id.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Fastly service.
      */
-    serviceId?: pulumi.Input<string>;
+    serviceId?: pulumi.Input<string | undefined>;
     /**
      * A list of tags for the Fastly service.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -132,7 +132,7 @@ export interface IntegrationServiceArgs {
     /**
      * Fastly Account id.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Fastly service.
      */
@@ -140,5 +140,5 @@ export interface IntegrationServiceArgs {
     /**
      * A list of tags for the Fastly service.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

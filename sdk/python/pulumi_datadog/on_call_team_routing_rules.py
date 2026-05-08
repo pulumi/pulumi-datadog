@@ -22,7 +22,7 @@ __all__ = ['OnCallTeamRoutingRulesArgs', 'OnCallTeamRoutingRules']
 class OnCallTeamRoutingRulesArgs:
     def __init__(__self__, *,
                  team_id: pulumi.Input[_builtins.str],
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['OnCallTeamRoutingRulesRuleArgs']]]] = None):
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['OnCallTeamRoutingRulesRuleArgs']]]] = None):
         """
         The set of arguments for constructing a OnCallTeamRoutingRules resource.
 
@@ -47,22 +47,22 @@ class OnCallTeamRoutingRulesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OnCallTeamRoutingRulesRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OnCallTeamRoutingRulesRuleArgs']]]]:
         """
         List of team routing rules.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OnCallTeamRoutingRulesRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OnCallTeamRoutingRulesRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
 @pulumi.input_type
 class _OnCallTeamRoutingRulesState:
     def __init__(__self__, *,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['OnCallTeamRoutingRulesRuleArgs']]]] = None,
-                 team_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['OnCallTeamRoutingRulesRuleArgs']]]] = None,
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OnCallTeamRoutingRules resources.
 
@@ -76,26 +76,26 @@ class _OnCallTeamRoutingRulesState:
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OnCallTeamRoutingRulesRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OnCallTeamRoutingRulesRuleArgs']]]]:
         """
         List of team routing rules.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OnCallTeamRoutingRulesRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OnCallTeamRoutingRulesRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
     @_builtins.property
     @pulumi.getter(name="teamId")
-    def team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def team_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the team to associate the routing rules with.
         """
         return pulumi.get(self, "team_id")
 
     @team_id.setter
-    def team_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def team_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "team_id", value)
 
 
@@ -105,8 +105,8 @@ class OnCallTeamRoutingRules(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OnCallTeamRoutingRulesRuleArgs', 'OnCallTeamRoutingRulesRuleArgsDict']]]]] = None,
-                 team_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnCallTeamRoutingRulesRuleArgs', 'OnCallTeamRoutingRulesRuleArgsDict']]]]] = None,
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog On-Call team routing rules resource.
@@ -230,8 +230,8 @@ class OnCallTeamRoutingRules(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OnCallTeamRoutingRulesRuleArgs', 'OnCallTeamRoutingRulesRuleArgsDict']]]]] = None,
-                 team_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnCallTeamRoutingRulesRuleArgs', 'OnCallTeamRoutingRulesRuleArgsDict']]]]] = None,
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -255,8 +255,8 @@ class OnCallTeamRoutingRules(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OnCallTeamRoutingRulesRuleArgs', 'OnCallTeamRoutingRulesRuleArgsDict']]]]] = None,
-            team_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'OnCallTeamRoutingRules':
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnCallTeamRoutingRulesRuleArgs', 'OnCallTeamRoutingRulesRuleArgsDict']]]]] = None,
+            team_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'OnCallTeamRoutingRules':
         """
         Get an existing OnCallTeamRoutingRules resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

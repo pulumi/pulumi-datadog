@@ -151,19 +151,19 @@ export interface OnCallScheduleState {
     /**
      * List of layers for the schedule.
      */
-    layers?: pulumi.Input<pulumi.Input<inputs.OnCallScheduleLayer>[]>;
+    layers?: pulumi.Input<pulumi.Input<inputs.OnCallScheduleLayer>[] | undefined>;
     /**
      * A human-readable name for the new schedule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of team ids associated with the schedule.
      */
-    teams?: pulumi.Input<pulumi.Input<string>[]>;
+    teams?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The time zone in which the schedule is defined.
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -181,7 +181,7 @@ export interface OnCallScheduleArgs {
     /**
      * A list of team ids associated with the schedule.
      */
-    teams?: pulumi.Input<pulumi.Input<string>[]>;
+    teams?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The time zone in which the schedule is defined.
      */

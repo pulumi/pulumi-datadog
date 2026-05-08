@@ -112,9 +112,9 @@ export interface GetTeamOutputArgs {
     /**
      * Search query. Can be team name, team handle, or email of team member.
      */
-    filterKeyword?: pulumi.Input<string>;
+    filterKeyword?: pulumi.Input<string | undefined>;
     /**
      * The team's identifier.
      */
-    teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<string | undefined>;
 }

@@ -120,8 +120,8 @@ def get_metric_active_tags_and_aggregations(metric: Optional[_builtins.str] = No
         id=pulumi.get(__ret__, 'id'),
         metric=pulumi.get(__ret__, 'metric'),
         window=pulumi.get(__ret__, 'window'))
-def get_metric_active_tags_and_aggregations_output(metric: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   window: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
+def get_metric_active_tags_and_aggregations_output(metric: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   window: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMetricActiveTagsAndAggregationsResult]:
     """
     Use this data source to retrieve active tags and aggregations associated with a metric to use in other resources.

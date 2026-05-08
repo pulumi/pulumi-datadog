@@ -151,27 +151,27 @@ export interface MetricTagConfigurationState {
      *
      * @deprecated The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
      */
-    aggregations?: pulumi.Input<pulumi.Input<inputs.MetricTagConfigurationAggregation>[]>;
+    aggregations?: pulumi.Input<pulumi.Input<inputs.MetricTagConfigurationAggregation>[] | undefined>;
     /**
      * Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
      */
-    excludeTagsMode?: pulumi.Input<boolean>;
+    excludeTagsMode?: pulumi.Input<boolean | undefined>;
     /**
      * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metricType` of distribution.
      */
-    includePercentiles?: pulumi.Input<boolean>;
+    includePercentiles?: pulumi.Input<boolean | undefined>;
     /**
      * The metric name for this resource.
      */
-    metricName?: pulumi.Input<string>;
+    metricName?: pulumi.Input<string | undefined>;
     /**
      * The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
      */
-    metricType?: pulumi.Input<string>;
+    metricType?: pulumi.Input<string | undefined>;
     /**
      * A list of tag keys that will be queryable for your metric.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -183,15 +183,15 @@ export interface MetricTagConfigurationArgs {
      *
      * @deprecated The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
      */
-    aggregations?: pulumi.Input<pulumi.Input<inputs.MetricTagConfigurationAggregation>[]>;
+    aggregations?: pulumi.Input<pulumi.Input<inputs.MetricTagConfigurationAggregation>[] | undefined>;
     /**
      * Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
      */
-    excludeTagsMode?: pulumi.Input<boolean>;
+    excludeTagsMode?: pulumi.Input<boolean | undefined>;
     /**
      * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metricType` of distribution.
      */
-    includePercentiles?: pulumi.Input<boolean>;
+    includePercentiles?: pulumi.Input<boolean | undefined>;
     /**
      * The metric name for this resource.
      */

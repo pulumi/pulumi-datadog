@@ -103,11 +103,11 @@ export interface IntegrationAccountState {
     /**
      * The API key for the Fastly account.
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * The name of the Fastly account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**

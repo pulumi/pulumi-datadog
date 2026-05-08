@@ -84,5 +84,5 @@ export interface GetRolesOutputArgs {
     /**
      * Filter all roles by the given string.
      */
-    filter?: pulumi.Input<string>;
+    filter?: pulumi.Input<string | undefined>;
 }

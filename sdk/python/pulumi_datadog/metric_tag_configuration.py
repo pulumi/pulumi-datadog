@@ -24,9 +24,9 @@ class MetricTagConfigurationArgs:
                  metric_name: pulumi.Input[_builtins.str],
                  metric_type: pulumi.Input[_builtins.str],
                  tags: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 aggregations: Optional[pulumi.Input[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]]] = None,
-                 exclude_tags_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_percentiles: Optional[pulumi.Input[_builtins.bool]] = None):
+                 aggregations: pulumi.Input[Optional[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]]] = None,
+                 exclude_tags_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_percentiles: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a MetricTagConfiguration resource.
 
@@ -89,50 +89,50 @@ class MetricTagConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.""")
-    def aggregations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]]]:
+    def aggregations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]]]:
         """
         A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge. **Deprecated.** The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
         """
         return pulumi.get(self, "aggregations")
 
     @aggregations.setter
-    def aggregations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]]]):
+    def aggregations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]]]):
         pulumi.set(self, "aggregations", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeTagsMode")
-    def exclude_tags_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def exclude_tags_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
         """
         return pulumi.get(self, "exclude_tags_mode")
 
     @exclude_tags_mode.setter
-    def exclude_tags_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def exclude_tags_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "exclude_tags_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="includePercentiles")
-    def include_percentiles(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_percentiles(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
         """
         return pulumi.get(self, "include_percentiles")
 
     @include_percentiles.setter
-    def include_percentiles(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_percentiles(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_percentiles", value)
 
 
 @pulumi.input_type
 class _MetricTagConfigurationState:
     def __init__(__self__, *,
-                 aggregations: Optional[pulumi.Input[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]]] = None,
-                 exclude_tags_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_percentiles: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 aggregations: pulumi.Input[Optional[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]]] = None,
+                 exclude_tags_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_percentiles: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering MetricTagConfiguration resources.
 
@@ -162,74 +162,74 @@ class _MetricTagConfigurationState:
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.""")
-    def aggregations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]]]:
+    def aggregations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]]]:
         """
         A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge. **Deprecated.** The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
         """
         return pulumi.get(self, "aggregations")
 
     @aggregations.setter
-    def aggregations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]]]):
+    def aggregations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]]]):
         pulumi.set(self, "aggregations", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeTagsMode")
-    def exclude_tags_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def exclude_tags_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
         """
         return pulumi.get(self, "exclude_tags_mode")
 
     @exclude_tags_mode.setter
-    def exclude_tags_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def exclude_tags_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "exclude_tags_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="includePercentiles")
-    def include_percentiles(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_percentiles(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
         """
         return pulumi.get(self, "include_percentiles")
 
     @include_percentiles.setter
-    def include_percentiles(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_percentiles(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_percentiles", value)
 
     @_builtins.property
     @pulumi.getter(name="metricName")
-    def metric_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The metric name for this resource.
         """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
-    def metric_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_name", value)
 
     @_builtins.property
     @pulumi.getter(name="metricType")
-    def metric_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
         """
         return pulumi.get(self, "metric_type")
 
     @metric_type.setter
-    def metric_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of tag keys that will be queryable for your metric.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -239,12 +239,12 @@ class MetricTagConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aggregations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricTagConfigurationAggregationArgs', 'MetricTagConfigurationAggregationArgsDict']]]]] = None,
-                 exclude_tags_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_percentiles: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 aggregations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricTagConfigurationAggregationArgs', 'MetricTagConfigurationAggregationArgsDict']]]]] = None,
+                 exclude_tags_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_percentiles: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a Datadog metric tag configuration resource. This can be used to modify tag configurations for metrics.
@@ -352,12 +352,12 @@ class MetricTagConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aggregations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricTagConfigurationAggregationArgs', 'MetricTagConfigurationAggregationArgsDict']]]]] = None,
-                 exclude_tags_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_percentiles: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 aggregations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricTagConfigurationAggregationArgs', 'MetricTagConfigurationAggregationArgsDict']]]]] = None,
+                 exclude_tags_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_percentiles: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -389,12 +389,12 @@ class MetricTagConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aggregations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricTagConfigurationAggregationArgs', 'MetricTagConfigurationAggregationArgsDict']]]]] = None,
-            exclude_tags_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-            include_percentiles: Optional[pulumi.Input[_builtins.bool]] = None,
-            metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-            metric_type: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'MetricTagConfiguration':
+            aggregations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricTagConfigurationAggregationArgs', 'MetricTagConfigurationAggregationArgsDict']]]]] = None,
+            exclude_tags_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+            include_percentiles: pulumi.Input[Optional[_builtins.bool]] = None,
+            metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+            metric_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'MetricTagConfiguration':
         """
         Get an existing MetricTagConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

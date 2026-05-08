@@ -77,7 +77,7 @@ def get_dashboard_list(name: Optional[_builtins.str] = None,
     time = datadog.Dashboard("time",
         title="TF Test Layout Dashboard",
         description="Created using the Datadog provider in Pulumi",
-        dashboard_lists=[test.id],
+        dashboard_lists=[output(test.id).apply(lambda x: int(x))],
         layout_type="ordered",
         is_read_only=True,
         widgets=[{
@@ -101,7 +101,7 @@ def get_dashboard_list(name: Optional[_builtins.str] = None,
     return AwaitableGetDashboardListResult(
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-def get_dashboard_list_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dashboard_list_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDashboardListResult]:
     """
     Use this data source to retrieve information about an existing dashboard list, for use in other resources. In particular, it can be used in a dashboard to register it in the list.
@@ -117,7 +117,7 @@ def get_dashboard_list_output(name: Optional[pulumi.Input[_builtins.str]] = None
     time = datadog.Dashboard("time",
         title="TF Test Layout Dashboard",
         description="Created using the Datadog provider in Pulumi",
-        dashboard_lists=[test.id],
+        dashboard_lists=[output(test.id).apply(lambda x: int(x))],
         layout_type="ordered",
         is_read_only=True,
         widgets=[{

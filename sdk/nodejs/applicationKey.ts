@@ -107,15 +107,15 @@ export interface ApplicationKeyState {
     /**
      * The value of the Application Key.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * Name for Application Key.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -129,5 +129,5 @@ export interface ApplicationKeyArgs {
     /**
      * Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

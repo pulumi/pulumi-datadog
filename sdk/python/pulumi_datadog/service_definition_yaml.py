@@ -43,7 +43,7 @@ class ServiceDefinitionYamlArgs:
 @pulumi.input_type
 class _ServiceDefinitionYamlState:
     def __init__(__self__, *,
-                 service_definition: Optional[pulumi.Input[_builtins.str]] = None):
+                 service_definition: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceDefinitionYaml resources.
 
@@ -54,14 +54,14 @@ class _ServiceDefinitionYamlState:
 
     @_builtins.property
     @pulumi.getter(name="serviceDefinition")
-    def service_definition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_definition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The YAML/JSON formatted definition of the service
         """
         return pulumi.get(self, "service_definition")
 
     @service_definition.setter
-    def service_definition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_definition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_definition", value)
 
 
@@ -71,7 +71,7 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 service_definition: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_definition: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog service definition resource. This can be used to create and manage Datadog service definitions in the service catalog using the YAML/JSON definition.
@@ -436,7 +436,7 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 service_definition: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_definition: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -459,7 +459,7 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            service_definition: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServiceDefinitionYaml':
+            service_definition: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceDefinitionYaml':
         """
         Get an existing ServiceDefinitionYaml resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

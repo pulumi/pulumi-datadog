@@ -146,35 +146,35 @@ export interface LogsArchiveState {
     /**
      * Definition of an azure archive.
      */
-    azureArchive?: pulumi.Input<inputs.LogsArchiveAzureArchive>;
+    azureArchive?: pulumi.Input<inputs.LogsArchiveAzureArchive | undefined>;
     /**
      * Definition of a GCS archive.
      */
-    gcsArchive?: pulumi.Input<inputs.LogsArchiveGcsArchive>;
+    gcsArchive?: pulumi.Input<inputs.LogsArchiveGcsArchive | undefined>;
     /**
      * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
      */
-    includeTags?: pulumi.Input<boolean>;
+    includeTags?: pulumi.Input<boolean | undefined>;
     /**
      * Your archive name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The archive query/filter. Logs matching this query are included in the archive.
      */
-    query?: pulumi.Input<string>;
+    query?: pulumi.Input<string | undefined>;
     /**
      * To limit the rehydration scan size for the archive, set a value in GB.
      */
-    rehydrationMaxScanSizeInGb?: pulumi.Input<number>;
+    rehydrationMaxScanSizeInGb?: pulumi.Input<number | undefined>;
     /**
      * An array of tags to add to rehydrated logs from an archive.
      */
-    rehydrationTags?: pulumi.Input<pulumi.Input<string>[]>;
+    rehydrationTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Definition of an s3 archive.
      */
-    s3Archive?: pulumi.Input<inputs.LogsArchiveS3Archive>;
+    s3Archive?: pulumi.Input<inputs.LogsArchiveS3Archive | undefined>;
 }
 
 /**
@@ -184,15 +184,15 @@ export interface LogsArchiveArgs {
     /**
      * Definition of an azure archive.
      */
-    azureArchive?: pulumi.Input<inputs.LogsArchiveAzureArchive>;
+    azureArchive?: pulumi.Input<inputs.LogsArchiveAzureArchive | undefined>;
     /**
      * Definition of a GCS archive.
      */
-    gcsArchive?: pulumi.Input<inputs.LogsArchiveGcsArchive>;
+    gcsArchive?: pulumi.Input<inputs.LogsArchiveGcsArchive | undefined>;
     /**
      * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
      */
-    includeTags?: pulumi.Input<boolean>;
+    includeTags?: pulumi.Input<boolean | undefined>;
     /**
      * Your archive name.
      */
@@ -204,13 +204,13 @@ export interface LogsArchiveArgs {
     /**
      * To limit the rehydration scan size for the archive, set a value in GB.
      */
-    rehydrationMaxScanSizeInGb?: pulumi.Input<number>;
+    rehydrationMaxScanSizeInGb?: pulumi.Input<number | undefined>;
     /**
      * An array of tags to add to rehydrated logs from an archive.
      */
-    rehydrationTags?: pulumi.Input<pulumi.Input<string>[]>;
+    rehydrationTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Definition of an s3 archive.
      */
-    s3Archive?: pulumi.Input<inputs.LogsArchiveS3Archive>;
+    s3Archive?: pulumi.Input<inputs.LogsArchiveS3Archive | undefined>;
 }

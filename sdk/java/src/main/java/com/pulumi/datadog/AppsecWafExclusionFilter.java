@@ -32,8 +32,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.datadog.appsecExclusionFilter;
  * import com.pulumi.datadog.appsecExclusionFilterArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -50,11 +50,11 @@ import javax.annotation.Nullable;
  *             .description("Exclude false positives on a path")
  *             .enabled(true)
  *             .pathGlob("/accounts/*")
- *             .rulesTarget(List.of(Map.of("tags", List.of(Map.ofEntries(
+ *             .rulesTarget(Arrays.asList(Map.of("tags", Arrays.asList(Map.ofEntries(
  *                 Map.entry("category", "attack_attempt"),
  *                 Map.entry("type", "lfi")
  *             )))))
- *             .scope(List.of(Map.ofEntries(
+ *             .scope(Arrays.asList(Map.ofEntries(
  *                 Map.entry("env", "www"),
  *                 Map.entry("service", "prod")
  *             )))
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *         var trustedIps = new AppsecExclusionFilter("trustedIps", AppsecExclusionFilterArgs.builder()
  *             .description("Do not block office IP network")
  *             .enabled(true)
- *             .ipList(List.of("198.10.14.53/24"))
+ *             .ipList(Arrays.asList("198.10.14.53/24"))
  *             .onMatch("monitor")
  *             .build());
  * 

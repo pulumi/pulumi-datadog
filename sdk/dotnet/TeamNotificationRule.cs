@@ -23,14 +23,14 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create new team-notification-rule resource
-    ///     var foo = new Datadog.Index.Team("foo", new()
+    ///     var foo = new Datadog.Team("foo", new()
     ///     {
     ///         Description = "Example team",
     ///         Handle = "example-team",
     ///         Name = "Example Team",
     ///     });
     /// 
-    ///     var fooTeamNotificationRule = new Datadog.Index.TeamNotificationRule("foo", new()
+    ///     var fooTeamNotificationRule = new Datadog.TeamNotificationRule("foo", new()
     ///     {
     ///         TeamId = foo.Id,
     ///         Email = new[]

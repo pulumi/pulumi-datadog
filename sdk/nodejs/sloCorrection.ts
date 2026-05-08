@@ -170,35 +170,35 @@ export interface SloCorrectionState {
     /**
      * Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
      */
-    category?: pulumi.Input<string>;
+    category?: pulumi.Input<string | undefined>;
     /**
      * Description of the correction being made.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
      */
-    duration?: pulumi.Input<number>;
+    duration?: pulumi.Input<number | undefined>;
     /**
      * Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
      */
-    end?: pulumi.Input<number>;
+    end?: pulumi.Input<number | undefined>;
     /**
      * Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
      */
-    rrule?: pulumi.Input<string>;
+    rrule?: pulumi.Input<string | undefined>;
     /**
      * ID of the SLO that this correction will be applied to.
      */
-    sloId?: pulumi.Input<string>;
+    sloId?: pulumi.Input<string | undefined>;
     /**
      * Starting time of the correction in epoch seconds.
      */
-    start?: pulumi.Input<number>;
+    start?: pulumi.Input<number | undefined>;
     /**
      * The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -212,19 +212,19 @@ export interface SloCorrectionArgs {
     /**
      * Description of the correction being made.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
      */
-    duration?: pulumi.Input<number>;
+    duration?: pulumi.Input<number | undefined>;
     /**
      * Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
      */
-    end?: pulumi.Input<number>;
+    end?: pulumi.Input<number | undefined>;
     /**
      * Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
      */
-    rrule?: pulumi.Input<string>;
+    rrule?: pulumi.Input<string | undefined>;
     /**
      * ID of the SLO that this correction will be applied to.
      */
@@ -236,5 +236,5 @@ export interface SloCorrectionArgs {
     /**
      * The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
 }

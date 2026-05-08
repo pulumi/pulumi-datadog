@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var appKeyRegistration = new Datadog.Index.AppKeyRegistration("app_key_registration", new()
+    ///     var appKeyRegistration = new Datadog.AppKeyRegistration("app_key_registration", new()
     ///     {
     ///         AppKeyId = "11111111-2222-3333-4444-555555555555",
     ///     });

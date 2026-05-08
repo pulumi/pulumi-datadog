@@ -78,20 +78,20 @@ export class OnCallUserNotificationChannel extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OnCallUserNotificationChannel resources.
  */
 export interface OnCallUserNotificationChannelState {
-    email?: pulumi.Input<inputs.OnCallUserNotificationChannelEmail>;
-    phone?: pulumi.Input<inputs.OnCallUserNotificationChannelPhone>;
+    email?: pulumi.Input<inputs.OnCallUserNotificationChannelEmail | undefined>;
+    phone?: pulumi.Input<inputs.OnCallUserNotificationChannelPhone | undefined>;
     /**
      * ID of the user to associate the notification channel with.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }
 
 /**
  * The set of arguments for constructing a OnCallUserNotificationChannel resource.
  */
 export interface OnCallUserNotificationChannelArgs {
-    email?: pulumi.Input<inputs.OnCallUserNotificationChannelEmail>;
-    phone?: pulumi.Input<inputs.OnCallUserNotificationChannelPhone>;
+    email?: pulumi.Input<inputs.OnCallUserNotificationChannelEmail | undefined>;
+    phone?: pulumi.Input<inputs.OnCallUserNotificationChannelPhone | undefined>;
     /**
      * ID of the user to associate the notification channel with.
      */

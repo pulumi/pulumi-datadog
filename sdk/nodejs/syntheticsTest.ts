@@ -1132,113 +1132,113 @@ export interface SyntheticsTestState {
     /**
      * Steps for multistep API tests
      */
-    apiSteps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestApiStep>[]>;
+    apiSteps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestApiStep>[] | undefined>;
     /**
      * Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
      */
-    assertions?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestAssertion>[]>;
+    assertions?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestAssertion>[] | undefined>;
     /**
      * Steps for browser tests.
      */
-    browserSteps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestBrowserStep>[]>;
+    browserSteps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestBrowserStep>[] | undefined>;
     /**
      * Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
      */
-    browserVariables?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestBrowserVariable>[]>;
+    browserVariables?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestBrowserVariable>[] | undefined>;
     /**
      * Initial application arguments for the mobile test.
      */
-    configInitialApplicationArguments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    configInitialApplicationArguments?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
      */
-    configVariables?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestConfigVariable>[]>;
+    configVariables?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestConfigVariable>[] | undefined>;
     /**
      * Required if `type = "browser"`. Array with the different device IDs used to run the test.
      */
-    deviceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    deviceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
      */
-    forceDeleteDependencies?: pulumi.Input<boolean>;
+    forceDeleteDependencies?: pulumi.Input<boolean | undefined>;
     /**
      * Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
      */
-    locations?: pulumi.Input<pulumi.Input<string>[]>;
+    locations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
      */
-    message?: pulumi.Input<string>;
-    mobileOptionsList?: pulumi.Input<inputs.SyntheticsTestMobileOptionsList>;
+    message?: pulumi.Input<string | undefined>;
+    mobileOptionsList?: pulumi.Input<inputs.SyntheticsTestMobileOptionsList | undefined>;
     /**
      * Steps for mobile tests
      */
-    mobileSteps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestMobileStep>[]>;
+    mobileSteps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestMobileStep>[] | undefined>;
     /**
      * ID of the monitor associated with the Datadog synthetics test.
      */
-    monitorId?: pulumi.Input<number>;
+    monitorId?: pulumi.Input<number | undefined>;
     /**
      * Name of Datadog synthetics test.
      */
-    name?: pulumi.Input<string>;
-    optionsList?: pulumi.Input<inputs.SyntheticsTestOptionsList>;
+    name?: pulumi.Input<string | undefined>;
+    optionsList?: pulumi.Input<inputs.SyntheticsTestOptionsList | undefined>;
     /**
      * The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
      */
-    requestBasicauth?: pulumi.Input<inputs.SyntheticsTestRequestBasicauth>;
+    requestBasicauth?: pulumi.Input<inputs.SyntheticsTestRequestBasicauth | undefined>;
     /**
      * Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
      */
-    requestClientCertificate?: pulumi.Input<inputs.SyntheticsTestRequestClientCertificate>;
+    requestClientCertificate?: pulumi.Input<inputs.SyntheticsTestRequestClientCertificate | undefined>;
     /**
      * Required if `type = "api"`. The synthetics test request.
      */
-    requestDefinition?: pulumi.Input<inputs.SyntheticsTestRequestDefinition>;
+    requestDefinition?: pulumi.Input<inputs.SyntheticsTestRequestDefinition | undefined>;
     /**
      * Files to be used as part of the request in the test.
      */
-    requestFiles?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestRequestFile>[]>;
+    requestFiles?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestRequestFile>[] | undefined>;
     /**
      * Header name and value map.
      */
-    requestHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    requestHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Metadata to include when performing the gRPC request.
      */
-    requestMetadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    requestMetadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The proxy to perform the test.
      */
-    requestProxy?: pulumi.Input<inputs.SyntheticsTestRequestProxy>;
+    requestProxy?: pulumi.Input<inputs.SyntheticsTestRequestProxy | undefined>;
     /**
      * Query arguments name and value map.
      */
-    requestQuery?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    requestQuery?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
      */
-    setCookie?: pulumi.Input<string>;
+    setCookie?: pulumi.Input<string | undefined>;
     /**
      * Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The subtype for API or Network Path tests. For API tests, defaults to `http`. For Network Path tests, only `tcp`, `udp`, `icmp` are available. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
      */
-    subtype?: pulumi.Input<string>;
+    subtype?: pulumi.Input<string | undefined>;
     /**
      * A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The type of Synthetics test. Valid values are `api`, `browser`, `mobile`, `network`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Variables defined from JavaScript code for API HTTP tests.
      */
-    variablesFromScript?: pulumi.Input<string>;
+    variablesFromScript?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -1248,35 +1248,35 @@ export interface SyntheticsTestArgs {
     /**
      * Steps for multistep API tests
      */
-    apiSteps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestApiStep>[]>;
+    apiSteps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestApiStep>[] | undefined>;
     /**
      * Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
      */
-    assertions?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestAssertion>[]>;
+    assertions?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestAssertion>[] | undefined>;
     /**
      * Steps for browser tests.
      */
-    browserSteps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestBrowserStep>[]>;
+    browserSteps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestBrowserStep>[] | undefined>;
     /**
      * Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
      */
-    browserVariables?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestBrowserVariable>[]>;
+    browserVariables?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestBrowserVariable>[] | undefined>;
     /**
      * Initial application arguments for the mobile test.
      */
-    configInitialApplicationArguments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    configInitialApplicationArguments?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
      */
-    configVariables?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestConfigVariable>[]>;
+    configVariables?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestConfigVariable>[] | undefined>;
     /**
      * Required if `type = "browser"`. Array with the different device IDs used to run the test.
      */
-    deviceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    deviceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
      */
-    forceDeleteDependencies?: pulumi.Input<boolean>;
+    forceDeleteDependencies?: pulumi.Input<boolean | undefined>;
     /**
      * Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
      */
@@ -1284,53 +1284,53 @@ export interface SyntheticsTestArgs {
     /**
      * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
      */
-    message?: pulumi.Input<string>;
-    mobileOptionsList?: pulumi.Input<inputs.SyntheticsTestMobileOptionsList>;
+    message?: pulumi.Input<string | undefined>;
+    mobileOptionsList?: pulumi.Input<inputs.SyntheticsTestMobileOptionsList | undefined>;
     /**
      * Steps for mobile tests
      */
-    mobileSteps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestMobileStep>[]>;
+    mobileSteps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestMobileStep>[] | undefined>;
     /**
      * Name of Datadog synthetics test.
      */
     name: pulumi.Input<string>;
-    optionsList?: pulumi.Input<inputs.SyntheticsTestOptionsList>;
+    optionsList?: pulumi.Input<inputs.SyntheticsTestOptionsList | undefined>;
     /**
      * The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
      */
-    requestBasicauth?: pulumi.Input<inputs.SyntheticsTestRequestBasicauth>;
+    requestBasicauth?: pulumi.Input<inputs.SyntheticsTestRequestBasicauth | undefined>;
     /**
      * Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
      */
-    requestClientCertificate?: pulumi.Input<inputs.SyntheticsTestRequestClientCertificate>;
+    requestClientCertificate?: pulumi.Input<inputs.SyntheticsTestRequestClientCertificate | undefined>;
     /**
      * Required if `type = "api"`. The synthetics test request.
      */
-    requestDefinition?: pulumi.Input<inputs.SyntheticsTestRequestDefinition>;
+    requestDefinition?: pulumi.Input<inputs.SyntheticsTestRequestDefinition | undefined>;
     /**
      * Files to be used as part of the request in the test.
      */
-    requestFiles?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestRequestFile>[]>;
+    requestFiles?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestRequestFile>[] | undefined>;
     /**
      * Header name and value map.
      */
-    requestHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    requestHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Metadata to include when performing the gRPC request.
      */
-    requestMetadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    requestMetadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The proxy to perform the test.
      */
-    requestProxy?: pulumi.Input<inputs.SyntheticsTestRequestProxy>;
+    requestProxy?: pulumi.Input<inputs.SyntheticsTestRequestProxy | undefined>;
     /**
      * Query arguments name and value map.
      */
-    requestQuery?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    requestQuery?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
      */
-    setCookie?: pulumi.Input<string>;
+    setCookie?: pulumi.Input<string | undefined>;
     /**
      * Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
      */
@@ -1338,11 +1338,11 @@ export interface SyntheticsTestArgs {
     /**
      * The subtype for API or Network Path tests. For API tests, defaults to `http`. For Network Path tests, only `tcp`, `udp`, `icmp` are available. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
      */
-    subtype?: pulumi.Input<string>;
+    subtype?: pulumi.Input<string | undefined>;
     /**
      * A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The type of Synthetics test. Valid values are `api`, `browser`, `mobile`, `network`.
      */
@@ -1350,5 +1350,5 @@ export interface SyntheticsTestArgs {
     /**
      * Variables defined from JavaScript code for API HTTP tests.
      */
-    variablesFromScript?: pulumi.Input<string>;
+    variablesFromScript?: pulumi.Input<string | undefined>;
 }

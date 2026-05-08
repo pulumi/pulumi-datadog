@@ -134,31 +134,31 @@ export interface UserState {
     /**
      * Whether the user is disabled. Defaults to `false`.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * Email address for user.
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of role IDs to assign to the user.
      */
-    roles?: pulumi.Input<pulumi.Input<string>[]>;
+    roles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether an invitation email should be sent when the user is created. Defaults to `true`.
      */
-    sendUserInvitation?: pulumi.Input<boolean>;
+    sendUserInvitation?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the user invitation that was sent when creating the user.
      */
-    userInvitationId?: pulumi.Input<string>;
+    userInvitationId?: pulumi.Input<string | undefined>;
     /**
      * Returns `true` if the user is verified.
      */
-    verified?: pulumi.Input<boolean>;
+    verified?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -168,7 +168,7 @@ export interface UserArgs {
     /**
      * Whether the user is disabled. Defaults to `false`.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * Email address for user.
      */
@@ -176,13 +176,13 @@ export interface UserArgs {
     /**
      * User's name. Should be set only for password authentication, as it is overridden by Google or SAML authentication.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of role IDs to assign to the user.
      */
-    roles?: pulumi.Input<pulumi.Input<string>[]>;
+    roles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether an invitation email should be sent when the user is created. Defaults to `true`.
      */
-    sendUserInvitation?: pulumi.Input<boolean>;
+    sendUserInvitation?: pulumi.Input<boolean | undefined>;
 }

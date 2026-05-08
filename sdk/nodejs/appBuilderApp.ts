@@ -111,27 +111,27 @@ export interface AppBuilderAppState {
     /**
      * If specified, this will override the Action Connection IDs for the specified Action Query Names in the App JSON. Otherwise, a map of the App's Action Query Names to Action Connection IDs will be returned in output.
      */
-    actionQueryNamesToConnectionIds?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    actionQueryNamesToConnectionIds?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The JSON representation of the App. String length must be at least 1.
      */
-    appJson?: pulumi.Input<string>;
+    appJson?: pulumi.Input<string | undefined>;
     /**
      * If specified, this will override the human-readable description of the App in the App JSON. String length must be at least 1.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * If specified, this will override the name of the App in the App JSON. String length must be at least 1.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Set the app to published or unpublished. Published apps are available to other users. To ensure the app is accessible to the correct users, you also need to set a [Restriction Policy](https://docs.datadoghq.com/api/latest/restriction-policies/) on the app if a policy does not yet exist. Defaults to `false`.
      */
-    published?: pulumi.Input<boolean>;
+    published?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the root component of the app. This must be a grid component that contains all other components. If specified, this will override the root instance name of the App in the App JSON. String length must be at least 1.
      */
-    rootInstanceName?: pulumi.Input<string>;
+    rootInstanceName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -141,7 +141,7 @@ export interface AppBuilderAppArgs {
     /**
      * If specified, this will override the Action Connection IDs for the specified Action Query Names in the App JSON. Otherwise, a map of the App's Action Query Names to Action Connection IDs will be returned in output.
      */
-    actionQueryNamesToConnectionIds?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    actionQueryNamesToConnectionIds?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The JSON representation of the App. String length must be at least 1.
      */
@@ -149,17 +149,17 @@ export interface AppBuilderAppArgs {
     /**
      * If specified, this will override the human-readable description of the App in the App JSON. String length must be at least 1.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * If specified, this will override the name of the App in the App JSON. String length must be at least 1.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Set the app to published or unpublished. Published apps are available to other users. To ensure the app is accessible to the correct users, you also need to set a [Restriction Policy](https://docs.datadoghq.com/api/latest/restriction-policies/) on the app if a policy does not yet exist. Defaults to `false`.
      */
-    published?: pulumi.Input<boolean>;
+    published?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the root component of the app. This must be a grid component that contains all other components. If specified, this will override the root instance name of the App in the App JSON. String length must be at least 1.
      */
-    rootInstanceName?: pulumi.Input<string>;
+    rootInstanceName?: pulumi.Input<string | undefined>;
 }

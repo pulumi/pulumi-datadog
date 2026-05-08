@@ -164,48 +164,48 @@ export interface LogsCustomDestinationState {
     /**
      * The Elasticsearch destination.
      */
-    elasticsearchDestination?: pulumi.Input<inputs.LogsCustomDestinationElasticsearchDestination>;
+    elasticsearchDestination?: pulumi.Input<inputs.LogsCustomDestinationElasticsearchDestination | undefined>;
     /**
      * Whether logs matching this custom destination should be forwarded or not.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether tags from the forwarded logs should be forwarded or not.
      */
-    forwardTags?: pulumi.Input<boolean>;
+    forwardTags?: pulumi.Input<boolean | undefined>;
     /**
      * How the `forwardTagsRestrictionList` parameter should be interpreted.
      * 			If `ALLOW_LIST`, then only tags whose keys on the forwarded logs match the ones on the restriction list
      * 			are forwarded.
      * 			`BLOCK_LIST` works the opposite way. It does not forward the tags matching the ones on the list. Valid values are `ALLOW_LIST`, `BLOCK_LIST`.
      */
-    forwardTagsRestrictionListType?: pulumi.Input<string>;
+    forwardTagsRestrictionListType?: pulumi.Input<string | undefined>;
     /**
      * List of [tag keys](https://docs.datadoghq.com/getting_started/tagging/#define-tags) to be filtered.
      * 			An empty list represents no restriction is in place and either all or no tags will be
      * 			forwarded depending on `forwardTagsRestrictionListType` parameter.
      */
-    forwardTagsRestrictionLists?: pulumi.Input<pulumi.Input<string>[]>;
+    forwardTagsRestrictionLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The HTTP destination.
      */
-    httpDestination?: pulumi.Input<inputs.LogsCustomDestinationHttpDestination>;
+    httpDestination?: pulumi.Input<inputs.LogsCustomDestinationHttpDestination | undefined>;
     /**
      * The Microsoft Sentinel destination.
      */
-    microsoftSentinelDestination?: pulumi.Input<inputs.LogsCustomDestinationMicrosoftSentinelDestination>;
+    microsoftSentinelDestination?: pulumi.Input<inputs.LogsCustomDestinationMicrosoftSentinelDestination | undefined>;
     /**
      * The custom destination name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The custom destination query filter. Logs matching this query are forwarded to the destination.
      */
-    query?: pulumi.Input<string>;
+    query?: pulumi.Input<string | undefined>;
     /**
      * The Splunk HTTP Event Collector (HEC) destination.
      */
-    splunkDestination?: pulumi.Input<inputs.LogsCustomDestinationSplunkDestination>;
+    splunkDestination?: pulumi.Input<inputs.LogsCustomDestinationSplunkDestination | undefined>;
 }
 
 /**
@@ -215,36 +215,36 @@ export interface LogsCustomDestinationArgs {
     /**
      * The Elasticsearch destination.
      */
-    elasticsearchDestination?: pulumi.Input<inputs.LogsCustomDestinationElasticsearchDestination>;
+    elasticsearchDestination?: pulumi.Input<inputs.LogsCustomDestinationElasticsearchDestination | undefined>;
     /**
      * Whether logs matching this custom destination should be forwarded or not.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether tags from the forwarded logs should be forwarded or not.
      */
-    forwardTags?: pulumi.Input<boolean>;
+    forwardTags?: pulumi.Input<boolean | undefined>;
     /**
      * How the `forwardTagsRestrictionList` parameter should be interpreted.
      * 			If `ALLOW_LIST`, then only tags whose keys on the forwarded logs match the ones on the restriction list
      * 			are forwarded.
      * 			`BLOCK_LIST` works the opposite way. It does not forward the tags matching the ones on the list. Valid values are `ALLOW_LIST`, `BLOCK_LIST`.
      */
-    forwardTagsRestrictionListType?: pulumi.Input<string>;
+    forwardTagsRestrictionListType?: pulumi.Input<string | undefined>;
     /**
      * List of [tag keys](https://docs.datadoghq.com/getting_started/tagging/#define-tags) to be filtered.
      * 			An empty list represents no restriction is in place and either all or no tags will be
      * 			forwarded depending on `forwardTagsRestrictionListType` parameter.
      */
-    forwardTagsRestrictionLists?: pulumi.Input<pulumi.Input<string>[]>;
+    forwardTagsRestrictionLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The HTTP destination.
      */
-    httpDestination?: pulumi.Input<inputs.LogsCustomDestinationHttpDestination>;
+    httpDestination?: pulumi.Input<inputs.LogsCustomDestinationHttpDestination | undefined>;
     /**
      * The Microsoft Sentinel destination.
      */
-    microsoftSentinelDestination?: pulumi.Input<inputs.LogsCustomDestinationMicrosoftSentinelDestination>;
+    microsoftSentinelDestination?: pulumi.Input<inputs.LogsCustomDestinationMicrosoftSentinelDestination | undefined>;
     /**
      * The custom destination name.
      */
@@ -252,9 +252,9 @@ export interface LogsCustomDestinationArgs {
     /**
      * The custom destination query filter. Logs matching this query are forwarded to the destination.
      */
-    query?: pulumi.Input<string>;
+    query?: pulumi.Input<string | undefined>;
     /**
      * The Splunk HTTP Event Collector (HEC) destination.
      */
-    splunkDestination?: pulumi.Input<inputs.LogsCustomDestinationSplunkDestination>;
+    splunkDestination?: pulumi.Input<inputs.LogsCustomDestinationSplunkDestination | undefined>;
 }

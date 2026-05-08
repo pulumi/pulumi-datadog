@@ -100,11 +100,11 @@ export interface MonitorConfigPolicyState {
     /**
      * The monitor config policy type Valid values are `tag`.
      */
-    policyType?: pulumi.Input<string>;
+    policyType?: pulumi.Input<string | undefined>;
     /**
      * Config for a tag policy. Only set if `policyType` is `tag`.
      */
-    tagPolicy?: pulumi.Input<inputs.MonitorConfigPolicyTagPolicy>;
+    tagPolicy?: pulumi.Input<inputs.MonitorConfigPolicyTagPolicy | undefined>;
 }
 
 /**
@@ -118,5 +118,5 @@ export interface MonitorConfigPolicyArgs {
     /**
      * Config for a tag policy. Only set if `policyType` is `tag`.
      */
-    tagPolicy?: pulumi.Input<inputs.MonitorConfigPolicyTagPolicy>;
+    tagPolicy?: pulumi.Input<inputs.MonitorConfigPolicyTagPolicy | undefined>;
 }

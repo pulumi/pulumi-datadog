@@ -25,8 +25,8 @@ class SensitiveDataScannerGroupArgs:
                  is_enabled: pulumi.Input[_builtins.bool],
                  name: pulumi.Input[_builtins.str],
                  product_lists: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 samplings: Optional[pulumi.Input[Sequence[pulumi.Input['SensitiveDataScannerGroupSamplingArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 samplings: pulumi.Input[Optional[Sequence[pulumi.Input['SensitiveDataScannerGroupSamplingArgs']]]] = None):
         """
         The set of arguments for constructing a SensitiveDataScannerGroup resource.
 
@@ -96,38 +96,38 @@ class SensitiveDataScannerGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the Datadog scanning group.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def samplings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SensitiveDataScannerGroupSamplingArgs']]]]:
+    def samplings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SensitiveDataScannerGroupSamplingArgs']]]]:
         """
         List of sampling configurations per product type for the scanning group.
         """
         return pulumi.get(self, "samplings")
 
     @samplings.setter
-    def samplings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SensitiveDataScannerGroupSamplingArgs']]]]):
+    def samplings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SensitiveDataScannerGroupSamplingArgs']]]]):
         pulumi.set(self, "samplings", value)
 
 
 @pulumi.input_type
 class _SensitiveDataScannerGroupState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input['SensitiveDataScannerGroupFilterArgs']] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 samplings: Optional[pulumi.Input[Sequence[pulumi.Input['SensitiveDataScannerGroupSamplingArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional['SensitiveDataScannerGroupFilterArgs']] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 samplings: pulumi.Input[Optional[Sequence[pulumi.Input['SensitiveDataScannerGroupSamplingArgs']]]] = None):
         """
         Input properties used for looking up and filtering SensitiveDataScannerGroup resources.
 
@@ -153,74 +153,74 @@ class _SensitiveDataScannerGroupState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the Datadog scanning group.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['SensitiveDataScannerGroupFilterArgs']]:
+    def filter(self) -> pulumi.Input[Optional['SensitiveDataScannerGroupFilterArgs']]:
         """
         Filter object the scanning group applies.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['SensitiveDataScannerGroupFilterArgs']]):
+    def filter(self, value: pulumi.Input[Optional['SensitiveDataScannerGroupFilterArgs']]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not the scanning group is enabled. If the group doesn't contain any rule or if all the rules in it are disabled, the group is force-disabled by our backend
         """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
-    def is_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Datadog scanning group.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="productLists")
-    def product_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def product_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
         """
         return pulumi.get(self, "product_lists")
 
     @product_lists.setter
-    def product_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def product_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "product_lists", value)
 
     @_builtins.property
     @pulumi.getter
-    def samplings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SensitiveDataScannerGroupSamplingArgs']]]]:
+    def samplings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SensitiveDataScannerGroupSamplingArgs']]]]:
         """
         List of sampling configurations per product type for the scanning group.
         """
         return pulumi.get(self, "samplings")
 
     @samplings.setter
-    def samplings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SensitiveDataScannerGroupSamplingArgs']]]]):
+    def samplings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SensitiveDataScannerGroupSamplingArgs']]]]):
         pulumi.set(self, "samplings", value)
 
 
@@ -230,12 +230,12 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input[Union['SensitiveDataScannerGroupFilterArgs', 'SensitiveDataScannerGroupFilterArgsDict']]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 samplings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SensitiveDataScannerGroupSamplingArgs', 'SensitiveDataScannerGroupSamplingArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[Union['SensitiveDataScannerGroupFilterArgs', 'SensitiveDataScannerGroupFilterArgsDict']]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 samplings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SensitiveDataScannerGroupSamplingArgs', 'SensitiveDataScannerGroupSamplingArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a Sensitive Data Scanner group resource.
@@ -261,11 +261,11 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
             samplings=[
                 {
                     "product": "apm",
-                    "rate": 100,
+                    "rate": float(100),
                 },
                 {
                     "product": "logs",
-                    "rate": 10,
+                    "rate": float(10),
                 },
             ])
         ```
@@ -318,11 +318,11 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
             samplings=[
                 {
                     "product": "apm",
-                    "rate": 100,
+                    "rate": float(100),
                 },
                 {
                     "product": "logs",
-                    "rate": 10,
+                    "rate": float(10),
                 },
             ])
         ```
@@ -351,12 +351,12 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input[Union['SensitiveDataScannerGroupFilterArgs', 'SensitiveDataScannerGroupFilterArgsDict']]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 samplings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SensitiveDataScannerGroupSamplingArgs', 'SensitiveDataScannerGroupSamplingArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[Union['SensitiveDataScannerGroupFilterArgs', 'SensitiveDataScannerGroupFilterArgsDict']]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 samplings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SensitiveDataScannerGroupSamplingArgs', 'SensitiveDataScannerGroupSamplingArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -390,12 +390,12 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            filter: Optional[pulumi.Input[Union['SensitiveDataScannerGroupFilterArgs', 'SensitiveDataScannerGroupFilterArgsDict']]] = None,
-            is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            product_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            samplings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SensitiveDataScannerGroupSamplingArgs', 'SensitiveDataScannerGroupSamplingArgsDict']]]]] = None) -> 'SensitiveDataScannerGroup':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            filter: pulumi.Input[Optional[Union['SensitiveDataScannerGroupFilterArgs', 'SensitiveDataScannerGroupFilterArgsDict']]] = None,
+            is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            product_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            samplings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SensitiveDataScannerGroupSamplingArgs', 'SensitiveDataScannerGroupSamplingArgsDict']]]]] = None) -> 'SensitiveDataScannerGroup':
         """
         Get an existing SensitiveDataScannerGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

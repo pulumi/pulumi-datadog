@@ -133,9 +133,9 @@ def get_team_memberships(exact_match: Optional[_builtins.bool] = None,
         id=pulumi.get(__ret__, 'id'),
         team_id=pulumi.get(__ret__, 'team_id'),
         team_memberships=pulumi.get(__ret__, 'team_memberships'))
-def get_team_memberships_output(exact_match: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                filter_keyword: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                team_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_team_memberships_output(exact_match: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                filter_keyword: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                team_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTeamMembershipsResult]:
     """
     Use this data source to retrieve information about existing Datadog team memberships.

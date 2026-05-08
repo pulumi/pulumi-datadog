@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // v3 service entity 
-    ///     var serviceV3 = new Datadog.Index.SoftwareCatalog("service_v3", new()
+    ///     var serviceV3 = new Datadog.SoftwareCatalog("service_v3", new()
     ///     {
     ///         Entity = @"apiVersion: v3
     /// kind: service
@@ -113,7 +113,7 @@ namespace Pulumi.Datadog
     ///     });
     /// 
     ///     // v3 datastore entity 
-    ///     var datastoreV3 = new Datadog.Index.SoftwareCatalog("datastore_v3", new()
+    ///     var datastoreV3 = new Datadog.SoftwareCatalog("datastore_v3", new()
     ///     {
     ///         Entity = @"apiVersion: v3
     /// kind: datastore
@@ -156,7 +156,7 @@ namespace Pulumi.Datadog
     ///     });
     /// 
     ///     // v3 queue entity 
-    ///     var queueV3 = new Datadog.Index.SoftwareCatalog("queue_v3", new()
+    ///     var queueV3 = new Datadog.SoftwareCatalog("queue_v3", new()
     ///     {
     ///         Entity = @"apiVersion: v3
     /// kind: queue
@@ -199,7 +199,7 @@ namespace Pulumi.Datadog
     ///     });
     /// 
     ///     // v3 system entity 
-    ///     var systemV3 = new Datadog.Index.SoftwareCatalog("system_v3", new()
+    ///     var systemV3 = new Datadog.SoftwareCatalog("system_v3", new()
     ///     {
     ///         Entity = @"apiVersion: v3
     /// kind: system

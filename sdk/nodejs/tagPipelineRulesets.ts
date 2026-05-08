@@ -256,11 +256,11 @@ export interface TagPipelineRulesetsState {
     /**
      * Whether to override UI-defined rulesets. When set to true, any rulesets created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rulesets created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
      */
-    overrideUiDefinedResources?: pulumi.Input<boolean>;
+    overrideUiDefinedResources?: pulumi.Input<boolean | undefined>;
     /**
      * The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
      */
-    rulesetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    rulesetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -270,7 +270,7 @@ export interface TagPipelineRulesetsArgs {
     /**
      * Whether to override UI-defined rulesets. When set to true, any rulesets created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rulesets created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
      */
-    overrideUiDefinedResources?: pulumi.Input<boolean>;
+    overrideUiDefinedResources?: pulumi.Input<boolean | undefined>;
     /**
      * The list of Tag Pipeline Ruleset IDs, in order. Rulesets are executed in the order specified in this list.
      */

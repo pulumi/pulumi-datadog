@@ -163,10 +163,10 @@ def get_security_monitoring_rules(default_only_filter: Optional[_builtins.bool] 
         rules=pulumi.get(__ret__, 'rules'),
         tags_filters=pulumi.get(__ret__, 'tags_filters'),
         user_only_filter=pulumi.get(__ret__, 'user_only_filter'))
-def get_security_monitoring_rules_output(default_only_filter: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                         name_filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                         tags_filters: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                                         user_only_filter: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_security_monitoring_rules_output(default_only_filter: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                         name_filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         tags_filters: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                                         user_only_filter: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityMonitoringRulesResult]:
     """
     Use this data source to retrieve information about existing security monitoring rules for use in other resources.

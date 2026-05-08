@@ -175,31 +175,31 @@ export interface IncidentNotificationTemplateState {
     /**
      * The category of the notification template. Valid values are `alert`, `incident`, `recovery`.
      */
-    category?: pulumi.Input<string>;
+    category?: pulumi.Input<string | undefined>;
     /**
      * The content body of the notification template.
      */
-    content?: pulumi.Input<string>;
+    content?: pulumi.Input<string | undefined>;
     /**
      * Timestamp when the notification template was created.
      */
-    created?: pulumi.Input<string>;
+    created?: pulumi.Input<string | undefined>;
     /**
      * The ID of the incident type this notification template is associated with.
      */
-    incidentType?: pulumi.Input<string>;
+    incidentType?: pulumi.Input<string | undefined>;
     /**
      * Timestamp when the notification template was last modified.
      */
-    modified?: pulumi.Input<string>;
+    modified?: pulumi.Input<string | undefined>;
     /**
      * The name of the notification template.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The subject line of the notification template.
      */
-    subject?: pulumi.Input<string>;
+    subject?: pulumi.Input<string | undefined>;
 }
 
 /**

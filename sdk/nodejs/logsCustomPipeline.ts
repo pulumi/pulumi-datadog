@@ -270,22 +270,22 @@ export class LogsCustomPipeline extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LogsCustomPipeline resources.
  */
 export interface LogsCustomPipelineState {
-    description?: pulumi.Input<string>;
-    filters?: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineFilter>[]>;
-    isEnabled?: pulumi.Input<boolean>;
-    name?: pulumi.Input<string>;
-    processors?: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessor>[]>;
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    description?: pulumi.Input<string | undefined>;
+    filters?: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineFilter>[] | undefined>;
+    isEnabled?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    processors?: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessor>[] | undefined>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
  * The set of arguments for constructing a LogsCustomPipeline resource.
  */
 export interface LogsCustomPipelineArgs {
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     filters: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineFilter>[]>;
-    isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean | undefined>;
     name: pulumi.Input<string>;
-    processors?: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessor>[]>;
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    processors?: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessor>[] | undefined>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

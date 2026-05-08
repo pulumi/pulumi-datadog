@@ -88,13 +88,13 @@ export interface GetRumApplicationOutputArgs {
     /**
      * ID of the RUM application. Cannot be used with name and type filters.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The name used to search for a RUM application.
      */
-    nameFilter?: pulumi.Input<string>;
+    nameFilter?: pulumi.Input<string | undefined>;
     /**
      * The type used to search for a RUM application.
      */
-    typeFilter?: pulumi.Input<string>;
+    typeFilter?: pulumi.Input<string | undefined>;
 }

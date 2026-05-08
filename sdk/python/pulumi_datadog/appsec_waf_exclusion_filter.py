@@ -23,13 +23,13 @@ class AppsecWafExclusionFilterArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[_builtins.str],
                  enabled: pulumi.Input[_builtins.bool],
-                 event_query: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 on_match: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 path_glob: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules_targets: Optional[pulumi.Input[Sequence[pulumi.Input['AppsecWafExclusionFilterRulesTargetArgs']]]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input['AppsecWafExclusionFilterScopeArgs']]]] = None):
+                 event_query: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 on_match: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 path_glob: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules_targets: pulumi.Input[Optional[Sequence[pulumi.Input['AppsecWafExclusionFilterRulesTargetArgs']]]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input['AppsecWafExclusionFilterScopeArgs']]]] = None):
         """
         The set of arguments for constructing a AppsecWafExclusionFilter resource.
 
@@ -84,95 +84,95 @@ class AppsecWafExclusionFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventQuery")
-    def event_query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The event query matched by the legacy exclusion filter. Cannot be created nor updated.
         """
         return pulumi.get(self, "event_query")
 
     @event_query.setter
-    def event_query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_query", value)
 
     @_builtins.property
     @pulumi.getter(name="ipLists")
-    def ip_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The client IP addresses matched by the exclusion filter (CIDR notation is supported).
         """
         return pulumi.get(self, "ip_lists")
 
     @ip_lists.setter
-    def ip_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="onMatch")
-    def on_match(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_match(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The action taken when the exclusion filter matches. When set to `monitor`, security traces are emitted but the requests are not blocked. By default, security traces are not emitted and the requests are not blocked.
         """
         return pulumi.get(self, "on_match")
 
     @on_match.setter
-    def on_match(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_match(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_match", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of parameters matched by the exclusion filter in the HTTP query string and HTTP request body. Nested parameters can be matched by joining fields with a dot character.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="pathGlob")
-    def path_glob(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path_glob(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HTTP path glob expression matched by the exclusion filter.
         """
         return pulumi.get(self, "path_glob")
 
     @path_glob.setter
-    def path_glob(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path_glob(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path_glob", value)
 
     @_builtins.property
     @pulumi.getter(name="rulesTargets")
-    def rules_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppsecWafExclusionFilterRulesTargetArgs']]]]:
+    def rules_targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppsecWafExclusionFilterRulesTargetArgs']]]]:
         return pulumi.get(self, "rules_targets")
 
     @rules_targets.setter
-    def rules_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppsecWafExclusionFilterRulesTargetArgs']]]]):
+    def rules_targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AppsecWafExclusionFilterRulesTargetArgs']]]]):
         pulumi.set(self, "rules_targets", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppsecWafExclusionFilterScopeArgs']]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppsecWafExclusionFilterScopeArgs']]]]:
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppsecWafExclusionFilterScopeArgs']]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AppsecWafExclusionFilterScopeArgs']]]]):
         pulumi.set(self, "scopes", value)
 
 
 @pulumi.input_type
 class _AppsecWafExclusionFilterState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_query: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 on_match: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 path_glob: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules_targets: Optional[pulumi.Input[Sequence[pulumi.Input['AppsecWafExclusionFilterRulesTargetArgs']]]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input['AppsecWafExclusionFilterScopeArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_query: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 on_match: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 path_glob: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules_targets: pulumi.Input[Optional[Sequence[pulumi.Input['AppsecWafExclusionFilterRulesTargetArgs']]]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input['AppsecWafExclusionFilterScopeArgs']]]] = None):
         """
         Input properties used for looking up and filtering AppsecWafExclusionFilter resources.
 
@@ -205,104 +205,104 @@ class _AppsecWafExclusionFilterState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the exclusion filter.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the exclusion filter is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="eventQuery")
-    def event_query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The event query matched by the legacy exclusion filter. Cannot be created nor updated.
         """
         return pulumi.get(self, "event_query")
 
     @event_query.setter
-    def event_query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_query", value)
 
     @_builtins.property
     @pulumi.getter(name="ipLists")
-    def ip_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The client IP addresses matched by the exclusion filter (CIDR notation is supported).
         """
         return pulumi.get(self, "ip_lists")
 
     @ip_lists.setter
-    def ip_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="onMatch")
-    def on_match(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_match(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The action taken when the exclusion filter matches. When set to `monitor`, security traces are emitted but the requests are not blocked. By default, security traces are not emitted and the requests are not blocked.
         """
         return pulumi.get(self, "on_match")
 
     @on_match.setter
-    def on_match(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_match(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_match", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of parameters matched by the exclusion filter in the HTTP query string and HTTP request body. Nested parameters can be matched by joining fields with a dot character.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="pathGlob")
-    def path_glob(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path_glob(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HTTP path glob expression matched by the exclusion filter.
         """
         return pulumi.get(self, "path_glob")
 
     @path_glob.setter
-    def path_glob(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path_glob(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path_glob", value)
 
     @_builtins.property
     @pulumi.getter(name="rulesTargets")
-    def rules_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppsecWafExclusionFilterRulesTargetArgs']]]]:
+    def rules_targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppsecWafExclusionFilterRulesTargetArgs']]]]:
         return pulumi.get(self, "rules_targets")
 
     @rules_targets.setter
-    def rules_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppsecWafExclusionFilterRulesTargetArgs']]]]):
+    def rules_targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AppsecWafExclusionFilterRulesTargetArgs']]]]):
         pulumi.set(self, "rules_targets", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppsecWafExclusionFilterScopeArgs']]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppsecWafExclusionFilterScopeArgs']]]]:
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppsecWafExclusionFilterScopeArgs']]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AppsecWafExclusionFilterScopeArgs']]]]):
         pulumi.set(self, "scopes", value)
 
 
@@ -312,15 +312,15 @@ class AppsecWafExclusionFilter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_query: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 on_match: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 path_glob: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules_targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterRulesTargetArgs', 'AppsecWafExclusionFilterRulesTargetArgsDict']]]]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterScopeArgs', 'AppsecWafExclusionFilterScopeArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_query: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 on_match: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 path_glob: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterRulesTargetArgs', 'AppsecWafExclusionFilterRulesTargetArgsDict']]]]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterScopeArgs', 'AppsecWafExclusionFilterScopeArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a Datadog AppsecWafExclusionFilter resource. This can be used to create and manage Datadog appsec_waf_exclusion_filter.
@@ -435,15 +435,15 @@ class AppsecWafExclusionFilter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_query: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 on_match: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 path_glob: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules_targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterRulesTargetArgs', 'AppsecWafExclusionFilterRulesTargetArgsDict']]]]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterScopeArgs', 'AppsecWafExclusionFilterScopeArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_query: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 on_match: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 path_glob: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterRulesTargetArgs', 'AppsecWafExclusionFilterRulesTargetArgsDict']]]]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterScopeArgs', 'AppsecWafExclusionFilterScopeArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -476,15 +476,15 @@ class AppsecWafExclusionFilter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            event_query: Optional[pulumi.Input[_builtins.str]] = None,
-            ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            on_match: Optional[pulumi.Input[_builtins.str]] = None,
-            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            path_glob: Optional[pulumi.Input[_builtins.str]] = None,
-            rules_targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterRulesTargetArgs', 'AppsecWafExclusionFilterRulesTargetArgsDict']]]]] = None,
-            scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterScopeArgs', 'AppsecWafExclusionFilterScopeArgsDict']]]]] = None) -> 'AppsecWafExclusionFilter':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            event_query: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            on_match: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            path_glob: pulumi.Input[Optional[_builtins.str]] = None,
+            rules_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterRulesTargetArgs', 'AppsecWafExclusionFilterRulesTargetArgsDict']]]]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterScopeArgs', 'AppsecWafExclusionFilterScopeArgsDict']]]]] = None) -> 'AppsecWafExclusionFilter':
         """
         Get an existing AppsecWafExclusionFilter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

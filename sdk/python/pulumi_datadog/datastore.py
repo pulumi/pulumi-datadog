@@ -21,9 +21,9 @@ class DatastoreArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  primary_column_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 org_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_key_generation_strategy: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 org_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_key_generation_strategy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Datastore resource.
 
@@ -68,54 +68,54 @@ class DatastoreArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A human-readable description about the datastore.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="orgAccess")
-    def org_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def org_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The organization access level for the datastore. For example, 'contributor'.
         """
         return pulumi.get(self, "org_access")
 
     @org_access.setter
-    def org_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def org_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "org_access", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryKeyGenerationStrategy")
-    def primary_key_generation_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_key_generation_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
         """
         return pulumi.get(self, "primary_key_generation_strategy")
 
     @primary_key_generation_strategy.setter
-    def primary_key_generation_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_key_generation_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_key_generation_strategy", value)
 
 
 @pulumi.input_type
 class _DatastoreState:
     def __init__(__self__, *,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 creator_user_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 creator_user_uuid: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 modified_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 org_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 org_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 primary_column_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_key_generation_strategy: Optional[pulumi.Input[_builtins.str]] = None):
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 creator_user_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 creator_user_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 modified_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 org_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 org_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 primary_column_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_key_generation_strategy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Datastore resources.
 
@@ -153,122 +153,122 @@ class _DatastoreState:
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp when the datastore was created.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="creatorUserId")
-    def creator_user_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def creator_user_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The numeric ID of the user who created the datastore.
         """
         return pulumi.get(self, "creator_user_id")
 
     @creator_user_id.setter
-    def creator_user_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def creator_user_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "creator_user_id", value)
 
     @_builtins.property
     @pulumi.getter(name="creatorUserUuid")
-    def creator_user_uuid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def creator_user_uuid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The UUID of the user who created the datastore.
         """
         return pulumi.get(self, "creator_user_uuid")
 
     @creator_user_uuid.setter
-    def creator_user_uuid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def creator_user_uuid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "creator_user_uuid", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A human-readable description about the datastore.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="modifiedAt")
-    def modified_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def modified_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp when the datastore was last modified.
         """
         return pulumi.get(self, "modified_at")
 
     @modified_at.setter
-    def modified_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def modified_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "modified_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name for the new datastore.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="orgAccess")
-    def org_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def org_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The organization access level for the datastore. For example, 'contributor'.
         """
         return pulumi.get(self, "org_access")
 
     @org_access.setter
-    def org_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def org_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "org_access", value)
 
     @_builtins.property
     @pulumi.getter(name="orgId")
-    def org_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def org_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ID of the organization that owns this datastore.
         """
         return pulumi.get(self, "org_id")
 
     @org_id.setter
-    def org_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def org_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "org_id", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryColumnName")
-    def primary_column_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_column_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the primary key column for this datastore. Primary column names:   - Must abide by both [PostgreSQL naming conventions](https://www.postgresql.org/docs/7.0/syntax525.htm)   - Cannot exceed 63 characters
         """
         return pulumi.get(self, "primary_column_name")
 
     @primary_column_name.setter
-    def primary_column_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_column_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_column_name", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryKeyGenerationStrategy")
-    def primary_key_generation_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_key_generation_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
         """
         return pulumi.get(self, "primary_key_generation_strategy")
 
     @primary_key_generation_strategy.setter
-    def primary_key_generation_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_key_generation_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_key_generation_strategy", value)
 
 
@@ -278,11 +278,11 @@ class Datastore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 org_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_column_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_key_generation_strategy: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 org_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_column_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_key_generation_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog Datastore resource. This can be used to create and manage Datadog datastore.
@@ -379,11 +379,11 @@ class Datastore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 org_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_column_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_key_generation_strategy: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 org_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_column_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_key_generation_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -417,16 +417,16 @@ class Datastore(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            creator_user_id: Optional[pulumi.Input[_builtins.int]] = None,
-            creator_user_uuid: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            modified_at: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            org_access: Optional[pulumi.Input[_builtins.str]] = None,
-            org_id: Optional[pulumi.Input[_builtins.int]] = None,
-            primary_column_name: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_key_generation_strategy: Optional[pulumi.Input[_builtins.str]] = None) -> 'Datastore':
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            creator_user_id: pulumi.Input[Optional[_builtins.int]] = None,
+            creator_user_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            modified_at: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            org_access: pulumi.Input[Optional[_builtins.str]] = None,
+            org_id: pulumi.Input[Optional[_builtins.int]] = None,
+            primary_column_name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_key_generation_strategy: pulumi.Input[Optional[_builtins.str]] = None) -> 'Datastore':
         """
         Get an existing Datastore resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

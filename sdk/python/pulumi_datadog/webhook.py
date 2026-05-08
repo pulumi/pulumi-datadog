@@ -21,9 +21,9 @@ class WebhookArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  url: pulumi.Input[_builtins.str],
-                 custom_headers: Optional[pulumi.Input[_builtins.str]] = None,
-                 encode_as: Optional[pulumi.Input[_builtins.str]] = None,
-                 payload: Optional[pulumi.Input[_builtins.str]] = None):
+                 custom_headers: pulumi.Input[Optional[_builtins.str]] = None,
+                 encode_as: pulumi.Input[Optional[_builtins.str]] = None,
+                 payload: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Webhook resource.
 
@@ -68,49 +68,49 @@ class WebhookArgs:
 
     @_builtins.property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_headers(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The headers attached to the webhook.
         """
         return pulumi.get(self, "custom_headers")
 
     @custom_headers.setter
-    def custom_headers(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_headers(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_headers", value)
 
     @_builtins.property
     @pulumi.getter(name="encodeAs")
-    def encode_as(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encode_as(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Encoding type. Valid values are `json`, `form`.
         """
         return pulumi.get(self, "encode_as")
 
     @encode_as.setter
-    def encode_as(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encode_as(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encode_as", value)
 
     @_builtins.property
     @pulumi.getter
-    def payload(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def payload(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The payload of the webhook.
         """
         return pulumi.get(self, "payload")
 
     @payload.setter
-    def payload(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def payload(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "payload", value)
 
 
 @pulumi.input_type
 class _WebhookState:
     def __init__(__self__, *,
-                 custom_headers: Optional[pulumi.Input[_builtins.str]] = None,
-                 encode_as: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 payload: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 custom_headers: pulumi.Input[Optional[_builtins.str]] = None,
+                 encode_as: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 payload: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Webhook resources.
 
@@ -133,62 +133,62 @@ class _WebhookState:
 
     @_builtins.property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_headers(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The headers attached to the webhook.
         """
         return pulumi.get(self, "custom_headers")
 
     @custom_headers.setter
-    def custom_headers(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_headers(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_headers", value)
 
     @_builtins.property
     @pulumi.getter(name="encodeAs")
-    def encode_as(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encode_as(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Encoding type. Valid values are `json`, `form`.
         """
         return pulumi.get(self, "encode_as")
 
     @encode_as.setter
-    def encode_as(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encode_as(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encode_as", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def payload(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def payload(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The payload of the webhook.
         """
         return pulumi.get(self, "payload")
 
     @payload.setter
-    def payload(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def payload(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "payload", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the webhook.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -198,11 +198,11 @@ class Webhook(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_headers: Optional[pulumi.Input[_builtins.str]] = None,
-                 encode_as: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 payload: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_headers: pulumi.Input[Optional[_builtins.str]] = None,
+                 encode_as: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 payload: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog webhook resource. This can be used to create and manage Datadog webhooks.
@@ -297,11 +297,11 @@ class Webhook(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_headers: Optional[pulumi.Input[_builtins.str]] = None,
-                 encode_as: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 payload: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_headers: pulumi.Input[Optional[_builtins.str]] = None,
+                 encode_as: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 payload: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -330,11 +330,11 @@ class Webhook(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_headers: Optional[pulumi.Input[_builtins.str]] = None,
-            encode_as: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            payload: Optional[pulumi.Input[_builtins.str]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None) -> 'Webhook':
+            custom_headers: pulumi.Input[Optional[_builtins.str]] = None,
+            encode_as: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            payload: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> 'Webhook':
         """
         Get an existing Webhook resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

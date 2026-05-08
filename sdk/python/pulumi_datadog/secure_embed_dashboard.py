@@ -23,12 +23,12 @@ class SecureEmbedDashboardArgs:
     def __init__(__self__, *,
                  dashboard_id: pulumi.Input[_builtins.str],
                  title: pulumi.Input[_builtins.str],
-                 global_time_live_span: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_time_selectable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 selectable_template_vars: Optional[pulumi.Input[Sequence[pulumi.Input['SecureEmbedDashboardSelectableTemplateVarArgs']]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 viewing_preferences_high_density: Optional[pulumi.Input[_builtins.bool]] = None,
-                 viewing_preferences_theme: Optional[pulumi.Input[_builtins.str]] = None):
+                 global_time_live_span: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_time_selectable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 selectable_template_vars: pulumi.Input[Optional[Sequence[pulumi.Input['SecureEmbedDashboardSelectableTemplateVarArgs']]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 viewing_preferences_high_density: pulumi.Input[Optional[_builtins.bool]] = None,
+                 viewing_preferences_theme: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecureEmbedDashboard resource.
 
@@ -82,91 +82,91 @@ class SecureEmbedDashboardArgs:
 
     @_builtins.property
     @pulumi.getter(name="globalTimeLiveSpan")
-    def global_time_live_span(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def global_time_live_span(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The live span for the global time, e.g. `1h`, `4h`, `1d`, `2d`, `1w`. Defaults to `"1h"`.
         """
         return pulumi.get(self, "global_time_live_span")
 
     @global_time_live_span.setter
-    def global_time_live_span(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def global_time_live_span(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "global_time_live_span", value)
 
     @_builtins.property
     @pulumi.getter(name="globalTimeSelectable")
-    def global_time_selectable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def global_time_selectable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether viewers can change the global time range. Defaults to `true`.
         """
         return pulumi.get(self, "global_time_selectable")
 
     @global_time_selectable.setter
-    def global_time_selectable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def global_time_selectable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "global_time_selectable", value)
 
     @_builtins.property
     @pulumi.getter(name="selectableTemplateVars")
-    def selectable_template_vars(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecureEmbedDashboardSelectableTemplateVarArgs']]]]:
+    def selectable_template_vars(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SecureEmbedDashboardSelectableTemplateVarArgs']]]]:
         """
         Template variables that viewers can filter by.
         """
         return pulumi.get(self, "selectable_template_vars")
 
     @selectable_template_vars.setter
-    def selectable_template_vars(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecureEmbedDashboardSelectableTemplateVarArgs']]]]):
+    def selectable_template_vars(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SecureEmbedDashboardSelectableTemplateVarArgs']]]]):
         pulumi.set(self, "selectable_template_vars", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the secure embed. Valid values are `active` and `paused`. Defaults to `"active"`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="viewingPreferencesHighDensity")
-    def viewing_preferences_high_density(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def viewing_preferences_high_density(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to display the dashboard in high density mode. Defaults to `false`.
         """
         return pulumi.get(self, "viewing_preferences_high_density")
 
     @viewing_preferences_high_density.setter
-    def viewing_preferences_high_density(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def viewing_preferences_high_density(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "viewing_preferences_high_density", value)
 
     @_builtins.property
     @pulumi.getter(name="viewingPreferencesTheme")
-    def viewing_preferences_theme(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def viewing_preferences_theme(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display theme for the embedded dashboard. Valid values are `system`, `dark`, `light`. Defaults to `"system"`.
         """
         return pulumi.get(self, "viewing_preferences_theme")
 
     @viewing_preferences_theme.setter
-    def viewing_preferences_theme(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def viewing_preferences_theme(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "viewing_preferences_theme", value)
 
 
 @pulumi.input_type
 class _SecureEmbedDashboardState:
     def __init__(__self__, *,
-                 credential: Optional[pulumi.Input[_builtins.str]] = None,
-                 dashboard_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_time_live_span: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_time_selectable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 selectable_template_vars: Optional[pulumi.Input[Sequence[pulumi.Input['SecureEmbedDashboardSelectableTemplateVarArgs']]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 token: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 viewing_preferences_high_density: Optional[pulumi.Input[_builtins.bool]] = None,
-                 viewing_preferences_theme: Optional[pulumi.Input[_builtins.str]] = None):
+                 credential: pulumi.Input[Optional[_builtins.str]] = None,
+                 dashboard_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_time_live_span: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_time_selectable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 selectable_template_vars: pulumi.Input[Optional[Sequence[pulumi.Input['SecureEmbedDashboardSelectableTemplateVarArgs']]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 token: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 viewing_preferences_high_density: pulumi.Input[Optional[_builtins.bool]] = None,
+                 viewing_preferences_theme: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecureEmbedDashboard resources.
 
@@ -207,134 +207,134 @@ class _SecureEmbedDashboardState:
 
     @_builtins.property
     @pulumi.getter
-    def credential(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credential(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HMAC credential granting access to this secure embed. Only available on initial creation; stored in state.
         """
         return pulumi.get(self, "credential")
 
     @credential.setter
-    def credential(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credential(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credential", value)
 
     @_builtins.property
     @pulumi.getter(name="dashboardId")
-    def dashboard_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dashboard_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the dashboard to create a secure embed for.
         """
         return pulumi.get(self, "dashboard_id")
 
     @dashboard_id.setter
-    def dashboard_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dashboard_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dashboard_id", value)
 
     @_builtins.property
     @pulumi.getter(name="globalTimeLiveSpan")
-    def global_time_live_span(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def global_time_live_span(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The live span for the global time, e.g. `1h`, `4h`, `1d`, `2d`, `1w`. Defaults to `"1h"`.
         """
         return pulumi.get(self, "global_time_live_span")
 
     @global_time_live_span.setter
-    def global_time_live_span(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def global_time_live_span(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "global_time_live_span", value)
 
     @_builtins.property
     @pulumi.getter(name="globalTimeSelectable")
-    def global_time_selectable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def global_time_selectable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether viewers can change the global time range. Defaults to `true`.
         """
         return pulumi.get(self, "global_time_selectable")
 
     @global_time_selectable.setter
-    def global_time_selectable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def global_time_selectable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "global_time_selectable", value)
 
     @_builtins.property
     @pulumi.getter(name="selectableTemplateVars")
-    def selectable_template_vars(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecureEmbedDashboardSelectableTemplateVarArgs']]]]:
+    def selectable_template_vars(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SecureEmbedDashboardSelectableTemplateVarArgs']]]]:
         """
         Template variables that viewers can filter by.
         """
         return pulumi.get(self, "selectable_template_vars")
 
     @selectable_template_vars.setter
-    def selectable_template_vars(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecureEmbedDashboardSelectableTemplateVarArgs']]]]):
+    def selectable_template_vars(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SecureEmbedDashboardSelectableTemplateVarArgs']]]]):
         pulumi.set(self, "selectable_template_vars", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the secure embed. Valid values are `active` and `paused`. Defaults to `"active"`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Title of the secure embed share.
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
     @_builtins.property
     @pulumi.getter
-    def token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The share token for the secure embed.
         """
         return pulumi.get(self, "token")
 
     @token.setter
-    def token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The public URL for the embedded dashboard.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter(name="viewingPreferencesHighDensity")
-    def viewing_preferences_high_density(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def viewing_preferences_high_density(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to display the dashboard in high density mode. Defaults to `false`.
         """
         return pulumi.get(self, "viewing_preferences_high_density")
 
     @viewing_preferences_high_density.setter
-    def viewing_preferences_high_density(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def viewing_preferences_high_density(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "viewing_preferences_high_density", value)
 
     @_builtins.property
     @pulumi.getter(name="viewingPreferencesTheme")
-    def viewing_preferences_theme(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def viewing_preferences_theme(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display theme for the embedded dashboard. Valid values are `system`, `dark`, `light`. Defaults to `"system"`.
         """
         return pulumi.get(self, "viewing_preferences_theme")
 
     @viewing_preferences_theme.setter
-    def viewing_preferences_theme(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def viewing_preferences_theme(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "viewing_preferences_theme", value)
 
 
@@ -344,14 +344,14 @@ class SecureEmbedDashboard(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dashboard_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_time_live_span: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_time_selectable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 selectable_template_vars: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecureEmbedDashboardSelectableTemplateVarArgs', 'SecureEmbedDashboardSelectableTemplateVarArgsDict']]]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 viewing_preferences_high_density: Optional[pulumi.Input[_builtins.bool]] = None,
-                 viewing_preferences_theme: Optional[pulumi.Input[_builtins.str]] = None,
+                 dashboard_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_time_live_span: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_time_selectable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 selectable_template_vars: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecureEmbedDashboardSelectableTemplateVarArgs', 'SecureEmbedDashboardSelectableTemplateVarArgsDict']]]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 viewing_preferences_high_density: pulumi.Input[Optional[_builtins.bool]] = None,
+                 viewing_preferences_theme: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Datadog secure embed shared dashboard. NOTE: The HMAC `credential` is only returned by the API once on creation and is stored in Terraform state. Ensure your state backend uses encryption at rest and has appropriate access controls.
@@ -393,14 +393,14 @@ class SecureEmbedDashboard(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dashboard_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_time_live_span: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_time_selectable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 selectable_template_vars: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecureEmbedDashboardSelectableTemplateVarArgs', 'SecureEmbedDashboardSelectableTemplateVarArgsDict']]]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 viewing_preferences_high_density: Optional[pulumi.Input[_builtins.bool]] = None,
-                 viewing_preferences_theme: Optional[pulumi.Input[_builtins.str]] = None,
+                 dashboard_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_time_live_span: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_time_selectable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 selectable_template_vars: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecureEmbedDashboardSelectableTemplateVarArgs', 'SecureEmbedDashboardSelectableTemplateVarArgsDict']]]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 viewing_preferences_high_density: pulumi.Input[Optional[_builtins.bool]] = None,
+                 viewing_preferences_theme: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -437,17 +437,17 @@ class SecureEmbedDashboard(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            credential: Optional[pulumi.Input[_builtins.str]] = None,
-            dashboard_id: Optional[pulumi.Input[_builtins.str]] = None,
-            global_time_live_span: Optional[pulumi.Input[_builtins.str]] = None,
-            global_time_selectable: Optional[pulumi.Input[_builtins.bool]] = None,
-            selectable_template_vars: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecureEmbedDashboardSelectableTemplateVarArgs', 'SecureEmbedDashboardSelectableTemplateVarArgsDict']]]]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            title: Optional[pulumi.Input[_builtins.str]] = None,
-            token: Optional[pulumi.Input[_builtins.str]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None,
-            viewing_preferences_high_density: Optional[pulumi.Input[_builtins.bool]] = None,
-            viewing_preferences_theme: Optional[pulumi.Input[_builtins.str]] = None) -> 'SecureEmbedDashboard':
+            credential: pulumi.Input[Optional[_builtins.str]] = None,
+            dashboard_id: pulumi.Input[Optional[_builtins.str]] = None,
+            global_time_live_span: pulumi.Input[Optional[_builtins.str]] = None,
+            global_time_selectable: pulumi.Input[Optional[_builtins.bool]] = None,
+            selectable_template_vars: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecureEmbedDashboardSelectableTemplateVarArgs', 'SecureEmbedDashboardSelectableTemplateVarArgsDict']]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None,
+            token: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            viewing_preferences_high_density: pulumi.Input[Optional[_builtins.bool]] = None,
+            viewing_preferences_theme: pulumi.Input[Optional[_builtins.str]] = None) -> 'SecureEmbedDashboard':
         """
         Get an existing SecureEmbedDashboard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

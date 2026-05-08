@@ -108,11 +108,11 @@ export interface GetAzureUcConfigOutputArgs {
     /**
      * Configuration for the actual cost export.
      */
-    actualBillConfig?: pulumi.Input<inputs.GetAzureUcConfigActualBillConfigArgs>;
+    actualBillConfig?: pulumi.Input<inputs.GetAzureUcConfigActualBillConfigArgs | undefined>;
     /**
      * Configuration for the amortized cost export.
      */
-    amortizedBillConfig?: pulumi.Input<inputs.GetAzureUcConfigAmortizedBillConfigArgs>;
+    amortizedBillConfig?: pulumi.Input<inputs.GetAzureUcConfigAmortizedBillConfigArgs | undefined>;
     /**
      * The Datadog cloud account ID for the Azure Usage Cost configuration you want to retrieve information about.
      */

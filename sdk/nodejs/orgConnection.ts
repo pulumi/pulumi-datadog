@@ -136,31 +136,31 @@ export interface OrgConnectionState {
     /**
      * Set of connection types to enable for this connection (., metrics, logs).
      */
-    connectionTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    connectionTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Timestamp when the connection was created (RFC 3339).
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * Creator user ID (UUID).
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * UUID of the sink (destination) organization. Must be a valid UUID.
      */
-    sinkOrgId?: pulumi.Input<string>;
+    sinkOrgId?: pulumi.Input<string | undefined>;
     /**
      * Name of the sink (destination) organization.
      */
-    sinkOrgName?: pulumi.Input<string>;
+    sinkOrgName?: pulumi.Input<string | undefined>;
     /**
      * UUID of the source (current) organization.
      */
-    sourceOrgId?: pulumi.Input<string>;
+    sourceOrgId?: pulumi.Input<string | undefined>;
     /**
      * Name of the source organization.
      */
-    sourceOrgName?: pulumi.Input<string>;
+    sourceOrgName?: pulumi.Input<string | undefined>;
 }
 
 /**

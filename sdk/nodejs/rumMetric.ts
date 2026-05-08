@@ -129,34 +129,34 @@ export class RumMetric extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RumMetric resources.
  */
 export interface RumMetricState {
-    compute?: pulumi.Input<inputs.RumMetricCompute>;
+    compute?: pulumi.Input<inputs.RumMetricCompute | undefined>;
     /**
      * The type of RUM events to filter on.
      */
-    eventType?: pulumi.Input<string>;
-    filter?: pulumi.Input<inputs.RumMetricFilter>;
-    groupBies?: pulumi.Input<pulumi.Input<inputs.RumMetricGroupBy>[]>;
+    eventType?: pulumi.Input<string | undefined>;
+    filter?: pulumi.Input<inputs.RumMetricFilter | undefined>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.RumMetricGroupBy>[] | undefined>;
     /**
      * The name of the RUM-based metric. This field can't be updated after creation.
      */
-    name?: pulumi.Input<string>;
-    uniqueness?: pulumi.Input<inputs.RumMetricUniqueness>;
+    name?: pulumi.Input<string | undefined>;
+    uniqueness?: pulumi.Input<inputs.RumMetricUniqueness | undefined>;
 }
 
 /**
  * The set of arguments for constructing a RumMetric resource.
  */
 export interface RumMetricArgs {
-    compute?: pulumi.Input<inputs.RumMetricCompute>;
+    compute?: pulumi.Input<inputs.RumMetricCompute | undefined>;
     /**
      * The type of RUM events to filter on.
      */
     eventType: pulumi.Input<string>;
-    filter?: pulumi.Input<inputs.RumMetricFilter>;
-    groupBies?: pulumi.Input<pulumi.Input<inputs.RumMetricGroupBy>[]>;
+    filter?: pulumi.Input<inputs.RumMetricFilter | undefined>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.RumMetricGroupBy>[] | undefined>;
     /**
      * The name of the RUM-based metric. This field can't be updated after creation.
      */
     name: pulumi.Input<string>;
-    uniqueness?: pulumi.Input<inputs.RumMetricUniqueness>;
+    uniqueness?: pulumi.Input<inputs.RumMetricUniqueness | undefined>;
 }

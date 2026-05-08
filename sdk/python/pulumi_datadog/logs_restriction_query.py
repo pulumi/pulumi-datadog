@@ -20,7 +20,7 @@ __all__ = ['LogsRestrictionQueryArgs', 'LogsRestrictionQuery']
 class LogsRestrictionQueryArgs:
     def __init__(__self__, *,
                  restriction_query: pulumi.Input[_builtins.str],
-                 role_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 role_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LogsRestrictionQuery resource.
 
@@ -45,24 +45,24 @@ class LogsRestrictionQueryArgs:
 
     @_builtins.property
     @pulumi.getter(name="roleIds")
-    def role_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def role_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of role IDs that have access to this restriction query.
         """
         return pulumi.get(self, "role_ids")
 
     @role_ids.setter
-    def role_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def role_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "role_ids", value)
 
 
 @pulumi.input_type
 class _LogsRestrictionQueryState:
     def __init__(__self__, *,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 modified_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 restriction_query: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 modified_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 restriction_query: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LogsRestrictionQuery resources.
 
@@ -82,50 +82,50 @@ class _LogsRestrictionQueryState:
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creation time of the restriction query (in ISO 8601).
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="modifiedAt")
-    def modified_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def modified_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time of last restriction query modification (in ISO 8601).
         """
         return pulumi.get(self, "modified_at")
 
     @modified_at.setter
-    def modified_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def modified_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "modified_at", value)
 
     @_builtins.property
     @pulumi.getter(name="restrictionQuery")
-    def restriction_query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def restriction_query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The query that defines the restriction. Only the content matching the query can be returned.
         """
         return pulumi.get(self, "restriction_query")
 
     @restriction_query.setter
-    def restriction_query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def restriction_query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "restriction_query", value)
 
     @_builtins.property
     @pulumi.getter(name="roleIds")
-    def role_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def role_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of role IDs that have access to this restriction query.
         """
         return pulumi.get(self, "role_ids")
 
     @role_ids.setter
-    def role_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def role_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "role_ids", value)
 
 
@@ -135,8 +135,8 @@ class LogsRestrictionQuery(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 restriction_query: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 restriction_query: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a Datadog Log Restriction Query resource. This can be used to create and manage Datadog Log Restriction Queries.
@@ -218,8 +218,8 @@ class LogsRestrictionQuery(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 restriction_query: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 restriction_query: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -245,10 +245,10 @@ class LogsRestrictionQuery(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            modified_at: Optional[pulumi.Input[_builtins.str]] = None,
-            restriction_query: Optional[pulumi.Input[_builtins.str]] = None,
-            role_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'LogsRestrictionQuery':
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            modified_at: pulumi.Input[Optional[_builtins.str]] = None,
+            restriction_query: pulumi.Input[Optional[_builtins.str]] = None,
+            role_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'LogsRestrictionQuery':
         """
         Get an existing LogsRestrictionQuery resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

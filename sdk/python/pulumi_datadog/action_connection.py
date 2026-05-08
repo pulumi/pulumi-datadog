@@ -22,8 +22,8 @@ __all__ = ['ActionConnectionArgs', 'ActionConnection']
 class ActionConnectionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 aws: Optional[pulumi.Input['ActionConnectionAwsArgs']] = None,
-                 http: Optional[pulumi.Input['ActionConnectionHttpArgs']] = None):
+                 aws: pulumi.Input[Optional['ActionConnectionAwsArgs']] = None,
+                 http: pulumi.Input[Optional['ActionConnectionHttpArgs']] = None):
         """
         The set of arguments for constructing a ActionConnection resource.
 
@@ -51,35 +51,35 @@ class ActionConnectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def aws(self) -> Optional[pulumi.Input['ActionConnectionAwsArgs']]:
+    def aws(self) -> pulumi.Input[Optional['ActionConnectionAwsArgs']]:
         """
         Configuration for an AWS connection
         """
         return pulumi.get(self, "aws")
 
     @aws.setter
-    def aws(self, value: Optional[pulumi.Input['ActionConnectionAwsArgs']]):
+    def aws(self, value: pulumi.Input[Optional['ActionConnectionAwsArgs']]):
         pulumi.set(self, "aws", value)
 
     @_builtins.property
     @pulumi.getter
-    def http(self) -> Optional[pulumi.Input['ActionConnectionHttpArgs']]:
+    def http(self) -> pulumi.Input[Optional['ActionConnectionHttpArgs']]:
         """
         Configuration for an HTTP connection
         """
         return pulumi.get(self, "http")
 
     @http.setter
-    def http(self, value: Optional[pulumi.Input['ActionConnectionHttpArgs']]):
+    def http(self, value: pulumi.Input[Optional['ActionConnectionHttpArgs']]):
         pulumi.set(self, "http", value)
 
 
 @pulumi.input_type
 class _ActionConnectionState:
     def __init__(__self__, *,
-                 aws: Optional[pulumi.Input['ActionConnectionAwsArgs']] = None,
-                 http: Optional[pulumi.Input['ActionConnectionHttpArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws: pulumi.Input[Optional['ActionConnectionAwsArgs']] = None,
+                 http: pulumi.Input[Optional['ActionConnectionHttpArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActionConnection resources.
 
@@ -96,38 +96,38 @@ class _ActionConnectionState:
 
     @_builtins.property
     @pulumi.getter
-    def aws(self) -> Optional[pulumi.Input['ActionConnectionAwsArgs']]:
+    def aws(self) -> pulumi.Input[Optional['ActionConnectionAwsArgs']]:
         """
         Configuration for an AWS connection
         """
         return pulumi.get(self, "aws")
 
     @aws.setter
-    def aws(self, value: Optional[pulumi.Input['ActionConnectionAwsArgs']]):
+    def aws(self, value: pulumi.Input[Optional['ActionConnectionAwsArgs']]):
         pulumi.set(self, "aws", value)
 
     @_builtins.property
     @pulumi.getter
-    def http(self) -> Optional[pulumi.Input['ActionConnectionHttpArgs']]:
+    def http(self) -> pulumi.Input[Optional['ActionConnectionHttpArgs']]:
         """
         Configuration for an HTTP connection
         """
         return pulumi.get(self, "http")
 
     @http.setter
-    def http(self, value: Optional[pulumi.Input['ActionConnectionHttpArgs']]):
+    def http(self, value: pulumi.Input[Optional['ActionConnectionHttpArgs']]):
         pulumi.set(self, "http", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the connection
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -137,9 +137,9 @@ class ActionConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[Union['ActionConnectionAwsArgs', 'ActionConnectionAwsArgsDict']]] = None,
-                 http: Optional[pulumi.Input[Union['ActionConnectionHttpArgs', 'ActionConnectionHttpArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws: pulumi.Input[Optional[Union['ActionConnectionAwsArgs', 'ActionConnectionAwsArgsDict']]] = None,
+                 http: pulumi.Input[Optional[Union['ActionConnectionHttpArgs', 'ActionConnectionHttpArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This resource requires a registered application key.
@@ -324,9 +324,9 @@ class ActionConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[Union['ActionConnectionAwsArgs', 'ActionConnectionAwsArgsDict']]] = None,
-                 http: Optional[pulumi.Input[Union['ActionConnectionHttpArgs', 'ActionConnectionHttpArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws: pulumi.Input[Optional[Union['ActionConnectionAwsArgs', 'ActionConnectionAwsArgsDict']]] = None,
+                 http: pulumi.Input[Optional[Union['ActionConnectionHttpArgs', 'ActionConnectionHttpArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -351,9 +351,9 @@ class ActionConnection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws: Optional[pulumi.Input[Union['ActionConnectionAwsArgs', 'ActionConnectionAwsArgsDict']]] = None,
-            http: Optional[pulumi.Input[Union['ActionConnectionHttpArgs', 'ActionConnectionHttpArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ActionConnection':
+            aws: pulumi.Input[Optional[Union['ActionConnectionAwsArgs', 'ActionConnectionAwsArgsDict']]] = None,
+            http: pulumi.Input[Optional[Union['ActionConnectionHttpArgs', 'ActionConnectionHttpArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ActionConnection':
         """
         Get an existing ActionConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

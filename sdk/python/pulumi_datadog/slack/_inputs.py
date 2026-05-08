@@ -20,23 +20,23 @@ __all__ = [
 ]
 
 class ChannelDisplayArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[_builtins.bool]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Show the main body of the alert event. Defaults to `true`.
     """
-    mute_buttons: NotRequired[pulumi.Input[_builtins.bool]]
+    mute_buttons: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Show interactive buttons to mute the alerting monitor. Defaults to `true`.
     """
-    notified: NotRequired[pulumi.Input[_builtins.bool]]
+    notified: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Show the list of @-handles in the alert event. Defaults to `true`.
     """
-    snapshot: NotRequired[pulumi.Input[_builtins.bool]]
+    snapshot: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Show the alert event's snapshot image. Defaults to `true`.
     """
-    tags: NotRequired[pulumi.Input[_builtins.bool]]
+    tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Show the scopes on which the monitor alerted. Defaults to `true`.
     """
@@ -44,11 +44,11 @@ class ChannelDisplayArgsDict(TypedDict):
 @pulumi.input_type
 class ChannelDisplayArgs:
     def __init__(__self__, *,
-                 message: Optional[pulumi.Input[_builtins.bool]] = None,
-                 mute_buttons: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notified: Optional[pulumi.Input[_builtins.bool]] = None,
-                 snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[_builtins.bool]] = None):
+                 message: pulumi.Input[Optional[_builtins.bool]] = None,
+                 mute_buttons: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notified: pulumi.Input[Optional[_builtins.bool]] = None,
+                 snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] message: Show the main body of the alert event. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] mute_buttons: Show interactive buttons to mute the alerting monitor. Defaults to `true`.
@@ -69,62 +69,62 @@ class ChannelDisplayArgs:
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Show the main body of the alert event. Defaults to `true`.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "message", value)
 
     @_builtins.property
     @pulumi.getter(name="muteButtons")
-    def mute_buttons(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def mute_buttons(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Show interactive buttons to mute the alerting monitor. Defaults to `true`.
         """
         return pulumi.get(self, "mute_buttons")
 
     @mute_buttons.setter
-    def mute_buttons(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def mute_buttons(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "mute_buttons", value)
 
     @_builtins.property
     @pulumi.getter
-    def notified(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notified(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Show the list of @-handles in the alert event. Defaults to `true`.
         """
         return pulumi.get(self, "notified")
 
     @notified.setter
-    def notified(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notified(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notified", value)
 
     @_builtins.property
     @pulumi.getter
-    def snapshot(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def snapshot(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Show the alert event's snapshot image. Defaults to `true`.
         """
         return pulumi.get(self, "snapshot")
 
     @snapshot.setter
-    def snapshot(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def snapshot(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "snapshot", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Show the scopes on which the monitor alerted. Defaults to `true`.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tags", value)
 
 

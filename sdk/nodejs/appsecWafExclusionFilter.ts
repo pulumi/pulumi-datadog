@@ -159,33 +159,33 @@ export interface AppsecWafExclusionFilterState {
     /**
      * A description for the exclusion filter.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the exclusion filter is enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The event query matched by the legacy exclusion filter. Cannot be created nor updated.
      */
-    eventQuery?: pulumi.Input<string>;
+    eventQuery?: pulumi.Input<string | undefined>;
     /**
      * The client IP addresses matched by the exclusion filter (CIDR notation is supported).
      */
-    ipLists?: pulumi.Input<pulumi.Input<string>[]>;
+    ipLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The action taken when the exclusion filter matches. When set to `monitor`, security traces are emitted but the requests are not blocked. By default, security traces are not emitted and the requests are not blocked.
      */
-    onMatch?: pulumi.Input<string>;
+    onMatch?: pulumi.Input<string | undefined>;
     /**
      * A list of parameters matched by the exclusion filter in the HTTP query string and HTTP request body. Nested parameters can be matched by joining fields with a dot character.
      */
-    parameters?: pulumi.Input<pulumi.Input<string>[]>;
+    parameters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The HTTP path glob expression matched by the exclusion filter.
      */
-    pathGlob?: pulumi.Input<string>;
-    rulesTargets?: pulumi.Input<pulumi.Input<inputs.AppsecWafExclusionFilterRulesTarget>[]>;
-    scopes?: pulumi.Input<pulumi.Input<inputs.AppsecWafExclusionFilterScope>[]>;
+    pathGlob?: pulumi.Input<string | undefined>;
+    rulesTargets?: pulumi.Input<pulumi.Input<inputs.AppsecWafExclusionFilterRulesTarget>[] | undefined>;
+    scopes?: pulumi.Input<pulumi.Input<inputs.AppsecWafExclusionFilterScope>[] | undefined>;
 }
 
 /**
@@ -203,23 +203,23 @@ export interface AppsecWafExclusionFilterArgs {
     /**
      * The event query matched by the legacy exclusion filter. Cannot be created nor updated.
      */
-    eventQuery?: pulumi.Input<string>;
+    eventQuery?: pulumi.Input<string | undefined>;
     /**
      * The client IP addresses matched by the exclusion filter (CIDR notation is supported).
      */
-    ipLists?: pulumi.Input<pulumi.Input<string>[]>;
+    ipLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The action taken when the exclusion filter matches. When set to `monitor`, security traces are emitted but the requests are not blocked. By default, security traces are not emitted and the requests are not blocked.
      */
-    onMatch?: pulumi.Input<string>;
+    onMatch?: pulumi.Input<string | undefined>;
     /**
      * A list of parameters matched by the exclusion filter in the HTTP query string and HTTP request body. Nested parameters can be matched by joining fields with a dot character.
      */
-    parameters?: pulumi.Input<pulumi.Input<string>[]>;
+    parameters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The HTTP path glob expression matched by the exclusion filter.
      */
-    pathGlob?: pulumi.Input<string>;
-    rulesTargets?: pulumi.Input<pulumi.Input<inputs.AppsecWafExclusionFilterRulesTarget>[]>;
-    scopes?: pulumi.Input<pulumi.Input<inputs.AppsecWafExclusionFilterScope>[]>;
+    pathGlob?: pulumi.Input<string | undefined>;
+    rulesTargets?: pulumi.Input<pulumi.Input<inputs.AppsecWafExclusionFilterRulesTarget>[] | undefined>;
+    scopes?: pulumi.Input<pulumi.Input<inputs.AppsecWafExclusionFilterScope>[] | undefined>;
 }

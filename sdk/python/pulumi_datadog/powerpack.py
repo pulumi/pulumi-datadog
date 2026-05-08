@@ -21,14 +21,14 @@ __all__ = ['PowerpackArgs', 'Powerpack']
 @pulumi.input_type
 class PowerpackArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 layout: Optional[pulumi.Input['PowerpackLayoutArgs']] = None,
-                 live_span: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_title: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 template_variables: Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackTemplateVariableArgs']]]] = None,
-                 widgets: Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 layout: pulumi.Input[Optional['PowerpackLayoutArgs']] = None,
+                 live_span: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_title: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 template_variables: pulumi.Input[Optional[Sequence[pulumi.Input['PowerpackTemplateVariableArgs']]]] = None,
+                 widgets: pulumi.Input[Optional[Sequence[pulumi.Input['PowerpackWidgetArgs']]]] = None):
         """
         The set of arguments for constructing a Powerpack resource.
 
@@ -60,112 +60,112 @@ class PowerpackArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the powerpack.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def layout(self) -> Optional[pulumi.Input['PowerpackLayoutArgs']]:
+    def layout(self) -> pulumi.Input[Optional['PowerpackLayoutArgs']]:
         """
         The layout of the powerpack on a free-form dashboard.
         """
         return pulumi.get(self, "layout")
 
     @layout.setter
-    def layout(self, value: Optional[pulumi.Input['PowerpackLayoutArgs']]):
+    def layout(self, value: pulumi.Input[Optional['PowerpackLayoutArgs']]):
         pulumi.set(self, "layout", value)
 
     @_builtins.property
     @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def live_span(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timeframe to use when displaying the powerpack. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
         """
         return pulumi.get(self, "live_span")
 
     @live_span.setter
-    def live_span(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def live_span(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "live_span", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the powerpack.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="showTitle")
-    def show_title(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def show_title(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not title should be displayed in the powerpack.
         """
         return pulumi.get(self, "show_title")
 
     @show_title.setter
-    def show_title(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def show_title(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "show_title", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags to identify this powerpack.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="templateVariables")
-    def template_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackTemplateVariableArgs']]]]:
+    def template_variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PowerpackTemplateVariableArgs']]]]:
         """
         The list of template variables for this powerpack.
         """
         return pulumi.get(self, "template_variables")
 
     @template_variables.setter
-    def template_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackTemplateVariableArgs']]]]):
+    def template_variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PowerpackTemplateVariableArgs']]]]):
         pulumi.set(self, "template_variables", value)
 
     @_builtins.property
     @pulumi.getter
-    def widgets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetArgs']]]]:
+    def widgets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PowerpackWidgetArgs']]]]:
         """
         The list of widgets to display in the powerpack.
         """
         return pulumi.get(self, "widgets")
 
     @widgets.setter
-    def widgets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetArgs']]]]):
+    def widgets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PowerpackWidgetArgs']]]]):
         pulumi.set(self, "widgets", value)
 
 
 @pulumi.input_type
 class _PowerpackState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 layout: Optional[pulumi.Input['PowerpackLayoutArgs']] = None,
-                 live_span: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_title: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 template_variables: Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackTemplateVariableArgs']]]] = None,
-                 widgets: Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 layout: pulumi.Input[Optional['PowerpackLayoutArgs']] = None,
+                 live_span: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_title: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 template_variables: pulumi.Input[Optional[Sequence[pulumi.Input['PowerpackTemplateVariableArgs']]]] = None,
+                 widgets: pulumi.Input[Optional[Sequence[pulumi.Input['PowerpackWidgetArgs']]]] = None):
         """
         Input properties used for looking up and filtering Powerpack resources.
 
@@ -197,98 +197,98 @@ class _PowerpackState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the powerpack.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def layout(self) -> Optional[pulumi.Input['PowerpackLayoutArgs']]:
+    def layout(self) -> pulumi.Input[Optional['PowerpackLayoutArgs']]:
         """
         The layout of the powerpack on a free-form dashboard.
         """
         return pulumi.get(self, "layout")
 
     @layout.setter
-    def layout(self, value: Optional[pulumi.Input['PowerpackLayoutArgs']]):
+    def layout(self, value: pulumi.Input[Optional['PowerpackLayoutArgs']]):
         pulumi.set(self, "layout", value)
 
     @_builtins.property
     @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def live_span(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timeframe to use when displaying the powerpack. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
         """
         return pulumi.get(self, "live_span")
 
     @live_span.setter
-    def live_span(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def live_span(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "live_span", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the powerpack.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="showTitle")
-    def show_title(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def show_title(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not title should be displayed in the powerpack.
         """
         return pulumi.get(self, "show_title")
 
     @show_title.setter
-    def show_title(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def show_title(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "show_title", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags to identify this powerpack.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="templateVariables")
-    def template_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackTemplateVariableArgs']]]]:
+    def template_variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PowerpackTemplateVariableArgs']]]]:
         """
         The list of template variables for this powerpack.
         """
         return pulumi.get(self, "template_variables")
 
     @template_variables.setter
-    def template_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackTemplateVariableArgs']]]]):
+    def template_variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PowerpackTemplateVariableArgs']]]]):
         pulumi.set(self, "template_variables", value)
 
     @_builtins.property
     @pulumi.getter
-    def widgets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetArgs']]]]:
+    def widgets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PowerpackWidgetArgs']]]]:
         """
         The list of widgets to display in the powerpack.
         """
         return pulumi.get(self, "widgets")
 
     @widgets.setter
-    def widgets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetArgs']]]]):
+    def widgets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PowerpackWidgetArgs']]]]):
         pulumi.set(self, "widgets", value)
 
 
@@ -298,14 +298,14 @@ class Powerpack(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 layout: Optional[pulumi.Input[Union['PowerpackLayoutArgs', 'PowerpackLayoutArgsDict']]] = None,
-                 live_span: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_title: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PowerpackTemplateVariableArgs', 'PowerpackTemplateVariableArgsDict']]]]] = None,
-                 widgets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PowerpackWidgetArgs', 'PowerpackWidgetArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 layout: pulumi.Input[Optional[Union['PowerpackLayoutArgs', 'PowerpackLayoutArgsDict']]] = None,
+                 live_span: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_title: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 template_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PowerpackTemplateVariableArgs', 'PowerpackTemplateVariableArgsDict']]]]] = None,
+                 widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PowerpackWidgetArgs', 'PowerpackWidgetArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a Datadog powerpack resource. This can be used to create and manage Datadog powerpacks.
@@ -425,14 +425,14 @@ class Powerpack(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 layout: Optional[pulumi.Input[Union['PowerpackLayoutArgs', 'PowerpackLayoutArgsDict']]] = None,
-                 live_span: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_title: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PowerpackTemplateVariableArgs', 'PowerpackTemplateVariableArgsDict']]]]] = None,
-                 widgets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PowerpackWidgetArgs', 'PowerpackWidgetArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 layout: pulumi.Input[Optional[Union['PowerpackLayoutArgs', 'PowerpackLayoutArgsDict']]] = None,
+                 live_span: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_title: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 template_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PowerpackTemplateVariableArgs', 'PowerpackTemplateVariableArgsDict']]]]] = None,
+                 widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PowerpackWidgetArgs', 'PowerpackWidgetArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -460,14 +460,14 @@ class Powerpack(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            layout: Optional[pulumi.Input[Union['PowerpackLayoutArgs', 'PowerpackLayoutArgsDict']]] = None,
-            live_span: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            show_title: Optional[pulumi.Input[_builtins.bool]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PowerpackTemplateVariableArgs', 'PowerpackTemplateVariableArgsDict']]]]] = None,
-            widgets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PowerpackWidgetArgs', 'PowerpackWidgetArgsDict']]]]] = None) -> 'Powerpack':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            layout: pulumi.Input[Optional[Union['PowerpackLayoutArgs', 'PowerpackLayoutArgsDict']]] = None,
+            live_span: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            show_title: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            template_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PowerpackTemplateVariableArgs', 'PowerpackTemplateVariableArgsDict']]]]] = None,
+            widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PowerpackWidgetArgs', 'PowerpackWidgetArgsDict']]]]] = None) -> 'Powerpack':
         """
         Get an existing Powerpack resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

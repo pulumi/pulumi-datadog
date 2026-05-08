@@ -84,11 +84,11 @@ export interface IntegrationTeamsWorkflowsWebhookHandleState {
     /**
      * Your Microsoft Workflows webhook handle name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Your Microsoft Workflows webhook URL.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**

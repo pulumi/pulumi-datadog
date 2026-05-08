@@ -144,19 +144,19 @@ export interface MonitorNotificationRuleState {
     /**
      * Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
      */
-    conditionalRecipients?: pulumi.Input<inputs.MonitorNotificationRuleConditionalRecipients>;
+    conditionalRecipients?: pulumi.Input<inputs.MonitorNotificationRuleConditionalRecipients | undefined>;
     /**
      * Specifies the matching criteria for monitor notifications.
      */
-    filter?: pulumi.Input<inputs.MonitorNotificationRuleFilter>;
+    filter?: pulumi.Input<inputs.MonitorNotificationRuleFilter | undefined>;
     /**
      * The name of the monitor notification rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * List of recipients to notify. Cannot be used with `conditionalRecipients`.
      */
-    recipients?: pulumi.Input<pulumi.Input<string>[]>;
+    recipients?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -166,7 +166,7 @@ export interface MonitorNotificationRuleArgs {
     /**
      * Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
      */
-    conditionalRecipients?: pulumi.Input<inputs.MonitorNotificationRuleConditionalRecipients>;
+    conditionalRecipients?: pulumi.Input<inputs.MonitorNotificationRuleConditionalRecipients | undefined>;
     /**
      * Specifies the matching criteria for monitor notifications.
      */
@@ -178,5 +178,5 @@ export interface MonitorNotificationRuleArgs {
     /**
      * List of recipients to notify. Cannot be used with `conditionalRecipients`.
      */
-    recipients?: pulumi.Input<pulumi.Input<string>[]>;
+    recipients?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

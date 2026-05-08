@@ -143,27 +143,27 @@ export interface ServiceAccountApplicationKeyState {
     /**
      * Creation date of the application key.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * The value of the service account application key. This value cannot be imported.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * The last four characters of the application key.
      */
-    last4?: pulumi.Input<string>;
+    last4?: pulumi.Input<string | undefined>;
     /**
      * Name of the application key.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ID of the service account that owns this key.
      */
-    serviceAccountId?: pulumi.Input<string>;
+    serviceAccountId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -177,7 +177,7 @@ export interface ServiceAccountApplicationKeyArgs {
     /**
      * Authorization scopes for the Application Key. Application Keys configured with no scopes have full access.
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ID of the service account that owns this key.
      */

@@ -20,12 +20,12 @@ __all__ = ['MetricMetadataArgs', 'MetricMetadata']
 class MetricMetadataArgs:
     def __init__(__self__, *,
                  metric: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 per_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 short_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 statsd_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 unit: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 per_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 short_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 statsd_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 unit: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MetricMetadata resource.
 
@@ -65,87 +65,87 @@ class MetricMetadataArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the metric.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="perUnit")
-    def per_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def per_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Per unit of the metric such as `second` in `bytes per second`.
         """
         return pulumi.get(self, "per_unit")
 
     @per_unit.setter
-    def per_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def per_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "per_unit", value)
 
     @_builtins.property
     @pulumi.getter(name="shortName")
-    def short_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def short_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A short name of the metric.
         """
         return pulumi.get(self, "short_name")
 
     @short_name.setter
-    def short_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def short_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "short_name", value)
 
     @_builtins.property
     @pulumi.getter(name="statsdInterval")
-    def statsd_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def statsd_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If applicable, statsd flush interval in seconds for the metric.
         """
         return pulumi.get(self, "statsd_interval")
 
     @statsd_interval.setter
-    def statsd_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def statsd_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "statsd_interval", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Primary unit of the metric such as `byte` or `operation`. For a list of allowed units, refer to [Datadog metric unit documentation](https://docs.datadoghq.com/metrics/units/#unit-list).
         """
         return pulumi.get(self, "unit")
 
     @unit.setter
-    def unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unit", value)
 
 
 @pulumi.input_type
 class _MetricMetadataState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric: Optional[pulumi.Input[_builtins.str]] = None,
-                 per_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 short_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 statsd_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 unit: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric: pulumi.Input[Optional[_builtins.str]] = None,
+                 per_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 short_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 statsd_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 unit: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MetricMetadata resources.
 
@@ -174,86 +174,86 @@ class _MetricMetadataState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the metric.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def metric(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the metric.
         """
         return pulumi.get(self, "metric")
 
     @metric.setter
-    def metric(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric", value)
 
     @_builtins.property
     @pulumi.getter(name="perUnit")
-    def per_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def per_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Per unit of the metric such as `second` in `bytes per second`.
         """
         return pulumi.get(self, "per_unit")
 
     @per_unit.setter
-    def per_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def per_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "per_unit", value)
 
     @_builtins.property
     @pulumi.getter(name="shortName")
-    def short_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def short_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A short name of the metric.
         """
         return pulumi.get(self, "short_name")
 
     @short_name.setter
-    def short_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def short_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "short_name", value)
 
     @_builtins.property
     @pulumi.getter(name="statsdInterval")
-    def statsd_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def statsd_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If applicable, statsd flush interval in seconds for the metric.
         """
         return pulumi.get(self, "statsd_interval")
 
     @statsd_interval.setter
-    def statsd_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def statsd_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "statsd_interval", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Primary unit of the metric such as `byte` or `operation`. For a list of allowed units, refer to [Datadog metric unit documentation](https://docs.datadoghq.com/metrics/units/#unit-list).
         """
         return pulumi.get(self, "unit")
 
     @unit.setter
-    def unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unit", value)
 
 
@@ -263,13 +263,13 @@ class MetricMetadata(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric: Optional[pulumi.Input[_builtins.str]] = None,
-                 per_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 short_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 statsd_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 unit: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric: pulumi.Input[Optional[_builtins.str]] = None,
+                 per_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 short_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 statsd_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 unit: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog metric_metadata resource. This can be used to manage a metric's metadata.
@@ -356,13 +356,13 @@ class MetricMetadata(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric: Optional[pulumi.Input[_builtins.str]] = None,
-                 per_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 short_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 statsd_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 unit: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric: pulumi.Input[Optional[_builtins.str]] = None,
+                 per_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 short_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 statsd_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 unit: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -391,13 +391,13 @@ class MetricMetadata(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            metric: Optional[pulumi.Input[_builtins.str]] = None,
-            per_unit: Optional[pulumi.Input[_builtins.str]] = None,
-            short_name: Optional[pulumi.Input[_builtins.str]] = None,
-            statsd_interval: Optional[pulumi.Input[_builtins.int]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            unit: Optional[pulumi.Input[_builtins.str]] = None) -> 'MetricMetadata':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            metric: pulumi.Input[Optional[_builtins.str]] = None,
+            per_unit: pulumi.Input[Optional[_builtins.str]] = None,
+            short_name: pulumi.Input[Optional[_builtins.str]] = None,
+            statsd_interval: pulumi.Input[Optional[_builtins.int]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            unit: pulumi.Input[Optional[_builtins.str]] = None) -> 'MetricMetadata':
         """
         Get an existing MetricMetadata resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

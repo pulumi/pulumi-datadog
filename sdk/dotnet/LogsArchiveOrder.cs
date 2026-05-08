@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sampleArchiveOrder = new Datadog.Index.LogsArchiveOrder("sample_archive_order", new()
+    ///     var sampleArchiveOrder = new Datadog.LogsArchiveOrder("sample_archive_order", new()
     ///     {
     ///         ArchiveIds = new[]
     ///         {

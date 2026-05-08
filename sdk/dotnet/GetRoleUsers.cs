@@ -25,13 +25,13 @@ namespace Pulumi.Datadog
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get the API Key Manager role
-        ///     var apiKeyManager = Datadog.Index.GetRole.Invoke(new()
+        ///     var apiKeyManager = Datadog.GetRole.Invoke(new()
         ///     {
         ///         Filter = "API Key Manager",
         ///     });
         /// 
         ///     // List users assigned to the API Key Manager role
-        ///     var apiKeyManagers = Datadog.Index.GetRoleUsers.Invoke(new()
+        ///     var apiKeyManagers = Datadog.GetRoleUsers.Invoke(new()
         ///     {
         ///         RoleId = apiKeyManager.Apply(getRoleResult =&gt; getRoleResult.Id),
         ///     });
@@ -56,13 +56,13 @@ namespace Pulumi.Datadog
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get the API Key Manager role
-        ///     var apiKeyManager = Datadog.Index.GetRole.Invoke(new()
+        ///     var apiKeyManager = Datadog.GetRole.Invoke(new()
         ///     {
         ///         Filter = "API Key Manager",
         ///     });
         /// 
         ///     // List users assigned to the API Key Manager role
-        ///     var apiKeyManagers = Datadog.Index.GetRoleUsers.Invoke(new()
+        ///     var apiKeyManagers = Datadog.GetRoleUsers.Invoke(new()
         ///     {
         ///         RoleId = apiKeyManager.Apply(getRoleResult =&gt; getRoleResult.Id),
         ///     });
@@ -87,13 +87,13 @@ namespace Pulumi.Datadog
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get the API Key Manager role
-        ///     var apiKeyManager = Datadog.Index.GetRole.Invoke(new()
+        ///     var apiKeyManager = Datadog.GetRole.Invoke(new()
         ///     {
         ///         Filter = "API Key Manager",
         ///     });
         /// 
         ///     // List users assigned to the API Key Manager role
-        ///     var apiKeyManagers = Datadog.Index.GetRoleUsers.Invoke(new()
+        ///     var apiKeyManagers = Datadog.GetRoleUsers.Invoke(new()
         ///     {
         ///         RoleId = apiKeyManager.Apply(getRoleResult =&gt; getRoleResult.Id),
         ///     });

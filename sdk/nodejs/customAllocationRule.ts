@@ -169,51 +169,51 @@ export class CustomAllocationRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CustomAllocationRule resources.
  */
 export interface CustomAllocationRuleState {
-    costsToAllocates?: pulumi.Input<pulumi.Input<inputs.CustomAllocationRuleCostsToAllocate>[]>;
+    costsToAllocates?: pulumi.Input<pulumi.Input<inputs.CustomAllocationRuleCostsToAllocate>[] | undefined>;
     /**
      * The timestamp (in ISO 8601 format) when the rule was created.
      */
-    created?: pulumi.Input<string>;
+    created?: pulumi.Input<string | undefined>;
     /**
      * Whether the custom allocation rule is enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The UUID of the user who last modified the rule.
      */
-    lastModifiedUserUuid?: pulumi.Input<string>;
+    lastModifiedUserUuid?: pulumi.Input<string | undefined>;
     /**
      * The order of the rule in the list of custom allocation rules. This field is read-only. Use the `datadog.CustomAllocationRules` resource to manage rule order.
      */
-    orderId?: pulumi.Input<number>;
+    orderId?: pulumi.Input<number | undefined>;
     /**
      * List of cloud providers the rule applies to. Valid values include `aws`, `azure`, and `gcp`.
      */
-    providernames?: pulumi.Input<pulumi.Input<string>[]>;
+    providernames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether the rule was rejected by the API during creation due to validation errors. This field is read-only.
      */
-    rejected?: pulumi.Input<boolean>;
+    rejected?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the custom allocation rule. This field is immutable - changing it will force replacement of the resource.
      */
-    ruleName?: pulumi.Input<string>;
-    strategy?: pulumi.Input<inputs.CustomAllocationRuleStrategy>;
+    ruleName?: pulumi.Input<string | undefined>;
+    strategy?: pulumi.Input<inputs.CustomAllocationRuleStrategy | undefined>;
     /**
      * The timestamp (in ISO 8601 format) when the rule was last updated.
      */
-    updated?: pulumi.Input<string>;
+    updated?: pulumi.Input<string | undefined>;
     /**
      * The version number of the rule. This increments each time the rule is updated.
      */
-    version?: pulumi.Input<number>;
+    version?: pulumi.Input<number | undefined>;
 }
 
 /**
  * The set of arguments for constructing a CustomAllocationRule resource.
  */
 export interface CustomAllocationRuleArgs {
-    costsToAllocates?: pulumi.Input<pulumi.Input<inputs.CustomAllocationRuleCostsToAllocate>[]>;
+    costsToAllocates?: pulumi.Input<pulumi.Input<inputs.CustomAllocationRuleCostsToAllocate>[] | undefined>;
     /**
      * Whether the custom allocation rule is enabled.
      */
@@ -226,5 +226,5 @@ export interface CustomAllocationRuleArgs {
      * The name of the custom allocation rule. This field is immutable - changing it will force replacement of the resource.
      */
     ruleName: pulumi.Input<string>;
-    strategy?: pulumi.Input<inputs.CustomAllocationRuleStrategy>;
+    strategy?: pulumi.Input<inputs.CustomAllocationRuleStrategy | undefined>;
 }

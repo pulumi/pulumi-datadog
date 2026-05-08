@@ -121,31 +121,31 @@ export interface ChildOrganizationState {
     /**
      * Datadog API key.
      */
-    apiKeys?: pulumi.Input<pulumi.Input<inputs.ChildOrganizationApiKey>[]>;
+    apiKeys?: pulumi.Input<pulumi.Input<inputs.ChildOrganizationApiKey>[] | undefined>;
     /**
      * An application key with its associated metadata.
      */
-    applicationKeys?: pulumi.Input<pulumi.Input<inputs.ChildOrganizationApplicationKey>[]>;
+    applicationKeys?: pulumi.Input<pulumi.Input<inputs.ChildOrganizationApplicationKey>[] | undefined>;
     /**
      * Description of the organization.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name for Child Organization after creation.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The `publicId` of the organization you are operating within.
      */
-    publicId?: pulumi.Input<string>;
+    publicId?: pulumi.Input<string | undefined>;
     /**
      * Organization settings
      */
-    settings?: pulumi.Input<pulumi.Input<inputs.ChildOrganizationSetting>[]>;
+    settings?: pulumi.Input<pulumi.Input<inputs.ChildOrganizationSetting>[] | undefined>;
     /**
      * Information about a user
      */
-    users?: pulumi.Input<pulumi.Input<inputs.ChildOrganizationUser>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.ChildOrganizationUser>[] | undefined>;
 }
 
 /**

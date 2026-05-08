@@ -229,10 +229,10 @@ def get_service_account(exact_match: Optional[_builtins.bool] = None,
         status=pulumi.get(__ret__, 'status'),
         title=pulumi.get(__ret__, 'title'),
         verified=pulumi.get(__ret__, 'verified'))
-def get_service_account_output(exact_match: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                               filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               filter_status: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_service_account_output(exact_match: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                               filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               filter_status: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceAccountResult]:
     """
     Use this data source to retrieve information about an existing Datadog service account.

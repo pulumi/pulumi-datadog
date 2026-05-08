@@ -23,14 +23,14 @@ class LogsIndexArgs:
     def __init__(__self__, *,
                  filters: pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]],
                  name: pulumi.Input[_builtins.str],
-                 daily_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 daily_limit_reset: Optional[pulumi.Input['LogsIndexDailyLimitResetArgs']] = None,
-                 daily_limit_warning_threshold_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 disable_daily_limit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]] = None,
-                 flex_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 daily_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 daily_limit_reset: pulumi.Input[Optional['LogsIndexDailyLimitResetArgs']] = None,
+                 daily_limit_warning_threshold_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 disable_daily_limit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]] = None,
+                 flex_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LogsIndex resource.
 
@@ -90,114 +90,114 @@ class LogsIndexArgs:
 
     @_builtins.property
     @pulumi.getter(name="dailyLimit")
-    def daily_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def daily_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of log events you can send in this index per day before you are rate-limited.
         """
         return pulumi.get(self, "daily_limit")
 
     @daily_limit.setter
-    def daily_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def daily_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "daily_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="dailyLimitReset")
-    def daily_limit_reset(self) -> Optional[pulumi.Input['LogsIndexDailyLimitResetArgs']]:
+    def daily_limit_reset(self) -> pulumi.Input[Optional['LogsIndexDailyLimitResetArgs']]:
         """
         Object containing options to override the default daily limit reset time.
         """
         return pulumi.get(self, "daily_limit_reset")
 
     @daily_limit_reset.setter
-    def daily_limit_reset(self, value: Optional[pulumi.Input['LogsIndexDailyLimitResetArgs']]):
+    def daily_limit_reset(self, value: pulumi.Input[Optional['LogsIndexDailyLimitResetArgs']]):
         pulumi.set(self, "daily_limit_reset", value)
 
     @_builtins.property
     @pulumi.getter(name="dailyLimitWarningThresholdPercentage")
-    def daily_limit_warning_threshold_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def daily_limit_warning_threshold_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         A percentage threshold of the daily quota at which a Datadog warning event is generated.
         """
         return pulumi.get(self, "daily_limit_warning_threshold_percentage")
 
     @daily_limit_warning_threshold_percentage.setter
-    def daily_limit_warning_threshold_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def daily_limit_warning_threshold_percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "daily_limit_warning_threshold_percentage", value)
 
     @_builtins.property
     @pulumi.getter(name="disableDailyLimit")
-    def disable_daily_limit(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_daily_limit(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, disables the daily limit and sets `daily_limit` to null. If false, enables the daily limit. When creating an index, if this attribute is omitted, the daily limit is enabled by default. When updating an index, if this attribute is omitted, the existing value is preserved. Providing a `daily_limit` value does not re-enable the limit if it was previously disabled unless `disable_daily_limit` is explicitly set to false.
         """
         return pulumi.get(self, "disable_daily_limit")
 
     @disable_daily_limit.setter
-    def disable_daily_limit(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_daily_limit(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_daily_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="exclusionFilters")
-    def exclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]]:
+    def exclusion_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]]:
         """
         List of exclusion filters.
         """
         return pulumi.get(self, "exclusion_filters")
 
     @exclusion_filters.setter
-    def exclusion_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]]):
+    def exclusion_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]]):
         pulumi.set(self, "exclusion_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="flexRetentionDays")
-    def flex_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def flex_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
         """
         return pulumi.get(self, "flex_retention_days")
 
     @flex_retention_days.setter
-    def flex_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def flex_retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "flex_retention_days", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionDays")
-    def retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
         """
         return pulumi.get(self, "retention_days")
 
     @retention_days.setter
-    def retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _LogsIndexState:
     def __init__(__self__, *,
-                 daily_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 daily_limit_reset: Optional[pulumi.Input['LogsIndexDailyLimitResetArgs']] = None,
-                 daily_limit_warning_threshold_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 disable_daily_limit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]]] = None,
-                 flex_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 daily_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 daily_limit_reset: pulumi.Input[Optional['LogsIndexDailyLimitResetArgs']] = None,
+                 daily_limit_warning_threshold_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 disable_daily_limit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input['LogsIndexFilterArgs']]]] = None,
+                 flex_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LogsIndex resources.
 
@@ -235,122 +235,122 @@ class _LogsIndexState:
 
     @_builtins.property
     @pulumi.getter(name="dailyLimit")
-    def daily_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def daily_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of log events you can send in this index per day before you are rate-limited.
         """
         return pulumi.get(self, "daily_limit")
 
     @daily_limit.setter
-    def daily_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def daily_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "daily_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="dailyLimitReset")
-    def daily_limit_reset(self) -> Optional[pulumi.Input['LogsIndexDailyLimitResetArgs']]:
+    def daily_limit_reset(self) -> pulumi.Input[Optional['LogsIndexDailyLimitResetArgs']]:
         """
         Object containing options to override the default daily limit reset time.
         """
         return pulumi.get(self, "daily_limit_reset")
 
     @daily_limit_reset.setter
-    def daily_limit_reset(self, value: Optional[pulumi.Input['LogsIndexDailyLimitResetArgs']]):
+    def daily_limit_reset(self, value: pulumi.Input[Optional['LogsIndexDailyLimitResetArgs']]):
         pulumi.set(self, "daily_limit_reset", value)
 
     @_builtins.property
     @pulumi.getter(name="dailyLimitWarningThresholdPercentage")
-    def daily_limit_warning_threshold_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def daily_limit_warning_threshold_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         A percentage threshold of the daily quota at which a Datadog warning event is generated.
         """
         return pulumi.get(self, "daily_limit_warning_threshold_percentage")
 
     @daily_limit_warning_threshold_percentage.setter
-    def daily_limit_warning_threshold_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def daily_limit_warning_threshold_percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "daily_limit_warning_threshold_percentage", value)
 
     @_builtins.property
     @pulumi.getter(name="disableDailyLimit")
-    def disable_daily_limit(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_daily_limit(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, disables the daily limit and sets `daily_limit` to null. If false, enables the daily limit. When creating an index, if this attribute is omitted, the daily limit is enabled by default. When updating an index, if this attribute is omitted, the existing value is preserved. Providing a `daily_limit` value does not re-enable the limit if it was previously disabled unless `disable_daily_limit` is explicitly set to false.
         """
         return pulumi.get(self, "disable_daily_limit")
 
     @disable_daily_limit.setter
-    def disable_daily_limit(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_daily_limit(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_daily_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="exclusionFilters")
-    def exclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]]:
+    def exclusion_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]]:
         """
         List of exclusion filters.
         """
         return pulumi.get(self, "exclusion_filters")
 
     @exclusion_filters.setter
-    def exclusion_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]]):
+    def exclusion_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]]):
         pulumi.set(self, "exclusion_filters", value)
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]]]:
+    def filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LogsIndexFilterArgs']]]]:
         """
         Logs filter
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]]]):
+    def filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LogsIndexFilterArgs']]]]):
         pulumi.set(self, "filters", value)
 
     @_builtins.property
     @pulumi.getter(name="flexRetentionDays")
-    def flex_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def flex_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
         """
         return pulumi.get(self, "flex_retention_days")
 
     @flex_retention_days.setter
-    def flex_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def flex_retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "flex_retention_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionDays")
-    def retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
         """
         return pulumi.get(self, "retention_days")
 
     @retention_days.setter
-    def retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -360,16 +360,16 @@ class LogsIndex(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 daily_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 daily_limit_reset: Optional[pulumi.Input[Union['LogsIndexDailyLimitResetArgs', 'LogsIndexDailyLimitResetArgsDict']]] = None,
-                 daily_limit_warning_threshold_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 disable_daily_limit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexExclusionFilterArgs', 'LogsIndexExclusionFilterArgsDict']]]]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexFilterArgs', 'LogsIndexFilterArgsDict']]]]] = None,
-                 flex_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 daily_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 daily_limit_reset: pulumi.Input[Optional[Union['LogsIndexDailyLimitResetArgs', 'LogsIndexDailyLimitResetArgsDict']]] = None,
+                 daily_limit_warning_threshold_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 disable_daily_limit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsIndexExclusionFilterArgs', 'LogsIndexExclusionFilterArgsDict']]]]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsIndexFilterArgs', 'LogsIndexFilterArgsDict']]]]] = None,
+                 flex_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a Datadog Logs Index API resource. This can be used to create and manage Datadog logs indexes.
@@ -388,7 +388,7 @@ class LogsIndex(pulumi.CustomResource):
                 "reset_time": "14:00",
                 "reset_utc_offset": "+02:00",
             },
-            daily_limit_warning_threshold_percentage=50,
+            daily_limit_warning_threshold_percentage=float(50),
             retention_days=7,
             flex_retention_days=180,
             filters=[{
@@ -408,7 +408,7 @@ class LogsIndex(pulumi.CustomResource):
                     "is_enabled": True,
                     "filters": [{
                         "query": "service:kube_apiserver",
-                        "sample_rate": 1,
+                        "sample_rate": float(1),
                     }],
                 },
             ],
@@ -463,7 +463,7 @@ class LogsIndex(pulumi.CustomResource):
                 "reset_time": "14:00",
                 "reset_utc_offset": "+02:00",
             },
-            daily_limit_warning_threshold_percentage=50,
+            daily_limit_warning_threshold_percentage=float(50),
             retention_days=7,
             flex_retention_days=180,
             filters=[{
@@ -483,7 +483,7 @@ class LogsIndex(pulumi.CustomResource):
                     "is_enabled": True,
                     "filters": [{
                         "query": "service:kube_apiserver",
-                        "sample_rate": 1,
+                        "sample_rate": float(1),
                     }],
                 },
             ],
@@ -517,16 +517,16 @@ class LogsIndex(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 daily_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 daily_limit_reset: Optional[pulumi.Input[Union['LogsIndexDailyLimitResetArgs', 'LogsIndexDailyLimitResetArgsDict']]] = None,
-                 daily_limit_warning_threshold_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 disable_daily_limit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexExclusionFilterArgs', 'LogsIndexExclusionFilterArgsDict']]]]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexFilterArgs', 'LogsIndexFilterArgsDict']]]]] = None,
-                 flex_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 daily_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 daily_limit_reset: pulumi.Input[Optional[Union['LogsIndexDailyLimitResetArgs', 'LogsIndexDailyLimitResetArgsDict']]] = None,
+                 daily_limit_warning_threshold_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 disable_daily_limit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsIndexExclusionFilterArgs', 'LogsIndexExclusionFilterArgsDict']]]]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsIndexFilterArgs', 'LogsIndexFilterArgsDict']]]]] = None,
+                 flex_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -560,16 +560,16 @@ class LogsIndex(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            daily_limit: Optional[pulumi.Input[_builtins.int]] = None,
-            daily_limit_reset: Optional[pulumi.Input[Union['LogsIndexDailyLimitResetArgs', 'LogsIndexDailyLimitResetArgsDict']]] = None,
-            daily_limit_warning_threshold_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-            disable_daily_limit: Optional[pulumi.Input[_builtins.bool]] = None,
-            exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexExclusionFilterArgs', 'LogsIndexExclusionFilterArgsDict']]]]] = None,
-            filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexFilterArgs', 'LogsIndexFilterArgsDict']]]]] = None,
-            flex_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'LogsIndex':
+            daily_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            daily_limit_reset: pulumi.Input[Optional[Union['LogsIndexDailyLimitResetArgs', 'LogsIndexDailyLimitResetArgsDict']]] = None,
+            daily_limit_warning_threshold_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+            disable_daily_limit: pulumi.Input[Optional[_builtins.bool]] = None,
+            exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsIndexExclusionFilterArgs', 'LogsIndexExclusionFilterArgsDict']]]]] = None,
+            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsIndexFilterArgs', 'LogsIndexFilterArgsDict']]]]] = None,
+            flex_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'LogsIndex':
         """
         Get an existing LogsIndex resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -43,7 +43,7 @@ class SecurityMonitoringRuleJsonArgs:
 @pulumi.input_type
 class _SecurityMonitoringRuleJsonState:
     def __init__(__self__, *,
-                 json: Optional[pulumi.Input[_builtins.str]] = None):
+                 json: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecurityMonitoringRuleJson resources.
 
@@ -54,14 +54,14 @@ class _SecurityMonitoringRuleJsonState:
 
     @_builtins.property
     @pulumi.getter
-    def json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The JSON definition of the Security Monitoring Rule.
         """
         return pulumi.get(self, "json")
 
     @json.setter
-    def json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "json", value)
 
 
@@ -71,7 +71,7 @@ class SecurityMonitoringRuleJson(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 json: Optional[pulumi.Input[_builtins.str]] = None,
+                 json: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog Security Monitoring Rule JSON resource. This can be used to create and manage Datadog security monitoring rules using raw JSON.
@@ -216,7 +216,7 @@ class SecurityMonitoringRuleJson(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 json: Optional[pulumi.Input[_builtins.str]] = None,
+                 json: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -239,7 +239,7 @@ class SecurityMonitoringRuleJson(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            json: Optional[pulumi.Input[_builtins.str]] = None) -> 'SecurityMonitoringRuleJson':
+            json: pulumi.Input[Optional[_builtins.str]] = None) -> 'SecurityMonitoringRuleJson':
         """
         Get an existing SecurityMonitoringRuleJson resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -78,5 +78,5 @@ export interface GetMetricActiveTagsAndAggregationsOutputArgs {
     /**
      * The number of seconds to look back from now.
      */
-    window?: pulumi.Input<number>;
+    window?: pulumi.Input<number | undefined>;
 }

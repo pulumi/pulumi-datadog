@@ -92,5 +92,5 @@ export interface GetDatastoreOutputArgs {
     /**
      * The unique identifier of the datastore to retrieve. If not specified, returns a single datastore from the list.
      */
-    datastoreId?: pulumi.Input<string>;
+    datastoreId?: pulumi.Input<string | undefined>;
 }

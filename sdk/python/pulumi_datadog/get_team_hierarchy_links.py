@@ -135,9 +135,9 @@ def get_team_hierarchy_links(filter_parent_team: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         link_id=pulumi.get(__ret__, 'link_id'),
         provisioned_by=pulumi.get(__ret__, 'provisioned_by'))
-def get_team_hierarchy_links_output(filter_parent_team: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                    filter_sub_team: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                    link_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_team_hierarchy_links_output(filter_parent_team: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    filter_sub_team: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    link_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTeamHierarchyLinksResult]:
     """
     Use this data source to retrieve information about existing Datadog Team Hierarchy Links.

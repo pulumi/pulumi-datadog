@@ -22,9 +22,9 @@ __all__ = ['CloudInventorySyncConfigArgs', 'CloudInventorySyncConfig']
 class CloudInventorySyncConfigArgs:
     def __init__(__self__, *,
                  cloud_provider: pulumi.Input[_builtins.str],
-                 aws: Optional[pulumi.Input['CloudInventorySyncConfigAwsArgs']] = None,
-                 azure: Optional[pulumi.Input['CloudInventorySyncConfigAzureArgs']] = None,
-                 gcp: Optional[pulumi.Input['CloudInventorySyncConfigGcpArgs']] = None):
+                 aws: pulumi.Input[Optional['CloudInventorySyncConfigAwsArgs']] = None,
+                 azure: pulumi.Input[Optional['CloudInventorySyncConfigAzureArgs']] = None,
+                 gcp: pulumi.Input[Optional['CloudInventorySyncConfigGcpArgs']] = None):
         """
         The set of arguments for constructing a CloudInventorySyncConfig resource.
 
@@ -55,48 +55,48 @@ class CloudInventorySyncConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def aws(self) -> Optional[pulumi.Input['CloudInventorySyncConfigAwsArgs']]:
+    def aws(self) -> pulumi.Input[Optional['CloudInventorySyncConfigAwsArgs']]:
         """
         AWS-specific configuration. Required when cloud_provider is `aws`.
         """
         return pulumi.get(self, "aws")
 
     @aws.setter
-    def aws(self, value: Optional[pulumi.Input['CloudInventorySyncConfigAwsArgs']]):
+    def aws(self, value: pulumi.Input[Optional['CloudInventorySyncConfigAwsArgs']]):
         pulumi.set(self, "aws", value)
 
     @_builtins.property
     @pulumi.getter
-    def azure(self) -> Optional[pulumi.Input['CloudInventorySyncConfigAzureArgs']]:
+    def azure(self) -> pulumi.Input[Optional['CloudInventorySyncConfigAzureArgs']]:
         """
         Azure-specific configuration. Required when cloud_provider is `azure`.
         """
         return pulumi.get(self, "azure")
 
     @azure.setter
-    def azure(self, value: Optional[pulumi.Input['CloudInventorySyncConfigAzureArgs']]):
+    def azure(self, value: pulumi.Input[Optional['CloudInventorySyncConfigAzureArgs']]):
         pulumi.set(self, "azure", value)
 
     @_builtins.property
     @pulumi.getter
-    def gcp(self) -> Optional[pulumi.Input['CloudInventorySyncConfigGcpArgs']]:
+    def gcp(self) -> pulumi.Input[Optional['CloudInventorySyncConfigGcpArgs']]:
         """
         GCP-specific configuration. Required when cloud_provider is `gcp`.
         """
         return pulumi.get(self, "gcp")
 
     @gcp.setter
-    def gcp(self, value: Optional[pulumi.Input['CloudInventorySyncConfigGcpArgs']]):
+    def gcp(self, value: pulumi.Input[Optional['CloudInventorySyncConfigGcpArgs']]):
         pulumi.set(self, "gcp", value)
 
 
 @pulumi.input_type
 class _CloudInventorySyncConfigState:
     def __init__(__self__, *,
-                 aws: Optional[pulumi.Input['CloudInventorySyncConfigAwsArgs']] = None,
-                 azure: Optional[pulumi.Input['CloudInventorySyncConfigAzureArgs']] = None,
-                 cloud_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 gcp: Optional[pulumi.Input['CloudInventorySyncConfigGcpArgs']] = None):
+                 aws: pulumi.Input[Optional['CloudInventorySyncConfigAwsArgs']] = None,
+                 azure: pulumi.Input[Optional['CloudInventorySyncConfigAzureArgs']] = None,
+                 cloud_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 gcp: pulumi.Input[Optional['CloudInventorySyncConfigGcpArgs']] = None):
         """
         Input properties used for looking up and filtering CloudInventorySyncConfig resources.
 
@@ -116,50 +116,50 @@ class _CloudInventorySyncConfigState:
 
     @_builtins.property
     @pulumi.getter
-    def aws(self) -> Optional[pulumi.Input['CloudInventorySyncConfigAwsArgs']]:
+    def aws(self) -> pulumi.Input[Optional['CloudInventorySyncConfigAwsArgs']]:
         """
         AWS-specific configuration. Required when cloud_provider is `aws`.
         """
         return pulumi.get(self, "aws")
 
     @aws.setter
-    def aws(self, value: Optional[pulumi.Input['CloudInventorySyncConfigAwsArgs']]):
+    def aws(self, value: pulumi.Input[Optional['CloudInventorySyncConfigAwsArgs']]):
         pulumi.set(self, "aws", value)
 
     @_builtins.property
     @pulumi.getter
-    def azure(self) -> Optional[pulumi.Input['CloudInventorySyncConfigAzureArgs']]:
+    def azure(self) -> pulumi.Input[Optional['CloudInventorySyncConfigAzureArgs']]:
         """
         Azure-specific configuration. Required when cloud_provider is `azure`.
         """
         return pulumi.get(self, "azure")
 
     @azure.setter
-    def azure(self, value: Optional[pulumi.Input['CloudInventorySyncConfigAzureArgs']]):
+    def azure(self, value: pulumi.Input[Optional['CloudInventorySyncConfigAzureArgs']]):
         pulumi.set(self, "azure", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudProvider")
-    def cloud_provider(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud_provider(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cloud provider type. Valid values are `aws`, `azure`, `gcp`.
         """
         return pulumi.get(self, "cloud_provider")
 
     @cloud_provider.setter
-    def cloud_provider(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud_provider(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud_provider", value)
 
     @_builtins.property
     @pulumi.getter
-    def gcp(self) -> Optional[pulumi.Input['CloudInventorySyncConfigGcpArgs']]:
+    def gcp(self) -> pulumi.Input[Optional['CloudInventorySyncConfigGcpArgs']]:
         """
         GCP-specific configuration. Required when cloud_provider is `gcp`.
         """
         return pulumi.get(self, "gcp")
 
     @gcp.setter
-    def gcp(self, value: Optional[pulumi.Input['CloudInventorySyncConfigGcpArgs']]):
+    def gcp(self, value: pulumi.Input[Optional['CloudInventorySyncConfigGcpArgs']]):
         pulumi.set(self, "gcp", value)
 
 
@@ -169,10 +169,10 @@ class CloudInventorySyncConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[Union['CloudInventorySyncConfigAwsArgs', 'CloudInventorySyncConfigAwsArgsDict']]] = None,
-                 azure: Optional[pulumi.Input[Union['CloudInventorySyncConfigAzureArgs', 'CloudInventorySyncConfigAzureArgsDict']]] = None,
-                 cloud_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 gcp: Optional[pulumi.Input[Union['CloudInventorySyncConfigGcpArgs', 'CloudInventorySyncConfigGcpArgsDict']]] = None,
+                 aws: pulumi.Input[Optional[Union['CloudInventorySyncConfigAwsArgs', 'CloudInventorySyncConfigAwsArgsDict']]] = None,
+                 azure: pulumi.Input[Optional[Union['CloudInventorySyncConfigAzureArgs', 'CloudInventorySyncConfigAzureArgsDict']]] = None,
+                 cloud_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 gcp: pulumi.Input[Optional[Union['CloudInventorySyncConfigGcpArgs', 'CloudInventorySyncConfigGcpArgsDict']]] = None,
                  __props__=None):
         """
         Provides a Datadog CloudInventorySyncConfig resource. This can be used to create and manage Datadog cloud_inventory_sync_config.
@@ -304,10 +304,10 @@ class CloudInventorySyncConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[Union['CloudInventorySyncConfigAwsArgs', 'CloudInventorySyncConfigAwsArgsDict']]] = None,
-                 azure: Optional[pulumi.Input[Union['CloudInventorySyncConfigAzureArgs', 'CloudInventorySyncConfigAzureArgsDict']]] = None,
-                 cloud_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 gcp: Optional[pulumi.Input[Union['CloudInventorySyncConfigGcpArgs', 'CloudInventorySyncConfigGcpArgsDict']]] = None,
+                 aws: pulumi.Input[Optional[Union['CloudInventorySyncConfigAwsArgs', 'CloudInventorySyncConfigAwsArgsDict']]] = None,
+                 azure: pulumi.Input[Optional[Union['CloudInventorySyncConfigAzureArgs', 'CloudInventorySyncConfigAzureArgsDict']]] = None,
+                 cloud_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 gcp: pulumi.Input[Optional[Union['CloudInventorySyncConfigGcpArgs', 'CloudInventorySyncConfigGcpArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -333,10 +333,10 @@ class CloudInventorySyncConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws: Optional[pulumi.Input[Union['CloudInventorySyncConfigAwsArgs', 'CloudInventorySyncConfigAwsArgsDict']]] = None,
-            azure: Optional[pulumi.Input[Union['CloudInventorySyncConfigAzureArgs', 'CloudInventorySyncConfigAzureArgsDict']]] = None,
-            cloud_provider: Optional[pulumi.Input[_builtins.str]] = None,
-            gcp: Optional[pulumi.Input[Union['CloudInventorySyncConfigGcpArgs', 'CloudInventorySyncConfigGcpArgsDict']]] = None) -> 'CloudInventorySyncConfig':
+            aws: pulumi.Input[Optional[Union['CloudInventorySyncConfigAwsArgs', 'CloudInventorySyncConfigAwsArgsDict']]] = None,
+            azure: pulumi.Input[Optional[Union['CloudInventorySyncConfigAzureArgs', 'CloudInventorySyncConfigAzureArgsDict']]] = None,
+            cloud_provider: pulumi.Input[Optional[_builtins.str]] = None,
+            gcp: pulumi.Input[Optional[Union['CloudInventorySyncConfigGcpArgs', 'CloudInventorySyncConfigGcpArgsDict']]] = None) -> 'CloudInventorySyncConfig':
         """
         Get an existing CloudInventorySyncConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

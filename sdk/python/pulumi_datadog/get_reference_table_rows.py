@@ -111,9 +111,9 @@ def get_reference_table_rows(row_ids: Optional[Sequence[_builtins.str]] = None,
         row_ids=pulumi.get(__ret__, 'row_ids'),
         rows=pulumi.get(__ret__, 'rows'),
         table_id=pulumi.get(__ret__, 'table_id'))
-def get_reference_table_rows_output(row_ids: Optional[pulumi.Input[Sequence[_builtins.str]]] = None,
-                                    rows: Optional[pulumi.Input[Optional[Sequence[Union['GetReferenceTableRowsRowArgs', 'GetReferenceTableRowsRowArgsDict']]]]] = None,
-                                    table_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_reference_table_rows_output(row_ids: pulumi.Input[Optional[Sequence[_builtins.str]]] = None,
+                                    rows: pulumi.Input[Optional[Optional[Sequence[Union['GetReferenceTableRowsRowArgs', 'GetReferenceTableRowsRowArgsDict']]]]] = None,
+                                    table_id: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReferenceTableRowsResult]:
     """
     Use this data source to retrieve specific rows from a Datadog reference table by their primary key values. Works with all reference table source types.

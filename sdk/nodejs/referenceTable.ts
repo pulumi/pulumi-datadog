@@ -237,47 +237,47 @@ export interface ReferenceTableState {
     /**
      * UUID of the user who created the reference table.
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * The description of the reference table.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Configuration for cloud storage file access and sync settings.
      */
-    fileMetadata?: pulumi.Input<inputs.ReferenceTableFileMetadata>;
+    fileMetadata?: pulumi.Input<inputs.ReferenceTableFileMetadata | undefined>;
     /**
      * UUID of the user who last updated the reference table.
      */
-    lastUpdatedBy?: pulumi.Input<string>;
+    lastUpdatedBy?: pulumi.Input<string | undefined>;
     /**
      * The number of successfully processed rows in the reference table.
      */
-    rowCount?: pulumi.Input<number>;
+    rowCount?: pulumi.Input<number | undefined>;
     /**
      * The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
      */
-    schema?: pulumi.Input<inputs.ReferenceTableSchema>;
+    schema?: pulumi.Input<inputs.ReferenceTableSchema | undefined>;
     /**
      * The source type for the reference table. Valid values are `S3`, `GCS`, `AZURE`.
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
     /**
      * The status of the reference table (e.g., DONE, PROCESSING, ERROR).
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The name of the reference table. This must be unique within your organization.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
     /**
      * A list of tags to associate with the reference table.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The timestamp of the last update to the reference table in ISO 8601 format.
      */
-    updatedAt?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -287,15 +287,15 @@ export interface ReferenceTableArgs {
     /**
      * The description of the reference table.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Configuration for cloud storage file access and sync settings.
      */
-    fileMetadata?: pulumi.Input<inputs.ReferenceTableFileMetadata>;
+    fileMetadata?: pulumi.Input<inputs.ReferenceTableFileMetadata | undefined>;
     /**
      * The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
      */
-    schema?: pulumi.Input<inputs.ReferenceTableSchema>;
+    schema?: pulumi.Input<inputs.ReferenceTableSchema | undefined>;
     /**
      * The source type for the reference table. Valid values are `S3`, `GCS`, `AZURE`.
      */
@@ -307,5 +307,5 @@ export interface ReferenceTableArgs {
     /**
      * A list of tags to associate with the reference table.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

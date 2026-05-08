@@ -125,27 +125,27 @@ export interface RumApplicationState {
     /**
      * ID of the API key associated with the application.
      */
-    apiKeyId?: pulumi.Input<number>;
+    apiKeyId?: pulumi.Input<number | undefined>;
     /**
      * The client token.
      */
-    clientToken?: pulumi.Input<string>;
+    clientToken?: pulumi.Input<string | undefined>;
     /**
      * Name of the RUM application.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
      */
-    productAnalyticsRetentionState?: pulumi.Input<string>;
+    productAnalyticsRetentionState?: pulumi.Input<string | undefined>;
     /**
      * Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
      */
-    rumEventProcessingState?: pulumi.Input<string>;
+    rumEventProcessingState?: pulumi.Input<string | undefined>;
     /**
      * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -159,13 +159,13 @@ export interface RumApplicationArgs {
     /**
      * Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
      */
-    productAnalyticsRetentionState?: pulumi.Input<string>;
+    productAnalyticsRetentionState?: pulumi.Input<string | undefined>;
     /**
      * Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
      */
-    rumEventProcessingState?: pulumi.Input<string>;
+    rumEventProcessingState?: pulumi.Input<string | undefined>;
     /**
      * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

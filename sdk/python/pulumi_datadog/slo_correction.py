@@ -22,11 +22,11 @@ class SloCorrectionArgs:
                  category: pulumi.Input[_builtins.str],
                  slo_id: pulumi.Input[_builtins.str],
                  start: pulumi.Input[_builtins.int],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 end: Optional[pulumi.Input[_builtins.int]] = None,
-                 rrule: Optional[pulumi.Input[_builtins.str]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 end: pulumi.Input[Optional[_builtins.int]] = None,
+                 rrule: pulumi.Input[Optional[_builtins.str]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SloCorrection resource.
 
@@ -91,76 +91,76 @@ class SloCorrectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the correction being made.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def duration(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def duration(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
         """
         return pulumi.get(self, "duration")
 
     @duration.setter
-    def duration(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def duration(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "duration", value)
 
     @_builtins.property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def end(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
         """
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def end(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "end", value)
 
     @_builtins.property
     @pulumi.getter
-    def rrule(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rrule(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
         """
         return pulumi.get(self, "rrule")
 
     @rrule.setter
-    def rrule(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rrule(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rrule", value)
 
     @_builtins.property
     @pulumi.getter
-    def timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
         """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
-    def timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone", value)
 
 
 @pulumi.input_type
 class _SloCorrectionState:
     def __init__(__self__, *,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 end: Optional[pulumi.Input[_builtins.int]] = None,
-                 rrule: Optional[pulumi.Input[_builtins.str]] = None,
-                 slo_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.int]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None):
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 end: pulumi.Input[Optional[_builtins.int]] = None,
+                 rrule: pulumi.Input[Optional[_builtins.str]] = None,
+                 slo_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.int]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SloCorrection resources.
 
@@ -192,98 +192,98 @@ class _SloCorrectionState:
 
     @_builtins.property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def category(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
         """
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def category(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "category", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the correction being made.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def duration(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def duration(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
         """
         return pulumi.get(self, "duration")
 
     @duration.setter
-    def duration(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def duration(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "duration", value)
 
     @_builtins.property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def end(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
         """
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def end(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "end", value)
 
     @_builtins.property
     @pulumi.getter
-    def rrule(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rrule(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
         """
         return pulumi.get(self, "rrule")
 
     @rrule.setter
-    def rrule(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rrule(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rrule", value)
 
     @_builtins.property
     @pulumi.getter(name="sloId")
-    def slo_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def slo_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the SLO that this correction will be applied to.
         """
         return pulumi.get(self, "slo_id")
 
     @slo_id.setter
-    def slo_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def slo_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "slo_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def start(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Starting time of the correction in epoch seconds.
         """
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def start(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "start", value)
 
     @_builtins.property
     @pulumi.getter
-    def timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
         """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
-    def timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone", value)
 
 
@@ -293,14 +293,14 @@ class SloCorrection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 end: Optional[pulumi.Input[_builtins.int]] = None,
-                 rrule: Optional[pulumi.Input[_builtins.str]] = None,
-                 slo_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.int]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 end: pulumi.Input[Optional[_builtins.int]] = None,
+                 rrule: pulumi.Input[Optional[_builtins.str]] = None,
+                 slo_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.int]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for interacting with the slo_correction API.
@@ -434,14 +434,14 @@ class SloCorrection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 end: Optional[pulumi.Input[_builtins.int]] = None,
-                 rrule: Optional[pulumi.Input[_builtins.str]] = None,
-                 slo_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.int]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 end: pulumi.Input[Optional[_builtins.int]] = None,
+                 rrule: pulumi.Input[Optional[_builtins.str]] = None,
+                 slo_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.int]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -475,14 +475,14 @@ class SloCorrection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            category: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            duration: Optional[pulumi.Input[_builtins.int]] = None,
-            end: Optional[pulumi.Input[_builtins.int]] = None,
-            rrule: Optional[pulumi.Input[_builtins.str]] = None,
-            slo_id: Optional[pulumi.Input[_builtins.str]] = None,
-            start: Optional[pulumi.Input[_builtins.int]] = None,
-            timezone: Optional[pulumi.Input[_builtins.str]] = None) -> 'SloCorrection':
+            category: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            duration: pulumi.Input[Optional[_builtins.int]] = None,
+            end: pulumi.Input[Optional[_builtins.int]] = None,
+            rrule: pulumi.Input[Optional[_builtins.str]] = None,
+            slo_id: pulumi.Input[Optional[_builtins.str]] = None,
+            start: pulumi.Input[Optional[_builtins.int]] = None,
+            timezone: pulumi.Input[Optional[_builtins.str]] = None) -> 'SloCorrection':
         """
         Get an existing SloCorrection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

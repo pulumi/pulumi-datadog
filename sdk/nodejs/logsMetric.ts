@@ -135,19 +135,19 @@ export interface LogsMetricState {
     /**
      * The compute rule to compute the log-based metric. This field can't be updated after creation.
      */
-    compute?: pulumi.Input<inputs.LogsMetricCompute>;
+    compute?: pulumi.Input<inputs.LogsMetricCompute | undefined>;
     /**
      * The log-based metric filter. Logs matching this filter will be aggregated in this metric.
      */
-    filter?: pulumi.Input<inputs.LogsMetricFilter>;
+    filter?: pulumi.Input<inputs.LogsMetricFilter | undefined>;
     /**
      * The rules for the group by.
      */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.LogsMetricGroupBy>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.LogsMetricGroupBy>[] | undefined>;
     /**
      * The name of the log-based metric. This field can't be updated after creation.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -165,7 +165,7 @@ export interface LogsMetricArgs {
     /**
      * The rules for the group by.
      */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.LogsMetricGroupBy>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.LogsMetricGroupBy>[] | undefined>;
     /**
      * The name of the log-based metric. This field can't be updated after creation.
      */

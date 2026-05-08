@@ -115,15 +115,15 @@ export interface WebhookCustomVariableState {
     /**
      * Whether the custom variable is secret or not.
      */
-    isSecret?: pulumi.Input<boolean>;
+    isSecret?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the variable. It corresponds with `<CUSTOM_VARIABLE_NAME>`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The value of the custom variable.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 /**

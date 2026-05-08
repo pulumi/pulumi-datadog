@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myS3Archive = new Datadog.Index.LogsArchive("my_s3_archive", new()
+    ///     var myS3Archive = new Datadog.LogsArchive("my_s3_archive", new()
     ///     {
     ///         Name = "my s3 archive",
     ///         Query = "service:myservice",

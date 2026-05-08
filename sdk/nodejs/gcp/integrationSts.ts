@@ -171,67 +171,67 @@ export interface IntegrationStsState {
     /**
      * Tags to be associated with GCP metrics and service checks from your account.
      */
-    accountTags?: pulumi.Input<pulumi.Input<string>[]>;
+    accountTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Silence monitors for expected GCE instance shutdowns.
      */
-    automute?: pulumi.Input<boolean>;
+    automute?: pulumi.Input<boolean | undefined>;
     /**
      * Your service account email address.
      */
-    clientEmail?: pulumi.Input<string>;
+    clientEmail?: pulumi.Input<string | undefined>;
     /**
      * List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
      *
      * @deprecated **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
      */
-    cloudRunRevisionFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    cloudRunRevisionFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Datadog's STS Delegate Email.
      */
-    delegateAccountEmail?: pulumi.Input<string>;
+    delegateAccountEmail?: pulumi.Input<string | undefined>;
     /**
      * List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
      *
      * @deprecated **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
      */
-    hostFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    hostFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
      */
-    isCspmEnabled?: pulumi.Input<boolean>;
+    isCspmEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * When enabled, Datadog collects metrics where location is explicitly stated as 'global' or where location information cannot be deduced from GCP.
      */
-    isGlobalLocationEnabled?: pulumi.Input<boolean>;
+    isGlobalLocationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
      */
-    isPerProjectQuotaEnabled?: pulumi.Input<boolean>;
+    isPerProjectQuotaEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * When enabled, Datadog scans for all resource change data in your Google Cloud environment.
      */
-    isResourceChangeCollectionEnabled?: pulumi.Input<boolean>;
+    isResourceChangeCollectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
      */
-    isSecurityCommandCenterEnabled?: pulumi.Input<boolean>;
+    isSecurityCommandCenterEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Configurations for GCP metric namespaces.
      */
-    metricNamespaceConfigs?: pulumi.Input<pulumi.Input<inputs.gcp.IntegrationStsMetricNamespaceConfig>[]>;
+    metricNamespaceConfigs?: pulumi.Input<pulumi.Input<inputs.gcp.IntegrationStsMetricNamespaceConfig>[] | undefined>;
     /**
      * Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
      */
-    monitoredResourceConfigs?: pulumi.Input<pulumi.Input<inputs.gcp.IntegrationStsMonitoredResourceConfig>[]>;
+    monitoredResourceConfigs?: pulumi.Input<pulumi.Input<inputs.gcp.IntegrationStsMonitoredResourceConfig>[] | undefined>;
     /**
      * Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
      */
-    regionFilterConfigs?: pulumi.Input<pulumi.Input<string>[]>;
+    regionFilterConfigs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * When enabled, Datadog scans for all resources in your GCP environment.
      */
-    resourceCollectionEnabled?: pulumi.Input<boolean>;
+    resourceCollectionEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -241,11 +241,11 @@ export interface IntegrationStsArgs {
     /**
      * Tags to be associated with GCP metrics and service checks from your account.
      */
-    accountTags?: pulumi.Input<pulumi.Input<string>[]>;
+    accountTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Silence monitors for expected GCE instance shutdowns.
      */
-    automute?: pulumi.Input<boolean>;
+    automute?: pulumi.Input<boolean | undefined>;
     /**
      * Your service account email address.
      */
@@ -255,47 +255,47 @@ export interface IntegrationStsArgs {
      *
      * @deprecated **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
      */
-    cloudRunRevisionFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    cloudRunRevisionFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
      *
      * @deprecated **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
      */
-    hostFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    hostFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
      */
-    isCspmEnabled?: pulumi.Input<boolean>;
+    isCspmEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * When enabled, Datadog collects metrics where location is explicitly stated as 'global' or where location information cannot be deduced from GCP.
      */
-    isGlobalLocationEnabled?: pulumi.Input<boolean>;
+    isGlobalLocationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
      */
-    isPerProjectQuotaEnabled?: pulumi.Input<boolean>;
+    isPerProjectQuotaEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * When enabled, Datadog scans for all resource change data in your Google Cloud environment.
      */
-    isResourceChangeCollectionEnabled?: pulumi.Input<boolean>;
+    isResourceChangeCollectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
      */
-    isSecurityCommandCenterEnabled?: pulumi.Input<boolean>;
+    isSecurityCommandCenterEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Configurations for GCP metric namespaces.
      */
-    metricNamespaceConfigs?: pulumi.Input<pulumi.Input<inputs.gcp.IntegrationStsMetricNamespaceConfig>[]>;
+    metricNamespaceConfigs?: pulumi.Input<pulumi.Input<inputs.gcp.IntegrationStsMetricNamespaceConfig>[] | undefined>;
     /**
      * Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
      */
-    monitoredResourceConfigs?: pulumi.Input<pulumi.Input<inputs.gcp.IntegrationStsMonitoredResourceConfig>[]>;
+    monitoredResourceConfigs?: pulumi.Input<pulumi.Input<inputs.gcp.IntegrationStsMonitoredResourceConfig>[] | undefined>;
     /**
      * Configurations for GCP location filtering, such as region, multi-region, or zone. Only monitored resources that match the specified regions are imported into Datadog. By default, Datadog collects from all locations.
      */
-    regionFilterConfigs?: pulumi.Input<pulumi.Input<string>[]>;
+    regionFilterConfigs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * When enabled, Datadog scans for all resources in your GCP environment.
      */
-    resourceCollectionEnabled?: pulumi.Input<boolean>;
+    resourceCollectionEnabled?: pulumi.Input<boolean | undefined>;
 }

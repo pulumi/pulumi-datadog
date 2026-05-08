@@ -274,9 +274,9 @@ def get_user(exact_match: Optional[_builtins.bool] = None,
         status=pulumi.get(__ret__, 'status'),
         title=pulumi.get(__ret__, 'title'),
         verified=pulumi.get(__ret__, 'verified'))
-def get_user_output(exact_match: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                    exclude_service_accounts: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                    filter: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_output(exact_match: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                    exclude_service_accounts: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                    filter: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Use this data source to retrieve information about an existing user to use it in an other resources.

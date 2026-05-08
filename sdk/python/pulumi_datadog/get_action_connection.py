@@ -120,9 +120,9 @@ def get_action_connection(aws: Optional[Union['GetActionConnectionAwsArgs', 'Get
         http=pulumi.get(__ret__, 'http'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-def get_action_connection_output(aws: Optional[pulumi.Input[Optional[Union['GetActionConnectionAwsArgs', 'GetActionConnectionAwsArgsDict']]]] = None,
-                                 http: Optional[pulumi.Input[Optional[Union['GetActionConnectionHttpArgs', 'GetActionConnectionHttpArgsDict']]]] = None,
-                                 id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_action_connection_output(aws: pulumi.Input[Optional[Optional[Union['GetActionConnectionAwsArgs', 'GetActionConnectionAwsArgsDict']]]] = None,
+                                 http: pulumi.Input[Optional[Optional[Union['GetActionConnectionHttpArgs', 'GetActionConnectionHttpArgsDict']]]] = None,
+                                 id: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActionConnectionResult]:
     """
     A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This data source requires a registered application key.

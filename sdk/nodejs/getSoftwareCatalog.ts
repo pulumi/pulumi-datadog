@@ -140,29 +140,29 @@ export interface GetSoftwareCatalogOutputArgs {
     /**
      * Filter entities by excluding snapshotted entities.
      */
-    filterExcludeSnapshot?: pulumi.Input<string>;
+    filterExcludeSnapshot?: pulumi.Input<string | undefined>;
     /**
      * Filter entities by UUID.
      */
-    filterId?: pulumi.Input<string>;
+    filterId?: pulumi.Input<string | undefined>;
     /**
      * Filter entities by kind.
      */
-    filterKind?: pulumi.Input<string>;
+    filterKind?: pulumi.Input<string | undefined>;
     /**
      * Filter entities by name.
      */
-    filterName?: pulumi.Input<string>;
+    filterName?: pulumi.Input<string | undefined>;
     /**
      * Filter entities by owner.
      */
-    filterOwner?: pulumi.Input<string>;
+    filterOwner?: pulumi.Input<string | undefined>;
     /**
      * Filter entities by reference.
      */
-    filterRef?: pulumi.Input<string>;
+    filterRef?: pulumi.Input<string | undefined>;
     /**
      * Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
      */
-    filterRelationType?: pulumi.Input<string>;
+    filterRelationType?: pulumi.Input<string | undefined>;
 }

@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create new rum_retention_filter resource
-    ///     var testingRumRetentionFilter = new Datadog.Index.RumRetentionFilter("testing_rum_retention_filter", new()
+    ///     var testingRumRetentionFilter = new Datadog.RumRetentionFilter("testing_rum_retention_filter", new()
     ///     {
     ///         ApplicationId = "&lt;APPLICATION_ID&gt;",
     ///         Name = "testing.rum.retention_filter",

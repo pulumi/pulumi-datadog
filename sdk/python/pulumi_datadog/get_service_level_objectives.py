@@ -180,12 +180,12 @@ def get_service_level_objectives(error_on_empty_result: Optional[_builtins.bool]
         query=pulumi.get(__ret__, 'query'),
         slos=pulumi.get(__ret__, 'slos'),
         tags_query=pulumi.get(__ret__, 'tags_query'))
-def get_service_level_objectives_output(error_on_empty_result: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                        ids: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                                        metrics_query: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        name_query: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        query: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        tags_query: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_service_level_objectives_output(error_on_empty_result: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                        ids: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                                        metrics_query: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        name_query: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        query: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        tags_query: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceLevelObjectivesResult]:
     """
     Use this data source to retrieve information about multiple SLOs for use in other resources.

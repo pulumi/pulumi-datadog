@@ -105,7 +105,7 @@ def get_logs_pipelines(is_read_only: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         is_read_only=pulumi.get(__ret__, 'is_read_only'),
         logs_pipelines=pulumi.get(__ret__, 'logs_pipelines'))
-def get_logs_pipelines_output(is_read_only: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_logs_pipelines_output(is_read_only: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogsPipelinesResult]:
     """
     Use this data source to list all existing logs pipelines for use in other resources.

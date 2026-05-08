@@ -60,8 +60,8 @@ class ObservabilityPipelineArgs:
 @pulumi.input_type
 class _ObservabilityPipelineState:
     def __init__(__self__, *,
-                 config: Optional[pulumi.Input['ObservabilityPipelineConfigArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 config: pulumi.Input[Optional['ObservabilityPipelineConfigArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ObservabilityPipeline resources.
 
@@ -75,26 +75,26 @@ class _ObservabilityPipelineState:
 
     @_builtins.property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input['ObservabilityPipelineConfigArgs']]:
+    def config(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigArgs']]:
         """
         Configuration for the pipeline.
         """
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input['ObservabilityPipelineConfigArgs']]):
+    def config(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigArgs']]):
         pulumi.set(self, "config", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The pipeline name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -104,8 +104,8 @@ class ObservabilityPipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[Union['ObservabilityPipelineConfigArgs', 'ObservabilityPipelineConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 config: pulumi.Input[Optional[Union['ObservabilityPipelineConfigArgs', 'ObservabilityPipelineConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog Observability Pipeline resource. Observability Pipelines allows you to collect and process logs within your own infrastructure, and then route them to downstream integrations.
@@ -265,8 +265,8 @@ class ObservabilityPipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[Union['ObservabilityPipelineConfigArgs', 'ObservabilityPipelineConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 config: pulumi.Input[Optional[Union['ObservabilityPipelineConfigArgs', 'ObservabilityPipelineConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -292,8 +292,8 @@ class ObservabilityPipeline(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            config: Optional[pulumi.Input[Union['ObservabilityPipelineConfigArgs', 'ObservabilityPipelineConfigArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ObservabilityPipeline':
+            config: pulumi.Input[Optional[Union['ObservabilityPipelineConfigArgs', 'ObservabilityPipelineConfigArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ObservabilityPipeline':
         """
         Get an existing ObservabilityPipeline resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

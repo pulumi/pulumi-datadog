@@ -22,7 +22,7 @@ __all__ = ['RestrictionPolicyArgs', 'RestrictionPolicy']
 class RestrictionPolicyArgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[_builtins.str],
-                 bindings: Optional[pulumi.Input[Sequence[pulumi.Input['RestrictionPolicyBindingArgs']]]] = None):
+                 bindings: pulumi.Input[Optional[Sequence[pulumi.Input['RestrictionPolicyBindingArgs']]]] = None):
         """
         The set of arguments for constructing a RestrictionPolicy resource.
 
@@ -46,19 +46,19 @@ class RestrictionPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def bindings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RestrictionPolicyBindingArgs']]]]:
+    def bindings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RestrictionPolicyBindingArgs']]]]:
         return pulumi.get(self, "bindings")
 
     @bindings.setter
-    def bindings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RestrictionPolicyBindingArgs']]]]):
+    def bindings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RestrictionPolicyBindingArgs']]]]):
         pulumi.set(self, "bindings", value)
 
 
 @pulumi.input_type
 class _RestrictionPolicyState:
     def __init__(__self__, *,
-                 bindings: Optional[pulumi.Input[Sequence[pulumi.Input['RestrictionPolicyBindingArgs']]]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 bindings: pulumi.Input[Optional[Sequence[pulumi.Input['RestrictionPolicyBindingArgs']]]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RestrictionPolicy resources.
 
@@ -71,23 +71,23 @@ class _RestrictionPolicyState:
 
     @_builtins.property
     @pulumi.getter
-    def bindings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RestrictionPolicyBindingArgs']]]]:
+    def bindings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RestrictionPolicyBindingArgs']]]]:
         return pulumi.get(self, "bindings")
 
     @bindings.setter
-    def bindings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RestrictionPolicyBindingArgs']]]]):
+    def bindings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RestrictionPolicyBindingArgs']]]]):
         pulumi.set(self, "bindings", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for the resource, formatted as resource*type:resource*id.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
 
@@ -97,8 +97,8 @@ class RestrictionPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bindings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RestrictionPolicyBindingArgs', 'RestrictionPolicyBindingArgsDict']]]]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 bindings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RestrictionPolicyBindingArgs', 'RestrictionPolicyBindingArgsDict']]]]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog RestrictionPolicy resource. This can be used to create and manage Datadog restriction policies.
@@ -191,8 +191,8 @@ class RestrictionPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bindings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RestrictionPolicyBindingArgs', 'RestrictionPolicyBindingArgsDict']]]]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 bindings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RestrictionPolicyBindingArgs', 'RestrictionPolicyBindingArgsDict']]]]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -216,8 +216,8 @@ class RestrictionPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bindings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RestrictionPolicyBindingArgs', 'RestrictionPolicyBindingArgsDict']]]]] = None,
-            resource_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'RestrictionPolicy':
+            bindings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RestrictionPolicyBindingArgs', 'RestrictionPolicyBindingArgsDict']]]]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'RestrictionPolicy':
         """
         Get an existing RestrictionPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

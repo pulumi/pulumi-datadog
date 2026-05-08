@@ -144,11 +144,11 @@ export interface GetUserOutputArgs {
     /**
      * When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute. Defaults to `false`.
      */
-    exactMatch?: pulumi.Input<boolean>;
+    exactMatch?: pulumi.Input<boolean | undefined>;
     /**
      * When true, service accounts are excluded from the result. Defaults to `false`.
      */
-    excludeServiceAccounts?: pulumi.Input<boolean>;
+    excludeServiceAccounts?: pulumi.Input<boolean | undefined>;
     /**
      * Filter all users by the given string.
      */

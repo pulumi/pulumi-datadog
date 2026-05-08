@@ -118,15 +118,15 @@ export interface TeamMembershipState {
     /**
      * The user's role within the team. Valid values are `admin`.
      */
-    role?: pulumi.Input<string>;
+    role?: pulumi.Input<string | undefined>;
     /**
      * ID of the team the team membership is associated with.
      */
-    teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the user.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -136,7 +136,7 @@ export interface TeamMembershipArgs {
     /**
      * The user's role within the team. Valid values are `admin`.
      */
-    role?: pulumi.Input<string>;
+    role?: pulumi.Input<string | undefined>;
     /**
      * ID of the team the team membership is associated with.
      */

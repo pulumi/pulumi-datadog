@@ -20,9 +20,9 @@ __all__ = ['RumApplicationArgs', 'RumApplication']
 class RumApplicationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 product_analytics_retention_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 rum_event_processing_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 product_analytics_retention_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 rum_event_processing_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RumApplication resource.
 
@@ -53,50 +53,50 @@ class RumApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="productAnalyticsRetentionState")
-    def product_analytics_retention_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product_analytics_retention_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
         """
         return pulumi.get(self, "product_analytics_retention_state")
 
     @product_analytics_retention_state.setter
-    def product_analytics_retention_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product_analytics_retention_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product_analytics_retention_state", value)
 
     @_builtins.property
     @pulumi.getter(name="rumEventProcessingState")
-    def rum_event_processing_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rum_event_processing_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
         """
         return pulumi.get(self, "rum_event_processing_state")
 
     @rum_event_processing_state.setter
-    def rum_event_processing_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rum_event_processing_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rum_event_processing_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
 class _RumApplicationState:
     def __init__(__self__, *,
-                 api_key_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 client_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_analytics_retention_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 rum_event_processing_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_key_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_analytics_retention_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 rum_event_processing_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RumApplication resources.
 
@@ -122,74 +122,74 @@ class _RumApplicationState:
 
     @_builtins.property
     @pulumi.getter(name="apiKeyId")
-    def api_key_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def api_key_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ID of the API key associated with the application.
         """
         return pulumi.get(self, "api_key_id")
 
     @api_key_id.setter
-    def api_key_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def api_key_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "api_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientToken")
-    def client_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client token.
         """
         return pulumi.get(self, "client_token")
 
     @client_token.setter
-    def client_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_token", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the RUM application.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="productAnalyticsRetentionState")
-    def product_analytics_retention_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product_analytics_retention_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
         """
         return pulumi.get(self, "product_analytics_retention_state")
 
     @product_analytics_retention_state.setter
-    def product_analytics_retention_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product_analytics_retention_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product_analytics_retention_state", value)
 
     @_builtins.property
     @pulumi.getter(name="rumEventProcessingState")
-    def rum_event_processing_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rum_event_processing_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
         """
         return pulumi.get(self, "rum_event_processing_state")
 
     @rum_event_processing_state.setter
-    def rum_event_processing_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rum_event_processing_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rum_event_processing_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -199,10 +199,10 @@ class RumApplication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_analytics_retention_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 rum_event_processing_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_analytics_retention_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 rum_event_processing_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog RUM application resource. This can be used to create and manage Datadog RUM applications.
@@ -282,10 +282,10 @@ class RumApplication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_analytics_retention_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 rum_event_processing_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_analytics_retention_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 rum_event_processing_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -313,12 +313,12 @@ class RumApplication(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_key_id: Optional[pulumi.Input[_builtins.int]] = None,
-            client_token: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            product_analytics_retention_state: Optional[pulumi.Input[_builtins.str]] = None,
-            rum_event_processing_state: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'RumApplication':
+            api_key_id: pulumi.Input[Optional[_builtins.int]] = None,
+            client_token: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            product_analytics_retention_state: pulumi.Input[Optional[_builtins.str]] = None,
+            rum_event_processing_state: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'RumApplication':
         """
         Get an existing RumApplication resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

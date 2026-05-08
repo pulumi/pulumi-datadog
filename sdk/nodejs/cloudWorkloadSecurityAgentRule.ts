@@ -118,19 +118,19 @@ export interface CloudWorkloadSecurityAgentRuleState {
     /**
      * The description of the Agent rule. Defaults to `""`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether the Agent rule is enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The SECL expression of the Agent rule.
      */
-    expression?: pulumi.Input<string>;
+    expression?: pulumi.Input<string | undefined>;
     /**
      * The name of the Agent rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -140,11 +140,11 @@ export interface CloudWorkloadSecurityAgentRuleArgs {
     /**
      * The description of the Agent rule. Defaults to `""`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether the Agent rule is enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The SECL expression of the Agent rule.
      */

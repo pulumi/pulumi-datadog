@@ -23,7 +23,7 @@ class DatasetArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  principals: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 product_filters: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetProductFilterArgs']]]] = None):
+                 product_filters: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetProductFilterArgs']]]] = None):
         """
         The set of arguments for constructing a Dataset resource.
 
@@ -61,22 +61,22 @@ class DatasetArgs:
 
     @_builtins.property
     @pulumi.getter(name="productFilters")
-    def product_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetProductFilterArgs']]]]:
+    def product_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatasetProductFilterArgs']]]]:
         return pulumi.get(self, "product_filters")
 
     @product_filters.setter
-    def product_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetProductFilterArgs']]]]):
+    def product_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetProductFilterArgs']]]]):
         pulumi.set(self, "product_filters", value)
 
 
 @pulumi.input_type
 class _DatasetState:
     def __init__(__self__, *,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 product_filters: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetProductFilterArgs']]]] = None):
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 product_filters: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetProductFilterArgs']]]] = None):
         """
         Input properties used for looking up and filtering Dataset resources.
 
@@ -98,59 +98,59 @@ class _DatasetState:
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates when the dataset was created (in ISO 8601).
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates who created the dataset.
         """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_by", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the dataset.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def principals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
         """
         return pulumi.get(self, "principals")
 
     @principals.setter
-    def principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def principals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "principals", value)
 
     @_builtins.property
     @pulumi.getter(name="productFilters")
-    def product_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetProductFilterArgs']]]]:
+    def product_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatasetProductFilterArgs']]]]:
         return pulumi.get(self, "product_filters")
 
     @product_filters.setter
-    def product_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetProductFilterArgs']]]]):
+    def product_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetProductFilterArgs']]]]):
         pulumi.set(self, "product_filters", value)
 
 
@@ -160,9 +160,9 @@ class Dataset(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 product_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetProductFilterArgs', 'DatasetProductFilterArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 product_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetProductFilterArgs', 'DatasetProductFilterArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a Datadog Dataset resource. This can be used to create and manage Datadog datasets.
@@ -246,9 +246,9 @@ class Dataset(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 product_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetProductFilterArgs', 'DatasetProductFilterArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 product_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetProductFilterArgs', 'DatasetProductFilterArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -277,11 +277,11 @@ class Dataset(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            created_by: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            product_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetProductFilterArgs', 'DatasetProductFilterArgsDict']]]]] = None) -> 'Dataset':
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            product_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetProductFilterArgs', 'DatasetProductFilterArgsDict']]]]] = None) -> 'Dataset':
         """
         Get an existing Dataset resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

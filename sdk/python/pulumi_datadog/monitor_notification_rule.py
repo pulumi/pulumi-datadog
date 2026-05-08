@@ -23,8 +23,8 @@ class MonitorNotificationRuleArgs:
     def __init__(__self__, *,
                  filter: pulumi.Input['MonitorNotificationRuleFilterArgs'],
                  name: pulumi.Input[_builtins.str],
-                 conditional_recipients: Optional[pulumi.Input['MonitorNotificationRuleConditionalRecipientsArgs']] = None,
-                 recipients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 conditional_recipients: pulumi.Input[Optional['MonitorNotificationRuleConditionalRecipientsArgs']] = None,
+                 recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MonitorNotificationRule resource.
 
@@ -66,36 +66,36 @@ class MonitorNotificationRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="conditionalRecipients")
-    def conditional_recipients(self) -> Optional[pulumi.Input['MonitorNotificationRuleConditionalRecipientsArgs']]:
+    def conditional_recipients(self) -> pulumi.Input[Optional['MonitorNotificationRuleConditionalRecipientsArgs']]:
         """
         Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
         """
         return pulumi.get(self, "conditional_recipients")
 
     @conditional_recipients.setter
-    def conditional_recipients(self, value: Optional[pulumi.Input['MonitorNotificationRuleConditionalRecipientsArgs']]):
+    def conditional_recipients(self, value: pulumi.Input[Optional['MonitorNotificationRuleConditionalRecipientsArgs']]):
         pulumi.set(self, "conditional_recipients", value)
 
     @_builtins.property
     @pulumi.getter
-    def recipients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def recipients(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of recipients to notify. Cannot be used with `conditional_recipients`.
         """
         return pulumi.get(self, "recipients")
 
     @recipients.setter
-    def recipients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def recipients(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "recipients", value)
 
 
 @pulumi.input_type
 class _MonitorNotificationRuleState:
     def __init__(__self__, *,
-                 conditional_recipients: Optional[pulumi.Input['MonitorNotificationRuleConditionalRecipientsArgs']] = None,
-                 filter: Optional[pulumi.Input['MonitorNotificationRuleFilterArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recipients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 conditional_recipients: pulumi.Input[Optional['MonitorNotificationRuleConditionalRecipientsArgs']] = None,
+                 filter: pulumi.Input[Optional['MonitorNotificationRuleFilterArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering MonitorNotificationRule resources.
 
@@ -115,50 +115,50 @@ class _MonitorNotificationRuleState:
 
     @_builtins.property
     @pulumi.getter(name="conditionalRecipients")
-    def conditional_recipients(self) -> Optional[pulumi.Input['MonitorNotificationRuleConditionalRecipientsArgs']]:
+    def conditional_recipients(self) -> pulumi.Input[Optional['MonitorNotificationRuleConditionalRecipientsArgs']]:
         """
         Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
         """
         return pulumi.get(self, "conditional_recipients")
 
     @conditional_recipients.setter
-    def conditional_recipients(self, value: Optional[pulumi.Input['MonitorNotificationRuleConditionalRecipientsArgs']]):
+    def conditional_recipients(self, value: pulumi.Input[Optional['MonitorNotificationRuleConditionalRecipientsArgs']]):
         pulumi.set(self, "conditional_recipients", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['MonitorNotificationRuleFilterArgs']]:
+    def filter(self) -> pulumi.Input[Optional['MonitorNotificationRuleFilterArgs']]:
         """
         Specifies the matching criteria for monitor notifications.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['MonitorNotificationRuleFilterArgs']]):
+    def filter(self, value: pulumi.Input[Optional['MonitorNotificationRuleFilterArgs']]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the monitor notification rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def recipients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def recipients(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of recipients to notify. Cannot be used with `conditional_recipients`.
         """
         return pulumi.get(self, "recipients")
 
     @recipients.setter
-    def recipients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def recipients(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "recipients", value)
 
 
@@ -168,10 +168,10 @@ class MonitorNotificationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conditional_recipients: Optional[pulumi.Input[Union['MonitorNotificationRuleConditionalRecipientsArgs', 'MonitorNotificationRuleConditionalRecipientsArgsDict']]] = None,
-                 filter: Optional[pulumi.Input[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recipients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 conditional_recipients: pulumi.Input[Optional[Union['MonitorNotificationRuleConditionalRecipientsArgs', 'MonitorNotificationRuleConditionalRecipientsArgsDict']]] = None,
+                 filter: pulumi.Input[Optional[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a Datadog MonitorNotificationRule resource.
@@ -301,10 +301,10 @@ class MonitorNotificationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conditional_recipients: Optional[pulumi.Input[Union['MonitorNotificationRuleConditionalRecipientsArgs', 'MonitorNotificationRuleConditionalRecipientsArgsDict']]] = None,
-                 filter: Optional[pulumi.Input[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recipients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 conditional_recipients: pulumi.Input[Optional[Union['MonitorNotificationRuleConditionalRecipientsArgs', 'MonitorNotificationRuleConditionalRecipientsArgsDict']]] = None,
+                 filter: pulumi.Input[Optional[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -332,10 +332,10 @@ class MonitorNotificationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            conditional_recipients: Optional[pulumi.Input[Union['MonitorNotificationRuleConditionalRecipientsArgs', 'MonitorNotificationRuleConditionalRecipientsArgsDict']]] = None,
-            filter: Optional[pulumi.Input[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            recipients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'MonitorNotificationRule':
+            conditional_recipients: pulumi.Input[Optional[Union['MonitorNotificationRuleConditionalRecipientsArgs', 'MonitorNotificationRuleConditionalRecipientsArgsDict']]] = None,
+            filter: pulumi.Input[Optional[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'MonitorNotificationRule':
         """
         Get an existing MonitorNotificationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

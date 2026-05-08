@@ -118,19 +118,19 @@ export interface IntegrationAccountState {
     /**
      * The API key (or token) for the Cloudflare account.
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * The email associated with the Cloudflare account. If an API key is provided (and not a token), this field is also required.
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * The name of the Cloudflare account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An allowlist of resources to pull metrics for. Includes `web`, `dns`, `lb` (load balancer), and `worker`).
      */
-    resources?: pulumi.Input<pulumi.Input<string>[]>;
+    resources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -144,7 +144,7 @@ export interface IntegrationAccountArgs {
     /**
      * The email associated with the Cloudflare account. If an API key is provided (and not a token), this field is also required.
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * The name of the Cloudflare account.
      */
@@ -152,5 +152,5 @@ export interface IntegrationAccountArgs {
     /**
      * An allowlist of resources to pull metrics for. Includes `web`, `dns`, `lb` (load balancer), and `worker`).
      */
-    resources?: pulumi.Input<pulumi.Input<string>[]>;
+    resources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

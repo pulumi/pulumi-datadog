@@ -120,7 +120,7 @@ export interface GetIncidentNotificationRuleOutputArgs {
     /**
      * The conditions that trigger this notification rule.
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.GetIncidentNotificationRuleConditionArgs>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.GetIncidentNotificationRuleConditionArgs>[] | undefined>;
     /**
      * The ID of the incident notification rule.
      */

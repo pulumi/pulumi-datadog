@@ -25,9 +25,9 @@ class CostBudgetArgs:
                  metrics_query: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  start_month: pulumi.Input[_builtins.int],
-                 budget_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 budget_lines: Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetBudgetLineArgs']]]] = None,
-                 entries: Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetEntryArgs']]]] = None):
+                 budget_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 budget_lines: pulumi.Input[Optional[Sequence[pulumi.Input['CostBudgetBudgetLineArgs']]]] = None,
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input['CostBudgetEntryArgs']]]] = None):
         """
         The set of arguments for constructing a CostBudget resource.
 
@@ -103,53 +103,53 @@ class CostBudgetArgs:
 
     @_builtins.property
     @pulumi.getter(name="budgetId")
-    def budget_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def budget_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the budget.
         """
         return pulumi.get(self, "budget_id")
 
     @budget_id.setter
-    def budget_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def budget_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "budget_id", value)
 
     @_builtins.property
     @pulumi.getter(name="budgetLines")
-    def budget_lines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetBudgetLineArgs']]]]:
+    def budget_lines(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CostBudgetBudgetLineArgs']]]]:
         """
         Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
         """
         return pulumi.get(self, "budget_lines")
 
     @budget_lines.setter
-    def budget_lines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetBudgetLineArgs']]]]):
+    def budget_lines(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CostBudgetBudgetLineArgs']]]]):
         pulumi.set(self, "budget_lines", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""Use budget_line instead. This field will be removed in a future version.""")
-    def entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetEntryArgs']]]]:
+    def entries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CostBudgetEntryArgs']]]]:
         """
         The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
         """
         return pulumi.get(self, "entries")
 
     @entries.setter
-    def entries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetEntryArgs']]]]):
+    def entries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CostBudgetEntryArgs']]]]):
         pulumi.set(self, "entries", value)
 
 
 @pulumi.input_type
 class _CostBudgetState:
     def __init__(__self__, *,
-                 budget_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 budget_lines: Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetBudgetLineArgs']]]] = None,
-                 end_month: Optional[pulumi.Input[_builtins.int]] = None,
-                 entries: Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetEntryArgs']]]] = None,
-                 metrics_query: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_month: Optional[pulumi.Input[_builtins.int]] = None,
-                 total_amount: Optional[pulumi.Input[_builtins.float]] = None):
+                 budget_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 budget_lines: pulumi.Input[Optional[Sequence[pulumi.Input['CostBudgetBudgetLineArgs']]]] = None,
+                 end_month: pulumi.Input[Optional[_builtins.int]] = None,
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input['CostBudgetEntryArgs']]]] = None,
+                 metrics_query: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_month: pulumi.Input[Optional[_builtins.int]] = None,
+                 total_amount: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Input properties used for looking up and filtering CostBudget resources.
 
@@ -184,99 +184,99 @@ class _CostBudgetState:
 
     @_builtins.property
     @pulumi.getter(name="budgetId")
-    def budget_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def budget_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the budget.
         """
         return pulumi.get(self, "budget_id")
 
     @budget_id.setter
-    def budget_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def budget_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "budget_id", value)
 
     @_builtins.property
     @pulumi.getter(name="budgetLines")
-    def budget_lines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetBudgetLineArgs']]]]:
+    def budget_lines(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CostBudgetBudgetLineArgs']]]]:
         """
         Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
         """
         return pulumi.get(self, "budget_lines")
 
     @budget_lines.setter
-    def budget_lines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetBudgetLineArgs']]]]):
+    def budget_lines(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CostBudgetBudgetLineArgs']]]]):
         pulumi.set(self, "budget_lines", value)
 
     @_builtins.property
     @pulumi.getter(name="endMonth")
-    def end_month(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def end_month(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The month when the budget ends (YYYYMM).
         """
         return pulumi.get(self, "end_month")
 
     @end_month.setter
-    def end_month(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def end_month(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "end_month", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""Use budget_line instead. This field will be removed in a future version.""")
-    def entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetEntryArgs']]]]:
+    def entries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CostBudgetEntryArgs']]]]:
         """
         The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
         """
         return pulumi.get(self, "entries")
 
     @entries.setter
-    def entries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CostBudgetEntryArgs']]]]):
+    def entries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CostBudgetEntryArgs']]]]):
         pulumi.set(self, "entries", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsQuery")
-    def metrics_query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metrics_query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
         """
         return pulumi.get(self, "metrics_query")
 
     @metrics_query.setter
-    def metrics_query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metrics_query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metrics_query", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the budget.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="startMonth")
-    def start_month(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def start_month(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The month when the budget starts (YYYYMM).
         """
         return pulumi.get(self, "start_month")
 
     @start_month.setter
-    def start_month(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def start_month(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "start_month", value)
 
     @_builtins.property
     @pulumi.getter(name="totalAmount")
-    def total_amount(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def total_amount(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The sum of all budget entries' amounts.
         """
         return pulumi.get(self, "total_amount")
 
     @total_amount.setter
-    def total_amount(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def total_amount(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "total_amount", value)
 
 
@@ -286,13 +286,13 @@ class CostBudget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 budget_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 budget_lines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetBudgetLineArgs', 'CostBudgetBudgetLineArgsDict']]]]] = None,
-                 end_month: Optional[pulumi.Input[_builtins.int]] = None,
-                 entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict']]]]] = None,
-                 metrics_query: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_month: Optional[pulumi.Input[_builtins.int]] = None,
+                 budget_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 budget_lines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostBudgetBudgetLineArgs', 'CostBudgetBudgetLineArgsDict']]]]] = None,
+                 end_month: pulumi.Input[Optional[_builtins.int]] = None,
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict']]]]] = None,
+                 metrics_query: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_month: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Provides a Datadog Cost Budget resource.
@@ -313,9 +313,9 @@ class CostBudget(pulumi.CustomResource):
             budget_lines=[
                 {
                     "amounts": {
-                        "202601": 2000,
-                        "202602": 2200,
-                        "202603": 2000,
+                        "202601": float(2000),
+                        "202602": float(2200),
+                        "202603": float(2000),
                     },
                     "tag_filters": [{
                         "tag_key": "environment",
@@ -324,9 +324,9 @@ class CostBudget(pulumi.CustomResource):
                 },
                 {
                     "amounts": {
-                        "202601": 1000,
-                        "202602": 1100,
-                        "202603": 1000,
+                        "202601": float(1000),
+                        "202602": float(1100),
+                        "202603": float(1000),
                     },
                     "tag_filters": [{
                         "tag_key": "environment",
@@ -351,9 +351,9 @@ class CostBudget(pulumi.CustomResource):
             budget_lines=[
                 {
                     "amounts": {
-                        "202601": 1500,
-                        "202602": 1600,
-                        "202603": 1500,
+                        "202601": float(1500),
+                        "202602": float(1600),
+                        "202603": float(1500),
                     },
                     "parent_tag_filters": [{
                         "tag_key": "team",
@@ -366,9 +366,9 @@ class CostBudget(pulumi.CustomResource):
                 },
                 {
                     "amounts": {
-                        "202601": 500,
-                        "202602": 550,
-                        "202603": 500,
+                        "202601": float(500),
+                        "202602": float(550),
+                        "202603": float(500),
                     },
                     "parent_tag_filters": [{
                         "tag_key": "team",
@@ -396,7 +396,7 @@ class CostBudget(pulumi.CustomResource):
             entries=[
                 {
                     "month": 202601,
-                    "amount": 2000,
+                    "amount": float(2000),
                     "tag_filters": [{
                         "tag_key": "environment",
                         "tag_value": "production",
@@ -404,7 +404,7 @@ class CostBudget(pulumi.CustomResource):
                 },
                 {
                     "month": 202602,
-                    "amount": 2200,
+                    "amount": float(2200),
                     "tag_filters": [{
                         "tag_key": "environment",
                         "tag_value": "production",
@@ -412,7 +412,7 @@ class CostBudget(pulumi.CustomResource):
                 },
                 {
                     "month": 202603,
-                    "amount": 2000,
+                    "amount": float(2000),
                     "tag_filters": [{
                         "tag_key": "environment",
                         "tag_value": "production",
@@ -467,9 +467,9 @@ class CostBudget(pulumi.CustomResource):
             budget_lines=[
                 {
                     "amounts": {
-                        "202601": 2000,
-                        "202602": 2200,
-                        "202603": 2000,
+                        "202601": float(2000),
+                        "202602": float(2200),
+                        "202603": float(2000),
                     },
                     "tag_filters": [{
                         "tag_key": "environment",
@@ -478,9 +478,9 @@ class CostBudget(pulumi.CustomResource):
                 },
                 {
                     "amounts": {
-                        "202601": 1000,
-                        "202602": 1100,
-                        "202603": 1000,
+                        "202601": float(1000),
+                        "202602": float(1100),
+                        "202603": float(1000),
                     },
                     "tag_filters": [{
                         "tag_key": "environment",
@@ -505,9 +505,9 @@ class CostBudget(pulumi.CustomResource):
             budget_lines=[
                 {
                     "amounts": {
-                        "202601": 1500,
-                        "202602": 1600,
-                        "202603": 1500,
+                        "202601": float(1500),
+                        "202602": float(1600),
+                        "202603": float(1500),
                     },
                     "parent_tag_filters": [{
                         "tag_key": "team",
@@ -520,9 +520,9 @@ class CostBudget(pulumi.CustomResource):
                 },
                 {
                     "amounts": {
-                        "202601": 500,
-                        "202602": 550,
-                        "202603": 500,
+                        "202601": float(500),
+                        "202602": float(550),
+                        "202603": float(500),
                     },
                     "parent_tag_filters": [{
                         "tag_key": "team",
@@ -550,7 +550,7 @@ class CostBudget(pulumi.CustomResource):
             entries=[
                 {
                     "month": 202601,
-                    "amount": 2000,
+                    "amount": float(2000),
                     "tag_filters": [{
                         "tag_key": "environment",
                         "tag_value": "production",
@@ -558,7 +558,7 @@ class CostBudget(pulumi.CustomResource):
                 },
                 {
                     "month": 202602,
-                    "amount": 2200,
+                    "amount": float(2200),
                     "tag_filters": [{
                         "tag_key": "environment",
                         "tag_value": "production",
@@ -566,7 +566,7 @@ class CostBudget(pulumi.CustomResource):
                 },
                 {
                     "month": 202603,
-                    "amount": 2000,
+                    "amount": float(2000),
                     "tag_filters": [{
                         "tag_key": "environment",
                         "tag_value": "production",
@@ -601,13 +601,13 @@ class CostBudget(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 budget_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 budget_lines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetBudgetLineArgs', 'CostBudgetBudgetLineArgsDict']]]]] = None,
-                 end_month: Optional[pulumi.Input[_builtins.int]] = None,
-                 entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict']]]]] = None,
-                 metrics_query: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_month: Optional[pulumi.Input[_builtins.int]] = None,
+                 budget_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 budget_lines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostBudgetBudgetLineArgs', 'CostBudgetBudgetLineArgsDict']]]]] = None,
+                 end_month: pulumi.Input[Optional[_builtins.int]] = None,
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict']]]]] = None,
+                 metrics_query: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_month: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -643,14 +643,14 @@ class CostBudget(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            budget_id: Optional[pulumi.Input[_builtins.str]] = None,
-            budget_lines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetBudgetLineArgs', 'CostBudgetBudgetLineArgsDict']]]]] = None,
-            end_month: Optional[pulumi.Input[_builtins.int]] = None,
-            entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict']]]]] = None,
-            metrics_query: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            start_month: Optional[pulumi.Input[_builtins.int]] = None,
-            total_amount: Optional[pulumi.Input[_builtins.float]] = None) -> 'CostBudget':
+            budget_id: pulumi.Input[Optional[_builtins.str]] = None,
+            budget_lines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostBudgetBudgetLineArgs', 'CostBudgetBudgetLineArgsDict']]]]] = None,
+            end_month: pulumi.Input[Optional[_builtins.int]] = None,
+            entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict']]]]] = None,
+            metrics_query: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            start_month: pulumi.Input[Optional[_builtins.int]] = None,
+            total_amount: pulumi.Input[Optional[_builtins.float]] = None) -> 'CostBudget':
         """
         Get an existing CostBudget resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -43,7 +43,7 @@ class OpenapiApiArgs:
 @pulumi.input_type
 class _OpenapiApiState:
     def __init__(__self__, *,
-                 spec: Optional[pulumi.Input[_builtins.str]] = None):
+                 spec: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OpenapiApi resources.
 
@@ -54,14 +54,14 @@ class _OpenapiApiState:
 
     @_builtins.property
     @pulumi.getter
-    def spec(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spec(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
         """
         return pulumi.get(self, "spec")
 
     @spec.setter
-    def spec(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spec(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spec", value)
 
 
@@ -71,7 +71,7 @@ class OpenapiApi(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 spec: Optional[pulumi.Input[_builtins.str]] = None,
+                 spec: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Deprecated: use the `SoftwareCatalog` resource instead. Provides a Datadog OpenAPI resource. This can be used to synchronize Datadog's [API catalog](https://docs.datadoghq.com/api_catalog/) with an [OpenAPI](https://www.openapis.org/) specifications file.
@@ -144,7 +144,7 @@ class OpenapiApi(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 spec: Optional[pulumi.Input[_builtins.str]] = None,
+                 spec: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -167,7 +167,7 @@ class OpenapiApi(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            spec: Optional[pulumi.Input[_builtins.str]] = None) -> 'OpenapiApi':
+            spec: pulumi.Input[Optional[_builtins.str]] = None) -> 'OpenapiApi':
         """
         Get an existing OpenapiApi resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

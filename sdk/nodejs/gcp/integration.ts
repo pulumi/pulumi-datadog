@@ -175,59 +175,59 @@ export interface IntegrationState {
     /**
      * Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
      */
-    automute?: pulumi.Input<boolean>;
+    automute?: pulumi.Input<boolean | undefined>;
     /**
      * Your email found in your JSON service account key.
      */
-    clientEmail?: pulumi.Input<string>;
+    clientEmail?: pulumi.Input<string | undefined>;
     /**
      * Your ID found in your JSON service account key.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
      *
      * @deprecated **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
      */
-    cloudRunRevisionFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    cloudRunRevisionFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled. Defaults to `false`.
      */
-    cspmResourceCollectionEnabled?: pulumi.Input<boolean>;
+    cspmResourceCollectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
      *
      * @deprecated **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
      */
-    hostFilters?: pulumi.Input<string>;
+    hostFilters?: pulumi.Input<string | undefined>;
     /**
      * When enabled, Datadog scans for all resource change data in your Google Cloud environment.
      */
-    isResourceChangeCollectionEnabled?: pulumi.Input<boolean>;
+    isResourceChangeCollectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
      */
-    isSecurityCommandCenterEnabled?: pulumi.Input<boolean>;
+    isSecurityCommandCenterEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
      */
-    monitoredResourceConfigs?: pulumi.Input<pulumi.Input<inputs.gcp.IntegrationMonitoredResourceConfig>[]>;
+    monitoredResourceConfigs?: pulumi.Input<pulumi.Input<inputs.gcp.IntegrationMonitoredResourceConfig>[] | undefined>;
     /**
      * Your private key name found in your JSON service account key.
      */
-    privateKey?: pulumi.Input<string>;
+    privateKey?: pulumi.Input<string | undefined>;
     /**
      * Your private key ID found in your JSON service account key.
      */
-    privateKeyId?: pulumi.Input<string>;
+    privateKeyId?: pulumi.Input<string | undefined>;
     /**
      * Your Google Cloud project ID found in your JSON service account key.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * When enabled, Datadog scans for all resources in your GCP environment.
      */
-    resourceCollectionEnabled?: pulumi.Input<boolean>;
+    resourceCollectionEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -237,7 +237,7 @@ export interface IntegrationArgs {
     /**
      * Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
      */
-    automute?: pulumi.Input<boolean>;
+    automute?: pulumi.Input<boolean | undefined>;
     /**
      * Your email found in your JSON service account key.
      */
@@ -251,29 +251,29 @@ export interface IntegrationArgs {
      *
      * @deprecated **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
      */
-    cloudRunRevisionFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    cloudRunRevisionFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled. Defaults to `false`.
      */
-    cspmResourceCollectionEnabled?: pulumi.Input<boolean>;
+    cspmResourceCollectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
      *
      * @deprecated **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
      */
-    hostFilters?: pulumi.Input<string>;
+    hostFilters?: pulumi.Input<string | undefined>;
     /**
      * When enabled, Datadog scans for all resource change data in your Google Cloud environment.
      */
-    isResourceChangeCollectionEnabled?: pulumi.Input<boolean>;
+    isResourceChangeCollectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
      */
-    isSecurityCommandCenterEnabled?: pulumi.Input<boolean>;
+    isSecurityCommandCenterEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
      */
-    monitoredResourceConfigs?: pulumi.Input<pulumi.Input<inputs.gcp.IntegrationMonitoredResourceConfig>[]>;
+    monitoredResourceConfigs?: pulumi.Input<pulumi.Input<inputs.gcp.IntegrationMonitoredResourceConfig>[] | undefined>;
     /**
      * Your private key name found in your JSON service account key.
      */
@@ -289,5 +289,5 @@ export interface IntegrationArgs {
     /**
      * When enabled, Datadog scans for all resources in your GCP environment.
      */
-    resourceCollectionEnabled?: pulumi.Input<boolean>;
+    resourceCollectionEnabled?: pulumi.Input<boolean | undefined>;
 }

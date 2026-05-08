@@ -167,23 +167,23 @@ export interface TagPipelineRulesetState {
     /**
      * Whether the ruleset is enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the ruleset.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The position of the ruleset in the pipeline.
      */
-    position?: pulumi.Input<number>;
+    position?: pulumi.Input<number | undefined>;
     /**
      * The rules in the ruleset.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.TagPipelineRulesetRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.TagPipelineRulesetRule>[] | undefined>;
     /**
      * The version of the ruleset.
      */
-    version?: pulumi.Input<number>;
+    version?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -193,7 +193,7 @@ export interface TagPipelineRulesetArgs {
     /**
      * Whether the ruleset is enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the ruleset.
      */
@@ -201,5 +201,5 @@ export interface TagPipelineRulesetArgs {
     /**
      * The rules in the ruleset.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.TagPipelineRulesetRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.TagPipelineRulesetRule>[] | undefined>;
 }

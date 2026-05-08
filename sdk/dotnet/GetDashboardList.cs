@@ -24,13 +24,13 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Datadog.Index.GetDashboardList.Invoke(new()
+        ///     var test = Datadog.GetDashboardList.Invoke(new()
         ///     {
         ///         Name = "My super list",
         ///     });
         /// 
         ///     // Create a dashboard and register it in the list above.
-        ///     var time = new Datadog.Index.Dashboard("time", new()
+        ///     var time = new Datadog.Dashboard("time", new()
         ///     {
         ///         Title = "TF Test Layout Dashboard",
         ///         Description = "Created using the Datadog provider in Pulumi",
@@ -74,13 +74,13 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Datadog.Index.GetDashboardList.Invoke(new()
+        ///     var test = Datadog.GetDashboardList.Invoke(new()
         ///     {
         ///         Name = "My super list",
         ///     });
         /// 
         ///     // Create a dashboard and register it in the list above.
-        ///     var time = new Datadog.Index.Dashboard("time", new()
+        ///     var time = new Datadog.Dashboard("time", new()
         ///     {
         ///         Title = "TF Test Layout Dashboard",
         ///         Description = "Created using the Datadog provider in Pulumi",
@@ -124,13 +124,13 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Datadog.Index.GetDashboardList.Invoke(new()
+        ///     var test = Datadog.GetDashboardList.Invoke(new()
         ///     {
         ///         Name = "My super list",
         ///     });
         /// 
         ///     // Create a dashboard and register it in the list above.
-        ///     var time = new Datadog.Index.Dashboard("time", new()
+        ///     var time = new Datadog.Dashboard("time", new()
         ///     {
         ///         Title = "TF Test Layout Dashboard",
         ///         Description = "Created using the Datadog provider in Pulumi",

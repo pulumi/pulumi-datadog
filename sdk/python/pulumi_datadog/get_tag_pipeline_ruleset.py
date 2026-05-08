@@ -134,8 +134,8 @@ def get_tag_pipeline_ruleset(id: Optional[_builtins.str] = None,
         position=pulumi.get(__ret__, 'position'),
         rules=pulumi.get(__ret__, 'rules'),
         version=pulumi.get(__ret__, 'version'))
-def get_tag_pipeline_ruleset_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                                    rules: Optional[pulumi.Input[Optional[Sequence[Union['GetTagPipelineRulesetRuleArgs', 'GetTagPipelineRulesetRuleArgsDict']]]]] = None,
+def get_tag_pipeline_ruleset_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                                    rules: pulumi.Input[Optional[Optional[Sequence[Union['GetTagPipelineRulesetRuleArgs', 'GetTagPipelineRulesetRuleArgsDict']]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagPipelineRulesetResult]:
     """
     Use this data source to retrieve information about an existing Datadog tag pipeline ruleset.

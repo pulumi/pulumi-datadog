@@ -302,7 +302,7 @@ export interface SoftwareCatalogState {
     /**
      * The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
      */
-    entity?: pulumi.Input<string>;
+    entity?: pulumi.Input<string | undefined>;
 }
 
 /**

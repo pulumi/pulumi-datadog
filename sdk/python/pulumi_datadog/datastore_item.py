@@ -73,9 +73,9 @@ class DatastoreItemArgs:
 @pulumi.input_type
 class _DatastoreItemState:
     def __init__(__self__, *,
-                 datastore_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 item_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 datastore_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 item_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DatastoreItem resources.
 
@@ -92,38 +92,38 @@ class _DatastoreItemState:
 
     @_builtins.property
     @pulumi.getter(name="datastoreId")
-    def datastore_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def datastore_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of the datastore containing this item.
         """
         return pulumi.get(self, "datastore_id")
 
     @datastore_id.setter
-    def datastore_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def datastore_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "datastore_id", value)
 
     @_builtins.property
     @pulumi.getter(name="itemKey")
-    def item_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def item_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary key value that identifies this item. Cannot exceed 256 characters.
         """
         return pulumi.get(self, "item_key")
 
     @item_key.setter
-    def item_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def item_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "item_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def value(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The data content (as key-value pairs) of the datastore item.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def value(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "value", value)
 
 
@@ -133,9 +133,9 @@ class DatastoreItem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datastore_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 item_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 datastore_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 item_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a Datadog Datastore Item resource. This can be used to create and manage items in a Datadog datastore.
@@ -256,9 +256,9 @@ class DatastoreItem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datastore_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 item_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 datastore_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 item_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -287,9 +287,9 @@ class DatastoreItem(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            datastore_id: Optional[pulumi.Input[_builtins.str]] = None,
-            item_key: Optional[pulumi.Input[_builtins.str]] = None,
-            value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'DatastoreItem':
+            datastore_id: pulumi.Input[Optional[_builtins.str]] = None,
+            item_key: pulumi.Input[Optional[_builtins.str]] = None,
+            value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'DatastoreItem':
         """
         Get an existing DatastoreItem resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

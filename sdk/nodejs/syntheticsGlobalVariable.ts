@@ -217,58 +217,58 @@ export interface SyntheticsGlobalVariableState {
     /**
      * Description of the global variable. Defaults to `""`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * If set to true, the global variable is a FIDO variable. Defaults to `false`.
      */
-    isFido?: pulumi.Input<boolean>;
+    isFido?: pulumi.Input<boolean | undefined>;
     /**
      * If set to true, the global variable is a TOTP variable. Defaults to `false`.
      */
-    isTotp?: pulumi.Input<boolean>;
+    isTotp?: pulumi.Input<boolean | undefined>;
     /**
      * Synthetics global variable name. Must be all uppercase with underscores.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Additional options for the variable, such as a MFA token.
      */
-    options?: pulumi.Input<inputs.SyntheticsGlobalVariableOptions>;
+    options?: pulumi.Input<inputs.SyntheticsGlobalVariableOptions | undefined>;
     /**
      * Id of the Synthetics test to use for a variable from test.
      */
-    parseTestId?: pulumi.Input<string>;
+    parseTestId?: pulumi.Input<string | undefined>;
     /**
      * ID of the Synthetics test to use a source of the global variable value.
      */
-    parseTestOptions?: pulumi.Input<inputs.SyntheticsGlobalVariableParseTestOptions>;
+    parseTestOptions?: pulumi.Input<inputs.SyntheticsGlobalVariableParseTestOptions | undefined>;
     /**
      * A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      *
      * @deprecated This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      */
-    restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    restrictedRoles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * If set to true, the value of the global variable is hidden. This setting is automatically set to `true` if `isTotp` or `isFido` is set to `true`. Defaults to `false`.
      */
-    secure?: pulumi.Input<boolean>;
+    secure?: pulumi.Input<boolean | undefined>;
     /**
      * A list of tags to associate with your synthetics global variable.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The value of the global variable. Required unless `isFido` is set to `true` or `valueWo` is used
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * Write-only value of the global variable. Must be used with `valueWoVersion`.
      */
-    valueWo?: pulumi.Input<string>;
+    valueWo?: pulumi.Input<string | undefined>;
     /**
      * Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., '1', 'v2.1', '2024-Q1'). String length must be at least 1.
      */
-    valueWoVersion?: pulumi.Input<string>;
+    valueWoVersion?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -278,15 +278,15 @@ export interface SyntheticsGlobalVariableArgs {
     /**
      * Description of the global variable. Defaults to `""`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * If set to true, the global variable is a FIDO variable. Defaults to `false`.
      */
-    isFido?: pulumi.Input<boolean>;
+    isFido?: pulumi.Input<boolean | undefined>;
     /**
      * If set to true, the global variable is a TOTP variable. Defaults to `false`.
      */
-    isTotp?: pulumi.Input<boolean>;
+    isTotp?: pulumi.Input<boolean | undefined>;
     /**
      * Synthetics global variable name. Must be all uppercase with underscores.
      */
@@ -294,40 +294,40 @@ export interface SyntheticsGlobalVariableArgs {
     /**
      * Additional options for the variable, such as a MFA token.
      */
-    options?: pulumi.Input<inputs.SyntheticsGlobalVariableOptions>;
+    options?: pulumi.Input<inputs.SyntheticsGlobalVariableOptions | undefined>;
     /**
      * Id of the Synthetics test to use for a variable from test.
      */
-    parseTestId?: pulumi.Input<string>;
+    parseTestId?: pulumi.Input<string | undefined>;
     /**
      * ID of the Synthetics test to use a source of the global variable value.
      */
-    parseTestOptions?: pulumi.Input<inputs.SyntheticsGlobalVariableParseTestOptions>;
+    parseTestOptions?: pulumi.Input<inputs.SyntheticsGlobalVariableParseTestOptions | undefined>;
     /**
      * A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      *
      * @deprecated This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      */
-    restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    restrictedRoles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * If set to true, the value of the global variable is hidden. This setting is automatically set to `true` if `isTotp` or `isFido` is set to `true`. Defaults to `false`.
      */
-    secure?: pulumi.Input<boolean>;
+    secure?: pulumi.Input<boolean | undefined>;
     /**
      * A list of tags to associate with your synthetics global variable.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The value of the global variable. Required unless `isFido` is set to `true` or `valueWo` is used
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * Write-only value of the global variable. Must be used with `valueWoVersion`.
      */
-    valueWo?: pulumi.Input<string>;
+    valueWo?: pulumi.Input<string | undefined>;
     /**
      * Version associated with the write-only value. Changing this triggers an update. Can be any string (e.g., '1', 'v2.1', '2024-Q1'). String length must be at least 1.
      */
-    valueWoVersion?: pulumi.Input<string>;
+    valueWoVersion?: pulumi.Input<string | undefined>;
 }

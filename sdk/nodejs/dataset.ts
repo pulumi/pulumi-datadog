@@ -124,20 +124,20 @@ export interface DatasetState {
     /**
      * Indicates when the dataset was created (in ISO 8601).
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * Indicates who created the dataset.
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * The name of the dataset.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
      */
-    principals?: pulumi.Input<pulumi.Input<string>[]>;
-    productFilters?: pulumi.Input<pulumi.Input<inputs.DatasetProductFilter>[]>;
+    principals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    productFilters?: pulumi.Input<pulumi.Input<inputs.DatasetProductFilter>[] | undefined>;
 }
 
 /**
@@ -152,5 +152,5 @@ export interface DatasetArgs {
      * An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
      */
     principals: pulumi.Input<pulumi.Input<string>[]>;
-    productFilters?: pulumi.Input<pulumi.Input<inputs.DatasetProductFilter>[]>;
+    productFilters?: pulumi.Input<pulumi.Input<inputs.DatasetProductFilter>[] | undefined>;
 }

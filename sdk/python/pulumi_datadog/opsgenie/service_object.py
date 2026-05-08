@@ -22,7 +22,7 @@ class ServiceObjectArgs:
                  name: pulumi.Input[_builtins.str],
                  opsgenie_api_key: pulumi.Input[_builtins.str],
                  region: pulumi.Input[_builtins.str],
-                 custom_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 custom_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceObject resource.
 
@@ -75,24 +75,24 @@ class ServiceObjectArgs:
 
     @_builtins.property
     @pulumi.getter(name="customUrl")
-    def custom_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The custom url for a custom region.
         """
         return pulumi.get(self, "custom_url")
 
     @custom_url.setter
-    def custom_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_url", value)
 
 
 @pulumi.input_type
 class _ServiceObjectState:
     def __init__(__self__, *,
-                 custom_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 opsgenie_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 custom_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 opsgenie_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceObject resources.
 
@@ -112,50 +112,50 @@ class _ServiceObjectState:
 
     @_builtins.property
     @pulumi.getter(name="customUrl")
-    def custom_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The custom url for a custom region.
         """
         return pulumi.get(self, "custom_url")
 
     @custom_url.setter
-    def custom_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the Opsgenie service.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="opsgenieApiKey")
-    def opsgenie_api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def opsgenie_api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts. The best way to solve a drift is to manually mark the Service Object resource with terraform taint to have it destroyed and recreated.
         """
         return pulumi.get(self, "opsgenie_api_key")
 
     @opsgenie_api_key.setter
-    def opsgenie_api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def opsgenie_api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "opsgenie_api_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -165,10 +165,10 @@ class ServiceObject(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 opsgenie_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 opsgenie_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for interacting with Datadog Opsgenie Service API.
@@ -238,10 +238,10 @@ class ServiceObject(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 opsgenie_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 opsgenie_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -273,10 +273,10 @@ class ServiceObject(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_url: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            opsgenie_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServiceObject':
+            custom_url: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            opsgenie_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceObject':
         """
         Get an existing ServiceObject resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -107,11 +107,11 @@ export interface LogsPipelineOrderState {
     /**
      * The name attribute in the resource `datadog.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
      */
-    pipelines?: pulumi.Input<pulumi.Input<string>[]>;
+    pipelines?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**

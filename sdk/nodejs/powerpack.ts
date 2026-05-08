@@ -154,35 +154,35 @@ export interface PowerpackState {
     /**
      * The description of the powerpack.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The layout of the powerpack on a free-form dashboard.
      */
-    layout?: pulumi.Input<inputs.PowerpackLayout>;
+    layout?: pulumi.Input<inputs.PowerpackLayout | undefined>;
     /**
      * The timeframe to use when displaying the powerpack. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
-    liveSpan?: pulumi.Input<string>;
+    liveSpan?: pulumi.Input<string | undefined>;
     /**
      * The name for the powerpack.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether or not title should be displayed in the powerpack.
      */
-    showTitle?: pulumi.Input<boolean>;
+    showTitle?: pulumi.Input<boolean | undefined>;
     /**
      * List of tags to identify this powerpack.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The list of template variables for this powerpack.
      */
-    templateVariables?: pulumi.Input<pulumi.Input<inputs.PowerpackTemplateVariable>[]>;
+    templateVariables?: pulumi.Input<pulumi.Input<inputs.PowerpackTemplateVariable>[] | undefined>;
     /**
      * The list of widgets to display in the powerpack.
      */
-    widgets?: pulumi.Input<pulumi.Input<inputs.PowerpackWidget>[]>;
+    widgets?: pulumi.Input<pulumi.Input<inputs.PowerpackWidget>[] | undefined>;
 }
 
 /**
@@ -192,33 +192,33 @@ export interface PowerpackArgs {
     /**
      * The description of the powerpack.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The layout of the powerpack on a free-form dashboard.
      */
-    layout?: pulumi.Input<inputs.PowerpackLayout>;
+    layout?: pulumi.Input<inputs.PowerpackLayout | undefined>;
     /**
      * The timeframe to use when displaying the powerpack. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
-    liveSpan?: pulumi.Input<string>;
+    liveSpan?: pulumi.Input<string | undefined>;
     /**
      * The name for the powerpack.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether or not title should be displayed in the powerpack.
      */
-    showTitle?: pulumi.Input<boolean>;
+    showTitle?: pulumi.Input<boolean | undefined>;
     /**
      * List of tags to identify this powerpack.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The list of template variables for this powerpack.
      */
-    templateVariables?: pulumi.Input<pulumi.Input<inputs.PowerpackTemplateVariable>[]>;
+    templateVariables?: pulumi.Input<pulumi.Input<inputs.PowerpackTemplateVariable>[] | undefined>;
     /**
      * The list of widgets to display in the powerpack.
      */
-    widgets?: pulumi.Input<pulumi.Input<inputs.PowerpackWidget>[]>;
+    widgets?: pulumi.Input<pulumi.Input<inputs.PowerpackWidget>[] | undefined>;
 }

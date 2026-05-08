@@ -202,43 +202,43 @@ export interface IncidentNotificationRuleState {
     /**
      * The conditions that trigger this notification rule. At least one condition is required.
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.IncidentNotificationRuleCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.IncidentNotificationRuleCondition>[] | undefined>;
     /**
      * Timestamp when the notification rule was created.
      */
-    created?: pulumi.Input<string>;
+    created?: pulumi.Input<string | undefined>;
     /**
      * Whether the notification rule is enabled. Defaults to `false`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The notification handles (targets) for this rule. Examples: @team-email@company.com, @slack-channel.
      */
-    handles?: pulumi.Input<pulumi.Input<string>[]>;
+    handles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the incident type this notification rule is associated with.
      */
-    incidentType?: pulumi.Input<string>;
+    incidentType?: pulumi.Input<string | undefined>;
     /**
      * Timestamp when the notification rule was last modified.
      */
-    modified?: pulumi.Input<string>;
+    modified?: pulumi.Input<string | undefined>;
     /**
      * The ID of the notification template to use for this rule.
      */
-    notificationTemplate?: pulumi.Input<string>;
+    notificationTemplate?: pulumi.Input<string | undefined>;
     /**
      * List of incident fields that trigger re-notification when changed. Valid values are: status, severity, customer*impact, title, description, detected, root*cause, services, state.
      */
-    renotifyOns?: pulumi.Input<pulumi.Input<string>[]>;
+    renotifyOns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The trigger event for this notification rule. Valid values are: incident*created*trigger, incident*saved*trigger.
      */
-    trigger?: pulumi.Input<string>;
+    trigger?: pulumi.Input<string | undefined>;
     /**
      * The visibility of the notification rule. Valid values are: all, organization, private. Defaults to organization.
      */
-    visibility?: pulumi.Input<string>;
+    visibility?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -248,11 +248,11 @@ export interface IncidentNotificationRuleArgs {
     /**
      * The conditions that trigger this notification rule. At least one condition is required.
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.IncidentNotificationRuleCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.IncidentNotificationRuleCondition>[] | undefined>;
     /**
      * Whether the notification rule is enabled. Defaults to `false`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The notification handles (targets) for this rule. Examples: @team-email@company.com, @slack-channel.
      */
@@ -264,11 +264,11 @@ export interface IncidentNotificationRuleArgs {
     /**
      * The ID of the notification template to use for this rule.
      */
-    notificationTemplate?: pulumi.Input<string>;
+    notificationTemplate?: pulumi.Input<string | undefined>;
     /**
      * List of incident fields that trigger re-notification when changed. Valid values are: status, severity, customer*impact, title, description, detected, root*cause, services, state.
      */
-    renotifyOns?: pulumi.Input<pulumi.Input<string>[]>;
+    renotifyOns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The trigger event for this notification rule. Valid values are: incident*created*trigger, incident*saved*trigger.
      */
@@ -276,5 +276,5 @@ export interface IncidentNotificationRuleArgs {
     /**
      * The visibility of the notification rule. Valid values are: all, organization, private. Defaults to organization.
      */
-    visibility?: pulumi.Input<string>;
+    visibility?: pulumi.Input<string | undefined>;
 }

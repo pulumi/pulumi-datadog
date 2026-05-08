@@ -20,7 +20,7 @@ __all__ = ['CustomAllocationRulesArgs', 'CustomAllocationRules']
 class CustomAllocationRulesArgs:
     def __init__(__self__, *,
                  rule_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 override_ui_defined_resources: Optional[pulumi.Input[_builtins.bool]] = None):
+                 override_ui_defined_resources: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a CustomAllocationRules resource.
 
@@ -45,22 +45,22 @@ class CustomAllocationRulesArgs:
 
     @_builtins.property
     @pulumi.getter(name="overrideUiDefinedResources")
-    def override_ui_defined_resources(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def override_ui_defined_resources(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
         """
         return pulumi.get(self, "override_ui_defined_resources")
 
     @override_ui_defined_resources.setter
-    def override_ui_defined_resources(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def override_ui_defined_resources(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "override_ui_defined_resources", value)
 
 
 @pulumi.input_type
 class _CustomAllocationRulesState:
     def __init__(__self__, *,
-                 override_ui_defined_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 override_ui_defined_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CustomAllocationRules resources.
 
@@ -74,26 +74,26 @@ class _CustomAllocationRulesState:
 
     @_builtins.property
     @pulumi.getter(name="overrideUiDefinedResources")
-    def override_ui_defined_resources(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def override_ui_defined_resources(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
         """
         return pulumi.get(self, "override_ui_defined_resources")
 
     @override_ui_defined_resources.setter
-    def override_ui_defined_resources(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def override_ui_defined_resources(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "override_ui_defined_resources", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleIds")
-    def rule_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def rule_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of Custom Allocation Rule IDs, in order. Rules are executed in the order specified in this list. Comes from the `id` field on a `CustomAllocationRule` resource.
         """
         return pulumi.get(self, "rule_ids")
 
     @rule_ids.setter
-    def rule_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def rule_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "rule_ids", value)
 
 
@@ -103,8 +103,8 @@ class CustomAllocationRules(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 override_ui_defined_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 override_ui_defined_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a Datadog Custom Allocation Rule Order API resource. This can be used to manage the order of Datadog Custom Allocation Rules.
@@ -312,8 +312,8 @@ class CustomAllocationRules(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 override_ui_defined_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 override_ui_defined_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -337,8 +337,8 @@ class CustomAllocationRules(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            override_ui_defined_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-            rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'CustomAllocationRules':
+            override_ui_defined_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+            rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'CustomAllocationRules':
         """
         Get an existing CustomAllocationRules resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

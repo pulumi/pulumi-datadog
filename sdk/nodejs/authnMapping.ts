@@ -122,19 +122,19 @@ export interface AuthnMappingState {
     /**
      * Identity provider key.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
      */
-    role?: pulumi.Input<string>;
+    role?: pulumi.Input<string | undefined>;
     /**
      * The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
      */
-    team?: pulumi.Input<string>;
+    team?: pulumi.Input<string | undefined>;
     /**
      * Identity provider value.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -148,11 +148,11 @@ export interface AuthnMappingArgs {
     /**
      * The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
      */
-    role?: pulumi.Input<string>;
+    role?: pulumi.Input<string | undefined>;
     /**
      * The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
      */
-    team?: pulumi.Input<string>;
+    team?: pulumi.Input<string | undefined>;
     /**
      * Identity provider value.
      */

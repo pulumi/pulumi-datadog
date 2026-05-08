@@ -22,8 +22,8 @@ __all__ = ['OnCallUserNotificationChannelArgs', 'OnCallUserNotificationChannel']
 class OnCallUserNotificationChannelArgs:
     def __init__(__self__, *,
                  user_id: pulumi.Input[_builtins.str],
-                 email: Optional[pulumi.Input['OnCallUserNotificationChannelEmailArgs']] = None,
-                 phone: Optional[pulumi.Input['OnCallUserNotificationChannelPhoneArgs']] = None):
+                 email: pulumi.Input[Optional['OnCallUserNotificationChannelEmailArgs']] = None,
+                 phone: pulumi.Input[Optional['OnCallUserNotificationChannelPhoneArgs']] = None):
         """
         The set of arguments for constructing a OnCallUserNotificationChannel resource.
 
@@ -49,29 +49,29 @@ class OnCallUserNotificationChannelArgs:
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input['OnCallUserNotificationChannelEmailArgs']]:
+    def email(self) -> pulumi.Input[Optional['OnCallUserNotificationChannelEmailArgs']]:
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input['OnCallUserNotificationChannelEmailArgs']]):
+    def email(self, value: pulumi.Input[Optional['OnCallUserNotificationChannelEmailArgs']]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter
-    def phone(self) -> Optional[pulumi.Input['OnCallUserNotificationChannelPhoneArgs']]:
+    def phone(self) -> pulumi.Input[Optional['OnCallUserNotificationChannelPhoneArgs']]:
         return pulumi.get(self, "phone")
 
     @phone.setter
-    def phone(self, value: Optional[pulumi.Input['OnCallUserNotificationChannelPhoneArgs']]):
+    def phone(self, value: pulumi.Input[Optional['OnCallUserNotificationChannelPhoneArgs']]):
         pulumi.set(self, "phone", value)
 
 
 @pulumi.input_type
 class _OnCallUserNotificationChannelState:
     def __init__(__self__, *,
-                 email: Optional[pulumi.Input['OnCallUserNotificationChannelEmailArgs']] = None,
-                 phone: Optional[pulumi.Input['OnCallUserNotificationChannelPhoneArgs']] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 email: pulumi.Input[Optional['OnCallUserNotificationChannelEmailArgs']] = None,
+                 phone: pulumi.Input[Optional['OnCallUserNotificationChannelPhoneArgs']] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OnCallUserNotificationChannel resources.
 
@@ -86,32 +86,32 @@ class _OnCallUserNotificationChannelState:
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input['OnCallUserNotificationChannelEmailArgs']]:
+    def email(self) -> pulumi.Input[Optional['OnCallUserNotificationChannelEmailArgs']]:
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input['OnCallUserNotificationChannelEmailArgs']]):
+    def email(self, value: pulumi.Input[Optional['OnCallUserNotificationChannelEmailArgs']]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter
-    def phone(self) -> Optional[pulumi.Input['OnCallUserNotificationChannelPhoneArgs']]:
+    def phone(self) -> pulumi.Input[Optional['OnCallUserNotificationChannelPhoneArgs']]:
         return pulumi.get(self, "phone")
 
     @phone.setter
-    def phone(self, value: Optional[pulumi.Input['OnCallUserNotificationChannelPhoneArgs']]):
+    def phone(self, value: pulumi.Input[Optional['OnCallUserNotificationChannelPhoneArgs']]):
         pulumi.set(self, "phone", value)
 
     @_builtins.property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the user to associate the notification channel with.
         """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
-    def user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_id", value)
 
 
@@ -121,9 +121,9 @@ class OnCallUserNotificationChannel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 email: Optional[pulumi.Input[Union['OnCallUserNotificationChannelEmailArgs', 'OnCallUserNotificationChannelEmailArgsDict']]] = None,
-                 phone: Optional[pulumi.Input[Union['OnCallUserNotificationChannelPhoneArgs', 'OnCallUserNotificationChannelPhoneArgsDict']]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[Union['OnCallUserNotificationChannelEmailArgs', 'OnCallUserNotificationChannelEmailArgsDict']]] = None,
+                 phone: pulumi.Input[Optional[Union['OnCallUserNotificationChannelPhoneArgs', 'OnCallUserNotificationChannelPhoneArgsDict']]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog On-Call user notification channel resource.
@@ -158,9 +158,9 @@ class OnCallUserNotificationChannel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 email: Optional[pulumi.Input[Union['OnCallUserNotificationChannelEmailArgs', 'OnCallUserNotificationChannelEmailArgsDict']]] = None,
-                 phone: Optional[pulumi.Input[Union['OnCallUserNotificationChannelPhoneArgs', 'OnCallUserNotificationChannelPhoneArgsDict']]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[Union['OnCallUserNotificationChannelEmailArgs', 'OnCallUserNotificationChannelEmailArgsDict']]] = None,
+                 phone: pulumi.Input[Optional[Union['OnCallUserNotificationChannelPhoneArgs', 'OnCallUserNotificationChannelPhoneArgsDict']]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -185,9 +185,9 @@ class OnCallUserNotificationChannel(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            email: Optional[pulumi.Input[Union['OnCallUserNotificationChannelEmailArgs', 'OnCallUserNotificationChannelEmailArgsDict']]] = None,
-            phone: Optional[pulumi.Input[Union['OnCallUserNotificationChannelPhoneArgs', 'OnCallUserNotificationChannelPhoneArgsDict']]] = None,
-            user_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'OnCallUserNotificationChannel':
+            email: pulumi.Input[Optional[Union['OnCallUserNotificationChannelEmailArgs', 'OnCallUserNotificationChannelEmailArgsDict']]] = None,
+            phone: pulumi.Input[Optional[Union['OnCallUserNotificationChannelPhoneArgs', 'OnCallUserNotificationChannelPhoneArgsDict']]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'OnCallUserNotificationChannel':
         """
         Get an existing OnCallUserNotificationChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

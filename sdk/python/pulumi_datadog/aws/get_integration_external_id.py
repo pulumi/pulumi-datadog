@@ -100,7 +100,7 @@ def get_integration_external_id(aws_account_id: Optional[_builtins.str] = None,
         aws_account_id=pulumi.get(__ret__, 'aws_account_id'),
         external_id=pulumi.get(__ret__, 'external_id'),
         id=pulumi.get(__ret__, 'id'))
-def get_integration_external_id_output(aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_integration_external_id_output(aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationExternalIdResult]:
     """
     Use this data source to retrieve the external ID from an existing AWS integration. This can be used to reference the external ID value from an existing AWS account integration.

@@ -122,17 +122,17 @@ export interface GetSecurityMonitoringRulesOutputArgs {
     /**
      * Limit the search to default rules
      */
-    defaultOnlyFilter?: pulumi.Input<boolean>;
+    defaultOnlyFilter?: pulumi.Input<boolean | undefined>;
     /**
      * A rule name to limit the search
      */
-    nameFilter?: pulumi.Input<string>;
+    nameFilter?: pulumi.Input<string | undefined>;
     /**
      * A list of tags to limit the search
      */
-    tagsFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    tagsFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Limit the search to user rules
      */
-    userOnlyFilter?: pulumi.Input<boolean>;
+    userOnlyFilter?: pulumi.Input<boolean | undefined>;
 }

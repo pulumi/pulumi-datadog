@@ -84,13 +84,13 @@ export interface GetTeamHierarchyLinksOutputArgs {
     /**
      * Filter by parent team ID.
      */
-    filterParentTeam?: pulumi.Input<string>;
+    filterParentTeam?: pulumi.Input<string | undefined>;
     /**
      * Filter by sub team ID.
      */
-    filterSubTeam?: pulumi.Input<string>;
+    filterSubTeam?: pulumi.Input<string | undefined>;
     /**
      * The team hierarchy link’s identifier.
      */
-    linkId?: pulumi.Input<string>;
+    linkId?: pulumi.Input<string | undefined>;
 }

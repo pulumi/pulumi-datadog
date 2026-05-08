@@ -129,23 +129,23 @@ export interface SecurityMonitoringCriticalAssetState {
     /**
      * Whether the critical asset is enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The query used to match a critical asset and the associated signals. Uses the same syntax as the search bar in the Security Signals Explorer.
      */
-    query?: pulumi.Input<string>;
+    query?: pulumi.Input<string | undefined>;
     /**
      * The rule query to filter which detection rules this critical asset applies to. Uses the same syntax as the search bar for detection rules.
      */
-    ruleQuery?: pulumi.Input<string>;
+    ruleQuery?: pulumi.Input<string | undefined>;
     /**
      * The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `no-op`, `increase`, `decrease`.
      */
-    severity?: pulumi.Input<string>;
+    severity?: pulumi.Input<string | undefined>;
     /**
      * A list of tags associated with the critical asset.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -155,7 +155,7 @@ export interface SecurityMonitoringCriticalAssetArgs {
     /**
      * Whether the critical asset is enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The query used to match a critical asset and the associated signals. Uses the same syntax as the search bar in the Security Signals Explorer.
      */
@@ -171,5 +171,5 @@ export interface SecurityMonitoringCriticalAssetArgs {
     /**
      * A list of tags associated with the critical asset.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

@@ -147,11 +147,11 @@ export interface ObservabilityPipelineState {
     /**
      * Configuration for the pipeline.
      */
-    config?: pulumi.Input<inputs.ObservabilityPipelineConfig>;
+    config?: pulumi.Input<inputs.ObservabilityPipelineConfig | undefined>;
     /**
      * The pipeline name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**

@@ -137,23 +137,23 @@ export interface AgentlessScanningAwsScanOptionsState {
     /**
      * The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * Indicates if scanning of Lambda functions is enabled.
      */
-    lambda?: pulumi.Input<boolean>;
+    lambda?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates if scanning for sensitive data is enabled.
      */
-    sensitiveData?: pulumi.Input<boolean>;
+    sensitiveData?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates if scanning for vulnerabilities in containers is enabled.
      */
-    vulnContainersOs?: pulumi.Input<boolean>;
+    vulnContainersOs?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates if scanning for vulnerabilities in hosts is enabled.
      */
-    vulnHostOs?: pulumi.Input<boolean>;
+    vulnHostOs?: pulumi.Input<boolean | undefined>;
 }
 
 /**

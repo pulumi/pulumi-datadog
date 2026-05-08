@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Datadog.Index.OnCallSchedule("test", new()
+    ///     var test = new Datadog.OnCallSchedule("test", new()
     ///     {
     ///         Name = "Team A On-Call",
     ///         TimeZone = "America/New_York",

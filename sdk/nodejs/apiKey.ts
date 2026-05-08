@@ -105,15 +105,15 @@ export interface ApiKeyState {
     /**
      * The value of the API Key.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * Name for API Key.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
      */
-    remoteConfigReadEnabled?: pulumi.Input<boolean>;
+    remoteConfigReadEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -127,5 +127,5 @@ export interface ApiKeyArgs {
     /**
      * Whether the API key is used for remote config. Set to true only if remote config is enabled in `/organization-settings/remote-config`.
      */
-    remoteConfigReadEnabled?: pulumi.Input<boolean>;
+    remoteConfigReadEnabled?: pulumi.Input<boolean | undefined>;
 }

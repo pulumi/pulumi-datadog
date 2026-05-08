@@ -228,10 +228,10 @@ def get_service_level_objective(id: Optional[_builtins.str] = None,
         timeframe=pulumi.get(__ret__, 'timeframe'),
         type=pulumi.get(__ret__, 'type'),
         warning_threshold=pulumi.get(__ret__, 'warning_threshold'))
-def get_service_level_objective_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       metrics_query: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       name_query: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       tags_query: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_service_level_objective_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       metrics_query: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       name_query: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       tags_query: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceLevelObjectiveResult]:
     """
     Use this data source to retrieve information about an existing SLO for use in other resources.

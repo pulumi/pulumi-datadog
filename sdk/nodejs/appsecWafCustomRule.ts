@@ -182,41 +182,41 @@ export class AppsecWafCustomRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AppsecWafCustomRule resources.
  */
 export interface AppsecWafCustomRuleState {
-    action?: pulumi.Input<inputs.AppsecWafCustomRuleAction>;
+    action?: pulumi.Input<inputs.AppsecWafCustomRuleAction | undefined>;
     /**
      * Indicates whether the WAF custom rule will block the request.
      */
-    blocking?: pulumi.Input<boolean>;
-    conditions?: pulumi.Input<pulumi.Input<inputs.AppsecWafCustomRuleCondition>[]>;
+    blocking?: pulumi.Input<boolean | undefined>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.AppsecWafCustomRuleCondition>[] | undefined>;
     /**
      * Indicates whether the WAF custom rule is enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Name of the WAF custom rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The path glob for the WAF custom rule.
      */
-    pathGlob?: pulumi.Input<string>;
-    scopes?: pulumi.Input<pulumi.Input<inputs.AppsecWafCustomRuleScope>[]>;
+    pathGlob?: pulumi.Input<string | undefined>;
+    scopes?: pulumi.Input<pulumi.Input<inputs.AppsecWafCustomRuleScope>[] | undefined>;
     /**
      * Tags associated with the WAF custom rule. `category` and `type` tags are required. Supported categories include `businessLogic`, `attackAttempt` and `securityResponse`.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
  * The set of arguments for constructing a AppsecWafCustomRule resource.
  */
 export interface AppsecWafCustomRuleArgs {
-    action?: pulumi.Input<inputs.AppsecWafCustomRuleAction>;
+    action?: pulumi.Input<inputs.AppsecWafCustomRuleAction | undefined>;
     /**
      * Indicates whether the WAF custom rule will block the request.
      */
     blocking: pulumi.Input<boolean>;
-    conditions?: pulumi.Input<pulumi.Input<inputs.AppsecWafCustomRuleCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.AppsecWafCustomRuleCondition>[] | undefined>;
     /**
      * Indicates whether the WAF custom rule is enabled.
      */
@@ -228,8 +228,8 @@ export interface AppsecWafCustomRuleArgs {
     /**
      * The path glob for the WAF custom rule.
      */
-    pathGlob?: pulumi.Input<string>;
-    scopes?: pulumi.Input<pulumi.Input<inputs.AppsecWafCustomRuleScope>[]>;
+    pathGlob?: pulumi.Input<string | undefined>;
+    scopes?: pulumi.Input<pulumi.Input<inputs.AppsecWafCustomRuleScope>[] | undefined>;
     /**
      * Tags associated with the WAF custom rule. `category` and `type` tags are required. Supported categories include `businessLogic`, `attackAttempt` and `securityResponse`.
      */

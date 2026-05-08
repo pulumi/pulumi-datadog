@@ -135,9 +135,9 @@ def get_role_users(exact_match: Optional[_builtins.bool] = None,
         id=pulumi.get(__ret__, 'id'),
         role_id=pulumi.get(__ret__, 'role_id'),
         role_users=pulumi.get(__ret__, 'role_users'))
-def get_role_users_output(exact_match: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                          filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          role_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_role_users_output(exact_match: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                          filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          role_id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleUsersResult]:
     """
     Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.

@@ -96,9 +96,9 @@ export interface GetUsersOutputArgs {
     /**
      * Filter all users by the given string.
      */
-    filter?: pulumi.Input<string>;
+    filter?: pulumi.Input<string | undefined>;
     /**
      * Filter on status attribute. Comma-separated list with possible values of Active, Pending, and Disabled.
      */
-    filterStatus?: pulumi.Input<string>;
+    filterStatus?: pulumi.Input<string | undefined>;
 }

@@ -116,17 +116,17 @@ export interface GetReferenceTableOutputArgs {
     /**
      * File metadata for the reference table. Contains sync settings for cloud storage sources.
      */
-    fileMetadata?: pulumi.Input<inputs.GetReferenceTableFileMetadataArgs>;
+    fileMetadata?: pulumi.Input<inputs.GetReferenceTableFileMetadataArgs | undefined>;
     /**
      * The UUID of the reference table. Either id or tableName must be specified, but not both.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The schema definition for the reference table.
      */
-    schema?: pulumi.Input<inputs.GetReferenceTableSchemaArgs>;
+    schema?: pulumi.Input<inputs.GetReferenceTableSchemaArgs | undefined>;
     /**
      * The name of the reference table. Either id or tableName must be specified, but not both.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
 }

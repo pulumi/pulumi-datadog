@@ -136,15 +136,15 @@ export interface DatastoreItemState {
     /**
      * The unique identifier of the datastore containing this item.
      */
-    datastoreId?: pulumi.Input<string>;
+    datastoreId?: pulumi.Input<string | undefined>;
     /**
      * The primary key value that identifies this item. Cannot exceed 256 characters.
      */
-    itemKey?: pulumi.Input<string>;
+    itemKey?: pulumi.Input<string | undefined>;
     /**
      * The data content (as key-value pairs) of the datastore item.
      */
-    value?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    value?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**

@@ -161,43 +161,43 @@ export interface SecurityMonitoringSuppressionState {
     /**
      * An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
      */
-    dataExclusionQuery?: pulumi.Input<string>;
+    dataExclusionQuery?: pulumi.Input<string | undefined>;
     /**
      * A description for the suppression rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether the suppression rule is enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * A RFC3339 timestamp giving an expiration date for the suppression rule. After this date, it won't suppress signals anymore.
      */
-    expirationDate?: pulumi.Input<string>;
+    expirationDate?: pulumi.Input<string | undefined>;
     /**
      * The name of the suppression rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
      */
-    ruleQuery?: pulumi.Input<string>;
+    ruleQuery?: pulumi.Input<string | undefined>;
     /**
      * A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
      */
-    startDate?: pulumi.Input<string>;
+    startDate?: pulumi.Input<string | undefined>;
     /**
      * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
      */
-    suppressionQuery?: pulumi.Input<string>;
+    suppressionQuery?: pulumi.Input<string | undefined>;
     /**
      * A list of tags associated with the suppression rule.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.
      */
-    validate?: pulumi.Input<boolean>;
+    validate?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -207,11 +207,11 @@ export interface SecurityMonitoringSuppressionArgs {
     /**
      * An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
      */
-    dataExclusionQuery?: pulumi.Input<string>;
+    dataExclusionQuery?: pulumi.Input<string | undefined>;
     /**
      * A description for the suppression rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether the suppression rule is enabled.
      */
@@ -219,7 +219,7 @@ export interface SecurityMonitoringSuppressionArgs {
     /**
      * A RFC3339 timestamp giving an expiration date for the suppression rule. After this date, it won't suppress signals anymore.
      */
-    expirationDate?: pulumi.Input<string>;
+    expirationDate?: pulumi.Input<string | undefined>;
     /**
      * The name of the suppression rule.
      */
@@ -231,17 +231,17 @@ export interface SecurityMonitoringSuppressionArgs {
     /**
      * A RFC3339 timestamp giving a start date for the suppression rule. Before this date, it doesn't suppress signals.
      */
-    startDate?: pulumi.Input<string>;
+    startDate?: pulumi.Input<string | undefined>;
     /**
      * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
      */
-    suppressionQuery?: pulumi.Input<string>;
+    suppressionQuery?: pulumi.Input<string | undefined>;
     /**
      * A list of tags associated with the suppression rule.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether to validate the suppression rule during `pulumi preview`. When set to `true`, the rule is validated against Datadog's suppression validation endpoint. Defaults to `true`.
      */
-    validate?: pulumi.Input<boolean>;
+    validate?: pulumi.Input<boolean | undefined>;
 }

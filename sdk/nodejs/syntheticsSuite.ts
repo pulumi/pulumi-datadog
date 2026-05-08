@@ -99,23 +99,23 @@ export interface SyntheticsSuiteState {
     /**
      * Message of the Synthetics suite.
      */
-    message?: pulumi.Input<string>;
+    message?: pulumi.Input<string | undefined>;
     /**
      * Name of the Synthetics suite.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Options for the Synthetics suite.
      */
-    options?: pulumi.Input<pulumi.Input<inputs.SyntheticsSuiteOption>[]>;
+    options?: pulumi.Input<pulumi.Input<inputs.SyntheticsSuiteOption>[] | undefined>;
     /**
      * A set of tags to associate with your synthetics suite.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of tests in the Synthetics suite. Can be empty but the field is always sent to the API.
      */
-    tests?: pulumi.Input<pulumi.Input<inputs.SyntheticsSuiteTest>[]>;
+    tests?: pulumi.Input<pulumi.Input<inputs.SyntheticsSuiteTest>[] | undefined>;
 }
 
 /**
@@ -125,7 +125,7 @@ export interface SyntheticsSuiteArgs {
     /**
      * Message of the Synthetics suite.
      */
-    message?: pulumi.Input<string>;
+    message?: pulumi.Input<string | undefined>;
     /**
      * Name of the Synthetics suite.
      */
@@ -133,13 +133,13 @@ export interface SyntheticsSuiteArgs {
     /**
      * Options for the Synthetics suite.
      */
-    options?: pulumi.Input<pulumi.Input<inputs.SyntheticsSuiteOption>[]>;
+    options?: pulumi.Input<pulumi.Input<inputs.SyntheticsSuiteOption>[] | undefined>;
     /**
      * A set of tags to associate with your synthetics suite.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of tests in the Synthetics suite. Can be empty but the field is always sent to the API.
      */
-    tests?: pulumi.Input<pulumi.Input<inputs.SyntheticsSuiteTest>[]>;
+    tests?: pulumi.Input<pulumi.Input<inputs.SyntheticsSuiteTest>[] | undefined>;
 }

@@ -157,31 +157,31 @@ export interface DeploymentGateState {
     /**
      * Creation timestamp of the deployment gate.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * Enable Dry Run to test gate behavior without impacting deployments. The evaluation of a dry run gate always responds with a pass status, but the in-app result is the real status based on rules evaluation. This is particularly useful when performing an initial evaluation of the gate behavior without impacting the deployment pipeline.
      */
-    dryRun?: pulumi.Input<boolean>;
+    dryRun?: pulumi.Input<boolean | undefined>;
     /**
      * The target environment (example: dev).
      */
-    env?: pulumi.Input<string>;
+    env?: pulumi.Input<string | undefined>;
     /**
      * Unique name for multiple gates on the same service/environment.
      */
-    identifier?: pulumi.Input<string>;
+    identifier?: pulumi.Input<string | undefined>;
     /**
      * Deployment rules for this gate.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.DeploymentGateRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.DeploymentGateRule>[] | undefined>;
     /**
      * The service name (example: transaction-backend).
      */
-    service?: pulumi.Input<string>;
+    service?: pulumi.Input<string | undefined>;
     /**
      * Last update timestamp of the deployment gate.
      */
-    updatedAt?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -191,7 +191,7 @@ export interface DeploymentGateArgs {
     /**
      * Enable Dry Run to test gate behavior without impacting deployments. The evaluation of a dry run gate always responds with a pass status, but the in-app result is the real status based on rules evaluation. This is particularly useful when performing an initial evaluation of the gate behavior without impacting the deployment pipeline.
      */
-    dryRun?: pulumi.Input<boolean>;
+    dryRun?: pulumi.Input<boolean | undefined>;
     /**
      * The target environment (example: dev).
      */
@@ -199,11 +199,11 @@ export interface DeploymentGateArgs {
     /**
      * Unique name for multiple gates on the same service/environment.
      */
-    identifier?: pulumi.Input<string>;
+    identifier?: pulumi.Input<string | undefined>;
     /**
      * Deployment rules for this gate.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.DeploymentGateRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.DeploymentGateRule>[] | undefined>;
     /**
      * The service name (example: transaction-backend).
      */

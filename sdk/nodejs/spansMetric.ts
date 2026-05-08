@@ -119,13 +119,13 @@ export class SpansMetric extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SpansMetric resources.
  */
 export interface SpansMetricState {
-    compute?: pulumi.Input<inputs.SpansMetricCompute>;
-    filter?: pulumi.Input<inputs.SpansMetricFilter>;
-    groupBies?: pulumi.Input<pulumi.Input<inputs.SpansMetricGroupBy>[]>;
+    compute?: pulumi.Input<inputs.SpansMetricCompute | undefined>;
+    filter?: pulumi.Input<inputs.SpansMetricFilter | undefined>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.SpansMetricGroupBy>[] | undefined>;
     /**
      * The name of the span-based metric. This field can't be updated after creation.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -134,7 +134,7 @@ export interface SpansMetricState {
 export interface SpansMetricArgs {
     compute: pulumi.Input<inputs.SpansMetricCompute>;
     filter: pulumi.Input<inputs.SpansMetricFilter>;
-    groupBies?: pulumi.Input<pulumi.Input<inputs.SpansMetricGroupBy>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.SpansMetricGroupBy>[] | undefined>;
     /**
      * The name of the span-based metric. This field can't be updated after creation.
      */

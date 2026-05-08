@@ -126,11 +126,11 @@ export interface OnCallTeamRoutingRulesState {
     /**
      * List of team routing rules.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.OnCallTeamRoutingRulesRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.OnCallTeamRoutingRulesRule>[] | undefined>;
     /**
      * ID of the team to associate the routing rules with.
      */
-    teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -140,7 +140,7 @@ export interface OnCallTeamRoutingRulesArgs {
     /**
      * List of team routing rules.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.OnCallTeamRoutingRulesRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.OnCallTeamRoutingRulesRule>[] | undefined>;
     /**
      * ID of the team to associate the routing rules with.
      */

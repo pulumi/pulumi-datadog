@@ -117,8 +117,8 @@ def get_users(filter: Optional[_builtins.str] = None,
         filter_status=pulumi.get(__ret__, 'filter_status'),
         id=pulumi.get(__ret__, 'id'),
         users=pulumi.get(__ret__, 'users'))
-def get_users_output(filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     filter_status: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_users_output(filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     filter_status: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUsersResult]:
     """
     Use this data source to retrieve information about existing users for use in other resources.

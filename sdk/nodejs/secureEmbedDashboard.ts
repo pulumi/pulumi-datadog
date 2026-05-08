@@ -140,47 +140,47 @@ export interface SecureEmbedDashboardState {
     /**
      * The HMAC credential granting access to this secure embed. Only available on initial creation; stored in state.
      */
-    credential?: pulumi.Input<string>;
+    credential?: pulumi.Input<string | undefined>;
     /**
      * The ID of the dashboard to create a secure embed for.
      */
-    dashboardId?: pulumi.Input<string>;
+    dashboardId?: pulumi.Input<string | undefined>;
     /**
      * The live span for the global time, e.g. `1h`, `4h`, `1d`, `2d`, `1w`. Defaults to `"1h"`.
      */
-    globalTimeLiveSpan?: pulumi.Input<string>;
+    globalTimeLiveSpan?: pulumi.Input<string | undefined>;
     /**
      * Whether viewers can change the global time range. Defaults to `true`.
      */
-    globalTimeSelectable?: pulumi.Input<boolean>;
+    globalTimeSelectable?: pulumi.Input<boolean | undefined>;
     /**
      * Template variables that viewers can filter by.
      */
-    selectableTemplateVars?: pulumi.Input<pulumi.Input<inputs.SecureEmbedDashboardSelectableTemplateVar>[]>;
+    selectableTemplateVars?: pulumi.Input<pulumi.Input<inputs.SecureEmbedDashboardSelectableTemplateVar>[] | undefined>;
     /**
      * Status of the secure embed. Valid values are `active` and `paused`. Defaults to `"active"`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Title of the secure embed share.
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
     /**
      * The share token for the secure embed.
      */
-    token?: pulumi.Input<string>;
+    token?: pulumi.Input<string | undefined>;
     /**
      * The public URL for the embedded dashboard.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
     /**
      * Whether to display the dashboard in high density mode. Defaults to `false`.
      */
-    viewingPreferencesHighDensity?: pulumi.Input<boolean>;
+    viewingPreferencesHighDensity?: pulumi.Input<boolean | undefined>;
     /**
      * Display theme for the embedded dashboard. Valid values are `system`, `dark`, `light`. Defaults to `"system"`.
      */
-    viewingPreferencesTheme?: pulumi.Input<string>;
+    viewingPreferencesTheme?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -194,19 +194,19 @@ export interface SecureEmbedDashboardArgs {
     /**
      * The live span for the global time, e.g. `1h`, `4h`, `1d`, `2d`, `1w`. Defaults to `"1h"`.
      */
-    globalTimeLiveSpan?: pulumi.Input<string>;
+    globalTimeLiveSpan?: pulumi.Input<string | undefined>;
     /**
      * Whether viewers can change the global time range. Defaults to `true`.
      */
-    globalTimeSelectable?: pulumi.Input<boolean>;
+    globalTimeSelectable?: pulumi.Input<boolean | undefined>;
     /**
      * Template variables that viewers can filter by.
      */
-    selectableTemplateVars?: pulumi.Input<pulumi.Input<inputs.SecureEmbedDashboardSelectableTemplateVar>[]>;
+    selectableTemplateVars?: pulumi.Input<pulumi.Input<inputs.SecureEmbedDashboardSelectableTemplateVar>[] | undefined>;
     /**
      * Status of the secure embed. Valid values are `active` and `paused`. Defaults to `"active"`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Title of the secure embed share.
      */
@@ -214,9 +214,9 @@ export interface SecureEmbedDashboardArgs {
     /**
      * Whether to display the dashboard in high density mode. Defaults to `false`.
      */
-    viewingPreferencesHighDensity?: pulumi.Input<boolean>;
+    viewingPreferencesHighDensity?: pulumi.Input<boolean | undefined>;
     /**
      * Display theme for the embedded dashboard. Valid values are `system`, `dark`, `light`. Defaults to `"system"`.
      */
-    viewingPreferencesTheme?: pulumi.Input<string>;
+    viewingPreferencesTheme?: pulumi.Input<string | undefined>;
 }

@@ -114,23 +114,23 @@ export interface OrganizationSettingsState {
     /**
      * Description of the organization.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name for Organization.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The `publicId` of the organization you are operating within.
      */
-    publicId?: pulumi.Input<string>;
+    publicId?: pulumi.Input<string | undefined>;
     /**
      * List of emails used for security event notifications from the organization.
      */
-    securityContacts?: pulumi.Input<pulumi.Input<string>[]>;
+    securityContacts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Organization settings
      */
-    settings?: pulumi.Input<inputs.OrganizationSettingsSettings>;
+    settings?: pulumi.Input<inputs.OrganizationSettingsSettings | undefined>;
 }
 
 /**
@@ -140,13 +140,13 @@ export interface OrganizationSettingsArgs {
     /**
      * Name for Organization.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * List of emails used for security event notifications from the organization.
      */
-    securityContacts?: pulumi.Input<pulumi.Input<string>[]>;
+    securityContacts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Organization settings
      */
-    settings?: pulumi.Input<inputs.OrganizationSettingsSettings>;
+    settings?: pulumi.Input<inputs.OrganizationSettingsSettings | undefined>;
 }

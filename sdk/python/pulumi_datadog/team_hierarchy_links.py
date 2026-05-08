@@ -58,10 +58,10 @@ class TeamHierarchyLinksArgs:
 @pulumi.input_type
 class _TeamHierarchyLinksState:
     def __init__(__self__, *,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioned_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 sub_team_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioned_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 sub_team_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TeamHierarchyLinks resources.
 
@@ -81,50 +81,50 @@ class _TeamHierarchyLinksState:
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp when the team hierarchy link was created.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="parentTeamId")
-    def parent_team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_team_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the parent team the team hierarchy link is associated with.
         """
         return pulumi.get(self, "parent_team_id")
 
     @parent_team_id.setter
-    def parent_team_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_team_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_team_id", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionedBy")
-    def provisioned_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioned_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user who created the team hierarchy link.
         """
         return pulumi.get(self, "provisioned_by")
 
     @provisioned_by.setter
-    def provisioned_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioned_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioned_by", value)
 
     @_builtins.property
     @pulumi.getter(name="subTeamId")
-    def sub_team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sub_team_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the sub team the team hierarchy link is associated with.
         """
         return pulumi.get(self, "sub_team_id")
 
     @sub_team_id.setter
-    def sub_team_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sub_team_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sub_team_id", value)
 
 
@@ -134,8 +134,8 @@ class TeamHierarchyLinks(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 parent_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sub_team_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 parent_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sub_team_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog TeamHierarchyLinks resource. This can be used to create and manage Datadog Team Hierarchy Links.
@@ -171,8 +171,8 @@ class TeamHierarchyLinks(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 parent_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sub_team_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 parent_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sub_team_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -200,10 +200,10 @@ class TeamHierarchyLinks(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            parent_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-            provisioned_by: Optional[pulumi.Input[_builtins.str]] = None,
-            sub_team_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'TeamHierarchyLinks':
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioned_by: pulumi.Input[Optional[_builtins.str]] = None,
+            sub_team_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'TeamHierarchyLinks':
         """
         Get an existing TeamHierarchyLinks resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

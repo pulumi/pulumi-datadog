@@ -170,12 +170,12 @@ def get_team_notification_rule(email: Optional[Union['GetTeamNotificationRuleEma
         rule_id=pulumi.get(__ret__, 'rule_id'),
         slack=pulumi.get(__ret__, 'slack'),
         team_id=pulumi.get(__ret__, 'team_id'))
-def get_team_notification_rule_output(email: Optional[pulumi.Input[Optional[Union['GetTeamNotificationRuleEmailArgs', 'GetTeamNotificationRuleEmailArgsDict']]]] = None,
-                                      ms_teams: Optional[pulumi.Input[Optional[Union['GetTeamNotificationRuleMsTeamsArgs', 'GetTeamNotificationRuleMsTeamsArgsDict']]]] = None,
-                                      pagerduty: Optional[pulumi.Input[Optional[Union['GetTeamNotificationRulePagerdutyArgs', 'GetTeamNotificationRulePagerdutyArgsDict']]]] = None,
-                                      rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                      slack: Optional[pulumi.Input[Optional[Union['GetTeamNotificationRuleSlackArgs', 'GetTeamNotificationRuleSlackArgsDict']]]] = None,
-                                      team_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_team_notification_rule_output(email: pulumi.Input[Optional[Optional[Union['GetTeamNotificationRuleEmailArgs', 'GetTeamNotificationRuleEmailArgsDict']]]] = None,
+                                      ms_teams: pulumi.Input[Optional[Optional[Union['GetTeamNotificationRuleMsTeamsArgs', 'GetTeamNotificationRuleMsTeamsArgsDict']]]] = None,
+                                      pagerduty: pulumi.Input[Optional[Optional[Union['GetTeamNotificationRulePagerdutyArgs', 'GetTeamNotificationRulePagerdutyArgsDict']]]] = None,
+                                      rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                      slack: pulumi.Input[Optional[Optional[Union['GetTeamNotificationRuleSlackArgs', 'GetTeamNotificationRuleSlackArgsDict']]]] = None,
+                                      team_id: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTeamNotificationRuleResult]:
     """
     Use this data source to retrieve information about a specific Datadog team notification rule.

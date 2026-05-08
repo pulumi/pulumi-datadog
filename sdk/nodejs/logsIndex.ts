@@ -185,43 +185,43 @@ export interface LogsIndexState {
     /**
      * The number of log events you can send in this index per day before you are rate-limited.
      */
-    dailyLimit?: pulumi.Input<number>;
+    dailyLimit?: pulumi.Input<number | undefined>;
     /**
      * Object containing options to override the default daily limit reset time.
      */
-    dailyLimitReset?: pulumi.Input<inputs.LogsIndexDailyLimitReset>;
+    dailyLimitReset?: pulumi.Input<inputs.LogsIndexDailyLimitReset | undefined>;
     /**
      * A percentage threshold of the daily quota at which a Datadog warning event is generated.
      */
-    dailyLimitWarningThresholdPercentage?: pulumi.Input<number>;
+    dailyLimitWarningThresholdPercentage?: pulumi.Input<number | undefined>;
     /**
      * If true, disables the daily limit and sets `dailyLimit` to null. If false, enables the daily limit. When creating an index, if this attribute is omitted, the daily limit is enabled by default. When updating an index, if this attribute is omitted, the existing value is preserved. Providing a `dailyLimit` value does not re-enable the limit if it was previously disabled unless `disableDailyLimit` is explicitly set to false.
      */
-    disableDailyLimit?: pulumi.Input<boolean>;
+    disableDailyLimit?: pulumi.Input<boolean | undefined>;
     /**
      * List of exclusion filters.
      */
-    exclusionFilters?: pulumi.Input<pulumi.Input<inputs.LogsIndexExclusionFilter>[]>;
+    exclusionFilters?: pulumi.Input<pulumi.Input<inputs.LogsIndexExclusionFilter>[] | undefined>;
     /**
      * Logs filter
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.LogsIndexFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.LogsIndexFilter>[] | undefined>;
     /**
      * The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
      */
-    flexRetentionDays?: pulumi.Input<number>;
+    flexRetentionDays?: pulumi.Input<number | undefined>;
     /**
      * The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
      */
-    retentionDays?: pulumi.Input<number>;
+    retentionDays?: pulumi.Input<number | undefined>;
     /**
      * A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -231,23 +231,23 @@ export interface LogsIndexArgs {
     /**
      * The number of log events you can send in this index per day before you are rate-limited.
      */
-    dailyLimit?: pulumi.Input<number>;
+    dailyLimit?: pulumi.Input<number | undefined>;
     /**
      * Object containing options to override the default daily limit reset time.
      */
-    dailyLimitReset?: pulumi.Input<inputs.LogsIndexDailyLimitReset>;
+    dailyLimitReset?: pulumi.Input<inputs.LogsIndexDailyLimitReset | undefined>;
     /**
      * A percentage threshold of the daily quota at which a Datadog warning event is generated.
      */
-    dailyLimitWarningThresholdPercentage?: pulumi.Input<number>;
+    dailyLimitWarningThresholdPercentage?: pulumi.Input<number | undefined>;
     /**
      * If true, disables the daily limit and sets `dailyLimit` to null. If false, enables the daily limit. When creating an index, if this attribute is omitted, the daily limit is enabled by default. When updating an index, if this attribute is omitted, the existing value is preserved. Providing a `dailyLimit` value does not re-enable the limit if it was previously disabled unless `disableDailyLimit` is explicitly set to false.
      */
-    disableDailyLimit?: pulumi.Input<boolean>;
+    disableDailyLimit?: pulumi.Input<boolean | undefined>;
     /**
      * List of exclusion filters.
      */
-    exclusionFilters?: pulumi.Input<pulumi.Input<inputs.LogsIndexExclusionFilter>[]>;
+    exclusionFilters?: pulumi.Input<pulumi.Input<inputs.LogsIndexExclusionFilter>[] | undefined>;
     /**
      * Logs filter
      */
@@ -255,7 +255,7 @@ export interface LogsIndexArgs {
     /**
      * The total number of days logs are stored in Standard and Flex Tier before being deleted from the index.
      */
-    flexRetentionDays?: pulumi.Input<number>;
+    flexRetentionDays?: pulumi.Input<number | undefined>;
     /**
      * The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
      */
@@ -263,9 +263,9 @@ export interface LogsIndexArgs {
     /**
      * The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
      */
-    retentionDays?: pulumi.Input<number>;
+    retentionDays?: pulumi.Input<number | undefined>;
     /**
      * A list of tags for this index. Tags must be in `key:value` format. If default tags are present at the provider level, they will be added to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

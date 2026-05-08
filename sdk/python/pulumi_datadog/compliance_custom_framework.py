@@ -25,7 +25,7 @@ class ComplianceCustomFrameworkArgs:
                  name: pulumi.Input[_builtins.str],
                  requirements: pulumi.Input[Sequence[pulumi.Input['ComplianceCustomFrameworkRequirementArgs']]],
                  version: pulumi.Input[_builtins.str],
-                 icon_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 icon_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ComplianceCustomFramework resource.
 
@@ -92,25 +92,25 @@ class ComplianceCustomFrameworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="iconUrl")
-    def icon_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def icon_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the icon representing the framework
         """
         return pulumi.get(self, "icon_url")
 
     @icon_url.setter
-    def icon_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def icon_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "icon_url", value)
 
 
 @pulumi.input_type
 class _ComplianceCustomFrameworkState:
     def __init__(__self__, *,
-                 handle: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 requirements: Optional[pulumi.Input[Sequence[pulumi.Input['ComplianceCustomFrameworkRequirementArgs']]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 handle: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 requirements: pulumi.Input[Optional[Sequence[pulumi.Input['ComplianceCustomFrameworkRequirementArgs']]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ComplianceCustomFramework resources.
 
@@ -133,62 +133,62 @@ class _ComplianceCustomFrameworkState:
 
     @_builtins.property
     @pulumi.getter
-    def handle(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def handle(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The framework handle. String length must be at least 1. This field is immutable.
         """
         return pulumi.get(self, "handle")
 
     @handle.setter
-    def handle(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def handle(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "handle", value)
 
     @_builtins.property
     @pulumi.getter(name="iconUrl")
-    def icon_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def icon_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the icon representing the framework
         """
         return pulumi.get(self, "icon_url")
 
     @icon_url.setter
-    def icon_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def icon_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "icon_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The framework name. String length must be at least 1.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def requirements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComplianceCustomFrameworkRequirementArgs']]]]:
+    def requirements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ComplianceCustomFrameworkRequirementArgs']]]]:
         """
         The requirements of the framework. Length must be at least 1.
         """
         return pulumi.get(self, "requirements")
 
     @requirements.setter
-    def requirements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ComplianceCustomFrameworkRequirementArgs']]]]):
+    def requirements(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ComplianceCustomFrameworkRequirementArgs']]]]):
         pulumi.set(self, "requirements", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The framework version. String length must be at least 1. This field is immutable.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -198,11 +198,11 @@ class ComplianceCustomFramework(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 handle: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 requirements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ComplianceCustomFrameworkRequirementArgs', 'ComplianceCustomFrameworkRequirementArgsDict']]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 handle: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 requirements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComplianceCustomFrameworkRequirementArgs', 'ComplianceCustomFrameworkRequirementArgsDict']]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Datadog Compliance Custom Framework resource, which is used to create and manage compliance custom frameworks.
@@ -361,11 +361,11 @@ class ComplianceCustomFramework(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 handle: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 requirements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ComplianceCustomFrameworkRequirementArgs', 'ComplianceCustomFrameworkRequirementArgsDict']]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 handle: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 requirements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComplianceCustomFrameworkRequirementArgs', 'ComplianceCustomFrameworkRequirementArgsDict']]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -398,11 +398,11 @@ class ComplianceCustomFramework(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            handle: Optional[pulumi.Input[_builtins.str]] = None,
-            icon_url: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            requirements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ComplianceCustomFrameworkRequirementArgs', 'ComplianceCustomFrameworkRequirementArgsDict']]]]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None) -> 'ComplianceCustomFramework':
+            handle: pulumi.Input[Optional[_builtins.str]] = None,
+            icon_url: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            requirements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComplianceCustomFrameworkRequirementArgs', 'ComplianceCustomFrameworkRequirementArgsDict']]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'ComplianceCustomFramework':
         """
         Get an existing ComplianceCustomFramework resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

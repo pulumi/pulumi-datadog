@@ -224,71 +224,71 @@ export interface SecurityMonitoringRuleState {
     /**
      * One or more calculated fields. Available only for scheduled rules (in other words, when `schedulingOptions` is defined).
      */
-    calculatedFields?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleCalculatedField>[]>;
+    calculatedFields?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleCalculatedField>[] | undefined>;
     /**
      * Cases for generating signals.
      */
-    cases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleCase>[]>;
+    cases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleCase>[] | undefined>;
     /**
      * Whether the rule is enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleFilter>[] | undefined>;
     /**
      * Additional grouping to perform on top of the query grouping.
      */
-    groupSignalsBies?: pulumi.Input<pulumi.Input<string>[]>;
+    groupSignalsBies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
      */
-    hasExtendedTitle?: pulumi.Input<boolean>;
+    hasExtendedTitle?: pulumi.Input<boolean | undefined>;
     /**
      * Message for generated signals.
      */
-    message?: pulumi.Input<string>;
+    message?: pulumi.Input<string | undefined>;
     /**
      * The name of the rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Options on rules.
      */
-    options?: pulumi.Input<inputs.SecurityMonitoringRuleOptions>;
+    options?: pulumi.Input<inputs.SecurityMonitoringRuleOptions | undefined>;
     /**
      * Queries for selecting logs which are part of the rule.
      */
-    queries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleQuery>[]>;
+    queries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleQuery>[] | undefined>;
     /**
      * Reference tables for filtering query results.
      */
-    referenceTables?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleReferenceTable>[]>;
+    referenceTables?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleReferenceTable>[] | undefined>;
     /**
      * Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
      */
-    schedulingOptions?: pulumi.Input<inputs.SecurityMonitoringRuleSchedulingOptions>;
+    schedulingOptions?: pulumi.Input<inputs.SecurityMonitoringRuleSchedulingOptions | undefined>;
     /**
      * Queries for selecting logs which are part of the rule.
      */
-    signalQueries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleSignalQuery>[]>;
+    signalQueries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleSignalQuery>[] | undefined>;
     /**
      * Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Cases for generating signals for third-party rules. Only required and accepted for third-party rules
      */
-    thirdPartyCases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleThirdPartyCase>[]>;
+    thirdPartyCases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleThirdPartyCase>[] | undefined>;
     /**
      * The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Whether or not to validate the Rule.
      */
-    validate?: pulumi.Input<boolean>;
+    validate?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -298,27 +298,27 @@ export interface SecurityMonitoringRuleArgs {
     /**
      * One or more calculated fields. Available only for scheduled rules (in other words, when `schedulingOptions` is defined).
      */
-    calculatedFields?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleCalculatedField>[]>;
+    calculatedFields?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleCalculatedField>[] | undefined>;
     /**
      * Cases for generating signals.
      */
-    cases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleCase>[]>;
+    cases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleCase>[] | undefined>;
     /**
      * Whether the rule is enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleFilter>[] | undefined>;
     /**
      * Additional grouping to perform on top of the query grouping.
      */
-    groupSignalsBies?: pulumi.Input<pulumi.Input<string>[]>;
+    groupSignalsBies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
      */
-    hasExtendedTitle?: pulumi.Input<boolean>;
+    hasExtendedTitle?: pulumi.Input<boolean | undefined>;
     /**
      * Message for generated signals.
      */
@@ -330,37 +330,37 @@ export interface SecurityMonitoringRuleArgs {
     /**
      * Options on rules.
      */
-    options?: pulumi.Input<inputs.SecurityMonitoringRuleOptions>;
+    options?: pulumi.Input<inputs.SecurityMonitoringRuleOptions | undefined>;
     /**
      * Queries for selecting logs which are part of the rule.
      */
-    queries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleQuery>[]>;
+    queries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleQuery>[] | undefined>;
     /**
      * Reference tables for filtering query results.
      */
-    referenceTables?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleReferenceTable>[]>;
+    referenceTables?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleReferenceTable>[] | undefined>;
     /**
      * Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
      */
-    schedulingOptions?: pulumi.Input<inputs.SecurityMonitoringRuleSchedulingOptions>;
+    schedulingOptions?: pulumi.Input<inputs.SecurityMonitoringRuleSchedulingOptions | undefined>;
     /**
      * Queries for selecting logs which are part of the rule.
      */
-    signalQueries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleSignalQuery>[]>;
+    signalQueries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleSignalQuery>[] | undefined>;
     /**
      * Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Cases for generating signals for third-party rules. Only required and accepted for third-party rules
      */
-    thirdPartyCases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleThirdPartyCase>[]>;
+    thirdPartyCases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleThirdPartyCase>[] | undefined>;
     /**
      * The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Whether or not to validate the Rule.
      */
-    validate?: pulumi.Input<boolean>;
+    validate?: pulumi.Input<boolean | undefined>;
 }

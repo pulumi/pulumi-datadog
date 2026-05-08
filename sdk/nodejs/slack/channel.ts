@@ -121,15 +121,15 @@ export interface ChannelState {
     /**
      * Slack account name.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * Slack channel name.
      */
-    channelName?: pulumi.Input<string>;
+    channelName?: pulumi.Input<string | undefined>;
     /**
      * Configuration options for what is shown in an alert event message.
      */
-    display?: pulumi.Input<inputs.slack.ChannelDisplay>;
+    display?: pulumi.Input<inputs.slack.ChannelDisplay | undefined>;
 }
 
 /**

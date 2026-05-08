@@ -84,5 +84,5 @@ export interface GetCsmThreatsAgentRulesOutputArgs {
     /**
      * Listing only the rules in the policy with this field as the ID
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
 }

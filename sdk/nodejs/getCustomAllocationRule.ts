@@ -103,10 +103,10 @@ export function getCustomAllocationRuleOutput(args?: GetCustomAllocationRuleOutp
  * A collection of arguments for invoking getCustomAllocationRule.
  */
 export interface GetCustomAllocationRuleOutputArgs {
-    costsToAllocates?: pulumi.Input<pulumi.Input<inputs.GetCustomAllocationRuleCostsToAllocateArgs>[]>;
+    costsToAllocates?: pulumi.Input<pulumi.Input<inputs.GetCustomAllocationRuleCostsToAllocateArgs>[] | undefined>;
     /**
      * The ID of the custom allocation rule to retrieve.
      */
-    ruleId?: pulumi.Input<number>;
-    strategy?: pulumi.Input<inputs.GetCustomAllocationRuleStrategyArgs>;
+    ruleId?: pulumi.Input<number | undefined>;
+    strategy?: pulumi.Input<inputs.GetCustomAllocationRuleStrategyArgs | undefined>;
 }

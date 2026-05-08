@@ -233,7 +233,7 @@ def get_gcp_uc_config(cloud_account_id: Optional[_builtins.int] = None,
         status=pulumi.get(__ret__, 'status'),
         status_updated_at=pulumi.get(__ret__, 'status_updated_at'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_gcp_uc_config_output(cloud_account_id: Optional[pulumi.Input[_builtins.int]] = None,
+def get_gcp_uc_config_output(cloud_account_id: pulumi.Input[Optional[_builtins.int]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGcpUcConfigResult]:
     """
     Use this data source to retrieve information about a specific Datadog GCP Usage Cost configuration. This allows you to fetch details about an existing Cloud Cost Management configuration for GCP billing data access.

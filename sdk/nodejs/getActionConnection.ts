@@ -98,11 +98,11 @@ export interface GetActionConnectionOutputArgs {
     /**
      * Configuration for an AWS connection
      */
-    aws?: pulumi.Input<inputs.GetActionConnectionAwsArgs>;
+    aws?: pulumi.Input<inputs.GetActionConnectionAwsArgs | undefined>;
     /**
      * Configuration for an HTTP connection
      */
-    http?: pulumi.Input<inputs.GetActionConnectionHttpArgs>;
+    http?: pulumi.Input<inputs.GetActionConnectionHttpArgs | undefined>;
     /**
      * ID for Connection.
      */
