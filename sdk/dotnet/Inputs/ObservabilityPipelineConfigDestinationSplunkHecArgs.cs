@@ -66,6 +66,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("tokenKey")]
         public Input<string>? TokenKey { get; set; }
 
+        /// <summary>
+        /// Controls how the Splunk HEC token is supplied. Use `Custom` to provide a token via `TokenKey`, or `FromSource` to forward the token received from an upstream Splunk HEC source. Valid values are `Custom`, `FromSource`.
+        /// </summary>
+        [Input("tokenStrategy")]
+        public Input<string>? TokenStrategy { get; set; }
+
         public ObservabilityPipelineConfigDestinationSplunkHecArgs()
         {
         }

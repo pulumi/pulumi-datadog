@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string AlertId;
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// The precision to use when displaying the value. Use `*` for maximum precision.
         /// </summary>
         public readonly int? Precision;
@@ -46,6 +50,8 @@ namespace Pulumi.Datadog.Outputs
         private PowerpackWidgetAlertValueDefinition(
             string alertId,
 
+            string? description,
+
             int? precision,
 
             string? textAlign,
@@ -59,6 +65,7 @@ namespace Pulumi.Datadog.Outputs
             string? unit)
         {
             AlertId = alertId;
+            Description = description;
             Precision = precision;
             TextAlign = textAlign;
             Title = title;

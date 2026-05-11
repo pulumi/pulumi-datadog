@@ -20,6 +20,11 @@ public final class DashboardWidgetServiceLevelObjectiveDefinition {
      */
     private @Nullable String additionalQueryFilters;
     /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return The global time target of the widget.
      * 
      */
@@ -72,6 +77,13 @@ public final class DashboardWidgetServiceLevelObjectiveDefinition {
      */
     public Optional<String> additionalQueryFilters() {
         return Optional.ofNullable(this.additionalQueryFilters);
+    }
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The global time target of the widget.
@@ -147,6 +159,7 @@ public final class DashboardWidgetServiceLevelObjectiveDefinition {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String additionalQueryFilters;
+        private @Nullable String description;
         private @Nullable String globalTimeTarget;
         private @Nullable Boolean showErrorBudget;
         private String sloId;
@@ -160,6 +173,7 @@ public final class DashboardWidgetServiceLevelObjectiveDefinition {
         public Builder(DashboardWidgetServiceLevelObjectiveDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.additionalQueryFilters = defaults.additionalQueryFilters;
+    	      this.description = defaults.description;
     	      this.globalTimeTarget = defaults.globalTimeTarget;
     	      this.showErrorBudget = defaults.showErrorBudget;
     	      this.sloId = defaults.sloId;
@@ -175,6 +189,12 @@ public final class DashboardWidgetServiceLevelObjectiveDefinition {
         public Builder additionalQueryFilters(@Nullable String additionalQueryFilters) {
 
             this.additionalQueryFilters = additionalQueryFilters;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -245,6 +265,7 @@ public final class DashboardWidgetServiceLevelObjectiveDefinition {
         public DashboardWidgetServiceLevelObjectiveDefinition build() {
             final var _resultValue = new DashboardWidgetServiceLevelObjectiveDefinition();
             _resultValue.additionalQueryFilters = additionalQueryFilters;
+            _resultValue.description = description;
             _resultValue.globalTimeTarget = globalTimeTarget;
             _resultValue.showErrorBudget = showErrorBudget;
             _resultValue.sloId = sloId;

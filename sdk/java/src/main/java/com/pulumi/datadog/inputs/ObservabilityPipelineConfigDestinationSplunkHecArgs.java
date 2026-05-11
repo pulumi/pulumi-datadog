@@ -139,6 +139,21 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
         return Optional.ofNullable(this.tokenKey);
     }
 
+    /**
+     * Controls how the Splunk HEC token is supplied. Use `custom` to provide a token via `tokenKey`, or `fromSource` to forward the token received from an upstream Splunk HEC source. Valid values are `custom`, `fromSource`.
+     * 
+     */
+    @Import(name="tokenStrategy")
+    private @Nullable Output<String> tokenStrategy;
+
+    /**
+     * @return Controls how the Splunk HEC token is supplied. Use `custom` to provide a token via `tokenKey`, or `fromSource` to forward the token received from an upstream Splunk HEC source. Valid values are `custom`, `fromSource`.
+     * 
+     */
+    public Optional<Output<String>> tokenStrategy() {
+        return Optional.ofNullable(this.tokenStrategy);
+    }
+
     private ObservabilityPipelineConfigDestinationSplunkHecArgs() {}
 
     private ObservabilityPipelineConfigDestinationSplunkHecArgs(ObservabilityPipelineConfigDestinationSplunkHecArgs $) {
@@ -150,6 +165,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
         this.indexedFields = $.indexedFields;
         this.sourcetype = $.sourcetype;
         this.tokenKey = $.tokenKey;
+        this.tokenStrategy = $.tokenStrategy;
     }
 
     public static Builder builder() {
@@ -346,6 +362,27 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
          */
         public Builder tokenKey(String tokenKey) {
             return tokenKey(Output.of(tokenKey));
+        }
+
+        /**
+         * @param tokenStrategy Controls how the Splunk HEC token is supplied. Use `custom` to provide a token via `tokenKey`, or `fromSource` to forward the token received from an upstream Splunk HEC source. Valid values are `custom`, `fromSource`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenStrategy(@Nullable Output<String> tokenStrategy) {
+            $.tokenStrategy = tokenStrategy;
+            return this;
+        }
+
+        /**
+         * @param tokenStrategy Controls how the Splunk HEC token is supplied. Use `custom` to provide a token via `tokenKey`, or `fromSource` to forward the token received from an upstream Splunk HEC source. Valid values are `custom`, `fromSource`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenStrategy(String tokenStrategy) {
+            return tokenStrategy(Output.of(tokenStrategy));
         }
 
         public ObservabilityPipelineConfigDestinationSplunkHecArgs build() {

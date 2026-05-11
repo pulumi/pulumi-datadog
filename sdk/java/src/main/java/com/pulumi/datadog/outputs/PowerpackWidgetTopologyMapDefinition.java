@@ -20,6 +20,11 @@ public final class PowerpackWidgetTopologyMapDefinition {
      */
     private @Nullable List<PowerpackWidgetTopologyMapDefinitionCustomLink> customLinks;
     /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `requestType` are required within the request).
      * 
      */
@@ -47,6 +52,13 @@ public final class PowerpackWidgetTopologyMapDefinition {
      */
     public List<PowerpackWidgetTopologyMapDefinitionCustomLink> customLinks() {
         return this.customLinks == null ? List.of() : this.customLinks;
+    }
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `requestType` are required within the request).
@@ -87,6 +99,7 @@ public final class PowerpackWidgetTopologyMapDefinition {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<PowerpackWidgetTopologyMapDefinitionCustomLink> customLinks;
+        private @Nullable String description;
         private @Nullable List<PowerpackWidgetTopologyMapDefinitionRequest> requests;
         private @Nullable String title;
         private @Nullable String titleAlign;
@@ -95,6 +108,7 @@ public final class PowerpackWidgetTopologyMapDefinition {
         public Builder(PowerpackWidgetTopologyMapDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customLinks = defaults.customLinks;
+    	      this.description = defaults.description;
     	      this.requests = defaults.requests;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
@@ -109,6 +123,12 @@ public final class PowerpackWidgetTopologyMapDefinition {
         }
         public Builder customLinks(PowerpackWidgetTopologyMapDefinitionCustomLink... customLinks) {
             return customLinks(List.of(customLinks));
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
         }
         @CustomType.Setter
         public Builder requests(@Nullable List<PowerpackWidgetTopologyMapDefinitionRequest> requests) {
@@ -140,6 +160,7 @@ public final class PowerpackWidgetTopologyMapDefinition {
         public PowerpackWidgetTopologyMapDefinition build() {
             final var _resultValue = new PowerpackWidgetTopologyMapDefinition();
             _resultValue.customLinks = customLinks;
+            _resultValue.description = description;
             _resultValue.requests = requests;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;

@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SecurityMonitoringRuleOptionsNewValueOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The duration in days after which a learned value is forgotten. Valid values are `1`, `2`, `7`, `14`, `21`, `28`.
+        /// The duration in days after which a learned value is forgotten. Accepted values are between 1 and 30.
         /// </summary>
         [Input("forgetAfter", required: true)]
         public Input<int> ForgetAfter { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? InstantaneousBaseline { get; set; }
 
         /// <summary>
-        /// The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`. Defaults to `1`.
+        /// The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned. Accepted values are between 0 and 30. Defaults to `1`.
         /// </summary>
         [Input("learningDuration")]
         public Input<int>? LearningDuration { get; set; }

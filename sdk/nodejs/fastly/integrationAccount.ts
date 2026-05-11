@@ -57,9 +57,18 @@ export class IntegrationAccount extends pulumi.CustomResource {
     }
 
     /**
-     * The API key for the Fastly account.
+     * The API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set.
      */
-    declare public readonly apiKey: pulumi.Output<string>;
+    declare public readonly apiKey: pulumi.Output<string | undefined>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set. Must be used with `apiKeyWoVersion`.
+     */
+    declare public readonly apiKeyWo: pulumi.Output<string | undefined>;
+    /**
+     * Version for `apiKeyWo` rotation. Changing this triggers an update. String length must be at least 1.
+     */
+    declare public readonly apiKeyWoVersion: pulumi.Output<string | undefined>;
     /**
      * The name of the Fastly account.
      */
@@ -79,19 +88,22 @@ export class IntegrationAccount extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as IntegrationAccountState | undefined;
             resourceInputs["apiKey"] = state?.apiKey;
+            resourceInputs["apiKeyWo"] = state?.apiKeyWo;
+            resourceInputs["apiKeyWoVersion"] = state?.apiKeyWoVersion;
             resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as IntegrationAccountArgs | undefined;
-            if (args?.apiKey === undefined && !opts.urn) {
-                throw new Error("Missing required property 'apiKey'");
-            }
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["apiKey"] = args?.apiKey;
+            resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
+            resourceInputs["apiKeyWo"] = args?.apiKeyWo ? pulumi.secret(args.apiKeyWo) : undefined;
+            resourceInputs["apiKeyWoVersion"] = args?.apiKeyWoVersion;
             resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["apiKey", "apiKeyWo"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(IntegrationAccount.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -101,9 +113,18 @@ export class IntegrationAccount extends pulumi.CustomResource {
  */
 export interface IntegrationAccountState {
     /**
-     * The API key for the Fastly account.
+     * The API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set.
      */
     apiKey?: pulumi.Input<string | undefined>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set. Must be used with `apiKeyWoVersion`.
+     */
+    apiKeyWo?: pulumi.Input<string | undefined>;
+    /**
+     * Version for `apiKeyWo` rotation. Changing this triggers an update. String length must be at least 1.
+     */
+    apiKeyWoVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of the Fastly account.
      */
@@ -115,9 +136,18 @@ export interface IntegrationAccountState {
  */
 export interface IntegrationAccountArgs {
     /**
-     * The API key for the Fastly account.
+     * The API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set.
      */
-    apiKey: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set. Must be used with `apiKeyWoVersion`.
+     */
+    apiKeyWo?: pulumi.Input<string | undefined>;
+    /**
+     * Version for `apiKeyWo` rotation. Changing this triggers an update. String length must be at least 1.
+     */
+    apiKeyWoVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of the Fastly account.
      */

@@ -34,6 +34,21 @@ public final class ObservabilityPipelineConfigSourceAmazonS3Args extends com.pul
     }
 
     /**
+     * Compression format for objects retrieved from the S3 bucket. Use `auto` to detect compression from the object&#39;s Content-Encoding header or file extension. Valid values are `auto`, `none`, `gzip`, `zstd`.
+     * 
+     */
+    @Import(name="compression")
+    private @Nullable Output<String> compression;
+
+    /**
+     * @return Compression format for objects retrieved from the S3 bucket. Use `auto` to detect compression from the object&#39;s Content-Encoding header or file extension. Valid values are `auto`, `none`, `gzip`, `zstd`.
+     * 
+     */
+    public Optional<Output<String>> compression() {
+        return Optional.ofNullable(this.compression);
+    }
+
+    /**
      * AWS region where the S3 bucket resides.
      * 
      */
@@ -82,6 +97,7 @@ public final class ObservabilityPipelineConfigSourceAmazonS3Args extends com.pul
 
     private ObservabilityPipelineConfigSourceAmazonS3Args(ObservabilityPipelineConfigSourceAmazonS3Args $) {
         this.auth = $.auth;
+        this.compression = $.compression;
         this.region = $.region;
         this.tls = $.tls;
         this.urlKey = $.urlKey;
@@ -124,6 +140,27 @@ public final class ObservabilityPipelineConfigSourceAmazonS3Args extends com.pul
          */
         public Builder auth(ObservabilityPipelineConfigSourceAmazonS3AuthArgs auth) {
             return auth(Output.of(auth));
+        }
+
+        /**
+         * @param compression Compression format for objects retrieved from the S3 bucket. Use `auto` to detect compression from the object&#39;s Content-Encoding header or file extension. Valid values are `auto`, `none`, `gzip`, `zstd`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compression(@Nullable Output<String> compression) {
+            $.compression = compression;
+            return this;
+        }
+
+        /**
+         * @param compression Compression format for objects retrieved from the S3 bucket. Use `auto` to detect compression from the object&#39;s Content-Encoding header or file extension. Valid values are `auto`, `none`, `gzip`, `zstd`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compression(String compression) {
+            return compression(Output.of(compression));
         }
 
         /**

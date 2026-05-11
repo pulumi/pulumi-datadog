@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Create a new Datadog - Microsoft Azure integration
+//			// Create a new Datadog - Microsoft Azure integration using a client secret
 //			_, err := azure.NewIntegration(ctx, "sandbox", &azure.IntegrationArgs{
 //				TenantName:            pulumi.String("<azure_tenant_name>"),
 //				ClientId:              pulumi.String("<azure_client_id>"),
@@ -39,6 +39,16 @@ import (
 //				Automute:              pulumi.Bool(true),
 //				CspmEnabled:           pulumi.Bool(true),
 //				CustomMetricsEnabled:  pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Or, using secretless (federated workload identity) authentication.
+//			// Note: secretless authentication is currently in Preview.
+//			_, err = azure.NewIntegration(ctx, "sandbox_secretless", &azure.IntegrationArgs{
+//				TenantName:            pulumi.String("<azure_tenant_name>"),
+//				ClientId:              pulumi.String("<azure_client_id>"),
+//				SecretlessAuthEnabled: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -68,8 +78,8 @@ type Integration struct {
 	Automute pulumi.BoolOutput `pulumi:"automute"`
 	// Your Azure web application ID.
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
-	// (Required for Initial Creation) Your Azure web application secret key.
-	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
+	// Your Azure web application secret key. Required unless `secretlessAuthEnabled` is set to `true`.
+	ClientSecret pulumi.StringPtrOutput `pulumi:"clientSecret"`
 	// This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog. Defaults to `""`.
 	ContainerAppFilters pulumi.StringOutput `pulumi:"containerAppFilters"`
 	// When enabled, Datadog’s Cloud Security Management product scans resource configurations monitored by this app registration.
@@ -87,6 +97,8 @@ type Integration struct {
 	ResourceCollectionEnabled pulumi.BoolOutput `pulumi:"resourceCollectionEnabled"`
 	// Configuration settings applied to resources from the specified Azure resource providers.
 	ResourceProviderConfigs IntegrationResourceProviderConfigArrayOutput `pulumi:"resourceProviderConfigs"`
+	// (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `clientSecret` should be omitted. Defaults to `false`.
+	SecretlessAuthEnabled pulumi.BoolOutput `pulumi:"secretlessAuthEnabled"`
 	// Your Azure Active Directory ID.
 	TenantName pulumi.StringOutput `pulumi:"tenantName"`
 	// Enable azure.usage metrics for your organization. Defaults to `true`.
@@ -103,14 +115,11 @@ func NewIntegration(ctx *pulumi.Context,
 	if args.ClientId == nil {
 		return nil, errors.New("invalid value for required argument 'ClientId'")
 	}
-	if args.ClientSecret == nil {
-		return nil, errors.New("invalid value for required argument 'ClientSecret'")
-	}
 	if args.TenantName == nil {
 		return nil, errors.New("invalid value for required argument 'TenantName'")
 	}
 	if args.ClientSecret != nil {
-		args.ClientSecret = pulumi.ToSecret(args.ClientSecret).(pulumi.StringInput)
+		args.ClientSecret = pulumi.ToSecret(args.ClientSecret).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"clientSecret",
@@ -145,7 +154,7 @@ type integrationState struct {
 	Automute *bool `pulumi:"automute"`
 	// Your Azure web application ID.
 	ClientId *string `pulumi:"clientId"`
-	// (Required for Initial Creation) Your Azure web application secret key.
+	// Your Azure web application secret key. Required unless `secretlessAuthEnabled` is set to `true`.
 	ClientSecret *string `pulumi:"clientSecret"`
 	// This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog. Defaults to `""`.
 	ContainerAppFilters *string `pulumi:"containerAppFilters"`
@@ -164,6 +173,8 @@ type integrationState struct {
 	ResourceCollectionEnabled *bool `pulumi:"resourceCollectionEnabled"`
 	// Configuration settings applied to resources from the specified Azure resource providers.
 	ResourceProviderConfigs []IntegrationResourceProviderConfig `pulumi:"resourceProviderConfigs"`
+	// (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `clientSecret` should be omitted. Defaults to `false`.
+	SecretlessAuthEnabled *bool `pulumi:"secretlessAuthEnabled"`
 	// Your Azure Active Directory ID.
 	TenantName *string `pulumi:"tenantName"`
 	// Enable azure.usage metrics for your organization. Defaults to `true`.
@@ -177,7 +188,7 @@ type IntegrationState struct {
 	Automute pulumi.BoolPtrInput
 	// Your Azure web application ID.
 	ClientId pulumi.StringPtrInput
-	// (Required for Initial Creation) Your Azure web application secret key.
+	// Your Azure web application secret key. Required unless `secretlessAuthEnabled` is set to `true`.
 	ClientSecret pulumi.StringPtrInput
 	// This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog. Defaults to `""`.
 	ContainerAppFilters pulumi.StringPtrInput
@@ -196,6 +207,8 @@ type IntegrationState struct {
 	ResourceCollectionEnabled pulumi.BoolPtrInput
 	// Configuration settings applied to resources from the specified Azure resource providers.
 	ResourceProviderConfigs IntegrationResourceProviderConfigArrayInput
+	// (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `clientSecret` should be omitted. Defaults to `false`.
+	SecretlessAuthEnabled pulumi.BoolPtrInput
 	// Your Azure Active Directory ID.
 	TenantName pulumi.StringPtrInput
 	// Enable azure.usage metrics for your organization. Defaults to `true`.
@@ -213,8 +226,8 @@ type integrationArgs struct {
 	Automute *bool `pulumi:"automute"`
 	// Your Azure web application ID.
 	ClientId string `pulumi:"clientId"`
-	// (Required for Initial Creation) Your Azure web application secret key.
-	ClientSecret string `pulumi:"clientSecret"`
+	// Your Azure web application secret key. Required unless `secretlessAuthEnabled` is set to `true`.
+	ClientSecret *string `pulumi:"clientSecret"`
 	// This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog. Defaults to `""`.
 	ContainerAppFilters *string `pulumi:"containerAppFilters"`
 	// When enabled, Datadog’s Cloud Security Management product scans resource configurations monitored by this app registration.
@@ -232,6 +245,8 @@ type integrationArgs struct {
 	ResourceCollectionEnabled *bool `pulumi:"resourceCollectionEnabled"`
 	// Configuration settings applied to resources from the specified Azure resource providers.
 	ResourceProviderConfigs []IntegrationResourceProviderConfig `pulumi:"resourceProviderConfigs"`
+	// (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `clientSecret` should be omitted. Defaults to `false`.
+	SecretlessAuthEnabled *bool `pulumi:"secretlessAuthEnabled"`
 	// Your Azure Active Directory ID.
 	TenantName string `pulumi:"tenantName"`
 	// Enable azure.usage metrics for your organization. Defaults to `true`.
@@ -246,8 +261,8 @@ type IntegrationArgs struct {
 	Automute pulumi.BoolPtrInput
 	// Your Azure web application ID.
 	ClientId pulumi.StringInput
-	// (Required for Initial Creation) Your Azure web application secret key.
-	ClientSecret pulumi.StringInput
+	// Your Azure web application secret key. Required unless `secretlessAuthEnabled` is set to `true`.
+	ClientSecret pulumi.StringPtrInput
 	// This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog. Defaults to `""`.
 	ContainerAppFilters pulumi.StringPtrInput
 	// When enabled, Datadog’s Cloud Security Management product scans resource configurations monitored by this app registration.
@@ -265,6 +280,8 @@ type IntegrationArgs struct {
 	ResourceCollectionEnabled pulumi.BoolPtrInput
 	// Configuration settings applied to resources from the specified Azure resource providers.
 	ResourceProviderConfigs IntegrationResourceProviderConfigArrayInput
+	// (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `clientSecret` should be omitted. Defaults to `false`.
+	SecretlessAuthEnabled pulumi.BoolPtrInput
 	// Your Azure Active Directory ID.
 	TenantName pulumi.StringInput
 	// Enable azure.usage metrics for your organization. Defaults to `true`.
@@ -373,9 +390,9 @@ func (o IntegrationOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// (Required for Initial Creation) Your Azure web application secret key.
-func (o IntegrationOutput) ClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.ClientSecret }).(pulumi.StringOutput)
+// Your Azure web application secret key. Required unless `secretlessAuthEnabled` is set to `true`.
+func (o IntegrationOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
 // This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog. Defaults to `""`.
@@ -417,6 +434,11 @@ func (o IntegrationOutput) ResourceCollectionEnabled() pulumi.BoolOutput {
 // Configuration settings applied to resources from the specified Azure resource providers.
 func (o IntegrationOutput) ResourceProviderConfigs() IntegrationResourceProviderConfigArrayOutput {
 	return o.ApplyT(func(v *Integration) IntegrationResourceProviderConfigArrayOutput { return v.ResourceProviderConfigs }).(IntegrationResourceProviderConfigArrayOutput)
+}
+
+// (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `clientSecret` should be omitted. Defaults to `false`.
+func (o IntegrationOutput) SecretlessAuthEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Integration) pulumi.BoolOutput { return v.SecretlessAuthEnabled }).(pulumi.BoolOutput)
 }
 
 // Your Azure Active Directory ID.

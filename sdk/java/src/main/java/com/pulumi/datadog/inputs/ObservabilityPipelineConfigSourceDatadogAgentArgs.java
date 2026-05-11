@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceDatadogAgentTlsArgs;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class ObservabilityPipelineConfigSourceDatadogAgentArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ObservabilityPipelineConfigSourceDatadogAgentArgs Empty = new ObservabilityPipelineConfigSourceDatadogAgentArgs();
+
+    /**
+     * Name of the environment variable or secret that holds the listen address for the Datadog Agent source.
+     * 
+     */
+    @Import(name="addressKey")
+    private @Nullable Output<String> addressKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the listen address for the Datadog Agent source.
+     * 
+     */
+    public Optional<Output<String>> addressKey() {
+        return Optional.ofNullable(this.addressKey);
+    }
 
     /**
      * Configuration for enabling TLS encryption between the pipeline component and external services.
@@ -33,6 +49,7 @@ public final class ObservabilityPipelineConfigSourceDatadogAgentArgs extends com
     private ObservabilityPipelineConfigSourceDatadogAgentArgs() {}
 
     private ObservabilityPipelineConfigSourceDatadogAgentArgs(ObservabilityPipelineConfigSourceDatadogAgentArgs $) {
+        this.addressKey = $.addressKey;
         this.tls = $.tls;
     }
 
@@ -52,6 +69,27 @@ public final class ObservabilityPipelineConfigSourceDatadogAgentArgs extends com
 
         public Builder(ObservabilityPipelineConfigSourceDatadogAgentArgs defaults) {
             $ = new ObservabilityPipelineConfigSourceDatadogAgentArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param addressKey Name of the environment variable or secret that holds the listen address for the Datadog Agent source.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addressKey(@Nullable Output<String> addressKey) {
+            $.addressKey = addressKey;
+            return this;
+        }
+
+        /**
+         * @param addressKey Name of the environment variable or secret that holds the listen address for the Datadog Agent source.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addressKey(String addressKey) {
+            return addressKey(Output.of(addressKey));
         }
 
         /**

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Datadog Dataset resource. This can be used to create and manage Datadog datasets.
+// Provides a Datadog Dataset resource. This can be used to create and manage Datadog datasets, also known as restricted datasets, for Data Access Control.
 //
 // ## Example Usage
 //

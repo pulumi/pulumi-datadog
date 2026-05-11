@@ -145,6 +145,11 @@ export type DashboardList = import("./dashboardList").DashboardList;
 export const DashboardList: typeof import("./dashboardList").DashboardList = null as any;
 utilities.lazyLoad(exports, ["DashboardList"], () => require("./dashboardList"));
 
+export { DashboardV2Args, DashboardV2State } from "./dashboardV2";
+export type DashboardV2 = import("./dashboardV2").DashboardV2;
+export const DashboardV2: typeof import("./dashboardV2").DashboardV2 = null as any;
+utilities.lazyLoad(exports, ["DashboardV2"], () => require("./dashboardV2"));
+
 export { DatasetArgs, DatasetState } from "./dataset";
 export type Dataset = import("./dataset").Dataset;
 export const Dataset: typeof import("./dataset").Dataset = null as any;
@@ -349,6 +354,26 @@ export { GetMonitorsArgs, GetMonitorsResult, GetMonitorsOutputArgs } from "./get
 export const getMonitors: typeof import("./getMonitors").getMonitors = null as any;
 export const getMonitorsOutput: typeof import("./getMonitors").getMonitorsOutput = null as any;
 utilities.lazyLoad(exports, ["getMonitors","getMonitorsOutput"], () => require("./getMonitors"));
+
+export { GetOrgGroupMembershipsArgs, GetOrgGroupMembershipsResult, GetOrgGroupMembershipsOutputArgs } from "./getOrgGroupMemberships";
+export const getOrgGroupMemberships: typeof import("./getOrgGroupMemberships").getOrgGroupMemberships = null as any;
+export const getOrgGroupMembershipsOutput: typeof import("./getOrgGroupMemberships").getOrgGroupMembershipsOutput = null as any;
+utilities.lazyLoad(exports, ["getOrgGroupMemberships","getOrgGroupMembershipsOutput"], () => require("./getOrgGroupMemberships"));
+
+export { GetOrgGroupPoliciesArgs, GetOrgGroupPoliciesResult, GetOrgGroupPoliciesOutputArgs } from "./getOrgGroupPolicies";
+export const getOrgGroupPolicies: typeof import("./getOrgGroupPolicies").getOrgGroupPolicies = null as any;
+export const getOrgGroupPoliciesOutput: typeof import("./getOrgGroupPolicies").getOrgGroupPoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["getOrgGroupPolicies","getOrgGroupPoliciesOutput"], () => require("./getOrgGroupPolicies"));
+
+export { GetOrgGroupPolicyOverridesArgs, GetOrgGroupPolicyOverridesResult, GetOrgGroupPolicyOverridesOutputArgs } from "./getOrgGroupPolicyOverrides";
+export const getOrgGroupPolicyOverrides: typeof import("./getOrgGroupPolicyOverrides").getOrgGroupPolicyOverrides = null as any;
+export const getOrgGroupPolicyOverridesOutput: typeof import("./getOrgGroupPolicyOverrides").getOrgGroupPolicyOverridesOutput = null as any;
+utilities.lazyLoad(exports, ["getOrgGroupPolicyOverrides","getOrgGroupPolicyOverridesOutput"], () => require("./getOrgGroupPolicyOverrides"));
+
+export { GetOrgGroupsResult } from "./getOrgGroups";
+export const getOrgGroups: typeof import("./getOrgGroups").getOrgGroups = null as any;
+export const getOrgGroupsOutput: typeof import("./getOrgGroups").getOrgGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getOrgGroups","getOrgGroupsOutput"], () => require("./getOrgGroups"));
 
 export { GetOrganizationSettingsArgs, GetOrganizationSettingsResult, GetOrganizationSettingsOutputArgs } from "./getOrganizationSettings";
 export const getOrganizationSettings: typeof import("./getOrganizationSettings").getOrganizationSettings = null as any;
@@ -660,6 +685,26 @@ export type OrgConnection = import("./orgConnection").OrgConnection;
 export const OrgConnection: typeof import("./orgConnection").OrgConnection = null as any;
 utilities.lazyLoad(exports, ["OrgConnection"], () => require("./orgConnection"));
 
+export { OrgGroupArgs, OrgGroupState } from "./orgGroup";
+export type OrgGroup = import("./orgGroup").OrgGroup;
+export const OrgGroup: typeof import("./orgGroup").OrgGroup = null as any;
+utilities.lazyLoad(exports, ["OrgGroup"], () => require("./orgGroup"));
+
+export { OrgGroupMembershipArgs, OrgGroupMembershipState } from "./orgGroupMembership";
+export type OrgGroupMembership = import("./orgGroupMembership").OrgGroupMembership;
+export const OrgGroupMembership: typeof import("./orgGroupMembership").OrgGroupMembership = null as any;
+utilities.lazyLoad(exports, ["OrgGroupMembership"], () => require("./orgGroupMembership"));
+
+export { OrgGroupPolicyArgs, OrgGroupPolicyState } from "./orgGroupPolicy";
+export type OrgGroupPolicy = import("./orgGroupPolicy").OrgGroupPolicy;
+export const OrgGroupPolicy: typeof import("./orgGroupPolicy").OrgGroupPolicy = null as any;
+utilities.lazyLoad(exports, ["OrgGroupPolicy"], () => require("./orgGroupPolicy"));
+
+export { OrgGroupPolicyOverrideArgs, OrgGroupPolicyOverrideState } from "./orgGroupPolicyOverride";
+export type OrgGroupPolicyOverride = import("./orgGroupPolicyOverride").OrgGroupPolicyOverride;
+export const OrgGroupPolicyOverride: typeof import("./orgGroupPolicyOverride").OrgGroupPolicyOverride = null as any;
+utilities.lazyLoad(exports, ["OrgGroupPolicyOverride"], () => require("./orgGroupPolicyOverride"));
+
 export { OrganizationSettingsArgs, OrganizationSettingsState } from "./organizationSettings";
 export type OrganizationSettings = import("./organizationSettings").OrganizationSettings;
 export const OrganizationSettings: typeof import("./organizationSettings").OrganizationSettings = null as any;
@@ -669,6 +714,11 @@ export { PowerpackArgs, PowerpackState } from "./powerpack";
 export type Powerpack = import("./powerpack").Powerpack;
 export const Powerpack: typeof import("./powerpack").Powerpack = null as any;
 utilities.lazyLoad(exports, ["Powerpack"], () => require("./powerpack"));
+
+export { PowerpackV2Args, PowerpackV2State } from "./powerpackV2";
+export type PowerpackV2 = import("./powerpackV2").PowerpackV2;
+export const PowerpackV2: typeof import("./powerpackV2").PowerpackV2 = null as any;
+utilities.lazyLoad(exports, ["PowerpackV2"], () => require("./powerpackV2"));
 
 export * from "./provider";
 import { Provider } from "./provider";
@@ -838,6 +888,11 @@ export type Team = import("./team").Team;
 export const Team: typeof import("./team").Team = null as any;
 utilities.lazyLoad(exports, ["Team"], () => require("./team"));
 
+export { TeamConnectionArgs, TeamConnectionState } from "./teamConnection";
+export type TeamConnection = import("./teamConnection").TeamConnection;
+export const TeamConnection: typeof import("./teamConnection").TeamConnection = null as any;
+utilities.lazyLoad(exports, ["TeamConnection"], () => require("./teamConnection"));
+
 export { TeamHierarchyLinksArgs, TeamHierarchyLinksState } from "./teamHierarchyLinks";
 export type TeamHierarchyLinks = import("./teamHierarchyLinks").TeamHierarchyLinks;
 export const TeamHierarchyLinks: typeof import("./teamHierarchyLinks").TeamHierarchyLinks = null as any;
@@ -862,6 +917,11 @@ export { TeamPermissionSettingArgs, TeamPermissionSettingState } from "./teamPer
 export type TeamPermissionSetting = import("./teamPermissionSetting").TeamPermissionSetting;
 export const TeamPermissionSetting: typeof import("./teamPermissionSetting").TeamPermissionSetting = null as any;
 utilities.lazyLoad(exports, ["TeamPermissionSetting"], () => require("./teamPermissionSetting"));
+
+export { TeamSyncArgs, TeamSyncState } from "./teamSync";
+export type TeamSync = import("./teamSync").TeamSync;
+export const TeamSync: typeof import("./teamSync").TeamSync = null as any;
+utilities.lazyLoad(exports, ["TeamSync"], () => require("./teamSync"));
 
 export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
@@ -978,6 +1038,8 @@ const _module = {
                 return new DashboardJson(name, <any>undefined, { urn })
             case "datadog:index/dashboardList:DashboardList":
                 return new DashboardList(name, <any>undefined, { urn })
+            case "datadog:index/dashboardV2:DashboardV2":
+                return new DashboardV2(name, <any>undefined, { urn })
             case "datadog:index/dataset:Dataset":
                 return new Dataset(name, <any>undefined, { urn })
             case "datadog:index/datastore:Datastore":
@@ -1050,10 +1112,20 @@ const _module = {
                 return new OpenapiApi(name, <any>undefined, { urn })
             case "datadog:index/orgConnection:OrgConnection":
                 return new OrgConnection(name, <any>undefined, { urn })
+            case "datadog:index/orgGroup:OrgGroup":
+                return new OrgGroup(name, <any>undefined, { urn })
+            case "datadog:index/orgGroupMembership:OrgGroupMembership":
+                return new OrgGroupMembership(name, <any>undefined, { urn })
+            case "datadog:index/orgGroupPolicy:OrgGroupPolicy":
+                return new OrgGroupPolicy(name, <any>undefined, { urn })
+            case "datadog:index/orgGroupPolicyOverride:OrgGroupPolicyOverride":
+                return new OrgGroupPolicyOverride(name, <any>undefined, { urn })
             case "datadog:index/organizationSettings:OrganizationSettings":
                 return new OrganizationSettings(name, <any>undefined, { urn })
             case "datadog:index/powerpack:Powerpack":
                 return new Powerpack(name, <any>undefined, { urn })
+            case "datadog:index/powerpackV2:PowerpackV2":
+                return new PowerpackV2(name, <any>undefined, { urn })
             case "datadog:index/referenceTable:ReferenceTable":
                 return new ReferenceTable(name, <any>undefined, { urn })
             case "datadog:index/restrictionPolicy:RestrictionPolicy":
@@ -1120,6 +1192,8 @@ const _module = {
                 return new TagPipelineRulesets(name, <any>undefined, { urn })
             case "datadog:index/team:Team":
                 return new Team(name, <any>undefined, { urn })
+            case "datadog:index/teamConnection:TeamConnection":
+                return new TeamConnection(name, <any>undefined, { urn })
             case "datadog:index/teamHierarchyLinks:TeamHierarchyLinks":
                 return new TeamHierarchyLinks(name, <any>undefined, { urn })
             case "datadog:index/teamLink:TeamLink":
@@ -1130,6 +1204,8 @@ const _module = {
                 return new TeamNotificationRule(name, <any>undefined, { urn })
             case "datadog:index/teamPermissionSetting:TeamPermissionSetting":
                 return new TeamPermissionSetting(name, <any>undefined, { urn })
+            case "datadog:index/teamSync:TeamSync":
+                return new TeamSync(name, <any>undefined, { urn })
             case "datadog:index/user:User":
                 return new User(name, <any>undefined, { urn })
             case "datadog:index/userRole:UserRole":
@@ -1173,6 +1249,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/customAllocationRules", 
 pulumi.runtime.registerResourceModule("datadog", "index/dashboard", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboardJson", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboardList", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/dashboardV2", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dataset", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/datastore", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/datastoreItem", _module)
@@ -1209,8 +1286,13 @@ pulumi.runtime.registerResourceModule("datadog", "index/onCallUserNotificationCh
 pulumi.runtime.registerResourceModule("datadog", "index/onCallUserNotificationRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/openapiApi", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/orgConnection", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/orgGroup", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/orgGroupMembership", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/orgGroupPolicy", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/orgGroupPolicyOverride", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/organizationSettings", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/powerpack", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/powerpackV2", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/referenceTable", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/restrictionPolicy", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/role", _module)
@@ -1244,11 +1326,13 @@ pulumi.runtime.registerResourceModule("datadog", "index/syntheticsTest", _module
 pulumi.runtime.registerResourceModule("datadog", "index/tagPipelineRuleset", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/tagPipelineRulesets", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/team", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/teamConnection", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/teamHierarchyLinks", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/teamLink", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/teamMembership", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/teamNotificationRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/teamPermissionSetting", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/teamSync", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/user", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/userRole", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/webhook", _module)

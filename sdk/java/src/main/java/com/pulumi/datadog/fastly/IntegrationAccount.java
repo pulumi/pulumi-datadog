@@ -11,6 +11,8 @@ import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.fastly.IntegrationAccountArgs;
 import com.pulumi.datadog.fastly.inputs.IntegrationAccountState;
 import java.lang.String;
+import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -63,18 +65,48 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:fastly/integrationAccount:IntegrationAccount")
 public class IntegrationAccount extends com.pulumi.resources.CustomResource {
     /**
-     * The API key for the Fastly account.
+     * The API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set.
      * 
      */
     @Export(name="apiKey", refs={String.class}, tree="[0]")
-    private Output<String> apiKey;
+    private Output</* @Nullable */ String> apiKey;
 
     /**
-     * @return The API key for the Fastly account.
+     * @return The API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set.
      * 
      */
-    public Output<String> apiKey() {
-        return this.apiKey;
+    public Output<Optional<String>> apiKey() {
+        return Codegen.optional(this.apiKey);
+    }
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set. Must be used with `apiKeyWoVersion`.
+     * 
+     */
+    @Export(name="apiKeyWo", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> apiKeyWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set. Must be used with `apiKeyWoVersion`.
+     * 
+     */
+    public Output<Optional<String>> apiKeyWo() {
+        return Codegen.optional(this.apiKeyWo);
+    }
+    /**
+     * Version for `apiKeyWo` rotation. Changing this triggers an update. String length must be at least 1.
+     * 
+     */
+    @Export(name="apiKeyWoVersion", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> apiKeyWoVersion;
+
+    /**
+     * @return Version for `apiKeyWo` rotation. Changing this triggers an update. String length must be at least 1.
+     * 
+     */
+    public Output<Optional<String>> apiKeyWoVersion() {
+        return Codegen.optional(this.apiKeyWoVersion);
     }
     /**
      * The name of the Fastly account.
@@ -130,6 +162,10 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "apiKey",
+                "apiKeyWo"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

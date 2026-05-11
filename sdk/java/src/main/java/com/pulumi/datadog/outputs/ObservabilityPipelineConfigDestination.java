@@ -11,6 +11,7 @@ import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonSe
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAzureStorage;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationCloudPrem;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationDatabricksZerobus;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationDatadogLog;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationDatadogMetric;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationElasticsearch;
@@ -73,6 +74,11 @@ public final class ObservabilityPipelineConfigDestination {
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem> crowdstrikeNextGenSiems;
     /**
+     * @return The `databricksZerobus` destination sends logs to Databricks via the Zerobus ingestion API.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigDestinationDatabricksZerobus> databricksZerobuses;
+    /**
      * @return The `datadogLogs` destination forwards logs to Datadog Log Management.
      * 
      */
@@ -83,7 +89,7 @@ public final class ObservabilityPipelineConfigDestination {
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationDatadogMetric> datadogMetrics;
     /**
-     * @return The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+     * @return The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationElasticsearch> elasticsearches;
@@ -219,6 +225,13 @@ public final class ObservabilityPipelineConfigDestination {
         return this.crowdstrikeNextGenSiems == null ? List.of() : this.crowdstrikeNextGenSiems;
     }
     /**
+     * @return The `databricksZerobus` destination sends logs to Databricks via the Zerobus ingestion API.
+     * 
+     */
+    public List<ObservabilityPipelineConfigDestinationDatabricksZerobus> databricksZerobuses() {
+        return this.databricksZerobuses == null ? List.of() : this.databricksZerobuses;
+    }
+    /**
      * @return The `datadogLogs` destination forwards logs to Datadog Log Management.
      * 
      */
@@ -233,7 +246,7 @@ public final class ObservabilityPipelineConfigDestination {
         return this.datadogMetrics == null ? List.of() : this.datadogMetrics;
     }
     /**
-     * @return The `elasticsearch` destination writes logs to an Elasticsearch cluster.
+     * @return The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
      * 
      */
     public List<ObservabilityPipelineConfigDestinationElasticsearch> elasticsearches() {
@@ -368,6 +381,7 @@ public final class ObservabilityPipelineConfigDestination {
         private @Nullable List<ObservabilityPipelineConfigDestinationAzureStorage> azureStorages;
         private @Nullable ObservabilityPipelineConfigDestinationCloudPrem cloudPrem;
         private @Nullable List<ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem> crowdstrikeNextGenSiems;
+        private @Nullable List<ObservabilityPipelineConfigDestinationDatabricksZerobus> databricksZerobuses;
         private @Nullable List<ObservabilityPipelineConfigDestinationDatadogLog> datadogLogs;
         private @Nullable List<ObservabilityPipelineConfigDestinationDatadogMetric> datadogMetrics;
         private @Nullable List<ObservabilityPipelineConfigDestinationElasticsearch> elasticsearches;
@@ -397,6 +411,7 @@ public final class ObservabilityPipelineConfigDestination {
     	      this.azureStorages = defaults.azureStorages;
     	      this.cloudPrem = defaults.cloudPrem;
     	      this.crowdstrikeNextGenSiems = defaults.crowdstrikeNextGenSiems;
+    	      this.databricksZerobuses = defaults.databricksZerobuses;
     	      this.datadogLogs = defaults.datadogLogs;
     	      this.datadogMetrics = defaults.datadogMetrics;
     	      this.elasticsearches = defaults.elasticsearches;
@@ -474,6 +489,15 @@ public final class ObservabilityPipelineConfigDestination {
         }
         public Builder crowdstrikeNextGenSiems(ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem... crowdstrikeNextGenSiems) {
             return crowdstrikeNextGenSiems(List.of(crowdstrikeNextGenSiems));
+        }
+        @CustomType.Setter
+        public Builder databricksZerobuses(@Nullable List<ObservabilityPipelineConfigDestinationDatabricksZerobus> databricksZerobuses) {
+
+            this.databricksZerobuses = databricksZerobuses;
+            return this;
+        }
+        public Builder databricksZerobuses(ObservabilityPipelineConfigDestinationDatabricksZerobus... databricksZerobuses) {
+            return databricksZerobuses(List.of(databricksZerobuses));
         }
         @CustomType.Setter
         public Builder datadogLogs(@Nullable List<ObservabilityPipelineConfigDestinationDatadogLog> datadogLogs) {
@@ -653,6 +677,7 @@ public final class ObservabilityPipelineConfigDestination {
             _resultValue.azureStorages = azureStorages;
             _resultValue.cloudPrem = cloudPrem;
             _resultValue.crowdstrikeNextGenSiems = crowdstrikeNextGenSiems;
+            _resultValue.databricksZerobuses = databricksZerobuses;
             _resultValue.datadogLogs = datadogLogs;
             _resultValue.datadogMetrics = datadogMetrics;
             _resultValue.elasticsearches = elasticsearches;

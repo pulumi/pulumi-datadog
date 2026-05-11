@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigSourceAmazonS3Args>? _amazonS3s;
 
         /// <summary>
-        /// The `AmazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication and TLS encryption.
+        /// The `AmazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication, TLS encryption, and configurable compression.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigSourceAmazonS3Args> AmazonS3s
         {

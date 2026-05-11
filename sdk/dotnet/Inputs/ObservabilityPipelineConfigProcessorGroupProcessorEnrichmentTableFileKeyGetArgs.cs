@@ -25,10 +25,10 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Comparison { get; set; }
 
         /// <summary>
-        /// The `Items` `Field`.
+        /// Specifies the source of the key value for enrichment table lookups. Set exactly one of `StringPath`, `Event`, `Vrl`, or `Secret`.
         /// </summary>
         [Input("field")]
-        public Input<string>? Field { get; set; }
+        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKeyFieldGetArgs>? Field { get; set; }
 
         public ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKeyGetArgs()
         {

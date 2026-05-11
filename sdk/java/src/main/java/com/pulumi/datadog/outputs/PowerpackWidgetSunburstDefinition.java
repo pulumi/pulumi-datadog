@@ -23,6 +23,11 @@ public final class PowerpackWidgetSunburstDefinition {
      */
     private @Nullable List<PowerpackWidgetSunburstDefinitionCustomLink> customLinks;
     /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
      * 
      */
@@ -75,6 +80,13 @@ public final class PowerpackWidgetSunburstDefinition {
      */
     public List<PowerpackWidgetSunburstDefinitionCustomLink> customLinks() {
         return this.customLinks == null ? List.of() : this.customLinks;
+    }
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
@@ -150,6 +162,7 @@ public final class PowerpackWidgetSunburstDefinition {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<PowerpackWidgetSunburstDefinitionCustomLink> customLinks;
+        private @Nullable String description;
         private @Nullable Boolean hideIncompleteCostData;
         private @Nullable Boolean hideTotal;
         private @Nullable PowerpackWidgetSunburstDefinitionLegendInline legendInline;
@@ -163,6 +176,7 @@ public final class PowerpackWidgetSunburstDefinition {
         public Builder(PowerpackWidgetSunburstDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customLinks = defaults.customLinks;
+    	      this.description = defaults.description;
     	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.hideTotal = defaults.hideTotal;
     	      this.legendInline = defaults.legendInline;
@@ -182,6 +196,12 @@ public final class PowerpackWidgetSunburstDefinition {
         }
         public Builder customLinks(PowerpackWidgetSunburstDefinitionCustomLink... customLinks) {
             return customLinks(List.of(customLinks));
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
         }
         @CustomType.Setter
         public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
@@ -243,6 +263,7 @@ public final class PowerpackWidgetSunburstDefinition {
         public PowerpackWidgetSunburstDefinition build() {
             final var _resultValue = new PowerpackWidgetSunburstDefinition();
             _resultValue.customLinks = customLinks;
+            _resultValue.description = description;
             _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.hideTotal = hideTotal;
             _resultValue.legendInline = legendInline;

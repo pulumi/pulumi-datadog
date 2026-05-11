@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  *
  * // A sample Datadog logs index resource definition.
  * const sampleIndex = new datadog.LogsIndex("sample_index", {
- *     name: "your index",
+ *     name: "your-index",
  *     dailyLimit: 200000,
  *     dailyLimitReset: {
  *         resetTime: "14:00",

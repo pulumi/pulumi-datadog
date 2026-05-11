@@ -25,7 +25,7 @@ namespace Pulumi.Datadog
     ///     // A sample Datadog logs index resource definition.
     ///     var sampleIndex = new Datadog.LogsIndex("sample_index", new()
     ///     {
-    ///         Name = "your index",
+    ///         Name = "your-index",
     ///         DailyLimit = 200000,
     ///         DailyLimitReset = new Datadog.Inputs.LogsIndexDailyLimitResetArgs
     ///         {

@@ -64,14 +64,14 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Required for Initial Creation) Your Azure web application secret key.
+     * Your Azure web application secret key. Required unless `secretlessAuthEnabled` is set to `true`.
      * 
      */
     @Import(name="clientSecret")
     private @Nullable Output<String> clientSecret;
 
     /**
-     * @return (Required for Initial Creation) Your Azure web application secret key.
+     * @return Your Azure web application secret key. Required unless `secretlessAuthEnabled` is set to `true`.
      * 
      */
     public Optional<Output<String>> clientSecret() {
@@ -201,6 +201,21 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `clientSecret` should be omitted. Defaults to `false`.
+     * 
+     */
+    @Import(name="secretlessAuthEnabled")
+    private @Nullable Output<Boolean> secretlessAuthEnabled;
+
+    /**
+     * @return (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `clientSecret` should be omitted. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> secretlessAuthEnabled() {
+        return Optional.ofNullable(this.secretlessAuthEnabled);
+    }
+
+    /**
      * Your Azure Active Directory ID.
      * 
      */
@@ -245,6 +260,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         this.metricsEnabledDefault = $.metricsEnabledDefault;
         this.resourceCollectionEnabled = $.resourceCollectionEnabled;
         this.resourceProviderConfigs = $.resourceProviderConfigs;
+        this.secretlessAuthEnabled = $.secretlessAuthEnabled;
         this.tenantName = $.tenantName;
         this.usageMetricsEnabled = $.usageMetricsEnabled;
     }
@@ -331,7 +347,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientSecret (Required for Initial Creation) Your Azure web application secret key.
+         * @param clientSecret Your Azure web application secret key. Required unless `secretlessAuthEnabled` is set to `true`.
          * 
          * @return builder
          * 
@@ -342,7 +358,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientSecret (Required for Initial Creation) Your Azure web application secret key.
+         * @param clientSecret Your Azure web application secret key. Required unless `secretlessAuthEnabled` is set to `true`.
          * 
          * @return builder
          * 
@@ -529,6 +545,27 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder resourceProviderConfigs(IntegrationResourceProviderConfigArgs... resourceProviderConfigs) {
             return resourceProviderConfigs(List.of(resourceProviderConfigs));
+        }
+
+        /**
+         * @param secretlessAuthEnabled (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `clientSecret` should be omitted. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secretlessAuthEnabled(@Nullable Output<Boolean> secretlessAuthEnabled) {
+            $.secretlessAuthEnabled = secretlessAuthEnabled;
+            return this;
+        }
+
+        /**
+         * @param secretlessAuthEnabled (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `clientSecret` should be omitted. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secretlessAuthEnabled(Boolean secretlessAuthEnabled) {
+            return secretlessAuthEnabled(Output.of(secretlessAuthEnabled));
         }
 
         /**

@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,42 +13,66 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigDestinationElasticsearchDataStream {
     /**
-     * @return The data stream dataset for your logs. This groups logs by their source or application.
+     * @return When `true`, automatically routes events to the appropriate data stream based on the event content.
+     * 
+     */
+    private @Nullable Boolean autoRouting;
+    /**
+     * @return The data stream dataset. This groups events by their source or application.
      * 
      */
     private @Nullable String dataset;
     /**
-     * @return The data stream type for your logs. This determines how logs are categorized within the data stream.
+     * @return The data stream type. This determines how events are categorized within the data stream.
      * 
      */
     private @Nullable String dtype;
     /**
-     * @return The data stream namespace for your logs. This separates logs into different environments or domains.
+     * @return The data stream namespace. This separates events into different environments or domains.
      * 
      */
     private @Nullable String namespace;
+    /**
+     * @return When `true`, synchronizes data stream fields with the Elasticsearch index mapping.
+     * 
+     */
+    private @Nullable Boolean syncFields;
 
     private ObservabilityPipelineConfigDestinationElasticsearchDataStream() {}
     /**
-     * @return The data stream dataset for your logs. This groups logs by their source or application.
+     * @return When `true`, automatically routes events to the appropriate data stream based on the event content.
+     * 
+     */
+    public Optional<Boolean> autoRouting() {
+        return Optional.ofNullable(this.autoRouting);
+    }
+    /**
+     * @return The data stream dataset. This groups events by their source or application.
      * 
      */
     public Optional<String> dataset() {
         return Optional.ofNullable(this.dataset);
     }
     /**
-     * @return The data stream type for your logs. This determines how logs are categorized within the data stream.
+     * @return The data stream type. This determines how events are categorized within the data stream.
      * 
      */
     public Optional<String> dtype() {
         return Optional.ofNullable(this.dtype);
     }
     /**
-     * @return The data stream namespace for your logs. This separates logs into different environments or domains.
+     * @return The data stream namespace. This separates events into different environments or domains.
      * 
      */
     public Optional<String> namespace() {
         return Optional.ofNullable(this.namespace);
+    }
+    /**
+     * @return When `true`, synchronizes data stream fields with the Elasticsearch index mapping.
+     * 
+     */
+    public Optional<Boolean> syncFields() {
+        return Optional.ofNullable(this.syncFields);
     }
 
     public static Builder builder() {
@@ -59,17 +84,27 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchDataStream
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean autoRouting;
         private @Nullable String dataset;
         private @Nullable String dtype;
         private @Nullable String namespace;
+        private @Nullable Boolean syncFields;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationElasticsearchDataStream defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.autoRouting = defaults.autoRouting;
     	      this.dataset = defaults.dataset;
     	      this.dtype = defaults.dtype;
     	      this.namespace = defaults.namespace;
+    	      this.syncFields = defaults.syncFields;
         }
 
+        @CustomType.Setter
+        public Builder autoRouting(@Nullable Boolean autoRouting) {
+
+            this.autoRouting = autoRouting;
+            return this;
+        }
         @CustomType.Setter
         public Builder dataset(@Nullable String dataset) {
 
@@ -88,11 +123,19 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchDataStream
             this.namespace = namespace;
             return this;
         }
+        @CustomType.Setter
+        public Builder syncFields(@Nullable Boolean syncFields) {
+
+            this.syncFields = syncFields;
+            return this;
+        }
         public ObservabilityPipelineConfigDestinationElasticsearchDataStream build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationElasticsearchDataStream();
+            _resultValue.autoRouting = autoRouting;
             _resultValue.dataset = dataset;
             _resultValue.dtype = dtype;
             _resultValue.namespace = namespace;
+            _resultValue.syncFields = syncFields;
             return _resultValue;
         }
     }

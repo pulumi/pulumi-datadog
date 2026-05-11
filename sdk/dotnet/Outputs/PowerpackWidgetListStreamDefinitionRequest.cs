@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetListStreamDefinitionRequestColumn> Columns;
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Updated list stream widget.
         /// </summary>
         public readonly Outputs.PowerpackWidgetListStreamDefinitionRequestQuery Query;
@@ -30,11 +34,14 @@ namespace Pulumi.Datadog.Outputs
         private PowerpackWidgetListStreamDefinitionRequest(
             ImmutableArray<Outputs.PowerpackWidgetListStreamDefinitionRequestColumn> columns,
 
+            string? description,
+
             Outputs.PowerpackWidgetListStreamDefinitionRequestQuery query,
 
             string responseFormat)
         {
             Columns = columns;
+            Description = description;
             Query = query;
             ResponseFormat = responseFormat;
         }

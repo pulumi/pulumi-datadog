@@ -46,7 +46,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
      * @return Tags assigned to this rule for filtering and classification.
      * 
      */
-    private List<String> tags;
+    private @Nullable List<String> tags;
 
     private ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRule() {}
     /**
@@ -89,7 +89,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
      * 
      */
     public List<String> tags() {
-        return this.tags;
+        return this.tags == null ? List.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -106,7 +106,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleOnMatch onMatch;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePattern pattern;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScope scope;
-        private List<String> tags;
+        private @Nullable List<String> tags;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRule defaults) {
     	      Objects.requireNonNull(defaults);
@@ -151,10 +151,8 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
             return this;
         }
         @CustomType.Setter
-        public Builder tags(List<String> tags) {
-            if (tags == null) {
-              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRule", "tags");
-            }
+        public Builder tags(@Nullable List<String> tags) {
+
             this.tags = tags;
             return this;
         }

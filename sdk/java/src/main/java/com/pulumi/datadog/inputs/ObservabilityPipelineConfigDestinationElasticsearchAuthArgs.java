@@ -17,14 +17,14 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchAuthArgs e
     public static final ObservabilityPipelineConfigDestinationElasticsearchAuthArgs Empty = new ObservabilityPipelineConfigDestinationElasticsearchAuthArgs();
 
     /**
-     * Name of the environment variable or secret that holds the Elasticsearch password (used when strategy is `basic`).
+     * Name of the environment variable or secret that holds the Elasticsearch password (used when `strategy` is `basic`).
      * 
      */
     @Import(name="passwordKey")
     private @Nullable Output<String> passwordKey;
 
     /**
-     * @return Name of the environment variable or secret that holds the Elasticsearch password (used when strategy is `basic`).
+     * @return Name of the environment variable or secret that holds the Elasticsearch password (used when `strategy` is `basic`).
      * 
      */
     public Optional<Output<String>> passwordKey() {
@@ -32,14 +32,14 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchAuthArgs e
     }
 
     /**
-     * The authentication strategy. Use `basic` for username/password. Valid values are `basic`, `aws`.
+     * The authentication strategy to use. Valid values are `basic`, `aws`.
      * 
      */
     @Import(name="strategy", required=true)
     private Output<String> strategy;
 
     /**
-     * @return The authentication strategy. Use `basic` for username/password. Valid values are `basic`, `aws`.
+     * @return The authentication strategy to use. Valid values are `basic`, `aws`.
      * 
      */
     public Output<String> strategy() {
@@ -47,14 +47,14 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchAuthArgs e
     }
 
     /**
-     * Name of the environment variable or secret that holds the Elasticsearch username (used when strategy is `basic`).
+     * Name of the environment variable or secret that holds the Elasticsearch username (used when `strategy` is `basic`).
      * 
      */
     @Import(name="usernameKey")
     private @Nullable Output<String> usernameKey;
 
     /**
-     * @return Name of the environment variable or secret that holds the Elasticsearch username (used when strategy is `basic`).
+     * @return Name of the environment variable or secret that holds the Elasticsearch username (used when `strategy` is `basic`).
      * 
      */
     public Optional<Output<String>> usernameKey() {
@@ -88,7 +88,7 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchAuthArgs e
         }
 
         /**
-         * @param passwordKey Name of the environment variable or secret that holds the Elasticsearch password (used when strategy is `basic`).
+         * @param passwordKey Name of the environment variable or secret that holds the Elasticsearch password (used when `strategy` is `basic`).
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchAuthArgs e
         }
 
         /**
-         * @param passwordKey Name of the environment variable or secret that holds the Elasticsearch password (used when strategy is `basic`).
+         * @param passwordKey Name of the environment variable or secret that holds the Elasticsearch password (used when `strategy` is `basic`).
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchAuthArgs e
         }
 
         /**
-         * @param strategy The authentication strategy. Use `basic` for username/password. Valid values are `basic`, `aws`.
+         * @param strategy The authentication strategy to use. Valid values are `basic`, `aws`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchAuthArgs e
         }
 
         /**
-         * @param strategy The authentication strategy. Use `basic` for username/password. Valid values are `basic`, `aws`.
+         * @param strategy The authentication strategy to use. Valid values are `basic`, `aws`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchAuthArgs e
         }
 
         /**
-         * @param usernameKey Name of the environment variable or secret that holds the Elasticsearch username (used when strategy is `basic`).
+         * @param usernameKey Name of the environment variable or secret that holds the Elasticsearch username (used when `strategy` is `basic`).
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchAuthArgs e
         }
 
         /**
-         * @param usernameKey Name of the environment variable or secret that holds the Elasticsearch username (used when strategy is `basic`).
+         * @param usernameKey Name of the environment variable or secret that holds the Elasticsearch username (used when `strategy` is `basic`).
          * 
          * @return builder
          * 

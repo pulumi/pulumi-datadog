@@ -14,6 +14,7 @@ import com.pulumi.datadog.azure.outputs.IntegrationResourceProviderConfig;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -43,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         // Create a new Datadog - Microsoft Azure integration
+ *         // Create a new Datadog - Microsoft Azure integration using a client secret
  *         var sandbox = new Integration("sandbox", IntegrationArgs.builder()
  *             .tenantName("<azure_tenant_name>")
  *             .clientId("<azure_client_id>")
@@ -54,6 +55,14 @@ import javax.annotation.Nullable;
  *             .automute(true)
  *             .cspmEnabled(true)
  *             .customMetricsEnabled(false)
+ *             .build());
+ * 
+ *         // Or, using secretless (federated workload identity) authentication.
+ *         // Note: secretless authentication is currently in Preview.
+ *         var sandboxSecretless = new Integration("sandboxSecretless", IntegrationArgs.builder()
+ *             .tenantName("<azure_tenant_name>")
+ *             .clientId("<azure_client_id>")
+ *             .secretlessAuthEnabled(true)
  *             .build());
  * 
  *     }
@@ -118,18 +127,18 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return this.clientId;
     }
     /**
-     * (Required for Initial Creation) Your Azure web application secret key.
+     * Your Azure web application secret key. Required unless `secretlessAuthEnabled` is set to `true`.
      * 
      */
     @Export(name="clientSecret", refs={String.class}, tree="[0]")
-    private Output<String> clientSecret;
+    private Output</* @Nullable */ String> clientSecret;
 
     /**
-     * @return (Required for Initial Creation) Your Azure web application secret key.
+     * @return Your Azure web application secret key. Required unless `secretlessAuthEnabled` is set to `true`.
      * 
      */
-    public Output<String> clientSecret() {
-        return this.clientSecret;
+    public Output<Optional<String>> clientSecret() {
+        return Codegen.optional(this.clientSecret);
     }
     /**
      * This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog. Defaults to `&#34;&#34;`.
@@ -244,6 +253,20 @@ public class Integration extends com.pulumi.resources.CustomResource {
      */
     public Output<List<IntegrationResourceProviderConfig>> resourceProviderConfigs() {
         return this.resourceProviderConfigs;
+    }
+    /**
+     * (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `clientSecret` should be omitted. Defaults to `false`.
+     * 
+     */
+    @Export(name="secretlessAuthEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> secretlessAuthEnabled;
+
+    /**
+     * @return (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `clientSecret` should be omitted. Defaults to `false`.
+     * 
+     */
+    public Output<Boolean> secretlessAuthEnabled() {
+        return this.secretlessAuthEnabled;
     }
     /**
      * Your Azure Active Directory ID.

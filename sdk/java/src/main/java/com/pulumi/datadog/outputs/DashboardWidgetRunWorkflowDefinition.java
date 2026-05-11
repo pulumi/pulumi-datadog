@@ -22,6 +22,11 @@ public final class DashboardWidgetRunWorkflowDefinition {
      */
     private @Nullable List<DashboardWidgetRunWorkflowDefinitionCustomLink> customLinks;
     /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
      * 
      */
@@ -64,6 +69,13 @@ public final class DashboardWidgetRunWorkflowDefinition {
      */
     public List<DashboardWidgetRunWorkflowDefinitionCustomLink> customLinks() {
         return this.customLinks == null ? List.of() : this.customLinks;
+    }
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
@@ -125,6 +137,7 @@ public final class DashboardWidgetRunWorkflowDefinition {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<DashboardWidgetRunWorkflowDefinitionCustomLink> customLinks;
+        private @Nullable String description;
         private @Nullable Boolean hideIncompleteCostData;
         private @Nullable List<DashboardWidgetRunWorkflowDefinitionInput> inputs;
         private @Nullable String liveSpan;
@@ -136,6 +149,7 @@ public final class DashboardWidgetRunWorkflowDefinition {
         public Builder(DashboardWidgetRunWorkflowDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customLinks = defaults.customLinks;
+    	      this.description = defaults.description;
     	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.inputs = defaults.inputs;
     	      this.liveSpan = defaults.liveSpan;
@@ -153,6 +167,12 @@ public final class DashboardWidgetRunWorkflowDefinition {
         }
         public Builder customLinks(DashboardWidgetRunWorkflowDefinitionCustomLink... customLinks) {
             return customLinks(List.of(customLinks));
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
         }
         @CustomType.Setter
         public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
@@ -204,6 +224,7 @@ public final class DashboardWidgetRunWorkflowDefinition {
         public DashboardWidgetRunWorkflowDefinition build() {
             final var _resultValue = new DashboardWidgetRunWorkflowDefinition();
             _resultValue.customLinks = customLinks;
+            _resultValue.description = description;
             _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.inputs = inputs;
             _resultValue.liveSpan = liveSpan;

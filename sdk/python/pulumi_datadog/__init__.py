@@ -34,6 +34,7 @@ from .custom_allocation_rules import *
 from .dashboard import *
 from .dashboard_json import *
 from .dashboard_list import *
+from .dashboard_v2 import *
 from .dataset import *
 from .datastore import *
 from .datastore_item import *
@@ -75,6 +76,10 @@ from .get_metrics import *
 from .get_monitor import *
 from .get_monitor_config_policies import *
 from .get_monitors import *
+from .get_org_group_memberships import *
+from .get_org_group_policies import *
+from .get_org_group_policy_overrides import *
+from .get_org_groups import *
 from .get_organization_settings import *
 from .get_permissions import *
 from .get_powerpack import *
@@ -137,8 +142,13 @@ from .on_call_user_notification_channel import *
 from .on_call_user_notification_rule import *
 from .openapi_api import *
 from .org_connection import *
+from .org_group import *
+from .org_group_membership import *
+from .org_group_policy import *
+from .org_group_policy_override import *
 from .organization_settings import *
 from .powerpack import *
+from .powerpack_v2 import *
 from .provider import *
 from .reference_table import *
 from .restriction_policy import *
@@ -173,11 +183,13 @@ from .synthetics_test import *
 from .tag_pipeline_ruleset import *
 from .tag_pipeline_rulesets import *
 from .team import *
+from .team_connection import *
 from .team_hierarchy_links import *
 from .team_link import *
 from .team_membership import *
 from .team_notification_rule import *
 from .team_permission_setting import *
+from .team_sync import *
 from .user import *
 from .user_role import *
 from .webhook import *
@@ -540,6 +552,14 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/dashboardV2",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/dashboardV2:DashboardV2": "DashboardV2"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/dataset",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -828,6 +848,38 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/orgGroup",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/orgGroup:OrgGroup": "OrgGroup"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/orgGroupMembership",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/orgGroupMembership:OrgGroupMembership": "OrgGroupMembership"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/orgGroupPolicy",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/orgGroupPolicy:OrgGroupPolicy": "OrgGroupPolicy"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/orgGroupPolicyOverride",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/orgGroupPolicyOverride:OrgGroupPolicyOverride": "OrgGroupPolicyOverride"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/organizationSettings",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -840,6 +892,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/powerpack:Powerpack": "Powerpack"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/powerpackV2",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/powerpackV2:PowerpackV2": "PowerpackV2"
   }
  },
  {
@@ -1108,6 +1168,14 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/teamConnection",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/teamConnection:TeamConnection": "TeamConnection"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/teamHierarchyLinks",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -1144,6 +1212,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/teamPermissionSetting:TeamPermissionSetting": "TeamPermissionSetting"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/teamSync",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/teamSync:TeamSync": "TeamSync"
   }
  },
  {

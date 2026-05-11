@@ -72,14 +72,14 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
     }
 
     /**
-     * Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`.
+     * Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`, `securitySignals`.
      * 
      */
     @Import(name="dataSource")
     private @Nullable Output<String> dataSource;
 
     /**
-     * @return Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`.
+     * @return Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`, `securitySignals`.
      * 
      */
     public Optional<Output<String>> dataSource() {
@@ -319,7 +319,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param dataSource Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`.
+         * @param dataSource Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`, `securitySignals`.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param dataSource Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`.
+         * @param dataSource Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`, `securitySignals`.
          * 
          * @return builder
          * 

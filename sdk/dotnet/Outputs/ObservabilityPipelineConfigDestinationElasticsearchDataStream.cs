@@ -14,29 +14,43 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationElasticsearchDataStream
     {
         /// <summary>
-        /// The data stream dataset for your logs. This groups logs by their source or application.
+        /// When `True`, automatically routes events to the appropriate data stream based on the event content.
+        /// </summary>
+        public readonly bool? AutoRouting;
+        /// <summary>
+        /// The data stream dataset. This groups events by their source or application.
         /// </summary>
         public readonly string? Dataset;
         /// <summary>
-        /// The data stream type for your logs. This determines how logs are categorized within the data stream.
+        /// The data stream type. This determines how events are categorized within the data stream.
         /// </summary>
         public readonly string? Dtype;
         /// <summary>
-        /// The data stream namespace for your logs. This separates logs into different environments or domains.
+        /// The data stream namespace. This separates events into different environments or domains.
         /// </summary>
         public readonly string? Namespace;
+        /// <summary>
+        /// When `True`, synchronizes data stream fields with the Elasticsearch index mapping.
+        /// </summary>
+        public readonly bool? SyncFields;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationElasticsearchDataStream(
+            bool? autoRouting,
+
             string? dataset,
 
             string? dtype,
 
-            string? @namespace)
+            string? @namespace,
+
+            bool? syncFields)
         {
+            AutoRouting = autoRouting;
             Dataset = dataset;
             Dtype = dtype;
             Namespace = @namespace;
+            SyncFields = syncFields;
         }
     }
 }

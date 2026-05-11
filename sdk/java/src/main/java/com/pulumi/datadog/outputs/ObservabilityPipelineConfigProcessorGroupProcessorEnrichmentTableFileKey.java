@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKeyField;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,10 +23,10 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
      */
     private @Nullable String comparison;
     /**
-     * @return The `items` `field`.
+     * @return Specifies the source of the key value for enrichment table lookups. Set exactly one of `stringPath`, `event`, `vrl`, or `secret`.
      * 
      */
-    private @Nullable String field;
+    private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKeyField field;
 
     private ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKey() {}
     /**
@@ -43,10 +44,10 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
         return Optional.ofNullable(this.comparison);
     }
     /**
-     * @return The `items` `field`.
+     * @return Specifies the source of the key value for enrichment table lookups. Set exactly one of `stringPath`, `event`, `vrl`, or `secret`.
      * 
      */
-    public Optional<String> field() {
+    public Optional<ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKeyField> field() {
         return Optional.ofNullable(this.field);
     }
 
@@ -61,7 +62,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
     public static final class Builder {
         private @Nullable String column;
         private @Nullable String comparison;
-        private @Nullable String field;
+        private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKeyField field;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKey defaults) {
     	      Objects.requireNonNull(defaults);
@@ -83,7 +84,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentT
             return this;
         }
         @CustomType.Setter
-        public Builder field(@Nullable String field) {
+        public Builder field(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKeyField field) {
 
             this.field = field;
             return this;

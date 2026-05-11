@@ -18,6 +18,21 @@ public final class PowerpackWidgetEventStreamDefinitionArgs extends com.pulumi.r
     public static final PowerpackWidgetEventStreamDefinitionArgs Empty = new PowerpackWidgetEventStreamDefinitionArgs();
 
     /**
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * The size to use to display an event. Valid values are `s`, `l`.
      * 
      */
@@ -140,6 +155,7 @@ public final class PowerpackWidgetEventStreamDefinitionArgs extends com.pulumi.r
     private PowerpackWidgetEventStreamDefinitionArgs() {}
 
     private PowerpackWidgetEventStreamDefinitionArgs(PowerpackWidgetEventStreamDefinitionArgs $) {
+        this.description = $.description;
         this.eventSize = $.eventSize;
         this.hideIncompleteCostData = $.hideIncompleteCostData;
         this.liveSpan = $.liveSpan;
@@ -166,6 +182,27 @@ public final class PowerpackWidgetEventStreamDefinitionArgs extends com.pulumi.r
 
         public Builder(PowerpackWidgetEventStreamDefinitionArgs defaults) {
             $ = new PowerpackWidgetEventStreamDefinitionArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

@@ -54,6 +54,12 @@ import com.pulumi.datadog.inputs.GetMonitorArgs;
 import com.pulumi.datadog.inputs.GetMonitorPlainArgs;
 import com.pulumi.datadog.inputs.GetMonitorsArgs;
 import com.pulumi.datadog.inputs.GetMonitorsPlainArgs;
+import com.pulumi.datadog.inputs.GetOrgGroupMembershipsArgs;
+import com.pulumi.datadog.inputs.GetOrgGroupMembershipsPlainArgs;
+import com.pulumi.datadog.inputs.GetOrgGroupPoliciesArgs;
+import com.pulumi.datadog.inputs.GetOrgGroupPoliciesPlainArgs;
+import com.pulumi.datadog.inputs.GetOrgGroupPolicyOverridesArgs;
+import com.pulumi.datadog.inputs.GetOrgGroupPolicyOverridesPlainArgs;
 import com.pulumi.datadog.inputs.GetOrganizationSettingsArgs;
 import com.pulumi.datadog.inputs.GetOrganizationSettingsPlainArgs;
 import com.pulumi.datadog.inputs.GetPermissionsArgs;
@@ -145,6 +151,10 @@ import com.pulumi.datadog.outputs.GetMetricsResult;
 import com.pulumi.datadog.outputs.GetMonitorConfigPoliciesResult;
 import com.pulumi.datadog.outputs.GetMonitorResult;
 import com.pulumi.datadog.outputs.GetMonitorsResult;
+import com.pulumi.datadog.outputs.GetOrgGroupMembershipsResult;
+import com.pulumi.datadog.outputs.GetOrgGroupPoliciesResult;
+import com.pulumi.datadog.outputs.GetOrgGroupPolicyOverridesResult;
+import com.pulumi.datadog.outputs.GetOrgGroupsResult;
 import com.pulumi.datadog.outputs.GetOrganizationSettingsResult;
 import com.pulumi.datadog.outputs.GetPermissionsResult;
 import com.pulumi.datadog.outputs.GetPowerpackResult;
@@ -5111,6 +5121,1079 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invokeAsync("datadog:index/getMonitors:getMonitors", TypeShape.of(GetMonitorsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve org group memberships. At least one filter (`orgGroupId` or `orgUuid`) is required.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetOrgGroupMembershipsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // List every org that is a member of the given org group.
+     *         final var byGroup = DatadogFunctions.getOrgGroupMemberships(GetOrgGroupMembershipsArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .build());
+     * 
+     *         // Or look up the group an organization currently belongs to.
+     *         final var byOrg = DatadogFunctions.getOrgGroupMemberships(GetOrgGroupMembershipsArgs.builder()
+     *             .orgUuid("ff4a8255-6931-58d1-add0-a6b3602d5421")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrgGroupMembershipsResult> getOrgGroupMemberships() {
+        return getOrgGroupMemberships(GetOrgGroupMembershipsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve org group memberships. At least one filter (`orgGroupId` or `orgUuid`) is required.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetOrgGroupMembershipsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // List every org that is a member of the given org group.
+     *         final var byGroup = DatadogFunctions.getOrgGroupMemberships(GetOrgGroupMembershipsArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .build());
+     * 
+     *         // Or look up the group an organization currently belongs to.
+     *         final var byOrg = DatadogFunctions.getOrgGroupMemberships(GetOrgGroupMembershipsArgs.builder()
+     *             .orgUuid("ff4a8255-6931-58d1-add0-a6b3602d5421")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrgGroupMembershipsResult> getOrgGroupMembershipsPlain() {
+        return getOrgGroupMembershipsPlain(GetOrgGroupMembershipsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve org group memberships. At least one filter (`orgGroupId` or `orgUuid`) is required.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetOrgGroupMembershipsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // List every org that is a member of the given org group.
+     *         final var byGroup = DatadogFunctions.getOrgGroupMemberships(GetOrgGroupMembershipsArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .build());
+     * 
+     *         // Or look up the group an organization currently belongs to.
+     *         final var byOrg = DatadogFunctions.getOrgGroupMemberships(GetOrgGroupMembershipsArgs.builder()
+     *             .orgUuid("ff4a8255-6931-58d1-add0-a6b3602d5421")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrgGroupMembershipsResult> getOrgGroupMemberships(GetOrgGroupMembershipsArgs args) {
+        return getOrgGroupMemberships(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve org group memberships. At least one filter (`orgGroupId` or `orgUuid`) is required.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetOrgGroupMembershipsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // List every org that is a member of the given org group.
+     *         final var byGroup = DatadogFunctions.getOrgGroupMemberships(GetOrgGroupMembershipsArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .build());
+     * 
+     *         // Or look up the group an organization currently belongs to.
+     *         final var byOrg = DatadogFunctions.getOrgGroupMemberships(GetOrgGroupMembershipsArgs.builder()
+     *             .orgUuid("ff4a8255-6931-58d1-add0-a6b3602d5421")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrgGroupMembershipsResult> getOrgGroupMembershipsPlain(GetOrgGroupMembershipsPlainArgs args) {
+        return getOrgGroupMembershipsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve org group memberships. At least one filter (`orgGroupId` or `orgUuid`) is required.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetOrgGroupMembershipsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // List every org that is a member of the given org group.
+     *         final var byGroup = DatadogFunctions.getOrgGroupMemberships(GetOrgGroupMembershipsArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .build());
+     * 
+     *         // Or look up the group an organization currently belongs to.
+     *         final var byOrg = DatadogFunctions.getOrgGroupMemberships(GetOrgGroupMembershipsArgs.builder()
+     *             .orgUuid("ff4a8255-6931-58d1-add0-a6b3602d5421")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrgGroupMembershipsResult> getOrgGroupMemberships(GetOrgGroupMembershipsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getOrgGroupMemberships:getOrgGroupMemberships", TypeShape.of(GetOrgGroupMembershipsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve org group memberships. At least one filter (`orgGroupId` or `orgUuid`) is required.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetOrgGroupMembershipsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // List every org that is a member of the given org group.
+     *         final var byGroup = DatadogFunctions.getOrgGroupMemberships(GetOrgGroupMembershipsArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .build());
+     * 
+     *         // Or look up the group an organization currently belongs to.
+     *         final var byOrg = DatadogFunctions.getOrgGroupMemberships(GetOrgGroupMembershipsArgs.builder()
+     *             .orgUuid("ff4a8255-6931-58d1-add0-a6b3602d5421")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrgGroupMembershipsResult> getOrgGroupMemberships(GetOrgGroupMembershipsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getOrgGroupMemberships:getOrgGroupMemberships", TypeShape.of(GetOrgGroupMembershipsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve org group memberships. At least one filter (`orgGroupId` or `orgUuid`) is required.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetOrgGroupMembershipsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // List every org that is a member of the given org group.
+     *         final var byGroup = DatadogFunctions.getOrgGroupMemberships(GetOrgGroupMembershipsArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .build());
+     * 
+     *         // Or look up the group an organization currently belongs to.
+     *         final var byOrg = DatadogFunctions.getOrgGroupMemberships(GetOrgGroupMembershipsArgs.builder()
+     *             .orgUuid("ff4a8255-6931-58d1-add0-a6b3602d5421")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrgGroupMembershipsResult> getOrgGroupMembershipsPlain(GetOrgGroupMembershipsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getOrgGroupMemberships:getOrgGroupMemberships", TypeShape.of(GetOrgGroupMembershipsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the policies attached to an org group, optionally filtered by policy name.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetOrgGroupPoliciesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // List every policy attached to the given org group.
+     *         final var all = DatadogFunctions.getOrgGroupPolicies(GetOrgGroupPoliciesArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .build());
+     * 
+     *         // Or look up a specific policy by name to reference its ID elsewhere.
+     *         final var widgetCopyPaste = DatadogFunctions.getOrgGroupPolicies(GetOrgGroupPoliciesArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .policyName("is_widget_copy_paste_enabled")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrgGroupPoliciesResult> getOrgGroupPolicies(GetOrgGroupPoliciesArgs args) {
+        return getOrgGroupPolicies(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the policies attached to an org group, optionally filtered by policy name.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetOrgGroupPoliciesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // List every policy attached to the given org group.
+     *         final var all = DatadogFunctions.getOrgGroupPolicies(GetOrgGroupPoliciesArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .build());
+     * 
+     *         // Or look up a specific policy by name to reference its ID elsewhere.
+     *         final var widgetCopyPaste = DatadogFunctions.getOrgGroupPolicies(GetOrgGroupPoliciesArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .policyName("is_widget_copy_paste_enabled")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrgGroupPoliciesResult> getOrgGroupPoliciesPlain(GetOrgGroupPoliciesPlainArgs args) {
+        return getOrgGroupPoliciesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the policies attached to an org group, optionally filtered by policy name.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetOrgGroupPoliciesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // List every policy attached to the given org group.
+     *         final var all = DatadogFunctions.getOrgGroupPolicies(GetOrgGroupPoliciesArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .build());
+     * 
+     *         // Or look up a specific policy by name to reference its ID elsewhere.
+     *         final var widgetCopyPaste = DatadogFunctions.getOrgGroupPolicies(GetOrgGroupPoliciesArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .policyName("is_widget_copy_paste_enabled")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrgGroupPoliciesResult> getOrgGroupPolicies(GetOrgGroupPoliciesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getOrgGroupPolicies:getOrgGroupPolicies", TypeShape.of(GetOrgGroupPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the policies attached to an org group, optionally filtered by policy name.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetOrgGroupPoliciesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // List every policy attached to the given org group.
+     *         final var all = DatadogFunctions.getOrgGroupPolicies(GetOrgGroupPoliciesArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .build());
+     * 
+     *         // Or look up a specific policy by name to reference its ID elsewhere.
+     *         final var widgetCopyPaste = DatadogFunctions.getOrgGroupPolicies(GetOrgGroupPoliciesArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .policyName("is_widget_copy_paste_enabled")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrgGroupPoliciesResult> getOrgGroupPolicies(GetOrgGroupPoliciesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getOrgGroupPolicies:getOrgGroupPolicies", TypeShape.of(GetOrgGroupPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the policies attached to an org group, optionally filtered by policy name.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetOrgGroupPoliciesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // List every policy attached to the given org group.
+     *         final var all = DatadogFunctions.getOrgGroupPolicies(GetOrgGroupPoliciesArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .build());
+     * 
+     *         // Or look up a specific policy by name to reference its ID elsewhere.
+     *         final var widgetCopyPaste = DatadogFunctions.getOrgGroupPolicies(GetOrgGroupPoliciesArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .policyName("is_widget_copy_paste_enabled")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrgGroupPoliciesResult> getOrgGroupPoliciesPlain(GetOrgGroupPoliciesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getOrgGroupPolicies:getOrgGroupPolicies", TypeShape.of(GetOrgGroupPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve org group policy overrides. Supports filtering by policy ID (server-side) and organization UUID (client-side).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetOrgGroupPolicyOverridesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // List every override attached to the given org group. Useful for discovering
+     *         // overrides auto-created by the server in response to membership or policy events.
+     *         final var all = DatadogFunctions.getOrgGroupPolicyOverrides(GetOrgGroupPolicyOverridesArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .build());
+     * 
+     *         // Scope the search to a single policy and/or organization. org_uuid is a
+     *         // client-side filter since the API does not natively support it.
+     *         final var forOrg = DatadogFunctions.getOrgGroupPolicyOverrides(GetOrgGroupPolicyOverridesArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .policyId("019d97e9-f340-78c1-aa50-6a953c2bd006")
+     *             .orgUuid("ff4a8255-6931-58d1-add0-a6b3602d5421")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrgGroupPolicyOverridesResult> getOrgGroupPolicyOverrides(GetOrgGroupPolicyOverridesArgs args) {
+        return getOrgGroupPolicyOverrides(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve org group policy overrides. Supports filtering by policy ID (server-side) and organization UUID (client-side).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetOrgGroupPolicyOverridesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // List every override attached to the given org group. Useful for discovering
+     *         // overrides auto-created by the server in response to membership or policy events.
+     *         final var all = DatadogFunctions.getOrgGroupPolicyOverrides(GetOrgGroupPolicyOverridesArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .build());
+     * 
+     *         // Scope the search to a single policy and/or organization. org_uuid is a
+     *         // client-side filter since the API does not natively support it.
+     *         final var forOrg = DatadogFunctions.getOrgGroupPolicyOverrides(GetOrgGroupPolicyOverridesArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .policyId("019d97e9-f340-78c1-aa50-6a953c2bd006")
+     *             .orgUuid("ff4a8255-6931-58d1-add0-a6b3602d5421")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrgGroupPolicyOverridesResult> getOrgGroupPolicyOverridesPlain(GetOrgGroupPolicyOverridesPlainArgs args) {
+        return getOrgGroupPolicyOverridesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve org group policy overrides. Supports filtering by policy ID (server-side) and organization UUID (client-side).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetOrgGroupPolicyOverridesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // List every override attached to the given org group. Useful for discovering
+     *         // overrides auto-created by the server in response to membership or policy events.
+     *         final var all = DatadogFunctions.getOrgGroupPolicyOverrides(GetOrgGroupPolicyOverridesArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .build());
+     * 
+     *         // Scope the search to a single policy and/or organization. org_uuid is a
+     *         // client-side filter since the API does not natively support it.
+     *         final var forOrg = DatadogFunctions.getOrgGroupPolicyOverrides(GetOrgGroupPolicyOverridesArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .policyId("019d97e9-f340-78c1-aa50-6a953c2bd006")
+     *             .orgUuid("ff4a8255-6931-58d1-add0-a6b3602d5421")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrgGroupPolicyOverridesResult> getOrgGroupPolicyOverrides(GetOrgGroupPolicyOverridesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getOrgGroupPolicyOverrides:getOrgGroupPolicyOverrides", TypeShape.of(GetOrgGroupPolicyOverridesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve org group policy overrides. Supports filtering by policy ID (server-side) and organization UUID (client-side).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetOrgGroupPolicyOverridesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // List every override attached to the given org group. Useful for discovering
+     *         // overrides auto-created by the server in response to membership or policy events.
+     *         final var all = DatadogFunctions.getOrgGroupPolicyOverrides(GetOrgGroupPolicyOverridesArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .build());
+     * 
+     *         // Scope the search to a single policy and/or organization. org_uuid is a
+     *         // client-side filter since the API does not natively support it.
+     *         final var forOrg = DatadogFunctions.getOrgGroupPolicyOverrides(GetOrgGroupPolicyOverridesArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .policyId("019d97e9-f340-78c1-aa50-6a953c2bd006")
+     *             .orgUuid("ff4a8255-6931-58d1-add0-a6b3602d5421")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrgGroupPolicyOverridesResult> getOrgGroupPolicyOverrides(GetOrgGroupPolicyOverridesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getOrgGroupPolicyOverrides:getOrgGroupPolicyOverrides", TypeShape.of(GetOrgGroupPolicyOverridesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve org group policy overrides. Supports filtering by policy ID (server-side) and organization UUID (client-side).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetOrgGroupPolicyOverridesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // List every override attached to the given org group. Useful for discovering
+     *         // overrides auto-created by the server in response to membership or policy events.
+     *         final var all = DatadogFunctions.getOrgGroupPolicyOverrides(GetOrgGroupPolicyOverridesArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .build());
+     * 
+     *         // Scope the search to a single policy and/or organization. org_uuid is a
+     *         // client-side filter since the API does not natively support it.
+     *         final var forOrg = DatadogFunctions.getOrgGroupPolicyOverrides(GetOrgGroupPolicyOverridesArgs.builder()
+     *             .orgGroupId("019d97e8-74d4-7060-806e-e731c8f1d005")
+     *             .policyId("019d97e9-f340-78c1-aa50-6a953c2bd006")
+     *             .orgUuid("ff4a8255-6931-58d1-add0-a6b3602d5421")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrgGroupPolicyOverridesResult> getOrgGroupPolicyOverridesPlain(GetOrgGroupPolicyOverridesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getOrgGroupPolicyOverrides:getOrgGroupPolicyOverrides", TypeShape.of(GetOrgGroupPolicyOverridesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve all org groups in the organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // List every org group in the organization.
+     *         final var all = DatadogFunctions.getOrgGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrgGroupsResult> getOrgGroups() {
+        return getOrgGroups(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve all org groups in the organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // List every org group in the organization.
+     *         final var all = DatadogFunctions.getOrgGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrgGroupsResult> getOrgGroupsPlain() {
+        return getOrgGroupsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve all org groups in the organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // List every org group in the organization.
+     *         final var all = DatadogFunctions.getOrgGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrgGroupsResult> getOrgGroups(InvokeArgs args) {
+        return getOrgGroups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve all org groups in the organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // List every org group in the organization.
+     *         final var all = DatadogFunctions.getOrgGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrgGroupsResult> getOrgGroupsPlain(InvokeArgs args) {
+        return getOrgGroupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve all org groups in the organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // List every org group in the organization.
+     *         final var all = DatadogFunctions.getOrgGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrgGroupsResult> getOrgGroups(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getOrgGroups:getOrgGroups", TypeShape.of(GetOrgGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve all org groups in the organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // List every org group in the organization.
+     *         final var all = DatadogFunctions.getOrgGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrgGroupsResult> getOrgGroups(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getOrgGroups:getOrgGroups", TypeShape.of(GetOrgGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve all org groups in the organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // List every org group in the organization.
+     *         final var all = DatadogFunctions.getOrgGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrgGroupsResult> getOrgGroupsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getOrgGroups:getOrgGroups", TypeShape.of(GetOrgGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to retrieve information about your Datadog organization.
      * 
      */
@@ -7997,35 +9080,280 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invokeAsync("datadog:index/getSensitiveDataScannerGroupOrder:getSensitiveDataScannerGroupOrder", TypeShape.of(GetSensitiveDataScannerGroupOrderResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
+     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern. You can look up a pattern by its stable standard pattern ID or by name.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSensitiveDataScannerStandardPatternArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var awsAccessKeyById = DatadogFunctions.getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs.builder()
+     *             .standardPatternId("OfGqX8R9TRqAcorxenl2fQ")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSensitiveDataScannerStandardPatternResult> getSensitiveDataScannerStandardPattern() {
+        return getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern. You can look up a pattern by its stable standard pattern ID or by name.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSensitiveDataScannerStandardPatternArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var awsAccessKeyById = DatadogFunctions.getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs.builder()
+     *             .standardPatternId("OfGqX8R9TRqAcorxenl2fQ")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSensitiveDataScannerStandardPatternResult> getSensitiveDataScannerStandardPatternPlain() {
+        return getSensitiveDataScannerStandardPatternPlain(GetSensitiveDataScannerStandardPatternPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern. You can look up a pattern by its stable standard pattern ID or by name.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSensitiveDataScannerStandardPatternArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var awsAccessKeyById = DatadogFunctions.getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs.builder()
+     *             .standardPatternId("OfGqX8R9TRqAcorxenl2fQ")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetSensitiveDataScannerStandardPatternResult> getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs args) {
         return getSensitiveDataScannerStandardPattern(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
+     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern. You can look up a pattern by its stable standard pattern ID or by name.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSensitiveDataScannerStandardPatternArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var awsAccessKeyById = DatadogFunctions.getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs.builder()
+     *             .standardPatternId("OfGqX8R9TRqAcorxenl2fQ")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetSensitiveDataScannerStandardPatternResult> getSensitiveDataScannerStandardPatternPlain(GetSensitiveDataScannerStandardPatternPlainArgs args) {
         return getSensitiveDataScannerStandardPatternPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
+     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern. You can look up a pattern by its stable standard pattern ID or by name.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSensitiveDataScannerStandardPatternArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var awsAccessKeyById = DatadogFunctions.getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs.builder()
+     *             .standardPatternId("OfGqX8R9TRqAcorxenl2fQ")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetSensitiveDataScannerStandardPatternResult> getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern", TypeShape.of(GetSensitiveDataScannerStandardPatternResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
+     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern. You can look up a pattern by its stable standard pattern ID or by name.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSensitiveDataScannerStandardPatternArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var awsAccessKeyById = DatadogFunctions.getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs.builder()
+     *             .standardPatternId("OfGqX8R9TRqAcorxenl2fQ")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetSensitiveDataScannerStandardPatternResult> getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern", TypeShape.of(GetSensitiveDataScannerStandardPatternResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
+     * Use this data source to retrieve information about an existing sensitive data scanner standard pattern. You can look up a pattern by its stable standard pattern ID or by name.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSensitiveDataScannerStandardPatternArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var awsAccessKeyById = DatadogFunctions.getSensitiveDataScannerStandardPattern(GetSensitiveDataScannerStandardPatternArgs.builder()
+     *             .standardPatternId("OfGqX8R9TRqAcorxenl2fQ")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetSensitiveDataScannerStandardPatternResult> getSensitiveDataScannerStandardPatternPlain(GetSensitiveDataScannerStandardPatternPlainArgs args, InvokeOptions options) {

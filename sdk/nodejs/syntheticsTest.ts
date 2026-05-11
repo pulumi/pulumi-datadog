@@ -442,6 +442,40 @@ import * as utilities from "./utilities";
  *                 }),
  *             },
  *         },
+ *         {
+ *             name: "Drag element to target",
+ *             type: "drag",
+ *             params: {
+ *                 elementUserLocator: {
+ *                     value: {
+ *                         type: "css",
+ *                         value: "#drag-source",
+ *                     },
+ *                 },
+ *                 dragDropOptions: {
+ *                     delay: 120,
+ *                     offset: {
+ *                         x: 100,
+ *                         y: 100,
+ *                     },
+ *                 },
+ *             },
+ *         },
+ *         {
+ *             name: "Drop on target",
+ *             type: "drop",
+ *             params: {
+ *                 elementUserLocator: {
+ *                     value: {
+ *                         type: "css",
+ *                         value: "#drop-target",
+ *                     },
+ *                 },
+ *                 dragDropOptions: {
+ *                     delay: 100,
+ *                 },
+ *             },
+ *         },
  *     ],
  *     browserVariables: [
  *         {

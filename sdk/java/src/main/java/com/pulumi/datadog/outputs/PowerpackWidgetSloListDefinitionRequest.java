@@ -8,9 +8,16 @@ import com.pulumi.datadog.outputs.PowerpackWidgetSloListDefinitionRequestQuery;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class PowerpackWidgetSloListDefinitionRequest {
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
     /**
      * @return Updated SLO List widget.
      * 
@@ -23,6 +30,13 @@ public final class PowerpackWidgetSloListDefinitionRequest {
     private String requestType;
 
     private PowerpackWidgetSloListDefinitionRequest() {}
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
+    }
     /**
      * @return Updated SLO List widget.
      * 
@@ -47,15 +61,23 @@ public final class PowerpackWidgetSloListDefinitionRequest {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String description;
         private PowerpackWidgetSloListDefinitionRequestQuery query;
         private String requestType;
         public Builder() {}
         public Builder(PowerpackWidgetSloListDefinitionRequest defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.description = defaults.description;
     	      this.query = defaults.query;
     	      this.requestType = defaults.requestType;
         }
 
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
+        }
         @CustomType.Setter
         public Builder query(PowerpackWidgetSloListDefinitionRequestQuery query) {
             if (query == null) {
@@ -74,6 +96,7 @@ public final class PowerpackWidgetSloListDefinitionRequest {
         }
         public PowerpackWidgetSloListDefinitionRequest build() {
             final var _resultValue = new PowerpackWidgetSloListDefinitionRequest();
+            _resultValue.description = description;
             _resultValue.query = query;
             _resultValue.requestType = requestType;
             return _resultValue;

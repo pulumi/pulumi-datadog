@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class DashboardWidgetSloListDefinitionRequestQuerySortArgs extends com.pulumi.resources.ResourceArgs {
@@ -30,6 +32,21 @@ public final class DashboardWidgetSloListDefinitionRequestQuerySortArgs extends 
     }
 
     /**
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * Widget sorting methods. Valid values are `asc`, `desc`.
      * 
      */
@@ -48,6 +65,7 @@ public final class DashboardWidgetSloListDefinitionRequestQuerySortArgs extends 
 
     private DashboardWidgetSloListDefinitionRequestQuerySortArgs(DashboardWidgetSloListDefinitionRequestQuerySortArgs $) {
         this.column = $.column;
+        this.description = $.description;
         this.order = $.order;
     }
 
@@ -88,6 +106,27 @@ public final class DashboardWidgetSloListDefinitionRequestQuerySortArgs extends 
          */
         public Builder column(String column) {
             return column(Output.of(column));
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

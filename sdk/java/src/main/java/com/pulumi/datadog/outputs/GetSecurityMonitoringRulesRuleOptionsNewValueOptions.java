@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetSecurityMonitoringRulesRuleOptionsNewValueOptions {
     /**
-     * @return The duration in days after which a learned value is forgotten.
+     * @return The duration in days after which a learned value is forgotten. Accepted values are between 1 and 30.
      * 
      */
     private Integer forgetAfter;
@@ -25,7 +25,7 @@ public final class GetSecurityMonitoringRulesRuleOptionsNewValueOptions {
      */
     private @Nullable Boolean instantaneousBaseline;
     /**
-     * @return The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned.
+     * @return The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Accepted values are between 0 and 30.
      * 
      */
     private @Nullable Integer learningDuration;
@@ -42,7 +42,7 @@ public final class GetSecurityMonitoringRulesRuleOptionsNewValueOptions {
 
     private GetSecurityMonitoringRulesRuleOptionsNewValueOptions() {}
     /**
-     * @return The duration in days after which a learned value is forgotten.
+     * @return The duration in days after which a learned value is forgotten. Accepted values are between 1 and 30.
      * 
      */
     public Integer forgetAfter() {
@@ -56,7 +56,7 @@ public final class GetSecurityMonitoringRulesRuleOptionsNewValueOptions {
         return Optional.ofNullable(this.instantaneousBaseline);
     }
     /**
-     * @return The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned.
+     * @return The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Accepted values are between 0 and 30.
      * 
      */
     public Optional<Integer> learningDuration() {

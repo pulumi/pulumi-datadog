@@ -7,7 +7,10 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationElasticsearchAuthArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationElasticsearchBufferArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationElasticsearchCompressionArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationElasticsearchDataStreamArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationElasticsearchTlsArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -19,14 +22,14 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchArgs exten
     public static final ObservabilityPipelineConfigDestinationElasticsearchArgs Empty = new ObservabilityPipelineConfigDestinationElasticsearchArgs();
 
     /**
-     * The Elasticsearch API version to use. Set to `auto` to auto-detect.
+     * The Elasticsearch API version to use. Set to `auto` to auto-detect. Valid values are `auto`, `v6`, `v7`, `v8`.
      * 
      */
     @Import(name="apiVersion")
     private @Nullable Output<String> apiVersion;
 
     /**
-     * @return The Elasticsearch API version to use. Set to `auto` to auto-detect.
+     * @return The Elasticsearch API version to use. Set to `auto` to auto-detect. Valid values are `auto`, `v6`, `v7`, `v8`.
      * 
      */
     public Optional<Output<String>> apiVersion() {
@@ -64,18 +67,33 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchArgs exten
     }
 
     /**
-     * The index or datastream to write logs to in Elasticsearch.
+     * The name of the index to write events to in Elasticsearch.
      * 
      */
     @Import(name="bulkIndex")
     private @Nullable Output<String> bulkIndex;
 
     /**
-     * @return The index or datastream to write logs to in Elasticsearch.
+     * @return The name of the index to write events to in Elasticsearch.
      * 
      */
     public Optional<Output<String>> bulkIndex() {
         return Optional.ofNullable(this.bulkIndex);
+    }
+
+    /**
+     * Compression configuration for the Elasticsearch destination.
+     * 
+     */
+    @Import(name="compression")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationElasticsearchCompressionArgs> compression;
+
+    /**
+     * @return Compression configuration for the Elasticsearch destination.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationElasticsearchCompressionArgs>> compression() {
+        return Optional.ofNullable(this.compression);
     }
 
     /**
@@ -108,6 +126,66 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchArgs exten
         return Optional.ofNullable(this.endpointUrlKey);
     }
 
+    /**
+     * The name of the field used as the document ID in Elasticsearch.
+     * 
+     */
+    @Import(name="idKey")
+    private @Nullable Output<String> idKey;
+
+    /**
+     * @return The name of the field used as the document ID in Elasticsearch.
+     * 
+     */
+    public Optional<Output<String>> idKey() {
+        return Optional.ofNullable(this.idKey);
+    }
+
+    /**
+     * The name of an Elasticsearch ingest pipeline to apply to events before indexing.
+     * 
+     */
+    @Import(name="pipeline")
+    private @Nullable Output<String> pipeline;
+
+    /**
+     * @return The name of an Elasticsearch ingest pipeline to apply to events before indexing.
+     * 
+     */
+    public Optional<Output<String>> pipeline() {
+        return Optional.ofNullable(this.pipeline);
+    }
+
+    /**
+     * When `true`, retries failed partial bulk requests when some events in a batch fail while others succeed.
+     * 
+     */
+    @Import(name="requestRetryPartial")
+    private @Nullable Output<Boolean> requestRetryPartial;
+
+    /**
+     * @return When `true`, retries failed partial bulk requests when some events in a batch fail while others succeed.
+     * 
+     */
+    public Optional<Output<Boolean>> requestRetryPartial() {
+        return Optional.ofNullable(this.requestRetryPartial);
+    }
+
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     * 
+     */
+    @Import(name="tls")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationElasticsearchTlsArgs> tls;
+
+    /**
+     * @return Configuration for enabling TLS encryption between the pipeline component and external services.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationElasticsearchTlsArgs>> tls() {
+        return Optional.ofNullable(this.tls);
+    }
+
     private ObservabilityPipelineConfigDestinationElasticsearchArgs() {}
 
     private ObservabilityPipelineConfigDestinationElasticsearchArgs(ObservabilityPipelineConfigDestinationElasticsearchArgs $) {
@@ -115,8 +193,13 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchArgs exten
         this.auth = $.auth;
         this.buffer = $.buffer;
         this.bulkIndex = $.bulkIndex;
+        this.compression = $.compression;
         this.dataStream = $.dataStream;
         this.endpointUrlKey = $.endpointUrlKey;
+        this.idKey = $.idKey;
+        this.pipeline = $.pipeline;
+        this.requestRetryPartial = $.requestRetryPartial;
+        this.tls = $.tls;
     }
 
     public static Builder builder() {
@@ -138,7 +221,7 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchArgs exten
         }
 
         /**
-         * @param apiVersion The Elasticsearch API version to use. Set to `auto` to auto-detect.
+         * @param apiVersion The Elasticsearch API version to use. Set to `auto` to auto-detect. Valid values are `auto`, `v6`, `v7`, `v8`.
          * 
          * @return builder
          * 
@@ -149,7 +232,7 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchArgs exten
         }
 
         /**
-         * @param apiVersion The Elasticsearch API version to use. Set to `auto` to auto-detect.
+         * @param apiVersion The Elasticsearch API version to use. Set to `auto` to auto-detect. Valid values are `auto`, `v6`, `v7`, `v8`.
          * 
          * @return builder
          * 
@@ -201,7 +284,7 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchArgs exten
         }
 
         /**
-         * @param bulkIndex The index or datastream to write logs to in Elasticsearch.
+         * @param bulkIndex The name of the index to write events to in Elasticsearch.
          * 
          * @return builder
          * 
@@ -212,13 +295,34 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchArgs exten
         }
 
         /**
-         * @param bulkIndex The index or datastream to write logs to in Elasticsearch.
+         * @param bulkIndex The name of the index to write events to in Elasticsearch.
          * 
          * @return builder
          * 
          */
         public Builder bulkIndex(String bulkIndex) {
             return bulkIndex(Output.of(bulkIndex));
+        }
+
+        /**
+         * @param compression Compression configuration for the Elasticsearch destination.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compression(@Nullable Output<ObservabilityPipelineConfigDestinationElasticsearchCompressionArgs> compression) {
+            $.compression = compression;
+            return this;
+        }
+
+        /**
+         * @param compression Compression configuration for the Elasticsearch destination.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compression(ObservabilityPipelineConfigDestinationElasticsearchCompressionArgs compression) {
+            return compression(Output.of(compression));
         }
 
         /**
@@ -261,6 +365,90 @@ public final class ObservabilityPipelineConfigDestinationElasticsearchArgs exten
          */
         public Builder endpointUrlKey(String endpointUrlKey) {
             return endpointUrlKey(Output.of(endpointUrlKey));
+        }
+
+        /**
+         * @param idKey The name of the field used as the document ID in Elasticsearch.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder idKey(@Nullable Output<String> idKey) {
+            $.idKey = idKey;
+            return this;
+        }
+
+        /**
+         * @param idKey The name of the field used as the document ID in Elasticsearch.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder idKey(String idKey) {
+            return idKey(Output.of(idKey));
+        }
+
+        /**
+         * @param pipeline The name of an Elasticsearch ingest pipeline to apply to events before indexing.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pipeline(@Nullable Output<String> pipeline) {
+            $.pipeline = pipeline;
+            return this;
+        }
+
+        /**
+         * @param pipeline The name of an Elasticsearch ingest pipeline to apply to events before indexing.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pipeline(String pipeline) {
+            return pipeline(Output.of(pipeline));
+        }
+
+        /**
+         * @param requestRetryPartial When `true`, retries failed partial bulk requests when some events in a batch fail while others succeed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestRetryPartial(@Nullable Output<Boolean> requestRetryPartial) {
+            $.requestRetryPartial = requestRetryPartial;
+            return this;
+        }
+
+        /**
+         * @param requestRetryPartial When `true`, retries failed partial bulk requests when some events in a batch fail while others succeed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestRetryPartial(Boolean requestRetryPartial) {
+            return requestRetryPartial(Output.of(requestRetryPartial));
+        }
+
+        /**
+         * @param tls Configuration for enabling TLS encryption between the pipeline component and external services.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tls(@Nullable Output<ObservabilityPipelineConfigDestinationElasticsearchTlsArgs> tls) {
+            $.tls = tls;
+            return this;
+        }
+
+        /**
+         * @param tls Configuration for enabling TLS encryption between the pipeline component and external services.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tls(ObservabilityPipelineConfigDestinationElasticsearchTlsArgs tls) {
+            return tls(Output.of(tls));
         }
 
         public ObservabilityPipelineConfigDestinationElasticsearchArgs build() {

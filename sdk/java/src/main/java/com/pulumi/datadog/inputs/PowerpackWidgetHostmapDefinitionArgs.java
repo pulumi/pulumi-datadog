@@ -36,6 +36,21 @@ public final class PowerpackWidgetHostmapDefinitionArgs extends com.pulumi.resou
     }
 
     /**
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * The list of tags to group nodes by.
      * 
      */
@@ -189,6 +204,7 @@ public final class PowerpackWidgetHostmapDefinitionArgs extends com.pulumi.resou
 
     private PowerpackWidgetHostmapDefinitionArgs(PowerpackWidgetHostmapDefinitionArgs $) {
         this.customLinks = $.customLinks;
+        this.description = $.description;
         this.groups = $.groups;
         this.noGroupHosts = $.noGroupHosts;
         this.noMetricHosts = $.noMetricHosts;
@@ -248,6 +264,27 @@ public final class PowerpackWidgetHostmapDefinitionArgs extends com.pulumi.resou
          */
         public Builder customLinks(PowerpackWidgetHostmapDefinitionCustomLinkArgs... customLinks) {
             return customLinks(List.of(customLinks));
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

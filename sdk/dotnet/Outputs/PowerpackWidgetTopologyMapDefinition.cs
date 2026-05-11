@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetTopologyMapDefinitionCustomLink> CustomLinks;
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`Query` and `RequestType` are required within the request).
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetTopologyMapDefinitionRequest> Requests;
@@ -38,6 +42,8 @@ namespace Pulumi.Datadog.Outputs
         private PowerpackWidgetTopologyMapDefinition(
             ImmutableArray<Outputs.PowerpackWidgetTopologyMapDefinitionCustomLink> customLinks,
 
+            string? description,
+
             ImmutableArray<Outputs.PowerpackWidgetTopologyMapDefinitionRequest> requests,
 
             string? title,
@@ -47,6 +53,7 @@ namespace Pulumi.Datadog.Outputs
             string? titleSize)
         {
             CustomLinks = customLinks;
+            Description = description;
             Requests = requests;
             Title = title;
             TitleAlign = titleAlign;
