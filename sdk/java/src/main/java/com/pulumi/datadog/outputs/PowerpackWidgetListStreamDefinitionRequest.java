@@ -10,6 +10,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class PowerpackWidgetListStreamDefinitionRequest {
@@ -18,6 +20,11 @@ public final class PowerpackWidgetListStreamDefinitionRequest {
      * 
      */
     private List<PowerpackWidgetListStreamDefinitionRequestColumn> columns;
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
     /**
      * @return Updated list stream widget.
      * 
@@ -36,6 +43,13 @@ public final class PowerpackWidgetListStreamDefinitionRequest {
      */
     public List<PowerpackWidgetListStreamDefinitionRequestColumn> columns() {
         return this.columns;
+    }
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Updated list stream widget.
@@ -62,12 +76,14 @@ public final class PowerpackWidgetListStreamDefinitionRequest {
     @CustomType.Builder
     public static final class Builder {
         private List<PowerpackWidgetListStreamDefinitionRequestColumn> columns;
+        private @Nullable String description;
         private PowerpackWidgetListStreamDefinitionRequestQuery query;
         private String responseFormat;
         public Builder() {}
         public Builder(PowerpackWidgetListStreamDefinitionRequest defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.columns = defaults.columns;
+    	      this.description = defaults.description;
     	      this.query = defaults.query;
     	      this.responseFormat = defaults.responseFormat;
         }
@@ -82,6 +98,12 @@ public final class PowerpackWidgetListStreamDefinitionRequest {
         }
         public Builder columns(PowerpackWidgetListStreamDefinitionRequestColumn... columns) {
             return columns(List.of(columns));
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
         }
         @CustomType.Setter
         public Builder query(PowerpackWidgetListStreamDefinitionRequestQuery query) {
@@ -102,6 +124,7 @@ public final class PowerpackWidgetListStreamDefinitionRequest {
         public PowerpackWidgetListStreamDefinitionRequest build() {
             final var _resultValue = new PowerpackWidgetListStreamDefinitionRequest();
             _resultValue.columns = columns;
+            _resultValue.description = description;
             _resultValue.query = query;
             _resultValue.responseFormat = responseFormat;
             return _resultValue;

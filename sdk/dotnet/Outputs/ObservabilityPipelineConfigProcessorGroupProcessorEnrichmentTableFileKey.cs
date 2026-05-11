@@ -22,9 +22,9 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Comparison;
         /// <summary>
-        /// The `Items` `Field`.
+        /// Specifies the source of the key value for enrichment table lookups. Set exactly one of `StringPath`, `Event`, `Vrl`, or `Secret`.
         /// </summary>
-        public readonly string? Field;
+        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKeyField? Field;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKey(
@@ -32,7 +32,7 @@ namespace Pulumi.Datadog.Outputs
 
             string? comparison,
 
-            string? field)
+            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableFileKeyField? field)
         {
             Column = column;
             Comparison = comparison;

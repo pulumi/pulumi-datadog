@@ -35,6 +35,21 @@ public final class PowerpackWidgetQueryTableDefinitionArgs extends com.pulumi.re
     }
 
     /**
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * Controls the display of the search bar. Valid values are `always`, `never`, `auto`.
      * 
      */
@@ -143,6 +158,7 @@ public final class PowerpackWidgetQueryTableDefinitionArgs extends com.pulumi.re
 
     private PowerpackWidgetQueryTableDefinitionArgs(PowerpackWidgetQueryTableDefinitionArgs $) {
         this.customLinks = $.customLinks;
+        this.description = $.description;
         this.hasSearchBar = $.hasSearchBar;
         this.hideIncompleteCostData = $.hideIncompleteCostData;
         this.liveSpan = $.liveSpan;
@@ -199,6 +215,27 @@ public final class PowerpackWidgetQueryTableDefinitionArgs extends com.pulumi.re
          */
         public Builder customLinks(PowerpackWidgetQueryTableDefinitionCustomLinkArgs... customLinks) {
             return customLinks(List.of(customLinks));
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

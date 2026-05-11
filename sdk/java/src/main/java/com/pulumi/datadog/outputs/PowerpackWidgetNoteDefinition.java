@@ -24,6 +24,11 @@ public final class PowerpackWidgetNoteDefinition {
      */
     private String content;
     /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return The size of the text.
      * 
      */
@@ -73,6 +78,13 @@ public final class PowerpackWidgetNoteDefinition {
      */
     public String content() {
         return this.content;
+    }
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The size of the text.
@@ -135,6 +147,7 @@ public final class PowerpackWidgetNoteDefinition {
     public static final class Builder {
         private @Nullable String backgroundColor;
         private String content;
+        private @Nullable String description;
         private @Nullable String fontSize;
         private @Nullable Boolean hasPadding;
         private @Nullable Boolean showTick;
@@ -147,6 +160,7 @@ public final class PowerpackWidgetNoteDefinition {
     	      Objects.requireNonNull(defaults);
     	      this.backgroundColor = defaults.backgroundColor;
     	      this.content = defaults.content;
+    	      this.description = defaults.description;
     	      this.fontSize = defaults.fontSize;
     	      this.hasPadding = defaults.hasPadding;
     	      this.showTick = defaults.showTick;
@@ -168,6 +182,12 @@ public final class PowerpackWidgetNoteDefinition {
               throw new MissingRequiredPropertyException("PowerpackWidgetNoteDefinition", "content");
             }
             this.content = content;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -216,6 +236,7 @@ public final class PowerpackWidgetNoteDefinition {
             final var _resultValue = new PowerpackWidgetNoteDefinition();
             _resultValue.backgroundColor = backgroundColor;
             _resultValue.content = content;
+            _resultValue.description = description;
             _resultValue.fontSize = fontSize;
             _resultValue.hasPadding = hasPadding;
             _resultValue.showTick = showTick;

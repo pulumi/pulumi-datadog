@@ -30,7 +30,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// A sample Datadog logs index resource definition.
 //			_, err := datadog.NewLogsIndex(ctx, "sample_index", &datadog.LogsIndexArgs{
-//				Name:       pulumi.String("your index"),
+//				Name:       pulumi.String("your-index"),
 //				DailyLimit: pulumi.Int(200000),
 //				DailyLimitReset: &datadog.LogsIndexDailyLimitResetArgs{
 //					ResetTime:      pulumi.String("14:00"),

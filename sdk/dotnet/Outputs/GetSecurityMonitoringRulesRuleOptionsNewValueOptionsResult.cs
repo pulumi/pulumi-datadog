@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class GetSecurityMonitoringRulesRuleOptionsNewValueOptionsResult
     {
         /// <summary>
-        /// The duration in days after which a learned value is forgotten.
+        /// The duration in days after which a learned value is forgotten. Accepted values are between 1 and 30.
         /// </summary>
         public readonly int ForgetAfter;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? InstantaneousBaseline;
         /// <summary>
-        /// The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
+        /// The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned. Accepted values are between 0 and 30.
         /// </summary>
         public readonly int? LearningDuration;
         /// <summary>

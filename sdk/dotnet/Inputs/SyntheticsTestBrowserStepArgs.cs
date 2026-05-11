@@ -79,7 +79,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<int>? Timeout { get; set; }
 
         /// <summary>
-        /// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `assertRequests`, `Click`, `extractFromJavascript`, `extractFromEmailBody`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `Hover`, `playSubTest`, `pressKey`, `Refresh`, `runApiTest`, `Scroll`, `selectOption`, `typeText`, `uploadFiles`, `Wait`.
+        /// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `assertRequests`, `Click`, `Drag`, `Drop`, `extractFromJavascript`, `extractFromEmailBody`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `Hover`, `playSubTest`, `pressKey`, `Refresh`, `runApiTest`, `Scroll`, `selectOption`, `typeText`, `uploadFiles`, `Wait`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

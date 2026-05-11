@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetTreemapDefinitionCustomLink> CustomLinks;
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Nested block describing the request to use when displaying the widget.
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetTreemapDefinitionRequest> Requests;
@@ -30,11 +34,14 @@ namespace Pulumi.Datadog.Outputs
         private PowerpackWidgetTreemapDefinition(
             ImmutableArray<Outputs.PowerpackWidgetTreemapDefinitionCustomLink> customLinks,
 
+            string? description,
+
             ImmutableArray<Outputs.PowerpackWidgetTreemapDefinitionRequest> requests,
 
             string? title)
         {
             CustomLinks = customLinks;
+            Description = description;
             Requests = requests;
             Title = title;
         }

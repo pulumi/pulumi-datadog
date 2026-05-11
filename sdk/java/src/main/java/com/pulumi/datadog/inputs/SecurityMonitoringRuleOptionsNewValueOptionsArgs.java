@@ -19,14 +19,14 @@ public final class SecurityMonitoringRuleOptionsNewValueOptionsArgs extends com.
     public static final SecurityMonitoringRuleOptionsNewValueOptionsArgs Empty = new SecurityMonitoringRuleOptionsNewValueOptionsArgs();
 
     /**
-     * The duration in days after which a learned value is forgotten. Valid values are `1`, `2`, `7`, `14`, `21`, `28`.
+     * The duration in days after which a learned value is forgotten. Accepted values are between 1 and 30.
      * 
      */
     @Import(name="forgetAfter", required=true)
     private Output<Integer> forgetAfter;
 
     /**
-     * @return The duration in days after which a learned value is forgotten. Valid values are `1`, `2`, `7`, `14`, `21`, `28`.
+     * @return The duration in days after which a learned value is forgotten. Accepted values are between 1 and 30.
      * 
      */
     public Output<Integer> forgetAfter() {
@@ -49,14 +49,14 @@ public final class SecurityMonitoringRuleOptionsNewValueOptionsArgs extends com.
     }
 
     /**
-     * The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`. Defaults to `1`.
+     * The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Accepted values are between 0 and 30. Defaults to `1`.
      * 
      */
     @Import(name="learningDuration")
     private @Nullable Output<Integer> learningDuration;
 
     /**
-     * @return The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`. Defaults to `1`.
+     * @return The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Accepted values are between 0 and 30. Defaults to `1`.
      * 
      */
     public Optional<Output<Integer>> learningDuration() {
@@ -122,7 +122,7 @@ public final class SecurityMonitoringRuleOptionsNewValueOptionsArgs extends com.
         }
 
         /**
-         * @param forgetAfter The duration in days after which a learned value is forgotten. Valid values are `1`, `2`, `7`, `14`, `21`, `28`.
+         * @param forgetAfter The duration in days after which a learned value is forgotten. Accepted values are between 1 and 30.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class SecurityMonitoringRuleOptionsNewValueOptionsArgs extends com.
         }
 
         /**
-         * @param forgetAfter The duration in days after which a learned value is forgotten. Valid values are `1`, `2`, `7`, `14`, `21`, `28`.
+         * @param forgetAfter The duration in days after which a learned value is forgotten. Accepted values are between 1 and 30.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class SecurityMonitoringRuleOptionsNewValueOptionsArgs extends com.
         }
 
         /**
-         * @param learningDuration The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`. Defaults to `1`.
+         * @param learningDuration The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Accepted values are between 0 and 30. Defaults to `1`.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class SecurityMonitoringRuleOptionsNewValueOptionsArgs extends com.
         }
 
         /**
-         * @param learningDuration The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`. Defaults to `1`.
+         * @param learningDuration The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Accepted values are between 0 and 30. Defaults to `1`.
          * 
          * @return builder
          * 

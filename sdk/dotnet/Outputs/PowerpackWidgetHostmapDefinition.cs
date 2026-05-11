@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetHostmapDefinitionCustomLink> CustomLinks;
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// The list of tags to group nodes by.
         /// </summary>
         public readonly ImmutableArray<string> Groups;
@@ -62,6 +66,8 @@ namespace Pulumi.Datadog.Outputs
         private PowerpackWidgetHostmapDefinition(
             ImmutableArray<Outputs.PowerpackWidgetHostmapDefinitionCustomLink> customLinks,
 
+            string? description,
+
             ImmutableArray<string> groups,
 
             bool? noGroupHosts,
@@ -83,6 +89,7 @@ namespace Pulumi.Datadog.Outputs
             string? titleSize)
         {
             CustomLinks = customLinks;
+            Description = description;
             Groups = groups;
             NoGroupHosts = noGroupHosts;
             NoMetricHosts = noMetricHosts;

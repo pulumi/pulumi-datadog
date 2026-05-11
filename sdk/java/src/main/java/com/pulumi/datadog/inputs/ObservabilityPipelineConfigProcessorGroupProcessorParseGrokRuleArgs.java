@@ -35,14 +35,14 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRu
     }
 
     /**
-     * The name of the field in the log event to apply the Grok rules to.
+     * The value of the source field in log events which should be processed by the Grok rules.
      * 
      */
     @Import(name="source", required=true)
     private Output<String> source;
 
     /**
-     * @return The name of the field in the log event to apply the Grok rules to.
+     * @return The value of the source field in log events which should be processed by the Grok rules.
      * 
      */
     public Output<String> source() {
@@ -122,7 +122,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRu
         }
 
         /**
-         * @param source The name of the field in the log event to apply the Grok rules to.
+         * @param source The value of the source field in log events which should be processed by the Grok rules.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRu
         }
 
         /**
-         * @param source The name of the field in the log event to apply the Grok rules to.
+         * @param source The value of the source field in log events which should be processed by the Grok rules.
          * 
          * @return builder
          * 

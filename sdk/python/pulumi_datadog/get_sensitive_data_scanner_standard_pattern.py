@@ -26,7 +26,7 @@ class GetSensitiveDataScannerStandardPatternResult:
     """
     A collection of values returned by getSensitiveDataScannerStandardPattern.
     """
-    def __init__(__self__, description=None, filter=None, id=None, included_keywords=None, name=None, pattern=None, tags=None):
+    def __init__(__self__, description=None, filter=None, id=None, included_keywords=None, name=None, pattern=None, standard_pattern_id=None, tags=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -45,6 +45,9 @@ class GetSensitiveDataScannerStandardPatternResult:
         if pattern and not isinstance(pattern, str):
             raise TypeError("Expected argument 'pattern' to be a str")
         pulumi.set(__self__, "pattern", pattern)
+        if standard_pattern_id and not isinstance(standard_pattern_id, str):
+            raise TypeError("Expected argument 'standard_pattern_id' to be a str")
+        pulumi.set(__self__, "standard_pattern_id", standard_pattern_id)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -59,7 +62,7 @@ class GetSensitiveDataScannerStandardPatternResult:
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> _builtins.str:
+    def filter(self) -> Optional[_builtins.str]:
         """
         Filter all the Datadog standard patterns by name.
         """
@@ -99,6 +102,14 @@ class GetSensitiveDataScannerStandardPatternResult:
         return pulumi.get(self, "pattern")
 
     @_builtins.property
+    @pulumi.getter(name="standardPatternId")
+    def standard_pattern_id(self) -> Optional[_builtins.str]:
+        """
+        Stable ID of the Datadog standard pattern to retrieve. This can be set directly to avoid Terraform configs breaking when Datadog renames a standard pattern.
+        """
+        return pulumi.get(self, "standard_pattern_id")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Sequence[_builtins.str]:
         """
@@ -119,19 +130,32 @@ class AwaitableGetSensitiveDataScannerStandardPatternResult(GetSensitiveDataScan
             included_keywords=self.included_keywords,
             name=self.name,
             pattern=self.pattern,
+            standard_pattern_id=self.standard_pattern_id,
             tags=self.tags)
 
 
 def get_sensitive_data_scanner_standard_pattern(filter: Optional[_builtins.str] = None,
+                                                standard_pattern_id: Optional[_builtins.str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSensitiveDataScannerStandardPatternResult:
     """
-    Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
+    Use this data source to retrieve information about an existing sensitive data scanner standard pattern. You can look up a pattern by its stable standard pattern ID or by name.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    aws_access_key_by_id = datadog.get_sensitive_data_scanner_standard_pattern(standard_pattern_id="OfGqX8R9TRqAcorxenl2fQ")
+    ```
 
 
     :param _builtins.str filter: Filter all the Datadog standard patterns by name.
+    :param _builtins.str standard_pattern_id: Stable ID of the Datadog standard pattern to retrieve. This can be set directly to avoid Terraform configs breaking when Datadog renames a standard pattern.
     """
     __args__ = dict()
     __args__['filter'] = filter
+    __args__['standardPatternId'] = standard_pattern_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern', __args__, opts=opts, typ=GetSensitiveDataScannerStandardPatternResult).value
 
@@ -142,17 +166,30 @@ def get_sensitive_data_scanner_standard_pattern(filter: Optional[_builtins.str] 
         included_keywords=pulumi.get(__ret__, 'included_keywords'),
         name=pulumi.get(__ret__, 'name'),
         pattern=pulumi.get(__ret__, 'pattern'),
+        standard_pattern_id=pulumi.get(__ret__, 'standard_pattern_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_sensitive_data_scanner_standard_pattern_output(filter: pulumi.Input[Optional[_builtins.str]] = None,
+def get_sensitive_data_scanner_standard_pattern_output(filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                       standard_pattern_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSensitiveDataScannerStandardPatternResult]:
     """
-    Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
+    Use this data source to retrieve information about an existing sensitive data scanner standard pattern. You can look up a pattern by its stable standard pattern ID or by name.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    aws_access_key_by_id = datadog.get_sensitive_data_scanner_standard_pattern(standard_pattern_id="OfGqX8R9TRqAcorxenl2fQ")
+    ```
 
 
     :param _builtins.str filter: Filter all the Datadog standard patterns by name.
+    :param _builtins.str standard_pattern_id: Stable ID of the Datadog standard pattern to retrieve. This can be set directly to avoid Terraform configs breaking when Datadog renames a standard pattern.
     """
     __args__ = dict()
     __args__['filter'] = filter
+    __args__['standardPatternId'] = standard_pattern_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern', __args__, opts=opts, typ=GetSensitiveDataScannerStandardPatternResult)
     return __ret__.apply(lambda __response__: GetSensitiveDataScannerStandardPatternResult(
@@ -162,4 +199,5 @@ def get_sensitive_data_scanner_standard_pattern_output(filter: pulumi.Input[Opti
         included_keywords=pulumi.get(__response__, 'included_keywords'),
         name=pulumi.get(__response__, 'name'),
         pattern=pulumi.get(__response__, 'pattern'),
+        standard_pattern_id=pulumi.get(__response__, 'standard_pattern_id'),
         tags=pulumi.get(__response__, 'tags')))

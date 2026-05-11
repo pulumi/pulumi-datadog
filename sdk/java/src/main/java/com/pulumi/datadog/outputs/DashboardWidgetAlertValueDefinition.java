@@ -19,6 +19,11 @@ public final class DashboardWidgetAlertValueDefinition {
      */
     private String alertId;
     /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return The precision to use when displaying the value. Use `*` for maximum precision.
      * 
      */
@@ -56,6 +61,13 @@ public final class DashboardWidgetAlertValueDefinition {
      */
     public String alertId() {
         return this.alertId;
+    }
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The precision to use when displaying the value. Use `*` for maximum precision.
@@ -110,6 +122,7 @@ public final class DashboardWidgetAlertValueDefinition {
     @CustomType.Builder
     public static final class Builder {
         private String alertId;
+        private @Nullable String description;
         private @Nullable Integer precision;
         private @Nullable String textAlign;
         private @Nullable String title;
@@ -120,6 +133,7 @@ public final class DashboardWidgetAlertValueDefinition {
         public Builder(DashboardWidgetAlertValueDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alertId = defaults.alertId;
+    	      this.description = defaults.description;
     	      this.precision = defaults.precision;
     	      this.textAlign = defaults.textAlign;
     	      this.title = defaults.title;
@@ -134,6 +148,12 @@ public final class DashboardWidgetAlertValueDefinition {
               throw new MissingRequiredPropertyException("DashboardWidgetAlertValueDefinition", "alertId");
             }
             this.alertId = alertId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -175,6 +195,7 @@ public final class DashboardWidgetAlertValueDefinition {
         public DashboardWidgetAlertValueDefinition build() {
             final var _resultValue = new DashboardWidgetAlertValueDefinition();
             _resultValue.alertId = alertId;
+            _resultValue.description = description;
             _resultValue.precision = precision;
             _resultValue.textAlign = textAlign;
             _resultValue.title = title;

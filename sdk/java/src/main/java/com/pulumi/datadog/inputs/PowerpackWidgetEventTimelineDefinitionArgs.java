@@ -18,6 +18,21 @@ public final class PowerpackWidgetEventTimelineDefinitionArgs extends com.pulumi
     public static final PowerpackWidgetEventTimelineDefinitionArgs Empty = new PowerpackWidgetEventTimelineDefinitionArgs();
 
     /**
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
      * 
      */
@@ -125,6 +140,7 @@ public final class PowerpackWidgetEventTimelineDefinitionArgs extends com.pulumi
     private PowerpackWidgetEventTimelineDefinitionArgs() {}
 
     private PowerpackWidgetEventTimelineDefinitionArgs(PowerpackWidgetEventTimelineDefinitionArgs $) {
+        this.description = $.description;
         this.hideIncompleteCostData = $.hideIncompleteCostData;
         this.liveSpan = $.liveSpan;
         this.query = $.query;
@@ -150,6 +166,27 @@ public final class PowerpackWidgetEventTimelineDefinitionArgs extends com.pulumi
 
         public Builder(PowerpackWidgetEventTimelineDefinitionArgs defaults) {
             $ = new PowerpackWidgetEventTimelineDefinitionArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

@@ -5,9 +5,12 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.LogsCustomDestinationSplunkDestinationSourcetypeArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class LogsCustomDestinationSplunkDestinationArgs extends com.pulumi.resources.ResourceArgs {
@@ -44,11 +47,27 @@ public final class LogsCustomDestinationSplunkDestinationArgs extends com.pulumi
         return this.endpoint;
     }
 
+    /**
+     * The Splunk source type for forwarded events. Omitting `sourcetype` when you create a custom destination leaves `sourcetype` unconfigured, and events are forwarded to Splunk with `_json` as the source type. When updating a custom destination, omitting `sourcetype` preserves the previously set value; if none was set, the `sourcetype` field stays unconfigured and events are forwarded with `_json` (same as when creating a custom destination). Setting `value = null` omits the `sourcetype` field in the forwarded events entirely.
+     * 
+     */
+    @Import(name="sourcetype")
+    private @Nullable Output<LogsCustomDestinationSplunkDestinationSourcetypeArgs> sourcetype;
+
+    /**
+     * @return The Splunk source type for forwarded events. Omitting `sourcetype` when you create a custom destination leaves `sourcetype` unconfigured, and events are forwarded to Splunk with `_json` as the source type. When updating a custom destination, omitting `sourcetype` preserves the previously set value; if none was set, the `sourcetype` field stays unconfigured and events are forwarded with `_json` (same as when creating a custom destination). Setting `value = null` omits the `sourcetype` field in the forwarded events entirely.
+     * 
+     */
+    public Optional<Output<LogsCustomDestinationSplunkDestinationSourcetypeArgs>> sourcetype() {
+        return Optional.ofNullable(this.sourcetype);
+    }
+
     private LogsCustomDestinationSplunkDestinationArgs() {}
 
     private LogsCustomDestinationSplunkDestinationArgs(LogsCustomDestinationSplunkDestinationArgs $) {
         this.accessToken = $.accessToken;
         this.endpoint = $.endpoint;
+        this.sourcetype = $.sourcetype;
     }
 
     public static Builder builder() {
@@ -109,6 +128,27 @@ public final class LogsCustomDestinationSplunkDestinationArgs extends com.pulumi
          */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
+        }
+
+        /**
+         * @param sourcetype The Splunk source type for forwarded events. Omitting `sourcetype` when you create a custom destination leaves `sourcetype` unconfigured, and events are forwarded to Splunk with `_json` as the source type. When updating a custom destination, omitting `sourcetype` preserves the previously set value; if none was set, the `sourcetype` field stays unconfigured and events are forwarded with `_json` (same as when creating a custom destination). Setting `value = null` omits the `sourcetype` field in the forwarded events entirely.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourcetype(@Nullable Output<LogsCustomDestinationSplunkDestinationSourcetypeArgs> sourcetype) {
+            $.sourcetype = sourcetype;
+            return this;
+        }
+
+        /**
+         * @param sourcetype The Splunk source type for forwarded events. Omitting `sourcetype` when you create a custom destination leaves `sourcetype` unconfigured, and events are forwarded to Splunk with `_json` as the source type. When updating a custom destination, omitting `sourcetype` preserves the previously set value; if none was set, the `sourcetype` field stays unconfigured and events are forwarded with `_json` (same as when creating a custom destination). Setting `value = null` omits the `sourcetype` field in the forwarded events entirely.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourcetype(LogsCustomDestinationSplunkDestinationSourcetypeArgs sourcetype) {
+            return sourcetype(Output.of(sourcetype));
         }
 
         public LogsCustomDestinationSplunkDestinationArgs build() {

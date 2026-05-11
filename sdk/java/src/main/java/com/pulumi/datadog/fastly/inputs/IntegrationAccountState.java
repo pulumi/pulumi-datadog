@@ -16,18 +16,50 @@ public final class IntegrationAccountState extends com.pulumi.resources.Resource
     public static final IntegrationAccountState Empty = new IntegrationAccountState();
 
     /**
-     * The API key for the Fastly account.
+     * The API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set.
      * 
      */
     @Import(name="apiKey")
     private @Nullable Output<String> apiKey;
 
     /**
-     * @return The API key for the Fastly account.
+     * @return The API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set.
      * 
      */
     public Optional<Output<String>> apiKey() {
         return Optional.ofNullable(this.apiKey);
+    }
+
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set. Must be used with `apiKeyWoVersion`.
+     * 
+     */
+    @Import(name="apiKeyWo")
+    private @Nullable Output<String> apiKeyWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set. Must be used with `apiKeyWoVersion`.
+     * 
+     */
+    public Optional<Output<String>> apiKeyWo() {
+        return Optional.ofNullable(this.apiKeyWo);
+    }
+
+    /**
+     * Version for `apiKeyWo` rotation. Changing this triggers an update. String length must be at least 1.
+     * 
+     */
+    @Import(name="apiKeyWoVersion")
+    private @Nullable Output<String> apiKeyWoVersion;
+
+    /**
+     * @return Version for `apiKeyWo` rotation. Changing this triggers an update. String length must be at least 1.
+     * 
+     */
+    public Optional<Output<String>> apiKeyWoVersion() {
+        return Optional.ofNullable(this.apiKeyWoVersion);
     }
 
     /**
@@ -49,6 +81,8 @@ public final class IntegrationAccountState extends com.pulumi.resources.Resource
 
     private IntegrationAccountState(IntegrationAccountState $) {
         this.apiKey = $.apiKey;
+        this.apiKeyWo = $.apiKeyWo;
+        this.apiKeyWoVersion = $.apiKeyWoVersion;
         this.name = $.name;
     }
 
@@ -71,7 +105,7 @@ public final class IntegrationAccountState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param apiKey The API key for the Fastly account.
+         * @param apiKey The API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set.
          * 
          * @return builder
          * 
@@ -82,13 +116,57 @@ public final class IntegrationAccountState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param apiKey The API key for the Fastly account.
+         * @param apiKey The API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set.
          * 
          * @return builder
          * 
          */
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
+        }
+
+        /**
+         * @param apiKeyWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set. Must be used with `apiKeyWoVersion`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyWo(@Nullable Output<String> apiKeyWo) {
+            $.apiKeyWo = apiKeyWo;
+            return this;
+        }
+
+        /**
+         * @param apiKeyWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set. Must be used with `apiKeyWoVersion`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyWo(String apiKeyWo) {
+            return apiKeyWo(Output.of(apiKeyWo));
+        }
+
+        /**
+         * @param apiKeyWoVersion Version for `apiKeyWo` rotation. Changing this triggers an update. String length must be at least 1.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyWoVersion(@Nullable Output<String> apiKeyWoVersion) {
+            $.apiKeyWoVersion = apiKeyWoVersion;
+            return this;
+        }
+
+        /**
+         * @param apiKeyWoVersion Version for `apiKeyWo` rotation. Changing this triggers an update. String length must be at least 1.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyWoVersion(String apiKeyWoVersion) {
+            return apiKeyWoVersion(Output.of(apiKeyWoVersion));
         }
 
         /**

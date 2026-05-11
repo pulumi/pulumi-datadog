@@ -33,6 +33,11 @@ public final class DashboardWidgetQueryValueDefinition {
      */
     private @Nullable String customUnit;
     /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
      * 
      */
@@ -99,6 +104,13 @@ public final class DashboardWidgetQueryValueDefinition {
      */
     public Optional<String> customUnit() {
         return Optional.ofNullable(this.customUnit);
+    }
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
@@ -176,6 +188,7 @@ public final class DashboardWidgetQueryValueDefinition {
         private @Nullable Boolean autoscale;
         private @Nullable List<DashboardWidgetQueryValueDefinitionCustomLink> customLinks;
         private @Nullable String customUnit;
+        private @Nullable String description;
         private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String liveSpan;
         private @Nullable Integer precision;
@@ -191,6 +204,7 @@ public final class DashboardWidgetQueryValueDefinition {
     	      this.autoscale = defaults.autoscale;
     	      this.customLinks = defaults.customLinks;
     	      this.customUnit = defaults.customUnit;
+    	      this.description = defaults.description;
     	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.liveSpan = defaults.liveSpan;
     	      this.precision = defaults.precision;
@@ -221,6 +235,12 @@ public final class DashboardWidgetQueryValueDefinition {
         public Builder customUnit(@Nullable String customUnit) {
 
             this.customUnit = customUnit;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -285,6 +305,7 @@ public final class DashboardWidgetQueryValueDefinition {
             _resultValue.autoscale = autoscale;
             _resultValue.customLinks = customLinks;
             _resultValue.customUnit = customUnit;
+            _resultValue.description = description;
             _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.liveSpan = liveSpan;
             _resultValue.precision = precision;

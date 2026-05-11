@@ -5,12 +5,25 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
+ * Use this data source to retrieve information about an existing sensitive data scanner standard pattern. You can look up a pattern by its stable standard pattern ID or by name.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const awsAccessKeyById = datadog.getSensitiveDataScannerStandardPattern({
+ *     standardPatternId: "OfGqX8R9TRqAcorxenl2fQ",
+ * });
+ * ```
  */
-export function getSensitiveDataScannerStandardPattern(args: GetSensitiveDataScannerStandardPatternArgs, opts?: pulumi.InvokeOptions): Promise<GetSensitiveDataScannerStandardPatternResult> {
+export function getSensitiveDataScannerStandardPattern(args?: GetSensitiveDataScannerStandardPatternArgs, opts?: pulumi.InvokeOptions): Promise<GetSensitiveDataScannerStandardPatternResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern", {
         "filter": args.filter,
+        "standardPatternId": args.standardPatternId,
     }, opts);
 }
 
@@ -21,7 +34,11 @@ export interface GetSensitiveDataScannerStandardPatternArgs {
     /**
      * Filter all the Datadog standard patterns by name.
      */
-    filter: string;
+    filter?: string;
+    /**
+     * Stable ID of the Datadog standard pattern to retrieve. This can be set directly to avoid Terraform configs breaking when Datadog renames a standard pattern.
+     */
+    standardPatternId?: string;
 }
 
 /**
@@ -35,7 +52,7 @@ export interface GetSensitiveDataScannerStandardPatternResult {
     /**
      * Filter all the Datadog standard patterns by name.
      */
-    readonly filter: string;
+    readonly filter?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -55,17 +72,34 @@ export interface GetSensitiveDataScannerStandardPatternResult {
      */
     readonly pattern: string;
     /**
+     * Stable ID of the Datadog standard pattern to retrieve. This can be set directly to avoid Terraform configs breaking when Datadog renames a standard pattern.
+     */
+    readonly standardPatternId?: string;
+    /**
      * List of tags.
      */
     readonly tags: string[];
 }
 /**
- * Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
+ * Use this data source to retrieve information about an existing sensitive data scanner standard pattern. You can look up a pattern by its stable standard pattern ID or by name.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const awsAccessKeyById = datadog.getSensitiveDataScannerStandardPattern({
+ *     standardPatternId: "OfGqX8R9TRqAcorxenl2fQ",
+ * });
+ * ```
  */
-export function getSensitiveDataScannerStandardPatternOutput(args: GetSensitiveDataScannerStandardPatternOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSensitiveDataScannerStandardPatternResult> {
+export function getSensitiveDataScannerStandardPatternOutput(args?: GetSensitiveDataScannerStandardPatternOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSensitiveDataScannerStandardPatternResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern", {
         "filter": args.filter,
+        "standardPatternId": args.standardPatternId,
     }, opts);
 }
 
@@ -76,5 +110,9 @@ export interface GetSensitiveDataScannerStandardPatternOutputArgs {
     /**
      * Filter all the Datadog standard patterns by name.
      */
-    filter: pulumi.Input<string>;
+    filter?: pulumi.Input<string | undefined>;
+    /**
+     * Stable ID of the Datadog standard pattern to retrieve. This can be set directly to avoid Terraform configs breaking when Datadog renames a standard pattern.
+     */
+    standardPatternId?: pulumi.Input<string | undefined>;
 }

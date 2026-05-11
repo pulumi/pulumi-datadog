@@ -33,6 +33,21 @@ public final class PowerpackWidgetAlertValueDefinitionArgs extends com.pulumi.re
     }
 
     /**
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * The precision to use when displaying the value. Use `*` for maximum precision.
      * 
      */
@@ -126,6 +141,7 @@ public final class PowerpackWidgetAlertValueDefinitionArgs extends com.pulumi.re
 
     private PowerpackWidgetAlertValueDefinitionArgs(PowerpackWidgetAlertValueDefinitionArgs $) {
         this.alertId = $.alertId;
+        this.description = $.description;
         this.precision = $.precision;
         this.textAlign = $.textAlign;
         this.title = $.title;
@@ -171,6 +187,27 @@ public final class PowerpackWidgetAlertValueDefinitionArgs extends com.pulumi.re
          */
         public Builder alertId(String alertId) {
             return alertId(Output.of(alertId));
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

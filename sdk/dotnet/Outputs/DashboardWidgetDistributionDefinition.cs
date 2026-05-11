@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetDistributionDefinition
     {
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
         /// </summary>
         public readonly bool? HideIncompleteCostData;
@@ -56,6 +60,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetDistributionDefinition(
+            string? description,
+
             bool? hideIncompleteCostData,
 
             string? legendSize,
@@ -76,6 +82,7 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetDistributionDefinitionYaxis? yaxis)
         {
+            Description = description;
             HideIncompleteCostData = hideIncompleteCostData;
             LegendSize = legendSize;
             LiveSpan = liveSpan;

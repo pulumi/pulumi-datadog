@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? AdditionalQueryFilters;
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// The global time target of the widget.
         /// </summary>
         public readonly string? GlobalTimeTarget;
@@ -58,6 +62,8 @@ namespace Pulumi.Datadog.Outputs
         private DashboardWidgetServiceLevelObjectiveDefinition(
             string? additionalQueryFilters,
 
+            string? description,
+
             string? globalTimeTarget,
 
             bool? showErrorBudget,
@@ -77,6 +83,7 @@ namespace Pulumi.Datadog.Outputs
             string viewType)
         {
             AdditionalQueryFilters = additionalQueryFilters;
+            Description = description;
             GlobalTimeTarget = globalTimeTarget;
             ShowErrorBudget = showErrorBudget;
             SloId = sloId;

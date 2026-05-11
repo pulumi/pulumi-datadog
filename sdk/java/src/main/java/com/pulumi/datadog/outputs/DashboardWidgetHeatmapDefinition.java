@@ -23,6 +23,11 @@ public final class DashboardWidgetHeatmapDefinition {
      */
     private @Nullable List<DashboardWidgetHeatmapDefinitionCustomLink> customLinks;
     /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return The definition of the event to overlay on the graph. Multiple `event` blocks are allowed using the structure below.
      * 
      */
@@ -80,6 +85,13 @@ public final class DashboardWidgetHeatmapDefinition {
      */
     public List<DashboardWidgetHeatmapDefinitionCustomLink> customLinks() {
         return this.customLinks == null ? List.of() : this.customLinks;
+    }
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The definition of the event to overlay on the graph. Multiple `event` blocks are allowed using the structure below.
@@ -162,6 +174,7 @@ public final class DashboardWidgetHeatmapDefinition {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<DashboardWidgetHeatmapDefinitionCustomLink> customLinks;
+        private @Nullable String description;
         private @Nullable List<DashboardWidgetHeatmapDefinitionEvent> events;
         private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String legendSize;
@@ -176,6 +189,7 @@ public final class DashboardWidgetHeatmapDefinition {
         public Builder(DashboardWidgetHeatmapDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customLinks = defaults.customLinks;
+    	      this.description = defaults.description;
     	      this.events = defaults.events;
     	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.legendSize = defaults.legendSize;
@@ -196,6 +210,12 @@ public final class DashboardWidgetHeatmapDefinition {
         }
         public Builder customLinks(DashboardWidgetHeatmapDefinitionCustomLink... customLinks) {
             return customLinks(List.of(customLinks));
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
         }
         @CustomType.Setter
         public Builder events(@Nullable List<DashboardWidgetHeatmapDefinitionEvent> events) {
@@ -266,6 +286,7 @@ public final class DashboardWidgetHeatmapDefinition {
         public DashboardWidgetHeatmapDefinition build() {
             final var _resultValue = new DashboardWidgetHeatmapDefinition();
             _resultValue.customLinks = customLinks;
+            _resultValue.description = description;
             _resultValue.events = events;
             _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.legendSize = legendSize;

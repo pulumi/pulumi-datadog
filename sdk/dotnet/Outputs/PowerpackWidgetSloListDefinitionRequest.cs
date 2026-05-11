@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackWidgetSloListDefinitionRequest
     {
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Updated SLO List widget.
         /// </summary>
         public readonly Outputs.PowerpackWidgetSloListDefinitionRequestQuery Query;
@@ -24,10 +28,13 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private PowerpackWidgetSloListDefinitionRequest(
+            string? description,
+
             Outputs.PowerpackWidgetSloListDefinitionRequestQuery query,
 
             string requestType)
         {
+            Description = description;
             Query = query;
             RequestType = requestType;
         }

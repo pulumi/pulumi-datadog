@@ -4,9 +4,10 @@
 package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetSensitiveDataScannerStandardPatternPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -17,21 +18,37 @@ public final class GetSensitiveDataScannerStandardPatternPlainArgs extends com.p
      * Filter all the Datadog standard patterns by name.
      * 
      */
-    @Import(name="filter", required=true)
-    private String filter;
+    @Import(name="filter")
+    private @Nullable String filter;
 
     /**
      * @return Filter all the Datadog standard patterns by name.
      * 
      */
-    public String filter() {
-        return this.filter;
+    public Optional<String> filter() {
+        return Optional.ofNullable(this.filter);
+    }
+
+    /**
+     * Stable ID of the Datadog standard pattern to retrieve. This can be set directly to avoid Terraform configs breaking when Datadog renames a standard pattern.
+     * 
+     */
+    @Import(name="standardPatternId")
+    private @Nullable String standardPatternId;
+
+    /**
+     * @return Stable ID of the Datadog standard pattern to retrieve. This can be set directly to avoid Terraform configs breaking when Datadog renames a standard pattern.
+     * 
+     */
+    public Optional<String> standardPatternId() {
+        return Optional.ofNullable(this.standardPatternId);
     }
 
     private GetSensitiveDataScannerStandardPatternPlainArgs() {}
 
     private GetSensitiveDataScannerStandardPatternPlainArgs(GetSensitiveDataScannerStandardPatternPlainArgs $) {
         this.filter = $.filter;
+        this.standardPatternId = $.standardPatternId;
     }
 
     public static Builder builder() {
@@ -58,15 +75,23 @@ public final class GetSensitiveDataScannerStandardPatternPlainArgs extends com.p
          * @return builder
          * 
          */
-        public Builder filter(String filter) {
+        public Builder filter(@Nullable String filter) {
             $.filter = filter;
             return this;
         }
 
+        /**
+         * @param standardPatternId Stable ID of the Datadog standard pattern to retrieve. This can be set directly to avoid Terraform configs breaking when Datadog renames a standard pattern.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder standardPatternId(@Nullable String standardPatternId) {
+            $.standardPatternId = standardPatternId;
+            return this;
+        }
+
         public GetSensitiveDataScannerStandardPatternPlainArgs build() {
-            if ($.filter == null) {
-                throw new MissingRequiredPropertyException("GetSensitiveDataScannerStandardPatternPlainArgs", "filter");
-            }
             return $;
         }
     }

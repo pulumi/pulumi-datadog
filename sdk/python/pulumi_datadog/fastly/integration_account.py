@@ -19,28 +19,26 @@ __all__ = ['IntegrationAccountArgs', 'IntegrationAccount']
 @pulumi.input_type
 class IntegrationAccountArgs:
     def __init__(__self__, *,
-                 api_key: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str]):
+                 name: pulumi.Input[_builtins.str],
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_wo_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IntegrationAccount resource.
 
-        :param pulumi.Input[_builtins.str] api_key: The API key for the Fastly account.
         :param pulumi.Input[_builtins.str] name: The name of the Fastly account.
+        :param pulumi.Input[_builtins.str] api_key: The API key for the Fastly account. Exactly one of `api_key` or `api_key_wo` must be set.
+        :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only API key for the Fastly account. Exactly one of `api_key` or `api_key_wo` must be set. Must be used with `api_key_wo_version`.
+        :param pulumi.Input[_builtins.str] api_key_wo_version: Version for `api_key_wo` rotation. Changing this triggers an update. String length must be at least 1.
         """
-        pulumi.set(__self__, "api_key", api_key)
         pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter(name="apiKey")
-    def api_key(self) -> pulumi.Input[_builtins.str]:
-        """
-        The API key for the Fastly account.
-        """
-        return pulumi.get(self, "api_key")
-
-    @api_key.setter
-    def api_key(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "api_key", value)
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+        if api_key_wo is not None:
+            pulumi.set(__self__, "api_key_wo", api_key_wo)
+        if api_key_wo_version is not None:
+            pulumi.set(__self__, "api_key_wo_version", api_key_wo_version)
 
     @_builtins.property
     @pulumi.getter
@@ -54,20 +52,66 @@ class IntegrationAccountArgs:
     def name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "name", value)
 
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The API key for the Fastly account. Exactly one of `api_key` or `api_key_wo` must be set.
+        """
+        return pulumi.get(self, "api_key")
+
+    @api_key.setter
+    def api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "api_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyWo")
+    def api_key_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only API key for the Fastly account. Exactly one of `api_key` or `api_key_wo` must be set. Must be used with `api_key_wo_version`.
+        """
+        return pulumi.get(self, "api_key_wo")
+
+    @api_key_wo.setter
+    def api_key_wo(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "api_key_wo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyWoVersion")
+    def api_key_wo_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Version for `api_key_wo` rotation. Changing this triggers an update. String length must be at least 1.
+        """
+        return pulumi.get(self, "api_key_wo_version")
+
+    @api_key_wo_version.setter
+    def api_key_wo_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "api_key_wo_version", value)
+
 
 @pulumi.input_type
 class _IntegrationAccountState:
     def __init__(__self__, *,
                  api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_wo_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationAccount resources.
 
-        :param pulumi.Input[_builtins.str] api_key: The API key for the Fastly account.
+        :param pulumi.Input[_builtins.str] api_key: The API key for the Fastly account. Exactly one of `api_key` or `api_key_wo` must be set.
+        :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only API key for the Fastly account. Exactly one of `api_key` or `api_key_wo` must be set. Must be used with `api_key_wo_version`.
+        :param pulumi.Input[_builtins.str] api_key_wo_version: Version for `api_key_wo` rotation. Changing this triggers an update. String length must be at least 1.
         :param pulumi.Input[_builtins.str] name: The name of the Fastly account.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
+        if api_key_wo is not None:
+            pulumi.set(__self__, "api_key_wo", api_key_wo)
+        if api_key_wo_version is not None:
+            pulumi.set(__self__, "api_key_wo_version", api_key_wo_version)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -75,13 +119,38 @@ class _IntegrationAccountState:
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The API key for the Fastly account.
+        The API key for the Fastly account. Exactly one of `api_key` or `api_key_wo` must be set.
         """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
     def api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyWo")
+    def api_key_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only API key for the Fastly account. Exactly one of `api_key` or `api_key_wo` must be set. Must be used with `api_key_wo_version`.
+        """
+        return pulumi.get(self, "api_key_wo")
+
+    @api_key_wo.setter
+    def api_key_wo(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "api_key_wo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyWoVersion")
+    def api_key_wo_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Version for `api_key_wo` rotation. Changing this triggers an update. String length must be at least 1.
+        """
+        return pulumi.get(self, "api_key_wo_version")
+
+    @api_key_wo_version.setter
+    def api_key_wo_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "api_key_wo_version", value)
 
     @_builtins.property
     @pulumi.getter
@@ -103,6 +172,8 @@ class IntegrationAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_wo_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -131,7 +202,10 @@ class IntegrationAccount(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_key: The API key for the Fastly account.
+        :param pulumi.Input[_builtins.str] api_key: The API key for the Fastly account. Exactly one of `api_key` or `api_key_wo` must be set.
+        :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only API key for the Fastly account. Exactly one of `api_key` or `api_key_wo` must be set. Must be used with `api_key_wo_version`.
+        :param pulumi.Input[_builtins.str] api_key_wo_version: Version for `api_key_wo` rotation. Changing this triggers an update. String length must be at least 1.
         :param pulumi.Input[_builtins.str] name: The name of the Fastly account.
         """
         ...
@@ -180,6 +254,8 @@ class IntegrationAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_wo_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -190,12 +266,14 @@ class IntegrationAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IntegrationAccountArgs.__new__(IntegrationAccountArgs)
 
-            if api_key is None and not opts.urn:
-                raise TypeError("Missing required property 'api_key'")
-            __props__.__dict__["api_key"] = api_key
+            __props__.__dict__["api_key"] = None if api_key is None else pulumi.Output.secret(api_key)
+            __props__.__dict__["api_key_wo"] = None if api_key_wo is None else pulumi.Output.secret(api_key_wo)
+            __props__.__dict__["api_key_wo_version"] = api_key_wo_version
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey", "apiKeyWo"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(IntegrationAccount, __self__).__init__(
             'datadog:fastly/integrationAccount:IntegrationAccount',
             resource_name,
@@ -207,6 +285,8 @@ class IntegrationAccount(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            api_key_wo: pulumi.Input[Optional[_builtins.str]] = None,
+            api_key_wo_version: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None) -> 'IntegrationAccount':
         """
         Get an existing IntegrationAccount resource's state with the given name, id, and optional extra
@@ -215,7 +295,10 @@ class IntegrationAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_key: The API key for the Fastly account.
+        :param pulumi.Input[_builtins.str] api_key: The API key for the Fastly account. Exactly one of `api_key` or `api_key_wo` must be set.
+        :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only API key for the Fastly account. Exactly one of `api_key` or `api_key_wo` must be set. Must be used with `api_key_wo_version`.
+        :param pulumi.Input[_builtins.str] api_key_wo_version: Version for `api_key_wo` rotation. Changing this triggers an update. String length must be at least 1.
         :param pulumi.Input[_builtins.str] name: The name of the Fastly account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -223,16 +306,35 @@ class IntegrationAccount(pulumi.CustomResource):
         __props__ = _IntegrationAccountState.__new__(_IntegrationAccountState)
 
         __props__.__dict__["api_key"] = api_key
+        __props__.__dict__["api_key_wo"] = api_key_wo
+        __props__.__dict__["api_key_wo_version"] = api_key_wo_version
         __props__.__dict__["name"] = name
         return IntegrationAccount(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
-    def api_key(self) -> pulumi.Output[_builtins.str]:
+    def api_key(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The API key for the Fastly account.
+        The API key for the Fastly account. Exactly one of `api_key` or `api_key_wo` must be set.
         """
         return pulumi.get(self, "api_key")
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyWo")
+    def api_key_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only API key for the Fastly account. Exactly one of `api_key` or `api_key_wo` must be set. Must be used with `api_key_wo_version`.
+        """
+        return pulumi.get(self, "api_key_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyWoVersion")
+    def api_key_wo_version(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Version for `api_key_wo` rotation. Changing this triggers an update. String length must be at least 1.
+        """
+        return pulumi.get(self, "api_key_wo_version")
 
     @_builtins.property
     @pulumi.getter

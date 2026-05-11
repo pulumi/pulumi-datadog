@@ -48,6 +48,21 @@ public final class ObservabilityPipelineConfigDestinationAzureStorageArgs extend
     }
 
     /**
+     * Name of the environment variable or secret that holds the Azure Storage connection string.
+     * 
+     */
+    @Import(name="connectionStringKey")
+    private @Nullable Output<String> connectionStringKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the Azure Storage connection string.
+     * 
+     */
+    public Optional<Output<String>> connectionStringKey() {
+        return Optional.ofNullable(this.connectionStringKey);
+    }
+
+    /**
      * The name of the Azure Blob Storage container to store logs in.
      * 
      */
@@ -67,6 +82,7 @@ public final class ObservabilityPipelineConfigDestinationAzureStorageArgs extend
     private ObservabilityPipelineConfigDestinationAzureStorageArgs(ObservabilityPipelineConfigDestinationAzureStorageArgs $) {
         this.blobPrefix = $.blobPrefix;
         this.buffer = $.buffer;
+        this.connectionStringKey = $.connectionStringKey;
         this.containerName = $.containerName;
     }
 
@@ -128,6 +144,27 @@ public final class ObservabilityPipelineConfigDestinationAzureStorageArgs extend
          */
         public Builder buffer(ObservabilityPipelineConfigDestinationAzureStorageBufferArgs buffer) {
             return buffer(Output.of(buffer));
+        }
+
+        /**
+         * @param connectionStringKey Name of the environment variable or secret that holds the Azure Storage connection string.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionStringKey(@Nullable Output<String> connectionStringKey) {
+            $.connectionStringKey = connectionStringKey;
+            return this;
+        }
+
+        /**
+         * @param connectionStringKey Name of the environment variable or secret that holds the Azure Storage connection string.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionStringKey(String connectionStringKey) {
+            return connectionStringKey(Output.of(connectionStringKey));
         }
 
         /**

@@ -49,6 +49,21 @@ public final class DashboardWidgetPowerpackDefinitionArgs extends com.pulumi.res
     }
 
     /**
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * UUID of the associated powerpack.
      * 
      */
@@ -113,6 +128,7 @@ public final class DashboardWidgetPowerpackDefinitionArgs extends com.pulumi.res
     private DashboardWidgetPowerpackDefinitionArgs(DashboardWidgetPowerpackDefinitionArgs $) {
         this.backgroundColor = $.backgroundColor;
         this.bannerImg = $.bannerImg;
+        this.description = $.description;
         this.powerpackId = $.powerpackId;
         this.showTitle = $.showTitle;
         this.templateVariables = $.templateVariables;
@@ -177,6 +193,27 @@ public final class DashboardWidgetPowerpackDefinitionArgs extends com.pulumi.res
          */
         public Builder bannerImg(String bannerImg) {
             return bannerImg(Output.of(bannerImg));
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

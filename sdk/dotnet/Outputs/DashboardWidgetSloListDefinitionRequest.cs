@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetSloListDefinitionRequest
     {
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Updated SLO List widget.
         /// </summary>
         public readonly Outputs.DashboardWidgetSloListDefinitionRequestQuery Query;
@@ -24,10 +28,13 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetSloListDefinitionRequest(
+            string? description,
+
             Outputs.DashboardWidgetSloListDefinitionRequestQuery query,
 
             string requestType)
         {
+            Description = description;
             Query = query;
             RequestType = requestType;
         }

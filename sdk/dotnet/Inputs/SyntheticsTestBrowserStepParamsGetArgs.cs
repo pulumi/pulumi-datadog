@@ -55,6 +55,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<int>? Delay { get; set; }
 
         /// <summary>
+        /// Options for a "drag" or "drop" step.
+        /// </summary>
+        [Input("dragDropOptions")]
+        public Input<Inputs.SyntheticsTestBrowserStepParamsDragDropOptionsGetArgs>? DragDropOptions { get; set; }
+
+        /// <summary>
         /// Element to use for the step, JSON encoded string. Refer to the examples for a usage example showing the schema.
         /// </summary>
         [Input("element")]

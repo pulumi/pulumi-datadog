@@ -42,6 +42,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem> CrowdstrikeNextGenSiems;
         /// <summary>
+        /// The `DatabricksZerobus` destination sends logs to Databricks via the Zerobus ingestion API.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationDatabricksZerobus> DatabricksZerobuses;
+        /// <summary>
         /// The `DatadogLogs` destination forwards logs to Datadog Log Management.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationDatadogLog> DatadogLogs;
@@ -50,7 +54,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationDatadogMetric> DatadogMetrics;
         /// <summary>
-        /// The `Elasticsearch` destination writes logs to an Elasticsearch cluster.
+        /// The `Elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationElasticsearch> Elasticsearches;
         /// <summary>
@@ -134,6 +138,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem> crowdstrikeNextGenSiems,
 
+            ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationDatabricksZerobus> databricksZerobuses,
+
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationDatadogLog> datadogLogs,
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationDatadogMetric> datadogMetrics,
@@ -179,6 +185,7 @@ namespace Pulumi.Datadog.Outputs
             AzureStorages = azureStorages;
             CloudPrem = cloudPrem;
             CrowdstrikeNextGenSiems = crowdstrikeNextGenSiems;
+            DatabricksZerobuses = databricksZerobuses;
             DatadogLogs = datadogLogs;
             DatadogMetrics = datadogMetrics;
             Elasticsearches = elasticsearches;

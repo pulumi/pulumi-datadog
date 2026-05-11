@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigSourceAmazonS3Auth? Auth;
         /// <summary>
+        /// Compression format for objects retrieved from the S3 bucket. Use `Auto` to detect compression from the object's Content-Encoding header or file extension. Valid values are `Auto`, `None`, `Gzip`, `Zstd`.
+        /// </summary>
+        public readonly string? Compression;
+        /// <summary>
         /// AWS region where the S3 bucket resides.
         /// </summary>
         public readonly string Region;
@@ -34,6 +38,8 @@ namespace Pulumi.Datadog.Outputs
         private ObservabilityPipelineConfigSourceAmazonS3(
             Outputs.ObservabilityPipelineConfigSourceAmazonS3Auth? auth,
 
+            string? compression,
+
             string region,
 
             Outputs.ObservabilityPipelineConfigSourceAmazonS3Tls? tls,
@@ -41,6 +47,7 @@ namespace Pulumi.Datadog.Outputs
             string? urlKey)
         {
             Auth = auth;
+            Compression = compression;
             Region = region;
             Tls = tls;
             UrlKey = urlKey;

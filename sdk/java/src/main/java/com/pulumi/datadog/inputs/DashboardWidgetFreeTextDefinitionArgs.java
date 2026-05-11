@@ -32,6 +32,21 @@ public final class DashboardWidgetFreeTextDefinitionArgs extends com.pulumi.reso
     }
 
     /**
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * The size of the text in the widget.
      * 
      */
@@ -80,6 +95,7 @@ public final class DashboardWidgetFreeTextDefinitionArgs extends com.pulumi.reso
 
     private DashboardWidgetFreeTextDefinitionArgs(DashboardWidgetFreeTextDefinitionArgs $) {
         this.color = $.color;
+        this.description = $.description;
         this.fontSize = $.fontSize;
         this.text = $.text;
         this.textAlign = $.textAlign;
@@ -122,6 +138,27 @@ public final class DashboardWidgetFreeTextDefinitionArgs extends com.pulumi.reso
          */
         public Builder color(String color) {
             return color(Output.of(color));
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

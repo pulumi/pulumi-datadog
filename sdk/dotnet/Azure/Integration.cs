@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Azure
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // Create a new Datadog - Microsoft Azure integration
+    ///     // Create a new Datadog - Microsoft Azure integration using a client secret
     ///     var sandbox = new Datadog.Azure.Integration("sandbox", new()
     ///     {
     ///         TenantName = "&lt;azure_tenant_name&gt;",
@@ -34,6 +34,15 @@ namespace Pulumi.Datadog.Azure
     ///         Automute = true,
     ///         CspmEnabled = true,
     ///         CustomMetricsEnabled = false,
+    ///     });
+    /// 
+    ///     // Or, using secretless (federated workload identity) authentication.
+    ///     // Note: secretless authentication is currently in Preview.
+    ///     var sandboxSecretless = new Datadog.Azure.Integration("sandbox_secretless", new()
+    ///     {
+    ///         TenantName = "&lt;azure_tenant_name&gt;",
+    ///         ClientId = "&lt;azure_client_id&gt;",
+    ///         SecretlessAuthEnabled = true,
     ///     });
     /// 
     /// });
@@ -72,10 +81,10 @@ namespace Pulumi.Datadog.Azure
         public Output<string> ClientId { get; private set; } = null!;
 
         /// <summary>
-        /// (Required for Initial Creation) Your Azure web application secret key.
+        /// Your Azure web application secret key. Required unless `SecretlessAuthEnabled` is set to `True`.
         /// </summary>
         [Output("clientSecret")]
-        public Output<string> ClientSecret { get; private set; } = null!;
+        public Output<string?> ClientSecret { get; private set; } = null!;
 
         /// <summary>
         /// This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog. Defaults to `""`.
@@ -125,6 +134,12 @@ namespace Pulumi.Datadog.Azure
         /// </summary>
         [Output("resourceProviderConfigs")]
         public Output<ImmutableArray<Outputs.IntegrationResourceProviderConfig>> ResourceProviderConfigs { get; private set; } = null!;
+
+        /// <summary>
+        /// (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `True`, `ClientSecret` should be omitted. Defaults to `False`.
+        /// </summary>
+        [Output("secretlessAuthEnabled")]
+        public Output<bool> SecretlessAuthEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Your Azure Active Directory ID.
@@ -206,11 +221,11 @@ namespace Pulumi.Datadog.Azure
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
-        [Input("clientSecret", required: true)]
+        [Input("clientSecret")]
         private Input<string>? _clientSecret;
 
         /// <summary>
-        /// (Required for Initial Creation) Your Azure web application secret key.
+        /// Your Azure web application secret key. Required unless `SecretlessAuthEnabled` is set to `True`.
         /// </summary>
         public Input<string>? ClientSecret
         {
@@ -278,6 +293,12 @@ namespace Pulumi.Datadog.Azure
         }
 
         /// <summary>
+        /// (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `True`, `ClientSecret` should be omitted. Defaults to `False`.
+        /// </summary>
+        [Input("secretlessAuthEnabled")]
+        public Input<bool>? SecretlessAuthEnabled { get; set; }
+
+        /// <summary>
         /// Your Azure Active Directory ID.
         /// </summary>
         [Input("tenantName", required: true)]
@@ -319,7 +340,7 @@ namespace Pulumi.Datadog.Azure
         private Input<string>? _clientSecret;
 
         /// <summary>
-        /// (Required for Initial Creation) Your Azure web application secret key.
+        /// Your Azure web application secret key. Required unless `SecretlessAuthEnabled` is set to `True`.
         /// </summary>
         public Input<string>? ClientSecret
         {
@@ -385,6 +406,12 @@ namespace Pulumi.Datadog.Azure
             get => _resourceProviderConfigs ?? (_resourceProviderConfigs = new InputList<Inputs.IntegrationResourceProviderConfigGetArgs>());
             set => _resourceProviderConfigs = value;
         }
+
+        /// <summary>
+        /// (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `True`, `ClientSecret` should be omitted. Defaults to `False`.
+        /// </summary>
+        [Input("secretlessAuthEnabled")]
+        public Input<bool>? SecretlessAuthEnabled { get; set; }
 
         /// <summary>
         /// Your Azure Active Directory ID.

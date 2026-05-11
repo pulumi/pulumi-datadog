@@ -34,6 +34,21 @@ public final class PowerpackWidgetServicemapDefinitionArgs extends com.pulumi.re
     }
 
     /**
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * Your environment and primary tag (or `*` if enabled for your account).
      * 
      */
@@ -112,6 +127,7 @@ public final class PowerpackWidgetServicemapDefinitionArgs extends com.pulumi.re
 
     private PowerpackWidgetServicemapDefinitionArgs(PowerpackWidgetServicemapDefinitionArgs $) {
         this.customLinks = $.customLinks;
+        this.description = $.description;
         this.filters = $.filters;
         this.service = $.service;
         this.title = $.title;
@@ -166,6 +182,27 @@ public final class PowerpackWidgetServicemapDefinitionArgs extends com.pulumi.re
          */
         public Builder customLinks(PowerpackWidgetServicemapDefinitionCustomLinkArgs... customLinks) {
             return customLinks(List.of(customLinks));
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

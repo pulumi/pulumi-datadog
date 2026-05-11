@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Column;
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Widget sorting methods. Valid values are `Asc`, `Desc`.
         /// </summary>
         public readonly string Order;
@@ -26,9 +30,12 @@ namespace Pulumi.Datadog.Outputs
         private PowerpackWidgetLogStreamDefinitionSort(
             string column,
 
+            string? description,
+
             string order)
         {
             Column = column;
+            Description = description;
             Order = order;
         }
     }

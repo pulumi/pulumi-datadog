@@ -13,38 +13,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigDestinationElasticsearchAuth {
     /**
-     * @return Name of the environment variable or secret that holds the Elasticsearch password (used when strategy is `basic`).
+     * @return Name of the environment variable or secret that holds the Elasticsearch password (used when `strategy` is `basic`).
      * 
      */
     private @Nullable String passwordKey;
     /**
-     * @return The authentication strategy. Use `basic` for username/password. Valid values are `basic`, `aws`.
+     * @return The authentication strategy to use. Valid values are `basic`, `aws`.
      * 
      */
     private String strategy;
     /**
-     * @return Name of the environment variable or secret that holds the Elasticsearch username (used when strategy is `basic`).
+     * @return Name of the environment variable or secret that holds the Elasticsearch username (used when `strategy` is `basic`).
      * 
      */
     private @Nullable String usernameKey;
 
     private ObservabilityPipelineConfigDestinationElasticsearchAuth() {}
     /**
-     * @return Name of the environment variable or secret that holds the Elasticsearch password (used when strategy is `basic`).
+     * @return Name of the environment variable or secret that holds the Elasticsearch password (used when `strategy` is `basic`).
      * 
      */
     public Optional<String> passwordKey() {
         return Optional.ofNullable(this.passwordKey);
     }
     /**
-     * @return The authentication strategy. Use `basic` for username/password. Valid values are `basic`, `aws`.
+     * @return The authentication strategy to use. Valid values are `basic`, `aws`.
      * 
      */
     public String strategy() {
         return this.strategy;
     }
     /**
-     * @return Name of the environment variable or secret that holds the Elasticsearch username (used when strategy is `basic`).
+     * @return Name of the environment variable or secret that holds the Elasticsearch username (used when `strategy` is `basic`).
      * 
      */
     public Optional<String> usernameKey() {

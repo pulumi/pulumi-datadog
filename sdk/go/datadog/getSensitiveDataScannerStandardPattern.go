@@ -11,7 +11,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve information about an existing sensitive data scanner standard pattern.
+// Use this data source to retrieve information about an existing sensitive data scanner standard pattern. You can look up a pattern by its stable standard pattern ID or by name.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v5/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.GetSensitiveDataScannerStandardPattern(ctx, &datadog.GetSensitiveDataScannerStandardPatternArgs{
+//				StandardPatternId: pulumi.StringRef("OfGqX8R9TRqAcorxenl2fQ"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetSensitiveDataScannerStandardPattern(ctx *pulumi.Context, args *GetSensitiveDataScannerStandardPatternArgs, opts ...pulumi.InvokeOption) (*GetSensitiveDataScannerStandardPatternResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSensitiveDataScannerStandardPatternResult
@@ -25,7 +51,9 @@ func GetSensitiveDataScannerStandardPattern(ctx *pulumi.Context, args *GetSensit
 // A collection of arguments for invoking getSensitiveDataScannerStandardPattern.
 type GetSensitiveDataScannerStandardPatternArgs struct {
 	// Filter all the Datadog standard patterns by name.
-	Filter string `pulumi:"filter"`
+	Filter *string `pulumi:"filter"`
+	// Stable ID of the Datadog standard pattern to retrieve. This can be set directly to avoid Terraform configs breaking when Datadog renames a standard pattern.
+	StandardPatternId *string `pulumi:"standardPatternId"`
 }
 
 // A collection of values returned by getSensitiveDataScannerStandardPattern.
@@ -33,7 +61,7 @@ type GetSensitiveDataScannerStandardPatternResult struct {
 	// Description of the standard pattern.
 	Description string `pulumi:"description"`
 	// Filter all the Datadog standard patterns by name.
-	Filter string `pulumi:"filter"`
+	Filter *string `pulumi:"filter"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// List of recommended keywords to improve rule accuracy.
@@ -44,6 +72,8 @@ type GetSensitiveDataScannerStandardPatternResult struct {
 	//
 	// Deprecated: Refer to the description field to understand what the rule does.
 	Pattern string `pulumi:"pattern"`
+	// Stable ID of the Datadog standard pattern to retrieve. This can be set directly to avoid Terraform configs breaking when Datadog renames a standard pattern.
+	StandardPatternId *string `pulumi:"standardPatternId"`
 	// List of tags.
 	Tags []string `pulumi:"tags"`
 }
@@ -60,7 +90,9 @@ func GetSensitiveDataScannerStandardPatternOutput(ctx *pulumi.Context, args GetS
 // A collection of arguments for invoking getSensitiveDataScannerStandardPattern.
 type GetSensitiveDataScannerStandardPatternOutputArgs struct {
 	// Filter all the Datadog standard patterns by name.
-	Filter pulumi.StringInput `pulumi:"filter"`
+	Filter pulumi.StringPtrInput `pulumi:"filter"`
+	// Stable ID of the Datadog standard pattern to retrieve. This can be set directly to avoid Terraform configs breaking when Datadog renames a standard pattern.
+	StandardPatternId pulumi.StringPtrInput `pulumi:"standardPatternId"`
 }
 
 func (GetSensitiveDataScannerStandardPatternOutputArgs) ElementType() reflect.Type {
@@ -88,8 +120,8 @@ func (o GetSensitiveDataScannerStandardPatternResultOutput) Description() pulumi
 }
 
 // Filter all the Datadog standard patterns by name.
-func (o GetSensitiveDataScannerStandardPatternResultOutput) Filter() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSensitiveDataScannerStandardPatternResult) string { return v.Filter }).(pulumi.StringOutput)
+func (o GetSensitiveDataScannerStandardPatternResultOutput) Filter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSensitiveDataScannerStandardPatternResult) *string { return v.Filter }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -112,6 +144,11 @@ func (o GetSensitiveDataScannerStandardPatternResultOutput) Name() pulumi.String
 // Deprecated: Refer to the description field to understand what the rule does.
 func (o GetSensitiveDataScannerStandardPatternResultOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSensitiveDataScannerStandardPatternResult) string { return v.Pattern }).(pulumi.StringOutput)
+}
+
+// Stable ID of the Datadog standard pattern to retrieve. This can be set directly to avoid Terraform configs breaking when Datadog renames a standard pattern.
+func (o GetSensitiveDataScannerStandardPatternResultOutput) StandardPatternId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSensitiveDataScannerStandardPatternResult) *string { return v.StandardPatternId }).(pulumi.StringPtrOutput)
 }
 
 // List of tags.

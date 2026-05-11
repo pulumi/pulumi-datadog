@@ -55,6 +55,11 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
      * 
      */
     private @Nullable String tokenKey;
+    /**
+     * @return Controls how the Splunk HEC token is supplied. Use `custom` to provide a token via `tokenKey`, or `fromSource` to forward the token received from an upstream Splunk HEC source. Valid values are `custom`, `fromSource`.
+     * 
+     */
+    private @Nullable String tokenStrategy;
 
     private ObservabilityPipelineConfigDestinationSplunkHec() {}
     /**
@@ -113,6 +118,13 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
     public Optional<String> tokenKey() {
         return Optional.ofNullable(this.tokenKey);
     }
+    /**
+     * @return Controls how the Splunk HEC token is supplied. Use `custom` to provide a token via `tokenKey`, or `fromSource` to forward the token received from an upstream Splunk HEC source. Valid values are `custom`, `fromSource`.
+     * 
+     */
+    public Optional<String> tokenStrategy() {
+        return Optional.ofNullable(this.tokenStrategy);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -131,6 +143,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
         private @Nullable List<String> indexedFields;
         private @Nullable String sourcetype;
         private @Nullable String tokenKey;
+        private @Nullable String tokenStrategy;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationSplunkHec defaults) {
     	      Objects.requireNonNull(defaults);
@@ -142,6 +155,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
     	      this.indexedFields = defaults.indexedFields;
     	      this.sourcetype = defaults.sourcetype;
     	      this.tokenKey = defaults.tokenKey;
+    	      this.tokenStrategy = defaults.tokenStrategy;
         }
 
         @CustomType.Setter
@@ -197,6 +211,12 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
             this.tokenKey = tokenKey;
             return this;
         }
+        @CustomType.Setter
+        public Builder tokenStrategy(@Nullable String tokenStrategy) {
+
+            this.tokenStrategy = tokenStrategy;
+            return this;
+        }
         public ObservabilityPipelineConfigDestinationSplunkHec build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationSplunkHec();
             _resultValue.autoExtractTimestamp = autoExtractTimestamp;
@@ -207,6 +227,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
             _resultValue.indexedFields = indexedFields;
             _resultValue.sourcetype = sourcetype;
             _resultValue.tokenKey = tokenKey;
+            _resultValue.tokenStrategy = tokenStrategy;
             return _resultValue;
         }
     }

@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetServicemapDefinitionCustomLink> CustomLinks;
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Your environment and primary tag (or `*` if enabled for your account).
         /// </summary>
         public readonly ImmutableArray<string> Filters;
@@ -42,6 +46,8 @@ namespace Pulumi.Datadog.Outputs
         private DashboardWidgetServicemapDefinition(
             ImmutableArray<Outputs.DashboardWidgetServicemapDefinitionCustomLink> customLinks,
 
+            string? description,
+
             ImmutableArray<string> filters,
 
             string service,
@@ -53,6 +59,7 @@ namespace Pulumi.Datadog.Outputs
             string? titleSize)
         {
             CustomLinks = customLinks;
+            Description = description;
             Filters = filters;
             Service = service;
             Title = title;

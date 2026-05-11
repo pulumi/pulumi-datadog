@@ -25,6 +25,11 @@ public final class DashboardWidgetPowerpackDefinition {
      */
     private @Nullable String bannerImg;
     /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return UUID of the associated powerpack.
      * 
      */
@@ -59,6 +64,13 @@ public final class DashboardWidgetPowerpackDefinition {
      */
     public Optional<String> bannerImg() {
         return Optional.ofNullable(this.bannerImg);
+    }
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return UUID of the associated powerpack.
@@ -100,6 +112,7 @@ public final class DashboardWidgetPowerpackDefinition {
     public static final class Builder {
         private @Nullable String backgroundColor;
         private @Nullable String bannerImg;
+        private @Nullable String description;
         private String powerpackId;
         private @Nullable Boolean showTitle;
         private @Nullable DashboardWidgetPowerpackDefinitionTemplateVariables templateVariables;
@@ -109,6 +122,7 @@ public final class DashboardWidgetPowerpackDefinition {
     	      Objects.requireNonNull(defaults);
     	      this.backgroundColor = defaults.backgroundColor;
     	      this.bannerImg = defaults.bannerImg;
+    	      this.description = defaults.description;
     	      this.powerpackId = defaults.powerpackId;
     	      this.showTitle = defaults.showTitle;
     	      this.templateVariables = defaults.templateVariables;
@@ -125,6 +139,12 @@ public final class DashboardWidgetPowerpackDefinition {
         public Builder bannerImg(@Nullable String bannerImg) {
 
             this.bannerImg = bannerImg;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -157,6 +177,7 @@ public final class DashboardWidgetPowerpackDefinition {
             final var _resultValue = new DashboardWidgetPowerpackDefinition();
             _resultValue.backgroundColor = backgroundColor;
             _resultValue.bannerImg = bannerImg;
+            _resultValue.description = description;
             _resultValue.powerpackId = powerpackId;
             _resultValue.showTitle = showTitle;
             _resultValue.templateVariables = templateVariables;

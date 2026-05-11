@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.ObservabilityPipelineConfigSourceAmazonS3AuthArgs>? Auth { get; set; }
 
         /// <summary>
+        /// Compression format for objects retrieved from the S3 bucket. Use `Auto` to detect compression from the object's Content-Encoding header or file extension. Valid values are `Auto`, `None`, `Gzip`, `Zstd`.
+        /// </summary>
+        [Input("compression")]
+        public Input<string>? Compression { get; set; }
+
+        /// <summary>
         /// AWS region where the S3 bucket resides.
         /// </summary>
         [Input("region", required: true)]

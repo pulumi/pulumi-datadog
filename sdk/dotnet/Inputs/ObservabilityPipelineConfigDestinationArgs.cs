@@ -84,6 +84,18 @@ namespace Pulumi.Datadog.Inputs
             set => _crowdstrikeNextGenSiems = value;
         }
 
+        [Input("databricksZerobuses")]
+        private InputList<Inputs.ObservabilityPipelineConfigDestinationDatabricksZerobusArgs>? _databricksZerobuses;
+
+        /// <summary>
+        /// The `DatabricksZerobus` destination sends logs to Databricks via the Zerobus ingestion API.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigDestinationDatabricksZerobusArgs> DatabricksZerobuses
+        {
+            get => _databricksZerobuses ?? (_databricksZerobuses = new InputList<Inputs.ObservabilityPipelineConfigDestinationDatabricksZerobusArgs>());
+            set => _databricksZerobuses = value;
+        }
+
         [Input("datadogLogs")]
         private InputList<Inputs.ObservabilityPipelineConfigDestinationDatadogLogArgs>? _datadogLogs;
 
@@ -112,7 +124,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.ObservabilityPipelineConfigDestinationElasticsearchArgs>? _elasticsearches;
 
         /// <summary>
-        /// The `Elasticsearch` destination writes logs to an Elasticsearch cluster.
+        /// The `Elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigDestinationElasticsearchArgs> Elasticsearches
         {

@@ -11,6 +11,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class PowerpackWidgetListStreamDefinitionRequestArgs extends com.pulumi.resources.ResourceArgs {
@@ -30,6 +32,21 @@ public final class PowerpackWidgetListStreamDefinitionRequestArgs extends com.pu
      */
     public Output<List<PowerpackWidgetListStreamDefinitionRequestColumnArgs>> columns() {
         return this.columns;
+    }
+
+    /**
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
     }
 
     /**
@@ -66,6 +83,7 @@ public final class PowerpackWidgetListStreamDefinitionRequestArgs extends com.pu
 
     private PowerpackWidgetListStreamDefinitionRequestArgs(PowerpackWidgetListStreamDefinitionRequestArgs $) {
         this.columns = $.columns;
+        this.description = $.description;
         this.query = $.query;
         this.responseFormat = $.responseFormat;
     }
@@ -117,6 +135,27 @@ public final class PowerpackWidgetListStreamDefinitionRequestArgs extends com.pu
          */
         public Builder columns(PowerpackWidgetListStreamDefinitionRequestColumnArgs... columns) {
             return columns(List.of(columns));
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

@@ -22,6 +22,11 @@ public final class DashboardWidgetHostmapDefinition {
      */
     private @Nullable List<DashboardWidgetHostmapDefinitionCustomLink> customLinks;
     /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return The list of tags to group nodes by.
      * 
      */
@@ -79,6 +84,13 @@ public final class DashboardWidgetHostmapDefinition {
      */
     public List<DashboardWidgetHostmapDefinitionCustomLink> customLinks() {
         return this.customLinks == null ? List.of() : this.customLinks;
+    }
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The list of tags to group nodes by.
@@ -161,6 +173,7 @@ public final class DashboardWidgetHostmapDefinition {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<DashboardWidgetHostmapDefinitionCustomLink> customLinks;
+        private @Nullable String description;
         private @Nullable List<String> groups;
         private @Nullable Boolean noGroupHosts;
         private @Nullable Boolean noMetricHosts;
@@ -175,6 +188,7 @@ public final class DashboardWidgetHostmapDefinition {
         public Builder(DashboardWidgetHostmapDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customLinks = defaults.customLinks;
+    	      this.description = defaults.description;
     	      this.groups = defaults.groups;
     	      this.noGroupHosts = defaults.noGroupHosts;
     	      this.noMetricHosts = defaults.noMetricHosts;
@@ -195,6 +209,12 @@ public final class DashboardWidgetHostmapDefinition {
         }
         public Builder customLinks(DashboardWidgetHostmapDefinitionCustomLink... customLinks) {
             return customLinks(List.of(customLinks));
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
         }
         @CustomType.Setter
         public Builder groups(@Nullable List<String> groups) {
@@ -265,6 +285,7 @@ public final class DashboardWidgetHostmapDefinition {
         public DashboardWidgetHostmapDefinition build() {
             final var _resultValue = new DashboardWidgetHostmapDefinition();
             _resultValue.customLinks = customLinks;
+            _resultValue.description = description;
             _resultValue.groups = groups;
             _resultValue.noGroupHosts = noGroupHosts;
             _resultValue.noMetricHosts = noMetricHosts;

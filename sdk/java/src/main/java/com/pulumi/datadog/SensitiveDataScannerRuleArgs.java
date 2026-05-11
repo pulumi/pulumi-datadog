@@ -6,6 +6,7 @@ package com.pulumi.datadog;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SensitiveDataScannerRuleIncludedKeywordConfigurationArgs;
+import com.pulumi.datadog.inputs.SensitiveDataScannerRuleSuppressionsArgs;
 import com.pulumi.datadog.inputs.SensitiveDataScannerRuleTextReplacementArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -172,6 +173,21 @@ public final class SensitiveDataScannerRuleArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+     * 
+     */
+    @Import(name="suppressions")
+    private @Nullable Output<SensitiveDataScannerRuleSuppressionsArgs> suppressions;
+
+    /**
+     * @return Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+     * 
+     */
+    public Optional<Output<SensitiveDataScannerRuleSuppressionsArgs>> suppressions() {
+        return Optional.ofNullable(this.suppressions);
+    }
+
+    /**
      * List of tags.
      * 
      */
@@ -214,6 +230,7 @@ public final class SensitiveDataScannerRuleArgs extends com.pulumi.resources.Res
         this.pattern = $.pattern;
         this.priority = $.priority;
         this.standardPatternId = $.standardPatternId;
+        this.suppressions = $.suppressions;
         this.tags = $.tags;
         this.textReplacement = $.textReplacement;
     }
@@ -464,6 +481,27 @@ public final class SensitiveDataScannerRuleArgs extends com.pulumi.resources.Res
          */
         public Builder standardPatternId(String standardPatternId) {
             return standardPatternId(Output.of(standardPatternId));
+        }
+
+        /**
+         * @param suppressions Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder suppressions(@Nullable Output<SensitiveDataScannerRuleSuppressionsArgs> suppressions) {
+            $.suppressions = suppressions;
+            return this;
+        }
+
+        /**
+         * @param suppressions Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder suppressions(SensitiveDataScannerRuleSuppressionsArgs suppressions) {
+            return suppressions(Output.of(suppressions));
         }
 
         /**

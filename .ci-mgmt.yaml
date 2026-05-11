@@ -3,6 +3,8 @@ major-version: 5
 upstreamProviderOrg: DataDog
 lint: false
 makeTemplate: bridged
+runner:
+    buildSdk: pulumi-ubuntu-8core
 esc:
     enabled: true
 env:

@@ -34,7 +34,7 @@ public final class SecurityMonitoringDefaultRuleQuery {
      */
     private @Nullable String customQueryExtension;
     /**
-     * @return Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`.
+     * @return Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`, `securitySignals`.
      * 
      */
     private @Nullable String dataSource;
@@ -105,7 +105,7 @@ public final class SecurityMonitoringDefaultRuleQuery {
         return Optional.ofNullable(this.customQueryExtension);
     }
     /**
-     * @return Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`.
+     * @return Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`, `securitySignals`.
      * 
      */
     public Optional<String> dataSource() {

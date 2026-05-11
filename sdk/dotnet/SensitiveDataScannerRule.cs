@@ -84,6 +84,12 @@ namespace Pulumi.Datadog
         public Output<string?> StandardPatternId { get; private set; } = null!;
 
         /// <summary>
+        /// Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `StartsWith`, `EndsWith`, and `ExactMatch`.
+        /// </summary>
+        [Output("suppressions")]
+        public Output<Outputs.SensitiveDataScannerRuleSuppressions?> Suppressions { get; private set; } = null!;
+
+        /// <summary>
         /// List of tags.
         /// </summary>
         [Output("tags")]
@@ -213,6 +219,12 @@ namespace Pulumi.Datadog
         [Input("standardPatternId")]
         public Input<string>? StandardPatternId { get; set; }
 
+        /// <summary>
+        /// Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `StartsWith`, `EndsWith`, and `ExactMatch`.
+        /// </summary>
+        [Input("suppressions")]
+        public Input<Inputs.SensitiveDataScannerRuleSuppressionsArgs>? Suppressions { get; set; }
+
         [Input("tags")]
         private InputList<string>? _tags;
 
@@ -310,6 +322,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("standardPatternId")]
         public Input<string>? StandardPatternId { get; set; }
+
+        /// <summary>
+        /// Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `StartsWith`, `EndsWith`, and `ExactMatch`.
+        /// </summary>
+        [Input("suppressions")]
+        public Input<Inputs.SensitiveDataScannerRuleSuppressionsGetArgs>? Suppressions { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;
