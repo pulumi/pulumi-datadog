@@ -21,6 +21,7 @@
     "files": [
         "actionConnection.ts",
         "agentlessScanningAwsScanOptions.ts",
+        "agentlessScanningAzureScanOptions.ts",
         "agentlessScanningGcpScanOptions.ts",
         "apiKey.ts",
         "apmRetentionFilter.ts",

@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class SecurityMonitoringRuleCalculatedField {
     /**
-     * @return Expression.
+     * @return Expression. String length must be at least 1.
      * 
      */
     private String expression;
     /**
-     * @return Field name.
+     * @return Field name. String length must be at least 1.
      * 
      */
     private String name;
 
     private SecurityMonitoringRuleCalculatedField() {}
     /**
-     * @return Expression.
+     * @return Expression. String length must be at least 1.
      * 
      */
     public String expression() {
         return this.expression;
     }
     /**
-     * @return Field name.
+     * @return Field name. String length must be at least 1.
      * 
      */
     public String name() {

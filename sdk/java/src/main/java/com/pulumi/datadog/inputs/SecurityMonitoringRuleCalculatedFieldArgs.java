@@ -15,14 +15,14 @@ public final class SecurityMonitoringRuleCalculatedFieldArgs extends com.pulumi.
     public static final SecurityMonitoringRuleCalculatedFieldArgs Empty = new SecurityMonitoringRuleCalculatedFieldArgs();
 
     /**
-     * Expression.
+     * Expression. String length must be at least 1.
      * 
      */
     @Import(name="expression", required=true)
     private Output<String> expression;
 
     /**
-     * @return Expression.
+     * @return Expression. String length must be at least 1.
      * 
      */
     public Output<String> expression() {
@@ -30,14 +30,14 @@ public final class SecurityMonitoringRuleCalculatedFieldArgs extends com.pulumi.
     }
 
     /**
-     * Field name.
+     * Field name. String length must be at least 1.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Field name.
+     * @return Field name. String length must be at least 1.
      * 
      */
     public Output<String> name() {
@@ -70,7 +70,7 @@ public final class SecurityMonitoringRuleCalculatedFieldArgs extends com.pulumi.
         }
 
         /**
-         * @param expression Expression.
+         * @param expression Expression. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class SecurityMonitoringRuleCalculatedFieldArgs extends com.pulumi.
         }
 
         /**
-         * @param expression Expression.
+         * @param expression Expression. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class SecurityMonitoringRuleCalculatedFieldArgs extends com.pulumi.
         }
 
         /**
-         * @param name Field name.
+         * @param name Field name. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class SecurityMonitoringRuleCalculatedFieldArgs extends com.pulumi.
         }
 
         /**
-         * @param name Field name.
+         * @param name Field name. String length must be at least 1.
          * 
          * @return builder
          * 

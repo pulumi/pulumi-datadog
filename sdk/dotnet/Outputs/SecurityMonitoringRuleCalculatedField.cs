@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SecurityMonitoringRuleCalculatedField
     {
         /// <summary>
-        /// Expression.
+        /// Expression. String length must be at least 1.
         /// </summary>
         public readonly string Expression;
         /// <summary>
-        /// Field name.
+        /// Field name. String length must be at least 1.
         /// </summary>
         public readonly string Name;
 

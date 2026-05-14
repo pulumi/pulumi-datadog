@@ -18,19 +18,19 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool CheckPresence;
         /// <summary>
-        /// The name of the column in the reference table.
+        /// The name of the column in the reference table. String length must be at least 1.
         /// </summary>
         public readonly string ColumnName;
         /// <summary>
-        /// The field in the log that should be matched against the reference table.
+        /// The field in the log that should be matched against the reference table. String length must be at least 1.
         /// </summary>
         public readonly string LogFieldPath;
         /// <summary>
-        /// The name of the query to filter.
+        /// The name of the query to filter. String length must be at least 1.
         /// </summary>
         public readonly string RuleQueryName;
         /// <summary>
-        /// The name of the reference table.
+        /// The name of the reference table. String length must be at least 1.
         /// </summary>
         public readonly string TableName;
 

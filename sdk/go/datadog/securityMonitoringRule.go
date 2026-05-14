@@ -95,14 +95,16 @@ type SecurityMonitoringRule struct {
 	CalculatedFields SecurityMonitoringRuleCalculatedFieldArrayOutput `pulumi:"calculatedFields"`
 	// Cases for generating signals.
 	Cases SecurityMonitoringRuleCaseArrayOutput `pulumi:"cases"`
+	// A list of tags for generated signals, including those inherited from the provider's `defaultTags` configuration.
+	EffectiveTags pulumi.StringArrayOutput `pulumi:"effectiveTags"`
 	// Whether the rule is enabled. Defaults to `true`.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
 	Filters SecurityMonitoringRuleFilterArrayOutput `pulumi:"filters"`
 	// Additional grouping to perform on top of the query grouping.
 	GroupSignalsBies pulumi.StringArrayOutput `pulumi:"groupSignalsBies"`
 	// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
-	HasExtendedTitle pulumi.BoolPtrOutput `pulumi:"hasExtendedTitle"`
+	HasExtendedTitle pulumi.BoolOutput `pulumi:"hasExtendedTitle"`
 	// Message for generated signals.
 	Message pulumi.StringOutput `pulumi:"message"`
 	// The name of the rule.
@@ -117,12 +119,12 @@ type SecurityMonitoringRule struct {
 	SchedulingOptions SecurityMonitoringRuleSchedulingOptionsPtrOutput `pulumi:"schedulingOptions"`
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries SecurityMonitoringRuleSignalQueryArrayOutput `pulumi:"signalQueries"`
-	// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+	// User-defined tags for generated signals. See also `effectiveTags`, which includes provider-level `defaultTags`.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
 	ThirdPartyCases SecurityMonitoringRuleThirdPartyCaseArrayOutput `pulumi:"thirdPartyCases"`
 	// The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	Type pulumi.StringOutput `pulumi:"type"`
 	// Whether or not to validate the Rule.
 	Validate pulumi.BoolPtrOutput `pulumi:"validate"`
 }
@@ -167,6 +169,8 @@ type securityMonitoringRuleState struct {
 	CalculatedFields []SecurityMonitoringRuleCalculatedField `pulumi:"calculatedFields"`
 	// Cases for generating signals.
 	Cases []SecurityMonitoringRuleCase `pulumi:"cases"`
+	// A list of tags for generated signals, including those inherited from the provider's `defaultTags` configuration.
+	EffectiveTags []string `pulumi:"effectiveTags"`
 	// Whether the rule is enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
@@ -189,7 +193,7 @@ type securityMonitoringRuleState struct {
 	SchedulingOptions *SecurityMonitoringRuleSchedulingOptions `pulumi:"schedulingOptions"`
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries []SecurityMonitoringRuleSignalQuery `pulumi:"signalQueries"`
-	// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+	// User-defined tags for generated signals. See also `effectiveTags`, which includes provider-level `defaultTags`.
 	Tags []string `pulumi:"tags"`
 	// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
 	ThirdPartyCases []SecurityMonitoringRuleThirdPartyCase `pulumi:"thirdPartyCases"`
@@ -204,6 +208,8 @@ type SecurityMonitoringRuleState struct {
 	CalculatedFields SecurityMonitoringRuleCalculatedFieldArrayInput
 	// Cases for generating signals.
 	Cases SecurityMonitoringRuleCaseArrayInput
+	// A list of tags for generated signals, including those inherited from the provider's `defaultTags` configuration.
+	EffectiveTags pulumi.StringArrayInput
 	// Whether the rule is enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
@@ -226,7 +232,7 @@ type SecurityMonitoringRuleState struct {
 	SchedulingOptions SecurityMonitoringRuleSchedulingOptionsPtrInput
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries SecurityMonitoringRuleSignalQueryArrayInput
-	// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+	// User-defined tags for generated signals. See also `effectiveTags`, which includes provider-level `defaultTags`.
 	Tags pulumi.StringArrayInput
 	// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
 	ThirdPartyCases SecurityMonitoringRuleThirdPartyCaseArrayInput
@@ -267,7 +273,7 @@ type securityMonitoringRuleArgs struct {
 	SchedulingOptions *SecurityMonitoringRuleSchedulingOptions `pulumi:"schedulingOptions"`
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries []SecurityMonitoringRuleSignalQuery `pulumi:"signalQueries"`
-	// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+	// User-defined tags for generated signals. See also `effectiveTags`, which includes provider-level `defaultTags`.
 	Tags []string `pulumi:"tags"`
 	// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
 	ThirdPartyCases []SecurityMonitoringRuleThirdPartyCase `pulumi:"thirdPartyCases"`
@@ -305,7 +311,7 @@ type SecurityMonitoringRuleArgs struct {
 	SchedulingOptions SecurityMonitoringRuleSchedulingOptionsPtrInput
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries SecurityMonitoringRuleSignalQueryArrayInput
-	// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+	// User-defined tags for generated signals. See also `effectiveTags`, which includes provider-level `defaultTags`.
 	Tags pulumi.StringArrayInput
 	// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
 	ThirdPartyCases SecurityMonitoringRuleThirdPartyCaseArrayInput
@@ -414,9 +420,14 @@ func (o SecurityMonitoringRuleOutput) Cases() SecurityMonitoringRuleCaseArrayOut
 	return o.ApplyT(func(v *SecurityMonitoringRule) SecurityMonitoringRuleCaseArrayOutput { return v.Cases }).(SecurityMonitoringRuleCaseArrayOutput)
 }
 
+// A list of tags for generated signals, including those inherited from the provider's `defaultTags` configuration.
+func (o SecurityMonitoringRuleOutput) EffectiveTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.StringArrayOutput { return v.EffectiveTags }).(pulumi.StringArrayOutput)
+}
+
 // Whether the rule is enabled. Defaults to `true`.
-func (o SecurityMonitoringRuleOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+func (o SecurityMonitoringRuleOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
@@ -430,8 +441,8 @@ func (o SecurityMonitoringRuleOutput) GroupSignalsBies() pulumi.StringArrayOutpu
 }
 
 // Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
-func (o SecurityMonitoringRuleOutput) HasExtendedTitle() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.BoolPtrOutput { return v.HasExtendedTitle }).(pulumi.BoolPtrOutput)
+func (o SecurityMonitoringRuleOutput) HasExtendedTitle() pulumi.BoolOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.BoolOutput { return v.HasExtendedTitle }).(pulumi.BoolOutput)
 }
 
 // Message for generated signals.
@@ -473,7 +484,7 @@ func (o SecurityMonitoringRuleOutput) SignalQueries() SecurityMonitoringRuleSign
 	return o.ApplyT(func(v *SecurityMonitoringRule) SecurityMonitoringRuleSignalQueryArrayOutput { return v.SignalQueries }).(SecurityMonitoringRuleSignalQueryArrayOutput)
 }
 
-// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+// User-defined tags for generated signals. See also `effectiveTags`, which includes provider-level `defaultTags`.
 func (o SecurityMonitoringRuleOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
@@ -486,8 +497,8 @@ func (o SecurityMonitoringRuleOutput) ThirdPartyCases() SecurityMonitoringRuleTh
 }
 
 // The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
-func (o SecurityMonitoringRuleOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+func (o SecurityMonitoringRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
 // Whether or not to validate the Rule.

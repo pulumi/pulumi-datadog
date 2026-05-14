@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestFormula;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestQuery;
@@ -41,6 +42,11 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionR
      */
     private @Nullable List<PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestFormula> formulas;
     /**
+     * @return Singular query block for histogram-mode distribution requests.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQuery histogramQuery;
+    /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
      * @deprecated
@@ -72,6 +78,11 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionR
      * 
      */
     private @Nullable List<PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestQuery> queries;
+    /**
+     * @return Set to &#39;histogram&#39; for distribution-of-point-values requests. Valid values are `histogram`.
+     * 
+     */
+    private @Nullable String requestType;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -123,6 +134,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionR
         return this.formulas == null ? List.of() : this.formulas;
     }
     /**
+     * @return Singular query block for histogram-mode distribution requests.
+     * 
+     */
+    public Optional<PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQuery> histogramQuery() {
+        return Optional.ofNullable(this.histogramQuery);
+    }
+    /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
      * @deprecated
@@ -161,6 +179,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionR
      */
     public List<PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestQuery> queries() {
         return this.queries == null ? List.of() : this.queries;
+    }
+    /**
+     * @return Set to &#39;histogram&#39; for distribution-of-point-values requests. Valid values are `histogram`.
+     * 
+     */
+    public Optional<String> requestType() {
+        return Optional.ofNullable(this.requestType);
     }
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
@@ -204,10 +229,12 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionR
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery apmQuery;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQuery apmStatsQuery;
         private @Nullable List<PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestFormula> formulas;
+        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQuery histogramQuery;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery logQuery;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQuery processQuery;
         private @Nullable String q;
         private @Nullable List<PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestQuery> queries;
+        private @Nullable String requestType;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuery rumQuery;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQuery securityQuery;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestStyle style;
@@ -217,10 +244,12 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionR
     	      this.apmQuery = defaults.apmQuery;
     	      this.apmStatsQuery = defaults.apmStatsQuery;
     	      this.formulas = defaults.formulas;
+    	      this.histogramQuery = defaults.histogramQuery;
     	      this.logQuery = defaults.logQuery;
     	      this.processQuery = defaults.processQuery;
     	      this.q = defaults.q;
     	      this.queries = defaults.queries;
+    	      this.requestType = defaults.requestType;
     	      this.rumQuery = defaults.rumQuery;
     	      this.securityQuery = defaults.securityQuery;
     	      this.style = defaults.style;
@@ -246,6 +275,12 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionR
         }
         public Builder formulas(PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestFormula... formulas) {
             return formulas(List.of(formulas));
+        }
+        @CustomType.Setter
+        public Builder histogramQuery(@Nullable PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQuery histogramQuery) {
+
+            this.histogramQuery = histogramQuery;
+            return this;
         }
         @CustomType.Setter
         public Builder logQuery(@Nullable PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery logQuery) {
@@ -275,6 +310,12 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionR
             return queries(List.of(queries));
         }
         @CustomType.Setter
+        public Builder requestType(@Nullable String requestType) {
+
+            this.requestType = requestType;
+            return this;
+        }
+        @CustomType.Setter
         public Builder rumQuery(@Nullable PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
@@ -297,10 +338,12 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionR
             _resultValue.apmQuery = apmQuery;
             _resultValue.apmStatsQuery = apmStatsQuery;
             _resultValue.formulas = formulas;
+            _resultValue.histogramQuery = histogramQuery;
             _resultValue.logQuery = logQuery;
             _resultValue.processQuery = processQuery;
             _resultValue.q = q;
             _resultValue.queries = queries;
+            _resultValue.requestType = requestType;
             _resultValue.rumQuery = rumQuery;
             _resultValue.securityQuery = securityQuery;
             _resultValue.style = style;

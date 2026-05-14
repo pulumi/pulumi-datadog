@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SecurityMonitoringRuleThirdPartyCase
     {
         /// <summary>
-        /// Name of the case.
+        /// Name of the case. Defaults to `""`.
         /// </summary>
         public readonly string? Name;
         /// <summary>

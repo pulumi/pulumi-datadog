@@ -37,7 +37,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<int>? LearningDuration { get; set; }
 
         /// <summary>
-        /// An optional override baseline to apply while the rule is in the learning period. Must be greater than or equal to 0.
+        /// An optional override baseline to apply while the rule is in the learning period. Value must be at least 0.
         /// </summary>
         [Input("learningPeriodBaseline")]
         public Input<int>? LearningPeriodBaseline { get; set; }

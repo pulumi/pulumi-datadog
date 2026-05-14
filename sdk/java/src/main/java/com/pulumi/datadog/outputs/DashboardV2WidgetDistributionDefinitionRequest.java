@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardV2WidgetDistributionDefinitionRequestApmQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetDistributionDefinitionRequestApmStatsQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetDistributionDefinitionRequestFormula;
+import com.pulumi.datadog.outputs.DashboardV2WidgetDistributionDefinitionRequestHistogramQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetDistributionDefinitionRequestLogQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetDistributionDefinitionRequestProcessQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetDistributionDefinitionRequestQuery;
@@ -41,6 +42,11 @@ public final class DashboardV2WidgetDistributionDefinitionRequest {
      */
     private @Nullable List<DashboardV2WidgetDistributionDefinitionRequestFormula> formulas;
     /**
+     * @return Singular query block for histogram-mode distribution requests.
+     * 
+     */
+    private @Nullable DashboardV2WidgetDistributionDefinitionRequestHistogramQuery histogramQuery;
+    /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
      * @deprecated
@@ -72,6 +78,11 @@ public final class DashboardV2WidgetDistributionDefinitionRequest {
      * 
      */
     private @Nullable List<DashboardV2WidgetDistributionDefinitionRequestQuery> queries;
+    /**
+     * @return Set to &#39;histogram&#39; for distribution-of-point-values requests. Valid values are `histogram`.
+     * 
+     */
+    private @Nullable String requestType;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -123,6 +134,13 @@ public final class DashboardV2WidgetDistributionDefinitionRequest {
         return this.formulas == null ? List.of() : this.formulas;
     }
     /**
+     * @return Singular query block for histogram-mode distribution requests.
+     * 
+     */
+    public Optional<DashboardV2WidgetDistributionDefinitionRequestHistogramQuery> histogramQuery() {
+        return Optional.ofNullable(this.histogramQuery);
+    }
+    /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
      * @deprecated
@@ -161,6 +179,13 @@ public final class DashboardV2WidgetDistributionDefinitionRequest {
      */
     public List<DashboardV2WidgetDistributionDefinitionRequestQuery> queries() {
         return this.queries == null ? List.of() : this.queries;
+    }
+    /**
+     * @return Set to &#39;histogram&#39; for distribution-of-point-values requests. Valid values are `histogram`.
+     * 
+     */
+    public Optional<String> requestType() {
+        return Optional.ofNullable(this.requestType);
     }
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
@@ -204,10 +229,12 @@ public final class DashboardV2WidgetDistributionDefinitionRequest {
         private @Nullable DashboardV2WidgetDistributionDefinitionRequestApmQuery apmQuery;
         private @Nullable DashboardV2WidgetDistributionDefinitionRequestApmStatsQuery apmStatsQuery;
         private @Nullable List<DashboardV2WidgetDistributionDefinitionRequestFormula> formulas;
+        private @Nullable DashboardV2WidgetDistributionDefinitionRequestHistogramQuery histogramQuery;
         private @Nullable DashboardV2WidgetDistributionDefinitionRequestLogQuery logQuery;
         private @Nullable DashboardV2WidgetDistributionDefinitionRequestProcessQuery processQuery;
         private @Nullable String q;
         private @Nullable List<DashboardV2WidgetDistributionDefinitionRequestQuery> queries;
+        private @Nullable String requestType;
         private @Nullable DashboardV2WidgetDistributionDefinitionRequestRumQuery rumQuery;
         private @Nullable DashboardV2WidgetDistributionDefinitionRequestSecurityQuery securityQuery;
         private @Nullable DashboardV2WidgetDistributionDefinitionRequestStyle style;
@@ -217,10 +244,12 @@ public final class DashboardV2WidgetDistributionDefinitionRequest {
     	      this.apmQuery = defaults.apmQuery;
     	      this.apmStatsQuery = defaults.apmStatsQuery;
     	      this.formulas = defaults.formulas;
+    	      this.histogramQuery = defaults.histogramQuery;
     	      this.logQuery = defaults.logQuery;
     	      this.processQuery = defaults.processQuery;
     	      this.q = defaults.q;
     	      this.queries = defaults.queries;
+    	      this.requestType = defaults.requestType;
     	      this.rumQuery = defaults.rumQuery;
     	      this.securityQuery = defaults.securityQuery;
     	      this.style = defaults.style;
@@ -246,6 +275,12 @@ public final class DashboardV2WidgetDistributionDefinitionRequest {
         }
         public Builder formulas(DashboardV2WidgetDistributionDefinitionRequestFormula... formulas) {
             return formulas(List.of(formulas));
+        }
+        @CustomType.Setter
+        public Builder histogramQuery(@Nullable DashboardV2WidgetDistributionDefinitionRequestHistogramQuery histogramQuery) {
+
+            this.histogramQuery = histogramQuery;
+            return this;
         }
         @CustomType.Setter
         public Builder logQuery(@Nullable DashboardV2WidgetDistributionDefinitionRequestLogQuery logQuery) {
@@ -275,6 +310,12 @@ public final class DashboardV2WidgetDistributionDefinitionRequest {
             return queries(List.of(queries));
         }
         @CustomType.Setter
+        public Builder requestType(@Nullable String requestType) {
+
+            this.requestType = requestType;
+            return this;
+        }
+        @CustomType.Setter
         public Builder rumQuery(@Nullable DashboardV2WidgetDistributionDefinitionRequestRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
@@ -297,10 +338,12 @@ public final class DashboardV2WidgetDistributionDefinitionRequest {
             _resultValue.apmQuery = apmQuery;
             _resultValue.apmStatsQuery = apmStatsQuery;
             _resultValue.formulas = formulas;
+            _resultValue.histogramQuery = histogramQuery;
             _resultValue.logQuery = logQuery;
             _resultValue.processQuery = processQuery;
             _resultValue.q = q;
             _resultValue.queries = queries;
+            _resultValue.requestType = requestType;
             _resultValue.rumQuery = rumQuery;
             _resultValue.securityQuery = securityQuery;
             _resultValue.style = style;

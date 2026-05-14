@@ -62,6 +62,10 @@ export class AgentlessScanningGcpScanOptions extends pulumi.CustomResource {
     }
 
     /**
+     * Indicates if host compliance scanning is enabled. Defaults to `false`.
+     */
+    declare public readonly complianceHost: pulumi.Output<boolean>;
+    /**
      * The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
      */
     declare public readonly gcpProjectId: pulumi.Output<string>;
@@ -87,6 +91,7 @@ export class AgentlessScanningGcpScanOptions extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AgentlessScanningGcpScanOptionsState | undefined;
+            resourceInputs["complianceHost"] = state?.complianceHost;
             resourceInputs["gcpProjectId"] = state?.gcpProjectId;
             resourceInputs["vulnContainersOs"] = state?.vulnContainersOs;
             resourceInputs["vulnHostOs"] = state?.vulnHostOs;
@@ -101,6 +106,7 @@ export class AgentlessScanningGcpScanOptions extends pulumi.CustomResource {
             if (args?.vulnHostOs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vulnHostOs'");
             }
+            resourceInputs["complianceHost"] = args?.complianceHost;
             resourceInputs["gcpProjectId"] = args?.gcpProjectId;
             resourceInputs["vulnContainersOs"] = args?.vulnContainersOs;
             resourceInputs["vulnHostOs"] = args?.vulnHostOs;
@@ -114,6 +120,10 @@ export class AgentlessScanningGcpScanOptions extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AgentlessScanningGcpScanOptions resources.
  */
 export interface AgentlessScanningGcpScanOptionsState {
+    /**
+     * Indicates if host compliance scanning is enabled. Defaults to `false`.
+     */
+    complianceHost?: pulumi.Input<boolean | undefined>;
     /**
      * The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
      */
@@ -132,6 +142,10 @@ export interface AgentlessScanningGcpScanOptionsState {
  * The set of arguments for constructing a AgentlessScanningGcpScanOptions resource.
  */
 export interface AgentlessScanningGcpScanOptionsArgs {
+    /**
+     * Indicates if host compliance scanning is enabled. Defaults to `false`.
+     */
+    complianceHost?: pulumi.Input<boolean | undefined>;
     /**
      * The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
      */

@@ -25,13 +25,13 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// A rule case contains logical operations (`&gt;`,`&gt;=`, `&amp;&amp;`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
+        /// A rule case contains logical operations (`&gt;`,`&gt;=`, `&amp;&amp;`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries. Defaults to `""`.
         /// </summary>
         [Input("condition")]
         public Input<string>? Condition { get; set; }
 
         /// <summary>
-        /// Name of the case.
+        /// Name of the case. Defaults to `""`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

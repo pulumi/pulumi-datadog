@@ -85,6 +85,20 @@ public class AgentlessScanningAwsScanOptions extends com.pulumi.resources.Custom
         return this.awsAccountId;
     }
     /**
+     * Indicates if host compliance scanning is enabled. Defaults to `false`.
+     * 
+     */
+    @Export(name="complianceHost", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> complianceHost;
+
+    /**
+     * @return Indicates if host compliance scanning is enabled. Defaults to `false`.
+     * 
+     */
+    public Output<Boolean> complianceHost() {
+        return this.complianceHost;
+    }
+    /**
      * Indicates if scanning of Lambda functions is enabled.
      * 
      */

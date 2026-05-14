@@ -37,6 +37,12 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// Singular query block for histogram-mode distribution requests.
+        /// </summary>
+        [Input("histogramQuery")]
+        public Input<Inputs.PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryGetArgs>? HistogramQuery { get; set; }
+
+        /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("logQuery")]
@@ -65,6 +71,12 @@ namespace Pulumi.Datadog.Inputs
             get => _queries ?? (_queries = new InputList<Inputs.PowerpackV2WidgetDistributionDefinitionRequestQueryGetArgs>());
             set => _queries = value;
         }
+
+        /// <summary>
+        /// Set to 'histogram' for distribution-of-point-values requests. Valid values are `Histogram`.
+        /// </summary>
+        [Input("requestType")]
+        public Input<string>? RequestType { get; set; }
 
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.

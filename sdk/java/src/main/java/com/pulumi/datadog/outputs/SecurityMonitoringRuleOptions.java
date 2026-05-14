@@ -44,12 +44,12 @@ public final class SecurityMonitoringRuleOptions {
      */
     private @Nullable SecurityMonitoringRuleOptionsImpossibleTravelOptions impossibleTravelOptions;
     /**
-     * @return Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+     * @return Once a signal is generated, the signal will remain &#34;open&#34; if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`. Defaults to `0`.
      * 
      */
     private @Nullable Integer keepAlive;
     /**
-     * @return A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+     * @return A signal will &#34;close&#34; regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
      * 
      */
     private @Nullable Integer maxSignalDuration;
@@ -106,14 +106,14 @@ public final class SecurityMonitoringRuleOptions {
         return Optional.ofNullable(this.impossibleTravelOptions);
     }
     /**
-     * @return Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+     * @return Once a signal is generated, the signal will remain &#34;open&#34; if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`. Defaults to `0`.
      * 
      */
     public Optional<Integer> keepAlive() {
         return Optional.ofNullable(this.keepAlive);
     }
     /**
-     * @return A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
+     * @return A signal will &#34;close&#34; regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
      * 
      */
     public Optional<Integer> maxSignalDuration() {

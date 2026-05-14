@@ -17,6 +17,21 @@ public final class AgentlessScanningGcpScanOptionsState extends com.pulumi.resou
     public static final AgentlessScanningGcpScanOptionsState Empty = new AgentlessScanningGcpScanOptionsState();
 
     /**
+     * Indicates if host compliance scanning is enabled. Defaults to `false`.
+     * 
+     */
+    @Import(name="complianceHost")
+    private @Nullable Output<Boolean> complianceHost;
+
+    /**
+     * @return Indicates if host compliance scanning is enabled. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> complianceHost() {
+        return Optional.ofNullable(this.complianceHost);
+    }
+
+    /**
      * The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
      * 
      */
@@ -64,6 +79,7 @@ public final class AgentlessScanningGcpScanOptionsState extends com.pulumi.resou
     private AgentlessScanningGcpScanOptionsState() {}
 
     private AgentlessScanningGcpScanOptionsState(AgentlessScanningGcpScanOptionsState $) {
+        this.complianceHost = $.complianceHost;
         this.gcpProjectId = $.gcpProjectId;
         this.vulnContainersOs = $.vulnContainersOs;
         this.vulnHostOs = $.vulnHostOs;
@@ -85,6 +101,27 @@ public final class AgentlessScanningGcpScanOptionsState extends com.pulumi.resou
 
         public Builder(AgentlessScanningGcpScanOptionsState defaults) {
             $ = new AgentlessScanningGcpScanOptionsState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param complianceHost Indicates if host compliance scanning is enabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder complianceHost(@Nullable Output<Boolean> complianceHost) {
+            $.complianceHost = complianceHost;
+            return this;
+        }
+
+        /**
+         * @param complianceHost Indicates if host compliance scanning is enabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder complianceHost(Boolean complianceHost) {
+            return complianceHost(Output.of(complianceHost));
         }
 
         /**

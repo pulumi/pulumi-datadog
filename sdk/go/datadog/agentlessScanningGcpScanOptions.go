@@ -57,6 +57,8 @@ import (
 type AgentlessScanningGcpScanOptions struct {
 	pulumi.CustomResourceState
 
+	// Indicates if host compliance scanning is enabled. Defaults to `false`.
+	ComplianceHost pulumi.BoolOutput `pulumi:"complianceHost"`
 	// The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
 	GcpProjectId pulumi.StringOutput `pulumi:"gcpProjectId"`
 	// Indicates if scanning for vulnerabilities in containers is enabled.
@@ -104,6 +106,8 @@ func GetAgentlessScanningGcpScanOptions(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentlessScanningGcpScanOptions resources.
 type agentlessScanningGcpScanOptionsState struct {
+	// Indicates if host compliance scanning is enabled. Defaults to `false`.
+	ComplianceHost *bool `pulumi:"complianceHost"`
 	// The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
 	GcpProjectId *string `pulumi:"gcpProjectId"`
 	// Indicates if scanning for vulnerabilities in containers is enabled.
@@ -113,6 +117,8 @@ type agentlessScanningGcpScanOptionsState struct {
 }
 
 type AgentlessScanningGcpScanOptionsState struct {
+	// Indicates if host compliance scanning is enabled. Defaults to `false`.
+	ComplianceHost pulumi.BoolPtrInput
 	// The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
 	GcpProjectId pulumi.StringPtrInput
 	// Indicates if scanning for vulnerabilities in containers is enabled.
@@ -126,6 +132,8 @@ func (AgentlessScanningGcpScanOptionsState) ElementType() reflect.Type {
 }
 
 type agentlessScanningGcpScanOptionsArgs struct {
+	// Indicates if host compliance scanning is enabled. Defaults to `false`.
+	ComplianceHost *bool `pulumi:"complianceHost"`
 	// The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
 	GcpProjectId string `pulumi:"gcpProjectId"`
 	// Indicates if scanning for vulnerabilities in containers is enabled.
@@ -136,6 +144,8 @@ type agentlessScanningGcpScanOptionsArgs struct {
 
 // The set of arguments for constructing a AgentlessScanningGcpScanOptions resource.
 type AgentlessScanningGcpScanOptionsArgs struct {
+	// Indicates if host compliance scanning is enabled. Defaults to `false`.
+	ComplianceHost pulumi.BoolPtrInput
 	// The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
 	GcpProjectId pulumi.StringInput
 	// Indicates if scanning for vulnerabilities in containers is enabled.
@@ -229,6 +239,11 @@ func (o AgentlessScanningGcpScanOptionsOutput) ToAgentlessScanningGcpScanOptions
 
 func (o AgentlessScanningGcpScanOptionsOutput) ToAgentlessScanningGcpScanOptionsOutputWithContext(ctx context.Context) AgentlessScanningGcpScanOptionsOutput {
 	return o
+}
+
+// Indicates if host compliance scanning is enabled. Defaults to `false`.
+func (o AgentlessScanningGcpScanOptionsOutput) ComplianceHost() pulumi.BoolOutput {
+	return o.ApplyT(func(v *AgentlessScanningGcpScanOptions) pulumi.BoolOutput { return v.ComplianceHost }).(pulumi.BoolOutput)
 }
 
 // The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.

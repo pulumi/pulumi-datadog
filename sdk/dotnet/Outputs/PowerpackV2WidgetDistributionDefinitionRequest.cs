@@ -26,6 +26,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackV2WidgetDistributionDefinitionRequestFormula> Formulas;
         /// <summary>
+        /// Singular query block for histogram-mode distribution requests.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetDistributionDefinitionRequestHistogramQuery? HistogramQuery;
+        /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetDistributionDefinitionRequestLogQuery? LogQuery;
@@ -41,6 +45,10 @@ namespace Pulumi.Datadog.Outputs
         /// A list of queries to use in the widget.
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackV2WidgetDistributionDefinitionRequestQuery> Queries;
+        /// <summary>
+        /// Set to 'histogram' for distribution-of-point-values requests. Valid values are `Histogram`.
+        /// </summary>
+        public readonly string? RequestType;
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
@@ -62,6 +70,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.PowerpackV2WidgetDistributionDefinitionRequestFormula> formulas,
 
+            Outputs.PowerpackV2WidgetDistributionDefinitionRequestHistogramQuery? histogramQuery,
+
             Outputs.PowerpackV2WidgetDistributionDefinitionRequestLogQuery? logQuery,
 
             Outputs.PowerpackV2WidgetDistributionDefinitionRequestProcessQuery? processQuery,
@@ -69,6 +79,8 @@ namespace Pulumi.Datadog.Outputs
             string? q,
 
             ImmutableArray<Outputs.PowerpackV2WidgetDistributionDefinitionRequestQuery> queries,
+
+            string? requestType,
 
             Outputs.PowerpackV2WidgetDistributionDefinitionRequestRumQuery? rumQuery,
 
@@ -79,10 +91,12 @@ namespace Pulumi.Datadog.Outputs
             ApmQuery = apmQuery;
             ApmStatsQuery = apmStatsQuery;
             Formulas = formulas;
+            HistogramQuery = histogramQuery;
             LogQuery = logQuery;
             ProcessQuery = processQuery;
             Q = q;
             Queries = queries;
+            RequestType = requestType;
             RumQuery = rumQuery;
             SecurityQuery = securityQuery;
             Style = style;

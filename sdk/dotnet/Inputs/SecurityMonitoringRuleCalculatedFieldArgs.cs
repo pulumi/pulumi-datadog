@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SecurityMonitoringRuleCalculatedFieldArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Expression.
+        /// Expression. String length must be at least 1.
         /// </summary>
         [Input("expression", required: true)]
         public Input<string> Expression { get; set; } = null!;
 
         /// <summary>
-        /// Field name.
+        /// Field name. String length must be at least 1.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

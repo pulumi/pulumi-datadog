@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetAlertGraphDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetAlertValueDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetBarChartDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetChangeDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetCheckStatusDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetDistributionDefinition;
@@ -26,6 +27,7 @@ import com.pulumi.datadog.outputs.PowerpackV2WidgetNoteDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryTableDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryValueDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetRunWorkflowDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetSankeyDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetScatterplotDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetServiceLevelObjectiveDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetServicemapDefinition;
@@ -37,6 +39,7 @@ import com.pulumi.datadog.outputs.PowerpackV2WidgetTopologyMapDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetTraceServiceDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetTreemapDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetWidgetLayout;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetWildcardDefinition;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -54,6 +57,11 @@ public final class PowerpackV2Widget {
      * 
      */
     private @Nullable PowerpackV2WidgetAlertValueDefinition alertValueDefinition;
+    /**
+     * @return The definition for a Bar Chart widget.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetBarChartDefinition barChartDefinition;
     /**
      * @return The definition for a Change widget.
      * 
@@ -160,6 +168,11 @@ public final class PowerpackV2Widget {
      */
     private @Nullable PowerpackV2WidgetRunWorkflowDefinition runWorkflowDefinition;
     /**
+     * @return The definition for a Sankey diagram widget.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetSankeyDefinition sankeyDefinition;
+    /**
      * @return The definition for a Scatterplot widget.
      * 
      */
@@ -214,6 +227,11 @@ public final class PowerpackV2Widget {
      * 
      */
     private @Nullable PowerpackV2WidgetWidgetLayout widgetLayout;
+    /**
+     * @return The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetWildcardDefinition wildcardDefinition;
 
     private PowerpackV2Widget() {}
     /**
@@ -229,6 +247,13 @@ public final class PowerpackV2Widget {
      */
     public Optional<PowerpackV2WidgetAlertValueDefinition> alertValueDefinition() {
         return Optional.ofNullable(this.alertValueDefinition);
+    }
+    /**
+     * @return The definition for a Bar Chart widget.
+     * 
+     */
+    public Optional<PowerpackV2WidgetBarChartDefinition> barChartDefinition() {
+        return Optional.ofNullable(this.barChartDefinition);
     }
     /**
      * @return The definition for a Change widget.
@@ -378,6 +403,13 @@ public final class PowerpackV2Widget {
         return Optional.ofNullable(this.runWorkflowDefinition);
     }
     /**
+     * @return The definition for a Sankey diagram widget.
+     * 
+     */
+    public Optional<PowerpackV2WidgetSankeyDefinition> sankeyDefinition() {
+        return Optional.ofNullable(this.sankeyDefinition);
+    }
+    /**
      * @return The definition for a Scatterplot widget.
      * 
      */
@@ -454,6 +486,13 @@ public final class PowerpackV2Widget {
     public Optional<PowerpackV2WidgetWidgetLayout> widgetLayout() {
         return Optional.ofNullable(this.widgetLayout);
     }
+    /**
+     * @return The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
+     * 
+     */
+    public Optional<PowerpackV2WidgetWildcardDefinition> wildcardDefinition() {
+        return Optional.ofNullable(this.wildcardDefinition);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -466,6 +505,7 @@ public final class PowerpackV2Widget {
     public static final class Builder {
         private @Nullable PowerpackV2WidgetAlertGraphDefinition alertGraphDefinition;
         private @Nullable PowerpackV2WidgetAlertValueDefinition alertValueDefinition;
+        private @Nullable PowerpackV2WidgetBarChartDefinition barChartDefinition;
         private @Nullable PowerpackV2WidgetChangeDefinition changeDefinition;
         private @Nullable PowerpackV2WidgetCheckStatusDefinition checkStatusDefinition;
         private @Nullable PowerpackV2WidgetDistributionDefinition distributionDefinition;
@@ -487,6 +527,7 @@ public final class PowerpackV2Widget {
         private @Nullable PowerpackV2WidgetQueryTableDefinition queryTableDefinition;
         private @Nullable PowerpackV2WidgetQueryValueDefinition queryValueDefinition;
         private @Nullable PowerpackV2WidgetRunWorkflowDefinition runWorkflowDefinition;
+        private @Nullable PowerpackV2WidgetSankeyDefinition sankeyDefinition;
         private @Nullable PowerpackV2WidgetScatterplotDefinition scatterplotDefinition;
         private @Nullable PowerpackV2WidgetServiceLevelObjectiveDefinition serviceLevelObjectiveDefinition;
         private @Nullable PowerpackV2WidgetServicemapDefinition servicemapDefinition;
@@ -498,11 +539,13 @@ public final class PowerpackV2Widget {
         private @Nullable PowerpackV2WidgetTraceServiceDefinition traceServiceDefinition;
         private @Nullable PowerpackV2WidgetTreemapDefinition treemapDefinition;
         private @Nullable PowerpackV2WidgetWidgetLayout widgetLayout;
+        private @Nullable PowerpackV2WidgetWildcardDefinition wildcardDefinition;
         public Builder() {}
         public Builder(PowerpackV2Widget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alertGraphDefinition = defaults.alertGraphDefinition;
     	      this.alertValueDefinition = defaults.alertValueDefinition;
+    	      this.barChartDefinition = defaults.barChartDefinition;
     	      this.changeDefinition = defaults.changeDefinition;
     	      this.checkStatusDefinition = defaults.checkStatusDefinition;
     	      this.distributionDefinition = defaults.distributionDefinition;
@@ -524,6 +567,7 @@ public final class PowerpackV2Widget {
     	      this.queryTableDefinition = defaults.queryTableDefinition;
     	      this.queryValueDefinition = defaults.queryValueDefinition;
     	      this.runWorkflowDefinition = defaults.runWorkflowDefinition;
+    	      this.sankeyDefinition = defaults.sankeyDefinition;
     	      this.scatterplotDefinition = defaults.scatterplotDefinition;
     	      this.serviceLevelObjectiveDefinition = defaults.serviceLevelObjectiveDefinition;
     	      this.servicemapDefinition = defaults.servicemapDefinition;
@@ -535,6 +579,7 @@ public final class PowerpackV2Widget {
     	      this.traceServiceDefinition = defaults.traceServiceDefinition;
     	      this.treemapDefinition = defaults.treemapDefinition;
     	      this.widgetLayout = defaults.widgetLayout;
+    	      this.wildcardDefinition = defaults.wildcardDefinition;
         }
 
         @CustomType.Setter
@@ -547,6 +592,12 @@ public final class PowerpackV2Widget {
         public Builder alertValueDefinition(@Nullable PowerpackV2WidgetAlertValueDefinition alertValueDefinition) {
 
             this.alertValueDefinition = alertValueDefinition;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder barChartDefinition(@Nullable PowerpackV2WidgetBarChartDefinition barChartDefinition) {
+
+            this.barChartDefinition = barChartDefinition;
             return this;
         }
         @CustomType.Setter
@@ -676,6 +727,12 @@ public final class PowerpackV2Widget {
             return this;
         }
         @CustomType.Setter
+        public Builder sankeyDefinition(@Nullable PowerpackV2WidgetSankeyDefinition sankeyDefinition) {
+
+            this.sankeyDefinition = sankeyDefinition;
+            return this;
+        }
+        @CustomType.Setter
         public Builder scatterplotDefinition(@Nullable PowerpackV2WidgetScatterplotDefinition scatterplotDefinition) {
 
             this.scatterplotDefinition = scatterplotDefinition;
@@ -741,10 +798,17 @@ public final class PowerpackV2Widget {
             this.widgetLayout = widgetLayout;
             return this;
         }
+        @CustomType.Setter
+        public Builder wildcardDefinition(@Nullable PowerpackV2WidgetWildcardDefinition wildcardDefinition) {
+
+            this.wildcardDefinition = wildcardDefinition;
+            return this;
+        }
         public PowerpackV2Widget build() {
             final var _resultValue = new PowerpackV2Widget();
             _resultValue.alertGraphDefinition = alertGraphDefinition;
             _resultValue.alertValueDefinition = alertValueDefinition;
+            _resultValue.barChartDefinition = barChartDefinition;
             _resultValue.changeDefinition = changeDefinition;
             _resultValue.checkStatusDefinition = checkStatusDefinition;
             _resultValue.distributionDefinition = distributionDefinition;
@@ -766,6 +830,7 @@ public final class PowerpackV2Widget {
             _resultValue.queryTableDefinition = queryTableDefinition;
             _resultValue.queryValueDefinition = queryValueDefinition;
             _resultValue.runWorkflowDefinition = runWorkflowDefinition;
+            _resultValue.sankeyDefinition = sankeyDefinition;
             _resultValue.scatterplotDefinition = scatterplotDefinition;
             _resultValue.serviceLevelObjectiveDefinition = serviceLevelObjectiveDefinition;
             _resultValue.servicemapDefinition = servicemapDefinition;
@@ -777,6 +842,7 @@ public final class PowerpackV2Widget {
             _resultValue.traceServiceDefinition = traceServiceDefinition;
             _resultValue.treemapDefinition = treemapDefinition;
             _resultValue.widgetLayout = widgetLayout;
+            _resultValue.wildcardDefinition = wildcardDefinition;
             return _resultValue;
         }
     }

@@ -31,14 +31,14 @@ public final class SecurityMonitoringRuleReferenceTableArgs extends com.pulumi.r
     }
 
     /**
-     * The name of the column in the reference table.
+     * The name of the column in the reference table. String length must be at least 1.
      * 
      */
     @Import(name="columnName", required=true)
     private Output<String> columnName;
 
     /**
-     * @return The name of the column in the reference table.
+     * @return The name of the column in the reference table. String length must be at least 1.
      * 
      */
     public Output<String> columnName() {
@@ -46,14 +46,14 @@ public final class SecurityMonitoringRuleReferenceTableArgs extends com.pulumi.r
     }
 
     /**
-     * The field in the log that should be matched against the reference table.
+     * The field in the log that should be matched against the reference table. String length must be at least 1.
      * 
      */
     @Import(name="logFieldPath", required=true)
     private Output<String> logFieldPath;
 
     /**
-     * @return The field in the log that should be matched against the reference table.
+     * @return The field in the log that should be matched against the reference table. String length must be at least 1.
      * 
      */
     public Output<String> logFieldPath() {
@@ -61,14 +61,14 @@ public final class SecurityMonitoringRuleReferenceTableArgs extends com.pulumi.r
     }
 
     /**
-     * The name of the query to filter.
+     * The name of the query to filter. String length must be at least 1.
      * 
      */
     @Import(name="ruleQueryName", required=true)
     private Output<String> ruleQueryName;
 
     /**
-     * @return The name of the query to filter.
+     * @return The name of the query to filter. String length must be at least 1.
      * 
      */
     public Output<String> ruleQueryName() {
@@ -76,14 +76,14 @@ public final class SecurityMonitoringRuleReferenceTableArgs extends com.pulumi.r
     }
 
     /**
-     * The name of the reference table.
+     * The name of the reference table. String length must be at least 1.
      * 
      */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
     /**
-     * @return The name of the reference table.
+     * @return The name of the reference table. String length must be at least 1.
      * 
      */
     public Output<String> tableName() {
@@ -140,7 +140,7 @@ public final class SecurityMonitoringRuleReferenceTableArgs extends com.pulumi.r
         }
 
         /**
-         * @param columnName The name of the column in the reference table.
+         * @param columnName The name of the column in the reference table. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class SecurityMonitoringRuleReferenceTableArgs extends com.pulumi.r
         }
 
         /**
-         * @param columnName The name of the column in the reference table.
+         * @param columnName The name of the column in the reference table. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class SecurityMonitoringRuleReferenceTableArgs extends com.pulumi.r
         }
 
         /**
-         * @param logFieldPath The field in the log that should be matched against the reference table.
+         * @param logFieldPath The field in the log that should be matched against the reference table. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class SecurityMonitoringRuleReferenceTableArgs extends com.pulumi.r
         }
 
         /**
-         * @param logFieldPath The field in the log that should be matched against the reference table.
+         * @param logFieldPath The field in the log that should be matched against the reference table. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class SecurityMonitoringRuleReferenceTableArgs extends com.pulumi.r
         }
 
         /**
-         * @param ruleQueryName The name of the query to filter.
+         * @param ruleQueryName The name of the query to filter. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class SecurityMonitoringRuleReferenceTableArgs extends com.pulumi.r
         }
 
         /**
-         * @param ruleQueryName The name of the query to filter.
+         * @param ruleQueryName The name of the query to filter. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class SecurityMonitoringRuleReferenceTableArgs extends com.pulumi.r
         }
 
         /**
-         * @param tableName The name of the reference table.
+         * @param tableName The name of the reference table. String length must be at least 1.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class SecurityMonitoringRuleReferenceTableArgs extends com.pulumi.r
         }
 
         /**
-         * @param tableName The name of the reference table.
+         * @param tableName The name of the reference table. String length must be at least 1.
          * 
          * @return builder
          * 

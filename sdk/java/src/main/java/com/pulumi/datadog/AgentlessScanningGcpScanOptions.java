@@ -69,6 +69,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/agentlessScanningGcpScanOptions:AgentlessScanningGcpScanOptions")
 public class AgentlessScanningGcpScanOptions extends com.pulumi.resources.CustomResource {
     /**
+     * Indicates if host compliance scanning is enabled. Defaults to `false`.
+     * 
+     */
+    @Export(name="complianceHost", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> complianceHost;
+
+    /**
+     * @return Indicates if host compliance scanning is enabled. Defaults to `false`.
+     * 
+     */
+    public Output<Boolean> complianceHost() {
+        return this.complianceHost;
+    }
+    /**
      * The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
      * 
      */

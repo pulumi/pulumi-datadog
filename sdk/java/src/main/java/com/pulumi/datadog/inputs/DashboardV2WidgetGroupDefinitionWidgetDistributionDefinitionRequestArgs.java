@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestFormulaArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestQueryArgs;
@@ -76,6 +77,21 @@ public final class DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionR
      */
     public Optional<Output<List<DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestFormulaArgs>>> formulas() {
         return Optional.ofNullable(this.formulas);
+    }
+
+    /**
+     * Singular query block for histogram-mode distribution requests.
+     * 
+     */
+    @Import(name="histogramQuery")
+    private @Nullable Output<DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQueryArgs> histogramQuery;
+
+    /**
+     * @return Singular query block for histogram-mode distribution requests.
+     * 
+     */
+    public Optional<Output<DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQueryArgs>> histogramQuery() {
+        return Optional.ofNullable(this.histogramQuery);
     }
 
     /**
@@ -163,6 +179,21 @@ public final class DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionR
     }
 
     /**
+     * Set to &#39;histogram&#39; for distribution-of-point-values requests. Valid values are `histogram`.
+     * 
+     */
+    @Import(name="requestType")
+    private @Nullable Output<String> requestType;
+
+    /**
+     * @return Set to &#39;histogram&#39; for distribution-of-point-values requests. Valid values are `histogram`.
+     * 
+     */
+    public Optional<Output<String>> requestType() {
+        return Optional.ofNullable(this.requestType);
+    }
+
+    /**
      * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
      * @deprecated
@@ -229,10 +260,12 @@ public final class DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionR
         this.apmQuery = $.apmQuery;
         this.apmStatsQuery = $.apmStatsQuery;
         this.formulas = $.formulas;
+        this.histogramQuery = $.histogramQuery;
         this.logQuery = $.logQuery;
         this.processQuery = $.processQuery;
         this.q = $.q;
         this.queries = $.queries;
+        this.requestType = $.requestType;
         this.rumQuery = $.rumQuery;
         this.securityQuery = $.securityQuery;
         this.style = $.style;
@@ -335,6 +368,27 @@ public final class DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionR
          */
         public Builder formulas(DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestFormulaArgs... formulas) {
             return formulas(List.of(formulas));
+        }
+
+        /**
+         * @param histogramQuery Singular query block for histogram-mode distribution requests.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder histogramQuery(@Nullable Output<DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQueryArgs> histogramQuery) {
+            $.histogramQuery = histogramQuery;
+            return this;
+        }
+
+        /**
+         * @param histogramQuery Singular query block for histogram-mode distribution requests.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder histogramQuery(DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQueryArgs histogramQuery) {
+            return histogramQuery(Output.of(histogramQuery));
         }
 
         /**
@@ -453,6 +507,27 @@ public final class DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionR
          */
         public Builder queries(DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestQueryArgs... queries) {
             return queries(List.of(queries));
+        }
+
+        /**
+         * @param requestType Set to &#39;histogram&#39; for distribution-of-point-values requests. Valid values are `histogram`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestType(@Nullable Output<String> requestType) {
+            $.requestType = requestType;
+            return this;
+        }
+
+        /**
+         * @param requestType Set to &#39;histogram&#39; for distribution-of-point-values requests. Valid values are `histogram`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestType(String requestType) {
+            return requestType(Output.of(requestType));
         }
 
         /**

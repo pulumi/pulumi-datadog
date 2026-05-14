@@ -19,25 +19,25 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool> CheckPresence { get; set; } = null!;
 
         /// <summary>
-        /// The name of the column in the reference table.
+        /// The name of the column in the reference table. String length must be at least 1.
         /// </summary>
         [Input("columnName", required: true)]
         public Input<string> ColumnName { get; set; } = null!;
 
         /// <summary>
-        /// The field in the log that should be matched against the reference table.
+        /// The field in the log that should be matched against the reference table. String length must be at least 1.
         /// </summary>
         [Input("logFieldPath", required: true)]
         public Input<string> LogFieldPath { get; set; } = null!;
 
         /// <summary>
-        /// The name of the query to filter.
+        /// The name of the query to filter. String length must be at least 1.
         /// </summary>
         [Input("ruleQueryName", required: true)]
         public Input<string> RuleQueryName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the reference table.
+        /// The name of the reference table. String length must be at least 1.
         /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;

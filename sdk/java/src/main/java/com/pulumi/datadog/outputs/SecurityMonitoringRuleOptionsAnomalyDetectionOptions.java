@@ -33,7 +33,7 @@ public final class SecurityMonitoringRuleOptionsAnomalyDetectionOptions {
      */
     private @Nullable Integer learningDuration;
     /**
-     * @return An optional override baseline to apply while the rule is in the learning period. Must be greater than or equal to 0.
+     * @return An optional override baseline to apply while the rule is in the learning period. Value must be at least 0.
      * 
      */
     private @Nullable Integer learningPeriodBaseline;
@@ -68,7 +68,7 @@ public final class SecurityMonitoringRuleOptionsAnomalyDetectionOptions {
         return Optional.ofNullable(this.learningDuration);
     }
     /**
-     * @return An optional override baseline to apply while the rule is in the learning period. Must be greater than or equal to 0.
+     * @return An optional override baseline to apply while the rule is in the learning period. Value must be at least 0.
      * 
      */
     public Optional<Integer> learningPeriodBaseline() {

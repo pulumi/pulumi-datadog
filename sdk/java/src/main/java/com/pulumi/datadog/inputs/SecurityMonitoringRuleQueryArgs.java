@@ -20,7 +20,7 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
     public static final SecurityMonitoringRuleQueryArgs Empty = new SecurityMonitoringRuleQueryArgs();
 
     /**
-     * **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
+     * **Deprecated**. It won&#39;t be applied anymore.
      * 
      * @deprecated
      * `agentRule` has been deprecated in favor of new Agent Rule resource.
@@ -31,7 +31,7 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
     private @Nullable Output<List<SecurityMonitoringRuleQueryAgentRuleArgs>> agentRules;
 
     /**
-     * @return **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
+     * @return **Deprecated**. It won&#39;t be applied anymore.
      * 
      * @deprecated
      * `agentRule` has been deprecated in favor of new Agent Rule resource.
@@ -133,7 +133,7 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
     }
 
     /**
-     * The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     * The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations.
      * 
      * @deprecated
      * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
@@ -144,7 +144,7 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
     private @Nullable Output<String> metric;
 
     /**
-     * @return The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     * @return The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations.
      * 
      * @deprecated
      * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
@@ -235,7 +235,7 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param agentRules **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
+         * @param agentRules **Deprecated**. It won&#39;t be applied anymore.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param agentRules **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
+         * @param agentRules **Deprecated**. It won&#39;t be applied anymore.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param agentRules **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
+         * @param agentRules **Deprecated**. It won&#39;t be applied anymore.
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param metric The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+         * @param metric The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations.
          * 
          * @return builder
          * 
@@ -449,7 +449,7 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param metric The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+         * @param metric The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations.
          * 
          * @return builder
          * 
