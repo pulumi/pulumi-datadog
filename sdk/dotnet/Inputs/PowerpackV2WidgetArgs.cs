@@ -25,6 +25,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.PowerpackV2WidgetAlertValueDefinitionArgs>? AlertValueDefinition { get; set; }
 
         /// <summary>
+        /// The definition for a Bar Chart widget.
+        /// </summary>
+        [Input("barChartDefinition")]
+        public Input<Inputs.PowerpackV2WidgetBarChartDefinitionArgs>? BarChartDefinition { get; set; }
+
+        /// <summary>
         /// The definition for a Change widget.
         /// </summary>
         [Input("changeDefinition")]
@@ -151,6 +157,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.PowerpackV2WidgetRunWorkflowDefinitionArgs>? RunWorkflowDefinition { get; set; }
 
         /// <summary>
+        /// The definition for a Sankey diagram widget.
+        /// </summary>
+        [Input("sankeyDefinition")]
+        public Input<Inputs.PowerpackV2WidgetSankeyDefinitionArgs>? SankeyDefinition { get; set; }
+
+        /// <summary>
         /// The definition for a Scatterplot widget.
         /// </summary>
         [Input("scatterplotDefinition")]
@@ -215,6 +227,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("widgetLayout")]
         public Input<Inputs.PowerpackV2WidgetWidgetLayoutArgs>? WidgetLayout { get; set; }
+
+        /// <summary>
+        /// The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
+        /// </summary>
+        [Input("wildcardDefinition")]
+        public Input<Inputs.PowerpackV2WidgetWildcardDefinitionArgs>? WildcardDefinition { get; set; }
 
         public PowerpackV2WidgetArgs()
         {

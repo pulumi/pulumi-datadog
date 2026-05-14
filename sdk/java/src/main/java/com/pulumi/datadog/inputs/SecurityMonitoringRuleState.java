@@ -57,6 +57,21 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
     }
 
     /**
+     * A list of tags for generated signals, including those inherited from the provider&#39;s `defaultTags` configuration.
+     * 
+     */
+    @Import(name="effectiveTags")
+    private @Nullable Output<List<String>> effectiveTags;
+
+    /**
+     * @return A list of tags for generated signals, including those inherited from the provider&#39;s `defaultTags` configuration.
+     * 
+     */
+    public Optional<Output<List<String>>> effectiveTags() {
+        return Optional.ofNullable(this.effectiveTags);
+    }
+
+    /**
      * Whether the rule is enabled. Defaults to `true`.
      * 
      */
@@ -222,14 +237,14 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+     * User-defined tags for generated signals. See also `effectiveTags`, which includes provider-level `defaultTags`.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<List<String>> tags;
 
     /**
-     * @return Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+     * @return User-defined tags for generated signals. See also `effectiveTags`, which includes provider-level `defaultTags`.
      * 
      */
     public Optional<Output<List<String>>> tags() {
@@ -286,6 +301,7 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
     private SecurityMonitoringRuleState(SecurityMonitoringRuleState $) {
         this.calculatedFields = $.calculatedFields;
         this.cases = $.cases;
+        this.effectiveTags = $.effectiveTags;
         this.enabled = $.enabled;
         this.filters = $.filters;
         this.groupSignalsBies = $.groupSignalsBies;
@@ -381,6 +397,37 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
          */
         public Builder cases(SecurityMonitoringRuleCaseArgs... cases) {
             return cases(List.of(cases));
+        }
+
+        /**
+         * @param effectiveTags A list of tags for generated signals, including those inherited from the provider&#39;s `defaultTags` configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder effectiveTags(@Nullable Output<List<String>> effectiveTags) {
+            $.effectiveTags = effectiveTags;
+            return this;
+        }
+
+        /**
+         * @param effectiveTags A list of tags for generated signals, including those inherited from the provider&#39;s `defaultTags` configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder effectiveTags(List<String> effectiveTags) {
+            return effectiveTags(Output.of(effectiveTags));
+        }
+
+        /**
+         * @param effectiveTags A list of tags for generated signals, including those inherited from the provider&#39;s `defaultTags` configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder effectiveTags(String... effectiveTags) {
+            return effectiveTags(List.of(effectiveTags));
         }
 
         /**
@@ -665,7 +712,7 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tags Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+         * @param tags User-defined tags for generated signals. See also `effectiveTags`, which includes provider-level `defaultTags`.
          * 
          * @return builder
          * 
@@ -676,7 +723,7 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tags Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+         * @param tags User-defined tags for generated signals. See also `effectiveTags`, which includes provider-level `defaultTags`.
          * 
          * @return builder
          * 
@@ -686,7 +733,7 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tags Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+         * @param tags User-defined tags for generated signals. See also `effectiveTags`, which includes provider-level `defaultTags`.
          * 
          * @return builder
          * 

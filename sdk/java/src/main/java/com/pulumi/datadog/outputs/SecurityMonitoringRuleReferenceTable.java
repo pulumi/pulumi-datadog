@@ -17,22 +17,22 @@ public final class SecurityMonitoringRuleReferenceTable {
      */
     private Boolean checkPresence;
     /**
-     * @return The name of the column in the reference table.
+     * @return The name of the column in the reference table. String length must be at least 1.
      * 
      */
     private String columnName;
     /**
-     * @return The field in the log that should be matched against the reference table.
+     * @return The field in the log that should be matched against the reference table. String length must be at least 1.
      * 
      */
     private String logFieldPath;
     /**
-     * @return The name of the query to filter.
+     * @return The name of the query to filter. String length must be at least 1.
      * 
      */
     private String ruleQueryName;
     /**
-     * @return The name of the reference table.
+     * @return The name of the reference table. String length must be at least 1.
      * 
      */
     private String tableName;
@@ -46,28 +46,28 @@ public final class SecurityMonitoringRuleReferenceTable {
         return this.checkPresence;
     }
     /**
-     * @return The name of the column in the reference table.
+     * @return The name of the column in the reference table. String length must be at least 1.
      * 
      */
     public String columnName() {
         return this.columnName;
     }
     /**
-     * @return The field in the log that should be matched against the reference table.
+     * @return The field in the log that should be matched against the reference table. String length must be at least 1.
      * 
      */
     public String logFieldPath() {
         return this.logFieldPath;
     }
     /**
-     * @return The name of the query to filter.
+     * @return The name of the query to filter. String length must be at least 1.
      * 
      */
     public String ruleQueryName() {
         return this.ruleQueryName;
     }
     /**
-     * @return The name of the reference table.
+     * @return The name of the reference table. String length must be at least 1.
      * 
      */
     public String tableName() {

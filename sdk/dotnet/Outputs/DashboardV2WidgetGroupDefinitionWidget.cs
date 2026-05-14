@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardV2WidgetGroupDefinitionWidgetAlertValueDefinition? AlertValueDefinition;
         /// <summary>
+        /// The definition for a Bar Chart widget.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetGroupDefinitionWidgetBarChartDefinition? BarChartDefinition;
+        /// <summary>
         /// The definition for a Change widget.
         /// </summary>
         public readonly Outputs.DashboardV2WidgetGroupDefinitionWidgetChangeDefinition? ChangeDefinition;
@@ -102,6 +106,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardV2WidgetGroupDefinitionWidgetRunWorkflowDefinition? RunWorkflowDefinition;
         /// <summary>
+        /// The definition for a Sankey diagram widget.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetGroupDefinitionWidgetSankeyDefinition? SankeyDefinition;
+        /// <summary>
         /// The definition for a Scatterplot widget.
         /// </summary>
         public readonly Outputs.DashboardV2WidgetGroupDefinitionWidgetScatterplotDefinition? ScatterplotDefinition;
@@ -145,12 +153,18 @@ namespace Pulumi.Datadog.Outputs
         /// The layout of the widget on a 'free' dashboard.
         /// </summary>
         public readonly Outputs.DashboardV2WidgetGroupDefinitionWidgetWidgetLayout? WidgetLayout;
+        /// <summary>
+        /// The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetGroupDefinitionWidgetWildcardDefinition? WildcardDefinition;
 
         [OutputConstructor]
         private DashboardV2WidgetGroupDefinitionWidget(
             Outputs.DashboardV2WidgetGroupDefinitionWidgetAlertGraphDefinition? alertGraphDefinition,
 
             Outputs.DashboardV2WidgetGroupDefinitionWidgetAlertValueDefinition? alertValueDefinition,
+
+            Outputs.DashboardV2WidgetGroupDefinitionWidgetBarChartDefinition? barChartDefinition,
 
             Outputs.DashboardV2WidgetGroupDefinitionWidgetChangeDefinition? changeDefinition,
 
@@ -192,6 +206,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardV2WidgetGroupDefinitionWidgetRunWorkflowDefinition? runWorkflowDefinition,
 
+            Outputs.DashboardV2WidgetGroupDefinitionWidgetSankeyDefinition? sankeyDefinition,
+
             Outputs.DashboardV2WidgetGroupDefinitionWidgetScatterplotDefinition? scatterplotDefinition,
 
             Outputs.DashboardV2WidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition? serviceLevelObjectiveDefinition,
@@ -212,10 +228,13 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardV2WidgetGroupDefinitionWidgetTreemapDefinition? treemapDefinition,
 
-            Outputs.DashboardV2WidgetGroupDefinitionWidgetWidgetLayout? widgetLayout)
+            Outputs.DashboardV2WidgetGroupDefinitionWidgetWidgetLayout? widgetLayout,
+
+            Outputs.DashboardV2WidgetGroupDefinitionWidgetWildcardDefinition? wildcardDefinition)
         {
             AlertGraphDefinition = alertGraphDefinition;
             AlertValueDefinition = alertValueDefinition;
+            BarChartDefinition = barChartDefinition;
             ChangeDefinition = changeDefinition;
             CheckStatusDefinition = checkStatusDefinition;
             DistributionDefinition = distributionDefinition;
@@ -236,6 +255,7 @@ namespace Pulumi.Datadog.Outputs
             QueryTableDefinition = queryTableDefinition;
             QueryValueDefinition = queryValueDefinition;
             RunWorkflowDefinition = runWorkflowDefinition;
+            SankeyDefinition = sankeyDefinition;
             ScatterplotDefinition = scatterplotDefinition;
             ServiceLevelObjectiveDefinition = serviceLevelObjectiveDefinition;
             ServicemapDefinition = servicemapDefinition;
@@ -247,6 +267,7 @@ namespace Pulumi.Datadog.Outputs
             TraceServiceDefinition = traceServiceDefinition;
             TreemapDefinition = treemapDefinition;
             WidgetLayout = widgetLayout;
+            WildcardDefinition = wildcardDefinition;
         }
     }
 }

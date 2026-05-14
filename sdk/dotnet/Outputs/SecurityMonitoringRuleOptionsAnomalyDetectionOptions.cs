@@ -30,7 +30,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly int? LearningDuration;
         /// <summary>
-        /// An optional override baseline to apply while the rule is in the learning period. Must be greater than or equal to 0.
+        /// An optional override baseline to apply while the rule is in the learning period. Value must be at least 0.
         /// </summary>
         public readonly int? LearningPeriodBaseline;
 

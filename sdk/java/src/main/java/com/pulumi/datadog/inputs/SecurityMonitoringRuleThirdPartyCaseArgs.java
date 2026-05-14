@@ -18,14 +18,14 @@ public final class SecurityMonitoringRuleThirdPartyCaseArgs extends com.pulumi.r
     public static final SecurityMonitoringRuleThirdPartyCaseArgs Empty = new SecurityMonitoringRuleThirdPartyCaseArgs();
 
     /**
-     * Name of the case.
+     * Name of the case. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the case.
+     * @return Name of the case. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -105,7 +105,7 @@ public final class SecurityMonitoringRuleThirdPartyCaseArgs extends com.pulumi.r
         }
 
         /**
-         * @param name Name of the case.
+         * @param name Name of the case. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class SecurityMonitoringRuleThirdPartyCaseArgs extends com.pulumi.r
         }
 
         /**
-         * @param name Name of the case.
+         * @param name Name of the case. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 

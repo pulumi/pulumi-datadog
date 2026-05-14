@@ -9,11 +9,28 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AgentlessScanningGcpScanOptionsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AgentlessScanningGcpScanOptionsArgs Empty = new AgentlessScanningGcpScanOptionsArgs();
+
+    /**
+     * Indicates if host compliance scanning is enabled. Defaults to `false`.
+     * 
+     */
+    @Import(name="complianceHost")
+    private @Nullable Output<Boolean> complianceHost;
+
+    /**
+     * @return Indicates if host compliance scanning is enabled. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> complianceHost() {
+        return Optional.ofNullable(this.complianceHost);
+    }
 
     /**
      * The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
@@ -63,6 +80,7 @@ public final class AgentlessScanningGcpScanOptionsArgs extends com.pulumi.resour
     private AgentlessScanningGcpScanOptionsArgs() {}
 
     private AgentlessScanningGcpScanOptionsArgs(AgentlessScanningGcpScanOptionsArgs $) {
+        this.complianceHost = $.complianceHost;
         this.gcpProjectId = $.gcpProjectId;
         this.vulnContainersOs = $.vulnContainersOs;
         this.vulnHostOs = $.vulnHostOs;
@@ -84,6 +102,27 @@ public final class AgentlessScanningGcpScanOptionsArgs extends com.pulumi.resour
 
         public Builder(AgentlessScanningGcpScanOptionsArgs defaults) {
             $ = new AgentlessScanningGcpScanOptionsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param complianceHost Indicates if host compliance scanning is enabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder complianceHost(@Nullable Output<Boolean> complianceHost) {
+            $.complianceHost = complianceHost;
+            return this;
+        }
+
+        /**
+         * @param complianceHost Indicates if host compliance scanning is enabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder complianceHost(Boolean complianceHost) {
+            return complianceHost(Output.of(complianceHost));
         }
 
         /**

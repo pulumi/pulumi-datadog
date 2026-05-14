@@ -223,14 +223,14 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+     * User-defined tags for generated signals. See also `effectiveTags`, which includes provider-level `defaultTags`.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<List<String>> tags;
 
     /**
-     * @return Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+     * @return User-defined tags for generated signals. See also `effectiveTags`, which includes provider-level `defaultTags`.
      * 
      */
     public Optional<Output<List<String>>> tags() {
@@ -666,7 +666,7 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tags Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+         * @param tags User-defined tags for generated signals. See also `effectiveTags`, which includes provider-level `defaultTags`.
          * 
          * @return builder
          * 
@@ -677,7 +677,7 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tags Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+         * @param tags User-defined tags for generated signals. See also `effectiveTags`, which includes provider-level `defaultTags`.
          * 
          * @return builder
          * 
@@ -687,7 +687,7 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tags Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+         * @param tags User-defined tags for generated signals. See also `effectiveTags`, which includes provider-level `defaultTags`.
          * 
          * @return builder
          * 

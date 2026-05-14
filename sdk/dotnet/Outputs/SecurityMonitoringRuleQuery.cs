@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SecurityMonitoringRuleQuery
     {
         /// <summary>
-        /// **Deprecated**. It won't be applied anymore. **Deprecated.** `AgentRule` has been deprecated in favor of new Agent Rule resource.
+        /// **Deprecated**. It won't be applied anymore.
         /// </summary>
         public readonly ImmutableArray<Outputs.SecurityMonitoringRuleQueryAgentRule> AgentRules;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Indexes;
         /// <summary>
-        /// The target field to aggregate over when using the `Sum`, `Max`, or `GeoData` aggregations. **Deprecated.** Configure `Metrics` instead. This attribute will be removed in the next major version of the provider.
+        /// The target field to aggregate over when using the `Sum`, `Max`, or `GeoData` aggregations.
         /// </summary>
         public readonly string? Metric;
         /// <summary>

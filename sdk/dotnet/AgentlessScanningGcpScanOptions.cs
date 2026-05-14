@@ -49,6 +49,12 @@ namespace Pulumi.Datadog
     public partial class AgentlessScanningGcpScanOptions : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Indicates if host compliance scanning is enabled. Defaults to `False`.
+        /// </summary>
+        [Output("complianceHost")]
+        public Output<bool> ComplianceHost { get; private set; } = null!;
+
+        /// <summary>
         /// The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
         /// </summary>
         [Output("gcpProjectId")]
@@ -113,6 +119,12 @@ namespace Pulumi.Datadog
     public sealed class AgentlessScanningGcpScanOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Indicates if host compliance scanning is enabled. Defaults to `False`.
+        /// </summary>
+        [Input("complianceHost")]
+        public Input<bool>? ComplianceHost { get; set; }
+
+        /// <summary>
         /// The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
         /// </summary>
         [Input("gcpProjectId", required: true)]
@@ -138,6 +150,12 @@ namespace Pulumi.Datadog
 
     public sealed class AgentlessScanningGcpScanOptionsState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates if host compliance scanning is enabled. Defaults to `False`.
+        /// </summary>
+        [Input("complianceHost")]
+        public Input<bool>? ComplianceHost { get; set; }
+
         /// <summary>
         /// The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
         /// </summary>

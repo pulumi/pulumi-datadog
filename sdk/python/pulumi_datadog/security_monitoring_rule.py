@@ -54,7 +54,7 @@ class SecurityMonitoringRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleReferenceTableArgs']]] reference_tables: Reference tables for filtering query results.
         :param pulumi.Input['SecurityMonitoringRuleSchedulingOptionsArgs'] scheduling_options: Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]] signal_queries: Queries for selecting logs which are part of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: User-defined tags for generated signals. See also `effective_tags`, which includes provider-level `default_tags`.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleThirdPartyCaseArgs']]] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
         :param pulumi.Input[_builtins.str] type: The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         :param pulumi.Input[_builtins.bool] validate: Whether or not to validate the Rule.
@@ -252,7 +252,7 @@ class SecurityMonitoringRuleArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+        User-defined tags for generated signals. See also `effective_tags`, which includes provider-level `default_tags`.
         """
         return pulumi.get(self, "tags")
 
@@ -302,6 +302,7 @@ class _SecurityMonitoringRuleState:
     def __init__(__self__, *,
                  calculated_fields: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityMonitoringRuleCalculatedFieldArgs']]]] = None,
                  cases: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]]] = None,
+                 effective_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  filters: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]]] = None,
                  group_signals_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -322,6 +323,7 @@ class _SecurityMonitoringRuleState:
 
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCalculatedFieldArgs']]] calculated_fields: One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]] cases: Cases for generating signals.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] effective_tags: A list of tags for generated signals, including those inherited from the provider's `default_tags` configuration.
         :param pulumi.Input[_builtins.bool] enabled: Whether the rule is enabled. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]] filters: Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_signals_bies: Additional grouping to perform on top of the query grouping.
@@ -333,7 +335,7 @@ class _SecurityMonitoringRuleState:
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleReferenceTableArgs']]] reference_tables: Reference tables for filtering query results.
         :param pulumi.Input['SecurityMonitoringRuleSchedulingOptionsArgs'] scheduling_options: Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]] signal_queries: Queries for selecting logs which are part of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: User-defined tags for generated signals. See also `effective_tags`, which includes provider-level `default_tags`.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleThirdPartyCaseArgs']]] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
         :param pulumi.Input[_builtins.str] type: The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         :param pulumi.Input[_builtins.bool] validate: Whether or not to validate the Rule.
@@ -342,6 +344,8 @@ class _SecurityMonitoringRuleState:
             pulumi.set(__self__, "calculated_fields", calculated_fields)
         if cases is not None:
             pulumi.set(__self__, "cases", cases)
+        if effective_tags is not None:
+            pulumi.set(__self__, "effective_tags", effective_tags)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if filters is not None:
@@ -396,6 +400,18 @@ class _SecurityMonitoringRuleState:
     @cases.setter
     def cases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]]]):
         pulumi.set(self, "cases", value)
+
+    @_builtins.property
+    @pulumi.getter(name="effectiveTags")
+    def effective_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of tags for generated signals, including those inherited from the provider's `default_tags` configuration.
+        """
+        return pulumi.get(self, "effective_tags")
+
+    @effective_tags.setter
+    def effective_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "effective_tags", value)
 
     @_builtins.property
     @pulumi.getter
@@ -533,7 +549,7 @@ class _SecurityMonitoringRuleState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+        User-defined tags for generated signals. See also `effective_tags`, which includes provider-level `default_tags`.
         """
         return pulumi.get(self, "tags")
 
@@ -670,7 +686,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleReferenceTableArgs', 'SecurityMonitoringRuleReferenceTableArgsDict']]]] reference_tables: Reference tables for filtering query results.
         :param pulumi.Input[Union['SecurityMonitoringRuleSchedulingOptionsArgs', 'SecurityMonitoringRuleSchedulingOptionsArgsDict']] scheduling_options: Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleSignalQueryArgs', 'SecurityMonitoringRuleSignalQueryArgsDict']]]] signal_queries: Queries for selecting logs which are part of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: User-defined tags for generated signals. See also `effective_tags`, which includes provider-level `default_tags`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleThirdPartyCaseArgs', 'SecurityMonitoringRuleThirdPartyCaseArgsDict']]]] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
         :param pulumi.Input[_builtins.str] type: The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         :param pulumi.Input[_builtins.bool] validate: Whether or not to validate the Rule.
@@ -796,6 +812,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
             __props__.__dict__["third_party_cases"] = third_party_cases
             __props__.__dict__["type"] = type
             __props__.__dict__["validate"] = validate
+            __props__.__dict__["effective_tags"] = None
         super(SecurityMonitoringRule, __self__).__init__(
             'datadog:index/securityMonitoringRule:SecurityMonitoringRule',
             resource_name,
@@ -808,6 +825,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             calculated_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityMonitoringRuleCalculatedFieldArgs', 'SecurityMonitoringRuleCalculatedFieldArgsDict']]]]] = None,
             cases: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityMonitoringRuleCaseArgs', 'SecurityMonitoringRuleCaseArgsDict']]]]] = None,
+            effective_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityMonitoringRuleFilterArgs', 'SecurityMonitoringRuleFilterArgsDict']]]]] = None,
             group_signals_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -832,6 +850,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleCalculatedFieldArgs', 'SecurityMonitoringRuleCalculatedFieldArgsDict']]]] calculated_fields: One or more calculated fields. Available only for scheduled rules (in other words, when `scheduling_options` is defined).
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleCaseArgs', 'SecurityMonitoringRuleCaseArgsDict']]]] cases: Cases for generating signals.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] effective_tags: A list of tags for generated signals, including those inherited from the provider's `default_tags` configuration.
         :param pulumi.Input[_builtins.bool] enabled: Whether the rule is enabled. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleFilterArgs', 'SecurityMonitoringRuleFilterArgsDict']]]] filters: Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_signals_bies: Additional grouping to perform on top of the query grouping.
@@ -843,7 +862,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleReferenceTableArgs', 'SecurityMonitoringRuleReferenceTableArgsDict']]]] reference_tables: Reference tables for filtering query results.
         :param pulumi.Input[Union['SecurityMonitoringRuleSchedulingOptionsArgs', 'SecurityMonitoringRuleSchedulingOptionsArgsDict']] scheduling_options: Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs in real time on ingested logs.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleSignalQueryArgs', 'SecurityMonitoringRuleSignalQueryArgsDict']]]] signal_queries: Queries for selecting logs which are part of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: User-defined tags for generated signals. See also `effective_tags`, which includes provider-level `default_tags`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringRuleThirdPartyCaseArgs', 'SecurityMonitoringRuleThirdPartyCaseArgsDict']]]] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
         :param pulumi.Input[_builtins.str] type: The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         :param pulumi.Input[_builtins.bool] validate: Whether or not to validate the Rule.
@@ -854,6 +873,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
 
         __props__.__dict__["calculated_fields"] = calculated_fields
         __props__.__dict__["cases"] = cases
+        __props__.__dict__["effective_tags"] = effective_tags
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["filters"] = filters
         __props__.__dict__["group_signals_bies"] = group_signals_bies
@@ -888,8 +908,16 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         return pulumi.get(self, "cases")
 
     @_builtins.property
+    @pulumi.getter(name="effectiveTags")
+    def effective_tags(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        A list of tags for generated signals, including those inherited from the provider's `default_tags` configuration.
+        """
+        return pulumi.get(self, "effective_tags")
+
+    @_builtins.property
     @pulumi.getter
-    def enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+    def enabled(self) -> pulumi.Output[_builtins.bool]:
         """
         Whether the rule is enabled. Defaults to `true`.
         """
@@ -913,7 +941,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="hasExtendedTitle")
-    def has_extended_title(self) -> pulumi.Output[Optional[_builtins.bool]]:
+    def has_extended_title(self) -> pulumi.Output[_builtins.bool]:
         """
         Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
         """
@@ -977,9 +1005,9 @@ class SecurityMonitoringRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Sequence[_builtins.str]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+        User-defined tags for generated signals. See also `effective_tags`, which includes provider-level `default_tags`.
         """
         return pulumi.get(self, "tags")
 
@@ -993,7 +1021,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def type(self) -> pulumi.Output[_builtins.str]:
         """
         The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         """

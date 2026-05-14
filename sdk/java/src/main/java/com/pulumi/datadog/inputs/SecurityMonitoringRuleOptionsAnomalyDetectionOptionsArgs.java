@@ -77,14 +77,14 @@ public final class SecurityMonitoringRuleOptionsAnomalyDetectionOptionsArgs exte
     }
 
     /**
-     * An optional override baseline to apply while the rule is in the learning period. Must be greater than or equal to 0.
+     * An optional override baseline to apply while the rule is in the learning period. Value must be at least 0.
      * 
      */
     @Import(name="learningPeriodBaseline")
     private @Nullable Output<Integer> learningPeriodBaseline;
 
     /**
-     * @return An optional override baseline to apply while the rule is in the learning period. Must be greater than or equal to 0.
+     * @return An optional override baseline to apply while the rule is in the learning period. Value must be at least 0.
      * 
      */
     public Optional<Output<Integer>> learningPeriodBaseline() {
@@ -204,7 +204,7 @@ public final class SecurityMonitoringRuleOptionsAnomalyDetectionOptionsArgs exte
         }
 
         /**
-         * @param learningPeriodBaseline An optional override baseline to apply while the rule is in the learning period. Must be greater than or equal to 0.
+         * @param learningPeriodBaseline An optional override baseline to apply while the rule is in the learning period. Value must be at least 0.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class SecurityMonitoringRuleOptionsAnomalyDetectionOptionsArgs exte
         }
 
         /**
-         * @param learningPeriodBaseline An optional override baseline to apply while the rule is in the learning period. Must be greater than or equal to 0.
+         * @param learningPeriodBaseline An optional override baseline to apply while the rule is in the learning period. Value must be at least 0.
          * 
          * @return builder
          * 

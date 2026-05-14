@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SecurityMonitoringRuleThirdPartyCaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the case.
+        /// Name of the case. Defaults to `""`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

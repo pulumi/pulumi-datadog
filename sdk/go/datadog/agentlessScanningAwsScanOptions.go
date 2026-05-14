@@ -61,6 +61,8 @@ type AgentlessScanningAwsScanOptions struct {
 
 	// The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	// Indicates if host compliance scanning is enabled. Defaults to `false`.
+	ComplianceHost pulumi.BoolOutput `pulumi:"complianceHost"`
 	// Indicates if scanning of Lambda functions is enabled.
 	Lambda pulumi.BoolOutput `pulumi:"lambda"`
 	// Indicates if scanning for sensitive data is enabled.
@@ -118,6 +120,8 @@ func GetAgentlessScanningAwsScanOptions(ctx *pulumi.Context,
 type agentlessScanningAwsScanOptionsState struct {
 	// The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
+	// Indicates if host compliance scanning is enabled. Defaults to `false`.
+	ComplianceHost *bool `pulumi:"complianceHost"`
 	// Indicates if scanning of Lambda functions is enabled.
 	Lambda *bool `pulumi:"lambda"`
 	// Indicates if scanning for sensitive data is enabled.
@@ -131,6 +135,8 @@ type agentlessScanningAwsScanOptionsState struct {
 type AgentlessScanningAwsScanOptionsState struct {
 	// The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
 	AwsAccountId pulumi.StringPtrInput
+	// Indicates if host compliance scanning is enabled. Defaults to `false`.
+	ComplianceHost pulumi.BoolPtrInput
 	// Indicates if scanning of Lambda functions is enabled.
 	Lambda pulumi.BoolPtrInput
 	// Indicates if scanning for sensitive data is enabled.
@@ -148,6 +154,8 @@ func (AgentlessScanningAwsScanOptionsState) ElementType() reflect.Type {
 type agentlessScanningAwsScanOptionsArgs struct {
 	// The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
 	AwsAccountId string `pulumi:"awsAccountId"`
+	// Indicates if host compliance scanning is enabled. Defaults to `false`.
+	ComplianceHost *bool `pulumi:"complianceHost"`
 	// Indicates if scanning of Lambda functions is enabled.
 	Lambda bool `pulumi:"lambda"`
 	// Indicates if scanning for sensitive data is enabled.
@@ -162,6 +170,8 @@ type agentlessScanningAwsScanOptionsArgs struct {
 type AgentlessScanningAwsScanOptionsArgs struct {
 	// The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
 	AwsAccountId pulumi.StringInput
+	// Indicates if host compliance scanning is enabled. Defaults to `false`.
+	ComplianceHost pulumi.BoolPtrInput
 	// Indicates if scanning of Lambda functions is enabled.
 	Lambda pulumi.BoolInput
 	// Indicates if scanning for sensitive data is enabled.
@@ -262,6 +272,11 @@ func (o AgentlessScanningAwsScanOptionsOutput) ToAgentlessScanningAwsScanOptions
 // The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
 func (o AgentlessScanningAwsScanOptionsOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentlessScanningAwsScanOptions) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
+}
+
+// Indicates if host compliance scanning is enabled. Defaults to `false`.
+func (o AgentlessScanningAwsScanOptionsOutput) ComplianceHost() pulumi.BoolOutput {
+	return o.ApplyT(func(v *AgentlessScanningAwsScanOptions) pulumi.BoolOutput { return v.ComplianceHost }).(pulumi.BoolOutput)
 }
 
 // Indicates if scanning of Lambda functions is enabled.

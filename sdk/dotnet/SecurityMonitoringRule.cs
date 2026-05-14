@@ -105,10 +105,16 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.SecurityMonitoringRuleCase>> Cases { get; private set; } = null!;
 
         /// <summary>
+        /// A list of tags for generated signals, including those inherited from the provider's `DefaultTags` configuration.
+        /// </summary>
+        [Output("effectiveTags")]
+        public Output<ImmutableArray<string>> EffectiveTags { get; private set; } = null!;
+
+        /// <summary>
         /// Whether the rule is enabled. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
-        public Output<bool?> Enabled { get; private set; } = null!;
+        public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
         /// Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
@@ -126,7 +132,7 @@ namespace Pulumi.Datadog
         /// Whether the notifications include the triggering group-by values in their title. Defaults to `False`.
         /// </summary>
         [Output("hasExtendedTitle")]
-        public Output<bool?> HasExtendedTitle { get; private set; } = null!;
+        public Output<bool> HasExtendedTitle { get; private set; } = null!;
 
         /// <summary>
         /// Message for generated signals.
@@ -171,7 +177,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.SecurityMonitoringRuleSignalQuery>> SignalQueries { get; private set; } = null!;
 
         /// <summary>
-        /// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+        /// User-defined tags for generated signals. See also `EffectiveTags`, which includes provider-level `DefaultTags`.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
@@ -186,7 +192,7 @@ namespace Pulumi.Datadog
         /// The rule type. Valid values are `ApplicationSecurity`, `LogDetection`, `WorkloadSecurity`, `SignalCorrelation`. Defaults to `"LogDetection"`.
         /// </summary>
         [Output("type")]
-        public Output<string?> Type { get; private set; } = null!;
+        public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
         /// Whether or not to validate the Rule.
@@ -364,7 +370,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _tags;
 
         /// <summary>
-        /// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+        /// User-defined tags for generated signals. See also `EffectiveTags`, which includes provider-level `DefaultTags`.
         /// </summary>
         public InputList<string> Tags
         {
@@ -426,6 +432,18 @@ namespace Pulumi.Datadog
         {
             get => _cases ?? (_cases = new InputList<Inputs.SecurityMonitoringRuleCaseGetArgs>());
             set => _cases = value;
+        }
+
+        [Input("effectiveTags")]
+        private InputList<string>? _effectiveTags;
+
+        /// <summary>
+        /// A list of tags for generated signals, including those inherited from the provider's `DefaultTags` configuration.
+        /// </summary>
+        public InputList<string> EffectiveTags
+        {
+            get => _effectiveTags ?? (_effectiveTags = new InputList<string>());
+            set => _effectiveTags = value;
         }
 
         /// <summary>
@@ -528,7 +546,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _tags;
 
         /// <summary>
-        /// Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+        /// User-defined tags for generated signals. See also `EffectiveTags`, which includes provider-level `DefaultTags`.
         /// </summary>
         public InputList<string> Tags
         {

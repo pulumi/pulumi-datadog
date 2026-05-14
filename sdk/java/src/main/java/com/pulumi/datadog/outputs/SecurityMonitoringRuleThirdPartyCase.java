@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SecurityMonitoringRuleThirdPartyCase {
     /**
-     * @return Name of the case.
+     * @return Name of the case. Defaults to `&#34;&#34;`.
      * 
      */
     private @Nullable String name;
@@ -36,7 +36,7 @@ public final class SecurityMonitoringRuleThirdPartyCase {
 
     private SecurityMonitoringRuleThirdPartyCase() {}
     /**
-     * @return Name of the case.
+     * @return Name of the case. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<String> name() {

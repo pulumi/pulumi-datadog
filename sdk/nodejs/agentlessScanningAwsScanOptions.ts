@@ -68,6 +68,10 @@ export class AgentlessScanningAwsScanOptions extends pulumi.CustomResource {
      */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
+     * Indicates if host compliance scanning is enabled. Defaults to `false`.
+     */
+    declare public readonly complianceHost: pulumi.Output<boolean>;
+    /**
      * Indicates if scanning of Lambda functions is enabled.
      */
     declare public readonly lambda: pulumi.Output<boolean>;
@@ -98,6 +102,7 @@ export class AgentlessScanningAwsScanOptions extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AgentlessScanningAwsScanOptionsState | undefined;
             resourceInputs["awsAccountId"] = state?.awsAccountId;
+            resourceInputs["complianceHost"] = state?.complianceHost;
             resourceInputs["lambda"] = state?.lambda;
             resourceInputs["sensitiveData"] = state?.sensitiveData;
             resourceInputs["vulnContainersOs"] = state?.vulnContainersOs;
@@ -120,6 +125,7 @@ export class AgentlessScanningAwsScanOptions extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vulnHostOs'");
             }
             resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["complianceHost"] = args?.complianceHost;
             resourceInputs["lambda"] = args?.lambda;
             resourceInputs["sensitiveData"] = args?.sensitiveData;
             resourceInputs["vulnContainersOs"] = args?.vulnContainersOs;
@@ -138,6 +144,10 @@ export interface AgentlessScanningAwsScanOptionsState {
      * The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
      */
     awsAccountId?: pulumi.Input<string | undefined>;
+    /**
+     * Indicates if host compliance scanning is enabled. Defaults to `false`.
+     */
+    complianceHost?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates if scanning of Lambda functions is enabled.
      */
@@ -164,6 +174,10 @@ export interface AgentlessScanningAwsScanOptionsArgs {
      * The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
      */
     awsAccountId: pulumi.Input<string>;
+    /**
+     * Indicates if host compliance scanning is enabled. Defaults to `false`.
+     */
+    complianceHost?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates if scanning of Lambda functions is enabled.
      */

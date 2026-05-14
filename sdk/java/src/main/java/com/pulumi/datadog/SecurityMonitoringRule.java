@@ -134,18 +134,32 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.cases);
     }
     /**
+     * A list of tags for generated signals, including those inherited from the provider&#39;s `defaultTags` configuration.
+     * 
+     */
+    @Export(name="effectiveTags", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> effectiveTags;
+
+    /**
+     * @return A list of tags for generated signals, including those inherited from the provider&#39;s `defaultTags` configuration.
+     * 
+     */
+    public Output<List<String>> effectiveTags() {
+        return this.effectiveTags;
+    }
+    /**
      * Whether the rule is enabled. Defaults to `true`.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enabled;
+    private Output<Boolean> enabled;
 
     /**
      * @return Whether the rule is enabled. Defaults to `true`.
      * 
      */
-    public Output<Optional<Boolean>> enabled() {
-        return Codegen.optional(this.enabled);
+    public Output<Boolean> enabled() {
+        return this.enabled;
     }
     /**
      * Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
@@ -180,14 +194,14 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="hasExtendedTitle", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> hasExtendedTitle;
+    private Output<Boolean> hasExtendedTitle;
 
     /**
      * @return Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
      * 
      */
-    public Output<Optional<Boolean>> hasExtendedTitle() {
-        return Codegen.optional(this.hasExtendedTitle);
+    public Output<Boolean> hasExtendedTitle() {
+        return this.hasExtendedTitle;
     }
     /**
      * Message for generated signals.
@@ -288,18 +302,18 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.signalQueries);
     }
     /**
-     * Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+     * User-defined tags for generated signals. See also `effectiveTags`, which includes provider-level `defaultTags`.
      * 
      */
     @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> tags;
+    private Output</* @Nullable */ List<String>> tags;
 
     /**
-     * @return Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+     * @return User-defined tags for generated signals. See also `effectiveTags`, which includes provider-level `defaultTags`.
      * 
      */
-    public Output<List<String>> tags() {
-        return this.tags;
+    public Output<Optional<List<String>>> tags() {
+        return Codegen.optional(this.tags);
     }
     /**
      * Cases for generating signals for third-party rules. Only required and accepted for third-party rules
@@ -320,14 +334,14 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> type;
+    private Output<String> type;
 
     /**
      * @return The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `&#34;logDetection&#34;`.
      * 
      */
-    public Output<Optional<String>> type() {
-        return Codegen.optional(this.type);
+    public Output<String> type() {
+        return this.type;
     }
     /**
      * Whether or not to validate the Rule.

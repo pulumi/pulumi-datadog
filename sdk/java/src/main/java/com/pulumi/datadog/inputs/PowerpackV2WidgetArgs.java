@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetAlertGraphDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetAlertValueDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetBarChartDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetChangeDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetCheckStatusDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetDistributionDefinitionArgs;
@@ -27,6 +28,7 @@ import com.pulumi.datadog.inputs.PowerpackV2WidgetNoteDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetQueryTableDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetQueryValueDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetRunWorkflowDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetSankeyDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetScatterplotDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetServiceLevelObjectiveDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetServicemapDefinitionArgs;
@@ -38,6 +40,7 @@ import com.pulumi.datadog.inputs.PowerpackV2WidgetTopologyMapDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetTraceServiceDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetTreemapDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetWidgetLayoutArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetWildcardDefinitionArgs;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -76,6 +79,21 @@ public final class PowerpackV2WidgetArgs extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<PowerpackV2WidgetAlertValueDefinitionArgs>> alertValueDefinition() {
         return Optional.ofNullable(this.alertValueDefinition);
+    }
+
+    /**
+     * The definition for a Bar Chart widget.
+     * 
+     */
+    @Import(name="barChartDefinition")
+    private @Nullable Output<PowerpackV2WidgetBarChartDefinitionArgs> barChartDefinition;
+
+    /**
+     * @return The definition for a Bar Chart widget.
+     * 
+     */
+    public Optional<Output<PowerpackV2WidgetBarChartDefinitionArgs>> barChartDefinition() {
+        return Optional.ofNullable(this.barChartDefinition);
     }
 
     /**
@@ -394,6 +412,21 @@ public final class PowerpackV2WidgetArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * The definition for a Sankey diagram widget.
+     * 
+     */
+    @Import(name="sankeyDefinition")
+    private @Nullable Output<PowerpackV2WidgetSankeyDefinitionArgs> sankeyDefinition;
+
+    /**
+     * @return The definition for a Sankey diagram widget.
+     * 
+     */
+    public Optional<Output<PowerpackV2WidgetSankeyDefinitionArgs>> sankeyDefinition() {
+        return Optional.ofNullable(this.sankeyDefinition);
+    }
+
+    /**
      * The definition for a Scatterplot widget.
      * 
      */
@@ -558,11 +591,27 @@ public final class PowerpackV2WidgetArgs extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.widgetLayout);
     }
 
+    /**
+     * The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
+     * 
+     */
+    @Import(name="wildcardDefinition")
+    private @Nullable Output<PowerpackV2WidgetWildcardDefinitionArgs> wildcardDefinition;
+
+    /**
+     * @return The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
+     * 
+     */
+    public Optional<Output<PowerpackV2WidgetWildcardDefinitionArgs>> wildcardDefinition() {
+        return Optional.ofNullable(this.wildcardDefinition);
+    }
+
     private PowerpackV2WidgetArgs() {}
 
     private PowerpackV2WidgetArgs(PowerpackV2WidgetArgs $) {
         this.alertGraphDefinition = $.alertGraphDefinition;
         this.alertValueDefinition = $.alertValueDefinition;
+        this.barChartDefinition = $.barChartDefinition;
         this.changeDefinition = $.changeDefinition;
         this.checkStatusDefinition = $.checkStatusDefinition;
         this.distributionDefinition = $.distributionDefinition;
@@ -584,6 +633,7 @@ public final class PowerpackV2WidgetArgs extends com.pulumi.resources.ResourceAr
         this.queryTableDefinition = $.queryTableDefinition;
         this.queryValueDefinition = $.queryValueDefinition;
         this.runWorkflowDefinition = $.runWorkflowDefinition;
+        this.sankeyDefinition = $.sankeyDefinition;
         this.scatterplotDefinition = $.scatterplotDefinition;
         this.serviceLevelObjectiveDefinition = $.serviceLevelObjectiveDefinition;
         this.servicemapDefinition = $.servicemapDefinition;
@@ -595,6 +645,7 @@ public final class PowerpackV2WidgetArgs extends com.pulumi.resources.ResourceAr
         this.traceServiceDefinition = $.traceServiceDefinition;
         this.treemapDefinition = $.treemapDefinition;
         this.widgetLayout = $.widgetLayout;
+        this.wildcardDefinition = $.wildcardDefinition;
     }
 
     public static Builder builder() {
@@ -655,6 +706,27 @@ public final class PowerpackV2WidgetArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder alertValueDefinition(PowerpackV2WidgetAlertValueDefinitionArgs alertValueDefinition) {
             return alertValueDefinition(Output.of(alertValueDefinition));
+        }
+
+        /**
+         * @param barChartDefinition The definition for a Bar Chart widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder barChartDefinition(@Nullable Output<PowerpackV2WidgetBarChartDefinitionArgs> barChartDefinition) {
+            $.barChartDefinition = barChartDefinition;
+            return this;
+        }
+
+        /**
+         * @param barChartDefinition The definition for a Bar Chart widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder barChartDefinition(PowerpackV2WidgetBarChartDefinitionArgs barChartDefinition) {
+            return barChartDefinition(Output.of(barChartDefinition));
         }
 
         /**
@@ -1099,6 +1171,27 @@ public final class PowerpackV2WidgetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
+         * @param sankeyDefinition The definition for a Sankey diagram widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sankeyDefinition(@Nullable Output<PowerpackV2WidgetSankeyDefinitionArgs> sankeyDefinition) {
+            $.sankeyDefinition = sankeyDefinition;
+            return this;
+        }
+
+        /**
+         * @param sankeyDefinition The definition for a Sankey diagram widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sankeyDefinition(PowerpackV2WidgetSankeyDefinitionArgs sankeyDefinition) {
+            return sankeyDefinition(Output.of(sankeyDefinition));
+        }
+
+        /**
          * @param scatterplotDefinition The definition for a Scatterplot widget.
          * 
          * @return builder
@@ -1327,6 +1420,27 @@ public final class PowerpackV2WidgetArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder widgetLayout(PowerpackV2WidgetWidgetLayoutArgs widgetLayout) {
             return widgetLayout(Output.of(widgetLayout));
+        }
+
+        /**
+         * @param wildcardDefinition The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder wildcardDefinition(@Nullable Output<PowerpackV2WidgetWildcardDefinitionArgs> wildcardDefinition) {
+            $.wildcardDefinition = wildcardDefinition;
+            return this;
+        }
+
+        /**
+         * @param wildcardDefinition The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder wildcardDefinition(PowerpackV2WidgetWildcardDefinitionArgs wildcardDefinition) {
+            return wildcardDefinition(Output.of(wildcardDefinition));
         }
 
         public PowerpackV2WidgetArgs build() {

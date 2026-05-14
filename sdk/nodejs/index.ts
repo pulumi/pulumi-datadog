@@ -15,6 +15,11 @@ export type AgentlessScanningAwsScanOptions = import("./agentlessScanningAwsScan
 export const AgentlessScanningAwsScanOptions: typeof import("./agentlessScanningAwsScanOptions").AgentlessScanningAwsScanOptions = null as any;
 utilities.lazyLoad(exports, ["AgentlessScanningAwsScanOptions"], () => require("./agentlessScanningAwsScanOptions"));
 
+export { AgentlessScanningAzureScanOptionsArgs, AgentlessScanningAzureScanOptionsState } from "./agentlessScanningAzureScanOptions";
+export type AgentlessScanningAzureScanOptions = import("./agentlessScanningAzureScanOptions").AgentlessScanningAzureScanOptions;
+export const AgentlessScanningAzureScanOptions: typeof import("./agentlessScanningAzureScanOptions").AgentlessScanningAzureScanOptions = null as any;
+utilities.lazyLoad(exports, ["AgentlessScanningAzureScanOptions"], () => require("./agentlessScanningAzureScanOptions"));
+
 export { AgentlessScanningGcpScanOptionsArgs, AgentlessScanningGcpScanOptionsState } from "./agentlessScanningGcpScanOptions";
 export type AgentlessScanningGcpScanOptions = import("./agentlessScanningGcpScanOptions").AgentlessScanningGcpScanOptions;
 export const AgentlessScanningGcpScanOptions: typeof import("./agentlessScanningGcpScanOptions").AgentlessScanningGcpScanOptions = null as any;
@@ -986,6 +991,8 @@ const _module = {
                 return new ActionConnection(name, <any>undefined, { urn })
             case "datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions":
                 return new AgentlessScanningAwsScanOptions(name, <any>undefined, { urn })
+            case "datadog:index/agentlessScanningAzureScanOptions:AgentlessScanningAzureScanOptions":
+                return new AgentlessScanningAzureScanOptions(name, <any>undefined, { urn })
             case "datadog:index/agentlessScanningGcpScanOptions:AgentlessScanningGcpScanOptions":
                 return new AgentlessScanningGcpScanOptions(name, <any>undefined, { urn })
             case "datadog:index/apiKey:ApiKey":
@@ -1223,6 +1230,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("datadog", "index/actionConnection", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/agentlessScanningAwsScanOptions", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/agentlessScanningAzureScanOptions", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/agentlessScanningGcpScanOptions", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/apiKey", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/apmRetentionFilter", _module)

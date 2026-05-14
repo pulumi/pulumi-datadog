@@ -32,6 +32,21 @@ public final class AgentlessScanningAwsScanOptionsState extends com.pulumi.resou
     }
 
     /**
+     * Indicates if host compliance scanning is enabled. Defaults to `false`.
+     * 
+     */
+    @Import(name="complianceHost")
+    private @Nullable Output<Boolean> complianceHost;
+
+    /**
+     * @return Indicates if host compliance scanning is enabled. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> complianceHost() {
+        return Optional.ofNullable(this.complianceHost);
+    }
+
+    /**
      * Indicates if scanning of Lambda functions is enabled.
      * 
      */
@@ -95,6 +110,7 @@ public final class AgentlessScanningAwsScanOptionsState extends com.pulumi.resou
 
     private AgentlessScanningAwsScanOptionsState(AgentlessScanningAwsScanOptionsState $) {
         this.awsAccountId = $.awsAccountId;
+        this.complianceHost = $.complianceHost;
         this.lambda = $.lambda;
         this.sensitiveData = $.sensitiveData;
         this.vulnContainersOs = $.vulnContainersOs;
@@ -138,6 +154,27 @@ public final class AgentlessScanningAwsScanOptionsState extends com.pulumi.resou
          */
         public Builder awsAccountId(String awsAccountId) {
             return awsAccountId(Output.of(awsAccountId));
+        }
+
+        /**
+         * @param complianceHost Indicates if host compliance scanning is enabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder complianceHost(@Nullable Output<Boolean> complianceHost) {
+            $.complianceHost = complianceHost;
+            return this;
+        }
+
+        /**
+         * @param complianceHost Indicates if host compliance scanning is enabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder complianceHost(Boolean complianceHost) {
+            return complianceHost(Output.of(complianceHost));
         }
 
         /**

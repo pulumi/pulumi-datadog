@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetAlertValueDefinition? AlertValueDefinition;
         /// <summary>
+        /// The definition for a Bar Chart widget.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetBarChartDefinition? BarChartDefinition;
+        /// <summary>
         /// The definition for a Change widget.
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetChangeDefinition? ChangeDefinition;
@@ -106,6 +110,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetRunWorkflowDefinition? RunWorkflowDefinition;
         /// <summary>
+        /// The definition for a Sankey diagram widget.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetSankeyDefinition? SankeyDefinition;
+        /// <summary>
         /// The definition for a Scatterplot widget.
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetScatterplotDefinition? ScatterplotDefinition;
@@ -149,12 +157,18 @@ namespace Pulumi.Datadog.Outputs
         /// The layout of the widget on a 'free' dashboard.
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetWidgetLayout? WidgetLayout;
+        /// <summary>
+        /// The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetWildcardDefinition? WildcardDefinition;
 
         [OutputConstructor]
         private PowerpackV2Widget(
             Outputs.PowerpackV2WidgetAlertGraphDefinition? alertGraphDefinition,
 
             Outputs.PowerpackV2WidgetAlertValueDefinition? alertValueDefinition,
+
+            Outputs.PowerpackV2WidgetBarChartDefinition? barChartDefinition,
 
             Outputs.PowerpackV2WidgetChangeDefinition? changeDefinition,
 
@@ -198,6 +212,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.PowerpackV2WidgetRunWorkflowDefinition? runWorkflowDefinition,
 
+            Outputs.PowerpackV2WidgetSankeyDefinition? sankeyDefinition,
+
             Outputs.PowerpackV2WidgetScatterplotDefinition? scatterplotDefinition,
 
             Outputs.PowerpackV2WidgetServiceLevelObjectiveDefinition? serviceLevelObjectiveDefinition,
@@ -218,10 +234,13 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.PowerpackV2WidgetTreemapDefinition? treemapDefinition,
 
-            Outputs.PowerpackV2WidgetWidgetLayout? widgetLayout)
+            Outputs.PowerpackV2WidgetWidgetLayout? widgetLayout,
+
+            Outputs.PowerpackV2WidgetWildcardDefinition? wildcardDefinition)
         {
             AlertGraphDefinition = alertGraphDefinition;
             AlertValueDefinition = alertValueDefinition;
+            BarChartDefinition = barChartDefinition;
             ChangeDefinition = changeDefinition;
             CheckStatusDefinition = checkStatusDefinition;
             DistributionDefinition = distributionDefinition;
@@ -243,6 +262,7 @@ namespace Pulumi.Datadog.Outputs
             QueryTableDefinition = queryTableDefinition;
             QueryValueDefinition = queryValueDefinition;
             RunWorkflowDefinition = runWorkflowDefinition;
+            SankeyDefinition = sankeyDefinition;
             ScatterplotDefinition = scatterplotDefinition;
             ServiceLevelObjectiveDefinition = serviceLevelObjectiveDefinition;
             ServicemapDefinition = servicemapDefinition;
@@ -254,6 +274,7 @@ namespace Pulumi.Datadog.Outputs
             TraceServiceDefinition = traceServiceDefinition;
             TreemapDefinition = treemapDefinition;
             WidgetLayout = widgetLayout;
+            WildcardDefinition = wildcardDefinition;
         }
     }
 }

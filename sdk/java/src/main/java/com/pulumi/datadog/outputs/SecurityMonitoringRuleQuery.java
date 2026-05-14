@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SecurityMonitoringRuleQuery {
     /**
-     * @return **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
+     * @return **Deprecated**. It won&#39;t be applied anymore.
      * 
      * @deprecated
      * `agentRule` has been deprecated in favor of new Agent Rule resource.
@@ -55,7 +55,7 @@ public final class SecurityMonitoringRuleQuery {
      */
     private @Nullable List<String> indexes;
     /**
-     * @return The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     * @return The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations.
      * 
      * @deprecated
      * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
@@ -81,7 +81,7 @@ public final class SecurityMonitoringRuleQuery {
 
     private SecurityMonitoringRuleQuery() {}
     /**
-     * @return **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
+     * @return **Deprecated**. It won&#39;t be applied anymore.
      * 
      * @deprecated
      * `agentRule` has been deprecated in favor of new Agent Rule resource.
@@ -134,7 +134,7 @@ public final class SecurityMonitoringRuleQuery {
         return this.indexes == null ? List.of() : this.indexes;
     }
     /**
-     * @return The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     * @return The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations.
      * 
      * @deprecated
      * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.

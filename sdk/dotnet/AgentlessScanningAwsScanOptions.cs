@@ -57,6 +57,12 @@ namespace Pulumi.Datadog
         public Output<string> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates if host compliance scanning is enabled. Defaults to `False`.
+        /// </summary>
+        [Output("complianceHost")]
+        public Output<bool> ComplianceHost { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates if scanning of Lambda functions is enabled.
         /// </summary>
         [Output("lambda")]
@@ -133,6 +139,12 @@ namespace Pulumi.Datadog
         public Input<string> AwsAccountId { get; set; } = null!;
 
         /// <summary>
+        /// Indicates if host compliance scanning is enabled. Defaults to `False`.
+        /// </summary>
+        [Input("complianceHost")]
+        public Input<bool>? ComplianceHost { get; set; }
+
+        /// <summary>
         /// Indicates if scanning of Lambda functions is enabled.
         /// </summary>
         [Input("lambda", required: true)]
@@ -169,6 +181,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
+
+        /// <summary>
+        /// Indicates if host compliance scanning is enabled. Defaults to `False`.
+        /// </summary>
+        [Input("complianceHost")]
+        public Input<bool>? ComplianceHost { get; set; }
 
         /// <summary>
         /// Indicates if scanning of Lambda functions is enabled.

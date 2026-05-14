@@ -96,9 +96,13 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
      */
     declare public readonly cases: pulumi.Output<outputs.SecurityMonitoringRuleCase[] | undefined>;
     /**
+     * A list of tags for generated signals, including those inherited from the provider's `defaultTags` configuration.
+     */
+    declare public /*out*/ readonly effectiveTags: pulumi.Output<string[]>;
+    /**
      * Whether the rule is enabled. Defaults to `true`.
      */
-    declare public readonly enabled: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
      */
@@ -110,7 +114,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
     /**
      * Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
      */
-    declare public readonly hasExtendedTitle: pulumi.Output<boolean | undefined>;
+    declare public readonly hasExtendedTitle: pulumi.Output<boolean>;
     /**
      * Message for generated signals.
      */
@@ -140,9 +144,9 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
      */
     declare public readonly signalQueries: pulumi.Output<outputs.SecurityMonitoringRuleSignalQuery[] | undefined>;
     /**
-     * Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+     * User-defined tags for generated signals. See also `effectiveTags`, which includes provider-level `defaultTags`.
      */
-    declare public readonly tags: pulumi.Output<string[]>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
     /**
      * Cases for generating signals for third-party rules. Only required and accepted for third-party rules
      */
@@ -150,7 +154,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
     /**
      * The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
      */
-    declare public readonly type: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * Whether or not to validate the Rule.
      */
@@ -171,6 +175,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
             const state = argsOrState as SecurityMonitoringRuleState | undefined;
             resourceInputs["calculatedFields"] = state?.calculatedFields;
             resourceInputs["cases"] = state?.cases;
+            resourceInputs["effectiveTags"] = state?.effectiveTags;
             resourceInputs["enabled"] = state?.enabled;
             resourceInputs["filters"] = state?.filters;
             resourceInputs["groupSignalsBies"] = state?.groupSignalsBies;
@@ -211,6 +216,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
             resourceInputs["thirdPartyCases"] = args?.thirdPartyCases;
             resourceInputs["type"] = args?.type;
             resourceInputs["validate"] = args?.validate;
+            resourceInputs["effectiveTags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SecurityMonitoringRule.__pulumiType, name, resourceInputs, opts);
@@ -229,6 +235,10 @@ export interface SecurityMonitoringRuleState {
      * Cases for generating signals.
      */
     cases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleCase>[] | undefined>;
+    /**
+     * A list of tags for generated signals, including those inherited from the provider's `defaultTags` configuration.
+     */
+    effectiveTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether the rule is enabled. Defaults to `true`.
      */
@@ -274,7 +284,7 @@ export interface SecurityMonitoringRuleState {
      */
     signalQueries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleSignalQuery>[] | undefined>;
     /**
-     * Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+     * User-defined tags for generated signals. See also `effectiveTags`, which includes provider-level `defaultTags`.
      */
     tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -348,7 +358,7 @@ export interface SecurityMonitoringRuleArgs {
      */
     signalQueries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleSignalQuery>[] | undefined>;
     /**
-     * Tags for generated signals. Note: if default tags are present at provider level, they will be added to this resource.
+     * User-defined tags for generated signals. See also `effectiveTags`, which includes provider-level `defaultTags`.
      */
     tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.SecurityMonitoringRuleQueryAgentRuleGetArgs>? _agentRules;
 
         /// <summary>
-        /// **Deprecated**. It won't be applied anymore. **Deprecated.** `AgentRule` has been deprecated in favor of new Agent Rule resource.
+        /// **Deprecated**. It won't be applied anymore.
         /// </summary>
         [Obsolete(@"`AgentRule` has been deprecated in favor of new Agent Rule resource.")]
         public InputList<Inputs.SecurityMonitoringRuleQueryAgentRuleGetArgs> AgentRules
@@ -80,7 +80,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The target field to aggregate over when using the `Sum`, `Max`, or `GeoData` aggregations. **Deprecated.** Configure `Metrics` instead. This attribute will be removed in the next major version of the provider.
+        /// The target field to aggregate over when using the `Sum`, `Max`, or `GeoData` aggregations.
         /// </summary>
         [Input("metric")]
         public Input<string>? Metric { get; set; }
