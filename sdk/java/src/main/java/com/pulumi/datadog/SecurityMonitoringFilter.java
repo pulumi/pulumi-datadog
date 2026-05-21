@@ -98,14 +98,14 @@ public class SecurityMonitoringFilter extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="filteredDataType", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> filteredDataType;
+    private Output<String> filteredDataType;
 
     /**
      * @return The filtered data type. Valid values are `logs`. Defaults to `&#34;logs&#34;`.
      * 
      */
-    public Output<Optional<String>> filteredDataType() {
-        return Codegen.optional(this.filteredDataType);
+    public Output<String> filteredDataType() {
+        return this.filteredDataType;
     }
     /**
      * Whether the security filter is enabled.

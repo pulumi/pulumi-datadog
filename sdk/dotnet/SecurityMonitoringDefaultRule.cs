@@ -84,7 +84,7 @@ namespace Pulumi.Datadog
         /// Enable the rule. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
-        public Output<bool?> Enabled { get; private set; } = null!;
+        public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
         /// Additional queries to filter matched events before they are processed.
@@ -96,7 +96,7 @@ namespace Pulumi.Datadog
         /// Options on default rules. Note that only a subset of fields can be updated on default rule options.
         /// </summary>
         [Output("options")]
-        public Output<Outputs.SecurityMonitoringDefaultRuleOptions> Options { get; private set; } = null!;
+        public Output<Outputs.SecurityMonitoringDefaultRuleOptions?> Options { get; private set; } = null!;
 
         /// <summary>
         /// Queries for selecting logs which are part of the rule.

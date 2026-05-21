@@ -18,32 +18,32 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationDatabricksZerobusAuth> Auths;
         /// <summary>
-        /// The Databricks Zerobus ingestion endpoint URL.
+        /// The name of the secret or environment variable holding the Databricks Zerobus ingestion endpoint URL.
         /// </summary>
-        public readonly string IngestionEndpoint;
+        public readonly string? IngestionEndpointKey;
         /// <summary>
         /// The name of the Databricks table to ingest logs into.
         /// </summary>
         public readonly string TableName;
         /// <summary>
-        /// The Databricks Unity Catalog endpoint URL.
+        /// The name of the secret or environment variable holding the Databricks Unity Catalog endpoint URL.
         /// </summary>
-        public readonly string UnityCatalogEndpoint;
+        public readonly string? UnityCatalogEndpointKey;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationDatabricksZerobus(
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationDatabricksZerobusAuth> auths,
 
-            string ingestionEndpoint,
+            string? ingestionEndpointKey,
 
             string tableName,
 
-            string unityCatalogEndpoint)
+            string? unityCatalogEndpointKey)
         {
             Auths = auths;
-            IngestionEndpoint = ingestionEndpoint;
+            IngestionEndpointKey = ingestionEndpointKey;
             TableName = tableName;
-            UnityCatalogEndpoint = unityCatalogEndpoint;
+            UnityCatalogEndpointKey = unityCatalogEndpointKey;
         }
     }
 }

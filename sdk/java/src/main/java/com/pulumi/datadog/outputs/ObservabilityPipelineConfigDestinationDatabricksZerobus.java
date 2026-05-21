@@ -9,6 +9,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -19,20 +20,20 @@ public final class ObservabilityPipelineConfigDestinationDatabricksZerobus {
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationDatabricksZerobusAuth> auths;
     /**
-     * @return The Databricks Zerobus ingestion endpoint URL.
+     * @return The name of the secret or environment variable holding the Databricks Zerobus ingestion endpoint URL.
      * 
      */
-    private String ingestionEndpoint;
+    private @Nullable String ingestionEndpointKey;
     /**
      * @return The name of the Databricks table to ingest logs into.
      * 
      */
     private String tableName;
     /**
-     * @return The Databricks Unity Catalog endpoint URL.
+     * @return The name of the secret or environment variable holding the Databricks Unity Catalog endpoint URL.
      * 
      */
-    private String unityCatalogEndpoint;
+    private @Nullable String unityCatalogEndpointKey;
 
     private ObservabilityPipelineConfigDestinationDatabricksZerobus() {}
     /**
@@ -43,11 +44,11 @@ public final class ObservabilityPipelineConfigDestinationDatabricksZerobus {
         return this.auths == null ? List.of() : this.auths;
     }
     /**
-     * @return The Databricks Zerobus ingestion endpoint URL.
+     * @return The name of the secret or environment variable holding the Databricks Zerobus ingestion endpoint URL.
      * 
      */
-    public String ingestionEndpoint() {
-        return this.ingestionEndpoint;
+    public Optional<String> ingestionEndpointKey() {
+        return Optional.ofNullable(this.ingestionEndpointKey);
     }
     /**
      * @return The name of the Databricks table to ingest logs into.
@@ -57,11 +58,11 @@ public final class ObservabilityPipelineConfigDestinationDatabricksZerobus {
         return this.tableName;
     }
     /**
-     * @return The Databricks Unity Catalog endpoint URL.
+     * @return The name of the secret or environment variable holding the Databricks Unity Catalog endpoint URL.
      * 
      */
-    public String unityCatalogEndpoint() {
-        return this.unityCatalogEndpoint;
+    public Optional<String> unityCatalogEndpointKey() {
+        return Optional.ofNullable(this.unityCatalogEndpointKey);
     }
 
     public static Builder builder() {
@@ -74,16 +75,16 @@ public final class ObservabilityPipelineConfigDestinationDatabricksZerobus {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ObservabilityPipelineConfigDestinationDatabricksZerobusAuth> auths;
-        private String ingestionEndpoint;
+        private @Nullable String ingestionEndpointKey;
         private String tableName;
-        private String unityCatalogEndpoint;
+        private @Nullable String unityCatalogEndpointKey;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationDatabricksZerobus defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.auths = defaults.auths;
-    	      this.ingestionEndpoint = defaults.ingestionEndpoint;
+    	      this.ingestionEndpointKey = defaults.ingestionEndpointKey;
     	      this.tableName = defaults.tableName;
-    	      this.unityCatalogEndpoint = defaults.unityCatalogEndpoint;
+    	      this.unityCatalogEndpointKey = defaults.unityCatalogEndpointKey;
         }
 
         @CustomType.Setter
@@ -96,11 +97,9 @@ public final class ObservabilityPipelineConfigDestinationDatabricksZerobus {
             return auths(List.of(auths));
         }
         @CustomType.Setter
-        public Builder ingestionEndpoint(String ingestionEndpoint) {
-            if (ingestionEndpoint == null) {
-              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationDatabricksZerobus", "ingestionEndpoint");
-            }
-            this.ingestionEndpoint = ingestionEndpoint;
+        public Builder ingestionEndpointKey(@Nullable String ingestionEndpointKey) {
+
+            this.ingestionEndpointKey = ingestionEndpointKey;
             return this;
         }
         @CustomType.Setter
@@ -112,19 +111,17 @@ public final class ObservabilityPipelineConfigDestinationDatabricksZerobus {
             return this;
         }
         @CustomType.Setter
-        public Builder unityCatalogEndpoint(String unityCatalogEndpoint) {
-            if (unityCatalogEndpoint == null) {
-              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationDatabricksZerobus", "unityCatalogEndpoint");
-            }
-            this.unityCatalogEndpoint = unityCatalogEndpoint;
+        public Builder unityCatalogEndpointKey(@Nullable String unityCatalogEndpointKey) {
+
+            this.unityCatalogEndpointKey = unityCatalogEndpointKey;
             return this;
         }
         public ObservabilityPipelineConfigDestinationDatabricksZerobus build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationDatabricksZerobus();
             _resultValue.auths = auths;
-            _resultValue.ingestionEndpoint = ingestionEndpoint;
+            _resultValue.ingestionEndpointKey = ingestionEndpointKey;
             _resultValue.tableName = tableName;
-            _resultValue.unityCatalogEndpoint = unityCatalogEndpoint;
+            _resultValue.unityCatalogEndpointKey = unityCatalogEndpointKey;
             return _resultValue;
         }
     }

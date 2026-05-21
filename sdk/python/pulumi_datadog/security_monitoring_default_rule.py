@@ -494,7 +494,7 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def cases(self) -> pulumi.Output[Sequence['outputs.SecurityMonitoringDefaultRuleCase']]:
+    def cases(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityMonitoringDefaultRuleCase']]]:
         """
         Cases of the rule, this is used to update notifications.
         """
@@ -526,7 +526,7 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+    def enabled(self) -> pulumi.Output[_builtins.bool]:
         """
         Enable the rule. Defaults to `true`.
         """
@@ -542,7 +542,7 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def options(self) -> pulumi.Output['outputs.SecurityMonitoringDefaultRuleOptions']:
+    def options(self) -> pulumi.Output[Optional['outputs.SecurityMonitoringDefaultRuleOptions']]:
         """
         Options on default rules. Note that only a subset of fields can be updated on default rule options.
         """
@@ -550,7 +550,7 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def queries(self) -> pulumi.Output[Sequence['outputs.SecurityMonitoringDefaultRuleQuery']]:
+    def queries(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityMonitoringDefaultRuleQuery']]]:
         """
         Queries for selecting logs which are part of the rule.
         """

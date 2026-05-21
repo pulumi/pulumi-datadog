@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.SecurityMonitoringRuleCaseAction> Actions;
         /// <summary>
-        /// A rule case contains logical operations (`&gt;`,`&gt;=`, `&amp;&amp;`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries. Defaults to `""`.
+        /// A rule case contains logical operations (`&gt;`,`&gt;=`, `&amp;&amp;`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
         /// </summary>
         public readonly string? Condition;
         /// <summary>

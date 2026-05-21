@@ -24,6 +24,18 @@ namespace Pulumi.Datadog.Inputs
             set => _cloudCostQueries = value;
         }
 
+        [Input("dataJobsQueries")]
+        private InputList<Inputs.MonitorVariablesDataJobsQueryArgs>? _dataJobsQueries;
+
+        /// <summary>
+        /// The Data Jobs query using formulas and functions.
+        /// </summary>
+        public InputList<Inputs.MonitorVariablesDataJobsQueryArgs> DataJobsQueries
+        {
+            get => _dataJobsQueries ?? (_dataJobsQueries = new InputList<Inputs.MonitorVariablesDataJobsQueryArgs>());
+            set => _dataJobsQueries = value;
+        }
+
         [Input("dataQualityQueries")]
         private InputList<Inputs.MonitorVariablesDataQualityQueryArgs>? _dataQualityQueries;
 

@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.SecurityMonitoringDefaultRuleQueryAgentRuleGetArgs>? _agentRules;
 
         /// <summary>
-        /// **Deprecated**. It won't be applied anymore. **Deprecated.** `AgentRule` has been deprecated in favor of new Agent Rule resource.
+        /// **Deprecated**. It won't be applied anymore.
         /// </summary>
         [Obsolete(@"`AgentRule` has been deprecated in favor of new Agent Rule resource.")]
         public InputList<Inputs.SecurityMonitoringDefaultRuleQueryAgentRuleGetArgs> AgentRules
@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `Count`, `Cardinality`, `Sum`, `Max`, `NewValue`, `GeoData`, `EventCount`, `None`.
+        /// The aggregation type.
         /// </summary>
         [Input("aggregation")]
         public Input<string>? Aggregation { get; set; }
@@ -38,7 +38,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? CustomQueryExtension { get; set; }
 
         /// <summary>
-        /// Source of events. Valid values are `Logs`, `Audit`, `AppSecSpans`, `Spans`, `SecurityRuntime`, `Network`, `Events`, `SecuritySignals`.
+        /// Source of events.
         /// </summary>
         [Input("dataSource")]
         public Input<string>? DataSource { get; set; }
@@ -74,7 +74,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? HasOptionalGroupByFields { get; set; }
 
         /// <summary>
-        /// The target field to aggregate over when using the `Sum`, `Max`, or `GeoData` aggregations. **Deprecated.** Configure `Metrics` instead. This attribute will be removed in the next major version of the provider.
+        /// The target field to aggregate over when using the `Sum`, `Max`, or `GeoData` aggregations.
         /// </summary>
         [Input("metric")]
         public Input<string>? Metric { get; set; }

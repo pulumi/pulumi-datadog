@@ -28,7 +28,7 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
      */
     private @Nullable String crossOrgUuids;
     /**
-     * @return The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`.
+     * @return The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`.
      * 
      */
     private String dataSource;
@@ -79,7 +79,7 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
         return Optional.ofNullable(this.crossOrgUuids);
     }
     /**
-     * @return The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`.
+     * @return The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`.
      * 
      */
     public String dataSource() {

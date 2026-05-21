@@ -67,7 +67,7 @@ type SecurityMonitoringFilter struct {
 	// Exclusion filters to exclude some logs from the security filter.
 	ExclusionFilters SecurityMonitoringFilterExclusionFilterArrayOutput `pulumi:"exclusionFilters"`
 	// The filtered data type. Valid values are `logs`. Defaults to `"logs"`.
-	FilteredDataType pulumi.StringPtrOutput `pulumi:"filteredDataType"`
+	FilteredDataType pulumi.StringOutput `pulumi:"filteredDataType"`
 	// Whether the security filter is enabled.
 	IsEnabled pulumi.BoolOutput `pulumi:"isEnabled"`
 	// The name of the security filter.
@@ -272,8 +272,8 @@ func (o SecurityMonitoringFilterOutput) ExclusionFilters() SecurityMonitoringFil
 }
 
 // The filtered data type. Valid values are `logs`. Defaults to `"logs"`.
-func (o SecurityMonitoringFilterOutput) FilteredDataType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityMonitoringFilter) pulumi.StringPtrOutput { return v.FilteredDataType }).(pulumi.StringPtrOutput)
+func (o SecurityMonitoringFilterOutput) FilteredDataType() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityMonitoringFilter) pulumi.StringOutput { return v.FilteredDataType }).(pulumi.StringOutput)
 }
 
 // Whether the security filter is enabled.

@@ -34,14 +34,14 @@ public final class SecurityMonitoringRuleCaseArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A rule case contains logical operations (`&gt;`,`&gt;=`, `&amp;&amp;`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries. Defaults to `&#34;&#34;`.
+     * A rule case contains logical operations (`&gt;`,`&gt;=`, `&amp;&amp;`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
      * 
      */
     @Import(name="condition")
     private @Nullable Output<String> condition;
 
     /**
-     * @return A rule case contains logical operations (`&gt;`,`&gt;=`, `&amp;&amp;`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries. Defaults to `&#34;&#34;`.
+     * @return A rule case contains logical operations (`&gt;`,`&gt;=`, `&amp;&amp;`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
      * 
      */
     public Optional<Output<String>> condition() {
@@ -153,7 +153,7 @@ public final class SecurityMonitoringRuleCaseArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param condition A rule case contains logical operations (`&gt;`,`&gt;=`, `&amp;&amp;`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries. Defaults to `&#34;&#34;`.
+         * @param condition A rule case contains logical operations (`&gt;`,`&gt;=`, `&amp;&amp;`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class SecurityMonitoringRuleCaseArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param condition A rule case contains logical operations (`&gt;`,`&gt;=`, `&amp;&amp;`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries. Defaults to `&#34;&#34;`.
+         * @param condition A rule case contains logical operations (`&gt;`,`&gt;=`, `&amp;&amp;`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
          * 
          * @return builder
          * 

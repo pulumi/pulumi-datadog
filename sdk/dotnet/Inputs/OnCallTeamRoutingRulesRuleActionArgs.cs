@@ -18,6 +18,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("sendTeamsMessage")]
         public Input<Inputs.OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs>? SendTeamsMessage { get; set; }
 
+        [Input("triggerWorkflowAutomation")]
+        public Input<Inputs.OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs>? TriggerWorkflowAutomation { get; set; }
+
         public OnCallTeamRoutingRulesRuleActionArgs()
         {
         }

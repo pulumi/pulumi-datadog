@@ -90,6 +90,20 @@ public class LogsArchive extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.azureArchive);
     }
     /**
+     * The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `&#34;GZIP&#34;`.
+     * 
+     */
+    @Export(name="compressionMethod", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> compressionMethod;
+
+    /**
+     * @return The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `&#34;GZIP&#34;`.
+     * 
+     */
+    public Output<Optional<String>> compressionMethod() {
+        return Codegen.optional(this.compressionMethod);
+    }
+    /**
      * Definition of a GCS archive.
      * 
      */

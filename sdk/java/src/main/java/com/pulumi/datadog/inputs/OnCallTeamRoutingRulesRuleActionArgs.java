@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs;
 import com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs;
+import com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -30,11 +31,19 @@ public final class OnCallTeamRoutingRulesRuleActionArgs extends com.pulumi.resou
         return Optional.ofNullable(this.sendTeamsMessage);
     }
 
+    @Import(name="triggerWorkflowAutomation")
+    private @Nullable Output<OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs> triggerWorkflowAutomation;
+
+    public Optional<Output<OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs>> triggerWorkflowAutomation() {
+        return Optional.ofNullable(this.triggerWorkflowAutomation);
+    }
+
     private OnCallTeamRoutingRulesRuleActionArgs() {}
 
     private OnCallTeamRoutingRulesRuleActionArgs(OnCallTeamRoutingRulesRuleActionArgs $) {
         this.sendSlackMessage = $.sendSlackMessage;
         this.sendTeamsMessage = $.sendTeamsMessage;
+        this.triggerWorkflowAutomation = $.triggerWorkflowAutomation;
     }
 
     public static Builder builder() {
@@ -71,6 +80,15 @@ public final class OnCallTeamRoutingRulesRuleActionArgs extends com.pulumi.resou
 
         public Builder sendTeamsMessage(OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs sendTeamsMessage) {
             return sendTeamsMessage(Output.of(sendTeamsMessage));
+        }
+
+        public Builder triggerWorkflowAutomation(@Nullable Output<OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs> triggerWorkflowAutomation) {
+            $.triggerWorkflowAutomation = triggerWorkflowAutomation;
+            return this;
+        }
+
+        public Builder triggerWorkflowAutomation(OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs triggerWorkflowAutomation) {
+            return triggerWorkflowAutomation(Output.of(triggerWorkflowAutomation));
         }
 
         public OnCallTeamRoutingRulesRuleActionArgs build() {

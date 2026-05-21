@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.MonitorVariablesCloudCostQueryArgs;
+import com.pulumi.datadog.inputs.MonitorVariablesDataJobsQueryArgs;
 import com.pulumi.datadog.inputs.MonitorVariablesDataQualityQueryArgs;
 import com.pulumi.datadog.inputs.MonitorVariablesEventQueryArgs;
 import java.util.List;
@@ -31,6 +32,21 @@ public final class MonitorVariablesArgs extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<List<MonitorVariablesCloudCostQueryArgs>>> cloudCostQueries() {
         return Optional.ofNullable(this.cloudCostQueries);
+    }
+
+    /**
+     * The Data Jobs query using formulas and functions.
+     * 
+     */
+    @Import(name="dataJobsQueries")
+    private @Nullable Output<List<MonitorVariablesDataJobsQueryArgs>> dataJobsQueries;
+
+    /**
+     * @return The Data Jobs query using formulas and functions.
+     * 
+     */
+    public Optional<Output<List<MonitorVariablesDataJobsQueryArgs>>> dataJobsQueries() {
+        return Optional.ofNullable(this.dataJobsQueries);
     }
 
     /**
@@ -67,6 +83,7 @@ public final class MonitorVariablesArgs extends com.pulumi.resources.ResourceArg
 
     private MonitorVariablesArgs(MonitorVariablesArgs $) {
         this.cloudCostQueries = $.cloudCostQueries;
+        this.dataJobsQueries = $.dataJobsQueries;
         this.dataQualityQueries = $.dataQualityQueries;
         this.eventQueries = $.eventQueries;
     }
@@ -118,6 +135,37 @@ public final class MonitorVariablesArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder cloudCostQueries(MonitorVariablesCloudCostQueryArgs... cloudCostQueries) {
             return cloudCostQueries(List.of(cloudCostQueries));
+        }
+
+        /**
+         * @param dataJobsQueries The Data Jobs query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataJobsQueries(@Nullable Output<List<MonitorVariablesDataJobsQueryArgs>> dataJobsQueries) {
+            $.dataJobsQueries = dataJobsQueries;
+            return this;
+        }
+
+        /**
+         * @param dataJobsQueries The Data Jobs query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataJobsQueries(List<MonitorVariablesDataJobsQueryArgs> dataJobsQueries) {
+            return dataJobsQueries(Output.of(dataJobsQueries));
+        }
+
+        /**
+         * @param dataJobsQueries The Data Jobs query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataJobsQueries(MonitorVariablesDataJobsQueryArgs... dataJobsQueries) {
+            return dataJobsQueries(List.of(dataJobsQueries));
         }
 
         /**

@@ -77,7 +77,7 @@ export class SecurityMonitoringFilter extends pulumi.CustomResource {
     /**
      * The filtered data type. Valid values are `logs`. Defaults to `"logs"`.
      */
-    declare public readonly filteredDataType: pulumi.Output<string | undefined>;
+    declare public readonly filteredDataType: pulumi.Output<string>;
     /**
      * Whether the security filter is enabled.
      */
