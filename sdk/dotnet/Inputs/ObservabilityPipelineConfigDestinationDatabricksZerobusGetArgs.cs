@@ -25,10 +25,10 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The Databricks Zerobus ingestion endpoint URL.
+        /// The name of the secret or environment variable holding the Databricks Zerobus ingestion endpoint URL.
         /// </summary>
-        [Input("ingestionEndpoint", required: true)]
-        public Input<string> IngestionEndpoint { get; set; } = null!;
+        [Input("ingestionEndpointKey")]
+        public Input<string>? IngestionEndpointKey { get; set; }
 
         /// <summary>
         /// The name of the Databricks table to ingest logs into.
@@ -37,10 +37,10 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> TableName { get; set; } = null!;
 
         /// <summary>
-        /// The Databricks Unity Catalog endpoint URL.
+        /// The name of the secret or environment variable holding the Databricks Unity Catalog endpoint URL.
         /// </summary>
-        [Input("unityCatalogEndpoint", required: true)]
-        public Input<string> UnityCatalogEndpoint { get; set; } = null!;
+        [Input("unityCatalogEndpointKey")]
+        public Input<string>? UnityCatalogEndpointKey { get; set; }
 
         public ObservabilityPipelineConfigDestinationDatabricksZerobusGetArgs()
         {

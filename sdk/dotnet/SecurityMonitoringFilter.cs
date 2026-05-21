@@ -68,7 +68,7 @@ namespace Pulumi.Datadog
         /// The filtered data type. Valid values are `Logs`. Defaults to `"logs"`.
         /// </summary>
         [Output("filteredDataType")]
-        public Output<string?> FilteredDataType { get; private set; } = null!;
+        public Output<string> FilteredDataType { get; private set; } = null!;
 
         /// <summary>
         /// Whether the security filter is enabled.

@@ -38,6 +38,21 @@ public final class LogsArchiveArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `&#34;GZIP&#34;`.
+     * 
+     */
+    @Import(name="compressionMethod")
+    private @Nullable Output<String> compressionMethod;
+
+    /**
+     * @return The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `&#34;GZIP&#34;`.
+     * 
+     */
+    public Optional<Output<String>> compressionMethod() {
+        return Optional.ofNullable(this.compressionMethod);
+    }
+
+    /**
      * Definition of a GCS archive.
      * 
      */
@@ -146,6 +161,7 @@ public final class LogsArchiveArgs extends com.pulumi.resources.ResourceArgs {
 
     private LogsArchiveArgs(LogsArchiveArgs $) {
         this.azureArchive = $.azureArchive;
+        this.compressionMethod = $.compressionMethod;
         this.gcsArchive = $.gcsArchive;
         this.includeTags = $.includeTags;
         this.name = $.name;
@@ -192,6 +208,27 @@ public final class LogsArchiveArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder azureArchive(LogsArchiveAzureArchiveArgs azureArchive) {
             return azureArchive(Output.of(azureArchive));
+        }
+
+        /**
+         * @param compressionMethod The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `&#34;GZIP&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compressionMethod(@Nullable Output<String> compressionMethod) {
+            $.compressionMethod = compressionMethod;
+            return this;
+        }
+
+        /**
+         * @param compressionMethod The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `&#34;GZIP&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compressionMethod(String compressionMethod) {
+            return compressionMethod(Output.of(compressionMethod));
         }
 
         /**

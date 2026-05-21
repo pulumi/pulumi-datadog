@@ -15,15 +15,19 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly Outputs.OnCallTeamRoutingRulesRuleActionSendSlackMessage? SendSlackMessage;
         public readonly Outputs.OnCallTeamRoutingRulesRuleActionSendTeamsMessage? SendTeamsMessage;
+        public readonly Outputs.OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation? TriggerWorkflowAutomation;
 
         [OutputConstructor]
         private OnCallTeamRoutingRulesRuleAction(
             Outputs.OnCallTeamRoutingRulesRuleActionSendSlackMessage? sendSlackMessage,
 
-            Outputs.OnCallTeamRoutingRulesRuleActionSendTeamsMessage? sendTeamsMessage)
+            Outputs.OnCallTeamRoutingRulesRuleActionSendTeamsMessage? sendTeamsMessage,
+
+            Outputs.OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation? triggerWorkflowAutomation)
         {
             SendSlackMessage = sendSlackMessage;
             SendTeamsMessage = sendTeamsMessage;
+            TriggerWorkflowAutomation = triggerWorkflowAutomation;
         }
     }
 }

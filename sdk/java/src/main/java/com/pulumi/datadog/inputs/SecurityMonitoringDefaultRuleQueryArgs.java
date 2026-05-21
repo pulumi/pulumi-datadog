@@ -19,7 +19,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
     public static final SecurityMonitoringDefaultRuleQueryArgs Empty = new SecurityMonitoringDefaultRuleQueryArgs();
 
     /**
-     * **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
+     * **Deprecated**. It won&#39;t be applied anymore.
      * 
      * @deprecated
      * `agentRule` has been deprecated in favor of new Agent Rule resource.
@@ -30,7 +30,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
     private @Nullable Output<List<SecurityMonitoringDefaultRuleQueryAgentRuleArgs>> agentRules;
 
     /**
-     * @return **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
+     * @return **Deprecated**. It won&#39;t be applied anymore.
      * 
      * @deprecated
      * `agentRule` has been deprecated in favor of new Agent Rule resource.
@@ -42,14 +42,14 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
     }
 
     /**
-     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
+     * The aggregation type.
      * 
      */
     @Import(name="aggregation")
     private @Nullable Output<String> aggregation;
 
     /**
-     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
+     * @return The aggregation type.
      * 
      */
     public Optional<Output<String>> aggregation() {
@@ -72,14 +72,14 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
     }
 
     /**
-     * Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`, `securitySignals`.
+     * Source of events.
      * 
      */
     @Import(name="dataSource")
     private @Nullable Output<String> dataSource;
 
     /**
-     * @return Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`, `securitySignals`.
+     * @return Source of events.
      * 
      */
     public Optional<Output<String>> dataSource() {
@@ -132,7 +132,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
     }
 
     /**
-     * The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     * The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations.
      * 
      * @deprecated
      * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
@@ -143,7 +143,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
     private @Nullable Output<String> metric;
 
     /**
-     * @return The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     * @return The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations.
      * 
      * @deprecated
      * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
@@ -234,7 +234,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param agentRules **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
+         * @param agentRules **Deprecated**. It won&#39;t be applied anymore.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param agentRules **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
+         * @param agentRules **Deprecated**. It won&#39;t be applied anymore.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param agentRules **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
+         * @param agentRules **Deprecated**. It won&#39;t be applied anymore.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param aggregation The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
+         * @param aggregation The aggregation type.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param aggregation The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
+         * @param aggregation The aggregation type.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param dataSource Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`, `securitySignals`.
+         * @param dataSource Source of events.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param dataSource Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`, `securitySignals`.
+         * @param dataSource Source of events.
          * 
          * @return builder
          * 
@@ -423,7 +423,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param metric The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+         * @param metric The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations.
          * 
          * @return builder
          * 
@@ -438,7 +438,7 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
         }
 
         /**
-         * @param metric The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+         * @param metric The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations.
          * 
          * @return builder
          * 

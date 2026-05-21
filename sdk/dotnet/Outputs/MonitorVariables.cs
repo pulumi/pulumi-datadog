@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.MonitorVariablesCloudCostQuery> CloudCostQueries;
         /// <summary>
+        /// The Data Jobs query using formulas and functions.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.MonitorVariablesDataJobsQuery> DataJobsQueries;
+        /// <summary>
         /// The Data Quality query using formulas and functions.
         /// </summary>
         public readonly ImmutableArray<Outputs.MonitorVariablesDataQualityQuery> DataQualityQueries;
@@ -30,11 +34,14 @@ namespace Pulumi.Datadog.Outputs
         private MonitorVariables(
             ImmutableArray<Outputs.MonitorVariablesCloudCostQuery> cloudCostQueries,
 
+            ImmutableArray<Outputs.MonitorVariablesDataJobsQuery> dataJobsQueries,
+
             ImmutableArray<Outputs.MonitorVariablesDataQualityQuery> dataQualityQueries,
 
             ImmutableArray<Outputs.MonitorVariablesEventQuery> eventQueries)
         {
             CloudCostQueries = cloudCostQueries;
+            DataJobsQueries = dataJobsQueries;
             DataQualityQueries = dataQualityQueries;
             EventQueries = eventQueries;
         }

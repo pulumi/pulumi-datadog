@@ -20,7 +20,7 @@ public final class SecurityMonitoringRuleCase {
      */
     private @Nullable List<SecurityMonitoringRuleCaseAction> actions;
     /**
-     * @return A rule case contains logical operations (`&gt;`,`&gt;=`, `&amp;&amp;`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries. Defaults to `&#34;&#34;`.
+     * @return A rule case contains logical operations (`&gt;`,`&gt;=`, `&amp;&amp;`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
      * 
      */
     private @Nullable String condition;
@@ -49,7 +49,7 @@ public final class SecurityMonitoringRuleCase {
         return this.actions == null ? List.of() : this.actions;
     }
     /**
-     * @return A rule case contains logical operations (`&gt;`,`&gt;=`, `&amp;&amp;`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries. Defaults to `&#34;&#34;`.
+     * @return A rule case contains logical operations (`&gt;`,`&gt;=`, `&amp;&amp;`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
      * 
      */
     public Optional<String> condition() {

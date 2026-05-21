@@ -211,6 +211,8 @@ if typing.TYPE_CHECKING:
     config = __config
     import pulumi_datadog.confluent as __confluent
     confluent = __confluent
+    import pulumi_datadog.databricks as __databricks
+    databricks = __databricks
     import pulumi_datadog.fastly as __fastly
     fastly = __fastly
     import pulumi_datadog.gcp as __gcp
@@ -229,6 +231,7 @@ else:
     cloudflare = _utilities.lazy_import('pulumi_datadog.cloudflare')
     config = _utilities.lazy_import('pulumi_datadog.config')
     confluent = _utilities.lazy_import('pulumi_datadog.confluent')
+    databricks = _utilities.lazy_import('pulumi_datadog.databricks')
     fastly = _utilities.lazy_import('pulumi_datadog.fastly')
     gcp = _utilities.lazy_import('pulumi_datadog.gcp')
     ms = _utilities.lazy_import('pulumi_datadog.ms')
@@ -293,6 +296,14 @@ _utilities.register(
   "fqn": "pulumi_datadog.confluent",
   "classes": {
    "datadog:confluent/integrationResource:IntegrationResource": "IntegrationResource"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "databricks/integrationAccount",
+  "fqn": "pulumi_datadog.databricks",
+  "classes": {
+   "datadog:databricks/integrationAccount:IntegrationAccount": "IntegrationAccount"
   }
  },
  {

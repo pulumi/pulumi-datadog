@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.MonitorVariablesCloudCostQuery;
+import com.pulumi.datadog.outputs.MonitorVariablesDataJobsQuery;
 import com.pulumi.datadog.outputs.MonitorVariablesDataQualityQuery;
 import com.pulumi.datadog.outputs.MonitorVariablesEventQuery;
 import java.util.List;
@@ -18,6 +19,11 @@ public final class MonitorVariables {
      * 
      */
     private @Nullable List<MonitorVariablesCloudCostQuery> cloudCostQueries;
+    /**
+     * @return The Data Jobs query using formulas and functions.
+     * 
+     */
+    private @Nullable List<MonitorVariablesDataJobsQuery> dataJobsQueries;
     /**
      * @return The Data Quality query using formulas and functions.
      * 
@@ -36,6 +42,13 @@ public final class MonitorVariables {
      */
     public List<MonitorVariablesCloudCostQuery> cloudCostQueries() {
         return this.cloudCostQueries == null ? List.of() : this.cloudCostQueries;
+    }
+    /**
+     * @return The Data Jobs query using formulas and functions.
+     * 
+     */
+    public List<MonitorVariablesDataJobsQuery> dataJobsQueries() {
+        return this.dataJobsQueries == null ? List.of() : this.dataJobsQueries;
     }
     /**
      * @return The Data Quality query using formulas and functions.
@@ -62,12 +75,14 @@ public final class MonitorVariables {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<MonitorVariablesCloudCostQuery> cloudCostQueries;
+        private @Nullable List<MonitorVariablesDataJobsQuery> dataJobsQueries;
         private @Nullable List<MonitorVariablesDataQualityQuery> dataQualityQueries;
         private @Nullable List<MonitorVariablesEventQuery> eventQueries;
         public Builder() {}
         public Builder(MonitorVariables defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cloudCostQueries = defaults.cloudCostQueries;
+    	      this.dataJobsQueries = defaults.dataJobsQueries;
     	      this.dataQualityQueries = defaults.dataQualityQueries;
     	      this.eventQueries = defaults.eventQueries;
         }
@@ -80,6 +95,15 @@ public final class MonitorVariables {
         }
         public Builder cloudCostQueries(MonitorVariablesCloudCostQuery... cloudCostQueries) {
             return cloudCostQueries(List.of(cloudCostQueries));
+        }
+        @CustomType.Setter
+        public Builder dataJobsQueries(@Nullable List<MonitorVariablesDataJobsQuery> dataJobsQueries) {
+
+            this.dataJobsQueries = dataJobsQueries;
+            return this;
+        }
+        public Builder dataJobsQueries(MonitorVariablesDataJobsQuery... dataJobsQueries) {
+            return dataJobsQueries(List.of(dataJobsQueries));
         }
         @CustomType.Setter
         public Builder dataQualityQueries(@Nullable List<MonitorVariablesDataQualityQuery> dataQualityQueries) {
@@ -102,6 +126,7 @@ public final class MonitorVariables {
         public MonitorVariables build() {
             final var _resultValue = new MonitorVariables();
             _resultValue.cloudCostQueries = cloudCostQueries;
+            _resultValue.dataJobsQueries = dataJobsQueries;
             _resultValue.dataQualityQueries = dataQualityQueries;
             _resultValue.eventQueries = eventQueries;
             return _resultValue;

@@ -68,6 +68,10 @@ export class LogsArchive extends pulumi.CustomResource {
      */
     declare public readonly azureArchive: pulumi.Output<outputs.LogsArchiveAzureArchive | undefined>;
     /**
+     * The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
+     */
+    declare public readonly compressionMethod: pulumi.Output<string | undefined>;
+    /**
      * Definition of a GCS archive.
      */
     declare public readonly gcsArchive: pulumi.Output<outputs.LogsArchiveGcsArchive | undefined>;
@@ -110,6 +114,7 @@ export class LogsArchive extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as LogsArchiveState | undefined;
             resourceInputs["azureArchive"] = state?.azureArchive;
+            resourceInputs["compressionMethod"] = state?.compressionMethod;
             resourceInputs["gcsArchive"] = state?.gcsArchive;
             resourceInputs["includeTags"] = state?.includeTags;
             resourceInputs["name"] = state?.name;
@@ -126,6 +131,7 @@ export class LogsArchive extends pulumi.CustomResource {
                 throw new Error("Missing required property 'query'");
             }
             resourceInputs["azureArchive"] = args?.azureArchive;
+            resourceInputs["compressionMethod"] = args?.compressionMethod;
             resourceInputs["gcsArchive"] = args?.gcsArchive;
             resourceInputs["includeTags"] = args?.includeTags;
             resourceInputs["name"] = args?.name;
@@ -147,6 +153,10 @@ export interface LogsArchiveState {
      * Definition of an azure archive.
      */
     azureArchive?: pulumi.Input<inputs.LogsArchiveAzureArchive | undefined>;
+    /**
+     * The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
+     */
+    compressionMethod?: pulumi.Input<string | undefined>;
     /**
      * Definition of a GCS archive.
      */
@@ -185,6 +195,10 @@ export interface LogsArchiveArgs {
      * Definition of an azure archive.
      */
     azureArchive?: pulumi.Input<inputs.LogsArchiveAzureArchive | undefined>;
+    /**
+     * The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
+     */
+    compressionMethod?: pulumi.Input<string | undefined>;
     /**
      * Definition of a GCS archive.
      */

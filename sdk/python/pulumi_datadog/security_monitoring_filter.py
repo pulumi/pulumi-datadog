@@ -400,7 +400,7 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="filteredDataType")
-    def filtered_data_type(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def filtered_data_type(self) -> pulumi.Output[_builtins.str]:
         """
         The filtered data type. Valid values are `logs`. Defaults to `"logs"`.
         """

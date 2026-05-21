@@ -70,11 +70,11 @@ type SecurityMonitoringDefaultRule struct {
 	// Custom tags for generated signals.
 	CustomTags pulumi.StringArrayOutput `pulumi:"customTags"`
 	// Enable the rule. Defaults to `true`.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// Additional queries to filter matched events before they are processed.
 	Filters SecurityMonitoringDefaultRuleFilterArrayOutput `pulumi:"filters"`
 	// Options on default rules. Note that only a subset of fields can be updated on default rule options.
-	Options SecurityMonitoringDefaultRuleOptionsOutput `pulumi:"options"`
+	Options SecurityMonitoringDefaultRuleOptionsPtrOutput `pulumi:"options"`
 	// Queries for selecting logs which are part of the rule.
 	Queries SecurityMonitoringDefaultRuleQueryArrayOutput `pulumi:"queries"`
 	// The rule type.
@@ -303,8 +303,8 @@ func (o SecurityMonitoringDefaultRuleOutput) CustomTags() pulumi.StringArrayOutp
 }
 
 // Enable the rule. Defaults to `true`.
-func (o SecurityMonitoringDefaultRuleOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SecurityMonitoringDefaultRule) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+func (o SecurityMonitoringDefaultRuleOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *SecurityMonitoringDefaultRule) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // Additional queries to filter matched events before they are processed.
@@ -315,8 +315,8 @@ func (o SecurityMonitoringDefaultRuleOutput) Filters() SecurityMonitoringDefault
 }
 
 // Options on default rules. Note that only a subset of fields can be updated on default rule options.
-func (o SecurityMonitoringDefaultRuleOutput) Options() SecurityMonitoringDefaultRuleOptionsOutput {
-	return o.ApplyT(func(v *SecurityMonitoringDefaultRule) SecurityMonitoringDefaultRuleOptionsOutput { return v.Options }).(SecurityMonitoringDefaultRuleOptionsOutput)
+func (o SecurityMonitoringDefaultRuleOutput) Options() SecurityMonitoringDefaultRuleOptionsPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringDefaultRule) SecurityMonitoringDefaultRuleOptionsPtrOutput { return v.Options }).(SecurityMonitoringDefaultRuleOptionsPtrOutput)
 }
 
 // Queries for selecting logs which are part of the rule.

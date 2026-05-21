@@ -81,14 +81,14 @@ public class SecurityMonitoringDefaultRule extends com.pulumi.resources.CustomRe
      * 
      */
     @Export(name="cases", refs={List.class,SecurityMonitoringDefaultRuleCase.class}, tree="[0,1]")
-    private Output<List<SecurityMonitoringDefaultRuleCase>> cases;
+    private Output</* @Nullable */ List<SecurityMonitoringDefaultRuleCase>> cases;
 
     /**
      * @return Cases of the rule, this is used to update notifications.
      * 
      */
-    public Output<List<SecurityMonitoringDefaultRuleCase>> cases() {
-        return this.cases;
+    public Output<Optional<List<SecurityMonitoringDefaultRuleCase>>> cases() {
+        return Codegen.optional(this.cases);
     }
     /**
      * Custom Message (will override default message) for generated signals.
@@ -137,14 +137,14 @@ public class SecurityMonitoringDefaultRule extends com.pulumi.resources.CustomRe
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enabled;
+    private Output<Boolean> enabled;
 
     /**
      * @return Enable the rule. Defaults to `true`.
      * 
      */
-    public Output<Optional<Boolean>> enabled() {
-        return Codegen.optional(this.enabled);
+    public Output<Boolean> enabled() {
+        return this.enabled;
     }
     /**
      * Additional queries to filter matched events before they are processed.
@@ -165,28 +165,28 @@ public class SecurityMonitoringDefaultRule extends com.pulumi.resources.CustomRe
      * 
      */
     @Export(name="options", refs={SecurityMonitoringDefaultRuleOptions.class}, tree="[0]")
-    private Output<SecurityMonitoringDefaultRuleOptions> options;
+    private Output</* @Nullable */ SecurityMonitoringDefaultRuleOptions> options;
 
     /**
      * @return Options on default rules. Note that only a subset of fields can be updated on default rule options.
      * 
      */
-    public Output<SecurityMonitoringDefaultRuleOptions> options() {
-        return this.options;
+    public Output<Optional<SecurityMonitoringDefaultRuleOptions>> options() {
+        return Codegen.optional(this.options);
     }
     /**
      * Queries for selecting logs which are part of the rule.
      * 
      */
     @Export(name="queries", refs={List.class,SecurityMonitoringDefaultRuleQuery.class}, tree="[0,1]")
-    private Output<List<SecurityMonitoringDefaultRuleQuery>> queries;
+    private Output</* @Nullable */ List<SecurityMonitoringDefaultRuleQuery>> queries;
 
     /**
      * @return Queries for selecting logs which are part of the rule.
      * 
      */
-    public Output<List<SecurityMonitoringDefaultRuleQuery>> queries() {
-        return this.queries;
+    public Output<Optional<List<SecurityMonitoringDefaultRuleQuery>>> queries() {
+        return Codegen.optional(this.queries);
     }
     /**
      * The rule type.

@@ -70,6 +70,8 @@
         "dashboardJson.ts",
         "dashboardList.ts",
         "dashboardV2.ts",
+        "databricks/index.ts",
+        "databricks/integrationAccount.ts",
         "dataset.ts",
         "datastore.ts",
         "datastoreItem.ts",

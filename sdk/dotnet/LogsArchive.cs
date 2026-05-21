@@ -56,6 +56,12 @@ namespace Pulumi.Datadog
         public Output<Outputs.LogsArchiveAzureArchive?> AzureArchive { get; private set; } = null!;
 
         /// <summary>
+        /// The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
+        /// </summary>
+        [Output("compressionMethod")]
+        public Output<string?> CompressionMethod { get; private set; } = null!;
+
+        /// <summary>
         /// Definition of a GCS archive.
         /// </summary>
         [Output("gcsArchive")]
@@ -150,6 +156,12 @@ namespace Pulumi.Datadog
         public Input<Inputs.LogsArchiveAzureArchiveArgs>? AzureArchive { get; set; }
 
         /// <summary>
+        /// The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
+        /// </summary>
+        [Input("compressionMethod")]
+        public Input<string>? CompressionMethod { get; set; }
+
+        /// <summary>
         /// Definition of a GCS archive.
         /// </summary>
         [Input("gcsArchive")]
@@ -210,6 +222,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("azureArchive")]
         public Input<Inputs.LogsArchiveAzureArchiveGetArgs>? AzureArchive { get; set; }
+
+        /// <summary>
+        /// The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
+        /// </summary>
+        [Input("compressionMethod")]
+        public Input<string>? CompressionMethod { get; set; }
 
         /// <summary>
         /// Definition of a GCS archive.

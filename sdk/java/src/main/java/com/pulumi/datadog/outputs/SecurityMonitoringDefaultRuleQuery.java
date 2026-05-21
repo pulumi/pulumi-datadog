@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SecurityMonitoringDefaultRuleQuery {
     /**
-     * @return **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
+     * @return **Deprecated**. It won&#39;t be applied anymore.
      * 
      * @deprecated
      * `agentRule` has been deprecated in favor of new Agent Rule resource.
@@ -24,7 +24,7 @@ public final class SecurityMonitoringDefaultRuleQuery {
     @Deprecated /* `agentRule` has been deprecated in favor of new Agent Rule resource. */
     private @Nullable List<SecurityMonitoringDefaultRuleQueryAgentRule> agentRules;
     /**
-     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
+     * @return The aggregation type.
      * 
      */
     private @Nullable String aggregation;
@@ -34,7 +34,7 @@ public final class SecurityMonitoringDefaultRuleQuery {
      */
     private @Nullable String customQueryExtension;
     /**
-     * @return Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`, `securitySignals`.
+     * @return Source of events.
      * 
      */
     private @Nullable String dataSource;
@@ -54,7 +54,7 @@ public final class SecurityMonitoringDefaultRuleQuery {
      */
     private @Nullable Boolean hasOptionalGroupByFields;
     /**
-     * @return The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     * @return The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations.
      * 
      * @deprecated
      * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
@@ -80,7 +80,7 @@ public final class SecurityMonitoringDefaultRuleQuery {
 
     private SecurityMonitoringDefaultRuleQuery() {}
     /**
-     * @return **Deprecated**. It won&#39;t be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
+     * @return **Deprecated**. It won&#39;t be applied anymore.
      * 
      * @deprecated
      * `agentRule` has been deprecated in favor of new Agent Rule resource.
@@ -91,7 +91,7 @@ public final class SecurityMonitoringDefaultRuleQuery {
         return this.agentRules == null ? List.of() : this.agentRules;
     }
     /**
-     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
+     * @return The aggregation type.
      * 
      */
     public Optional<String> aggregation() {
@@ -105,7 +105,7 @@ public final class SecurityMonitoringDefaultRuleQuery {
         return Optional.ofNullable(this.customQueryExtension);
     }
     /**
-     * @return Source of events. Valid values are `logs`, `audit`, `appSecSpans`, `spans`, `securityRuntime`, `network`, `events`, `securitySignals`.
+     * @return Source of events.
      * 
      */
     public Optional<String> dataSource() {
@@ -133,7 +133,7 @@ public final class SecurityMonitoringDefaultRuleQuery {
         return Optional.ofNullable(this.hasOptionalGroupByFields);
     }
     /**
-     * @return The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     * @return The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations.
      * 
      * @deprecated
      * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.

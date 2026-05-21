@@ -34,18 +34,18 @@ public final class ObservabilityPipelineConfigDestinationDatabricksZerobusArgs e
     }
 
     /**
-     * The Databricks Zerobus ingestion endpoint URL.
+     * The name of the secret or environment variable holding the Databricks Zerobus ingestion endpoint URL.
      * 
      */
-    @Import(name="ingestionEndpoint", required=true)
-    private Output<String> ingestionEndpoint;
+    @Import(name="ingestionEndpointKey")
+    private @Nullable Output<String> ingestionEndpointKey;
 
     /**
-     * @return The Databricks Zerobus ingestion endpoint URL.
+     * @return The name of the secret or environment variable holding the Databricks Zerobus ingestion endpoint URL.
      * 
      */
-    public Output<String> ingestionEndpoint() {
-        return this.ingestionEndpoint;
+    public Optional<Output<String>> ingestionEndpointKey() {
+        return Optional.ofNullable(this.ingestionEndpointKey);
     }
 
     /**
@@ -64,27 +64,27 @@ public final class ObservabilityPipelineConfigDestinationDatabricksZerobusArgs e
     }
 
     /**
-     * The Databricks Unity Catalog endpoint URL.
+     * The name of the secret or environment variable holding the Databricks Unity Catalog endpoint URL.
      * 
      */
-    @Import(name="unityCatalogEndpoint", required=true)
-    private Output<String> unityCatalogEndpoint;
+    @Import(name="unityCatalogEndpointKey")
+    private @Nullable Output<String> unityCatalogEndpointKey;
 
     /**
-     * @return The Databricks Unity Catalog endpoint URL.
+     * @return The name of the secret or environment variable holding the Databricks Unity Catalog endpoint URL.
      * 
      */
-    public Output<String> unityCatalogEndpoint() {
-        return this.unityCatalogEndpoint;
+    public Optional<Output<String>> unityCatalogEndpointKey() {
+        return Optional.ofNullable(this.unityCatalogEndpointKey);
     }
 
     private ObservabilityPipelineConfigDestinationDatabricksZerobusArgs() {}
 
     private ObservabilityPipelineConfigDestinationDatabricksZerobusArgs(ObservabilityPipelineConfigDestinationDatabricksZerobusArgs $) {
         this.auths = $.auths;
-        this.ingestionEndpoint = $.ingestionEndpoint;
+        this.ingestionEndpointKey = $.ingestionEndpointKey;
         this.tableName = $.tableName;
-        this.unityCatalogEndpoint = $.unityCatalogEndpoint;
+        this.unityCatalogEndpointKey = $.unityCatalogEndpointKey;
     }
 
     public static Builder builder() {
@@ -137,24 +137,24 @@ public final class ObservabilityPipelineConfigDestinationDatabricksZerobusArgs e
         }
 
         /**
-         * @param ingestionEndpoint The Databricks Zerobus ingestion endpoint URL.
+         * @param ingestionEndpointKey The name of the secret or environment variable holding the Databricks Zerobus ingestion endpoint URL.
          * 
          * @return builder
          * 
          */
-        public Builder ingestionEndpoint(Output<String> ingestionEndpoint) {
-            $.ingestionEndpoint = ingestionEndpoint;
+        public Builder ingestionEndpointKey(@Nullable Output<String> ingestionEndpointKey) {
+            $.ingestionEndpointKey = ingestionEndpointKey;
             return this;
         }
 
         /**
-         * @param ingestionEndpoint The Databricks Zerobus ingestion endpoint URL.
+         * @param ingestionEndpointKey The name of the secret or environment variable holding the Databricks Zerobus ingestion endpoint URL.
          * 
          * @return builder
          * 
          */
-        public Builder ingestionEndpoint(String ingestionEndpoint) {
-            return ingestionEndpoint(Output.of(ingestionEndpoint));
+        public Builder ingestionEndpointKey(String ingestionEndpointKey) {
+            return ingestionEndpointKey(Output.of(ingestionEndpointKey));
         }
 
         /**
@@ -179,35 +179,29 @@ public final class ObservabilityPipelineConfigDestinationDatabricksZerobusArgs e
         }
 
         /**
-         * @param unityCatalogEndpoint The Databricks Unity Catalog endpoint URL.
+         * @param unityCatalogEndpointKey The name of the secret or environment variable holding the Databricks Unity Catalog endpoint URL.
          * 
          * @return builder
          * 
          */
-        public Builder unityCatalogEndpoint(Output<String> unityCatalogEndpoint) {
-            $.unityCatalogEndpoint = unityCatalogEndpoint;
+        public Builder unityCatalogEndpointKey(@Nullable Output<String> unityCatalogEndpointKey) {
+            $.unityCatalogEndpointKey = unityCatalogEndpointKey;
             return this;
         }
 
         /**
-         * @param unityCatalogEndpoint The Databricks Unity Catalog endpoint URL.
+         * @param unityCatalogEndpointKey The name of the secret or environment variable holding the Databricks Unity Catalog endpoint URL.
          * 
          * @return builder
          * 
          */
-        public Builder unityCatalogEndpoint(String unityCatalogEndpoint) {
-            return unityCatalogEndpoint(Output.of(unityCatalogEndpoint));
+        public Builder unityCatalogEndpointKey(String unityCatalogEndpointKey) {
+            return unityCatalogEndpointKey(Output.of(unityCatalogEndpointKey));
         }
 
         public ObservabilityPipelineConfigDestinationDatabricksZerobusArgs build() {
-            if ($.ingestionEndpoint == null) {
-                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationDatabricksZerobusArgs", "ingestionEndpoint");
-            }
             if ($.tableName == null) {
                 throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationDatabricksZerobusArgs", "tableName");
-            }
-            if ($.unityCatalogEndpoint == null) {
-                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationDatabricksZerobusArgs", "unityCatalogEndpoint");
             }
             return $;
         }

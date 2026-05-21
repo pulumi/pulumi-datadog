@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.OnCallTeamRoutingRulesRuleActionSendSlackMessage;
 import com.pulumi.datadog.outputs.OnCallTeamRoutingRulesRuleActionSendTeamsMessage;
+import com.pulumi.datadog.outputs.OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,6 +15,7 @@ import javax.annotation.Nullable;
 public final class OnCallTeamRoutingRulesRuleAction {
     private @Nullable OnCallTeamRoutingRulesRuleActionSendSlackMessage sendSlackMessage;
     private @Nullable OnCallTeamRoutingRulesRuleActionSendTeamsMessage sendTeamsMessage;
+    private @Nullable OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation triggerWorkflowAutomation;
 
     private OnCallTeamRoutingRulesRuleAction() {}
     public Optional<OnCallTeamRoutingRulesRuleActionSendSlackMessage> sendSlackMessage() {
@@ -21,6 +23,9 @@ public final class OnCallTeamRoutingRulesRuleAction {
     }
     public Optional<OnCallTeamRoutingRulesRuleActionSendTeamsMessage> sendTeamsMessage() {
         return Optional.ofNullable(this.sendTeamsMessage);
+    }
+    public Optional<OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation> triggerWorkflowAutomation() {
+        return Optional.ofNullable(this.triggerWorkflowAutomation);
     }
 
     public static Builder builder() {
@@ -34,11 +39,13 @@ public final class OnCallTeamRoutingRulesRuleAction {
     public static final class Builder {
         private @Nullable OnCallTeamRoutingRulesRuleActionSendSlackMessage sendSlackMessage;
         private @Nullable OnCallTeamRoutingRulesRuleActionSendTeamsMessage sendTeamsMessage;
+        private @Nullable OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation triggerWorkflowAutomation;
         public Builder() {}
         public Builder(OnCallTeamRoutingRulesRuleAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.sendSlackMessage = defaults.sendSlackMessage;
     	      this.sendTeamsMessage = defaults.sendTeamsMessage;
+    	      this.triggerWorkflowAutomation = defaults.triggerWorkflowAutomation;
         }
 
         @CustomType.Setter
@@ -53,10 +60,17 @@ public final class OnCallTeamRoutingRulesRuleAction {
             this.sendTeamsMessage = sendTeamsMessage;
             return this;
         }
+        @CustomType.Setter
+        public Builder triggerWorkflowAutomation(@Nullable OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation triggerWorkflowAutomation) {
+
+            this.triggerWorkflowAutomation = triggerWorkflowAutomation;
+            return this;
+        }
         public OnCallTeamRoutingRulesRuleAction build() {
             final var _resultValue = new OnCallTeamRoutingRulesRuleAction();
             _resultValue.sendSlackMessage = sendSlackMessage;
             _resultValue.sendTeamsMessage = sendTeamsMessage;
+            _resultValue.triggerWorkflowAutomation = triggerWorkflowAutomation;
             return _resultValue;
         }
     }
