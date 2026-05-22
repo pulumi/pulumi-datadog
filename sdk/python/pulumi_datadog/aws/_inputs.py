@@ -46,11 +46,11 @@ __all__ = [
 ]
 
 class IntegrationAccountAuthConfigArgsDict(TypedDict):
-    aws_auth_config_keys: NotRequired[pulumi.Input[Optional['IntegrationAccountAuthConfigAwsAuthConfigKeysArgs']]]
+    aws_auth_config_keys: NotRequired[pulumi.Input[Optional['IntegrationAccountAuthConfigAwsAuthConfigKeysArgsDict']]]
     """
     Datadog will use the provided AWS Access Key ID and Secret Access Key to authenticate to your account.
     """
-    aws_auth_config_role: NotRequired[pulumi.Input[Optional['IntegrationAccountAuthConfigAwsAuthConfigRoleArgs']]]
+    aws_auth_config_role: NotRequired[pulumi.Input[Optional['IntegrationAccountAuthConfigAwsAuthConfigRoleArgsDict']]]
 
 @pulumi.input_type
 class IntegrationAccountAuthConfigArgs:
@@ -235,7 +235,7 @@ class IntegrationAccountAwsRegionsArgs:
 
 
 class IntegrationAccountLogsConfigArgsDict(TypedDict):
-    lambda_forwarder: NotRequired[pulumi.Input[Optional['IntegrationAccountLogsConfigLambdaForwarderArgs']]]
+    lambda_forwarder: NotRequired[pulumi.Input[Optional['IntegrationAccountLogsConfigLambdaForwarderArgsDict']]]
     """
     Leave empty to omit logs config.
     """
@@ -268,7 +268,7 @@ class IntegrationAccountLogsConfigLambdaForwarderArgsDict(TypedDict):
     """
     List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
     """
-    log_source_config: NotRequired[pulumi.Input[Optional['IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgs']]]
+    log_source_config: NotRequired[pulumi.Input[Optional['IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgsDict']]]
     """
     Configure log source collection for your Datadog Forwarder Lambda functions.
     """
@@ -333,7 +333,7 @@ class IntegrationAccountLogsConfigLambdaForwarderArgs:
 
 
 class IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigArgsDict(TypedDict):
-    tag_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgs']]]]]
+    tag_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgsDict']]]]]
     """
     AWS Logs Collection tag filters list.
     """
@@ -425,11 +425,11 @@ class IntegrationAccountMetricsConfigArgsDict(TypedDict):
     """
     Enable AWS metrics collection Defaults to `true`.
     """
-    namespace_filters: NotRequired[pulumi.Input[Optional['IntegrationAccountMetricsConfigNamespaceFiltersArgs']]]
+    namespace_filters: NotRequired[pulumi.Input[Optional['IntegrationAccountMetricsConfigNamespaceFiltersArgsDict']]]
     """
     AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
     """
-    tag_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountMetricsConfigTagFilterArgs']]]]]
+    tag_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountMetricsConfigTagFilterArgsDict']]]]]
     """
     AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
     """
@@ -684,7 +684,7 @@ class IntegrationAccountResourcesConfigArgs:
 
 
 class IntegrationAccountTracesConfigArgsDict(TypedDict):
-    xray_services: NotRequired[pulumi.Input[Optional['IntegrationAccountTracesConfigXrayServicesArgs']]]
+    xray_services: NotRequired[pulumi.Input[Optional['IntegrationAccountTracesConfigXrayServicesArgsDict']]]
     """
     AWS X-Ray services to collect traces from. Defaults to `include_only`.
     """

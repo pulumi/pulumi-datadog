@@ -26,11 +26,11 @@ __all__ = [
 ]
 
 class IntegrationAccountAuthConfigArgsDict(TypedDict):
-    oauth: NotRequired[pulumi.Input[Optional['IntegrationAccountAuthConfigOauthArgs']]]
+    oauth: NotRequired[pulumi.Input[Optional['IntegrationAccountAuthConfigOauthArgsDict']]]
     """
     OAuth (service principal) authentication. Recommended for new deployments. `client_id`, `client_secret`, and `databricks_account_id` must be provided together.
     """
-    pat: NotRequired[pulumi.Input[Optional['IntegrationAccountAuthConfigPatArgs']]]
+    pat: NotRequired[pulumi.Input[Optional['IntegrationAccountAuthConfigPatArgsDict']]]
     """
     Personal Access Token authentication. Deprecated in favor of `oauth`; kept for backwards compatibility.
     """
