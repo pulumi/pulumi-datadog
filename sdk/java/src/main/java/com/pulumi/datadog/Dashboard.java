@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
 /**
  * Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
  * 
- * !&gt; The `isReadOnly` field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard.
+ * &gt; The `isReadOnly` field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard.
  * 
  * ## Example Usage
  * 

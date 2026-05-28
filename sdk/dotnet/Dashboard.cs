@@ -12,7 +12,7 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
     /// 
-    /// !&gt; The `IsReadOnly` field is deprecated and non-functional. Use `RestrictedRoles` instead to define which roles are required to edit the dashboard.
+    /// &gt; The `IsReadOnly` field is deprecated and non-functional. Use `RestrictedRoles` instead to define which roles are required to edit the dashboard.
     /// 
     /// ## Example Usage
     /// 
