@@ -14,7 +14,7 @@ import (
 
 // Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
 //
-// !> The `isReadOnly` field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard.
+// > The `isReadOnly` field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard.
 //
 // ## Example Usage
 //

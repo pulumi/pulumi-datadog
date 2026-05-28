@@ -530,7 +530,7 @@ class Dashboard(pulumi.CustomResource):
         """
         Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
 
-        !> The `is_read_only` field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard.
+        > The `is_read_only` field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard.
 
         ## Example Usage
 
@@ -1312,7 +1312,7 @@ class Dashboard(pulumi.CustomResource):
         """
         Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
 
-        !> The `is_read_only` field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard.
+        > The `is_read_only` field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard.
 
         ## Example Usage
 
