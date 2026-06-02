@@ -1293,6 +1293,108 @@ class SyntheticsTest(pulumi.CustomResource):
                 "tick_every": 900,
                 "accept_self_signed": True,
             })
+        # Example Usage (Synthetics MCP API test)
+        # Create a new Datadog Synthetics Multistep API test against an MCP server
+        test_mcp = datadog.SyntheticsTest("test_mcp",
+            name="MCP API test",
+            type="api",
+            subtype="multi",
+            status="live",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "env:test",
+            ],
+            api_steps=[
+                {
+                    "name": "Initialize MCP session",
+                    "subtype": "mcp",
+                    "assertions": [
+                        {
+                            "type": "statusCode",
+                            "operator": "is",
+                            "target": "200",
+                        },
+                        {
+                            "type": "mcpRespectsSpecification",
+                        },
+                        {
+                            "type": "mcpServerCapabilities",
+                            "operator": "contains",
+                            "target_mcp_capabilities": {
+                                "capabilities": ["tools"],
+                            },
+                        },
+                    ],
+                    "request_definition": {
+                        "url": "https://example.org/mcp",
+                        "call_type": "init",
+                        "mcp_protocol_version": "2025-06-18",
+                    },
+                    "request_headers": {
+                        "api-key": "YOUR-API-KEY",
+                    },
+                },
+                {
+                    "name": "List MCP tools",
+                    "subtype": "mcp",
+                    "assertions": [
+                        {
+                            "type": "statusCode",
+                            "operator": "is",
+                            "target": "200",
+                        },
+                        {
+                            "type": "mcpToolCount",
+                            "operator": "moreThan",
+                            "target": "0",
+                        },
+                        {
+                            "type": "mcpToolNameLength",
+                            "operator": "lessThan",
+                            "target": "64",
+                        },
+                    ],
+                    "request_definition": {
+                        "url": "https://example.org/mcp",
+                        "call_type": "tool_list",
+                        "mcp_protocol_version": "2025-06-18",
+                    },
+                    "request_headers": {
+                        "api-key": "YOUR-API-KEY",
+                    },
+                },
+                {
+                    "name": "Call MCP search tool",
+                    "subtype": "mcp",
+                    "assertions": [
+                        {
+                            "type": "responseTime",
+                            "operator": "lessThan",
+                            "target": "5000",
+                        },
+                        {
+                            "type": "mcpRespectsSpecification",
+                        },
+                    ],
+                    "request_definition": {
+                        "url": "https://example.org/mcp",
+                        "call_type": "tool_call",
+                        "mcp_protocol_version": "2025-06-18",
+                        "tool_name": "search",
+                        "tool_args": json.dumps({
+                            "query": "datadog synthetics",
+                            "limit": 5,
+                        }),
+                    },
+                    "request_headers": {
+                        "api-key": "YOUR-API-KEY",
+                    },
+                },
+            ],
+            options_list={
+                "tick_every": 900,
+            })
         # Example Usage (Synthetics Browser test)
         # Create a new Datadog Synthetics Browser test starting on https://www.example.org
         test_browser = datadog.SyntheticsTest("test_browser",
@@ -2238,6 +2340,108 @@ class SyntheticsTest(pulumi.CustomResource):
             options_list={
                 "tick_every": 900,
                 "accept_self_signed": True,
+            })
+        # Example Usage (Synthetics MCP API test)
+        # Create a new Datadog Synthetics Multistep API test against an MCP server
+        test_mcp = datadog.SyntheticsTest("test_mcp",
+            name="MCP API test",
+            type="api",
+            subtype="multi",
+            status="live",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "env:test",
+            ],
+            api_steps=[
+                {
+                    "name": "Initialize MCP session",
+                    "subtype": "mcp",
+                    "assertions": [
+                        {
+                            "type": "statusCode",
+                            "operator": "is",
+                            "target": "200",
+                        },
+                        {
+                            "type": "mcpRespectsSpecification",
+                        },
+                        {
+                            "type": "mcpServerCapabilities",
+                            "operator": "contains",
+                            "target_mcp_capabilities": {
+                                "capabilities": ["tools"],
+                            },
+                        },
+                    ],
+                    "request_definition": {
+                        "url": "https://example.org/mcp",
+                        "call_type": "init",
+                        "mcp_protocol_version": "2025-06-18",
+                    },
+                    "request_headers": {
+                        "api-key": "YOUR-API-KEY",
+                    },
+                },
+                {
+                    "name": "List MCP tools",
+                    "subtype": "mcp",
+                    "assertions": [
+                        {
+                            "type": "statusCode",
+                            "operator": "is",
+                            "target": "200",
+                        },
+                        {
+                            "type": "mcpToolCount",
+                            "operator": "moreThan",
+                            "target": "0",
+                        },
+                        {
+                            "type": "mcpToolNameLength",
+                            "operator": "lessThan",
+                            "target": "64",
+                        },
+                    ],
+                    "request_definition": {
+                        "url": "https://example.org/mcp",
+                        "call_type": "tool_list",
+                        "mcp_protocol_version": "2025-06-18",
+                    },
+                    "request_headers": {
+                        "api-key": "YOUR-API-KEY",
+                    },
+                },
+                {
+                    "name": "Call MCP search tool",
+                    "subtype": "mcp",
+                    "assertions": [
+                        {
+                            "type": "responseTime",
+                            "operator": "lessThan",
+                            "target": "5000",
+                        },
+                        {
+                            "type": "mcpRespectsSpecification",
+                        },
+                    ],
+                    "request_definition": {
+                        "url": "https://example.org/mcp",
+                        "call_type": "tool_call",
+                        "mcp_protocol_version": "2025-06-18",
+                        "tool_name": "search",
+                        "tool_args": json.dumps({
+                            "query": "datadog synthetics",
+                            "limit": 5,
+                        }),
+                    },
+                    "request_headers": {
+                        "api-key": "YOUR-API-KEY",
+                    },
+                },
+            ],
+            options_list={
+                "tick_every": 900,
             })
         # Example Usage (Synthetics Browser test)
         # Create a new Datadog Synthetics Browser test starting on https://www.example.org

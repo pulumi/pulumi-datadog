@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.SyntheticsTestAssertionTargetMcpCapabilities;
 import com.pulumi.datadog.outputs.SyntheticsTestAssertionTargetjsonpath;
 import com.pulumi.datadog.outputs.SyntheticsTestAssertionTargetjsonschema;
 import com.pulumi.datadog.outputs.SyntheticsTestAssertionTargetxpath;
@@ -36,6 +37,11 @@ public final class SyntheticsTestAssertion {
      */
     private @Nullable String target;
     /**
+     * @return Expected MCP server capabilities if `type` is `mcpServerCapabilities`. Exactly one nested block is allowed with the structure below.
+     * 
+     */
+    private @Nullable SyntheticsTestAssertionTargetMcpCapabilities targetMcpCapabilities;
+    /**
      * @return Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
      * 
      */
@@ -56,7 +62,7 @@ public final class SyntheticsTestAssertion {
      */
     private @Nullable String timingsScope;
     /**
-     * @return Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-a-network-path-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `multiNetworkHop`, `jitter`, `bodyHash`, `javascript`.
+     * @return Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-a-network-path-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `multiNetworkHop`, `jitter`, `mcpToolNameLength`, `mcpToolCount`, `bodyHash`, `javascript`, `mcpRespectsSpecification`, `mcpServerCapabilities`.
      * 
      */
     private String type;
@@ -91,6 +97,13 @@ public final class SyntheticsTestAssertion {
         return Optional.ofNullable(this.target);
     }
     /**
+     * @return Expected MCP server capabilities if `type` is `mcpServerCapabilities`. Exactly one nested block is allowed with the structure below.
+     * 
+     */
+    public Optional<SyntheticsTestAssertionTargetMcpCapabilities> targetMcpCapabilities() {
+        return Optional.ofNullable(this.targetMcpCapabilities);
+    }
+    /**
      * @return Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
      * 
      */
@@ -119,7 +132,7 @@ public final class SyntheticsTestAssertion {
         return Optional.ofNullable(this.timingsScope);
     }
     /**
-     * @return Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-a-network-path-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `multiNetworkHop`, `jitter`, `bodyHash`, `javascript`.
+     * @return Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-a-network-path-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `multiNetworkHop`, `jitter`, `mcpToolNameLength`, `mcpToolCount`, `bodyHash`, `javascript`, `mcpRespectsSpecification`, `mcpServerCapabilities`.
      * 
      */
     public String type() {
@@ -139,6 +152,7 @@ public final class SyntheticsTestAssertion {
         private @Nullable String operator;
         private @Nullable String property;
         private @Nullable String target;
+        private @Nullable SyntheticsTestAssertionTargetMcpCapabilities targetMcpCapabilities;
         private @Nullable SyntheticsTestAssertionTargetjsonpath targetjsonpath;
         private @Nullable SyntheticsTestAssertionTargetjsonschema targetjsonschema;
         private @Nullable SyntheticsTestAssertionTargetxpath targetxpath;
@@ -151,6 +165,7 @@ public final class SyntheticsTestAssertion {
     	      this.operator = defaults.operator;
     	      this.property = defaults.property;
     	      this.target = defaults.target;
+    	      this.targetMcpCapabilities = defaults.targetMcpCapabilities;
     	      this.targetjsonpath = defaults.targetjsonpath;
     	      this.targetjsonschema = defaults.targetjsonschema;
     	      this.targetxpath = defaults.targetxpath;
@@ -180,6 +195,12 @@ public final class SyntheticsTestAssertion {
         public Builder target(@Nullable String target) {
 
             this.target = target;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder targetMcpCapabilities(@Nullable SyntheticsTestAssertionTargetMcpCapabilities targetMcpCapabilities) {
+
+            this.targetMcpCapabilities = targetMcpCapabilities;
             return this;
         }
         @CustomType.Setter
@@ -220,6 +241,7 @@ public final class SyntheticsTestAssertion {
             _resultValue.operator = operator;
             _resultValue.property = property;
             _resultValue.target = target;
+            _resultValue.targetMcpCapabilities = targetMcpCapabilities;
             _resultValue.targetjsonpath = targetjsonpath;
             _resultValue.targetjsonschema = targetjsonschema;
             _resultValue.targetxpath = targetxpath;

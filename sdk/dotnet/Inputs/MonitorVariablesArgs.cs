@@ -12,6 +12,30 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class MonitorVariablesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("aggregateAugmentedQueries")]
+        private InputList<Inputs.MonitorVariablesAggregateAugmentedQueryArgs>? _aggregateAugmentedQueries;
+
+        /// <summary>
+        /// Aggregate-augmented composite query variables (reference table augment joined to a metrics or events base query).
+        /// </summary>
+        public InputList<Inputs.MonitorVariablesAggregateAugmentedQueryArgs> AggregateAugmentedQueries
+        {
+            get => _aggregateAugmentedQueries ?? (_aggregateAugmentedQueries = new InputList<Inputs.MonitorVariablesAggregateAugmentedQueryArgs>());
+            set => _aggregateAugmentedQueries = value;
+        }
+
+        [Input("aggregateFilteredQueries")]
+        private InputList<Inputs.MonitorVariablesAggregateFilteredQueryArgs>? _aggregateFilteredQueries;
+
+        /// <summary>
+        /// Aggregate-filtered composite query variables (filter base query results using a reference table or events filter query).
+        /// </summary>
+        public InputList<Inputs.MonitorVariablesAggregateFilteredQueryArgs> AggregateFilteredQueries
+        {
+            get => _aggregateFilteredQueries ?? (_aggregateFilteredQueries = new InputList<Inputs.MonitorVariablesAggregateFilteredQueryArgs>());
+            set => _aggregateFilteredQueries = value;
+        }
+
         [Input("cloudCostQueries")]
         private InputList<Inputs.MonitorVariablesCloudCostQueryArgs>? _cloudCostQueries;
 

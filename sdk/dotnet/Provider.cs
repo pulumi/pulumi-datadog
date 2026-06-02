@@ -55,6 +55,12 @@ namespace Pulumi.Datadog
         public Output<string?> AwsSessionToken { get; private set; } = null!;
 
         /// <summary>
+        /// Datadog credential sent in the `Authorization: Bearer &lt;token&gt;` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer &lt;token&gt;` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
+        /// </summary>
+        [Output("bearerToken")]
+        public Output<string?> BearerToken { get; private set; } = null!;
+
+        /// <summary>
         /// The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
         /// </summary>
         [Output("cloudProviderRegion")]
@@ -109,6 +115,7 @@ namespace Pulumi.Datadog
                     "awsAccessKeyId",
                     "awsSecretAccessKey",
                     "awsSessionToken",
+                    "bearerToken",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -209,6 +216,22 @@ namespace Pulumi.Datadog
             {
                 var emptySecret = Output.CreateSecret(0);
                 _awsSessionToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("bearerToken")]
+        private Input<string>? _bearerToken;
+
+        /// <summary>
+        /// Datadog credential sent in the `Authorization: Bearer &lt;token&gt;` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer &lt;token&gt;` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
+        /// </summary>
+        public Input<string>? BearerToken
+        {
+            get => _bearerToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _bearerToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 

@@ -52,6 +52,10 @@ export class Provider extends pulumi.ProviderResource {
      */
     declare public readonly awsSessionToken: pulumi.Output<string | undefined>;
     /**
+     * Datadog credential sent in the `Authorization: Bearer <token>` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer <token>` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
+     */
+    declare public readonly bearerToken: pulumi.Output<string | undefined>;
+    /**
      * The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
      */
     declare public readonly cloudProviderRegion: pulumi.Output<string | undefined>;
@@ -89,6 +93,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["awsAccessKeyId"] = args?.awsAccessKeyId ? pulumi.secret(args.awsAccessKeyId) : undefined;
             resourceInputs["awsSecretAccessKey"] = args?.awsSecretAccessKey ? pulumi.secret(args.awsSecretAccessKey) : undefined;
             resourceInputs["awsSessionToken"] = args?.awsSessionToken ? pulumi.secret(args.awsSessionToken) : undefined;
+            resourceInputs["bearerToken"] = args?.bearerToken ? pulumi.secret(args.bearerToken) : undefined;
             resourceInputs["cloudProviderRegion"] = args?.cloudProviderRegion;
             resourceInputs["cloudProviderType"] = args?.cloudProviderType;
             resourceInputs["defaultTags"] = pulumi.output(args?.defaultTags).apply(JSON.stringify);
@@ -101,7 +106,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["validate"] = args?.validate;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["apiKey", "appKey", "awsAccessKeyId", "awsSecretAccessKey", "awsSessionToken"] };
+        const secretOpts = { additionalSecretOutputs: ["apiKey", "appKey", "awsAccessKeyId", "awsSecretAccessKey", "awsSessionToken", "bearerToken"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
@@ -144,6 +149,10 @@ export interface ProviderArgs {
      * The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
      */
     awsSessionToken?: pulumi.Input<string | undefined>;
+    /**
+     * Datadog credential sent in the `Authorization: Bearer <token>` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer <token>` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
+     */
+    bearerToken?: pulumi.Input<string | undefined>;
     /**
      * The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
      */

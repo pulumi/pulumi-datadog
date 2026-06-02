@@ -55,6 +55,13 @@ public final class Config {
         return Codegen.stringProp("awsSessionToken").config(config).get();
     }
 /**
+ * Datadog credential sent in the `Authorization: Bearer &lt;token&gt;` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer &lt;token&gt;` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
+ * 
+ */
+    public Optional<String> bearerToken() {
+        return Codegen.stringProp("bearerToken").config(config).get();
+    }
+/**
  * The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
  * 
  */

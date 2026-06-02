@@ -29,8 +29,8 @@ namespace Pulumi.Datadog
     ///     });
     /// 
     ///     // Disables widget copy-paste for every member org of the prod group.
-    ///     // enforcement_tier = "DEFAULT" means member orgs can still override the value;
-    ///     // use "ENFORCE" to make the value immutable for members.
+    ///     // enforcement_tier = "OVERRIDE_ALLOWED" means member orgs can still override the value;
+    ///     // use "GROUP_MANAGED" to make the value immutable for members.
     ///     var example = new Datadog.OrgGroupPolicy("example", new()
     ///     {
     ///         OrgGroupId = prod.Id,
@@ -39,7 +39,7 @@ namespace Pulumi.Datadog
     ///         {
     ///             ["org_config"] = false,
     ///         }),
-    ///         EnforcementTier = "DEFAULT",
+    ///         EnforcementTier = "OVERRIDE_ALLOWED",
     ///     });
     /// 
     /// });
@@ -49,16 +49,16 @@ namespace Pulumi.Datadog
     /// 
     /// ### Side effects on member orgs
     /// 
-    /// Creating or updating a policy with a non-`ENFORCE` tier (`DEFAULT` or `DELEGATE`) triggers propagation across every member org in the group. For each member, the server compares the org's current config value to the policy value:
+    /// Creating or updating a policy with a non-`GROUP_MANAGED` tier (`OVERRIDE_ALLOWED` or `DELEGATE`) triggers propagation across every member org in the group. For each member, the server compares the org's current config value to the policy value:
     /// 
     /// - **Match:** No action.
     /// - **Mismatch:** The server auto-creates a `datadog.OrgGroupPolicyOverride` for that org, recording its existing value so the org is exempted from the new policy.
     /// 
     /// Auto-created overrides show up in the `datadog.getOrgGroupPolicyOverrides` data source and can be adopted into Terraform via import. See the override resource documentation for the full lifecycle.
     /// 
-    /// ### Transitioning to ENFORCE
+    /// ### Transitioning to GROUP_MANAGED
     /// 
-    /// Changing `EnforcementTier` to `"ENFORCE"` automatically deletes every override associated with this policy server-side. Any `datadog.OrgGroupPolicyOverride` resources pointing at this policy must be removed from configuration in the same commit. Otherwise, Terraform's next apply will try to recreate the server-deleted overrides and fail with a `FailedPrecondition` error.
+    /// Changing `EnforcementTier` to `"GROUP_MANAGED"` automatically deletes every override associated with this policy server-side. Any `datadog.OrgGroupPolicyOverride` resources pointing at this policy must be removed from configuration in the same commit. Otherwise, Terraform's next apply will try to recreate the server-deleted overrides and fail with a `FailedPrecondition` error.
     /// 
     /// ## Import
     /// 
@@ -76,7 +76,7 @@ namespace Pulumi.Datadog
         public Output<string> Content { get; private set; } = null!;
 
         /// <summary>
-        /// The enforcement tier of the policy. `DEFAULT` means the policy is set but member orgs may mutate it. `ENFORCE` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `DEFAULT`, `ENFORCE`, `DELEGATE`.
+        /// The enforcement tier of the policy. `OVERRIDE_ALLOWED` means the policy is set but member orgs may mutate it. `GROUP_MANAGED` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `OVERRIDE_ALLOWED`, `GROUP_MANAGED`, `DELEGATE`.
         /// </summary>
         [Output("enforcementTier")]
         public Output<string> EnforcementTier { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Datadog
         public Input<string> Content { get; set; } = null!;
 
         /// <summary>
-        /// The enforcement tier of the policy. `DEFAULT` means the policy is set but member orgs may mutate it. `ENFORCE` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `DEFAULT`, `ENFORCE`, `DELEGATE`.
+        /// The enforcement tier of the policy. `OVERRIDE_ALLOWED` means the policy is set but member orgs may mutate it. `GROUP_MANAGED` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `OVERRIDE_ALLOWED`, `GROUP_MANAGED`, `DELEGATE`.
         /// </summary>
         [Input("enforcementTier")]
         public Input<string>? EnforcementTier { get; set; }
@@ -190,7 +190,7 @@ namespace Pulumi.Datadog
         public Input<string>? Content { get; set; }
 
         /// <summary>
-        /// The enforcement tier of the policy. `DEFAULT` means the policy is set but member orgs may mutate it. `ENFORCE` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `DEFAULT`, `ENFORCE`, `DELEGATE`.
+        /// The enforcement tier of the policy. `OVERRIDE_ALLOWED` means the policy is set but member orgs may mutate it. `GROUP_MANAGED` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `OVERRIDE_ALLOWED`, `GROUP_MANAGED`, `DELEGATE`.
         /// </summary>
         [Input("enforcementTier")]
         public Input<string>? EnforcementTier { get; set; }

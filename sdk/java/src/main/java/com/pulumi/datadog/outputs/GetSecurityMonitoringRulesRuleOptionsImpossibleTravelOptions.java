@@ -4,7 +4,9 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,6 +18,11 @@ public final class GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions 
      * 
      */
     private @Nullable Boolean baselineUserLocations;
+    /**
+     * @return The duration in days during which Datadog learns a user&#39;s access locations before generating signals. Only applicable when `baselineUserLocations` is `true`. Defaults to `1` if unset.
+     * 
+     */
+    private Integer baselineUserLocationsDuration;
 
     private GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions() {}
     /**
@@ -24,6 +31,13 @@ public final class GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions 
      */
     public Optional<Boolean> baselineUserLocations() {
         return Optional.ofNullable(this.baselineUserLocations);
+    }
+    /**
+     * @return The duration in days during which Datadog learns a user&#39;s access locations before generating signals. Only applicable when `baselineUserLocations` is `true`. Defaults to `1` if unset.
+     * 
+     */
+    public Integer baselineUserLocationsDuration() {
+        return this.baselineUserLocationsDuration;
     }
 
     public static Builder builder() {
@@ -36,10 +50,12 @@ public final class GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions 
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean baselineUserLocations;
+        private Integer baselineUserLocationsDuration;
         public Builder() {}
         public Builder(GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.baselineUserLocations = defaults.baselineUserLocations;
+    	      this.baselineUserLocationsDuration = defaults.baselineUserLocationsDuration;
         }
 
         @CustomType.Setter
@@ -48,9 +64,18 @@ public final class GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions 
             this.baselineUserLocations = baselineUserLocations;
             return this;
         }
+        @CustomType.Setter
+        public Builder baselineUserLocationsDuration(Integer baselineUserLocationsDuration) {
+            if (baselineUserLocationsDuration == null) {
+              throw new MissingRequiredPropertyException("GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions", "baselineUserLocationsDuration");
+            }
+            this.baselineUserLocationsDuration = baselineUserLocationsDuration;
+            return this;
+        }
         public GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions build() {
             final var _resultValue = new GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions();
             _resultValue.baselineUserLocations = baselineUserLocations;
+            _resultValue.baselineUserLocationsDuration = baselineUserLocationsDuration;
             return _resultValue;
         }
     }

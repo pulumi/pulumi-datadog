@@ -17,10 +17,20 @@ public final class MonitorMonitorThresholds {
      */
     private @Nullable String critical;
     /**
+     * @return Query evaluated as a dynamic `CRITICAL` threshold. Only supported on metric monitors with a formula query and `options[&#39;variables&#39;]`. Cannot be combined with static thresholds. This field is in preview.
+     * 
+     */
+    private @Nullable String criticalQuery;
+    /**
      * @return The monitor `CRITICAL` recovery threshold. Must be a number.
      * 
      */
     private @Nullable String criticalRecovery;
+    /**
+     * @return Query evaluated as a dynamic `CRITICAL` recovery threshold. Only supported on metric monitors with a formula query and `options[&#39;variables&#39;]`. Cannot be combined with static thresholds. This field is in preview.
+     * 
+     */
+    private @Nullable String criticalRecoveryQuery;
     /**
      * @return The monitor `OK` threshold. Only supported in monitor type `service check`. Must be a number.
      * 
@@ -51,11 +61,25 @@ public final class MonitorMonitorThresholds {
         return Optional.ofNullable(this.critical);
     }
     /**
+     * @return Query evaluated as a dynamic `CRITICAL` threshold. Only supported on metric monitors with a formula query and `options[&#39;variables&#39;]`. Cannot be combined with static thresholds. This field is in preview.
+     * 
+     */
+    public Optional<String> criticalQuery() {
+        return Optional.ofNullable(this.criticalQuery);
+    }
+    /**
      * @return The monitor `CRITICAL` recovery threshold. Must be a number.
      * 
      */
     public Optional<String> criticalRecovery() {
         return Optional.ofNullable(this.criticalRecovery);
+    }
+    /**
+     * @return Query evaluated as a dynamic `CRITICAL` recovery threshold. Only supported on metric monitors with a formula query and `options[&#39;variables&#39;]`. Cannot be combined with static thresholds. This field is in preview.
+     * 
+     */
+    public Optional<String> criticalRecoveryQuery() {
+        return Optional.ofNullable(this.criticalRecoveryQuery);
     }
     /**
      * @return The monitor `OK` threshold. Only supported in monitor type `service check`. Must be a number.
@@ -96,7 +120,9 @@ public final class MonitorMonitorThresholds {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String critical;
+        private @Nullable String criticalQuery;
         private @Nullable String criticalRecovery;
+        private @Nullable String criticalRecoveryQuery;
         private @Nullable String ok;
         private @Nullable String unknown;
         private @Nullable String warning;
@@ -105,7 +131,9 @@ public final class MonitorMonitorThresholds {
         public Builder(MonitorMonitorThresholds defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.critical = defaults.critical;
+    	      this.criticalQuery = defaults.criticalQuery;
     	      this.criticalRecovery = defaults.criticalRecovery;
+    	      this.criticalRecoveryQuery = defaults.criticalRecoveryQuery;
     	      this.ok = defaults.ok;
     	      this.unknown = defaults.unknown;
     	      this.warning = defaults.warning;
@@ -119,9 +147,21 @@ public final class MonitorMonitorThresholds {
             return this;
         }
         @CustomType.Setter
+        public Builder criticalQuery(@Nullable String criticalQuery) {
+
+            this.criticalQuery = criticalQuery;
+            return this;
+        }
+        @CustomType.Setter
         public Builder criticalRecovery(@Nullable String criticalRecovery) {
 
             this.criticalRecovery = criticalRecovery;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder criticalRecoveryQuery(@Nullable String criticalRecoveryQuery) {
+
+            this.criticalRecoveryQuery = criticalRecoveryQuery;
             return this;
         }
         @CustomType.Setter
@@ -151,7 +191,9 @@ public final class MonitorMonitorThresholds {
         public MonitorMonitorThresholds build() {
             final var _resultValue = new MonitorMonitorThresholds();
             _resultValue.critical = critical;
+            _resultValue.criticalQuery = criticalQuery;
             _resultValue.criticalRecovery = criticalRecovery;
+            _resultValue.criticalRecoveryQuery = criticalRecoveryQuery;
             _resultValue.ok = ok;
             _resultValue.unknown = unknown;
             _resultValue.warning = warning;

@@ -50,6 +50,11 @@ export type IntegrationAccount = import("./integrationAccount").IntegrationAccou
 export const IntegrationAccount: typeof import("./integrationAccount").IntegrationAccount = null as any;
 utilities.lazyLoad(exports, ["IntegrationAccount"], () => require("./integrationAccount"));
 
+export { IntegrationAccountCcmConfigArgs, IntegrationAccountCcmConfigState } from "./integrationAccountCcmConfig";
+export type IntegrationAccountCcmConfig = import("./integrationAccountCcmConfig").IntegrationAccountCcmConfig;
+export const IntegrationAccountCcmConfig: typeof import("./integrationAccountCcmConfig").IntegrationAccountCcmConfig = null as any;
+utilities.lazyLoad(exports, ["IntegrationAccountCcmConfig"], () => require("./integrationAccountCcmConfig"));
+
 export { IntegrationEventBridgeArgs, IntegrationEventBridgeState } from "./integrationEventBridge";
 export type IntegrationEventBridge = import("./integrationEventBridge").IntegrationEventBridge;
 export const IntegrationEventBridge: typeof import("./integrationEventBridge").IntegrationEventBridge = null as any;
@@ -67,6 +72,8 @@ const _module = {
         switch (type) {
             case "datadog:aws/integrationAccount:IntegrationAccount":
                 return new IntegrationAccount(name, <any>undefined, { urn })
+            case "datadog:aws/integrationAccountCcmConfig:IntegrationAccountCcmConfig":
+                return new IntegrationAccountCcmConfig(name, <any>undefined, { urn })
             case "datadog:aws/integrationEventBridge:IntegrationEventBridge":
                 return new IntegrationEventBridge(name, <any>undefined, { urn })
             case "datadog:aws/integrationExternalId:IntegrationExternalId":
@@ -77,5 +84,6 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("datadog", "aws/integrationAccount", _module)
+pulumi.runtime.registerResourceModule("datadog", "aws/integrationAccountCcmConfig", _module)
 pulumi.runtime.registerResourceModule("datadog", "aws/integrationEventBridge", _module)
 pulumi.runtime.registerResourceModule("datadog", "aws/integrationExternalId", _module)

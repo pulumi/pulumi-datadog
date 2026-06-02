@@ -26,7 +26,7 @@ public final class SyntheticsTestRequestDefinition {
      */
     private @Nullable String bodyType;
     /**
-     * @return The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
+     * @return The type of gRPC call to perform, or the MCP step call (`init`, `toolList`, `toolCall`). Valid values are `healthcheck`, `unary`, `init`, `toolList`, `toolCall`.
      * 
      */
     private @Nullable String callType;
@@ -84,6 +84,11 @@ public final class SyntheticsTestRequestDefinition {
      * 
      */
     private @Nullable Integer maxTtl;
+    /**
+     * @return For MCP API steps, the MCP protocol version used by the request.
+     * 
+     */
+    private @Nullable String mcpProtocolVersion;
     /**
      * @return For gRPC, UDP, and Websocket tests, message to send with the request.
      * 
@@ -159,6 +164,16 @@ public final class SyntheticsTestRequestDefinition {
      */
     private @Nullable Integer timeout;
     /**
+     * @return For MCP API steps, the JSON-encoded arguments to pass to the tool when `callType` is `toolCall`.
+     * 
+     */
+    private @Nullable String toolArgs;
+    /**
+     * @return For MCP API steps, the name of the tool to call. Required when `callType` is `toolCall`.
+     * 
+     */
+    private @Nullable String toolName;
+    /**
      * @return For Network Path tests, the number of traceroute path tracings.
      * 
      */
@@ -185,7 +200,7 @@ public final class SyntheticsTestRequestDefinition {
         return Optional.ofNullable(this.bodyType);
     }
     /**
-     * @return The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
+     * @return The type of gRPC call to perform, or the MCP step call (`init`, `toolList`, `toolCall`). Valid values are `healthcheck`, `unary`, `init`, `toolList`, `toolCall`.
      * 
      */
     public Optional<String> callType() {
@@ -264,6 +279,13 @@ public final class SyntheticsTestRequestDefinition {
      */
     public Optional<Integer> maxTtl() {
         return Optional.ofNullable(this.maxTtl);
+    }
+    /**
+     * @return For MCP API steps, the MCP protocol version used by the request.
+     * 
+     */
+    public Optional<String> mcpProtocolVersion() {
+        return Optional.ofNullable(this.mcpProtocolVersion);
     }
     /**
      * @return For gRPC, UDP, and Websocket tests, message to send with the request.
@@ -368,6 +390,20 @@ public final class SyntheticsTestRequestDefinition {
         return Optional.ofNullable(this.timeout);
     }
     /**
+     * @return For MCP API steps, the JSON-encoded arguments to pass to the tool when `callType` is `toolCall`.
+     * 
+     */
+    public Optional<String> toolArgs() {
+        return Optional.ofNullable(this.toolArgs);
+    }
+    /**
+     * @return For MCP API steps, the name of the tool to call. Required when `callType` is `toolCall`.
+     * 
+     */
+    public Optional<String> toolName() {
+        return Optional.ofNullable(this.toolName);
+    }
+    /**
      * @return For Network Path tests, the number of traceroute path tracings.
      * 
      */
@@ -404,6 +440,7 @@ public final class SyntheticsTestRequestDefinition {
         private @Nullable String httpVersion;
         private @Nullable Boolean isMessageBase64Encoded;
         private @Nullable Integer maxTtl;
+        private @Nullable String mcpProtocolVersion;
         private @Nullable String message;
         private @Nullable String method;
         private @Nullable Boolean noSavingResponseBody;
@@ -418,6 +455,8 @@ public final class SyntheticsTestRequestDefinition {
         private @Nullable String sourceService;
         private @Nullable String tcpMethod;
         private @Nullable Integer timeout;
+        private @Nullable String toolArgs;
+        private @Nullable String toolName;
         private @Nullable Integer tracerouteQueries;
         private @Nullable String url;
         public Builder() {}
@@ -436,6 +475,7 @@ public final class SyntheticsTestRequestDefinition {
     	      this.httpVersion = defaults.httpVersion;
     	      this.isMessageBase64Encoded = defaults.isMessageBase64Encoded;
     	      this.maxTtl = defaults.maxTtl;
+    	      this.mcpProtocolVersion = defaults.mcpProtocolVersion;
     	      this.message = defaults.message;
     	      this.method = defaults.method;
     	      this.noSavingResponseBody = defaults.noSavingResponseBody;
@@ -450,6 +490,8 @@ public final class SyntheticsTestRequestDefinition {
     	      this.sourceService = defaults.sourceService;
     	      this.tcpMethod = defaults.tcpMethod;
     	      this.timeout = defaults.timeout;
+    	      this.toolArgs = defaults.toolArgs;
+    	      this.toolName = defaults.toolName;
     	      this.tracerouteQueries = defaults.tracerouteQueries;
     	      this.url = defaults.url;
         }
@@ -533,6 +575,12 @@ public final class SyntheticsTestRequestDefinition {
         public Builder maxTtl(@Nullable Integer maxTtl) {
 
             this.maxTtl = maxTtl;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder mcpProtocolVersion(@Nullable String mcpProtocolVersion) {
+
+            this.mcpProtocolVersion = mcpProtocolVersion;
             return this;
         }
         @CustomType.Setter
@@ -620,6 +668,18 @@ public final class SyntheticsTestRequestDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder toolArgs(@Nullable String toolArgs) {
+
+            this.toolArgs = toolArgs;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder toolName(@Nullable String toolName) {
+
+            this.toolName = toolName;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tracerouteQueries(@Nullable Integer tracerouteQueries) {
 
             this.tracerouteQueries = tracerouteQueries;
@@ -646,6 +706,7 @@ public final class SyntheticsTestRequestDefinition {
             _resultValue.httpVersion = httpVersion;
             _resultValue.isMessageBase64Encoded = isMessageBase64Encoded;
             _resultValue.maxTtl = maxTtl;
+            _resultValue.mcpProtocolVersion = mcpProtocolVersion;
             _resultValue.message = message;
             _resultValue.method = method;
             _resultValue.noSavingResponseBody = noSavingResponseBody;
@@ -660,6 +721,8 @@ public final class SyntheticsTestRequestDefinition {
             _resultValue.sourceService = sourceService;
             _resultValue.tcpMethod = tcpMethod;
             _resultValue.timeout = timeout;
+            _resultValue.toolArgs = toolArgs;
+            _resultValue.toolName = toolName;
             _resultValue.tracerouteQueries = tracerouteQueries;
             _resultValue.url = url;
             return _resultValue;

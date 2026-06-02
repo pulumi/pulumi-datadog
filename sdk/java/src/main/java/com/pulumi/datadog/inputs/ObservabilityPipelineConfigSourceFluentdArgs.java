@@ -32,14 +32,14 @@ public final class ObservabilityPipelineConfigSourceFluentdArgs extends com.pulu
     }
 
     /**
-     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     * Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
      * 
      */
     @Import(name="tls")
     private @Nullable Output<ObservabilityPipelineConfigSourceFluentdTlsArgs> tls;
 
     /**
-     * @return Configuration for enabling TLS encryption between the pipeline component and external services.
+     * @return Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
      * 
      */
     public Optional<Output<ObservabilityPipelineConfigSourceFluentdTlsArgs>> tls() {
@@ -93,7 +93,7 @@ public final class ObservabilityPipelineConfigSourceFluentdArgs extends com.pulu
         }
 
         /**
-         * @param tls Configuration for enabling TLS encryption between the pipeline component and external services.
+         * @param tls Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ObservabilityPipelineConfigSourceFluentdArgs extends com.pulu
         }
 
         /**
-         * @param tls Configuration for enabling TLS encryption between the pipeline component and external services.
+         * @param tls Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
          * 
          * @return builder
          * 

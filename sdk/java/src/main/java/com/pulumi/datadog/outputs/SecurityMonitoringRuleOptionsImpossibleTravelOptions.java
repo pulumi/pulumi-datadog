@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,6 +17,11 @@ public final class SecurityMonitoringRuleOptionsImpossibleTravelOptions {
      * 
      */
     private @Nullable Boolean baselineUserLocations;
+    /**
+     * @return The duration in days during which Datadog learns a user&#39;s access locations before generating signals. Only applicable when `baselineUserLocations` is `true`. Defaults to `1` if unset. . Value must be between 1 and 30.
+     * 
+     */
+    private @Nullable Integer baselineUserLocationsDuration;
 
     private SecurityMonitoringRuleOptionsImpossibleTravelOptions() {}
     /**
@@ -24,6 +30,13 @@ public final class SecurityMonitoringRuleOptionsImpossibleTravelOptions {
      */
     public Optional<Boolean> baselineUserLocations() {
         return Optional.ofNullable(this.baselineUserLocations);
+    }
+    /**
+     * @return The duration in days during which Datadog learns a user&#39;s access locations before generating signals. Only applicable when `baselineUserLocations` is `true`. Defaults to `1` if unset. . Value must be between 1 and 30.
+     * 
+     */
+    public Optional<Integer> baselineUserLocationsDuration() {
+        return Optional.ofNullable(this.baselineUserLocationsDuration);
     }
 
     public static Builder builder() {
@@ -36,10 +49,12 @@ public final class SecurityMonitoringRuleOptionsImpossibleTravelOptions {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean baselineUserLocations;
+        private @Nullable Integer baselineUserLocationsDuration;
         public Builder() {}
         public Builder(SecurityMonitoringRuleOptionsImpossibleTravelOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.baselineUserLocations = defaults.baselineUserLocations;
+    	      this.baselineUserLocationsDuration = defaults.baselineUserLocationsDuration;
         }
 
         @CustomType.Setter
@@ -48,9 +63,16 @@ public final class SecurityMonitoringRuleOptionsImpossibleTravelOptions {
             this.baselineUserLocations = baselineUserLocations;
             return this;
         }
+        @CustomType.Setter
+        public Builder baselineUserLocationsDuration(@Nullable Integer baselineUserLocationsDuration) {
+
+            this.baselineUserLocationsDuration = baselineUserLocationsDuration;
+            return this;
+        }
         public SecurityMonitoringRuleOptionsImpossibleTravelOptions build() {
             final var _resultValue = new SecurityMonitoringRuleOptionsImpossibleTravelOptions();
             _resultValue.baselineUserLocations = baselineUserLocations;
+            _resultValue.baselineUserLocationsDuration = baselineUserLocationsDuration;
             return _resultValue;
         }
     }

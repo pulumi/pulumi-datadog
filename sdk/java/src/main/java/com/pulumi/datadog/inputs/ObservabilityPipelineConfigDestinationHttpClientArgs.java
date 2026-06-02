@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationHttpClientBufferArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationHttpClientCompressionArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationHttpClientTlsArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -31,6 +32,21 @@ public final class ObservabilityPipelineConfigDestinationHttpClientArgs extends 
      */
     public Optional<Output<String>> authStrategy() {
         return Optional.ofNullable(this.authStrategy);
+    }
+
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    @Import(name="buffer")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationHttpClientBufferArgs> buffer;
+
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationHttpClientBufferArgs>> buffer() {
+        return Optional.ofNullable(this.buffer);
     }
 
     /**
@@ -142,6 +158,7 @@ public final class ObservabilityPipelineConfigDestinationHttpClientArgs extends 
 
     private ObservabilityPipelineConfigDestinationHttpClientArgs(ObservabilityPipelineConfigDestinationHttpClientArgs $) {
         this.authStrategy = $.authStrategy;
+        this.buffer = $.buffer;
         this.compression = $.compression;
         this.encoding = $.encoding;
         this.passwordKey = $.passwordKey;
@@ -188,6 +205,27 @@ public final class ObservabilityPipelineConfigDestinationHttpClientArgs extends 
          */
         public Builder authStrategy(String authStrategy) {
             return authStrategy(Output.of(authStrategy));
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(@Nullable Output<ObservabilityPipelineConfigDestinationHttpClientBufferArgs> buffer) {
+            $.buffer = buffer;
+            return this;
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(ObservabilityPipelineConfigDestinationHttpClientBufferArgs buffer) {
+            return buffer(Output.of(buffer));
         }
 
         /**

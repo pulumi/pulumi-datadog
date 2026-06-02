@@ -29,6 +29,11 @@ public final class MonitorVariablesEventQueryGroupBy {
      * 
      */
     private @Nullable MonitorVariablesEventQueryGroupBySort sort;
+    /**
+     * @return For composite aggregate-augmented queries, identifies which sub-query this group-by facet refers to (for example `filterQuery`).
+     * 
+     */
+    private @Nullable String source;
 
     private MonitorVariablesEventQueryGroupBy() {}
     /**
@@ -52,6 +57,13 @@ public final class MonitorVariablesEventQueryGroupBy {
     public Optional<MonitorVariablesEventQueryGroupBySort> sort() {
         return Optional.ofNullable(this.sort);
     }
+    /**
+     * @return For composite aggregate-augmented queries, identifies which sub-query this group-by facet refers to (for example `filterQuery`).
+     * 
+     */
+    public Optional<String> source() {
+        return Optional.ofNullable(this.source);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -65,12 +77,14 @@ public final class MonitorVariablesEventQueryGroupBy {
         private String facet;
         private @Nullable Integer limit;
         private @Nullable MonitorVariablesEventQueryGroupBySort sort;
+        private @Nullable String source;
         public Builder() {}
         public Builder(MonitorVariablesEventQueryGroupBy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.facet = defaults.facet;
     	      this.limit = defaults.limit;
     	      this.sort = defaults.sort;
+    	      this.source = defaults.source;
         }
 
         @CustomType.Setter
@@ -93,11 +107,18 @@ public final class MonitorVariablesEventQueryGroupBy {
             this.sort = sort;
             return this;
         }
+        @CustomType.Setter
+        public Builder source(@Nullable String source) {
+
+            this.source = source;
+            return this;
+        }
         public MonitorVariablesEventQueryGroupBy build() {
             final var _resultValue = new MonitorVariablesEventQueryGroupBy();
             _resultValue.facet = facet;
             _resultValue.limit = limit;
             _resultValue.sort = sort;
+            _resultValue.source = source;
             return _resultValue;
         }
     }

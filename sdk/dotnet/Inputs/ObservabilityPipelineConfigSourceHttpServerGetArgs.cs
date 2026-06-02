@@ -37,7 +37,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? PasswordKey { get; set; }
 
         /// <summary>
-        /// Configuration for enabling TLS encryption between the pipeline component and external services.
+        /// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
         /// </summary>
         [Input("tls")]
         public Input<Inputs.ObservabilityPipelineConfigSourceHttpServerTlsGetArgs>? Tls { get; set; }
@@ -47,6 +47,18 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("usernameKey")]
         public Input<string>? UsernameKey { get; set; }
+
+        [Input("validTokens")]
+        private InputList<Inputs.ObservabilityPipelineConfigSourceHttpServerValidTokenGetArgs>? _validTokens;
+
+        /// <summary>
+        /// A token accepted for authenticating incoming HTTP requests. Cannot be combined with the `Plain` auth strategy.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigSourceHttpServerValidTokenGetArgs> ValidTokens
+        {
+            get => _validTokens ?? (_validTokens = new InputList<Inputs.ObservabilityPipelineConfigSourceHttpServerValidTokenGetArgs>());
+            set => _validTokens = value;
+        }
 
         public ObservabilityPipelineConfigSourceHttpServerGetArgs()
         {

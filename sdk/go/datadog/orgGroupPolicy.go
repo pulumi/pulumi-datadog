@@ -44,13 +44,13 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			// Disables widget copy-paste for every member org of the prod group.
-//			// enforcement_tier = "DEFAULT" means member orgs can still override the value;
-//			// use "ENFORCE" to make the value immutable for members.
+//			// enforcement_tier = "OVERRIDE_ALLOWED" means member orgs can still override the value;
+//			// use "GROUP_MANAGED" to make the value immutable for members.
 //			_, err = datadog.NewOrgGroupPolicy(ctx, "example", &datadog.OrgGroupPolicyArgs{
 //				OrgGroupId:      prod.ID(),
 //				PolicyName:      pulumi.String("is_widget_copy_paste_enabled"),
 //				Content:         pulumi.String(pulumi.String(json0)),
-//				EnforcementTier: pulumi.String("DEFAULT"),
+//				EnforcementTier: pulumi.String("OVERRIDE_ALLOWED"),
 //			})
 //			if err != nil {
 //				return err
@@ -65,16 +65,16 @@ import (
 //
 // ### Side effects on member orgs
 //
-// Creating or updating a policy with a non-`ENFORCE` tier (`DEFAULT` or `DELEGATE`) triggers propagation across every member org in the group. For each member, the server compares the org's current config value to the policy value:
+// Creating or updating a policy with a non-`GROUP_MANAGED` tier (`OVERRIDE_ALLOWED` or `DELEGATE`) triggers propagation across every member org in the group. For each member, the server compares the org's current config value to the policy value:
 //
 // - **Match:** No action.
 // - **Mismatch:** The server auto-creates a `OrgGroupPolicyOverride` for that org, recording its existing value so the org is exempted from the new policy.
 //
 // Auto-created overrides show up in the `getOrgGroupPolicyOverrides` data source and can be adopted into Terraform via import. See the override resource documentation for the full lifecycle.
 //
-// ### Transitioning to ENFORCE
+// ### Transitioning to GROUP_MANAGED
 //
-// Changing `enforcementTier` to `"ENFORCE"` automatically deletes every override associated with this policy server-side. Any `OrgGroupPolicyOverride` resources pointing at this policy must be removed from configuration in the same commit. Otherwise, Terraform's next apply will try to recreate the server-deleted overrides and fail with a `FailedPrecondition` error.
+// Changing `enforcementTier` to `"GROUP_MANAGED"` automatically deletes every override associated with this policy server-side. Any `OrgGroupPolicyOverride` resources pointing at this policy must be removed from configuration in the same commit. Otherwise, Terraform's next apply will try to recreate the server-deleted overrides and fail with a `FailedPrecondition` error.
 //
 // ## Import
 //
@@ -86,7 +86,7 @@ type OrgGroupPolicy struct {
 
 	// The policy content as a JSON-encoded string.
 	Content pulumi.StringOutput `pulumi:"content"`
-	// The enforcement tier of the policy. `DEFAULT` means the policy is set but member orgs may mutate it. `ENFORCE` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `DEFAULT`, `ENFORCE`, `DELEGATE`.
+	// The enforcement tier of the policy. `OVERRIDE_ALLOWED` means the policy is set but member orgs may mutate it. `GROUP_MANAGED` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `OVERRIDE_ALLOWED`, `GROUP_MANAGED`, `DELEGATE`.
 	EnforcementTier pulumi.StringOutput `pulumi:"enforcementTier"`
 	// The UUID of the org group this policy belongs to. Must be a valid UUID.
 	OrgGroupId pulumi.StringOutput `pulumi:"orgGroupId"`
@@ -137,7 +137,7 @@ func GetOrgGroupPolicy(ctx *pulumi.Context,
 type orgGroupPolicyState struct {
 	// The policy content as a JSON-encoded string.
 	Content *string `pulumi:"content"`
-	// The enforcement tier of the policy. `DEFAULT` means the policy is set but member orgs may mutate it. `ENFORCE` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `DEFAULT`, `ENFORCE`, `DELEGATE`.
+	// The enforcement tier of the policy. `OVERRIDE_ALLOWED` means the policy is set but member orgs may mutate it. `GROUP_MANAGED` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `OVERRIDE_ALLOWED`, `GROUP_MANAGED`, `DELEGATE`.
 	EnforcementTier *string `pulumi:"enforcementTier"`
 	// The UUID of the org group this policy belongs to. Must be a valid UUID.
 	OrgGroupId *string `pulumi:"orgGroupId"`
@@ -150,7 +150,7 @@ type orgGroupPolicyState struct {
 type OrgGroupPolicyState struct {
 	// The policy content as a JSON-encoded string.
 	Content pulumi.StringPtrInput
-	// The enforcement tier of the policy. `DEFAULT` means the policy is set but member orgs may mutate it. `ENFORCE` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `DEFAULT`, `ENFORCE`, `DELEGATE`.
+	// The enforcement tier of the policy. `OVERRIDE_ALLOWED` means the policy is set but member orgs may mutate it. `GROUP_MANAGED` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `OVERRIDE_ALLOWED`, `GROUP_MANAGED`, `DELEGATE`.
 	EnforcementTier pulumi.StringPtrInput
 	// The UUID of the org group this policy belongs to. Must be a valid UUID.
 	OrgGroupId pulumi.StringPtrInput
@@ -167,7 +167,7 @@ func (OrgGroupPolicyState) ElementType() reflect.Type {
 type orgGroupPolicyArgs struct {
 	// The policy content as a JSON-encoded string.
 	Content string `pulumi:"content"`
-	// The enforcement tier of the policy. `DEFAULT` means the policy is set but member orgs may mutate it. `ENFORCE` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `DEFAULT`, `ENFORCE`, `DELEGATE`.
+	// The enforcement tier of the policy. `OVERRIDE_ALLOWED` means the policy is set but member orgs may mutate it. `GROUP_MANAGED` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `OVERRIDE_ALLOWED`, `GROUP_MANAGED`, `DELEGATE`.
 	EnforcementTier *string `pulumi:"enforcementTier"`
 	// The UUID of the org group this policy belongs to. Must be a valid UUID.
 	OrgGroupId string `pulumi:"orgGroupId"`
@@ -181,7 +181,7 @@ type orgGroupPolicyArgs struct {
 type OrgGroupPolicyArgs struct {
 	// The policy content as a JSON-encoded string.
 	Content pulumi.StringInput
-	// The enforcement tier of the policy. `DEFAULT` means the policy is set but member orgs may mutate it. `ENFORCE` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `DEFAULT`, `ENFORCE`, `DELEGATE`.
+	// The enforcement tier of the policy. `OVERRIDE_ALLOWED` means the policy is set but member orgs may mutate it. `GROUP_MANAGED` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `OVERRIDE_ALLOWED`, `GROUP_MANAGED`, `DELEGATE`.
 	EnforcementTier pulumi.StringPtrInput
 	// The UUID of the org group this policy belongs to. Must be a valid UUID.
 	OrgGroupId pulumi.StringInput
@@ -283,7 +283,7 @@ func (o OrgGroupPolicyOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrgGroupPolicy) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
 }
 
-// The enforcement tier of the policy. `DEFAULT` means the policy is set but member orgs may mutate it. `ENFORCE` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `DEFAULT`, `ENFORCE`, `DELEGATE`.
+// The enforcement tier of the policy. `OVERRIDE_ALLOWED` means the policy is set but member orgs may mutate it. `GROUP_MANAGED` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `OVERRIDE_ALLOWED`, `GROUP_MANAGED`, `DELEGATE`.
 func (o OrgGroupPolicyOutput) EnforcementTier() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrgGroupPolicy) pulumi.StringOutput { return v.EnforcementTier }).(pulumi.StringOutput)
 }

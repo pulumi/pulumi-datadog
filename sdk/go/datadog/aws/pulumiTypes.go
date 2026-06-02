@@ -637,6 +637,274 @@ func (o IntegrationAccountAwsRegionsPtrOutput) IncludeOnlies() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
+type IntegrationAccountCcmConfigCcmConfig struct {
+	DataExportConfigs []IntegrationAccountCcmConfigCcmConfigDataExportConfig `pulumi:"dataExportConfigs"`
+}
+
+// IntegrationAccountCcmConfigCcmConfigInput is an input type that accepts IntegrationAccountCcmConfigCcmConfigArgs and IntegrationAccountCcmConfigCcmConfigOutput values.
+// You can construct a concrete instance of `IntegrationAccountCcmConfigCcmConfigInput` via:
+//
+//	IntegrationAccountCcmConfigCcmConfigArgs{...}
+type IntegrationAccountCcmConfigCcmConfigInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountCcmConfigCcmConfigOutput() IntegrationAccountCcmConfigCcmConfigOutput
+	ToIntegrationAccountCcmConfigCcmConfigOutputWithContext(context.Context) IntegrationAccountCcmConfigCcmConfigOutput
+}
+
+type IntegrationAccountCcmConfigCcmConfigArgs struct {
+	DataExportConfigs IntegrationAccountCcmConfigCcmConfigDataExportConfigArrayInput `pulumi:"dataExportConfigs"`
+}
+
+func (IntegrationAccountCcmConfigCcmConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountCcmConfigCcmConfig)(nil)).Elem()
+}
+
+func (i IntegrationAccountCcmConfigCcmConfigArgs) ToIntegrationAccountCcmConfigCcmConfigOutput() IntegrationAccountCcmConfigCcmConfigOutput {
+	return i.ToIntegrationAccountCcmConfigCcmConfigOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountCcmConfigCcmConfigArgs) ToIntegrationAccountCcmConfigCcmConfigOutputWithContext(ctx context.Context) IntegrationAccountCcmConfigCcmConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountCcmConfigCcmConfigOutput)
+}
+
+func (i IntegrationAccountCcmConfigCcmConfigArgs) ToIntegrationAccountCcmConfigCcmConfigPtrOutput() IntegrationAccountCcmConfigCcmConfigPtrOutput {
+	return i.ToIntegrationAccountCcmConfigCcmConfigPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountCcmConfigCcmConfigArgs) ToIntegrationAccountCcmConfigCcmConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountCcmConfigCcmConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountCcmConfigCcmConfigOutput).ToIntegrationAccountCcmConfigCcmConfigPtrOutputWithContext(ctx)
+}
+
+// IntegrationAccountCcmConfigCcmConfigPtrInput is an input type that accepts IntegrationAccountCcmConfigCcmConfigArgs, IntegrationAccountCcmConfigCcmConfigPtr and IntegrationAccountCcmConfigCcmConfigPtrOutput values.
+// You can construct a concrete instance of `IntegrationAccountCcmConfigCcmConfigPtrInput` via:
+//
+//	        IntegrationAccountCcmConfigCcmConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationAccountCcmConfigCcmConfigPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountCcmConfigCcmConfigPtrOutput() IntegrationAccountCcmConfigCcmConfigPtrOutput
+	ToIntegrationAccountCcmConfigCcmConfigPtrOutputWithContext(context.Context) IntegrationAccountCcmConfigCcmConfigPtrOutput
+}
+
+type integrationAccountCcmConfigCcmConfigPtrType IntegrationAccountCcmConfigCcmConfigArgs
+
+func IntegrationAccountCcmConfigCcmConfigPtr(v *IntegrationAccountCcmConfigCcmConfigArgs) IntegrationAccountCcmConfigCcmConfigPtrInput {
+	return (*integrationAccountCcmConfigCcmConfigPtrType)(v)
+}
+
+func (*integrationAccountCcmConfigCcmConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountCcmConfigCcmConfig)(nil)).Elem()
+}
+
+func (i *integrationAccountCcmConfigCcmConfigPtrType) ToIntegrationAccountCcmConfigCcmConfigPtrOutput() IntegrationAccountCcmConfigCcmConfigPtrOutput {
+	return i.ToIntegrationAccountCcmConfigCcmConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationAccountCcmConfigCcmConfigPtrType) ToIntegrationAccountCcmConfigCcmConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountCcmConfigCcmConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountCcmConfigCcmConfigPtrOutput)
+}
+
+type IntegrationAccountCcmConfigCcmConfigOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountCcmConfigCcmConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountCcmConfigCcmConfig)(nil)).Elem()
+}
+
+func (o IntegrationAccountCcmConfigCcmConfigOutput) ToIntegrationAccountCcmConfigCcmConfigOutput() IntegrationAccountCcmConfigCcmConfigOutput {
+	return o
+}
+
+func (o IntegrationAccountCcmConfigCcmConfigOutput) ToIntegrationAccountCcmConfigCcmConfigOutputWithContext(ctx context.Context) IntegrationAccountCcmConfigCcmConfigOutput {
+	return o
+}
+
+func (o IntegrationAccountCcmConfigCcmConfigOutput) ToIntegrationAccountCcmConfigCcmConfigPtrOutput() IntegrationAccountCcmConfigCcmConfigPtrOutput {
+	return o.ToIntegrationAccountCcmConfigCcmConfigPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAccountCcmConfigCcmConfigOutput) ToIntegrationAccountCcmConfigCcmConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountCcmConfigCcmConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountCcmConfigCcmConfig) *IntegrationAccountCcmConfigCcmConfig {
+		return &v
+	}).(IntegrationAccountCcmConfigCcmConfigPtrOutput)
+}
+
+func (o IntegrationAccountCcmConfigCcmConfigOutput) DataExportConfigs() IntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutput {
+	return o.ApplyT(func(v IntegrationAccountCcmConfigCcmConfig) []IntegrationAccountCcmConfigCcmConfigDataExportConfig {
+		return v.DataExportConfigs
+	}).(IntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutput)
+}
+
+type IntegrationAccountCcmConfigCcmConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountCcmConfigCcmConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountCcmConfigCcmConfig)(nil)).Elem()
+}
+
+func (o IntegrationAccountCcmConfigCcmConfigPtrOutput) ToIntegrationAccountCcmConfigCcmConfigPtrOutput() IntegrationAccountCcmConfigCcmConfigPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountCcmConfigCcmConfigPtrOutput) ToIntegrationAccountCcmConfigCcmConfigPtrOutputWithContext(ctx context.Context) IntegrationAccountCcmConfigCcmConfigPtrOutput {
+	return o
+}
+
+func (o IntegrationAccountCcmConfigCcmConfigPtrOutput) Elem() IntegrationAccountCcmConfigCcmConfigOutput {
+	return o.ApplyT(func(v *IntegrationAccountCcmConfigCcmConfig) IntegrationAccountCcmConfigCcmConfig {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountCcmConfigCcmConfig
+		return ret
+	}).(IntegrationAccountCcmConfigCcmConfigOutput)
+}
+
+func (o IntegrationAccountCcmConfigCcmConfigPtrOutput) DataExportConfigs() IntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutput {
+	return o.ApplyT(func(v *IntegrationAccountCcmConfigCcmConfig) []IntegrationAccountCcmConfigCcmConfigDataExportConfig {
+		if v == nil {
+			return nil
+		}
+		return v.DataExportConfigs
+	}).(IntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutput)
+}
+
+type IntegrationAccountCcmConfigCcmConfigDataExportConfig struct {
+	// Name of the S3 bucket where the Cost and Usage Report is stored.
+	BucketName *string `pulumi:"bucketName"`
+	// AWS region of the S3 bucket.
+	BucketRegion *string `pulumi:"bucketRegion"`
+	// Name of the Cost and Usage Report.
+	ReportName *string `pulumi:"reportName"`
+	// S3 prefix where the Cost and Usage Report is stored.
+	ReportPrefix *string `pulumi:"reportPrefix"`
+	// Type of the Cost and Usage Report.
+	ReportType *string `pulumi:"reportType"`
+}
+
+// IntegrationAccountCcmConfigCcmConfigDataExportConfigInput is an input type that accepts IntegrationAccountCcmConfigCcmConfigDataExportConfigArgs and IntegrationAccountCcmConfigCcmConfigDataExportConfigOutput values.
+// You can construct a concrete instance of `IntegrationAccountCcmConfigCcmConfigDataExportConfigInput` via:
+//
+//	IntegrationAccountCcmConfigCcmConfigDataExportConfigArgs{...}
+type IntegrationAccountCcmConfigCcmConfigDataExportConfigInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountCcmConfigCcmConfigDataExportConfigOutput() IntegrationAccountCcmConfigCcmConfigDataExportConfigOutput
+	ToIntegrationAccountCcmConfigCcmConfigDataExportConfigOutputWithContext(context.Context) IntegrationAccountCcmConfigCcmConfigDataExportConfigOutput
+}
+
+type IntegrationAccountCcmConfigCcmConfigDataExportConfigArgs struct {
+	// Name of the S3 bucket where the Cost and Usage Report is stored.
+	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
+	// AWS region of the S3 bucket.
+	BucketRegion pulumi.StringPtrInput `pulumi:"bucketRegion"`
+	// Name of the Cost and Usage Report.
+	ReportName pulumi.StringPtrInput `pulumi:"reportName"`
+	// S3 prefix where the Cost and Usage Report is stored.
+	ReportPrefix pulumi.StringPtrInput `pulumi:"reportPrefix"`
+	// Type of the Cost and Usage Report.
+	ReportType pulumi.StringPtrInput `pulumi:"reportType"`
+}
+
+func (IntegrationAccountCcmConfigCcmConfigDataExportConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountCcmConfigCcmConfigDataExportConfig)(nil)).Elem()
+}
+
+func (i IntegrationAccountCcmConfigCcmConfigDataExportConfigArgs) ToIntegrationAccountCcmConfigCcmConfigDataExportConfigOutput() IntegrationAccountCcmConfigCcmConfigDataExportConfigOutput {
+	return i.ToIntegrationAccountCcmConfigCcmConfigDataExportConfigOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountCcmConfigCcmConfigDataExportConfigArgs) ToIntegrationAccountCcmConfigCcmConfigDataExportConfigOutputWithContext(ctx context.Context) IntegrationAccountCcmConfigCcmConfigDataExportConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountCcmConfigCcmConfigDataExportConfigOutput)
+}
+
+// IntegrationAccountCcmConfigCcmConfigDataExportConfigArrayInput is an input type that accepts IntegrationAccountCcmConfigCcmConfigDataExportConfigArray and IntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutput values.
+// You can construct a concrete instance of `IntegrationAccountCcmConfigCcmConfigDataExportConfigArrayInput` via:
+//
+//	IntegrationAccountCcmConfigCcmConfigDataExportConfigArray{ IntegrationAccountCcmConfigCcmConfigDataExportConfigArgs{...} }
+type IntegrationAccountCcmConfigCcmConfigDataExportConfigArrayInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutput() IntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutput
+	ToIntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutputWithContext(context.Context) IntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutput
+}
+
+type IntegrationAccountCcmConfigCcmConfigDataExportConfigArray []IntegrationAccountCcmConfigCcmConfigDataExportConfigInput
+
+func (IntegrationAccountCcmConfigCcmConfigDataExportConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationAccountCcmConfigCcmConfigDataExportConfig)(nil)).Elem()
+}
+
+func (i IntegrationAccountCcmConfigCcmConfigDataExportConfigArray) ToIntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutput() IntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutput {
+	return i.ToIntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountCcmConfigCcmConfigDataExportConfigArray) ToIntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutputWithContext(ctx context.Context) IntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutput)
+}
+
+type IntegrationAccountCcmConfigCcmConfigDataExportConfigOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountCcmConfigCcmConfigDataExportConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountCcmConfigCcmConfigDataExportConfig)(nil)).Elem()
+}
+
+func (o IntegrationAccountCcmConfigCcmConfigDataExportConfigOutput) ToIntegrationAccountCcmConfigCcmConfigDataExportConfigOutput() IntegrationAccountCcmConfigCcmConfigDataExportConfigOutput {
+	return o
+}
+
+func (o IntegrationAccountCcmConfigCcmConfigDataExportConfigOutput) ToIntegrationAccountCcmConfigCcmConfigDataExportConfigOutputWithContext(ctx context.Context) IntegrationAccountCcmConfigCcmConfigDataExportConfigOutput {
+	return o
+}
+
+// Name of the S3 bucket where the Cost and Usage Report is stored.
+func (o IntegrationAccountCcmConfigCcmConfigDataExportConfigOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountCcmConfigCcmConfigDataExportConfig) *string { return v.BucketName }).(pulumi.StringPtrOutput)
+}
+
+// AWS region of the S3 bucket.
+func (o IntegrationAccountCcmConfigCcmConfigDataExportConfigOutput) BucketRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountCcmConfigCcmConfigDataExportConfig) *string { return v.BucketRegion }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Cost and Usage Report.
+func (o IntegrationAccountCcmConfigCcmConfigDataExportConfigOutput) ReportName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountCcmConfigCcmConfigDataExportConfig) *string { return v.ReportName }).(pulumi.StringPtrOutput)
+}
+
+// S3 prefix where the Cost and Usage Report is stored.
+func (o IntegrationAccountCcmConfigCcmConfigDataExportConfigOutput) ReportPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountCcmConfigCcmConfigDataExportConfig) *string { return v.ReportPrefix }).(pulumi.StringPtrOutput)
+}
+
+// Type of the Cost and Usage Report.
+func (o IntegrationAccountCcmConfigCcmConfigDataExportConfigOutput) ReportType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountCcmConfigCcmConfigDataExportConfig) *string { return v.ReportType }).(pulumi.StringPtrOutput)
+}
+
+type IntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationAccountCcmConfigCcmConfigDataExportConfig)(nil)).Elem()
+}
+
+func (o IntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutput) ToIntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutput() IntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutput {
+	return o
+}
+
+func (o IntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutput) ToIntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutputWithContext(ctx context.Context) IntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutput {
+	return o
+}
+
+func (o IntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutput) Index(i pulumi.IntInput) IntegrationAccountCcmConfigCcmConfigDataExportConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationAccountCcmConfigCcmConfigDataExportConfig {
+		return vs[0].([]IntegrationAccountCcmConfigCcmConfigDataExportConfig)[vs[1].(int)]
+	}).(IntegrationAccountCcmConfigCcmConfigDataExportConfigOutput)
+}
+
 type IntegrationAccountLogsConfig struct {
 	// Leave empty to omit logs config.
 	LambdaForwarder *IntegrationAccountLogsConfigLambdaForwarder `pulumi:"lambdaForwarder"`
@@ -2262,6 +2530,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAuthConfigAwsAuthConfigRolePtrInput)(nil)).Elem(), IntegrationAccountAuthConfigAwsAuthConfigRoleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAwsRegionsInput)(nil)).Elem(), IntegrationAccountAwsRegionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAwsRegionsPtrInput)(nil)).Elem(), IntegrationAccountAwsRegionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountCcmConfigCcmConfigInput)(nil)).Elem(), IntegrationAccountCcmConfigCcmConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountCcmConfigCcmConfigPtrInput)(nil)).Elem(), IntegrationAccountCcmConfigCcmConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountCcmConfigCcmConfigDataExportConfigInput)(nil)).Elem(), IntegrationAccountCcmConfigCcmConfigDataExportConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountCcmConfigCcmConfigDataExportConfigArrayInput)(nil)).Elem(), IntegrationAccountCcmConfigCcmConfigDataExportConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountLogsConfigInput)(nil)).Elem(), IntegrationAccountLogsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountLogsConfigPtrInput)(nil)).Elem(), IntegrationAccountLogsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountLogsConfigLambdaForwarderInput)(nil)).Elem(), IntegrationAccountLogsConfigLambdaForwarderArgs{})
@@ -2292,6 +2564,10 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationAccountAuthConfigAwsAuthConfigRolePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountAwsRegionsOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountAwsRegionsPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountCcmConfigCcmConfigOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountCcmConfigCcmConfigPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountCcmConfigCcmConfigDataExportConfigOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountCcmConfigCcmConfigDataExportConfigArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountLogsConfigOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountLogsConfigPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountLogsConfigLambdaForwarderOutput{})

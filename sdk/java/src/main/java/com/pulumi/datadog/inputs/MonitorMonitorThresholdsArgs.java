@@ -31,6 +31,21 @@ public final class MonitorMonitorThresholdsArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * Query evaluated as a dynamic `CRITICAL` threshold. Only supported on metric monitors with a formula query and `options[&#39;variables&#39;]`. Cannot be combined with static thresholds. This field is in preview.
+     * 
+     */
+    @Import(name="criticalQuery")
+    private @Nullable Output<String> criticalQuery;
+
+    /**
+     * @return Query evaluated as a dynamic `CRITICAL` threshold. Only supported on metric monitors with a formula query and `options[&#39;variables&#39;]`. Cannot be combined with static thresholds. This field is in preview.
+     * 
+     */
+    public Optional<Output<String>> criticalQuery() {
+        return Optional.ofNullable(this.criticalQuery);
+    }
+
+    /**
      * The monitor `CRITICAL` recovery threshold. Must be a number.
      * 
      */
@@ -43,6 +58,21 @@ public final class MonitorMonitorThresholdsArgs extends com.pulumi.resources.Res
      */
     public Optional<Output<String>> criticalRecovery() {
         return Optional.ofNullable(this.criticalRecovery);
+    }
+
+    /**
+     * Query evaluated as a dynamic `CRITICAL` recovery threshold. Only supported on metric monitors with a formula query and `options[&#39;variables&#39;]`. Cannot be combined with static thresholds. This field is in preview.
+     * 
+     */
+    @Import(name="criticalRecoveryQuery")
+    private @Nullable Output<String> criticalRecoveryQuery;
+
+    /**
+     * @return Query evaluated as a dynamic `CRITICAL` recovery threshold. Only supported on metric monitors with a formula query and `options[&#39;variables&#39;]`. Cannot be combined with static thresholds. This field is in preview.
+     * 
+     */
+    public Optional<Output<String>> criticalRecoveryQuery() {
+        return Optional.ofNullable(this.criticalRecoveryQuery);
     }
 
     /**
@@ -109,7 +139,9 @@ public final class MonitorMonitorThresholdsArgs extends com.pulumi.resources.Res
 
     private MonitorMonitorThresholdsArgs(MonitorMonitorThresholdsArgs $) {
         this.critical = $.critical;
+        this.criticalQuery = $.criticalQuery;
         this.criticalRecovery = $.criticalRecovery;
+        this.criticalRecoveryQuery = $.criticalRecoveryQuery;
         this.ok = $.ok;
         this.unknown = $.unknown;
         this.warning = $.warning;
@@ -156,6 +188,27 @@ public final class MonitorMonitorThresholdsArgs extends com.pulumi.resources.Res
         }
 
         /**
+         * @param criticalQuery Query evaluated as a dynamic `CRITICAL` threshold. Only supported on metric monitors with a formula query and `options[&#39;variables&#39;]`. Cannot be combined with static thresholds. This field is in preview.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder criticalQuery(@Nullable Output<String> criticalQuery) {
+            $.criticalQuery = criticalQuery;
+            return this;
+        }
+
+        /**
+         * @param criticalQuery Query evaluated as a dynamic `CRITICAL` threshold. Only supported on metric monitors with a formula query and `options[&#39;variables&#39;]`. Cannot be combined with static thresholds. This field is in preview.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder criticalQuery(String criticalQuery) {
+            return criticalQuery(Output.of(criticalQuery));
+        }
+
+        /**
          * @param criticalRecovery The monitor `CRITICAL` recovery threshold. Must be a number.
          * 
          * @return builder
@@ -174,6 +227,27 @@ public final class MonitorMonitorThresholdsArgs extends com.pulumi.resources.Res
          */
         public Builder criticalRecovery(String criticalRecovery) {
             return criticalRecovery(Output.of(criticalRecovery));
+        }
+
+        /**
+         * @param criticalRecoveryQuery Query evaluated as a dynamic `CRITICAL` recovery threshold. Only supported on metric monitors with a formula query and `options[&#39;variables&#39;]`. Cannot be combined with static thresholds. This field is in preview.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder criticalRecoveryQuery(@Nullable Output<String> criticalRecoveryQuery) {
+            $.criticalRecoveryQuery = criticalRecoveryQuery;
+            return this;
+        }
+
+        /**
+         * @param criticalRecoveryQuery Query evaluated as a dynamic `CRITICAL` recovery threshold. Only supported on metric monitors with a formula query and `options[&#39;variables&#39;]`. Cannot be combined with static thresholds. This field is in preview.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder criticalRecoveryQuery(String criticalRecoveryQuery) {
+            return criticalRecoveryQuery(Output.of(criticalRecoveryQuery));
         }
 
         /**

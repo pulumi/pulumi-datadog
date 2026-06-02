@@ -83,7 +83,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? SubtestPublicId;
         /// <summary>
-        /// The subtype of the Synthetic multistep API test step. Valid values are `Http`, `Grpc`, `Ssl`, `Dns`, `Tcp`, `Udp`, `Icmp`, `Websocket`, `Wait`, `playSubTest`. Defaults to `"http"`.
+        /// The subtype of the Synthetic multistep API test step. Valid values are `Http`, `Grpc`, `Ssl`, `Dns`, `Tcp`, `Udp`, `Icmp`, `Websocket`, `Mcp`, `Wait`, `playSubTest`. Defaults to `"http"`.
         /// </summary>
         public readonly string? Subtype;
         /// <summary>

@@ -47,14 +47,14 @@ public final class ObservabilityPipelineConfigSourceSyslogNgArgs extends com.pul
     }
 
     /**
-     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     * Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
      * 
      */
     @Import(name="tls")
     private @Nullable Output<ObservabilityPipelineConfigSourceSyslogNgTlsArgs> tls;
 
     /**
-     * @return Configuration for enabling TLS encryption between the pipeline component and external services.
+     * @return Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
      * 
      */
     public Optional<Output<ObservabilityPipelineConfigSourceSyslogNgTlsArgs>> tls() {
@@ -130,7 +130,7 @@ public final class ObservabilityPipelineConfigSourceSyslogNgArgs extends com.pul
         }
 
         /**
-         * @param tls Configuration for enabling TLS encryption between the pipeline component and external services.
+         * @param tls Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ObservabilityPipelineConfigSourceSyslogNgArgs extends com.pul
         }
 
         /**
-         * @param tls Configuration for enabling TLS encryption between the pipeline component and external services.
+         * @param tls Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
          * 
          * @return builder
          * 

@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationCloudPremBufferArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class ObservabilityPipelineConfigDestinationCloudPremArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ObservabilityPipelineConfigDestinationCloudPremArgs Empty = new ObservabilityPipelineConfigDestinationCloudPremArgs();
+
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    @Import(name="buffer")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationCloudPremBufferArgs> buffer;
+
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationCloudPremBufferArgs>> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
 
     /**
      * Name of the environment variable or secret that holds the endpoint URL.
@@ -33,6 +49,7 @@ public final class ObservabilityPipelineConfigDestinationCloudPremArgs extends c
     private ObservabilityPipelineConfigDestinationCloudPremArgs() {}
 
     private ObservabilityPipelineConfigDestinationCloudPremArgs(ObservabilityPipelineConfigDestinationCloudPremArgs $) {
+        this.buffer = $.buffer;
         this.endpointUrlKey = $.endpointUrlKey;
     }
 
@@ -52,6 +69,27 @@ public final class ObservabilityPipelineConfigDestinationCloudPremArgs extends c
 
         public Builder(ObservabilityPipelineConfigDestinationCloudPremArgs defaults) {
             $ = new ObservabilityPipelineConfigDestinationCloudPremArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(@Nullable Output<ObservabilityPipelineConfigDestinationCloudPremBufferArgs> buffer) {
+            $.buffer = buffer;
+            return this;
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(ObservabilityPipelineConfigDestinationCloudPremBufferArgs buffer) {
+            return buffer(Output.of(buffer));
         }
 
         /**

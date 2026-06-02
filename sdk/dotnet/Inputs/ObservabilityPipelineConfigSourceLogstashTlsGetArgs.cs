@@ -13,19 +13,19 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigSourceLogstashTlsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+        /// Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
         /// </summary>
         [Input("caFile")]
         public Input<string>? CaFile { get; set; }
 
         /// <summary>
-        /// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+        /// Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
         /// </summary>
         [Input("crtFile", required: true)]
         public Input<string> CrtFile { get; set; } = null!;
 
         /// <summary>
-        /// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+        /// Path to the private key file associated with the TLS server certificate.
         /// </summary>
         [Input("keyFile")]
         public Input<string>? KeyFile { get; set; }
@@ -35,6 +35,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("keyPassKey")]
         public Input<string>? KeyPassKey { get; set; }
+
+        /// <summary>
+        /// When `True`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+        /// </summary>
+        [Input("verifyCertificate")]
+        public Input<bool>? VerifyCertificate { get; set; }
 
         public ObservabilityPipelineConfigSourceLogstashTlsGetArgs()
         {

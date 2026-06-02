@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? AuthStrategy;
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationHttpClientBuffer? Buffer;
+        /// <summary>
         /// Compression configuration for HTTP requests.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationHttpClientCompression? Compression;
@@ -50,6 +54,8 @@ namespace Pulumi.Datadog.Outputs
         private ObservabilityPipelineConfigDestinationHttpClient(
             string? authStrategy,
 
+            Outputs.ObservabilityPipelineConfigDestinationHttpClientBuffer? buffer,
+
             Outputs.ObservabilityPipelineConfigDestinationHttpClientCompression? compression,
 
             string encoding,
@@ -65,6 +71,7 @@ namespace Pulumi.Datadog.Outputs
             string? usernameKey)
         {
             AuthStrategy = authStrategy;
+            Buffer = buffer;
             Compression = compression;
             Encoding = encoding;
             PasswordKey = passwordKey;

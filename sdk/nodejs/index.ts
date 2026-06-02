@@ -960,7 +960,6 @@ import * as azure from "./azure";
 import * as cloudflare from "./cloudflare";
 import * as config from "./config";
 import * as confluent from "./confluent";
-import * as databricks from "./databricks";
 import * as fastly from "./fastly";
 import * as gcp from "./gcp";
 import * as ms from "./ms";
@@ -975,7 +974,6 @@ export {
     cloudflare,
     config,
     confluent,
-    databricks,
     fastly,
     gcp,
     ms,

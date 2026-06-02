@@ -14,21 +14,25 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigSourceHttpServerTls
     {
         /// <summary>
-        /// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+        /// Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
         /// </summary>
         public readonly string? CaFile;
         /// <summary>
-        /// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+        /// Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
         /// </summary>
         public readonly string CrtFile;
         /// <summary>
-        /// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+        /// Path to the private key file associated with the TLS server certificate.
         /// </summary>
         public readonly string? KeyFile;
         /// <summary>
         /// Name of the environment variable or secret that holds the passphrase for the private key file.
         /// </summary>
         public readonly string? KeyPassKey;
+        /// <summary>
+        /// When `True`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+        /// </summary>
+        public readonly bool? VerifyCertificate;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigSourceHttpServerTls(
@@ -38,12 +42,15 @@ namespace Pulumi.Datadog.Outputs
 
             string? keyFile,
 
-            string? keyPassKey)
+            string? keyPassKey,
+
+            bool? verifyCertificate)
         {
             CaFile = caFile;
             CrtFile = crtFile;
             KeyFile = keyFile;
             KeyPassKey = keyPassKey;
+            VerifyCertificate = verifyCertificate;
         }
     }
 }

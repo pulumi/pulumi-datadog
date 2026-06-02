@@ -48,8 +48,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Disables widget copy-paste for every member org of the prod group.
- *         // enforcement_tier = "DEFAULT" means member orgs can still override the value;
- *         // use "ENFORCE" to make the value immutable for members.
+ *         // enforcement_tier = "OVERRIDE_ALLOWED" means member orgs can still override the value;
+ *         // use "GROUP_MANAGED" to make the value immutable for members.
  *         var example = new OrgGroupPolicy("example", OrgGroupPolicyArgs.builder()
  *             .orgGroupId(prod.id())
  *             .policyName("is_widget_copy_paste_enabled")
@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *                 jsonObject(
  *                     jsonProperty("org_config", false)
  *                 )))
- *             .enforcementTier("DEFAULT")
+ *             .enforcementTier("OVERRIDE_ALLOWED")
  *             .build());
  * 
  *     }
@@ -69,16 +69,16 @@ import javax.annotation.Nullable;
  * 
  * ### Side effects on member orgs
  * 
- * Creating or updating a policy with a non-`ENFORCE` tier (`DEFAULT` or `DELEGATE`) triggers propagation across every member org in the group. For each member, the server compares the org&#39;s current config value to the policy value:
+ * Creating or updating a policy with a non-`GROUP_MANAGED` tier (`OVERRIDE_ALLOWED` or `DELEGATE`) triggers propagation across every member org in the group. For each member, the server compares the org&#39;s current config value to the policy value:
  * 
  * - **Match:** No action.
  * - **Mismatch:** The server auto-creates a `datadog.OrgGroupPolicyOverride` for that org, recording its existing value so the org is exempted from the new policy.
  * 
  * Auto-created overrides show up in the `datadog.getOrgGroupPolicyOverrides` data source and can be adopted into Terraform via import. See the override resource documentation for the full lifecycle.
  * 
- * ### Transitioning to ENFORCE
+ * ### Transitioning to GROUP_MANAGED
  * 
- * Changing `enforcementTier` to `&#34;ENFORCE&#34;` automatically deletes every override associated with this policy server-side. Any `datadog.OrgGroupPolicyOverride` resources pointing at this policy must be removed from configuration in the same commit. Otherwise, Terraform&#39;s next apply will try to recreate the server-deleted overrides and fail with a `FailedPrecondition` error.
+ * Changing `enforcementTier` to `&#34;GROUP_MANAGED&#34;` automatically deletes every override associated with this policy server-side. Any `datadog.OrgGroupPolicyOverride` resources pointing at this policy must be removed from configuration in the same commit. Otherwise, Terraform&#39;s next apply will try to recreate the server-deleted overrides and fail with a `FailedPrecondition` error.
  * 
  * ## Import
  * 
@@ -104,14 +104,14 @@ public class OrgGroupPolicy extends com.pulumi.resources.CustomResource {
         return this.content;
     }
     /**
-     * The enforcement tier of the policy. `DEFAULT` means the policy is set but member orgs may mutate it. `ENFORCE` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `DEFAULT`, `ENFORCE`, `DELEGATE`.
+     * The enforcement tier of the policy. `OVERRIDE_ALLOWED` means the policy is set but member orgs may mutate it. `GROUP_MANAGED` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `OVERRIDE_ALLOWED`, `GROUP_MANAGED`, `DELEGATE`.
      * 
      */
     @Export(name="enforcementTier", refs={String.class}, tree="[0]")
     private Output<String> enforcementTier;
 
     /**
-     * @return The enforcement tier of the policy. `DEFAULT` means the policy is set but member orgs may mutate it. `ENFORCE` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `DEFAULT`, `ENFORCE`, `DELEGATE`.
+     * @return The enforcement tier of the policy. `OVERRIDE_ALLOWED` means the policy is set but member orgs may mutate it. `GROUP_MANAGED` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `OVERRIDE_ALLOWED`, `GROUP_MANAGED`, `DELEGATE`.
      * 
      */
     public Output<String> enforcementTier() {

@@ -25,10 +25,22 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? StoreHecToken { get; set; }
 
         /// <summary>
-        /// Configuration for enabling TLS encryption between the pipeline component and external services.
+        /// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
         /// </summary>
         [Input("tls")]
         public Input<Inputs.ObservabilityPipelineConfigSourceSplunkHecTlsArgs>? Tls { get; set; }
+
+        [Input("validTokens")]
+        private InputList<Inputs.ObservabilityPipelineConfigSourceSplunkHecValidTokenArgs>? _validTokens;
+
+        /// <summary>
+        /// A HEC token accepted for authenticating incoming Splunk HEC requests.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigSourceSplunkHecValidTokenArgs> ValidTokens
+        {
+            get => _validTokens ?? (_validTokens = new InputList<Inputs.ObservabilityPipelineConfigSourceSplunkHecValidTokenArgs>());
+            set => _validTokens = value;
+        }
 
         public ObservabilityPipelineConfigSourceSplunkHecArgs()
         {

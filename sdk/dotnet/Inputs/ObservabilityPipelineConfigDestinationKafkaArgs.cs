@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? BootstrapServersKey { get; set; }
 
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        [Input("buffer")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationKafkaBufferArgs>? Buffer { get; set; }
+
+        /// <summary>
         /// Compression codec for Kafka messages. Valid values are `None`, `Gzip`, `Snappy`, `Lz4`, `Zstd`.
         /// </summary>
         [Input("compression")]

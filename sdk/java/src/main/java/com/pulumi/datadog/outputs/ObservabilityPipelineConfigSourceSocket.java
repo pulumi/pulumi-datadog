@@ -30,7 +30,7 @@ public final class ObservabilityPipelineConfigSourceSocket {
      */
     private String mode;
     /**
-     * @return Configuration for enabling TLS encryption between the pipeline component and external services.
+     * @return Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
      * 
      */
     private @Nullable ObservabilityPipelineConfigSourceSocketTls tls;
@@ -58,7 +58,7 @@ public final class ObservabilityPipelineConfigSourceSocket {
         return this.mode;
     }
     /**
-     * @return Configuration for enabling TLS encryption between the pipeline component and external services.
+     * @return Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
      * 
      */
     public Optional<ObservabilityPipelineConfigSourceSocketTls> tls() {

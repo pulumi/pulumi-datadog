@@ -5,6 +5,8 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.MonitorVariablesAggregateAugmentedQueryArgs;
+import com.pulumi.datadog.inputs.MonitorVariablesAggregateFilteredQueryArgs;
 import com.pulumi.datadog.inputs.MonitorVariablesCloudCostQueryArgs;
 import com.pulumi.datadog.inputs.MonitorVariablesDataJobsQueryArgs;
 import com.pulumi.datadog.inputs.MonitorVariablesDataQualityQueryArgs;
@@ -18,6 +20,36 @@ import javax.annotation.Nullable;
 public final class MonitorVariablesArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final MonitorVariablesArgs Empty = new MonitorVariablesArgs();
+
+    /**
+     * Aggregate-augmented composite query variables (reference table augment joined to a metrics or events base query).
+     * 
+     */
+    @Import(name="aggregateAugmentedQueries")
+    private @Nullable Output<List<MonitorVariablesAggregateAugmentedQueryArgs>> aggregateAugmentedQueries;
+
+    /**
+     * @return Aggregate-augmented composite query variables (reference table augment joined to a metrics or events base query).
+     * 
+     */
+    public Optional<Output<List<MonitorVariablesAggregateAugmentedQueryArgs>>> aggregateAugmentedQueries() {
+        return Optional.ofNullable(this.aggregateAugmentedQueries);
+    }
+
+    /**
+     * Aggregate-filtered composite query variables (filter base query results using a reference table or events filter query).
+     * 
+     */
+    @Import(name="aggregateFilteredQueries")
+    private @Nullable Output<List<MonitorVariablesAggregateFilteredQueryArgs>> aggregateFilteredQueries;
+
+    /**
+     * @return Aggregate-filtered composite query variables (filter base query results using a reference table or events filter query).
+     * 
+     */
+    public Optional<Output<List<MonitorVariablesAggregateFilteredQueryArgs>>> aggregateFilteredQueries() {
+        return Optional.ofNullable(this.aggregateFilteredQueries);
+    }
 
     /**
      * The Cloud Cost query using formulas and functions.
@@ -82,6 +114,8 @@ public final class MonitorVariablesArgs extends com.pulumi.resources.ResourceArg
     private MonitorVariablesArgs() {}
 
     private MonitorVariablesArgs(MonitorVariablesArgs $) {
+        this.aggregateAugmentedQueries = $.aggregateAugmentedQueries;
+        this.aggregateFilteredQueries = $.aggregateFilteredQueries;
         this.cloudCostQueries = $.cloudCostQueries;
         this.dataJobsQueries = $.dataJobsQueries;
         this.dataQualityQueries = $.dataQualityQueries;
@@ -104,6 +138,68 @@ public final class MonitorVariablesArgs extends com.pulumi.resources.ResourceArg
 
         public Builder(MonitorVariablesArgs defaults) {
             $ = new MonitorVariablesArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param aggregateAugmentedQueries Aggregate-augmented composite query variables (reference table augment joined to a metrics or events base query).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aggregateAugmentedQueries(@Nullable Output<List<MonitorVariablesAggregateAugmentedQueryArgs>> aggregateAugmentedQueries) {
+            $.aggregateAugmentedQueries = aggregateAugmentedQueries;
+            return this;
+        }
+
+        /**
+         * @param aggregateAugmentedQueries Aggregate-augmented composite query variables (reference table augment joined to a metrics or events base query).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aggregateAugmentedQueries(List<MonitorVariablesAggregateAugmentedQueryArgs> aggregateAugmentedQueries) {
+            return aggregateAugmentedQueries(Output.of(aggregateAugmentedQueries));
+        }
+
+        /**
+         * @param aggregateAugmentedQueries Aggregate-augmented composite query variables (reference table augment joined to a metrics or events base query).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aggregateAugmentedQueries(MonitorVariablesAggregateAugmentedQueryArgs... aggregateAugmentedQueries) {
+            return aggregateAugmentedQueries(List.of(aggregateAugmentedQueries));
+        }
+
+        /**
+         * @param aggregateFilteredQueries Aggregate-filtered composite query variables (filter base query results using a reference table or events filter query).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aggregateFilteredQueries(@Nullable Output<List<MonitorVariablesAggregateFilteredQueryArgs>> aggregateFilteredQueries) {
+            $.aggregateFilteredQueries = aggregateFilteredQueries;
+            return this;
+        }
+
+        /**
+         * @param aggregateFilteredQueries Aggregate-filtered composite query variables (filter base query results using a reference table or events filter query).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aggregateFilteredQueries(List<MonitorVariablesAggregateFilteredQueryArgs> aggregateFilteredQueries) {
+            return aggregateFilteredQueries(Output.of(aggregateFilteredQueries));
+        }
+
+        /**
+         * @param aggregateFilteredQueries Aggregate-filtered composite query variables (filter base query results using a reference table or events filter query).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aggregateFilteredQueries(MonitorVariablesAggregateFilteredQueryArgs... aggregateFilteredQueries) {
+            return aggregateFilteredQueries(List.of(aggregateFilteredQueries));
         }
 
         /**

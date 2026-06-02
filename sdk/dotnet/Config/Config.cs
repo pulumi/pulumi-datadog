@@ -92,6 +92,16 @@ namespace Pulumi.Datadog
             set => _awsSessionToken.Set(value);
         }
 
+        private static readonly __Value<string?> _bearerToken = new __Value<string?>(() => __config.Get("bearerToken"));
+        /// <summary>
+        /// Datadog credential sent in the `Authorization: Bearer &lt;token&gt;` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer &lt;token&gt;` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
+        /// </summary>
+        public static string? BearerToken
+        {
+            get => _bearerToken.Get();
+            set => _bearerToken.Set(value);
+        }
+
         private static readonly __Value<string?> _cloudProviderRegion = new __Value<string?>(() => __config.Get("cloudProviderRegion"));
         /// <summary>
         /// The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.

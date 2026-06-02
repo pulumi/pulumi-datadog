@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonS3GenericAuthArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonS3GenericBatchSettingsArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonS3GenericBufferArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonS3GenericCompressionArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonS3GenericEncodingArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -63,6 +64,21 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3GenericArgs ext
      */
     public Output<String> bucket() {
         return this.bucket;
+    }
+
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    @Import(name="buffer")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationAmazonS3GenericBufferArgs> buffer;
+
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationAmazonS3GenericBufferArgs>> buffer() {
+        return Optional.ofNullable(this.buffer);
     }
 
     /**
@@ -146,6 +162,7 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3GenericArgs ext
         this.auth = $.auth;
         this.batchSettings = $.batchSettings;
         this.bucket = $.bucket;
+        this.buffer = $.buffer;
         this.compression = $.compression;
         this.encoding = $.encoding;
         this.keyPrefix = $.keyPrefix;
@@ -232,6 +249,27 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3GenericArgs ext
          */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(@Nullable Output<ObservabilityPipelineConfigDestinationAmazonS3GenericBufferArgs> buffer) {
+            $.buffer = buffer;
+            return this;
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(ObservabilityPipelineConfigDestinationAmazonS3GenericBufferArgs buffer) {
+            return buffer(Output.of(buffer));
         }
 
         /**

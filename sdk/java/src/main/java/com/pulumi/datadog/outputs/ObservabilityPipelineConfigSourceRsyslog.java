@@ -23,7 +23,7 @@ public final class ObservabilityPipelineConfigSourceRsyslog {
      */
     private @Nullable String mode;
     /**
-     * @return Configuration for enabling TLS encryption between the pipeline component and external services.
+     * @return Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
      * 
      */
     private @Nullable ObservabilityPipelineConfigSourceRsyslogTls tls;
@@ -44,7 +44,7 @@ public final class ObservabilityPipelineConfigSourceRsyslog {
         return Optional.ofNullable(this.mode);
     }
     /**
-     * @return Configuration for enabling TLS encryption between the pipeline component and external services.
+     * @return Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
      * 
      */
     public Optional<ObservabilityPipelineConfigSourceRsyslogTls> tls() {

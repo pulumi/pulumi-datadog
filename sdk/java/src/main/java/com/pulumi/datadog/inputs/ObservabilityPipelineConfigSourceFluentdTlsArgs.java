@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,14 +18,14 @@ public final class ObservabilityPipelineConfigSourceFluentdTlsArgs extends com.p
     public static final ObservabilityPipelineConfigSourceFluentdTlsArgs Empty = new ObservabilityPipelineConfigSourceFluentdTlsArgs();
 
     /**
-     * Path to the Certificate Authority (CA) file used to validate the server&#39;s TLS certificate.
+     * Path to the Certificate Authority (CA) file used to validate connecting clients&#39; TLS certificates.
      * 
      */
     @Import(name="caFile")
     private @Nullable Output<String> caFile;
 
     /**
-     * @return Path to the Certificate Authority (CA) file used to validate the server&#39;s TLS certificate.
+     * @return Path to the Certificate Authority (CA) file used to validate connecting clients&#39; TLS certificates.
      * 
      */
     public Optional<Output<String>> caFile() {
@@ -32,14 +33,14 @@ public final class ObservabilityPipelineConfigSourceFluentdTlsArgs extends com.p
     }
 
     /**
-     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     * Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
      * 
      */
     @Import(name="crtFile", required=true)
     private Output<String> crtFile;
 
     /**
-     * @return Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     * @return Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
      * 
      */
     public Output<String> crtFile() {
@@ -47,14 +48,14 @@ public final class ObservabilityPipelineConfigSourceFluentdTlsArgs extends com.p
     }
 
     /**
-     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     * Path to the private key file associated with the TLS server certificate.
      * 
      */
     @Import(name="keyFile")
     private @Nullable Output<String> keyFile;
 
     /**
-     * @return Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     * @return Path to the private key file associated with the TLS server certificate.
      * 
      */
     public Optional<Output<String>> keyFile() {
@@ -76,6 +77,21 @@ public final class ObservabilityPipelineConfigSourceFluentdTlsArgs extends com.p
         return Optional.ofNullable(this.keyPassKey);
     }
 
+    /**
+     * When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+     * 
+     */
+    @Import(name="verifyCertificate")
+    private @Nullable Output<Boolean> verifyCertificate;
+
+    /**
+     * @return When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+     * 
+     */
+    public Optional<Output<Boolean>> verifyCertificate() {
+        return Optional.ofNullable(this.verifyCertificate);
+    }
+
     private ObservabilityPipelineConfigSourceFluentdTlsArgs() {}
 
     private ObservabilityPipelineConfigSourceFluentdTlsArgs(ObservabilityPipelineConfigSourceFluentdTlsArgs $) {
@@ -83,6 +99,7 @@ public final class ObservabilityPipelineConfigSourceFluentdTlsArgs extends com.p
         this.crtFile = $.crtFile;
         this.keyFile = $.keyFile;
         this.keyPassKey = $.keyPassKey;
+        this.verifyCertificate = $.verifyCertificate;
     }
 
     public static Builder builder() {
@@ -104,7 +121,7 @@ public final class ObservabilityPipelineConfigSourceFluentdTlsArgs extends com.p
         }
 
         /**
-         * @param caFile Path to the Certificate Authority (CA) file used to validate the server&#39;s TLS certificate.
+         * @param caFile Path to the Certificate Authority (CA) file used to validate connecting clients&#39; TLS certificates.
          * 
          * @return builder
          * 
@@ -115,7 +132,7 @@ public final class ObservabilityPipelineConfigSourceFluentdTlsArgs extends com.p
         }
 
         /**
-         * @param caFile Path to the Certificate Authority (CA) file used to validate the server&#39;s TLS certificate.
+         * @param caFile Path to the Certificate Authority (CA) file used to validate connecting clients&#39; TLS certificates.
          * 
          * @return builder
          * 
@@ -125,7 +142,7 @@ public final class ObservabilityPipelineConfigSourceFluentdTlsArgs extends com.p
         }
 
         /**
-         * @param crtFile Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+         * @param crtFile Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
          * 
          * @return builder
          * 
@@ -136,7 +153,7 @@ public final class ObservabilityPipelineConfigSourceFluentdTlsArgs extends com.p
         }
 
         /**
-         * @param crtFile Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+         * @param crtFile Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
          * 
          * @return builder
          * 
@@ -146,7 +163,7 @@ public final class ObservabilityPipelineConfigSourceFluentdTlsArgs extends com.p
         }
 
         /**
-         * @param keyFile Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+         * @param keyFile Path to the private key file associated with the TLS server certificate.
          * 
          * @return builder
          * 
@@ -157,7 +174,7 @@ public final class ObservabilityPipelineConfigSourceFluentdTlsArgs extends com.p
         }
 
         /**
-         * @param keyFile Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+         * @param keyFile Path to the private key file associated with the TLS server certificate.
          * 
          * @return builder
          * 
@@ -185,6 +202,27 @@ public final class ObservabilityPipelineConfigSourceFluentdTlsArgs extends com.p
          */
         public Builder keyPassKey(String keyPassKey) {
             return keyPassKey(Output.of(keyPassKey));
+        }
+
+        /**
+         * @param verifyCertificate When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder verifyCertificate(@Nullable Output<Boolean> verifyCertificate) {
+            $.verifyCertificate = verifyCertificate;
+            return this;
+        }
+
+        /**
+         * @param verifyCertificate When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder verifyCertificate(Boolean verifyCertificate) {
+            return verifyCertificate(Output.of(verifyCertificate));
         }
 
         public ObservabilityPipelineConfigSourceFluentdTlsArgs build() {

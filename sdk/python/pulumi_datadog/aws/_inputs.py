@@ -23,6 +23,10 @@ __all__ = [
     'IntegrationAccountAuthConfigAwsAuthConfigRoleArgsDict',
     'IntegrationAccountAwsRegionsArgs',
     'IntegrationAccountAwsRegionsArgsDict',
+    'IntegrationAccountCcmConfigCcmConfigArgs',
+    'IntegrationAccountCcmConfigCcmConfigArgsDict',
+    'IntegrationAccountCcmConfigCcmConfigDataExportConfigArgs',
+    'IntegrationAccountCcmConfigCcmConfigDataExportConfigArgsDict',
     'IntegrationAccountLogsConfigArgs',
     'IntegrationAccountLogsConfigArgsDict',
     'IntegrationAccountLogsConfigLambdaForwarderArgs',
@@ -232,6 +236,135 @@ class IntegrationAccountAwsRegionsArgs:
     @include_onlies.setter
     def include_onlies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "include_onlies", value)
+
+
+class IntegrationAccountCcmConfigCcmConfigArgsDict(TypedDict):
+    data_export_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountCcmConfigCcmConfigDataExportConfigArgsDict']]]]]
+
+@pulumi.input_type
+class IntegrationAccountCcmConfigCcmConfigArgs:
+    def __init__(__self__, *,
+                 data_export_configs: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountCcmConfigCcmConfigDataExportConfigArgs']]]] = None):
+        if data_export_configs is not None:
+            pulumi.set(__self__, "data_export_configs", data_export_configs)
+
+    @_builtins.property
+    @pulumi.getter(name="dataExportConfigs")
+    def data_export_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountCcmConfigCcmConfigDataExportConfigArgs']]]]:
+        return pulumi.get(self, "data_export_configs")
+
+    @data_export_configs.setter
+    def data_export_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountCcmConfigCcmConfigDataExportConfigArgs']]]]):
+        pulumi.set(self, "data_export_configs", value)
+
+
+class IntegrationAccountCcmConfigCcmConfigDataExportConfigArgsDict(TypedDict):
+    bucket_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the S3 bucket where the Cost and Usage Report is stored.
+    """
+    bucket_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    AWS region of the S3 bucket.
+    """
+    report_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the Cost and Usage Report.
+    """
+    report_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    S3 prefix where the Cost and Usage Report is stored.
+    """
+    report_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Type of the Cost and Usage Report.
+    """
+
+@pulumi.input_type
+class IntegrationAccountCcmConfigCcmConfigDataExportConfigArgs:
+    def __init__(__self__, *,
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 report_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 report_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 report_type: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] bucket_name: Name of the S3 bucket where the Cost and Usage Report is stored.
+        :param pulumi.Input[_builtins.str] bucket_region: AWS region of the S3 bucket.
+        :param pulumi.Input[_builtins.str] report_name: Name of the Cost and Usage Report.
+        :param pulumi.Input[_builtins.str] report_prefix: S3 prefix where the Cost and Usage Report is stored.
+        :param pulumi.Input[_builtins.str] report_type: Type of the Cost and Usage Report.
+        """
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
+        if bucket_region is not None:
+            pulumi.set(__self__, "bucket_region", bucket_region)
+        if report_name is not None:
+            pulumi.set(__self__, "report_name", report_name)
+        if report_prefix is not None:
+            pulumi.set(__self__, "report_prefix", report_prefix)
+        if report_type is not None:
+            pulumi.set(__self__, "report_type", report_type)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the S3 bucket where the Cost and Usage Report is stored.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bucket_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketRegion")
+    def bucket_region(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        AWS region of the S3 bucket.
+        """
+        return pulumi.get(self, "bucket_region")
+
+    @bucket_region.setter
+    def bucket_region(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bucket_region", value)
+
+    @_builtins.property
+    @pulumi.getter(name="reportName")
+    def report_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Cost and Usage Report.
+        """
+        return pulumi.get(self, "report_name")
+
+    @report_name.setter
+    def report_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "report_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="reportPrefix")
+    def report_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        S3 prefix where the Cost and Usage Report is stored.
+        """
+        return pulumi.get(self, "report_prefix")
+
+    @report_prefix.setter
+    def report_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "report_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="reportType")
+    def report_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Type of the Cost and Usage Report.
+        """
+        return pulumi.get(self, "report_type")
+
+    @report_type.setter
+    def report_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "report_type", value)
 
 
 class IntegrationAccountLogsConfigArgsDict(TypedDict):

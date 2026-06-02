@@ -108,6 +108,20 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.awsSessionToken);
     }
     /**
+     * Datadog credential sent in the `Authorization: Bearer &lt;token&gt;` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer &lt;token&gt;` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
+     * 
+     */
+    @Export(name="bearerToken", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> bearerToken;
+
+    /**
+     * @return Datadog credential sent in the `Authorization: Bearer &lt;token&gt;` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer &lt;token&gt;` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
+     * 
+     */
+    public Output<Optional<String>> bearerToken() {
+        return Codegen.optional(this.bearerToken);
+    }
+    /**
      * The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
      * 
      */
@@ -218,7 +232,8 @@ public class Provider extends com.pulumi.resources.ProviderResource {
                 "appKey",
                 "awsAccessKeyId",
                 "awsSecretAccessKey",
-                "awsSessionToken"
+                "awsSessionToken",
+                "bearerToken"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

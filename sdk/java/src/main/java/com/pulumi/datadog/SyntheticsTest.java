@@ -409,6 +409,100 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Example Usage (Synthetics MCP API test)
+ *         // Create a new Datadog Synthetics Multistep API test against an MCP server
+ *         var testMcp = new SyntheticsTest("testMcp", SyntheticsTestArgs.builder()
+ *             .name("MCP API test")
+ *             .type("api")
+ *             .subtype("multi")
+ *             .status("live")
+ *             .locations("aws:eu-central-1")
+ *             .tags(            
+ *                 "foo:bar",
+ *                 "env:test")
+ *             .apiSteps(            
+ *                 SyntheticsTestApiStepArgs.builder()
+ *                     .name("Initialize MCP session")
+ *                     .subtype("mcp")
+ *                     .assertions(                    
+ *                         SyntheticsTestApiStepAssertionArgs.builder()
+ *                             .type("statusCode")
+ *                             .operator("is")
+ *                             .target("200")
+ *                             .build(),
+ *                         SyntheticsTestApiStepAssertionArgs.builder()
+ *                             .type("mcpRespectsSpecification")
+ *                             .build(),
+ *                         SyntheticsTestApiStepAssertionArgs.builder()
+ *                             .type("mcpServerCapabilities")
+ *                             .operator("contains")
+ *                             .targetMcpCapabilities(SyntheticsTestApiStepAssertionTargetMcpCapabilitiesArgs.builder()
+ *                                 .capabilities("tools")
+ *                                 .build())
+ *                             .build())
+ *                     .requestDefinition(SyntheticsTestApiStepRequestDefinitionArgs.builder()
+ *                         .url("https://example.org/mcp")
+ *                         .callType("init")
+ *                         .mcpProtocolVersion("2025-06-18")
+ *                         .build())
+ *                     .requestHeaders(Map.of("api-key", "YOUR-API-KEY"))
+ *                     .build(),
+ *                 SyntheticsTestApiStepArgs.builder()
+ *                     .name("List MCP tools")
+ *                     .subtype("mcp")
+ *                     .assertions(                    
+ *                         SyntheticsTestApiStepAssertionArgs.builder()
+ *                             .type("statusCode")
+ *                             .operator("is")
+ *                             .target("200")
+ *                             .build(),
+ *                         SyntheticsTestApiStepAssertionArgs.builder()
+ *                             .type("mcpToolCount")
+ *                             .operator("moreThan")
+ *                             .target("0")
+ *                             .build(),
+ *                         SyntheticsTestApiStepAssertionArgs.builder()
+ *                             .type("mcpToolNameLength")
+ *                             .operator("lessThan")
+ *                             .target("64")
+ *                             .build())
+ *                     .requestDefinition(SyntheticsTestApiStepRequestDefinitionArgs.builder()
+ *                         .url("https://example.org/mcp")
+ *                         .callType("tool_list")
+ *                         .mcpProtocolVersion("2025-06-18")
+ *                         .build())
+ *                     .requestHeaders(Map.of("api-key", "YOUR-API-KEY"))
+ *                     .build(),
+ *                 SyntheticsTestApiStepArgs.builder()
+ *                     .name("Call MCP search tool")
+ *                     .subtype("mcp")
+ *                     .assertions(                    
+ *                         SyntheticsTestApiStepAssertionArgs.builder()
+ *                             .type("responseTime")
+ *                             .operator("lessThan")
+ *                             .target("5000")
+ *                             .build(),
+ *                         SyntheticsTestApiStepAssertionArgs.builder()
+ *                             .type("mcpRespectsSpecification")
+ *                             .build())
+ *                     .requestDefinition(SyntheticsTestApiStepRequestDefinitionArgs.builder()
+ *                         .url("https://example.org/mcp")
+ *                         .callType("tool_call")
+ *                         .mcpProtocolVersion("2025-06-18")
+ *                         .toolName("search")
+ *                         .toolArgs(serializeJson(
+ *                             jsonObject(
+ *                                 jsonProperty("query", "datadog synthetics"),
+ *                                 jsonProperty("limit", 5)
+ *                             )))
+ *                         .build())
+ *                     .requestHeaders(Map.of("api-key", "YOUR-API-KEY"))
+ *                     .build())
+ *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+ *                 .tickEvery(900)
+ *                 .build())
+ *             .build());
+ * 
  *         // Example Usage (Synthetics Browser test)
  *         // Create a new Datadog Synthetics Browser test starting on https://www.example.org
  *         var testBrowser = new SyntheticsTest("testBrowser", SyntheticsTestArgs.builder()

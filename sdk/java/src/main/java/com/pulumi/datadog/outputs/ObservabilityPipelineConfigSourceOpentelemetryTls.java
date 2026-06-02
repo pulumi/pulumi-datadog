@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -13,17 +14,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigSourceOpentelemetryTls {
     /**
-     * @return Path to the Certificate Authority (CA) file used to validate the server&#39;s TLS certificate.
+     * @return Path to the Certificate Authority (CA) file used to validate connecting clients&#39; TLS certificates.
      * 
      */
     private @Nullable String caFile;
     /**
-     * @return Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     * @return Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
      * 
      */
     private String crtFile;
     /**
-     * @return Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     * @return Path to the private key file associated with the TLS server certificate.
      * 
      */
     private @Nullable String keyFile;
@@ -32,24 +33,29 @@ public final class ObservabilityPipelineConfigSourceOpentelemetryTls {
      * 
      */
     private @Nullable String keyPassKey;
+    /**
+     * @return When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+     * 
+     */
+    private @Nullable Boolean verifyCertificate;
 
     private ObservabilityPipelineConfigSourceOpentelemetryTls() {}
     /**
-     * @return Path to the Certificate Authority (CA) file used to validate the server&#39;s TLS certificate.
+     * @return Path to the Certificate Authority (CA) file used to validate connecting clients&#39; TLS certificates.
      * 
      */
     public Optional<String> caFile() {
         return Optional.ofNullable(this.caFile);
     }
     /**
-     * @return Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     * @return Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
      * 
      */
     public String crtFile() {
         return this.crtFile;
     }
     /**
-     * @return Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     * @return Path to the private key file associated with the TLS server certificate.
      * 
      */
     public Optional<String> keyFile() {
@@ -61,6 +67,13 @@ public final class ObservabilityPipelineConfigSourceOpentelemetryTls {
      */
     public Optional<String> keyPassKey() {
         return Optional.ofNullable(this.keyPassKey);
+    }
+    /**
+     * @return When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+     * 
+     */
+    public Optional<Boolean> verifyCertificate() {
+        return Optional.ofNullable(this.verifyCertificate);
     }
 
     public static Builder builder() {
@@ -76,6 +89,7 @@ public final class ObservabilityPipelineConfigSourceOpentelemetryTls {
         private String crtFile;
         private @Nullable String keyFile;
         private @Nullable String keyPassKey;
+        private @Nullable Boolean verifyCertificate;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigSourceOpentelemetryTls defaults) {
     	      Objects.requireNonNull(defaults);
@@ -83,6 +97,7 @@ public final class ObservabilityPipelineConfigSourceOpentelemetryTls {
     	      this.crtFile = defaults.crtFile;
     	      this.keyFile = defaults.keyFile;
     	      this.keyPassKey = defaults.keyPassKey;
+    	      this.verifyCertificate = defaults.verifyCertificate;
         }
 
         @CustomType.Setter
@@ -111,12 +126,19 @@ public final class ObservabilityPipelineConfigSourceOpentelemetryTls {
             this.keyPassKey = keyPassKey;
             return this;
         }
+        @CustomType.Setter
+        public Builder verifyCertificate(@Nullable Boolean verifyCertificate) {
+
+            this.verifyCertificate = verifyCertificate;
+            return this;
+        }
         public ObservabilityPipelineConfigSourceOpentelemetryTls build() {
             final var _resultValue = new ObservabilityPipelineConfigSourceOpentelemetryTls();
             _resultValue.caFile = caFile;
             _resultValue.crtFile = crtFile;
             _resultValue.keyFile = keyFile;
             _resultValue.keyPassKey = keyPassKey;
+            _resultValue.verifyCertificate = verifyCertificate;
             return _resultValue;
         }
     }

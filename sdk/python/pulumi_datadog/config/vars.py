@@ -64,6 +64,13 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('awsSessionToken')
 
     @_builtins.property
+    def bearer_token(self) -> Optional[str]:
+        """
+        Datadog credential sent in the `Authorization: Bearer <token>` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer <token>` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
+        """
+        return __config__.get('bearerToken')
+
+    @_builtins.property
     def cloud_provider_region(self) -> Optional[str]:
         """
         The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.

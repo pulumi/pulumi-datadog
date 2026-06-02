@@ -30,6 +30,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("metric")]
         public Input<string>? Metric { get; set; }
 
+        /// <summary>
+        /// The name assigned to this aggregation when multiple aggregations are defined for a query.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
         public MonitorVariablesEventQueryComputeGetArgs()
         {
         }

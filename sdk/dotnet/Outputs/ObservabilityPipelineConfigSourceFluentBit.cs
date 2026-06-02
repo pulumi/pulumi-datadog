@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? AddressKey;
         /// <summary>
-        /// Configuration for enabling TLS encryption between the pipeline component and external services.
+        /// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigSourceFluentBitTls? Tls;
 

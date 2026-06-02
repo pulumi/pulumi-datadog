@@ -45,6 +45,11 @@ awsSessionToken: Optional[str]
 The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
 """
 
+bearerToken: Optional[str]
+"""
+Datadog credential sent in the `Authorization: Bearer <token>` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer <token>` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
+"""
+
 cloudProviderRegion: Optional[str]
 """
 The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.

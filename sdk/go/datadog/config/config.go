@@ -41,6 +41,11 @@ func GetAwsSessionToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:awsSessionToken")
 }
 
+// Datadog credential sent in the `Authorization: Bearer <token>` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer <token>` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
+func GetBearerToken(ctx *pulumi.Context) string {
+	return config.Get(ctx, "datadog:bearerToken")
+}
+
 // The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
 func GetCloudProviderRegion(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:cloudProviderRegion")

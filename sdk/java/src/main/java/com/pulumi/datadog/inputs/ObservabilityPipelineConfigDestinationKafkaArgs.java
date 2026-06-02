@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationKafkaBufferArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationKafkaLibrdkafkaOptionArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationKafkaSaslArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationKafkaTlsArgs;
@@ -34,6 +35,21 @@ public final class ObservabilityPipelineConfigDestinationKafkaArgs extends com.p
      */
     public Optional<Output<String>> bootstrapServersKey() {
         return Optional.ofNullable(this.bootstrapServersKey);
+    }
+
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    @Import(name="buffer")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationKafkaBufferArgs> buffer;
+
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationKafkaBufferArgs>> buffer() {
+        return Optional.ofNullable(this.buffer);
     }
 
     /**
@@ -220,6 +236,7 @@ public final class ObservabilityPipelineConfigDestinationKafkaArgs extends com.p
 
     private ObservabilityPipelineConfigDestinationKafkaArgs(ObservabilityPipelineConfigDestinationKafkaArgs $) {
         this.bootstrapServersKey = $.bootstrapServersKey;
+        this.buffer = $.buffer;
         this.compression = $.compression;
         this.encoding = $.encoding;
         this.headersKey = $.headersKey;
@@ -271,6 +288,27 @@ public final class ObservabilityPipelineConfigDestinationKafkaArgs extends com.p
          */
         public Builder bootstrapServersKey(String bootstrapServersKey) {
             return bootstrapServersKey(Output.of(bootstrapServersKey));
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(@Nullable Output<ObservabilityPipelineConfigDestinationKafkaBufferArgs> buffer) {
+            $.buffer = buffer;
+            return this;
+        }
+
+        /**
+         * @param buffer Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder buffer(ObservabilityPipelineConfigDestinationKafkaBufferArgs buffer) {
+            return buffer(Output.of(buffer));
         }
 
         /**

@@ -80,14 +80,14 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
     }
 
     /**
-     * The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
+     * The type of gRPC call to perform, or the MCP step call (`init`, `toolList`, `toolCall`). Valid values are `healthcheck`, `unary`, `init`, `toolList`, `toolCall`.
      * 
      */
     @Import(name="callType")
     private @Nullable Output<String> callType;
 
     /**
-     * @return The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
+     * @return The type of gRPC call to perform, or the MCP step call (`init`, `toolList`, `toolCall`). Valid values are `healthcheck`, `unary`, `init`, `toolList`, `toolCall`.
      * 
      */
     public Optional<Output<String>> callType() {
@@ -287,6 +287,21 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
      */
     public Optional<Output<Integer>> maxTtl() {
         return Optional.ofNullable(this.maxTtl);
+    }
+
+    /**
+     * For MCP API steps, the MCP protocol version used by the request.
+     * 
+     */
+    @Import(name="mcpProtocolVersion")
+    private @Nullable Output<String> mcpProtocolVersion;
+
+    /**
+     * @return For MCP API steps, the MCP protocol version used by the request.
+     * 
+     */
+    public Optional<Output<String>> mcpProtocolVersion() {
+        return Optional.ofNullable(this.mcpProtocolVersion);
     }
 
     /**
@@ -508,6 +523,36 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
     }
 
     /**
+     * For MCP API steps, the JSON-encoded arguments to pass to the tool when `callType` is `toolCall`.
+     * 
+     */
+    @Import(name="toolArgs")
+    private @Nullable Output<String> toolArgs;
+
+    /**
+     * @return For MCP API steps, the JSON-encoded arguments to pass to the tool when `callType` is `toolCall`.
+     * 
+     */
+    public Optional<Output<String>> toolArgs() {
+        return Optional.ofNullable(this.toolArgs);
+    }
+
+    /**
+     * For MCP API steps, the name of the tool to call. Required when `callType` is `toolCall`.
+     * 
+     */
+    @Import(name="toolName")
+    private @Nullable Output<String> toolName;
+
+    /**
+     * @return For MCP API steps, the name of the tool to call. Required when `callType` is `toolCall`.
+     * 
+     */
+    public Optional<Output<String>> toolName() {
+        return Optional.ofNullable(this.toolName);
+    }
+
+    /**
      * For Network Path tests, the number of traceroute path tracings.
      * 
      */
@@ -558,6 +603,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         this.httpVersion = $.httpVersion;
         this.isMessageBase64Encoded = $.isMessageBase64Encoded;
         this.maxTtl = $.maxTtl;
+        this.mcpProtocolVersion = $.mcpProtocolVersion;
         this.message = $.message;
         this.method = $.method;
         this.noSavingResponseBody = $.noSavingResponseBody;
@@ -572,6 +618,8 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         this.sourceService = $.sourceService;
         this.tcpMethod = $.tcpMethod;
         this.timeout = $.timeout;
+        this.toolArgs = $.toolArgs;
+        this.toolName = $.toolName;
         this.tracerouteQueries = $.tracerouteQueries;
         this.url = $.url;
     }
@@ -679,7 +727,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         }
 
         /**
-         * @param callType The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
+         * @param callType The type of gRPC call to perform, or the MCP step call (`init`, `toolList`, `toolCall`). Valid values are `healthcheck`, `unary`, `init`, `toolList`, `toolCall`.
          * 
          * @return builder
          * 
@@ -690,7 +738,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         }
 
         /**
-         * @param callType The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
+         * @param callType The type of gRPC call to perform, or the MCP step call (`init`, `toolList`, `toolCall`). Valid values are `healthcheck`, `unary`, `init`, `toolList`, `toolCall`.
          * 
          * @return builder
          * 
@@ -980,6 +1028,27 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
          */
         public Builder maxTtl(Integer maxTtl) {
             return maxTtl(Output.of(maxTtl));
+        }
+
+        /**
+         * @param mcpProtocolVersion For MCP API steps, the MCP protocol version used by the request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mcpProtocolVersion(@Nullable Output<String> mcpProtocolVersion) {
+            $.mcpProtocolVersion = mcpProtocolVersion;
+            return this;
+        }
+
+        /**
+         * @param mcpProtocolVersion For MCP API steps, the MCP protocol version used by the request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mcpProtocolVersion(String mcpProtocolVersion) {
+            return mcpProtocolVersion(Output.of(mcpProtocolVersion));
         }
 
         /**
@@ -1282,6 +1351,48 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
          */
         public Builder timeout(Integer timeout) {
             return timeout(Output.of(timeout));
+        }
+
+        /**
+         * @param toolArgs For MCP API steps, the JSON-encoded arguments to pass to the tool when `callType` is `toolCall`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder toolArgs(@Nullable Output<String> toolArgs) {
+            $.toolArgs = toolArgs;
+            return this;
+        }
+
+        /**
+         * @param toolArgs For MCP API steps, the JSON-encoded arguments to pass to the tool when `callType` is `toolCall`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder toolArgs(String toolArgs) {
+            return toolArgs(Output.of(toolArgs));
+        }
+
+        /**
+         * @param toolName For MCP API steps, the name of the tool to call. Required when `callType` is `toolCall`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder toolName(@Nullable Output<String> toolName) {
+            $.toolName = toolName;
+            return this;
+        }
+
+        /**
+         * @param toolName For MCP API steps, the name of the tool to call. Required when `callType` is `toolCall`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder toolName(String toolName) {
+            return toolName(Output.of(toolName));
         }
 
         /**

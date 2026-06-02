@@ -20,6 +20,8 @@ __all__ = [
     'IntegrationAccountAuthConfigAwsAuthConfigKeys',
     'IntegrationAccountAuthConfigAwsAuthConfigRole',
     'IntegrationAccountAwsRegions',
+    'IntegrationAccountCcmConfigCcmConfig',
+    'IntegrationAccountCcmConfigCcmConfigDataExportConfig',
     'IntegrationAccountLogsConfig',
     'IntegrationAccountLogsConfigLambdaForwarder',
     'IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig',
@@ -227,6 +229,128 @@ class IntegrationAccountAwsRegions(dict):
         Include only these regions.
         """
         return pulumi.get(self, "include_onlies")
+
+
+@pulumi.output_type
+class IntegrationAccountCcmConfigCcmConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataExportConfigs":
+            suggest = "data_export_configs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationAccountCcmConfigCcmConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationAccountCcmConfigCcmConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationAccountCcmConfigCcmConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_export_configs: Optional[Sequence['outputs.IntegrationAccountCcmConfigCcmConfigDataExportConfig']] = None):
+        if data_export_configs is not None:
+            pulumi.set(__self__, "data_export_configs", data_export_configs)
+
+    @_builtins.property
+    @pulumi.getter(name="dataExportConfigs")
+    def data_export_configs(self) -> Optional[Sequence['outputs.IntegrationAccountCcmConfigCcmConfigDataExportConfig']]:
+        return pulumi.get(self, "data_export_configs")
+
+
+@pulumi.output_type
+class IntegrationAccountCcmConfigCcmConfigDataExportConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "bucketRegion":
+            suggest = "bucket_region"
+        elif key == "reportName":
+            suggest = "report_name"
+        elif key == "reportPrefix":
+            suggest = "report_prefix"
+        elif key == "reportType":
+            suggest = "report_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationAccountCcmConfigCcmConfigDataExportConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationAccountCcmConfigCcmConfigDataExportConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationAccountCcmConfigCcmConfigDataExportConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: Optional[_builtins.str] = None,
+                 bucket_region: Optional[_builtins.str] = None,
+                 report_name: Optional[_builtins.str] = None,
+                 report_prefix: Optional[_builtins.str] = None,
+                 report_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str bucket_name: Name of the S3 bucket where the Cost and Usage Report is stored.
+        :param _builtins.str bucket_region: AWS region of the S3 bucket.
+        :param _builtins.str report_name: Name of the Cost and Usage Report.
+        :param _builtins.str report_prefix: S3 prefix where the Cost and Usage Report is stored.
+        :param _builtins.str report_type: Type of the Cost and Usage Report.
+        """
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
+        if bucket_region is not None:
+            pulumi.set(__self__, "bucket_region", bucket_region)
+        if report_name is not None:
+            pulumi.set(__self__, "report_name", report_name)
+        if report_prefix is not None:
+            pulumi.set(__self__, "report_prefix", report_prefix)
+        if report_type is not None:
+            pulumi.set(__self__, "report_type", report_type)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the S3 bucket where the Cost and Usage Report is stored.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @_builtins.property
+    @pulumi.getter(name="bucketRegion")
+    def bucket_region(self) -> Optional[_builtins.str]:
+        """
+        AWS region of the S3 bucket.
+        """
+        return pulumi.get(self, "bucket_region")
+
+    @_builtins.property
+    @pulumi.getter(name="reportName")
+    def report_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the Cost and Usage Report.
+        """
+        return pulumi.get(self, "report_name")
+
+    @_builtins.property
+    @pulumi.getter(name="reportPrefix")
+    def report_prefix(self) -> Optional[_builtins.str]:
+        """
+        S3 prefix where the Cost and Usage Report is stored.
+        """
+        return pulumi.get(self, "report_prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="reportType")
+    def report_type(self) -> Optional[_builtins.str]:
+        """
+        Type of the Cost and Usage Report.
+        """
+        return pulumi.get(self, "report_type")
 
 
 @pulumi.output_type

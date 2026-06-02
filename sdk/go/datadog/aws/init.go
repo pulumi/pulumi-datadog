@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "datadog:aws/integrationAccount:IntegrationAccount":
 		r = &IntegrationAccount{}
+	case "datadog:aws/integrationAccountCcmConfig:IntegrationAccountCcmConfig":
+		r = &IntegrationAccountCcmConfig{}
 	case "datadog:aws/integrationEventBridge:IntegrationEventBridge":
 		r = &IntegrationEventBridge{}
 	case "datadog:aws/integrationExternalId:IntegrationExternalId":
@@ -43,6 +45,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"aws/integrationAccount",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"aws/integrationAccountCcmConfig",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

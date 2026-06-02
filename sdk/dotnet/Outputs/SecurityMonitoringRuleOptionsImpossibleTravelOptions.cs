@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user's regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access. Defaults to `False`.
         /// </summary>
         public readonly bool? BaselineUserLocations;
+        /// <summary>
+        /// The duration in days during which Datadog learns a user's access locations before generating signals. Only applicable when `BaselineUserLocations` is `True`. Defaults to `1` if unset. . Value must be between 1 and 30.
+        /// </summary>
+        public readonly int? BaselineUserLocationsDuration;
 
         [OutputConstructor]
-        private SecurityMonitoringRuleOptionsImpossibleTravelOptions(bool? baselineUserLocations)
+        private SecurityMonitoringRuleOptionsImpossibleTravelOptions(
+            bool? baselineUserLocations,
+
+            int? baselineUserLocationsDuration)
         {
             BaselineUserLocations = baselineUserLocations;
+            BaselineUserLocationsDuration = baselineUserLocationsDuration;
         }
     }
 }

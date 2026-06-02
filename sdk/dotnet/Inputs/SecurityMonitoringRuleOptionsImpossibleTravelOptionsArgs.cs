@@ -18,6 +18,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("baselineUserLocations")]
         public Input<bool>? BaselineUserLocations { get; set; }
 
+        /// <summary>
+        /// The duration in days during which Datadog learns a user's access locations before generating signals. Only applicable when `BaselineUserLocations` is `True`. Defaults to `1` if unset. . Value must be between 1 and 30.
+        /// </summary>
+        [Input("baselineUserLocationsDuration")]
+        public Input<int>? BaselineUserLocationsDuration { get; set; }
+
         public SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs()
         {
         }
