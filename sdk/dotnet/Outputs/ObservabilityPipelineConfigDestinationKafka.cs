@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? BootstrapServersKey;
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationKafkaBuffer? Buffer;
+        /// <summary>
         /// Compression codec for Kafka messages. Valid values are `None`, `Gzip`, `Snappy`, `Lz4`, `Zstd`.
         /// </summary>
         public readonly string? Compression;
@@ -70,6 +74,8 @@ namespace Pulumi.Datadog.Outputs
         private ObservabilityPipelineConfigDestinationKafka(
             string? bootstrapServersKey,
 
+            Outputs.ObservabilityPipelineConfigDestinationKafkaBuffer? buffer,
+
             string? compression,
 
             string encoding,
@@ -95,6 +101,7 @@ namespace Pulumi.Datadog.Outputs
             string topic)
         {
             BootstrapServersKey = bootstrapServersKey;
+            Buffer = buffer;
             Compression = compression;
             Encoding = encoding;
             HeadersKey = headersKey;

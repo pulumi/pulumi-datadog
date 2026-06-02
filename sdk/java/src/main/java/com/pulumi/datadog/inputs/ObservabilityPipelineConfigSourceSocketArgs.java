@@ -64,14 +64,14 @@ public final class ObservabilityPipelineConfigSourceSocketArgs extends com.pulum
     }
 
     /**
-     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     * Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
      * 
      */
     @Import(name="tls")
     private @Nullable Output<ObservabilityPipelineConfigSourceSocketTlsArgs> tls;
 
     /**
-     * @return Configuration for enabling TLS encryption between the pipeline component and external services.
+     * @return Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
      * 
      */
     public Optional<Output<ObservabilityPipelineConfigSourceSocketTlsArgs>> tls() {
@@ -169,7 +169,7 @@ public final class ObservabilityPipelineConfigSourceSocketArgs extends com.pulum
         }
 
         /**
-         * @param tls Configuration for enabling TLS encryption between the pipeline component and external services.
+         * @param tls Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ObservabilityPipelineConfigSourceSocketArgs extends com.pulum
         }
 
         /**
-         * @param tls Configuration for enabling TLS encryption between the pipeline component and external services.
+         * @param tls Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
          * 
          * @return builder
          * 

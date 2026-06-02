@@ -15,6 +15,7 @@ from .get_integration_iam_permissions_standard import *
 from .get_integration_logs_services import *
 from .get_integration_namespace_rules import *
 from .integration_account import *
+from .integration_account_ccm_config import *
 from .integration_event_bridge import *
 from .integration_external_id import *
 from ._inputs import *

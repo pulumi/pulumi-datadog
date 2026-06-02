@@ -4,6 +4,8 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.MonitorVariablesAggregateAugmentedQuery;
+import com.pulumi.datadog.outputs.MonitorVariablesAggregateFilteredQuery;
 import com.pulumi.datadog.outputs.MonitorVariablesCloudCostQuery;
 import com.pulumi.datadog.outputs.MonitorVariablesDataJobsQuery;
 import com.pulumi.datadog.outputs.MonitorVariablesDataQualityQuery;
@@ -14,6 +16,16 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MonitorVariables {
+    /**
+     * @return Aggregate-augmented composite query variables (reference table augment joined to a metrics or events base query).
+     * 
+     */
+    private @Nullable List<MonitorVariablesAggregateAugmentedQuery> aggregateAugmentedQueries;
+    /**
+     * @return Aggregate-filtered composite query variables (filter base query results using a reference table or events filter query).
+     * 
+     */
+    private @Nullable List<MonitorVariablesAggregateFilteredQuery> aggregateFilteredQueries;
     /**
      * @return The Cloud Cost query using formulas and functions.
      * 
@@ -36,6 +48,20 @@ public final class MonitorVariables {
     private @Nullable List<MonitorVariablesEventQuery> eventQueries;
 
     private MonitorVariables() {}
+    /**
+     * @return Aggregate-augmented composite query variables (reference table augment joined to a metrics or events base query).
+     * 
+     */
+    public List<MonitorVariablesAggregateAugmentedQuery> aggregateAugmentedQueries() {
+        return this.aggregateAugmentedQueries == null ? List.of() : this.aggregateAugmentedQueries;
+    }
+    /**
+     * @return Aggregate-filtered composite query variables (filter base query results using a reference table or events filter query).
+     * 
+     */
+    public List<MonitorVariablesAggregateFilteredQuery> aggregateFilteredQueries() {
+        return this.aggregateFilteredQueries == null ? List.of() : this.aggregateFilteredQueries;
+    }
     /**
      * @return The Cloud Cost query using formulas and functions.
      * 
@@ -74,6 +100,8 @@ public final class MonitorVariables {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<MonitorVariablesAggregateAugmentedQuery> aggregateAugmentedQueries;
+        private @Nullable List<MonitorVariablesAggregateFilteredQuery> aggregateFilteredQueries;
         private @Nullable List<MonitorVariablesCloudCostQuery> cloudCostQueries;
         private @Nullable List<MonitorVariablesDataJobsQuery> dataJobsQueries;
         private @Nullable List<MonitorVariablesDataQualityQuery> dataQualityQueries;
@@ -81,12 +109,32 @@ public final class MonitorVariables {
         public Builder() {}
         public Builder(MonitorVariables defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.aggregateAugmentedQueries = defaults.aggregateAugmentedQueries;
+    	      this.aggregateFilteredQueries = defaults.aggregateFilteredQueries;
     	      this.cloudCostQueries = defaults.cloudCostQueries;
     	      this.dataJobsQueries = defaults.dataJobsQueries;
     	      this.dataQualityQueries = defaults.dataQualityQueries;
     	      this.eventQueries = defaults.eventQueries;
         }
 
+        @CustomType.Setter
+        public Builder aggregateAugmentedQueries(@Nullable List<MonitorVariablesAggregateAugmentedQuery> aggregateAugmentedQueries) {
+
+            this.aggregateAugmentedQueries = aggregateAugmentedQueries;
+            return this;
+        }
+        public Builder aggregateAugmentedQueries(MonitorVariablesAggregateAugmentedQuery... aggregateAugmentedQueries) {
+            return aggregateAugmentedQueries(List.of(aggregateAugmentedQueries));
+        }
+        @CustomType.Setter
+        public Builder aggregateFilteredQueries(@Nullable List<MonitorVariablesAggregateFilteredQuery> aggregateFilteredQueries) {
+
+            this.aggregateFilteredQueries = aggregateFilteredQueries;
+            return this;
+        }
+        public Builder aggregateFilteredQueries(MonitorVariablesAggregateFilteredQuery... aggregateFilteredQueries) {
+            return aggregateFilteredQueries(List.of(aggregateFilteredQueries));
+        }
         @CustomType.Setter
         public Builder cloudCostQueries(@Nullable List<MonitorVariablesCloudCostQuery> cloudCostQueries) {
 
@@ -125,6 +173,8 @@ public final class MonitorVariables {
         }
         public MonitorVariables build() {
             final var _resultValue = new MonitorVariables();
+            _resultValue.aggregateAugmentedQueries = aggregateAugmentedQueries;
+            _resultValue.aggregateFilteredQueries = aggregateFilteredQueries;
             _resultValue.cloudCostQueries = cloudCostQueries;
             _resultValue.dataJobsQueries = dataJobsQueries;
             _resultValue.dataQualityQueries = dataQualityQueries;

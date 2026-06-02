@@ -5,8 +5,10 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceHttpServerTls;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceHttpServerValidToken;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -34,7 +36,7 @@ public final class ObservabilityPipelineConfigSourceHttpServer {
      */
     private @Nullable String passwordKey;
     /**
-     * @return Configuration for enabling TLS encryption between the pipeline component and external services.
+     * @return Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
      * 
      */
     private @Nullable ObservabilityPipelineConfigSourceHttpServerTls tls;
@@ -43,6 +45,11 @@ public final class ObservabilityPipelineConfigSourceHttpServer {
      * 
      */
     private @Nullable String usernameKey;
+    /**
+     * @return A token accepted for authenticating incoming HTTP requests. Cannot be combined with the `plain` auth strategy.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigSourceHttpServerValidToken> validTokens;
 
     private ObservabilityPipelineConfigSourceHttpServer() {}
     /**
@@ -74,7 +81,7 @@ public final class ObservabilityPipelineConfigSourceHttpServer {
         return Optional.ofNullable(this.passwordKey);
     }
     /**
-     * @return Configuration for enabling TLS encryption between the pipeline component and external services.
+     * @return Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
      * 
      */
     public Optional<ObservabilityPipelineConfigSourceHttpServerTls> tls() {
@@ -86,6 +93,13 @@ public final class ObservabilityPipelineConfigSourceHttpServer {
      */
     public Optional<String> usernameKey() {
         return Optional.ofNullable(this.usernameKey);
+    }
+    /**
+     * @return A token accepted for authenticating incoming HTTP requests. Cannot be combined with the `plain` auth strategy.
+     * 
+     */
+    public List<ObservabilityPipelineConfigSourceHttpServerValidToken> validTokens() {
+        return this.validTokens == null ? List.of() : this.validTokens;
     }
 
     public static Builder builder() {
@@ -103,6 +117,7 @@ public final class ObservabilityPipelineConfigSourceHttpServer {
         private @Nullable String passwordKey;
         private @Nullable ObservabilityPipelineConfigSourceHttpServerTls tls;
         private @Nullable String usernameKey;
+        private @Nullable List<ObservabilityPipelineConfigSourceHttpServerValidToken> validTokens;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigSourceHttpServer defaults) {
     	      Objects.requireNonNull(defaults);
@@ -112,6 +127,7 @@ public final class ObservabilityPipelineConfigSourceHttpServer {
     	      this.passwordKey = defaults.passwordKey;
     	      this.tls = defaults.tls;
     	      this.usernameKey = defaults.usernameKey;
+    	      this.validTokens = defaults.validTokens;
         }
 
         @CustomType.Setter
@@ -154,6 +170,15 @@ public final class ObservabilityPipelineConfigSourceHttpServer {
             this.usernameKey = usernameKey;
             return this;
         }
+        @CustomType.Setter
+        public Builder validTokens(@Nullable List<ObservabilityPipelineConfigSourceHttpServerValidToken> validTokens) {
+
+            this.validTokens = validTokens;
+            return this;
+        }
+        public Builder validTokens(ObservabilityPipelineConfigSourceHttpServerValidToken... validTokens) {
+            return validTokens(List.of(validTokens));
+        }
         public ObservabilityPipelineConfigSourceHttpServer build() {
             final var _resultValue = new ObservabilityPipelineConfigSourceHttpServer();
             _resultValue.addressKey = addressKey;
@@ -162,6 +187,7 @@ public final class ObservabilityPipelineConfigSourceHttpServer {
             _resultValue.passwordKey = passwordKey;
             _resultValue.tls = tls;
             _resultValue.usernameKey = usernameKey;
+            _resultValue.validTokens = validTokens;
             return _resultValue;
         }
     }

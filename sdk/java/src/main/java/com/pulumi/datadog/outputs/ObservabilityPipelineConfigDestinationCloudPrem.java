@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationCloudPremBuffer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,12 +13,24 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigDestinationCloudPrem {
     /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationCloudPremBuffer buffer;
+    /**
      * @return Name of the environment variable or secret that holds the endpoint URL.
      * 
      */
     private @Nullable String endpointUrlKey;
 
     private ObservabilityPipelineConfigDestinationCloudPrem() {}
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationCloudPremBuffer> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
     /**
      * @return Name of the environment variable or secret that holds the endpoint URL.
      * 
@@ -35,13 +48,21 @@ public final class ObservabilityPipelineConfigDestinationCloudPrem {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable ObservabilityPipelineConfigDestinationCloudPremBuffer buffer;
         private @Nullable String endpointUrlKey;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationCloudPrem defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.buffer = defaults.buffer;
     	      this.endpointUrlKey = defaults.endpointUrlKey;
         }
 
+        @CustomType.Setter
+        public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationCloudPremBuffer buffer) {
+
+            this.buffer = buffer;
+            return this;
+        }
         @CustomType.Setter
         public Builder endpointUrlKey(@Nullable String endpointUrlKey) {
 
@@ -50,6 +71,7 @@ public final class ObservabilityPipelineConfigDestinationCloudPrem {
         }
         public ObservabilityPipelineConfigDestinationCloudPrem build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationCloudPrem();
+            _resultValue.buffer = buffer;
             _resultValue.endpointUrlKey = endpointUrlKey;
             return _resultValue;
         }

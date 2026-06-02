@@ -418,6 +418,121 @@ import (
 //		return err
 //	}
 //	tmpJSON0, err := json.Marshal(map[string]interface{}{
+//		"query": "datadog synthetics",
+//		"limit": 5,
+//	})
+//	if err != nil {
+//		return err
+//	}
+//	json0 := string(tmpJSON0)
+//	// Example Usage (Synthetics MCP API test)
+//	// Create a new Datadog Synthetics Multistep API test against an MCP server
+//	_, err = datadog.NewSyntheticsTest(ctx, "test_mcp", &datadog.SyntheticsTestArgs{
+//		Name:    pulumi.String("MCP API test"),
+//		Type:    pulumi.String("api"),
+//		Subtype: pulumi.String("multi"),
+//		Status:  pulumi.String("live"),
+//		Locations: pulumi.StringArray{
+//			pulumi.String("aws:eu-central-1"),
+//		},
+//		Tags: pulumi.StringArray{
+//			pulumi.String("foo:bar"),
+//			pulumi.String("env:test"),
+//		},
+//		ApiSteps: datadog.SyntheticsTestApiStepArray{
+//			&datadog.SyntheticsTestApiStepArgs{
+//				Name:    pulumi.String("Initialize MCP session"),
+//				Subtype: pulumi.String("mcp"),
+//				Assertions: datadog.SyntheticsTestApiStepAssertionArray{
+//					&datadog.SyntheticsTestApiStepAssertionArgs{
+//						Type:     pulumi.String("statusCode"),
+//						Operator: pulumi.String("is"),
+//						Target:   pulumi.String("200"),
+//					},
+//					&datadog.SyntheticsTestApiStepAssertionArgs{
+//						Type: pulumi.String("mcpRespectsSpecification"),
+//					},
+//					&datadog.SyntheticsTestApiStepAssertionArgs{
+//						Type:     pulumi.String("mcpServerCapabilities"),
+//						Operator: pulumi.String("contains"),
+//						TargetMcpCapabilities: &datadog.SyntheticsTestApiStepAssertionTargetMcpCapabilitiesArgs{
+//							Capabilities: pulumi.StringArray{
+//								pulumi.String("tools"),
+//							},
+//						},
+//					},
+//				},
+//				RequestDefinition: &datadog.SyntheticsTestApiStepRequestDefinitionArgs{
+//					Url:                pulumi.String("https://example.org/mcp"),
+//					CallType:           pulumi.String("init"),
+//					McpProtocolVersion: pulumi.String("2025-06-18"),
+//				},
+//				RequestHeaders: pulumi.StringMap{
+//					"api-key": pulumi.String("YOUR-API-KEY"),
+//				},
+//			},
+//			&datadog.SyntheticsTestApiStepArgs{
+//				Name:    pulumi.String("List MCP tools"),
+//				Subtype: pulumi.String("mcp"),
+//				Assertions: datadog.SyntheticsTestApiStepAssertionArray{
+//					&datadog.SyntheticsTestApiStepAssertionArgs{
+//						Type:     pulumi.String("statusCode"),
+//						Operator: pulumi.String("is"),
+//						Target:   pulumi.String("200"),
+//					},
+//					&datadog.SyntheticsTestApiStepAssertionArgs{
+//						Type:     pulumi.String("mcpToolCount"),
+//						Operator: pulumi.String("moreThan"),
+//						Target:   pulumi.String("0"),
+//					},
+//					&datadog.SyntheticsTestApiStepAssertionArgs{
+//						Type:     pulumi.String("mcpToolNameLength"),
+//						Operator: pulumi.String("lessThan"),
+//						Target:   pulumi.String("64"),
+//					},
+//				},
+//				RequestDefinition: &datadog.SyntheticsTestApiStepRequestDefinitionArgs{
+//					Url:                pulumi.String("https://example.org/mcp"),
+//					CallType:           pulumi.String("tool_list"),
+//					McpProtocolVersion: pulumi.String("2025-06-18"),
+//				},
+//				RequestHeaders: pulumi.StringMap{
+//					"api-key": pulumi.String("YOUR-API-KEY"),
+//				},
+//			},
+//			&datadog.SyntheticsTestApiStepArgs{
+//				Name:    pulumi.String("Call MCP search tool"),
+//				Subtype: pulumi.String("mcp"),
+//				Assertions: datadog.SyntheticsTestApiStepAssertionArray{
+//					&datadog.SyntheticsTestApiStepAssertionArgs{
+//						Type:     pulumi.String("responseTime"),
+//						Operator: pulumi.String("lessThan"),
+//						Target:   pulumi.String("5000"),
+//					},
+//					&datadog.SyntheticsTestApiStepAssertionArgs{
+//						Type: pulumi.String("mcpRespectsSpecification"),
+//					},
+//				},
+//				RequestDefinition: &datadog.SyntheticsTestApiStepRequestDefinitionArgs{
+//					Url:                pulumi.String("https://example.org/mcp"),
+//					CallType:           pulumi.String("tool_call"),
+//					McpProtocolVersion: pulumi.String("2025-06-18"),
+//					ToolName:           pulumi.String("search"),
+//					ToolArgs:           pulumi.String(pulumi.String(json0)),
+//				},
+//				RequestHeaders: pulumi.StringMap{
+//					"api-key": pulumi.String("YOUR-API-KEY"),
+//				},
+//			},
+//		},
+//		OptionsList: &datadog.SyntheticsTestOptionsListArgs{
+//			TickEvery: pulumi.Int(900),
+//		},
+//	})
+//	if err != nil {
+//		return err
+//	}
+//	tmpJSON1, err := json.Marshal(map[string]interface{}{
 //		"md5": "abcdef1234567890",
 //		"sizeCheck": map[string]interface{}{
 //			"type":  "equals",
@@ -431,8 +546,8 @@ import (
 //	if err != nil {
 //		return err
 //	}
-//	json0 := string(tmpJSON0)
-//	tmpJSON1, err := json.Marshal([]map[string]interface{}{
+//	json1 := string(tmpJSON1)
+//	tmpJSON2, err := json.Marshal([]map[string]interface{}{
 //		map[string]interface{}{
 //			"name":    "hello.txt",
 //			"size":    11,
@@ -442,8 +557,8 @@ import (
 //	if err != nil {
 //		return err
 //	}
-//	json1 := string(tmpJSON1)
-//	tmpJSON2, err := json.Marshal(map[string]interface{}{
+//	json2 := string(tmpJSON2)
+//	tmpJSON3, err := json.Marshal(map[string]interface{}{
 //		"userLocator": map[string]interface{}{
 //			"failTestOnCannotLocate": true,
 //			"values": []map[string]interface{}{
@@ -457,8 +572,8 @@ import (
 //	if err != nil {
 //		return err
 //	}
-//	json2 := string(tmpJSON2)
-//	tmpJSON3, err := json.Marshal(map[string]interface{}{
+//	json3 := string(tmpJSON3)
+//	tmpJSON4, err := json.Marshal(map[string]interface{}{
 //		"count": map[string]interface{}{
 //			"type":  "equals",
 //			"value": 1,
@@ -468,8 +583,8 @@ import (
 //	if err != nil {
 //		return err
 //	}
-//	json3 := string(tmpJSON3)
-//	tmpJSON4, err := json.Marshal(map[string]interface{}{
+//	json4 := string(tmpJSON4)
+//	tmpJSON5, err := json.Marshal(map[string]interface{}{
 //		"config": map[string]interface{}{
 //			"assertions": []map[string]interface{}{
 //				map[string]interface{}{
@@ -489,7 +604,7 @@ import (
 //	if err != nil {
 //		return err
 //	}
-//	json4 := string(tmpJSON4)
+//	json5 := string(tmpJSON5)
 //	// Example Usage (Synthetics Browser test)
 //	// Create a new Datadog Synthetics Browser test starting on https://www.example.org
 //	_, err = datadog.NewSyntheticsTest(ctx, "test_browser", &datadog.SyntheticsTestArgs{
@@ -521,35 +636,35 @@ import (
 //				Name: pulumi.String("Test a downloaded file"),
 //				Type: pulumi.String("assertFileDownload"),
 //				Params: &datadog.SyntheticsTestBrowserStepParamsArgs{
-//					File: pulumi.String(pulumi.String(json0)),
+//					File: pulumi.String(pulumi.String(json1)),
 //				},
 //			},
 //			&datadog.SyntheticsTestBrowserStepArgs{
 //				Name: pulumi.String("Upload a file"),
 //				Type: pulumi.String("uploadFiles"),
 //				Params: &datadog.SyntheticsTestBrowserStepParamsArgs{
-//					Files: pulumi.String(pulumi.String(json1)),
+//					Files: pulumi.String(pulumi.String(json2)),
 //					ElementUserLocator: &datadog.SyntheticsTestBrowserStepParamsElementUserLocatorArgs{
 //						Value: &datadog.SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs{
 //							Type:  pulumi.String("css"),
 //							Value: pulumi.String("#simple-file-upload"),
 //						},
 //					},
-//					Element: pulumi.String(pulumi.String(json2)),
+//					Element: pulumi.String(pulumi.String(json3)),
 //				},
 //			},
 //			&datadog.SyntheticsTestBrowserStepArgs{
 //				Name: pulumi.String("Test sending http requests"),
 //				Type: pulumi.String("assertRequests"),
 //				Params: &datadog.SyntheticsTestBrowserStepParamsArgs{
-//					Requests: pulumi.String(pulumi.String(json3)),
+//					Requests: pulumi.String(pulumi.String(json4)),
 //				},
 //			},
 //			&datadog.SyntheticsTestBrowserStepArgs{
 //				Name: pulumi.String("Run api test"),
 //				Type: pulumi.String("runApiTest"),
 //				Params: &datadog.SyntheticsTestBrowserStepParamsArgs{
-//					Request: pulumi.String(pulumi.String(json4)),
+//					Request: pulumi.String(pulumi.String(json5)),
 //				},
 //			},
 //			&datadog.SyntheticsTestBrowserStepArgs{

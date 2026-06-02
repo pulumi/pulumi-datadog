@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationKafkaBuffer;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationKafkaLibrdkafkaOption;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationKafkaSasl;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationKafkaTls;
@@ -22,6 +23,11 @@ public final class ObservabilityPipelineConfigDestinationKafka {
      * 
      */
     private @Nullable String bootstrapServersKey;
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationKafkaBuffer buffer;
     /**
      * @return Compression codec for Kafka messages. Valid values are `none`, `gzip`, `snappy`, `lz4`, `zstd`.
      * 
@@ -90,6 +96,13 @@ public final class ObservabilityPipelineConfigDestinationKafka {
      */
     public Optional<String> bootstrapServersKey() {
         return Optional.ofNullable(this.bootstrapServersKey);
+    }
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationKafkaBuffer> buffer() {
+        return Optional.ofNullable(this.buffer);
     }
     /**
      * @return Compression codec for Kafka messages. Valid values are `none`, `gzip`, `snappy`, `lz4`, `zstd`.
@@ -186,6 +199,7 @@ public final class ObservabilityPipelineConfigDestinationKafka {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String bootstrapServersKey;
+        private @Nullable ObservabilityPipelineConfigDestinationKafkaBuffer buffer;
         private @Nullable String compression;
         private String encoding;
         private @Nullable String headersKey;
@@ -202,6 +216,7 @@ public final class ObservabilityPipelineConfigDestinationKafka {
         public Builder(ObservabilityPipelineConfigDestinationKafka defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bootstrapServersKey = defaults.bootstrapServersKey;
+    	      this.buffer = defaults.buffer;
     	      this.compression = defaults.compression;
     	      this.encoding = defaults.encoding;
     	      this.headersKey = defaults.headersKey;
@@ -220,6 +235,12 @@ public final class ObservabilityPipelineConfigDestinationKafka {
         public Builder bootstrapServersKey(@Nullable String bootstrapServersKey) {
 
             this.bootstrapServersKey = bootstrapServersKey;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationKafkaBuffer buffer) {
+
+            this.buffer = buffer;
             return this;
         }
         @CustomType.Setter
@@ -304,6 +325,7 @@ public final class ObservabilityPipelineConfigDestinationKafka {
         public ObservabilityPipelineConfigDestinationKafka build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationKafka();
             _resultValue.bootstrapServersKey = bootstrapServersKey;
+            _resultValue.buffer = buffer;
             _resultValue.compression = compression;
             _resultValue.encoding = encoding;
             _resultValue.headersKey = headersKey;

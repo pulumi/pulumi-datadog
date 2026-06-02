@@ -6,8 +6,10 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceHttpServerTlsArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceHttpServerValidTokenArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -78,14 +80,14 @@ public final class ObservabilityPipelineConfigSourceHttpServerArgs extends com.p
     }
 
     /**
-     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     * Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
      * 
      */
     @Import(name="tls")
     private @Nullable Output<ObservabilityPipelineConfigSourceHttpServerTlsArgs> tls;
 
     /**
-     * @return Configuration for enabling TLS encryption between the pipeline component and external services.
+     * @return Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
      * 
      */
     public Optional<Output<ObservabilityPipelineConfigSourceHttpServerTlsArgs>> tls() {
@@ -107,6 +109,21 @@ public final class ObservabilityPipelineConfigSourceHttpServerArgs extends com.p
         return Optional.ofNullable(this.usernameKey);
     }
 
+    /**
+     * A token accepted for authenticating incoming HTTP requests. Cannot be combined with the `plain` auth strategy.
+     * 
+     */
+    @Import(name="validTokens")
+    private @Nullable Output<List<ObservabilityPipelineConfigSourceHttpServerValidTokenArgs>> validTokens;
+
+    /**
+     * @return A token accepted for authenticating incoming HTTP requests. Cannot be combined with the `plain` auth strategy.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigSourceHttpServerValidTokenArgs>>> validTokens() {
+        return Optional.ofNullable(this.validTokens);
+    }
+
     private ObservabilityPipelineConfigSourceHttpServerArgs() {}
 
     private ObservabilityPipelineConfigSourceHttpServerArgs(ObservabilityPipelineConfigSourceHttpServerArgs $) {
@@ -116,6 +133,7 @@ public final class ObservabilityPipelineConfigSourceHttpServerArgs extends com.p
         this.passwordKey = $.passwordKey;
         this.tls = $.tls;
         this.usernameKey = $.usernameKey;
+        this.validTokens = $.validTokens;
     }
 
     public static Builder builder() {
@@ -221,7 +239,7 @@ public final class ObservabilityPipelineConfigSourceHttpServerArgs extends com.p
         }
 
         /**
-         * @param tls Configuration for enabling TLS encryption between the pipeline component and external services.
+         * @param tls Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
          * 
          * @return builder
          * 
@@ -232,7 +250,7 @@ public final class ObservabilityPipelineConfigSourceHttpServerArgs extends com.p
         }
 
         /**
-         * @param tls Configuration for enabling TLS encryption between the pipeline component and external services.
+         * @param tls Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
          * 
          * @return builder
          * 
@@ -260,6 +278,37 @@ public final class ObservabilityPipelineConfigSourceHttpServerArgs extends com.p
          */
         public Builder usernameKey(String usernameKey) {
             return usernameKey(Output.of(usernameKey));
+        }
+
+        /**
+         * @param validTokens A token accepted for authenticating incoming HTTP requests. Cannot be combined with the `plain` auth strategy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder validTokens(@Nullable Output<List<ObservabilityPipelineConfigSourceHttpServerValidTokenArgs>> validTokens) {
+            $.validTokens = validTokens;
+            return this;
+        }
+
+        /**
+         * @param validTokens A token accepted for authenticating incoming HTTP requests. Cannot be combined with the `plain` auth strategy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder validTokens(List<ObservabilityPipelineConfigSourceHttpServerValidTokenArgs> validTokens) {
+            return validTokens(Output.of(validTokens));
+        }
+
+        /**
+         * @param validTokens A token accepted for authenticating incoming HTTP requests. Cannot be combined with the `plain` auth strategy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder validTokens(ObservabilityPipelineConfigSourceHttpServerValidTokenArgs... validTokens) {
+            return validTokens(List.of(validTokens));
         }
 
         public ObservabilityPipelineConfigSourceHttpServerArgs build() {

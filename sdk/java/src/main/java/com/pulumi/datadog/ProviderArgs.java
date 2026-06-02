@@ -108,6 +108,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Datadog credential sent in the `Authorization: Bearer &lt;token&gt;` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer &lt;token&gt;` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
+     * 
+     */
+    @Import(name="bearerToken")
+    private @Nullable Output<String> bearerToken;
+
+    /**
+     * @return Datadog credential sent in the `Authorization: Bearer &lt;token&gt;` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer &lt;token&gt;` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
+     * 
+     */
+    public Optional<Output<String>> bearerToken() {
+        return Optional.ofNullable(this.bearerToken);
+    }
+
+    /**
      * The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
      * 
      */
@@ -266,6 +281,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.awsAccessKeyId = $.awsAccessKeyId;
         this.awsSecretAccessKey = $.awsSecretAccessKey;
         this.awsSessionToken = $.awsSessionToken;
+        this.bearerToken = $.bearerToken;
         this.cloudProviderRegion = $.cloudProviderRegion;
         this.cloudProviderType = $.cloudProviderType;
         this.defaultTags = $.defaultTags;
@@ -420,6 +436,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder awsSessionToken(String awsSessionToken) {
             return awsSessionToken(Output.of(awsSessionToken));
+        }
+
+        /**
+         * @param bearerToken Datadog credential sent in the `Authorization: Bearer &lt;token&gt;` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer &lt;token&gt;` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bearerToken(@Nullable Output<String> bearerToken) {
+            $.bearerToken = bearerToken;
+            return this;
+        }
+
+        /**
+         * @param bearerToken Datadog credential sent in the `Authorization: Bearer &lt;token&gt;` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer &lt;token&gt;` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bearerToken(String bearerToken) {
+            return bearerToken(Output.of(bearerToken));
         }
 
         /**

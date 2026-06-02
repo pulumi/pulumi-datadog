@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigDestinationCloudPremArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        [Input("buffer")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationCloudPremBufferArgs>? Buffer { get; set; }
+
+        /// <summary>
         /// Name of the environment variable or secret that holds the endpoint URL.
         /// </summary>
         [Input("endpointUrlKey")]

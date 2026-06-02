@@ -19,10 +19,22 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Critical { get; set; }
 
         /// <summary>
+        /// Query evaluated as a dynamic `CRITICAL` threshold. Only supported on metric monitors with a formula query and `options['variables']`. Cannot be combined with static thresholds. This field is in preview.
+        /// </summary>
+        [Input("criticalQuery")]
+        public Input<string>? CriticalQuery { get; set; }
+
+        /// <summary>
         /// The monitor `CRITICAL` recovery threshold. Must be a number.
         /// </summary>
         [Input("criticalRecovery")]
         public Input<string>? CriticalRecovery { get; set; }
+
+        /// <summary>
+        /// Query evaluated as a dynamic `CRITICAL` recovery threshold. Only supported on metric monitors with a formula query and `options['variables']`. Cannot be combined with static thresholds. This field is in preview.
+        /// </summary>
+        [Input("criticalRecoveryQuery")]
+        public Input<string>? CriticalRecoveryQuery { get; set; }
 
         /// <summary>
         /// The monitor `OK` threshold. Only supported in monitor type `service check`. Must be a number.

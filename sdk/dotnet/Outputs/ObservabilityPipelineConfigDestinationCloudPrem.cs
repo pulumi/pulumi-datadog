@@ -14,13 +14,21 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationCloudPrem
     {
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationCloudPremBuffer? Buffer;
+        /// <summary>
         /// Name of the environment variable or secret that holds the endpoint URL.
         /// </summary>
         public readonly string? EndpointUrlKey;
 
         [OutputConstructor]
-        private ObservabilityPipelineConfigDestinationCloudPrem(string? endpointUrlKey)
+        private ObservabilityPipelineConfigDestinationCloudPrem(
+            Outputs.ObservabilityPipelineConfigDestinationCloudPremBuffer? buffer,
+
+            string? endpointUrlKey)
         {
+            Buffer = buffer;
             EndpointUrlKey = endpointUrlKey;
         }
     }

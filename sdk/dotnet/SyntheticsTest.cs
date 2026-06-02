@@ -467,6 +467,142 @@ namespace Pulumi.Datadog
     ///         },
     ///     });
     /// 
+    ///     // Example Usage (Synthetics MCP API test)
+    ///     // Create a new Datadog Synthetics Multistep API test against an MCP server
+    ///     var testMcp = new Datadog.SyntheticsTest("test_mcp", new()
+    ///     {
+    ///         Name = "MCP API test",
+    ///         Type = "api",
+    ///         Subtype = "multi",
+    ///         Status = "live",
+    ///         Locations = new[]
+    ///         {
+    ///             "aws:eu-central-1",
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "env:test",
+    ///         },
+    ///         ApiSteps = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestApiStepArgs
+    ///             {
+    ///                 Name = "Initialize MCP session",
+    ///                 Subtype = "mcp",
+    ///                 Assertions = new[]
+    ///                 {
+    ///                     new Datadog.Inputs.SyntheticsTestApiStepAssertionArgs
+    ///                     {
+    ///                         Type = "statusCode",
+    ///                         Operator = "is",
+    ///                         Target = "200",
+    ///                     },
+    ///                     new Datadog.Inputs.SyntheticsTestApiStepAssertionArgs
+    ///                     {
+    ///                         Type = "mcpRespectsSpecification",
+    ///                     },
+    ///                     new Datadog.Inputs.SyntheticsTestApiStepAssertionArgs
+    ///                     {
+    ///                         Type = "mcpServerCapabilities",
+    ///                         Operator = "contains",
+    ///                         TargetMcpCapabilities = new Datadog.Inputs.SyntheticsTestApiStepAssertionTargetMcpCapabilitiesArgs
+    ///                         {
+    ///                             Capabilities = new[]
+    ///                             {
+    ///                                 "tools",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 RequestDefinition = new Datadog.Inputs.SyntheticsTestApiStepRequestDefinitionArgs
+    ///                 {
+    ///                     Url = "https://example.org/mcp",
+    ///                     CallType = "init",
+    ///                     McpProtocolVersion = "2025-06-18",
+    ///                 },
+    ///                 RequestHeaders = 
+    ///                 {
+    ///                     { "api-key", "YOUR-API-KEY" },
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestApiStepArgs
+    ///             {
+    ///                 Name = "List MCP tools",
+    ///                 Subtype = "mcp",
+    ///                 Assertions = new[]
+    ///                 {
+    ///                     new Datadog.Inputs.SyntheticsTestApiStepAssertionArgs
+    ///                     {
+    ///                         Type = "statusCode",
+    ///                         Operator = "is",
+    ///                         Target = "200",
+    ///                     },
+    ///                     new Datadog.Inputs.SyntheticsTestApiStepAssertionArgs
+    ///                     {
+    ///                         Type = "mcpToolCount",
+    ///                         Operator = "moreThan",
+    ///                         Target = "0",
+    ///                     },
+    ///                     new Datadog.Inputs.SyntheticsTestApiStepAssertionArgs
+    ///                     {
+    ///                         Type = "mcpToolNameLength",
+    ///                         Operator = "lessThan",
+    ///                         Target = "64",
+    ///                     },
+    ///                 },
+    ///                 RequestDefinition = new Datadog.Inputs.SyntheticsTestApiStepRequestDefinitionArgs
+    ///                 {
+    ///                     Url = "https://example.org/mcp",
+    ///                     CallType = "tool_list",
+    ///                     McpProtocolVersion = "2025-06-18",
+    ///                 },
+    ///                 RequestHeaders = 
+    ///                 {
+    ///                     { "api-key", "YOUR-API-KEY" },
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestApiStepArgs
+    ///             {
+    ///                 Name = "Call MCP search tool",
+    ///                 Subtype = "mcp",
+    ///                 Assertions = new[]
+    ///                 {
+    ///                     new Datadog.Inputs.SyntheticsTestApiStepAssertionArgs
+    ///                     {
+    ///                         Type = "responseTime",
+    ///                         Operator = "lessThan",
+    ///                         Target = "5000",
+    ///                     },
+    ///                     new Datadog.Inputs.SyntheticsTestApiStepAssertionArgs
+    ///                     {
+    ///                         Type = "mcpRespectsSpecification",
+    ///                     },
+    ///                 },
+    ///                 RequestDefinition = new Datadog.Inputs.SyntheticsTestApiStepRequestDefinitionArgs
+    ///                 {
+    ///                     Url = "https://example.org/mcp",
+    ///                     CallType = "tool_call",
+    ///                     McpProtocolVersion = "2025-06-18",
+    ///                     ToolName = "search",
+    ///                     ToolArgs = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["query"] = "datadog synthetics",
+    ///                         ["limit"] = 5,
+    ///                     }),
+    ///                 },
+    ///                 RequestHeaders = 
+    ///                 {
+    ///                     { "api-key", "YOUR-API-KEY" },
+    ///                 },
+    ///             },
+    ///         },
+    ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+    ///         {
+    ///             TickEvery = 900,
+    ///         },
+    ///     });
+    /// 
     ///     // Example Usage (Synthetics Browser test)
     ///     // Create a new Datadog Synthetics Browser test starting on https://www.example.org
     ///     var testBrowser = new Datadog.SyntheticsTest("test_browser", new()

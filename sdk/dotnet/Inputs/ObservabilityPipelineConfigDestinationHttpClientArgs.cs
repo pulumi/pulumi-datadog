@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? AuthStrategy { get; set; }
 
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        [Input("buffer")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationHttpClientBufferArgs>? Buffer { get; set; }
+
+        /// <summary>
         /// Compression configuration for HTTP requests.
         /// </summary>
         [Input("compression")]

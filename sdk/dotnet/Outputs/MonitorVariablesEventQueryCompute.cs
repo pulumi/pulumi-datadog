@@ -25,6 +25,10 @@ namespace Pulumi.Datadog.Outputs
         /// The measurable attribute to compute.
         /// </summary>
         public readonly string? Metric;
+        /// <summary>
+        /// The name assigned to this aggregation when multiple aggregations are defined for a query.
+        /// </summary>
+        public readonly string? Name;
 
         [OutputConstructor]
         private MonitorVariablesEventQueryCompute(
@@ -32,11 +36,14 @@ namespace Pulumi.Datadog.Outputs
 
             int? interval,
 
-            string? metric)
+            string? metric,
+
+            string? name)
         {
             Aggregation = aggregation;
             Interval = interval;
             Metric = metric;
+            Name = name;
         }
     }
 }

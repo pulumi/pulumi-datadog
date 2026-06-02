@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonS3GenericAuth;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonS3GenericBatchSettings;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonS3GenericBuffer;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonS3GenericCompression;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonS3GenericEncoding;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -31,6 +32,11 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3Generic {
      * 
      */
     private String bucket;
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationAmazonS3GenericBuffer buffer;
     /**
      * @return Compression configuration.
      * 
@@ -80,6 +86,13 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3Generic {
         return this.bucket;
     }
     /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationAmazonS3GenericBuffer> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
+    /**
      * @return Compression configuration.
      * 
      */
@@ -127,6 +140,7 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3Generic {
         private @Nullable ObservabilityPipelineConfigDestinationAmazonS3GenericAuth auth;
         private @Nullable ObservabilityPipelineConfigDestinationAmazonS3GenericBatchSettings batchSettings;
         private String bucket;
+        private @Nullable ObservabilityPipelineConfigDestinationAmazonS3GenericBuffer buffer;
         private ObservabilityPipelineConfigDestinationAmazonS3GenericCompression compression;
         private ObservabilityPipelineConfigDestinationAmazonS3GenericEncoding encoding;
         private @Nullable String keyPrefix;
@@ -138,6 +152,7 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3Generic {
     	      this.auth = defaults.auth;
     	      this.batchSettings = defaults.batchSettings;
     	      this.bucket = defaults.bucket;
+    	      this.buffer = defaults.buffer;
     	      this.compression = defaults.compression;
     	      this.encoding = defaults.encoding;
     	      this.keyPrefix = defaults.keyPrefix;
@@ -163,6 +178,12 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3Generic {
               throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationAmazonS3Generic", "bucket");
             }
             this.bucket = bucket;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationAmazonS3GenericBuffer buffer) {
+
+            this.buffer = buffer;
             return this;
         }
         @CustomType.Setter
@@ -208,6 +229,7 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3Generic {
             _resultValue.auth = auth;
             _resultValue.batchSettings = batchSettings;
             _resultValue.bucket = bucket;
+            _resultValue.buffer = buffer;
             _resultValue.compression = compression;
             _resultValue.encoding = encoding;
             _resultValue.keyPrefix = keyPrefix;

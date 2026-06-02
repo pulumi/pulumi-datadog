@@ -30,6 +30,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("sort")]
         public Input<Inputs.MonitorVariablesEventQueryGroupBySortArgs>? Sort { get; set; }
 
+        /// <summary>
+        /// For composite aggregate-augmented queries, identifies which sub-query this group-by facet refers to (for example `FilterQuery`).
+        /// </summary>
+        [Input("source")]
+        public Input<string>? Source { get; set; }
+
         public MonitorVariablesEventQueryGroupByArgs()
         {
         }

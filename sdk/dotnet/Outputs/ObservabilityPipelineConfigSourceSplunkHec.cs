@@ -22,9 +22,13 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? StoreHecToken;
         /// <summary>
-        /// Configuration for enabling TLS encryption between the pipeline component and external services.
+        /// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigSourceSplunkHecTls? Tls;
+        /// <summary>
+        /// A HEC token accepted for authenticating incoming Splunk HEC requests.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigSourceSplunkHecValidToken> ValidTokens;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigSourceSplunkHec(
@@ -32,11 +36,14 @@ namespace Pulumi.Datadog.Outputs
 
             bool? storeHecToken,
 
-            Outputs.ObservabilityPipelineConfigSourceSplunkHecTls? tls)
+            Outputs.ObservabilityPipelineConfigSourceSplunkHecTls? tls,
+
+            ImmutableArray<Outputs.ObservabilityPipelineConfigSourceSplunkHecValidToken> validTokens)
         {
             AddressKey = addressKey;
             StoreHecToken = storeHecToken;
             Tls = tls;
+            ValidTokens = validTokens;
         }
     }
 }

@@ -18,9 +18,17 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Critical;
         /// <summary>
+        /// Query evaluated as a dynamic `CRITICAL` threshold. Only supported on metric monitors with a formula query and `options['variables']`. Cannot be combined with static thresholds. This field is in preview.
+        /// </summary>
+        public readonly string? CriticalQuery;
+        /// <summary>
         /// The monitor `CRITICAL` recovery threshold. Must be a number.
         /// </summary>
         public readonly string? CriticalRecovery;
+        /// <summary>
+        /// Query evaluated as a dynamic `CRITICAL` recovery threshold. Only supported on metric monitors with a formula query and `options['variables']`. Cannot be combined with static thresholds. This field is in preview.
+        /// </summary>
+        public readonly string? CriticalRecoveryQuery;
         /// <summary>
         /// The monitor `OK` threshold. Only supported in monitor type `service check`. Must be a number.
         /// </summary>
@@ -42,7 +50,11 @@ namespace Pulumi.Datadog.Outputs
         private MonitorMonitorThresholds(
             string? critical,
 
+            string? criticalQuery,
+
             string? criticalRecovery,
+
+            string? criticalRecoveryQuery,
 
             string? ok,
 
@@ -53,7 +65,9 @@ namespace Pulumi.Datadog.Outputs
             string? warningRecovery)
         {
             Critical = critical;
+            CriticalQuery = criticalQuery;
             CriticalRecovery = criticalRecovery;
+            CriticalRecoveryQuery = criticalRecoveryQuery;
             Ok = ok;
             Unknown = unknown;
             Warning = warning;

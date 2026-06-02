@@ -205,10 +205,10 @@ class OrgGroupPolicyOverride(pulumi.CustomResource):
             content=json.dumps({
                 "org_config": False,
             }),
-            enforcement_tier="DEFAULT")
+            enforcement_tier="OVERRIDE_ALLOWED")
         # Exempts the given organization from the widget_copy_paste policy.
         # The org keeps its current value for is_widget_copy_paste_enabled regardless
-        # of the policy. The resource must target a policy whose tier is not ENFORCE.
+        # of the policy. The resource must target a policy whose tier is not GROUP_MANAGED.
         example = datadog.OrgGroupPolicyOverride("example",
             org_group_id=prod.id,
             policy_id=widget_copy_paste.id,
@@ -223,8 +223,8 @@ class OrgGroupPolicyOverride(pulumi.CustomResource):
 
         Overrides are also created automatically by the server when an org's existing config differs from a policy's value. Two triggers:
 
-        1. **Membership change:** When an org is moved into an org group, the server compares that org's current config to each non-`ENFORCE` policy in the group. Any mismatch produces an auto-created override that records the org's existing value.
-        2. **Policy create/update** with a non-`ENFORCE` tier: The server performs the same comparison across every member org at policy apply time, creating overrides for orgs whose config doesn't match the new policy value.
+        1. **Membership change:** When an org is moved into an org group, the server compares that org's current config to each non-`GROUP_MANAGED` policy in the group. Any mismatch produces an auto-created override that records the org's existing value.
+        2. **Policy create/update** with a non-`GROUP_MANAGED` tier: The server performs the same comparison across every member org at policy apply time, creating overrides for orgs whose config doesn't match the new policy value.
 
         Auto-created and user-declared overrides are indistinguishable at the API level. They can be adopted into Terraform via `pulumi import` or by iterating the `get_org_group_policy_overrides` data source with `for_each` + `import` blocks.
 
@@ -234,11 +234,11 @@ class OrgGroupPolicyOverride(pulumi.CustomResource):
 
         If you want to stop managing an override without changing the org's value, use `terraform state rm` instead of removing the resource block.
 
-        ### ENFORCE tier cascade
+        ### GROUP_MANAGED tier cascade
 
-        When the parent `OrgGroupPolicy` transitions to `enforcement_tier = "ENFORCE"`, the server automatically deletes every override for that policy. Creating an override against an already-`ENFORCE`-tier policy also fails with a `FailedPrecondition` error.
+        When the parent `OrgGroupPolicy` transitions to `enforcement_tier = "GROUP_MANAGED"`, the server automatically deletes every override for that policy. Creating an override against an already-`GROUP_MANAGED`-tier policy also fails with a `FailedPrecondition` error.
 
-        If you plan to flip a policy to `ENFORCE`, remove the `OrgGroupPolicyOverride` resource blocks for that policy in the same commit. Otherwise, Terraform's next apply will try to re-create the server-deleted overrides and fail.
+        If you plan to flip a policy to `GROUP_MANAGED`, remove the `OrgGroupPolicyOverride` resource blocks for that policy in the same commit. Otherwise, Terraform's next apply will try to re-create the server-deleted overrides and fail.
 
         ## Import
 
@@ -280,10 +280,10 @@ class OrgGroupPolicyOverride(pulumi.CustomResource):
             content=json.dumps({
                 "org_config": False,
             }),
-            enforcement_tier="DEFAULT")
+            enforcement_tier="OVERRIDE_ALLOWED")
         # Exempts the given organization from the widget_copy_paste policy.
         # The org keeps its current value for is_widget_copy_paste_enabled regardless
-        # of the policy. The resource must target a policy whose tier is not ENFORCE.
+        # of the policy. The resource must target a policy whose tier is not GROUP_MANAGED.
         example = datadog.OrgGroupPolicyOverride("example",
             org_group_id=prod.id,
             policy_id=widget_copy_paste.id,
@@ -298,8 +298,8 @@ class OrgGroupPolicyOverride(pulumi.CustomResource):
 
         Overrides are also created automatically by the server when an org's existing config differs from a policy's value. Two triggers:
 
-        1. **Membership change:** When an org is moved into an org group, the server compares that org's current config to each non-`ENFORCE` policy in the group. Any mismatch produces an auto-created override that records the org's existing value.
-        2. **Policy create/update** with a non-`ENFORCE` tier: The server performs the same comparison across every member org at policy apply time, creating overrides for orgs whose config doesn't match the new policy value.
+        1. **Membership change:** When an org is moved into an org group, the server compares that org's current config to each non-`GROUP_MANAGED` policy in the group. Any mismatch produces an auto-created override that records the org's existing value.
+        2. **Policy create/update** with a non-`GROUP_MANAGED` tier: The server performs the same comparison across every member org at policy apply time, creating overrides for orgs whose config doesn't match the new policy value.
 
         Auto-created and user-declared overrides are indistinguishable at the API level. They can be adopted into Terraform via `pulumi import` or by iterating the `get_org_group_policy_overrides` data source with `for_each` + `import` blocks.
 
@@ -309,11 +309,11 @@ class OrgGroupPolicyOverride(pulumi.CustomResource):
 
         If you want to stop managing an override without changing the org's value, use `terraform state rm` instead of removing the resource block.
 
-        ### ENFORCE tier cascade
+        ### GROUP_MANAGED tier cascade
 
-        When the parent `OrgGroupPolicy` transitions to `enforcement_tier = "ENFORCE"`, the server automatically deletes every override for that policy. Creating an override against an already-`ENFORCE`-tier policy also fails with a `FailedPrecondition` error.
+        When the parent `OrgGroupPolicy` transitions to `enforcement_tier = "GROUP_MANAGED"`, the server automatically deletes every override for that policy. Creating an override against an already-`GROUP_MANAGED`-tier policy also fails with a `FailedPrecondition` error.
 
-        If you plan to flip a policy to `ENFORCE`, remove the `OrgGroupPolicyOverride` resource blocks for that policy in the same commit. Otherwise, Terraform's next apply will try to re-create the server-deleted overrides and fail.
+        If you plan to flip a policy to `GROUP_MANAGED`, remove the `OrgGroupPolicyOverride` resource blocks for that policy in the same commit. Otherwise, Terraform's next apply will try to re-create the server-deleted overrides and fail.
 
         ## Import
 

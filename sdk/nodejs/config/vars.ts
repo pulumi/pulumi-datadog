@@ -76,6 +76,17 @@ Object.defineProperty(exports, "awsSessionToken", {
 });
 
 /**
+ * Datadog credential sent in the `Authorization: Bearer <token>` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer <token>` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
+ */
+export declare const bearerToken: string | undefined;
+Object.defineProperty(exports, "bearerToken", {
+    get() {
+        return __config.get("bearerToken");
+    },
+    enumerable: true,
+});
+
+/**
  * The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
  */
 export declare const cloudProviderRegion: string | undefined;

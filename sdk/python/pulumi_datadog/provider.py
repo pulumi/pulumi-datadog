@@ -26,6 +26,7 @@ class ProviderArgs:
                  aws_access_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  aws_secret_access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  aws_session_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 bearer_token: pulumi.Input[Optional[_builtins.str]] = None,
                  cloud_provider_region: pulumi.Input[Optional[_builtins.str]] = None,
                  cloud_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
                  default_tags: pulumi.Input[Optional['ProviderDefaultTagsArgs']] = None,
@@ -45,6 +46,7 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.str] aws_access_key_id: The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
         :param pulumi.Input[_builtins.str] aws_secret_access_key: The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
         :param pulumi.Input[_builtins.str] aws_session_token: The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+        :param pulumi.Input[_builtins.str] bearer_token: Datadog credential sent in the `Authorization: Bearer <token>` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer <token>` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
         :param pulumi.Input[_builtins.str] cloud_provider_region: The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
         :param pulumi.Input[_builtins.str] cloud_provider_type: Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
         :param pulumi.Input['ProviderDefaultTagsArgs'] default_tags: [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
@@ -68,6 +70,8 @@ class ProviderArgs:
             pulumi.set(__self__, "aws_secret_access_key", aws_secret_access_key)
         if aws_session_token is not None:
             pulumi.set(__self__, "aws_session_token", aws_session_token)
+        if bearer_token is not None:
+            pulumi.set(__self__, "bearer_token", bearer_token)
         if cloud_provider_region is not None:
             pulumi.set(__self__, "cloud_provider_region", cloud_provider_region)
         if cloud_provider_type is not None:
@@ -160,6 +164,18 @@ class ProviderArgs:
     @aws_session_token.setter
     def aws_session_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_session_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bearerToken")
+    def bearer_token(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Datadog credential sent in the `Authorization: Bearer <token>` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer <token>` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
+        """
+        return pulumi.get(self, "bearer_token")
+
+    @bearer_token.setter
+    def bearer_token(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bearer_token", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudProviderRegion")
@@ -294,6 +310,7 @@ class Provider(pulumi.ProviderResource):
                  aws_access_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  aws_secret_access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  aws_session_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 bearer_token: pulumi.Input[Optional[_builtins.str]] = None,
                  cloud_provider_region: pulumi.Input[Optional[_builtins.str]] = None,
                  cloud_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
                  default_tags: pulumi.Input[Optional[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
@@ -320,6 +337,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.str] aws_access_key_id: The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
         :param pulumi.Input[_builtins.str] aws_secret_access_key: The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
         :param pulumi.Input[_builtins.str] aws_session_token: The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+        :param pulumi.Input[_builtins.str] bearer_token: Datadog credential sent in the `Authorization: Bearer <token>` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer <token>` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
         :param pulumi.Input[_builtins.str] cloud_provider_region: The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
         :param pulumi.Input[_builtins.str] cloud_provider_type: Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
         :param pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']] default_tags: [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
@@ -365,6 +383,7 @@ class Provider(pulumi.ProviderResource):
                  aws_access_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  aws_secret_access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  aws_session_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 bearer_token: pulumi.Input[Optional[_builtins.str]] = None,
                  cloud_provider_region: pulumi.Input[Optional[_builtins.str]] = None,
                  cloud_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
                  default_tags: pulumi.Input[Optional[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
@@ -390,6 +409,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["aws_access_key_id"] = None if aws_access_key_id is None else pulumi.Output.secret(aws_access_key_id)
             __props__.__dict__["aws_secret_access_key"] = None if aws_secret_access_key is None else pulumi.Output.secret(aws_secret_access_key)
             __props__.__dict__["aws_session_token"] = None if aws_session_token is None else pulumi.Output.secret(aws_session_token)
+            __props__.__dict__["bearer_token"] = None if bearer_token is None else pulumi.Output.secret(bearer_token)
             __props__.__dict__["cloud_provider_region"] = cloud_provider_region
             __props__.__dict__["cloud_provider_type"] = cloud_provider_type
             __props__.__dict__["default_tags"] = pulumi.Output.from_input(default_tags).apply(pulumi.runtime.to_json) if default_tags is not None else None
@@ -400,7 +420,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["http_client_retry_timeout"] = pulumi.Output.from_input(http_client_retry_timeout).apply(pulumi.runtime.to_json) if http_client_retry_timeout is not None else None
             __props__.__dict__["org_uuid"] = org_uuid
             __props__.__dict__["validate"] = validate
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey", "appKey", "awsAccessKeyId", "awsSecretAccessKey", "awsSessionToken"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey", "appKey", "awsAccessKeyId", "awsSecretAccessKey", "awsSessionToken", "bearerToken"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'datadog',
@@ -455,6 +475,14 @@ class Provider(pulumi.ProviderResource):
         The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
         """
         return pulumi.get(self, "aws_session_token")
+
+    @_builtins.property
+    @pulumi.getter(name="bearerToken")
+    def bearer_token(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Datadog credential sent in the `Authorization: Bearer <token>` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer <token>` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
+        """
+        return pulumi.get(self, "bearer_token")
 
     @_builtins.property
     @pulumi.getter(name="cloudProviderRegion")

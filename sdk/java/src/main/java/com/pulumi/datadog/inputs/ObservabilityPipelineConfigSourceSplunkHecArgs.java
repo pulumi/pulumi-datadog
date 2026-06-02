@@ -6,8 +6,10 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceSplunkHecTlsArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceSplunkHecValidTokenArgs;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -48,18 +50,33 @@ public final class ObservabilityPipelineConfigSourceSplunkHecArgs extends com.pu
     }
 
     /**
-     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     * Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
      * 
      */
     @Import(name="tls")
     private @Nullable Output<ObservabilityPipelineConfigSourceSplunkHecTlsArgs> tls;
 
     /**
-     * @return Configuration for enabling TLS encryption between the pipeline component and external services.
+     * @return Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
      * 
      */
     public Optional<Output<ObservabilityPipelineConfigSourceSplunkHecTlsArgs>> tls() {
         return Optional.ofNullable(this.tls);
+    }
+
+    /**
+     * A HEC token accepted for authenticating incoming Splunk HEC requests.
+     * 
+     */
+    @Import(name="validTokens")
+    private @Nullable Output<List<ObservabilityPipelineConfigSourceSplunkHecValidTokenArgs>> validTokens;
+
+    /**
+     * @return A HEC token accepted for authenticating incoming Splunk HEC requests.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigSourceSplunkHecValidTokenArgs>>> validTokens() {
+        return Optional.ofNullable(this.validTokens);
     }
 
     private ObservabilityPipelineConfigSourceSplunkHecArgs() {}
@@ -68,6 +85,7 @@ public final class ObservabilityPipelineConfigSourceSplunkHecArgs extends com.pu
         this.addressKey = $.addressKey;
         this.storeHecToken = $.storeHecToken;
         this.tls = $.tls;
+        this.validTokens = $.validTokens;
     }
 
     public static Builder builder() {
@@ -131,7 +149,7 @@ public final class ObservabilityPipelineConfigSourceSplunkHecArgs extends com.pu
         }
 
         /**
-         * @param tls Configuration for enabling TLS encryption between the pipeline component and external services.
+         * @param tls Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
          * 
          * @return builder
          * 
@@ -142,13 +160,44 @@ public final class ObservabilityPipelineConfigSourceSplunkHecArgs extends com.pu
         }
 
         /**
-         * @param tls Configuration for enabling TLS encryption between the pipeline component and external services.
+         * @param tls Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
          * 
          * @return builder
          * 
          */
         public Builder tls(ObservabilityPipelineConfigSourceSplunkHecTlsArgs tls) {
             return tls(Output.of(tls));
+        }
+
+        /**
+         * @param validTokens A HEC token accepted for authenticating incoming Splunk HEC requests.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder validTokens(@Nullable Output<List<ObservabilityPipelineConfigSourceSplunkHecValidTokenArgs>> validTokens) {
+            $.validTokens = validTokens;
+            return this;
+        }
+
+        /**
+         * @param validTokens A HEC token accepted for authenticating incoming Splunk HEC requests.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder validTokens(List<ObservabilityPipelineConfigSourceSplunkHecValidTokenArgs> validTokens) {
+            return validTokens(Output.of(validTokens));
+        }
+
+        /**
+         * @param validTokens A HEC token accepted for authenticating incoming Splunk HEC requests.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder validTokens(ObservabilityPipelineConfigSourceSplunkHecValidTokenArgs... validTokens) {
+            return validTokens(List.of(validTokens));
         }
 
         public ObservabilityPipelineConfigSourceSplunkHecArgs build() {

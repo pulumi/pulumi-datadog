@@ -14,6 +14,14 @@ namespace Pulumi.Datadog.Outputs
     public sealed class MonitorVariables
     {
         /// <summary>
+        /// Aggregate-augmented composite query variables (reference table augment joined to a metrics or events base query).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.MonitorVariablesAggregateAugmentedQuery> AggregateAugmentedQueries;
+        /// <summary>
+        /// Aggregate-filtered composite query variables (filter base query results using a reference table or events filter query).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.MonitorVariablesAggregateFilteredQuery> AggregateFilteredQueries;
+        /// <summary>
         /// The Cloud Cost query using formulas and functions.
         /// </summary>
         public readonly ImmutableArray<Outputs.MonitorVariablesCloudCostQuery> CloudCostQueries;
@@ -32,6 +40,10 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private MonitorVariables(
+            ImmutableArray<Outputs.MonitorVariablesAggregateAugmentedQuery> aggregateAugmentedQueries,
+
+            ImmutableArray<Outputs.MonitorVariablesAggregateFilteredQuery> aggregateFilteredQueries,
+
             ImmutableArray<Outputs.MonitorVariablesCloudCostQuery> cloudCostQueries,
 
             ImmutableArray<Outputs.MonitorVariablesDataJobsQuery> dataJobsQueries,
@@ -40,6 +52,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.MonitorVariablesEventQuery> eventQueries)
         {
+            AggregateAugmentedQueries = aggregateAugmentedQueries;
+            AggregateFilteredQueries = aggregateFilteredQueries;
             CloudCostQueries = cloudCostQueries;
             DataJobsQueries = dataJobsQueries;
             DataQualityQueries = dataQualityQueries;

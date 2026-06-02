@@ -23,7 +23,7 @@ public final class ObservabilityPipelineConfigSourceOpentelemetry {
      */
     private @Nullable String httpAddressKey;
     /**
-     * @return Configuration for enabling TLS encryption between the pipeline component and external services.
+     * @return Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
      * 
      */
     private @Nullable ObservabilityPipelineConfigSourceOpentelemetryTls tls;
@@ -44,7 +44,7 @@ public final class ObservabilityPipelineConfigSourceOpentelemetry {
         return Optional.ofNullable(this.httpAddressKey);
     }
     /**
-     * @return Configuration for enabling TLS encryption between the pipeline component and external services.
+     * @return Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
      * 
      */
     public Optional<ObservabilityPipelineConfigSourceOpentelemetryTls> tls() {

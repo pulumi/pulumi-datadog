@@ -30,7 +30,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? BodyType;
         /// <summary>
-        /// The type of gRPC call to perform. Valid values are `Healthcheck`, `Unary`.
+        /// The type of gRPC call to perform, or the MCP step call (`Init`, `ToolList`, `ToolCall`). Valid values are `Healthcheck`, `Unary`, `Init`, `ToolList`, `ToolCall`.
         /// </summary>
         public readonly string? CallType;
         /// <summary>
@@ -85,6 +85,10 @@ namespace Pulumi.Datadog.Outputs
         /// For Network Path tests, the maximum time-to-live (max number of hops) used in outgoing probe packets.
         /// </summary>
         public readonly int? MaxTtl;
+        /// <summary>
+        /// For MCP API steps, the MCP protocol version used by the request.
+        /// </summary>
+        public readonly string? McpProtocolVersion;
         /// <summary>
         /// For gRPC, UDP, and Websocket tests, message to send with the request.
         /// </summary>
@@ -142,6 +146,14 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly int? Timeout;
         /// <summary>
+        /// For MCP API steps, the JSON-encoded arguments to pass to the tool when `CallType` is `ToolCall`.
+        /// </summary>
+        public readonly string? ToolArgs;
+        /// <summary>
+        /// For MCP API steps, the name of the tool to call. Required when `CallType` is `ToolCall`.
+        /// </summary>
+        public readonly string? ToolName;
+        /// <summary>
         /// For Network Path tests, the number of traceroute path tracings.
         /// </summary>
         public readonly int? TracerouteQueries;
@@ -188,6 +200,8 @@ namespace Pulumi.Datadog.Outputs
 
             int? maxTtl,
 
+            string? mcpProtocolVersion,
+
             string? message,
 
             string? method,
@@ -216,6 +230,10 @@ namespace Pulumi.Datadog.Outputs
 
             int? timeout,
 
+            string? toolArgs,
+
+            string? toolName,
+
             int? tracerouteQueries,
 
             string? url)
@@ -238,6 +256,7 @@ namespace Pulumi.Datadog.Outputs
             HttpVersion = httpVersion;
             IsMessageBase64Encoded = isMessageBase64Encoded;
             MaxTtl = maxTtl;
+            McpProtocolVersion = mcpProtocolVersion;
             Message = message;
             Method = method;
             NoSavingResponseBody = noSavingResponseBody;
@@ -252,6 +271,8 @@ namespace Pulumi.Datadog.Outputs
             SourceService = sourceService;
             TcpMethod = tcpMethod;
             Timeout = timeout;
+            ToolArgs = toolArgs;
+            ToolName = toolName;
             TracerouteQueries = tracerouteQueries;
             Url = url;
         }

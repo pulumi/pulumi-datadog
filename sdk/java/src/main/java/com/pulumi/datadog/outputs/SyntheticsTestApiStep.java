@@ -111,7 +111,7 @@ public final class SyntheticsTestApiStep {
      */
     private @Nullable String subtestPublicId;
     /**
-     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`, `playSubTest`. Defaults to `&#34;http&#34;`.
+     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `mcp`, `wait`, `playSubTest`. Defaults to `&#34;http&#34;`.
      * 
      */
     private @Nullable String subtype;
@@ -245,7 +245,7 @@ public final class SyntheticsTestApiStep {
         return Optional.ofNullable(this.subtestPublicId);
     }
     /**
-     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `wait`, `playSubTest`. Defaults to `&#34;http&#34;`.
+     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`, `ssl`, `dns`, `tcp`, `udp`, `icmp`, `websocket`, `mcp`, `wait`, `playSubTest`. Defaults to `&#34;http&#34;`.
      * 
      */
     public Optional<String> subtype() {

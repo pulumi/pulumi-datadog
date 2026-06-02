@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Mode { get; set; } = null!;
 
         /// <summary>
-        /// Configuration for enabling TLS encryption between the pipeline component and external services.
+        /// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
         /// </summary>
         [Input("tls")]
         public Input<Inputs.ObservabilityPipelineConfigSourceSocketTlsGetArgs>? Tls { get; set; }

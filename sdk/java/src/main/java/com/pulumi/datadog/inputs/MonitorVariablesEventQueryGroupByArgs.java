@@ -63,12 +63,28 @@ public final class MonitorVariablesEventQueryGroupByArgs extends com.pulumi.reso
         return Optional.ofNullable(this.sort);
     }
 
+    /**
+     * For composite aggregate-augmented queries, identifies which sub-query this group-by facet refers to (for example `filterQuery`).
+     * 
+     */
+    @Import(name="source")
+    private @Nullable Output<String> source;
+
+    /**
+     * @return For composite aggregate-augmented queries, identifies which sub-query this group-by facet refers to (for example `filterQuery`).
+     * 
+     */
+    public Optional<Output<String>> source() {
+        return Optional.ofNullable(this.source);
+    }
+
     private MonitorVariablesEventQueryGroupByArgs() {}
 
     private MonitorVariablesEventQueryGroupByArgs(MonitorVariablesEventQueryGroupByArgs $) {
         this.facet = $.facet;
         this.limit = $.limit;
         this.sort = $.sort;
+        this.source = $.source;
     }
 
     public static Builder builder() {
@@ -150,6 +166,27 @@ public final class MonitorVariablesEventQueryGroupByArgs extends com.pulumi.reso
          */
         public Builder sort(MonitorVariablesEventQueryGroupBySortArgs sort) {
             return sort(Output.of(sort));
+        }
+
+        /**
+         * @param source For composite aggregate-augmented queries, identifies which sub-query this group-by facet refers to (for example `filterQuery`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder source(@Nullable Output<String> source) {
+            $.source = source;
+            return this;
+        }
+
+        /**
+         * @param source For composite aggregate-augmented queries, identifies which sub-query this group-by facet refers to (for example `filterQuery`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder source(String source) {
+            return source(Output.of(source));
         }
 
         public MonitorVariablesEventQueryGroupByArgs build() {

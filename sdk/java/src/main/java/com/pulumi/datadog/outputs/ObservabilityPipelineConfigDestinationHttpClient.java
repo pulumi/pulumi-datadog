@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationHttpClientBuffer;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationHttpClientCompression;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationHttpClientTls;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -19,6 +20,11 @@ public final class ObservabilityPipelineConfigDestinationHttpClient {
      * 
      */
     private @Nullable String authStrategy;
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationHttpClientBuffer buffer;
     /**
      * @return Compression configuration for HTTP requests.
      * 
@@ -62,6 +68,13 @@ public final class ObservabilityPipelineConfigDestinationHttpClient {
      */
     public Optional<String> authStrategy() {
         return Optional.ofNullable(this.authStrategy);
+    }
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationHttpClientBuffer> buffer() {
+        return Optional.ofNullable(this.buffer);
     }
     /**
      * @return Compression configuration for HTTP requests.
@@ -123,6 +136,7 @@ public final class ObservabilityPipelineConfigDestinationHttpClient {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String authStrategy;
+        private @Nullable ObservabilityPipelineConfigDestinationHttpClientBuffer buffer;
         private @Nullable ObservabilityPipelineConfigDestinationHttpClientCompression compression;
         private String encoding;
         private @Nullable String passwordKey;
@@ -134,6 +148,7 @@ public final class ObservabilityPipelineConfigDestinationHttpClient {
         public Builder(ObservabilityPipelineConfigDestinationHttpClient defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authStrategy = defaults.authStrategy;
+    	      this.buffer = defaults.buffer;
     	      this.compression = defaults.compression;
     	      this.encoding = defaults.encoding;
     	      this.passwordKey = defaults.passwordKey;
@@ -147,6 +162,12 @@ public final class ObservabilityPipelineConfigDestinationHttpClient {
         public Builder authStrategy(@Nullable String authStrategy) {
 
             this.authStrategy = authStrategy;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationHttpClientBuffer buffer) {
+
+            this.buffer = buffer;
             return this;
         }
         @CustomType.Setter
@@ -196,6 +217,7 @@ public final class ObservabilityPipelineConfigDestinationHttpClient {
         public ObservabilityPipelineConfigDestinationHttpClient build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationHttpClient();
             _resultValue.authStrategy = authStrategy;
+            _resultValue.buffer = buffer;
             _resultValue.compression = compression;
             _resultValue.encoding = encoding;
             _resultValue.passwordKey = passwordKey;

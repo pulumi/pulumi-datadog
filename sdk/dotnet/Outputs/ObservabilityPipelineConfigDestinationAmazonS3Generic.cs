@@ -26,6 +26,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Bucket;
         /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationAmazonS3GenericBuffer? Buffer;
+        /// <summary>
         /// Compression configuration.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationAmazonS3GenericCompression Compression;
@@ -54,6 +58,8 @@ namespace Pulumi.Datadog.Outputs
 
             string bucket,
 
+            Outputs.ObservabilityPipelineConfigDestinationAmazonS3GenericBuffer? buffer,
+
             Outputs.ObservabilityPipelineConfigDestinationAmazonS3GenericCompression compression,
 
             Outputs.ObservabilityPipelineConfigDestinationAmazonS3GenericEncoding encoding,
@@ -67,6 +73,7 @@ namespace Pulumi.Datadog.Outputs
             Auth = auth;
             BatchSettings = batchSettings;
             Bucket = bucket;
+            Buffer = buffer;
             Compression = compression;
             Encoding = encoding;
             KeyPrefix = keyPrefix;

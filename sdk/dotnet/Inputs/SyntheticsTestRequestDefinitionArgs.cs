@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? BodyType { get; set; }
 
         /// <summary>
-        /// The type of gRPC call to perform. Valid values are `Healthcheck`, `Unary`.
+        /// The type of gRPC call to perform, or the MCP step call (`Init`, `ToolList`, `ToolCall`). Valid values are `Healthcheck`, `Unary`, `Init`, `ToolList`, `ToolCall`.
         /// </summary>
         [Input("callType")]
         public Input<string>? CallType { get; set; }
@@ -101,6 +101,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("maxTtl")]
         public Input<int>? MaxTtl { get; set; }
+
+        /// <summary>
+        /// For MCP API steps, the MCP protocol version used by the request.
+        /// </summary>
+        [Input("mcpProtocolVersion")]
+        public Input<string>? McpProtocolVersion { get; set; }
 
         /// <summary>
         /// For gRPC, UDP, and Websocket tests, message to send with the request.
@@ -185,6 +191,18 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
+
+        /// <summary>
+        /// For MCP API steps, the JSON-encoded arguments to pass to the tool when `CallType` is `ToolCall`.
+        /// </summary>
+        [Input("toolArgs")]
+        public Input<string>? ToolArgs { get; set; }
+
+        /// <summary>
+        /// For MCP API steps, the name of the tool to call. Required when `CallType` is `ToolCall`.
+        /// </summary>
+        [Input("toolName")]
+        public Input<string>? ToolName { get; set; }
 
         /// <summary>
         /// For Network Path tests, the number of traceroute path tracings.

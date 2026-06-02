@@ -62,12 +62,28 @@ public final class MonitorVariablesEventQueryComputeArgs extends com.pulumi.reso
         return Optional.ofNullable(this.metric);
     }
 
+    /**
+     * The name assigned to this aggregation when multiple aggregations are defined for a query.
+     * 
+     */
+    @Import(name="name")
+    private @Nullable Output<String> name;
+
+    /**
+     * @return The name assigned to this aggregation when multiple aggregations are defined for a query.
+     * 
+     */
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
+    }
+
     private MonitorVariablesEventQueryComputeArgs() {}
 
     private MonitorVariablesEventQueryComputeArgs(MonitorVariablesEventQueryComputeArgs $) {
         this.aggregation = $.aggregation;
         this.interval = $.interval;
         this.metric = $.metric;
+        this.name = $.name;
     }
 
     public static Builder builder() {
@@ -149,6 +165,27 @@ public final class MonitorVariablesEventQueryComputeArgs extends com.pulumi.reso
          */
         public Builder metric(String metric) {
             return metric(Output.of(metric));
+        }
+
+        /**
+         * @param name The name assigned to this aggregation when multiple aggregations are defined for a query.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(@Nullable Output<String> name) {
+            $.name = name;
+            return this;
+        }
+
+        /**
+         * @param name The name assigned to this aggregation when multiple aggregations are defined for a query.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(String name) {
+            return name(Output.of(name));
         }
 
         public MonitorVariablesEventQueryComputeArgs build() {

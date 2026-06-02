@@ -64,12 +64,12 @@ import javax.annotation.Nullable;
  *                 jsonObject(
  *                     jsonProperty("org_config", false)
  *                 )))
- *             .enforcementTier("DEFAULT")
+ *             .enforcementTier("OVERRIDE_ALLOWED")
  *             .build());
  * 
  *         // Exempts the given organization from the widget_copy_paste policy.
  *         // The org keeps its current value for is_widget_copy_paste_enabled regardless
- *         // of the policy. The resource must target a policy whose tier is not ENFORCE.
+ *         // of the policy. The resource must target a policy whose tier is not GROUP_MANAGED.
  *         var example = new OrgGroupPolicyOverride("example", OrgGroupPolicyOverrideArgs.builder()
  *             .orgGroupId(prod.id())
  *             .policyId(widgetCopyPaste.id())
@@ -90,8 +90,8 @@ import javax.annotation.Nullable;
  * 
  * Overrides are also created automatically by the server when an org&#39;s existing config differs from a policy&#39;s value. Two triggers:
  * 
- * 1. **Membership change:** When an org is moved into an org group, the server compares that org&#39;s current config to each non-`ENFORCE` policy in the group. Any mismatch produces an auto-created override that records the org&#39;s existing value.
- * 2. **Policy create/update** with a non-`ENFORCE` tier: The server performs the same comparison across every member org at policy apply time, creating overrides for orgs whose config doesn&#39;t match the new policy value.
+ * 1. **Membership change:** When an org is moved into an org group, the server compares that org&#39;s current config to each non-`GROUP_MANAGED` policy in the group. Any mismatch produces an auto-created override that records the org&#39;s existing value.
+ * 2. **Policy create/update** with a non-`GROUP_MANAGED` tier: The server performs the same comparison across every member org at policy apply time, creating overrides for orgs whose config doesn&#39;t match the new policy value.
  * 
  * Auto-created and user-declared overrides are indistinguishable at the API level. They can be adopted into Terraform via `pulumi import` or by iterating the `datadog.getOrgGroupPolicyOverrides` data source with `forEach` + `import` blocks.
  * 
@@ -101,11 +101,11 @@ import javax.annotation.Nullable;
  * 
  * If you want to stop managing an override without changing the org&#39;s value, use `terraform state rm` instead of removing the resource block.
  * 
- * ### ENFORCE tier cascade
+ * ### GROUP_MANAGED tier cascade
  * 
- * When the parent `datadog.OrgGroupPolicy` transitions to `enforcementTier = &#34;ENFORCE&#34;`, the server automatically deletes every override for that policy. Creating an override against an already-`ENFORCE`-tier policy also fails with a `FailedPrecondition` error.
+ * When the parent `datadog.OrgGroupPolicy` transitions to `enforcementTier = &#34;GROUP_MANAGED&#34;`, the server automatically deletes every override for that policy. Creating an override against an already-`GROUP_MANAGED`-tier policy also fails with a `FailedPrecondition` error.
  * 
- * If you plan to flip a policy to `ENFORCE`, remove the `datadog.OrgGroupPolicyOverride` resource blocks for that policy in the same commit. Otherwise, Terraform&#39;s next apply will try to re-create the server-deleted overrides and fail.
+ * If you plan to flip a policy to `GROUP_MANAGED`, remove the `datadog.OrgGroupPolicyOverride` resource blocks for that policy in the same commit. Otherwise, Terraform&#39;s next apply will try to re-create the server-deleted overrides and fail.
  * 
  * ## Import
  * 

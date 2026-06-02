@@ -25,6 +25,10 @@ namespace Pulumi.Datadog.Outputs
         /// The options for sorting group by results.
         /// </summary>
         public readonly Outputs.MonitorVariablesEventQueryGroupBySort? Sort;
+        /// <summary>
+        /// For composite aggregate-augmented queries, identifies which sub-query this group-by facet refers to (for example `FilterQuery`).
+        /// </summary>
+        public readonly string? Source;
 
         [OutputConstructor]
         private MonitorVariablesEventQueryGroupBy(
@@ -32,11 +36,14 @@ namespace Pulumi.Datadog.Outputs
 
             int? limit,
 
-            Outputs.MonitorVariablesEventQueryGroupBySort? sort)
+            Outputs.MonitorVariablesEventQueryGroupBySort? sort,
+
+            string? source)
         {
             Facet = facet;
             Limit = limit;
             Sort = sort;
+            Source = source;
         }
     }
 }

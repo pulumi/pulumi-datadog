@@ -30,13 +30,17 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? PasswordKey;
         /// <summary>
-        /// Configuration for enabling TLS encryption between the pipeline component and external services.
+        /// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigSourceHttpServerTls? Tls;
         /// <summary>
         /// Name of the environment variable or secret that holds the username.
         /// </summary>
         public readonly string? UsernameKey;
+        /// <summary>
+        /// A token accepted for authenticating incoming HTTP requests. Cannot be combined with the `Plain` auth strategy.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigSourceHttpServerValidToken> ValidTokens;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigSourceHttpServer(
@@ -50,7 +54,9 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.ObservabilityPipelineConfigSourceHttpServerTls? tls,
 
-            string? usernameKey)
+            string? usernameKey,
+
+            ImmutableArray<Outputs.ObservabilityPipelineConfigSourceHttpServerValidToken> validTokens)
         {
             AddressKey = addressKey;
             AuthStrategy = authStrategy;
@@ -58,6 +64,7 @@ namespace Pulumi.Datadog.Outputs
             PasswordKey = passwordKey;
             Tls = tls;
             UsernameKey = usernameKey;
+            ValidTokens = validTokens;
         }
     }
 }

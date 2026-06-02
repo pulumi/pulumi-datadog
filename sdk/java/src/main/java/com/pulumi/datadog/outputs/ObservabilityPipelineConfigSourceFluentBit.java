@@ -18,7 +18,7 @@ public final class ObservabilityPipelineConfigSourceFluentBit {
      */
     private @Nullable String addressKey;
     /**
-     * @return Configuration for enabling TLS encryption between the pipeline component and external services.
+     * @return Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
      * 
      */
     private @Nullable ObservabilityPipelineConfigSourceFluentBitTls tls;
@@ -32,7 +32,7 @@ public final class ObservabilityPipelineConfigSourceFluentBit {
         return Optional.ofNullable(this.addressKey);
     }
     /**
-     * @return Configuration for enabling TLS encryption between the pipeline component and external services.
+     * @return Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
      * 
      */
     public Optional<ObservabilityPipelineConfigSourceFluentBitTls> tls() {

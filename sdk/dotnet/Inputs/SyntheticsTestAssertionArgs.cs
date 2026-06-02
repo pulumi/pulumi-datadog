@@ -37,6 +37,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Target { get; set; }
 
         /// <summary>
+        /// Expected MCP server capabilities if `Type` is `mcpServerCapabilities`. Exactly one nested block is allowed with the structure below.
+        /// </summary>
+        [Input("targetMcpCapabilities")]
+        public Input<Inputs.SyntheticsTestAssertionTargetMcpCapabilitiesArgs>? TargetMcpCapabilities { get; set; }
+
+        /// <summary>
         /// Expected structure if `Operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
         /// </summary>
         [Input("targetjsonpath")]
@@ -61,7 +67,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? TimingsScope { get; set; }
 
         /// <summary>
-        /// Type of assertion. **Note:** Only some combinations of `Type` and `Operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-a-network-path-test). Valid values are `Body`, `Header`, `statusCode`, `Certificate`, `responseTime`, `Property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `Latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `Connection`, `multiNetworkHop`, `Jitter`, `bodyHash`, `Javascript`.
+        /// Type of assertion. **Note:** Only some combinations of `Type` and `Operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-a-network-path-test). Valid values are `Body`, `Header`, `statusCode`, `Certificate`, `responseTime`, `Property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `Latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `Connection`, `multiNetworkHop`, `Jitter`, `mcpToolNameLength`, `mcpToolCount`, `bodyHash`, `Javascript`, `mcpRespectsSpecification`, `mcpServerCapabilities`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

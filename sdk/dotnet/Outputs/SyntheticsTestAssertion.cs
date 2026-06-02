@@ -30,6 +30,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Target;
         /// <summary>
+        /// Expected MCP server capabilities if `Type` is `mcpServerCapabilities`. Exactly one nested block is allowed with the structure below.
+        /// </summary>
+        public readonly Outputs.SyntheticsTestAssertionTargetMcpCapabilities? TargetMcpCapabilities;
+        /// <summary>
         /// Expected structure if `Operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
         /// </summary>
         public readonly Outputs.SyntheticsTestAssertionTargetjsonpath? Targetjsonpath;
@@ -46,7 +50,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? TimingsScope;
         /// <summary>
-        /// Type of assertion. **Note:** Only some combinations of `Type` and `Operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-a-network-path-test). Valid values are `Body`, `Header`, `statusCode`, `Certificate`, `responseTime`, `Property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `Latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `Connection`, `multiNetworkHop`, `Jitter`, `bodyHash`, `Javascript`.
+        /// Type of assertion. **Note:** Only some combinations of `Type` and `Operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-a-network-path-test). Valid values are `Body`, `Header`, `statusCode`, `Certificate`, `responseTime`, `Property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `Latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `Connection`, `multiNetworkHop`, `Jitter`, `mcpToolNameLength`, `mcpToolCount`, `bodyHash`, `Javascript`, `mcpRespectsSpecification`, `mcpServerCapabilities`.
         /// </summary>
         public readonly string Type;
 
@@ -59,6 +63,8 @@ namespace Pulumi.Datadog.Outputs
             string? property,
 
             string? target,
+
+            Outputs.SyntheticsTestAssertionTargetMcpCapabilities? targetMcpCapabilities,
 
             Outputs.SyntheticsTestAssertionTargetjsonpath? targetjsonpath,
 
@@ -74,6 +80,7 @@ namespace Pulumi.Datadog.Outputs
             Operator = @operator;
             Property = property;
             Target = target;
+            TargetMcpCapabilities = targetMcpCapabilities;
             Targetjsonpath = targetjsonpath;
             Targetjsonschema = targetjsonschema;
             Targetxpath = targetxpath;

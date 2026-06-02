@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -30,10 +31,26 @@ public final class SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs exte
         return Optional.ofNullable(this.baselineUserLocations);
     }
 
+    /**
+     * The duration in days during which Datadog learns a user&#39;s access locations before generating signals. Only applicable when `baselineUserLocations` is `true`. Defaults to `1` if unset. . Value must be between 1 and 30.
+     * 
+     */
+    @Import(name="baselineUserLocationsDuration")
+    private @Nullable Output<Integer> baselineUserLocationsDuration;
+
+    /**
+     * @return The duration in days during which Datadog learns a user&#39;s access locations before generating signals. Only applicable when `baselineUserLocations` is `true`. Defaults to `1` if unset. . Value must be between 1 and 30.
+     * 
+     */
+    public Optional<Output<Integer>> baselineUserLocationsDuration() {
+        return Optional.ofNullable(this.baselineUserLocationsDuration);
+    }
+
     private SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs() {}
 
     private SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs(SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs $) {
         this.baselineUserLocations = $.baselineUserLocations;
+        this.baselineUserLocationsDuration = $.baselineUserLocationsDuration;
     }
 
     public static Builder builder() {
@@ -73,6 +90,27 @@ public final class SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs exte
          */
         public Builder baselineUserLocations(Boolean baselineUserLocations) {
             return baselineUserLocations(Output.of(baselineUserLocations));
+        }
+
+        /**
+         * @param baselineUserLocationsDuration The duration in days during which Datadog learns a user&#39;s access locations before generating signals. Only applicable when `baselineUserLocations` is `true`. Defaults to `1` if unset. . Value must be between 1 and 30.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder baselineUserLocationsDuration(@Nullable Output<Integer> baselineUserLocationsDuration) {
+            $.baselineUserLocationsDuration = baselineUserLocationsDuration;
+            return this;
+        }
+
+        /**
+         * @param baselineUserLocationsDuration The duration in days during which Datadog learns a user&#39;s access locations before generating signals. Only applicable when `baselineUserLocations` is `true`. Defaults to `1` if unset. . Value must be between 1 and 30.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder baselineUserLocationsDuration(Integer baselineUserLocationsDuration) {
+            return baselineUserLocationsDuration(Output.of(baselineUserLocationsDuration));
         }
 
         public SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs build() {

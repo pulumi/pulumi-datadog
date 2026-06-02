@@ -342,6 +342,109 @@ import * as utilities from "./utilities";
  *         acceptSelfSigned: true,
  *     },
  * });
+ * // Example Usage (Synthetics MCP API test)
+ * // Create a new Datadog Synthetics Multistep API test against an MCP server
+ * const testMcp = new datadog.SyntheticsTest("test_mcp", {
+ *     name: "MCP API test",
+ *     type: "api",
+ *     subtype: "multi",
+ *     status: "live",
+ *     locations: ["aws:eu-central-1"],
+ *     tags: [
+ *         "foo:bar",
+ *         "env:test",
+ *     ],
+ *     apiSteps: [
+ *         {
+ *             name: "Initialize MCP session",
+ *             subtype: "mcp",
+ *             assertions: [
+ *                 {
+ *                     type: "statusCode",
+ *                     operator: "is",
+ *                     target: "200",
+ *                 },
+ *                 {
+ *                     type: "mcpRespectsSpecification",
+ *                 },
+ *                 {
+ *                     type: "mcpServerCapabilities",
+ *                     operator: "contains",
+ *                     targetMcpCapabilities: {
+ *                         capabilities: ["tools"],
+ *                     },
+ *                 },
+ *             ],
+ *             requestDefinition: {
+ *                 url: "https://example.org/mcp",
+ *                 callType: "init",
+ *                 mcpProtocolVersion: "2025-06-18",
+ *             },
+ *             requestHeaders: {
+ *                 "api-key": "YOUR-API-KEY",
+ *             },
+ *         },
+ *         {
+ *             name: "List MCP tools",
+ *             subtype: "mcp",
+ *             assertions: [
+ *                 {
+ *                     type: "statusCode",
+ *                     operator: "is",
+ *                     target: "200",
+ *                 },
+ *                 {
+ *                     type: "mcpToolCount",
+ *                     operator: "moreThan",
+ *                     target: "0",
+ *                 },
+ *                 {
+ *                     type: "mcpToolNameLength",
+ *                     operator: "lessThan",
+ *                     target: "64",
+ *                 },
+ *             ],
+ *             requestDefinition: {
+ *                 url: "https://example.org/mcp",
+ *                 callType: "tool_list",
+ *                 mcpProtocolVersion: "2025-06-18",
+ *             },
+ *             requestHeaders: {
+ *                 "api-key": "YOUR-API-KEY",
+ *             },
+ *         },
+ *         {
+ *             name: "Call MCP search tool",
+ *             subtype: "mcp",
+ *             assertions: [
+ *                 {
+ *                     type: "responseTime",
+ *                     operator: "lessThan",
+ *                     target: "5000",
+ *                 },
+ *                 {
+ *                     type: "mcpRespectsSpecification",
+ *                 },
+ *             ],
+ *             requestDefinition: {
+ *                 url: "https://example.org/mcp",
+ *                 callType: "tool_call",
+ *                 mcpProtocolVersion: "2025-06-18",
+ *                 toolName: "search",
+ *                 toolArgs: JSON.stringify({
+ *                     query: "datadog synthetics",
+ *                     limit: 5,
+ *                 }),
+ *             },
+ *             requestHeaders: {
+ *                 "api-key": "YOUR-API-KEY",
+ *             },
+ *         },
+ *     ],
+ *     optionsList: {
+ *         tickEvery: 900,
+ *     },
+ * });
  * // Example Usage (Synthetics Browser test)
  * // Create a new Datadog Synthetics Browser test starting on https://www.example.org
  * const testBrowser = new datadog.SyntheticsTest("test_browser", {

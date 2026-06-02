@@ -30,6 +30,8 @@ type Provider struct {
 	AwsSecretAccessKey pulumi.StringPtrOutput `pulumi:"awsSecretAccessKey"`
 	// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
 	AwsSessionToken pulumi.StringPtrOutput `pulumi:"awsSessionToken"`
+	// Datadog credential sent in the `Authorization: Bearer <token>` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer <token>` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
+	BearerToken pulumi.StringPtrOutput `pulumi:"bearerToken"`
 	// The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
 	CloudProviderRegion pulumi.StringPtrOutput `pulumi:"cloudProviderRegion"`
 	// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
@@ -64,12 +66,16 @@ func NewProvider(ctx *pulumi.Context,
 	if args.AwsSessionToken != nil {
 		args.AwsSessionToken = pulumi.ToSecret(args.AwsSessionToken).(pulumi.StringPtrInput)
 	}
+	if args.BearerToken != nil {
+		args.BearerToken = pulumi.ToSecret(args.BearerToken).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"apiKey",
 		"appKey",
 		"awsAccessKeyId",
 		"awsSecretAccessKey",
 		"awsSessionToken",
+		"bearerToken",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -94,6 +100,8 @@ type providerArgs struct {
 	AwsSecretAccessKey *string `pulumi:"awsSecretAccessKey"`
 	// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
 	AwsSessionToken *string `pulumi:"awsSessionToken"`
+	// Datadog credential sent in the `Authorization: Bearer <token>` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer <token>` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
+	BearerToken *string `pulumi:"bearerToken"`
 	// The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
 	CloudProviderRegion *string `pulumi:"cloudProviderRegion"`
 	// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
@@ -130,6 +138,8 @@ type ProviderArgs struct {
 	AwsSecretAccessKey pulumi.StringPtrInput
 	// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
 	AwsSessionToken pulumi.StringPtrInput
+	// Datadog credential sent in the `Authorization: Bearer <token>` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer <token>` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
+	BearerToken pulumi.StringPtrInput
 	// The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
 	CloudProviderRegion pulumi.StringPtrInput
 	// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
@@ -240,6 +250,11 @@ func (o ProviderOutput) AwsSecretAccessKey() pulumi.StringPtrOutput {
 // The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
 func (o ProviderOutput) AwsSessionToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.AwsSessionToken }).(pulumi.StringPtrOutput)
+}
+
+// Datadog credential sent in the `Authorization: Bearer <token>` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer <token>` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
+func (o ProviderOutput) BearerToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.BearerToken }).(pulumi.StringPtrOutput)
 }
 
 // The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.

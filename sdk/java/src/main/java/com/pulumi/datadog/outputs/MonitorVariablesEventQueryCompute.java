@@ -28,6 +28,11 @@ public final class MonitorVariablesEventQueryCompute {
      * 
      */
     private @Nullable String metric;
+    /**
+     * @return The name assigned to this aggregation when multiple aggregations are defined for a query.
+     * 
+     */
+    private @Nullable String name;
 
     private MonitorVariablesEventQueryCompute() {}
     /**
@@ -51,6 +56,13 @@ public final class MonitorVariablesEventQueryCompute {
     public Optional<String> metric() {
         return Optional.ofNullable(this.metric);
     }
+    /**
+     * @return The name assigned to this aggregation when multiple aggregations are defined for a query.
+     * 
+     */
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -64,12 +76,14 @@ public final class MonitorVariablesEventQueryCompute {
         private String aggregation;
         private @Nullable Integer interval;
         private @Nullable String metric;
+        private @Nullable String name;
         public Builder() {}
         public Builder(MonitorVariablesEventQueryCompute defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aggregation = defaults.aggregation;
     	      this.interval = defaults.interval;
     	      this.metric = defaults.metric;
+    	      this.name = defaults.name;
         }
 
         @CustomType.Setter
@@ -92,11 +106,18 @@ public final class MonitorVariablesEventQueryCompute {
             this.metric = metric;
             return this;
         }
+        @CustomType.Setter
+        public Builder name(@Nullable String name) {
+
+            this.name = name;
+            return this;
+        }
         public MonitorVariablesEventQueryCompute build() {
             final var _resultValue = new MonitorVariablesEventQueryCompute();
             _resultValue.aggregation = aggregation;
             _resultValue.interval = interval;
             _resultValue.metric = metric;
+            _resultValue.name = name;
             return _resultValue;
         }
     }

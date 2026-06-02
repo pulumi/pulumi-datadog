@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.SyntheticsTestAssertionTargetMcpCapabilitiesArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestAssertionTargetjsonpathArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestAssertionTargetjsonschemaArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestAssertionTargetxpathArgs;
@@ -80,6 +81,21 @@ public final class SyntheticsTestAssertionArgs extends com.pulumi.resources.Reso
     }
 
     /**
+     * Expected MCP server capabilities if `type` is `mcpServerCapabilities`. Exactly one nested block is allowed with the structure below.
+     * 
+     */
+    @Import(name="targetMcpCapabilities")
+    private @Nullable Output<SyntheticsTestAssertionTargetMcpCapabilitiesArgs> targetMcpCapabilities;
+
+    /**
+     * @return Expected MCP server capabilities if `type` is `mcpServerCapabilities`. Exactly one nested block is allowed with the structure below.
+     * 
+     */
+    public Optional<Output<SyntheticsTestAssertionTargetMcpCapabilitiesArgs>> targetMcpCapabilities() {
+        return Optional.ofNullable(this.targetMcpCapabilities);
+    }
+
+    /**
      * Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
      * 
      */
@@ -140,14 +156,14 @@ public final class SyntheticsTestAssertionArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-a-network-path-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `multiNetworkHop`, `jitter`, `bodyHash`, `javascript`.
+     * Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-a-network-path-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `multiNetworkHop`, `jitter`, `mcpToolNameLength`, `mcpToolCount`, `bodyHash`, `javascript`, `mcpRespectsSpecification`, `mcpServerCapabilities`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-a-network-path-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `multiNetworkHop`, `jitter`, `bodyHash`, `javascript`.
+     * @return Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-a-network-path-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `multiNetworkHop`, `jitter`, `mcpToolNameLength`, `mcpToolCount`, `bodyHash`, `javascript`, `mcpRespectsSpecification`, `mcpServerCapabilities`.
      * 
      */
     public Output<String> type() {
@@ -161,6 +177,7 @@ public final class SyntheticsTestAssertionArgs extends com.pulumi.resources.Reso
         this.operator = $.operator;
         this.property = $.property;
         this.target = $.target;
+        this.targetMcpCapabilities = $.targetMcpCapabilities;
         this.targetjsonpath = $.targetjsonpath;
         this.targetjsonschema = $.targetjsonschema;
         this.targetxpath = $.targetxpath;
@@ -271,6 +288,27 @@ public final class SyntheticsTestAssertionArgs extends com.pulumi.resources.Reso
         }
 
         /**
+         * @param targetMcpCapabilities Expected MCP server capabilities if `type` is `mcpServerCapabilities`. Exactly one nested block is allowed with the structure below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetMcpCapabilities(@Nullable Output<SyntheticsTestAssertionTargetMcpCapabilitiesArgs> targetMcpCapabilities) {
+            $.targetMcpCapabilities = targetMcpCapabilities;
+            return this;
+        }
+
+        /**
+         * @param targetMcpCapabilities Expected MCP server capabilities if `type` is `mcpServerCapabilities`. Exactly one nested block is allowed with the structure below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetMcpCapabilities(SyntheticsTestAssertionTargetMcpCapabilitiesArgs targetMcpCapabilities) {
+            return targetMcpCapabilities(Output.of(targetMcpCapabilities));
+        }
+
+        /**
          * @param targetjsonpath Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
          * 
          * @return builder
@@ -355,7 +393,7 @@ public final class SyntheticsTestAssertionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-a-network-path-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `multiNetworkHop`, `jitter`, `bodyHash`, `javascript`.
+         * @param type Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-a-network-path-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `multiNetworkHop`, `jitter`, `mcpToolNameLength`, `mcpToolCount`, `bodyHash`, `javascript`, `mcpRespectsSpecification`, `mcpServerCapabilities`.
          * 
          * @return builder
          * 
@@ -366,7 +404,7 @@ public final class SyntheticsTestAssertionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-a-network-path-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `multiNetworkHop`, `jitter`, `bodyHash`, `javascript`.
+         * @param type Type of assertion. **Note:** Only some combinations of `type` and `operator` are valid. For API tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-an-api-test). For Network Path tests, refer to `config.assertions` in the [Datadog API reference](https://docs.datadoghq.com/api/latest/synthetics/#create-a-network-path-test). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `multiNetworkHop`, `jitter`, `mcpToolNameLength`, `mcpToolCount`, `bodyHash`, `javascript`, `mcpRespectsSpecification`, `mcpServerCapabilities`.
          * 
          * @return builder
          * 
