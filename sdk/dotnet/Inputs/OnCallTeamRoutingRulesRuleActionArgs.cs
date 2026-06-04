@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class OnCallTeamRoutingRulesRuleActionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("escalationPolicy")]
+        public Input<Inputs.OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs>? EscalationPolicy { get; set; }
+
         [Input("sendSlackMessage")]
         public Input<Inputs.OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs>? SendSlackMessage { get; set; }
 

@@ -169,6 +169,7 @@ from .security_notification_rule import *
 from .sensitive_data_scanner_group import *
 from .sensitive_data_scanner_group_order import *
 from .sensitive_data_scanner_rule import *
+from .service_access_token import *
 from .service_account import *
 from .service_account_application_key import *
 from .service_definition_yaml import *
@@ -1061,6 +1062,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule": "SensitiveDataScannerRule"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/serviceAccessToken",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/serviceAccessToken:ServiceAccessToken": "ServiceAccessToken"
   }
  },
  {

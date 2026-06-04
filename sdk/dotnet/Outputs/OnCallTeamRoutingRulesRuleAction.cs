@@ -13,18 +13,22 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class OnCallTeamRoutingRulesRuleAction
     {
+        public readonly Outputs.OnCallTeamRoutingRulesRuleActionEscalationPolicy? EscalationPolicy;
         public readonly Outputs.OnCallTeamRoutingRulesRuleActionSendSlackMessage? SendSlackMessage;
         public readonly Outputs.OnCallTeamRoutingRulesRuleActionSendTeamsMessage? SendTeamsMessage;
         public readonly Outputs.OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation? TriggerWorkflowAutomation;
 
         [OutputConstructor]
         private OnCallTeamRoutingRulesRuleAction(
+            Outputs.OnCallTeamRoutingRulesRuleActionEscalationPolicy? escalationPolicy,
+
             Outputs.OnCallTeamRoutingRulesRuleActionSendSlackMessage? sendSlackMessage,
 
             Outputs.OnCallTeamRoutingRulesRuleActionSendTeamsMessage? sendTeamsMessage,
 
             Outputs.OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation? triggerWorkflowAutomation)
         {
+            EscalationPolicy = escalationPolicy;
             SendSlackMessage = sendSlackMessage;
             SendTeamsMessage = sendTeamsMessage;
             TriggerWorkflowAutomation = triggerWorkflowAutomation;

@@ -27,6 +27,7 @@ import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationRsyslog;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationSentinelOne;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationSocket;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationSplunkHec;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationSplunkHecMetrics;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationSumoLogic;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationSyslogNg;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -158,6 +159,11 @@ public final class ObservabilityPipelineConfigDestination {
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationSocket> sockets;
+    /**
+     * @return The `splunkHecMetrics` destination forwards metrics to Splunk using the HTTP Event Collector (HEC).
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationSplunkHecMetrics splunkHecMetrics;
     /**
      * @return The `splunkHec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
      * 
@@ -344,6 +350,13 @@ public final class ObservabilityPipelineConfigDestination {
         return this.sockets == null ? List.of() : this.sockets;
     }
     /**
+     * @return The `splunkHecMetrics` destination forwards metrics to Splunk using the HTTP Event Collector (HEC).
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationSplunkHecMetrics> splunkHecMetrics() {
+        return Optional.ofNullable(this.splunkHecMetrics);
+    }
+    /**
      * @return The `splunkHec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
      * 
      */
@@ -398,6 +411,7 @@ public final class ObservabilityPipelineConfigDestination {
         private @Nullable List<ObservabilityPipelineConfigDestinationRsyslog> rsyslogs;
         private @Nullable List<ObservabilityPipelineConfigDestinationSentinelOne> sentinelOnes;
         private @Nullable List<ObservabilityPipelineConfigDestinationSocket> sockets;
+        private @Nullable ObservabilityPipelineConfigDestinationSplunkHecMetrics splunkHecMetrics;
         private @Nullable List<ObservabilityPipelineConfigDestinationSplunkHec> splunkHecs;
         private @Nullable List<ObservabilityPipelineConfigDestinationSumoLogic> sumoLogics;
         private @Nullable List<ObservabilityPipelineConfigDestinationSyslogNg> syslogNgs;
@@ -428,6 +442,7 @@ public final class ObservabilityPipelineConfigDestination {
     	      this.rsyslogs = defaults.rsyslogs;
     	      this.sentinelOnes = defaults.sentinelOnes;
     	      this.sockets = defaults.sockets;
+    	      this.splunkHecMetrics = defaults.splunkHecMetrics;
     	      this.splunkHecs = defaults.splunkHecs;
     	      this.sumoLogics = defaults.sumoLogics;
     	      this.syslogNgs = defaults.syslogNgs;
@@ -642,6 +657,12 @@ public final class ObservabilityPipelineConfigDestination {
             return sockets(List.of(sockets));
         }
         @CustomType.Setter
+        public Builder splunkHecMetrics(@Nullable ObservabilityPipelineConfigDestinationSplunkHecMetrics splunkHecMetrics) {
+
+            this.splunkHecMetrics = splunkHecMetrics;
+            return this;
+        }
+        @CustomType.Setter
         public Builder splunkHecs(@Nullable List<ObservabilityPipelineConfigDestinationSplunkHec> splunkHecs) {
 
             this.splunkHecs = splunkHecs;
@@ -694,6 +715,7 @@ public final class ObservabilityPipelineConfigDestination {
             _resultValue.rsyslogs = rsyslogs;
             _resultValue.sentinelOnes = sentinelOnes;
             _resultValue.sockets = sockets;
+            _resultValue.splunkHecMetrics = splunkHecMetrics;
             _resultValue.splunkHecs = splunkHecs;
             _resultValue.sumoLogics = sumoLogics;
             _resultValue.syslogNgs = syslogNgs;

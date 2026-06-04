@@ -219,6 +219,7 @@
         "sensitiveDataScannerGroup.ts",
         "sensitiveDataScannerGroupOrder.ts",
         "sensitiveDataScannerRule.ts",
+        "serviceAccessToken.ts",
         "serviceAccount.ts",
         "serviceAccountApplicationKey.ts",
         "serviceDefinitionYaml.ts",

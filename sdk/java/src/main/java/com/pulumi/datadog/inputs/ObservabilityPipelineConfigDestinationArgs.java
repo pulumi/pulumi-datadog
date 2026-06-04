@@ -28,6 +28,7 @@ import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationRsyslogAr
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationSentinelOneArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationSocketArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationSplunkHecArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationSplunkHecMetricsArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationSumoLogicArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationSyslogNgArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -403,6 +404,21 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
     }
 
     /**
+     * The `splunkHecMetrics` destination forwards metrics to Splunk using the HTTP Event Collector (HEC).
+     * 
+     */
+    @Import(name="splunkHecMetrics")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationSplunkHecMetricsArgs> splunkHecMetrics;
+
+    /**
+     * @return The `splunkHecMetrics` destination forwards metrics to Splunk using the HTTP Event Collector (HEC).
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationSplunkHecMetricsArgs>> splunkHecMetrics() {
+        return Optional.ofNullable(this.splunkHecMetrics);
+    }
+
+    /**
      * The `splunkHec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
      * 
      */
@@ -474,6 +490,7 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
         this.rsyslogs = $.rsyslogs;
         this.sentinelOnes = $.sentinelOnes;
         this.sockets = $.sockets;
+        this.splunkHecMetrics = $.splunkHecMetrics;
         this.splunkHecs = $.splunkHecs;
         this.sumoLogics = $.sumoLogics;
         this.syslogNgs = $.syslogNgs;
@@ -1199,6 +1216,27 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
          */
         public Builder sockets(ObservabilityPipelineConfigDestinationSocketArgs... sockets) {
             return sockets(List.of(sockets));
+        }
+
+        /**
+         * @param splunkHecMetrics The `splunkHecMetrics` destination forwards metrics to Splunk using the HTTP Event Collector (HEC).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder splunkHecMetrics(@Nullable Output<ObservabilityPipelineConfigDestinationSplunkHecMetricsArgs> splunkHecMetrics) {
+            $.splunkHecMetrics = splunkHecMetrics;
+            return this;
+        }
+
+        /**
+         * @param splunkHecMetrics The `splunkHecMetrics` destination forwards metrics to Splunk using the HTTP Event Collector (HEC).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder splunkHecMetrics(ObservabilityPipelineConfigDestinationSplunkHecMetricsArgs splunkHecMetrics) {
+            return splunkHecMetrics(Output.of(splunkHecMetrics));
         }
 
         /**

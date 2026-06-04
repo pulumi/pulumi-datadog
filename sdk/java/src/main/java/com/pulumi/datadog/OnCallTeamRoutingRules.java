@@ -68,6 +68,50 @@ import javax.annotation.Nullable;
  *                 OnCallTeamRoutingRulesRuleArgs.builder()
  *                     .escalationPolicy("00000000-aba2-0000-0000-000000000000")
  *                     .urgency("dynamic")
+ *                     .build(),
+ *                 OnCallTeamRoutingRulesRuleArgs.builder()
+ *                     .query("tags.service:payment")
+ *                     .actions(OnCallTeamRoutingRulesRuleActionArgs.builder()
+ *                         .escalationPolicy(OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs.builder()
+ *                             .policyId("00000000-aba2-0000-0000-000000000000")
+ *                             .ackTimeoutMinutes(30)
+ *                             .urgency("low")
+ *                             .supportHours(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs.builder()
+ *                                 .timeZone("America/New_York")
+ *                                 .restrictions(                                
+ *                                     OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs.builder()
+ *                                         .startDay("monday")
+ *                                         .startTime("09:00:00")
+ *                                         .endDay("monday")
+ *                                         .endTime("17:00:00")
+ *                                         .build(),
+ *                                     OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs.builder()
+ *                                         .startDay("tuesday")
+ *                                         .startTime("09:00:00")
+ *                                         .endDay("tuesday")
+ *                                         .endTime("17:00:00")
+ *                                         .build(),
+ *                                     OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs.builder()
+ *                                         .startDay("wednesday")
+ *                                         .startTime("09:00:00")
+ *                                         .endDay("wednesday")
+ *                                         .endTime("17:00:00")
+ *                                         .build(),
+ *                                     OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs.builder()
+ *                                         .startDay("thursday")
+ *                                         .startTime("09:00:00")
+ *                                         .endDay("thursday")
+ *                                         .endTime("17:00:00")
+ *                                         .build(),
+ *                                     OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs.builder()
+ *                                         .startDay("friday")
+ *                                         .startTime("09:00:00")
+ *                                         .endDay("friday")
+ *                                         .endTime("17:00:00")
+ *                                         .build())
+ *                                 .build())
+ *                             .build())
+ *                         .build())
  *                     .build())
  *             .build());
  * 
@@ -80,7 +124,7 @@ import javax.annotation.Nullable;
  * 
  * The `pulumi import` command can be used, for example:
  * 
- * Import existing onCallTeamRoutingRules
+ * Import an existing onCallTeamRoutingRules
  * 
  * ```sh
  * $ pulumi import datadog:index/onCallTeamRoutingRules:OnCallTeamRoutingRules test &#34;b03a07d5-49da-43e9-83b4-5d84969b588b&#34;

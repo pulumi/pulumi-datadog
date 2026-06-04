@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.OnCallTeamRoutingRulesRuleActionEscalationPolicy;
 import com.pulumi.datadog.outputs.OnCallTeamRoutingRulesRuleActionSendSlackMessage;
 import com.pulumi.datadog.outputs.OnCallTeamRoutingRulesRuleActionSendTeamsMessage;
 import com.pulumi.datadog.outputs.OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation;
@@ -13,11 +14,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OnCallTeamRoutingRulesRuleAction {
+    private @Nullable OnCallTeamRoutingRulesRuleActionEscalationPolicy escalationPolicy;
     private @Nullable OnCallTeamRoutingRulesRuleActionSendSlackMessage sendSlackMessage;
     private @Nullable OnCallTeamRoutingRulesRuleActionSendTeamsMessage sendTeamsMessage;
     private @Nullable OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation triggerWorkflowAutomation;
 
     private OnCallTeamRoutingRulesRuleAction() {}
+    public Optional<OnCallTeamRoutingRulesRuleActionEscalationPolicy> escalationPolicy() {
+        return Optional.ofNullable(this.escalationPolicy);
+    }
     public Optional<OnCallTeamRoutingRulesRuleActionSendSlackMessage> sendSlackMessage() {
         return Optional.ofNullable(this.sendSlackMessage);
     }
@@ -37,17 +42,25 @@ public final class OnCallTeamRoutingRulesRuleAction {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable OnCallTeamRoutingRulesRuleActionEscalationPolicy escalationPolicy;
         private @Nullable OnCallTeamRoutingRulesRuleActionSendSlackMessage sendSlackMessage;
         private @Nullable OnCallTeamRoutingRulesRuleActionSendTeamsMessage sendTeamsMessage;
         private @Nullable OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation triggerWorkflowAutomation;
         public Builder() {}
         public Builder(OnCallTeamRoutingRulesRuleAction defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.escalationPolicy = defaults.escalationPolicy;
     	      this.sendSlackMessage = defaults.sendSlackMessage;
     	      this.sendTeamsMessage = defaults.sendTeamsMessage;
     	      this.triggerWorkflowAutomation = defaults.triggerWorkflowAutomation;
         }
 
+        @CustomType.Setter
+        public Builder escalationPolicy(@Nullable OnCallTeamRoutingRulesRuleActionEscalationPolicy escalationPolicy) {
+
+            this.escalationPolicy = escalationPolicy;
+            return this;
+        }
         @CustomType.Setter
         public Builder sendSlackMessage(@Nullable OnCallTeamRoutingRulesRuleActionSendSlackMessage sendSlackMessage) {
 
@@ -68,6 +81,7 @@ public final class OnCallTeamRoutingRulesRuleAction {
         }
         public OnCallTeamRoutingRulesRuleAction build() {
             final var _resultValue = new OnCallTeamRoutingRulesRuleAction();
+            _resultValue.escalationPolicy = escalationPolicy;
             _resultValue.sendSlackMessage = sendSlackMessage;
             _resultValue.sendTeamsMessage = sendTeamsMessage;
             _resultValue.triggerWorkflowAutomation = triggerWorkflowAutomation;

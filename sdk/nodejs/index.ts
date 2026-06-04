@@ -818,6 +818,11 @@ export type SensitiveDataScannerRule = import("./sensitiveDataScannerRule").Sens
 export const SensitiveDataScannerRule: typeof import("./sensitiveDataScannerRule").SensitiveDataScannerRule = null as any;
 utilities.lazyLoad(exports, ["SensitiveDataScannerRule"], () => require("./sensitiveDataScannerRule"));
 
+export { ServiceAccessTokenArgs, ServiceAccessTokenState } from "./serviceAccessToken";
+export type ServiceAccessToken = import("./serviceAccessToken").ServiceAccessToken;
+export const ServiceAccessToken: typeof import("./serviceAccessToken").ServiceAccessToken = null as any;
+utilities.lazyLoad(exports, ["ServiceAccessToken"], () => require("./serviceAccessToken"));
+
 export { ServiceAccountArgs, ServiceAccountState } from "./serviceAccount";
 export type ServiceAccount = import("./serviceAccount").ServiceAccount;
 export const ServiceAccount: typeof import("./serviceAccount").ServiceAccount = null as any;
@@ -1169,6 +1174,8 @@ const _module = {
                 return new SensitiveDataScannerGroupOrder(name, <any>undefined, { urn })
             case "datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule":
                 return new SensitiveDataScannerRule(name, <any>undefined, { urn })
+            case "datadog:index/serviceAccessToken:ServiceAccessToken":
+                return new ServiceAccessToken(name, <any>undefined, { urn })
             case "datadog:index/serviceAccount:ServiceAccount":
                 return new ServiceAccount(name, <any>undefined, { urn })
             case "datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey":
@@ -1319,6 +1326,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/securityNotificationRule
 pulumi.runtime.registerResourceModule("datadog", "index/sensitiveDataScannerGroup", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/sensitiveDataScannerGroupOrder", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/sensitiveDataScannerRule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/serviceAccessToken", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/serviceAccount", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/serviceAccountApplicationKey", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/serviceDefinitionYaml", _module)
