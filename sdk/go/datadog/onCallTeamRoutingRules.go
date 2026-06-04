@@ -61,6 +61,57 @@ import (
 //						EscalationPolicy: pulumi.String("00000000-aba2-0000-0000-000000000000"),
 //						Urgency:          pulumi.String("dynamic"),
 //					},
+//					&datadog.OnCallTeamRoutingRulesRuleArgs{
+//						Query: pulumi.String("tags.service:payment"),
+//						Actions: datadog.OnCallTeamRoutingRulesRuleActionArray{
+//							&datadog.OnCallTeamRoutingRulesRuleActionArgs{
+//								EscalationPolicy: datadog.OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs{
+//									map[string]interface{}{
+//										"policyId":          "00000000-aba2-0000-0000-000000000000",
+//										"ackTimeoutMinutes": 30,
+//										"urgency":           "low",
+//										"supportHours": []map[string]interface{}{
+//											map[string]interface{}{
+//												"timeZone": "America/New_York",
+//												"restrictions": []map[string]interface{}{
+//													map[string]interface{}{
+//														"startDay":  "monday",
+//														"startTime": "09:00:00",
+//														"endDay":    "monday",
+//														"endTime":   "17:00:00",
+//													},
+//													map[string]interface{}{
+//														"startDay":  "tuesday",
+//														"startTime": "09:00:00",
+//														"endDay":    "tuesday",
+//														"endTime":   "17:00:00",
+//													},
+//													map[string]interface{}{
+//														"startDay":  "wednesday",
+//														"startTime": "09:00:00",
+//														"endDay":    "wednesday",
+//														"endTime":   "17:00:00",
+//													},
+//													map[string]interface{}{
+//														"startDay":  "thursday",
+//														"startTime": "09:00:00",
+//														"endDay":    "thursday",
+//														"endTime":   "17:00:00",
+//													},
+//													map[string]interface{}{
+//														"startDay":  "friday",
+//														"startTime": "09:00:00",
+//														"endDay":    "friday",
+//														"endTime":   "17:00:00",
+//													},
+//												},
+//											},
+//										},
+//									},
+//								},
+//							},
+//						},
+//					},
 //				},
 //			})
 //			if err != nil {
@@ -76,7 +127,7 @@ import (
 //
 // The `pulumi import` command can be used, for example:
 //
-// # Import existing onCallTeamRoutingRules
+// # Import an existing onCallTeamRoutingRules
 //
 // ```sh
 // $ pulumi import datadog:index/onCallTeamRoutingRules:OnCallTeamRoutingRules test "b03a07d5-49da-43e9-83b4-5d84969b588b"

@@ -142,6 +142,51 @@ class OnCallTeamRoutingRules(pulumi.CustomResource):
                     "escalation_policy": "00000000-aba2-0000-0000-000000000000",
                     "urgency": "dynamic",
                 },
+                {
+                    "query": "tags.service:payment",
+                    "actions": [{
+                        "escalation_policy": [{
+                            "policyId": "00000000-aba2-0000-0000-000000000000",
+                            "ackTimeoutMinutes": 30,
+                            "urgency": "low",
+                            "supportHours": [{
+                                "timeZone": "America/New_York",
+                                "restrictions": [
+                                    {
+                                        "startDay": "monday",
+                                        "startTime": "09:00:00",
+                                        "endDay": "monday",
+                                        "endTime": "17:00:00",
+                                    },
+                                    {
+                                        "startDay": "tuesday",
+                                        "startTime": "09:00:00",
+                                        "endDay": "tuesday",
+                                        "endTime": "17:00:00",
+                                    },
+                                    {
+                                        "startDay": "wednesday",
+                                        "startTime": "09:00:00",
+                                        "endDay": "wednesday",
+                                        "endTime": "17:00:00",
+                                    },
+                                    {
+                                        "startDay": "thursday",
+                                        "startTime": "09:00:00",
+                                        "endDay": "thursday",
+                                        "endTime": "17:00:00",
+                                    },
+                                    {
+                                        "startDay": "friday",
+                                        "startTime": "09:00:00",
+                                        "endDay": "friday",
+                                        "endTime": "17:00:00",
+                                    },
+                                ],
+                            }],
+                        }],
+                    }],
+                },
             ])
         ```
 
@@ -149,7 +194,7 @@ class OnCallTeamRoutingRules(pulumi.CustomResource):
 
         The `pulumi import` command can be used, for example:
 
-        Import existing on_call_team_routing_rules
+        Import an existing on_call_team_routing_rules
 
         ```sh
         $ pulumi import datadog:index/onCallTeamRoutingRules:OnCallTeamRoutingRules test "b03a07d5-49da-43e9-83b4-5d84969b588b"
@@ -201,6 +246,51 @@ class OnCallTeamRoutingRules(pulumi.CustomResource):
                     "escalation_policy": "00000000-aba2-0000-0000-000000000000",
                     "urgency": "dynamic",
                 },
+                {
+                    "query": "tags.service:payment",
+                    "actions": [{
+                        "escalation_policy": [{
+                            "policyId": "00000000-aba2-0000-0000-000000000000",
+                            "ackTimeoutMinutes": 30,
+                            "urgency": "low",
+                            "supportHours": [{
+                                "timeZone": "America/New_York",
+                                "restrictions": [
+                                    {
+                                        "startDay": "monday",
+                                        "startTime": "09:00:00",
+                                        "endDay": "monday",
+                                        "endTime": "17:00:00",
+                                    },
+                                    {
+                                        "startDay": "tuesday",
+                                        "startTime": "09:00:00",
+                                        "endDay": "tuesday",
+                                        "endTime": "17:00:00",
+                                    },
+                                    {
+                                        "startDay": "wednesday",
+                                        "startTime": "09:00:00",
+                                        "endDay": "wednesday",
+                                        "endTime": "17:00:00",
+                                    },
+                                    {
+                                        "startDay": "thursday",
+                                        "startTime": "09:00:00",
+                                        "endDay": "thursday",
+                                        "endTime": "17:00:00",
+                                    },
+                                    {
+                                        "startDay": "friday",
+                                        "startTime": "09:00:00",
+                                        "endDay": "friday",
+                                        "endTime": "17:00:00",
+                                    },
+                                ],
+                            }],
+                        }],
+                    }],
+                },
             ])
         ```
 
@@ -208,7 +298,7 @@ class OnCallTeamRoutingRules(pulumi.CustomResource):
 
         The `pulumi import` command can be used, for example:
 
-        Import existing on_call_team_routing_rules
+        Import an existing on_call_team_routing_rules
 
         ```sh
         $ pulumi import datadog:index/onCallTeamRoutingRules:OnCallTeamRoutingRules test "b03a07d5-49da-43e9-83b4-5d84969b588b"

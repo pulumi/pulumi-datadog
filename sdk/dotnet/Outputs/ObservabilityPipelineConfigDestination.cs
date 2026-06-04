@@ -110,6 +110,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationSocket> Sockets;
         /// <summary>
+        /// The `SplunkHecMetrics` destination forwards metrics to Splunk using the HTTP Event Collector (HEC).
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationSplunkHecMetrics? SplunkHecMetrics;
+        /// <summary>
         /// The `SplunkHec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationSplunkHec> SplunkHecs;
@@ -172,6 +176,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationSocket> sockets,
 
+            Outputs.ObservabilityPipelineConfigDestinationSplunkHecMetrics? splunkHecMetrics,
+
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationSplunkHec> splunkHecs,
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationSumoLogic> sumoLogics,
@@ -202,6 +208,7 @@ namespace Pulumi.Datadog.Outputs
             Rsyslogs = rsyslogs;
             SentinelOnes = sentinelOnes;
             Sockets = sockets;
+            SplunkHecMetrics = splunkHecMetrics;
             SplunkHecs = splunkHecs;
             SumoLogics = sumoLogics;
             SyslogNgs = syslogNgs;

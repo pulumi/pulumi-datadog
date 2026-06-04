@@ -276,6 +276,12 @@ namespace Pulumi.Datadog.Inputs
             set => _sockets = value;
         }
 
+        /// <summary>
+        /// The `SplunkHecMetrics` destination forwards metrics to Splunk using the HTTP Event Collector (HEC).
+        /// </summary>
+        [Input("splunkHecMetrics")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationSplunkHecMetricsArgs>? SplunkHecMetrics { get; set; }
+
         [Input("splunkHecs")]
         private InputList<Inputs.ObservabilityPipelineConfigDestinationSplunkHecArgs>? _splunkHecs;
 

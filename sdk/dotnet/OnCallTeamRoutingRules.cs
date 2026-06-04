@@ -67,6 +67,70 @@ namespace Pulumi.Datadog
     ///                 EscalationPolicy = "00000000-aba2-0000-0000-000000000000",
     ///                 Urgency = "dynamic",
     ///             },
+    ///             new Datadog.Inputs.OnCallTeamRoutingRulesRuleArgs
+    ///             {
+    ///                 Query = "tags.service:payment",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     new Datadog.Inputs.OnCallTeamRoutingRulesRuleActionArgs
+    ///                     {
+    ///                         EscalationPolicy = new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "policyId", "00000000-aba2-0000-0000-000000000000" },
+    ///                                 { "ackTimeoutMinutes", 30 },
+    ///                                 { "urgency", "low" },
+    ///                                 { "supportHours", new[]
+    ///                                 {
+    ///                                     
+    ///                                     {
+    ///                                         { "timeZone", "America/New_York" },
+    ///                                         { "restrictions", new[]
+    ///                                         {
+    ///                                             
+    ///                                             {
+    ///                                                 { "startDay", "monday" },
+    ///                                                 { "startTime", "09:00:00" },
+    ///                                                 { "endDay", "monday" },
+    ///                                                 { "endTime", "17:00:00" },
+    ///                                             },
+    ///                                             
+    ///                                             {
+    ///                                                 { "startDay", "tuesday" },
+    ///                                                 { "startTime", "09:00:00" },
+    ///                                                 { "endDay", "tuesday" },
+    ///                                                 { "endTime", "17:00:00" },
+    ///                                             },
+    ///                                             
+    ///                                             {
+    ///                                                 { "startDay", "wednesday" },
+    ///                                                 { "startTime", "09:00:00" },
+    ///                                                 { "endDay", "wednesday" },
+    ///                                                 { "endTime", "17:00:00" },
+    ///                                             },
+    ///                                             
+    ///                                             {
+    ///                                                 { "startDay", "thursday" },
+    ///                                                 { "startTime", "09:00:00" },
+    ///                                                 { "endDay", "thursday" },
+    ///                                                 { "endTime", "17:00:00" },
+    ///                                             },
+    ///                                             
+    ///                                             {
+    ///                                                 { "startDay", "friday" },
+    ///                                                 { "startTime", "09:00:00" },
+    ///                                                 { "endDay", "friday" },
+    ///                                                 { "endTime", "17:00:00" },
+    ///                                             },
+    ///                                         } },
+    ///                                     },
+    ///                                 } },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
     ///         },
     ///     });
     /// 
@@ -77,7 +141,7 @@ namespace Pulumi.Datadog
     /// 
     /// The `pulumi import` command can be used, for example:
     /// 
-    /// Import existing OnCallTeamRoutingRules
+    /// Import an existing OnCallTeamRoutingRules
     /// 
     /// ```sh
     /// $ pulumi import datadog:index/onCallTeamRoutingRules:OnCallTeamRoutingRules test "b03a07d5-49da-43e9-83b4-5d84969b588b"

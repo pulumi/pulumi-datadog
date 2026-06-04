@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs;
 import com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs;
 import com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs;
 import com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs;
@@ -16,6 +17,13 @@ import javax.annotation.Nullable;
 public final class OnCallTeamRoutingRulesRuleActionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final OnCallTeamRoutingRulesRuleActionArgs Empty = new OnCallTeamRoutingRulesRuleActionArgs();
+
+    @Import(name="escalationPolicy")
+    private @Nullable Output<OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs> escalationPolicy;
+
+    public Optional<Output<OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs>> escalationPolicy() {
+        return Optional.ofNullable(this.escalationPolicy);
+    }
 
     @Import(name="sendSlackMessage")
     private @Nullable Output<OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs> sendSlackMessage;
@@ -41,6 +49,7 @@ public final class OnCallTeamRoutingRulesRuleActionArgs extends com.pulumi.resou
     private OnCallTeamRoutingRulesRuleActionArgs() {}
 
     private OnCallTeamRoutingRulesRuleActionArgs(OnCallTeamRoutingRulesRuleActionArgs $) {
+        this.escalationPolicy = $.escalationPolicy;
         this.sendSlackMessage = $.sendSlackMessage;
         this.sendTeamsMessage = $.sendTeamsMessage;
         this.triggerWorkflowAutomation = $.triggerWorkflowAutomation;
@@ -62,6 +71,15 @@ public final class OnCallTeamRoutingRulesRuleActionArgs extends com.pulumi.resou
 
         public Builder(OnCallTeamRoutingRulesRuleActionArgs defaults) {
             $ = new OnCallTeamRoutingRulesRuleActionArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder escalationPolicy(@Nullable Output<OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs> escalationPolicy) {
+            $.escalationPolicy = escalationPolicy;
+            return this;
+        }
+
+        public Builder escalationPolicy(OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs escalationPolicy) {
+            return escalationPolicy(Output.of(escalationPolicy));
         }
 
         public Builder sendSlackMessage(@Nullable Output<OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs> sendSlackMessage) {
