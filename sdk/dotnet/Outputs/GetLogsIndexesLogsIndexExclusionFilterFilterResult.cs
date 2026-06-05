@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Query;
         /// <summary>
+        /// The attribute to use for sampling logs for this exclusion filter.
+        /// </summary>
+        public readonly string SampleAttribute;
+        /// <summary>
         /// The fraction of logs excluded by the exclusion filter, when active.
         /// </summary>
         public readonly double SampleRate;
@@ -26,9 +30,12 @@ namespace Pulumi.Datadog.Outputs
         private GetLogsIndexesLogsIndexExclusionFilterFilterResult(
             string query,
 
+            string sampleAttribute,
+
             double sampleRate)
         {
             Query = query;
+            SampleAttribute = sampleAttribute;
             SampleRate = sampleRate;
         }
     }

@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Query;
         /// <summary>
+        /// The log attribute used as the sampling key. When present, logs sharing the same value are excluded or kept together at the configured sample rate (a single attribute path, e.g. `@lambda.request_id`).
+        /// </summary>
+        public readonly string? SampleAttribute;
+        /// <summary>
         /// The fraction of logs excluded by the exclusion filter, when active.
         /// </summary>
         public readonly double? SampleRate;
@@ -26,9 +30,12 @@ namespace Pulumi.Datadog.Outputs
         private LogsIndexExclusionFilterFilter(
             string? query,
 
+            string? sampleAttribute,
+
             double? sampleRate)
         {
             Query = query;
+            SampleAttribute = sampleAttribute;
             SampleRate = sampleRate;
         }
     }

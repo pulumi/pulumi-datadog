@@ -17,6 +17,11 @@ public final class GetLogsIndexesLogsIndexExclusionFilterFilter {
      */
     private String query;
     /**
+     * @return The attribute to use for sampling logs for this exclusion filter.
+     * 
+     */
+    private String sampleAttribute;
+    /**
      * @return The fraction of logs excluded by the exclusion filter, when active.
      * 
      */
@@ -29,6 +34,13 @@ public final class GetLogsIndexesLogsIndexExclusionFilterFilter {
      */
     public String query() {
         return this.query;
+    }
+    /**
+     * @return The attribute to use for sampling logs for this exclusion filter.
+     * 
+     */
+    public String sampleAttribute() {
+        return this.sampleAttribute;
     }
     /**
      * @return The fraction of logs excluded by the exclusion filter, when active.
@@ -48,11 +60,13 @@ public final class GetLogsIndexesLogsIndexExclusionFilterFilter {
     @CustomType.Builder
     public static final class Builder {
         private String query;
+        private String sampleAttribute;
         private Double sampleRate;
         public Builder() {}
         public Builder(GetLogsIndexesLogsIndexExclusionFilterFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.query = defaults.query;
+    	      this.sampleAttribute = defaults.sampleAttribute;
     	      this.sampleRate = defaults.sampleRate;
         }
 
@@ -62,6 +76,14 @@ public final class GetLogsIndexesLogsIndexExclusionFilterFilter {
               throw new MissingRequiredPropertyException("GetLogsIndexesLogsIndexExclusionFilterFilter", "query");
             }
             this.query = query;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder sampleAttribute(String sampleAttribute) {
+            if (sampleAttribute == null) {
+              throw new MissingRequiredPropertyException("GetLogsIndexesLogsIndexExclusionFilterFilter", "sampleAttribute");
+            }
+            this.sampleAttribute = sampleAttribute;
             return this;
         }
         @CustomType.Setter
@@ -75,6 +97,7 @@ public final class GetLogsIndexesLogsIndexExclusionFilterFilter {
         public GetLogsIndexesLogsIndexExclusionFilterFilter build() {
             final var _resultValue = new GetLogsIndexesLogsIndexExclusionFilterFilter();
             _resultValue.query = query;
+            _resultValue.sampleAttribute = sampleAttribute;
             _resultValue.sampleRate = sampleRate;
             return _resultValue;
         }

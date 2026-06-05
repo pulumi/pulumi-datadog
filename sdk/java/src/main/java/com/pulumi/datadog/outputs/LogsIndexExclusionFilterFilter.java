@@ -18,6 +18,11 @@ public final class LogsIndexExclusionFilterFilter {
      */
     private @Nullable String query;
     /**
+     * @return The log attribute used as the sampling key. When present, logs sharing the same value are excluded or kept together at the configured sample rate (a single attribute path, e.g. `{@literal @}lambda.request_id`).
+     * 
+     */
+    private @Nullable String sampleAttribute;
+    /**
      * @return The fraction of logs excluded by the exclusion filter, when active.
      * 
      */
@@ -30,6 +35,13 @@ public final class LogsIndexExclusionFilterFilter {
      */
     public Optional<String> query() {
         return Optional.ofNullable(this.query);
+    }
+    /**
+     * @return The log attribute used as the sampling key. When present, logs sharing the same value are excluded or kept together at the configured sample rate (a single attribute path, e.g. `{@literal @}lambda.request_id`).
+     * 
+     */
+    public Optional<String> sampleAttribute() {
+        return Optional.ofNullable(this.sampleAttribute);
     }
     /**
      * @return The fraction of logs excluded by the exclusion filter, when active.
@@ -49,11 +61,13 @@ public final class LogsIndexExclusionFilterFilter {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String query;
+        private @Nullable String sampleAttribute;
         private @Nullable Double sampleRate;
         public Builder() {}
         public Builder(LogsIndexExclusionFilterFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.query = defaults.query;
+    	      this.sampleAttribute = defaults.sampleAttribute;
     	      this.sampleRate = defaults.sampleRate;
         }
 
@@ -61,6 +75,12 @@ public final class LogsIndexExclusionFilterFilter {
         public Builder query(@Nullable String query) {
 
             this.query = query;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder sampleAttribute(@Nullable String sampleAttribute) {
+
+            this.sampleAttribute = sampleAttribute;
             return this;
         }
         @CustomType.Setter
@@ -72,6 +92,7 @@ public final class LogsIndexExclusionFilterFilter {
         public LogsIndexExclusionFilterFilter build() {
             final var _resultValue = new LogsIndexExclusionFilterFilter();
             _resultValue.query = query;
+            _resultValue.sampleAttribute = sampleAttribute;
             _resultValue.sampleRate = sampleRate;
             return _resultValue;
         }
