@@ -26225,6 +26225,8 @@ func (o GetLogsIndexesLogsIndexExclusionFilterArrayOutput) Index(i pulumi.IntInp
 type GetLogsIndexesLogsIndexExclusionFilterFilter struct {
 	// Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
 	Query string `pulumi:"query"`
+	// The attribute to use for sampling logs for this exclusion filter.
+	SampleAttribute string `pulumi:"sampleAttribute"`
 	// The fraction of logs excluded by the exclusion filter, when active.
 	SampleRate float64 `pulumi:"sampleRate"`
 }
@@ -26243,6 +26245,8 @@ type GetLogsIndexesLogsIndexExclusionFilterFilterInput interface {
 type GetLogsIndexesLogsIndexExclusionFilterFilterArgs struct {
 	// Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
 	Query pulumi.StringInput `pulumi:"query"`
+	// The attribute to use for sampling logs for this exclusion filter.
+	SampleAttribute pulumi.StringInput `pulumi:"sampleAttribute"`
 	// The fraction of logs excluded by the exclusion filter, when active.
 	SampleRate pulumi.Float64Input `pulumi:"sampleRate"`
 }
@@ -26301,6 +26305,11 @@ func (o GetLogsIndexesLogsIndexExclusionFilterFilterOutput) ToGetLogsIndexesLogs
 // Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
 func (o GetLogsIndexesLogsIndexExclusionFilterFilterOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogsIndexesLogsIndexExclusionFilterFilter) string { return v.Query }).(pulumi.StringOutput)
+}
+
+// The attribute to use for sampling logs for this exclusion filter.
+func (o GetLogsIndexesLogsIndexExclusionFilterFilterOutput) SampleAttribute() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLogsIndexesLogsIndexExclusionFilterFilter) string { return v.SampleAttribute }).(pulumi.StringOutput)
 }
 
 // The fraction of logs excluded by the exclusion filter, when active.

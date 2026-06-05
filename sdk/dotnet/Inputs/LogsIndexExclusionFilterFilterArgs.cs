@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Query { get; set; }
 
         /// <summary>
+        /// The log attribute used as the sampling key. When present, logs sharing the same value are excluded or kept together at the configured sample rate (a single attribute path, e.g. `@lambda.request_id`).
+        /// </summary>
+        [Input("sampleAttribute")]
+        public Input<string>? SampleAttribute { get; set; }
+
+        /// <summary>
         /// The fraction of logs excluded by the exclusion filter, when active.
         /// </summary>
         [Input("sampleRate")]

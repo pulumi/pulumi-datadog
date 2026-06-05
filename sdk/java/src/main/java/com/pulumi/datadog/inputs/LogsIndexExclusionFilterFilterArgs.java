@@ -32,6 +32,21 @@ public final class LogsIndexExclusionFilterFilterArgs extends com.pulumi.resourc
     }
 
     /**
+     * The log attribute used as the sampling key. When present, logs sharing the same value are excluded or kept together at the configured sample rate (a single attribute path, e.g. `{@literal @}lambda.request_id`).
+     * 
+     */
+    @Import(name="sampleAttribute")
+    private @Nullable Output<String> sampleAttribute;
+
+    /**
+     * @return The log attribute used as the sampling key. When present, logs sharing the same value are excluded or kept together at the configured sample rate (a single attribute path, e.g. `{@literal @}lambda.request_id`).
+     * 
+     */
+    public Optional<Output<String>> sampleAttribute() {
+        return Optional.ofNullable(this.sampleAttribute);
+    }
+
+    /**
      * The fraction of logs excluded by the exclusion filter, when active.
      * 
      */
@@ -50,6 +65,7 @@ public final class LogsIndexExclusionFilterFilterArgs extends com.pulumi.resourc
 
     private LogsIndexExclusionFilterFilterArgs(LogsIndexExclusionFilterFilterArgs $) {
         this.query = $.query;
+        this.sampleAttribute = $.sampleAttribute;
         this.sampleRate = $.sampleRate;
     }
 
@@ -90,6 +106,27 @@ public final class LogsIndexExclusionFilterFilterArgs extends com.pulumi.resourc
          */
         public Builder query(String query) {
             return query(Output.of(query));
+        }
+
+        /**
+         * @param sampleAttribute The log attribute used as the sampling key. When present, logs sharing the same value are excluded or kept together at the configured sample rate (a single attribute path, e.g. `{@literal @}lambda.request_id`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sampleAttribute(@Nullable Output<String> sampleAttribute) {
+            $.sampleAttribute = sampleAttribute;
+            return this;
+        }
+
+        /**
+         * @param sampleAttribute The log attribute used as the sampling key. When present, logs sharing the same value are excluded or kept together at the configured sample rate (a single attribute path, e.g. `{@literal @}lambda.request_id`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sampleAttribute(String sampleAttribute) {
+            return sampleAttribute(Output.of(sampleAttribute));
         }
 
         /**
