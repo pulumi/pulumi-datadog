@@ -31,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.datadog.OnCallTeamRoutingRules;
  * import com.pulumi.datadog.OnCallTeamRoutingRulesArgs;
  * import com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleArgs;
+ * import com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleActionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -50,14 +51,14 @@ import javax.annotation.Nullable;
  *                 OnCallTeamRoutingRulesRuleArgs.builder()
  *                     .query("tags.service:test")
  *                     .actions(OnCallTeamRoutingRulesRuleActionArgs.builder()
- *                         .sendSlackMessage(OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs.builder()
+ *                         .sendSlackMessage(com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs.builder()
  *                             .workspace("workspace")
  *                             .channel("channel")
  *                             .build())
  *                         .build())
- *                     .timeRestrictions(OnCallTeamRoutingRulesRuleTimeRestrictionsArgs.builder()
+ *                     .timeRestrictions(com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleTimeRestrictionsArgs.builder()
  *                         .timeZone("America/New_York")
- *                         .restrictions(OnCallTeamRoutingRulesRuleTimeRestrictionsRestrictionArgs.builder()
+ *                         .restrictions(com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleTimeRestrictionsRestrictionArgs.builder()
  *                             .endDay("monday")
  *                             .endTime("17:00:00")
  *                             .startDay("monday")
@@ -72,38 +73,38 @@ import javax.annotation.Nullable;
  *                 OnCallTeamRoutingRulesRuleArgs.builder()
  *                     .query("tags.service:payment")
  *                     .actions(OnCallTeamRoutingRulesRuleActionArgs.builder()
- *                         .escalationPolicy(OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs.builder()
+ *                         .escalationPolicy(com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs.builder()
  *                             .policyId("00000000-aba2-0000-0000-000000000000")
  *                             .ackTimeoutMinutes(30)
  *                             .urgency("low")
- *                             .supportHours(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs.builder()
+ *                             .supportHours(com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs.builder()
  *                                 .timeZone("America/New_York")
  *                                 .restrictions(                                
- *                                     OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs.builder()
+ *                                     com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs.builder()
  *                                         .startDay("monday")
  *                                         .startTime("09:00:00")
  *                                         .endDay("monday")
  *                                         .endTime("17:00:00")
  *                                         .build(),
- *                                     OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs.builder()
+ *                                     com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs.builder()
  *                                         .startDay("tuesday")
  *                                         .startTime("09:00:00")
  *                                         .endDay("tuesday")
  *                                         .endTime("17:00:00")
  *                                         .build(),
- *                                     OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs.builder()
+ *                                     com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs.builder()
  *                                         .startDay("wednesday")
  *                                         .startTime("09:00:00")
  *                                         .endDay("wednesday")
  *                                         .endTime("17:00:00")
  *                                         .build(),
- *                                     OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs.builder()
+ *                                     com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs.builder()
  *                                         .startDay("thursday")
  *                                         .startTime("09:00:00")
  *                                         .endDay("thursday")
  *                                         .endTime("17:00:00")
  *                                         .build(),
- *                                     OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs.builder()
+ *                                     com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs.builder()
  *                                         .startDay("friday")
  *                                         .startTime("09:00:00")
  *                                         .endDay("friday")

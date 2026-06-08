@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *             .bucketRegion("us-east-1")
  *             .reportName("dd-report-name")
  *             .reportPrefix("dd-report-prefix")
- *             .accountFilters(AwsCurConfigAccountFiltersArgs.builder()
+ *             .accountFilters(com.pulumi.datadog.inputs.AwsCurConfigAccountFiltersArgs.builder()
  *                 .includeNewAccounts(true)
  *                 .excludedAccounts(                
  *                     "123456789123",

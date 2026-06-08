@@ -49,13 +49,13 @@ import javax.annotation.Nullable;
  *         // Create new downtime_schedule resource
  *         var downtimeScheduleExample = new DowntimeSchedule("downtimeScheduleExample", DowntimeScheduleArgs.builder()
  *             .scope("env:us9-prod7 AND team:test123")
- *             .monitorIdentifier(DowntimeScheduleMonitorIdentifierArgs.builder()
+ *             .monitorIdentifier(com.pulumi.datadog.inputs.DowntimeScheduleMonitorIdentifierArgs.builder()
  *                 .monitorTags(                
  *                     "test:123",
  *                     "data:test")
  *                 .build())
- *             .recurringSchedule(DowntimeScheduleRecurringScheduleArgs.builder()
- *                 .recurrences(DowntimeScheduleRecurringScheduleRecurrenceArgs.builder()
+ *             .recurringSchedule(com.pulumi.datadog.inputs.DowntimeScheduleRecurringScheduleArgs.builder()
+ *                 .recurrences(com.pulumi.datadog.inputs.DowntimeScheduleRecurringScheduleRecurrenceArgs.builder()
  *                     .duration("1h")
  *                     .rrule("FREQ=DAILY;INTERVAL=1")
  *                     .start("2050-01-02T03:04:05")

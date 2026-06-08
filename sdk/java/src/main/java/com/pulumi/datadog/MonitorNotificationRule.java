@@ -49,25 +49,25 @@ import javax.annotation.Nullable;
  *             .recipients(            
  *                 "slack-checkout-ops",
  *                 "jira-checkout")
- *             .filter(MonitorNotificationRuleFilterArgs.builder()
+ *             .filter(com.pulumi.datadog.inputs.MonitorNotificationRuleFilterArgs.builder()
  *                 .tags("team:payment")
  *                 .build())
  *             .build());
  * 
  *         var teamPaymentNotificationRule = new MonitorNotificationRule("teamPaymentNotificationRule", MonitorNotificationRuleArgs.builder()
  *             .name("Routing logic for team payment")
- *             .filter(MonitorNotificationRuleFilterArgs.builder()
+ *             .filter(com.pulumi.datadog.inputs.MonitorNotificationRuleFilterArgs.builder()
  *                 .scope("team:payment AND NOT env:dev AND service:(payment-processing OR payment-gateway)")
  *                 .build())
- *             .conditionalRecipients(MonitorNotificationRuleConditionalRecipientsArgs.builder()
+ *             .conditionalRecipients(com.pulumi.datadog.inputs.MonitorNotificationRuleConditionalRecipientsArgs.builder()
  *                 .conditions(                
- *                     MonitorNotificationRuleConditionalRecipientsConditionArgs.builder()
+ *                     com.pulumi.datadog.inputs.MonitorNotificationRuleConditionalRecipientsConditionArgs.builder()
  *                         .scope("priority:p1")
  *                         .recipients(                        
  *                             "oncall-payment",
  *                             "slack-payment")
  *                         .build(),
- *                     MonitorNotificationRuleConditionalRecipientsConditionArgs.builder()
+ *                     com.pulumi.datadog.inputs.MonitorNotificationRuleConditionalRecipientsConditionArgs.builder()
  *                         .scope("priority:p5")
  *                         .recipients("slack-payment")
  *                         .build())

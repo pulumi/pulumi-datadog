@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .selectionStates(TeamSyncSelectionStateArgs.builder()
  *                 .operation("include")
  *                 .scope("subtree")
- *                 .externalId(TeamSyncSelectionStateExternalIdArgs.builder()
+ *                 .externalId(com.pulumi.datadog.inputs.TeamSyncSelectionStateExternalIdArgs.builder()
  *                     .type("organization")
  *                     .value("12345")
  *                     .build())

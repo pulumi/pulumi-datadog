@@ -47,9 +47,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var myAgentRule = new CsmThreatsAgentRule("myAgentRule", CsmThreatsAgentRuleArgs.builder()
  *             .actions(CsmThreatsAgentRuleActionArgs.builder()
- *                 .hash(CsmThreatsAgentRuleActionHashArgs.builder()
+ *                 .hash(com.pulumi.datadog.inputs.CsmThreatsAgentRuleActionHashArgs.builder()
  *                     .build())
- *                 .set(CsmThreatsAgentRuleActionSetArgs.builder()
+ *                 .set(com.pulumi.datadog.inputs.CsmThreatsAgentRuleActionSetArgs.builder()
  *                     .name("updated_security_actions")
  *                     .field("exec.file.path")
  *                     .append(false)

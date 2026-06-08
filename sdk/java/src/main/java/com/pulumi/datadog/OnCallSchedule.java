@@ -30,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.datadog.OnCallSchedule;
  * import com.pulumi.datadog.OnCallScheduleArgs;
  * import com.pulumi.datadog.inputs.OnCallScheduleLayerArgs;
+ * import com.pulumi.datadog.inputs.OnCallScheduleLayerRestrictionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -53,7 +54,7 @@ import javax.annotation.Nullable;
  *                     .effectiveDate("2025-01-01T00:00:00Z")
  *                     .endDate("2026-01-01T00:00:00Z")
  *                     .rotationStart("2025-01-01T00:00:00Z")
- *                     .interval(OnCallScheduleLayerIntervalArgs.builder()
+ *                     .interval(com.pulumi.datadog.inputs.OnCallScheduleLayerIntervalArgs.builder()
  *                         .days(1)
  *                         .seconds(300)
  *                         .build())
@@ -70,7 +71,7 @@ import javax.annotation.Nullable;
  *                     .effectiveDate("2025-01-01T00:00:00Z")
  *                     .rotationStart("2025-01-01T00:00:00Z")
  *                     .timeZone("Asia/Tokyo")
- *                     .interval(OnCallScheduleLayerIntervalArgs.builder()
+ *                     .interval(com.pulumi.datadog.inputs.OnCallScheduleLayerIntervalArgs.builder()
  *                         .days(7)
  *                         .build())
  *                     .users("00000000-aba1-0000-0000-000000000001")

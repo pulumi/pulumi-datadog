@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *         var foo = new ApmRetentionFilter("foo", ApmRetentionFilterArgs.builder()
  *             .name("Sample order")
  *             .rate("1.0")
- *             .filter(ApmRetentionFilterFilterArgs.builder()
+ *             .filter(com.pulumi.datadog.inputs.ApmRetentionFilterFilterArgs.builder()
  *                 .query("*")
  *                 .build())
  *             .filterType("spans-sampling-processor")
