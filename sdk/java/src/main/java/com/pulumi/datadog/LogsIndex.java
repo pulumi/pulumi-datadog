@@ -38,6 +38,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.datadog.inputs.LogsIndexDailyLimitResetArgs;
  * import com.pulumi.datadog.inputs.LogsIndexFilterArgs;
  * import com.pulumi.datadog.inputs.LogsIndexExclusionFilterArgs;
+ * import com.pulumi.datadog.inputs.LogsIndexExclusionFilterFilterArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

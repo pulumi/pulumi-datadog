@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) }{{@code
  *         var signalRule = new SecurityNotificationRule("signalRule", SecurityNotificationRuleArgs.builder()
  *             .name("My signal notification rule")
- *             .selectors(SecurityNotificationRuleSelectorsArgs.builder()
+ *             .selectors(com.pulumi.datadog.inputs.SecurityNotificationRuleSelectorsArgs.builder()
  *                 .triggerSource("security_signals")
  *                 .ruleTypes("workload_security")
  *                 .query("env:prod")
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  * 
  *         var vulnerabilityRule = new SecurityNotificationRule("vulnerabilityRule", SecurityNotificationRuleArgs.builder()
  *             .name("My vulnerability notification rule")
- *             .selectors(SecurityNotificationRuleSelectorsArgs.builder()
+ *             .selectors(com.pulumi.datadog.inputs.SecurityNotificationRuleSelectorsArgs.builder()
  *                 .triggerSource("security_findings")
  *                 .ruleTypes(                
  *                     "application_library_vulnerability",

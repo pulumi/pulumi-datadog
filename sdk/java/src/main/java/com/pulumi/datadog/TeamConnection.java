@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  * 
  *         // Create a connection between a Datadog team and a GitHub team
  *         var exampleTeamConnection = new TeamConnection("exampleTeamConnection", TeamConnectionArgs.builder()
- *             .team(TeamConnectionTeamArgs.builder()
+ *             .team(com.pulumi.datadog.inputs.TeamConnectionTeamArgs.builder()
  *                 .id(example.id())
  *                 .type("team")
  *                 .build())
- *             .connectedTeam(TeamConnectionConnectedTeamArgs.builder()
+ *             .connectedTeam(com.pulumi.datadog.inputs.TeamConnectionConnectedTeamArgs.builder()
  *                 .id("}{@literal @}{@code GitHubOrg/team-handle")
  *                 .type("github_team")
  *                 .build())

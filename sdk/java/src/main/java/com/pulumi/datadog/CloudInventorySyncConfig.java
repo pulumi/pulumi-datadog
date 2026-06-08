@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *         // AWS Cloud Inventory Sync Config
  *         var awsExample = new CloudInventorySyncConfig("awsExample", CloudInventorySyncConfigArgs.builder()
  *             .cloudProvider("aws")
- *             .aws(CloudInventorySyncConfigAwsArgs.builder()
+ *             .aws(com.pulumi.datadog.inputs.CloudInventorySyncConfigAwsArgs.builder()
  *                 .awsAccountId("123456789012")
  *                 .destinationBucketName("my-inventory-bucket")
  *                 .destinationBucketRegion("us-east-1")
@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *         // Azure Cloud Inventory Sync Config
  *         var azureExample = new CloudInventorySyncConfig("azureExample", CloudInventorySyncConfigArgs.builder()
  *             .cloudProvider("azure")
- *             .azure(CloudInventorySyncConfigAzureArgs.builder()
+ *             .azure(com.pulumi.datadog.inputs.CloudInventorySyncConfigAzureArgs.builder()
  *                 .clientId("00000000-0000-0000-0000-000000000000")
  *                 .tenantId("00000000-0000-0000-0000-000000000000")
  *                 .subscriptionId("00000000-0000-0000-0000-000000000000")
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *         // GCP Cloud Inventory Sync Config
  *         var gcpExample = new CloudInventorySyncConfig("gcpExample", CloudInventorySyncConfigArgs.builder()
  *             .cloudProvider("gcp")
- *             .gcp(CloudInventorySyncConfigGcpArgs.builder()
+ *             .gcp(com.pulumi.datadog.inputs.CloudInventorySyncConfigGcpArgs.builder()
  *                 .projectId("my-gcp-project")
  *                 .destinationBucketName("my-inventory-bucket")
  *                 .sourceBucketName("my-source-bucket")

@@ -32,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.datadog.OnCallEscalationPolicy;
  * import com.pulumi.datadog.OnCallEscalationPolicyArgs;
  * import com.pulumi.datadog.inputs.OnCallEscalationPolicyStepArgs;
+ * import com.pulumi.datadog.inputs.OnCallEscalationPolicyStepTargetArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

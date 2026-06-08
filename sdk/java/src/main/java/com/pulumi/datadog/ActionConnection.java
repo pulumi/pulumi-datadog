@@ -47,8 +47,8 @@ import javax.annotation.Nullable;
  *         final var config = ctx.config();
  *         var awsConnection = new ActionConnection("awsConnection", ActionConnectionArgs.builder()
  *             .name("My AWS Connection")
- *             .aws(ActionConnectionAwsArgs.builder()
- *                 .assumeRole(ActionConnectionAwsAssumeRoleArgs.builder()
+ *             .aws(com.pulumi.datadog.inputs.ActionConnectionAwsArgs.builder()
+ *                 .assumeRole(com.pulumi.datadog.inputs.ActionConnectionAwsAssumeRoleArgs.builder()
  *                     .accountId("123456789012")
  *                     .role("role2")
  *                     .build())
@@ -59,39 +59,39 @@ import javax.annotation.Nullable;
  *         final var token2 = config.require("token2");
  *         var httpConnection = new ActionConnection("httpConnection", ActionConnectionArgs.builder()
  *             .name("My HTTP connection with token auth")
- *             .http(ActionConnectionHttpArgs.builder()
+ *             .http(com.pulumi.datadog.inputs.ActionConnectionHttpArgs.builder()
  *                 .baseUrl("https://catfact.ninja")
- *                 .tokenAuth(ActionConnectionHttpTokenAuthArgs.builder()
+ *                 .tokenAuth(com.pulumi.datadog.inputs.ActionConnectionHttpTokenAuthArgs.builder()
  *                     .tokens(                    
- *                         ActionConnectionHttpTokenAuthTokenArgs.builder()
+ *                         com.pulumi.datadog.inputs.ActionConnectionHttpTokenAuthTokenArgs.builder()
  *                             .type("SECRET")
  *                             .name("token1")
  *                             .value(token1)
  *                             .build(),
- *                         ActionConnectionHttpTokenAuthTokenArgs.builder()
+ *                         com.pulumi.datadog.inputs.ActionConnectionHttpTokenAuthTokenArgs.builder()
  *                             .type("SECRET")
  *                             .name("token2")
  *                             .value(token2)
  *                             .build())
  *                     .headers(                    
- *                         ActionConnectionHttpTokenAuthHeaderArgs.builder()
+ *                         com.pulumi.datadog.inputs.ActionConnectionHttpTokenAuthHeaderArgs.builder()
  *                             .name("header-one")
  *                             .value("headerval")
  *                             .build(),
- *                         ActionConnectionHttpTokenAuthHeaderArgs.builder()
+ *                         com.pulumi.datadog.inputs.ActionConnectionHttpTokenAuthHeaderArgs.builder()
  *                             .name("h2")
  *                             .value("{{ token1 }} test")
  *                             .build())
  *                     .urlParameters(                    
- *                         ActionConnectionHttpTokenAuthUrlParameterArgs.builder()
+ *                         com.pulumi.datadog.inputs.ActionConnectionHttpTokenAuthUrlParameterArgs.builder()
  *                             .name("param1")
  *                             .value("{{ token1 }}")
  *                             .build(),
- *                         ActionConnectionHttpTokenAuthUrlParameterArgs.builder()
+ *                         com.pulumi.datadog.inputs.ActionConnectionHttpTokenAuthUrlParameterArgs.builder()
  *                             .name("param2")
  *                             .value("paramVal2")
  *                             .build())
- *                     .body(ActionConnectionHttpTokenAuthBodyArgs.builder()
+ *                     .body(com.pulumi.datadog.inputs.ActionConnectionHttpTokenAuthBodyArgs.builder()
  *                         .contentType("application/json")
  *                         .content(serializeJson(
  *                             jsonObject(

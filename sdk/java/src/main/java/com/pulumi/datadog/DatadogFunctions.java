@@ -7931,7 +7931,7 @@ public final class DatadogFunctions {
      *     public static void stack(Context ctx) {
      *         final var all = DatadogFunctions.getSecurityMonitoringCriticalAssets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("criticalAssetsCount", all.criticalAssets().length());
+     *         ctx.export("criticalAssetsCount", all.criticalAssets().size());
      *         ctx.export("criticalAssets", all.criticalAssets());
      *     }
      * }
@@ -7970,7 +7970,7 @@ public final class DatadogFunctions {
      *     public static void stack(Context ctx) {
      *         final var all = DatadogFunctions.getSecurityMonitoringCriticalAssets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("criticalAssetsCount", all.criticalAssets().length());
+     *         ctx.export("criticalAssetsCount", all.criticalAssets().size());
      *         ctx.export("criticalAssets", all.criticalAssets());
      *     }
      * }
@@ -8009,7 +8009,7 @@ public final class DatadogFunctions {
      *     public static void stack(Context ctx) {
      *         final var all = DatadogFunctions.getSecurityMonitoringCriticalAssets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("criticalAssetsCount", all.criticalAssets().length());
+     *         ctx.export("criticalAssetsCount", all.criticalAssets().size());
      *         ctx.export("criticalAssets", all.criticalAssets());
      *     }
      * }
@@ -8048,7 +8048,7 @@ public final class DatadogFunctions {
      *     public static void stack(Context ctx) {
      *         final var all = DatadogFunctions.getSecurityMonitoringCriticalAssets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("criticalAssetsCount", all.criticalAssets().length());
+     *         ctx.export("criticalAssetsCount", all.criticalAssets().size());
      *         ctx.export("criticalAssets", all.criticalAssets());
      *     }
      * }
@@ -8087,7 +8087,7 @@ public final class DatadogFunctions {
      *     public static void stack(Context ctx) {
      *         final var all = DatadogFunctions.getSecurityMonitoringCriticalAssets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("criticalAssetsCount", all.criticalAssets().length());
+     *         ctx.export("criticalAssetsCount", all.criticalAssets().size());
      *         ctx.export("criticalAssets", all.criticalAssets());
      *     }
      * }
@@ -8126,7 +8126,7 @@ public final class DatadogFunctions {
      *     public static void stack(Context ctx) {
      *         final var all = DatadogFunctions.getSecurityMonitoringCriticalAssets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("criticalAssetsCount", all.criticalAssets().length());
+     *         ctx.export("criticalAssetsCount", all.criticalAssets().size());
      *         ctx.export("criticalAssets", all.criticalAssets());
      *     }
      * }
@@ -8165,7 +8165,7 @@ public final class DatadogFunctions {
      *     public static void stack(Context ctx) {
      *         final var all = DatadogFunctions.getSecurityMonitoringCriticalAssets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("criticalAssetsCount", all.criticalAssets().length());
+     *         ctx.export("criticalAssetsCount", all.criticalAssets().size());
      *         ctx.export("criticalAssets", all.criticalAssets());
      *     }
      * }

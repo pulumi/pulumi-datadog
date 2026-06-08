@@ -45,8 +45,8 @@ import javax.annotation.Nullable;
  *         // Create new integration_aws_account_ccm_config resource
  *         var foo = new IntegrationAccountCcmConfig("foo", IntegrationAccountCcmConfigArgs.builder()
  *             .awsAccountConfigId("00000000-0000-0000-0000-000000000000")
- *             .ccmConfig(IntegrationAccountCcmConfigCcmConfigArgs.builder()
- *                 .dataExportConfigs(IntegrationAccountCcmConfigCcmConfigDataExportConfigArgs.builder()
+ *             .ccmConfig(com.pulumi.datadog.aws.inputs.IntegrationAccountCcmConfigCcmConfigArgs.builder()
+ *                 .dataExportConfigs(com.pulumi.datadog.aws.inputs.IntegrationAccountCcmConfigCcmConfigDataExportConfigArgs.builder()
  *                     .reportName("cost-and-usage-report")
  *                     .reportPrefix("reports")
  *                     .reportType("CUR2.0")
