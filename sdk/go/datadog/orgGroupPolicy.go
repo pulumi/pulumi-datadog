@@ -49,7 +49,7 @@ import (
 //			_, err = datadog.NewOrgGroupPolicy(ctx, "example", &datadog.OrgGroupPolicyArgs{
 //				OrgGroupId:      prod.ID(),
 //				PolicyName:      pulumi.String("is_widget_copy_paste_enabled"),
-//				Content:         pulumi.String(pulumi.String(json0)),
+//				Content:         pulumi.String(json0),
 //				EnforcementTier: pulumi.String("OVERRIDE_ALLOWED"),
 //			})
 //			if err != nil {
