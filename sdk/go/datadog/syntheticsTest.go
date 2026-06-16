@@ -518,7 +518,7 @@ import (
 //					CallType:           pulumi.String("tool_call"),
 //					McpProtocolVersion: pulumi.String("2025-06-18"),
 //					ToolName:           pulumi.String("search"),
-//					ToolArgs:           pulumi.String(pulumi.String(json0)),
+//					ToolArgs:           pulumi.String(json0),
 //				},
 //				RequestHeaders: pulumi.StringMap{
 //					"api-key": pulumi.String("YOUR-API-KEY"),
@@ -636,35 +636,35 @@ import (
 //				Name: pulumi.String("Test a downloaded file"),
 //				Type: pulumi.String("assertFileDownload"),
 //				Params: &datadog.SyntheticsTestBrowserStepParamsArgs{
-//					File: pulumi.String(pulumi.String(json1)),
+//					File: pulumi.String(json1),
 //				},
 //			},
 //			&datadog.SyntheticsTestBrowserStepArgs{
 //				Name: pulumi.String("Upload a file"),
 //				Type: pulumi.String("uploadFiles"),
 //				Params: &datadog.SyntheticsTestBrowserStepParamsArgs{
-//					Files: pulumi.String(pulumi.String(json2)),
+//					Files: pulumi.String(json2),
 //					ElementUserLocator: &datadog.SyntheticsTestBrowserStepParamsElementUserLocatorArgs{
 //						Value: &datadog.SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs{
 //							Type:  pulumi.String("css"),
 //							Value: pulumi.String("#simple-file-upload"),
 //						},
 //					},
-//					Element: pulumi.String(pulumi.String(json3)),
+//					Element: pulumi.String(json3),
 //				},
 //			},
 //			&datadog.SyntheticsTestBrowserStepArgs{
 //				Name: pulumi.String("Test sending http requests"),
 //				Type: pulumi.String("assertRequests"),
 //				Params: &datadog.SyntheticsTestBrowserStepParamsArgs{
-//					Requests: pulumi.String(pulumi.String(json4)),
+//					Requests: pulumi.String(json4),
 //				},
 //			},
 //			&datadog.SyntheticsTestBrowserStepArgs{
 //				Name: pulumi.String("Run api test"),
 //				Type: pulumi.String("runApiTest"),
 //				Params: &datadog.SyntheticsTestBrowserStepParamsArgs{
-//					Request: pulumi.String(pulumi.String(json5)),
+//					Request: pulumi.String(json5),
 //				},
 //			},
 //			&datadog.SyntheticsTestBrowserStepArgs{

@@ -38,8 +38,8 @@ import (
 //				ServiceAccountId: pulumi.String("00000000-0000-1234-0000-000000000000"),
 //				Name:             pulumi.String("Monitor Management Service Access Token"),
 //				Scopes: pulumi.StringArray{
-//					pulumi.String(pulumi.String(ddPerms.Permissions.MonitorsRead)),
-//					pulumi.String(pulumi.String(ddPerms.Permissions.MonitorsWrite)),
+//					pulumi.String(ddPerms.Permissions.MonitorsRead),
+//					pulumi.String(ddPerms.Permissions.MonitorsWrite),
 //				},
 //			})
 //			if err != nil {
@@ -52,7 +52,7 @@ import (
 //				ServiceAccountId: pulumi.String("00000000-0000-1234-0000-000000000000"),
 //				Name:             pulumi.String("Short-lived CI Service Access Token"),
 //				Scopes: pulumi.StringArray{
-//					pulumi.String(pulumi.String(ddPerms.Permissions.DashboardsRead)),
+//					pulumi.String(ddPerms.Permissions.DashboardsRead),
 //				},
 //				ExpiresAt: pulumi.String("2027-01-01T00:00:00Z"),
 //			})
