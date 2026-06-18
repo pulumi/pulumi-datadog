@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? ClusteringPatternFieldPath;
         /// <summary>
-        /// Source from which to query items to display in the stream. Valid values are `LogsStream`, `AuditStream`, `CiPipelineStream`, `CiTestStream`, `RumIssueStream`, `ApmIssueStream`, `TraceStream`, `LogsIssueStream`, `LogsPatternStream`, `LogsTransactionStream`, `EventStream`, `RumStream`, `LlmObservabilityStream`.
+        /// Source from which to query items to display in the stream. Valid values are `LogsStream`, `AuditStream`, `CiPipelineStream`, `CiTestStream`, `RumIssueStream`, `ApmIssueStream`, `TraceStream`, `LogsIssueStream`, `LogsPatternStream`, `LogsTransactionStream`, `EventStream`, `RumStream`, `LlmObservabilityStream`, `IssueStream`.
         /// </summary>
         public readonly string DataSource;
         /// <summary>

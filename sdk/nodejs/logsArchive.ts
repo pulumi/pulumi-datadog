@@ -80,9 +80,17 @@ export class LogsArchive extends pulumi.CustomResource {
      */
     declare public readonly includeTags: pulumi.Output<boolean | undefined>;
     /**
+     * An array of attributes to use as lookup keys for the archive.
+     */
+    declare public readonly lookupAttributes: pulumi.Output<string[] | undefined>;
+    /**
      * Your archive name.
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
+     */
+    declare public readonly partitioningAttributes: pulumi.Output<string[] | undefined>;
     /**
      * The archive query/filter. Logs matching this query are included in the archive.
      */
@@ -117,7 +125,9 @@ export class LogsArchive extends pulumi.CustomResource {
             resourceInputs["compressionMethod"] = state?.compressionMethod;
             resourceInputs["gcsArchive"] = state?.gcsArchive;
             resourceInputs["includeTags"] = state?.includeTags;
+            resourceInputs["lookupAttributes"] = state?.lookupAttributes;
             resourceInputs["name"] = state?.name;
+            resourceInputs["partitioningAttributes"] = state?.partitioningAttributes;
             resourceInputs["query"] = state?.query;
             resourceInputs["rehydrationMaxScanSizeInGb"] = state?.rehydrationMaxScanSizeInGb;
             resourceInputs["rehydrationTags"] = state?.rehydrationTags;
@@ -134,7 +144,9 @@ export class LogsArchive extends pulumi.CustomResource {
             resourceInputs["compressionMethod"] = args?.compressionMethod;
             resourceInputs["gcsArchive"] = args?.gcsArchive;
             resourceInputs["includeTags"] = args?.includeTags;
+            resourceInputs["lookupAttributes"] = args?.lookupAttributes;
             resourceInputs["name"] = args?.name;
+            resourceInputs["partitioningAttributes"] = args?.partitioningAttributes;
             resourceInputs["query"] = args?.query;
             resourceInputs["rehydrationMaxScanSizeInGb"] = args?.rehydrationMaxScanSizeInGb;
             resourceInputs["rehydrationTags"] = args?.rehydrationTags;
@@ -166,9 +178,17 @@ export interface LogsArchiveState {
      */
     includeTags?: pulumi.Input<boolean | undefined>;
     /**
+     * An array of attributes to use as lookup keys for the archive.
+     */
+    lookupAttributes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
      * Your archive name.
      */
     name?: pulumi.Input<string | undefined>;
+    /**
+     * An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
+     */
+    partitioningAttributes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The archive query/filter. Logs matching this query are included in the archive.
      */
@@ -208,9 +228,17 @@ export interface LogsArchiveArgs {
      */
     includeTags?: pulumi.Input<boolean | undefined>;
     /**
+     * An array of attributes to use as lookup keys for the archive.
+     */
+    lookupAttributes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
      * Your archive name.
      */
     name: pulumi.Input<string>;
+    /**
+     * An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
+     */
+    partitioningAttributes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The archive query/filter. Logs matching this query are included in the archive.
      */

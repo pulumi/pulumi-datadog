@@ -229,6 +229,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SyntheticsSuite{}
 	case "datadog:index/syntheticsTest:SyntheticsTest":
 		r = &SyntheticsTest{}
+	case "datadog:index/tagIndexingRule:TagIndexingRule":
+		r = &TagIndexingRule{}
+	case "datadog:index/tagIndexingRuleExemption:TagIndexingRuleExemption":
+		r = &TagIndexingRuleExemption{}
+	case "datadog:index/tagIndexingRuleOrder:TagIndexingRuleOrder":
+		r = &TagIndexingRuleOrder{}
 	case "datadog:index/tagPipelineRuleset:TagPipelineRuleset":
 		r = &TagPipelineRuleset{}
 	case "datadog:index/tagPipelineRulesets:TagPipelineRulesets":
@@ -808,6 +814,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/syntheticsTest",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/tagIndexingRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/tagIndexingRuleExemption",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/tagIndexingRuleOrder",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

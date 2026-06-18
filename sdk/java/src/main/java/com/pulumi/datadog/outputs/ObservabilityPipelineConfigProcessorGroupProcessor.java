@@ -13,6 +13,7 @@ import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProce
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTable;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorFilter;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetrics;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricTags;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrok;
@@ -86,6 +87,11 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
      * 
      */
     private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetrics generateDatadogMetrics;
+    /**
+     * @return The `generateMetrics` processor creates custom metrics from logs. The generated metrics must be routed to a metrics destination using the input `&lt;processor-id&gt;.metrics`.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics generateMetrics;
     /**
      * @return The unique identifier for this processor.
      * 
@@ -237,6 +243,13 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
         return Optional.ofNullable(this.generateDatadogMetrics);
     }
     /**
+     * @return The `generateMetrics` processor creates custom metrics from logs. The generated metrics must be routed to a metrics destination using the input `&lt;processor-id&gt;.metrics`.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics> generateMetrics() {
+        return Optional.ofNullable(this.generateMetrics);
+    }
+    /**
      * @return The unique identifier for this processor.
      * 
      */
@@ -362,6 +375,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTable enrichmentTable;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorFilter filter;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetrics generateDatadogMetrics;
+        private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics generateMetrics;
         private String id;
         private String include;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorMetricTags metricTags;
@@ -391,6 +405,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
     	      this.enrichmentTable = defaults.enrichmentTable;
     	      this.filter = defaults.filter;
     	      this.generateDatadogMetrics = defaults.generateDatadogMetrics;
+    	      this.generateMetrics = defaults.generateMetrics;
     	      this.id = defaults.id;
     	      this.include = defaults.include;
     	      this.metricTags = defaults.metricTags;
@@ -474,6 +489,12 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
         public Builder generateDatadogMetrics(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetrics generateDatadogMetrics) {
 
             this.generateDatadogMetrics = generateDatadogMetrics;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder generateMetrics(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics generateMetrics) {
+
+            this.generateMetrics = generateMetrics;
             return this;
         }
         @CustomType.Setter
@@ -583,6 +604,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
             _resultValue.enrichmentTable = enrichmentTable;
             _resultValue.filter = filter;
             _resultValue.generateDatadogMetrics = generateDatadogMetrics;
+            _resultValue.generateMetrics = generateMetrics;
             _resultValue.id = id;
             _resultValue.include = include;
             _resultValue.metricTags = metricTags;

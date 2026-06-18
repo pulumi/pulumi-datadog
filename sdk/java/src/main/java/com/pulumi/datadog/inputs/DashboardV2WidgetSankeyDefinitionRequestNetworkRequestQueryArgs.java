@@ -37,14 +37,14 @@ public final class DashboardV2WidgetSankeyDefinitionRequestNetworkRequestQueryAr
     }
 
     /**
-     * The data source for the Sankey network query. Valid values are `networkDeviceFlows`.
+     * The data source for the Sankey network query. Valid values are `networkDeviceFlows`, `network`.
      * 
      */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
     /**
-     * @return The data source for the Sankey network query. Valid values are `networkDeviceFlows`.
+     * @return The data source for the Sankey network query. Valid values are `networkDeviceFlows`, `network`.
      * 
      */
     public Output<String> dataSource() {
@@ -194,7 +194,7 @@ public final class DashboardV2WidgetSankeyDefinitionRequestNetworkRequestQueryAr
         }
 
         /**
-         * @param dataSource The data source for the Sankey network query. Valid values are `networkDeviceFlows`.
+         * @param dataSource The data source for the Sankey network query. Valid values are `networkDeviceFlows`, `network`.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class DashboardV2WidgetSankeyDefinitionRequestNetworkRequestQueryAr
         }
 
         /**
-         * @param dataSource The data source for the Sankey network query. Valid values are `networkDeviceFlows`.
+         * @param dataSource The data source for the Sankey network query. Valid values are `networkDeviceFlows`, `network`.
          * 
          * @return builder
          * 

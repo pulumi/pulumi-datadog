@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class TeamNotificationRuleSlack
     {
         /// <summary>
-        /// Slack channel name for notifications (for example, #alerts or #team-notifications).
+        /// Slack channel name for notifications, without a leading '#'.
         /// </summary>
         public readonly string? Channel;
         /// <summary>

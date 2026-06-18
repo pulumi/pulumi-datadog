@@ -76,6 +76,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsArgs>? GenerateDatadogMetrics { get; set; }
 
         /// <summary>
+        /// The `GenerateMetrics` processor creates custom metrics from logs. The generated metrics must be routed to a metrics destination using the input `&lt;processor-id&gt;.metrics`.
+        /// </summary>
+        [Input("generateMetrics")]
+        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs>? GenerateMetrics { get; set; }
+
+        /// <summary>
         /// The unique identifier for this processor.
         /// </summary>
         [Input("id", required: true)]

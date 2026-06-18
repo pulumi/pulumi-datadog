@@ -55,6 +55,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetrics? GenerateDatadogMetrics;
         /// <summary>
+        /// The `GenerateMetrics` processor creates custom metrics from logs. The generated metrics must be routed to a metrics destination using the input `&lt;processor-id&gt;.metrics`.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics? GenerateMetrics;
+        /// <summary>
         /// The unique identifier for this processor.
         /// </summary>
         public readonly string Id;
@@ -139,6 +143,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetrics? generateDatadogMetrics,
 
+            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics? generateMetrics,
+
             string id,
 
             string include,
@@ -180,6 +186,7 @@ namespace Pulumi.Datadog.Outputs
             EnrichmentTable = enrichmentTable;
             Filter = filter;
             GenerateDatadogMetrics = generateDatadogMetrics;
+            GenerateMetrics = generateMetrics;
             Id = id;
             Include = include;
             MetricTags = metricTags;

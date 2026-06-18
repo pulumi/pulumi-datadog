@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestNetworkRequestQueryComputeArgs>? Compute { get; set; }
 
         /// <summary>
-        /// The data source for the Sankey network query. Valid values are `NetworkDeviceFlows`.
+        /// The data source for the Sankey network query. Valid values are `NetworkDeviceFlows`, `Network`.
         /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;

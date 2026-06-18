@@ -44,7 +44,7 @@ public final class SecurityMonitoringRuleOptions {
      */
     private @Nullable SecurityMonitoringRuleOptionsImpossibleTravelOptions impossibleTravelOptions;
     /**
-     * @return Once a signal is generated, the signal will remain &#34;open&#34; if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`. Defaults to `0`.
+     * @return Once a signal is generated, the signal will remain &#34;open&#34; if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`. Defaults to `3600`.
      * 
      */
     private @Nullable Integer keepAlive;
@@ -106,7 +106,7 @@ public final class SecurityMonitoringRuleOptions {
         return Optional.ofNullable(this.impossibleTravelOptions);
     }
     /**
-     * @return Once a signal is generated, the signal will remain &#34;open&#34; if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`. Defaults to `0`.
+     * @return Once a signal is generated, the signal will remain &#34;open&#34; if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`. Defaults to `3600`.
      * 
      */
     public Optional<Integer> keepAlive() {

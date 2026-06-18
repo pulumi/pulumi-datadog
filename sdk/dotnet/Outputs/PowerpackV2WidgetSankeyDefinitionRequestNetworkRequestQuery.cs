@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetSankeyDefinitionRequestNetworkRequestQueryCompute? Compute;
         /// <summary>
-        /// The data source for the Sankey network query. Valid values are `NetworkDeviceFlows`.
+        /// The data source for the Sankey network query. Valid values are `NetworkDeviceFlows`, `Network`.
         /// </summary>
         public readonly string DataSource;
         /// <summary>

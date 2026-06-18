@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *                 .serviceName("my-service")
  *                 .build())
  *             .slack(com.pulumi.datadog.inputs.TeamNotificationRuleSlackArgs.builder()
- *                 .channel("#test-channel")
+ *                 .channel("test-channel")
  *                 .workspace("Datadog")
  *                 .build())
  *             .build());

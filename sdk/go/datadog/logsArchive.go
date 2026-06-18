@@ -65,8 +65,12 @@ type LogsArchive struct {
 	GcsArchive LogsArchiveGcsArchivePtrOutput `pulumi:"gcsArchive"`
 	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
 	IncludeTags pulumi.BoolPtrOutput `pulumi:"includeTags"`
+	// An array of attributes to use as lookup keys for the archive.
+	LookupAttributes pulumi.StringArrayOutput `pulumi:"lookupAttributes"`
 	// Your archive name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
+	PartitioningAttributes pulumi.StringArrayOutput `pulumi:"partitioningAttributes"`
 	// The archive query/filter. Logs matching this query are included in the archive.
 	Query pulumi.StringOutput `pulumi:"query"`
 	// To limit the rehydration scan size for the archive, set a value in GB.
@@ -121,8 +125,12 @@ type logsArchiveState struct {
 	GcsArchive *LogsArchiveGcsArchive `pulumi:"gcsArchive"`
 	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
 	IncludeTags *bool `pulumi:"includeTags"`
+	// An array of attributes to use as lookup keys for the archive.
+	LookupAttributes []string `pulumi:"lookupAttributes"`
 	// Your archive name.
 	Name *string `pulumi:"name"`
+	// An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
+	PartitioningAttributes []string `pulumi:"partitioningAttributes"`
 	// The archive query/filter. Logs matching this query are included in the archive.
 	Query *string `pulumi:"query"`
 	// To limit the rehydration scan size for the archive, set a value in GB.
@@ -142,8 +150,12 @@ type LogsArchiveState struct {
 	GcsArchive LogsArchiveGcsArchivePtrInput
 	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
 	IncludeTags pulumi.BoolPtrInput
+	// An array of attributes to use as lookup keys for the archive.
+	LookupAttributes pulumi.StringArrayInput
 	// Your archive name.
 	Name pulumi.StringPtrInput
+	// An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
+	PartitioningAttributes pulumi.StringArrayInput
 	// The archive query/filter. Logs matching this query are included in the archive.
 	Query pulumi.StringPtrInput
 	// To limit the rehydration scan size for the archive, set a value in GB.
@@ -167,8 +179,12 @@ type logsArchiveArgs struct {
 	GcsArchive *LogsArchiveGcsArchive `pulumi:"gcsArchive"`
 	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
 	IncludeTags *bool `pulumi:"includeTags"`
+	// An array of attributes to use as lookup keys for the archive.
+	LookupAttributes []string `pulumi:"lookupAttributes"`
 	// Your archive name.
 	Name string `pulumi:"name"`
+	// An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
+	PartitioningAttributes []string `pulumi:"partitioningAttributes"`
 	// The archive query/filter. Logs matching this query are included in the archive.
 	Query string `pulumi:"query"`
 	// To limit the rehydration scan size for the archive, set a value in GB.
@@ -189,8 +205,12 @@ type LogsArchiveArgs struct {
 	GcsArchive LogsArchiveGcsArchivePtrInput
 	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
 	IncludeTags pulumi.BoolPtrInput
+	// An array of attributes to use as lookup keys for the archive.
+	LookupAttributes pulumi.StringArrayInput
 	// Your archive name.
 	Name pulumi.StringInput
+	// An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
+	PartitioningAttributes pulumi.StringArrayInput
 	// The archive query/filter. Logs matching this query are included in the archive.
 	Query pulumi.StringInput
 	// To limit the rehydration scan size for the archive, set a value in GB.
@@ -308,9 +328,19 @@ func (o LogsArchiveOutput) IncludeTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsArchive) pulumi.BoolPtrOutput { return v.IncludeTags }).(pulumi.BoolPtrOutput)
 }
 
+// An array of attributes to use as lookup keys for the archive.
+func (o LogsArchiveOutput) LookupAttributes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LogsArchive) pulumi.StringArrayOutput { return v.LookupAttributes }).(pulumi.StringArrayOutput)
+}
+
 // Your archive name.
 func (o LogsArchiveOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogsArchive) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
+func (o LogsArchiveOutput) PartitioningAttributes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LogsArchive) pulumi.StringArrayOutput { return v.PartitioningAttributes }).(pulumi.StringArrayOutput)
 }
 
 // The archive query/filter. Logs matching this query are included in the archive.

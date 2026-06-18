@@ -132,6 +132,20 @@ public class LogsArchive extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.includeTags);
     }
     /**
+     * An array of attributes to use as lookup keys for the archive.
+     * 
+     */
+    @Export(name="lookupAttributes", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> lookupAttributes;
+
+    /**
+     * @return An array of attributes to use as lookup keys for the archive.
+     * 
+     */
+    public Output<Optional<List<String>>> lookupAttributes() {
+        return Codegen.optional(this.lookupAttributes);
+    }
+    /**
      * Your archive name.
      * 
      */
@@ -144,6 +158,20 @@ public class LogsArchive extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
+     * 
+     */
+    @Export(name="partitioningAttributes", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> partitioningAttributes;
+
+    /**
+     * @return An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
+     * 
+     */
+    public Output<Optional<List<String>>> partitioningAttributes() {
+        return Codegen.optional(this.partitioningAttributes);
     }
     /**
      * The archive query/filter. Logs matching this query are included in the archive.

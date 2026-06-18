@@ -14,6 +14,7 @@ import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProces
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorFilterArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokArgs;
@@ -194,6 +195,21 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
      */
     public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsArgs>> generateDatadogMetrics() {
         return Optional.ofNullable(this.generateDatadogMetrics);
+    }
+
+    /**
+     * The `generateMetrics` processor creates custom metrics from logs. The generated metrics must be routed to a metrics destination using the input `&lt;processor-id&gt;.metrics`.
+     * 
+     */
+    @Import(name="generateMetrics")
+    private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs> generateMetrics;
+
+    /**
+     * @return The `generateMetrics` processor creates custom metrics from logs. The generated metrics must be routed to a metrics destination using the input `&lt;processor-id&gt;.metrics`.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs>> generateMetrics() {
+        return Optional.ofNullable(this.generateMetrics);
     }
 
     /**
@@ -435,6 +451,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
         this.enrichmentTable = $.enrichmentTable;
         this.filter = $.filter;
         this.generateDatadogMetrics = $.generateDatadogMetrics;
+        this.generateMetrics = $.generateMetrics;
         this.id = $.id;
         this.include = $.include;
         this.metricTags = $.metricTags;
@@ -687,6 +704,27 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
          */
         public Builder generateDatadogMetrics(ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsArgs generateDatadogMetrics) {
             return generateDatadogMetrics(Output.of(generateDatadogMetrics));
+        }
+
+        /**
+         * @param generateMetrics The `generateMetrics` processor creates custom metrics from logs. The generated metrics must be routed to a metrics destination using the input `&lt;processor-id&gt;.metrics`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder generateMetrics(@Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs> generateMetrics) {
+            $.generateMetrics = generateMetrics;
+            return this;
+        }
+
+        /**
+         * @param generateMetrics The `generateMetrics` processor creates custom metrics from logs. The generated metrics must be routed to a metrics destination using the input `&lt;processor-id&gt;.metrics`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder generateMetrics(ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs generateMetrics) {
+            return generateMetrics(Output.of(generateMetrics));
         }
 
         /**

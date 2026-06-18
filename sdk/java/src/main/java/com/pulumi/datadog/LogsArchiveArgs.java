@@ -83,6 +83,21 @@ public final class LogsArchiveArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * An array of attributes to use as lookup keys for the archive.
+     * 
+     */
+    @Import(name="lookupAttributes")
+    private @Nullable Output<List<String>> lookupAttributes;
+
+    /**
+     * @return An array of attributes to use as lookup keys for the archive.
+     * 
+     */
+    public Optional<Output<List<String>>> lookupAttributes() {
+        return Optional.ofNullable(this.lookupAttributes);
+    }
+
+    /**
      * Your archive name.
      * 
      */
@@ -95,6 +110,21 @@ public final class LogsArchiveArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<String> name() {
         return this.name;
+    }
+
+    /**
+     * An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
+     * 
+     */
+    @Import(name="partitioningAttributes")
+    private @Nullable Output<List<String>> partitioningAttributes;
+
+    /**
+     * @return An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
+     * 
+     */
+    public Optional<Output<List<String>>> partitioningAttributes() {
+        return Optional.ofNullable(this.partitioningAttributes);
     }
 
     /**
@@ -164,7 +194,9 @@ public final class LogsArchiveArgs extends com.pulumi.resources.ResourceArgs {
         this.compressionMethod = $.compressionMethod;
         this.gcsArchive = $.gcsArchive;
         this.includeTags = $.includeTags;
+        this.lookupAttributes = $.lookupAttributes;
         this.name = $.name;
+        this.partitioningAttributes = $.partitioningAttributes;
         this.query = $.query;
         this.rehydrationMaxScanSizeInGb = $.rehydrationMaxScanSizeInGb;
         this.rehydrationTags = $.rehydrationTags;
@@ -274,6 +306,37 @@ public final class LogsArchiveArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param lookupAttributes An array of attributes to use as lookup keys for the archive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lookupAttributes(@Nullable Output<List<String>> lookupAttributes) {
+            $.lookupAttributes = lookupAttributes;
+            return this;
+        }
+
+        /**
+         * @param lookupAttributes An array of attributes to use as lookup keys for the archive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lookupAttributes(List<String> lookupAttributes) {
+            return lookupAttributes(Output.of(lookupAttributes));
+        }
+
+        /**
+         * @param lookupAttributes An array of attributes to use as lookup keys for the archive.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lookupAttributes(String... lookupAttributes) {
+            return lookupAttributes(List.of(lookupAttributes));
+        }
+
+        /**
          * @param name Your archive name.
          * 
          * @return builder
@@ -292,6 +355,37 @@ public final class LogsArchiveArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param partitioningAttributes An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder partitioningAttributes(@Nullable Output<List<String>> partitioningAttributes) {
+            $.partitioningAttributes = partitioningAttributes;
+            return this;
+        }
+
+        /**
+         * @param partitioningAttributes An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder partitioningAttributes(List<String> partitioningAttributes) {
+            return partitioningAttributes(Output.of(partitioningAttributes));
+        }
+
+        /**
+         * @param partitioningAttributes An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder partitioningAttributes(String... partitioningAttributes) {
+            return partitioningAttributes(List.of(partitioningAttributes));
         }
 
         /**

@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class TeamNotificationRuleSlackGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Slack channel name for notifications (for example, #alerts or #team-notifications).
+        /// Slack channel name for notifications, without a leading '#'.
         /// </summary>
         [Input("channel")]
         public Input<string>? Channel { get; set; }
