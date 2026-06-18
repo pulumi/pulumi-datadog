@@ -74,10 +74,22 @@ namespace Pulumi.Datadog
         public Output<bool?> IncludeTags { get; private set; } = null!;
 
         /// <summary>
+        /// An array of attributes to use as lookup keys for the archive.
+        /// </summary>
+        [Output("lookupAttributes")]
+        public Output<ImmutableArray<string>> LookupAttributes { get; private set; } = null!;
+
+        /// <summary>
         /// Your archive name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
+        /// </summary>
+        [Output("partitioningAttributes")]
+        public Output<ImmutableArray<string>> PartitioningAttributes { get; private set; } = null!;
 
         /// <summary>
         /// The archive query/filter. Logs matching this query are included in the archive.
@@ -173,11 +185,35 @@ namespace Pulumi.Datadog
         [Input("includeTags")]
         public Input<bool>? IncludeTags { get; set; }
 
+        [Input("lookupAttributes")]
+        private InputList<string>? _lookupAttributes;
+
+        /// <summary>
+        /// An array of attributes to use as lookup keys for the archive.
+        /// </summary>
+        public InputList<string> LookupAttributes
+        {
+            get => _lookupAttributes ?? (_lookupAttributes = new InputList<string>());
+            set => _lookupAttributes = value;
+        }
+
         /// <summary>
         /// Your archive name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("partitioningAttributes")]
+        private InputList<string>? _partitioningAttributes;
+
+        /// <summary>
+        /// An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
+        /// </summary>
+        public InputList<string> PartitioningAttributes
+        {
+            get => _partitioningAttributes ?? (_partitioningAttributes = new InputList<string>());
+            set => _partitioningAttributes = value;
+        }
 
         /// <summary>
         /// The archive query/filter. Logs matching this query are included in the archive.
@@ -241,11 +277,35 @@ namespace Pulumi.Datadog
         [Input("includeTags")]
         public Input<bool>? IncludeTags { get; set; }
 
+        [Input("lookupAttributes")]
+        private InputList<string>? _lookupAttributes;
+
+        /// <summary>
+        /// An array of attributes to use as lookup keys for the archive.
+        /// </summary>
+        public InputList<string> LookupAttributes
+        {
+            get => _lookupAttributes ?? (_lookupAttributes = new InputList<string>());
+            set => _lookupAttributes = value;
+        }
+
         /// <summary>
         /// Your archive name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("partitioningAttributes")]
+        private InputList<string>? _partitioningAttributes;
+
+        /// <summary>
+        /// An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
+        /// </summary>
+        public InputList<string> PartitioningAttributes
+        {
+            get => _partitioningAttributes ?? (_partitioningAttributes = new InputList<string>());
+            set => _partitioningAttributes = value;
+        }
 
         /// <summary>
         /// The archive query/filter. Logs matching this query are included in the archive.

@@ -56,7 +56,7 @@ import (
 //				},
 //				Slack: datadog.TeamNotificationRuleSlackArgs{
 //					map[string]interface{}{
-//						"channel":   "#test-channel",
+//						"channel":   "test-channel",
 //						"workspace": "Datadog",
 //					},
 //				},

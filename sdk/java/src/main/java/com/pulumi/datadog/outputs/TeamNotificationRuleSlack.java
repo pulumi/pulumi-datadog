@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TeamNotificationRuleSlack {
     /**
-     * @return Slack channel name for notifications (for example, #alerts or #team-notifications).
+     * @return Slack channel name for notifications, without a leading &#39;#&#39;.
      * 
      */
     private @Nullable String channel;
@@ -24,7 +24,7 @@ public final class TeamNotificationRuleSlack {
 
     private TeamNotificationRuleSlack() {}
     /**
-     * @return Slack channel name for notifications (for example, #alerts or #team-notifications).
+     * @return Slack channel name for notifications, without a leading &#39;#&#39;.
      * 
      */
     public Optional<String> channel() {

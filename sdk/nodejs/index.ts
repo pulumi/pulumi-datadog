@@ -883,6 +883,21 @@ export type SyntheticsTest = import("./syntheticsTest").SyntheticsTest;
 export const SyntheticsTest: typeof import("./syntheticsTest").SyntheticsTest = null as any;
 utilities.lazyLoad(exports, ["SyntheticsTest"], () => require("./syntheticsTest"));
 
+export { TagIndexingRuleArgs, TagIndexingRuleState } from "./tagIndexingRule";
+export type TagIndexingRule = import("./tagIndexingRule").TagIndexingRule;
+export const TagIndexingRule: typeof import("./tagIndexingRule").TagIndexingRule = null as any;
+utilities.lazyLoad(exports, ["TagIndexingRule"], () => require("./tagIndexingRule"));
+
+export { TagIndexingRuleExemptionArgs, TagIndexingRuleExemptionState } from "./tagIndexingRuleExemption";
+export type TagIndexingRuleExemption = import("./tagIndexingRuleExemption").TagIndexingRuleExemption;
+export const TagIndexingRuleExemption: typeof import("./tagIndexingRuleExemption").TagIndexingRuleExemption = null as any;
+utilities.lazyLoad(exports, ["TagIndexingRuleExemption"], () => require("./tagIndexingRuleExemption"));
+
+export { TagIndexingRuleOrderArgs, TagIndexingRuleOrderState } from "./tagIndexingRuleOrder";
+export type TagIndexingRuleOrder = import("./tagIndexingRuleOrder").TagIndexingRuleOrder;
+export const TagIndexingRuleOrder: typeof import("./tagIndexingRuleOrder").TagIndexingRuleOrder = null as any;
+utilities.lazyLoad(exports, ["TagIndexingRuleOrder"], () => require("./tagIndexingRuleOrder"));
+
 export { TagPipelineRulesetArgs, TagPipelineRulesetState } from "./tagPipelineRuleset";
 export type TagPipelineRuleset = import("./tagPipelineRuleset").TagPipelineRuleset;
 export const TagPipelineRuleset: typeof import("./tagPipelineRuleset").TagPipelineRuleset = null as any;
@@ -1200,6 +1215,12 @@ const _module = {
                 return new SyntheticsSuite(name, <any>undefined, { urn })
             case "datadog:index/syntheticsTest:SyntheticsTest":
                 return new SyntheticsTest(name, <any>undefined, { urn })
+            case "datadog:index/tagIndexingRule:TagIndexingRule":
+                return new TagIndexingRule(name, <any>undefined, { urn })
+            case "datadog:index/tagIndexingRuleExemption:TagIndexingRuleExemption":
+                return new TagIndexingRuleExemption(name, <any>undefined, { urn })
+            case "datadog:index/tagIndexingRuleOrder:TagIndexingRuleOrder":
+                return new TagIndexingRuleOrder(name, <any>undefined, { urn })
             case "datadog:index/tagPipelineRuleset:TagPipelineRuleset":
                 return new TagPipelineRuleset(name, <any>undefined, { urn })
             case "datadog:index/tagPipelineRulesets:TagPipelineRulesets":
@@ -1339,6 +1360,9 @@ pulumi.runtime.registerResourceModule("datadog", "index/syntheticsGlobalVariable
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsPrivateLocation", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsSuite", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsTest", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/tagIndexingRule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/tagIndexingRuleExemption", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/tagIndexingRuleOrder", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/tagPipelineRuleset", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/tagPipelineRulesets", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/team", _module)

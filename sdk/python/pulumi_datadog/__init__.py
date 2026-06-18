@@ -182,6 +182,9 @@ from .synthetics_global_variable import *
 from .synthetics_private_location import *
 from .synthetics_suite import *
 from .synthetics_test import *
+from .tag_indexing_rule import *
+from .tag_indexing_rule_exemption import *
+from .tag_indexing_rule_order import *
 from .tag_pipeline_ruleset import *
 from .tag_pipeline_rulesets import *
 from .team import *
@@ -1166,6 +1169,30 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/syntheticsTest:SyntheticsTest": "SyntheticsTest"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/tagIndexingRule",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/tagIndexingRule:TagIndexingRule": "TagIndexingRule"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/tagIndexingRuleExemption",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/tagIndexingRuleExemption:TagIndexingRuleExemption": "TagIndexingRuleExemption"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/tagIndexingRuleOrder",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/tagIndexingRuleOrder:TagIndexingRuleOrder": "TagIndexingRuleOrder"
   }
  },
  {

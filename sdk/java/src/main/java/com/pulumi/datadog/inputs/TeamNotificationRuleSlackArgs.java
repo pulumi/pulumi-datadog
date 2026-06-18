@@ -16,14 +16,14 @@ public final class TeamNotificationRuleSlackArgs extends com.pulumi.resources.Re
     public static final TeamNotificationRuleSlackArgs Empty = new TeamNotificationRuleSlackArgs();
 
     /**
-     * Slack channel name for notifications (for example, #alerts or #team-notifications).
+     * Slack channel name for notifications, without a leading &#39;#&#39;.
      * 
      */
     @Import(name="channel")
     private @Nullable Output<String> channel;
 
     /**
-     * @return Slack channel name for notifications (for example, #alerts or #team-notifications).
+     * @return Slack channel name for notifications, without a leading &#39;#&#39;.
      * 
      */
     public Optional<Output<String>> channel() {
@@ -71,7 +71,7 @@ public final class TeamNotificationRuleSlackArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param channel Slack channel name for notifications (for example, #alerts or #team-notifications).
+         * @param channel Slack channel name for notifications, without a leading &#39;#&#39;.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class TeamNotificationRuleSlackArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param channel Slack channel name for notifications (for example, #alerts or #team-notifications).
+         * @param channel Slack channel name for notifications, without a leading &#39;#&#39;.
          * 
          * @return builder
          * 

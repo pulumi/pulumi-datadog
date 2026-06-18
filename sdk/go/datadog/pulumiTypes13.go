@@ -13,6 +13,324 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type SecurityMonitoringDefaultRuleQueryAgentRule struct {
+	// **Deprecated**. It won't be applied anymore.
+	AgentRuleId string `pulumi:"agentRuleId"`
+	// **Deprecated**. It won't be applied anymore.
+	Expression string `pulumi:"expression"`
+}
+
+// SecurityMonitoringDefaultRuleQueryAgentRuleInput is an input type that accepts SecurityMonitoringDefaultRuleQueryAgentRuleArgs and SecurityMonitoringDefaultRuleQueryAgentRuleOutput values.
+// You can construct a concrete instance of `SecurityMonitoringDefaultRuleQueryAgentRuleInput` via:
+//
+//	SecurityMonitoringDefaultRuleQueryAgentRuleArgs{...}
+type SecurityMonitoringDefaultRuleQueryAgentRuleInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringDefaultRuleQueryAgentRuleOutput() SecurityMonitoringDefaultRuleQueryAgentRuleOutput
+	ToSecurityMonitoringDefaultRuleQueryAgentRuleOutputWithContext(context.Context) SecurityMonitoringDefaultRuleQueryAgentRuleOutput
+}
+
+type SecurityMonitoringDefaultRuleQueryAgentRuleArgs struct {
+	// **Deprecated**. It won't be applied anymore.
+	AgentRuleId pulumi.StringInput `pulumi:"agentRuleId"`
+	// **Deprecated**. It won't be applied anymore.
+	Expression pulumi.StringInput `pulumi:"expression"`
+}
+
+func (SecurityMonitoringDefaultRuleQueryAgentRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringDefaultRuleQueryAgentRule)(nil)).Elem()
+}
+
+func (i SecurityMonitoringDefaultRuleQueryAgentRuleArgs) ToSecurityMonitoringDefaultRuleQueryAgentRuleOutput() SecurityMonitoringDefaultRuleQueryAgentRuleOutput {
+	return i.ToSecurityMonitoringDefaultRuleQueryAgentRuleOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringDefaultRuleQueryAgentRuleArgs) ToSecurityMonitoringDefaultRuleQueryAgentRuleOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleQueryAgentRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleQueryAgentRuleOutput)
+}
+
+// SecurityMonitoringDefaultRuleQueryAgentRuleArrayInput is an input type that accepts SecurityMonitoringDefaultRuleQueryAgentRuleArray and SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput values.
+// You can construct a concrete instance of `SecurityMonitoringDefaultRuleQueryAgentRuleArrayInput` via:
+//
+//	SecurityMonitoringDefaultRuleQueryAgentRuleArray{ SecurityMonitoringDefaultRuleQueryAgentRuleArgs{...} }
+type SecurityMonitoringDefaultRuleQueryAgentRuleArrayInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput() SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput
+	ToSecurityMonitoringDefaultRuleQueryAgentRuleArrayOutputWithContext(context.Context) SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput
+}
+
+type SecurityMonitoringDefaultRuleQueryAgentRuleArray []SecurityMonitoringDefaultRuleQueryAgentRuleInput
+
+func (SecurityMonitoringDefaultRuleQueryAgentRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringDefaultRuleQueryAgentRule)(nil)).Elem()
+}
+
+func (i SecurityMonitoringDefaultRuleQueryAgentRuleArray) ToSecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput() SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput {
+	return i.ToSecurityMonitoringDefaultRuleQueryAgentRuleArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringDefaultRuleQueryAgentRuleArray) ToSecurityMonitoringDefaultRuleQueryAgentRuleArrayOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput)
+}
+
+type SecurityMonitoringDefaultRuleQueryAgentRuleOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringDefaultRuleQueryAgentRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringDefaultRuleQueryAgentRule)(nil)).Elem()
+}
+
+func (o SecurityMonitoringDefaultRuleQueryAgentRuleOutput) ToSecurityMonitoringDefaultRuleQueryAgentRuleOutput() SecurityMonitoringDefaultRuleQueryAgentRuleOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleQueryAgentRuleOutput) ToSecurityMonitoringDefaultRuleQueryAgentRuleOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleQueryAgentRuleOutput {
+	return o
+}
+
+// **Deprecated**. It won't be applied anymore.
+func (o SecurityMonitoringDefaultRuleQueryAgentRuleOutput) AgentRuleId() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQueryAgentRule) string { return v.AgentRuleId }).(pulumi.StringOutput)
+}
+
+// **Deprecated**. It won't be applied anymore.
+func (o SecurityMonitoringDefaultRuleQueryAgentRuleOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQueryAgentRule) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+type SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringDefaultRuleQueryAgentRule)(nil)).Elem()
+}
+
+func (o SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput) ToSecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput() SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput) ToSecurityMonitoringDefaultRuleQueryAgentRuleArrayOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringDefaultRuleQueryAgentRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMonitoringDefaultRuleQueryAgentRule {
+		return vs[0].([]SecurityMonitoringDefaultRuleQueryAgentRule)[vs[1].(int)]
+	}).(SecurityMonitoringDefaultRuleQueryAgentRuleOutput)
+}
+
+type SecurityMonitoringFilterExclusionFilter struct {
+	// Exclusion filter name.
+	Name string `pulumi:"name"`
+	// Exclusion filter query. Logs that match this query are excluded from the security filter.
+	Query string `pulumi:"query"`
+}
+
+// SecurityMonitoringFilterExclusionFilterInput is an input type that accepts SecurityMonitoringFilterExclusionFilterArgs and SecurityMonitoringFilterExclusionFilterOutput values.
+// You can construct a concrete instance of `SecurityMonitoringFilterExclusionFilterInput` via:
+//
+//	SecurityMonitoringFilterExclusionFilterArgs{...}
+type SecurityMonitoringFilterExclusionFilterInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringFilterExclusionFilterOutput() SecurityMonitoringFilterExclusionFilterOutput
+	ToSecurityMonitoringFilterExclusionFilterOutputWithContext(context.Context) SecurityMonitoringFilterExclusionFilterOutput
+}
+
+type SecurityMonitoringFilterExclusionFilterArgs struct {
+	// Exclusion filter name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Exclusion filter query. Logs that match this query are excluded from the security filter.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (SecurityMonitoringFilterExclusionFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringFilterExclusionFilter)(nil)).Elem()
+}
+
+func (i SecurityMonitoringFilterExclusionFilterArgs) ToSecurityMonitoringFilterExclusionFilterOutput() SecurityMonitoringFilterExclusionFilterOutput {
+	return i.ToSecurityMonitoringFilterExclusionFilterOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringFilterExclusionFilterArgs) ToSecurityMonitoringFilterExclusionFilterOutputWithContext(ctx context.Context) SecurityMonitoringFilterExclusionFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringFilterExclusionFilterOutput)
+}
+
+// SecurityMonitoringFilterExclusionFilterArrayInput is an input type that accepts SecurityMonitoringFilterExclusionFilterArray and SecurityMonitoringFilterExclusionFilterArrayOutput values.
+// You can construct a concrete instance of `SecurityMonitoringFilterExclusionFilterArrayInput` via:
+//
+//	SecurityMonitoringFilterExclusionFilterArray{ SecurityMonitoringFilterExclusionFilterArgs{...} }
+type SecurityMonitoringFilterExclusionFilterArrayInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringFilterExclusionFilterArrayOutput() SecurityMonitoringFilterExclusionFilterArrayOutput
+	ToSecurityMonitoringFilterExclusionFilterArrayOutputWithContext(context.Context) SecurityMonitoringFilterExclusionFilterArrayOutput
+}
+
+type SecurityMonitoringFilterExclusionFilterArray []SecurityMonitoringFilterExclusionFilterInput
+
+func (SecurityMonitoringFilterExclusionFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringFilterExclusionFilter)(nil)).Elem()
+}
+
+func (i SecurityMonitoringFilterExclusionFilterArray) ToSecurityMonitoringFilterExclusionFilterArrayOutput() SecurityMonitoringFilterExclusionFilterArrayOutput {
+	return i.ToSecurityMonitoringFilterExclusionFilterArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringFilterExclusionFilterArray) ToSecurityMonitoringFilterExclusionFilterArrayOutputWithContext(ctx context.Context) SecurityMonitoringFilterExclusionFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringFilterExclusionFilterArrayOutput)
+}
+
+type SecurityMonitoringFilterExclusionFilterOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringFilterExclusionFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringFilterExclusionFilter)(nil)).Elem()
+}
+
+func (o SecurityMonitoringFilterExclusionFilterOutput) ToSecurityMonitoringFilterExclusionFilterOutput() SecurityMonitoringFilterExclusionFilterOutput {
+	return o
+}
+
+func (o SecurityMonitoringFilterExclusionFilterOutput) ToSecurityMonitoringFilterExclusionFilterOutputWithContext(ctx context.Context) SecurityMonitoringFilterExclusionFilterOutput {
+	return o
+}
+
+// Exclusion filter name.
+func (o SecurityMonitoringFilterExclusionFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringFilterExclusionFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Exclusion filter query. Logs that match this query are excluded from the security filter.
+func (o SecurityMonitoringFilterExclusionFilterOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringFilterExclusionFilter) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type SecurityMonitoringFilterExclusionFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringFilterExclusionFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringFilterExclusionFilter)(nil)).Elem()
+}
+
+func (o SecurityMonitoringFilterExclusionFilterArrayOutput) ToSecurityMonitoringFilterExclusionFilterArrayOutput() SecurityMonitoringFilterExclusionFilterArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringFilterExclusionFilterArrayOutput) ToSecurityMonitoringFilterExclusionFilterArrayOutputWithContext(ctx context.Context) SecurityMonitoringFilterExclusionFilterArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringFilterExclusionFilterArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringFilterExclusionFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMonitoringFilterExclusionFilter {
+		return vs[0].([]SecurityMonitoringFilterExclusionFilter)[vs[1].(int)]
+	}).(SecurityMonitoringFilterExclusionFilterOutput)
+}
+
+type SecurityMonitoringRuleCalculatedField struct {
+	// Expression. String length must be at least 1.
+	Expression string `pulumi:"expression"`
+	// Field name. String length must be at least 1.
+	Name string `pulumi:"name"`
+}
+
+// SecurityMonitoringRuleCalculatedFieldInput is an input type that accepts SecurityMonitoringRuleCalculatedFieldArgs and SecurityMonitoringRuleCalculatedFieldOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleCalculatedFieldInput` via:
+//
+//	SecurityMonitoringRuleCalculatedFieldArgs{...}
+type SecurityMonitoringRuleCalculatedFieldInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleCalculatedFieldOutput() SecurityMonitoringRuleCalculatedFieldOutput
+	ToSecurityMonitoringRuleCalculatedFieldOutputWithContext(context.Context) SecurityMonitoringRuleCalculatedFieldOutput
+}
+
+type SecurityMonitoringRuleCalculatedFieldArgs struct {
+	// Expression. String length must be at least 1.
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// Field name. String length must be at least 1.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (SecurityMonitoringRuleCalculatedFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleCalculatedField)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleCalculatedFieldArgs) ToSecurityMonitoringRuleCalculatedFieldOutput() SecurityMonitoringRuleCalculatedFieldOutput {
+	return i.ToSecurityMonitoringRuleCalculatedFieldOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleCalculatedFieldArgs) ToSecurityMonitoringRuleCalculatedFieldOutputWithContext(ctx context.Context) SecurityMonitoringRuleCalculatedFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleCalculatedFieldOutput)
+}
+
+// SecurityMonitoringRuleCalculatedFieldArrayInput is an input type that accepts SecurityMonitoringRuleCalculatedFieldArray and SecurityMonitoringRuleCalculatedFieldArrayOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleCalculatedFieldArrayInput` via:
+//
+//	SecurityMonitoringRuleCalculatedFieldArray{ SecurityMonitoringRuleCalculatedFieldArgs{...} }
+type SecurityMonitoringRuleCalculatedFieldArrayInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleCalculatedFieldArrayOutput() SecurityMonitoringRuleCalculatedFieldArrayOutput
+	ToSecurityMonitoringRuleCalculatedFieldArrayOutputWithContext(context.Context) SecurityMonitoringRuleCalculatedFieldArrayOutput
+}
+
+type SecurityMonitoringRuleCalculatedFieldArray []SecurityMonitoringRuleCalculatedFieldInput
+
+func (SecurityMonitoringRuleCalculatedFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringRuleCalculatedField)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleCalculatedFieldArray) ToSecurityMonitoringRuleCalculatedFieldArrayOutput() SecurityMonitoringRuleCalculatedFieldArrayOutput {
+	return i.ToSecurityMonitoringRuleCalculatedFieldArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleCalculatedFieldArray) ToSecurityMonitoringRuleCalculatedFieldArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleCalculatedFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleCalculatedFieldArrayOutput)
+}
+
+type SecurityMonitoringRuleCalculatedFieldOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleCalculatedFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleCalculatedField)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleCalculatedFieldOutput) ToSecurityMonitoringRuleCalculatedFieldOutput() SecurityMonitoringRuleCalculatedFieldOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleCalculatedFieldOutput) ToSecurityMonitoringRuleCalculatedFieldOutputWithContext(ctx context.Context) SecurityMonitoringRuleCalculatedFieldOutput {
+	return o
+}
+
+// Expression. String length must be at least 1.
+func (o SecurityMonitoringRuleCalculatedFieldOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleCalculatedField) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+// Field name. String length must be at least 1.
+func (o SecurityMonitoringRuleCalculatedFieldOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleCalculatedField) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type SecurityMonitoringRuleCalculatedFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleCalculatedFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringRuleCalculatedField)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleCalculatedFieldArrayOutput) ToSecurityMonitoringRuleCalculatedFieldArrayOutput() SecurityMonitoringRuleCalculatedFieldArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleCalculatedFieldArrayOutput) ToSecurityMonitoringRuleCalculatedFieldArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleCalculatedFieldArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleCalculatedFieldArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringRuleCalculatedFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMonitoringRuleCalculatedField {
+		return vs[0].([]SecurityMonitoringRuleCalculatedField)[vs[1].(int)]
+	}).(SecurityMonitoringRuleCalculatedFieldOutput)
+}
+
 type SecurityMonitoringRuleCase struct {
 	// Action to perform when the case trigger
 	Actions []SecurityMonitoringRuleCaseAction `pulumi:"actions"`
@@ -506,7 +824,7 @@ type SecurityMonitoringRuleOptions struct {
 	EvaluationWindow *int `pulumi:"evaluationWindow"`
 	// Options for rules using the impossible travel detection method.
 	ImpossibleTravelOptions *SecurityMonitoringRuleOptionsImpossibleTravelOptions `pulumi:"impossibleTravelOptions"`
-	// Once a signal is generated, the signal will remain "open" if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`. Defaults to `0`.
+	// Once a signal is generated, the signal will remain "open" if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`. Defaults to `3600`.
 	KeepAlive *int `pulumi:"keepAlive"`
 	// A signal will "close" regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
 	MaxSignalDuration *int `pulumi:"maxSignalDuration"`
@@ -540,7 +858,7 @@ type SecurityMonitoringRuleOptionsArgs struct {
 	EvaluationWindow pulumi.IntPtrInput `pulumi:"evaluationWindow"`
 	// Options for rules using the impossible travel detection method.
 	ImpossibleTravelOptions SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrInput `pulumi:"impossibleTravelOptions"`
-	// Once a signal is generated, the signal will remain "open" if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`. Defaults to `0`.
+	// Once a signal is generated, the signal will remain "open" if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`. Defaults to `3600`.
 	KeepAlive pulumi.IntPtrInput `pulumi:"keepAlive"`
 	// A signal will "close" regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
 	MaxSignalDuration pulumi.IntPtrInput `pulumi:"maxSignalDuration"`
@@ -658,7 +976,7 @@ func (o SecurityMonitoringRuleOptionsOutput) ImpossibleTravelOptions() SecurityM
 	}).(SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput)
 }
 
-// Once a signal is generated, the signal will remain "open" if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`. Defaults to `0`.
+// Once a signal is generated, the signal will remain "open" if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`. Defaults to `3600`.
 func (o SecurityMonitoringRuleOptionsOutput) KeepAlive() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SecurityMonitoringRuleOptions) *int { return v.KeepAlive }).(pulumi.IntPtrOutput)
 }
@@ -763,7 +1081,7 @@ func (o SecurityMonitoringRuleOptionsPtrOutput) ImpossibleTravelOptions() Securi
 	}).(SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput)
 }
 
-// Once a signal is generated, the signal will remain "open" if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`. Defaults to `0`.
+// Once a signal is generated, the signal will remain "open" if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`. Defaults to `3600`.
 func (o SecurityMonitoringRuleOptionsPtrOutput) KeepAlive() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRuleOptions) *int {
 		if v == nil {
@@ -19172,6 +19490,725 @@ func (o SyntheticsTestRequestProxyPtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TagIndexingRuleOptions struct {
+	// Behavioral options for how the rule applies to metrics, including backfill and override behavior.
+	Data TagIndexingRuleOptionsData `pulumi:"data"`
+	// Options schema version. Only `1` is supported.
+	Version int `pulumi:"version"`
+}
+
+// TagIndexingRuleOptionsInput is an input type that accepts TagIndexingRuleOptionsArgs and TagIndexingRuleOptionsOutput values.
+// You can construct a concrete instance of `TagIndexingRuleOptionsInput` via:
+//
+//	TagIndexingRuleOptionsArgs{...}
+type TagIndexingRuleOptionsInput interface {
+	pulumi.Input
+
+	ToTagIndexingRuleOptionsOutput() TagIndexingRuleOptionsOutput
+	ToTagIndexingRuleOptionsOutputWithContext(context.Context) TagIndexingRuleOptionsOutput
+}
+
+type TagIndexingRuleOptionsArgs struct {
+	// Behavioral options for how the rule applies to metrics, including backfill and override behavior.
+	Data TagIndexingRuleOptionsDataInput `pulumi:"data"`
+	// Options schema version. Only `1` is supported.
+	Version pulumi.IntInput `pulumi:"version"`
+}
+
+func (TagIndexingRuleOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagIndexingRuleOptions)(nil)).Elem()
+}
+
+func (i TagIndexingRuleOptionsArgs) ToTagIndexingRuleOptionsOutput() TagIndexingRuleOptionsOutput {
+	return i.ToTagIndexingRuleOptionsOutputWithContext(context.Background())
+}
+
+func (i TagIndexingRuleOptionsArgs) ToTagIndexingRuleOptionsOutputWithContext(ctx context.Context) TagIndexingRuleOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagIndexingRuleOptionsOutput)
+}
+
+func (i TagIndexingRuleOptionsArgs) ToTagIndexingRuleOptionsPtrOutput() TagIndexingRuleOptionsPtrOutput {
+	return i.ToTagIndexingRuleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TagIndexingRuleOptionsArgs) ToTagIndexingRuleOptionsPtrOutputWithContext(ctx context.Context) TagIndexingRuleOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagIndexingRuleOptionsOutput).ToTagIndexingRuleOptionsPtrOutputWithContext(ctx)
+}
+
+// TagIndexingRuleOptionsPtrInput is an input type that accepts TagIndexingRuleOptionsArgs, TagIndexingRuleOptionsPtr and TagIndexingRuleOptionsPtrOutput values.
+// You can construct a concrete instance of `TagIndexingRuleOptionsPtrInput` via:
+//
+//	        TagIndexingRuleOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TagIndexingRuleOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTagIndexingRuleOptionsPtrOutput() TagIndexingRuleOptionsPtrOutput
+	ToTagIndexingRuleOptionsPtrOutputWithContext(context.Context) TagIndexingRuleOptionsPtrOutput
+}
+
+type tagIndexingRuleOptionsPtrType TagIndexingRuleOptionsArgs
+
+func TagIndexingRuleOptionsPtr(v *TagIndexingRuleOptionsArgs) TagIndexingRuleOptionsPtrInput {
+	return (*tagIndexingRuleOptionsPtrType)(v)
+}
+
+func (*tagIndexingRuleOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagIndexingRuleOptions)(nil)).Elem()
+}
+
+func (i *tagIndexingRuleOptionsPtrType) ToTagIndexingRuleOptionsPtrOutput() TagIndexingRuleOptionsPtrOutput {
+	return i.ToTagIndexingRuleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *tagIndexingRuleOptionsPtrType) ToTagIndexingRuleOptionsPtrOutputWithContext(ctx context.Context) TagIndexingRuleOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagIndexingRuleOptionsPtrOutput)
+}
+
+type TagIndexingRuleOptionsOutput struct{ *pulumi.OutputState }
+
+func (TagIndexingRuleOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagIndexingRuleOptions)(nil)).Elem()
+}
+
+func (o TagIndexingRuleOptionsOutput) ToTagIndexingRuleOptionsOutput() TagIndexingRuleOptionsOutput {
+	return o
+}
+
+func (o TagIndexingRuleOptionsOutput) ToTagIndexingRuleOptionsOutputWithContext(ctx context.Context) TagIndexingRuleOptionsOutput {
+	return o
+}
+
+func (o TagIndexingRuleOptionsOutput) ToTagIndexingRuleOptionsPtrOutput() TagIndexingRuleOptionsPtrOutput {
+	return o.ToTagIndexingRuleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TagIndexingRuleOptionsOutput) ToTagIndexingRuleOptionsPtrOutputWithContext(ctx context.Context) TagIndexingRuleOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagIndexingRuleOptions) *TagIndexingRuleOptions {
+		return &v
+	}).(TagIndexingRuleOptionsPtrOutput)
+}
+
+// Behavioral options for how the rule applies to metrics, including backfill and override behavior.
+func (o TagIndexingRuleOptionsOutput) Data() TagIndexingRuleOptionsDataOutput {
+	return o.ApplyT(func(v TagIndexingRuleOptions) TagIndexingRuleOptionsData { return v.Data }).(TagIndexingRuleOptionsDataOutput)
+}
+
+// Options schema version. Only `1` is supported.
+func (o TagIndexingRuleOptionsOutput) Version() pulumi.IntOutput {
+	return o.ApplyT(func(v TagIndexingRuleOptions) int { return v.Version }).(pulumi.IntOutput)
+}
+
+type TagIndexingRuleOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TagIndexingRuleOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagIndexingRuleOptions)(nil)).Elem()
+}
+
+func (o TagIndexingRuleOptionsPtrOutput) ToTagIndexingRuleOptionsPtrOutput() TagIndexingRuleOptionsPtrOutput {
+	return o
+}
+
+func (o TagIndexingRuleOptionsPtrOutput) ToTagIndexingRuleOptionsPtrOutputWithContext(ctx context.Context) TagIndexingRuleOptionsPtrOutput {
+	return o
+}
+
+func (o TagIndexingRuleOptionsPtrOutput) Elem() TagIndexingRuleOptionsOutput {
+	return o.ApplyT(func(v *TagIndexingRuleOptions) TagIndexingRuleOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TagIndexingRuleOptions
+		return ret
+	}).(TagIndexingRuleOptionsOutput)
+}
+
+// Behavioral options for how the rule applies to metrics, including backfill and override behavior.
+func (o TagIndexingRuleOptionsPtrOutput) Data() TagIndexingRuleOptionsDataPtrOutput {
+	return o.ApplyT(func(v *TagIndexingRuleOptions) *TagIndexingRuleOptionsData {
+		if v == nil {
+			return nil
+		}
+		return &v.Data
+	}).(TagIndexingRuleOptionsDataPtrOutput)
+}
+
+// Options schema version. Only `1` is supported.
+func (o TagIndexingRuleOptionsPtrOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TagIndexingRuleOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.IntPtrOutput)
+}
+
+type TagIndexingRuleOptionsData struct {
+	// Configuration for including dynamically queried tags.
+	DynamicTags *TagIndexingRuleOptionsDataDynamicTags `pulumi:"dynamicTags"`
+	// When true, the rule applies to metrics ingested before the rule was created.
+	ManagePreexistingMetrics *bool `pulumi:"managePreexistingMetrics"`
+	// Criteria for matching metrics based on query state.
+	MetricMatch *TagIndexingRuleOptionsDataMetricMatch `pulumi:"metricMatch"`
+	// When true, this rule's tag list overrides tags configured by earlier rules for the same metric.
+	OverridePreviousRules *bool `pulumi:"overridePreviousRules"`
+}
+
+// TagIndexingRuleOptionsDataInput is an input type that accepts TagIndexingRuleOptionsDataArgs and TagIndexingRuleOptionsDataOutput values.
+// You can construct a concrete instance of `TagIndexingRuleOptionsDataInput` via:
+//
+//	TagIndexingRuleOptionsDataArgs{...}
+type TagIndexingRuleOptionsDataInput interface {
+	pulumi.Input
+
+	ToTagIndexingRuleOptionsDataOutput() TagIndexingRuleOptionsDataOutput
+	ToTagIndexingRuleOptionsDataOutputWithContext(context.Context) TagIndexingRuleOptionsDataOutput
+}
+
+type TagIndexingRuleOptionsDataArgs struct {
+	// Configuration for including dynamically queried tags.
+	DynamicTags TagIndexingRuleOptionsDataDynamicTagsPtrInput `pulumi:"dynamicTags"`
+	// When true, the rule applies to metrics ingested before the rule was created.
+	ManagePreexistingMetrics pulumi.BoolPtrInput `pulumi:"managePreexistingMetrics"`
+	// Criteria for matching metrics based on query state.
+	MetricMatch TagIndexingRuleOptionsDataMetricMatchPtrInput `pulumi:"metricMatch"`
+	// When true, this rule's tag list overrides tags configured by earlier rules for the same metric.
+	OverridePreviousRules pulumi.BoolPtrInput `pulumi:"overridePreviousRules"`
+}
+
+func (TagIndexingRuleOptionsDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagIndexingRuleOptionsData)(nil)).Elem()
+}
+
+func (i TagIndexingRuleOptionsDataArgs) ToTagIndexingRuleOptionsDataOutput() TagIndexingRuleOptionsDataOutput {
+	return i.ToTagIndexingRuleOptionsDataOutputWithContext(context.Background())
+}
+
+func (i TagIndexingRuleOptionsDataArgs) ToTagIndexingRuleOptionsDataOutputWithContext(ctx context.Context) TagIndexingRuleOptionsDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagIndexingRuleOptionsDataOutput)
+}
+
+func (i TagIndexingRuleOptionsDataArgs) ToTagIndexingRuleOptionsDataPtrOutput() TagIndexingRuleOptionsDataPtrOutput {
+	return i.ToTagIndexingRuleOptionsDataPtrOutputWithContext(context.Background())
+}
+
+func (i TagIndexingRuleOptionsDataArgs) ToTagIndexingRuleOptionsDataPtrOutputWithContext(ctx context.Context) TagIndexingRuleOptionsDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagIndexingRuleOptionsDataOutput).ToTagIndexingRuleOptionsDataPtrOutputWithContext(ctx)
+}
+
+// TagIndexingRuleOptionsDataPtrInput is an input type that accepts TagIndexingRuleOptionsDataArgs, TagIndexingRuleOptionsDataPtr and TagIndexingRuleOptionsDataPtrOutput values.
+// You can construct a concrete instance of `TagIndexingRuleOptionsDataPtrInput` via:
+//
+//	        TagIndexingRuleOptionsDataArgs{...}
+//
+//	or:
+//
+//	        nil
+type TagIndexingRuleOptionsDataPtrInput interface {
+	pulumi.Input
+
+	ToTagIndexingRuleOptionsDataPtrOutput() TagIndexingRuleOptionsDataPtrOutput
+	ToTagIndexingRuleOptionsDataPtrOutputWithContext(context.Context) TagIndexingRuleOptionsDataPtrOutput
+}
+
+type tagIndexingRuleOptionsDataPtrType TagIndexingRuleOptionsDataArgs
+
+func TagIndexingRuleOptionsDataPtr(v *TagIndexingRuleOptionsDataArgs) TagIndexingRuleOptionsDataPtrInput {
+	return (*tagIndexingRuleOptionsDataPtrType)(v)
+}
+
+func (*tagIndexingRuleOptionsDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagIndexingRuleOptionsData)(nil)).Elem()
+}
+
+func (i *tagIndexingRuleOptionsDataPtrType) ToTagIndexingRuleOptionsDataPtrOutput() TagIndexingRuleOptionsDataPtrOutput {
+	return i.ToTagIndexingRuleOptionsDataPtrOutputWithContext(context.Background())
+}
+
+func (i *tagIndexingRuleOptionsDataPtrType) ToTagIndexingRuleOptionsDataPtrOutputWithContext(ctx context.Context) TagIndexingRuleOptionsDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagIndexingRuleOptionsDataPtrOutput)
+}
+
+type TagIndexingRuleOptionsDataOutput struct{ *pulumi.OutputState }
+
+func (TagIndexingRuleOptionsDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagIndexingRuleOptionsData)(nil)).Elem()
+}
+
+func (o TagIndexingRuleOptionsDataOutput) ToTagIndexingRuleOptionsDataOutput() TagIndexingRuleOptionsDataOutput {
+	return o
+}
+
+func (o TagIndexingRuleOptionsDataOutput) ToTagIndexingRuleOptionsDataOutputWithContext(ctx context.Context) TagIndexingRuleOptionsDataOutput {
+	return o
+}
+
+func (o TagIndexingRuleOptionsDataOutput) ToTagIndexingRuleOptionsDataPtrOutput() TagIndexingRuleOptionsDataPtrOutput {
+	return o.ToTagIndexingRuleOptionsDataPtrOutputWithContext(context.Background())
+}
+
+func (o TagIndexingRuleOptionsDataOutput) ToTagIndexingRuleOptionsDataPtrOutputWithContext(ctx context.Context) TagIndexingRuleOptionsDataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagIndexingRuleOptionsData) *TagIndexingRuleOptionsData {
+		return &v
+	}).(TagIndexingRuleOptionsDataPtrOutput)
+}
+
+// Configuration for including dynamically queried tags.
+func (o TagIndexingRuleOptionsDataOutput) DynamicTags() TagIndexingRuleOptionsDataDynamicTagsPtrOutput {
+	return o.ApplyT(func(v TagIndexingRuleOptionsData) *TagIndexingRuleOptionsDataDynamicTags { return v.DynamicTags }).(TagIndexingRuleOptionsDataDynamicTagsPtrOutput)
+}
+
+// When true, the rule applies to metrics ingested before the rule was created.
+func (o TagIndexingRuleOptionsDataOutput) ManagePreexistingMetrics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TagIndexingRuleOptionsData) *bool { return v.ManagePreexistingMetrics }).(pulumi.BoolPtrOutput)
+}
+
+// Criteria for matching metrics based on query state.
+func (o TagIndexingRuleOptionsDataOutput) MetricMatch() TagIndexingRuleOptionsDataMetricMatchPtrOutput {
+	return o.ApplyT(func(v TagIndexingRuleOptionsData) *TagIndexingRuleOptionsDataMetricMatch { return v.MetricMatch }).(TagIndexingRuleOptionsDataMetricMatchPtrOutput)
+}
+
+// When true, this rule's tag list overrides tags configured by earlier rules for the same metric.
+func (o TagIndexingRuleOptionsDataOutput) OverridePreviousRules() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TagIndexingRuleOptionsData) *bool { return v.OverridePreviousRules }).(pulumi.BoolPtrOutput)
+}
+
+type TagIndexingRuleOptionsDataPtrOutput struct{ *pulumi.OutputState }
+
+func (TagIndexingRuleOptionsDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagIndexingRuleOptionsData)(nil)).Elem()
+}
+
+func (o TagIndexingRuleOptionsDataPtrOutput) ToTagIndexingRuleOptionsDataPtrOutput() TagIndexingRuleOptionsDataPtrOutput {
+	return o
+}
+
+func (o TagIndexingRuleOptionsDataPtrOutput) ToTagIndexingRuleOptionsDataPtrOutputWithContext(ctx context.Context) TagIndexingRuleOptionsDataPtrOutput {
+	return o
+}
+
+func (o TagIndexingRuleOptionsDataPtrOutput) Elem() TagIndexingRuleOptionsDataOutput {
+	return o.ApplyT(func(v *TagIndexingRuleOptionsData) TagIndexingRuleOptionsData {
+		if v != nil {
+			return *v
+		}
+		var ret TagIndexingRuleOptionsData
+		return ret
+	}).(TagIndexingRuleOptionsDataOutput)
+}
+
+// Configuration for including dynamically queried tags.
+func (o TagIndexingRuleOptionsDataPtrOutput) DynamicTags() TagIndexingRuleOptionsDataDynamicTagsPtrOutput {
+	return o.ApplyT(func(v *TagIndexingRuleOptionsData) *TagIndexingRuleOptionsDataDynamicTags {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicTags
+	}).(TagIndexingRuleOptionsDataDynamicTagsPtrOutput)
+}
+
+// When true, the rule applies to metrics ingested before the rule was created.
+func (o TagIndexingRuleOptionsDataPtrOutput) ManagePreexistingMetrics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TagIndexingRuleOptionsData) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ManagePreexistingMetrics
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Criteria for matching metrics based on query state.
+func (o TagIndexingRuleOptionsDataPtrOutput) MetricMatch() TagIndexingRuleOptionsDataMetricMatchPtrOutput {
+	return o.ApplyT(func(v *TagIndexingRuleOptionsData) *TagIndexingRuleOptionsDataMetricMatch {
+		if v == nil {
+			return nil
+		}
+		return v.MetricMatch
+	}).(TagIndexingRuleOptionsDataMetricMatchPtrOutput)
+}
+
+// When true, this rule's tag list overrides tags configured by earlier rules for the same metric.
+func (o TagIndexingRuleOptionsDataPtrOutput) OverridePreviousRules() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TagIndexingRuleOptionsData) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OverridePreviousRules
+	}).(pulumi.BoolPtrOutput)
+}
+
+type TagIndexingRuleOptionsDataDynamicTags struct {
+	// Lookback window for determining which tags were recently queried.
+	QueriedTagsWindowSeconds *int `pulumi:"queriedTagsWindowSeconds"`
+	// When true, tags from related assets are included.
+	RelatedAssetTags *bool `pulumi:"relatedAssetTags"`
+}
+
+// TagIndexingRuleOptionsDataDynamicTagsInput is an input type that accepts TagIndexingRuleOptionsDataDynamicTagsArgs and TagIndexingRuleOptionsDataDynamicTagsOutput values.
+// You can construct a concrete instance of `TagIndexingRuleOptionsDataDynamicTagsInput` via:
+//
+//	TagIndexingRuleOptionsDataDynamicTagsArgs{...}
+type TagIndexingRuleOptionsDataDynamicTagsInput interface {
+	pulumi.Input
+
+	ToTagIndexingRuleOptionsDataDynamicTagsOutput() TagIndexingRuleOptionsDataDynamicTagsOutput
+	ToTagIndexingRuleOptionsDataDynamicTagsOutputWithContext(context.Context) TagIndexingRuleOptionsDataDynamicTagsOutput
+}
+
+type TagIndexingRuleOptionsDataDynamicTagsArgs struct {
+	// Lookback window for determining which tags were recently queried.
+	QueriedTagsWindowSeconds pulumi.IntPtrInput `pulumi:"queriedTagsWindowSeconds"`
+	// When true, tags from related assets are included.
+	RelatedAssetTags pulumi.BoolPtrInput `pulumi:"relatedAssetTags"`
+}
+
+func (TagIndexingRuleOptionsDataDynamicTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagIndexingRuleOptionsDataDynamicTags)(nil)).Elem()
+}
+
+func (i TagIndexingRuleOptionsDataDynamicTagsArgs) ToTagIndexingRuleOptionsDataDynamicTagsOutput() TagIndexingRuleOptionsDataDynamicTagsOutput {
+	return i.ToTagIndexingRuleOptionsDataDynamicTagsOutputWithContext(context.Background())
+}
+
+func (i TagIndexingRuleOptionsDataDynamicTagsArgs) ToTagIndexingRuleOptionsDataDynamicTagsOutputWithContext(ctx context.Context) TagIndexingRuleOptionsDataDynamicTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagIndexingRuleOptionsDataDynamicTagsOutput)
+}
+
+func (i TagIndexingRuleOptionsDataDynamicTagsArgs) ToTagIndexingRuleOptionsDataDynamicTagsPtrOutput() TagIndexingRuleOptionsDataDynamicTagsPtrOutput {
+	return i.ToTagIndexingRuleOptionsDataDynamicTagsPtrOutputWithContext(context.Background())
+}
+
+func (i TagIndexingRuleOptionsDataDynamicTagsArgs) ToTagIndexingRuleOptionsDataDynamicTagsPtrOutputWithContext(ctx context.Context) TagIndexingRuleOptionsDataDynamicTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagIndexingRuleOptionsDataDynamicTagsOutput).ToTagIndexingRuleOptionsDataDynamicTagsPtrOutputWithContext(ctx)
+}
+
+// TagIndexingRuleOptionsDataDynamicTagsPtrInput is an input type that accepts TagIndexingRuleOptionsDataDynamicTagsArgs, TagIndexingRuleOptionsDataDynamicTagsPtr and TagIndexingRuleOptionsDataDynamicTagsPtrOutput values.
+// You can construct a concrete instance of `TagIndexingRuleOptionsDataDynamicTagsPtrInput` via:
+//
+//	        TagIndexingRuleOptionsDataDynamicTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TagIndexingRuleOptionsDataDynamicTagsPtrInput interface {
+	pulumi.Input
+
+	ToTagIndexingRuleOptionsDataDynamicTagsPtrOutput() TagIndexingRuleOptionsDataDynamicTagsPtrOutput
+	ToTagIndexingRuleOptionsDataDynamicTagsPtrOutputWithContext(context.Context) TagIndexingRuleOptionsDataDynamicTagsPtrOutput
+}
+
+type tagIndexingRuleOptionsDataDynamicTagsPtrType TagIndexingRuleOptionsDataDynamicTagsArgs
+
+func TagIndexingRuleOptionsDataDynamicTagsPtr(v *TagIndexingRuleOptionsDataDynamicTagsArgs) TagIndexingRuleOptionsDataDynamicTagsPtrInput {
+	return (*tagIndexingRuleOptionsDataDynamicTagsPtrType)(v)
+}
+
+func (*tagIndexingRuleOptionsDataDynamicTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagIndexingRuleOptionsDataDynamicTags)(nil)).Elem()
+}
+
+func (i *tagIndexingRuleOptionsDataDynamicTagsPtrType) ToTagIndexingRuleOptionsDataDynamicTagsPtrOutput() TagIndexingRuleOptionsDataDynamicTagsPtrOutput {
+	return i.ToTagIndexingRuleOptionsDataDynamicTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *tagIndexingRuleOptionsDataDynamicTagsPtrType) ToTagIndexingRuleOptionsDataDynamicTagsPtrOutputWithContext(ctx context.Context) TagIndexingRuleOptionsDataDynamicTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagIndexingRuleOptionsDataDynamicTagsPtrOutput)
+}
+
+type TagIndexingRuleOptionsDataDynamicTagsOutput struct{ *pulumi.OutputState }
+
+func (TagIndexingRuleOptionsDataDynamicTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagIndexingRuleOptionsDataDynamicTags)(nil)).Elem()
+}
+
+func (o TagIndexingRuleOptionsDataDynamicTagsOutput) ToTagIndexingRuleOptionsDataDynamicTagsOutput() TagIndexingRuleOptionsDataDynamicTagsOutput {
+	return o
+}
+
+func (o TagIndexingRuleOptionsDataDynamicTagsOutput) ToTagIndexingRuleOptionsDataDynamicTagsOutputWithContext(ctx context.Context) TagIndexingRuleOptionsDataDynamicTagsOutput {
+	return o
+}
+
+func (o TagIndexingRuleOptionsDataDynamicTagsOutput) ToTagIndexingRuleOptionsDataDynamicTagsPtrOutput() TagIndexingRuleOptionsDataDynamicTagsPtrOutput {
+	return o.ToTagIndexingRuleOptionsDataDynamicTagsPtrOutputWithContext(context.Background())
+}
+
+func (o TagIndexingRuleOptionsDataDynamicTagsOutput) ToTagIndexingRuleOptionsDataDynamicTagsPtrOutputWithContext(ctx context.Context) TagIndexingRuleOptionsDataDynamicTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagIndexingRuleOptionsDataDynamicTags) *TagIndexingRuleOptionsDataDynamicTags {
+		return &v
+	}).(TagIndexingRuleOptionsDataDynamicTagsPtrOutput)
+}
+
+// Lookback window for determining which tags were recently queried.
+func (o TagIndexingRuleOptionsDataDynamicTagsOutput) QueriedTagsWindowSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TagIndexingRuleOptionsDataDynamicTags) *int { return v.QueriedTagsWindowSeconds }).(pulumi.IntPtrOutput)
+}
+
+// When true, tags from related assets are included.
+func (o TagIndexingRuleOptionsDataDynamicTagsOutput) RelatedAssetTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TagIndexingRuleOptionsDataDynamicTags) *bool { return v.RelatedAssetTags }).(pulumi.BoolPtrOutput)
+}
+
+type TagIndexingRuleOptionsDataDynamicTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (TagIndexingRuleOptionsDataDynamicTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagIndexingRuleOptionsDataDynamicTags)(nil)).Elem()
+}
+
+func (o TagIndexingRuleOptionsDataDynamicTagsPtrOutput) ToTagIndexingRuleOptionsDataDynamicTagsPtrOutput() TagIndexingRuleOptionsDataDynamicTagsPtrOutput {
+	return o
+}
+
+func (o TagIndexingRuleOptionsDataDynamicTagsPtrOutput) ToTagIndexingRuleOptionsDataDynamicTagsPtrOutputWithContext(ctx context.Context) TagIndexingRuleOptionsDataDynamicTagsPtrOutput {
+	return o
+}
+
+func (o TagIndexingRuleOptionsDataDynamicTagsPtrOutput) Elem() TagIndexingRuleOptionsDataDynamicTagsOutput {
+	return o.ApplyT(func(v *TagIndexingRuleOptionsDataDynamicTags) TagIndexingRuleOptionsDataDynamicTags {
+		if v != nil {
+			return *v
+		}
+		var ret TagIndexingRuleOptionsDataDynamicTags
+		return ret
+	}).(TagIndexingRuleOptionsDataDynamicTagsOutput)
+}
+
+// Lookback window for determining which tags were recently queried.
+func (o TagIndexingRuleOptionsDataDynamicTagsPtrOutput) QueriedTagsWindowSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TagIndexingRuleOptionsDataDynamicTags) *int {
+		if v == nil {
+			return nil
+		}
+		return v.QueriedTagsWindowSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// When true, tags from related assets are included.
+func (o TagIndexingRuleOptionsDataDynamicTagsPtrOutput) RelatedAssetTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TagIndexingRuleOptionsDataDynamicTags) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RelatedAssetTags
+	}).(pulumi.BoolPtrOutput)
+}
+
+type TagIndexingRuleOptionsDataMetricMatch struct {
+	// Match metrics that are being queried.
+	IsQueried *bool `pulumi:"isQueried"`
+	// Match metrics that are not being queried.
+	NotQueried *bool `pulumi:"notQueried"`
+	// Match metrics not used in any dashboards or monitors.
+	NotUsedInAssets *bool `pulumi:"notUsedInAssets"`
+	// Window in seconds for evaluating query state.
+	QueriedWindowSeconds *int `pulumi:"queriedWindowSeconds"`
+	// Match metrics used in dashboards or monitors.
+	UsedInAssets *bool `pulumi:"usedInAssets"`
+}
+
+// TagIndexingRuleOptionsDataMetricMatchInput is an input type that accepts TagIndexingRuleOptionsDataMetricMatchArgs and TagIndexingRuleOptionsDataMetricMatchOutput values.
+// You can construct a concrete instance of `TagIndexingRuleOptionsDataMetricMatchInput` via:
+//
+//	TagIndexingRuleOptionsDataMetricMatchArgs{...}
+type TagIndexingRuleOptionsDataMetricMatchInput interface {
+	pulumi.Input
+
+	ToTagIndexingRuleOptionsDataMetricMatchOutput() TagIndexingRuleOptionsDataMetricMatchOutput
+	ToTagIndexingRuleOptionsDataMetricMatchOutputWithContext(context.Context) TagIndexingRuleOptionsDataMetricMatchOutput
+}
+
+type TagIndexingRuleOptionsDataMetricMatchArgs struct {
+	// Match metrics that are being queried.
+	IsQueried pulumi.BoolPtrInput `pulumi:"isQueried"`
+	// Match metrics that are not being queried.
+	NotQueried pulumi.BoolPtrInput `pulumi:"notQueried"`
+	// Match metrics not used in any dashboards or monitors.
+	NotUsedInAssets pulumi.BoolPtrInput `pulumi:"notUsedInAssets"`
+	// Window in seconds for evaluating query state.
+	QueriedWindowSeconds pulumi.IntPtrInput `pulumi:"queriedWindowSeconds"`
+	// Match metrics used in dashboards or monitors.
+	UsedInAssets pulumi.BoolPtrInput `pulumi:"usedInAssets"`
+}
+
+func (TagIndexingRuleOptionsDataMetricMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagIndexingRuleOptionsDataMetricMatch)(nil)).Elem()
+}
+
+func (i TagIndexingRuleOptionsDataMetricMatchArgs) ToTagIndexingRuleOptionsDataMetricMatchOutput() TagIndexingRuleOptionsDataMetricMatchOutput {
+	return i.ToTagIndexingRuleOptionsDataMetricMatchOutputWithContext(context.Background())
+}
+
+func (i TagIndexingRuleOptionsDataMetricMatchArgs) ToTagIndexingRuleOptionsDataMetricMatchOutputWithContext(ctx context.Context) TagIndexingRuleOptionsDataMetricMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagIndexingRuleOptionsDataMetricMatchOutput)
+}
+
+func (i TagIndexingRuleOptionsDataMetricMatchArgs) ToTagIndexingRuleOptionsDataMetricMatchPtrOutput() TagIndexingRuleOptionsDataMetricMatchPtrOutput {
+	return i.ToTagIndexingRuleOptionsDataMetricMatchPtrOutputWithContext(context.Background())
+}
+
+func (i TagIndexingRuleOptionsDataMetricMatchArgs) ToTagIndexingRuleOptionsDataMetricMatchPtrOutputWithContext(ctx context.Context) TagIndexingRuleOptionsDataMetricMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagIndexingRuleOptionsDataMetricMatchOutput).ToTagIndexingRuleOptionsDataMetricMatchPtrOutputWithContext(ctx)
+}
+
+// TagIndexingRuleOptionsDataMetricMatchPtrInput is an input type that accepts TagIndexingRuleOptionsDataMetricMatchArgs, TagIndexingRuleOptionsDataMetricMatchPtr and TagIndexingRuleOptionsDataMetricMatchPtrOutput values.
+// You can construct a concrete instance of `TagIndexingRuleOptionsDataMetricMatchPtrInput` via:
+//
+//	        TagIndexingRuleOptionsDataMetricMatchArgs{...}
+//
+//	or:
+//
+//	        nil
+type TagIndexingRuleOptionsDataMetricMatchPtrInput interface {
+	pulumi.Input
+
+	ToTagIndexingRuleOptionsDataMetricMatchPtrOutput() TagIndexingRuleOptionsDataMetricMatchPtrOutput
+	ToTagIndexingRuleOptionsDataMetricMatchPtrOutputWithContext(context.Context) TagIndexingRuleOptionsDataMetricMatchPtrOutput
+}
+
+type tagIndexingRuleOptionsDataMetricMatchPtrType TagIndexingRuleOptionsDataMetricMatchArgs
+
+func TagIndexingRuleOptionsDataMetricMatchPtr(v *TagIndexingRuleOptionsDataMetricMatchArgs) TagIndexingRuleOptionsDataMetricMatchPtrInput {
+	return (*tagIndexingRuleOptionsDataMetricMatchPtrType)(v)
+}
+
+func (*tagIndexingRuleOptionsDataMetricMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagIndexingRuleOptionsDataMetricMatch)(nil)).Elem()
+}
+
+func (i *tagIndexingRuleOptionsDataMetricMatchPtrType) ToTagIndexingRuleOptionsDataMetricMatchPtrOutput() TagIndexingRuleOptionsDataMetricMatchPtrOutput {
+	return i.ToTagIndexingRuleOptionsDataMetricMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *tagIndexingRuleOptionsDataMetricMatchPtrType) ToTagIndexingRuleOptionsDataMetricMatchPtrOutputWithContext(ctx context.Context) TagIndexingRuleOptionsDataMetricMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagIndexingRuleOptionsDataMetricMatchPtrOutput)
+}
+
+type TagIndexingRuleOptionsDataMetricMatchOutput struct{ *pulumi.OutputState }
+
+func (TagIndexingRuleOptionsDataMetricMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagIndexingRuleOptionsDataMetricMatch)(nil)).Elem()
+}
+
+func (o TagIndexingRuleOptionsDataMetricMatchOutput) ToTagIndexingRuleOptionsDataMetricMatchOutput() TagIndexingRuleOptionsDataMetricMatchOutput {
+	return o
+}
+
+func (o TagIndexingRuleOptionsDataMetricMatchOutput) ToTagIndexingRuleOptionsDataMetricMatchOutputWithContext(ctx context.Context) TagIndexingRuleOptionsDataMetricMatchOutput {
+	return o
+}
+
+func (o TagIndexingRuleOptionsDataMetricMatchOutput) ToTagIndexingRuleOptionsDataMetricMatchPtrOutput() TagIndexingRuleOptionsDataMetricMatchPtrOutput {
+	return o.ToTagIndexingRuleOptionsDataMetricMatchPtrOutputWithContext(context.Background())
+}
+
+func (o TagIndexingRuleOptionsDataMetricMatchOutput) ToTagIndexingRuleOptionsDataMetricMatchPtrOutputWithContext(ctx context.Context) TagIndexingRuleOptionsDataMetricMatchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagIndexingRuleOptionsDataMetricMatch) *TagIndexingRuleOptionsDataMetricMatch {
+		return &v
+	}).(TagIndexingRuleOptionsDataMetricMatchPtrOutput)
+}
+
+// Match metrics that are being queried.
+func (o TagIndexingRuleOptionsDataMetricMatchOutput) IsQueried() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TagIndexingRuleOptionsDataMetricMatch) *bool { return v.IsQueried }).(pulumi.BoolPtrOutput)
+}
+
+// Match metrics that are not being queried.
+func (o TagIndexingRuleOptionsDataMetricMatchOutput) NotQueried() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TagIndexingRuleOptionsDataMetricMatch) *bool { return v.NotQueried }).(pulumi.BoolPtrOutput)
+}
+
+// Match metrics not used in any dashboards or monitors.
+func (o TagIndexingRuleOptionsDataMetricMatchOutput) NotUsedInAssets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TagIndexingRuleOptionsDataMetricMatch) *bool { return v.NotUsedInAssets }).(pulumi.BoolPtrOutput)
+}
+
+// Window in seconds for evaluating query state.
+func (o TagIndexingRuleOptionsDataMetricMatchOutput) QueriedWindowSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TagIndexingRuleOptionsDataMetricMatch) *int { return v.QueriedWindowSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Match metrics used in dashboards or monitors.
+func (o TagIndexingRuleOptionsDataMetricMatchOutput) UsedInAssets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TagIndexingRuleOptionsDataMetricMatch) *bool { return v.UsedInAssets }).(pulumi.BoolPtrOutput)
+}
+
+type TagIndexingRuleOptionsDataMetricMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (TagIndexingRuleOptionsDataMetricMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagIndexingRuleOptionsDataMetricMatch)(nil)).Elem()
+}
+
+func (o TagIndexingRuleOptionsDataMetricMatchPtrOutput) ToTagIndexingRuleOptionsDataMetricMatchPtrOutput() TagIndexingRuleOptionsDataMetricMatchPtrOutput {
+	return o
+}
+
+func (o TagIndexingRuleOptionsDataMetricMatchPtrOutput) ToTagIndexingRuleOptionsDataMetricMatchPtrOutputWithContext(ctx context.Context) TagIndexingRuleOptionsDataMetricMatchPtrOutput {
+	return o
+}
+
+func (o TagIndexingRuleOptionsDataMetricMatchPtrOutput) Elem() TagIndexingRuleOptionsDataMetricMatchOutput {
+	return o.ApplyT(func(v *TagIndexingRuleOptionsDataMetricMatch) TagIndexingRuleOptionsDataMetricMatch {
+		if v != nil {
+			return *v
+		}
+		var ret TagIndexingRuleOptionsDataMetricMatch
+		return ret
+	}).(TagIndexingRuleOptionsDataMetricMatchOutput)
+}
+
+// Match metrics that are being queried.
+func (o TagIndexingRuleOptionsDataMetricMatchPtrOutput) IsQueried() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TagIndexingRuleOptionsDataMetricMatch) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsQueried
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Match metrics that are not being queried.
+func (o TagIndexingRuleOptionsDataMetricMatchPtrOutput) NotQueried() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TagIndexingRuleOptionsDataMetricMatch) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NotQueried
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Match metrics not used in any dashboards or monitors.
+func (o TagIndexingRuleOptionsDataMetricMatchPtrOutput) NotUsedInAssets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TagIndexingRuleOptionsDataMetricMatch) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NotUsedInAssets
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Window in seconds for evaluating query state.
+func (o TagIndexingRuleOptionsDataMetricMatchPtrOutput) QueriedWindowSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TagIndexingRuleOptionsDataMetricMatch) *int {
+		if v == nil {
+			return nil
+		}
+		return v.QueriedWindowSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Match metrics used in dashboards or monitors.
+func (o TagIndexingRuleOptionsDataMetricMatchPtrOutput) UsedInAssets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TagIndexingRuleOptionsDataMetricMatch) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UsedInAssets
+	}).(pulumi.BoolPtrOutput)
+}
+
 type TagPipelineRulesetRule struct {
 	// Whether the rule is enabled.
 	Enabled bool `pulumi:"enabled"`
@@ -20965,7 +22002,7 @@ func (o TeamNotificationRulePagerdutyPtrOutput) ServiceName() pulumi.StringPtrOu
 }
 
 type TeamNotificationRuleSlack struct {
-	// Slack channel name for notifications (for example, #alerts or #team-notifications).
+	// Slack channel name for notifications, without a leading '#'.
 	Channel *string `pulumi:"channel"`
 	// Slack workspace name where the channel is located.
 	Workspace *string `pulumi:"workspace"`
@@ -20983,7 +22020,7 @@ type TeamNotificationRuleSlackInput interface {
 }
 
 type TeamNotificationRuleSlackArgs struct {
-	// Slack channel name for notifications (for example, #alerts or #team-notifications).
+	// Slack channel name for notifications, without a leading '#'.
 	Channel pulumi.StringPtrInput `pulumi:"channel"`
 	// Slack workspace name where the channel is located.
 	Workspace pulumi.StringPtrInput `pulumi:"workspace"`
@@ -21066,7 +22103,7 @@ func (o TeamNotificationRuleSlackOutput) ToTeamNotificationRuleSlackPtrOutputWit
 	}).(TeamNotificationRuleSlackPtrOutput)
 }
 
-// Slack channel name for notifications (for example, #alerts or #team-notifications).
+// Slack channel name for notifications, without a leading '#'.
 func (o TeamNotificationRuleSlackOutput) Channel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TeamNotificationRuleSlack) *string { return v.Channel }).(pulumi.StringPtrOutput)
 }
@@ -21100,7 +22137,7 @@ func (o TeamNotificationRuleSlackPtrOutput) Elem() TeamNotificationRuleSlackOutp
 	}).(TeamNotificationRuleSlackOutput)
 }
 
-// Slack channel name for notifications (for example, #alerts or #team-notifications).
+// Slack channel name for notifications, without a leading '#'.
 func (o TeamNotificationRuleSlackPtrOutput) Channel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TeamNotificationRuleSlack) *string {
 		if v == nil {
@@ -37485,6 +38522,12 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleQueryAgentRuleInput)(nil)).Elem(), SecurityMonitoringDefaultRuleQueryAgentRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleQueryAgentRuleArrayInput)(nil)).Elem(), SecurityMonitoringDefaultRuleQueryAgentRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringFilterExclusionFilterInput)(nil)).Elem(), SecurityMonitoringFilterExclusionFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringFilterExclusionFilterArrayInput)(nil)).Elem(), SecurityMonitoringFilterExclusionFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleCalculatedFieldInput)(nil)).Elem(), SecurityMonitoringRuleCalculatedFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleCalculatedFieldArrayInput)(nil)).Elem(), SecurityMonitoringRuleCalculatedFieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleCaseInput)(nil)).Elem(), SecurityMonitoringRuleCaseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleCaseArrayInput)(nil)).Elem(), SecurityMonitoringRuleCaseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleCaseActionInput)(nil)).Elem(), SecurityMonitoringRuleCaseActionArgs{})
@@ -37696,6 +38739,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestFileArrayInput)(nil)).Elem(), SyntheticsTestRequestFileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestProxyInput)(nil)).Elem(), SyntheticsTestRequestProxyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestProxyPtrInput)(nil)).Elem(), SyntheticsTestRequestProxyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagIndexingRuleOptionsInput)(nil)).Elem(), TagIndexingRuleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagIndexingRuleOptionsPtrInput)(nil)).Elem(), TagIndexingRuleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagIndexingRuleOptionsDataInput)(nil)).Elem(), TagIndexingRuleOptionsDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagIndexingRuleOptionsDataPtrInput)(nil)).Elem(), TagIndexingRuleOptionsDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagIndexingRuleOptionsDataDynamicTagsInput)(nil)).Elem(), TagIndexingRuleOptionsDataDynamicTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagIndexingRuleOptionsDataDynamicTagsPtrInput)(nil)).Elem(), TagIndexingRuleOptionsDataDynamicTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagIndexingRuleOptionsDataMetricMatchInput)(nil)).Elem(), TagIndexingRuleOptionsDataMetricMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagIndexingRuleOptionsDataMetricMatchPtrInput)(nil)).Elem(), TagIndexingRuleOptionsDataMetricMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagPipelineRulesetRuleInput)(nil)).Elem(), TagPipelineRulesetRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagPipelineRulesetRuleArrayInput)(nil)).Elem(), TagPipelineRulesetRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagPipelineRulesetRuleMappingInput)(nil)).Elem(), TagPipelineRulesetRuleMappingArgs{})
@@ -37954,6 +39005,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamArrayInput)(nil)).Elem(), GetTeamsTeamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
+	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleQueryAgentRuleOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringFilterExclusionFilterOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringFilterExclusionFilterArrayOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleCalculatedFieldOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleCalculatedFieldArrayOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleCaseOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleCaseArrayOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleCaseActionOutput{})
@@ -38165,6 +39222,14 @@ func init() {
 	pulumi.RegisterOutputType(SyntheticsTestRequestFileArrayOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestRequestProxyOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestRequestProxyPtrOutput{})
+	pulumi.RegisterOutputType(TagIndexingRuleOptionsOutput{})
+	pulumi.RegisterOutputType(TagIndexingRuleOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TagIndexingRuleOptionsDataOutput{})
+	pulumi.RegisterOutputType(TagIndexingRuleOptionsDataPtrOutput{})
+	pulumi.RegisterOutputType(TagIndexingRuleOptionsDataDynamicTagsOutput{})
+	pulumi.RegisterOutputType(TagIndexingRuleOptionsDataDynamicTagsPtrOutput{})
+	pulumi.RegisterOutputType(TagIndexingRuleOptionsDataMetricMatchOutput{})
+	pulumi.RegisterOutputType(TagIndexingRuleOptionsDataMetricMatchPtrOutput{})
 	pulumi.RegisterOutputType(TagPipelineRulesetRuleOutput{})
 	pulumi.RegisterOutputType(TagPipelineRulesetRuleArrayOutput{})
 	pulumi.RegisterOutputType(TagPipelineRulesetRuleMappingOutput{})

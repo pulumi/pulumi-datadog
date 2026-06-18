@@ -33,7 +33,7 @@ import * as utilities from "./utilities";
  *         serviceName: "my-service",
  *     }],
  *     slack: [{
- *         channel: "#test-channel",
+ *         channel: "test-channel",
  *         workspace: "Datadog",
  *     }],
  * });

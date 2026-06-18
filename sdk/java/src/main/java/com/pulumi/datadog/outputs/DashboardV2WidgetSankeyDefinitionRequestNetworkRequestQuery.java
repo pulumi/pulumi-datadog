@@ -23,7 +23,7 @@ public final class DashboardV2WidgetSankeyDefinitionRequestNetworkRequestQuery {
      */
     private @Nullable DashboardV2WidgetSankeyDefinitionRequestNetworkRequestQueryCompute compute;
     /**
-     * @return The data source for the Sankey network query. Valid values are `networkDeviceFlows`.
+     * @return The data source for the Sankey network query. Valid values are `networkDeviceFlows`, `network`.
      * 
      */
     private String dataSource;
@@ -67,7 +67,7 @@ public final class DashboardV2WidgetSankeyDefinitionRequestNetworkRequestQuery {
         return Optional.ofNullable(this.compute);
     }
     /**
-     * @return The data source for the Sankey network query. Valid values are `networkDeviceFlows`.
+     * @return The data source for the Sankey network query. Valid values are `networkDeviceFlows`, `network`.
      * 
      */
     public String dataSource() {

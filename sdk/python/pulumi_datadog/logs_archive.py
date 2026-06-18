@@ -27,6 +27,8 @@ class LogsArchiveArgs:
                  compression_method: pulumi.Input[Optional[_builtins.str]] = None,
                  gcs_archive: pulumi.Input[Optional['LogsArchiveGcsArchiveArgs']] = None,
                  include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lookup_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 partitioning_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  rehydration_max_scan_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
                  rehydration_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  s3_archive: pulumi.Input[Optional['LogsArchiveS3ArchiveArgs']] = None):
@@ -39,6 +41,8 @@ class LogsArchiveArgs:
         :param pulumi.Input[_builtins.str] compression_method: The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
         :param pulumi.Input['LogsArchiveGcsArchiveArgs'] gcs_archive: Definition of a GCS archive.
         :param pulumi.Input[_builtins.bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lookup_attributes: An array of attributes to use as lookup keys for the archive.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] partitioning_attributes: An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
         :param pulumi.Input[_builtins.int] rehydration_max_scan_size_in_gb: To limit the rehydration scan size for the archive, set a value in GB.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rehydration_tags: An array of tags to add to rehydrated logs from an archive.
         :param pulumi.Input['LogsArchiveS3ArchiveArgs'] s3_archive: Definition of an s3 archive.
@@ -53,6 +57,10 @@ class LogsArchiveArgs:
             pulumi.set(__self__, "gcs_archive", gcs_archive)
         if include_tags is not None:
             pulumi.set(__self__, "include_tags", include_tags)
+        if lookup_attributes is not None:
+            pulumi.set(__self__, "lookup_attributes", lookup_attributes)
+        if partitioning_attributes is not None:
+            pulumi.set(__self__, "partitioning_attributes", partitioning_attributes)
         if rehydration_max_scan_size_in_gb is not None:
             pulumi.set(__self__, "rehydration_max_scan_size_in_gb", rehydration_max_scan_size_in_gb)
         if rehydration_tags is not None:
@@ -133,6 +141,30 @@ class LogsArchiveArgs:
         pulumi.set(self, "include_tags", value)
 
     @_builtins.property
+    @pulumi.getter(name="lookupAttributes")
+    def lookup_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        An array of attributes to use as lookup keys for the archive.
+        """
+        return pulumi.get(self, "lookup_attributes")
+
+    @lookup_attributes.setter
+    def lookup_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "lookup_attributes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="partitioningAttributes")
+    def partitioning_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
+        """
+        return pulumi.get(self, "partitioning_attributes")
+
+    @partitioning_attributes.setter
+    def partitioning_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "partitioning_attributes", value)
+
+    @_builtins.property
     @pulumi.getter(name="rehydrationMaxScanSizeInGb")
     def rehydration_max_scan_size_in_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
@@ -176,7 +208,9 @@ class _LogsArchiveState:
                  compression_method: pulumi.Input[Optional[_builtins.str]] = None,
                  gcs_archive: pulumi.Input[Optional['LogsArchiveGcsArchiveArgs']] = None,
                  include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lookup_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partitioning_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  query: pulumi.Input[Optional[_builtins.str]] = None,
                  rehydration_max_scan_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
                  rehydration_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -188,7 +222,9 @@ class _LogsArchiveState:
         :param pulumi.Input[_builtins.str] compression_method: The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
         :param pulumi.Input['LogsArchiveGcsArchiveArgs'] gcs_archive: Definition of a GCS archive.
         :param pulumi.Input[_builtins.bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lookup_attributes: An array of attributes to use as lookup keys for the archive.
         :param pulumi.Input[_builtins.str] name: Your archive name.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] partitioning_attributes: An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
         :param pulumi.Input[_builtins.str] query: The archive query/filter. Logs matching this query are included in the archive.
         :param pulumi.Input[_builtins.int] rehydration_max_scan_size_in_gb: To limit the rehydration scan size for the archive, set a value in GB.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rehydration_tags: An array of tags to add to rehydrated logs from an archive.
@@ -202,8 +238,12 @@ class _LogsArchiveState:
             pulumi.set(__self__, "gcs_archive", gcs_archive)
         if include_tags is not None:
             pulumi.set(__self__, "include_tags", include_tags)
+        if lookup_attributes is not None:
+            pulumi.set(__self__, "lookup_attributes", lookup_attributes)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if partitioning_attributes is not None:
+            pulumi.set(__self__, "partitioning_attributes", partitioning_attributes)
         if query is not None:
             pulumi.set(__self__, "query", query)
         if rehydration_max_scan_size_in_gb is not None:
@@ -262,6 +302,18 @@ class _LogsArchiveState:
         pulumi.set(self, "include_tags", value)
 
     @_builtins.property
+    @pulumi.getter(name="lookupAttributes")
+    def lookup_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        An array of attributes to use as lookup keys for the archive.
+        """
+        return pulumi.get(self, "lookup_attributes")
+
+    @lookup_attributes.setter
+    def lookup_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "lookup_attributes", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -272,6 +324,18 @@ class _LogsArchiveState:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="partitioningAttributes")
+    def partitioning_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
+        """
+        return pulumi.get(self, "partitioning_attributes")
+
+    @partitioning_attributes.setter
+    def partitioning_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "partitioning_attributes", value)
 
     @_builtins.property
     @pulumi.getter
@@ -332,7 +396,9 @@ class LogsArchive(pulumi.CustomResource):
                  compression_method: pulumi.Input[Optional[_builtins.str]] = None,
                  gcs_archive: pulumi.Input[Optional[Union['LogsArchiveGcsArchiveArgs', 'LogsArchiveGcsArchiveArgsDict']]] = None,
                  include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lookup_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partitioning_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  query: pulumi.Input[Optional[_builtins.str]] = None,
                  rehydration_max_scan_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
                  rehydration_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -373,7 +439,9 @@ class LogsArchive(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] compression_method: The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
         :param pulumi.Input[Union['LogsArchiveGcsArchiveArgs', 'LogsArchiveGcsArchiveArgsDict']] gcs_archive: Definition of a GCS archive.
         :param pulumi.Input[_builtins.bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lookup_attributes: An array of attributes to use as lookup keys for the archive.
         :param pulumi.Input[_builtins.str] name: Your archive name.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] partitioning_attributes: An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
         :param pulumi.Input[_builtins.str] query: The archive query/filter. Logs matching this query are included in the archive.
         :param pulumi.Input[_builtins.int] rehydration_max_scan_size_in_gb: To limit the rehydration scan size for the archive, set a value in GB.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rehydration_tags: An array of tags to add to rehydrated logs from an archive.
@@ -433,7 +501,9 @@ class LogsArchive(pulumi.CustomResource):
                  compression_method: pulumi.Input[Optional[_builtins.str]] = None,
                  gcs_archive: pulumi.Input[Optional[Union['LogsArchiveGcsArchiveArgs', 'LogsArchiveGcsArchiveArgsDict']]] = None,
                  include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lookup_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partitioning_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  query: pulumi.Input[Optional[_builtins.str]] = None,
                  rehydration_max_scan_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
                  rehydration_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -451,9 +521,11 @@ class LogsArchive(pulumi.CustomResource):
             __props__.__dict__["compression_method"] = compression_method
             __props__.__dict__["gcs_archive"] = gcs_archive
             __props__.__dict__["include_tags"] = include_tags
+            __props__.__dict__["lookup_attributes"] = lookup_attributes
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            __props__.__dict__["partitioning_attributes"] = partitioning_attributes
             if query is None and not opts.urn:
                 raise TypeError("Missing required property 'query'")
             __props__.__dict__["query"] = query
@@ -474,7 +546,9 @@ class LogsArchive(pulumi.CustomResource):
             compression_method: pulumi.Input[Optional[_builtins.str]] = None,
             gcs_archive: pulumi.Input[Optional[Union['LogsArchiveGcsArchiveArgs', 'LogsArchiveGcsArchiveArgsDict']]] = None,
             include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+            lookup_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
+            partitioning_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             query: pulumi.Input[Optional[_builtins.str]] = None,
             rehydration_max_scan_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
             rehydration_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -490,7 +564,9 @@ class LogsArchive(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] compression_method: The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
         :param pulumi.Input[Union['LogsArchiveGcsArchiveArgs', 'LogsArchiveGcsArchiveArgsDict']] gcs_archive: Definition of a GCS archive.
         :param pulumi.Input[_builtins.bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lookup_attributes: An array of attributes to use as lookup keys for the archive.
         :param pulumi.Input[_builtins.str] name: Your archive name.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] partitioning_attributes: An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
         :param pulumi.Input[_builtins.str] query: The archive query/filter. Logs matching this query are included in the archive.
         :param pulumi.Input[_builtins.int] rehydration_max_scan_size_in_gb: To limit the rehydration scan size for the archive, set a value in GB.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rehydration_tags: An array of tags to add to rehydrated logs from an archive.
@@ -504,7 +580,9 @@ class LogsArchive(pulumi.CustomResource):
         __props__.__dict__["compression_method"] = compression_method
         __props__.__dict__["gcs_archive"] = gcs_archive
         __props__.__dict__["include_tags"] = include_tags
+        __props__.__dict__["lookup_attributes"] = lookup_attributes
         __props__.__dict__["name"] = name
+        __props__.__dict__["partitioning_attributes"] = partitioning_attributes
         __props__.__dict__["query"] = query
         __props__.__dict__["rehydration_max_scan_size_in_gb"] = rehydration_max_scan_size_in_gb
         __props__.__dict__["rehydration_tags"] = rehydration_tags
@@ -544,12 +622,28 @@ class LogsArchive(pulumi.CustomResource):
         return pulumi.get(self, "include_tags")
 
     @_builtins.property
+    @pulumi.getter(name="lookupAttributes")
+    def lookup_attributes(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        An array of attributes to use as lookup keys for the archive.
+        """
+        return pulumi.get(self, "lookup_attributes")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
         Your archive name.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="partitioningAttributes")
+    def partitioning_attributes(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
+        """
+        return pulumi.get(self, "partitioning_attributes")
 
     @_builtins.property
     @pulumi.getter

@@ -233,7 +233,7 @@ class TeamNotificationRule(pulumi.CustomResource):
                 "serviceName": "my-service",
             }],
             slack=[{
-                "channel": "#test-channel",
+                "channel": "test-channel",
                 "workspace": "Datadog",
             }])
         ```
@@ -289,7 +289,7 @@ class TeamNotificationRule(pulumi.CustomResource):
                 "serviceName": "my-service",
             }],
             slack=[{
-                "channel": "#test-channel",
+                "channel": "test-channel",
                 "workspace": "Datadog",
             }])
         ```

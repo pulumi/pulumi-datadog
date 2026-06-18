@@ -58,7 +58,7 @@ namespace Pulumi.Datadog
     ///         {
     ///             
     ///             {
-    ///                 { "channel", "#test-channel" },
+    ///                 { "channel", "test-channel" },
     ///                 { "workspace", "Datadog" },
     ///             },
     ///         },
