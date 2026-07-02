@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.TagIndexingRuleOptionsDataDynamicTagsArgs>? DynamicTags { get; set; }
 
         /// <summary>
-        /// When true, the rule applies to metrics ingested before the rule was created.
+        /// When true, the rule applies to metrics ingested before the rule was created. Defaults to `True`.
         /// </summary>
         [Input("managePreexistingMetrics")]
         public Input<bool>? ManagePreexistingMetrics { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.TagIndexingRuleOptionsDataMetricMatchArgs>? MetricMatch { get; set; }
 
         /// <summary>
-        /// When true, this rule's tag list overrides tags configured by earlier rules for the same metric.
+        /// When true, this rule's tag list overrides tags configured by earlier rules for the same metric. Defaults to `False`.
         /// </summary>
         [Input("overridePreviousRules")]
         public Input<bool>? OverridePreviousRules { get; set; }

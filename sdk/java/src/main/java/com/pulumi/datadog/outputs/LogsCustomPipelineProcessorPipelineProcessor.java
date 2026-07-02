@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor;
+import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorArrayMapProcessor;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessor;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor;
@@ -34,6 +35,11 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
      * 
      */
     private @Nullable LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor arithmeticProcessor;
+    /**
+     * @return Array-Map Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#array-map-processor)
+     * 
+     */
+    private @Nullable LogsCustomPipelineProcessorPipelineProcessorArrayMapProcessor arrayMapProcessor;
     /**
      * @return Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
      * 
@@ -132,6 +138,13 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
      */
     public Optional<LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor> arithmeticProcessor() {
         return Optional.ofNullable(this.arithmeticProcessor);
+    }
+    /**
+     * @return Array-Map Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#array-map-processor)
+     * 
+     */
+    public Optional<LogsCustomPipelineProcessorPipelineProcessorArrayMapProcessor> arrayMapProcessor() {
+        return Optional.ofNullable(this.arrayMapProcessor);
     }
     /**
      * @return Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
@@ -270,6 +283,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor arithmeticProcessor;
+        private @Nullable LogsCustomPipelineProcessorPipelineProcessorArrayMapProcessor arrayMapProcessor;
         private @Nullable LogsCustomPipelineProcessorPipelineProcessorArrayProcessor arrayProcessor;
         private @Nullable LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper attributeRemapper;
         private @Nullable LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor categoryProcessor;
@@ -292,6 +306,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
         public Builder(LogsCustomPipelineProcessorPipelineProcessor defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arithmeticProcessor = defaults.arithmeticProcessor;
+    	      this.arrayMapProcessor = defaults.arrayMapProcessor;
     	      this.arrayProcessor = defaults.arrayProcessor;
     	      this.attributeRemapper = defaults.attributeRemapper;
     	      this.categoryProcessor = defaults.categoryProcessor;
@@ -316,6 +331,12 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
         public Builder arithmeticProcessor(@Nullable LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor arithmeticProcessor) {
 
             this.arithmeticProcessor = arithmeticProcessor;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder arrayMapProcessor(@Nullable LogsCustomPipelineProcessorPipelineProcessorArrayMapProcessor arrayMapProcessor) {
+
+            this.arrayMapProcessor = arrayMapProcessor;
             return this;
         }
         @CustomType.Setter
@@ -429,6 +450,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
         public LogsCustomPipelineProcessorPipelineProcessor build() {
             final var _resultValue = new LogsCustomPipelineProcessorPipelineProcessor();
             _resultValue.arithmeticProcessor = arithmeticProcessor;
+            _resultValue.arrayMapProcessor = arrayMapProcessor;
             _resultValue.arrayProcessor = arrayProcessor;
             _resultValue.attributeRemapper = attributeRemapper;
             _resultValue.categoryProcessor = categoryProcessor;

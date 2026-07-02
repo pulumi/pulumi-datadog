@@ -113,6 +113,12 @@ namespace Pulumi.Datadog
         public Output<bool?> GroupbySimpleMonitor { get; private set; } = null!;
 
         /// <summary>
+        /// Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `IgnoreTagKeys` for this resource.
+        /// </summary>
+        [Output("ignoreTagKeys")]
+        public Output<ImmutableArray<string>> IgnoreTagKeys { get; private set; } = null!;
+
+        /// <summary>
         /// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
         /// </summary>
         [Output("includeTags")]
@@ -379,6 +385,18 @@ namespace Pulumi.Datadog
         [Input("groupbySimpleMonitor")]
         public Input<bool>? GroupbySimpleMonitor { get; set; }
 
+        [Input("ignoreTagKeys")]
+        private InputList<string>? _ignoreTagKeys;
+
+        /// <summary>
+        /// Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `IgnoreTagKeys` for this resource.
+        /// </summary>
+        public InputList<string> IgnoreTagKeys
+        {
+            get => _ignoreTagKeys ?? (_ignoreTagKeys = new InputList<string>());
+            set => _ignoreTagKeys = value;
+        }
+
         /// <summary>
         /// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
         /// </summary>
@@ -632,6 +650,18 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("groupbySimpleMonitor")]
         public Input<bool>? GroupbySimpleMonitor { get; set; }
+
+        [Input("ignoreTagKeys")]
+        private InputList<string>? _ignoreTagKeys;
+
+        /// <summary>
+        /// Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `IgnoreTagKeys` for this resource.
+        /// </summary>
+        public InputList<string> IgnoreTagKeys
+        {
+            get => _ignoreTagKeys ?? (_ignoreTagKeys = new InputList<string>());
+            set => _ignoreTagKeys = value;
+        }
 
         /// <summary>
         /// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.

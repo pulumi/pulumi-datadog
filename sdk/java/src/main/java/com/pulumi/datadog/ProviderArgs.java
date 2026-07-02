@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ProviderDefaultTagsArgs;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -138,14 +139,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you&#39;d like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+     * Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you&#39;d like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
      * 
      */
     @Import(name="cloudProviderType")
     private @Nullable Output<String> cloudProviderType;
 
     /**
-     * @return Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you&#39;d like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+     * @return Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you&#39;d like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
      * 
      */
     public Optional<Output<String>> cloudProviderType() {
@@ -243,14 +244,29 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+     * [Experimental - Monitors and Service Level Objectives only] Tag keys whose drift Terraform should ignore across all resources that support `ignoreTagKeys`. A resource&#39;s own `ignoreTagKeys` is merged with this list for that resource. Any `:value` suffix is ignored.
+     * 
+     */
+    @Import(name="ignoreTagKeys", json=true)
+    private @Nullable Output<List<String>> ignoreTagKeys;
+
+    /**
+     * @return [Experimental - Monitors and Service Level Objectives only] Tag keys whose drift Terraform should ignore across all resources that support `ignoreTagKeys`. A resource&#39;s own `ignoreTagKeys` is merged with this list for that resource. Any `:value` suffix is ignored.
+     * 
+     */
+    public Optional<Output<List<String>>> ignoreTagKeys() {
+        return Optional.ofNullable(this.ignoreTagKeys);
+    }
+
+    /**
+     * The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
      * 
      */
     @Import(name="orgUuid")
     private @Nullable Output<String> orgUuid;
 
     /**
-     * @return The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+     * @return The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
      * 
      */
     public Optional<Output<String>> orgUuid() {
@@ -290,6 +306,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.httpClientRetryEnabled = $.httpClientRetryEnabled;
         this.httpClientRetryMaxRetries = $.httpClientRetryMaxRetries;
         this.httpClientRetryTimeout = $.httpClientRetryTimeout;
+        this.ignoreTagKeys = $.ignoreTagKeys;
         this.orgUuid = $.orgUuid;
         this.validate = $.validate;
     }
@@ -481,7 +498,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cloudProviderType Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you&#39;d like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+         * @param cloudProviderType Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you&#39;d like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
          * 
          * @return builder
          * 
@@ -492,7 +509,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cloudProviderType Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you&#39;d like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+         * @param cloudProviderType Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you&#39;d like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
          * 
          * @return builder
          * 
@@ -628,7 +645,38 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param orgUuid The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+         * @param ignoreTagKeys [Experimental - Monitors and Service Level Objectives only] Tag keys whose drift Terraform should ignore across all resources that support `ignoreTagKeys`. A resource&#39;s own `ignoreTagKeys` is merged with this list for that resource. Any `:value` suffix is ignored.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreTagKeys(@Nullable Output<List<String>> ignoreTagKeys) {
+            $.ignoreTagKeys = ignoreTagKeys;
+            return this;
+        }
+
+        /**
+         * @param ignoreTagKeys [Experimental - Monitors and Service Level Objectives only] Tag keys whose drift Terraform should ignore across all resources that support `ignoreTagKeys`. A resource&#39;s own `ignoreTagKeys` is merged with this list for that resource. Any `:value` suffix is ignored.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreTagKeys(List<String> ignoreTagKeys) {
+            return ignoreTagKeys(Output.of(ignoreTagKeys));
+        }
+
+        /**
+         * @param ignoreTagKeys [Experimental - Monitors and Service Level Objectives only] Tag keys whose drift Terraform should ignore across all resources that support `ignoreTagKeys`. A resource&#39;s own `ignoreTagKeys` is merged with this list for that resource. Any `:value` suffix is ignored.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreTagKeys(String... ignoreTagKeys) {
+            return ignoreTagKeys(List.of(ignoreTagKeys));
+        }
+
+        /**
+         * @param orgUuid The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
          * 
          * @return builder
          * 
@@ -639,7 +687,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param orgUuid The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+         * @param orgUuid The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
          * 
          * @return builder
          * 

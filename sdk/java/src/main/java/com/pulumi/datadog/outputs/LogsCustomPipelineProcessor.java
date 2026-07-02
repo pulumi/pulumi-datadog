@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorArithmeticProcessor;
+import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorArrayMapProcessor;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorArrayProcessor;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorAttributeRemapper;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorCategoryProcessor;
@@ -35,6 +36,11 @@ public final class LogsCustomPipelineProcessor {
      * 
      */
     private @Nullable LogsCustomPipelineProcessorArithmeticProcessor arithmeticProcessor;
+    /**
+     * @return Array-Map Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#array-map-processor)
+     * 
+     */
+    private @Nullable LogsCustomPipelineProcessorArrayMapProcessor arrayMapProcessor;
     /**
      * @return Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
      * 
@@ -134,6 +140,13 @@ public final class LogsCustomPipelineProcessor {
      */
     public Optional<LogsCustomPipelineProcessorArithmeticProcessor> arithmeticProcessor() {
         return Optional.ofNullable(this.arithmeticProcessor);
+    }
+    /**
+     * @return Array-Map Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#array-map-processor)
+     * 
+     */
+    public Optional<LogsCustomPipelineProcessorArrayMapProcessor> arrayMapProcessor() {
+        return Optional.ofNullable(this.arrayMapProcessor);
     }
     /**
      * @return Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
@@ -275,6 +288,7 @@ public final class LogsCustomPipelineProcessor {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable LogsCustomPipelineProcessorArithmeticProcessor arithmeticProcessor;
+        private @Nullable LogsCustomPipelineProcessorArrayMapProcessor arrayMapProcessor;
         private @Nullable LogsCustomPipelineProcessorArrayProcessor arrayProcessor;
         private @Nullable LogsCustomPipelineProcessorAttributeRemapper attributeRemapper;
         private @Nullable LogsCustomPipelineProcessorCategoryProcessor categoryProcessor;
@@ -298,6 +312,7 @@ public final class LogsCustomPipelineProcessor {
         public Builder(LogsCustomPipelineProcessor defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arithmeticProcessor = defaults.arithmeticProcessor;
+    	      this.arrayMapProcessor = defaults.arrayMapProcessor;
     	      this.arrayProcessor = defaults.arrayProcessor;
     	      this.attributeRemapper = defaults.attributeRemapper;
     	      this.categoryProcessor = defaults.categoryProcessor;
@@ -323,6 +338,12 @@ public final class LogsCustomPipelineProcessor {
         public Builder arithmeticProcessor(@Nullable LogsCustomPipelineProcessorArithmeticProcessor arithmeticProcessor) {
 
             this.arithmeticProcessor = arithmeticProcessor;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder arrayMapProcessor(@Nullable LogsCustomPipelineProcessorArrayMapProcessor arrayMapProcessor) {
+
+            this.arrayMapProcessor = arrayMapProcessor;
             return this;
         }
         @CustomType.Setter
@@ -442,6 +463,7 @@ public final class LogsCustomPipelineProcessor {
         public LogsCustomPipelineProcessor build() {
             final var _resultValue = new LogsCustomPipelineProcessor();
             _resultValue.arithmeticProcessor = arithmeticProcessor;
+            _resultValue.arrayMapProcessor = arrayMapProcessor;
             _resultValue.arrayProcessor = arrayProcessor;
             _resultValue.attributeRemapper = attributeRemapper;
             _resultValue.categoryProcessor = categoryProcessor;

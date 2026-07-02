@@ -133,6 +133,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetNoteDefinitionGetArgs>? NoteDefinition { get; set; }
 
         /// <summary>
+        /// The definition for a Point Plot widget.
+        /// </summary>
+        [Input("pointPlotDefinition")]
+        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionGetArgs>? PointPlotDefinition { get; set; }
+
+        /// <summary>
         /// The definition for a Query Table widget.
         /// </summary>
         [Input("queryTableDefinition")]

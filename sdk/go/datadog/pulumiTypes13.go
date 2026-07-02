@@ -13,6 +13,13760 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryCompute struct {
+	// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+	Aggregation string `pulumi:"aggregation"`
+	// A time interval in milliseconds.
+	Interval *int `pulumi:"interval"`
+	// The measurable attribute to compute.
+	Metric *string `pulumi:"metric"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArgs and PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArgs{...}
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput
+	ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArgs struct {
+	// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// A time interval in milliseconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+	// The measurable attribute to compute.
+	Metric pulumi.StringPtrInput `pulumi:"metric"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryEventQueryCompute)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArgs) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArgs) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput)
+}
+
+// PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArray and PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArray{ PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArgs{...} }
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput
+	ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArray []PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeInput
+
+func (PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetToplistDefinitionRequestQueryEventQueryCompute)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArray) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArray) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryEventQueryCompute)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput {
+	return o
+}
+
+// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQueryCompute) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+// A time interval in milliseconds.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQueryCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+// The measurable attribute to compute.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQueryCompute) *string { return v.Metric }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetToplistDefinitionRequestQueryEventQueryCompute)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetToplistDefinitionRequestQueryEventQueryCompute {
+		return vs[0].([]PowerpackWidgetToplistDefinitionRequestQueryEventQueryCompute)[vs[1].(int)]
+	}).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBy struct {
+	// The event facet.
+	Facet string `pulumi:"facet"`
+	// The number of groups to return.
+	Limit *int `pulumi:"limit"`
+	// The options for sorting group by results.
+	Sort *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort `pulumi:"sort"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs and PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs{...}
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput
+	ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs struct {
+	// The event facet.
+	Facet pulumi.StringInput `pulumi:"facet"`
+	// The number of groups to return.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// The options for sorting group by results.
+	Sort PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrInput `pulumi:"sort"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput)
+}
+
+// PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArray and PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArray{ PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs{...} }
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput
+	ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArray []PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByInput
+
+func (PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArray) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArray) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput {
+	return o
+}
+
+// The event facet.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput) Facet() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBy) string { return v.Facet }).(pulumi.StringOutput)
+}
+
+// The number of groups to return.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// The options for sorting group by results.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput) Sort() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBy) *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort {
+		return v.Sort
+	}).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBy {
+		return vs[0].([]PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBy)[vs[1].(int)]
+	}).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFields struct {
+	// List of event facets to group by.
+	Fields []string `pulumi:"fields"`
+	// The number of groups to return.
+	Limit *int `pulumi:"limit"`
+	// The options for sorting group by results.
+	Sort *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSort `pulumi:"sort"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsArgs and PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsArgs{...}
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutput
+	ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsArgs struct {
+	// List of event facets to group by.
+	Fields pulumi.StringArrayInput `pulumi:"fields"`
+	// The number of groups to return.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// The options for sorting group by results.
+	Sort PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrInput `pulumi:"sort"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFields)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsArgs) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsArgs) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutput)
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsArgs) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsArgs) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutput).ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsArgs, PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtr and PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrInput` via:
+//
+//	        PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput
+	ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput
+}
+
+type powerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrType PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsArgs
+
+func PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtr(v *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsArgs) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrInput {
+	return (*powerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrType)(v)
+}
+
+func (*powerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFields)(nil)).Elem()
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrType) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrType) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFields)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return o.ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFields) *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFields {
+		return &v
+	}).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput)
+}
+
+// List of event facets to group by.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutput) Fields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFields) []string { return v.Fields }).(pulumi.StringArrayOutput)
+}
+
+// The number of groups to return.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFields) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// The options for sorting group by results.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutput) Sort() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFields) *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSort {
+		return v.Sort
+	}).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFields)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) Elem() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFields) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFields {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFields
+		return ret
+	}).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutput)
+}
+
+// List of event facets to group by.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) Fields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFields) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Fields
+	}).(pulumi.StringArrayOutput)
+}
+
+// The number of groups to return.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFields) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Limit
+	}).(pulumi.IntPtrOutput)
+}
+
+// The options for sorting group by results.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) Sort() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFields) *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSort {
+		if v == nil {
+			return nil
+		}
+		return v.Sort
+	}).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSort struct {
+	// The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+	Aggregation string `pulumi:"aggregation"`
+	// The metric used for sorting group by results.
+	Metric *string `pulumi:"metric"`
+	// Direction of sort. Valid values are `asc`, `desc`.
+	Order *string `pulumi:"order"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortArgs and PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortArgs{...}
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutput
+	ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortArgs struct {
+	// The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The metric used for sorting group by results.
+	Metric pulumi.StringPtrInput `pulumi:"metric"`
+	// Direction of sort. Valid values are `asc`, `desc`.
+	Order pulumi.StringPtrInput `pulumi:"order"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSort)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortArgs) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortArgs) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutput)
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortArgs) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortArgs) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutput).ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortArgs, PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtr and PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrInput` via:
+//
+//	        PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput
+	ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput
+}
+
+type powerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrType PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortArgs
+
+func PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtr(v *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortArgs) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrInput {
+	return (*powerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrType)(v)
+}
+
+func (*powerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSort)(nil)).Elem()
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrType) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrType) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSort)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
+	return o.ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSort) *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSort {
+		return &v
+	}).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput)
+}
+
+// The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSort) string {
+		return v.Aggregation
+	}).(pulumi.StringOutput)
+}
+
+// The metric used for sorting group by results.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSort) *string {
+		return v.Metric
+	}).(pulumi.StringPtrOutput)
+}
+
+// Direction of sort. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSort) *string {
+		return v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSort)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput) Elem() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSort) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSort {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSort
+		return ret
+	}).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutput)
+}
+
+// The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSort) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The metric used for sorting group by results.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSort) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Metric
+	}).(pulumi.StringPtrOutput)
+}
+
+// Direction of sort. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSort) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort struct {
+	// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+	Aggregation string `pulumi:"aggregation"`
+	// The metric used for sorting group by results.
+	Metric *string `pulumi:"metric"`
+	// Direction of sort. Valid values are `asc`, `desc`.
+	Order *string `pulumi:"order"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs and PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs{...}
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput
+	ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs struct {
+	// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The metric used for sorting group by results.
+	Metric pulumi.StringPtrInput `pulumi:"metric"`
+	// Direction of sort. Valid values are `asc`, `desc`.
+	Order pulumi.StringPtrInput `pulumi:"order"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput)
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput).ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs, PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtr and PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrInput` via:
+//
+//	        PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput
+	ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput
+}
+
+type powerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrType PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs
+
+func PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtr(v *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrInput {
+	return (*powerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrType)(v)
+}
+
+func (*powerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort)(nil)).Elem()
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrType) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrType) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return o.ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort {
+		return &v
+	}).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput)
+}
+
+// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+// The metric used for sorting group by results.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) *string { return v.Metric }).(pulumi.StringPtrOutput)
+}
+
+// Direction of sort. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) *string { return v.Order }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Elem() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort
+		return ret
+	}).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput)
+}
+
+// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The metric used for sorting group by results.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Metric
+	}).(pulumi.StringPtrOutput)
+}
+
+// Direction of sort. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearch struct {
+	// The events search string.
+	Query string `pulumi:"query"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchArgs and PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchArgs{...}
+type PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput
+	ToPowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchArgs struct {
+	// The events search string.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearch)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchArgs) ToPowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchArgs) ToPowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput)
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchArgs) ToPowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchArgs) ToPowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput).ToPowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchArgs, PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtr and PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrInput` via:
+//
+//	        PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput
+	ToPowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput
+}
+
+type powerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrType PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchArgs
+
+func PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtr(v *PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchArgs) PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrInput {
+	return (*powerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrType)(v)
+}
+
+func (*powerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearch)(nil)).Elem()
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrType) ToPowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrType) ToPowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearch)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return o.ToPowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearch) *PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearch {
+		return &v
+	}).(PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput)
+}
+
+// The events search string.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearch) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearch)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput) ToPowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput) Elem() PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearch) PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearch {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearch
+		return ret
+	}).(PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput)
+}
+
+// The events search string.
+func (o PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearch) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryMetricQuery struct {
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+	Aggregator *string `pulumi:"aggregator"`
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
+	// The data source for metrics queries. Defaults to `"metrics"`.
+	DataSource *string `pulumi:"dataSource"`
+	// The name of the query for use in formulas.
+	Name string `pulumi:"name"`
+	// The metrics query definition.
+	Query string `pulumi:"query"`
+	// Semantic mode for metrics queries. This determines how metrics from different sources are combined or displayed. Valid values are `combined`, `native`.
+	SemanticMode *string `pulumi:"semanticMode"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestQueryMetricQueryInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestQueryMetricQueryArgs and PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestQueryMetricQueryInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestQueryMetricQueryArgs{...}
+type PowerpackWidgetToplistDefinitionRequestQueryMetricQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput() PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput
+	ToPowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryMetricQueryArgs struct {
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+	Aggregator pulumi.StringPtrInput `pulumi:"aggregator"`
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
+	// The data source for metrics queries. Defaults to `"metrics"`.
+	DataSource pulumi.StringPtrInput `pulumi:"dataSource"`
+	// The name of the query for use in formulas.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The metrics query definition.
+	Query pulumi.StringInput `pulumi:"query"`
+	// Semantic mode for metrics queries. This determines how metrics from different sources are combined or displayed. Valid values are `combined`, `native`.
+	SemanticMode pulumi.StringPtrInput `pulumi:"semanticMode"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestQueryMetricQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryMetricQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryMetricQueryArgs) ToPowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput() PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryMetricQueryArgs) ToPowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput)
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryMetricQueryArgs) ToPowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryMetricQueryArgs) ToPowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput).ToPowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestQueryMetricQueryArgs, PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtr and PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrInput` via:
+//
+//	        PowerpackWidgetToplistDefinitionRequestQueryMetricQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput
+	ToPowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput
+}
+
+type powerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrType PowerpackWidgetToplistDefinitionRequestQueryMetricQueryArgs
+
+func PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtr(v *PowerpackWidgetToplistDefinitionRequestQueryMetricQueryArgs) PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrInput {
+	return (*powerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrType)(v)
+}
+
+func (*powerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestQueryMetricQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrType) ToPowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrType) ToPowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryMetricQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput) ToPowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput() PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput) ToPowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput) ToPowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput {
+	return o.ToPowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput) ToPowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetToplistDefinitionRequestQueryMetricQuery) *PowerpackWidgetToplistDefinitionRequestQueryMetricQuery {
+		return &v
+	}).(PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput)
+}
+
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput) Aggregator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryMetricQuery) *string { return v.Aggregator }).(pulumi.StringPtrOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryMetricQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
+}
+
+// The data source for metrics queries. Defaults to `"metrics"`.
+func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryMetricQuery) *string { return v.DataSource }).(pulumi.StringPtrOutput)
+}
+
+// The name of the query for use in formulas.
+func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryMetricQuery) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The metrics query definition.
+func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryMetricQuery) string { return v.Query }).(pulumi.StringOutput)
+}
+
+// Semantic mode for metrics queries. This determines how metrics from different sources are combined or displayed. Valid values are `combined`, `native`.
+func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput) SemanticMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryMetricQuery) *string { return v.SemanticMode }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestQueryMetricQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) ToPowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) ToPowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) Elem() PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryMetricQuery) PowerpackWidgetToplistDefinitionRequestQueryMetricQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetToplistDefinitionRequestQueryMetricQuery
+		return ret
+	}).(PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput)
+}
+
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) Aggregator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryMetricQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Aggregator
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryMetricQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrossOrgUuids
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data source for metrics queries. Defaults to `"metrics"`.
+func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryMetricQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the query for use in formulas.
+func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryMetricQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The metrics query definition.
+func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryMetricQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+// Semantic mode for metrics queries. This determines how metrics from different sources are combined or displayed. Valid values are `combined`, `native`.
+func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) SemanticMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryMetricQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SemanticMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryProcessQuery struct {
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+	Aggregator *string `pulumi:"aggregator"`
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
+	// The data source for process queries. Valid values are `process`, `container`.
+	DataSource string `pulumi:"dataSource"`
+	// Whether to normalize the CPU percentages.
+	IsNormalizedCpu *bool `pulumi:"isNormalizedCpu"`
+	// The number of hits to return.
+	Limit *int `pulumi:"limit"`
+	// The process metric name.
+	Metric string `pulumi:"metric"`
+	// The name of query for use in formulas.
+	Name string `pulumi:"name"`
+	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
+	Sort *string `pulumi:"sort"`
+	// An array of tags to filter by.
+	TagFilters []string `pulumi:"tagFilters"`
+	// The text to use as a filter.
+	TextFilter *string `pulumi:"textFilter"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestQueryProcessQueryInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestQueryProcessQueryArgs and PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestQueryProcessQueryInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestQueryProcessQueryArgs{...}
+type PowerpackWidgetToplistDefinitionRequestQueryProcessQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput() PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput
+	ToPowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryProcessQueryArgs struct {
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+	Aggregator pulumi.StringPtrInput `pulumi:"aggregator"`
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
+	// The data source for process queries. Valid values are `process`, `container`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// Whether to normalize the CPU percentages.
+	IsNormalizedCpu pulumi.BoolPtrInput `pulumi:"isNormalizedCpu"`
+	// The number of hits to return.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// The process metric name.
+	Metric pulumi.StringInput `pulumi:"metric"`
+	// The name of query for use in formulas.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
+	Sort pulumi.StringPtrInput `pulumi:"sort"`
+	// An array of tags to filter by.
+	TagFilters pulumi.StringArrayInput `pulumi:"tagFilters"`
+	// The text to use as a filter.
+	TextFilter pulumi.StringPtrInput `pulumi:"textFilter"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestQueryProcessQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryProcessQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryProcessQueryArgs) ToPowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput() PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryProcessQueryArgs) ToPowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput)
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryProcessQueryArgs) ToPowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQueryProcessQueryArgs) ToPowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput).ToPowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestQueryProcessQueryArgs, PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtr and PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrInput` via:
+//
+//	        PowerpackWidgetToplistDefinitionRequestQueryProcessQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput
+	ToPowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput
+}
+
+type powerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrType PowerpackWidgetToplistDefinitionRequestQueryProcessQueryArgs
+
+func PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtr(v *PowerpackWidgetToplistDefinitionRequestQueryProcessQueryArgs) PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrInput {
+	return (*powerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrType)(v)
+}
+
+func (*powerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestQueryProcessQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrType) ToPowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrType) ToPowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryProcessQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput) ToPowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput() PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput) ToPowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput) ToPowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput {
+	return o.ToPowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput) ToPowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *PowerpackWidgetToplistDefinitionRequestQueryProcessQuery {
+		return &v
+	}).(PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput)
+}
+
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput) Aggregator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *string { return v.Aggregator }).(pulumi.StringPtrOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
+}
+
+// The data source for process queries. Valid values are `process`, `container`.
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) string { return v.DataSource }).(pulumi.StringOutput)
+}
+
+// Whether to normalize the CPU percentages.
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput) IsNormalizedCpu() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *bool { return v.IsNormalizedCpu }).(pulumi.BoolPtrOutput)
+}
+
+// The number of hits to return.
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// The process metric name.
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput) Metric() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) string { return v.Metric }).(pulumi.StringOutput)
+}
+
+// The name of query for use in formulas.
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput) Sort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *string { return v.Sort }).(pulumi.StringPtrOutput)
+}
+
+// An array of tags to filter by.
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput) TagFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) []string { return v.TagFilters }).(pulumi.StringArrayOutput)
+}
+
+// The text to use as a filter.
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput) TextFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *string { return v.TextFilter }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestQueryProcessQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) ToPowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) ToPowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Elem() PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) PowerpackWidgetToplistDefinitionRequestQueryProcessQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetToplistDefinitionRequestQueryProcessQuery
+		return ret
+	}).(PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput)
+}
+
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Aggregator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Aggregator
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrossOrgUuids
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data source for process queries. Valid values are `process`, `container`.
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to normalize the CPU percentages.
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) IsNormalizedCpu() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsNormalizedCpu
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The number of hits to return.
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Limit
+	}).(pulumi.IntPtrOutput)
+}
+
+// The process metric name.
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Metric
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of query for use in formulas.
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Sort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sort
+	}).(pulumi.StringPtrOutput)
+}
+
+// An array of tags to filter by.
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) TagFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TagFilters
+	}).(pulumi.StringArrayOutput)
+}
+
+// The text to use as a filter.
+func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) TextFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TextFilter
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQuerySloQuery struct {
+	// Additional filters applied to the SLO query.
+	AdditionalQueryFilters *string `pulumi:"additionalQueryFilters"`
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
+	// The data source for SLO queries. Valid values are `slo`.
+	DataSource string `pulumi:"dataSource"`
+	// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+	GroupMode *string `pulumi:"groupMode"`
+	// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+	Measure string `pulumi:"measure"`
+	// The name of query for use in formulas.
+	Name *string `pulumi:"name"`
+	// ID of an SLO to query.
+	SloId string `pulumi:"sloId"`
+	// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
+	SloQueryType *string `pulumi:"sloQueryType"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestQuerySloQueryInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestQuerySloQueryArgs and PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestQuerySloQueryInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestQuerySloQueryArgs{...}
+type PowerpackWidgetToplistDefinitionRequestQuerySloQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput() PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput
+	ToPowerpackWidgetToplistDefinitionRequestQuerySloQueryOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestQuerySloQueryArgs struct {
+	// Additional filters applied to the SLO query.
+	AdditionalQueryFilters pulumi.StringPtrInput `pulumi:"additionalQueryFilters"`
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
+	// The data source for SLO queries. Valid values are `slo`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+	GroupMode pulumi.StringPtrInput `pulumi:"groupMode"`
+	// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+	Measure pulumi.StringInput `pulumi:"measure"`
+	// The name of query for use in formulas.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// ID of an SLO to query.
+	SloId pulumi.StringInput `pulumi:"sloId"`
+	// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
+	SloQueryType pulumi.StringPtrInput `pulumi:"sloQueryType"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestQuerySloQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQuerySloQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQuerySloQueryArgs) ToPowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput() PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQuerySloQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQuerySloQueryArgs) ToPowerpackWidgetToplistDefinitionRequestQuerySloQueryOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput)
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQuerySloQueryArgs) ToPowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestQuerySloQueryArgs) ToPowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput).ToPowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestQuerySloQueryArgs, PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtr and PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrInput` via:
+//
+//	        PowerpackWidgetToplistDefinitionRequestQuerySloQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput
+	ToPowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput
+}
+
+type powerpackWidgetToplistDefinitionRequestQuerySloQueryPtrType PowerpackWidgetToplistDefinitionRequestQuerySloQueryArgs
+
+func PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtr(v *PowerpackWidgetToplistDefinitionRequestQuerySloQueryArgs) PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrInput {
+	return (*powerpackWidgetToplistDefinitionRequestQuerySloQueryPtrType)(v)
+}
+
+func (*powerpackWidgetToplistDefinitionRequestQuerySloQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestQuerySloQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestQuerySloQueryPtrType) ToPowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestQuerySloQueryPtrType) ToPowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQuerySloQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput) ToPowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput() PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput) ToPowerpackWidgetToplistDefinitionRequestQuerySloQueryOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput) ToPowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput {
+	return o.ToPowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput) ToPowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetToplistDefinitionRequestQuerySloQuery) *PowerpackWidgetToplistDefinitionRequestQuerySloQuery {
+		return &v
+	}).(PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput)
+}
+
+// Additional filters applied to the SLO query.
+func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput) AdditionalQueryFilters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQuerySloQuery) *string { return v.AdditionalQueryFilters }).(pulumi.StringPtrOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQuerySloQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
+}
+
+// The data source for SLO queries. Valid values are `slo`.
+func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQuerySloQuery) string { return v.DataSource }).(pulumi.StringOutput)
+}
+
+// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput) GroupMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQuerySloQuery) *string { return v.GroupMode }).(pulumi.StringPtrOutput)
+}
+
+// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput) Measure() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQuerySloQuery) string { return v.Measure }).(pulumi.StringOutput)
+}
+
+// The name of query for use in formulas.
+func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQuerySloQuery) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// ID of an SLO to query.
+func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput) SloId() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQuerySloQuery) string { return v.SloId }).(pulumi.StringOutput)
+}
+
+// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
+func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput) SloQueryType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQuerySloQuery) *string { return v.SloQueryType }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestQuerySloQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) ToPowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) ToPowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) Elem() PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQuerySloQuery) PowerpackWidgetToplistDefinitionRequestQuerySloQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetToplistDefinitionRequestQuerySloQuery
+		return ret
+	}).(PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput)
+}
+
+// Additional filters applied to the SLO query.
+func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) AdditionalQueryFilters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalQueryFilters
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrossOrgUuids
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data source for SLO queries. Valid values are `slo`.
+func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) GroupMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) Measure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Measure
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of query for use in formulas.
+func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of an SLO to query.
+func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) SloId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SloId
+	}).(pulumi.StringPtrOutput)
+}
+
+// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
+func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) SloQueryType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SloQueryType
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestRumQuery struct {
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery *PowerpackWidgetToplistDefinitionRequestRumQueryComputeQuery `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies []PowerpackWidgetToplistDefinitionRequestRumQueryGroupBy `pulumi:"groupBies"`
+	// The name of the index to query.
+	Index string `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+	MultiComputes []PowerpackWidgetToplistDefinitionRequestRumQueryMultiCompute `pulumi:"multiComputes"`
+	// The search query to use.
+	SearchQuery *string `pulumi:"searchQuery"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestRumQueryInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestRumQueryArgs and PowerpackWidgetToplistDefinitionRequestRumQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestRumQueryInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestRumQueryArgs{...}
+type PowerpackWidgetToplistDefinitionRequestRumQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestRumQueryOutput() PowerpackWidgetToplistDefinitionRequestRumQueryOutput
+	ToPowerpackWidgetToplistDefinitionRequestRumQueryOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestRumQueryArgs struct {
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrInput `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayInput `pulumi:"groupBies"`
+	// The name of the index to query.
+	Index pulumi.StringInput `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+	MultiComputes PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayInput `pulumi:"multiComputes"`
+	// The search query to use.
+	SearchQuery pulumi.StringPtrInput `pulumi:"searchQuery"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestRumQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestRumQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestRumQueryArgs) ToPowerpackWidgetToplistDefinitionRequestRumQueryOutput() PowerpackWidgetToplistDefinitionRequestRumQueryOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestRumQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestRumQueryArgs) ToPowerpackWidgetToplistDefinitionRequestRumQueryOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestRumQueryOutput)
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestRumQueryArgs) ToPowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestRumQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestRumQueryArgs) ToPowerpackWidgetToplistDefinitionRequestRumQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestRumQueryOutput).ToPowerpackWidgetToplistDefinitionRequestRumQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetToplistDefinitionRequestRumQueryPtrInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestRumQueryArgs, PowerpackWidgetToplistDefinitionRequestRumQueryPtr and PowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestRumQueryPtrInput` via:
+//
+//	        PowerpackWidgetToplistDefinitionRequestRumQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetToplistDefinitionRequestRumQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput
+	ToPowerpackWidgetToplistDefinitionRequestRumQueryPtrOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput
+}
+
+type powerpackWidgetToplistDefinitionRequestRumQueryPtrType PowerpackWidgetToplistDefinitionRequestRumQueryArgs
+
+func PowerpackWidgetToplistDefinitionRequestRumQueryPtr(v *PowerpackWidgetToplistDefinitionRequestRumQueryArgs) PowerpackWidgetToplistDefinitionRequestRumQueryPtrInput {
+	return (*powerpackWidgetToplistDefinitionRequestRumQueryPtrType)(v)
+}
+
+func (*powerpackWidgetToplistDefinitionRequestRumQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestRumQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestRumQueryPtrType) ToPowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestRumQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestRumQueryPtrType) ToPowerpackWidgetToplistDefinitionRequestRumQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestRumQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestRumQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestRumQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryOutput() PowerpackWidgetToplistDefinitionRequestRumQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput {
+	return o.ToPowerpackWidgetToplistDefinitionRequestRumQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetToplistDefinitionRequestRumQuery) *PowerpackWidgetToplistDefinitionRequestRumQuery {
+		return &v
+	}).(PowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryOutput) ComputeQuery() PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestRumQuery) *PowerpackWidgetToplistDefinitionRequestRumQueryComputeQuery {
+		return v.ComputeQuery
+	}).(PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput)
+}
+
+// Multiple `groupBy` blocks are allowed using the structure below.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryOutput) GroupBies() PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestRumQuery) []PowerpackWidgetToplistDefinitionRequestRumQueryGroupBy {
+		return v.GroupBies
+	}).(PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput)
+}
+
+// The name of the index to query.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryOutput) Index() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestRumQuery) string { return v.Index }).(pulumi.StringOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryOutput) MultiComputes() PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestRumQuery) []PowerpackWidgetToplistDefinitionRequestRumQueryMultiCompute {
+		return v.MultiComputes
+	}).(PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput)
+}
+
+// The search query to use.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryOutput) SearchQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestRumQuery) *string { return v.SearchQuery }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestRumQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput) Elem() PowerpackWidgetToplistDefinitionRequestRumQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestRumQuery) PowerpackWidgetToplistDefinitionRequestRumQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetToplistDefinitionRequestRumQuery
+		return ret
+	}).(PowerpackWidgetToplistDefinitionRequestRumQueryOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput) ComputeQuery() PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestRumQuery) *PowerpackWidgetToplistDefinitionRequestRumQueryComputeQuery {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeQuery
+	}).(PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput)
+}
+
+// Multiple `groupBy` blocks are allowed using the structure below.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput) GroupBies() PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestRumQuery) []PowerpackWidgetToplistDefinitionRequestRumQueryGroupBy {
+		if v == nil {
+			return nil
+		}
+		return v.GroupBies
+	}).(PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput)
+}
+
+// The name of the index to query.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput) Index() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestRumQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Index
+	}).(pulumi.StringPtrOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput) MultiComputes() PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestRumQuery) []PowerpackWidgetToplistDefinitionRequestRumQueryMultiCompute {
+		if v == nil {
+			return nil
+		}
+		return v.MultiComputes
+	}).(PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput)
+}
+
+// The search query to use.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput) SearchQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestRumQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SearchQuery
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestRumQueryComputeQuery struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryArgs and PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryArgs{...}
+type PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutput() PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutput
+	ToPowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestRumQueryComputeQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryArgs) ToPowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutput() PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryArgs) ToPowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutput)
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryArgs) ToPowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryArgs) ToPowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutput).ToPowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryArgs, PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtr and PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrInput` via:
+//
+//	        PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput
+	ToPowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput
+}
+
+type powerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrType PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryArgs
+
+func PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtr(v *PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryArgs) PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrInput {
+	return (*powerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrType)(v)
+}
+
+func (*powerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestRumQueryComputeQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrType) ToPowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrType) ToPowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestRumQueryComputeQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutput() PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput {
+	return o.ToPowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetToplistDefinitionRequestRumQueryComputeQuery) *PowerpackWidgetToplistDefinitionRequestRumQueryComputeQuery {
+		return &v
+	}).(PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestRumQueryComputeQuery) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestRumQueryComputeQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestRumQueryComputeQuery) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestRumQueryComputeQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput) Elem() PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestRumQueryComputeQuery) PowerpackWidgetToplistDefinitionRequestRumQueryComputeQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetToplistDefinitionRequestRumQueryComputeQuery
+		return ret
+	}).(PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestRumQueryComputeQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestRumQueryComputeQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Facet
+	}).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestRumQueryComputeQuery) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestRumQueryGroupBy struct {
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit *int `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
+	SortQuery *PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQuery `pulumi:"sortQuery"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestRumQueryGroupByInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArgs and PowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestRumQueryGroupByInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArgs{...}
+type PowerpackWidgetToplistDefinitionRequestRumQueryGroupByInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutput() PowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutput
+	ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArgs struct {
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
+	SortQuery PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrInput `pulumi:"sortQuery"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestRumQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArgs) ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutput() PowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArgs) ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutput)
+}
+
+// PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArray and PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArray{ PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArgs{...} }
+type PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput() PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput
+	ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArray []PowerpackWidgetToplistDefinitionRequestRumQueryGroupByInput
+
+func (PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetToplistDefinitionRequestRumQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArray) ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput() PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArray) ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestRumQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutput() PowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutput {
+	return o
+}
+
+// The facet name.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestRumQueryGroupBy) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of items in the group.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestRumQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// A list of exactly one element describing the sort query to use.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutput) SortQuery() PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestRumQueryGroupBy) *PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQuery {
+		return v.SortQuery
+	}).(PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetToplistDefinitionRequestRumQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput() PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetToplistDefinitionRequestRumQueryGroupBy {
+		return vs[0].([]PowerpackWidgetToplistDefinitionRequestRumQueryGroupBy)[vs[1].(int)]
+	}).(PowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQuery struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order string `pulumi:"order"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryArgs and PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryArgs{...}
+type PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput() PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput
+	ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order pulumi.StringInput `pulumi:"order"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryArgs) ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput() PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryArgs) ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput)
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryArgs) ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryArgs) ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput).ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryArgs, PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtr and PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrInput` via:
+//
+//	        PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput
+	ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput
+}
+
+type powerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrType PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryArgs
+
+func PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtr(v *PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryArgs) PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrInput {
+	return (*powerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrType)(v)
+}
+
+func (*powerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrType) ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrType) ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput() PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput {
+	return o.ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQuery) *PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQuery {
+		return &v
+	}).(PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQuery) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Widget sorting methods. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput) Order() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQuery) string { return v.Order }).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput) Elem() PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQuery) PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQuery
+		return ret
+	}).(PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Facet
+	}).(pulumi.StringPtrOutput)
+}
+
+// Widget sorting methods. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestRumQueryMultiCompute struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArgs and PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArgs{...}
+type PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutput() PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutput
+	ToPowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestRumQueryMultiCompute)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArgs) ToPowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutput() PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArgs) ToPowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutput)
+}
+
+// PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArray and PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArray{ PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArgs{...} }
+type PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput() PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput
+	ToPowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArray []PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeInput
+
+func (PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetToplistDefinitionRequestRumQueryMultiCompute)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArray) ToPowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput() PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArray) ToPowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestRumQueryMultiCompute)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutput() PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutput {
+	return o
+}
+
+// The aggregation method.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestRumQueryMultiCompute) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestRumQueryMultiCompute) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestRumQueryMultiCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetToplistDefinitionRequestRumQueryMultiCompute)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput() PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput) ToPowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetToplistDefinitionRequestRumQueryMultiCompute {
+		return vs[0].([]PowerpackWidgetToplistDefinitionRequestRumQueryMultiCompute)[vs[1].(int)]
+	}).(PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestSecurityQuery struct {
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery *PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQuery `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies []PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBy `pulumi:"groupBies"`
+	// The name of the index to query.
+	Index string `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+	MultiComputes []PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiCompute `pulumi:"multiComputes"`
+	// The search query to use.
+	SearchQuery *string `pulumi:"searchQuery"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestSecurityQueryInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestSecurityQueryArgs and PowerpackWidgetToplistDefinitionRequestSecurityQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestSecurityQueryInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestSecurityQueryArgs{...}
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestSecurityQueryOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryOutput
+	ToPowerpackWidgetToplistDefinitionRequestSecurityQueryOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryArgs struct {
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrInput `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayInput `pulumi:"groupBies"`
+	// The name of the index to query.
+	Index pulumi.StringInput `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+	MultiComputes PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayInput `pulumi:"multiComputes"`
+	// The search query to use.
+	SearchQuery pulumi.StringPtrInput `pulumi:"searchQuery"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestSecurityQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestSecurityQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestSecurityQueryArgs) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestSecurityQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestSecurityQueryArgs) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestSecurityQueryOutput)
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestSecurityQueryArgs) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestSecurityQueryArgs) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestSecurityQueryOutput).ToPowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestSecurityQueryArgs, PowerpackWidgetToplistDefinitionRequestSecurityQueryPtr and PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrInput` via:
+//
+//	        PowerpackWidgetToplistDefinitionRequestSecurityQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput
+	ToPowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput
+}
+
+type powerpackWidgetToplistDefinitionRequestSecurityQueryPtrType PowerpackWidgetToplistDefinitionRequestSecurityQueryArgs
+
+func PowerpackWidgetToplistDefinitionRequestSecurityQueryPtr(v *PowerpackWidgetToplistDefinitionRequestSecurityQueryArgs) PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrInput {
+	return (*powerpackWidgetToplistDefinitionRequestSecurityQueryPtrType)(v)
+}
+
+func (*powerpackWidgetToplistDefinitionRequestSecurityQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestSecurityQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestSecurityQueryPtrType) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestSecurityQueryPtrType) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestSecurityQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestSecurityQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput {
+	return o.ToPowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetToplistDefinitionRequestSecurityQuery) *PowerpackWidgetToplistDefinitionRequestSecurityQuery {
+		return &v
+	}).(PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryOutput) ComputeQuery() PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestSecurityQuery) *PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQuery {
+		return v.ComputeQuery
+	}).(PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput)
+}
+
+// Multiple `groupBy` blocks are allowed using the structure below.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryOutput) GroupBies() PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestSecurityQuery) []PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBy {
+		return v.GroupBies
+	}).(PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput)
+}
+
+// The name of the index to query.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryOutput) Index() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestSecurityQuery) string { return v.Index }).(pulumi.StringOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryOutput) MultiComputes() PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestSecurityQuery) []PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiCompute {
+		return v.MultiComputes
+	}).(PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput)
+}
+
+// The search query to use.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryOutput) SearchQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestSecurityQuery) *string { return v.SearchQuery }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestSecurityQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput) Elem() PowerpackWidgetToplistDefinitionRequestSecurityQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestSecurityQuery) PowerpackWidgetToplistDefinitionRequestSecurityQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetToplistDefinitionRequestSecurityQuery
+		return ret
+	}).(PowerpackWidgetToplistDefinitionRequestSecurityQueryOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput) ComputeQuery() PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestSecurityQuery) *PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQuery {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeQuery
+	}).(PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput)
+}
+
+// Multiple `groupBy` blocks are allowed using the structure below.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput) GroupBies() PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestSecurityQuery) []PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBy {
+		if v == nil {
+			return nil
+		}
+		return v.GroupBies
+	}).(PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput)
+}
+
+// The name of the index to query.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput) Index() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestSecurityQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Index
+	}).(pulumi.StringPtrOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput) MultiComputes() PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestSecurityQuery) []PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiCompute {
+		if v == nil {
+			return nil
+		}
+		return v.MultiComputes
+	}).(PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput)
+}
+
+// The search query to use.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput) SearchQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestSecurityQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SearchQuery
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQuery struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryArgs and PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryArgs{...}
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput
+	ToPowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryArgs) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryArgs) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput)
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryArgs) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryArgs) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput).ToPowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryArgs, PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtr and PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrInput` via:
+//
+//	        PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput
+	ToPowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput
+}
+
+type powerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrType PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryArgs
+
+func PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtr(v *PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryArgs) PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrInput {
+	return (*powerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrType)(v)
+}
+
+func (*powerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrType) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrType) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput {
+	return o.ToPowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQuery) *PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQuery {
+		return &v
+	}).(PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQuery) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQuery) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput) Elem() PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQuery) PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQuery
+		return ret
+	}).(PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Facet
+	}).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQuery) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBy struct {
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit *int `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
+	SortQuery *PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery `pulumi:"sortQuery"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArgs and PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArgs{...}
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutput
+	ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArgs struct {
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
+	SortQuery PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrInput `pulumi:"sortQuery"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArgs) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArgs) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutput)
+}
+
+// PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArray and PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArray{ PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArgs{...} }
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput
+	ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArray []PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByInput
+
+func (PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArray) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArray) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutput {
+	return o
+}
+
+// The facet name.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBy) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of items in the group.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// A list of exactly one element describing the sort query to use.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutput) SortQuery() PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBy) *PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery {
+		return v.SortQuery
+	}).(PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBy {
+		return vs[0].([]PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBy)[vs[1].(int)]
+	}).(PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order string `pulumi:"order"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs and PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs{...}
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput
+	ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order pulumi.StringInput `pulumi:"order"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput)
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput).ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs, PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtr and PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrInput` via:
+//
+//	        PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput
+	ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput
+}
+
+type powerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrType PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs
+
+func PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtr(v *PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs) PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrInput {
+	return (*powerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrType)(v)
+}
+
+func (*powerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrType) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrType) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput {
+	return o.ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery) *PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery {
+		return &v
+	}).(PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery) string {
+		return v.Aggregation
+	}).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Widget sorting methods. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput) Order() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery) string { return v.Order }).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput) Elem() PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery) PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery
+		return ret
+	}).(PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Facet
+	}).(pulumi.StringPtrOutput)
+}
+
+// Widget sorting methods. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiCompute struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArgs and PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArgs{...}
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput
+	ToPowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiCompute)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArgs) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArgs) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput)
+}
+
+// PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArray and PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArray{ PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArgs{...} }
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput
+	ToPowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArray []PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeInput
+
+func (PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiCompute)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArray) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArray) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiCompute)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput {
+	return o
+}
+
+// The aggregation method.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiCompute) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiCompute) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiCompute)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput() PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput) ToPowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiCompute {
+		return vs[0].([]PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiCompute)[vs[1].(int)]
+	}).(PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestStyle struct {
+	// A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+	Palette *string `pulumi:"palette"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestStyleInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestStyleArgs and PowerpackWidgetToplistDefinitionRequestStyleOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestStyleInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestStyleArgs{...}
+type PowerpackWidgetToplistDefinitionRequestStyleInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestStyleOutput() PowerpackWidgetToplistDefinitionRequestStyleOutput
+	ToPowerpackWidgetToplistDefinitionRequestStyleOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestStyleOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestStyleArgs struct {
+	// A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+	Palette pulumi.StringPtrInput `pulumi:"palette"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestStyleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestStyle)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestStyleArgs) ToPowerpackWidgetToplistDefinitionRequestStyleOutput() PowerpackWidgetToplistDefinitionRequestStyleOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestStyleOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestStyleArgs) ToPowerpackWidgetToplistDefinitionRequestStyleOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestStyleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestStyleOutput)
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestStyleArgs) ToPowerpackWidgetToplistDefinitionRequestStylePtrOutput() PowerpackWidgetToplistDefinitionRequestStylePtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestStylePtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestStyleArgs) ToPowerpackWidgetToplistDefinitionRequestStylePtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestStyleOutput).ToPowerpackWidgetToplistDefinitionRequestStylePtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetToplistDefinitionRequestStylePtrInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestStyleArgs, PowerpackWidgetToplistDefinitionRequestStylePtr and PowerpackWidgetToplistDefinitionRequestStylePtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestStylePtrInput` via:
+//
+//	        PowerpackWidgetToplistDefinitionRequestStyleArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetToplistDefinitionRequestStylePtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestStylePtrOutput() PowerpackWidgetToplistDefinitionRequestStylePtrOutput
+	ToPowerpackWidgetToplistDefinitionRequestStylePtrOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestStylePtrOutput
+}
+
+type powerpackWidgetToplistDefinitionRequestStylePtrType PowerpackWidgetToplistDefinitionRequestStyleArgs
+
+func PowerpackWidgetToplistDefinitionRequestStylePtr(v *PowerpackWidgetToplistDefinitionRequestStyleArgs) PowerpackWidgetToplistDefinitionRequestStylePtrInput {
+	return (*powerpackWidgetToplistDefinitionRequestStylePtrType)(v)
+}
+
+func (*powerpackWidgetToplistDefinitionRequestStylePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestStyle)(nil)).Elem()
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestStylePtrType) ToPowerpackWidgetToplistDefinitionRequestStylePtrOutput() PowerpackWidgetToplistDefinitionRequestStylePtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestStylePtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestStylePtrType) ToPowerpackWidgetToplistDefinitionRequestStylePtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestStylePtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestStyleOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestStyleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestStyle)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestStyleOutput) ToPowerpackWidgetToplistDefinitionRequestStyleOutput() PowerpackWidgetToplistDefinitionRequestStyleOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestStyleOutput) ToPowerpackWidgetToplistDefinitionRequestStyleOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestStyleOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestStyleOutput) ToPowerpackWidgetToplistDefinitionRequestStylePtrOutput() PowerpackWidgetToplistDefinitionRequestStylePtrOutput {
+	return o.ToPowerpackWidgetToplistDefinitionRequestStylePtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestStyleOutput) ToPowerpackWidgetToplistDefinitionRequestStylePtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestStylePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetToplistDefinitionRequestStyle) *PowerpackWidgetToplistDefinitionRequestStyle {
+		return &v
+	}).(PowerpackWidgetToplistDefinitionRequestStylePtrOutput)
+}
+
+// A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+func (o PowerpackWidgetToplistDefinitionRequestStyleOutput) Palette() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestStyle) *string { return v.Palette }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestStylePtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestStylePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestStyle)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestStylePtrOutput) ToPowerpackWidgetToplistDefinitionRequestStylePtrOutput() PowerpackWidgetToplistDefinitionRequestStylePtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestStylePtrOutput) ToPowerpackWidgetToplistDefinitionRequestStylePtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestStylePtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestStylePtrOutput) Elem() PowerpackWidgetToplistDefinitionRequestStyleOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestStyle) PowerpackWidgetToplistDefinitionRequestStyle {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetToplistDefinitionRequestStyle
+		return ret
+	}).(PowerpackWidgetToplistDefinitionRequestStyleOutput)
+}
+
+// A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+func (o PowerpackWidgetToplistDefinitionRequestStylePtrOutput) Palette() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestStyle) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Palette
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionStyle struct {
+	// The display mode for the widget.
+	Displays []PowerpackWidgetToplistDefinitionStyleDisplay `pulumi:"displays"`
+	// The color palette for the widget.
+	Palette *string `pulumi:"palette"`
+	// The scaling mode for the widget. Valid values are `absolute`, `relative`.
+	Scaling *string `pulumi:"scaling"`
+}
+
+// PowerpackWidgetToplistDefinitionStyleInput is an input type that accepts PowerpackWidgetToplistDefinitionStyleArgs and PowerpackWidgetToplistDefinitionStyleOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionStyleInput` via:
+//
+//	PowerpackWidgetToplistDefinitionStyleArgs{...}
+type PowerpackWidgetToplistDefinitionStyleInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionStyleOutput() PowerpackWidgetToplistDefinitionStyleOutput
+	ToPowerpackWidgetToplistDefinitionStyleOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionStyleOutput
+}
+
+type PowerpackWidgetToplistDefinitionStyleArgs struct {
+	// The display mode for the widget.
+	Displays PowerpackWidgetToplistDefinitionStyleDisplayArrayInput `pulumi:"displays"`
+	// The color palette for the widget.
+	Palette pulumi.StringPtrInput `pulumi:"palette"`
+	// The scaling mode for the widget. Valid values are `absolute`, `relative`.
+	Scaling pulumi.StringPtrInput `pulumi:"scaling"`
+}
+
+func (PowerpackWidgetToplistDefinitionStyleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionStyle)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionStyleArgs) ToPowerpackWidgetToplistDefinitionStyleOutput() PowerpackWidgetToplistDefinitionStyleOutput {
+	return i.ToPowerpackWidgetToplistDefinitionStyleOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionStyleArgs) ToPowerpackWidgetToplistDefinitionStyleOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionStyleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionStyleOutput)
+}
+
+// PowerpackWidgetToplistDefinitionStyleArrayInput is an input type that accepts PowerpackWidgetToplistDefinitionStyleArray and PowerpackWidgetToplistDefinitionStyleArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionStyleArrayInput` via:
+//
+//	PowerpackWidgetToplistDefinitionStyleArray{ PowerpackWidgetToplistDefinitionStyleArgs{...} }
+type PowerpackWidgetToplistDefinitionStyleArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionStyleArrayOutput() PowerpackWidgetToplistDefinitionStyleArrayOutput
+	ToPowerpackWidgetToplistDefinitionStyleArrayOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionStyleArrayOutput
+}
+
+type PowerpackWidgetToplistDefinitionStyleArray []PowerpackWidgetToplistDefinitionStyleInput
+
+func (PowerpackWidgetToplistDefinitionStyleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetToplistDefinitionStyle)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionStyleArray) ToPowerpackWidgetToplistDefinitionStyleArrayOutput() PowerpackWidgetToplistDefinitionStyleArrayOutput {
+	return i.ToPowerpackWidgetToplistDefinitionStyleArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionStyleArray) ToPowerpackWidgetToplistDefinitionStyleArrayOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionStyleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionStyleArrayOutput)
+}
+
+type PowerpackWidgetToplistDefinitionStyleOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionStyleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionStyle)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionStyleOutput) ToPowerpackWidgetToplistDefinitionStyleOutput() PowerpackWidgetToplistDefinitionStyleOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionStyleOutput) ToPowerpackWidgetToplistDefinitionStyleOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionStyleOutput {
+	return o
+}
+
+// The display mode for the widget.
+func (o PowerpackWidgetToplistDefinitionStyleOutput) Displays() PowerpackWidgetToplistDefinitionStyleDisplayArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionStyle) []PowerpackWidgetToplistDefinitionStyleDisplay {
+		return v.Displays
+	}).(PowerpackWidgetToplistDefinitionStyleDisplayArrayOutput)
+}
+
+// The color palette for the widget.
+func (o PowerpackWidgetToplistDefinitionStyleOutput) Palette() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionStyle) *string { return v.Palette }).(pulumi.StringPtrOutput)
+}
+
+// The scaling mode for the widget. Valid values are `absolute`, `relative`.
+func (o PowerpackWidgetToplistDefinitionStyleOutput) Scaling() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionStyle) *string { return v.Scaling }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionStyleArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionStyleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetToplistDefinitionStyle)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionStyleArrayOutput) ToPowerpackWidgetToplistDefinitionStyleArrayOutput() PowerpackWidgetToplistDefinitionStyleArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionStyleArrayOutput) ToPowerpackWidgetToplistDefinitionStyleArrayOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionStyleArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionStyleArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetToplistDefinitionStyleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetToplistDefinitionStyle {
+		return vs[0].([]PowerpackWidgetToplistDefinitionStyle)[vs[1].(int)]
+	}).(PowerpackWidgetToplistDefinitionStyleOutput)
+}
+
+type PowerpackWidgetToplistDefinitionStyleDisplay struct {
+	// The display type for the widget.
+	Type string `pulumi:"type"`
+}
+
+// PowerpackWidgetToplistDefinitionStyleDisplayInput is an input type that accepts PowerpackWidgetToplistDefinitionStyleDisplayArgs and PowerpackWidgetToplistDefinitionStyleDisplayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionStyleDisplayInput` via:
+//
+//	PowerpackWidgetToplistDefinitionStyleDisplayArgs{...}
+type PowerpackWidgetToplistDefinitionStyleDisplayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionStyleDisplayOutput() PowerpackWidgetToplistDefinitionStyleDisplayOutput
+	ToPowerpackWidgetToplistDefinitionStyleDisplayOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionStyleDisplayOutput
+}
+
+type PowerpackWidgetToplistDefinitionStyleDisplayArgs struct {
+	// The display type for the widget.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PowerpackWidgetToplistDefinitionStyleDisplayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionStyleDisplay)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionStyleDisplayArgs) ToPowerpackWidgetToplistDefinitionStyleDisplayOutput() PowerpackWidgetToplistDefinitionStyleDisplayOutput {
+	return i.ToPowerpackWidgetToplistDefinitionStyleDisplayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionStyleDisplayArgs) ToPowerpackWidgetToplistDefinitionStyleDisplayOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionStyleDisplayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionStyleDisplayOutput)
+}
+
+// PowerpackWidgetToplistDefinitionStyleDisplayArrayInput is an input type that accepts PowerpackWidgetToplistDefinitionStyleDisplayArray and PowerpackWidgetToplistDefinitionStyleDisplayArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionStyleDisplayArrayInput` via:
+//
+//	PowerpackWidgetToplistDefinitionStyleDisplayArray{ PowerpackWidgetToplistDefinitionStyleDisplayArgs{...} }
+type PowerpackWidgetToplistDefinitionStyleDisplayArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionStyleDisplayArrayOutput() PowerpackWidgetToplistDefinitionStyleDisplayArrayOutput
+	ToPowerpackWidgetToplistDefinitionStyleDisplayArrayOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionStyleDisplayArrayOutput
+}
+
+type PowerpackWidgetToplistDefinitionStyleDisplayArray []PowerpackWidgetToplistDefinitionStyleDisplayInput
+
+func (PowerpackWidgetToplistDefinitionStyleDisplayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetToplistDefinitionStyleDisplay)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionStyleDisplayArray) ToPowerpackWidgetToplistDefinitionStyleDisplayArrayOutput() PowerpackWidgetToplistDefinitionStyleDisplayArrayOutput {
+	return i.ToPowerpackWidgetToplistDefinitionStyleDisplayArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionStyleDisplayArray) ToPowerpackWidgetToplistDefinitionStyleDisplayArrayOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionStyleDisplayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionStyleDisplayArrayOutput)
+}
+
+type PowerpackWidgetToplistDefinitionStyleDisplayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionStyleDisplayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionStyleDisplay)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionStyleDisplayOutput) ToPowerpackWidgetToplistDefinitionStyleDisplayOutput() PowerpackWidgetToplistDefinitionStyleDisplayOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionStyleDisplayOutput) ToPowerpackWidgetToplistDefinitionStyleDisplayOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionStyleDisplayOutput {
+	return o
+}
+
+// The display type for the widget.
+func (o PowerpackWidgetToplistDefinitionStyleDisplayOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionStyleDisplay) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetToplistDefinitionStyleDisplayArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionStyleDisplayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetToplistDefinitionStyleDisplay)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionStyleDisplayArrayOutput) ToPowerpackWidgetToplistDefinitionStyleDisplayArrayOutput() PowerpackWidgetToplistDefinitionStyleDisplayArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionStyleDisplayArrayOutput) ToPowerpackWidgetToplistDefinitionStyleDisplayArrayOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionStyleDisplayArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionStyleDisplayArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetToplistDefinitionStyleDisplayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetToplistDefinitionStyleDisplay {
+		return vs[0].([]PowerpackWidgetToplistDefinitionStyleDisplay)[vs[1].(int)]
+	}).(PowerpackWidgetToplistDefinitionStyleDisplayOutput)
+}
+
+type PowerpackWidgetTopologyMapDefinition struct {
+	// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+	CustomLinks []PowerpackWidgetTopologyMapDefinitionCustomLink `pulumi:"customLinks"`
+	// The description of the widget.
+	Description *string `pulumi:"description"`
+	// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `requestType` are required within the request).
+	Requests []PowerpackWidgetTopologyMapDefinitionRequest `pulumi:"requests"`
+	// The title of the widget.
+	Title *string `pulumi:"title"`
+	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+	TitleAlign *string `pulumi:"titleAlign"`
+	// The size of the widget's title (defaults to 16).
+	TitleSize *string `pulumi:"titleSize"`
+}
+
+// PowerpackWidgetTopologyMapDefinitionInput is an input type that accepts PowerpackWidgetTopologyMapDefinitionArgs and PowerpackWidgetTopologyMapDefinitionOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTopologyMapDefinitionInput` via:
+//
+//	PowerpackWidgetTopologyMapDefinitionArgs{...}
+type PowerpackWidgetTopologyMapDefinitionInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTopologyMapDefinitionOutput() PowerpackWidgetTopologyMapDefinitionOutput
+	ToPowerpackWidgetTopologyMapDefinitionOutputWithContext(context.Context) PowerpackWidgetTopologyMapDefinitionOutput
+}
+
+type PowerpackWidgetTopologyMapDefinitionArgs struct {
+	// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+	CustomLinks PowerpackWidgetTopologyMapDefinitionCustomLinkArrayInput `pulumi:"customLinks"`
+	// The description of the widget.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `requestType` are required within the request).
+	Requests PowerpackWidgetTopologyMapDefinitionRequestArrayInput `pulumi:"requests"`
+	// The title of the widget.
+	Title pulumi.StringPtrInput `pulumi:"title"`
+	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
+	// The size of the widget's title (defaults to 16).
+	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
+}
+
+func (PowerpackWidgetTopologyMapDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTopologyMapDefinition)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTopologyMapDefinitionArgs) ToPowerpackWidgetTopologyMapDefinitionOutput() PowerpackWidgetTopologyMapDefinitionOutput {
+	return i.ToPowerpackWidgetTopologyMapDefinitionOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTopologyMapDefinitionArgs) ToPowerpackWidgetTopologyMapDefinitionOutputWithContext(ctx context.Context) PowerpackWidgetTopologyMapDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTopologyMapDefinitionOutput)
+}
+
+func (i PowerpackWidgetTopologyMapDefinitionArgs) ToPowerpackWidgetTopologyMapDefinitionPtrOutput() PowerpackWidgetTopologyMapDefinitionPtrOutput {
+	return i.ToPowerpackWidgetTopologyMapDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTopologyMapDefinitionArgs) ToPowerpackWidgetTopologyMapDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetTopologyMapDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTopologyMapDefinitionOutput).ToPowerpackWidgetTopologyMapDefinitionPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTopologyMapDefinitionPtrInput is an input type that accepts PowerpackWidgetTopologyMapDefinitionArgs, PowerpackWidgetTopologyMapDefinitionPtr and PowerpackWidgetTopologyMapDefinitionPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTopologyMapDefinitionPtrInput` via:
+//
+//	        PowerpackWidgetTopologyMapDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTopologyMapDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTopologyMapDefinitionPtrOutput() PowerpackWidgetTopologyMapDefinitionPtrOutput
+	ToPowerpackWidgetTopologyMapDefinitionPtrOutputWithContext(context.Context) PowerpackWidgetTopologyMapDefinitionPtrOutput
+}
+
+type powerpackWidgetTopologyMapDefinitionPtrType PowerpackWidgetTopologyMapDefinitionArgs
+
+func PowerpackWidgetTopologyMapDefinitionPtr(v *PowerpackWidgetTopologyMapDefinitionArgs) PowerpackWidgetTopologyMapDefinitionPtrInput {
+	return (*powerpackWidgetTopologyMapDefinitionPtrType)(v)
+}
+
+func (*powerpackWidgetTopologyMapDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTopologyMapDefinition)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTopologyMapDefinitionPtrType) ToPowerpackWidgetTopologyMapDefinitionPtrOutput() PowerpackWidgetTopologyMapDefinitionPtrOutput {
+	return i.ToPowerpackWidgetTopologyMapDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTopologyMapDefinitionPtrType) ToPowerpackWidgetTopologyMapDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetTopologyMapDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTopologyMapDefinitionPtrOutput)
+}
+
+type PowerpackWidgetTopologyMapDefinitionOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTopologyMapDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTopologyMapDefinition)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTopologyMapDefinitionOutput) ToPowerpackWidgetTopologyMapDefinitionOutput() PowerpackWidgetTopologyMapDefinitionOutput {
+	return o
+}
+
+func (o PowerpackWidgetTopologyMapDefinitionOutput) ToPowerpackWidgetTopologyMapDefinitionOutputWithContext(ctx context.Context) PowerpackWidgetTopologyMapDefinitionOutput {
+	return o
+}
+
+func (o PowerpackWidgetTopologyMapDefinitionOutput) ToPowerpackWidgetTopologyMapDefinitionPtrOutput() PowerpackWidgetTopologyMapDefinitionPtrOutput {
+	return o.ToPowerpackWidgetTopologyMapDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTopologyMapDefinitionOutput) ToPowerpackWidgetTopologyMapDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetTopologyMapDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTopologyMapDefinition) *PowerpackWidgetTopologyMapDefinition {
+		return &v
+	}).(PowerpackWidgetTopologyMapDefinitionPtrOutput)
+}
+
+// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+func (o PowerpackWidgetTopologyMapDefinitionOutput) CustomLinks() PowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetTopologyMapDefinition) []PowerpackWidgetTopologyMapDefinitionCustomLink {
+		return v.CustomLinks
+	}).(PowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput)
+}
+
+// The description of the widget.
+func (o PowerpackWidgetTopologyMapDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTopologyMapDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `requestType` are required within the request).
+func (o PowerpackWidgetTopologyMapDefinitionOutput) Requests() PowerpackWidgetTopologyMapDefinitionRequestArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetTopologyMapDefinition) []PowerpackWidgetTopologyMapDefinitionRequest {
+		return v.Requests
+	}).(PowerpackWidgetTopologyMapDefinitionRequestArrayOutput)
+}
+
+// The title of the widget.
+func (o PowerpackWidgetTopologyMapDefinitionOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTopologyMapDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+func (o PowerpackWidgetTopologyMapDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTopologyMapDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
+}
+
+// The size of the widget's title (defaults to 16).
+func (o PowerpackWidgetTopologyMapDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTopologyMapDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTopologyMapDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTopologyMapDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTopologyMapDefinition)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTopologyMapDefinitionPtrOutput) ToPowerpackWidgetTopologyMapDefinitionPtrOutput() PowerpackWidgetTopologyMapDefinitionPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTopologyMapDefinitionPtrOutput) ToPowerpackWidgetTopologyMapDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetTopologyMapDefinitionPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTopologyMapDefinitionPtrOutput) Elem() PowerpackWidgetTopologyMapDefinitionOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTopologyMapDefinition) PowerpackWidgetTopologyMapDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTopologyMapDefinition
+		return ret
+	}).(PowerpackWidgetTopologyMapDefinitionOutput)
+}
+
+// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+func (o PowerpackWidgetTopologyMapDefinitionPtrOutput) CustomLinks() PowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTopologyMapDefinition) []PowerpackWidgetTopologyMapDefinitionCustomLink {
+		if v == nil {
+			return nil
+		}
+		return v.CustomLinks
+	}).(PowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput)
+}
+
+// The description of the widget.
+func (o PowerpackWidgetTopologyMapDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTopologyMapDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `requestType` are required within the request).
+func (o PowerpackWidgetTopologyMapDefinitionPtrOutput) Requests() PowerpackWidgetTopologyMapDefinitionRequestArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTopologyMapDefinition) []PowerpackWidgetTopologyMapDefinitionRequest {
+		if v == nil {
+			return nil
+		}
+		return v.Requests
+	}).(PowerpackWidgetTopologyMapDefinitionRequestArrayOutput)
+}
+
+// The title of the widget.
+func (o PowerpackWidgetTopologyMapDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTopologyMapDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(pulumi.StringPtrOutput)
+}
+
+// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+func (o PowerpackWidgetTopologyMapDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTopologyMapDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TitleAlign
+	}).(pulumi.StringPtrOutput)
+}
+
+// The size of the widget's title (defaults to 16).
+func (o PowerpackWidgetTopologyMapDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTopologyMapDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TitleSize
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTopologyMapDefinitionCustomLink struct {
+	// The flag for toggling context menu link visibility.
+	IsHidden *bool `pulumi:"isHidden"`
+	// The label for the custom link URL.
+	Label *string `pulumi:"label"`
+	// The URL of the custom link.
+	Link *string `pulumi:"link"`
+	// The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+	OverrideLabel *string `pulumi:"overrideLabel"`
+}
+
+// PowerpackWidgetTopologyMapDefinitionCustomLinkInput is an input type that accepts PowerpackWidgetTopologyMapDefinitionCustomLinkArgs and PowerpackWidgetTopologyMapDefinitionCustomLinkOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTopologyMapDefinitionCustomLinkInput` via:
+//
+//	PowerpackWidgetTopologyMapDefinitionCustomLinkArgs{...}
+type PowerpackWidgetTopologyMapDefinitionCustomLinkInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTopologyMapDefinitionCustomLinkOutput() PowerpackWidgetTopologyMapDefinitionCustomLinkOutput
+	ToPowerpackWidgetTopologyMapDefinitionCustomLinkOutputWithContext(context.Context) PowerpackWidgetTopologyMapDefinitionCustomLinkOutput
+}
+
+type PowerpackWidgetTopologyMapDefinitionCustomLinkArgs struct {
+	// The flag for toggling context menu link visibility.
+	IsHidden pulumi.BoolPtrInput `pulumi:"isHidden"`
+	// The label for the custom link URL.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The URL of the custom link.
+	Link pulumi.StringPtrInput `pulumi:"link"`
+	// The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+	OverrideLabel pulumi.StringPtrInput `pulumi:"overrideLabel"`
+}
+
+func (PowerpackWidgetTopologyMapDefinitionCustomLinkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTopologyMapDefinitionCustomLink)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTopologyMapDefinitionCustomLinkArgs) ToPowerpackWidgetTopologyMapDefinitionCustomLinkOutput() PowerpackWidgetTopologyMapDefinitionCustomLinkOutput {
+	return i.ToPowerpackWidgetTopologyMapDefinitionCustomLinkOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTopologyMapDefinitionCustomLinkArgs) ToPowerpackWidgetTopologyMapDefinitionCustomLinkOutputWithContext(ctx context.Context) PowerpackWidgetTopologyMapDefinitionCustomLinkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTopologyMapDefinitionCustomLinkOutput)
+}
+
+// PowerpackWidgetTopologyMapDefinitionCustomLinkArrayInput is an input type that accepts PowerpackWidgetTopologyMapDefinitionCustomLinkArray and PowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTopologyMapDefinitionCustomLinkArrayInput` via:
+//
+//	PowerpackWidgetTopologyMapDefinitionCustomLinkArray{ PowerpackWidgetTopologyMapDefinitionCustomLinkArgs{...} }
+type PowerpackWidgetTopologyMapDefinitionCustomLinkArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput() PowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput
+	ToPowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutputWithContext(context.Context) PowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput
+}
+
+type PowerpackWidgetTopologyMapDefinitionCustomLinkArray []PowerpackWidgetTopologyMapDefinitionCustomLinkInput
+
+func (PowerpackWidgetTopologyMapDefinitionCustomLinkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTopologyMapDefinitionCustomLink)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTopologyMapDefinitionCustomLinkArray) ToPowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput() PowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput {
+	return i.ToPowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTopologyMapDefinitionCustomLinkArray) ToPowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutputWithContext(ctx context.Context) PowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput)
+}
+
+type PowerpackWidgetTopologyMapDefinitionCustomLinkOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTopologyMapDefinitionCustomLinkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTopologyMapDefinitionCustomLink)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTopologyMapDefinitionCustomLinkOutput) ToPowerpackWidgetTopologyMapDefinitionCustomLinkOutput() PowerpackWidgetTopologyMapDefinitionCustomLinkOutput {
+	return o
+}
+
+func (o PowerpackWidgetTopologyMapDefinitionCustomLinkOutput) ToPowerpackWidgetTopologyMapDefinitionCustomLinkOutputWithContext(ctx context.Context) PowerpackWidgetTopologyMapDefinitionCustomLinkOutput {
+	return o
+}
+
+// The flag for toggling context menu link visibility.
+func (o PowerpackWidgetTopologyMapDefinitionCustomLinkOutput) IsHidden() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTopologyMapDefinitionCustomLink) *bool { return v.IsHidden }).(pulumi.BoolPtrOutput)
+}
+
+// The label for the custom link URL.
+func (o PowerpackWidgetTopologyMapDefinitionCustomLinkOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTopologyMapDefinitionCustomLink) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The URL of the custom link.
+func (o PowerpackWidgetTopologyMapDefinitionCustomLinkOutput) Link() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTopologyMapDefinitionCustomLink) *string { return v.Link }).(pulumi.StringPtrOutput)
+}
+
+// The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+func (o PowerpackWidgetTopologyMapDefinitionCustomLinkOutput) OverrideLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTopologyMapDefinitionCustomLink) *string { return v.OverrideLabel }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTopologyMapDefinitionCustomLink)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput) ToPowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput() PowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput) ToPowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutputWithContext(ctx context.Context) PowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetTopologyMapDefinitionCustomLinkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetTopologyMapDefinitionCustomLink {
+		return vs[0].([]PowerpackWidgetTopologyMapDefinitionCustomLink)[vs[1].(int)]
+	}).(PowerpackWidgetTopologyMapDefinitionCustomLinkOutput)
+}
+
+type PowerpackWidgetTopologyMapDefinitionRequest struct {
+	// The query for a Topology request.
+	Queries []PowerpackWidgetTopologyMapDefinitionRequestQuery `pulumi:"queries"`
+	// The request type for the Topology request ('topology'). Valid values are `topology`.
+	RequestType string `pulumi:"requestType"`
+}
+
+// PowerpackWidgetTopologyMapDefinitionRequestInput is an input type that accepts PowerpackWidgetTopologyMapDefinitionRequestArgs and PowerpackWidgetTopologyMapDefinitionRequestOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTopologyMapDefinitionRequestInput` via:
+//
+//	PowerpackWidgetTopologyMapDefinitionRequestArgs{...}
+type PowerpackWidgetTopologyMapDefinitionRequestInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTopologyMapDefinitionRequestOutput() PowerpackWidgetTopologyMapDefinitionRequestOutput
+	ToPowerpackWidgetTopologyMapDefinitionRequestOutputWithContext(context.Context) PowerpackWidgetTopologyMapDefinitionRequestOutput
+}
+
+type PowerpackWidgetTopologyMapDefinitionRequestArgs struct {
+	// The query for a Topology request.
+	Queries PowerpackWidgetTopologyMapDefinitionRequestQueryArrayInput `pulumi:"queries"`
+	// The request type for the Topology request ('topology'). Valid values are `topology`.
+	RequestType pulumi.StringInput `pulumi:"requestType"`
+}
+
+func (PowerpackWidgetTopologyMapDefinitionRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTopologyMapDefinitionRequest)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTopologyMapDefinitionRequestArgs) ToPowerpackWidgetTopologyMapDefinitionRequestOutput() PowerpackWidgetTopologyMapDefinitionRequestOutput {
+	return i.ToPowerpackWidgetTopologyMapDefinitionRequestOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTopologyMapDefinitionRequestArgs) ToPowerpackWidgetTopologyMapDefinitionRequestOutputWithContext(ctx context.Context) PowerpackWidgetTopologyMapDefinitionRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTopologyMapDefinitionRequestOutput)
+}
+
+// PowerpackWidgetTopologyMapDefinitionRequestArrayInput is an input type that accepts PowerpackWidgetTopologyMapDefinitionRequestArray and PowerpackWidgetTopologyMapDefinitionRequestArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTopologyMapDefinitionRequestArrayInput` via:
+//
+//	PowerpackWidgetTopologyMapDefinitionRequestArray{ PowerpackWidgetTopologyMapDefinitionRequestArgs{...} }
+type PowerpackWidgetTopologyMapDefinitionRequestArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTopologyMapDefinitionRequestArrayOutput() PowerpackWidgetTopologyMapDefinitionRequestArrayOutput
+	ToPowerpackWidgetTopologyMapDefinitionRequestArrayOutputWithContext(context.Context) PowerpackWidgetTopologyMapDefinitionRequestArrayOutput
+}
+
+type PowerpackWidgetTopologyMapDefinitionRequestArray []PowerpackWidgetTopologyMapDefinitionRequestInput
+
+func (PowerpackWidgetTopologyMapDefinitionRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTopologyMapDefinitionRequest)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTopologyMapDefinitionRequestArray) ToPowerpackWidgetTopologyMapDefinitionRequestArrayOutput() PowerpackWidgetTopologyMapDefinitionRequestArrayOutput {
+	return i.ToPowerpackWidgetTopologyMapDefinitionRequestArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTopologyMapDefinitionRequestArray) ToPowerpackWidgetTopologyMapDefinitionRequestArrayOutputWithContext(ctx context.Context) PowerpackWidgetTopologyMapDefinitionRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTopologyMapDefinitionRequestArrayOutput)
+}
+
+type PowerpackWidgetTopologyMapDefinitionRequestOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTopologyMapDefinitionRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTopologyMapDefinitionRequest)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTopologyMapDefinitionRequestOutput) ToPowerpackWidgetTopologyMapDefinitionRequestOutput() PowerpackWidgetTopologyMapDefinitionRequestOutput {
+	return o
+}
+
+func (o PowerpackWidgetTopologyMapDefinitionRequestOutput) ToPowerpackWidgetTopologyMapDefinitionRequestOutputWithContext(ctx context.Context) PowerpackWidgetTopologyMapDefinitionRequestOutput {
+	return o
+}
+
+// The query for a Topology request.
+func (o PowerpackWidgetTopologyMapDefinitionRequestOutput) Queries() PowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetTopologyMapDefinitionRequest) []PowerpackWidgetTopologyMapDefinitionRequestQuery {
+		return v.Queries
+	}).(PowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutput)
+}
+
+// The request type for the Topology request ('topology'). Valid values are `topology`.
+func (o PowerpackWidgetTopologyMapDefinitionRequestOutput) RequestType() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTopologyMapDefinitionRequest) string { return v.RequestType }).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetTopologyMapDefinitionRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTopologyMapDefinitionRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTopologyMapDefinitionRequest)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTopologyMapDefinitionRequestArrayOutput) ToPowerpackWidgetTopologyMapDefinitionRequestArrayOutput() PowerpackWidgetTopologyMapDefinitionRequestArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTopologyMapDefinitionRequestArrayOutput) ToPowerpackWidgetTopologyMapDefinitionRequestArrayOutputWithContext(ctx context.Context) PowerpackWidgetTopologyMapDefinitionRequestArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTopologyMapDefinitionRequestArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetTopologyMapDefinitionRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetTopologyMapDefinitionRequest {
+		return vs[0].([]PowerpackWidgetTopologyMapDefinitionRequest)[vs[1].(int)]
+	}).(PowerpackWidgetTopologyMapDefinitionRequestOutput)
+}
+
+type PowerpackWidgetTopologyMapDefinitionRequestQuery struct {
+	// The data source for the Topology request ('service*map' or 'data*streams'). Valid values are `dataStreams`, `serviceMap`.
+	DataSource string `pulumi:"dataSource"`
+	// Your environment and primary tag (or `*` if enabled for your account).
+	Filters []string `pulumi:"filters"`
+	// The ID of the service to map.
+	Service string `pulumi:"service"`
+}
+
+// PowerpackWidgetTopologyMapDefinitionRequestQueryInput is an input type that accepts PowerpackWidgetTopologyMapDefinitionRequestQueryArgs and PowerpackWidgetTopologyMapDefinitionRequestQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTopologyMapDefinitionRequestQueryInput` via:
+//
+//	PowerpackWidgetTopologyMapDefinitionRequestQueryArgs{...}
+type PowerpackWidgetTopologyMapDefinitionRequestQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTopologyMapDefinitionRequestQueryOutput() PowerpackWidgetTopologyMapDefinitionRequestQueryOutput
+	ToPowerpackWidgetTopologyMapDefinitionRequestQueryOutputWithContext(context.Context) PowerpackWidgetTopologyMapDefinitionRequestQueryOutput
+}
+
+type PowerpackWidgetTopologyMapDefinitionRequestQueryArgs struct {
+	// The data source for the Topology request ('service*map' or 'data*streams'). Valid values are `dataStreams`, `serviceMap`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// Your environment and primary tag (or `*` if enabled for your account).
+	Filters pulumi.StringArrayInput `pulumi:"filters"`
+	// The ID of the service to map.
+	Service pulumi.StringInput `pulumi:"service"`
+}
+
+func (PowerpackWidgetTopologyMapDefinitionRequestQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTopologyMapDefinitionRequestQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTopologyMapDefinitionRequestQueryArgs) ToPowerpackWidgetTopologyMapDefinitionRequestQueryOutput() PowerpackWidgetTopologyMapDefinitionRequestQueryOutput {
+	return i.ToPowerpackWidgetTopologyMapDefinitionRequestQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTopologyMapDefinitionRequestQueryArgs) ToPowerpackWidgetTopologyMapDefinitionRequestQueryOutputWithContext(ctx context.Context) PowerpackWidgetTopologyMapDefinitionRequestQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTopologyMapDefinitionRequestQueryOutput)
+}
+
+// PowerpackWidgetTopologyMapDefinitionRequestQueryArrayInput is an input type that accepts PowerpackWidgetTopologyMapDefinitionRequestQueryArray and PowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTopologyMapDefinitionRequestQueryArrayInput` via:
+//
+//	PowerpackWidgetTopologyMapDefinitionRequestQueryArray{ PowerpackWidgetTopologyMapDefinitionRequestQueryArgs{...} }
+type PowerpackWidgetTopologyMapDefinitionRequestQueryArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutput() PowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutput
+	ToPowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutputWithContext(context.Context) PowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutput
+}
+
+type PowerpackWidgetTopologyMapDefinitionRequestQueryArray []PowerpackWidgetTopologyMapDefinitionRequestQueryInput
+
+func (PowerpackWidgetTopologyMapDefinitionRequestQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTopologyMapDefinitionRequestQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTopologyMapDefinitionRequestQueryArray) ToPowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutput() PowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutput {
+	return i.ToPowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTopologyMapDefinitionRequestQueryArray) ToPowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutputWithContext(ctx context.Context) PowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutput)
+}
+
+type PowerpackWidgetTopologyMapDefinitionRequestQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTopologyMapDefinitionRequestQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTopologyMapDefinitionRequestQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTopologyMapDefinitionRequestQueryOutput) ToPowerpackWidgetTopologyMapDefinitionRequestQueryOutput() PowerpackWidgetTopologyMapDefinitionRequestQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTopologyMapDefinitionRequestQueryOutput) ToPowerpackWidgetTopologyMapDefinitionRequestQueryOutputWithContext(ctx context.Context) PowerpackWidgetTopologyMapDefinitionRequestQueryOutput {
+	return o
+}
+
+// The data source for the Topology request ('service*map' or 'data*streams'). Valid values are `dataStreams`, `serviceMap`.
+func (o PowerpackWidgetTopologyMapDefinitionRequestQueryOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTopologyMapDefinitionRequestQuery) string { return v.DataSource }).(pulumi.StringOutput)
+}
+
+// Your environment and primary tag (or `*` if enabled for your account).
+func (o PowerpackWidgetTopologyMapDefinitionRequestQueryOutput) Filters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetTopologyMapDefinitionRequestQuery) []string { return v.Filters }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the service to map.
+func (o PowerpackWidgetTopologyMapDefinitionRequestQueryOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTopologyMapDefinitionRequestQuery) string { return v.Service }).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTopologyMapDefinitionRequestQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutput) ToPowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutput() PowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutput) ToPowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutputWithContext(ctx context.Context) PowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetTopologyMapDefinitionRequestQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetTopologyMapDefinitionRequestQuery {
+		return vs[0].([]PowerpackWidgetTopologyMapDefinitionRequestQuery)[vs[1].(int)]
+	}).(PowerpackWidgetTopologyMapDefinitionRequestQueryOutput)
+}
+
+type PowerpackWidgetTraceServiceDefinition struct {
+	// The number of columns to display. Valid values are `oneColumn`, `twoColumn`, `threeColumn`.
+	DisplayFormat *string `pulumi:"displayFormat"`
+	// APM environment.
+	Env string `pulumi:"env"`
+	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+	HideIncompleteCostData *bool `pulumi:"hideIncompleteCostData"`
+	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+	LiveSpan *string `pulumi:"liveSpan"`
+	// APM service.
+	Service string `pulumi:"service"`
+	// Whether to show the latency breakdown or not.
+	ShowBreakdown *bool `pulumi:"showBreakdown"`
+	// Whether to show the latency distribution or not.
+	ShowDistribution *bool `pulumi:"showDistribution"`
+	// Whether to show the error metrics or not.
+	ShowErrors *bool `pulumi:"showErrors"`
+	// Whether to show the hits metrics or not
+	ShowHits *bool `pulumi:"showHits"`
+	// Whether to show the latency metrics or not.
+	ShowLatency *bool `pulumi:"showLatency"`
+	// Whether to show the resource list or not.
+	ShowResourceList *bool `pulumi:"showResourceList"`
+	// The size of the widget. Valid values are `small`, `medium`, `large`.
+	SizeFormat *string `pulumi:"sizeFormat"`
+	// APM span name
+	SpanName string `pulumi:"spanName"`
+	// The title of the widget.
+	Title *string `pulumi:"title"`
+	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+	TitleAlign *string `pulumi:"titleAlign"`
+	// The size of the widget's title (defaults to 16).
+	TitleSize *string `pulumi:"titleSize"`
+}
+
+// PowerpackWidgetTraceServiceDefinitionInput is an input type that accepts PowerpackWidgetTraceServiceDefinitionArgs and PowerpackWidgetTraceServiceDefinitionOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTraceServiceDefinitionInput` via:
+//
+//	PowerpackWidgetTraceServiceDefinitionArgs{...}
+type PowerpackWidgetTraceServiceDefinitionInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTraceServiceDefinitionOutput() PowerpackWidgetTraceServiceDefinitionOutput
+	ToPowerpackWidgetTraceServiceDefinitionOutputWithContext(context.Context) PowerpackWidgetTraceServiceDefinitionOutput
+}
+
+type PowerpackWidgetTraceServiceDefinitionArgs struct {
+	// The number of columns to display. Valid values are `oneColumn`, `twoColumn`, `threeColumn`.
+	DisplayFormat pulumi.StringPtrInput `pulumi:"displayFormat"`
+	// APM environment.
+	Env pulumi.StringInput `pulumi:"env"`
+	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+	HideIncompleteCostData pulumi.BoolPtrInput `pulumi:"hideIncompleteCostData"`
+	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+	LiveSpan pulumi.StringPtrInput `pulumi:"liveSpan"`
+	// APM service.
+	Service pulumi.StringInput `pulumi:"service"`
+	// Whether to show the latency breakdown or not.
+	ShowBreakdown pulumi.BoolPtrInput `pulumi:"showBreakdown"`
+	// Whether to show the latency distribution or not.
+	ShowDistribution pulumi.BoolPtrInput `pulumi:"showDistribution"`
+	// Whether to show the error metrics or not.
+	ShowErrors pulumi.BoolPtrInput `pulumi:"showErrors"`
+	// Whether to show the hits metrics or not
+	ShowHits pulumi.BoolPtrInput `pulumi:"showHits"`
+	// Whether to show the latency metrics or not.
+	ShowLatency pulumi.BoolPtrInput `pulumi:"showLatency"`
+	// Whether to show the resource list or not.
+	ShowResourceList pulumi.BoolPtrInput `pulumi:"showResourceList"`
+	// The size of the widget. Valid values are `small`, `medium`, `large`.
+	SizeFormat pulumi.StringPtrInput `pulumi:"sizeFormat"`
+	// APM span name
+	SpanName pulumi.StringInput `pulumi:"spanName"`
+	// The title of the widget.
+	Title pulumi.StringPtrInput `pulumi:"title"`
+	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
+	// The size of the widget's title (defaults to 16).
+	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
+}
+
+func (PowerpackWidgetTraceServiceDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTraceServiceDefinition)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTraceServiceDefinitionArgs) ToPowerpackWidgetTraceServiceDefinitionOutput() PowerpackWidgetTraceServiceDefinitionOutput {
+	return i.ToPowerpackWidgetTraceServiceDefinitionOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTraceServiceDefinitionArgs) ToPowerpackWidgetTraceServiceDefinitionOutputWithContext(ctx context.Context) PowerpackWidgetTraceServiceDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTraceServiceDefinitionOutput)
+}
+
+func (i PowerpackWidgetTraceServiceDefinitionArgs) ToPowerpackWidgetTraceServiceDefinitionPtrOutput() PowerpackWidgetTraceServiceDefinitionPtrOutput {
+	return i.ToPowerpackWidgetTraceServiceDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTraceServiceDefinitionArgs) ToPowerpackWidgetTraceServiceDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetTraceServiceDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTraceServiceDefinitionOutput).ToPowerpackWidgetTraceServiceDefinitionPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTraceServiceDefinitionPtrInput is an input type that accepts PowerpackWidgetTraceServiceDefinitionArgs, PowerpackWidgetTraceServiceDefinitionPtr and PowerpackWidgetTraceServiceDefinitionPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTraceServiceDefinitionPtrInput` via:
+//
+//	        PowerpackWidgetTraceServiceDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTraceServiceDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTraceServiceDefinitionPtrOutput() PowerpackWidgetTraceServiceDefinitionPtrOutput
+	ToPowerpackWidgetTraceServiceDefinitionPtrOutputWithContext(context.Context) PowerpackWidgetTraceServiceDefinitionPtrOutput
+}
+
+type powerpackWidgetTraceServiceDefinitionPtrType PowerpackWidgetTraceServiceDefinitionArgs
+
+func PowerpackWidgetTraceServiceDefinitionPtr(v *PowerpackWidgetTraceServiceDefinitionArgs) PowerpackWidgetTraceServiceDefinitionPtrInput {
+	return (*powerpackWidgetTraceServiceDefinitionPtrType)(v)
+}
+
+func (*powerpackWidgetTraceServiceDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTraceServiceDefinition)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTraceServiceDefinitionPtrType) ToPowerpackWidgetTraceServiceDefinitionPtrOutput() PowerpackWidgetTraceServiceDefinitionPtrOutput {
+	return i.ToPowerpackWidgetTraceServiceDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTraceServiceDefinitionPtrType) ToPowerpackWidgetTraceServiceDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetTraceServiceDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTraceServiceDefinitionPtrOutput)
+}
+
+type PowerpackWidgetTraceServiceDefinitionOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTraceServiceDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTraceServiceDefinition)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTraceServiceDefinitionOutput) ToPowerpackWidgetTraceServiceDefinitionOutput() PowerpackWidgetTraceServiceDefinitionOutput {
+	return o
+}
+
+func (o PowerpackWidgetTraceServiceDefinitionOutput) ToPowerpackWidgetTraceServiceDefinitionOutputWithContext(ctx context.Context) PowerpackWidgetTraceServiceDefinitionOutput {
+	return o
+}
+
+func (o PowerpackWidgetTraceServiceDefinitionOutput) ToPowerpackWidgetTraceServiceDefinitionPtrOutput() PowerpackWidgetTraceServiceDefinitionPtrOutput {
+	return o.ToPowerpackWidgetTraceServiceDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTraceServiceDefinitionOutput) ToPowerpackWidgetTraceServiceDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetTraceServiceDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTraceServiceDefinition) *PowerpackWidgetTraceServiceDefinition {
+		return &v
+	}).(PowerpackWidgetTraceServiceDefinitionPtrOutput)
+}
+
+// The number of columns to display. Valid values are `oneColumn`, `twoColumn`, `threeColumn`.
+func (o PowerpackWidgetTraceServiceDefinitionOutput) DisplayFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTraceServiceDefinition) *string { return v.DisplayFormat }).(pulumi.StringPtrOutput)
+}
+
+// APM environment.
+func (o PowerpackWidgetTraceServiceDefinitionOutput) Env() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTraceServiceDefinition) string { return v.Env }).(pulumi.StringOutput)
+}
+
+// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+func (o PowerpackWidgetTraceServiceDefinitionOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTraceServiceDefinition) *bool { return v.HideIncompleteCostData }).(pulumi.BoolPtrOutput)
+}
+
+// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+func (o PowerpackWidgetTraceServiceDefinitionOutput) LiveSpan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTraceServiceDefinition) *string { return v.LiveSpan }).(pulumi.StringPtrOutput)
+}
+
+// APM service.
+func (o PowerpackWidgetTraceServiceDefinitionOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTraceServiceDefinition) string { return v.Service }).(pulumi.StringOutput)
+}
+
+// Whether to show the latency breakdown or not.
+func (o PowerpackWidgetTraceServiceDefinitionOutput) ShowBreakdown() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTraceServiceDefinition) *bool { return v.ShowBreakdown }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to show the latency distribution or not.
+func (o PowerpackWidgetTraceServiceDefinitionOutput) ShowDistribution() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTraceServiceDefinition) *bool { return v.ShowDistribution }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to show the error metrics or not.
+func (o PowerpackWidgetTraceServiceDefinitionOutput) ShowErrors() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTraceServiceDefinition) *bool { return v.ShowErrors }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to show the hits metrics or not
+func (o PowerpackWidgetTraceServiceDefinitionOutput) ShowHits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTraceServiceDefinition) *bool { return v.ShowHits }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to show the latency metrics or not.
+func (o PowerpackWidgetTraceServiceDefinitionOutput) ShowLatency() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTraceServiceDefinition) *bool { return v.ShowLatency }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to show the resource list or not.
+func (o PowerpackWidgetTraceServiceDefinitionOutput) ShowResourceList() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTraceServiceDefinition) *bool { return v.ShowResourceList }).(pulumi.BoolPtrOutput)
+}
+
+// The size of the widget. Valid values are `small`, `medium`, `large`.
+func (o PowerpackWidgetTraceServiceDefinitionOutput) SizeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTraceServiceDefinition) *string { return v.SizeFormat }).(pulumi.StringPtrOutput)
+}
+
+// APM span name
+func (o PowerpackWidgetTraceServiceDefinitionOutput) SpanName() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTraceServiceDefinition) string { return v.SpanName }).(pulumi.StringOutput)
+}
+
+// The title of the widget.
+func (o PowerpackWidgetTraceServiceDefinitionOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTraceServiceDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+func (o PowerpackWidgetTraceServiceDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTraceServiceDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
+}
+
+// The size of the widget's title (defaults to 16).
+func (o PowerpackWidgetTraceServiceDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTraceServiceDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTraceServiceDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTraceServiceDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTraceServiceDefinition)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTraceServiceDefinitionPtrOutput) ToPowerpackWidgetTraceServiceDefinitionPtrOutput() PowerpackWidgetTraceServiceDefinitionPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTraceServiceDefinitionPtrOutput) ToPowerpackWidgetTraceServiceDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetTraceServiceDefinitionPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTraceServiceDefinitionPtrOutput) Elem() PowerpackWidgetTraceServiceDefinitionOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTraceServiceDefinition) PowerpackWidgetTraceServiceDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTraceServiceDefinition
+		return ret
+	}).(PowerpackWidgetTraceServiceDefinitionOutput)
+}
+
+// The number of columns to display. Valid values are `oneColumn`, `twoColumn`, `threeColumn`.
+func (o PowerpackWidgetTraceServiceDefinitionPtrOutput) DisplayFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTraceServiceDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// APM environment.
+func (o PowerpackWidgetTraceServiceDefinitionPtrOutput) Env() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTraceServiceDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Env
+	}).(pulumi.StringPtrOutput)
+}
+
+// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+func (o PowerpackWidgetTraceServiceDefinitionPtrOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTraceServiceDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.HideIncompleteCostData
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+func (o PowerpackWidgetTraceServiceDefinitionPtrOutput) LiveSpan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTraceServiceDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LiveSpan
+	}).(pulumi.StringPtrOutput)
+}
+
+// APM service.
+func (o PowerpackWidgetTraceServiceDefinitionPtrOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTraceServiceDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Service
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to show the latency breakdown or not.
+func (o PowerpackWidgetTraceServiceDefinitionPtrOutput) ShowBreakdown() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTraceServiceDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ShowBreakdown
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether to show the latency distribution or not.
+func (o PowerpackWidgetTraceServiceDefinitionPtrOutput) ShowDistribution() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTraceServiceDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ShowDistribution
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether to show the error metrics or not.
+func (o PowerpackWidgetTraceServiceDefinitionPtrOutput) ShowErrors() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTraceServiceDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ShowErrors
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether to show the hits metrics or not
+func (o PowerpackWidgetTraceServiceDefinitionPtrOutput) ShowHits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTraceServiceDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ShowHits
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether to show the latency metrics or not.
+func (o PowerpackWidgetTraceServiceDefinitionPtrOutput) ShowLatency() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTraceServiceDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ShowLatency
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether to show the resource list or not.
+func (o PowerpackWidgetTraceServiceDefinitionPtrOutput) ShowResourceList() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTraceServiceDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ShowResourceList
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The size of the widget. Valid values are `small`, `medium`, `large`.
+func (o PowerpackWidgetTraceServiceDefinitionPtrOutput) SizeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTraceServiceDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SizeFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// APM span name
+func (o PowerpackWidgetTraceServiceDefinitionPtrOutput) SpanName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTraceServiceDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SpanName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the widget.
+func (o PowerpackWidgetTraceServiceDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTraceServiceDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(pulumi.StringPtrOutput)
+}
+
+// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+func (o PowerpackWidgetTraceServiceDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTraceServiceDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TitleAlign
+	}).(pulumi.StringPtrOutput)
+}
+
+// The size of the widget's title (defaults to 16).
+func (o PowerpackWidgetTraceServiceDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTraceServiceDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TitleSize
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinition struct {
+	// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+	CustomLinks []PowerpackWidgetTreemapDefinitionCustomLink `pulumi:"customLinks"`
+	// The description of the widget.
+	Description *string `pulumi:"description"`
+	// Nested block describing the request to use when displaying the widget.
+	Requests []PowerpackWidgetTreemapDefinitionRequest `pulumi:"requests"`
+	// The title of the widget.
+	Title *string `pulumi:"title"`
+}
+
+// PowerpackWidgetTreemapDefinitionInput is an input type that accepts PowerpackWidgetTreemapDefinitionArgs and PowerpackWidgetTreemapDefinitionOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionArgs{...}
+type PowerpackWidgetTreemapDefinitionInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionOutput() PowerpackWidgetTreemapDefinitionOutput
+	ToPowerpackWidgetTreemapDefinitionOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionOutput
+}
+
+type PowerpackWidgetTreemapDefinitionArgs struct {
+	// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+	CustomLinks PowerpackWidgetTreemapDefinitionCustomLinkArrayInput `pulumi:"customLinks"`
+	// The description of the widget.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Nested block describing the request to use when displaying the widget.
+	Requests PowerpackWidgetTreemapDefinitionRequestArrayInput `pulumi:"requests"`
+	// The title of the widget.
+	Title pulumi.StringPtrInput `pulumi:"title"`
+}
+
+func (PowerpackWidgetTreemapDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinition)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionArgs) ToPowerpackWidgetTreemapDefinitionOutput() PowerpackWidgetTreemapDefinitionOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionArgs) ToPowerpackWidgetTreemapDefinitionOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionOutput)
+}
+
+func (i PowerpackWidgetTreemapDefinitionArgs) ToPowerpackWidgetTreemapDefinitionPtrOutput() PowerpackWidgetTreemapDefinitionPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionArgs) ToPowerpackWidgetTreemapDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionOutput).ToPowerpackWidgetTreemapDefinitionPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTreemapDefinitionPtrInput is an input type that accepts PowerpackWidgetTreemapDefinitionArgs, PowerpackWidgetTreemapDefinitionPtr and PowerpackWidgetTreemapDefinitionPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionPtrInput` via:
+//
+//	        PowerpackWidgetTreemapDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTreemapDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionPtrOutput() PowerpackWidgetTreemapDefinitionPtrOutput
+	ToPowerpackWidgetTreemapDefinitionPtrOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionPtrOutput
+}
+
+type powerpackWidgetTreemapDefinitionPtrType PowerpackWidgetTreemapDefinitionArgs
+
+func PowerpackWidgetTreemapDefinitionPtr(v *PowerpackWidgetTreemapDefinitionArgs) PowerpackWidgetTreemapDefinitionPtrInput {
+	return (*powerpackWidgetTreemapDefinitionPtrType)(v)
+}
+
+func (*powerpackWidgetTreemapDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinition)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTreemapDefinitionPtrType) ToPowerpackWidgetTreemapDefinitionPtrOutput() PowerpackWidgetTreemapDefinitionPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTreemapDefinitionPtrType) ToPowerpackWidgetTreemapDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinition)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionOutput) ToPowerpackWidgetTreemapDefinitionOutput() PowerpackWidgetTreemapDefinitionOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionOutput) ToPowerpackWidgetTreemapDefinitionOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionOutput) ToPowerpackWidgetTreemapDefinitionPtrOutput() PowerpackWidgetTreemapDefinitionPtrOutput {
+	return o.ToPowerpackWidgetTreemapDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTreemapDefinitionOutput) ToPowerpackWidgetTreemapDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTreemapDefinition) *PowerpackWidgetTreemapDefinition {
+		return &v
+	}).(PowerpackWidgetTreemapDefinitionPtrOutput)
+}
+
+// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+func (o PowerpackWidgetTreemapDefinitionOutput) CustomLinks() PowerpackWidgetTreemapDefinitionCustomLinkArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinition) []PowerpackWidgetTreemapDefinitionCustomLink {
+		return v.CustomLinks
+	}).(PowerpackWidgetTreemapDefinitionCustomLinkArrayOutput)
+}
+
+// The description of the widget.
+func (o PowerpackWidgetTreemapDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Nested block describing the request to use when displaying the widget.
+func (o PowerpackWidgetTreemapDefinitionOutput) Requests() PowerpackWidgetTreemapDefinitionRequestArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinition) []PowerpackWidgetTreemapDefinitionRequest { return v.Requests }).(PowerpackWidgetTreemapDefinitionRequestArrayOutput)
+}
+
+// The title of the widget.
+func (o PowerpackWidgetTreemapDefinitionOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinition)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionPtrOutput) ToPowerpackWidgetTreemapDefinitionPtrOutput() PowerpackWidgetTreemapDefinitionPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionPtrOutput) ToPowerpackWidgetTreemapDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionPtrOutput) Elem() PowerpackWidgetTreemapDefinitionOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinition) PowerpackWidgetTreemapDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTreemapDefinition
+		return ret
+	}).(PowerpackWidgetTreemapDefinitionOutput)
+}
+
+// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+func (o PowerpackWidgetTreemapDefinitionPtrOutput) CustomLinks() PowerpackWidgetTreemapDefinitionCustomLinkArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinition) []PowerpackWidgetTreemapDefinitionCustomLink {
+		if v == nil {
+			return nil
+		}
+		return v.CustomLinks
+	}).(PowerpackWidgetTreemapDefinitionCustomLinkArrayOutput)
+}
+
+// The description of the widget.
+func (o PowerpackWidgetTreemapDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Nested block describing the request to use when displaying the widget.
+func (o PowerpackWidgetTreemapDefinitionPtrOutput) Requests() PowerpackWidgetTreemapDefinitionRequestArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinition) []PowerpackWidgetTreemapDefinitionRequest {
+		if v == nil {
+			return nil
+		}
+		return v.Requests
+	}).(PowerpackWidgetTreemapDefinitionRequestArrayOutput)
+}
+
+// The title of the widget.
+func (o PowerpackWidgetTreemapDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionCustomLink struct {
+	// The flag for toggling context menu link visibility.
+	IsHidden *bool `pulumi:"isHidden"`
+	// The label for the custom link URL.
+	Label *string `pulumi:"label"`
+	// The URL of the custom link.
+	Link *string `pulumi:"link"`
+	// The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+	OverrideLabel *string `pulumi:"overrideLabel"`
+}
+
+// PowerpackWidgetTreemapDefinitionCustomLinkInput is an input type that accepts PowerpackWidgetTreemapDefinitionCustomLinkArgs and PowerpackWidgetTreemapDefinitionCustomLinkOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionCustomLinkInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionCustomLinkArgs{...}
+type PowerpackWidgetTreemapDefinitionCustomLinkInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionCustomLinkOutput() PowerpackWidgetTreemapDefinitionCustomLinkOutput
+	ToPowerpackWidgetTreemapDefinitionCustomLinkOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionCustomLinkOutput
+}
+
+type PowerpackWidgetTreemapDefinitionCustomLinkArgs struct {
+	// The flag for toggling context menu link visibility.
+	IsHidden pulumi.BoolPtrInput `pulumi:"isHidden"`
+	// The label for the custom link URL.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The URL of the custom link.
+	Link pulumi.StringPtrInput `pulumi:"link"`
+	// The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+	OverrideLabel pulumi.StringPtrInput `pulumi:"overrideLabel"`
+}
+
+func (PowerpackWidgetTreemapDefinitionCustomLinkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionCustomLink)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionCustomLinkArgs) ToPowerpackWidgetTreemapDefinitionCustomLinkOutput() PowerpackWidgetTreemapDefinitionCustomLinkOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionCustomLinkOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionCustomLinkArgs) ToPowerpackWidgetTreemapDefinitionCustomLinkOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionCustomLinkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionCustomLinkOutput)
+}
+
+// PowerpackWidgetTreemapDefinitionCustomLinkArrayInput is an input type that accepts PowerpackWidgetTreemapDefinitionCustomLinkArray and PowerpackWidgetTreemapDefinitionCustomLinkArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionCustomLinkArrayInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionCustomLinkArray{ PowerpackWidgetTreemapDefinitionCustomLinkArgs{...} }
+type PowerpackWidgetTreemapDefinitionCustomLinkArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionCustomLinkArrayOutput() PowerpackWidgetTreemapDefinitionCustomLinkArrayOutput
+	ToPowerpackWidgetTreemapDefinitionCustomLinkArrayOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionCustomLinkArrayOutput
+}
+
+type PowerpackWidgetTreemapDefinitionCustomLinkArray []PowerpackWidgetTreemapDefinitionCustomLinkInput
+
+func (PowerpackWidgetTreemapDefinitionCustomLinkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTreemapDefinitionCustomLink)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionCustomLinkArray) ToPowerpackWidgetTreemapDefinitionCustomLinkArrayOutput() PowerpackWidgetTreemapDefinitionCustomLinkArrayOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionCustomLinkArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionCustomLinkArray) ToPowerpackWidgetTreemapDefinitionCustomLinkArrayOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionCustomLinkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionCustomLinkArrayOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionCustomLinkOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionCustomLinkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionCustomLink)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionCustomLinkOutput) ToPowerpackWidgetTreemapDefinitionCustomLinkOutput() PowerpackWidgetTreemapDefinitionCustomLinkOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionCustomLinkOutput) ToPowerpackWidgetTreemapDefinitionCustomLinkOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionCustomLinkOutput {
+	return o
+}
+
+// The flag for toggling context menu link visibility.
+func (o PowerpackWidgetTreemapDefinitionCustomLinkOutput) IsHidden() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionCustomLink) *bool { return v.IsHidden }).(pulumi.BoolPtrOutput)
+}
+
+// The label for the custom link URL.
+func (o PowerpackWidgetTreemapDefinitionCustomLinkOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionCustomLink) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The URL of the custom link.
+func (o PowerpackWidgetTreemapDefinitionCustomLinkOutput) Link() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionCustomLink) *string { return v.Link }).(pulumi.StringPtrOutput)
+}
+
+// The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+func (o PowerpackWidgetTreemapDefinitionCustomLinkOutput) OverrideLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionCustomLink) *string { return v.OverrideLabel }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionCustomLinkArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionCustomLinkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTreemapDefinitionCustomLink)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionCustomLinkArrayOutput) ToPowerpackWidgetTreemapDefinitionCustomLinkArrayOutput() PowerpackWidgetTreemapDefinitionCustomLinkArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionCustomLinkArrayOutput) ToPowerpackWidgetTreemapDefinitionCustomLinkArrayOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionCustomLinkArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionCustomLinkArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetTreemapDefinitionCustomLinkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetTreemapDefinitionCustomLink {
+		return vs[0].([]PowerpackWidgetTreemapDefinitionCustomLink)[vs[1].(int)]
+	}).(PowerpackWidgetTreemapDefinitionCustomLinkOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequest struct {
+	Formulas []PowerpackWidgetTreemapDefinitionRequestFormula `pulumi:"formulas"`
+	Queries  []PowerpackWidgetTreemapDefinitionRequestQuery   `pulumi:"queries"`
+}
+
+// PowerpackWidgetTreemapDefinitionRequestInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestArgs and PowerpackWidgetTreemapDefinitionRequestOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestArgs{...}
+type PowerpackWidgetTreemapDefinitionRequestInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestOutput() PowerpackWidgetTreemapDefinitionRequestOutput
+	ToPowerpackWidgetTreemapDefinitionRequestOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestArgs struct {
+	Formulas PowerpackWidgetTreemapDefinitionRequestFormulaArrayInput `pulumi:"formulas"`
+	Queries  PowerpackWidgetTreemapDefinitionRequestQueryArrayInput   `pulumi:"queries"`
+}
+
+func (PowerpackWidgetTreemapDefinitionRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequest)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestArgs) ToPowerpackWidgetTreemapDefinitionRequestOutput() PowerpackWidgetTreemapDefinitionRequestOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestArgs) ToPowerpackWidgetTreemapDefinitionRequestOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestOutput)
+}
+
+// PowerpackWidgetTreemapDefinitionRequestArrayInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestArray and PowerpackWidgetTreemapDefinitionRequestArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestArrayInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestArray{ PowerpackWidgetTreemapDefinitionRequestArgs{...} }
+type PowerpackWidgetTreemapDefinitionRequestArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestArrayOutput() PowerpackWidgetTreemapDefinitionRequestArrayOutput
+	ToPowerpackWidgetTreemapDefinitionRequestArrayOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestArrayOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestArray []PowerpackWidgetTreemapDefinitionRequestInput
+
+func (PowerpackWidgetTreemapDefinitionRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTreemapDefinitionRequest)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestArray) ToPowerpackWidgetTreemapDefinitionRequestArrayOutput() PowerpackWidgetTreemapDefinitionRequestArrayOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestArray) ToPowerpackWidgetTreemapDefinitionRequestArrayOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestArrayOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequest)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestOutput) ToPowerpackWidgetTreemapDefinitionRequestOutput() PowerpackWidgetTreemapDefinitionRequestOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestOutput) ToPowerpackWidgetTreemapDefinitionRequestOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestOutput) Formulas() PowerpackWidgetTreemapDefinitionRequestFormulaArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequest) []PowerpackWidgetTreemapDefinitionRequestFormula {
+		return v.Formulas
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaArrayOutput)
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestOutput) Queries() PowerpackWidgetTreemapDefinitionRequestQueryArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequest) []PowerpackWidgetTreemapDefinitionRequestQuery {
+		return v.Queries
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryArrayOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTreemapDefinitionRequest)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestArrayOutput) ToPowerpackWidgetTreemapDefinitionRequestArrayOutput() PowerpackWidgetTreemapDefinitionRequestArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestArrayOutput) ToPowerpackWidgetTreemapDefinitionRequestArrayOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetTreemapDefinitionRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetTreemapDefinitionRequest {
+		return vs[0].([]PowerpackWidgetTreemapDefinitionRequest)[vs[1].(int)]
+	}).(PowerpackWidgetTreemapDefinitionRequestOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormula struct {
+	// An expression alias.
+	Alias *string `pulumi:"alias"`
+	// A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+	CellDisplayMode *string `pulumi:"cellDisplayMode"`
+	// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+	ConditionalFormats []PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormat `pulumi:"conditionalFormats"`
+	// A string expression built from queries, formulas, and functions.
+	FormulaExpression string `pulumi:"formulaExpression"`
+	// The options for limiting results returned.
+	Limit *PowerpackWidgetTreemapDefinitionRequestFormulaLimit `pulumi:"limit"`
+	// Number formatting options for the formula.
+	NumberFormat *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat `pulumi:"numberFormat"`
+	// Styling options for widget formulas.
+	Style *PowerpackWidgetTreemapDefinitionRequestFormulaStyle `pulumi:"style"`
+}
+
+// PowerpackWidgetTreemapDefinitionRequestFormulaInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestFormulaArgs and PowerpackWidgetTreemapDefinitionRequestFormulaOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestFormulaInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestFormulaArgs{...}
+type PowerpackWidgetTreemapDefinitionRequestFormulaInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaOutput() PowerpackWidgetTreemapDefinitionRequestFormulaOutput
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaArgs struct {
+	// An expression alias.
+	Alias pulumi.StringPtrInput `pulumi:"alias"`
+	// A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+	CellDisplayMode pulumi.StringPtrInput `pulumi:"cellDisplayMode"`
+	// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+	ConditionalFormats PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayInput `pulumi:"conditionalFormats"`
+	// A string expression built from queries, formulas, and functions.
+	FormulaExpression pulumi.StringInput `pulumi:"formulaExpression"`
+	// The options for limiting results returned.
+	Limit PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrInput `pulumi:"limit"`
+	// Number formatting options for the formula.
+	NumberFormat PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrInput `pulumi:"numberFormat"`
+	// Styling options for widget formulas.
+	Style PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrInput `pulumi:"style"`
+}
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormula)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaOutput() PowerpackWidgetTreemapDefinitionRequestFormulaOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaOutput)
+}
+
+// PowerpackWidgetTreemapDefinitionRequestFormulaArrayInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestFormulaArray and PowerpackWidgetTreemapDefinitionRequestFormulaArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestFormulaArrayInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestFormulaArray{ PowerpackWidgetTreemapDefinitionRequestFormulaArgs{...} }
+type PowerpackWidgetTreemapDefinitionRequestFormulaArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaArrayOutput() PowerpackWidgetTreemapDefinitionRequestFormulaArrayOutput
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaArrayOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaArrayOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaArray []PowerpackWidgetTreemapDefinitionRequestFormulaInput
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTreemapDefinitionRequestFormula)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaArray) ToPowerpackWidgetTreemapDefinitionRequestFormulaArrayOutput() PowerpackWidgetTreemapDefinitionRequestFormulaArrayOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaArray) ToPowerpackWidgetTreemapDefinitionRequestFormulaArrayOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaArrayOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormula)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaOutput() PowerpackWidgetTreemapDefinitionRequestFormulaOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaOutput {
+	return o
+}
+
+// An expression alias.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaOutput) Alias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormula) *string { return v.Alias }).(pulumi.StringPtrOutput)
+}
+
+// A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaOutput) CellDisplayMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormula) *string { return v.CellDisplayMode }).(pulumi.StringPtrOutput)
+}
+
+// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaOutput) ConditionalFormats() PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormula) []PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormat {
+		return v.ConditionalFormats
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutput)
+}
+
+// A string expression built from queries, formulas, and functions.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaOutput) FormulaExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormula) string { return v.FormulaExpression }).(pulumi.StringOutput)
+}
+
+// The options for limiting results returned.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaOutput) Limit() PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormula) *PowerpackWidgetTreemapDefinitionRequestFormulaLimit {
+		return v.Limit
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput)
+}
+
+// Number formatting options for the formula.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaOutput) NumberFormat() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormula) *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat {
+		return v.NumberFormat
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput)
+}
+
+// Styling options for widget formulas.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaOutput) Style() PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormula) *PowerpackWidgetTreemapDefinitionRequestFormulaStyle {
+		return v.Style
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTreemapDefinitionRequestFormula)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaArrayOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaArrayOutput() PowerpackWidgetTreemapDefinitionRequestFormulaArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaArrayOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaArrayOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetTreemapDefinitionRequestFormulaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetTreemapDefinitionRequestFormula {
+		return vs[0].([]PowerpackWidgetTreemapDefinitionRequestFormula)[vs[1].(int)]
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormat struct {
+	// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+	Comparator string `pulumi:"comparator"`
+	// The color palette to apply to the background, same values available as palette.
+	CustomBgColor *string `pulumi:"customBgColor"`
+	// The color palette to apply to the foreground, same values available as palette.
+	CustomFgColor *string `pulumi:"customFgColor"`
+	// Setting this to True hides values.
+	HideValue *bool `pulumi:"hideValue"`
+	// Displays an image as the background.
+	ImageUrl *string `pulumi:"imageUrl"`
+	// The metric from the request to correlate with this conditional format.
+	Metric *string `pulumi:"metric"`
+	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+	Palette string `pulumi:"palette"`
+	// Defines the displayed timeframe.
+	Timeframe *string `pulumi:"timeframe"`
+	// A value for the comparator.
+	Value float64 `pulumi:"value"`
+}
+
+// PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs and PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs{...}
+type PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput() PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs struct {
+	// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+	Comparator pulumi.StringInput `pulumi:"comparator"`
+	// The color palette to apply to the background, same values available as palette.
+	CustomBgColor pulumi.StringPtrInput `pulumi:"customBgColor"`
+	// The color palette to apply to the foreground, same values available as palette.
+	CustomFgColor pulumi.StringPtrInput `pulumi:"customFgColor"`
+	// Setting this to True hides values.
+	HideValue pulumi.BoolPtrInput `pulumi:"hideValue"`
+	// Displays an image as the background.
+	ImageUrl pulumi.StringPtrInput `pulumi:"imageUrl"`
+	// The metric from the request to correlate with this conditional format.
+	Metric pulumi.StringPtrInput `pulumi:"metric"`
+	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+	Palette pulumi.StringInput `pulumi:"palette"`
+	// Defines the displayed timeframe.
+	Timeframe pulumi.StringPtrInput `pulumi:"timeframe"`
+	// A value for the comparator.
+	Value pulumi.Float64Input `pulumi:"value"`
+}
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormat)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput() PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput)
+}
+
+// PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArray and PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArray{ PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs{...} }
+type PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutput() PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutput
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArray []PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatInput
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormat)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArray) ToPowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutput() PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArray) ToPowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormat)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput() PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput {
+	return o
+}
+
+// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput) Comparator() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormat) string { return v.Comparator }).(pulumi.StringOutput)
+}
+
+// The color palette to apply to the background, same values available as palette.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput) CustomBgColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormat) *string {
+		return v.CustomBgColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// The color palette to apply to the foreground, same values available as palette.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput) CustomFgColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormat) *string {
+		return v.CustomFgColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// Setting this to True hides values.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput) HideValue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormat) *bool { return v.HideValue }).(pulumi.BoolPtrOutput)
+}
+
+// Displays an image as the background.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput) ImageUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormat) *string { return v.ImageUrl }).(pulumi.StringPtrOutput)
+}
+
+// The metric from the request to correlate with this conditional format.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormat) *string { return v.Metric }).(pulumi.StringPtrOutput)
+}
+
+// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput) Palette() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormat) string { return v.Palette }).(pulumi.StringOutput)
+}
+
+// Defines the displayed timeframe.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput) Timeframe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormat) *string { return v.Timeframe }).(pulumi.StringPtrOutput)
+}
+
+// A value for the comparator.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormat) float64 { return v.Value }).(pulumi.Float64Output)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormat)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutput() PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormat {
+		return vs[0].([]PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormat)[vs[1].(int)]
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaLimit struct {
+	// The number of results to return.
+	Count *int `pulumi:"count"`
+	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
+	Order *string `pulumi:"order"`
+}
+
+// PowerpackWidgetTreemapDefinitionRequestFormulaLimitInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestFormulaLimitArgs and PowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestFormulaLimitInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestFormulaLimitArgs{...}
+type PowerpackWidgetTreemapDefinitionRequestFormulaLimitInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput() PowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaLimitOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaLimitArgs struct {
+	// The number of results to return.
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
+	Order pulumi.StringPtrInput `pulumi:"order"`
+}
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaLimitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaLimit)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaLimitArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput() PowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaLimitOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaLimitArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaLimitOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput)
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaLimitArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaLimitArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput).ToPowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestFormulaLimitArgs, PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtr and PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrInput` via:
+//
+//	        PowerpackWidgetTreemapDefinitionRequestFormulaLimitArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput
+}
+
+type powerpackWidgetTreemapDefinitionRequestFormulaLimitPtrType PowerpackWidgetTreemapDefinitionRequestFormulaLimitArgs
+
+func PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtr(v *PowerpackWidgetTreemapDefinitionRequestFormulaLimitArgs) PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrInput {
+	return (*powerpackWidgetTreemapDefinitionRequestFormulaLimitPtrType)(v)
+}
+
+func (*powerpackWidgetTreemapDefinitionRequestFormulaLimitPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestFormulaLimit)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestFormulaLimitPtrType) ToPowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestFormulaLimitPtrType) ToPowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaLimit)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput() PowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaLimitOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput {
+	return o.ToPowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTreemapDefinitionRequestFormulaLimit) *PowerpackWidgetTreemapDefinitionRequestFormulaLimit {
+		return &v
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput)
+}
+
+// The number of results to return.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormulaLimit) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormulaLimit) *string { return v.Order }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestFormulaLimit)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput) Elem() PowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestFormulaLimit) PowerpackWidgetTreemapDefinitionRequestFormulaLimit {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTreemapDefinitionRequestFormulaLimit
+		return ret
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput)
+}
+
+// The number of results to return.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestFormulaLimit) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestFormulaLimit) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat struct {
+	// Unit of the number format.
+	Unit      PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit       `pulumi:"unit"`
+	UnitScale *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale `pulumi:"unitScale"`
+}
+
+// PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatArgs and PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatArgs{...}
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutput
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatArgs struct {
+	// Unit of the number format.
+	Unit      PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitInput         `pulumi:"unit"`
+	UnitScale PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrInput `pulumi:"unitScale"`
+}
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutput)
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutput).ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatArgs, PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtr and PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrInput` via:
+//
+//	        PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput
+}
+
+type powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrType PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatArgs
+
+func PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtr(v *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatArgs) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrInput {
+	return (*powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrType)(v)
+}
+
+func (*powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrType) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrType) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput {
+	return o.ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat) *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat {
+		return &v
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput)
+}
+
+// Unit of the number format.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutput) Unit() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit {
+		return v.Unit
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput)
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutput) UnitScale() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat) *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale {
+		return v.UnitScale
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput) Elem() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat
+		return ret
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutput)
+}
+
+// Unit of the number format.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput) Unit() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat) *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput)
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput) UnitScale() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormat) *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale {
+		if v == nil {
+			return nil
+		}
+		return v.UnitScale
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit struct {
+	// Canonical Units
+	Canonical *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical `pulumi:"canonical"`
+	// Use custom (non canonical metrics)
+	Custom *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom `pulumi:"custom"`
+}
+
+// PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitArgs and PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitArgs{...}
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitArgs struct {
+	// Canonical Units
+	Canonical PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput `pulumi:"canonical"`
+	// Use custom (non canonical metrics)
+	Custom PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrInput `pulumi:"custom"`
+}
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput)
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput).ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitArgs, PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtr and PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrInput` via:
+//
+//	        PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput
+}
+
+type powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrType PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitArgs
+
+func PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtr(v *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitArgs) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrInput {
+	return (*powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrType)(v)
+}
+
+func (*powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrType) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrType) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput {
+	return o.ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit) *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit {
+		return &v
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput)
+}
+
+// Canonical Units
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput) Canonical() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit) *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical {
+		return v.Canonical
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput)
+}
+
+// Use custom (non canonical metrics)
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput) Custom() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit) *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom {
+		return v.Custom
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput) Elem() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit
+		return ret
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput)
+}
+
+// Canonical Units
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput) Canonical() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit) *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical {
+		if v == nil {
+			return nil
+		}
+		return v.Canonical
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput)
+}
+
+// Use custom (non canonical metrics)
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput) Custom() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnit) *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom {
+		if v == nil {
+			return nil
+		}
+		return v.Custom
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical struct {
+	// per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+	PerUnitName *string `pulumi:"perUnitName"`
+	// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+	UnitName string `pulumi:"unitName"`
+}
+
+// PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs and PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{...}
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs struct {
+	// per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+	PerUnitName pulumi.StringPtrInput `pulumi:"perUnitName"`
+	// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+	UnitName pulumi.StringInput `pulumi:"unitName"`
+}
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput)
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput).ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs, PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtr and PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput` via:
+//
+//	        PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput
+}
+
+type powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs
+
+func PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtr(v *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput {
+	return (*powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType)(v)
+}
+
+func (*powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return o.ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical) *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical {
+		return &v
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput)
+}
+
+// per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) PerUnitName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical) *string {
+		return v.PerUnitName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) UnitName() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical) string {
+		return v.UnitName
+	}).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) Elem() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical
+		return ret
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput)
+}
+
+// per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) PerUnitName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PerUnitName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) UnitName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonical) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UnitName
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom struct {
+	// Unit label
+	Label string `pulumi:"label"`
+}
+
+// PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs and PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs{...}
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs struct {
+	// Unit label
+	Label pulumi.StringInput `pulumi:"label"`
+}
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput)
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput).ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs, PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtr and PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrInput` via:
+//
+//	        PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput
+}
+
+type powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrType PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs
+
+func PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtr(v *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrInput {
+	return (*powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrType)(v)
+}
+
+func (*powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrType) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrType) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return o.ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom) *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom {
+		return &v
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
+}
+
+// Unit label
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom) string { return v.Label }).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) Elem() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom
+		return ret
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput)
+}
+
+// Unit label
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Label
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale struct {
+	UnitName string `pulumi:"unitName"`
+}
+
+// PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs and PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs{...}
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs struct {
+	UnitName pulumi.StringInput `pulumi:"unitName"`
+}
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput)
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput).ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs, PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtr and PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrInput` via:
+//
+//	        PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput
+}
+
+type powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrType PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs
+
+func PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtr(v *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrInput {
+	return (*powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrType)(v)
+}
+
+func (*powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrType) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrType) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return o.ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale) *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale {
+		return &v
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput) UnitName() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale) string { return v.UnitName }).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) Elem() PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale) PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale
+		return ret
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput)
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) UnitName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UnitName
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaStyle struct {
+	// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+	Palette *string `pulumi:"palette"`
+	// Index specifying which color to use within the palette.
+	PaletteIndex *int `pulumi:"paletteIndex"`
+}
+
+// PowerpackWidgetTreemapDefinitionRequestFormulaStyleInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestFormulaStyleArgs and PowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestFormulaStyleInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestFormulaStyleArgs{...}
+type PowerpackWidgetTreemapDefinitionRequestFormulaStyleInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput() PowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaStyleOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaStyleArgs struct {
+	// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+	Palette pulumi.StringPtrInput `pulumi:"palette"`
+	// Index specifying which color to use within the palette.
+	PaletteIndex pulumi.IntPtrInput `pulumi:"paletteIndex"`
+}
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaStyleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaStyle)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaStyleArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput() PowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaStyleOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaStyleArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaStyleOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput)
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaStyleArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestFormulaStyleArgs) ToPowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput).ToPowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestFormulaStyleArgs, PowerpackWidgetTreemapDefinitionRequestFormulaStylePtr and PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrInput` via:
+//
+//	        PowerpackWidgetTreemapDefinitionRequestFormulaStyleArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput
+	ToPowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput
+}
+
+type powerpackWidgetTreemapDefinitionRequestFormulaStylePtrType PowerpackWidgetTreemapDefinitionRequestFormulaStyleArgs
+
+func PowerpackWidgetTreemapDefinitionRequestFormulaStylePtr(v *PowerpackWidgetTreemapDefinitionRequestFormulaStyleArgs) PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrInput {
+	return (*powerpackWidgetTreemapDefinitionRequestFormulaStylePtrType)(v)
+}
+
+func (*powerpackWidgetTreemapDefinitionRequestFormulaStylePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestFormulaStyle)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestFormulaStylePtrType) ToPowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestFormulaStylePtrType) ToPowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaStyle)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput() PowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaStyleOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput {
+	return o.ToPowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTreemapDefinitionRequestFormulaStyle) *PowerpackWidgetTreemapDefinitionRequestFormulaStyle {
+		return &v
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput)
+}
+
+// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput) Palette() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormulaStyle) *string { return v.Palette }).(pulumi.StringPtrOutput)
+}
+
+// Index specifying which color to use within the palette.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput) PaletteIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormulaStyle) *int { return v.PaletteIndex }).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestFormulaStyle)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput() PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput) ToPowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput) Elem() PowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestFormulaStyle) PowerpackWidgetTreemapDefinitionRequestFormulaStyle {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTreemapDefinitionRequestFormulaStyle
+		return ret
+	}).(PowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput)
+}
+
+// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput) Palette() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestFormulaStyle) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Palette
+	}).(pulumi.StringPtrOutput)
+}
+
+// Index specifying which color to use within the palette.
+func (o PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput) PaletteIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestFormulaStyle) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PaletteIndex
+	}).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQuery struct {
+	// The APM Dependency Stats query using formulas and functions.
+	ApmDependencyStatsQuery *PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery `pulumi:"apmDependencyStatsQuery"`
+	// The APM Resource Stats query using formulas and functions.
+	ApmResourceStatsQuery *PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery `pulumi:"apmResourceStatsQuery"`
+	// The Cloud Cost query using formulas and functions.
+	CloudCostQuery *PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery `pulumi:"cloudCostQuery"`
+	// A timeseries formula and functions events query.
+	EventQuery *PowerpackWidgetTreemapDefinitionRequestQueryEventQuery `pulumi:"eventQuery"`
+	// A timeseries formula and functions metrics query.
+	MetricQuery *PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery `pulumi:"metricQuery"`
+	// The process query using formulas and functions.
+	ProcessQuery *PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery `pulumi:"processQuery"`
+	// The SLO query using formulas and functions.
+	SloQuery *PowerpackWidgetTreemapDefinitionRequestQuerySloQuery `pulumi:"sloQuery"`
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryArgs and PowerpackWidgetTreemapDefinitionRequestQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestQueryArgs{...}
+type PowerpackWidgetTreemapDefinitionRequestQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryOutput() PowerpackWidgetTreemapDefinitionRequestQueryOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryArgs struct {
+	// The APM Dependency Stats query using formulas and functions.
+	ApmDependencyStatsQuery PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrInput `pulumi:"apmDependencyStatsQuery"`
+	// The APM Resource Stats query using formulas and functions.
+	ApmResourceStatsQuery PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrInput `pulumi:"apmResourceStatsQuery"`
+	// The Cloud Cost query using formulas and functions.
+	CloudCostQuery PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrInput `pulumi:"cloudCostQuery"`
+	// A timeseries formula and functions events query.
+	EventQuery PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrInput `pulumi:"eventQuery"`
+	// A timeseries formula and functions metrics query.
+	MetricQuery PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrInput `pulumi:"metricQuery"`
+	// The process query using formulas and functions.
+	ProcessQuery PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrInput `pulumi:"processQuery"`
+	// The SLO query using formulas and functions.
+	SloQuery PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrInput `pulumi:"sloQuery"`
+}
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryOutput() PowerpackWidgetTreemapDefinitionRequestQueryOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryOutput)
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryArrayInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryArray and PowerpackWidgetTreemapDefinitionRequestQueryArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryArrayInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestQueryArray{ PowerpackWidgetTreemapDefinitionRequestQueryArgs{...} }
+type PowerpackWidgetTreemapDefinitionRequestQueryArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryArrayOutput() PowerpackWidgetTreemapDefinitionRequestQueryArrayOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryArrayOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryArrayOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryArray []PowerpackWidgetTreemapDefinitionRequestQueryInput
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTreemapDefinitionRequestQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryArray) ToPowerpackWidgetTreemapDefinitionRequestQueryArrayOutput() PowerpackWidgetTreemapDefinitionRequestQueryArrayOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryArray) ToPowerpackWidgetTreemapDefinitionRequestQueryArrayOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryArrayOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryOutput() PowerpackWidgetTreemapDefinitionRequestQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryOutput {
+	return o
+}
+
+// The APM Dependency Stats query using formulas and functions.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryOutput) ApmDependencyStatsQuery() PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQuery) *PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery {
+		return v.ApmDependencyStatsQuery
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput)
+}
+
+// The APM Resource Stats query using formulas and functions.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryOutput) ApmResourceStatsQuery() PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQuery) *PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery {
+		return v.ApmResourceStatsQuery
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput)
+}
+
+// The Cloud Cost query using formulas and functions.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryOutput) CloudCostQuery() PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQuery) *PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery {
+		return v.CloudCostQuery
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput)
+}
+
+// A timeseries formula and functions events query.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryOutput) EventQuery() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQuery) *PowerpackWidgetTreemapDefinitionRequestQueryEventQuery {
+		return v.EventQuery
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput)
+}
+
+// A timeseries formula and functions metrics query.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryOutput) MetricQuery() PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQuery) *PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery {
+		return v.MetricQuery
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput)
+}
+
+// The process query using formulas and functions.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryOutput) ProcessQuery() PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQuery) *PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery {
+		return v.ProcessQuery
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput)
+}
+
+// The SLO query using formulas and functions.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryOutput) SloQuery() PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQuery) *PowerpackWidgetTreemapDefinitionRequestQuerySloQuery {
+		return v.SloQuery
+	}).(PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTreemapDefinitionRequestQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryArrayOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryArrayOutput() PowerpackWidgetTreemapDefinitionRequestQueryArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryArrayOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryArrayOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetTreemapDefinitionRequestQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetTreemapDefinitionRequestQuery {
+		return vs[0].([]PowerpackWidgetTreemapDefinitionRequestQuery)[vs[1].(int)]
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery struct {
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource string `pulumi:"dataSource"`
+	// APM environment.
+	Env string `pulumi:"env"`
+	// Determines whether stats for upstream or downstream dependencies should be queried.
+	IsUpstream *bool `pulumi:"isUpstream"`
+	// The name of query for use in formulas.
+	Name string `pulumi:"name"`
+	// Name of operation on service.
+	OperationName string `pulumi:"operationName"`
+	// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+	PrimaryTagName *string `pulumi:"primaryTagName"`
+	// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+	PrimaryTagValue *string `pulumi:"primaryTagValue"`
+	// APM resource.
+	ResourceName string `pulumi:"resourceName"`
+	// APM service.
+	Service string `pulumi:"service"`
+	// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+	Stat string `pulumi:"stat"`
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs and PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs{...}
+type PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput() PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs struct {
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// APM environment.
+	Env pulumi.StringInput `pulumi:"env"`
+	// Determines whether stats for upstream or downstream dependencies should be queried.
+	IsUpstream pulumi.BoolPtrInput `pulumi:"isUpstream"`
+	// The name of query for use in formulas.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of operation on service.
+	OperationName pulumi.StringInput `pulumi:"operationName"`
+	// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+	PrimaryTagName pulumi.StringPtrInput `pulumi:"primaryTagName"`
+	// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+	PrimaryTagValue pulumi.StringPtrInput `pulumi:"primaryTagValue"`
+	// APM resource.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+	// APM service.
+	Service pulumi.StringInput `pulumi:"service"`
+	// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+	Stat pulumi.StringInput `pulumi:"stat"`
+}
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput() PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput)
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput).ToPowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs, PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtr and PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrInput` via:
+//
+//	        PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput
+}
+
+type powerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrType PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs
+
+func PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtr(v *PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs) PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrInput {
+	return (*powerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrType)(v)
+}
+
+func (*powerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrType) ToPowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrType) ToPowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput() PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput {
+	return o.ToPowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery {
+		return &v
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
+		return v.CrossOrgUuids
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) string {
+		return v.DataSource
+	}).(pulumi.StringOutput)
+}
+
+// APM environment.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) Env() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) string { return v.Env }).(pulumi.StringOutput)
+}
+
+// Determines whether stats for upstream or downstream dependencies should be queried.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) IsUpstream() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *bool { return v.IsUpstream }).(pulumi.BoolPtrOutput)
+}
+
+// The name of query for use in formulas.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of operation on service.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) OperationName() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) string {
+		return v.OperationName
+	}).(pulumi.StringOutput)
+}
+
+// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) PrimaryTagName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
+		return v.PrimaryTagName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) PrimaryTagValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
+		return v.PrimaryTagValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// APM resource.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) ResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) string {
+		return v.ResourceName
+	}).(pulumi.StringOutput)
+}
+
+// APM service.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) string { return v.Service }).(pulumi.StringOutput)
+}
+
+// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) Stat() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) string { return v.Stat }).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) Elem() PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery
+		return ret
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrossOrgUuids
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// APM environment.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) Env() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Env
+	}).(pulumi.StringPtrOutput)
+}
+
+// Determines whether stats for upstream or downstream dependencies should be queried.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) IsUpstream() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsUpstream
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The name of query for use in formulas.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of operation on service.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) OperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OperationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) PrimaryTagName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryTagName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) PrimaryTagValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryTagValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// APM resource.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) ResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// APM service.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Service
+	}).(pulumi.StringPtrOutput)
+}
+
+// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) Stat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Stat
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery struct {
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
+	// The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
+	DataSource string `pulumi:"dataSource"`
+	// APM environment.
+	Env string `pulumi:"env"`
+	// Array of fields to group results by.
+	GroupBies []string `pulumi:"groupBies"`
+	// The name of query for use in formulas.
+	Name string `pulumi:"name"`
+	// Name of operation on service.
+	OperationName *string `pulumi:"operationName"`
+	// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+	PrimaryTagName *string `pulumi:"primaryTagName"`
+	// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+	PrimaryTagValue *string `pulumi:"primaryTagValue"`
+	// APM resource.
+	ResourceName *string `pulumi:"resourceName"`
+	// APM service.
+	Service string `pulumi:"service"`
+	// APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
+	Stat string `pulumi:"stat"`
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs and PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs{...}
+type PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput() PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs struct {
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
+	// The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// APM environment.
+	Env pulumi.StringInput `pulumi:"env"`
+	// Array of fields to group results by.
+	GroupBies pulumi.StringArrayInput `pulumi:"groupBies"`
+	// The name of query for use in formulas.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of operation on service.
+	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
+	// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+	PrimaryTagName pulumi.StringPtrInput `pulumi:"primaryTagName"`
+	// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+	PrimaryTagValue pulumi.StringPtrInput `pulumi:"primaryTagValue"`
+	// APM resource.
+	ResourceName pulumi.StringPtrInput `pulumi:"resourceName"`
+	// APM service.
+	Service pulumi.StringInput `pulumi:"service"`
+	// APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
+	Stat pulumi.StringInput `pulumi:"stat"`
+}
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput() PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput)
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput).ToPowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs, PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtr and PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrInput` via:
+//
+//	        PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput
+}
+
+type powerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrType PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs
+
+func PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtr(v *PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs) PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrInput {
+	return (*powerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrType)(v)
+}
+
+func (*powerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrType) ToPowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrType) ToPowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput() PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput {
+	return o.ToPowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery {
+		return &v
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
+		return v.CrossOrgUuids
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) string { return v.DataSource }).(pulumi.StringOutput)
+}
+
+// APM environment.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) Env() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) string { return v.Env }).(pulumi.StringOutput)
+}
+
+// Array of fields to group results by.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) GroupBies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) []string { return v.GroupBies }).(pulumi.StringArrayOutput)
+}
+
+// The name of query for use in formulas.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of operation on service.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) OperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
+		return v.OperationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) PrimaryTagName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
+		return v.PrimaryTagName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) PrimaryTagValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
+		return v.PrimaryTagValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// APM resource.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) ResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
+		return v.ResourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// APM service.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) string { return v.Service }).(pulumi.StringOutput)
+}
+
+// APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) Stat() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) string { return v.Stat }).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) Elem() PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery
+		return ret
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrossOrgUuids
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// APM environment.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) Env() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Env
+	}).(pulumi.StringPtrOutput)
+}
+
+// Array of fields to group results by.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) GroupBies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) []string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupBies
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of query for use in formulas.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of operation on service.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) OperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OperationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) PrimaryTagName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryTagName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) PrimaryTagValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryTagValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// APM resource.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) ResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// APM service.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Service
+	}).(pulumi.StringPtrOutput)
+}
+
+// APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) Stat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Stat
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery struct {
+	// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+	Aggregator *string `pulumi:"aggregator"`
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
+	// The data source for cloud cost queries. Valid values are `cloudCost`.
+	DataSource string `pulumi:"dataSource"`
+	// The name of the query for use in formulas.
+	Name string `pulumi:"name"`
+	// The cloud cost query definition.
+	Query string `pulumi:"query"`
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryArgs and PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryArgs{...}
+type PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput() PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryArgs struct {
+	// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+	Aggregator pulumi.StringPtrInput `pulumi:"aggregator"`
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
+	// The data source for cloud cost queries. Valid values are `cloudCost`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// The name of the query for use in formulas.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The cloud cost query definition.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput() PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput)
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput).ToPowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryArgs, PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtr and PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrInput` via:
+//
+//	        PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput
+}
+
+type powerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrType PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryArgs
+
+func PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtr(v *PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryArgs) PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrInput {
+	return (*powerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrType)(v)
+}
+
+func (*powerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrType) ToPowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrType) ToPowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput() PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput {
+	return o.ToPowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery) *PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery {
+		return &v
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput)
+}
+
+// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput) Aggregator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery) *string { return v.Aggregator }).(pulumi.StringPtrOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
+}
+
+// The data source for cloud cost queries. Valid values are `cloudCost`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery) string { return v.DataSource }).(pulumi.StringOutput)
+}
+
+// The name of the query for use in formulas.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The cloud cost query definition.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput) Elem() PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery) PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery
+		return ret
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput)
+}
+
+// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput) Aggregator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Aggregator
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrossOrgUuids
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data source for cloud cost queries. Valid values are `cloudCost`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the query for use in formulas.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The cloud cost query definition.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQuery struct {
+	// The compute options.
+	Computes []PowerpackWidgetTreemapDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	DataSource string `pulumi:"dataSource"`
+	// Group by options.
+	GroupBies []PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
+	// Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+	GroupByFields *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields `pulumi:"groupByFields"`
+	// An array of index names to query in the stream.
+	Indexes []string `pulumi:"indexes"`
+	// The name of query for use in formulas.
+	Name string `pulumi:"name"`
+	// The search options.
+	Search *PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearch `pulumi:"search"`
+	// Storage location (private beta).
+	Storage *string `pulumi:"storage"`
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryEventQueryInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryEventQueryArgs and PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryEventQueryInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestQueryEventQueryArgs{...}
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryArgs struct {
+	// The compute options.
+	Computes PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// Group by options.
+	GroupBies PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
+	// Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+	GroupByFields PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrInput `pulumi:"groupByFields"`
+	// An array of index names to query in the stream.
+	Indexes pulumi.StringArrayInput `pulumi:"indexes"`
+	// The name of query for use in formulas.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The search options.
+	Search PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrInput `pulumi:"search"`
+	// Storage location (private beta).
+	Storage pulumi.StringPtrInput `pulumi:"storage"`
+}
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryEventQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput)
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput).ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryEventQueryArgs, PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtr and PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrInput` via:
+//
+//	        PowerpackWidgetTreemapDefinitionRequestQueryEventQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput
+}
+
+type powerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrType PowerpackWidgetTreemapDefinitionRequestQueryEventQueryArgs
+
+func PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtr(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryArgs) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrInput {
+	return (*powerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrType)(v)
+}
+
+func (*powerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestQueryEventQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrType) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrType) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput {
+	return o.ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) *PowerpackWidgetTreemapDefinitionRequestQueryEventQuery {
+		return &v
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput)
+}
+
+// The compute options.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput) Computes() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) []PowerpackWidgetTreemapDefinitionRequestQueryEventQueryCompute {
+		return v.Computes
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
+}
+
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
+}
+
+// Group by options.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput) GroupBies() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) []PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBy {
+		return v.GroupBies
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput)
+}
+
+// Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput) GroupByFields() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields {
+		return v.GroupByFields
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput)
+}
+
+// An array of index names to query in the stream.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput) Indexes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) []string { return v.Indexes }).(pulumi.StringArrayOutput)
+}
+
+// The name of query for use in formulas.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The search options.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput) Search() PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) *PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearch {
+		return v.Search
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput)
+}
+
+// Storage location (private beta).
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput) Storage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) *string { return v.Storage }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestQueryEventQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) Elem() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) PowerpackWidgetTreemapDefinitionRequestQueryEventQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTreemapDefinitionRequestQueryEventQuery
+		return ret
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput)
+}
+
+// The compute options.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) Computes() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) []PowerpackWidgetTreemapDefinitionRequestQueryEventQueryCompute {
+		if v == nil {
+			return nil
+		}
+		return v.Computes
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrossOrgUuids
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Group by options.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) GroupBies() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) []PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBy {
+		if v == nil {
+			return nil
+		}
+		return v.GroupBies
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput)
+}
+
+// Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) GroupByFields() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields {
+		if v == nil {
+			return nil
+		}
+		return v.GroupByFields
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput)
+}
+
+// An array of index names to query in the stream.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) Indexes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Indexes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of query for use in formulas.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The search options.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) Search() PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) *PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearch {
+		if v == nil {
+			return nil
+		}
+		return v.Search
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput)
+}
+
+// Storage location (private beta).
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) Storage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Storage
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryCompute struct {
+	// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+	Aggregation string `pulumi:"aggregation"`
+	// A time interval in milliseconds.
+	Interval *int `pulumi:"interval"`
+	// The measurable attribute to compute.
+	Metric *string `pulumi:"metric"`
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs and PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs{...}
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs struct {
+	// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// A time interval in milliseconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+	// The measurable attribute to compute.
+	Metric pulumi.StringPtrInput `pulumi:"metric"`
+}
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQueryCompute)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput)
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArray and PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArray{ PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs{...} }
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArray []PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeInput
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTreemapDefinitionRequestQueryEventQueryCompute)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArray) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArray) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQueryCompute)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput {
+	return o
+}
+
+// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryCompute) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+// A time interval in milliseconds.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+// The measurable attribute to compute.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryCompute) *string { return v.Metric }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTreemapDefinitionRequestQueryEventQueryCompute)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryCompute {
+		return vs[0].([]PowerpackWidgetTreemapDefinitionRequestQueryEventQueryCompute)[vs[1].(int)]
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBy struct {
+	// The event facet.
+	Facet string `pulumi:"facet"`
+	// The number of groups to return.
+	Limit *int `pulumi:"limit"`
+	// The options for sorting group by results.
+	Sort *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort `pulumi:"sort"`
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs and PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs{...}
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs struct {
+	// The event facet.
+	Facet pulumi.StringInput `pulumi:"facet"`
+	// The number of groups to return.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// The options for sorting group by results.
+	Sort PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrInput `pulumi:"sort"`
+}
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput)
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArray and PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArray{ PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs{...} }
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArray []PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByInput
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArray) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArray) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput {
+	return o
+}
+
+// The event facet.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput) Facet() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBy) string { return v.Facet }).(pulumi.StringOutput)
+}
+
+// The number of groups to return.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// The options for sorting group by results.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput) Sort() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBy) *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort {
+		return v.Sort
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBy {
+		return vs[0].([]PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBy)[vs[1].(int)]
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields struct {
+	// List of event facets to group by.
+	Fields []string `pulumi:"fields"`
+	// The number of groups to return.
+	Limit *int `pulumi:"limit"`
+	// The options for sorting group by results.
+	Sort *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSort `pulumi:"sort"`
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsArgs and PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsArgs{...}
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsArgs struct {
+	// List of event facets to group by.
+	Fields pulumi.StringArrayInput `pulumi:"fields"`
+	// The number of groups to return.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// The options for sorting group by results.
+	Sort PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrInput `pulumi:"sort"`
+}
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutput)
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutput).ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsArgs, PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtr and PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrInput` via:
+//
+//	        PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput
+}
+
+type powerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrType PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsArgs
+
+func PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtr(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsArgs) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrInput {
+	return (*powerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrType)(v)
+}
+
+func (*powerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrType) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrType) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return o.ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields) *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields {
+		return &v
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput)
+}
+
+// List of event facets to group by.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutput) Fields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields) []string { return v.Fields }).(pulumi.StringArrayOutput)
+}
+
+// The number of groups to return.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// The options for sorting group by results.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutput) Sort() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields) *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSort {
+		return v.Sort
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) Elem() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields
+		return ret
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutput)
+}
+
+// List of event facets to group by.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) Fields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Fields
+	}).(pulumi.StringArrayOutput)
+}
+
+// The number of groups to return.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Limit
+	}).(pulumi.IntPtrOutput)
+}
+
+// The options for sorting group by results.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) Sort() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFields) *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSort {
+		if v == nil {
+			return nil
+		}
+		return v.Sort
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSort struct {
+	// The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+	Aggregation string `pulumi:"aggregation"`
+	// The metric used for sorting group by results.
+	Metric *string `pulumi:"metric"`
+	// Direction of sort. Valid values are `asc`, `desc`.
+	Order *string `pulumi:"order"`
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortArgs and PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortArgs{...}
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortArgs struct {
+	// The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The metric used for sorting group by results.
+	Metric pulumi.StringPtrInput `pulumi:"metric"`
+	// Direction of sort. Valid values are `asc`, `desc`.
+	Order pulumi.StringPtrInput `pulumi:"order"`
+}
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSort)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput)
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput).ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortArgs, PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtr and PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrInput` via:
+//
+//	        PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput
+}
+
+type powerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrType PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortArgs
+
+func PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtr(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortArgs) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrInput {
+	return (*powerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrType)(v)
+}
+
+func (*powerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSort)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrType) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrType) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSort)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
+	return o.ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSort) *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSort {
+		return &v
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput)
+}
+
+// The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSort) string {
+		return v.Aggregation
+	}).(pulumi.StringOutput)
+}
+
+// The metric used for sorting group by results.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSort) *string {
+		return v.Metric
+	}).(pulumi.StringPtrOutput)
+}
+
+// Direction of sort. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSort) *string {
+		return v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSort)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput) Elem() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSort) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSort {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSort
+		return ret
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput)
+}
+
+// The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSort) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The metric used for sorting group by results.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSort) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Metric
+	}).(pulumi.StringPtrOutput)
+}
+
+// Direction of sort. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSort) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort struct {
+	// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+	Aggregation string `pulumi:"aggregation"`
+	// The metric used for sorting group by results.
+	Metric *string `pulumi:"metric"`
+	// Direction of sort. Valid values are `asc`, `desc`.
+	Order *string `pulumi:"order"`
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs and PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs{...}
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs struct {
+	// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The metric used for sorting group by results.
+	Metric pulumi.StringPtrInput `pulumi:"metric"`
+	// Direction of sort. Valid values are `asc`, `desc`.
+	Order pulumi.StringPtrInput `pulumi:"order"`
+}
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput)
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput).ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs, PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtr and PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrInput` via:
+//
+//	        PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput
+}
+
+type powerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrType PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs
+
+func PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtr(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrInput {
+	return (*powerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrType)(v)
+}
+
+func (*powerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrType) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrType) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return o.ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort) *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort {
+		return &v
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput)
+}
+
+// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+// The metric used for sorting group by results.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort) *string { return v.Metric }).(pulumi.StringPtrOutput)
+}
+
+// Direction of sort. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort) *string { return v.Order }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Elem() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort) PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort
+		return ret
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput)
+}
+
+// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The metric used for sorting group by results.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Metric
+	}).(pulumi.StringPtrOutput)
+}
+
+// Direction of sort. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearch struct {
+	// The events search string.
+	Query string `pulumi:"query"`
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs and PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs{...}
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs struct {
+	// The events search string.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearch)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput)
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput).ToPowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs, PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtr and PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrInput` via:
+//
+//	        PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput
+}
+
+type powerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrType PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs
+
+func PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtr(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs) PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrInput {
+	return (*powerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrType)(v)
+}
+
+func (*powerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearch)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrType) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrType) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearch)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return o.ToPowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearch) *PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearch {
+		return &v
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput)
+}
+
+// The events search string.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearch) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearch)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput) Elem() PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearch) PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearch {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearch
+		return ret
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput)
+}
+
+// The events search string.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearch) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery struct {
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+	Aggregator *string `pulumi:"aggregator"`
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
+	// The data source for metrics queries. Defaults to `"metrics"`.
+	DataSource *string `pulumi:"dataSource"`
+	// The name of the query for use in formulas.
+	Name string `pulumi:"name"`
+	// The metrics query definition.
+	Query string `pulumi:"query"`
+	// Semantic mode for metrics queries. This determines how metrics from different sources are combined or displayed. Valid values are `combined`, `native`.
+	SemanticMode *string `pulumi:"semanticMode"`
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryArgs and PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryArgs{...}
+type PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput() PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryArgs struct {
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+	Aggregator pulumi.StringPtrInput `pulumi:"aggregator"`
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
+	// The data source for metrics queries. Defaults to `"metrics"`.
+	DataSource pulumi.StringPtrInput `pulumi:"dataSource"`
+	// The name of the query for use in formulas.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The metrics query definition.
+	Query pulumi.StringInput `pulumi:"query"`
+	// Semantic mode for metrics queries. This determines how metrics from different sources are combined or displayed. Valid values are `combined`, `native`.
+	SemanticMode pulumi.StringPtrInput `pulumi:"semanticMode"`
+}
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput() PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput)
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput).ToPowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryArgs, PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtr and PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrInput` via:
+//
+//	        PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput
+}
+
+type powerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrType PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryArgs
+
+func PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtr(v *PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryArgs) PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrInput {
+	return (*powerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrType)(v)
+}
+
+func (*powerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrType) ToPowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrType) ToPowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput() PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput {
+	return o.ToPowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery) *PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery {
+		return &v
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput)
+}
+
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput) Aggregator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery) *string { return v.Aggregator }).(pulumi.StringPtrOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
+}
+
+// The data source for metrics queries. Defaults to `"metrics"`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery) *string { return v.DataSource }).(pulumi.StringPtrOutput)
+}
+
+// The name of the query for use in formulas.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The metrics query definition.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery) string { return v.Query }).(pulumi.StringOutput)
+}
+
+// Semantic mode for metrics queries. This determines how metrics from different sources are combined or displayed. Valid values are `combined`, `native`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput) SemanticMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery) *string { return v.SemanticMode }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) Elem() PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery) PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery
+		return ret
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput)
+}
+
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) Aggregator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Aggregator
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrossOrgUuids
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data source for metrics queries. Defaults to `"metrics"`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the query for use in formulas.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The metrics query definition.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+// Semantic mode for metrics queries. This determines how metrics from different sources are combined or displayed. Valid values are `combined`, `native`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) SemanticMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SemanticMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery struct {
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+	Aggregator *string `pulumi:"aggregator"`
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
+	// The data source for process queries. Valid values are `process`, `container`.
+	DataSource string `pulumi:"dataSource"`
+	// Whether to normalize the CPU percentages.
+	IsNormalizedCpu *bool `pulumi:"isNormalizedCpu"`
+	// The number of hits to return.
+	Limit *int `pulumi:"limit"`
+	// The process metric name.
+	Metric string `pulumi:"metric"`
+	// The name of query for use in formulas.
+	Name string `pulumi:"name"`
+	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
+	Sort *string `pulumi:"sort"`
+	// An array of tags to filter by.
+	TagFilters []string `pulumi:"tagFilters"`
+	// The text to use as a filter.
+	TextFilter *string `pulumi:"textFilter"`
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryArgs and PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryArgs{...}
+type PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput() PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryArgs struct {
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+	Aggregator pulumi.StringPtrInput `pulumi:"aggregator"`
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
+	// The data source for process queries. Valid values are `process`, `container`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// Whether to normalize the CPU percentages.
+	IsNormalizedCpu pulumi.BoolPtrInput `pulumi:"isNormalizedCpu"`
+	// The number of hits to return.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// The process metric name.
+	Metric pulumi.StringInput `pulumi:"metric"`
+	// The name of query for use in formulas.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
+	Sort pulumi.StringPtrInput `pulumi:"sort"`
+	// An array of tags to filter by.
+	TagFilters pulumi.StringArrayInput `pulumi:"tagFilters"`
+	// The text to use as a filter.
+	TextFilter pulumi.StringPtrInput `pulumi:"textFilter"`
+}
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput() PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput)
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput).ToPowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryArgs, PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtr and PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrInput` via:
+//
+//	        PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput
+}
+
+type powerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrType PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryArgs
+
+func PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtr(v *PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryArgs) PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrInput {
+	return (*powerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrType)(v)
+}
+
+func (*powerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrType) ToPowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrType) ToPowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput() PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput {
+	return o.ToPowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery {
+		return &v
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput)
+}
+
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput) Aggregator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *string { return v.Aggregator }).(pulumi.StringPtrOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
+}
+
+// The data source for process queries. Valid values are `process`, `container`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) string { return v.DataSource }).(pulumi.StringOutput)
+}
+
+// Whether to normalize the CPU percentages.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput) IsNormalizedCpu() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *bool { return v.IsNormalizedCpu }).(pulumi.BoolPtrOutput)
+}
+
+// The number of hits to return.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// The process metric name.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput) Metric() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) string { return v.Metric }).(pulumi.StringOutput)
+}
+
+// The name of query for use in formulas.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput) Sort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *string { return v.Sort }).(pulumi.StringPtrOutput)
+}
+
+// An array of tags to filter by.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput) TagFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) []string { return v.TagFilters }).(pulumi.StringArrayOutput)
+}
+
+// The text to use as a filter.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput) TextFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *string { return v.TextFilter }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Elem() PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery
+		return ret
+	}).(PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput)
+}
+
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Aggregator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Aggregator
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrossOrgUuids
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data source for process queries. Valid values are `process`, `container`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to normalize the CPU percentages.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) IsNormalizedCpu() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsNormalizedCpu
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The number of hits to return.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Limit
+	}).(pulumi.IntPtrOutput)
+}
+
+// The process metric name.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Metric
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of query for use in formulas.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Sort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sort
+	}).(pulumi.StringPtrOutput)
+}
+
+// An array of tags to filter by.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) TagFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TagFilters
+	}).(pulumi.StringArrayOutput)
+}
+
+// The text to use as a filter.
+func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) TextFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TextFilter
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQuerySloQuery struct {
+	// Additional filters applied to the SLO query.
+	AdditionalQueryFilters *string `pulumi:"additionalQueryFilters"`
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
+	// The data source for SLO queries. Valid values are `slo`.
+	DataSource string `pulumi:"dataSource"`
+	// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+	GroupMode *string `pulumi:"groupMode"`
+	// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+	Measure string `pulumi:"measure"`
+	// The name of query for use in formulas.
+	Name *string `pulumi:"name"`
+	// ID of an SLO to query.
+	SloId string `pulumi:"sloId"`
+	// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
+	SloQueryType *string `pulumi:"sloQueryType"`
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQuerySloQueryInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQuerySloQueryArgs and PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQuerySloQueryInput` via:
+//
+//	PowerpackWidgetTreemapDefinitionRequestQuerySloQueryArgs{...}
+type PowerpackWidgetTreemapDefinitionRequestQuerySloQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput() PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQuerySloQueryArgs struct {
+	// Additional filters applied to the SLO query.
+	AdditionalQueryFilters pulumi.StringPtrInput `pulumi:"additionalQueryFilters"`
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
+	// The data source for SLO queries. Valid values are `slo`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+	GroupMode pulumi.StringPtrInput `pulumi:"groupMode"`
+	// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+	Measure pulumi.StringInput `pulumi:"measure"`
+	// The name of query for use in formulas.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// ID of an SLO to query.
+	SloId pulumi.StringInput `pulumi:"sloId"`
+	// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
+	SloQueryType pulumi.StringPtrInput `pulumi:"sloQueryType"`
+}
+
+func (PowerpackWidgetTreemapDefinitionRequestQuerySloQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQuerySloQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQuerySloQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput() PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQuerySloQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput)
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQuerySloQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTreemapDefinitionRequestQuerySloQueryArgs) ToPowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput).ToPowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrInput is an input type that accepts PowerpackWidgetTreemapDefinitionRequestQuerySloQueryArgs, PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtr and PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrInput` via:
+//
+//	        PowerpackWidgetTreemapDefinitionRequestQuerySloQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput
+	ToPowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutputWithContext(context.Context) PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput
+}
+
+type powerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrType PowerpackWidgetTreemapDefinitionRequestQuerySloQueryArgs
+
+func PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtr(v *PowerpackWidgetTreemapDefinitionRequestQuerySloQueryArgs) PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrInput {
+	return (*powerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrType)(v)
+}
+
+func (*powerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestQuerySloQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrType) ToPowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput {
+	return i.ToPowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrType) ToPowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQuerySloQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput() PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput {
+	return o.ToPowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput) ToPowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) *PowerpackWidgetTreemapDefinitionRequestQuerySloQuery {
+		return &v
+	}).(PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput)
+}
+
+// Additional filters applied to the SLO query.
+func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput) AdditionalQueryFilters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) *string { return v.AdditionalQueryFilters }).(pulumi.StringPtrOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
+}
+
+// The data source for SLO queries. Valid values are `slo`.
+func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) string { return v.DataSource }).(pulumi.StringOutput)
+}
+
+// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput) GroupMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) *string { return v.GroupMode }).(pulumi.StringPtrOutput)
+}
+
+// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput) Measure() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) string { return v.Measure }).(pulumi.StringOutput)
+}
+
+// The name of query for use in formulas.
+func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// ID of an SLO to query.
+func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput) SloId() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) string { return v.SloId }).(pulumi.StringOutput)
+}
+
+// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
+func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput) SloQueryType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) *string { return v.SloQueryType }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTreemapDefinitionRequestQuerySloQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput() PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) ToPowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) Elem() PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) PowerpackWidgetTreemapDefinitionRequestQuerySloQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTreemapDefinitionRequestQuerySloQuery
+		return ret
+	}).(PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput)
+}
+
+// Additional filters applied to the SLO query.
+func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) AdditionalQueryFilters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalQueryFilters
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrossOrgUuids
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data source for SLO queries. Valid values are `slo`.
+func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) GroupMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) Measure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Measure
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of query for use in formulas.
+func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of an SLO to query.
+func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) SloId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SloId
+	}).(pulumi.StringPtrOutput)
+}
+
+// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
+func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) SloQueryType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SloQueryType
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetWidgetLayout struct {
+	// The height of the widget.
+	Height int `pulumi:"height"`
+	// Whether the widget should be the first one on the second column in high density or not. Only one widget in the dashboard should have this property set to `true`.
+	IsColumnBreak *bool `pulumi:"isColumnBreak"`
+	// The width of the widget.
+	Width int `pulumi:"width"`
+	// The position of the widget on the x (horizontal) axis. Must be greater than or equal to 0.
+	X int `pulumi:"x"`
+	// The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
+	Y int `pulumi:"y"`
+}
+
+// PowerpackWidgetWidgetLayoutInput is an input type that accepts PowerpackWidgetWidgetLayoutArgs and PowerpackWidgetWidgetLayoutOutput values.
+// You can construct a concrete instance of `PowerpackWidgetWidgetLayoutInput` via:
+//
+//	PowerpackWidgetWidgetLayoutArgs{...}
+type PowerpackWidgetWidgetLayoutInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetWidgetLayoutOutput() PowerpackWidgetWidgetLayoutOutput
+	ToPowerpackWidgetWidgetLayoutOutputWithContext(context.Context) PowerpackWidgetWidgetLayoutOutput
+}
+
+type PowerpackWidgetWidgetLayoutArgs struct {
+	// The height of the widget.
+	Height pulumi.IntInput `pulumi:"height"`
+	// Whether the widget should be the first one on the second column in high density or not. Only one widget in the dashboard should have this property set to `true`.
+	IsColumnBreak pulumi.BoolPtrInput `pulumi:"isColumnBreak"`
+	// The width of the widget.
+	Width pulumi.IntInput `pulumi:"width"`
+	// The position of the widget on the x (horizontal) axis. Must be greater than or equal to 0.
+	X pulumi.IntInput `pulumi:"x"`
+	// The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
+	Y pulumi.IntInput `pulumi:"y"`
+}
+
+func (PowerpackWidgetWidgetLayoutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetWidgetLayout)(nil)).Elem()
+}
+
+func (i PowerpackWidgetWidgetLayoutArgs) ToPowerpackWidgetWidgetLayoutOutput() PowerpackWidgetWidgetLayoutOutput {
+	return i.ToPowerpackWidgetWidgetLayoutOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetWidgetLayoutArgs) ToPowerpackWidgetWidgetLayoutOutputWithContext(ctx context.Context) PowerpackWidgetWidgetLayoutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetWidgetLayoutOutput)
+}
+
+func (i PowerpackWidgetWidgetLayoutArgs) ToPowerpackWidgetWidgetLayoutPtrOutput() PowerpackWidgetWidgetLayoutPtrOutput {
+	return i.ToPowerpackWidgetWidgetLayoutPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetWidgetLayoutArgs) ToPowerpackWidgetWidgetLayoutPtrOutputWithContext(ctx context.Context) PowerpackWidgetWidgetLayoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetWidgetLayoutOutput).ToPowerpackWidgetWidgetLayoutPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetWidgetLayoutPtrInput is an input type that accepts PowerpackWidgetWidgetLayoutArgs, PowerpackWidgetWidgetLayoutPtr and PowerpackWidgetWidgetLayoutPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetWidgetLayoutPtrInput` via:
+//
+//	        PowerpackWidgetWidgetLayoutArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetWidgetLayoutPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetWidgetLayoutPtrOutput() PowerpackWidgetWidgetLayoutPtrOutput
+	ToPowerpackWidgetWidgetLayoutPtrOutputWithContext(context.Context) PowerpackWidgetWidgetLayoutPtrOutput
+}
+
+type powerpackWidgetWidgetLayoutPtrType PowerpackWidgetWidgetLayoutArgs
+
+func PowerpackWidgetWidgetLayoutPtr(v *PowerpackWidgetWidgetLayoutArgs) PowerpackWidgetWidgetLayoutPtrInput {
+	return (*powerpackWidgetWidgetLayoutPtrType)(v)
+}
+
+func (*powerpackWidgetWidgetLayoutPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetWidgetLayout)(nil)).Elem()
+}
+
+func (i *powerpackWidgetWidgetLayoutPtrType) ToPowerpackWidgetWidgetLayoutPtrOutput() PowerpackWidgetWidgetLayoutPtrOutput {
+	return i.ToPowerpackWidgetWidgetLayoutPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetWidgetLayoutPtrType) ToPowerpackWidgetWidgetLayoutPtrOutputWithContext(ctx context.Context) PowerpackWidgetWidgetLayoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetWidgetLayoutPtrOutput)
+}
+
+type PowerpackWidgetWidgetLayoutOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetWidgetLayoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetWidgetLayout)(nil)).Elem()
+}
+
+func (o PowerpackWidgetWidgetLayoutOutput) ToPowerpackWidgetWidgetLayoutOutput() PowerpackWidgetWidgetLayoutOutput {
+	return o
+}
+
+func (o PowerpackWidgetWidgetLayoutOutput) ToPowerpackWidgetWidgetLayoutOutputWithContext(ctx context.Context) PowerpackWidgetWidgetLayoutOutput {
+	return o
+}
+
+func (o PowerpackWidgetWidgetLayoutOutput) ToPowerpackWidgetWidgetLayoutPtrOutput() PowerpackWidgetWidgetLayoutPtrOutput {
+	return o.ToPowerpackWidgetWidgetLayoutPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetWidgetLayoutOutput) ToPowerpackWidgetWidgetLayoutPtrOutputWithContext(ctx context.Context) PowerpackWidgetWidgetLayoutPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetWidgetLayout) *PowerpackWidgetWidgetLayout {
+		return &v
+	}).(PowerpackWidgetWidgetLayoutPtrOutput)
+}
+
+// The height of the widget.
+func (o PowerpackWidgetWidgetLayoutOutput) Height() pulumi.IntOutput {
+	return o.ApplyT(func(v PowerpackWidgetWidgetLayout) int { return v.Height }).(pulumi.IntOutput)
+}
+
+// Whether the widget should be the first one on the second column in high density or not. Only one widget in the dashboard should have this property set to `true`.
+func (o PowerpackWidgetWidgetLayoutOutput) IsColumnBreak() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetWidgetLayout) *bool { return v.IsColumnBreak }).(pulumi.BoolPtrOutput)
+}
+
+// The width of the widget.
+func (o PowerpackWidgetWidgetLayoutOutput) Width() pulumi.IntOutput {
+	return o.ApplyT(func(v PowerpackWidgetWidgetLayout) int { return v.Width }).(pulumi.IntOutput)
+}
+
+// The position of the widget on the x (horizontal) axis. Must be greater than or equal to 0.
+func (o PowerpackWidgetWidgetLayoutOutput) X() pulumi.IntOutput {
+	return o.ApplyT(func(v PowerpackWidgetWidgetLayout) int { return v.X }).(pulumi.IntOutput)
+}
+
+// The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
+func (o PowerpackWidgetWidgetLayoutOutput) Y() pulumi.IntOutput {
+	return o.ApplyT(func(v PowerpackWidgetWidgetLayout) int { return v.Y }).(pulumi.IntOutput)
+}
+
+type PowerpackWidgetWidgetLayoutPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetWidgetLayoutPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetWidgetLayout)(nil)).Elem()
+}
+
+func (o PowerpackWidgetWidgetLayoutPtrOutput) ToPowerpackWidgetWidgetLayoutPtrOutput() PowerpackWidgetWidgetLayoutPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetWidgetLayoutPtrOutput) ToPowerpackWidgetWidgetLayoutPtrOutputWithContext(ctx context.Context) PowerpackWidgetWidgetLayoutPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetWidgetLayoutPtrOutput) Elem() PowerpackWidgetWidgetLayoutOutput {
+	return o.ApplyT(func(v *PowerpackWidgetWidgetLayout) PowerpackWidgetWidgetLayout {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetWidgetLayout
+		return ret
+	}).(PowerpackWidgetWidgetLayoutOutput)
+}
+
+// The height of the widget.
+func (o PowerpackWidgetWidgetLayoutPtrOutput) Height() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetWidgetLayout) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Height
+	}).(pulumi.IntPtrOutput)
+}
+
+// Whether the widget should be the first one on the second column in high density or not. Only one widget in the dashboard should have this property set to `true`.
+func (o PowerpackWidgetWidgetLayoutPtrOutput) IsColumnBreak() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetWidgetLayout) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsColumnBreak
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The width of the widget.
+func (o PowerpackWidgetWidgetLayoutPtrOutput) Width() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetWidgetLayout) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Width
+	}).(pulumi.IntPtrOutput)
+}
+
+// The position of the widget on the x (horizontal) axis. Must be greater than or equal to 0.
+func (o PowerpackWidgetWidgetLayoutPtrOutput) X() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetWidgetLayout) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.X
+	}).(pulumi.IntPtrOutput)
+}
+
+// The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
+func (o PowerpackWidgetWidgetLayoutPtrOutput) Y() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetWidgetLayout) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Y
+	}).(pulumi.IntPtrOutput)
+}
+
+type ProviderDefaultTags struct {
+	// [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Resource tags to be applied by default across all resources.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// ProviderDefaultTagsInput is an input type that accepts ProviderDefaultTagsArgs and ProviderDefaultTagsOutput values.
+// You can construct a concrete instance of `ProviderDefaultTagsInput` via:
+//
+//	ProviderDefaultTagsArgs{...}
+type ProviderDefaultTagsInput interface {
+	pulumi.Input
+
+	ToProviderDefaultTagsOutput() ProviderDefaultTagsOutput
+	ToProviderDefaultTagsOutputWithContext(context.Context) ProviderDefaultTagsOutput
+}
+
+type ProviderDefaultTagsArgs struct {
+	// [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Resource tags to be applied by default across all resources.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (ProviderDefaultTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderDefaultTags)(nil)).Elem()
+}
+
+func (i ProviderDefaultTagsArgs) ToProviderDefaultTagsOutput() ProviderDefaultTagsOutput {
+	return i.ToProviderDefaultTagsOutputWithContext(context.Background())
+}
+
+func (i ProviderDefaultTagsArgs) ToProviderDefaultTagsOutputWithContext(ctx context.Context) ProviderDefaultTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderDefaultTagsOutput)
+}
+
+func (i ProviderDefaultTagsArgs) ToProviderDefaultTagsPtrOutput() ProviderDefaultTagsPtrOutput {
+	return i.ToProviderDefaultTagsPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderDefaultTagsArgs) ToProviderDefaultTagsPtrOutputWithContext(ctx context.Context) ProviderDefaultTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderDefaultTagsOutput).ToProviderDefaultTagsPtrOutputWithContext(ctx)
+}
+
+// ProviderDefaultTagsPtrInput is an input type that accepts ProviderDefaultTagsArgs, ProviderDefaultTagsPtr and ProviderDefaultTagsPtrOutput values.
+// You can construct a concrete instance of `ProviderDefaultTagsPtrInput` via:
+//
+//	        ProviderDefaultTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProviderDefaultTagsPtrInput interface {
+	pulumi.Input
+
+	ToProviderDefaultTagsPtrOutput() ProviderDefaultTagsPtrOutput
+	ToProviderDefaultTagsPtrOutputWithContext(context.Context) ProviderDefaultTagsPtrOutput
+}
+
+type providerDefaultTagsPtrType ProviderDefaultTagsArgs
+
+func ProviderDefaultTagsPtr(v *ProviderDefaultTagsArgs) ProviderDefaultTagsPtrInput {
+	return (*providerDefaultTagsPtrType)(v)
+}
+
+func (*providerDefaultTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderDefaultTags)(nil)).Elem()
+}
+
+func (i *providerDefaultTagsPtrType) ToProviderDefaultTagsPtrOutput() ProviderDefaultTagsPtrOutput {
+	return i.ToProviderDefaultTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *providerDefaultTagsPtrType) ToProviderDefaultTagsPtrOutputWithContext(ctx context.Context) ProviderDefaultTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderDefaultTagsPtrOutput)
+}
+
+type ProviderDefaultTagsOutput struct{ *pulumi.OutputState }
+
+func (ProviderDefaultTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderDefaultTags)(nil)).Elem()
+}
+
+func (o ProviderDefaultTagsOutput) ToProviderDefaultTagsOutput() ProviderDefaultTagsOutput {
+	return o
+}
+
+func (o ProviderDefaultTagsOutput) ToProviderDefaultTagsOutputWithContext(ctx context.Context) ProviderDefaultTagsOutput {
+	return o
+}
+
+func (o ProviderDefaultTagsOutput) ToProviderDefaultTagsPtrOutput() ProviderDefaultTagsPtrOutput {
+	return o.ToProviderDefaultTagsPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderDefaultTagsOutput) ToProviderDefaultTagsPtrOutputWithContext(ctx context.Context) ProviderDefaultTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderDefaultTags) *ProviderDefaultTags {
+		return &v
+	}).(ProviderDefaultTagsPtrOutput)
+}
+
+// [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Resource tags to be applied by default across all resources.
+func (o ProviderDefaultTagsOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ProviderDefaultTags) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+type ProviderDefaultTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderDefaultTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderDefaultTags)(nil)).Elem()
+}
+
+func (o ProviderDefaultTagsPtrOutput) ToProviderDefaultTagsPtrOutput() ProviderDefaultTagsPtrOutput {
+	return o
+}
+
+func (o ProviderDefaultTagsPtrOutput) ToProviderDefaultTagsPtrOutputWithContext(ctx context.Context) ProviderDefaultTagsPtrOutput {
+	return o
+}
+
+func (o ProviderDefaultTagsPtrOutput) Elem() ProviderDefaultTagsOutput {
+	return o.ApplyT(func(v *ProviderDefaultTags) ProviderDefaultTags {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderDefaultTags
+		return ret
+	}).(ProviderDefaultTagsOutput)
+}
+
+// [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Resource tags to be applied by default across all resources.
+func (o ProviderDefaultTagsPtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ProviderDefaultTags) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+type ReferenceTableFileMetadata struct {
+	// Cloud storage access configuration. Exactly one of aws*detail, gcp*detail, or azure*detail must be specified.
+	AccessDetails *ReferenceTableFileMetadataAccessDetails `pulumi:"accessDetails"`
+	// Error message from the last sync attempt, if any.
+	ErrorMessage *string `pulumi:"errorMessage"`
+	// The number of rows that failed to sync.
+	ErrorRowCount *int `pulumi:"errorRowCount"`
+	// The type of error that occurred during file processing.
+	ErrorType *string `pulumi:"errorType"`
+	// Whether this table should automatically sync with the cloud storage source.
+	SyncEnabled bool `pulumi:"syncEnabled"`
+}
+
+// ReferenceTableFileMetadataInput is an input type that accepts ReferenceTableFileMetadataArgs and ReferenceTableFileMetadataOutput values.
+// You can construct a concrete instance of `ReferenceTableFileMetadataInput` via:
+//
+//	ReferenceTableFileMetadataArgs{...}
+type ReferenceTableFileMetadataInput interface {
+	pulumi.Input
+
+	ToReferenceTableFileMetadataOutput() ReferenceTableFileMetadataOutput
+	ToReferenceTableFileMetadataOutputWithContext(context.Context) ReferenceTableFileMetadataOutput
+}
+
+type ReferenceTableFileMetadataArgs struct {
+	// Cloud storage access configuration. Exactly one of aws*detail, gcp*detail, or azure*detail must be specified.
+	AccessDetails ReferenceTableFileMetadataAccessDetailsPtrInput `pulumi:"accessDetails"`
+	// Error message from the last sync attempt, if any.
+	ErrorMessage pulumi.StringPtrInput `pulumi:"errorMessage"`
+	// The number of rows that failed to sync.
+	ErrorRowCount pulumi.IntPtrInput `pulumi:"errorRowCount"`
+	// The type of error that occurred during file processing.
+	ErrorType pulumi.StringPtrInput `pulumi:"errorType"`
+	// Whether this table should automatically sync with the cloud storage source.
+	SyncEnabled pulumi.BoolInput `pulumi:"syncEnabled"`
+}
+
+func (ReferenceTableFileMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceTableFileMetadata)(nil)).Elem()
+}
+
+func (i ReferenceTableFileMetadataArgs) ToReferenceTableFileMetadataOutput() ReferenceTableFileMetadataOutput {
+	return i.ToReferenceTableFileMetadataOutputWithContext(context.Background())
+}
+
+func (i ReferenceTableFileMetadataArgs) ToReferenceTableFileMetadataOutputWithContext(ctx context.Context) ReferenceTableFileMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceTableFileMetadataOutput)
+}
+
+func (i ReferenceTableFileMetadataArgs) ToReferenceTableFileMetadataPtrOutput() ReferenceTableFileMetadataPtrOutput {
+	return i.ToReferenceTableFileMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i ReferenceTableFileMetadataArgs) ToReferenceTableFileMetadataPtrOutputWithContext(ctx context.Context) ReferenceTableFileMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceTableFileMetadataOutput).ToReferenceTableFileMetadataPtrOutputWithContext(ctx)
+}
+
+// ReferenceTableFileMetadataPtrInput is an input type that accepts ReferenceTableFileMetadataArgs, ReferenceTableFileMetadataPtr and ReferenceTableFileMetadataPtrOutput values.
+// You can construct a concrete instance of `ReferenceTableFileMetadataPtrInput` via:
+//
+//	        ReferenceTableFileMetadataArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReferenceTableFileMetadataPtrInput interface {
+	pulumi.Input
+
+	ToReferenceTableFileMetadataPtrOutput() ReferenceTableFileMetadataPtrOutput
+	ToReferenceTableFileMetadataPtrOutputWithContext(context.Context) ReferenceTableFileMetadataPtrOutput
+}
+
+type referenceTableFileMetadataPtrType ReferenceTableFileMetadataArgs
+
+func ReferenceTableFileMetadataPtr(v *ReferenceTableFileMetadataArgs) ReferenceTableFileMetadataPtrInput {
+	return (*referenceTableFileMetadataPtrType)(v)
+}
+
+func (*referenceTableFileMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReferenceTableFileMetadata)(nil)).Elem()
+}
+
+func (i *referenceTableFileMetadataPtrType) ToReferenceTableFileMetadataPtrOutput() ReferenceTableFileMetadataPtrOutput {
+	return i.ToReferenceTableFileMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *referenceTableFileMetadataPtrType) ToReferenceTableFileMetadataPtrOutputWithContext(ctx context.Context) ReferenceTableFileMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceTableFileMetadataPtrOutput)
+}
+
+type ReferenceTableFileMetadataOutput struct{ *pulumi.OutputState }
+
+func (ReferenceTableFileMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceTableFileMetadata)(nil)).Elem()
+}
+
+func (o ReferenceTableFileMetadataOutput) ToReferenceTableFileMetadataOutput() ReferenceTableFileMetadataOutput {
+	return o
+}
+
+func (o ReferenceTableFileMetadataOutput) ToReferenceTableFileMetadataOutputWithContext(ctx context.Context) ReferenceTableFileMetadataOutput {
+	return o
+}
+
+func (o ReferenceTableFileMetadataOutput) ToReferenceTableFileMetadataPtrOutput() ReferenceTableFileMetadataPtrOutput {
+	return o.ToReferenceTableFileMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o ReferenceTableFileMetadataOutput) ToReferenceTableFileMetadataPtrOutputWithContext(ctx context.Context) ReferenceTableFileMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReferenceTableFileMetadata) *ReferenceTableFileMetadata {
+		return &v
+	}).(ReferenceTableFileMetadataPtrOutput)
+}
+
+// Cloud storage access configuration. Exactly one of aws*detail, gcp*detail, or azure*detail must be specified.
+func (o ReferenceTableFileMetadataOutput) AccessDetails() ReferenceTableFileMetadataAccessDetailsPtrOutput {
+	return o.ApplyT(func(v ReferenceTableFileMetadata) *ReferenceTableFileMetadataAccessDetails { return v.AccessDetails }).(ReferenceTableFileMetadataAccessDetailsPtrOutput)
+}
+
+// Error message from the last sync attempt, if any.
+func (o ReferenceTableFileMetadataOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReferenceTableFileMetadata) *string { return v.ErrorMessage }).(pulumi.StringPtrOutput)
+}
+
+// The number of rows that failed to sync.
+func (o ReferenceTableFileMetadataOutput) ErrorRowCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ReferenceTableFileMetadata) *int { return v.ErrorRowCount }).(pulumi.IntPtrOutput)
+}
+
+// The type of error that occurred during file processing.
+func (o ReferenceTableFileMetadataOutput) ErrorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReferenceTableFileMetadata) *string { return v.ErrorType }).(pulumi.StringPtrOutput)
+}
+
+// Whether this table should automatically sync with the cloud storage source.
+func (o ReferenceTableFileMetadataOutput) SyncEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ReferenceTableFileMetadata) bool { return v.SyncEnabled }).(pulumi.BoolOutput)
+}
+
+type ReferenceTableFileMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (ReferenceTableFileMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReferenceTableFileMetadata)(nil)).Elem()
+}
+
+func (o ReferenceTableFileMetadataPtrOutput) ToReferenceTableFileMetadataPtrOutput() ReferenceTableFileMetadataPtrOutput {
+	return o
+}
+
+func (o ReferenceTableFileMetadataPtrOutput) ToReferenceTableFileMetadataPtrOutputWithContext(ctx context.Context) ReferenceTableFileMetadataPtrOutput {
+	return o
+}
+
+func (o ReferenceTableFileMetadataPtrOutput) Elem() ReferenceTableFileMetadataOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadata) ReferenceTableFileMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret ReferenceTableFileMetadata
+		return ret
+	}).(ReferenceTableFileMetadataOutput)
+}
+
+// Cloud storage access configuration. Exactly one of aws*detail, gcp*detail, or azure*detail must be specified.
+func (o ReferenceTableFileMetadataPtrOutput) AccessDetails() ReferenceTableFileMetadataAccessDetailsPtrOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadata) *ReferenceTableFileMetadataAccessDetails {
+		if v == nil {
+			return nil
+		}
+		return v.AccessDetails
+	}).(ReferenceTableFileMetadataAccessDetailsPtrOutput)
+}
+
+// Error message from the last sync attempt, if any.
+func (o ReferenceTableFileMetadataPtrOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of rows that failed to sync.
+func (o ReferenceTableFileMetadataPtrOutput) ErrorRowCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadata) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorRowCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The type of error that occurred during file processing.
+func (o ReferenceTableFileMetadataPtrOutput) ErrorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether this table should automatically sync with the cloud storage source.
+func (o ReferenceTableFileMetadataPtrOutput) SyncEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadata) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SyncEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ReferenceTableFileMetadataAccessDetails struct {
+	// AWS S3 access configuration. Required when source is S3.
+	AwsDetail *ReferenceTableFileMetadataAccessDetailsAwsDetail `pulumi:"awsDetail"`
+	// Azure Blob Storage access configuration. Required when source is AZURE.
+	AzureDetail *ReferenceTableFileMetadataAccessDetailsAzureDetail `pulumi:"azureDetail"`
+	// Google Cloud Storage access configuration. Required when source is GCS.
+	GcpDetail *ReferenceTableFileMetadataAccessDetailsGcpDetail `pulumi:"gcpDetail"`
+}
+
+// ReferenceTableFileMetadataAccessDetailsInput is an input type that accepts ReferenceTableFileMetadataAccessDetailsArgs and ReferenceTableFileMetadataAccessDetailsOutput values.
+// You can construct a concrete instance of `ReferenceTableFileMetadataAccessDetailsInput` via:
+//
+//	ReferenceTableFileMetadataAccessDetailsArgs{...}
+type ReferenceTableFileMetadataAccessDetailsInput interface {
+	pulumi.Input
+
+	ToReferenceTableFileMetadataAccessDetailsOutput() ReferenceTableFileMetadataAccessDetailsOutput
+	ToReferenceTableFileMetadataAccessDetailsOutputWithContext(context.Context) ReferenceTableFileMetadataAccessDetailsOutput
+}
+
+type ReferenceTableFileMetadataAccessDetailsArgs struct {
+	// AWS S3 access configuration. Required when source is S3.
+	AwsDetail ReferenceTableFileMetadataAccessDetailsAwsDetailPtrInput `pulumi:"awsDetail"`
+	// Azure Blob Storage access configuration. Required when source is AZURE.
+	AzureDetail ReferenceTableFileMetadataAccessDetailsAzureDetailPtrInput `pulumi:"azureDetail"`
+	// Google Cloud Storage access configuration. Required when source is GCS.
+	GcpDetail ReferenceTableFileMetadataAccessDetailsGcpDetailPtrInput `pulumi:"gcpDetail"`
+}
+
+func (ReferenceTableFileMetadataAccessDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceTableFileMetadataAccessDetails)(nil)).Elem()
+}
+
+func (i ReferenceTableFileMetadataAccessDetailsArgs) ToReferenceTableFileMetadataAccessDetailsOutput() ReferenceTableFileMetadataAccessDetailsOutput {
+	return i.ToReferenceTableFileMetadataAccessDetailsOutputWithContext(context.Background())
+}
+
+func (i ReferenceTableFileMetadataAccessDetailsArgs) ToReferenceTableFileMetadataAccessDetailsOutputWithContext(ctx context.Context) ReferenceTableFileMetadataAccessDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceTableFileMetadataAccessDetailsOutput)
+}
+
+func (i ReferenceTableFileMetadataAccessDetailsArgs) ToReferenceTableFileMetadataAccessDetailsPtrOutput() ReferenceTableFileMetadataAccessDetailsPtrOutput {
+	return i.ToReferenceTableFileMetadataAccessDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ReferenceTableFileMetadataAccessDetailsArgs) ToReferenceTableFileMetadataAccessDetailsPtrOutputWithContext(ctx context.Context) ReferenceTableFileMetadataAccessDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceTableFileMetadataAccessDetailsOutput).ToReferenceTableFileMetadataAccessDetailsPtrOutputWithContext(ctx)
+}
+
+// ReferenceTableFileMetadataAccessDetailsPtrInput is an input type that accepts ReferenceTableFileMetadataAccessDetailsArgs, ReferenceTableFileMetadataAccessDetailsPtr and ReferenceTableFileMetadataAccessDetailsPtrOutput values.
+// You can construct a concrete instance of `ReferenceTableFileMetadataAccessDetailsPtrInput` via:
+//
+//	        ReferenceTableFileMetadataAccessDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReferenceTableFileMetadataAccessDetailsPtrInput interface {
+	pulumi.Input
+
+	ToReferenceTableFileMetadataAccessDetailsPtrOutput() ReferenceTableFileMetadataAccessDetailsPtrOutput
+	ToReferenceTableFileMetadataAccessDetailsPtrOutputWithContext(context.Context) ReferenceTableFileMetadataAccessDetailsPtrOutput
+}
+
+type referenceTableFileMetadataAccessDetailsPtrType ReferenceTableFileMetadataAccessDetailsArgs
+
+func ReferenceTableFileMetadataAccessDetailsPtr(v *ReferenceTableFileMetadataAccessDetailsArgs) ReferenceTableFileMetadataAccessDetailsPtrInput {
+	return (*referenceTableFileMetadataAccessDetailsPtrType)(v)
+}
+
+func (*referenceTableFileMetadataAccessDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReferenceTableFileMetadataAccessDetails)(nil)).Elem()
+}
+
+func (i *referenceTableFileMetadataAccessDetailsPtrType) ToReferenceTableFileMetadataAccessDetailsPtrOutput() ReferenceTableFileMetadataAccessDetailsPtrOutput {
+	return i.ToReferenceTableFileMetadataAccessDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *referenceTableFileMetadataAccessDetailsPtrType) ToReferenceTableFileMetadataAccessDetailsPtrOutputWithContext(ctx context.Context) ReferenceTableFileMetadataAccessDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceTableFileMetadataAccessDetailsPtrOutput)
+}
+
+type ReferenceTableFileMetadataAccessDetailsOutput struct{ *pulumi.OutputState }
+
+func (ReferenceTableFileMetadataAccessDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceTableFileMetadataAccessDetails)(nil)).Elem()
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsOutput) ToReferenceTableFileMetadataAccessDetailsOutput() ReferenceTableFileMetadataAccessDetailsOutput {
+	return o
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsOutput) ToReferenceTableFileMetadataAccessDetailsOutputWithContext(ctx context.Context) ReferenceTableFileMetadataAccessDetailsOutput {
+	return o
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsOutput) ToReferenceTableFileMetadataAccessDetailsPtrOutput() ReferenceTableFileMetadataAccessDetailsPtrOutput {
+	return o.ToReferenceTableFileMetadataAccessDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsOutput) ToReferenceTableFileMetadataAccessDetailsPtrOutputWithContext(ctx context.Context) ReferenceTableFileMetadataAccessDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReferenceTableFileMetadataAccessDetails) *ReferenceTableFileMetadataAccessDetails {
+		return &v
+	}).(ReferenceTableFileMetadataAccessDetailsPtrOutput)
+}
+
+// AWS S3 access configuration. Required when source is S3.
+func (o ReferenceTableFileMetadataAccessDetailsOutput) AwsDetail() ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput {
+	return o.ApplyT(func(v ReferenceTableFileMetadataAccessDetails) *ReferenceTableFileMetadataAccessDetailsAwsDetail {
+		return v.AwsDetail
+	}).(ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput)
+}
+
+// Azure Blob Storage access configuration. Required when source is AZURE.
+func (o ReferenceTableFileMetadataAccessDetailsOutput) AzureDetail() ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput {
+	return o.ApplyT(func(v ReferenceTableFileMetadataAccessDetails) *ReferenceTableFileMetadataAccessDetailsAzureDetail {
+		return v.AzureDetail
+	}).(ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput)
+}
+
+// Google Cloud Storage access configuration. Required when source is GCS.
+func (o ReferenceTableFileMetadataAccessDetailsOutput) GcpDetail() ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput {
+	return o.ApplyT(func(v ReferenceTableFileMetadataAccessDetails) *ReferenceTableFileMetadataAccessDetailsGcpDetail {
+		return v.GcpDetail
+	}).(ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput)
+}
+
+type ReferenceTableFileMetadataAccessDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ReferenceTableFileMetadataAccessDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReferenceTableFileMetadataAccessDetails)(nil)).Elem()
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsPtrOutput) ToReferenceTableFileMetadataAccessDetailsPtrOutput() ReferenceTableFileMetadataAccessDetailsPtrOutput {
+	return o
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsPtrOutput) ToReferenceTableFileMetadataAccessDetailsPtrOutputWithContext(ctx context.Context) ReferenceTableFileMetadataAccessDetailsPtrOutput {
+	return o
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsPtrOutput) Elem() ReferenceTableFileMetadataAccessDetailsOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadataAccessDetails) ReferenceTableFileMetadataAccessDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ReferenceTableFileMetadataAccessDetails
+		return ret
+	}).(ReferenceTableFileMetadataAccessDetailsOutput)
+}
+
+// AWS S3 access configuration. Required when source is S3.
+func (o ReferenceTableFileMetadataAccessDetailsPtrOutput) AwsDetail() ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadataAccessDetails) *ReferenceTableFileMetadataAccessDetailsAwsDetail {
+		if v == nil {
+			return nil
+		}
+		return v.AwsDetail
+	}).(ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput)
+}
+
+// Azure Blob Storage access configuration. Required when source is AZURE.
+func (o ReferenceTableFileMetadataAccessDetailsPtrOutput) AzureDetail() ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadataAccessDetails) *ReferenceTableFileMetadataAccessDetailsAzureDetail {
+		if v == nil {
+			return nil
+		}
+		return v.AzureDetail
+	}).(ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput)
+}
+
+// Google Cloud Storage access configuration. Required when source is GCS.
+func (o ReferenceTableFileMetadataAccessDetailsPtrOutput) GcpDetail() ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadataAccessDetails) *ReferenceTableFileMetadataAccessDetailsGcpDetail {
+		if v == nil {
+			return nil
+		}
+		return v.GcpDetail
+	}).(ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput)
+}
+
+type ReferenceTableFileMetadataAccessDetailsAwsDetail struct {
+	// The ID of the AWS account.
+	AwsAccountId *string `pulumi:"awsAccountId"`
+	// The name of the AWS S3 bucket.
+	AwsBucketName *string `pulumi:"awsBucketName"`
+	// The relative file path from the AWS S3 bucket root to the CSV file.
+	FilePath *string `pulumi:"filePath"`
+}
+
+// ReferenceTableFileMetadataAccessDetailsAwsDetailInput is an input type that accepts ReferenceTableFileMetadataAccessDetailsAwsDetailArgs and ReferenceTableFileMetadataAccessDetailsAwsDetailOutput values.
+// You can construct a concrete instance of `ReferenceTableFileMetadataAccessDetailsAwsDetailInput` via:
+//
+//	ReferenceTableFileMetadataAccessDetailsAwsDetailArgs{...}
+type ReferenceTableFileMetadataAccessDetailsAwsDetailInput interface {
+	pulumi.Input
+
+	ToReferenceTableFileMetadataAccessDetailsAwsDetailOutput() ReferenceTableFileMetadataAccessDetailsAwsDetailOutput
+	ToReferenceTableFileMetadataAccessDetailsAwsDetailOutputWithContext(context.Context) ReferenceTableFileMetadataAccessDetailsAwsDetailOutput
+}
+
+type ReferenceTableFileMetadataAccessDetailsAwsDetailArgs struct {
+	// The ID of the AWS account.
+	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
+	// The name of the AWS S3 bucket.
+	AwsBucketName pulumi.StringPtrInput `pulumi:"awsBucketName"`
+	// The relative file path from the AWS S3 bucket root to the CSV file.
+	FilePath pulumi.StringPtrInput `pulumi:"filePath"`
+}
+
+func (ReferenceTableFileMetadataAccessDetailsAwsDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceTableFileMetadataAccessDetailsAwsDetail)(nil)).Elem()
+}
+
+func (i ReferenceTableFileMetadataAccessDetailsAwsDetailArgs) ToReferenceTableFileMetadataAccessDetailsAwsDetailOutput() ReferenceTableFileMetadataAccessDetailsAwsDetailOutput {
+	return i.ToReferenceTableFileMetadataAccessDetailsAwsDetailOutputWithContext(context.Background())
+}
+
+func (i ReferenceTableFileMetadataAccessDetailsAwsDetailArgs) ToReferenceTableFileMetadataAccessDetailsAwsDetailOutputWithContext(ctx context.Context) ReferenceTableFileMetadataAccessDetailsAwsDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceTableFileMetadataAccessDetailsAwsDetailOutput)
+}
+
+func (i ReferenceTableFileMetadataAccessDetailsAwsDetailArgs) ToReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput() ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput {
+	return i.ToReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutputWithContext(context.Background())
+}
+
+func (i ReferenceTableFileMetadataAccessDetailsAwsDetailArgs) ToReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutputWithContext(ctx context.Context) ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceTableFileMetadataAccessDetailsAwsDetailOutput).ToReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutputWithContext(ctx)
+}
+
+// ReferenceTableFileMetadataAccessDetailsAwsDetailPtrInput is an input type that accepts ReferenceTableFileMetadataAccessDetailsAwsDetailArgs, ReferenceTableFileMetadataAccessDetailsAwsDetailPtr and ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput values.
+// You can construct a concrete instance of `ReferenceTableFileMetadataAccessDetailsAwsDetailPtrInput` via:
+//
+//	        ReferenceTableFileMetadataAccessDetailsAwsDetailArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReferenceTableFileMetadataAccessDetailsAwsDetailPtrInput interface {
+	pulumi.Input
+
+	ToReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput() ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput
+	ToReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutputWithContext(context.Context) ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput
+}
+
+type referenceTableFileMetadataAccessDetailsAwsDetailPtrType ReferenceTableFileMetadataAccessDetailsAwsDetailArgs
+
+func ReferenceTableFileMetadataAccessDetailsAwsDetailPtr(v *ReferenceTableFileMetadataAccessDetailsAwsDetailArgs) ReferenceTableFileMetadataAccessDetailsAwsDetailPtrInput {
+	return (*referenceTableFileMetadataAccessDetailsAwsDetailPtrType)(v)
+}
+
+func (*referenceTableFileMetadataAccessDetailsAwsDetailPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReferenceTableFileMetadataAccessDetailsAwsDetail)(nil)).Elem()
+}
+
+func (i *referenceTableFileMetadataAccessDetailsAwsDetailPtrType) ToReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput() ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput {
+	return i.ToReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutputWithContext(context.Background())
+}
+
+func (i *referenceTableFileMetadataAccessDetailsAwsDetailPtrType) ToReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutputWithContext(ctx context.Context) ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput)
+}
+
+type ReferenceTableFileMetadataAccessDetailsAwsDetailOutput struct{ *pulumi.OutputState }
+
+func (ReferenceTableFileMetadataAccessDetailsAwsDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceTableFileMetadataAccessDetailsAwsDetail)(nil)).Elem()
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsAwsDetailOutput) ToReferenceTableFileMetadataAccessDetailsAwsDetailOutput() ReferenceTableFileMetadataAccessDetailsAwsDetailOutput {
+	return o
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsAwsDetailOutput) ToReferenceTableFileMetadataAccessDetailsAwsDetailOutputWithContext(ctx context.Context) ReferenceTableFileMetadataAccessDetailsAwsDetailOutput {
+	return o
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsAwsDetailOutput) ToReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput() ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput {
+	return o.ToReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutputWithContext(context.Background())
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsAwsDetailOutput) ToReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutputWithContext(ctx context.Context) ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReferenceTableFileMetadataAccessDetailsAwsDetail) *ReferenceTableFileMetadataAccessDetailsAwsDetail {
+		return &v
+	}).(ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput)
+}
+
+// The ID of the AWS account.
+func (o ReferenceTableFileMetadataAccessDetailsAwsDetailOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReferenceTableFileMetadataAccessDetailsAwsDetail) *string { return v.AwsAccountId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the AWS S3 bucket.
+func (o ReferenceTableFileMetadataAccessDetailsAwsDetailOutput) AwsBucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReferenceTableFileMetadataAccessDetailsAwsDetail) *string { return v.AwsBucketName }).(pulumi.StringPtrOutput)
+}
+
+// The relative file path from the AWS S3 bucket root to the CSV file.
+func (o ReferenceTableFileMetadataAccessDetailsAwsDetailOutput) FilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReferenceTableFileMetadataAccessDetailsAwsDetail) *string { return v.FilePath }).(pulumi.StringPtrOutput)
+}
+
+type ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput struct{ *pulumi.OutputState }
+
+func (ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReferenceTableFileMetadataAccessDetailsAwsDetail)(nil)).Elem()
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput) ToReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput() ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput {
+	return o
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput) ToReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutputWithContext(ctx context.Context) ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput {
+	return o
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput) Elem() ReferenceTableFileMetadataAccessDetailsAwsDetailOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadataAccessDetailsAwsDetail) ReferenceTableFileMetadataAccessDetailsAwsDetail {
+		if v != nil {
+			return *v
+		}
+		var ret ReferenceTableFileMetadataAccessDetailsAwsDetail
+		return ret
+	}).(ReferenceTableFileMetadataAccessDetailsAwsDetailOutput)
+}
+
+// The ID of the AWS account.
+func (o ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadataAccessDetailsAwsDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the AWS S3 bucket.
+func (o ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput) AwsBucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadataAccessDetailsAwsDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsBucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The relative file path from the AWS S3 bucket root to the CSV file.
+func (o ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput) FilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadataAccessDetailsAwsDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FilePath
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReferenceTableFileMetadataAccessDetailsAzureDetail struct {
+	// The Azure client ID (application ID).
+	AzureClientId *string `pulumi:"azureClientId"`
+	// The name of the Azure container.
+	AzureContainerName *string `pulumi:"azureContainerName"`
+	// The name of the Azure storage account.
+	AzureStorageAccountName *string `pulumi:"azureStorageAccountName"`
+	// The ID of the Azure tenant.
+	AzureTenantId *string `pulumi:"azureTenantId"`
+	// The relative file path from the Azure container root to the CSV file.
+	FilePath *string `pulumi:"filePath"`
+}
+
+// ReferenceTableFileMetadataAccessDetailsAzureDetailInput is an input type that accepts ReferenceTableFileMetadataAccessDetailsAzureDetailArgs and ReferenceTableFileMetadataAccessDetailsAzureDetailOutput values.
+// You can construct a concrete instance of `ReferenceTableFileMetadataAccessDetailsAzureDetailInput` via:
+//
+//	ReferenceTableFileMetadataAccessDetailsAzureDetailArgs{...}
+type ReferenceTableFileMetadataAccessDetailsAzureDetailInput interface {
+	pulumi.Input
+
+	ToReferenceTableFileMetadataAccessDetailsAzureDetailOutput() ReferenceTableFileMetadataAccessDetailsAzureDetailOutput
+	ToReferenceTableFileMetadataAccessDetailsAzureDetailOutputWithContext(context.Context) ReferenceTableFileMetadataAccessDetailsAzureDetailOutput
+}
+
+type ReferenceTableFileMetadataAccessDetailsAzureDetailArgs struct {
+	// The Azure client ID (application ID).
+	AzureClientId pulumi.StringPtrInput `pulumi:"azureClientId"`
+	// The name of the Azure container.
+	AzureContainerName pulumi.StringPtrInput `pulumi:"azureContainerName"`
+	// The name of the Azure storage account.
+	AzureStorageAccountName pulumi.StringPtrInput `pulumi:"azureStorageAccountName"`
+	// The ID of the Azure tenant.
+	AzureTenantId pulumi.StringPtrInput `pulumi:"azureTenantId"`
+	// The relative file path from the Azure container root to the CSV file.
+	FilePath pulumi.StringPtrInput `pulumi:"filePath"`
+}
+
+func (ReferenceTableFileMetadataAccessDetailsAzureDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceTableFileMetadataAccessDetailsAzureDetail)(nil)).Elem()
+}
+
+func (i ReferenceTableFileMetadataAccessDetailsAzureDetailArgs) ToReferenceTableFileMetadataAccessDetailsAzureDetailOutput() ReferenceTableFileMetadataAccessDetailsAzureDetailOutput {
+	return i.ToReferenceTableFileMetadataAccessDetailsAzureDetailOutputWithContext(context.Background())
+}
+
+func (i ReferenceTableFileMetadataAccessDetailsAzureDetailArgs) ToReferenceTableFileMetadataAccessDetailsAzureDetailOutputWithContext(ctx context.Context) ReferenceTableFileMetadataAccessDetailsAzureDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceTableFileMetadataAccessDetailsAzureDetailOutput)
+}
+
+func (i ReferenceTableFileMetadataAccessDetailsAzureDetailArgs) ToReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput() ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput {
+	return i.ToReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutputWithContext(context.Background())
+}
+
+func (i ReferenceTableFileMetadataAccessDetailsAzureDetailArgs) ToReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutputWithContext(ctx context.Context) ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceTableFileMetadataAccessDetailsAzureDetailOutput).ToReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutputWithContext(ctx)
+}
+
+// ReferenceTableFileMetadataAccessDetailsAzureDetailPtrInput is an input type that accepts ReferenceTableFileMetadataAccessDetailsAzureDetailArgs, ReferenceTableFileMetadataAccessDetailsAzureDetailPtr and ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput values.
+// You can construct a concrete instance of `ReferenceTableFileMetadataAccessDetailsAzureDetailPtrInput` via:
+//
+//	        ReferenceTableFileMetadataAccessDetailsAzureDetailArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReferenceTableFileMetadataAccessDetailsAzureDetailPtrInput interface {
+	pulumi.Input
+
+	ToReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput() ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput
+	ToReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutputWithContext(context.Context) ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput
+}
+
+type referenceTableFileMetadataAccessDetailsAzureDetailPtrType ReferenceTableFileMetadataAccessDetailsAzureDetailArgs
+
+func ReferenceTableFileMetadataAccessDetailsAzureDetailPtr(v *ReferenceTableFileMetadataAccessDetailsAzureDetailArgs) ReferenceTableFileMetadataAccessDetailsAzureDetailPtrInput {
+	return (*referenceTableFileMetadataAccessDetailsAzureDetailPtrType)(v)
+}
+
+func (*referenceTableFileMetadataAccessDetailsAzureDetailPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReferenceTableFileMetadataAccessDetailsAzureDetail)(nil)).Elem()
+}
+
+func (i *referenceTableFileMetadataAccessDetailsAzureDetailPtrType) ToReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput() ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput {
+	return i.ToReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutputWithContext(context.Background())
+}
+
+func (i *referenceTableFileMetadataAccessDetailsAzureDetailPtrType) ToReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutputWithContext(ctx context.Context) ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput)
+}
+
+type ReferenceTableFileMetadataAccessDetailsAzureDetailOutput struct{ *pulumi.OutputState }
+
+func (ReferenceTableFileMetadataAccessDetailsAzureDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceTableFileMetadataAccessDetailsAzureDetail)(nil)).Elem()
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsAzureDetailOutput) ToReferenceTableFileMetadataAccessDetailsAzureDetailOutput() ReferenceTableFileMetadataAccessDetailsAzureDetailOutput {
+	return o
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsAzureDetailOutput) ToReferenceTableFileMetadataAccessDetailsAzureDetailOutputWithContext(ctx context.Context) ReferenceTableFileMetadataAccessDetailsAzureDetailOutput {
+	return o
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsAzureDetailOutput) ToReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput() ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput {
+	return o.ToReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutputWithContext(context.Background())
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsAzureDetailOutput) ToReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutputWithContext(ctx context.Context) ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReferenceTableFileMetadataAccessDetailsAzureDetail) *ReferenceTableFileMetadataAccessDetailsAzureDetail {
+		return &v
+	}).(ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput)
+}
+
+// The Azure client ID (application ID).
+func (o ReferenceTableFileMetadataAccessDetailsAzureDetailOutput) AzureClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReferenceTableFileMetadataAccessDetailsAzureDetail) *string { return v.AzureClientId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Azure container.
+func (o ReferenceTableFileMetadataAccessDetailsAzureDetailOutput) AzureContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReferenceTableFileMetadataAccessDetailsAzureDetail) *string { return v.AzureContainerName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Azure storage account.
+func (o ReferenceTableFileMetadataAccessDetailsAzureDetailOutput) AzureStorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReferenceTableFileMetadataAccessDetailsAzureDetail) *string { return v.AzureStorageAccountName }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Azure tenant.
+func (o ReferenceTableFileMetadataAccessDetailsAzureDetailOutput) AzureTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReferenceTableFileMetadataAccessDetailsAzureDetail) *string { return v.AzureTenantId }).(pulumi.StringPtrOutput)
+}
+
+// The relative file path from the Azure container root to the CSV file.
+func (o ReferenceTableFileMetadataAccessDetailsAzureDetailOutput) FilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReferenceTableFileMetadataAccessDetailsAzureDetail) *string { return v.FilePath }).(pulumi.StringPtrOutput)
+}
+
+type ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput struct{ *pulumi.OutputState }
+
+func (ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReferenceTableFileMetadataAccessDetailsAzureDetail)(nil)).Elem()
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput) ToReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput() ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput {
+	return o
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput) ToReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutputWithContext(ctx context.Context) ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput {
+	return o
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput) Elem() ReferenceTableFileMetadataAccessDetailsAzureDetailOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadataAccessDetailsAzureDetail) ReferenceTableFileMetadataAccessDetailsAzureDetail {
+		if v != nil {
+			return *v
+		}
+		var ret ReferenceTableFileMetadataAccessDetailsAzureDetail
+		return ret
+	}).(ReferenceTableFileMetadataAccessDetailsAzureDetailOutput)
+}
+
+// The Azure client ID (application ID).
+func (o ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput) AzureClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadataAccessDetailsAzureDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the Azure container.
+func (o ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput) AzureContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadataAccessDetailsAzureDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureContainerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the Azure storage account.
+func (o ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput) AzureStorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadataAccessDetailsAzureDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureStorageAccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Azure tenant.
+func (o ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput) AzureTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadataAccessDetailsAzureDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureTenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The relative file path from the Azure container root to the CSV file.
+func (o ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput) FilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadataAccessDetailsAzureDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FilePath
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReferenceTableFileMetadataAccessDetailsGcpDetail struct {
+	// The relative file path from the GCS bucket root to the CSV file.
+	FilePath *string `pulumi:"filePath"`
+	// The name of the GCP bucket.
+	GcpBucketName *string `pulumi:"gcpBucketName"`
+	// The ID of the GCP project.
+	GcpProjectId *string `pulumi:"gcpProjectId"`
+	// The email of the GCP service account used to access the bucket.
+	GcpServiceAccountEmail *string `pulumi:"gcpServiceAccountEmail"`
+}
+
+// ReferenceTableFileMetadataAccessDetailsGcpDetailInput is an input type that accepts ReferenceTableFileMetadataAccessDetailsGcpDetailArgs and ReferenceTableFileMetadataAccessDetailsGcpDetailOutput values.
+// You can construct a concrete instance of `ReferenceTableFileMetadataAccessDetailsGcpDetailInput` via:
+//
+//	ReferenceTableFileMetadataAccessDetailsGcpDetailArgs{...}
+type ReferenceTableFileMetadataAccessDetailsGcpDetailInput interface {
+	pulumi.Input
+
+	ToReferenceTableFileMetadataAccessDetailsGcpDetailOutput() ReferenceTableFileMetadataAccessDetailsGcpDetailOutput
+	ToReferenceTableFileMetadataAccessDetailsGcpDetailOutputWithContext(context.Context) ReferenceTableFileMetadataAccessDetailsGcpDetailOutput
+}
+
+type ReferenceTableFileMetadataAccessDetailsGcpDetailArgs struct {
+	// The relative file path from the GCS bucket root to the CSV file.
+	FilePath pulumi.StringPtrInput `pulumi:"filePath"`
+	// The name of the GCP bucket.
+	GcpBucketName pulumi.StringPtrInput `pulumi:"gcpBucketName"`
+	// The ID of the GCP project.
+	GcpProjectId pulumi.StringPtrInput `pulumi:"gcpProjectId"`
+	// The email of the GCP service account used to access the bucket.
+	GcpServiceAccountEmail pulumi.StringPtrInput `pulumi:"gcpServiceAccountEmail"`
+}
+
+func (ReferenceTableFileMetadataAccessDetailsGcpDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceTableFileMetadataAccessDetailsGcpDetail)(nil)).Elem()
+}
+
+func (i ReferenceTableFileMetadataAccessDetailsGcpDetailArgs) ToReferenceTableFileMetadataAccessDetailsGcpDetailOutput() ReferenceTableFileMetadataAccessDetailsGcpDetailOutput {
+	return i.ToReferenceTableFileMetadataAccessDetailsGcpDetailOutputWithContext(context.Background())
+}
+
+func (i ReferenceTableFileMetadataAccessDetailsGcpDetailArgs) ToReferenceTableFileMetadataAccessDetailsGcpDetailOutputWithContext(ctx context.Context) ReferenceTableFileMetadataAccessDetailsGcpDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceTableFileMetadataAccessDetailsGcpDetailOutput)
+}
+
+func (i ReferenceTableFileMetadataAccessDetailsGcpDetailArgs) ToReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput() ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput {
+	return i.ToReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutputWithContext(context.Background())
+}
+
+func (i ReferenceTableFileMetadataAccessDetailsGcpDetailArgs) ToReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutputWithContext(ctx context.Context) ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceTableFileMetadataAccessDetailsGcpDetailOutput).ToReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutputWithContext(ctx)
+}
+
+// ReferenceTableFileMetadataAccessDetailsGcpDetailPtrInput is an input type that accepts ReferenceTableFileMetadataAccessDetailsGcpDetailArgs, ReferenceTableFileMetadataAccessDetailsGcpDetailPtr and ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput values.
+// You can construct a concrete instance of `ReferenceTableFileMetadataAccessDetailsGcpDetailPtrInput` via:
+//
+//	        ReferenceTableFileMetadataAccessDetailsGcpDetailArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReferenceTableFileMetadataAccessDetailsGcpDetailPtrInput interface {
+	pulumi.Input
+
+	ToReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput() ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput
+	ToReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutputWithContext(context.Context) ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput
+}
+
+type referenceTableFileMetadataAccessDetailsGcpDetailPtrType ReferenceTableFileMetadataAccessDetailsGcpDetailArgs
+
+func ReferenceTableFileMetadataAccessDetailsGcpDetailPtr(v *ReferenceTableFileMetadataAccessDetailsGcpDetailArgs) ReferenceTableFileMetadataAccessDetailsGcpDetailPtrInput {
+	return (*referenceTableFileMetadataAccessDetailsGcpDetailPtrType)(v)
+}
+
+func (*referenceTableFileMetadataAccessDetailsGcpDetailPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReferenceTableFileMetadataAccessDetailsGcpDetail)(nil)).Elem()
+}
+
+func (i *referenceTableFileMetadataAccessDetailsGcpDetailPtrType) ToReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput() ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput {
+	return i.ToReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutputWithContext(context.Background())
+}
+
+func (i *referenceTableFileMetadataAccessDetailsGcpDetailPtrType) ToReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutputWithContext(ctx context.Context) ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput)
+}
+
+type ReferenceTableFileMetadataAccessDetailsGcpDetailOutput struct{ *pulumi.OutputState }
+
+func (ReferenceTableFileMetadataAccessDetailsGcpDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceTableFileMetadataAccessDetailsGcpDetail)(nil)).Elem()
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsGcpDetailOutput) ToReferenceTableFileMetadataAccessDetailsGcpDetailOutput() ReferenceTableFileMetadataAccessDetailsGcpDetailOutput {
+	return o
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsGcpDetailOutput) ToReferenceTableFileMetadataAccessDetailsGcpDetailOutputWithContext(ctx context.Context) ReferenceTableFileMetadataAccessDetailsGcpDetailOutput {
+	return o
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsGcpDetailOutput) ToReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput() ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput {
+	return o.ToReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutputWithContext(context.Background())
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsGcpDetailOutput) ToReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutputWithContext(ctx context.Context) ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReferenceTableFileMetadataAccessDetailsGcpDetail) *ReferenceTableFileMetadataAccessDetailsGcpDetail {
+		return &v
+	}).(ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput)
+}
+
+// The relative file path from the GCS bucket root to the CSV file.
+func (o ReferenceTableFileMetadataAccessDetailsGcpDetailOutput) FilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReferenceTableFileMetadataAccessDetailsGcpDetail) *string { return v.FilePath }).(pulumi.StringPtrOutput)
+}
+
+// The name of the GCP bucket.
+func (o ReferenceTableFileMetadataAccessDetailsGcpDetailOutput) GcpBucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReferenceTableFileMetadataAccessDetailsGcpDetail) *string { return v.GcpBucketName }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the GCP project.
+func (o ReferenceTableFileMetadataAccessDetailsGcpDetailOutput) GcpProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReferenceTableFileMetadataAccessDetailsGcpDetail) *string { return v.GcpProjectId }).(pulumi.StringPtrOutput)
+}
+
+// The email of the GCP service account used to access the bucket.
+func (o ReferenceTableFileMetadataAccessDetailsGcpDetailOutput) GcpServiceAccountEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReferenceTableFileMetadataAccessDetailsGcpDetail) *string { return v.GcpServiceAccountEmail }).(pulumi.StringPtrOutput)
+}
+
+type ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput struct{ *pulumi.OutputState }
+
+func (ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReferenceTableFileMetadataAccessDetailsGcpDetail)(nil)).Elem()
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput) ToReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput() ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput {
+	return o
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput) ToReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutputWithContext(ctx context.Context) ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput {
+	return o
+}
+
+func (o ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput) Elem() ReferenceTableFileMetadataAccessDetailsGcpDetailOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadataAccessDetailsGcpDetail) ReferenceTableFileMetadataAccessDetailsGcpDetail {
+		if v != nil {
+			return *v
+		}
+		var ret ReferenceTableFileMetadataAccessDetailsGcpDetail
+		return ret
+	}).(ReferenceTableFileMetadataAccessDetailsGcpDetailOutput)
+}
+
+// The relative file path from the GCS bucket root to the CSV file.
+func (o ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput) FilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadataAccessDetailsGcpDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FilePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the GCP bucket.
+func (o ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput) GcpBucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadataAccessDetailsGcpDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GcpBucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the GCP project.
+func (o ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput) GcpProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadataAccessDetailsGcpDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GcpProjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The email of the GCP service account used to access the bucket.
+func (o ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput) GcpServiceAccountEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReferenceTableFileMetadataAccessDetailsGcpDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GcpServiceAccountEmail
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReferenceTableSchema struct {
+	// List of fields in the table schema. At least one field is required. Schema is only set on create.
+	Fields []ReferenceTableSchemaField `pulumi:"fields"`
+	// List of field names that serve as primary keys for the table. Currently only one primary key is supported.
+	PrimaryKeys []string `pulumi:"primaryKeys"`
+}
+
+// ReferenceTableSchemaInput is an input type that accepts ReferenceTableSchemaArgs and ReferenceTableSchemaOutput values.
+// You can construct a concrete instance of `ReferenceTableSchemaInput` via:
+//
+//	ReferenceTableSchemaArgs{...}
+type ReferenceTableSchemaInput interface {
+	pulumi.Input
+
+	ToReferenceTableSchemaOutput() ReferenceTableSchemaOutput
+	ToReferenceTableSchemaOutputWithContext(context.Context) ReferenceTableSchemaOutput
+}
+
+type ReferenceTableSchemaArgs struct {
+	// List of fields in the table schema. At least one field is required. Schema is only set on create.
+	Fields ReferenceTableSchemaFieldArrayInput `pulumi:"fields"`
+	// List of field names that serve as primary keys for the table. Currently only one primary key is supported.
+	PrimaryKeys pulumi.StringArrayInput `pulumi:"primaryKeys"`
+}
+
+func (ReferenceTableSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceTableSchema)(nil)).Elem()
+}
+
+func (i ReferenceTableSchemaArgs) ToReferenceTableSchemaOutput() ReferenceTableSchemaOutput {
+	return i.ToReferenceTableSchemaOutputWithContext(context.Background())
+}
+
+func (i ReferenceTableSchemaArgs) ToReferenceTableSchemaOutputWithContext(ctx context.Context) ReferenceTableSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceTableSchemaOutput)
+}
+
+func (i ReferenceTableSchemaArgs) ToReferenceTableSchemaPtrOutput() ReferenceTableSchemaPtrOutput {
+	return i.ToReferenceTableSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i ReferenceTableSchemaArgs) ToReferenceTableSchemaPtrOutputWithContext(ctx context.Context) ReferenceTableSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceTableSchemaOutput).ToReferenceTableSchemaPtrOutputWithContext(ctx)
+}
+
+// ReferenceTableSchemaPtrInput is an input type that accepts ReferenceTableSchemaArgs, ReferenceTableSchemaPtr and ReferenceTableSchemaPtrOutput values.
+// You can construct a concrete instance of `ReferenceTableSchemaPtrInput` via:
+//
+//	        ReferenceTableSchemaArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReferenceTableSchemaPtrInput interface {
+	pulumi.Input
+
+	ToReferenceTableSchemaPtrOutput() ReferenceTableSchemaPtrOutput
+	ToReferenceTableSchemaPtrOutputWithContext(context.Context) ReferenceTableSchemaPtrOutput
+}
+
+type referenceTableSchemaPtrType ReferenceTableSchemaArgs
+
+func ReferenceTableSchemaPtr(v *ReferenceTableSchemaArgs) ReferenceTableSchemaPtrInput {
+	return (*referenceTableSchemaPtrType)(v)
+}
+
+func (*referenceTableSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReferenceTableSchema)(nil)).Elem()
+}
+
+func (i *referenceTableSchemaPtrType) ToReferenceTableSchemaPtrOutput() ReferenceTableSchemaPtrOutput {
+	return i.ToReferenceTableSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *referenceTableSchemaPtrType) ToReferenceTableSchemaPtrOutputWithContext(ctx context.Context) ReferenceTableSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceTableSchemaPtrOutput)
+}
+
+type ReferenceTableSchemaOutput struct{ *pulumi.OutputState }
+
+func (ReferenceTableSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceTableSchema)(nil)).Elem()
+}
+
+func (o ReferenceTableSchemaOutput) ToReferenceTableSchemaOutput() ReferenceTableSchemaOutput {
+	return o
+}
+
+func (o ReferenceTableSchemaOutput) ToReferenceTableSchemaOutputWithContext(ctx context.Context) ReferenceTableSchemaOutput {
+	return o
+}
+
+func (o ReferenceTableSchemaOutput) ToReferenceTableSchemaPtrOutput() ReferenceTableSchemaPtrOutput {
+	return o.ToReferenceTableSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o ReferenceTableSchemaOutput) ToReferenceTableSchemaPtrOutputWithContext(ctx context.Context) ReferenceTableSchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReferenceTableSchema) *ReferenceTableSchema {
+		return &v
+	}).(ReferenceTableSchemaPtrOutput)
+}
+
+// List of fields in the table schema. At least one field is required. Schema is only set on create.
+func (o ReferenceTableSchemaOutput) Fields() ReferenceTableSchemaFieldArrayOutput {
+	return o.ApplyT(func(v ReferenceTableSchema) []ReferenceTableSchemaField { return v.Fields }).(ReferenceTableSchemaFieldArrayOutput)
+}
+
+// List of field names that serve as primary keys for the table. Currently only one primary key is supported.
+func (o ReferenceTableSchemaOutput) PrimaryKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReferenceTableSchema) []string { return v.PrimaryKeys }).(pulumi.StringArrayOutput)
+}
+
+type ReferenceTableSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (ReferenceTableSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReferenceTableSchema)(nil)).Elem()
+}
+
+func (o ReferenceTableSchemaPtrOutput) ToReferenceTableSchemaPtrOutput() ReferenceTableSchemaPtrOutput {
+	return o
+}
+
+func (o ReferenceTableSchemaPtrOutput) ToReferenceTableSchemaPtrOutputWithContext(ctx context.Context) ReferenceTableSchemaPtrOutput {
+	return o
+}
+
+func (o ReferenceTableSchemaPtrOutput) Elem() ReferenceTableSchemaOutput {
+	return o.ApplyT(func(v *ReferenceTableSchema) ReferenceTableSchema {
+		if v != nil {
+			return *v
+		}
+		var ret ReferenceTableSchema
+		return ret
+	}).(ReferenceTableSchemaOutput)
+}
+
+// List of fields in the table schema. At least one field is required. Schema is only set on create.
+func (o ReferenceTableSchemaPtrOutput) Fields() ReferenceTableSchemaFieldArrayOutput {
+	return o.ApplyT(func(v *ReferenceTableSchema) []ReferenceTableSchemaField {
+		if v == nil {
+			return nil
+		}
+		return v.Fields
+	}).(ReferenceTableSchemaFieldArrayOutput)
+}
+
+// List of field names that serve as primary keys for the table. Currently only one primary key is supported.
+func (o ReferenceTableSchemaPtrOutput) PrimaryKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReferenceTableSchema) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryKeys
+	}).(pulumi.StringArrayOutput)
+}
+
+type ReferenceTableSchemaField struct {
+	// The name of the field.
+	Name string `pulumi:"name"`
+	// The data type of the field. Must be one of: STRING, INT32. Valid values are `STRING`, `INT32`.
+	Type string `pulumi:"type"`
+}
+
+// ReferenceTableSchemaFieldInput is an input type that accepts ReferenceTableSchemaFieldArgs and ReferenceTableSchemaFieldOutput values.
+// You can construct a concrete instance of `ReferenceTableSchemaFieldInput` via:
+//
+//	ReferenceTableSchemaFieldArgs{...}
+type ReferenceTableSchemaFieldInput interface {
+	pulumi.Input
+
+	ToReferenceTableSchemaFieldOutput() ReferenceTableSchemaFieldOutput
+	ToReferenceTableSchemaFieldOutputWithContext(context.Context) ReferenceTableSchemaFieldOutput
+}
+
+type ReferenceTableSchemaFieldArgs struct {
+	// The name of the field.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The data type of the field. Must be one of: STRING, INT32. Valid values are `STRING`, `INT32`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ReferenceTableSchemaFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceTableSchemaField)(nil)).Elem()
+}
+
+func (i ReferenceTableSchemaFieldArgs) ToReferenceTableSchemaFieldOutput() ReferenceTableSchemaFieldOutput {
+	return i.ToReferenceTableSchemaFieldOutputWithContext(context.Background())
+}
+
+func (i ReferenceTableSchemaFieldArgs) ToReferenceTableSchemaFieldOutputWithContext(ctx context.Context) ReferenceTableSchemaFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceTableSchemaFieldOutput)
+}
+
+// ReferenceTableSchemaFieldArrayInput is an input type that accepts ReferenceTableSchemaFieldArray and ReferenceTableSchemaFieldArrayOutput values.
+// You can construct a concrete instance of `ReferenceTableSchemaFieldArrayInput` via:
+//
+//	ReferenceTableSchemaFieldArray{ ReferenceTableSchemaFieldArgs{...} }
+type ReferenceTableSchemaFieldArrayInput interface {
+	pulumi.Input
+
+	ToReferenceTableSchemaFieldArrayOutput() ReferenceTableSchemaFieldArrayOutput
+	ToReferenceTableSchemaFieldArrayOutputWithContext(context.Context) ReferenceTableSchemaFieldArrayOutput
+}
+
+type ReferenceTableSchemaFieldArray []ReferenceTableSchemaFieldInput
+
+func (ReferenceTableSchemaFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReferenceTableSchemaField)(nil)).Elem()
+}
+
+func (i ReferenceTableSchemaFieldArray) ToReferenceTableSchemaFieldArrayOutput() ReferenceTableSchemaFieldArrayOutput {
+	return i.ToReferenceTableSchemaFieldArrayOutputWithContext(context.Background())
+}
+
+func (i ReferenceTableSchemaFieldArray) ToReferenceTableSchemaFieldArrayOutputWithContext(ctx context.Context) ReferenceTableSchemaFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceTableSchemaFieldArrayOutput)
+}
+
+type ReferenceTableSchemaFieldOutput struct{ *pulumi.OutputState }
+
+func (ReferenceTableSchemaFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceTableSchemaField)(nil)).Elem()
+}
+
+func (o ReferenceTableSchemaFieldOutput) ToReferenceTableSchemaFieldOutput() ReferenceTableSchemaFieldOutput {
+	return o
+}
+
+func (o ReferenceTableSchemaFieldOutput) ToReferenceTableSchemaFieldOutputWithContext(ctx context.Context) ReferenceTableSchemaFieldOutput {
+	return o
+}
+
+// The name of the field.
+func (o ReferenceTableSchemaFieldOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReferenceTableSchemaField) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The data type of the field. Must be one of: STRING, INT32. Valid values are `STRING`, `INT32`.
+func (o ReferenceTableSchemaFieldOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ReferenceTableSchemaField) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ReferenceTableSchemaFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (ReferenceTableSchemaFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReferenceTableSchemaField)(nil)).Elem()
+}
+
+func (o ReferenceTableSchemaFieldArrayOutput) ToReferenceTableSchemaFieldArrayOutput() ReferenceTableSchemaFieldArrayOutput {
+	return o
+}
+
+func (o ReferenceTableSchemaFieldArrayOutput) ToReferenceTableSchemaFieldArrayOutputWithContext(ctx context.Context) ReferenceTableSchemaFieldArrayOutput {
+	return o
+}
+
+func (o ReferenceTableSchemaFieldArrayOutput) Index(i pulumi.IntInput) ReferenceTableSchemaFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReferenceTableSchemaField {
+		return vs[0].([]ReferenceTableSchemaField)[vs[1].(int)]
+	}).(ReferenceTableSchemaFieldOutput)
+}
+
+type RestrictionPolicyBinding struct {
+	// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, `user`, and `org`. Org ID can be obtained using a `GET /api/v2/current_user` API request. Find it in the `data.relationships.org.data.id` field.
+	Principals []string `pulumi:"principals"`
+	// The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
+	Relation string `pulumi:"relation"`
+}
+
+// RestrictionPolicyBindingInput is an input type that accepts RestrictionPolicyBindingArgs and RestrictionPolicyBindingOutput values.
+// You can construct a concrete instance of `RestrictionPolicyBindingInput` via:
+//
+//	RestrictionPolicyBindingArgs{...}
+type RestrictionPolicyBindingInput interface {
+	pulumi.Input
+
+	ToRestrictionPolicyBindingOutput() RestrictionPolicyBindingOutput
+	ToRestrictionPolicyBindingOutputWithContext(context.Context) RestrictionPolicyBindingOutput
+}
+
+type RestrictionPolicyBindingArgs struct {
+	// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, `user`, and `org`. Org ID can be obtained using a `GET /api/v2/current_user` API request. Find it in the `data.relationships.org.data.id` field.
+	Principals pulumi.StringArrayInput `pulumi:"principals"`
+	// The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
+	Relation pulumi.StringInput `pulumi:"relation"`
+}
+
+func (RestrictionPolicyBindingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestrictionPolicyBinding)(nil)).Elem()
+}
+
+func (i RestrictionPolicyBindingArgs) ToRestrictionPolicyBindingOutput() RestrictionPolicyBindingOutput {
+	return i.ToRestrictionPolicyBindingOutputWithContext(context.Background())
+}
+
+func (i RestrictionPolicyBindingArgs) ToRestrictionPolicyBindingOutputWithContext(ctx context.Context) RestrictionPolicyBindingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestrictionPolicyBindingOutput)
+}
+
+// RestrictionPolicyBindingArrayInput is an input type that accepts RestrictionPolicyBindingArray and RestrictionPolicyBindingArrayOutput values.
+// You can construct a concrete instance of `RestrictionPolicyBindingArrayInput` via:
+//
+//	RestrictionPolicyBindingArray{ RestrictionPolicyBindingArgs{...} }
+type RestrictionPolicyBindingArrayInput interface {
+	pulumi.Input
+
+	ToRestrictionPolicyBindingArrayOutput() RestrictionPolicyBindingArrayOutput
+	ToRestrictionPolicyBindingArrayOutputWithContext(context.Context) RestrictionPolicyBindingArrayOutput
+}
+
+type RestrictionPolicyBindingArray []RestrictionPolicyBindingInput
+
+func (RestrictionPolicyBindingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RestrictionPolicyBinding)(nil)).Elem()
+}
+
+func (i RestrictionPolicyBindingArray) ToRestrictionPolicyBindingArrayOutput() RestrictionPolicyBindingArrayOutput {
+	return i.ToRestrictionPolicyBindingArrayOutputWithContext(context.Background())
+}
+
+func (i RestrictionPolicyBindingArray) ToRestrictionPolicyBindingArrayOutputWithContext(ctx context.Context) RestrictionPolicyBindingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestrictionPolicyBindingArrayOutput)
+}
+
+type RestrictionPolicyBindingOutput struct{ *pulumi.OutputState }
+
+func (RestrictionPolicyBindingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestrictionPolicyBinding)(nil)).Elem()
+}
+
+func (o RestrictionPolicyBindingOutput) ToRestrictionPolicyBindingOutput() RestrictionPolicyBindingOutput {
+	return o
+}
+
+func (o RestrictionPolicyBindingOutput) ToRestrictionPolicyBindingOutputWithContext(ctx context.Context) RestrictionPolicyBindingOutput {
+	return o
+}
+
+// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, `user`, and `org`. Org ID can be obtained using a `GET /api/v2/current_user` API request. Find it in the `data.relationships.org.data.id` field.
+func (o RestrictionPolicyBindingOutput) Principals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RestrictionPolicyBinding) []string { return v.Principals }).(pulumi.StringArrayOutput)
+}
+
+// The role/level of access. See this page for more details https://docs.datadoghq.com/api/latest/restriction-policies/#supported-relations-for-resources
+func (o RestrictionPolicyBindingOutput) Relation() pulumi.StringOutput {
+	return o.ApplyT(func(v RestrictionPolicyBinding) string { return v.Relation }).(pulumi.StringOutput)
+}
+
+type RestrictionPolicyBindingArrayOutput struct{ *pulumi.OutputState }
+
+func (RestrictionPolicyBindingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RestrictionPolicyBinding)(nil)).Elem()
+}
+
+func (o RestrictionPolicyBindingArrayOutput) ToRestrictionPolicyBindingArrayOutput() RestrictionPolicyBindingArrayOutput {
+	return o
+}
+
+func (o RestrictionPolicyBindingArrayOutput) ToRestrictionPolicyBindingArrayOutputWithContext(ctx context.Context) RestrictionPolicyBindingArrayOutput {
+	return o
+}
+
+func (o RestrictionPolicyBindingArrayOutput) Index(i pulumi.IntInput) RestrictionPolicyBindingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RestrictionPolicyBinding {
+		return vs[0].([]RestrictionPolicyBinding)[vs[1].(int)]
+	}).(RestrictionPolicyBindingOutput)
+}
+
+type RolePermission struct {
+	// ID of the permission to assign.
+	Id string `pulumi:"id"`
+	// Name of the permission.
+	Name *string `pulumi:"name"`
+}
+
+// RolePermissionInput is an input type that accepts RolePermissionArgs and RolePermissionOutput values.
+// You can construct a concrete instance of `RolePermissionInput` via:
+//
+//	RolePermissionArgs{...}
+type RolePermissionInput interface {
+	pulumi.Input
+
+	ToRolePermissionOutput() RolePermissionOutput
+	ToRolePermissionOutputWithContext(context.Context) RolePermissionOutput
+}
+
+type RolePermissionArgs struct {
+	// ID of the permission to assign.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the permission.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (RolePermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RolePermission)(nil)).Elem()
+}
+
+func (i RolePermissionArgs) ToRolePermissionOutput() RolePermissionOutput {
+	return i.ToRolePermissionOutputWithContext(context.Background())
+}
+
+func (i RolePermissionArgs) ToRolePermissionOutputWithContext(ctx context.Context) RolePermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RolePermissionOutput)
+}
+
+// RolePermissionArrayInput is an input type that accepts RolePermissionArray and RolePermissionArrayOutput values.
+// You can construct a concrete instance of `RolePermissionArrayInput` via:
+//
+//	RolePermissionArray{ RolePermissionArgs{...} }
+type RolePermissionArrayInput interface {
+	pulumi.Input
+
+	ToRolePermissionArrayOutput() RolePermissionArrayOutput
+	ToRolePermissionArrayOutputWithContext(context.Context) RolePermissionArrayOutput
+}
+
+type RolePermissionArray []RolePermissionInput
+
+func (RolePermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RolePermission)(nil)).Elem()
+}
+
+func (i RolePermissionArray) ToRolePermissionArrayOutput() RolePermissionArrayOutput {
+	return i.ToRolePermissionArrayOutputWithContext(context.Background())
+}
+
+func (i RolePermissionArray) ToRolePermissionArrayOutputWithContext(ctx context.Context) RolePermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RolePermissionArrayOutput)
+}
+
+type RolePermissionOutput struct{ *pulumi.OutputState }
+
+func (RolePermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RolePermission)(nil)).Elem()
+}
+
+func (o RolePermissionOutput) ToRolePermissionOutput() RolePermissionOutput {
+	return o
+}
+
+func (o RolePermissionOutput) ToRolePermissionOutputWithContext(ctx context.Context) RolePermissionOutput {
+	return o
+}
+
+// ID of the permission to assign.
+func (o RolePermissionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v RolePermission) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Name of the permission.
+func (o RolePermissionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RolePermission) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type RolePermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (RolePermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RolePermission)(nil)).Elem()
+}
+
+func (o RolePermissionArrayOutput) ToRolePermissionArrayOutput() RolePermissionArrayOutput {
+	return o
+}
+
+func (o RolePermissionArrayOutput) ToRolePermissionArrayOutputWithContext(ctx context.Context) RolePermissionArrayOutput {
+	return o
+}
+
+func (o RolePermissionArrayOutput) Index(i pulumi.IntInput) RolePermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RolePermission {
+		return vs[0].([]RolePermission)[vs[1].(int)]
+	}).(RolePermissionOutput)
+}
+
+type RumMetricCompute struct {
+	// The type of aggregation to use.
+	AggregationType string `pulumi:"aggregationType"`
+	// Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregationType` is `distribution`.
+	IncludePercentiles *bool `pulumi:"includePercentiles"`
+	// The path to the value the RUM-based metric will aggregate on. Only present when `aggregationType` is `distribution`.
+	Path *string `pulumi:"path"`
+}
+
+// RumMetricComputeInput is an input type that accepts RumMetricComputeArgs and RumMetricComputeOutput values.
+// You can construct a concrete instance of `RumMetricComputeInput` via:
+//
+//	RumMetricComputeArgs{...}
+type RumMetricComputeInput interface {
+	pulumi.Input
+
+	ToRumMetricComputeOutput() RumMetricComputeOutput
+	ToRumMetricComputeOutputWithContext(context.Context) RumMetricComputeOutput
+}
+
+type RumMetricComputeArgs struct {
+	// The type of aggregation to use.
+	AggregationType pulumi.StringInput `pulumi:"aggregationType"`
+	// Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregationType` is `distribution`.
+	IncludePercentiles pulumi.BoolPtrInput `pulumi:"includePercentiles"`
+	// The path to the value the RUM-based metric will aggregate on. Only present when `aggregationType` is `distribution`.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (RumMetricComputeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RumMetricCompute)(nil)).Elem()
+}
+
+func (i RumMetricComputeArgs) ToRumMetricComputeOutput() RumMetricComputeOutput {
+	return i.ToRumMetricComputeOutputWithContext(context.Background())
+}
+
+func (i RumMetricComputeArgs) ToRumMetricComputeOutputWithContext(ctx context.Context) RumMetricComputeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RumMetricComputeOutput)
+}
+
+func (i RumMetricComputeArgs) ToRumMetricComputePtrOutput() RumMetricComputePtrOutput {
+	return i.ToRumMetricComputePtrOutputWithContext(context.Background())
+}
+
+func (i RumMetricComputeArgs) ToRumMetricComputePtrOutputWithContext(ctx context.Context) RumMetricComputePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RumMetricComputeOutput).ToRumMetricComputePtrOutputWithContext(ctx)
+}
+
+// RumMetricComputePtrInput is an input type that accepts RumMetricComputeArgs, RumMetricComputePtr and RumMetricComputePtrOutput values.
+// You can construct a concrete instance of `RumMetricComputePtrInput` via:
+//
+//	        RumMetricComputeArgs{...}
+//
+//	or:
+//
+//	        nil
+type RumMetricComputePtrInput interface {
+	pulumi.Input
+
+	ToRumMetricComputePtrOutput() RumMetricComputePtrOutput
+	ToRumMetricComputePtrOutputWithContext(context.Context) RumMetricComputePtrOutput
+}
+
+type rumMetricComputePtrType RumMetricComputeArgs
+
+func RumMetricComputePtr(v *RumMetricComputeArgs) RumMetricComputePtrInput {
+	return (*rumMetricComputePtrType)(v)
+}
+
+func (*rumMetricComputePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RumMetricCompute)(nil)).Elem()
+}
+
+func (i *rumMetricComputePtrType) ToRumMetricComputePtrOutput() RumMetricComputePtrOutput {
+	return i.ToRumMetricComputePtrOutputWithContext(context.Background())
+}
+
+func (i *rumMetricComputePtrType) ToRumMetricComputePtrOutputWithContext(ctx context.Context) RumMetricComputePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RumMetricComputePtrOutput)
+}
+
+type RumMetricComputeOutput struct{ *pulumi.OutputState }
+
+func (RumMetricComputeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RumMetricCompute)(nil)).Elem()
+}
+
+func (o RumMetricComputeOutput) ToRumMetricComputeOutput() RumMetricComputeOutput {
+	return o
+}
+
+func (o RumMetricComputeOutput) ToRumMetricComputeOutputWithContext(ctx context.Context) RumMetricComputeOutput {
+	return o
+}
+
+func (o RumMetricComputeOutput) ToRumMetricComputePtrOutput() RumMetricComputePtrOutput {
+	return o.ToRumMetricComputePtrOutputWithContext(context.Background())
+}
+
+func (o RumMetricComputeOutput) ToRumMetricComputePtrOutputWithContext(ctx context.Context) RumMetricComputePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RumMetricCompute) *RumMetricCompute {
+		return &v
+	}).(RumMetricComputePtrOutput)
+}
+
+// The type of aggregation to use.
+func (o RumMetricComputeOutput) AggregationType() pulumi.StringOutput {
+	return o.ApplyT(func(v RumMetricCompute) string { return v.AggregationType }).(pulumi.StringOutput)
+}
+
+// Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregationType` is `distribution`.
+func (o RumMetricComputeOutput) IncludePercentiles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RumMetricCompute) *bool { return v.IncludePercentiles }).(pulumi.BoolPtrOutput)
+}
+
+// The path to the value the RUM-based metric will aggregate on. Only present when `aggregationType` is `distribution`.
+func (o RumMetricComputeOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RumMetricCompute) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type RumMetricComputePtrOutput struct{ *pulumi.OutputState }
+
+func (RumMetricComputePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RumMetricCompute)(nil)).Elem()
+}
+
+func (o RumMetricComputePtrOutput) ToRumMetricComputePtrOutput() RumMetricComputePtrOutput {
+	return o
+}
+
+func (o RumMetricComputePtrOutput) ToRumMetricComputePtrOutputWithContext(ctx context.Context) RumMetricComputePtrOutput {
+	return o
+}
+
+func (o RumMetricComputePtrOutput) Elem() RumMetricComputeOutput {
+	return o.ApplyT(func(v *RumMetricCompute) RumMetricCompute {
+		if v != nil {
+			return *v
+		}
+		var ret RumMetricCompute
+		return ret
+	}).(RumMetricComputeOutput)
+}
+
+// The type of aggregation to use.
+func (o RumMetricComputePtrOutput) AggregationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RumMetricCompute) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AggregationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Toggle to include or exclude percentile aggregations for distribution metrics. Only present when `aggregationType` is `distribution`.
+func (o RumMetricComputePtrOutput) IncludePercentiles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RumMetricCompute) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludePercentiles
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The path to the value the RUM-based metric will aggregate on. Only present when `aggregationType` is `distribution`.
+func (o RumMetricComputePtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RumMetricCompute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+type RumMetricFilter struct {
+	// The search query. Follows RUM search syntax.
+	Query *string `pulumi:"query"`
+}
+
+// RumMetricFilterInput is an input type that accepts RumMetricFilterArgs and RumMetricFilterOutput values.
+// You can construct a concrete instance of `RumMetricFilterInput` via:
+//
+//	RumMetricFilterArgs{...}
+type RumMetricFilterInput interface {
+	pulumi.Input
+
+	ToRumMetricFilterOutput() RumMetricFilterOutput
+	ToRumMetricFilterOutputWithContext(context.Context) RumMetricFilterOutput
+}
+
+type RumMetricFilterArgs struct {
+	// The search query. Follows RUM search syntax.
+	Query pulumi.StringPtrInput `pulumi:"query"`
+}
+
+func (RumMetricFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RumMetricFilter)(nil)).Elem()
+}
+
+func (i RumMetricFilterArgs) ToRumMetricFilterOutput() RumMetricFilterOutput {
+	return i.ToRumMetricFilterOutputWithContext(context.Background())
+}
+
+func (i RumMetricFilterArgs) ToRumMetricFilterOutputWithContext(ctx context.Context) RumMetricFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RumMetricFilterOutput)
+}
+
+func (i RumMetricFilterArgs) ToRumMetricFilterPtrOutput() RumMetricFilterPtrOutput {
+	return i.ToRumMetricFilterPtrOutputWithContext(context.Background())
+}
+
+func (i RumMetricFilterArgs) ToRumMetricFilterPtrOutputWithContext(ctx context.Context) RumMetricFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RumMetricFilterOutput).ToRumMetricFilterPtrOutputWithContext(ctx)
+}
+
+// RumMetricFilterPtrInput is an input type that accepts RumMetricFilterArgs, RumMetricFilterPtr and RumMetricFilterPtrOutput values.
+// You can construct a concrete instance of `RumMetricFilterPtrInput` via:
+//
+//	        RumMetricFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type RumMetricFilterPtrInput interface {
+	pulumi.Input
+
+	ToRumMetricFilterPtrOutput() RumMetricFilterPtrOutput
+	ToRumMetricFilterPtrOutputWithContext(context.Context) RumMetricFilterPtrOutput
+}
+
+type rumMetricFilterPtrType RumMetricFilterArgs
+
+func RumMetricFilterPtr(v *RumMetricFilterArgs) RumMetricFilterPtrInput {
+	return (*rumMetricFilterPtrType)(v)
+}
+
+func (*rumMetricFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RumMetricFilter)(nil)).Elem()
+}
+
+func (i *rumMetricFilterPtrType) ToRumMetricFilterPtrOutput() RumMetricFilterPtrOutput {
+	return i.ToRumMetricFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *rumMetricFilterPtrType) ToRumMetricFilterPtrOutputWithContext(ctx context.Context) RumMetricFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RumMetricFilterPtrOutput)
+}
+
+type RumMetricFilterOutput struct{ *pulumi.OutputState }
+
+func (RumMetricFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RumMetricFilter)(nil)).Elem()
+}
+
+func (o RumMetricFilterOutput) ToRumMetricFilterOutput() RumMetricFilterOutput {
+	return o
+}
+
+func (o RumMetricFilterOutput) ToRumMetricFilterOutputWithContext(ctx context.Context) RumMetricFilterOutput {
+	return o
+}
+
+func (o RumMetricFilterOutput) ToRumMetricFilterPtrOutput() RumMetricFilterPtrOutput {
+	return o.ToRumMetricFilterPtrOutputWithContext(context.Background())
+}
+
+func (o RumMetricFilterOutput) ToRumMetricFilterPtrOutputWithContext(ctx context.Context) RumMetricFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RumMetricFilter) *RumMetricFilter {
+		return &v
+	}).(RumMetricFilterPtrOutput)
+}
+
+// The search query. Follows RUM search syntax.
+func (o RumMetricFilterOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RumMetricFilter) *string { return v.Query }).(pulumi.StringPtrOutput)
+}
+
+type RumMetricFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (RumMetricFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RumMetricFilter)(nil)).Elem()
+}
+
+func (o RumMetricFilterPtrOutput) ToRumMetricFilterPtrOutput() RumMetricFilterPtrOutput {
+	return o
+}
+
+func (o RumMetricFilterPtrOutput) ToRumMetricFilterPtrOutputWithContext(ctx context.Context) RumMetricFilterPtrOutput {
+	return o
+}
+
+func (o RumMetricFilterPtrOutput) Elem() RumMetricFilterOutput {
+	return o.ApplyT(func(v *RumMetricFilter) RumMetricFilter {
+		if v != nil {
+			return *v
+		}
+		var ret RumMetricFilter
+		return ret
+	}).(RumMetricFilterOutput)
+}
+
+// The search query. Follows RUM search syntax.
+func (o RumMetricFilterPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RumMetricFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+type RumMetricGroupBy struct {
+	// The path to the value the RUM-based metric will be aggregated over.
+	Path *string `pulumi:"path"`
+	// Name of the tag that gets created. By default, `path` is used as the tag name.
+	TagName *string `pulumi:"tagName"`
+}
+
+// RumMetricGroupByInput is an input type that accepts RumMetricGroupByArgs and RumMetricGroupByOutput values.
+// You can construct a concrete instance of `RumMetricGroupByInput` via:
+//
+//	RumMetricGroupByArgs{...}
+type RumMetricGroupByInput interface {
+	pulumi.Input
+
+	ToRumMetricGroupByOutput() RumMetricGroupByOutput
+	ToRumMetricGroupByOutputWithContext(context.Context) RumMetricGroupByOutput
+}
+
+type RumMetricGroupByArgs struct {
+	// The path to the value the RUM-based metric will be aggregated over.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Name of the tag that gets created. By default, `path` is used as the tag name.
+	TagName pulumi.StringPtrInput `pulumi:"tagName"`
+}
+
+func (RumMetricGroupByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RumMetricGroupBy)(nil)).Elem()
+}
+
+func (i RumMetricGroupByArgs) ToRumMetricGroupByOutput() RumMetricGroupByOutput {
+	return i.ToRumMetricGroupByOutputWithContext(context.Background())
+}
+
+func (i RumMetricGroupByArgs) ToRumMetricGroupByOutputWithContext(ctx context.Context) RumMetricGroupByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RumMetricGroupByOutput)
+}
+
+// RumMetricGroupByArrayInput is an input type that accepts RumMetricGroupByArray and RumMetricGroupByArrayOutput values.
+// You can construct a concrete instance of `RumMetricGroupByArrayInput` via:
+//
+//	RumMetricGroupByArray{ RumMetricGroupByArgs{...} }
+type RumMetricGroupByArrayInput interface {
+	pulumi.Input
+
+	ToRumMetricGroupByArrayOutput() RumMetricGroupByArrayOutput
+	ToRumMetricGroupByArrayOutputWithContext(context.Context) RumMetricGroupByArrayOutput
+}
+
+type RumMetricGroupByArray []RumMetricGroupByInput
+
+func (RumMetricGroupByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RumMetricGroupBy)(nil)).Elem()
+}
+
+func (i RumMetricGroupByArray) ToRumMetricGroupByArrayOutput() RumMetricGroupByArrayOutput {
+	return i.ToRumMetricGroupByArrayOutputWithContext(context.Background())
+}
+
+func (i RumMetricGroupByArray) ToRumMetricGroupByArrayOutputWithContext(ctx context.Context) RumMetricGroupByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RumMetricGroupByArrayOutput)
+}
+
+type RumMetricGroupByOutput struct{ *pulumi.OutputState }
+
+func (RumMetricGroupByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RumMetricGroupBy)(nil)).Elem()
+}
+
+func (o RumMetricGroupByOutput) ToRumMetricGroupByOutput() RumMetricGroupByOutput {
+	return o
+}
+
+func (o RumMetricGroupByOutput) ToRumMetricGroupByOutputWithContext(ctx context.Context) RumMetricGroupByOutput {
+	return o
+}
+
+// The path to the value the RUM-based metric will be aggregated over.
+func (o RumMetricGroupByOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RumMetricGroupBy) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Name of the tag that gets created. By default, `path` is used as the tag name.
+func (o RumMetricGroupByOutput) TagName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RumMetricGroupBy) *string { return v.TagName }).(pulumi.StringPtrOutput)
+}
+
+type RumMetricGroupByArrayOutput struct{ *pulumi.OutputState }
+
+func (RumMetricGroupByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RumMetricGroupBy)(nil)).Elem()
+}
+
+func (o RumMetricGroupByArrayOutput) ToRumMetricGroupByArrayOutput() RumMetricGroupByArrayOutput {
+	return o
+}
+
+func (o RumMetricGroupByArrayOutput) ToRumMetricGroupByArrayOutputWithContext(ctx context.Context) RumMetricGroupByArrayOutput {
+	return o
+}
+
+func (o RumMetricGroupByArrayOutput) Index(i pulumi.IntInput) RumMetricGroupByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RumMetricGroupBy {
+		return vs[0].([]RumMetricGroupBy)[vs[1].(int)]
+	}).(RumMetricGroupByOutput)
+}
+
+type RumMetricUniqueness struct {
+	// When to count updatable events. `match` when the event is first seen, or `end` when the event is complete.
+	When *string `pulumi:"when"`
+}
+
+// RumMetricUniquenessInput is an input type that accepts RumMetricUniquenessArgs and RumMetricUniquenessOutput values.
+// You can construct a concrete instance of `RumMetricUniquenessInput` via:
+//
+//	RumMetricUniquenessArgs{...}
+type RumMetricUniquenessInput interface {
+	pulumi.Input
+
+	ToRumMetricUniquenessOutput() RumMetricUniquenessOutput
+	ToRumMetricUniquenessOutputWithContext(context.Context) RumMetricUniquenessOutput
+}
+
+type RumMetricUniquenessArgs struct {
+	// When to count updatable events. `match` when the event is first seen, or `end` when the event is complete.
+	When pulumi.StringPtrInput `pulumi:"when"`
+}
+
+func (RumMetricUniquenessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RumMetricUniqueness)(nil)).Elem()
+}
+
+func (i RumMetricUniquenessArgs) ToRumMetricUniquenessOutput() RumMetricUniquenessOutput {
+	return i.ToRumMetricUniquenessOutputWithContext(context.Background())
+}
+
+func (i RumMetricUniquenessArgs) ToRumMetricUniquenessOutputWithContext(ctx context.Context) RumMetricUniquenessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RumMetricUniquenessOutput)
+}
+
+func (i RumMetricUniquenessArgs) ToRumMetricUniquenessPtrOutput() RumMetricUniquenessPtrOutput {
+	return i.ToRumMetricUniquenessPtrOutputWithContext(context.Background())
+}
+
+func (i RumMetricUniquenessArgs) ToRumMetricUniquenessPtrOutputWithContext(ctx context.Context) RumMetricUniquenessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RumMetricUniquenessOutput).ToRumMetricUniquenessPtrOutputWithContext(ctx)
+}
+
+// RumMetricUniquenessPtrInput is an input type that accepts RumMetricUniquenessArgs, RumMetricUniquenessPtr and RumMetricUniquenessPtrOutput values.
+// You can construct a concrete instance of `RumMetricUniquenessPtrInput` via:
+//
+//	        RumMetricUniquenessArgs{...}
+//
+//	or:
+//
+//	        nil
+type RumMetricUniquenessPtrInput interface {
+	pulumi.Input
+
+	ToRumMetricUniquenessPtrOutput() RumMetricUniquenessPtrOutput
+	ToRumMetricUniquenessPtrOutputWithContext(context.Context) RumMetricUniquenessPtrOutput
+}
+
+type rumMetricUniquenessPtrType RumMetricUniquenessArgs
+
+func RumMetricUniquenessPtr(v *RumMetricUniquenessArgs) RumMetricUniquenessPtrInput {
+	return (*rumMetricUniquenessPtrType)(v)
+}
+
+func (*rumMetricUniquenessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RumMetricUniqueness)(nil)).Elem()
+}
+
+func (i *rumMetricUniquenessPtrType) ToRumMetricUniquenessPtrOutput() RumMetricUniquenessPtrOutput {
+	return i.ToRumMetricUniquenessPtrOutputWithContext(context.Background())
+}
+
+func (i *rumMetricUniquenessPtrType) ToRumMetricUniquenessPtrOutputWithContext(ctx context.Context) RumMetricUniquenessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RumMetricUniquenessPtrOutput)
+}
+
+type RumMetricUniquenessOutput struct{ *pulumi.OutputState }
+
+func (RumMetricUniquenessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RumMetricUniqueness)(nil)).Elem()
+}
+
+func (o RumMetricUniquenessOutput) ToRumMetricUniquenessOutput() RumMetricUniquenessOutput {
+	return o
+}
+
+func (o RumMetricUniquenessOutput) ToRumMetricUniquenessOutputWithContext(ctx context.Context) RumMetricUniquenessOutput {
+	return o
+}
+
+func (o RumMetricUniquenessOutput) ToRumMetricUniquenessPtrOutput() RumMetricUniquenessPtrOutput {
+	return o.ToRumMetricUniquenessPtrOutputWithContext(context.Background())
+}
+
+func (o RumMetricUniquenessOutput) ToRumMetricUniquenessPtrOutputWithContext(ctx context.Context) RumMetricUniquenessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RumMetricUniqueness) *RumMetricUniqueness {
+		return &v
+	}).(RumMetricUniquenessPtrOutput)
+}
+
+// When to count updatable events. `match` when the event is first seen, or `end` when the event is complete.
+func (o RumMetricUniquenessOutput) When() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RumMetricUniqueness) *string { return v.When }).(pulumi.StringPtrOutput)
+}
+
+type RumMetricUniquenessPtrOutput struct{ *pulumi.OutputState }
+
+func (RumMetricUniquenessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RumMetricUniqueness)(nil)).Elem()
+}
+
+func (o RumMetricUniquenessPtrOutput) ToRumMetricUniquenessPtrOutput() RumMetricUniquenessPtrOutput {
+	return o
+}
+
+func (o RumMetricUniquenessPtrOutput) ToRumMetricUniquenessPtrOutputWithContext(ctx context.Context) RumMetricUniquenessPtrOutput {
+	return o
+}
+
+func (o RumMetricUniquenessPtrOutput) Elem() RumMetricUniquenessOutput {
+	return o.ApplyT(func(v *RumMetricUniqueness) RumMetricUniqueness {
+		if v != nil {
+			return *v
+		}
+		var ret RumMetricUniqueness
+		return ret
+	}).(RumMetricUniquenessOutput)
+}
+
+// When to count updatable events. `match` when the event is first seen, or `end` when the event is complete.
+func (o RumMetricUniquenessPtrOutput) When() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RumMetricUniqueness) *string {
+		if v == nil {
+			return nil
+		}
+		return v.When
+	}).(pulumi.StringPtrOutput)
+}
+
+type SecureEmbedDashboardSelectableTemplateVar struct {
+	// The default values for this template variable.
+	DefaultValues []string `pulumi:"defaultValues"`
+	// The name of the template variable.
+	Name string `pulumi:"name"`
+	// The tag prefix for this template variable. Defaults to `""`.
+	Prefix *string `pulumi:"prefix"`
+	// The type of the template variable. Defaults to `""`.
+	Type *string `pulumi:"type"`
+	// The visible tag values for this template variable.
+	VisibleTags []string `pulumi:"visibleTags"`
+}
+
+// SecureEmbedDashboardSelectableTemplateVarInput is an input type that accepts SecureEmbedDashboardSelectableTemplateVarArgs and SecureEmbedDashboardSelectableTemplateVarOutput values.
+// You can construct a concrete instance of `SecureEmbedDashboardSelectableTemplateVarInput` via:
+//
+//	SecureEmbedDashboardSelectableTemplateVarArgs{...}
+type SecureEmbedDashboardSelectableTemplateVarInput interface {
+	pulumi.Input
+
+	ToSecureEmbedDashboardSelectableTemplateVarOutput() SecureEmbedDashboardSelectableTemplateVarOutput
+	ToSecureEmbedDashboardSelectableTemplateVarOutputWithContext(context.Context) SecureEmbedDashboardSelectableTemplateVarOutput
+}
+
+type SecureEmbedDashboardSelectableTemplateVarArgs struct {
+	// The default values for this template variable.
+	DefaultValues pulumi.StringArrayInput `pulumi:"defaultValues"`
+	// The name of the template variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The tag prefix for this template variable. Defaults to `""`.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// The type of the template variable. Defaults to `""`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The visible tag values for this template variable.
+	VisibleTags pulumi.StringArrayInput `pulumi:"visibleTags"`
+}
+
+func (SecureEmbedDashboardSelectableTemplateVarArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecureEmbedDashboardSelectableTemplateVar)(nil)).Elem()
+}
+
+func (i SecureEmbedDashboardSelectableTemplateVarArgs) ToSecureEmbedDashboardSelectableTemplateVarOutput() SecureEmbedDashboardSelectableTemplateVarOutput {
+	return i.ToSecureEmbedDashboardSelectableTemplateVarOutputWithContext(context.Background())
+}
+
+func (i SecureEmbedDashboardSelectableTemplateVarArgs) ToSecureEmbedDashboardSelectableTemplateVarOutputWithContext(ctx context.Context) SecureEmbedDashboardSelectableTemplateVarOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecureEmbedDashboardSelectableTemplateVarOutput)
+}
+
+// SecureEmbedDashboardSelectableTemplateVarArrayInput is an input type that accepts SecureEmbedDashboardSelectableTemplateVarArray and SecureEmbedDashboardSelectableTemplateVarArrayOutput values.
+// You can construct a concrete instance of `SecureEmbedDashboardSelectableTemplateVarArrayInput` via:
+//
+//	SecureEmbedDashboardSelectableTemplateVarArray{ SecureEmbedDashboardSelectableTemplateVarArgs{...} }
+type SecureEmbedDashboardSelectableTemplateVarArrayInput interface {
+	pulumi.Input
+
+	ToSecureEmbedDashboardSelectableTemplateVarArrayOutput() SecureEmbedDashboardSelectableTemplateVarArrayOutput
+	ToSecureEmbedDashboardSelectableTemplateVarArrayOutputWithContext(context.Context) SecureEmbedDashboardSelectableTemplateVarArrayOutput
+}
+
+type SecureEmbedDashboardSelectableTemplateVarArray []SecureEmbedDashboardSelectableTemplateVarInput
+
+func (SecureEmbedDashboardSelectableTemplateVarArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecureEmbedDashboardSelectableTemplateVar)(nil)).Elem()
+}
+
+func (i SecureEmbedDashboardSelectableTemplateVarArray) ToSecureEmbedDashboardSelectableTemplateVarArrayOutput() SecureEmbedDashboardSelectableTemplateVarArrayOutput {
+	return i.ToSecureEmbedDashboardSelectableTemplateVarArrayOutputWithContext(context.Background())
+}
+
+func (i SecureEmbedDashboardSelectableTemplateVarArray) ToSecureEmbedDashboardSelectableTemplateVarArrayOutputWithContext(ctx context.Context) SecureEmbedDashboardSelectableTemplateVarArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecureEmbedDashboardSelectableTemplateVarArrayOutput)
+}
+
+type SecureEmbedDashboardSelectableTemplateVarOutput struct{ *pulumi.OutputState }
+
+func (SecureEmbedDashboardSelectableTemplateVarOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecureEmbedDashboardSelectableTemplateVar)(nil)).Elem()
+}
+
+func (o SecureEmbedDashboardSelectableTemplateVarOutput) ToSecureEmbedDashboardSelectableTemplateVarOutput() SecureEmbedDashboardSelectableTemplateVarOutput {
+	return o
+}
+
+func (o SecureEmbedDashboardSelectableTemplateVarOutput) ToSecureEmbedDashboardSelectableTemplateVarOutputWithContext(ctx context.Context) SecureEmbedDashboardSelectableTemplateVarOutput {
+	return o
+}
+
+// The default values for this template variable.
+func (o SecureEmbedDashboardSelectableTemplateVarOutput) DefaultValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecureEmbedDashboardSelectableTemplateVar) []string { return v.DefaultValues }).(pulumi.StringArrayOutput)
+}
+
+// The name of the template variable.
+func (o SecureEmbedDashboardSelectableTemplateVarOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SecureEmbedDashboardSelectableTemplateVar) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tag prefix for this template variable. Defaults to `""`.
+func (o SecureEmbedDashboardSelectableTemplateVarOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecureEmbedDashboardSelectableTemplateVar) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// The type of the template variable. Defaults to `""`.
+func (o SecureEmbedDashboardSelectableTemplateVarOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecureEmbedDashboardSelectableTemplateVar) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The visible tag values for this template variable.
+func (o SecureEmbedDashboardSelectableTemplateVarOutput) VisibleTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecureEmbedDashboardSelectableTemplateVar) []string { return v.VisibleTags }).(pulumi.StringArrayOutput)
+}
+
+type SecureEmbedDashboardSelectableTemplateVarArrayOutput struct{ *pulumi.OutputState }
+
+func (SecureEmbedDashboardSelectableTemplateVarArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecureEmbedDashboardSelectableTemplateVar)(nil)).Elem()
+}
+
+func (o SecureEmbedDashboardSelectableTemplateVarArrayOutput) ToSecureEmbedDashboardSelectableTemplateVarArrayOutput() SecureEmbedDashboardSelectableTemplateVarArrayOutput {
+	return o
+}
+
+func (o SecureEmbedDashboardSelectableTemplateVarArrayOutput) ToSecureEmbedDashboardSelectableTemplateVarArrayOutputWithContext(ctx context.Context) SecureEmbedDashboardSelectableTemplateVarArrayOutput {
+	return o
+}
+
+func (o SecureEmbedDashboardSelectableTemplateVarArrayOutput) Index(i pulumi.IntInput) SecureEmbedDashboardSelectableTemplateVarOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecureEmbedDashboardSelectableTemplateVar {
+		return vs[0].([]SecureEmbedDashboardSelectableTemplateVar)[vs[1].(int)]
+	}).(SecureEmbedDashboardSelectableTemplateVarOutput)
+}
+
+type SecurityFindingsDueDateRuleAction struct {
+	// A list of severity-to-due-date mappings. Each severity may appear at most once.
+	DueDaysPerSeverities []SecurityFindingsDueDateRuleActionDueDaysPerSeverity `pulumi:"dueDaysPerSeverities"`
+	// The reference point from which the due date is calculated. When `fixAvailable` is selected but not applicable to the finding type, `firstSeen` is used instead. Valid values are `firstSeen`, `fixAvailable`.
+	DueFrom string `pulumi:"dueFrom"`
+	// An optional description providing more context for the due date assignment.
+	ReasonDescription *string `pulumi:"reasonDescription"`
+}
+
+// SecurityFindingsDueDateRuleActionInput is an input type that accepts SecurityFindingsDueDateRuleActionArgs and SecurityFindingsDueDateRuleActionOutput values.
+// You can construct a concrete instance of `SecurityFindingsDueDateRuleActionInput` via:
+//
+//	SecurityFindingsDueDateRuleActionArgs{...}
+type SecurityFindingsDueDateRuleActionInput interface {
+	pulumi.Input
+
+	ToSecurityFindingsDueDateRuleActionOutput() SecurityFindingsDueDateRuleActionOutput
+	ToSecurityFindingsDueDateRuleActionOutputWithContext(context.Context) SecurityFindingsDueDateRuleActionOutput
+}
+
+type SecurityFindingsDueDateRuleActionArgs struct {
+	// A list of severity-to-due-date mappings. Each severity may appear at most once.
+	DueDaysPerSeverities SecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayInput `pulumi:"dueDaysPerSeverities"`
+	// The reference point from which the due date is calculated. When `fixAvailable` is selected but not applicable to the finding type, `firstSeen` is used instead. Valid values are `firstSeen`, `fixAvailable`.
+	DueFrom pulumi.StringInput `pulumi:"dueFrom"`
+	// An optional description providing more context for the due date assignment.
+	ReasonDescription pulumi.StringPtrInput `pulumi:"reasonDescription"`
+}
+
+func (SecurityFindingsDueDateRuleActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityFindingsDueDateRuleAction)(nil)).Elem()
+}
+
+func (i SecurityFindingsDueDateRuleActionArgs) ToSecurityFindingsDueDateRuleActionOutput() SecurityFindingsDueDateRuleActionOutput {
+	return i.ToSecurityFindingsDueDateRuleActionOutputWithContext(context.Background())
+}
+
+func (i SecurityFindingsDueDateRuleActionArgs) ToSecurityFindingsDueDateRuleActionOutputWithContext(ctx context.Context) SecurityFindingsDueDateRuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityFindingsDueDateRuleActionOutput)
+}
+
+func (i SecurityFindingsDueDateRuleActionArgs) ToSecurityFindingsDueDateRuleActionPtrOutput() SecurityFindingsDueDateRuleActionPtrOutput {
+	return i.ToSecurityFindingsDueDateRuleActionPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityFindingsDueDateRuleActionArgs) ToSecurityFindingsDueDateRuleActionPtrOutputWithContext(ctx context.Context) SecurityFindingsDueDateRuleActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityFindingsDueDateRuleActionOutput).ToSecurityFindingsDueDateRuleActionPtrOutputWithContext(ctx)
+}
+
+// SecurityFindingsDueDateRuleActionPtrInput is an input type that accepts SecurityFindingsDueDateRuleActionArgs, SecurityFindingsDueDateRuleActionPtr and SecurityFindingsDueDateRuleActionPtrOutput values.
+// You can construct a concrete instance of `SecurityFindingsDueDateRuleActionPtrInput` via:
+//
+//	        SecurityFindingsDueDateRuleActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityFindingsDueDateRuleActionPtrInput interface {
+	pulumi.Input
+
+	ToSecurityFindingsDueDateRuleActionPtrOutput() SecurityFindingsDueDateRuleActionPtrOutput
+	ToSecurityFindingsDueDateRuleActionPtrOutputWithContext(context.Context) SecurityFindingsDueDateRuleActionPtrOutput
+}
+
+type securityFindingsDueDateRuleActionPtrType SecurityFindingsDueDateRuleActionArgs
+
+func SecurityFindingsDueDateRuleActionPtr(v *SecurityFindingsDueDateRuleActionArgs) SecurityFindingsDueDateRuleActionPtrInput {
+	return (*securityFindingsDueDateRuleActionPtrType)(v)
+}
+
+func (*securityFindingsDueDateRuleActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityFindingsDueDateRuleAction)(nil)).Elem()
+}
+
+func (i *securityFindingsDueDateRuleActionPtrType) ToSecurityFindingsDueDateRuleActionPtrOutput() SecurityFindingsDueDateRuleActionPtrOutput {
+	return i.ToSecurityFindingsDueDateRuleActionPtrOutputWithContext(context.Background())
+}
+
+func (i *securityFindingsDueDateRuleActionPtrType) ToSecurityFindingsDueDateRuleActionPtrOutputWithContext(ctx context.Context) SecurityFindingsDueDateRuleActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityFindingsDueDateRuleActionPtrOutput)
+}
+
+type SecurityFindingsDueDateRuleActionOutput struct{ *pulumi.OutputState }
+
+func (SecurityFindingsDueDateRuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityFindingsDueDateRuleAction)(nil)).Elem()
+}
+
+func (o SecurityFindingsDueDateRuleActionOutput) ToSecurityFindingsDueDateRuleActionOutput() SecurityFindingsDueDateRuleActionOutput {
+	return o
+}
+
+func (o SecurityFindingsDueDateRuleActionOutput) ToSecurityFindingsDueDateRuleActionOutputWithContext(ctx context.Context) SecurityFindingsDueDateRuleActionOutput {
+	return o
+}
+
+func (o SecurityFindingsDueDateRuleActionOutput) ToSecurityFindingsDueDateRuleActionPtrOutput() SecurityFindingsDueDateRuleActionPtrOutput {
+	return o.ToSecurityFindingsDueDateRuleActionPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityFindingsDueDateRuleActionOutput) ToSecurityFindingsDueDateRuleActionPtrOutputWithContext(ctx context.Context) SecurityFindingsDueDateRuleActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityFindingsDueDateRuleAction) *SecurityFindingsDueDateRuleAction {
+		return &v
+	}).(SecurityFindingsDueDateRuleActionPtrOutput)
+}
+
+// A list of severity-to-due-date mappings. Each severity may appear at most once.
+func (o SecurityFindingsDueDateRuleActionOutput) DueDaysPerSeverities() SecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutput {
+	return o.ApplyT(func(v SecurityFindingsDueDateRuleAction) []SecurityFindingsDueDateRuleActionDueDaysPerSeverity {
+		return v.DueDaysPerSeverities
+	}).(SecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutput)
+}
+
+// The reference point from which the due date is calculated. When `fixAvailable` is selected but not applicable to the finding type, `firstSeen` is used instead. Valid values are `firstSeen`, `fixAvailable`.
+func (o SecurityFindingsDueDateRuleActionOutput) DueFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityFindingsDueDateRuleAction) string { return v.DueFrom }).(pulumi.StringOutput)
+}
+
+// An optional description providing more context for the due date assignment.
+func (o SecurityFindingsDueDateRuleActionOutput) ReasonDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityFindingsDueDateRuleAction) *string { return v.ReasonDescription }).(pulumi.StringPtrOutput)
+}
+
+type SecurityFindingsDueDateRuleActionPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityFindingsDueDateRuleActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityFindingsDueDateRuleAction)(nil)).Elem()
+}
+
+func (o SecurityFindingsDueDateRuleActionPtrOutput) ToSecurityFindingsDueDateRuleActionPtrOutput() SecurityFindingsDueDateRuleActionPtrOutput {
+	return o
+}
+
+func (o SecurityFindingsDueDateRuleActionPtrOutput) ToSecurityFindingsDueDateRuleActionPtrOutputWithContext(ctx context.Context) SecurityFindingsDueDateRuleActionPtrOutput {
+	return o
+}
+
+func (o SecurityFindingsDueDateRuleActionPtrOutput) Elem() SecurityFindingsDueDateRuleActionOutput {
+	return o.ApplyT(func(v *SecurityFindingsDueDateRuleAction) SecurityFindingsDueDateRuleAction {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityFindingsDueDateRuleAction
+		return ret
+	}).(SecurityFindingsDueDateRuleActionOutput)
+}
+
+// A list of severity-to-due-date mappings. Each severity may appear at most once.
+func (o SecurityFindingsDueDateRuleActionPtrOutput) DueDaysPerSeverities() SecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutput {
+	return o.ApplyT(func(v *SecurityFindingsDueDateRuleAction) []SecurityFindingsDueDateRuleActionDueDaysPerSeverity {
+		if v == nil {
+			return nil
+		}
+		return v.DueDaysPerSeverities
+	}).(SecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutput)
+}
+
+// The reference point from which the due date is calculated. When `fixAvailable` is selected but not applicable to the finding type, `firstSeen` is used instead. Valid values are `firstSeen`, `fixAvailable`.
+func (o SecurityFindingsDueDateRuleActionPtrOutput) DueFrom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityFindingsDueDateRuleAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DueFrom
+	}).(pulumi.StringPtrOutput)
+}
+
+// An optional description providing more context for the due date assignment.
+func (o SecurityFindingsDueDateRuleActionPtrOutput) ReasonDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityFindingsDueDateRuleAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReasonDescription
+	}).(pulumi.StringPtrOutput)
+}
+
+type SecurityFindingsDueDateRuleActionDueDaysPerSeverity struct {
+	// The number of days from the reference point until the finding is due.
+	DueInDays int `pulumi:"dueInDays"`
+	// A severity level used to configure due date thresholds. Valid values are `critical`, `high`, `medium`, `low`, `info`, `none`, `unknown`.
+	Severity string `pulumi:"severity"`
+}
+
+// SecurityFindingsDueDateRuleActionDueDaysPerSeverityInput is an input type that accepts SecurityFindingsDueDateRuleActionDueDaysPerSeverityArgs and SecurityFindingsDueDateRuleActionDueDaysPerSeverityOutput values.
+// You can construct a concrete instance of `SecurityFindingsDueDateRuleActionDueDaysPerSeverityInput` via:
+//
+//	SecurityFindingsDueDateRuleActionDueDaysPerSeverityArgs{...}
+type SecurityFindingsDueDateRuleActionDueDaysPerSeverityInput interface {
+	pulumi.Input
+
+	ToSecurityFindingsDueDateRuleActionDueDaysPerSeverityOutput() SecurityFindingsDueDateRuleActionDueDaysPerSeverityOutput
+	ToSecurityFindingsDueDateRuleActionDueDaysPerSeverityOutputWithContext(context.Context) SecurityFindingsDueDateRuleActionDueDaysPerSeverityOutput
+}
+
+type SecurityFindingsDueDateRuleActionDueDaysPerSeverityArgs struct {
+	// The number of days from the reference point until the finding is due.
+	DueInDays pulumi.IntInput `pulumi:"dueInDays"`
+	// A severity level used to configure due date thresholds. Valid values are `critical`, `high`, `medium`, `low`, `info`, `none`, `unknown`.
+	Severity pulumi.StringInput `pulumi:"severity"`
+}
+
+func (SecurityFindingsDueDateRuleActionDueDaysPerSeverityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityFindingsDueDateRuleActionDueDaysPerSeverity)(nil)).Elem()
+}
+
+func (i SecurityFindingsDueDateRuleActionDueDaysPerSeverityArgs) ToSecurityFindingsDueDateRuleActionDueDaysPerSeverityOutput() SecurityFindingsDueDateRuleActionDueDaysPerSeverityOutput {
+	return i.ToSecurityFindingsDueDateRuleActionDueDaysPerSeverityOutputWithContext(context.Background())
+}
+
+func (i SecurityFindingsDueDateRuleActionDueDaysPerSeverityArgs) ToSecurityFindingsDueDateRuleActionDueDaysPerSeverityOutputWithContext(ctx context.Context) SecurityFindingsDueDateRuleActionDueDaysPerSeverityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityFindingsDueDateRuleActionDueDaysPerSeverityOutput)
+}
+
+// SecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayInput is an input type that accepts SecurityFindingsDueDateRuleActionDueDaysPerSeverityArray and SecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutput values.
+// You can construct a concrete instance of `SecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayInput` via:
+//
+//	SecurityFindingsDueDateRuleActionDueDaysPerSeverityArray{ SecurityFindingsDueDateRuleActionDueDaysPerSeverityArgs{...} }
+type SecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayInput interface {
+	pulumi.Input
+
+	ToSecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutput() SecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutput
+	ToSecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutputWithContext(context.Context) SecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutput
+}
+
+type SecurityFindingsDueDateRuleActionDueDaysPerSeverityArray []SecurityFindingsDueDateRuleActionDueDaysPerSeverityInput
+
+func (SecurityFindingsDueDateRuleActionDueDaysPerSeverityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityFindingsDueDateRuleActionDueDaysPerSeverity)(nil)).Elem()
+}
+
+func (i SecurityFindingsDueDateRuleActionDueDaysPerSeverityArray) ToSecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutput() SecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutput {
+	return i.ToSecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityFindingsDueDateRuleActionDueDaysPerSeverityArray) ToSecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutputWithContext(ctx context.Context) SecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutput)
+}
+
+type SecurityFindingsDueDateRuleActionDueDaysPerSeverityOutput struct{ *pulumi.OutputState }
+
+func (SecurityFindingsDueDateRuleActionDueDaysPerSeverityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityFindingsDueDateRuleActionDueDaysPerSeverity)(nil)).Elem()
+}
+
+func (o SecurityFindingsDueDateRuleActionDueDaysPerSeverityOutput) ToSecurityFindingsDueDateRuleActionDueDaysPerSeverityOutput() SecurityFindingsDueDateRuleActionDueDaysPerSeverityOutput {
+	return o
+}
+
+func (o SecurityFindingsDueDateRuleActionDueDaysPerSeverityOutput) ToSecurityFindingsDueDateRuleActionDueDaysPerSeverityOutputWithContext(ctx context.Context) SecurityFindingsDueDateRuleActionDueDaysPerSeverityOutput {
+	return o
+}
+
+// The number of days from the reference point until the finding is due.
+func (o SecurityFindingsDueDateRuleActionDueDaysPerSeverityOutput) DueInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v SecurityFindingsDueDateRuleActionDueDaysPerSeverity) int { return v.DueInDays }).(pulumi.IntOutput)
+}
+
+// A severity level used to configure due date thresholds. Valid values are `critical`, `high`, `medium`, `low`, `info`, `none`, `unknown`.
+func (o SecurityFindingsDueDateRuleActionDueDaysPerSeverityOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityFindingsDueDateRuleActionDueDaysPerSeverity) string { return v.Severity }).(pulumi.StringOutput)
+}
+
+type SecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityFindingsDueDateRuleActionDueDaysPerSeverity)(nil)).Elem()
+}
+
+func (o SecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutput) ToSecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutput() SecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutput {
+	return o
+}
+
+func (o SecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutput) ToSecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutputWithContext(ctx context.Context) SecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutput {
+	return o
+}
+
+func (o SecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutput) Index(i pulumi.IntInput) SecurityFindingsDueDateRuleActionDueDaysPerSeverityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityFindingsDueDateRuleActionDueDaysPerSeverity {
+		return vs[0].([]SecurityFindingsDueDateRuleActionDueDaysPerSeverity)[vs[1].(int)]
+	}).(SecurityFindingsDueDateRuleActionDueDaysPerSeverityOutput)
+}
+
+type SecurityFindingsDueDateRuleRule struct {
+	// The list of security finding types that the automation rule applies to. Valid values are `apiSecurity`, `attackPath`, `hostAndContainerVulnerability`, `iacMisconfiguration`, `identityRisk`, `libraryVulnerability`, `misconfiguration`, `runtimeCodeVulnerability`, `secret`, `staticCodeVulnerability`, `workloadActivity`.
+	FindingTypes []string `pulumi:"findingTypes"`
+	// A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+	Query *string `pulumi:"query"`
+}
+
+// SecurityFindingsDueDateRuleRuleInput is an input type that accepts SecurityFindingsDueDateRuleRuleArgs and SecurityFindingsDueDateRuleRuleOutput values.
+// You can construct a concrete instance of `SecurityFindingsDueDateRuleRuleInput` via:
+//
+//	SecurityFindingsDueDateRuleRuleArgs{...}
+type SecurityFindingsDueDateRuleRuleInput interface {
+	pulumi.Input
+
+	ToSecurityFindingsDueDateRuleRuleOutput() SecurityFindingsDueDateRuleRuleOutput
+	ToSecurityFindingsDueDateRuleRuleOutputWithContext(context.Context) SecurityFindingsDueDateRuleRuleOutput
+}
+
+type SecurityFindingsDueDateRuleRuleArgs struct {
+	// The list of security finding types that the automation rule applies to. Valid values are `apiSecurity`, `attackPath`, `hostAndContainerVulnerability`, `iacMisconfiguration`, `identityRisk`, `libraryVulnerability`, `misconfiguration`, `runtimeCodeVulnerability`, `secret`, `staticCodeVulnerability`, `workloadActivity`.
+	FindingTypes pulumi.StringArrayInput `pulumi:"findingTypes"`
+	// A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+	Query pulumi.StringPtrInput `pulumi:"query"`
+}
+
+func (SecurityFindingsDueDateRuleRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityFindingsDueDateRuleRule)(nil)).Elem()
+}
+
+func (i SecurityFindingsDueDateRuleRuleArgs) ToSecurityFindingsDueDateRuleRuleOutput() SecurityFindingsDueDateRuleRuleOutput {
+	return i.ToSecurityFindingsDueDateRuleRuleOutputWithContext(context.Background())
+}
+
+func (i SecurityFindingsDueDateRuleRuleArgs) ToSecurityFindingsDueDateRuleRuleOutputWithContext(ctx context.Context) SecurityFindingsDueDateRuleRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityFindingsDueDateRuleRuleOutput)
+}
+
+func (i SecurityFindingsDueDateRuleRuleArgs) ToSecurityFindingsDueDateRuleRulePtrOutput() SecurityFindingsDueDateRuleRulePtrOutput {
+	return i.ToSecurityFindingsDueDateRuleRulePtrOutputWithContext(context.Background())
+}
+
+func (i SecurityFindingsDueDateRuleRuleArgs) ToSecurityFindingsDueDateRuleRulePtrOutputWithContext(ctx context.Context) SecurityFindingsDueDateRuleRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityFindingsDueDateRuleRuleOutput).ToSecurityFindingsDueDateRuleRulePtrOutputWithContext(ctx)
+}
+
+// SecurityFindingsDueDateRuleRulePtrInput is an input type that accepts SecurityFindingsDueDateRuleRuleArgs, SecurityFindingsDueDateRuleRulePtr and SecurityFindingsDueDateRuleRulePtrOutput values.
+// You can construct a concrete instance of `SecurityFindingsDueDateRuleRulePtrInput` via:
+//
+//	        SecurityFindingsDueDateRuleRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityFindingsDueDateRuleRulePtrInput interface {
+	pulumi.Input
+
+	ToSecurityFindingsDueDateRuleRulePtrOutput() SecurityFindingsDueDateRuleRulePtrOutput
+	ToSecurityFindingsDueDateRuleRulePtrOutputWithContext(context.Context) SecurityFindingsDueDateRuleRulePtrOutput
+}
+
+type securityFindingsDueDateRuleRulePtrType SecurityFindingsDueDateRuleRuleArgs
+
+func SecurityFindingsDueDateRuleRulePtr(v *SecurityFindingsDueDateRuleRuleArgs) SecurityFindingsDueDateRuleRulePtrInput {
+	return (*securityFindingsDueDateRuleRulePtrType)(v)
+}
+
+func (*securityFindingsDueDateRuleRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityFindingsDueDateRuleRule)(nil)).Elem()
+}
+
+func (i *securityFindingsDueDateRuleRulePtrType) ToSecurityFindingsDueDateRuleRulePtrOutput() SecurityFindingsDueDateRuleRulePtrOutput {
+	return i.ToSecurityFindingsDueDateRuleRulePtrOutputWithContext(context.Background())
+}
+
+func (i *securityFindingsDueDateRuleRulePtrType) ToSecurityFindingsDueDateRuleRulePtrOutputWithContext(ctx context.Context) SecurityFindingsDueDateRuleRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityFindingsDueDateRuleRulePtrOutput)
+}
+
+type SecurityFindingsDueDateRuleRuleOutput struct{ *pulumi.OutputState }
+
+func (SecurityFindingsDueDateRuleRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityFindingsDueDateRuleRule)(nil)).Elem()
+}
+
+func (o SecurityFindingsDueDateRuleRuleOutput) ToSecurityFindingsDueDateRuleRuleOutput() SecurityFindingsDueDateRuleRuleOutput {
+	return o
+}
+
+func (o SecurityFindingsDueDateRuleRuleOutput) ToSecurityFindingsDueDateRuleRuleOutputWithContext(ctx context.Context) SecurityFindingsDueDateRuleRuleOutput {
+	return o
+}
+
+func (o SecurityFindingsDueDateRuleRuleOutput) ToSecurityFindingsDueDateRuleRulePtrOutput() SecurityFindingsDueDateRuleRulePtrOutput {
+	return o.ToSecurityFindingsDueDateRuleRulePtrOutputWithContext(context.Background())
+}
+
+func (o SecurityFindingsDueDateRuleRuleOutput) ToSecurityFindingsDueDateRuleRulePtrOutputWithContext(ctx context.Context) SecurityFindingsDueDateRuleRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityFindingsDueDateRuleRule) *SecurityFindingsDueDateRuleRule {
+		return &v
+	}).(SecurityFindingsDueDateRuleRulePtrOutput)
+}
+
+// The list of security finding types that the automation rule applies to. Valid values are `apiSecurity`, `attackPath`, `hostAndContainerVulnerability`, `iacMisconfiguration`, `identityRisk`, `libraryVulnerability`, `misconfiguration`, `runtimeCodeVulnerability`, `secret`, `staticCodeVulnerability`, `workloadActivity`.
+func (o SecurityFindingsDueDateRuleRuleOutput) FindingTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityFindingsDueDateRuleRule) []string { return v.FindingTypes }).(pulumi.StringArrayOutput)
+}
+
+// A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+func (o SecurityFindingsDueDateRuleRuleOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityFindingsDueDateRuleRule) *string { return v.Query }).(pulumi.StringPtrOutput)
+}
+
+type SecurityFindingsDueDateRuleRulePtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityFindingsDueDateRuleRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityFindingsDueDateRuleRule)(nil)).Elem()
+}
+
+func (o SecurityFindingsDueDateRuleRulePtrOutput) ToSecurityFindingsDueDateRuleRulePtrOutput() SecurityFindingsDueDateRuleRulePtrOutput {
+	return o
+}
+
+func (o SecurityFindingsDueDateRuleRulePtrOutput) ToSecurityFindingsDueDateRuleRulePtrOutputWithContext(ctx context.Context) SecurityFindingsDueDateRuleRulePtrOutput {
+	return o
+}
+
+func (o SecurityFindingsDueDateRuleRulePtrOutput) Elem() SecurityFindingsDueDateRuleRuleOutput {
+	return o.ApplyT(func(v *SecurityFindingsDueDateRuleRule) SecurityFindingsDueDateRuleRule {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityFindingsDueDateRuleRule
+		return ret
+	}).(SecurityFindingsDueDateRuleRuleOutput)
+}
+
+// The list of security finding types that the automation rule applies to. Valid values are `apiSecurity`, `attackPath`, `hostAndContainerVulnerability`, `iacMisconfiguration`, `identityRisk`, `libraryVulnerability`, `misconfiguration`, `runtimeCodeVulnerability`, `secret`, `staticCodeVulnerability`, `workloadActivity`.
+func (o SecurityFindingsDueDateRuleRulePtrOutput) FindingTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityFindingsDueDateRuleRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FindingTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+func (o SecurityFindingsDueDateRuleRulePtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityFindingsDueDateRuleRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+type SecurityFindingsMuteRuleAction struct {
+	// The Unix timestamp in milliseconds at which the mute expires. If omitted, the mute does not expire.
+	ExpireAt *int `pulumi:"expireAt"`
+	// The reason for muting a security finding. Valid values are `duplicate`, `falsePositive`, `noFix`, `other`, `pendingFix`, `riskAccepted`.
+	Reason string `pulumi:"reason"`
+	// An optional description providing more context for the mute reason.
+	ReasonDescription *string `pulumi:"reasonDescription"`
+}
+
+// SecurityFindingsMuteRuleActionInput is an input type that accepts SecurityFindingsMuteRuleActionArgs and SecurityFindingsMuteRuleActionOutput values.
+// You can construct a concrete instance of `SecurityFindingsMuteRuleActionInput` via:
+//
+//	SecurityFindingsMuteRuleActionArgs{...}
+type SecurityFindingsMuteRuleActionInput interface {
+	pulumi.Input
+
+	ToSecurityFindingsMuteRuleActionOutput() SecurityFindingsMuteRuleActionOutput
+	ToSecurityFindingsMuteRuleActionOutputWithContext(context.Context) SecurityFindingsMuteRuleActionOutput
+}
+
+type SecurityFindingsMuteRuleActionArgs struct {
+	// The Unix timestamp in milliseconds at which the mute expires. If omitted, the mute does not expire.
+	ExpireAt pulumi.IntPtrInput `pulumi:"expireAt"`
+	// The reason for muting a security finding. Valid values are `duplicate`, `falsePositive`, `noFix`, `other`, `pendingFix`, `riskAccepted`.
+	Reason pulumi.StringInput `pulumi:"reason"`
+	// An optional description providing more context for the mute reason.
+	ReasonDescription pulumi.StringPtrInput `pulumi:"reasonDescription"`
+}
+
+func (SecurityFindingsMuteRuleActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityFindingsMuteRuleAction)(nil)).Elem()
+}
+
+func (i SecurityFindingsMuteRuleActionArgs) ToSecurityFindingsMuteRuleActionOutput() SecurityFindingsMuteRuleActionOutput {
+	return i.ToSecurityFindingsMuteRuleActionOutputWithContext(context.Background())
+}
+
+func (i SecurityFindingsMuteRuleActionArgs) ToSecurityFindingsMuteRuleActionOutputWithContext(ctx context.Context) SecurityFindingsMuteRuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityFindingsMuteRuleActionOutput)
+}
+
+func (i SecurityFindingsMuteRuleActionArgs) ToSecurityFindingsMuteRuleActionPtrOutput() SecurityFindingsMuteRuleActionPtrOutput {
+	return i.ToSecurityFindingsMuteRuleActionPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityFindingsMuteRuleActionArgs) ToSecurityFindingsMuteRuleActionPtrOutputWithContext(ctx context.Context) SecurityFindingsMuteRuleActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityFindingsMuteRuleActionOutput).ToSecurityFindingsMuteRuleActionPtrOutputWithContext(ctx)
+}
+
+// SecurityFindingsMuteRuleActionPtrInput is an input type that accepts SecurityFindingsMuteRuleActionArgs, SecurityFindingsMuteRuleActionPtr and SecurityFindingsMuteRuleActionPtrOutput values.
+// You can construct a concrete instance of `SecurityFindingsMuteRuleActionPtrInput` via:
+//
+//	        SecurityFindingsMuteRuleActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityFindingsMuteRuleActionPtrInput interface {
+	pulumi.Input
+
+	ToSecurityFindingsMuteRuleActionPtrOutput() SecurityFindingsMuteRuleActionPtrOutput
+	ToSecurityFindingsMuteRuleActionPtrOutputWithContext(context.Context) SecurityFindingsMuteRuleActionPtrOutput
+}
+
+type securityFindingsMuteRuleActionPtrType SecurityFindingsMuteRuleActionArgs
+
+func SecurityFindingsMuteRuleActionPtr(v *SecurityFindingsMuteRuleActionArgs) SecurityFindingsMuteRuleActionPtrInput {
+	return (*securityFindingsMuteRuleActionPtrType)(v)
+}
+
+func (*securityFindingsMuteRuleActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityFindingsMuteRuleAction)(nil)).Elem()
+}
+
+func (i *securityFindingsMuteRuleActionPtrType) ToSecurityFindingsMuteRuleActionPtrOutput() SecurityFindingsMuteRuleActionPtrOutput {
+	return i.ToSecurityFindingsMuteRuleActionPtrOutputWithContext(context.Background())
+}
+
+func (i *securityFindingsMuteRuleActionPtrType) ToSecurityFindingsMuteRuleActionPtrOutputWithContext(ctx context.Context) SecurityFindingsMuteRuleActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityFindingsMuteRuleActionPtrOutput)
+}
+
+type SecurityFindingsMuteRuleActionOutput struct{ *pulumi.OutputState }
+
+func (SecurityFindingsMuteRuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityFindingsMuteRuleAction)(nil)).Elem()
+}
+
+func (o SecurityFindingsMuteRuleActionOutput) ToSecurityFindingsMuteRuleActionOutput() SecurityFindingsMuteRuleActionOutput {
+	return o
+}
+
+func (o SecurityFindingsMuteRuleActionOutput) ToSecurityFindingsMuteRuleActionOutputWithContext(ctx context.Context) SecurityFindingsMuteRuleActionOutput {
+	return o
+}
+
+func (o SecurityFindingsMuteRuleActionOutput) ToSecurityFindingsMuteRuleActionPtrOutput() SecurityFindingsMuteRuleActionPtrOutput {
+	return o.ToSecurityFindingsMuteRuleActionPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityFindingsMuteRuleActionOutput) ToSecurityFindingsMuteRuleActionPtrOutputWithContext(ctx context.Context) SecurityFindingsMuteRuleActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityFindingsMuteRuleAction) *SecurityFindingsMuteRuleAction {
+		return &v
+	}).(SecurityFindingsMuteRuleActionPtrOutput)
+}
+
+// The Unix timestamp in milliseconds at which the mute expires. If omitted, the mute does not expire.
+func (o SecurityFindingsMuteRuleActionOutput) ExpireAt() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecurityFindingsMuteRuleAction) *int { return v.ExpireAt }).(pulumi.IntPtrOutput)
+}
+
+// The reason for muting a security finding. Valid values are `duplicate`, `falsePositive`, `noFix`, `other`, `pendingFix`, `riskAccepted`.
+func (o SecurityFindingsMuteRuleActionOutput) Reason() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityFindingsMuteRuleAction) string { return v.Reason }).(pulumi.StringOutput)
+}
+
+// An optional description providing more context for the mute reason.
+func (o SecurityFindingsMuteRuleActionOutput) ReasonDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityFindingsMuteRuleAction) *string { return v.ReasonDescription }).(pulumi.StringPtrOutput)
+}
+
+type SecurityFindingsMuteRuleActionPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityFindingsMuteRuleActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityFindingsMuteRuleAction)(nil)).Elem()
+}
+
+func (o SecurityFindingsMuteRuleActionPtrOutput) ToSecurityFindingsMuteRuleActionPtrOutput() SecurityFindingsMuteRuleActionPtrOutput {
+	return o
+}
+
+func (o SecurityFindingsMuteRuleActionPtrOutput) ToSecurityFindingsMuteRuleActionPtrOutputWithContext(ctx context.Context) SecurityFindingsMuteRuleActionPtrOutput {
+	return o
+}
+
+func (o SecurityFindingsMuteRuleActionPtrOutput) Elem() SecurityFindingsMuteRuleActionOutput {
+	return o.ApplyT(func(v *SecurityFindingsMuteRuleAction) SecurityFindingsMuteRuleAction {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityFindingsMuteRuleAction
+		return ret
+	}).(SecurityFindingsMuteRuleActionOutput)
+}
+
+// The Unix timestamp in milliseconds at which the mute expires. If omitted, the mute does not expire.
+func (o SecurityFindingsMuteRuleActionPtrOutput) ExpireAt() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SecurityFindingsMuteRuleAction) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ExpireAt
+	}).(pulumi.IntPtrOutput)
+}
+
+// The reason for muting a security finding. Valid values are `duplicate`, `falsePositive`, `noFix`, `other`, `pendingFix`, `riskAccepted`.
+func (o SecurityFindingsMuteRuleActionPtrOutput) Reason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityFindingsMuteRuleAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Reason
+	}).(pulumi.StringPtrOutput)
+}
+
+// An optional description providing more context for the mute reason.
+func (o SecurityFindingsMuteRuleActionPtrOutput) ReasonDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityFindingsMuteRuleAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReasonDescription
+	}).(pulumi.StringPtrOutput)
+}
+
+type SecurityFindingsMuteRuleRule struct {
+	// The list of security finding types that the automation rule applies to. Valid values are `apiSecurity`, `attackPath`, `hostAndContainerVulnerability`, `iacMisconfiguration`, `identityRisk`, `libraryVulnerability`, `misconfiguration`, `runtimeCodeVulnerability`, `secret`, `staticCodeVulnerability`, `workloadActivity`.
+	FindingTypes []string `pulumi:"findingTypes"`
+	// A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+	Query *string `pulumi:"query"`
+}
+
+// SecurityFindingsMuteRuleRuleInput is an input type that accepts SecurityFindingsMuteRuleRuleArgs and SecurityFindingsMuteRuleRuleOutput values.
+// You can construct a concrete instance of `SecurityFindingsMuteRuleRuleInput` via:
+//
+//	SecurityFindingsMuteRuleRuleArgs{...}
+type SecurityFindingsMuteRuleRuleInput interface {
+	pulumi.Input
+
+	ToSecurityFindingsMuteRuleRuleOutput() SecurityFindingsMuteRuleRuleOutput
+	ToSecurityFindingsMuteRuleRuleOutputWithContext(context.Context) SecurityFindingsMuteRuleRuleOutput
+}
+
+type SecurityFindingsMuteRuleRuleArgs struct {
+	// The list of security finding types that the automation rule applies to. Valid values are `apiSecurity`, `attackPath`, `hostAndContainerVulnerability`, `iacMisconfiguration`, `identityRisk`, `libraryVulnerability`, `misconfiguration`, `runtimeCodeVulnerability`, `secret`, `staticCodeVulnerability`, `workloadActivity`.
+	FindingTypes pulumi.StringArrayInput `pulumi:"findingTypes"`
+	// A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+	Query pulumi.StringPtrInput `pulumi:"query"`
+}
+
+func (SecurityFindingsMuteRuleRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityFindingsMuteRuleRule)(nil)).Elem()
+}
+
+func (i SecurityFindingsMuteRuleRuleArgs) ToSecurityFindingsMuteRuleRuleOutput() SecurityFindingsMuteRuleRuleOutput {
+	return i.ToSecurityFindingsMuteRuleRuleOutputWithContext(context.Background())
+}
+
+func (i SecurityFindingsMuteRuleRuleArgs) ToSecurityFindingsMuteRuleRuleOutputWithContext(ctx context.Context) SecurityFindingsMuteRuleRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityFindingsMuteRuleRuleOutput)
+}
+
+func (i SecurityFindingsMuteRuleRuleArgs) ToSecurityFindingsMuteRuleRulePtrOutput() SecurityFindingsMuteRuleRulePtrOutput {
+	return i.ToSecurityFindingsMuteRuleRulePtrOutputWithContext(context.Background())
+}
+
+func (i SecurityFindingsMuteRuleRuleArgs) ToSecurityFindingsMuteRuleRulePtrOutputWithContext(ctx context.Context) SecurityFindingsMuteRuleRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityFindingsMuteRuleRuleOutput).ToSecurityFindingsMuteRuleRulePtrOutputWithContext(ctx)
+}
+
+// SecurityFindingsMuteRuleRulePtrInput is an input type that accepts SecurityFindingsMuteRuleRuleArgs, SecurityFindingsMuteRuleRulePtr and SecurityFindingsMuteRuleRulePtrOutput values.
+// You can construct a concrete instance of `SecurityFindingsMuteRuleRulePtrInput` via:
+//
+//	        SecurityFindingsMuteRuleRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityFindingsMuteRuleRulePtrInput interface {
+	pulumi.Input
+
+	ToSecurityFindingsMuteRuleRulePtrOutput() SecurityFindingsMuteRuleRulePtrOutput
+	ToSecurityFindingsMuteRuleRulePtrOutputWithContext(context.Context) SecurityFindingsMuteRuleRulePtrOutput
+}
+
+type securityFindingsMuteRuleRulePtrType SecurityFindingsMuteRuleRuleArgs
+
+func SecurityFindingsMuteRuleRulePtr(v *SecurityFindingsMuteRuleRuleArgs) SecurityFindingsMuteRuleRulePtrInput {
+	return (*securityFindingsMuteRuleRulePtrType)(v)
+}
+
+func (*securityFindingsMuteRuleRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityFindingsMuteRuleRule)(nil)).Elem()
+}
+
+func (i *securityFindingsMuteRuleRulePtrType) ToSecurityFindingsMuteRuleRulePtrOutput() SecurityFindingsMuteRuleRulePtrOutput {
+	return i.ToSecurityFindingsMuteRuleRulePtrOutputWithContext(context.Background())
+}
+
+func (i *securityFindingsMuteRuleRulePtrType) ToSecurityFindingsMuteRuleRulePtrOutputWithContext(ctx context.Context) SecurityFindingsMuteRuleRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityFindingsMuteRuleRulePtrOutput)
+}
+
+type SecurityFindingsMuteRuleRuleOutput struct{ *pulumi.OutputState }
+
+func (SecurityFindingsMuteRuleRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityFindingsMuteRuleRule)(nil)).Elem()
+}
+
+func (o SecurityFindingsMuteRuleRuleOutput) ToSecurityFindingsMuteRuleRuleOutput() SecurityFindingsMuteRuleRuleOutput {
+	return o
+}
+
+func (o SecurityFindingsMuteRuleRuleOutput) ToSecurityFindingsMuteRuleRuleOutputWithContext(ctx context.Context) SecurityFindingsMuteRuleRuleOutput {
+	return o
+}
+
+func (o SecurityFindingsMuteRuleRuleOutput) ToSecurityFindingsMuteRuleRulePtrOutput() SecurityFindingsMuteRuleRulePtrOutput {
+	return o.ToSecurityFindingsMuteRuleRulePtrOutputWithContext(context.Background())
+}
+
+func (o SecurityFindingsMuteRuleRuleOutput) ToSecurityFindingsMuteRuleRulePtrOutputWithContext(ctx context.Context) SecurityFindingsMuteRuleRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityFindingsMuteRuleRule) *SecurityFindingsMuteRuleRule {
+		return &v
+	}).(SecurityFindingsMuteRuleRulePtrOutput)
+}
+
+// The list of security finding types that the automation rule applies to. Valid values are `apiSecurity`, `attackPath`, `hostAndContainerVulnerability`, `iacMisconfiguration`, `identityRisk`, `libraryVulnerability`, `misconfiguration`, `runtimeCodeVulnerability`, `secret`, `staticCodeVulnerability`, `workloadActivity`.
+func (o SecurityFindingsMuteRuleRuleOutput) FindingTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityFindingsMuteRuleRule) []string { return v.FindingTypes }).(pulumi.StringArrayOutput)
+}
+
+// A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+func (o SecurityFindingsMuteRuleRuleOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityFindingsMuteRuleRule) *string { return v.Query }).(pulumi.StringPtrOutput)
+}
+
+type SecurityFindingsMuteRuleRulePtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityFindingsMuteRuleRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityFindingsMuteRuleRule)(nil)).Elem()
+}
+
+func (o SecurityFindingsMuteRuleRulePtrOutput) ToSecurityFindingsMuteRuleRulePtrOutput() SecurityFindingsMuteRuleRulePtrOutput {
+	return o
+}
+
+func (o SecurityFindingsMuteRuleRulePtrOutput) ToSecurityFindingsMuteRuleRulePtrOutputWithContext(ctx context.Context) SecurityFindingsMuteRuleRulePtrOutput {
+	return o
+}
+
+func (o SecurityFindingsMuteRuleRulePtrOutput) Elem() SecurityFindingsMuteRuleRuleOutput {
+	return o.ApplyT(func(v *SecurityFindingsMuteRuleRule) SecurityFindingsMuteRuleRule {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityFindingsMuteRuleRule
+		return ret
+	}).(SecurityFindingsMuteRuleRuleOutput)
+}
+
+// The list of security finding types that the automation rule applies to. Valid values are `apiSecurity`, `attackPath`, `hostAndContainerVulnerability`, `iacMisconfiguration`, `identityRisk`, `libraryVulnerability`, `misconfiguration`, `runtimeCodeVulnerability`, `secret`, `staticCodeVulnerability`, `workloadActivity`.
+func (o SecurityFindingsMuteRuleRulePtrOutput) FindingTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityFindingsMuteRuleRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FindingTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+func (o SecurityFindingsMuteRuleRulePtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityFindingsMuteRuleRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+type SecurityFindingsTicketCreationRuleAction struct {
+	// The UUID of the default assignee for created tickets. Must be a valid UUID.
+	AssigneeId *string `pulumi:"assigneeId"`
+	// The reason the rule was automatically disabled by the system due to a ticketing integration error. This field is read-only.
+	AutoDisabledReason *string `pulumi:"autoDisabledReason"`
+	// A JSON-encoded object of custom fields of the Jira issue to create. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get).
+	Fields *string `pulumi:"fields"`
+	// The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and linking back to the responsible rule. Value must be between 1 and 500.
+	MaxTicketsPerDay int `pulumi:"maxTicketsPerDay"`
+	// The UUID of the Case Management project. Must be a valid UUID.
+	ProjectId string `pulumi:"projectId"`
+	// The ticketing system to create tickets in. Valid values are `jira`, `caseManagement`.
+	Target string `pulumi:"target"`
+}
+
+// SecurityFindingsTicketCreationRuleActionInput is an input type that accepts SecurityFindingsTicketCreationRuleActionArgs and SecurityFindingsTicketCreationRuleActionOutput values.
+// You can construct a concrete instance of `SecurityFindingsTicketCreationRuleActionInput` via:
+//
+//	SecurityFindingsTicketCreationRuleActionArgs{...}
+type SecurityFindingsTicketCreationRuleActionInput interface {
+	pulumi.Input
+
+	ToSecurityFindingsTicketCreationRuleActionOutput() SecurityFindingsTicketCreationRuleActionOutput
+	ToSecurityFindingsTicketCreationRuleActionOutputWithContext(context.Context) SecurityFindingsTicketCreationRuleActionOutput
+}
+
+type SecurityFindingsTicketCreationRuleActionArgs struct {
+	// The UUID of the default assignee for created tickets. Must be a valid UUID.
+	AssigneeId pulumi.StringPtrInput `pulumi:"assigneeId"`
+	// The reason the rule was automatically disabled by the system due to a ticketing integration error. This field is read-only.
+	AutoDisabledReason pulumi.StringPtrInput `pulumi:"autoDisabledReason"`
+	// A JSON-encoded object of custom fields of the Jira issue to create. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get).
+	Fields pulumi.StringPtrInput `pulumi:"fields"`
+	// The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and linking back to the responsible rule. Value must be between 1 and 500.
+	MaxTicketsPerDay pulumi.IntInput `pulumi:"maxTicketsPerDay"`
+	// The UUID of the Case Management project. Must be a valid UUID.
+	ProjectId pulumi.StringInput `pulumi:"projectId"`
+	// The ticketing system to create tickets in. Valid values are `jira`, `caseManagement`.
+	Target pulumi.StringInput `pulumi:"target"`
+}
+
+func (SecurityFindingsTicketCreationRuleActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityFindingsTicketCreationRuleAction)(nil)).Elem()
+}
+
+func (i SecurityFindingsTicketCreationRuleActionArgs) ToSecurityFindingsTicketCreationRuleActionOutput() SecurityFindingsTicketCreationRuleActionOutput {
+	return i.ToSecurityFindingsTicketCreationRuleActionOutputWithContext(context.Background())
+}
+
+func (i SecurityFindingsTicketCreationRuleActionArgs) ToSecurityFindingsTicketCreationRuleActionOutputWithContext(ctx context.Context) SecurityFindingsTicketCreationRuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityFindingsTicketCreationRuleActionOutput)
+}
+
+func (i SecurityFindingsTicketCreationRuleActionArgs) ToSecurityFindingsTicketCreationRuleActionPtrOutput() SecurityFindingsTicketCreationRuleActionPtrOutput {
+	return i.ToSecurityFindingsTicketCreationRuleActionPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityFindingsTicketCreationRuleActionArgs) ToSecurityFindingsTicketCreationRuleActionPtrOutputWithContext(ctx context.Context) SecurityFindingsTicketCreationRuleActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityFindingsTicketCreationRuleActionOutput).ToSecurityFindingsTicketCreationRuleActionPtrOutputWithContext(ctx)
+}
+
+// SecurityFindingsTicketCreationRuleActionPtrInput is an input type that accepts SecurityFindingsTicketCreationRuleActionArgs, SecurityFindingsTicketCreationRuleActionPtr and SecurityFindingsTicketCreationRuleActionPtrOutput values.
+// You can construct a concrete instance of `SecurityFindingsTicketCreationRuleActionPtrInput` via:
+//
+//	        SecurityFindingsTicketCreationRuleActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityFindingsTicketCreationRuleActionPtrInput interface {
+	pulumi.Input
+
+	ToSecurityFindingsTicketCreationRuleActionPtrOutput() SecurityFindingsTicketCreationRuleActionPtrOutput
+	ToSecurityFindingsTicketCreationRuleActionPtrOutputWithContext(context.Context) SecurityFindingsTicketCreationRuleActionPtrOutput
+}
+
+type securityFindingsTicketCreationRuleActionPtrType SecurityFindingsTicketCreationRuleActionArgs
+
+func SecurityFindingsTicketCreationRuleActionPtr(v *SecurityFindingsTicketCreationRuleActionArgs) SecurityFindingsTicketCreationRuleActionPtrInput {
+	return (*securityFindingsTicketCreationRuleActionPtrType)(v)
+}
+
+func (*securityFindingsTicketCreationRuleActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityFindingsTicketCreationRuleAction)(nil)).Elem()
+}
+
+func (i *securityFindingsTicketCreationRuleActionPtrType) ToSecurityFindingsTicketCreationRuleActionPtrOutput() SecurityFindingsTicketCreationRuleActionPtrOutput {
+	return i.ToSecurityFindingsTicketCreationRuleActionPtrOutputWithContext(context.Background())
+}
+
+func (i *securityFindingsTicketCreationRuleActionPtrType) ToSecurityFindingsTicketCreationRuleActionPtrOutputWithContext(ctx context.Context) SecurityFindingsTicketCreationRuleActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityFindingsTicketCreationRuleActionPtrOutput)
+}
+
+type SecurityFindingsTicketCreationRuleActionOutput struct{ *pulumi.OutputState }
+
+func (SecurityFindingsTicketCreationRuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityFindingsTicketCreationRuleAction)(nil)).Elem()
+}
+
+func (o SecurityFindingsTicketCreationRuleActionOutput) ToSecurityFindingsTicketCreationRuleActionOutput() SecurityFindingsTicketCreationRuleActionOutput {
+	return o
+}
+
+func (o SecurityFindingsTicketCreationRuleActionOutput) ToSecurityFindingsTicketCreationRuleActionOutputWithContext(ctx context.Context) SecurityFindingsTicketCreationRuleActionOutput {
+	return o
+}
+
+func (o SecurityFindingsTicketCreationRuleActionOutput) ToSecurityFindingsTicketCreationRuleActionPtrOutput() SecurityFindingsTicketCreationRuleActionPtrOutput {
+	return o.ToSecurityFindingsTicketCreationRuleActionPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityFindingsTicketCreationRuleActionOutput) ToSecurityFindingsTicketCreationRuleActionPtrOutputWithContext(ctx context.Context) SecurityFindingsTicketCreationRuleActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityFindingsTicketCreationRuleAction) *SecurityFindingsTicketCreationRuleAction {
+		return &v
+	}).(SecurityFindingsTicketCreationRuleActionPtrOutput)
+}
+
+// The UUID of the default assignee for created tickets. Must be a valid UUID.
+func (o SecurityFindingsTicketCreationRuleActionOutput) AssigneeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityFindingsTicketCreationRuleAction) *string { return v.AssigneeId }).(pulumi.StringPtrOutput)
+}
+
+// The reason the rule was automatically disabled by the system due to a ticketing integration error. This field is read-only.
+func (o SecurityFindingsTicketCreationRuleActionOutput) AutoDisabledReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityFindingsTicketCreationRuleAction) *string { return v.AutoDisabledReason }).(pulumi.StringPtrOutput)
+}
+
+// A JSON-encoded object of custom fields of the Jira issue to create. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get).
+func (o SecurityFindingsTicketCreationRuleActionOutput) Fields() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityFindingsTicketCreationRuleAction) *string { return v.Fields }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and linking back to the responsible rule. Value must be between 1 and 500.
+func (o SecurityFindingsTicketCreationRuleActionOutput) MaxTicketsPerDay() pulumi.IntOutput {
+	return o.ApplyT(func(v SecurityFindingsTicketCreationRuleAction) int { return v.MaxTicketsPerDay }).(pulumi.IntOutput)
+}
+
+// The UUID of the Case Management project. Must be a valid UUID.
+func (o SecurityFindingsTicketCreationRuleActionOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityFindingsTicketCreationRuleAction) string { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+// The ticketing system to create tickets in. Valid values are `jira`, `caseManagement`.
+func (o SecurityFindingsTicketCreationRuleActionOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityFindingsTicketCreationRuleAction) string { return v.Target }).(pulumi.StringOutput)
+}
+
+type SecurityFindingsTicketCreationRuleActionPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityFindingsTicketCreationRuleActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityFindingsTicketCreationRuleAction)(nil)).Elem()
+}
+
+func (o SecurityFindingsTicketCreationRuleActionPtrOutput) ToSecurityFindingsTicketCreationRuleActionPtrOutput() SecurityFindingsTicketCreationRuleActionPtrOutput {
+	return o
+}
+
+func (o SecurityFindingsTicketCreationRuleActionPtrOutput) ToSecurityFindingsTicketCreationRuleActionPtrOutputWithContext(ctx context.Context) SecurityFindingsTicketCreationRuleActionPtrOutput {
+	return o
+}
+
+func (o SecurityFindingsTicketCreationRuleActionPtrOutput) Elem() SecurityFindingsTicketCreationRuleActionOutput {
+	return o.ApplyT(func(v *SecurityFindingsTicketCreationRuleAction) SecurityFindingsTicketCreationRuleAction {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityFindingsTicketCreationRuleAction
+		return ret
+	}).(SecurityFindingsTicketCreationRuleActionOutput)
+}
+
+// The UUID of the default assignee for created tickets. Must be a valid UUID.
+func (o SecurityFindingsTicketCreationRuleActionPtrOutput) AssigneeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityFindingsTicketCreationRuleAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AssigneeId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The reason the rule was automatically disabled by the system due to a ticketing integration error. This field is read-only.
+func (o SecurityFindingsTicketCreationRuleActionPtrOutput) AutoDisabledReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityFindingsTicketCreationRuleAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoDisabledReason
+	}).(pulumi.StringPtrOutput)
+}
+
+// A JSON-encoded object of custom fields of the Jira issue to create. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get).
+func (o SecurityFindingsTicketCreationRuleActionPtrOutput) Fields() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityFindingsTicketCreationRuleAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Fields
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and linking back to the responsible rule. Value must be between 1 and 500.
+func (o SecurityFindingsTicketCreationRuleActionPtrOutput) MaxTicketsPerDay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SecurityFindingsTicketCreationRuleAction) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxTicketsPerDay
+	}).(pulumi.IntPtrOutput)
+}
+
+// The UUID of the Case Management project. Must be a valid UUID.
+func (o SecurityFindingsTicketCreationRuleActionPtrOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityFindingsTicketCreationRuleAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ticketing system to create tickets in. Valid values are `jira`, `caseManagement`.
+func (o SecurityFindingsTicketCreationRuleActionPtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityFindingsTicketCreationRuleAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+type SecurityFindingsTicketCreationRuleRule struct {
+	// The list of security finding types that the automation rule applies to. Valid values are `apiSecurity`, `attackPath`, `hostAndContainerVulnerability`, `iacMisconfiguration`, `identityRisk`, `libraryVulnerability`, `misconfiguration`, `runtimeCodeVulnerability`, `secret`, `staticCodeVulnerability`, `workloadActivity`.
+	FindingTypes []string `pulumi:"findingTypes"`
+	// A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+	Query *string `pulumi:"query"`
+}
+
+// SecurityFindingsTicketCreationRuleRuleInput is an input type that accepts SecurityFindingsTicketCreationRuleRuleArgs and SecurityFindingsTicketCreationRuleRuleOutput values.
+// You can construct a concrete instance of `SecurityFindingsTicketCreationRuleRuleInput` via:
+//
+//	SecurityFindingsTicketCreationRuleRuleArgs{...}
+type SecurityFindingsTicketCreationRuleRuleInput interface {
+	pulumi.Input
+
+	ToSecurityFindingsTicketCreationRuleRuleOutput() SecurityFindingsTicketCreationRuleRuleOutput
+	ToSecurityFindingsTicketCreationRuleRuleOutputWithContext(context.Context) SecurityFindingsTicketCreationRuleRuleOutput
+}
+
+type SecurityFindingsTicketCreationRuleRuleArgs struct {
+	// The list of security finding types that the automation rule applies to. Valid values are `apiSecurity`, `attackPath`, `hostAndContainerVulnerability`, `iacMisconfiguration`, `identityRisk`, `libraryVulnerability`, `misconfiguration`, `runtimeCodeVulnerability`, `secret`, `staticCodeVulnerability`, `workloadActivity`.
+	FindingTypes pulumi.StringArrayInput `pulumi:"findingTypes"`
+	// A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+	Query pulumi.StringPtrInput `pulumi:"query"`
+}
+
+func (SecurityFindingsTicketCreationRuleRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityFindingsTicketCreationRuleRule)(nil)).Elem()
+}
+
+func (i SecurityFindingsTicketCreationRuleRuleArgs) ToSecurityFindingsTicketCreationRuleRuleOutput() SecurityFindingsTicketCreationRuleRuleOutput {
+	return i.ToSecurityFindingsTicketCreationRuleRuleOutputWithContext(context.Background())
+}
+
+func (i SecurityFindingsTicketCreationRuleRuleArgs) ToSecurityFindingsTicketCreationRuleRuleOutputWithContext(ctx context.Context) SecurityFindingsTicketCreationRuleRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityFindingsTicketCreationRuleRuleOutput)
+}
+
+func (i SecurityFindingsTicketCreationRuleRuleArgs) ToSecurityFindingsTicketCreationRuleRulePtrOutput() SecurityFindingsTicketCreationRuleRulePtrOutput {
+	return i.ToSecurityFindingsTicketCreationRuleRulePtrOutputWithContext(context.Background())
+}
+
+func (i SecurityFindingsTicketCreationRuleRuleArgs) ToSecurityFindingsTicketCreationRuleRulePtrOutputWithContext(ctx context.Context) SecurityFindingsTicketCreationRuleRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityFindingsTicketCreationRuleRuleOutput).ToSecurityFindingsTicketCreationRuleRulePtrOutputWithContext(ctx)
+}
+
+// SecurityFindingsTicketCreationRuleRulePtrInput is an input type that accepts SecurityFindingsTicketCreationRuleRuleArgs, SecurityFindingsTicketCreationRuleRulePtr and SecurityFindingsTicketCreationRuleRulePtrOutput values.
+// You can construct a concrete instance of `SecurityFindingsTicketCreationRuleRulePtrInput` via:
+//
+//	        SecurityFindingsTicketCreationRuleRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityFindingsTicketCreationRuleRulePtrInput interface {
+	pulumi.Input
+
+	ToSecurityFindingsTicketCreationRuleRulePtrOutput() SecurityFindingsTicketCreationRuleRulePtrOutput
+	ToSecurityFindingsTicketCreationRuleRulePtrOutputWithContext(context.Context) SecurityFindingsTicketCreationRuleRulePtrOutput
+}
+
+type securityFindingsTicketCreationRuleRulePtrType SecurityFindingsTicketCreationRuleRuleArgs
+
+func SecurityFindingsTicketCreationRuleRulePtr(v *SecurityFindingsTicketCreationRuleRuleArgs) SecurityFindingsTicketCreationRuleRulePtrInput {
+	return (*securityFindingsTicketCreationRuleRulePtrType)(v)
+}
+
+func (*securityFindingsTicketCreationRuleRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityFindingsTicketCreationRuleRule)(nil)).Elem()
+}
+
+func (i *securityFindingsTicketCreationRuleRulePtrType) ToSecurityFindingsTicketCreationRuleRulePtrOutput() SecurityFindingsTicketCreationRuleRulePtrOutput {
+	return i.ToSecurityFindingsTicketCreationRuleRulePtrOutputWithContext(context.Background())
+}
+
+func (i *securityFindingsTicketCreationRuleRulePtrType) ToSecurityFindingsTicketCreationRuleRulePtrOutputWithContext(ctx context.Context) SecurityFindingsTicketCreationRuleRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityFindingsTicketCreationRuleRulePtrOutput)
+}
+
+type SecurityFindingsTicketCreationRuleRuleOutput struct{ *pulumi.OutputState }
+
+func (SecurityFindingsTicketCreationRuleRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityFindingsTicketCreationRuleRule)(nil)).Elem()
+}
+
+func (o SecurityFindingsTicketCreationRuleRuleOutput) ToSecurityFindingsTicketCreationRuleRuleOutput() SecurityFindingsTicketCreationRuleRuleOutput {
+	return o
+}
+
+func (o SecurityFindingsTicketCreationRuleRuleOutput) ToSecurityFindingsTicketCreationRuleRuleOutputWithContext(ctx context.Context) SecurityFindingsTicketCreationRuleRuleOutput {
+	return o
+}
+
+func (o SecurityFindingsTicketCreationRuleRuleOutput) ToSecurityFindingsTicketCreationRuleRulePtrOutput() SecurityFindingsTicketCreationRuleRulePtrOutput {
+	return o.ToSecurityFindingsTicketCreationRuleRulePtrOutputWithContext(context.Background())
+}
+
+func (o SecurityFindingsTicketCreationRuleRuleOutput) ToSecurityFindingsTicketCreationRuleRulePtrOutputWithContext(ctx context.Context) SecurityFindingsTicketCreationRuleRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityFindingsTicketCreationRuleRule) *SecurityFindingsTicketCreationRuleRule {
+		return &v
+	}).(SecurityFindingsTicketCreationRuleRulePtrOutput)
+}
+
+// The list of security finding types that the automation rule applies to. Valid values are `apiSecurity`, `attackPath`, `hostAndContainerVulnerability`, `iacMisconfiguration`, `identityRisk`, `libraryVulnerability`, `misconfiguration`, `runtimeCodeVulnerability`, `secret`, `staticCodeVulnerability`, `workloadActivity`.
+func (o SecurityFindingsTicketCreationRuleRuleOutput) FindingTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityFindingsTicketCreationRuleRule) []string { return v.FindingTypes }).(pulumi.StringArrayOutput)
+}
+
+// A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+func (o SecurityFindingsTicketCreationRuleRuleOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityFindingsTicketCreationRuleRule) *string { return v.Query }).(pulumi.StringPtrOutput)
+}
+
+type SecurityFindingsTicketCreationRuleRulePtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityFindingsTicketCreationRuleRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityFindingsTicketCreationRuleRule)(nil)).Elem()
+}
+
+func (o SecurityFindingsTicketCreationRuleRulePtrOutput) ToSecurityFindingsTicketCreationRuleRulePtrOutput() SecurityFindingsTicketCreationRuleRulePtrOutput {
+	return o
+}
+
+func (o SecurityFindingsTicketCreationRuleRulePtrOutput) ToSecurityFindingsTicketCreationRuleRulePtrOutputWithContext(ctx context.Context) SecurityFindingsTicketCreationRuleRulePtrOutput {
+	return o
+}
+
+func (o SecurityFindingsTicketCreationRuleRulePtrOutput) Elem() SecurityFindingsTicketCreationRuleRuleOutput {
+	return o.ApplyT(func(v *SecurityFindingsTicketCreationRuleRule) SecurityFindingsTicketCreationRuleRule {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityFindingsTicketCreationRuleRule
+		return ret
+	}).(SecurityFindingsTicketCreationRuleRuleOutput)
+}
+
+// The list of security finding types that the automation rule applies to. Valid values are `apiSecurity`, `attackPath`, `hostAndContainerVulnerability`, `iacMisconfiguration`, `identityRisk`, `libraryVulnerability`, `misconfiguration`, `runtimeCodeVulnerability`, `secret`, `staticCodeVulnerability`, `workloadActivity`.
+func (o SecurityFindingsTicketCreationRuleRulePtrOutput) FindingTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityFindingsTicketCreationRuleRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FindingTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+func (o SecurityFindingsTicketCreationRuleRulePtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityFindingsTicketCreationRuleRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+type SecurityMonitoringDefaultRuleCase struct {
+	// Status of the rule case to override. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+	CustomStatus *string `pulumi:"customStatus"`
+	// Notification targets for each rule case.
+	Notifications []string `pulumi:"notifications"`
+	// Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+	Status string `pulumi:"status"`
+}
+
+// SecurityMonitoringDefaultRuleCaseInput is an input type that accepts SecurityMonitoringDefaultRuleCaseArgs and SecurityMonitoringDefaultRuleCaseOutput values.
+// You can construct a concrete instance of `SecurityMonitoringDefaultRuleCaseInput` via:
+//
+//	SecurityMonitoringDefaultRuleCaseArgs{...}
+type SecurityMonitoringDefaultRuleCaseInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringDefaultRuleCaseOutput() SecurityMonitoringDefaultRuleCaseOutput
+	ToSecurityMonitoringDefaultRuleCaseOutputWithContext(context.Context) SecurityMonitoringDefaultRuleCaseOutput
+}
+
+type SecurityMonitoringDefaultRuleCaseArgs struct {
+	// Status of the rule case to override. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+	CustomStatus pulumi.StringPtrInput `pulumi:"customStatus"`
+	// Notification targets for each rule case.
+	Notifications pulumi.StringArrayInput `pulumi:"notifications"`
+	// Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (SecurityMonitoringDefaultRuleCaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringDefaultRuleCase)(nil)).Elem()
+}
+
+func (i SecurityMonitoringDefaultRuleCaseArgs) ToSecurityMonitoringDefaultRuleCaseOutput() SecurityMonitoringDefaultRuleCaseOutput {
+	return i.ToSecurityMonitoringDefaultRuleCaseOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringDefaultRuleCaseArgs) ToSecurityMonitoringDefaultRuleCaseOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleCaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleCaseOutput)
+}
+
+// SecurityMonitoringDefaultRuleCaseArrayInput is an input type that accepts SecurityMonitoringDefaultRuleCaseArray and SecurityMonitoringDefaultRuleCaseArrayOutput values.
+// You can construct a concrete instance of `SecurityMonitoringDefaultRuleCaseArrayInput` via:
+//
+//	SecurityMonitoringDefaultRuleCaseArray{ SecurityMonitoringDefaultRuleCaseArgs{...} }
+type SecurityMonitoringDefaultRuleCaseArrayInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringDefaultRuleCaseArrayOutput() SecurityMonitoringDefaultRuleCaseArrayOutput
+	ToSecurityMonitoringDefaultRuleCaseArrayOutputWithContext(context.Context) SecurityMonitoringDefaultRuleCaseArrayOutput
+}
+
+type SecurityMonitoringDefaultRuleCaseArray []SecurityMonitoringDefaultRuleCaseInput
+
+func (SecurityMonitoringDefaultRuleCaseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringDefaultRuleCase)(nil)).Elem()
+}
+
+func (i SecurityMonitoringDefaultRuleCaseArray) ToSecurityMonitoringDefaultRuleCaseArrayOutput() SecurityMonitoringDefaultRuleCaseArrayOutput {
+	return i.ToSecurityMonitoringDefaultRuleCaseArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringDefaultRuleCaseArray) ToSecurityMonitoringDefaultRuleCaseArrayOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleCaseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleCaseArrayOutput)
+}
+
+type SecurityMonitoringDefaultRuleCaseOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringDefaultRuleCaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringDefaultRuleCase)(nil)).Elem()
+}
+
+func (o SecurityMonitoringDefaultRuleCaseOutput) ToSecurityMonitoringDefaultRuleCaseOutput() SecurityMonitoringDefaultRuleCaseOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleCaseOutput) ToSecurityMonitoringDefaultRuleCaseOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleCaseOutput {
+	return o
+}
+
+// Status of the rule case to override. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+func (o SecurityMonitoringDefaultRuleCaseOutput) CustomStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleCase) *string { return v.CustomStatus }).(pulumi.StringPtrOutput)
+}
+
+// Notification targets for each rule case.
+func (o SecurityMonitoringDefaultRuleCaseOutput) Notifications() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleCase) []string { return v.Notifications }).(pulumi.StringArrayOutput)
+}
+
+// Status of the rule case to match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+func (o SecurityMonitoringDefaultRuleCaseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleCase) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type SecurityMonitoringDefaultRuleCaseArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringDefaultRuleCaseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringDefaultRuleCase)(nil)).Elem()
+}
+
+func (o SecurityMonitoringDefaultRuleCaseArrayOutput) ToSecurityMonitoringDefaultRuleCaseArrayOutput() SecurityMonitoringDefaultRuleCaseArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleCaseArrayOutput) ToSecurityMonitoringDefaultRuleCaseArrayOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleCaseArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleCaseArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringDefaultRuleCaseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMonitoringDefaultRuleCase {
+		return vs[0].([]SecurityMonitoringDefaultRuleCase)[vs[1].(int)]
+	}).(SecurityMonitoringDefaultRuleCaseOutput)
+}
+
+type SecurityMonitoringDefaultRuleFilter struct {
+	// The type of filtering action. Allowed enum values: require, suppress Valid values are `require`, `suppress`.
+	Action string `pulumi:"action"`
+	// Query for selecting logs to apply the filtering action.
+	Query string `pulumi:"query"`
+}
+
+// SecurityMonitoringDefaultRuleFilterInput is an input type that accepts SecurityMonitoringDefaultRuleFilterArgs and SecurityMonitoringDefaultRuleFilterOutput values.
+// You can construct a concrete instance of `SecurityMonitoringDefaultRuleFilterInput` via:
+//
+//	SecurityMonitoringDefaultRuleFilterArgs{...}
+type SecurityMonitoringDefaultRuleFilterInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringDefaultRuleFilterOutput() SecurityMonitoringDefaultRuleFilterOutput
+	ToSecurityMonitoringDefaultRuleFilterOutputWithContext(context.Context) SecurityMonitoringDefaultRuleFilterOutput
+}
+
+type SecurityMonitoringDefaultRuleFilterArgs struct {
+	// The type of filtering action. Allowed enum values: require, suppress Valid values are `require`, `suppress`.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Query for selecting logs to apply the filtering action.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (SecurityMonitoringDefaultRuleFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringDefaultRuleFilter)(nil)).Elem()
+}
+
+func (i SecurityMonitoringDefaultRuleFilterArgs) ToSecurityMonitoringDefaultRuleFilterOutput() SecurityMonitoringDefaultRuleFilterOutput {
+	return i.ToSecurityMonitoringDefaultRuleFilterOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringDefaultRuleFilterArgs) ToSecurityMonitoringDefaultRuleFilterOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleFilterOutput)
+}
+
+// SecurityMonitoringDefaultRuleFilterArrayInput is an input type that accepts SecurityMonitoringDefaultRuleFilterArray and SecurityMonitoringDefaultRuleFilterArrayOutput values.
+// You can construct a concrete instance of `SecurityMonitoringDefaultRuleFilterArrayInput` via:
+//
+//	SecurityMonitoringDefaultRuleFilterArray{ SecurityMonitoringDefaultRuleFilterArgs{...} }
+type SecurityMonitoringDefaultRuleFilterArrayInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringDefaultRuleFilterArrayOutput() SecurityMonitoringDefaultRuleFilterArrayOutput
+	ToSecurityMonitoringDefaultRuleFilterArrayOutputWithContext(context.Context) SecurityMonitoringDefaultRuleFilterArrayOutput
+}
+
+type SecurityMonitoringDefaultRuleFilterArray []SecurityMonitoringDefaultRuleFilterInput
+
+func (SecurityMonitoringDefaultRuleFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringDefaultRuleFilter)(nil)).Elem()
+}
+
+func (i SecurityMonitoringDefaultRuleFilterArray) ToSecurityMonitoringDefaultRuleFilterArrayOutput() SecurityMonitoringDefaultRuleFilterArrayOutput {
+	return i.ToSecurityMonitoringDefaultRuleFilterArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringDefaultRuleFilterArray) ToSecurityMonitoringDefaultRuleFilterArrayOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleFilterArrayOutput)
+}
+
+type SecurityMonitoringDefaultRuleFilterOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringDefaultRuleFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringDefaultRuleFilter)(nil)).Elem()
+}
+
+func (o SecurityMonitoringDefaultRuleFilterOutput) ToSecurityMonitoringDefaultRuleFilterOutput() SecurityMonitoringDefaultRuleFilterOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleFilterOutput) ToSecurityMonitoringDefaultRuleFilterOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleFilterOutput {
+	return o
+}
+
+// The type of filtering action. Allowed enum values: require, suppress Valid values are `require`, `suppress`.
+func (o SecurityMonitoringDefaultRuleFilterOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleFilter) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Query for selecting logs to apply the filtering action.
+func (o SecurityMonitoringDefaultRuleFilterOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleFilter) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type SecurityMonitoringDefaultRuleFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringDefaultRuleFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringDefaultRuleFilter)(nil)).Elem()
+}
+
+func (o SecurityMonitoringDefaultRuleFilterArrayOutput) ToSecurityMonitoringDefaultRuleFilterArrayOutput() SecurityMonitoringDefaultRuleFilterArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleFilterArrayOutput) ToSecurityMonitoringDefaultRuleFilterArrayOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleFilterArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleFilterArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringDefaultRuleFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMonitoringDefaultRuleFilter {
+		return vs[0].([]SecurityMonitoringDefaultRuleFilter)[vs[1].(int)]
+	}).(SecurityMonitoringDefaultRuleFilterOutput)
+}
+
+type SecurityMonitoringDefaultRuleOptions struct {
+	// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
+	DecreaseCriticalityBasedOnEnv *bool `pulumi:"decreaseCriticalityBasedOnEnv"`
+}
+
+// SecurityMonitoringDefaultRuleOptionsInput is an input type that accepts SecurityMonitoringDefaultRuleOptionsArgs and SecurityMonitoringDefaultRuleOptionsOutput values.
+// You can construct a concrete instance of `SecurityMonitoringDefaultRuleOptionsInput` via:
+//
+//	SecurityMonitoringDefaultRuleOptionsArgs{...}
+type SecurityMonitoringDefaultRuleOptionsInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringDefaultRuleOptionsOutput() SecurityMonitoringDefaultRuleOptionsOutput
+	ToSecurityMonitoringDefaultRuleOptionsOutputWithContext(context.Context) SecurityMonitoringDefaultRuleOptionsOutput
+}
+
+type SecurityMonitoringDefaultRuleOptionsArgs struct {
+	// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
+	DecreaseCriticalityBasedOnEnv pulumi.BoolPtrInput `pulumi:"decreaseCriticalityBasedOnEnv"`
+}
+
+func (SecurityMonitoringDefaultRuleOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringDefaultRuleOptions)(nil)).Elem()
+}
+
+func (i SecurityMonitoringDefaultRuleOptionsArgs) ToSecurityMonitoringDefaultRuleOptionsOutput() SecurityMonitoringDefaultRuleOptionsOutput {
+	return i.ToSecurityMonitoringDefaultRuleOptionsOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringDefaultRuleOptionsArgs) ToSecurityMonitoringDefaultRuleOptionsOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleOptionsOutput)
+}
+
+func (i SecurityMonitoringDefaultRuleOptionsArgs) ToSecurityMonitoringDefaultRuleOptionsPtrOutput() SecurityMonitoringDefaultRuleOptionsPtrOutput {
+	return i.ToSecurityMonitoringDefaultRuleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringDefaultRuleOptionsArgs) ToSecurityMonitoringDefaultRuleOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleOptionsOutput).ToSecurityMonitoringDefaultRuleOptionsPtrOutputWithContext(ctx)
+}
+
+// SecurityMonitoringDefaultRuleOptionsPtrInput is an input type that accepts SecurityMonitoringDefaultRuleOptionsArgs, SecurityMonitoringDefaultRuleOptionsPtr and SecurityMonitoringDefaultRuleOptionsPtrOutput values.
+// You can construct a concrete instance of `SecurityMonitoringDefaultRuleOptionsPtrInput` via:
+//
+//	        SecurityMonitoringDefaultRuleOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityMonitoringDefaultRuleOptionsPtrInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringDefaultRuleOptionsPtrOutput() SecurityMonitoringDefaultRuleOptionsPtrOutput
+	ToSecurityMonitoringDefaultRuleOptionsPtrOutputWithContext(context.Context) SecurityMonitoringDefaultRuleOptionsPtrOutput
+}
+
+type securityMonitoringDefaultRuleOptionsPtrType SecurityMonitoringDefaultRuleOptionsArgs
+
+func SecurityMonitoringDefaultRuleOptionsPtr(v *SecurityMonitoringDefaultRuleOptionsArgs) SecurityMonitoringDefaultRuleOptionsPtrInput {
+	return (*securityMonitoringDefaultRuleOptionsPtrType)(v)
+}
+
+func (*securityMonitoringDefaultRuleOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityMonitoringDefaultRuleOptions)(nil)).Elem()
+}
+
+func (i *securityMonitoringDefaultRuleOptionsPtrType) ToSecurityMonitoringDefaultRuleOptionsPtrOutput() SecurityMonitoringDefaultRuleOptionsPtrOutput {
+	return i.ToSecurityMonitoringDefaultRuleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *securityMonitoringDefaultRuleOptionsPtrType) ToSecurityMonitoringDefaultRuleOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleOptionsPtrOutput)
+}
+
+type SecurityMonitoringDefaultRuleOptionsOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringDefaultRuleOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringDefaultRuleOptions)(nil)).Elem()
+}
+
+func (o SecurityMonitoringDefaultRuleOptionsOutput) ToSecurityMonitoringDefaultRuleOptionsOutput() SecurityMonitoringDefaultRuleOptionsOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleOptionsOutput) ToSecurityMonitoringDefaultRuleOptionsOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleOptionsOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleOptionsOutput) ToSecurityMonitoringDefaultRuleOptionsPtrOutput() SecurityMonitoringDefaultRuleOptionsPtrOutput {
+	return o.ToSecurityMonitoringDefaultRuleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityMonitoringDefaultRuleOptionsOutput) ToSecurityMonitoringDefaultRuleOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityMonitoringDefaultRuleOptions) *SecurityMonitoringDefaultRuleOptions {
+		return &v
+	}).(SecurityMonitoringDefaultRuleOptionsPtrOutput)
+}
+
+// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
+func (o SecurityMonitoringDefaultRuleOptionsOutput) DecreaseCriticalityBasedOnEnv() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleOptions) *bool { return v.DecreaseCriticalityBasedOnEnv }).(pulumi.BoolPtrOutput)
+}
+
+type SecurityMonitoringDefaultRuleOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringDefaultRuleOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityMonitoringDefaultRuleOptions)(nil)).Elem()
+}
+
+func (o SecurityMonitoringDefaultRuleOptionsPtrOutput) ToSecurityMonitoringDefaultRuleOptionsPtrOutput() SecurityMonitoringDefaultRuleOptionsPtrOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleOptionsPtrOutput) ToSecurityMonitoringDefaultRuleOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleOptionsPtrOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleOptionsPtrOutput) Elem() SecurityMonitoringDefaultRuleOptionsOutput {
+	return o.ApplyT(func(v *SecurityMonitoringDefaultRuleOptions) SecurityMonitoringDefaultRuleOptions {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityMonitoringDefaultRuleOptions
+		return ret
+	}).(SecurityMonitoringDefaultRuleOptionsOutput)
+}
+
+// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
+func (o SecurityMonitoringDefaultRuleOptionsPtrOutput) DecreaseCriticalityBasedOnEnv() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringDefaultRuleOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DecreaseCriticalityBasedOnEnv
+	}).(pulumi.BoolPtrOutput)
+}
+
+type SecurityMonitoringDefaultRuleQuery struct {
+	// **Deprecated**. It won't be applied anymore.
+	//
+	// Deprecated: `agentRule` has been deprecated in favor of new Agent Rule resource.
+	AgentRules []SecurityMonitoringDefaultRuleQueryAgentRule `pulumi:"agentRules"`
+	// The aggregation type.
+	Aggregation *string `pulumi:"aggregation"`
+	// Query extension to append to the logs query.
+	CustomQueryExtension *string `pulumi:"customQueryExtension"`
+	// Source of events.
+	DataSource *string `pulumi:"dataSource"`
+	// Field for which the cardinality is measured. Sent as an array.
+	DistinctFields []string `pulumi:"distinctFields"`
+	// Fields to group by.
+	GroupByFields []string `pulumi:"groupByFields"`
+	// When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.
+	HasOptionalGroupByFields *bool `pulumi:"hasOptionalGroupByFields"`
+	// The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations.
+	//
+	// Deprecated: Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+	Metric *string `pulumi:"metric"`
+	// Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
+	Metrics []string `pulumi:"metrics"`
+	// Name of the query. Not compatible with `newValue` aggregations.
+	Name *string `pulumi:"name"`
+	// Query to run on logs.
+	Query *string `pulumi:"query"`
+}
+
+// SecurityMonitoringDefaultRuleQueryInput is an input type that accepts SecurityMonitoringDefaultRuleQueryArgs and SecurityMonitoringDefaultRuleQueryOutput values.
+// You can construct a concrete instance of `SecurityMonitoringDefaultRuleQueryInput` via:
+//
+//	SecurityMonitoringDefaultRuleQueryArgs{...}
+type SecurityMonitoringDefaultRuleQueryInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringDefaultRuleQueryOutput() SecurityMonitoringDefaultRuleQueryOutput
+	ToSecurityMonitoringDefaultRuleQueryOutputWithContext(context.Context) SecurityMonitoringDefaultRuleQueryOutput
+}
+
+type SecurityMonitoringDefaultRuleQueryArgs struct {
+	// **Deprecated**. It won't be applied anymore.
+	//
+	// Deprecated: `agentRule` has been deprecated in favor of new Agent Rule resource.
+	AgentRules SecurityMonitoringDefaultRuleQueryAgentRuleArrayInput `pulumi:"agentRules"`
+	// The aggregation type.
+	Aggregation pulumi.StringPtrInput `pulumi:"aggregation"`
+	// Query extension to append to the logs query.
+	CustomQueryExtension pulumi.StringPtrInput `pulumi:"customQueryExtension"`
+	// Source of events.
+	DataSource pulumi.StringPtrInput `pulumi:"dataSource"`
+	// Field for which the cardinality is measured. Sent as an array.
+	DistinctFields pulumi.StringArrayInput `pulumi:"distinctFields"`
+	// Fields to group by.
+	GroupByFields pulumi.StringArrayInput `pulumi:"groupByFields"`
+	// When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.
+	HasOptionalGroupByFields pulumi.BoolPtrInput `pulumi:"hasOptionalGroupByFields"`
+	// The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations.
+	//
+	// Deprecated: Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+	Metric pulumi.StringPtrInput `pulumi:"metric"`
+	// Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
+	Metrics pulumi.StringArrayInput `pulumi:"metrics"`
+	// Name of the query. Not compatible with `newValue` aggregations.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Query to run on logs.
+	Query pulumi.StringPtrInput `pulumi:"query"`
+}
+
+func (SecurityMonitoringDefaultRuleQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringDefaultRuleQuery)(nil)).Elem()
+}
+
+func (i SecurityMonitoringDefaultRuleQueryArgs) ToSecurityMonitoringDefaultRuleQueryOutput() SecurityMonitoringDefaultRuleQueryOutput {
+	return i.ToSecurityMonitoringDefaultRuleQueryOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringDefaultRuleQueryArgs) ToSecurityMonitoringDefaultRuleQueryOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleQueryOutput)
+}
+
+// SecurityMonitoringDefaultRuleQueryArrayInput is an input type that accepts SecurityMonitoringDefaultRuleQueryArray and SecurityMonitoringDefaultRuleQueryArrayOutput values.
+// You can construct a concrete instance of `SecurityMonitoringDefaultRuleQueryArrayInput` via:
+//
+//	SecurityMonitoringDefaultRuleQueryArray{ SecurityMonitoringDefaultRuleQueryArgs{...} }
+type SecurityMonitoringDefaultRuleQueryArrayInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringDefaultRuleQueryArrayOutput() SecurityMonitoringDefaultRuleQueryArrayOutput
+	ToSecurityMonitoringDefaultRuleQueryArrayOutputWithContext(context.Context) SecurityMonitoringDefaultRuleQueryArrayOutput
+}
+
+type SecurityMonitoringDefaultRuleQueryArray []SecurityMonitoringDefaultRuleQueryInput
+
+func (SecurityMonitoringDefaultRuleQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringDefaultRuleQuery)(nil)).Elem()
+}
+
+func (i SecurityMonitoringDefaultRuleQueryArray) ToSecurityMonitoringDefaultRuleQueryArrayOutput() SecurityMonitoringDefaultRuleQueryArrayOutput {
+	return i.ToSecurityMonitoringDefaultRuleQueryArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringDefaultRuleQueryArray) ToSecurityMonitoringDefaultRuleQueryArrayOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleQueryArrayOutput)
+}
+
+type SecurityMonitoringDefaultRuleQueryOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringDefaultRuleQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringDefaultRuleQuery)(nil)).Elem()
+}
+
+func (o SecurityMonitoringDefaultRuleQueryOutput) ToSecurityMonitoringDefaultRuleQueryOutput() SecurityMonitoringDefaultRuleQueryOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleQueryOutput) ToSecurityMonitoringDefaultRuleQueryOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleQueryOutput {
+	return o
+}
+
+// **Deprecated**. It won't be applied anymore.
+//
+// Deprecated: `agentRule` has been deprecated in favor of new Agent Rule resource.
+func (o SecurityMonitoringDefaultRuleQueryOutput) AgentRules() SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) []SecurityMonitoringDefaultRuleQueryAgentRule {
+		return v.AgentRules
+	}).(SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput)
+}
+
+// The aggregation type.
+func (o SecurityMonitoringDefaultRuleQueryOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) *string { return v.Aggregation }).(pulumi.StringPtrOutput)
+}
+
+// Query extension to append to the logs query.
+func (o SecurityMonitoringDefaultRuleQueryOutput) CustomQueryExtension() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) *string { return v.CustomQueryExtension }).(pulumi.StringPtrOutput)
+}
+
+// Source of events.
+func (o SecurityMonitoringDefaultRuleQueryOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) *string { return v.DataSource }).(pulumi.StringPtrOutput)
+}
+
+// Field for which the cardinality is measured. Sent as an array.
+func (o SecurityMonitoringDefaultRuleQueryOutput) DistinctFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) []string { return v.DistinctFields }).(pulumi.StringArrayOutput)
+}
+
+// Fields to group by.
+func (o SecurityMonitoringDefaultRuleQueryOutput) GroupByFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) []string { return v.GroupByFields }).(pulumi.StringArrayOutput)
+}
+
+// When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.
+func (o SecurityMonitoringDefaultRuleQueryOutput) HasOptionalGroupByFields() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) *bool { return v.HasOptionalGroupByFields }).(pulumi.BoolPtrOutput)
+}
+
+// The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations.
+//
+// Deprecated: Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+func (o SecurityMonitoringDefaultRuleQueryOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) *string { return v.Metric }).(pulumi.StringPtrOutput)
+}
+
+// Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
+func (o SecurityMonitoringDefaultRuleQueryOutput) Metrics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) []string { return v.Metrics }).(pulumi.StringArrayOutput)
+}
+
+// Name of the query. Not compatible with `newValue` aggregations.
+func (o SecurityMonitoringDefaultRuleQueryOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Query to run on logs.
+func (o SecurityMonitoringDefaultRuleQueryOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringDefaultRuleQuery) *string { return v.Query }).(pulumi.StringPtrOutput)
+}
+
+type SecurityMonitoringDefaultRuleQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringDefaultRuleQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringDefaultRuleQuery)(nil)).Elem()
+}
+
+func (o SecurityMonitoringDefaultRuleQueryArrayOutput) ToSecurityMonitoringDefaultRuleQueryArrayOutput() SecurityMonitoringDefaultRuleQueryArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleQueryArrayOutput) ToSecurityMonitoringDefaultRuleQueryArrayOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleQueryArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringDefaultRuleQueryArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringDefaultRuleQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMonitoringDefaultRuleQuery {
+		return vs[0].([]SecurityMonitoringDefaultRuleQuery)[vs[1].(int)]
+	}).(SecurityMonitoringDefaultRuleQueryOutput)
+}
+
 type SecurityMonitoringDefaultRuleQueryAgentRule struct {
 	// **Deprecated**. It won't be applied anymore.
 	AgentRuleId string `pulumi:"agentRuleId"`
@@ -16059,6 +29813,8 @@ type SyntheticsTestOptionsList struct {
 	AllowInsecure *bool `pulumi:"allowInsecure"`
 	// Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
 	BlockedRequestPatterns []string `pulumi:"blockedRequestPatterns"`
+	// Capture HTTP request/response headers and bodies for Fetch/XHR calls made during browser tests.
+	CaptureNetworkPayloads *bool `pulumi:"captureNetworkPayloads"`
 	// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
 	CheckCertificateRevocation *bool `pulumi:"checkCertificateRevocation"`
 	// CI/CD options for a Synthetic test.
@@ -16118,6 +29874,8 @@ type SyntheticsTestOptionsListArgs struct {
 	AllowInsecure pulumi.BoolPtrInput `pulumi:"allowInsecure"`
 	// Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
 	BlockedRequestPatterns pulumi.StringArrayInput `pulumi:"blockedRequestPatterns"`
+	// Capture HTTP request/response headers and bodies for Fetch/XHR calls made during browser tests.
+	CaptureNetworkPayloads pulumi.BoolPtrInput `pulumi:"captureNetworkPayloads"`
 	// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
 	CheckCertificateRevocation pulumi.BoolPtrInput `pulumi:"checkCertificateRevocation"`
 	// CI/CD options for a Synthetic test.
@@ -16249,6 +30007,11 @@ func (o SyntheticsTestOptionsListOutput) AllowInsecure() pulumi.BoolPtrOutput {
 // Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
 func (o SyntheticsTestOptionsListOutput) BlockedRequestPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsList) []string { return v.BlockedRequestPatterns }).(pulumi.StringArrayOutput)
+}
+
+// Capture HTTP request/response headers and bodies for Fetch/XHR calls made during browser tests.
+func (o SyntheticsTestOptionsListOutput) CaptureNetworkPayloads() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.CaptureNetworkPayloads }).(pulumi.BoolPtrOutput)
 }
 
 // For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
@@ -16402,6 +30165,16 @@ func (o SyntheticsTestOptionsListPtrOutput) BlockedRequestPatterns() pulumi.Stri
 		}
 		return v.BlockedRequestPatterns
 	}).(pulumi.StringArrayOutput)
+}
+
+// Capture HTTP request/response headers and bodies for Fetch/XHR calls made during browser tests.
+func (o SyntheticsTestOptionsListPtrOutput) CaptureNetworkPayloads() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CaptureNetworkPayloads
+	}).(pulumi.BoolPtrOutput)
 }
 
 // For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
@@ -19649,11 +33422,11 @@ func (o TagIndexingRuleOptionsPtrOutput) Version() pulumi.IntPtrOutput {
 type TagIndexingRuleOptionsData struct {
 	// Configuration for including dynamically queried tags.
 	DynamicTags *TagIndexingRuleOptionsDataDynamicTags `pulumi:"dynamicTags"`
-	// When true, the rule applies to metrics ingested before the rule was created.
+	// When true, the rule applies to metrics ingested before the rule was created. Defaults to `true`.
 	ManagePreexistingMetrics *bool `pulumi:"managePreexistingMetrics"`
 	// Criteria for matching metrics based on query state.
 	MetricMatch *TagIndexingRuleOptionsDataMetricMatch `pulumi:"metricMatch"`
-	// When true, this rule's tag list overrides tags configured by earlier rules for the same metric.
+	// When true, this rule's tag list overrides tags configured by earlier rules for the same metric. Defaults to `false`.
 	OverridePreviousRules *bool `pulumi:"overridePreviousRules"`
 }
 
@@ -19671,11 +33444,11 @@ type TagIndexingRuleOptionsDataInput interface {
 type TagIndexingRuleOptionsDataArgs struct {
 	// Configuration for including dynamically queried tags.
 	DynamicTags TagIndexingRuleOptionsDataDynamicTagsPtrInput `pulumi:"dynamicTags"`
-	// When true, the rule applies to metrics ingested before the rule was created.
+	// When true, the rule applies to metrics ingested before the rule was created. Defaults to `true`.
 	ManagePreexistingMetrics pulumi.BoolPtrInput `pulumi:"managePreexistingMetrics"`
 	// Criteria for matching metrics based on query state.
 	MetricMatch TagIndexingRuleOptionsDataMetricMatchPtrInput `pulumi:"metricMatch"`
-	// When true, this rule's tag list overrides tags configured by earlier rules for the same metric.
+	// When true, this rule's tag list overrides tags configured by earlier rules for the same metric. Defaults to `false`.
 	OverridePreviousRules pulumi.BoolPtrInput `pulumi:"overridePreviousRules"`
 }
 
@@ -19761,7 +33534,7 @@ func (o TagIndexingRuleOptionsDataOutput) DynamicTags() TagIndexingRuleOptionsDa
 	return o.ApplyT(func(v TagIndexingRuleOptionsData) *TagIndexingRuleOptionsDataDynamicTags { return v.DynamicTags }).(TagIndexingRuleOptionsDataDynamicTagsPtrOutput)
 }
 
-// When true, the rule applies to metrics ingested before the rule was created.
+// When true, the rule applies to metrics ingested before the rule was created. Defaults to `true`.
 func (o TagIndexingRuleOptionsDataOutput) ManagePreexistingMetrics() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TagIndexingRuleOptionsData) *bool { return v.ManagePreexistingMetrics }).(pulumi.BoolPtrOutput)
 }
@@ -19771,7 +33544,7 @@ func (o TagIndexingRuleOptionsDataOutput) MetricMatch() TagIndexingRuleOptionsDa
 	return o.ApplyT(func(v TagIndexingRuleOptionsData) *TagIndexingRuleOptionsDataMetricMatch { return v.MetricMatch }).(TagIndexingRuleOptionsDataMetricMatchPtrOutput)
 }
 
-// When true, this rule's tag list overrides tags configured by earlier rules for the same metric.
+// When true, this rule's tag list overrides tags configured by earlier rules for the same metric. Defaults to `false`.
 func (o TagIndexingRuleOptionsDataOutput) OverridePreviousRules() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TagIndexingRuleOptionsData) *bool { return v.OverridePreviousRules }).(pulumi.BoolPtrOutput)
 }
@@ -19810,7 +33583,7 @@ func (o TagIndexingRuleOptionsDataPtrOutput) DynamicTags() TagIndexingRuleOption
 	}).(TagIndexingRuleOptionsDataDynamicTagsPtrOutput)
 }
 
-// When true, the rule applies to metrics ingested before the rule was created.
+// When true, the rule applies to metrics ingested before the rule was created. Defaults to `true`.
 func (o TagIndexingRuleOptionsDataPtrOutput) ManagePreexistingMetrics() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TagIndexingRuleOptionsData) *bool {
 		if v == nil {
@@ -19830,7 +33603,7 @@ func (o TagIndexingRuleOptionsDataPtrOutput) MetricMatch() TagIndexingRuleOption
 	}).(TagIndexingRuleOptionsDataMetricMatchPtrOutput)
 }
 
-// When true, this rule's tag list overrides tags configured by earlier rules for the same metric.
+// When true, this rule's tag list overrides tags configured by earlier rules for the same metric. Defaults to `false`.
 func (o TagIndexingRuleOptionsDataPtrOutput) OverridePreviousRules() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TagIndexingRuleOptionsData) *bool {
 		if v == nil {
@@ -38522,6 +52295,166 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryMetricQueryInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestQueryMetricQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestQueryMetricQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryProcessQueryInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestQueryProcessQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestQueryProcessQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQuerySloQueryInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestQuerySloQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestQuerySloQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestRumQueryInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestRumQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestRumQueryPtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestRumQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestRumQueryGroupByInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestSecurityQueryInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestSecurityQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestSecurityQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestStyleInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestStylePtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionStyleInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionStyleArrayInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionStyleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionStyleDisplayInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionStyleDisplayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionStyleDisplayArrayInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionStyleDisplayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTopologyMapDefinitionInput)(nil)).Elem(), PowerpackWidgetTopologyMapDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTopologyMapDefinitionPtrInput)(nil)).Elem(), PowerpackWidgetTopologyMapDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTopologyMapDefinitionCustomLinkInput)(nil)).Elem(), PowerpackWidgetTopologyMapDefinitionCustomLinkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTopologyMapDefinitionCustomLinkArrayInput)(nil)).Elem(), PowerpackWidgetTopologyMapDefinitionCustomLinkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTopologyMapDefinitionRequestInput)(nil)).Elem(), PowerpackWidgetTopologyMapDefinitionRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTopologyMapDefinitionRequestArrayInput)(nil)).Elem(), PowerpackWidgetTopologyMapDefinitionRequestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTopologyMapDefinitionRequestQueryInput)(nil)).Elem(), PowerpackWidgetTopologyMapDefinitionRequestQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTopologyMapDefinitionRequestQueryArrayInput)(nil)).Elem(), PowerpackWidgetTopologyMapDefinitionRequestQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTraceServiceDefinitionInput)(nil)).Elem(), PowerpackWidgetTraceServiceDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTraceServiceDefinitionPtrInput)(nil)).Elem(), PowerpackWidgetTraceServiceDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionPtrInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionCustomLinkInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionCustomLinkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionCustomLinkArrayInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionCustomLinkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestArrayInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestFormulaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaArrayInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestFormulaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaLimitInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestFormulaLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestFormulaLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaStyleInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestFormulaStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestFormulaStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryArrayInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQueryInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryEventQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryEventQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQuerySloQueryInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQuerySloQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrInput)(nil)).Elem(), PowerpackWidgetTreemapDefinitionRequestQuerySloQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetWidgetLayoutInput)(nil)).Elem(), PowerpackWidgetWidgetLayoutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetWidgetLayoutPtrInput)(nil)).Elem(), PowerpackWidgetWidgetLayoutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderDefaultTagsInput)(nil)).Elem(), ProviderDefaultTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderDefaultTagsPtrInput)(nil)).Elem(), ProviderDefaultTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceTableFileMetadataInput)(nil)).Elem(), ReferenceTableFileMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceTableFileMetadataPtrInput)(nil)).Elem(), ReferenceTableFileMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceTableFileMetadataAccessDetailsInput)(nil)).Elem(), ReferenceTableFileMetadataAccessDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceTableFileMetadataAccessDetailsPtrInput)(nil)).Elem(), ReferenceTableFileMetadataAccessDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceTableFileMetadataAccessDetailsAwsDetailInput)(nil)).Elem(), ReferenceTableFileMetadataAccessDetailsAwsDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceTableFileMetadataAccessDetailsAwsDetailPtrInput)(nil)).Elem(), ReferenceTableFileMetadataAccessDetailsAwsDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceTableFileMetadataAccessDetailsAzureDetailInput)(nil)).Elem(), ReferenceTableFileMetadataAccessDetailsAzureDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceTableFileMetadataAccessDetailsAzureDetailPtrInput)(nil)).Elem(), ReferenceTableFileMetadataAccessDetailsAzureDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceTableFileMetadataAccessDetailsGcpDetailInput)(nil)).Elem(), ReferenceTableFileMetadataAccessDetailsGcpDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceTableFileMetadataAccessDetailsGcpDetailPtrInput)(nil)).Elem(), ReferenceTableFileMetadataAccessDetailsGcpDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceTableSchemaInput)(nil)).Elem(), ReferenceTableSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceTableSchemaPtrInput)(nil)).Elem(), ReferenceTableSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceTableSchemaFieldInput)(nil)).Elem(), ReferenceTableSchemaFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceTableSchemaFieldArrayInput)(nil)).Elem(), ReferenceTableSchemaFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestrictionPolicyBindingInput)(nil)).Elem(), RestrictionPolicyBindingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestrictionPolicyBindingArrayInput)(nil)).Elem(), RestrictionPolicyBindingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RolePermissionInput)(nil)).Elem(), RolePermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RolePermissionArrayInput)(nil)).Elem(), RolePermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RumMetricComputeInput)(nil)).Elem(), RumMetricComputeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RumMetricComputePtrInput)(nil)).Elem(), RumMetricComputeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RumMetricFilterInput)(nil)).Elem(), RumMetricFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RumMetricFilterPtrInput)(nil)).Elem(), RumMetricFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RumMetricGroupByInput)(nil)).Elem(), RumMetricGroupByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RumMetricGroupByArrayInput)(nil)).Elem(), RumMetricGroupByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RumMetricUniquenessInput)(nil)).Elem(), RumMetricUniquenessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RumMetricUniquenessPtrInput)(nil)).Elem(), RumMetricUniquenessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecureEmbedDashboardSelectableTemplateVarInput)(nil)).Elem(), SecureEmbedDashboardSelectableTemplateVarArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecureEmbedDashboardSelectableTemplateVarArrayInput)(nil)).Elem(), SecureEmbedDashboardSelectableTemplateVarArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityFindingsDueDateRuleActionInput)(nil)).Elem(), SecurityFindingsDueDateRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityFindingsDueDateRuleActionPtrInput)(nil)).Elem(), SecurityFindingsDueDateRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityFindingsDueDateRuleActionDueDaysPerSeverityInput)(nil)).Elem(), SecurityFindingsDueDateRuleActionDueDaysPerSeverityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayInput)(nil)).Elem(), SecurityFindingsDueDateRuleActionDueDaysPerSeverityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityFindingsDueDateRuleRuleInput)(nil)).Elem(), SecurityFindingsDueDateRuleRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityFindingsDueDateRuleRulePtrInput)(nil)).Elem(), SecurityFindingsDueDateRuleRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityFindingsMuteRuleActionInput)(nil)).Elem(), SecurityFindingsMuteRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityFindingsMuteRuleActionPtrInput)(nil)).Elem(), SecurityFindingsMuteRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityFindingsMuteRuleRuleInput)(nil)).Elem(), SecurityFindingsMuteRuleRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityFindingsMuteRuleRulePtrInput)(nil)).Elem(), SecurityFindingsMuteRuleRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityFindingsTicketCreationRuleActionInput)(nil)).Elem(), SecurityFindingsTicketCreationRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityFindingsTicketCreationRuleActionPtrInput)(nil)).Elem(), SecurityFindingsTicketCreationRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityFindingsTicketCreationRuleRuleInput)(nil)).Elem(), SecurityFindingsTicketCreationRuleRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityFindingsTicketCreationRuleRulePtrInput)(nil)).Elem(), SecurityFindingsTicketCreationRuleRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleCaseInput)(nil)).Elem(), SecurityMonitoringDefaultRuleCaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleCaseArrayInput)(nil)).Elem(), SecurityMonitoringDefaultRuleCaseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleFilterInput)(nil)).Elem(), SecurityMonitoringDefaultRuleFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleFilterArrayInput)(nil)).Elem(), SecurityMonitoringDefaultRuleFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleOptionsInput)(nil)).Elem(), SecurityMonitoringDefaultRuleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleOptionsPtrInput)(nil)).Elem(), SecurityMonitoringDefaultRuleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleQueryInput)(nil)).Elem(), SecurityMonitoringDefaultRuleQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleQueryArrayInput)(nil)).Elem(), SecurityMonitoringDefaultRuleQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleQueryAgentRuleInput)(nil)).Elem(), SecurityMonitoringDefaultRuleQueryAgentRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleQueryAgentRuleArrayInput)(nil)).Elem(), SecurityMonitoringDefaultRuleQueryAgentRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringFilterExclusionFilterInput)(nil)).Elem(), SecurityMonitoringFilterExclusionFilterArgs{})
@@ -39005,6 +52938,166 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamArrayInput)(nil)).Elem(), GetTeamsTeamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestRumQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestRumQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestRumQueryComputeQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestRumQueryGroupByOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestRumQueryGroupByArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestRumQueryGroupBySortQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestRumQueryMultiComputeArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestSecurityQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestSecurityQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestSecurityQueryComputeQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupByArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestStyleOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestStylePtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionStyleOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionStyleArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionStyleDisplayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionStyleDisplayArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTopologyMapDefinitionOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTopologyMapDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTopologyMapDefinitionCustomLinkOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTopologyMapDefinitionRequestOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTopologyMapDefinitionRequestArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTopologyMapDefinitionRequestQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTraceServiceDefinitionOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTraceServiceDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionCustomLinkOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionCustomLinkArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestFormulaOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestFormulaArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetWidgetLayoutOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetWidgetLayoutPtrOutput{})
+	pulumi.RegisterOutputType(ProviderDefaultTagsOutput{})
+	pulumi.RegisterOutputType(ProviderDefaultTagsPtrOutput{})
+	pulumi.RegisterOutputType(ReferenceTableFileMetadataOutput{})
+	pulumi.RegisterOutputType(ReferenceTableFileMetadataPtrOutput{})
+	pulumi.RegisterOutputType(ReferenceTableFileMetadataAccessDetailsOutput{})
+	pulumi.RegisterOutputType(ReferenceTableFileMetadataAccessDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ReferenceTableFileMetadataAccessDetailsAwsDetailOutput{})
+	pulumi.RegisterOutputType(ReferenceTableFileMetadataAccessDetailsAwsDetailPtrOutput{})
+	pulumi.RegisterOutputType(ReferenceTableFileMetadataAccessDetailsAzureDetailOutput{})
+	pulumi.RegisterOutputType(ReferenceTableFileMetadataAccessDetailsAzureDetailPtrOutput{})
+	pulumi.RegisterOutputType(ReferenceTableFileMetadataAccessDetailsGcpDetailOutput{})
+	pulumi.RegisterOutputType(ReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput{})
+	pulumi.RegisterOutputType(ReferenceTableSchemaOutput{})
+	pulumi.RegisterOutputType(ReferenceTableSchemaPtrOutput{})
+	pulumi.RegisterOutputType(ReferenceTableSchemaFieldOutput{})
+	pulumi.RegisterOutputType(ReferenceTableSchemaFieldArrayOutput{})
+	pulumi.RegisterOutputType(RestrictionPolicyBindingOutput{})
+	pulumi.RegisterOutputType(RestrictionPolicyBindingArrayOutput{})
+	pulumi.RegisterOutputType(RolePermissionOutput{})
+	pulumi.RegisterOutputType(RolePermissionArrayOutput{})
+	pulumi.RegisterOutputType(RumMetricComputeOutput{})
+	pulumi.RegisterOutputType(RumMetricComputePtrOutput{})
+	pulumi.RegisterOutputType(RumMetricFilterOutput{})
+	pulumi.RegisterOutputType(RumMetricFilterPtrOutput{})
+	pulumi.RegisterOutputType(RumMetricGroupByOutput{})
+	pulumi.RegisterOutputType(RumMetricGroupByArrayOutput{})
+	pulumi.RegisterOutputType(RumMetricUniquenessOutput{})
+	pulumi.RegisterOutputType(RumMetricUniquenessPtrOutput{})
+	pulumi.RegisterOutputType(SecureEmbedDashboardSelectableTemplateVarOutput{})
+	pulumi.RegisterOutputType(SecureEmbedDashboardSelectableTemplateVarArrayOutput{})
+	pulumi.RegisterOutputType(SecurityFindingsDueDateRuleActionOutput{})
+	pulumi.RegisterOutputType(SecurityFindingsDueDateRuleActionPtrOutput{})
+	pulumi.RegisterOutputType(SecurityFindingsDueDateRuleActionDueDaysPerSeverityOutput{})
+	pulumi.RegisterOutputType(SecurityFindingsDueDateRuleActionDueDaysPerSeverityArrayOutput{})
+	pulumi.RegisterOutputType(SecurityFindingsDueDateRuleRuleOutput{})
+	pulumi.RegisterOutputType(SecurityFindingsDueDateRuleRulePtrOutput{})
+	pulumi.RegisterOutputType(SecurityFindingsMuteRuleActionOutput{})
+	pulumi.RegisterOutputType(SecurityFindingsMuteRuleActionPtrOutput{})
+	pulumi.RegisterOutputType(SecurityFindingsMuteRuleRuleOutput{})
+	pulumi.RegisterOutputType(SecurityFindingsMuteRuleRulePtrOutput{})
+	pulumi.RegisterOutputType(SecurityFindingsTicketCreationRuleActionOutput{})
+	pulumi.RegisterOutputType(SecurityFindingsTicketCreationRuleActionPtrOutput{})
+	pulumi.RegisterOutputType(SecurityFindingsTicketCreationRuleRuleOutput{})
+	pulumi.RegisterOutputType(SecurityFindingsTicketCreationRuleRulePtrOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleCaseOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleCaseArrayOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleFilterOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleFilterArrayOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleOptionsOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleOptionsPtrOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleQueryOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleQueryArrayOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleQueryAgentRuleOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleQueryAgentRuleArrayOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringFilterExclusionFilterOutput{})

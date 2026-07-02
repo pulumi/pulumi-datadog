@@ -60,7 +60,7 @@ export class Provider extends pulumi.ProviderResource {
      */
     declare public readonly cloudProviderRegion: pulumi.Output<string | undefined>;
     /**
-     * Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+     * Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
      */
     declare public readonly cloudProviderType: pulumi.Output<string | undefined>;
     /**
@@ -68,7 +68,7 @@ export class Provider extends pulumi.ProviderResource {
      */
     declare public readonly httpClientRetryEnabled: pulumi.Output<string | undefined>;
     /**
-     * The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+     * The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
      */
     declare public readonly orgUuid: pulumi.Output<string | undefined>;
     /**
@@ -102,6 +102,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["httpClientRetryEnabled"] = args?.httpClientRetryEnabled;
             resourceInputs["httpClientRetryMaxRetries"] = pulumi.output(args?.httpClientRetryMaxRetries).apply(JSON.stringify);
             resourceInputs["httpClientRetryTimeout"] = pulumi.output(args?.httpClientRetryTimeout).apply(JSON.stringify);
+            resourceInputs["ignoreTagKeys"] = pulumi.output(args?.ignoreTagKeys).apply(JSON.stringify);
             resourceInputs["orgUuid"] = args?.orgUuid;
             resourceInputs["validate"] = args?.validate;
         }
@@ -158,7 +159,7 @@ export interface ProviderArgs {
      */
     cloudProviderRegion?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+     * Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
      */
     cloudProviderType?: pulumi.Input<string | undefined>;
     /**
@@ -186,7 +187,11 @@ export interface ProviderArgs {
      */
     httpClientRetryTimeout?: pulumi.Input<number | undefined>;
     /**
-     * The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+     * [Experimental - Monitors and Service Level Objectives only] Tag keys whose drift Terraform should ignore across all resources that support `ignoreTagKeys`. A resource's own `ignoreTagKeys` is merged with this list for that resource. Any `:value` suffix is ignored.
+     */
+    ignoreTagKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
      */
     orgUuid?: pulumi.Input<string | undefined>;
     /**

@@ -24,6 +24,7 @@ import com.pulumi.datadog.outputs.DashboardV2WidgetListStreamDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetLogStreamDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetManageStatusDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetNoteDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetPointPlotDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetPowerpackDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetQueryTableDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetQueryValueDefinition;
@@ -154,6 +155,11 @@ public final class DashboardV2Widget {
      * 
      */
     private @Nullable DashboardV2WidgetNoteDefinition noteDefinition;
+    /**
+     * @return The definition for a Point Plot widget.
+     * 
+     */
+    private @Nullable DashboardV2WidgetPointPlotDefinition pointPlotDefinition;
     /**
      * @return The definition for a Powerpack widget.
      * 
@@ -394,6 +400,13 @@ public final class DashboardV2Widget {
         return Optional.ofNullable(this.noteDefinition);
     }
     /**
+     * @return The definition for a Point Plot widget.
+     * 
+     */
+    public Optional<DashboardV2WidgetPointPlotDefinition> pointPlotDefinition() {
+        return Optional.ofNullable(this.pointPlotDefinition);
+    }
+    /**
      * @return The definition for a Powerpack widget.
      * 
      */
@@ -550,6 +563,7 @@ public final class DashboardV2Widget {
         private @Nullable DashboardV2WidgetLogStreamDefinition logStreamDefinition;
         private @Nullable DashboardV2WidgetManageStatusDefinition manageStatusDefinition;
         private @Nullable DashboardV2WidgetNoteDefinition noteDefinition;
+        private @Nullable DashboardV2WidgetPointPlotDefinition pointPlotDefinition;
         private @Nullable DashboardV2WidgetPowerpackDefinition powerpackDefinition;
         private @Nullable DashboardV2WidgetQueryTableDefinition queryTableDefinition;
         private @Nullable DashboardV2WidgetQueryValueDefinition queryValueDefinition;
@@ -592,6 +606,7 @@ public final class DashboardV2Widget {
     	      this.logStreamDefinition = defaults.logStreamDefinition;
     	      this.manageStatusDefinition = defaults.manageStatusDefinition;
     	      this.noteDefinition = defaults.noteDefinition;
+    	      this.pointPlotDefinition = defaults.pointPlotDefinition;
     	      this.powerpackDefinition = defaults.powerpackDefinition;
     	      this.queryTableDefinition = defaults.queryTableDefinition;
     	      this.queryValueDefinition = defaults.queryValueDefinition;
@@ -739,6 +754,12 @@ public final class DashboardV2Widget {
             return this;
         }
         @CustomType.Setter
+        public Builder pointPlotDefinition(@Nullable DashboardV2WidgetPointPlotDefinition pointPlotDefinition) {
+
+            this.pointPlotDefinition = pointPlotDefinition;
+            return this;
+        }
+        @CustomType.Setter
         public Builder powerpackDefinition(@Nullable DashboardV2WidgetPowerpackDefinition powerpackDefinition) {
 
             this.powerpackDefinition = powerpackDefinition;
@@ -869,6 +890,7 @@ public final class DashboardV2Widget {
             _resultValue.logStreamDefinition = logStreamDefinition;
             _resultValue.manageStatusDefinition = manageStatusDefinition;
             _resultValue.noteDefinition = noteDefinition;
+            _resultValue.pointPlotDefinition = pointPlotDefinition;
             _resultValue.powerpackDefinition = powerpackDefinition;
             _resultValue.queryTableDefinition = queryTableDefinition;
             _resultValue.queryValueDefinition = queryValueDefinition;

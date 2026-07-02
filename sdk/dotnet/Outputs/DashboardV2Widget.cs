@@ -98,6 +98,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardV2WidgetNoteDefinition? NoteDefinition;
         /// <summary>
+        /// The definition for a Point Plot widget.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetPointPlotDefinition? PointPlotDefinition;
+        /// <summary>
         /// The definition for a Powerpack widget.
         /// </summary>
         public readonly Outputs.DashboardV2WidgetPowerpackDefinition? PowerpackDefinition;
@@ -214,6 +218,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardV2WidgetNoteDefinition? noteDefinition,
 
+            Outputs.DashboardV2WidgetPointPlotDefinition? pointPlotDefinition,
+
             Outputs.DashboardV2WidgetPowerpackDefinition? powerpackDefinition,
 
             Outputs.DashboardV2WidgetQueryTableDefinition? queryTableDefinition,
@@ -271,6 +277,7 @@ namespace Pulumi.Datadog.Outputs
             LogStreamDefinition = logStreamDefinition;
             ManageStatusDefinition = manageStatusDefinition;
             NoteDefinition = noteDefinition;
+            PointPlotDefinition = pointPlotDefinition;
             PowerpackDefinition = powerpackDefinition;
             QueryTableDefinition = queryTableDefinition;
             QueryValueDefinition = queryValueDefinition;

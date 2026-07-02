@@ -31,6 +31,18 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorAddHostnameArgs>? AddHostname { get; set; }
 
         /// <summary>
+        /// The `AddMetricTags` processor adds static tags to metrics.
+        /// </summary>
+        [Input("addMetricTags")]
+        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorAddMetricTagsArgs>? AddMetricTags { get; set; }
+
+        /// <summary>
+        /// The `Aggregate` processor combines metrics that share the same name and tags into a single metric over a configurable interval.
+        /// </summary>
+        [Input("aggregate")]
+        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorAggregateArgs>? Aggregate { get; set; }
+
+        /// <summary>
         /// The `CustomProcessor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
         /// </summary>
         [Input("customProcessor")]
@@ -148,6 +160,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorRenameFieldsArgs>? RenameFields { get; set; }
 
         /// <summary>
+        /// The `RenameMetricTags` processor changes the keys of tags on metrics.
+        /// </summary>
+        [Input("renameMetricTags")]
+        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorRenameMetricTagsArgs>? RenameMetricTags { get; set; }
+
+        /// <summary>
         /// The `Sample` processor allows probabilistic sampling of logs at a fixed rate.
         /// </summary>
         [Input("sample")]
@@ -164,6 +182,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("splitArray")]
         public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArgs>? SplitArray { get; set; }
+
+        /// <summary>
+        /// The `TagCardinalityLimit` processor caps the number of distinct tag value combinations on metrics, dropping tags or events once the limit is exceeded.
+        /// </summary>
+        [Input("tagCardinalityLimit")]
+        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitArgs>? TagCardinalityLimit { get; set; }
 
         /// <summary>
         /// The `Throttle` processor limits the number of events that pass through over a given time window.

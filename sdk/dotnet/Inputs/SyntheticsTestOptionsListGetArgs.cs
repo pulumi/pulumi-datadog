@@ -37,6 +37,12 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// Capture HTTP request/response headers and bodies for Fetch/XHR calls made during browser tests.
+        /// </summary>
+        [Input("captureNetworkPayloads")]
+        public Input<bool>? CaptureNetworkPayloads { get; set; }
+
+        /// <summary>
         /// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
         /// </summary>
         [Input("checkCertificateRevocation")]

@@ -34,6 +34,7 @@ class MonitorArgs:
                  force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
                  group_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  groupby_simple_monitor: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  monitor_threshold_windows: pulumi.Input[Optional['MonitorMonitorThresholdWindowsArgs']] = None,
                  monitor_thresholds: pulumi.Input[Optional['MonitorMonitorThresholdsArgs']] = None,
@@ -76,6 +77,7 @@ class MonitorArgs:
         :param pulumi.Input[_builtins.bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
         :param pulumi.Input[_builtins.str] group_retention_duration: The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
         :param pulumi.Input[_builtins.bool] groupby_simple_monitor: Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_tag_keys: Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignore_tag_keys` for this resource.
         :param pulumi.Input[_builtins.bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
         :param pulumi.Input['MonitorMonitorThresholdWindowsArgs'] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
         :param pulumi.Input['MonitorMonitorThresholdsArgs'] monitor_thresholds: Alert thresholds of the monitor.
@@ -124,6 +126,8 @@ class MonitorArgs:
             pulumi.set(__self__, "group_retention_duration", group_retention_duration)
         if groupby_simple_monitor is not None:
             pulumi.set(__self__, "groupby_simple_monitor", groupby_simple_monitor)
+        if ignore_tag_keys is not None:
+            pulumi.set(__self__, "ignore_tag_keys", ignore_tag_keys)
         if include_tags is not None:
             pulumi.set(__self__, "include_tags", include_tags)
         if monitor_threshold_windows is not None:
@@ -334,6 +338,18 @@ class MonitorArgs:
     @groupby_simple_monitor.setter
     def groupby_simple_monitor(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "groupby_simple_monitor", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreTagKeys")
+    def ignore_tag_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignore_tag_keys` for this resource.
+        """
+        return pulumi.get(self, "ignore_tag_keys")
+
+    @ignore_tag_keys.setter
+    def ignore_tag_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "ignore_tag_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="includeTags")
@@ -615,6 +631,7 @@ class _MonitorState:
                  force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
                  group_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  groupby_simple_monitor: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  message: pulumi.Input[Optional[_builtins.str]] = None,
                  monitor_threshold_windows: pulumi.Input[Optional['MonitorMonitorThresholdWindowsArgs']] = None,
@@ -655,6 +672,7 @@ class _MonitorState:
         :param pulumi.Input[_builtins.bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
         :param pulumi.Input[_builtins.str] group_retention_duration: The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
         :param pulumi.Input[_builtins.bool] groupby_simple_monitor: Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_tag_keys: Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignore_tag_keys` for this resource.
         :param pulumi.Input[_builtins.bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
         :param pulumi.Input[_builtins.str] message: A message to include with notifications for this monitor.
         :param pulumi.Input['MonitorMonitorThresholdWindowsArgs'] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
@@ -705,6 +723,8 @@ class _MonitorState:
             pulumi.set(__self__, "group_retention_duration", group_retention_duration)
         if groupby_simple_monitor is not None:
             pulumi.set(__self__, "groupby_simple_monitor", groupby_simple_monitor)
+        if ignore_tag_keys is not None:
+            pulumi.set(__self__, "ignore_tag_keys", ignore_tag_keys)
         if include_tags is not None:
             pulumi.set(__self__, "include_tags", include_tags)
         if message is not None:
@@ -873,6 +893,18 @@ class _MonitorState:
     @groupby_simple_monitor.setter
     def groupby_simple_monitor(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "groupby_simple_monitor", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreTagKeys")
+    def ignore_tag_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignore_tag_keys` for this resource.
+        """
+        return pulumi.get(self, "ignore_tag_keys")
+
+    @ignore_tag_keys.setter
+    def ignore_tag_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "ignore_tag_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="includeTags")
@@ -1207,6 +1239,7 @@ class Monitor(pulumi.CustomResource):
                  force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
                  group_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  groupby_simple_monitor: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  message: pulumi.Input[Optional[_builtins.str]] = None,
                  monitor_threshold_windows: pulumi.Input[Optional[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']]] = None,
@@ -1282,6 +1315,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
         :param pulumi.Input[_builtins.str] group_retention_duration: The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
         :param pulumi.Input[_builtins.bool] groupby_simple_monitor: Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_tag_keys: Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignore_tag_keys` for this resource.
         :param pulumi.Input[_builtins.bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
         :param pulumi.Input[_builtins.str] message: A message to include with notifications for this monitor.
         :param pulumi.Input[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
@@ -1379,6 +1413,7 @@ class Monitor(pulumi.CustomResource):
                  force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
                  group_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  groupby_simple_monitor: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  message: pulumi.Input[Optional[_builtins.str]] = None,
                  monitor_threshold_windows: pulumi.Input[Optional[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']]] = None,
@@ -1423,6 +1458,7 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["force_delete"] = force_delete
             __props__.__dict__["group_retention_duration"] = group_retention_duration
             __props__.__dict__["groupby_simple_monitor"] = groupby_simple_monitor
+            __props__.__dict__["ignore_tag_keys"] = ignore_tag_keys
             __props__.__dict__["include_tags"] = include_tags
             if message is None and not opts.urn:
                 raise TypeError("Missing required property 'message'")
@@ -1476,6 +1512,7 @@ class Monitor(pulumi.CustomResource):
             force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
             group_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
             groupby_simple_monitor: pulumi.Input[Optional[_builtins.bool]] = None,
+            ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
             message: pulumi.Input[Optional[_builtins.str]] = None,
             monitor_threshold_windows: pulumi.Input[Optional[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']]] = None,
@@ -1520,6 +1557,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
         :param pulumi.Input[_builtins.str] group_retention_duration: The time span after which groups with missing data are dropped from the monitor state. The minimum value is one hour, and the maximum value is 72 hours. Example values are: 60m, 1h, and 2d. This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
         :param pulumi.Input[_builtins.bool] groupby_simple_monitor: Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_tag_keys: Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignore_tag_keys` for this resource.
         :param pulumi.Input[_builtins.bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
         :param pulumi.Input[_builtins.str] message: A message to include with notifications for this monitor.
         :param pulumi.Input[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
@@ -1565,6 +1603,7 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["force_delete"] = force_delete
         __props__.__dict__["group_retention_duration"] = group_retention_duration
         __props__.__dict__["groupby_simple_monitor"] = groupby_simple_monitor
+        __props__.__dict__["ignore_tag_keys"] = ignore_tag_keys
         __props__.__dict__["include_tags"] = include_tags
         __props__.__dict__["message"] = message
         __props__.__dict__["monitor_threshold_windows"] = monitor_threshold_windows
@@ -1666,6 +1705,14 @@ class Monitor(pulumi.CustomResource):
         Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
         """
         return pulumi.get(self, "groupby_simple_monitor")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreTagKeys")
+    def ignore_tag_keys(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignore_tag_keys` for this resource.
+        """
+        return pulumi.get(self, "ignore_tag_keys")
 
     @_builtins.property
     @pulumi.getter(name="includeTags")

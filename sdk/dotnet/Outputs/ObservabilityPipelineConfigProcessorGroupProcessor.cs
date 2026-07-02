@@ -26,6 +26,14 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorAddHostname? AddHostname;
         /// <summary>
+        /// The `AddMetricTags` processor adds static tags to metrics.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorAddMetricTags? AddMetricTags;
+        /// <summary>
+        /// The `Aggregate` processor combines metrics that share the same name and tags into a single metric over a configurable interval.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorAggregate? Aggregate;
+        /// <summary>
         /// The `CustomProcessor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessor? CustomProcessor;
@@ -103,6 +111,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorRenameFields? RenameFields;
         /// <summary>
+        /// The `RenameMetricTags` processor changes the keys of tags on metrics.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorRenameMetricTags? RenameMetricTags;
+        /// <summary>
         /// The `Sample` processor allows probabilistic sampling of logs at a fixed rate.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSample? Sample;
@@ -115,6 +127,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSplitArray? SplitArray;
         /// <summary>
+        /// The `TagCardinalityLimit` processor caps the number of distinct tag value combinations on metrics, dropping tags or events once the limit is exceeded.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimit? TagCardinalityLimit;
+        /// <summary>
         /// The `Throttle` processor limits the number of events that pass through over a given time window.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorThrottle? Throttle;
@@ -126,6 +142,10 @@ namespace Pulumi.Datadog.Outputs
             Outputs.ObservabilityPipelineConfigProcessorGroupProcessorAddFields? addFields,
 
             Outputs.ObservabilityPipelineConfigProcessorGroupProcessorAddHostname? addHostname,
+
+            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorAddMetricTags? addMetricTags,
+
+            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorAggregate? aggregate,
 
             Outputs.ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessor? customProcessor,
 
@@ -167,17 +187,23 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.ObservabilityPipelineConfigProcessorGroupProcessorRenameFields? renameFields,
 
+            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorRenameMetricTags? renameMetricTags,
+
             Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSample? sample,
 
             Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScanner? sensitiveDataScanner,
 
             Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSplitArray? splitArray,
 
+            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimit? tagCardinalityLimit,
+
             Outputs.ObservabilityPipelineConfigProcessorGroupProcessorThrottle? throttle)
         {
             AddEnvVars = addEnvVars;
             AddFields = addFields;
             AddHostname = addHostname;
+            AddMetricTags = addMetricTags;
+            Aggregate = aggregate;
             CustomProcessor = customProcessor;
             DatadogTags = datadogTags;
             Dedupe = dedupe;
@@ -198,9 +224,11 @@ namespace Pulumi.Datadog.Outputs
             Reduce = reduce;
             RemoveFields = removeFields;
             RenameFields = renameFields;
+            RenameMetricTags = renameMetricTags;
             Sample = sample;
             SensitiveDataScanner = sensitiveDataScanner;
             SplitArray = splitArray;
+            TagCardinalityLimit = tagCardinalityLimit;
             Throttle = throttle;
         }
     }

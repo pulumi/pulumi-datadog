@@ -114,7 +114,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<string?> _cloudProviderType = new __Value<string?>(() => __config.Get("cloudProviderType"));
         /// <summary>
-        /// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`Aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+        /// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`Aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
         /// </summary>
         public static string? CloudProviderType
         {
@@ -182,9 +182,19 @@ namespace Pulumi.Datadog
             set => _httpClientRetryTimeout.Set(value);
         }
 
+        private static readonly __Value<ImmutableArray<string>> _ignoreTagKeys = new __Value<ImmutableArray<string>>(() => __config.GetObject<ImmutableArray<string>>("ignoreTagKeys"));
+        /// <summary>
+        /// [Experimental - Monitors and Service Level Objectives only] Tag keys whose drift Terraform should ignore across all resources that support `IgnoreTagKeys`. A resource's own `IgnoreTagKeys` is merged with this list for that resource. Any `:value` suffix is ignored.
+        /// </summary>
+        public static ImmutableArray<string> IgnoreTagKeys
+        {
+            get => _ignoreTagKeys.Get();
+            set => _ignoreTagKeys.Set(value);
+        }
+
         private static readonly __Value<string?> _orgUuid = new __Value<string?>(() => __config.Get("orgUuid"));
         /// <summary>
-        /// The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        /// The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
         /// </summary>
         public static string? OrgUuid
         {
