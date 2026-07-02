@@ -768,6 +768,36 @@ export type SecureEmbedDashboard = import("./secureEmbedDashboard").SecureEmbedD
 export const SecureEmbedDashboard: typeof import("./secureEmbedDashboard").SecureEmbedDashboard = null as any;
 utilities.lazyLoad(exports, ["SecureEmbedDashboard"], () => require("./secureEmbedDashboard"));
 
+export { SecurityFindingsDueDateRuleArgs, SecurityFindingsDueDateRuleState } from "./securityFindingsDueDateRule";
+export type SecurityFindingsDueDateRule = import("./securityFindingsDueDateRule").SecurityFindingsDueDateRule;
+export const SecurityFindingsDueDateRule: typeof import("./securityFindingsDueDateRule").SecurityFindingsDueDateRule = null as any;
+utilities.lazyLoad(exports, ["SecurityFindingsDueDateRule"], () => require("./securityFindingsDueDateRule"));
+
+export { SecurityFindingsDueDateRulesOrderArgs, SecurityFindingsDueDateRulesOrderState } from "./securityFindingsDueDateRulesOrder";
+export type SecurityFindingsDueDateRulesOrder = import("./securityFindingsDueDateRulesOrder").SecurityFindingsDueDateRulesOrder;
+export const SecurityFindingsDueDateRulesOrder: typeof import("./securityFindingsDueDateRulesOrder").SecurityFindingsDueDateRulesOrder = null as any;
+utilities.lazyLoad(exports, ["SecurityFindingsDueDateRulesOrder"], () => require("./securityFindingsDueDateRulesOrder"));
+
+export { SecurityFindingsMuteRuleArgs, SecurityFindingsMuteRuleState } from "./securityFindingsMuteRule";
+export type SecurityFindingsMuteRule = import("./securityFindingsMuteRule").SecurityFindingsMuteRule;
+export const SecurityFindingsMuteRule: typeof import("./securityFindingsMuteRule").SecurityFindingsMuteRule = null as any;
+utilities.lazyLoad(exports, ["SecurityFindingsMuteRule"], () => require("./securityFindingsMuteRule"));
+
+export { SecurityFindingsMuteRulesOrderArgs, SecurityFindingsMuteRulesOrderState } from "./securityFindingsMuteRulesOrder";
+export type SecurityFindingsMuteRulesOrder = import("./securityFindingsMuteRulesOrder").SecurityFindingsMuteRulesOrder;
+export const SecurityFindingsMuteRulesOrder: typeof import("./securityFindingsMuteRulesOrder").SecurityFindingsMuteRulesOrder = null as any;
+utilities.lazyLoad(exports, ["SecurityFindingsMuteRulesOrder"], () => require("./securityFindingsMuteRulesOrder"));
+
+export { SecurityFindingsTicketCreationRuleArgs, SecurityFindingsTicketCreationRuleState } from "./securityFindingsTicketCreationRule";
+export type SecurityFindingsTicketCreationRule = import("./securityFindingsTicketCreationRule").SecurityFindingsTicketCreationRule;
+export const SecurityFindingsTicketCreationRule: typeof import("./securityFindingsTicketCreationRule").SecurityFindingsTicketCreationRule = null as any;
+utilities.lazyLoad(exports, ["SecurityFindingsTicketCreationRule"], () => require("./securityFindingsTicketCreationRule"));
+
+export { SecurityFindingsTicketCreationRulesOrderArgs, SecurityFindingsTicketCreationRulesOrderState } from "./securityFindingsTicketCreationRulesOrder";
+export type SecurityFindingsTicketCreationRulesOrder = import("./securityFindingsTicketCreationRulesOrder").SecurityFindingsTicketCreationRulesOrder;
+export const SecurityFindingsTicketCreationRulesOrder: typeof import("./securityFindingsTicketCreationRulesOrder").SecurityFindingsTicketCreationRulesOrder = null as any;
+utilities.lazyLoad(exports, ["SecurityFindingsTicketCreationRulesOrder"], () => require("./securityFindingsTicketCreationRulesOrder"));
+
 export { SecurityMonitoringCriticalAssetArgs, SecurityMonitoringCriticalAssetState } from "./securityMonitoringCriticalAsset";
 export type SecurityMonitoringCriticalAsset = import("./securityMonitoringCriticalAsset").SecurityMonitoringCriticalAsset;
 export const SecurityMonitoringCriticalAsset: typeof import("./securityMonitoringCriticalAsset").SecurityMonitoringCriticalAsset = null as any;
@@ -1169,6 +1199,18 @@ const _module = {
                 return new RumRetentionFiltersOrder(name, <any>undefined, { urn })
             case "datadog:index/secureEmbedDashboard:SecureEmbedDashboard":
                 return new SecureEmbedDashboard(name, <any>undefined, { urn })
+            case "datadog:index/securityFindingsDueDateRule:SecurityFindingsDueDateRule":
+                return new SecurityFindingsDueDateRule(name, <any>undefined, { urn })
+            case "datadog:index/securityFindingsDueDateRulesOrder:SecurityFindingsDueDateRulesOrder":
+                return new SecurityFindingsDueDateRulesOrder(name, <any>undefined, { urn })
+            case "datadog:index/securityFindingsMuteRule:SecurityFindingsMuteRule":
+                return new SecurityFindingsMuteRule(name, <any>undefined, { urn })
+            case "datadog:index/securityFindingsMuteRulesOrder:SecurityFindingsMuteRulesOrder":
+                return new SecurityFindingsMuteRulesOrder(name, <any>undefined, { urn })
+            case "datadog:index/securityFindingsTicketCreationRule:SecurityFindingsTicketCreationRule":
+                return new SecurityFindingsTicketCreationRule(name, <any>undefined, { urn })
+            case "datadog:index/securityFindingsTicketCreationRulesOrder:SecurityFindingsTicketCreationRulesOrder":
+                return new SecurityFindingsTicketCreationRulesOrder(name, <any>undefined, { urn })
             case "datadog:index/securityMonitoringCriticalAsset:SecurityMonitoringCriticalAsset":
                 return new SecurityMonitoringCriticalAsset(name, <any>undefined, { urn })
             case "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule":
@@ -1337,6 +1379,12 @@ pulumi.runtime.registerResourceModule("datadog", "index/rumMetric", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/rumRetentionFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/rumRetentionFiltersOrder", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/secureEmbedDashboard", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/securityFindingsDueDateRule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/securityFindingsDueDateRulesOrder", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/securityFindingsMuteRule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/securityFindingsMuteRulesOrder", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/securityFindingsTicketCreationRule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/securityFindingsTicketCreationRulesOrder", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringCriticalAsset", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringDefaultRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringFilter", _module)

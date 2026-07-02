@@ -34,11 +34,11 @@ type Provider struct {
 	BearerToken pulumi.StringPtrOutput `pulumi:"bearerToken"`
 	// The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
 	CloudProviderRegion pulumi.StringPtrOutput `pulumi:"cloudProviderRegion"`
-	// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+	// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
 	CloudProviderType pulumi.StringPtrOutput `pulumi:"cloudProviderType"`
 	// Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
 	HttpClientRetryEnabled pulumi.StringPtrOutput `pulumi:"httpClientRetryEnabled"`
-	// The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+	// The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
 	OrgUuid pulumi.StringPtrOutput `pulumi:"orgUuid"`
 	// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, apiKey won't be checked.
 	Validate pulumi.StringPtrOutput `pulumi:"validate"`
@@ -104,7 +104,7 @@ type providerArgs struct {
 	BearerToken *string `pulumi:"bearerToken"`
 	// The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
 	CloudProviderRegion *string `pulumi:"cloudProviderRegion"`
-	// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+	// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
 	CloudProviderType *string `pulumi:"cloudProviderType"`
 	// [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
 	DefaultTags *ProviderDefaultTags `pulumi:"defaultTags"`
@@ -118,7 +118,9 @@ type providerArgs struct {
 	HttpClientRetryMaxRetries *int `pulumi:"httpClientRetryMaxRetries"`
 	// The HTTP request retry timeout period. Defaults to 60 seconds.
 	HttpClientRetryTimeout *int `pulumi:"httpClientRetryTimeout"`
-	// The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+	// [Experimental - Monitors and Service Level Objectives only] Tag keys whose drift Terraform should ignore across all resources that support `ignoreTagKeys`. A resource's own `ignoreTagKeys` is merged with this list for that resource. Any `:value` suffix is ignored.
+	IgnoreTagKeys []string `pulumi:"ignoreTagKeys"`
+	// The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
 	OrgUuid *string `pulumi:"orgUuid"`
 	// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, apiKey won't be checked.
 	Validate *string `pulumi:"validate"`
@@ -142,7 +144,7 @@ type ProviderArgs struct {
 	BearerToken pulumi.StringPtrInput
 	// The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
 	CloudProviderRegion pulumi.StringPtrInput
-	// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+	// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
 	CloudProviderType pulumi.StringPtrInput
 	// [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
 	DefaultTags ProviderDefaultTagsPtrInput
@@ -156,7 +158,9 @@ type ProviderArgs struct {
 	HttpClientRetryMaxRetries pulumi.IntPtrInput
 	// The HTTP request retry timeout period. Defaults to 60 seconds.
 	HttpClientRetryTimeout pulumi.IntPtrInput
-	// The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+	// [Experimental - Monitors and Service Level Objectives only] Tag keys whose drift Terraform should ignore across all resources that support `ignoreTagKeys`. A resource's own `ignoreTagKeys` is merged with this list for that resource. Any `:value` suffix is ignored.
+	IgnoreTagKeys pulumi.StringArrayInput
+	// The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
 	OrgUuid pulumi.StringPtrInput
 	// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, apiKey won't be checked.
 	Validate pulumi.StringPtrInput
@@ -262,7 +266,7 @@ func (o ProviderOutput) CloudProviderRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.CloudProviderRegion }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
 func (o ProviderOutput) CloudProviderType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.CloudProviderType }).(pulumi.StringPtrOutput)
 }
@@ -272,7 +276,7 @@ func (o ProviderOutput) HttpClientRetryEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.HttpClientRetryEnabled }).(pulumi.StringPtrOutput)
 }
 
-// The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+// The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
 func (o ProviderOutput) OrgUuid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OrgUuid }).(pulumi.StringPtrOutput)
 }

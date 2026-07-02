@@ -27,6 +27,7 @@ class ServiceLevelObjectiveArgs:
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
                  groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  monitor_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  query: pulumi.Input[Optional['ServiceLevelObjectiveQueryArgs']] = None,
                  sli_specification: pulumi.Input[Optional['ServiceLevelObjectiveSliSpecificationArgs']] = None,
@@ -44,6 +45,7 @@ class ServiceLevelObjectiveArgs:
         :param pulumi.Input[_builtins.str] description: A description of this service level objective.
         :param pulumi.Input[_builtins.bool] force_delete: A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: A static set of groups to filter monitor-based SLOs
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_tag_keys: Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `pulumi preview` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignore_tag_keys` for this resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] monitor_ids: A static set of monitor IDs to use as part of the SLO
         :param pulumi.Input['ServiceLevelObjectiveQueryArgs'] query: The metric query of good / total events. Use this for metric SLOs as an alternative to `sli_specification`.
         :param pulumi.Input['ServiceLevelObjectiveSliSpecificationArgs'] sli_specification: A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
@@ -62,6 +64,8 @@ class ServiceLevelObjectiveArgs:
             pulumi.set(__self__, "force_delete", force_delete)
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
+        if ignore_tag_keys is not None:
+            pulumi.set(__self__, "ignore_tag_keys", ignore_tag_keys)
         if monitor_ids is not None:
             pulumi.set(__self__, "monitor_ids", monitor_ids)
         if query is not None:
@@ -150,6 +154,18 @@ class ServiceLevelObjectiveArgs:
     @groups.setter
     def groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreTagKeys")
+    def ignore_tag_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `pulumi preview` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignore_tag_keys` for this resource.
+        """
+        return pulumi.get(self, "ignore_tag_keys")
+
+    @ignore_tag_keys.setter
+    def ignore_tag_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "ignore_tag_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorIds")
@@ -254,6 +270,7 @@ class _ServiceLevelObjectiveState:
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
                  groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  monitor_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  query: pulumi.Input[Optional['ServiceLevelObjectiveQueryArgs']] = None,
@@ -271,6 +288,7 @@ class _ServiceLevelObjectiveState:
         :param pulumi.Input[_builtins.str] description: A description of this service level objective.
         :param pulumi.Input[_builtins.bool] force_delete: A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: A static set of groups to filter monitor-based SLOs
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_tag_keys: Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `pulumi preview` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignore_tag_keys` for this resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] monitor_ids: A static set of monitor IDs to use as part of the SLO
         :param pulumi.Input[_builtins.str] name: Name of Datadog service level objective
         :param pulumi.Input['ServiceLevelObjectiveQueryArgs'] query: The metric query of good / total events. Use this for metric SLOs as an alternative to `sli_specification`.
@@ -289,6 +307,8 @@ class _ServiceLevelObjectiveState:
             pulumi.set(__self__, "force_delete", force_delete)
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
+        if ignore_tag_keys is not None:
+            pulumi.set(__self__, "ignore_tag_keys", ignore_tag_keys)
         if monitor_ids is not None:
             pulumi.set(__self__, "monitor_ids", monitor_ids)
         if name is not None:
@@ -347,6 +367,18 @@ class _ServiceLevelObjectiveState:
     @groups.setter
     def groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreTagKeys")
+    def ignore_tag_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `pulumi preview` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignore_tag_keys` for this resource.
+        """
+        return pulumi.get(self, "ignore_tag_keys")
+
+    @ignore_tag_keys.setter
+    def ignore_tag_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "ignore_tag_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorIds")
@@ -490,6 +522,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
                  groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  monitor_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  query: pulumi.Input[Optional[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict']]] = None,
@@ -666,6 +699,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of this service level objective.
         :param pulumi.Input[_builtins.bool] force_delete: A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: A static set of groups to filter monitor-based SLOs
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_tag_keys: Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `pulumi preview` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignore_tag_keys` for this resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] monitor_ids: A static set of monitor IDs to use as part of the SLO
         :param pulumi.Input[_builtins.str] name: Name of Datadog service level objective
         :param pulumi.Input[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict']] query: The metric query of good / total events. Use this for metric SLOs as an alternative to `sli_specification`.
@@ -861,6 +895,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
                  groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  monitor_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  query: pulumi.Input[Optional[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict']]] = None,
@@ -884,6 +919,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["force_delete"] = force_delete
             __props__.__dict__["groups"] = groups
+            __props__.__dict__["ignore_tag_keys"] = ignore_tag_keys
             __props__.__dict__["monitor_ids"] = monitor_ids
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
@@ -914,6 +950,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
             groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             monitor_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             query: pulumi.Input[Optional[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict']]] = None,
@@ -935,6 +972,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of this service level objective.
         :param pulumi.Input[_builtins.bool] force_delete: A boolean indicating whether this monitor can be deleted even if it's referenced by other resources (for example, dashboards).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: A static set of groups to filter monitor-based SLOs
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_tag_keys: Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `pulumi preview` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignore_tag_keys` for this resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] monitor_ids: A static set of monitor IDs to use as part of the SLO
         :param pulumi.Input[_builtins.str] name: Name of Datadog service level objective
         :param pulumi.Input[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict']] query: The metric query of good / total events. Use this for metric SLOs as an alternative to `sli_specification`.
@@ -954,6 +992,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["force_delete"] = force_delete
         __props__.__dict__["groups"] = groups
+        __props__.__dict__["ignore_tag_keys"] = ignore_tag_keys
         __props__.__dict__["monitor_ids"] = monitor_ids
         __props__.__dict__["name"] = name
         __props__.__dict__["query"] = query
@@ -990,6 +1029,14 @@ class ServiceLevelObjective(pulumi.CustomResource):
         A static set of groups to filter monitor-based SLOs
         """
         return pulumi.get(self, "groups")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreTagKeys")
+    def ignore_tag_keys(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `pulumi preview` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignore_tag_keys` for this resource.
+        """
+        return pulumi.get(self, "ignore_tag_keys")
 
     @_builtins.property
     @pulumi.getter(name="monitorIds")

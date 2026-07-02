@@ -70,6 +70,21 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * Capture HTTP request/response headers and bodies for Fetch/XHR calls made during browser tests.
+     * 
+     */
+    @Import(name="captureNetworkPayloads")
+    private @Nullable Output<Boolean> captureNetworkPayloads;
+
+    /**
+     * @return Capture HTTP request/response headers and bodies for Fetch/XHR calls made during browser tests.
+     * 
+     */
+    public Optional<Output<Boolean>> captureNetworkPayloads() {
+        return Optional.ofNullable(this.captureNetworkPayloads);
+    }
+
+    /**
      * For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
      * 
      */
@@ -359,6 +374,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         this.acceptSelfSigned = $.acceptSelfSigned;
         this.allowInsecure = $.allowInsecure;
         this.blockedRequestPatterns = $.blockedRequestPatterns;
+        this.captureNetworkPayloads = $.captureNetworkPayloads;
         this.checkCertificateRevocation = $.checkCertificateRevocation;
         this.ci = $.ci;
         this.disableAiaIntermediateFetching = $.disableAiaIntermediateFetching;
@@ -470,6 +486,27 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
          */
         public Builder blockedRequestPatterns(String... blockedRequestPatterns) {
             return blockedRequestPatterns(List.of(blockedRequestPatterns));
+        }
+
+        /**
+         * @param captureNetworkPayloads Capture HTTP request/response headers and bodies for Fetch/XHR calls made during browser tests.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder captureNetworkPayloads(@Nullable Output<Boolean> captureNetworkPayloads) {
+            $.captureNetworkPayloads = captureNetworkPayloads;
+            return this;
+        }
+
+        /**
+         * @param captureNetworkPayloads Capture HTTP request/response headers and bodies for Fetch/XHR calls made during browser tests.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder captureNetworkPayloads(Boolean captureNetworkPayloads) {
+            return captureNetworkPayloads(Output.of(captureNetworkPayloads));
         }
 
         /**

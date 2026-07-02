@@ -21,15 +21,22 @@ namespace Pulumi.Datadog.Outputs
         /// Name of the environment variable or secret that holds the endpoint URL.
         /// </summary>
         public readonly string? EndpointUrlKey;
+        /// <summary>
+        /// Configuration for enabling TLS encryption between the pipeline component and external services.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationCloudPremTls? Tls;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationCloudPrem(
             Outputs.ObservabilityPipelineConfigDestinationCloudPremBuffer? buffer,
 
-            string? endpointUrlKey)
+            string? endpointUrlKey,
+
+            Outputs.ObservabilityPipelineConfigDestinationCloudPremTls? tls)
         {
             Buffer = buffer;
             EndpointUrlKey = endpointUrlKey;
+            Tls = tls;
         }
     }
 }

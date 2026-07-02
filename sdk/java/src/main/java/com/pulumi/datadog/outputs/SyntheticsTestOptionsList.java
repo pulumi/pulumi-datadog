@@ -36,6 +36,11 @@ public final class SyntheticsTestOptionsList {
      */
     private @Nullable List<String> blockedRequestPatterns;
     /**
+     * @return Capture HTTP request/response headers and bodies for Fetch/XHR calls made during browser tests.
+     * 
+     */
+    private @Nullable Boolean captureNetworkPayloads;
+    /**
      * @return For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
      * 
      */
@@ -149,6 +154,13 @@ public final class SyntheticsTestOptionsList {
      */
     public List<String> blockedRequestPatterns() {
         return this.blockedRequestPatterns == null ? List.of() : this.blockedRequestPatterns;
+    }
+    /**
+     * @return Capture HTTP request/response headers and bodies for Fetch/XHR calls made during browser tests.
+     * 
+     */
+    public Optional<Boolean> captureNetworkPayloads() {
+        return Optional.ofNullable(this.captureNetworkPayloads);
     }
     /**
      * @return For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
@@ -295,6 +307,7 @@ public final class SyntheticsTestOptionsList {
         private @Nullable Boolean acceptSelfSigned;
         private @Nullable Boolean allowInsecure;
         private @Nullable List<String> blockedRequestPatterns;
+        private @Nullable Boolean captureNetworkPayloads;
         private @Nullable Boolean checkCertificateRevocation;
         private @Nullable SyntheticsTestOptionsListCi ci;
         private @Nullable Boolean disableAiaIntermediateFetching;
@@ -321,6 +334,7 @@ public final class SyntheticsTestOptionsList {
     	      this.acceptSelfSigned = defaults.acceptSelfSigned;
     	      this.allowInsecure = defaults.allowInsecure;
     	      this.blockedRequestPatterns = defaults.blockedRequestPatterns;
+    	      this.captureNetworkPayloads = defaults.captureNetworkPayloads;
     	      this.checkCertificateRevocation = defaults.checkCertificateRevocation;
     	      this.ci = defaults.ci;
     	      this.disableAiaIntermediateFetching = defaults.disableAiaIntermediateFetching;
@@ -363,6 +377,12 @@ public final class SyntheticsTestOptionsList {
         }
         public Builder blockedRequestPatterns(String... blockedRequestPatterns) {
             return blockedRequestPatterns(List.of(blockedRequestPatterns));
+        }
+        @CustomType.Setter
+        public Builder captureNetworkPayloads(@Nullable Boolean captureNetworkPayloads) {
+
+            this.captureNetworkPayloads = captureNetworkPayloads;
+            return this;
         }
         @CustomType.Setter
         public Builder checkCertificateRevocation(@Nullable Boolean checkCertificateRevocation) {
@@ -494,6 +514,7 @@ public final class SyntheticsTestOptionsList {
             _resultValue.acceptSelfSigned = acceptSelfSigned;
             _resultValue.allowInsecure = allowInsecure;
             _resultValue.blockedRequestPatterns = blockedRequestPatterns;
+            _resultValue.captureNetworkPayloads = captureNetworkPayloads;
             _resultValue.checkCertificateRevocation = checkCertificateRevocation;
             _resultValue.ci = ci;
             _resultValue.disableAiaIntermediateFetching = disableAiaIntermediateFetching;

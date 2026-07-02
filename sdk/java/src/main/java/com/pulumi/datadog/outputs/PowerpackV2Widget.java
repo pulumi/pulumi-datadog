@@ -24,6 +24,7 @@ import com.pulumi.datadog.outputs.PowerpackV2WidgetListStreamDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetLogStreamDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetManageStatusDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetNoteDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetPointPlotDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryTableDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryValueDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetRunWorkflowDefinition;
@@ -152,6 +153,11 @@ public final class PowerpackV2Widget {
      * 
      */
     private @Nullable PowerpackV2WidgetNoteDefinition noteDefinition;
+    /**
+     * @return The definition for a Point Plot widget.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetPointPlotDefinition pointPlotDefinition;
     /**
      * @return The definition for a Query Table widget.
      * 
@@ -382,6 +388,13 @@ public final class PowerpackV2Widget {
         return Optional.ofNullable(this.noteDefinition);
     }
     /**
+     * @return The definition for a Point Plot widget.
+     * 
+     */
+    public Optional<PowerpackV2WidgetPointPlotDefinition> pointPlotDefinition() {
+        return Optional.ofNullable(this.pointPlotDefinition);
+    }
+    /**
      * @return The definition for a Query Table widget.
      * 
      */
@@ -524,6 +537,7 @@ public final class PowerpackV2Widget {
         private @Nullable PowerpackV2WidgetLogStreamDefinition logStreamDefinition;
         private @Nullable PowerpackV2WidgetManageStatusDefinition manageStatusDefinition;
         private @Nullable PowerpackV2WidgetNoteDefinition noteDefinition;
+        private @Nullable PowerpackV2WidgetPointPlotDefinition pointPlotDefinition;
         private @Nullable PowerpackV2WidgetQueryTableDefinition queryTableDefinition;
         private @Nullable PowerpackV2WidgetQueryValueDefinition queryValueDefinition;
         private @Nullable PowerpackV2WidgetRunWorkflowDefinition runWorkflowDefinition;
@@ -564,6 +578,7 @@ public final class PowerpackV2Widget {
     	      this.logStreamDefinition = defaults.logStreamDefinition;
     	      this.manageStatusDefinition = defaults.manageStatusDefinition;
     	      this.noteDefinition = defaults.noteDefinition;
+    	      this.pointPlotDefinition = defaults.pointPlotDefinition;
     	      this.queryTableDefinition = defaults.queryTableDefinition;
     	      this.queryValueDefinition = defaults.queryValueDefinition;
     	      this.runWorkflowDefinition = defaults.runWorkflowDefinition;
@@ -709,6 +724,12 @@ public final class PowerpackV2Widget {
             return this;
         }
         @CustomType.Setter
+        public Builder pointPlotDefinition(@Nullable PowerpackV2WidgetPointPlotDefinition pointPlotDefinition) {
+
+            this.pointPlotDefinition = pointPlotDefinition;
+            return this;
+        }
+        @CustomType.Setter
         public Builder queryTableDefinition(@Nullable PowerpackV2WidgetQueryTableDefinition queryTableDefinition) {
 
             this.queryTableDefinition = queryTableDefinition;
@@ -827,6 +848,7 @@ public final class PowerpackV2Widget {
             _resultValue.logStreamDefinition = logStreamDefinition;
             _resultValue.manageStatusDefinition = manageStatusDefinition;
             _resultValue.noteDefinition = noteDefinition;
+            _resultValue.pointPlotDefinition = pointPlotDefinition;
             _resultValue.queryTableDefinition = queryTableDefinition;
             _resultValue.queryValueDefinition = queryValueDefinition;
             _resultValue.runWorkflowDefinition = runWorkflowDefinition;

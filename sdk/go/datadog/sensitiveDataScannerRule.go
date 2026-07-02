@@ -24,8 +24,8 @@ import (
 type SensitiveDataScannerRule struct {
 	pulumi.CustomResourceState
 
-	// Description of the rule.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Description of the rule. Computed when `standardPatternId` is set and this field is omitted.
+	Description pulumi.StringOutput `pulumi:"description"`
 	// Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
 	ExcludedNamespaces pulumi.StringArrayOutput `pulumi:"excludedNamespaces"`
 	// Id of the scanning group the rule belongs to.
@@ -85,7 +85,7 @@ func GetSensitiveDataScannerRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SensitiveDataScannerRule resources.
 type sensitiveDataScannerRuleState struct {
-	// Description of the rule.
+	// Description of the rule. Computed when `standardPatternId` is set and this field is omitted.
 	Description *string `pulumi:"description"`
 	// Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
 	ExcludedNamespaces []string `pulumi:"excludedNamespaces"`
@@ -114,7 +114,7 @@ type sensitiveDataScannerRuleState struct {
 }
 
 type SensitiveDataScannerRuleState struct {
-	// Description of the rule.
+	// Description of the rule. Computed when `standardPatternId` is set and this field is omitted.
 	Description pulumi.StringPtrInput
 	// Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
 	ExcludedNamespaces pulumi.StringArrayInput
@@ -147,7 +147,7 @@ func (SensitiveDataScannerRuleState) ElementType() reflect.Type {
 }
 
 type sensitiveDataScannerRuleArgs struct {
-	// Description of the rule.
+	// Description of the rule. Computed when `standardPatternId` is set and this field is omitted.
 	Description *string `pulumi:"description"`
 	// Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
 	ExcludedNamespaces []string `pulumi:"excludedNamespaces"`
@@ -177,7 +177,7 @@ type sensitiveDataScannerRuleArgs struct {
 
 // The set of arguments for constructing a SensitiveDataScannerRule resource.
 type SensitiveDataScannerRuleArgs struct {
-	// Description of the rule.
+	// Description of the rule. Computed when `standardPatternId` is set and this field is omitted.
 	Description pulumi.StringPtrInput
 	// Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
 	ExcludedNamespaces pulumi.StringArrayInput
@@ -292,9 +292,9 @@ func (o SensitiveDataScannerRuleOutput) ToSensitiveDataScannerRuleOutputWithCont
 	return o
 }
 
-// Description of the rule.
-func (o SensitiveDataScannerRuleOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SensitiveDataScannerRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+// Description of the rule. Computed when `standardPatternId` is set and this field is omitted.
+func (o SensitiveDataScannerRuleOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *SensitiveDataScannerRule) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
 // Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.

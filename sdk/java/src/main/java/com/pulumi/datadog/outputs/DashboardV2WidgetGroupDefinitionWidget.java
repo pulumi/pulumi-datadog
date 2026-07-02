@@ -23,6 +23,7 @@ import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetListStre
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetLogStreamDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetManageStatusDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetNoteDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetPointPlotDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetRunWorkflowDefinition;
@@ -146,6 +147,11 @@ public final class DashboardV2WidgetGroupDefinitionWidget {
      * 
      */
     private @Nullable DashboardV2WidgetGroupDefinitionWidgetNoteDefinition noteDefinition;
+    /**
+     * @return The definition for a Point Plot widget.
+     * 
+     */
+    private @Nullable DashboardV2WidgetGroupDefinitionWidgetPointPlotDefinition pointPlotDefinition;
     /**
      * @return The definition for a Query Table widget.
      * 
@@ -369,6 +375,13 @@ public final class DashboardV2WidgetGroupDefinitionWidget {
         return Optional.ofNullable(this.noteDefinition);
     }
     /**
+     * @return The definition for a Point Plot widget.
+     * 
+     */
+    public Optional<DashboardV2WidgetGroupDefinitionWidgetPointPlotDefinition> pointPlotDefinition() {
+        return Optional.ofNullable(this.pointPlotDefinition);
+    }
+    /**
      * @return The definition for a Query Table widget.
      * 
      */
@@ -510,6 +523,7 @@ public final class DashboardV2WidgetGroupDefinitionWidget {
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetLogStreamDefinition logStreamDefinition;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetManageStatusDefinition manageStatusDefinition;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetNoteDefinition noteDefinition;
+        private @Nullable DashboardV2WidgetGroupDefinitionWidgetPointPlotDefinition pointPlotDefinition;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinition queryTableDefinition;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinition queryValueDefinition;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetRunWorkflowDefinition runWorkflowDefinition;
@@ -549,6 +563,7 @@ public final class DashboardV2WidgetGroupDefinitionWidget {
     	      this.logStreamDefinition = defaults.logStreamDefinition;
     	      this.manageStatusDefinition = defaults.manageStatusDefinition;
     	      this.noteDefinition = defaults.noteDefinition;
+    	      this.pointPlotDefinition = defaults.pointPlotDefinition;
     	      this.queryTableDefinition = defaults.queryTableDefinition;
     	      this.queryValueDefinition = defaults.queryValueDefinition;
     	      this.runWorkflowDefinition = defaults.runWorkflowDefinition;
@@ -688,6 +703,12 @@ public final class DashboardV2WidgetGroupDefinitionWidget {
             return this;
         }
         @CustomType.Setter
+        public Builder pointPlotDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetPointPlotDefinition pointPlotDefinition) {
+
+            this.pointPlotDefinition = pointPlotDefinition;
+            return this;
+        }
+        @CustomType.Setter
         public Builder queryTableDefinition(@Nullable DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinition queryTableDefinition) {
 
             this.queryTableDefinition = queryTableDefinition;
@@ -805,6 +826,7 @@ public final class DashboardV2WidgetGroupDefinitionWidget {
             _resultValue.logStreamDefinition = logStreamDefinition;
             _resultValue.manageStatusDefinition = manageStatusDefinition;
             _resultValue.noteDefinition = noteDefinition;
+            _resultValue.pointPlotDefinition = pointPlotDefinition;
             _resultValue.queryTableDefinition = queryTableDefinition;
             _resultValue.queryValueDefinition = queryValueDefinition;
             _resultValue.runWorkflowDefinition = runWorkflowDefinition;

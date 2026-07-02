@@ -67,7 +67,7 @@ namespace Pulumi.Datadog
         public Output<string?> CloudProviderRegion { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`Aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+        /// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`Aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
         /// </summary>
         [Output("cloudProviderType")]
         public Output<string?> CloudProviderType { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.Datadog
         public Output<string?> HttpClientRetryEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        /// The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
         /// </summary>
         [Output("orgUuid")]
         public Output<string?> OrgUuid { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Datadog
         public Input<string>? CloudProviderRegion { get; set; }
 
         /// <summary>
-        /// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`Aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+        /// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`Aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
         /// </summary>
         [Input("cloudProviderType")]
         public Input<string>? CloudProviderType { get; set; }
@@ -283,8 +283,20 @@ namespace Pulumi.Datadog
         [Input("httpClientRetryTimeout", json: true)]
         public Input<int>? HttpClientRetryTimeout { get; set; }
 
+        [Input("ignoreTagKeys", json: true)]
+        private InputList<string>? _ignoreTagKeys;
+
         /// <summary>
-        /// The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        /// [Experimental - Monitors and Service Level Objectives only] Tag keys whose drift Terraform should ignore across all resources that support `IgnoreTagKeys`. A resource's own `IgnoreTagKeys` is merged with this list for that resource. Any `:value` suffix is ignored.
+        /// </summary>
+        public InputList<string> IgnoreTagKeys
+        {
+            get => _ignoreTagKeys ?? (_ignoreTagKeys = new InputList<string>());
+            set => _ignoreTagKeys = value;
+        }
+
+        /// <summary>
+        /// The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
         /// </summary>
         [Input("orgUuid")]
         public Input<string>? OrgUuid { get; set; }

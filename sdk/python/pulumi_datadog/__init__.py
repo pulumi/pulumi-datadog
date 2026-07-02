@@ -159,6 +159,12 @@ from .rum_metric import *
 from .rum_retention_filter import *
 from .rum_retention_filters_order import *
 from .secure_embed_dashboard import *
+from .security_findings_due_date_rule import *
+from .security_findings_due_date_rules_order import *
+from .security_findings_mute_rule import *
+from .security_findings_mute_rules_order import *
+from .security_findings_ticket_creation_rule import *
+from .security_findings_ticket_creation_rules_order import *
 from .security_monitoring_critical_asset import *
 from .security_monitoring_default_rule import *
 from .security_monitoring_filter import *
@@ -985,6 +991,54 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/secureEmbedDashboard:SecureEmbedDashboard": "SecureEmbedDashboard"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/securityFindingsDueDateRule",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/securityFindingsDueDateRule:SecurityFindingsDueDateRule": "SecurityFindingsDueDateRule"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/securityFindingsDueDateRulesOrder",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/securityFindingsDueDateRulesOrder:SecurityFindingsDueDateRulesOrder": "SecurityFindingsDueDateRulesOrder"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/securityFindingsMuteRule",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/securityFindingsMuteRule:SecurityFindingsMuteRule": "SecurityFindingsMuteRule"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/securityFindingsMuteRulesOrder",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/securityFindingsMuteRulesOrder:SecurityFindingsMuteRulesOrder": "SecurityFindingsMuteRulesOrder"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/securityFindingsTicketCreationRule",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/securityFindingsTicketCreationRule:SecurityFindingsTicketCreationRule": "SecurityFindingsTicketCreationRule"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/securityFindingsTicketCreationRulesOrder",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/securityFindingsTicketCreationRulesOrder:SecurityFindingsTicketCreationRulesOrder": "SecurityFindingsTicketCreationRulesOrder"
   }
  },
  {

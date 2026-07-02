@@ -26,6 +26,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<string> BlockedRequestPatterns;
         /// <summary>
+        /// Capture HTTP request/response headers and bodies for Fetch/XHR calls made during browser tests.
+        /// </summary>
+        public readonly bool? CaptureNetworkPayloads;
+        /// <summary>
         /// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
         /// </summary>
         public readonly bool? CheckCertificateRevocation;
@@ -105,6 +109,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<string> blockedRequestPatterns,
 
+            bool? captureNetworkPayloads,
+
             bool? checkCertificateRevocation,
 
             Outputs.SyntheticsTestOptionsListCi? ci,
@@ -148,6 +154,7 @@ namespace Pulumi.Datadog.Outputs
             AcceptSelfSigned = acceptSelfSigned;
             AllowInsecure = allowInsecure;
             BlockedRequestPatterns = blockedRequestPatterns;
+            CaptureNetworkPayloads = captureNetworkPayloads;
             CheckCertificateRevocation = checkCertificateRevocation;
             Ci = ci;
             DisableAiaIntermediateFetching = disableAiaIntermediateFetching;

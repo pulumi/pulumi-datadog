@@ -24,6 +24,7 @@ import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetListStrea
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetLogStreamDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetManageStatusDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetNoteDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetPointPlotDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs;
@@ -351,6 +352,21 @@ public final class DashboardV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
     }
 
     /**
+     * The definition for a Point Plot widget.
+     * 
+     */
+    @Import(name="pointPlotDefinition")
+    private @Nullable Output<DashboardV2WidgetGroupDefinitionWidgetPointPlotDefinitionArgs> pointPlotDefinition;
+
+    /**
+     * @return The definition for a Point Plot widget.
+     * 
+     */
+    public Optional<Output<DashboardV2WidgetGroupDefinitionWidgetPointPlotDefinitionArgs>> pointPlotDefinition() {
+        return Optional.ofNullable(this.pointPlotDefinition);
+    }
+
+    /**
      * The definition for a Query Table widget.
      * 
      */
@@ -613,6 +629,7 @@ public final class DashboardV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
         this.logStreamDefinition = $.logStreamDefinition;
         this.manageStatusDefinition = $.manageStatusDefinition;
         this.noteDefinition = $.noteDefinition;
+        this.pointPlotDefinition = $.pointPlotDefinition;
         this.queryTableDefinition = $.queryTableDefinition;
         this.queryValueDefinition = $.queryValueDefinition;
         this.runWorkflowDefinition = $.runWorkflowDefinition;
@@ -1067,6 +1084,27 @@ public final class DashboardV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          */
         public Builder noteDefinition(DashboardV2WidgetGroupDefinitionWidgetNoteDefinitionArgs noteDefinition) {
             return noteDefinition(Output.of(noteDefinition));
+        }
+
+        /**
+         * @param pointPlotDefinition The definition for a Point Plot widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pointPlotDefinition(@Nullable Output<DashboardV2WidgetGroupDefinitionWidgetPointPlotDefinitionArgs> pointPlotDefinition) {
+            $.pointPlotDefinition = pointPlotDefinition;
+            return this;
+        }
+
+        /**
+         * @param pointPlotDefinition The definition for a Point Plot widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pointPlotDefinition(DashboardV2WidgetGroupDefinitionWidgetPointPlotDefinitionArgs pointPlotDefinition) {
+            return pointPlotDefinition(Output.of(pointPlotDefinition));
         }
 
         /**

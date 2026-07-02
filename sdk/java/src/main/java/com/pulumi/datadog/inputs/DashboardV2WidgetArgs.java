@@ -25,6 +25,7 @@ import com.pulumi.datadog.inputs.DashboardV2WidgetListStreamDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetLogStreamDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetManageStatusDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetNoteDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetPointPlotDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetPowerpackDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetQueryTableDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetQueryValueDefinitionArgs;
@@ -369,6 +370,21 @@ public final class DashboardV2WidgetArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * The definition for a Point Plot widget.
+     * 
+     */
+    @Import(name="pointPlotDefinition")
+    private @Nullable Output<DashboardV2WidgetPointPlotDefinitionArgs> pointPlotDefinition;
+
+    /**
+     * @return The definition for a Point Plot widget.
+     * 
+     */
+    public Optional<Output<DashboardV2WidgetPointPlotDefinitionArgs>> pointPlotDefinition() {
+        return Optional.ofNullable(this.pointPlotDefinition);
+    }
+
+    /**
      * The definition for a Powerpack widget.
      * 
      */
@@ -662,6 +678,7 @@ public final class DashboardV2WidgetArgs extends com.pulumi.resources.ResourceAr
         this.logStreamDefinition = $.logStreamDefinition;
         this.manageStatusDefinition = $.manageStatusDefinition;
         this.noteDefinition = $.noteDefinition;
+        this.pointPlotDefinition = $.pointPlotDefinition;
         this.powerpackDefinition = $.powerpackDefinition;
         this.queryTableDefinition = $.queryTableDefinition;
         this.queryValueDefinition = $.queryValueDefinition;
@@ -1139,6 +1156,27 @@ public final class DashboardV2WidgetArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder noteDefinition(DashboardV2WidgetNoteDefinitionArgs noteDefinition) {
             return noteDefinition(Output.of(noteDefinition));
+        }
+
+        /**
+         * @param pointPlotDefinition The definition for a Point Plot widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pointPlotDefinition(@Nullable Output<DashboardV2WidgetPointPlotDefinitionArgs> pointPlotDefinition) {
+            $.pointPlotDefinition = pointPlotDefinition;
+            return this;
+        }
+
+        /**
+         * @param pointPlotDefinition The definition for a Point Plot widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pointPlotDefinition(DashboardV2WidgetPointPlotDefinitionArgs pointPlotDefinition) {
+            return pointPlotDefinition(Output.of(pointPlotDefinition));
         }
 
         /**

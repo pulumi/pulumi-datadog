@@ -213,6 +213,20 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.groupbySimpleMonitor);
     }
     /**
+     * Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider&#39;s `ignoreTagKeys` for this resource.
+     * 
+     */
+    @Export(name="ignoreTagKeys", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> ignoreTagKeys;
+
+    /**
+     * @return Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider&#39;s `ignoreTagKeys` for this resource.
+     * 
+     */
+    public Output<Optional<List<String>>> ignoreTagKeys() {
+        return Codegen.optional(this.ignoreTagKeys);
+    }
+    /**
      * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
      * 
      */
