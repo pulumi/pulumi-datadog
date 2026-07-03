@@ -3,10 +3,12 @@
 
 package com.pulumi.datadog;
 
+import com.pulumi.core.TypeShape;
 import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.config.inputs.DefaultTags;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 
 public final class Config {
@@ -69,7 +71,7 @@ public final class Config {
         return Codegen.stringProp("cloudProviderRegion").config(config).get();
     }
 /**
- * Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you&#39;d like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+ * Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you&#39;d like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
  * 
  */
     public Optional<String> cloudProviderType() {
@@ -118,7 +120,14 @@ public final class Config {
         return Codegen.integerProp("httpClientRetryTimeout").config(config).get();
     }
 /**
- * The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+ * [Experimental - Monitors and Service Level Objectives only] Tag keys whose drift Terraform should ignore across all resources that support `ignoreTagKeys`. A resource&#39;s own `ignoreTagKeys` is merged with this list for that resource. Any `:value` suffix is ignored.
+ * 
+ */
+    public Optional<List<String>> ignoreTagKeys() {
+        return Codegen.objectProp("ignoreTagKeys", TypeShape.<List<String>>builder(List.class).addParameter(String.class).build()).config(config).get();
+    }
+/**
+ * The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
  * 
  */
     public Optional<String> orgUuid() {

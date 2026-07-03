@@ -38,7 +38,7 @@ class SensitiveDataScannerRuleArgs:
         The set of arguments for constructing a SensitiveDataScannerRule resource.
 
         :param pulumi.Input[_builtins.str] group_id: Id of the scanning group the rule belongs to.
-        :param pulumi.Input[_builtins.str] description: Description of the rule.
+        :param pulumi.Input[_builtins.str] description: Description of the rule. Computed when `standard_pattern_id` is set and this field is omitted.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_namespaces: Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
         :param pulumi.Input['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs'] included_keyword_configuration: Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standard_pattern_id` field, then discarding this field will apply the recommended keywords. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
         :param pulumi.Input[_builtins.bool] is_enabled: Whether or not the rule is enabled.
@@ -93,7 +93,7 @@ class SensitiveDataScannerRuleArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Description of the rule.
+        Description of the rule. Computed when `standard_pattern_id` is set and this field is omitted.
         """
         return pulumi.get(self, "description")
 
@@ -253,7 +253,7 @@ class _SensitiveDataScannerRuleState:
         """
         Input properties used for looking up and filtering SensitiveDataScannerRule resources.
 
-        :param pulumi.Input[_builtins.str] description: Description of the rule.
+        :param pulumi.Input[_builtins.str] description: Description of the rule. Computed when `standard_pattern_id` is set and this field is omitted.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_namespaces: Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
         :param pulumi.Input[_builtins.str] group_id: Id of the scanning group the rule belongs to.
         :param pulumi.Input['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs'] included_keyword_configuration: Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standard_pattern_id` field, then discarding this field will apply the recommended keywords. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
@@ -298,7 +298,7 @@ class _SensitiveDataScannerRuleState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Description of the rule.
+        Description of the rule. Computed when `standard_pattern_id` is set and this field is omitted.
         """
         return pulumi.get(self, "description")
 
@@ -485,7 +485,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Description of the rule.
+        :param pulumi.Input[_builtins.str] description: Description of the rule. Computed when `standard_pattern_id` is set and this field is omitted.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_namespaces: Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
         :param pulumi.Input[_builtins.str] group_id: Id of the scanning group the rule belongs to.
         :param pulumi.Input[Union['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs', 'SensitiveDataScannerRuleIncludedKeywordConfigurationArgsDict']] included_keyword_configuration: Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standard_pattern_id` field, then discarding this field will apply the recommended keywords. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
@@ -599,7 +599,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Description of the rule.
+        :param pulumi.Input[_builtins.str] description: Description of the rule. Computed when `standard_pattern_id` is set and this field is omitted.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_namespaces: Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
         :param pulumi.Input[_builtins.str] group_id: Id of the scanning group the rule belongs to.
         :param pulumi.Input[Union['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs', 'SensitiveDataScannerRuleIncludedKeywordConfigurationArgsDict']] included_keyword_configuration: Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standard_pattern_id` field, then discarding this field will apply the recommended keywords. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
@@ -634,9 +634,9 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def description(self) -> pulumi.Output[_builtins.str]:
         """
-        Description of the rule.
+        Description of the rule. Computed when `standard_pattern_id` is set and this field is omitted.
         """
         return pulumi.get(self, "description")
 

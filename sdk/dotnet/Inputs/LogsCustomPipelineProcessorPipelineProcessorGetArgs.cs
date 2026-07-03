@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorGetArgs>? ArithmeticProcessor { get; set; }
 
         /// <summary>
+        /// Array-Map Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#array-map-processor)
+        /// </summary>
+        [Input("arrayMapProcessor")]
+        public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorArrayMapProcessorGetArgs>? ArrayMapProcessor { get; set; }
+
+        /// <summary>
         /// Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
         /// </summary>
         [Input("arrayProcessor")]

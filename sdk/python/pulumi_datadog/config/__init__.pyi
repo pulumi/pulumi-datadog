@@ -57,7 +57,7 @@ The cloud provider region specifier; used for cloud-provider-based authenticatio
 
 cloudProviderType: Optional[str]
 """
-Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
 """
 
 defaultTags: Optional[str]
@@ -90,9 +90,14 @@ httpClientRetryTimeout: Optional[int]
 The HTTP request retry timeout period. Defaults to 60 seconds.
 """
 
+ignoreTagKeys: Optional[str]
+"""
+[Experimental - Monitors and Service Level Objectives only] Tag keys whose drift Terraform should ignore across all resources that support `ignore_tag_keys`. A resource's own `ignore_tag_keys` is merged with this list for that resource. Any `:value` suffix is ignored.
+"""
+
 orgUuid: Optional[str]
 """
-The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
 """
 
 validate: Optional[str]

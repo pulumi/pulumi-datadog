@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorArithmeticProcessor? ArithmeticProcessor;
         /// <summary>
+        /// Array-Map Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#array-map-processor)
+        /// </summary>
+        public readonly Outputs.LogsCustomPipelineProcessorArrayMapProcessor? ArrayMapProcessor;
+        /// <summary>
         /// Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
         /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorArrayProcessor? ArrayProcessor;
@@ -95,6 +99,8 @@ namespace Pulumi.Datadog.Outputs
         private LogsCustomPipelineProcessor(
             Outputs.LogsCustomPipelineProcessorArithmeticProcessor? arithmeticProcessor,
 
+            Outputs.LogsCustomPipelineProcessorArrayMapProcessor? arrayMapProcessor,
+
             Outputs.LogsCustomPipelineProcessorArrayProcessor? arrayProcessor,
 
             Outputs.LogsCustomPipelineProcessorAttributeRemapper? attributeRemapper,
@@ -134,6 +140,7 @@ namespace Pulumi.Datadog.Outputs
             Outputs.LogsCustomPipelineProcessorUserAgentParser? userAgentParser)
         {
             ArithmeticProcessor = arithmeticProcessor;
+            ArrayMapProcessor = arrayMapProcessor;
             ArrayProcessor = arrayProcessor;
             AttributeRemapper = attributeRemapper;
             CategoryProcessor = categoryProcessor;

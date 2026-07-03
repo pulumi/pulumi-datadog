@@ -183,6 +183,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RumRetentionFiltersOrder{}
 	case "datadog:index/secureEmbedDashboard:SecureEmbedDashboard":
 		r = &SecureEmbedDashboard{}
+	case "datadog:index/securityFindingsDueDateRule:SecurityFindingsDueDateRule":
+		r = &SecurityFindingsDueDateRule{}
+	case "datadog:index/securityFindingsDueDateRulesOrder:SecurityFindingsDueDateRulesOrder":
+		r = &SecurityFindingsDueDateRulesOrder{}
+	case "datadog:index/securityFindingsMuteRule:SecurityFindingsMuteRule":
+		r = &SecurityFindingsMuteRule{}
+	case "datadog:index/securityFindingsMuteRulesOrder:SecurityFindingsMuteRulesOrder":
+		r = &SecurityFindingsMuteRulesOrder{}
+	case "datadog:index/securityFindingsTicketCreationRule:SecurityFindingsTicketCreationRule":
+		r = &SecurityFindingsTicketCreationRule{}
+	case "datadog:index/securityFindingsTicketCreationRulesOrder:SecurityFindingsTicketCreationRulesOrder":
+		r = &SecurityFindingsTicketCreationRulesOrder{}
 	case "datadog:index/securityMonitoringCriticalAsset:SecurityMonitoringCriticalAsset":
 		r = &SecurityMonitoringCriticalAsset{}
 	case "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule":
@@ -699,6 +711,36 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/secureEmbedDashboard",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/securityFindingsDueDateRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/securityFindingsDueDateRulesOrder",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/securityFindingsMuteRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/securityFindingsMuteRulesOrder",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/securityFindingsTicketCreationRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/securityFindingsTicketCreationRulesOrder",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

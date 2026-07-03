@@ -108,6 +108,10 @@ export class Monitor extends pulumi.CustomResource {
      */
     declare public readonly groupbySimpleMonitor: pulumi.Output<boolean | undefined>;
     /**
+     * Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignoreTagKeys` for this resource.
+     */
+    declare public readonly ignoreTagKeys: pulumi.Output<string[] | undefined>;
+    /**
      * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
      */
     declare public readonly includeTags: pulumi.Output<boolean | undefined>;
@@ -241,6 +245,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["forceDelete"] = state?.forceDelete;
             resourceInputs["groupRetentionDuration"] = state?.groupRetentionDuration;
             resourceInputs["groupbySimpleMonitor"] = state?.groupbySimpleMonitor;
+            resourceInputs["ignoreTagKeys"] = state?.ignoreTagKeys;
             resourceInputs["includeTags"] = state?.includeTags;
             resourceInputs["message"] = state?.message;
             resourceInputs["monitorThresholdWindows"] = state?.monitorThresholdWindows;
@@ -290,6 +295,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["forceDelete"] = args?.forceDelete;
             resourceInputs["groupRetentionDuration"] = args?.groupRetentionDuration;
             resourceInputs["groupbySimpleMonitor"] = args?.groupbySimpleMonitor;
+            resourceInputs["ignoreTagKeys"] = args?.ignoreTagKeys;
             resourceInputs["includeTags"] = args?.includeTags;
             resourceInputs["message"] = args?.message;
             resourceInputs["monitorThresholdWindows"] = args?.monitorThresholdWindows;
@@ -364,6 +370,10 @@ export interface MonitorState {
      * Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
      */
     groupbySimpleMonitor?: pulumi.Input<boolean | undefined>;
+    /**
+     * Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignoreTagKeys` for this resource.
+     */
+    ignoreTagKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
      */
@@ -519,6 +529,10 @@ export interface MonitorArgs {
      * Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
      */
     groupbySimpleMonitor?: pulumi.Input<boolean | undefined>;
+    /**
+     * Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignoreTagKeys` for this resource.
+     */
+    ignoreTagKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
      */

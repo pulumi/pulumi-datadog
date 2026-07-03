@@ -22,14 +22,14 @@ public final class SensitiveDataScannerRuleState extends com.pulumi.resources.Re
     public static final SensitiveDataScannerRuleState Empty = new SensitiveDataScannerRuleState();
 
     /**
-     * Description of the rule.
+     * Description of the rule. Computed when `standardPatternId` is set and this field is omitted.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of the rule.
+     * @return Description of the rule. Computed when `standardPatternId` is set and this field is omitted.
      * 
      */
     public Optional<Output<String>> description() {
@@ -253,7 +253,7 @@ public final class SensitiveDataScannerRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param description Description of the rule.
+         * @param description Description of the rule. Computed when `standardPatternId` is set and this field is omitted.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class SensitiveDataScannerRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param description Description of the rule.
+         * @param description Description of the rule. Computed when `standardPatternId` is set and this field is omitted.
          * 
          * @return builder
          * 

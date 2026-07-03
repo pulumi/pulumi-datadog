@@ -24,6 +24,7 @@ import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetListStrea
 import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetLogStreamDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetManageStatusDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetNoteDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs;
@@ -351,6 +352,21 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
     }
 
     /**
+     * The definition for a Point Plot widget.
+     * 
+     */
+    @Import(name="pointPlotDefinition")
+    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionArgs> pointPlotDefinition;
+
+    /**
+     * @return The definition for a Point Plot widget.
+     * 
+     */
+    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionArgs>> pointPlotDefinition() {
+        return Optional.ofNullable(this.pointPlotDefinition);
+    }
+
+    /**
      * The definition for a Query Table widget.
      * 
      */
@@ -613,6 +629,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
         this.logStreamDefinition = $.logStreamDefinition;
         this.manageStatusDefinition = $.manageStatusDefinition;
         this.noteDefinition = $.noteDefinition;
+        this.pointPlotDefinition = $.pointPlotDefinition;
         this.queryTableDefinition = $.queryTableDefinition;
         this.queryValueDefinition = $.queryValueDefinition;
         this.runWorkflowDefinition = $.runWorkflowDefinition;
@@ -1067,6 +1084,27 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          */
         public Builder noteDefinition(PowerpackV2WidgetGroupDefinitionWidgetNoteDefinitionArgs noteDefinition) {
             return noteDefinition(Output.of(noteDefinition));
+        }
+
+        /**
+         * @param pointPlotDefinition The definition for a Point Plot widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pointPlotDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionArgs> pointPlotDefinition) {
+            $.pointPlotDefinition = pointPlotDefinition;
+            return this;
+        }
+
+        /**
+         * @param pointPlotDefinition The definition for a Point Plot widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pointPlotDefinition(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionArgs pointPlotDefinition) {
+            return pointPlotDefinition(Output.of(pointPlotDefinition));
         }
 
         /**

@@ -83,6 +83,8 @@ type Monitor struct {
 	GroupRetentionDuration pulumi.StringPtrOutput `pulumi:"groupRetentionDuration"`
 	// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
 	GroupbySimpleMonitor pulumi.BoolPtrOutput `pulumi:"groupbySimpleMonitor"`
+	// Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignoreTagKeys` for this resource.
+	IgnoreTagKeys pulumi.StringArrayOutput `pulumi:"ignoreTagKeys"`
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
 	IncludeTags pulumi.BoolPtrOutput `pulumi:"includeTags"`
 	// A message to include with notifications for this monitor.
@@ -208,6 +210,8 @@ type monitorState struct {
 	GroupRetentionDuration *string `pulumi:"groupRetentionDuration"`
 	// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
 	GroupbySimpleMonitor *bool `pulumi:"groupbySimpleMonitor"`
+	// Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignoreTagKeys` for this resource.
+	IgnoreTagKeys []string `pulumi:"ignoreTagKeys"`
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
 	IncludeTags *bool `pulumi:"includeTags"`
 	// A message to include with notifications for this monitor.
@@ -292,6 +296,8 @@ type MonitorState struct {
 	GroupRetentionDuration pulumi.StringPtrInput
 	// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
 	GroupbySimpleMonitor pulumi.BoolPtrInput
+	// Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignoreTagKeys` for this resource.
+	IgnoreTagKeys pulumi.StringArrayInput
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
 	IncludeTags pulumi.BoolPtrInput
 	// A message to include with notifications for this monitor.
@@ -380,6 +386,8 @@ type monitorArgs struct {
 	GroupRetentionDuration *string `pulumi:"groupRetentionDuration"`
 	// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
 	GroupbySimpleMonitor *bool `pulumi:"groupbySimpleMonitor"`
+	// Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignoreTagKeys` for this resource.
+	IgnoreTagKeys []string `pulumi:"ignoreTagKeys"`
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
 	IncludeTags *bool `pulumi:"includeTags"`
 	// A message to include with notifications for this monitor.
@@ -465,6 +473,8 @@ type MonitorArgs struct {
 	GroupRetentionDuration pulumi.StringPtrInput
 	// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
 	GroupbySimpleMonitor pulumi.BoolPtrInput
+	// Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignoreTagKeys` for this resource.
+	IgnoreTagKeys pulumi.StringArrayInput
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
 	IncludeTags pulumi.BoolPtrInput
 	// A message to include with notifications for this monitor.
@@ -660,6 +670,11 @@ func (o MonitorOutput) GroupRetentionDuration() pulumi.StringPtrOutput {
 // Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to `false`.
 func (o MonitorOutput) GroupbySimpleMonitor() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.GroupbySimpleMonitor }).(pulumi.BoolPtrOutput)
+}
+
+// Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignoreTagKeys` for this resource.
+func (o MonitorOutput) IgnoreTagKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringArrayOutput { return v.IgnoreTagKeys }).(pulumi.StringArrayOutput)
 }
 
 // A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.

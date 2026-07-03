@@ -24,6 +24,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("endpointUrlKey")]
         public Input<string>? EndpointUrlKey { get; set; }
 
+        /// <summary>
+        /// Configuration for enabling TLS encryption between the pipeline component and external services.
+        /// </summary>
+        [Input("tls")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationCloudPremTlsGetArgs>? Tls { get; set; }
+
         public ObservabilityPipelineConfigDestinationCloudPremGetArgs()
         {
         }

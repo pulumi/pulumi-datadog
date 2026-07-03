@@ -19,7 +19,7 @@ public final class TagIndexingRuleOptionsData {
      */
     private @Nullable TagIndexingRuleOptionsDataDynamicTags dynamicTags;
     /**
-     * @return When true, the rule applies to metrics ingested before the rule was created.
+     * @return When true, the rule applies to metrics ingested before the rule was created. Defaults to `true`.
      * 
      */
     private @Nullable Boolean managePreexistingMetrics;
@@ -29,7 +29,7 @@ public final class TagIndexingRuleOptionsData {
      */
     private @Nullable TagIndexingRuleOptionsDataMetricMatch metricMatch;
     /**
-     * @return When true, this rule&#39;s tag list overrides tags configured by earlier rules for the same metric.
+     * @return When true, this rule&#39;s tag list overrides tags configured by earlier rules for the same metric. Defaults to `false`.
      * 
      */
     private @Nullable Boolean overridePreviousRules;
@@ -43,7 +43,7 @@ public final class TagIndexingRuleOptionsData {
         return Optional.ofNullable(this.dynamicTags);
     }
     /**
-     * @return When true, the rule applies to metrics ingested before the rule was created.
+     * @return When true, the rule applies to metrics ingested before the rule was created. Defaults to `true`.
      * 
      */
     public Optional<Boolean> managePreexistingMetrics() {
@@ -57,7 +57,7 @@ public final class TagIndexingRuleOptionsData {
         return Optional.ofNullable(this.metricMatch);
     }
     /**
-     * @return When true, this rule&#39;s tag list overrides tags configured by earlier rules for the same metric.
+     * @return When true, this rule&#39;s tag list overrides tags configured by earlier rules for the same metric. Defaults to `false`.
      * 
      */
     public Optional<Boolean> overridePreviousRules() {

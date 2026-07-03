@@ -46,9 +46,9 @@ export class SensitiveDataScannerRule extends pulumi.CustomResource {
     }
 
     /**
-     * Description of the rule.
+     * Description of the rule. Computed when `standardPatternId` is set and this field is omitted.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
      */
@@ -153,7 +153,7 @@ export class SensitiveDataScannerRule extends pulumi.CustomResource {
  */
 export interface SensitiveDataScannerRuleState {
     /**
-     * Description of the rule.
+     * Description of the rule. Computed when `standardPatternId` is set and this field is omitted.
      */
     description?: pulumi.Input<string | undefined>;
     /**
@@ -211,7 +211,7 @@ export interface SensitiveDataScannerRuleState {
  */
 export interface SensitiveDataScannerRuleArgs {
     /**
-     * Description of the rule.
+     * Description of the rule. Computed when `standardPatternId` is set and this field is omitted.
      */
     description?: pulumi.Input<string | undefined>;
     /**
