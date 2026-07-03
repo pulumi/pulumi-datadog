@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationCloudPremBufferArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationCloudPremTlsArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -46,11 +47,27 @@ public final class ObservabilityPipelineConfigDestinationCloudPremArgs extends c
         return Optional.ofNullable(this.endpointUrlKey);
     }
 
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     * 
+     */
+    @Import(name="tls")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationCloudPremTlsArgs> tls;
+
+    /**
+     * @return Configuration for enabling TLS encryption between the pipeline component and external services.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationCloudPremTlsArgs>> tls() {
+        return Optional.ofNullable(this.tls);
+    }
+
     private ObservabilityPipelineConfigDestinationCloudPremArgs() {}
 
     private ObservabilityPipelineConfigDestinationCloudPremArgs(ObservabilityPipelineConfigDestinationCloudPremArgs $) {
         this.buffer = $.buffer;
         this.endpointUrlKey = $.endpointUrlKey;
+        this.tls = $.tls;
     }
 
     public static Builder builder() {
@@ -111,6 +128,27 @@ public final class ObservabilityPipelineConfigDestinationCloudPremArgs extends c
          */
         public Builder endpointUrlKey(String endpointUrlKey) {
             return endpointUrlKey(Output.of(endpointUrlKey));
+        }
+
+        /**
+         * @param tls Configuration for enabling TLS encryption between the pipeline component and external services.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tls(@Nullable Output<ObservabilityPipelineConfigDestinationCloudPremTlsArgs> tls) {
+            $.tls = tls;
+            return this;
+        }
+
+        /**
+         * @param tls Configuration for enabling TLS encryption between the pipeline component and external services.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tls(ObservabilityPipelineConfigDestinationCloudPremTlsArgs tls) {
+            return tls(Output.of(tls));
         }
 
         public ObservabilityPipelineConfigDestinationCloudPremArgs build() {

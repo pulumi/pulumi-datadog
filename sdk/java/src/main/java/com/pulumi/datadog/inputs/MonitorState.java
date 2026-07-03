@@ -163,6 +163,21 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider&#39;s `ignoreTagKeys` for this resource.
+     * 
+     */
+    @Import(name="ignoreTagKeys")
+    private @Nullable Output<List<String>> ignoreTagKeys;
+
+    /**
+     * @return Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider&#39;s `ignoreTagKeys` for this resource.
+     * 
+     */
+    public Optional<Output<List<String>>> ignoreTagKeys() {
+        return Optional.ofNullable(this.ignoreTagKeys);
+    }
+
+    /**
      * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
      * 
      */
@@ -584,6 +599,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         this.forceDelete = $.forceDelete;
         this.groupRetentionDuration = $.groupRetentionDuration;
         this.groupbySimpleMonitor = $.groupbySimpleMonitor;
+        this.ignoreTagKeys = $.ignoreTagKeys;
         this.includeTags = $.includeTags;
         this.message = $.message;
         this.monitorThresholdWindows = $.monitorThresholdWindows;
@@ -831,6 +847,37 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder groupbySimpleMonitor(Boolean groupbySimpleMonitor) {
             return groupbySimpleMonitor(Output.of(groupbySimpleMonitor));
+        }
+
+        /**
+         * @param ignoreTagKeys Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider&#39;s `ignoreTagKeys` for this resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreTagKeys(@Nullable Output<List<String>> ignoreTagKeys) {
+            $.ignoreTagKeys = ignoreTagKeys;
+            return this;
+        }
+
+        /**
+         * @param ignoreTagKeys Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider&#39;s `ignoreTagKeys` for this resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreTagKeys(List<String> ignoreTagKeys) {
+            return ignoreTagKeys(Output.of(ignoreTagKeys));
+        }
+
+        /**
+         * @param ignoreTagKeys Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider&#39;s `ignoreTagKeys` for this resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreTagKeys(String... ignoreTagKeys) {
+            return ignoreTagKeys(List.of(ignoreTagKeys));
         }
 
         /**

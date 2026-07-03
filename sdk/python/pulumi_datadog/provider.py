@@ -35,6 +35,7 @@ class ProviderArgs:
                  http_client_retry_enabled: pulumi.Input[Optional[_builtins.str]] = None,
                  http_client_retry_max_retries: pulumi.Input[Optional[_builtins.int]] = None,
                  http_client_retry_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  org_uuid: pulumi.Input[Optional[_builtins.str]] = None,
                  validate: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -48,14 +49,15 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.str] aws_session_token: The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
         :param pulumi.Input[_builtins.str] bearer_token: Datadog credential sent in the `Authorization: Bearer <token>` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer <token>` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
         :param pulumi.Input[_builtins.str] cloud_provider_region: The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
-        :param pulumi.Input[_builtins.str] cloud_provider_type: Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+        :param pulumi.Input[_builtins.str] cloud_provider_type: Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
         :param pulumi.Input['ProviderDefaultTagsArgs'] default_tags: [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
         :param pulumi.Input[_builtins.int] http_client_retry_backoff_base: The HTTP request retry back off base. Defaults to 2.
         :param pulumi.Input[_builtins.int] http_client_retry_backoff_multiplier: The HTTP request retry back off multiplier. Defaults to 2.
         :param pulumi.Input[_builtins.str] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
         :param pulumi.Input[_builtins.int] http_client_retry_max_retries: The HTTP request maximum retry number. Defaults to 3.
         :param pulumi.Input[_builtins.int] http_client_retry_timeout: The HTTP request retry timeout period. Defaults to 60 seconds.
-        :param pulumi.Input[_builtins.str] org_uuid: The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_tag_keys: [Experimental - Monitors and Service Level Objectives only] Tag keys whose drift Terraform should ignore across all resources that support `ignore_tag_keys`. A resource's own `ignore_tag_keys` is merged with this list for that resource. Any `:value` suffix is ignored.
+        :param pulumi.Input[_builtins.str] org_uuid: The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
         :param pulumi.Input[_builtins.str] validate: Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won't be checked.
         """
         if api_key is not None:
@@ -88,6 +90,8 @@ class ProviderArgs:
             pulumi.set(__self__, "http_client_retry_max_retries", http_client_retry_max_retries)
         if http_client_retry_timeout is not None:
             pulumi.set(__self__, "http_client_retry_timeout", http_client_retry_timeout)
+        if ignore_tag_keys is not None:
+            pulumi.set(__self__, "ignore_tag_keys", ignore_tag_keys)
         if org_uuid is not None:
             pulumi.set(__self__, "org_uuid", org_uuid)
         if validate is not None:
@@ -193,7 +197,7 @@ class ProviderArgs:
     @pulumi.getter(name="cloudProviderType")
     def cloud_provider_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+        Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
         """
         return pulumi.get(self, "cloud_provider_type")
 
@@ -274,10 +278,22 @@ class ProviderArgs:
         pulumi.set(self, "http_client_retry_timeout", value)
 
     @_builtins.property
+    @pulumi.getter(name="ignoreTagKeys")
+    def ignore_tag_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        [Experimental - Monitors and Service Level Objectives only] Tag keys whose drift Terraform should ignore across all resources that support `ignore_tag_keys`. A resource's own `ignore_tag_keys` is merged with this list for that resource. Any `:value` suffix is ignored.
+        """
+        return pulumi.get(self, "ignore_tag_keys")
+
+    @ignore_tag_keys.setter
+    def ignore_tag_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "ignore_tag_keys", value)
+
+    @_builtins.property
     @pulumi.getter(name="orgUuid")
     def org_uuid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
         """
         return pulumi.get(self, "org_uuid")
 
@@ -319,6 +335,7 @@ class Provider(pulumi.ProviderResource):
                  http_client_retry_enabled: pulumi.Input[Optional[_builtins.str]] = None,
                  http_client_retry_max_retries: pulumi.Input[Optional[_builtins.int]] = None,
                  http_client_retry_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  org_uuid: pulumi.Input[Optional[_builtins.str]] = None,
                  validate: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -339,14 +356,15 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.str] aws_session_token: The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
         :param pulumi.Input[_builtins.str] bearer_token: Datadog credential sent in the `Authorization: Bearer <token>` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer <token>` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
         :param pulumi.Input[_builtins.str] cloud_provider_region: The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
-        :param pulumi.Input[_builtins.str] cloud_provider_type: Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+        :param pulumi.Input[_builtins.str] cloud_provider_type: Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
         :param pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']] default_tags: [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
         :param pulumi.Input[_builtins.int] http_client_retry_backoff_base: The HTTP request retry back off base. Defaults to 2.
         :param pulumi.Input[_builtins.int] http_client_retry_backoff_multiplier: The HTTP request retry back off multiplier. Defaults to 2.
         :param pulumi.Input[_builtins.str] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
         :param pulumi.Input[_builtins.int] http_client_retry_max_retries: The HTTP request maximum retry number. Defaults to 3.
         :param pulumi.Input[_builtins.int] http_client_retry_timeout: The HTTP request retry timeout period. Defaults to 60 seconds.
-        :param pulumi.Input[_builtins.str] org_uuid: The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_tag_keys: [Experimental - Monitors and Service Level Objectives only] Tag keys whose drift Terraform should ignore across all resources that support `ignore_tag_keys`. A resource's own `ignore_tag_keys` is merged with this list for that resource. Any `:value` suffix is ignored.
+        :param pulumi.Input[_builtins.str] org_uuid: The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
         :param pulumi.Input[_builtins.str] validate: Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won't be checked.
         """
         ...
@@ -392,6 +410,7 @@ class Provider(pulumi.ProviderResource):
                  http_client_retry_enabled: pulumi.Input[Optional[_builtins.str]] = None,
                  http_client_retry_max_retries: pulumi.Input[Optional[_builtins.int]] = None,
                  http_client_retry_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  org_uuid: pulumi.Input[Optional[_builtins.str]] = None,
                  validate: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -418,6 +437,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["http_client_retry_enabled"] = http_client_retry_enabled
             __props__.__dict__["http_client_retry_max_retries"] = pulumi.Output.from_input(http_client_retry_max_retries).apply(pulumi.runtime.to_json) if http_client_retry_max_retries is not None else None
             __props__.__dict__["http_client_retry_timeout"] = pulumi.Output.from_input(http_client_retry_timeout).apply(pulumi.runtime.to_json) if http_client_retry_timeout is not None else None
+            __props__.__dict__["ignore_tag_keys"] = pulumi.Output.from_input(ignore_tag_keys).apply(pulumi.runtime.to_json) if ignore_tag_keys is not None else None
             __props__.__dict__["org_uuid"] = org_uuid
             __props__.__dict__["validate"] = validate
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey", "appKey", "awsAccessKeyId", "awsSecretAccessKey", "awsSessionToken", "bearerToken"])
@@ -496,7 +516,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="cloudProviderType")
     def cloud_provider_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+        Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
         """
         return pulumi.get(self, "cloud_provider_type")
 
@@ -512,7 +532,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="orgUuid")
     def org_uuid(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
         """
         return pulumi.get(self, "org_uuid")
 

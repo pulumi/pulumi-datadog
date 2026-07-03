@@ -24,10 +24,10 @@ namespace Pulumi.Datadog
     public partial class SensitiveDataScannerRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Description of the rule.
+        /// Description of the rule. Computed when `StandardPatternId` is set and this field is omitted.
         /// </summary>
         [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
+        public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
         /// Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
@@ -148,7 +148,7 @@ namespace Pulumi.Datadog
     public sealed class SensitiveDataScannerRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description of the rule.
+        /// Description of the rule. Computed when `StandardPatternId` is set and this field is omitted.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -252,7 +252,7 @@ namespace Pulumi.Datadog
     public sealed class SensitiveDataScannerRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description of the rule.
+        /// Description of the rule. Computed when `StandardPatternId` is set and this field is omitted.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

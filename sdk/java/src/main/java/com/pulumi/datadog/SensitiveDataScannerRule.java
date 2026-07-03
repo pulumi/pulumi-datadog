@@ -35,18 +35,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule")
 public class SensitiveDataScannerRule extends com.pulumi.resources.CustomResource {
     /**
-     * Description of the rule.
+     * Description of the rule. Computed when `standardPatternId` is set and this field is omitted.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> description;
+    private Output<String> description;
 
     /**
-     * @return Description of the rule.
+     * @return Description of the rule. Computed when `standardPatternId` is set and this field is omitted.
      * 
      */
-    public Output<Optional<String>> description() {
-        return Codegen.optional(this.description);
+    public Output<String> description() {
+        return this.description;
     }
     /**
      * Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.

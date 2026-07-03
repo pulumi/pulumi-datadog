@@ -209,6 +209,10 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      */
     declare public readonly groups: pulumi.Output<string[] | undefined>;
     /**
+     * Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `pulumi preview` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignoreTagKeys` for this resource.
+     */
+    declare public readonly ignoreTagKeys: pulumi.Output<string[] | undefined>;
+    /**
      * A static set of monitor IDs to use as part of the SLO
      */
     declare public readonly monitorIds: pulumi.Output<number[] | undefined>;
@@ -269,6 +273,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
             resourceInputs["description"] = state?.description;
             resourceInputs["forceDelete"] = state?.forceDelete;
             resourceInputs["groups"] = state?.groups;
+            resourceInputs["ignoreTagKeys"] = state?.ignoreTagKeys;
             resourceInputs["monitorIds"] = state?.monitorIds;
             resourceInputs["name"] = state?.name;
             resourceInputs["query"] = state?.query;
@@ -294,6 +299,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
             resourceInputs["description"] = args?.description;
             resourceInputs["forceDelete"] = args?.forceDelete;
             resourceInputs["groups"] = args?.groups;
+            resourceInputs["ignoreTagKeys"] = args?.ignoreTagKeys;
             resourceInputs["monitorIds"] = args?.monitorIds;
             resourceInputs["name"] = args?.name;
             resourceInputs["query"] = args?.query;
@@ -327,6 +333,10 @@ export interface ServiceLevelObjectiveState {
      * A static set of groups to filter monitor-based SLOs
      */
     groups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `pulumi preview` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignoreTagKeys` for this resource.
+     */
+    ignoreTagKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A static set of monitor IDs to use as part of the SLO
      */
@@ -389,6 +399,10 @@ export interface ServiceLevelObjectiveArgs {
      * A static set of groups to filter monitor-based SLOs
      */
     groups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `pulumi preview` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignoreTagKeys` for this resource.
+     */
+    ignoreTagKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A static set of monitor IDs to use as part of the SLO
      */

@@ -23,6 +23,7 @@ import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetListStre
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetLogStreamDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetManageStatusDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetNoteDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetRunWorkflowDefinition;
@@ -146,6 +147,11 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
      * 
      */
     private @Nullable PowerpackV2WidgetGroupDefinitionWidgetNoteDefinition noteDefinition;
+    /**
+     * @return The definition for a Point Plot widget.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinition pointPlotDefinition;
     /**
      * @return The definition for a Query Table widget.
      * 
@@ -369,6 +375,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
         return Optional.ofNullable(this.noteDefinition);
     }
     /**
+     * @return The definition for a Point Plot widget.
+     * 
+     */
+    public Optional<PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinition> pointPlotDefinition() {
+        return Optional.ofNullable(this.pointPlotDefinition);
+    }
+    /**
      * @return The definition for a Query Table widget.
      * 
      */
@@ -510,6 +523,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetLogStreamDefinition logStreamDefinition;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetManageStatusDefinition manageStatusDefinition;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetNoteDefinition noteDefinition;
+        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinition pointPlotDefinition;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinition queryTableDefinition;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinition queryValueDefinition;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetRunWorkflowDefinition runWorkflowDefinition;
@@ -549,6 +563,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
     	      this.logStreamDefinition = defaults.logStreamDefinition;
     	      this.manageStatusDefinition = defaults.manageStatusDefinition;
     	      this.noteDefinition = defaults.noteDefinition;
+    	      this.pointPlotDefinition = defaults.pointPlotDefinition;
     	      this.queryTableDefinition = defaults.queryTableDefinition;
     	      this.queryValueDefinition = defaults.queryValueDefinition;
     	      this.runWorkflowDefinition = defaults.runWorkflowDefinition;
@@ -688,6 +703,12 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
             return this;
         }
         @CustomType.Setter
+        public Builder pointPlotDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinition pointPlotDefinition) {
+
+            this.pointPlotDefinition = pointPlotDefinition;
+            return this;
+        }
+        @CustomType.Setter
         public Builder queryTableDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinition queryTableDefinition) {
 
             this.queryTableDefinition = queryTableDefinition;
@@ -805,6 +826,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
             _resultValue.logStreamDefinition = logStreamDefinition;
             _resultValue.manageStatusDefinition = manageStatusDefinition;
             _resultValue.noteDefinition = noteDefinition;
+            _resultValue.pointPlotDefinition = pointPlotDefinition;
             _resultValue.queryTableDefinition = queryTableDefinition;
             _resultValue.queryValueDefinition = queryValueDefinition;
             _resultValue.runWorkflowDefinition = runWorkflowDefinition;

@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorAddEnvVars;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorAddFields;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorAddHostname;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorAddMetricTags;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorAggregate;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessor;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorDatadogTags;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorDedupe;
@@ -23,9 +25,11 @@ import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProce
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorReduce;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorRemoveFields;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorRenameFields;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorRenameMetricTags;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorSample;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScanner;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorSplitArray;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimit;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorThrottle;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -51,6 +55,16 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
      * 
      */
     private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorAddHostname addHostname;
+    /**
+     * @return The `addMetricTags` processor adds static tags to metrics.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorAddMetricTags addMetricTags;
+    /**
+     * @return The `aggregate` processor combines metrics that share the same name and tags into a single metric over a configurable interval.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorAggregate aggregate;
     /**
      * @return The `customProcessor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
      * 
@@ -148,6 +162,11 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
      */
     private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorRenameFields renameFields;
     /**
+     * @return The `renameMetricTags` processor changes the keys of tags on metrics.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorRenameMetricTags renameMetricTags;
+    /**
      * @return The `sample` processor allows probabilistic sampling of logs at a fixed rate.
      * 
      */
@@ -162,6 +181,11 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
      * 
      */
     private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSplitArray splitArray;
+    /**
+     * @return The `tagCardinalityLimit` processor caps the number of distinct tag value combinations on metrics, dropping tags or events once the limit is exceeded.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimit tagCardinalityLimit;
     /**
      * @return The `throttle` processor limits the number of events that pass through over a given time window.
      * 
@@ -189,6 +213,20 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
      */
     public Optional<ObservabilityPipelineConfigProcessorGroupProcessorAddHostname> addHostname() {
         return Optional.ofNullable(this.addHostname);
+    }
+    /**
+     * @return The `addMetricTags` processor adds static tags to metrics.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigProcessorGroupProcessorAddMetricTags> addMetricTags() {
+        return Optional.ofNullable(this.addMetricTags);
+    }
+    /**
+     * @return The `aggregate` processor combines metrics that share the same name and tags into a single metric over a configurable interval.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigProcessorGroupProcessorAggregate> aggregate() {
+        return Optional.ofNullable(this.aggregate);
     }
     /**
      * @return The `customProcessor` processor transforms events using Vector Remap Language (VRL) scripts with advanced filtering capabilities.
@@ -327,6 +365,13 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
         return Optional.ofNullable(this.renameFields);
     }
     /**
+     * @return The `renameMetricTags` processor changes the keys of tags on metrics.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigProcessorGroupProcessorRenameMetricTags> renameMetricTags() {
+        return Optional.ofNullable(this.renameMetricTags);
+    }
+    /**
      * @return The `sample` processor allows probabilistic sampling of logs at a fixed rate.
      * 
      */
@@ -348,6 +393,13 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
         return Optional.ofNullable(this.splitArray);
     }
     /**
+     * @return The `tagCardinalityLimit` processor caps the number of distinct tag value combinations on metrics, dropping tags or events once the limit is exceeded.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimit> tagCardinalityLimit() {
+        return Optional.ofNullable(this.tagCardinalityLimit);
+    }
+    /**
      * @return The `throttle` processor limits the number of events that pass through over a given time window.
      * 
      */
@@ -367,6 +419,8 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorAddEnvVars addEnvVars;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorAddFields addFields;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorAddHostname addHostname;
+        private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorAddMetricTags addMetricTags;
+        private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorAggregate aggregate;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessor customProcessor;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorDatadogTags datadogTags;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorDedupe dedupe;
@@ -387,9 +441,11 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorReduce reduce;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorRemoveFields removeFields;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorRenameFields renameFields;
+        private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorRenameMetricTags renameMetricTags;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSample sample;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScanner sensitiveDataScanner;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSplitArray splitArray;
+        private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimit tagCardinalityLimit;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorThrottle throttle;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessor defaults) {
@@ -397,6 +453,8 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
     	      this.addEnvVars = defaults.addEnvVars;
     	      this.addFields = defaults.addFields;
     	      this.addHostname = defaults.addHostname;
+    	      this.addMetricTags = defaults.addMetricTags;
+    	      this.aggregate = defaults.aggregate;
     	      this.customProcessor = defaults.customProcessor;
     	      this.datadogTags = defaults.datadogTags;
     	      this.dedupe = defaults.dedupe;
@@ -417,9 +475,11 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
     	      this.reduce = defaults.reduce;
     	      this.removeFields = defaults.removeFields;
     	      this.renameFields = defaults.renameFields;
+    	      this.renameMetricTags = defaults.renameMetricTags;
     	      this.sample = defaults.sample;
     	      this.sensitiveDataScanner = defaults.sensitiveDataScanner;
     	      this.splitArray = defaults.splitArray;
+    	      this.tagCardinalityLimit = defaults.tagCardinalityLimit;
     	      this.throttle = defaults.throttle;
         }
 
@@ -439,6 +499,18 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
         public Builder addHostname(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorAddHostname addHostname) {
 
             this.addHostname = addHostname;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder addMetricTags(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorAddMetricTags addMetricTags) {
+
+            this.addMetricTags = addMetricTags;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder aggregate(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorAggregate aggregate) {
+
+            this.aggregate = aggregate;
             return this;
         }
         @CustomType.Setter
@@ -568,6 +640,12 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
             return this;
         }
         @CustomType.Setter
+        public Builder renameMetricTags(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorRenameMetricTags renameMetricTags) {
+
+            this.renameMetricTags = renameMetricTags;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sample(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorSample sample) {
 
             this.sample = sample;
@@ -586,6 +664,12 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
             return this;
         }
         @CustomType.Setter
+        public Builder tagCardinalityLimit(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimit tagCardinalityLimit) {
+
+            this.tagCardinalityLimit = tagCardinalityLimit;
+            return this;
+        }
+        @CustomType.Setter
         public Builder throttle(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorThrottle throttle) {
 
             this.throttle = throttle;
@@ -596,6 +680,8 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
             _resultValue.addEnvVars = addEnvVars;
             _resultValue.addFields = addFields;
             _resultValue.addHostname = addHostname;
+            _resultValue.addMetricTags = addMetricTags;
+            _resultValue.aggregate = aggregate;
             _resultValue.customProcessor = customProcessor;
             _resultValue.datadogTags = datadogTags;
             _resultValue.dedupe = dedupe;
@@ -616,9 +702,11 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
             _resultValue.reduce = reduce;
             _resultValue.removeFields = removeFields;
             _resultValue.renameFields = renameFields;
+            _resultValue.renameMetricTags = renameMetricTags;
             _resultValue.sample = sample;
             _resultValue.sensitiveDataScanner = sensitiveDataScanner;
             _resultValue.splitArray = splitArray;
+            _resultValue.tagCardinalityLimit = tagCardinalityLimit;
             _resultValue.throttle = throttle;
             return _resultValue;
         }

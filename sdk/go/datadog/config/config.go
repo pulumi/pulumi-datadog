@@ -51,7 +51,7 @@ func GetCloudProviderRegion(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:cloudProviderRegion")
 }
 
-// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
 func GetCloudProviderType(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:cloudProviderType")
 }
@@ -86,7 +86,12 @@ func GetHttpClientRetryTimeout(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "datadog:httpClientRetryTimeout")
 }
 
-// The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+// [Experimental - Monitors and Service Level Objectives only] Tag keys whose drift Terraform should ignore across all resources that support `ignoreTagKeys`. A resource's own `ignoreTagKeys` is merged with this list for that resource. Any `:value` suffix is ignored.
+func GetIgnoreTagKeys(ctx *pulumi.Context) string {
+	return config.Get(ctx, "datadog:ignoreTagKeys")
+}
+
+// The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
 func GetOrgUuid(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:orgUuid")
 }

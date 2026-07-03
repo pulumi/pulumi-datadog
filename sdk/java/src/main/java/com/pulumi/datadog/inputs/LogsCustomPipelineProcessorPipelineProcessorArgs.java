@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorArgs;
+import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorArrayMapProcessorArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessorArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorArgs;
@@ -46,6 +47,21 @@ public final class LogsCustomPipelineProcessorPipelineProcessorArgs extends com.
      */
     public Optional<Output<LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorArgs>> arithmeticProcessor() {
         return Optional.ofNullable(this.arithmeticProcessor);
+    }
+
+    /**
+     * Array-Map Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#array-map-processor)
+     * 
+     */
+    @Import(name="arrayMapProcessor")
+    private @Nullable Output<LogsCustomPipelineProcessorPipelineProcessorArrayMapProcessorArgs> arrayMapProcessor;
+
+    /**
+     * @return Array-Map Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#array-map-processor)
+     * 
+     */
+    public Optional<Output<LogsCustomPipelineProcessorPipelineProcessorArrayMapProcessorArgs>> arrayMapProcessor() {
+        return Optional.ofNullable(this.arrayMapProcessor);
     }
 
     /**
@@ -322,6 +338,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessorArgs extends com.
 
     private LogsCustomPipelineProcessorPipelineProcessorArgs(LogsCustomPipelineProcessorPipelineProcessorArgs $) {
         this.arithmeticProcessor = $.arithmeticProcessor;
+        this.arrayMapProcessor = $.arrayMapProcessor;
         this.arrayProcessor = $.arrayProcessor;
         this.attributeRemapper = $.attributeRemapper;
         this.categoryProcessor = $.categoryProcessor;
@@ -379,6 +396,27 @@ public final class LogsCustomPipelineProcessorPipelineProcessorArgs extends com.
          */
         public Builder arithmeticProcessor(LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorArgs arithmeticProcessor) {
             return arithmeticProcessor(Output.of(arithmeticProcessor));
+        }
+
+        /**
+         * @param arrayMapProcessor Array-Map Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#array-map-processor)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arrayMapProcessor(@Nullable Output<LogsCustomPipelineProcessorPipelineProcessorArrayMapProcessorArgs> arrayMapProcessor) {
+            $.arrayMapProcessor = arrayMapProcessor;
+            return this;
+        }
+
+        /**
+         * @param arrayMapProcessor Array-Map Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#array-map-processor)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arrayMapProcessor(LogsCustomPipelineProcessorPipelineProcessorArrayMapProcessorArgs arrayMapProcessor) {
+            return arrayMapProcessor(Output.of(arrayMapProcessor));
         }
 
         /**

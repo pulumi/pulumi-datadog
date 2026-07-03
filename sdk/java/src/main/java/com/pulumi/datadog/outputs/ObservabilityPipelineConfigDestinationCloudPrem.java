@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationCloudPremBuffer;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationCloudPremTls;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,6 +23,11 @@ public final class ObservabilityPipelineConfigDestinationCloudPrem {
      * 
      */
     private @Nullable String endpointUrlKey;
+    /**
+     * @return Configuration for enabling TLS encryption between the pipeline component and external services.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationCloudPremTls tls;
 
     private ObservabilityPipelineConfigDestinationCloudPrem() {}
     /**
@@ -38,6 +44,13 @@ public final class ObservabilityPipelineConfigDestinationCloudPrem {
     public Optional<String> endpointUrlKey() {
         return Optional.ofNullable(this.endpointUrlKey);
     }
+    /**
+     * @return Configuration for enabling TLS encryption between the pipeline component and external services.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationCloudPremTls> tls() {
+        return Optional.ofNullable(this.tls);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -50,11 +63,13 @@ public final class ObservabilityPipelineConfigDestinationCloudPrem {
     public static final class Builder {
         private @Nullable ObservabilityPipelineConfigDestinationCloudPremBuffer buffer;
         private @Nullable String endpointUrlKey;
+        private @Nullable ObservabilityPipelineConfigDestinationCloudPremTls tls;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationCloudPrem defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.buffer = defaults.buffer;
     	      this.endpointUrlKey = defaults.endpointUrlKey;
+    	      this.tls = defaults.tls;
         }
 
         @CustomType.Setter
@@ -69,10 +84,17 @@ public final class ObservabilityPipelineConfigDestinationCloudPrem {
             this.endpointUrlKey = endpointUrlKey;
             return this;
         }
+        @CustomType.Setter
+        public Builder tls(@Nullable ObservabilityPipelineConfigDestinationCloudPremTls tls) {
+
+            this.tls = tls;
+            return this;
+        }
         public ObservabilityPipelineConfigDestinationCloudPrem build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationCloudPrem();
             _resultValue.buffer = buffer;
             _resultValue.endpointUrlKey = endpointUrlKey;
+            _resultValue.tls = tls;
             return _resultValue;
         }
     }

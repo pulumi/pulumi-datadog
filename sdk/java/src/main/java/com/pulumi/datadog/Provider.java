@@ -136,14 +136,14 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.cloudProviderRegion);
     }
     /**
-     * Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you&#39;d like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+     * Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you&#39;d like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
      * 
      */
     @Export(name="cloudProviderType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cloudProviderType;
 
     /**
-     * @return Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This feature is in Preview. If you&#39;d like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
+     * @return Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you&#39;d like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
      * 
      */
     public Output<Optional<String>> cloudProviderType() {
@@ -164,14 +164,14 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.httpClientRetryEnabled);
     }
     /**
-     * The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+     * The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
      * 
      */
     @Export(name="orgUuid", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> orgUuid;
 
     /**
-     * @return The organization UUID; used for cloud-provider-based authentication. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+     * @return The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
      * 
      */
     public Output<Optional<String>> orgUuid() {

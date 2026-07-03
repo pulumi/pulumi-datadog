@@ -33,14 +33,14 @@ public final class TagIndexingRuleOptionsDataArgs extends com.pulumi.resources.R
     }
 
     /**
-     * When true, the rule applies to metrics ingested before the rule was created.
+     * When true, the rule applies to metrics ingested before the rule was created. Defaults to `true`.
      * 
      */
     @Import(name="managePreexistingMetrics")
     private @Nullable Output<Boolean> managePreexistingMetrics;
 
     /**
-     * @return When true, the rule applies to metrics ingested before the rule was created.
+     * @return When true, the rule applies to metrics ingested before the rule was created. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> managePreexistingMetrics() {
@@ -63,14 +63,14 @@ public final class TagIndexingRuleOptionsDataArgs extends com.pulumi.resources.R
     }
 
     /**
-     * When true, this rule&#39;s tag list overrides tags configured by earlier rules for the same metric.
+     * When true, this rule&#39;s tag list overrides tags configured by earlier rules for the same metric. Defaults to `false`.
      * 
      */
     @Import(name="overridePreviousRules")
     private @Nullable Output<Boolean> overridePreviousRules;
 
     /**
-     * @return When true, this rule&#39;s tag list overrides tags configured by earlier rules for the same metric.
+     * @return When true, this rule&#39;s tag list overrides tags configured by earlier rules for the same metric. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> overridePreviousRules() {
@@ -126,7 +126,7 @@ public final class TagIndexingRuleOptionsDataArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param managePreexistingMetrics When true, the rule applies to metrics ingested before the rule was created.
+         * @param managePreexistingMetrics When true, the rule applies to metrics ingested before the rule was created. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class TagIndexingRuleOptionsDataArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param managePreexistingMetrics When true, the rule applies to metrics ingested before the rule was created.
+         * @param managePreexistingMetrics When true, the rule applies to metrics ingested before the rule was created. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class TagIndexingRuleOptionsDataArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param overridePreviousRules When true, this rule&#39;s tag list overrides tags configured by earlier rules for the same metric.
+         * @param overridePreviousRules When true, this rule&#39;s tag list overrides tags configured by earlier rules for the same metric. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class TagIndexingRuleOptionsDataArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param overridePreviousRules When true, this rule&#39;s tag list overrides tags configured by earlier rules for the same metric.
+         * @param overridePreviousRules When true, this rule&#39;s tag list overrides tags configured by earlier rules for the same metric. Defaults to `false`.
          * 
          * @return builder
          * 

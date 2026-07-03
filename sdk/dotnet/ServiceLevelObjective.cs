@@ -241,6 +241,12 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
 
         /// <summary>
+        /// Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `pulumi preview` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `IgnoreTagKeys` for this resource.
+        /// </summary>
+        [Output("ignoreTagKeys")]
+        public Output<ImmutableArray<string>> IgnoreTagKeys { get; private set; } = null!;
+
+        /// <summary>
         /// A static set of monitor IDs to use as part of the SLO
         /// </summary>
         [Output("monitorIds")]
@@ -376,6 +382,18 @@ namespace Pulumi.Datadog
             set => _groups = value;
         }
 
+        [Input("ignoreTagKeys")]
+        private InputList<string>? _ignoreTagKeys;
+
+        /// <summary>
+        /// Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `pulumi preview` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `IgnoreTagKeys` for this resource.
+        /// </summary>
+        public InputList<string> IgnoreTagKeys
+        {
+            get => _ignoreTagKeys ?? (_ignoreTagKeys = new InputList<string>());
+            set => _ignoreTagKeys = value;
+        }
+
         [Input("monitorIds")]
         private InputList<int>? _monitorIds;
 
@@ -490,6 +508,18 @@ namespace Pulumi.Datadog
         {
             get => _groups ?? (_groups = new InputList<string>());
             set => _groups = value;
+        }
+
+        [Input("ignoreTagKeys")]
+        private InputList<string>? _ignoreTagKeys;
+
+        /// <summary>
+        /// Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `pulumi preview` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `IgnoreTagKeys` for this resource.
+        /// </summary>
+        public InputList<string> IgnoreTagKeys
+        {
+            get => _ignoreTagKeys ?? (_ignoreTagKeys = new InputList<string>());
+            set => _ignoreTagKeys = value;
         }
 
         [Input("monitorIds")]
