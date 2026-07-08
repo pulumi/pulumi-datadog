@@ -14,9 +14,13 @@ namespace Pulumi.Datadog.Outputs
     public sealed class LogsArchiveS3Archive
     {
         /// <summary>
-        /// Your AWS account id.
+        /// Your AWS access key id, used as an alternative to `AccountId`/`RoleName`.
         /// </summary>
-        public readonly string AccountId;
+        public readonly string? AccessKeyId;
+        /// <summary>
+        /// Your AWS account id. Required with `RoleName`; mutually exclusive with `AccessKeyId`.
+        /// </summary>
+        public readonly string? AccountId;
         /// <summary>
         /// Name of your s3 bucket.
         /// </summary>
@@ -34,9 +38,9 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Path;
         /// <summary>
-        /// Your AWS role name
+        /// Your AWS role name. Required with `AccountId`; mutually exclusive with `AccessKeyId`.
         /// </summary>
-        public readonly string RoleName;
+        public readonly string? RoleName;
         /// <summary>
         /// The AWS S3 storage class used to upload the logs. Valid values are `STANDARD`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER_IR`. Defaults to `"STANDARD"`.
         /// </summary>
@@ -44,7 +48,9 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private LogsArchiveS3Archive(
-            string accountId,
+            string? accessKeyId,
+
+            string? accountId,
 
             string bucket,
 
@@ -54,10 +60,11 @@ namespace Pulumi.Datadog.Outputs
 
             string? path,
 
-            string roleName,
+            string? roleName,
 
             string? storageClass)
         {
+            AccessKeyId = accessKeyId;
             AccountId = accountId;
             Bucket = bucket;
             EncryptionKey = encryptionKey;

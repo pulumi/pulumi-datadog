@@ -85,6 +85,10 @@ namespace Pulumi.Datadog.Outputs
         /// The `SyslogNg` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigSourceSyslogNg> SyslogNgs;
+        /// <summary>
+        /// The `Websocket` source establishes a persistent WebSocket connection to a remote endpoint and ingests log events as they are pushed by the server.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigSourceWebsocket? Websocket;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigSource(
@@ -122,7 +126,9 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigSourceSumoLogic> sumoLogics,
 
-            ImmutableArray<Outputs.ObservabilityPipelineConfigSourceSyslogNg> syslogNgs)
+            ImmutableArray<Outputs.ObservabilityPipelineConfigSourceSyslogNg> syslogNgs,
+
+            Outputs.ObservabilityPipelineConfigSourceWebsocket? websocket)
         {
             AmazonDataFirehoses = amazonDataFirehoses;
             AmazonS3s = amazonS3s;
@@ -142,6 +148,7 @@ namespace Pulumi.Datadog.Outputs
             SplunkTcps = splunkTcps;
             SumoLogics = sumoLogics;
             SyslogNgs = syslogNgs;
+            Websocket = websocket;
         }
     }
 }

@@ -26,7 +26,10 @@ class GetSecurityMonitoringCriticalAssetResult:
     """
     A collection of values returned by getSecurityMonitoringCriticalAsset.
     """
-    def __init__(__self__, enabled=None, id=None, query=None, rule_query=None, severity=None, tags=None):
+    def __init__(__self__, description=None, enabled=None, id=None, query=None, rule_query=None, severity=None, tags=None):
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
@@ -45,6 +48,14 @@ class GetSecurityMonitoringCriticalAssetResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        """
+        A description of the critical asset.
+        """
+        return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
@@ -101,6 +112,7 @@ class AwaitableGetSecurityMonitoringCriticalAssetResult(GetSecurityMonitoringCri
         if False:
             yield self
         return GetSecurityMonitoringCriticalAssetResult(
+            description=self.description,
             enabled=self.enabled,
             id=self.id,
             query=self.query,
@@ -132,6 +144,7 @@ def get_security_monitoring_critical_asset(id: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getSecurityMonitoringCriticalAsset:getSecurityMonitoringCriticalAsset', __args__, opts=opts, typ=GetSecurityMonitoringCriticalAssetResult).value
 
     return AwaitableGetSecurityMonitoringCriticalAssetResult(
+        description=pulumi.get(__ret__, 'description'),
         enabled=pulumi.get(__ret__, 'enabled'),
         id=pulumi.get(__ret__, 'id'),
         query=pulumi.get(__ret__, 'query'),
@@ -160,6 +173,7 @@ def get_security_monitoring_critical_asset_output(id: pulumi.Input[Optional[_bui
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getSecurityMonitoringCriticalAsset:getSecurityMonitoringCriticalAsset', __args__, opts=opts, typ=GetSecurityMonitoringCriticalAssetResult)
     return __ret__.apply(lambda __response__: GetSecurityMonitoringCriticalAssetResult(
+        description=pulumi.get(__response__, 'description'),
         enabled=pulumi.get(__response__, 'enabled'),
         id=pulumi.get(__response__, 'id'),
         query=pulumi.get(__response__, 'query'),

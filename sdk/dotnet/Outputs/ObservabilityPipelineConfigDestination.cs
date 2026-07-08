@@ -34,6 +34,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationAzureStorage> AzureStorages;
         /// <summary>
+        /// The `Clickhouse` destination forwards logs to a ClickHouse server via HTTP.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationClickhouse? Clickhouse;
+        /// <summary>
         /// The `CloudPrem` destination sends logs to Datadog CloudPrem.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationCloudPrem? CloudPrem;
@@ -138,6 +142,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationAzureStorage> azureStorages,
 
+            Outputs.ObservabilityPipelineConfigDestinationClickhouse? clickhouse,
+
             Outputs.ObservabilityPipelineConfigDestinationCloudPrem? cloudPrem,
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem> crowdstrikeNextGenSiems,
@@ -189,6 +195,7 @@ namespace Pulumi.Datadog.Outputs
             AmazonS3s = amazonS3s;
             AmazonSecurityLakes = amazonSecurityLakes;
             AzureStorages = azureStorages;
+            Clickhouse = clickhouse;
             CloudPrem = cloudPrem;
             CrowdstrikeNextGenSiems = crowdstrikeNextGenSiems;
             DatabricksZerobuses = databricksZerobuses;

@@ -13,10 +13,16 @@ namespace Pulumi.Datadog.Inputs
     public sealed class LogsArchiveS3ArchiveGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Your AWS account id.
+        /// Your AWS access key id, used as an alternative to `AccountId`/`RoleName`.
         /// </summary>
-        [Input("accountId", required: true)]
-        public Input<string> AccountId { get; set; } = null!;
+        [Input("accessKeyId")]
+        public Input<string>? AccessKeyId { get; set; }
+
+        /// <summary>
+        /// Your AWS account id. Required with `RoleName`; mutually exclusive with `AccessKeyId`.
+        /// </summary>
+        [Input("accountId")]
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Name of your s3 bucket.
@@ -43,10 +49,10 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// Your AWS role name
+        /// Your AWS role name. Required with `AccountId`; mutually exclusive with `AccessKeyId`.
         /// </summary>
-        [Input("roleName", required: true)]
-        public Input<string> RoleName { get; set; } = null!;
+        [Input("roleName")]
+        public Input<string>? RoleName { get; set; }
 
         /// <summary>
         /// The AWS S3 storage class used to upload the logs. Valid values are `STANDARD`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER_IR`. Defaults to `"STANDARD"`.

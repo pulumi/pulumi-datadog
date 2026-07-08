@@ -17,18 +17,33 @@ public final class LogsArchiveS3ArchiveArgs extends com.pulumi.resources.Resourc
     public static final LogsArchiveS3ArchiveArgs Empty = new LogsArchiveS3ArchiveArgs();
 
     /**
-     * Your AWS account id.
+     * Your AWS access key id, used as an alternative to `accountId`/`roleName`.
      * 
      */
-    @Import(name="accountId", required=true)
-    private Output<String> accountId;
+    @Import(name="accessKeyId")
+    private @Nullable Output<String> accessKeyId;
 
     /**
-     * @return Your AWS account id.
+     * @return Your AWS access key id, used as an alternative to `accountId`/`roleName`.
      * 
      */
-    public Output<String> accountId() {
-        return this.accountId;
+    public Optional<Output<String>> accessKeyId() {
+        return Optional.ofNullable(this.accessKeyId);
+    }
+
+    /**
+     * Your AWS account id. Required with `roleName`; mutually exclusive with `accessKeyId`.
+     * 
+     */
+    @Import(name="accountId")
+    private @Nullable Output<String> accountId;
+
+    /**
+     * @return Your AWS account id. Required with `roleName`; mutually exclusive with `accessKeyId`.
+     * 
+     */
+    public Optional<Output<String>> accountId() {
+        return Optional.ofNullable(this.accountId);
     }
 
     /**
@@ -92,18 +107,18 @@ public final class LogsArchiveS3ArchiveArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Your AWS role name
+     * Your AWS role name. Required with `accountId`; mutually exclusive with `accessKeyId`.
      * 
      */
-    @Import(name="roleName", required=true)
-    private Output<String> roleName;
+    @Import(name="roleName")
+    private @Nullable Output<String> roleName;
 
     /**
-     * @return Your AWS role name
+     * @return Your AWS role name. Required with `accountId`; mutually exclusive with `accessKeyId`.
      * 
      */
-    public Output<String> roleName() {
-        return this.roleName;
+    public Optional<Output<String>> roleName() {
+        return Optional.ofNullable(this.roleName);
     }
 
     /**
@@ -124,6 +139,7 @@ public final class LogsArchiveS3ArchiveArgs extends com.pulumi.resources.Resourc
     private LogsArchiveS3ArchiveArgs() {}
 
     private LogsArchiveS3ArchiveArgs(LogsArchiveS3ArchiveArgs $) {
+        this.accessKeyId = $.accessKeyId;
         this.accountId = $.accountId;
         this.bucket = $.bucket;
         this.encryptionKey = $.encryptionKey;
@@ -152,18 +168,39 @@ public final class LogsArchiveS3ArchiveArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accountId Your AWS account id.
+         * @param accessKeyId Your AWS access key id, used as an alternative to `accountId`/`roleName`.
          * 
          * @return builder
          * 
          */
-        public Builder accountId(Output<String> accountId) {
+        public Builder accessKeyId(@Nullable Output<String> accessKeyId) {
+            $.accessKeyId = accessKeyId;
+            return this;
+        }
+
+        /**
+         * @param accessKeyId Your AWS access key id, used as an alternative to `accountId`/`roleName`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessKeyId(String accessKeyId) {
+            return accessKeyId(Output.of(accessKeyId));
+        }
+
+        /**
+         * @param accountId Your AWS account id. Required with `roleName`; mutually exclusive with `accessKeyId`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
         /**
-         * @param accountId Your AWS account id.
+         * @param accountId Your AWS account id. Required with `roleName`; mutually exclusive with `accessKeyId`.
          * 
          * @return builder
          * 
@@ -257,18 +294,18 @@ public final class LogsArchiveS3ArchiveArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param roleName Your AWS role name
+         * @param roleName Your AWS role name. Required with `accountId`; mutually exclusive with `accessKeyId`.
          * 
          * @return builder
          * 
          */
-        public Builder roleName(Output<String> roleName) {
+        public Builder roleName(@Nullable Output<String> roleName) {
             $.roleName = roleName;
             return this;
         }
 
         /**
-         * @param roleName Your AWS role name
+         * @param roleName Your AWS role name. Required with `accountId`; mutually exclusive with `accessKeyId`.
          * 
          * @return builder
          * 
@@ -299,14 +336,8 @@ public final class LogsArchiveS3ArchiveArgs extends com.pulumi.resources.Resourc
         }
 
         public LogsArchiveS3ArchiveArgs build() {
-            if ($.accountId == null) {
-                throw new MissingRequiredPropertyException("LogsArchiveS3ArchiveArgs", "accountId");
-            }
             if ($.bucket == null) {
                 throw new MissingRequiredPropertyException("LogsArchiveS3ArchiveArgs", "bucket");
-            }
-            if ($.roleName == null) {
-                throw new MissingRequiredPropertyException("LogsArchiveS3ArchiveArgs", "roleName");
             }
             return $;
         }

@@ -57,6 +57,8 @@ import (
 type SecurityMonitoringCriticalAsset struct {
 	pulumi.CustomResourceState
 
+	// A description of the critical asset.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Whether the critical asset is enabled. Defaults to `true`.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// The query used to match a critical asset and the associated signals. Uses the same syntax as the search bar in the Security Signals Explorer.
@@ -108,6 +110,8 @@ func GetSecurityMonitoringCriticalAsset(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecurityMonitoringCriticalAsset resources.
 type securityMonitoringCriticalAssetState struct {
+	// A description of the critical asset.
+	Description *string `pulumi:"description"`
 	// Whether the critical asset is enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The query used to match a critical asset and the associated signals. Uses the same syntax as the search bar in the Security Signals Explorer.
@@ -121,6 +125,8 @@ type securityMonitoringCriticalAssetState struct {
 }
 
 type SecurityMonitoringCriticalAssetState struct {
+	// A description of the critical asset.
+	Description pulumi.StringPtrInput
 	// Whether the critical asset is enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The query used to match a critical asset and the associated signals. Uses the same syntax as the search bar in the Security Signals Explorer.
@@ -138,6 +144,8 @@ func (SecurityMonitoringCriticalAssetState) ElementType() reflect.Type {
 }
 
 type securityMonitoringCriticalAssetArgs struct {
+	// A description of the critical asset.
+	Description *string `pulumi:"description"`
 	// Whether the critical asset is enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The query used to match a critical asset and the associated signals. Uses the same syntax as the search bar in the Security Signals Explorer.
@@ -152,6 +160,8 @@ type securityMonitoringCriticalAssetArgs struct {
 
 // The set of arguments for constructing a SecurityMonitoringCriticalAsset resource.
 type SecurityMonitoringCriticalAssetArgs struct {
+	// A description of the critical asset.
+	Description pulumi.StringPtrInput
 	// Whether the critical asset is enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The query used to match a critical asset and the associated signals. Uses the same syntax as the search bar in the Security Signals Explorer.
@@ -249,6 +259,11 @@ func (o SecurityMonitoringCriticalAssetOutput) ToSecurityMonitoringCriticalAsset
 
 func (o SecurityMonitoringCriticalAssetOutput) ToSecurityMonitoringCriticalAssetOutputWithContext(ctx context.Context) SecurityMonitoringCriticalAssetOutput {
 	return o
+}
+
+// A description of the critical asset.
+func (o SecurityMonitoringCriticalAssetOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringCriticalAsset) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Whether the critical asset is enabled. Defaults to `true`.

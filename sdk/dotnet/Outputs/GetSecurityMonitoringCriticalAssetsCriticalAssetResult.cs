@@ -13,6 +13,7 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetSecurityMonitoringCriticalAssetsCriticalAssetResult
     {
+        public readonly string Description;
         public readonly bool Enabled;
         public readonly string Id;
         public readonly string Query;
@@ -22,6 +23,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private GetSecurityMonitoringCriticalAssetsCriticalAssetResult(
+            string description,
+
             bool enabled,
 
             string id,
@@ -34,6 +37,7 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<string> tags)
         {
+            Description = description;
             Enabled = enabled;
             Id = id;
             Query = query;

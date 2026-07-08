@@ -5,9 +5,10 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleArgs;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -19,14 +20,14 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokAr
     public static final ObservabilityPipelineConfigProcessorGroupProcessorParseGrokArgs Empty = new ObservabilityPipelineConfigProcessorGroupProcessorParseGrokArgs();
 
     /**
-     * If set to `true`, disables the default Grok rules provided by Datadog.
+     * If set to `true`, disables the default Grok rules provided by Datadog. Defaults to `false`.
      * 
      */
     @Import(name="disableLibraryRules")
     private @Nullable Output<Boolean> disableLibraryRules;
 
     /**
-     * @return If set to `true`, disables the default Grok rules provided by Datadog.
+     * @return If set to `true`, disables the default Grok rules provided by Datadog. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> disableLibraryRules() {
@@ -34,24 +35,56 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokAr
     }
 
     /**
+     * The log field to parse with the Grok rules. Defaults to `&#34;message&#34;`.
+     * 
+     */
+    @Import(name="field")
+    private @Nullable Output<String> field;
+
+    /**
+     * @return The log field to parse with the Grok rules. Defaults to `&#34;message&#34;`.
+     * 
+     */
+    public Optional<Output<String>> field() {
+        return Optional.ofNullable(this.field);
+    }
+
+    /**
+     * A Grok parsing rule that targets logs matching a Datadog search query.
+     * 
+     */
+    @Import(name="includeRules")
+    private @Nullable Output<List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleArgs>> includeRules;
+
+    /**
+     * @return A Grok parsing rule that targets logs matching a Datadog search query.
+     * 
+     */
+    public Optional<Output<List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleArgs>>> includeRules() {
+        return Optional.ofNullable(this.includeRules);
+    }
+
+    /**
      * The list of Grok parsing rules. If multiple parsing rules are provided, they are evaluated in order. The first successful match is applied.
      * 
      */
-    @Import(name="rules", required=true)
-    private Output<List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleArgs>> rules;
+    @Import(name="rules")
+    private @Nullable Output<List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleArgs>> rules;
 
     /**
      * @return The list of Grok parsing rules. If multiple parsing rules are provided, they are evaluated in order. The first successful match is applied.
      * 
      */
-    public Output<List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleArgs>> rules() {
-        return this.rules;
+    public Optional<Output<List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleArgs>>> rules() {
+        return Optional.ofNullable(this.rules);
     }
 
     private ObservabilityPipelineConfigProcessorGroupProcessorParseGrokArgs() {}
 
     private ObservabilityPipelineConfigProcessorGroupProcessorParseGrokArgs(ObservabilityPipelineConfigProcessorGroupProcessorParseGrokArgs $) {
         this.disableLibraryRules = $.disableLibraryRules;
+        this.field = $.field;
+        this.includeRules = $.includeRules;
         this.rules = $.rules;
     }
 
@@ -74,7 +107,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokAr
         }
 
         /**
-         * @param disableLibraryRules If set to `true`, disables the default Grok rules provided by Datadog.
+         * @param disableLibraryRules If set to `true`, disables the default Grok rules provided by Datadog. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -85,7 +118,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokAr
         }
 
         /**
-         * @param disableLibraryRules If set to `true`, disables the default Grok rules provided by Datadog.
+         * @param disableLibraryRules If set to `true`, disables the default Grok rules provided by Datadog. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -95,12 +128,64 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokAr
         }
 
         /**
+         * @param field The log field to parse with the Grok rules. Defaults to `&#34;message&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder field(@Nullable Output<String> field) {
+            $.field = field;
+            return this;
+        }
+
+        /**
+         * @param field The log field to parse with the Grok rules. Defaults to `&#34;message&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder field(String field) {
+            return field(Output.of(field));
+        }
+
+        /**
+         * @param includeRules A Grok parsing rule that targets logs matching a Datadog search query.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeRules(@Nullable Output<List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleArgs>> includeRules) {
+            $.includeRules = includeRules;
+            return this;
+        }
+
+        /**
+         * @param includeRules A Grok parsing rule that targets logs matching a Datadog search query.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeRules(List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleArgs> includeRules) {
+            return includeRules(Output.of(includeRules));
+        }
+
+        /**
+         * @param includeRules A Grok parsing rule that targets logs matching a Datadog search query.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeRules(ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleArgs... includeRules) {
+            return includeRules(List.of(includeRules));
+        }
+
+        /**
          * @param rules The list of Grok parsing rules. If multiple parsing rules are provided, they are evaluated in order. The first successful match is applied.
          * 
          * @return builder
          * 
          */
-        public Builder rules(Output<List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleArgs>> rules) {
+        public Builder rules(@Nullable Output<List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleArgs>> rules) {
             $.rules = rules;
             return this;
         }
@@ -126,9 +211,6 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokAr
         }
 
         public ObservabilityPipelineConfigProcessorGroupProcessorParseGrokArgs build() {
-            if ($.rules == null) {
-                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorParseGrokArgs", "rules");
-            }
             return $;
         }
     }

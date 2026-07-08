@@ -22,6 +22,7 @@ class SecurityMonitoringCriticalAssetArgs:
                  query: pulumi.Input[_builtins.str],
                  rule_query: pulumi.Input[_builtins.str],
                  severity: pulumi.Input[_builtins.str],
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
@@ -30,12 +31,15 @@ class SecurityMonitoringCriticalAssetArgs:
         :param pulumi.Input[_builtins.str] query: The query used to match a critical asset and the associated signals. Uses the same syntax as the search bar in the Security Signals Explorer.
         :param pulumi.Input[_builtins.str] rule_query: The rule query to filter which detection rules this critical asset applies to. Uses the same syntax as the search bar for detection rules.
         :param pulumi.Input[_builtins.str] severity: The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `no-op`, `increase`, `decrease`.
+        :param pulumi.Input[_builtins.str] description: A description of the critical asset.
         :param pulumi.Input[_builtins.bool] enabled: Whether the critical asset is enabled. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags associated with the critical asset.
         """
         pulumi.set(__self__, "query", query)
         pulumi.set(__self__, "rule_query", rule_query)
         pulumi.set(__self__, "severity", severity)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if tags is not None:
@@ -79,6 +83,18 @@ class SecurityMonitoringCriticalAssetArgs:
 
     @_builtins.property
     @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A description of the critical asset.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
     def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the critical asset is enabled. Defaults to `true`.
@@ -105,6 +121,7 @@ class SecurityMonitoringCriticalAssetArgs:
 @pulumi.input_type
 class _SecurityMonitoringCriticalAssetState:
     def __init__(__self__, *,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  query: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_query: pulumi.Input[Optional[_builtins.str]] = None,
@@ -113,12 +130,15 @@ class _SecurityMonitoringCriticalAssetState:
         """
         Input properties used for looking up and filtering SecurityMonitoringCriticalAsset resources.
 
+        :param pulumi.Input[_builtins.str] description: A description of the critical asset.
         :param pulumi.Input[_builtins.bool] enabled: Whether the critical asset is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] query: The query used to match a critical asset and the associated signals. Uses the same syntax as the search bar in the Security Signals Explorer.
         :param pulumi.Input[_builtins.str] rule_query: The rule query to filter which detection rules this critical asset applies to. Uses the same syntax as the search bar for detection rules.
         :param pulumi.Input[_builtins.str] severity: The severity change applied to signals matching this critical asset. Valid values are `critical`, `high`, `medium`, `low`, `info`, `no-op`, `increase`, `decrease`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags associated with the critical asset.
         """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if query is not None:
@@ -129,6 +149,18 @@ class _SecurityMonitoringCriticalAssetState:
             pulumi.set(__self__, "severity", severity)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A description of the critical asset.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
@@ -197,6 +229,7 @@ class SecurityMonitoringCriticalAsset(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  query: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_query: pulumi.Input[Optional[_builtins.str]] = None,
@@ -234,6 +267,7 @@ class SecurityMonitoringCriticalAsset(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] description: A description of the critical asset.
         :param pulumi.Input[_builtins.bool] enabled: Whether the critical asset is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] query: The query used to match a critical asset and the associated signals. Uses the same syntax as the search bar in the Security Signals Explorer.
         :param pulumi.Input[_builtins.str] rule_query: The rule query to filter which detection rules this critical asset applies to. Uses the same syntax as the search bar for detection rules.
@@ -290,6 +324,7 @@ class SecurityMonitoringCriticalAsset(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  query: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_query: pulumi.Input[Optional[_builtins.str]] = None,
@@ -304,6 +339,7 @@ class SecurityMonitoringCriticalAsset(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SecurityMonitoringCriticalAssetArgs.__new__(SecurityMonitoringCriticalAssetArgs)
 
+            __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
             if query is None and not opts.urn:
                 raise TypeError("Missing required property 'query'")
@@ -325,6 +361,7 @@ class SecurityMonitoringCriticalAsset(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             query: pulumi.Input[Optional[_builtins.str]] = None,
             rule_query: pulumi.Input[Optional[_builtins.str]] = None,
@@ -337,6 +374,7 @@ class SecurityMonitoringCriticalAsset(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] description: A description of the critical asset.
         :param pulumi.Input[_builtins.bool] enabled: Whether the critical asset is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] query: The query used to match a critical asset and the associated signals. Uses the same syntax as the search bar in the Security Signals Explorer.
         :param pulumi.Input[_builtins.str] rule_query: The rule query to filter which detection rules this critical asset applies to. Uses the same syntax as the search bar for detection rules.
@@ -347,12 +385,21 @@ class SecurityMonitoringCriticalAsset(pulumi.CustomResource):
 
         __props__ = _SecurityMonitoringCriticalAssetState.__new__(_SecurityMonitoringCriticalAssetState)
 
+        __props__.__dict__["description"] = description
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["query"] = query
         __props__.__dict__["rule_query"] = rule_query
         __props__.__dict__["severity"] = severity
         __props__.__dict__["tags"] = tags
         return SecurityMonitoringCriticalAsset(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        A description of the critical asset.
+        """
+        return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter

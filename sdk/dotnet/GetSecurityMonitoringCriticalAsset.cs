@@ -118,6 +118,10 @@ namespace Pulumi.Datadog
     public sealed class GetSecurityMonitoringCriticalAssetResult
     {
         /// <summary>
+        /// A description of the critical asset.
+        /// </summary>
+        public readonly string Description;
+        /// <summary>
         /// Whether the critical asset is enabled.
         /// </summary>
         public readonly bool Enabled;
@@ -144,6 +148,8 @@ namespace Pulumi.Datadog
 
         [OutputConstructor]
         private GetSecurityMonitoringCriticalAssetResult(
+            string description,
+
             bool enabled,
 
             string id,
@@ -156,6 +162,7 @@ namespace Pulumi.Datadog
 
             ImmutableArray<string> tags)
         {
+            Description = description;
             Enabled = enabled;
             Id = id;
             Query = query;

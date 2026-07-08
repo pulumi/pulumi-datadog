@@ -4,9 +4,10 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRule;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRule;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -15,30 +16,54 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrok {
     /**
-     * @return If set to `true`, disables the default Grok rules provided by Datadog.
+     * @return If set to `true`, disables the default Grok rules provided by Datadog. Defaults to `false`.
      * 
      */
     private @Nullable Boolean disableLibraryRules;
     /**
+     * @return The log field to parse with the Grok rules. Defaults to `&#34;message&#34;`.
+     * 
+     */
+    private @Nullable String field;
+    /**
+     * @return A Grok parsing rule that targets logs matching a Datadog search query.
+     * 
+     */
+    private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRule> includeRules;
+    /**
      * @return The list of Grok parsing rules. If multiple parsing rules are provided, they are evaluated in order. The first successful match is applied.
      * 
      */
-    private List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRule> rules;
+    private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRule> rules;
 
     private ObservabilityPipelineConfigProcessorGroupProcessorParseGrok() {}
     /**
-     * @return If set to `true`, disables the default Grok rules provided by Datadog.
+     * @return If set to `true`, disables the default Grok rules provided by Datadog. Defaults to `false`.
      * 
      */
     public Optional<Boolean> disableLibraryRules() {
         return Optional.ofNullable(this.disableLibraryRules);
     }
     /**
+     * @return The log field to parse with the Grok rules. Defaults to `&#34;message&#34;`.
+     * 
+     */
+    public Optional<String> field() {
+        return Optional.ofNullable(this.field);
+    }
+    /**
+     * @return A Grok parsing rule that targets logs matching a Datadog search query.
+     * 
+     */
+    public List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRule> includeRules() {
+        return this.includeRules == null ? List.of() : this.includeRules;
+    }
+    /**
      * @return The list of Grok parsing rules. If multiple parsing rules are provided, they are evaluated in order. The first successful match is applied.
      * 
      */
     public List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRule> rules() {
-        return this.rules;
+        return this.rules == null ? List.of() : this.rules;
     }
 
     public static Builder builder() {
@@ -51,11 +76,15 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrok {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean disableLibraryRules;
-        private List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRule> rules;
+        private @Nullable String field;
+        private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRule> includeRules;
+        private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRule> rules;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorParseGrok defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.disableLibraryRules = defaults.disableLibraryRules;
+    	      this.field = defaults.field;
+    	      this.includeRules = defaults.includeRules;
     	      this.rules = defaults.rules;
         }
 
@@ -66,10 +95,23 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrok {
             return this;
         }
         @CustomType.Setter
-        public Builder rules(List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRule> rules) {
-            if (rules == null) {
-              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorParseGrok", "rules");
-            }
+        public Builder field(@Nullable String field) {
+
+            this.field = field;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder includeRules(@Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRule> includeRules) {
+
+            this.includeRules = includeRules;
+            return this;
+        }
+        public Builder includeRules(ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRule... includeRules) {
+            return includeRules(List.of(includeRules));
+        }
+        @CustomType.Setter
+        public Builder rules(@Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRule> rules) {
+
             this.rules = rules;
             return this;
         }
@@ -79,6 +121,8 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrok {
         public ObservabilityPipelineConfigProcessorGroupProcessorParseGrok build() {
             final var _resultValue = new ObservabilityPipelineConfigProcessorGroupProcessorParseGrok();
             _resultValue.disableLibraryRules = disableLibraryRules;
+            _resultValue.field = field;
+            _resultValue.includeRules = includeRules;
             _resultValue.rules = rules;
             return _resultValue;
         }

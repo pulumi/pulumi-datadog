@@ -216,6 +216,12 @@ namespace Pulumi.Datadog.Inputs
             set => _syslogNgs = value;
         }
 
+        /// <summary>
+        /// The `Websocket` source establishes a persistent WebSocket connection to a remote endpoint and ingests log events as they are pushed by the server.
+        /// </summary>
+        [Input("websocket")]
+        public Input<Inputs.ObservabilityPipelineConfigSourceWebsocketGetArgs>? Websocket { get; set; }
+
         public ObservabilityPipelineConfigSourceGetArgs()
         {
         }

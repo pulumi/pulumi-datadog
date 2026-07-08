@@ -36,7 +36,7 @@ class CloudConfigurationRuleArgs:
         The set of arguments for constructing a CloudConfigurationRule resource.
 
         :param pulumi.Input[_builtins.bool] enabled: Whether the cloud configuration rule is enabled.
-        :param pulumi.Input[_builtins.str] message: The message associated to the rule that will be shown in findings and signals.
+        :param pulumi.Input[_builtins.str] message: The message associated to the rule that will be shown in findings and signals. For cloud configuration rules, the message is rendered in the finding side panel. When the message is written as Markdown, you can use the following top-level section headers to control where each part appears in the finding: `Description` and `Rationale` appear under **What Happened**, `Remediation` appears in its own **Remediation** section, and `References` are shown separately. All of these sections are optional and can appear in any order; a typical message uses only `Description` and `Remediation`. Use level-2 (`##`) headers for each section. If none of these headers are present, the entire message is shown as the description.
         :param pulumi.Input[_builtins.str] name: The name of the cloud configuration rule.
         :param pulumi.Input[_builtins.str] policy: Policy written in Rego format.
         :param pulumi.Input[_builtins.str] resource_type: Main resource type to be checked by the rule.
@@ -80,7 +80,7 @@ class CloudConfigurationRuleArgs:
     @pulumi.getter
     def message(self) -> pulumi.Input[_builtins.str]:
         """
-        The message associated to the rule that will be shown in findings and signals.
+        The message associated to the rule that will be shown in findings and signals. For cloud configuration rules, the message is rendered in the finding side panel. When the message is written as Markdown, you can use the following top-level section headers to control where each part appears in the finding: `Description` and `Rationale` appear under **What Happened**, `Remediation` appears in its own **Remediation** section, and `References` are shown separately. All of these sections are optional and can appear in any order; a typical message uses only `Description` and `Remediation`. Use level-2 (`##`) headers for each section. If none of these headers are present, the entire message is shown as the description.
         """
         return pulumi.get(self, "message")
 
@@ -217,7 +217,7 @@ class _CloudConfigurationRuleState:
         :param pulumi.Input[_builtins.bool] enabled: Whether the cloud configuration rule is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['CloudConfigurationRuleFilterArgs']]] filters: Additional queries to filter matched events before they are processed. Defaults to empty list
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_bies: Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
-        :param pulumi.Input[_builtins.str] message: The message associated to the rule that will be shown in findings and signals.
+        :param pulumi.Input[_builtins.str] message: The message associated to the rule that will be shown in findings and signals. For cloud configuration rules, the message is rendered in the finding side panel. When the message is written as Markdown, you can use the following top-level section headers to control where each part appears in the finding: `Description` and `Rationale` appear under **What Happened**, `Remediation` appears in its own **Remediation** section, and `References` are shown separately. All of these sections are optional and can appear in any order; a typical message uses only `Description` and `Remediation`. Use level-2 (`##`) headers for each section. If none of these headers are present, the entire message is shown as the description.
         :param pulumi.Input[_builtins.str] name: The name of the cloud configuration rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notifications: This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
         :param pulumi.Input[_builtins.str] policy: Policy written in Rego format.
@@ -289,7 +289,7 @@ class _CloudConfigurationRuleState:
     @pulumi.getter
     def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The message associated to the rule that will be shown in findings and signals.
+        The message associated to the rule that will be shown in findings and signals. For cloud configuration rules, the message is rendered in the finding side panel. When the message is written as Markdown, you can use the following top-level section headers to control where each part appears in the finding: `Description` and `Rationale` appear under **What Happened**, `Remediation` appears in its own **Remediation** section, and `References` are shown separately. All of these sections are optional and can appear in any order; a typical message uses only `Description` and `Remediation`. Use level-2 (`##`) headers for each section. If none of these headers are present, the entire message is shown as the description.
         """
         return pulumi.get(self, "message")
 
@@ -462,7 +462,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enabled: Whether the cloud configuration rule is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CloudConfigurationRuleFilterArgs', 'CloudConfigurationRuleFilterArgsDict']]]] filters: Additional queries to filter matched events before they are processed. Defaults to empty list
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_bies: Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
-        :param pulumi.Input[_builtins.str] message: The message associated to the rule that will be shown in findings and signals.
+        :param pulumi.Input[_builtins.str] message: The message associated to the rule that will be shown in findings and signals. For cloud configuration rules, the message is rendered in the finding side panel. When the message is written as Markdown, you can use the following top-level section headers to control where each part appears in the finding: `Description` and `Rationale` appear under **What Happened**, `Remediation` appears in its own **Remediation** section, and `References` are shown separately. All of these sections are optional and can appear in any order; a typical message uses only `Description` and `Remediation`. Use level-2 (`##`) headers for each section. If none of these headers are present, the entire message is shown as the description.
         :param pulumi.Input[_builtins.str] name: The name of the cloud configuration rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notifications: This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
         :param pulumi.Input[_builtins.str] policy: Policy written in Rego format.
@@ -623,7 +623,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enabled: Whether the cloud configuration rule is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CloudConfigurationRuleFilterArgs', 'CloudConfigurationRuleFilterArgsDict']]]] filters: Additional queries to filter matched events before they are processed. Defaults to empty list
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_bies: Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
-        :param pulumi.Input[_builtins.str] message: The message associated to the rule that will be shown in findings and signals.
+        :param pulumi.Input[_builtins.str] message: The message associated to the rule that will be shown in findings and signals. For cloud configuration rules, the message is rendered in the finding side panel. When the message is written as Markdown, you can use the following top-level section headers to control where each part appears in the finding: `Description` and `Rationale` appear under **What Happened**, `Remediation` appears in its own **Remediation** section, and `References` are shown separately. All of these sections are optional and can appear in any order; a typical message uses only `Description` and `Remediation`. Use level-2 (`##`) headers for each section. If none of these headers are present, the entire message is shown as the description.
         :param pulumi.Input[_builtins.str] name: The name of the cloud configuration rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notifications: This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
         :param pulumi.Input[_builtins.str] policy: Policy written in Rego format.
@@ -677,7 +677,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
     @pulumi.getter
     def message(self) -> pulumi.Output[_builtins.str]:
         """
-        The message associated to the rule that will be shown in findings and signals.
+        The message associated to the rule that will be shown in findings and signals. For cloud configuration rules, the message is rendered in the finding side panel. When the message is written as Markdown, you can use the following top-level section headers to control where each part appears in the finding: `Description` and `Rationale` appear under **What Happened**, `Remediation` appears in its own **Remediation** section, and `References` are shown separately. All of these sections are optional and can appear in any order; a typical message uses only `Description` and `Remediation`. Use level-2 (`##`) headers for each section. If none of these headers are present, the entire message is shown as the description.
         """
         return pulumi.get(self, "message")
 

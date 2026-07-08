@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRule
     {
         /// <summary>
-        /// A list of Grok parsing rules that define how to extract fields from the source field. Each rule must contain a name and a valid Grok pattern.
+        /// A list of Grok parsing rules that define how to extract fields. Each rule must contain a name and a valid Grok pattern.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleMatchRule> MatchRules;
         /// <summary>

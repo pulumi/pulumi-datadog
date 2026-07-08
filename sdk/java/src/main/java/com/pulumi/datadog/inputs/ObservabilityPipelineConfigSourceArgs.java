@@ -22,6 +22,7 @@ import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceSplunkHecArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceSplunkTcpArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceSumoLogicArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceSyslogNgArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceWebsocketArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
@@ -304,6 +305,21 @@ public final class ObservabilityPipelineConfigSourceArgs extends com.pulumi.reso
         return Optional.ofNullable(this.syslogNgs);
     }
 
+    /**
+     * The `websocket` source establishes a persistent WebSocket connection to a remote endpoint and ingests log events as they are pushed by the server.
+     * 
+     */
+    @Import(name="websocket")
+    private @Nullable Output<ObservabilityPipelineConfigSourceWebsocketArgs> websocket;
+
+    /**
+     * @return The `websocket` source establishes a persistent WebSocket connection to a remote endpoint and ingests log events as they are pushed by the server.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigSourceWebsocketArgs>> websocket() {
+        return Optional.ofNullable(this.websocket);
+    }
+
     private ObservabilityPipelineConfigSourceArgs() {}
 
     private ObservabilityPipelineConfigSourceArgs(ObservabilityPipelineConfigSourceArgs $) {
@@ -325,6 +341,7 @@ public final class ObservabilityPipelineConfigSourceArgs extends com.pulumi.reso
         this.splunkTcps = $.splunkTcps;
         this.sumoLogics = $.sumoLogics;
         this.syslogNgs = $.syslogNgs;
+        this.websocket = $.websocket;
     }
 
     public static Builder builder() {
@@ -881,6 +898,27 @@ public final class ObservabilityPipelineConfigSourceArgs extends com.pulumi.reso
          */
         public Builder syslogNgs(ObservabilityPipelineConfigSourceSyslogNgArgs... syslogNgs) {
             return syslogNgs(List.of(syslogNgs));
+        }
+
+        /**
+         * @param websocket The `websocket` source establishes a persistent WebSocket connection to a remote endpoint and ingests log events as they are pushed by the server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder websocket(@Nullable Output<ObservabilityPipelineConfigSourceWebsocketArgs> websocket) {
+            $.websocket = websocket;
+            return this;
+        }
+
+        /**
+         * @param websocket The `websocket` source establishes a persistent WebSocket connection to a remote endpoint and ingests log events as they are pushed by the server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder websocket(ObservabilityPipelineConfigSourceWebsocketArgs websocket) {
+            return websocket(Output.of(websocket));
         }
 
         public ObservabilityPipelineConfigSourceArgs build() {

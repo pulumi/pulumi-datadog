@@ -10,6 +10,7 @@ import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonS3A
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonS3GenericArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonSecurityLakeArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAzureStorageArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationClickhouseArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationCloudPremArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiemArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationDatabricksZerobusArgs;
@@ -116,6 +117,21 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
      */
     public Optional<Output<List<ObservabilityPipelineConfigDestinationAzureStorageArgs>>> azureStorages() {
         return Optional.ofNullable(this.azureStorages);
+    }
+
+    /**
+     * The `clickhouse` destination forwards logs to a ClickHouse server via HTTP.
+     * 
+     */
+    @Import(name="clickhouse")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationClickhouseArgs> clickhouse;
+
+    /**
+     * @return The `clickhouse` destination forwards logs to a ClickHouse server via HTTP.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationClickhouseArgs>> clickhouse() {
+        return Optional.ofNullable(this.clickhouse);
     }
 
     /**
@@ -471,6 +487,7 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
         this.amazonS3s = $.amazonS3s;
         this.amazonSecurityLakes = $.amazonSecurityLakes;
         this.azureStorages = $.azureStorages;
+        this.clickhouse = $.clickhouse;
         this.cloudPrem = $.cloudPrem;
         this.crowdstrikeNextGenSiems = $.crowdstrikeNextGenSiems;
         this.databricksZerobuses = $.databricksZerobuses;
@@ -657,6 +674,27 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
          */
         public Builder azureStorages(ObservabilityPipelineConfigDestinationAzureStorageArgs... azureStorages) {
             return azureStorages(List.of(azureStorages));
+        }
+
+        /**
+         * @param clickhouse The `clickhouse` destination forwards logs to a ClickHouse server via HTTP.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clickhouse(@Nullable Output<ObservabilityPipelineConfigDestinationClickhouseArgs> clickhouse) {
+            $.clickhouse = clickhouse;
+            return this;
+        }
+
+        /**
+         * @param clickhouse The `clickhouse` destination forwards logs to a ClickHouse server via HTTP.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clickhouse(ObservabilityPipelineConfigDestinationClickhouseArgs clickhouse) {
+            return clickhouse(Output.of(clickhouse));
         }
 
         /**

@@ -102,7 +102,7 @@ type CloudConfigurationRule struct {
 	Filters CloudConfigurationRuleFilterArrayOutput `pulumi:"filters"`
 	// Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
 	GroupBies pulumi.StringArrayOutput `pulumi:"groupBies"`
-	// The message associated to the rule that will be shown in findings and signals.
+	// The message associated to the rule that will be shown in findings and signals. For cloud configuration rules, the message is rendered in the finding side panel. When the message is written as Markdown, you can use the following top-level section headers to control where each part appears in the finding: `Description` and `Rationale` appear under **What Happened**, `Remediation` appears in its own **Remediation** section, and `References` are shown separately. All of these sections are optional and can appear in any order; a typical message uses only `Description` and `Remediation`. Use level-2 (`##`) headers for each section. If none of these headers are present, the entire message is shown as the description.
 	Message pulumi.StringOutput `pulumi:"message"`
 	// The name of the cloud configuration rule.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -174,7 +174,7 @@ type cloudConfigurationRuleState struct {
 	Filters []CloudConfigurationRuleFilter `pulumi:"filters"`
 	// Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
 	GroupBies []string `pulumi:"groupBies"`
-	// The message associated to the rule that will be shown in findings and signals.
+	// The message associated to the rule that will be shown in findings and signals. For cloud configuration rules, the message is rendered in the finding side panel. When the message is written as Markdown, you can use the following top-level section headers to control where each part appears in the finding: `Description` and `Rationale` appear under **What Happened**, `Remediation` appears in its own **Remediation** section, and `References` are shown separately. All of these sections are optional and can appear in any order; a typical message uses only `Description` and `Remediation`. Use level-2 (`##`) headers for each section. If none of these headers are present, the entire message is shown as the description.
 	Message *string `pulumi:"message"`
 	// The name of the cloud configuration rule.
 	Name *string `pulumi:"name"`
@@ -199,7 +199,7 @@ type CloudConfigurationRuleState struct {
 	Filters CloudConfigurationRuleFilterArrayInput
 	// Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
 	GroupBies pulumi.StringArrayInput
-	// The message associated to the rule that will be shown in findings and signals.
+	// The message associated to the rule that will be shown in findings and signals. For cloud configuration rules, the message is rendered in the finding side panel. When the message is written as Markdown, you can use the following top-level section headers to control where each part appears in the finding: `Description` and `Rationale` appear under **What Happened**, `Remediation` appears in its own **Remediation** section, and `References` are shown separately. All of these sections are optional and can appear in any order; a typical message uses only `Description` and `Remediation`. Use level-2 (`##`) headers for each section. If none of these headers are present, the entire message is shown as the description.
 	Message pulumi.StringPtrInput
 	// The name of the cloud configuration rule.
 	Name pulumi.StringPtrInput
@@ -228,7 +228,7 @@ type cloudConfigurationRuleArgs struct {
 	Filters []CloudConfigurationRuleFilter `pulumi:"filters"`
 	// Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
 	GroupBies []string `pulumi:"groupBies"`
-	// The message associated to the rule that will be shown in findings and signals.
+	// The message associated to the rule that will be shown in findings and signals. For cloud configuration rules, the message is rendered in the finding side panel. When the message is written as Markdown, you can use the following top-level section headers to control where each part appears in the finding: `Description` and `Rationale` appear under **What Happened**, `Remediation` appears in its own **Remediation** section, and `References` are shown separately. All of these sections are optional and can appear in any order; a typical message uses only `Description` and `Remediation`. Use level-2 (`##`) headers for each section. If none of these headers are present, the entire message is shown as the description.
 	Message string `pulumi:"message"`
 	// The name of the cloud configuration rule.
 	Name string `pulumi:"name"`
@@ -254,7 +254,7 @@ type CloudConfigurationRuleArgs struct {
 	Filters CloudConfigurationRuleFilterArrayInput
 	// Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
 	GroupBies pulumi.StringArrayInput
-	// The message associated to the rule that will be shown in findings and signals.
+	// The message associated to the rule that will be shown in findings and signals. For cloud configuration rules, the message is rendered in the finding side panel. When the message is written as Markdown, you can use the following top-level section headers to control where each part appears in the finding: `Description` and `Rationale` appear under **What Happened**, `Remediation` appears in its own **Remediation** section, and `References` are shown separately. All of these sections are optional and can appear in any order; a typical message uses only `Description` and `Remediation`. Use level-2 (`##`) headers for each section. If none of these headers are present, the entire message is shown as the description.
 	Message pulumi.StringInput
 	// The name of the cloud configuration rule.
 	Name pulumi.StringInput
@@ -374,7 +374,7 @@ func (o CloudConfigurationRuleOutput) GroupBies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CloudConfigurationRule) pulumi.StringArrayOutput { return v.GroupBies }).(pulumi.StringArrayOutput)
 }
 
-// The message associated to the rule that will be shown in findings and signals.
+// The message associated to the rule that will be shown in findings and signals. For cloud configuration rules, the message is rendered in the finding side panel. When the message is written as Markdown, you can use the following top-level section headers to control where each part appears in the finding: `Description` and `Rationale` appear under **What Happened**, `Remediation` appears in its own **Remediation** section, and `References` are shown separately. All of these sections are optional and can appear in any order; a typical message uses only `Description` and `Remediation`. Use level-2 (`##`) headers for each section. If none of these headers are present, the entire message is shown as the description.
 func (o CloudConfigurationRuleOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudConfigurationRule) pulumi.StringOutput { return v.Message }).(pulumi.StringOutput)
 }

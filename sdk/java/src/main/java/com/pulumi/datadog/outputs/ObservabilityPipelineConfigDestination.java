@@ -9,6 +9,7 @@ import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonS3
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonS3Generic;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonSecurityLake;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAzureStorage;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationClickhouse;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationCloudPrem;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationDatabricksZerobus;
@@ -64,6 +65,11 @@ public final class ObservabilityPipelineConfigDestination {
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationAzureStorage> azureStorages;
+    /**
+     * @return The `clickhouse` destination forwards logs to a ClickHouse server via HTTP.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationClickhouse clickhouse;
     /**
      * @return The `cloudPrem` destination sends logs to Datadog CloudPrem.
      * 
@@ -215,6 +221,13 @@ public final class ObservabilityPipelineConfigDestination {
      */
     public List<ObservabilityPipelineConfigDestinationAzureStorage> azureStorages() {
         return this.azureStorages == null ? List.of() : this.azureStorages;
+    }
+    /**
+     * @return The `clickhouse` destination forwards logs to a ClickHouse server via HTTP.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationClickhouse> clickhouse() {
+        return Optional.ofNullable(this.clickhouse);
     }
     /**
      * @return The `cloudPrem` destination sends logs to Datadog CloudPrem.
@@ -392,6 +405,7 @@ public final class ObservabilityPipelineConfigDestination {
         private @Nullable List<ObservabilityPipelineConfigDestinationAmazonS3> amazonS3s;
         private @Nullable List<ObservabilityPipelineConfigDestinationAmazonSecurityLake> amazonSecurityLakes;
         private @Nullable List<ObservabilityPipelineConfigDestinationAzureStorage> azureStorages;
+        private @Nullable ObservabilityPipelineConfigDestinationClickhouse clickhouse;
         private @Nullable ObservabilityPipelineConfigDestinationCloudPrem cloudPrem;
         private @Nullable List<ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem> crowdstrikeNextGenSiems;
         private @Nullable List<ObservabilityPipelineConfigDestinationDatabricksZerobus> databricksZerobuses;
@@ -423,6 +437,7 @@ public final class ObservabilityPipelineConfigDestination {
     	      this.amazonS3s = defaults.amazonS3s;
     	      this.amazonSecurityLakes = defaults.amazonSecurityLakes;
     	      this.azureStorages = defaults.azureStorages;
+    	      this.clickhouse = defaults.clickhouse;
     	      this.cloudPrem = defaults.cloudPrem;
     	      this.crowdstrikeNextGenSiems = defaults.crowdstrikeNextGenSiems;
     	      this.databricksZerobuses = defaults.databricksZerobuses;
@@ -489,6 +504,12 @@ public final class ObservabilityPipelineConfigDestination {
         }
         public Builder azureStorages(ObservabilityPipelineConfigDestinationAzureStorage... azureStorages) {
             return azureStorages(List.of(azureStorages));
+        }
+        @CustomType.Setter
+        public Builder clickhouse(@Nullable ObservabilityPipelineConfigDestinationClickhouse clickhouse) {
+
+            this.clickhouse = clickhouse;
+            return this;
         }
         @CustomType.Setter
         public Builder cloudPrem(@Nullable ObservabilityPipelineConfigDestinationCloudPrem cloudPrem) {
@@ -696,6 +717,7 @@ public final class ObservabilityPipelineConfigDestination {
             _resultValue.amazonS3s = amazonS3s;
             _resultValue.amazonSecurityLakes = amazonSecurityLakes;
             _resultValue.azureStorages = azureStorages;
+            _resultValue.clickhouse = clickhouse;
             _resultValue.cloudPrem = cloudPrem;
             _resultValue.crowdstrikeNextGenSiems = crowdstrikeNextGenSiems;
             _resultValue.databricksZerobuses = databricksZerobuses;
