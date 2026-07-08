@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRule {
     /**
-     * @return A list of Grok parsing rules that define how to extract fields from the source field. Each rule must contain a name and a valid Grok pattern.
+     * @return A list of Grok parsing rules that define how to extract fields. Each rule must contain a name and a valid Grok pattern.
      * 
      */
     private List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleMatchRule> matchRules;
@@ -32,7 +32,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRu
 
     private ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRule() {}
     /**
-     * @return A list of Grok parsing rules that define how to extract fields from the source field. Each rule must contain a name and a valid Grok pattern.
+     * @return A list of Grok parsing rules that define how to extract fields. Each rule must contain a name and a valid Grok pattern.
      * 
      */
     public List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleMatchRule> matchRules() {

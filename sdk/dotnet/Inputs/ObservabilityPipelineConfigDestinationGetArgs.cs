@@ -67,6 +67,12 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// The `Clickhouse` destination forwards logs to a ClickHouse server via HTTP.
+        /// </summary>
+        [Input("clickhouse")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationClickhouseGetArgs>? Clickhouse { get; set; }
+
+        /// <summary>
         /// The `CloudPrem` destination sends logs to Datadog CloudPrem.
         /// </summary>
         [Input("cloudPrem")]

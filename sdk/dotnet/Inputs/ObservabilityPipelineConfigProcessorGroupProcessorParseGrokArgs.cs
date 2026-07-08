@@ -13,12 +13,30 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If set to `True`, disables the default Grok rules provided by Datadog.
+        /// If set to `True`, disables the default Grok rules provided by Datadog. Defaults to `False`.
         /// </summary>
         [Input("disableLibraryRules")]
         public Input<bool>? DisableLibraryRules { get; set; }
 
-        [Input("rules", required: true)]
+        /// <summary>
+        /// The log field to parse with the Grok rules. Defaults to `"message"`.
+        /// </summary>
+        [Input("field")]
+        public Input<string>? Field { get; set; }
+
+        [Input("includeRules")]
+        private InputList<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleArgs>? _includeRules;
+
+        /// <summary>
+        /// A Grok parsing rule that targets logs matching a Datadog search query.
+        /// </summary>
+        public InputList<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleArgs> IncludeRules
+        {
+            get => _includeRules ?? (_includeRules = new InputList<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleArgs>());
+            set => _includeRules = value;
+        }
+
+        [Input("rules")]
         private InputList<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleArgs>? _rules;
 
         /// <summary>

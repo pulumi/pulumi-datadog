@@ -56,6 +56,8 @@ type LookupSecurityMonitoringCriticalAssetArgs struct {
 
 // A collection of values returned by getSecurityMonitoringCriticalAsset.
 type LookupSecurityMonitoringCriticalAssetResult struct {
+	// A description of the critical asset.
+	Description string `pulumi:"description"`
 	// Whether the critical asset is enabled.
 	Enabled bool `pulumi:"enabled"`
 	// The ID of the critical asset.
@@ -102,6 +104,11 @@ func (o LookupSecurityMonitoringCriticalAssetResultOutput) ToLookupSecurityMonit
 
 func (o LookupSecurityMonitoringCriticalAssetResultOutput) ToLookupSecurityMonitoringCriticalAssetResultOutputWithContext(ctx context.Context) LookupSecurityMonitoringCriticalAssetResultOutput {
 	return o
+}
+
+// A description of the critical asset.
+func (o LookupSecurityMonitoringCriticalAssetResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityMonitoringCriticalAssetResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
 // Whether the critical asset is enabled.

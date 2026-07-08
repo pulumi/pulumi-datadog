@@ -20,14 +20,14 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRu
     public static final ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleArgs Empty = new ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleArgs();
 
     /**
-     * A list of Grok parsing rules that define how to extract fields from the source field. Each rule must contain a name and a valid Grok pattern.
+     * A list of Grok parsing rules that define how to extract fields. Each rule must contain a name and a valid Grok pattern.
      * 
      */
     @Import(name="matchRules", required=true)
     private Output<List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleMatchRuleArgs>> matchRules;
 
     /**
-     * @return A list of Grok parsing rules that define how to extract fields from the source field. Each rule must contain a name and a valid Grok pattern.
+     * @return A list of Grok parsing rules that define how to extract fields. Each rule must contain a name and a valid Grok pattern.
      * 
      */
     public Output<List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRuleMatchRuleArgs>> matchRules() {
@@ -91,7 +91,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRu
         }
 
         /**
-         * @param matchRules A list of Grok parsing rules that define how to extract fields from the source field. Each rule must contain a name and a valid Grok pattern.
+         * @param matchRules A list of Grok parsing rules that define how to extract fields. Each rule must contain a name and a valid Grok pattern.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRu
         }
 
         /**
-         * @param matchRules A list of Grok parsing rules that define how to extract fields from the source field. Each rule must contain a name and a valid Grok pattern.
+         * @param matchRules A list of Grok parsing rules that define how to extract fields. Each rule must contain a name and a valid Grok pattern.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRu
         }
 
         /**
-         * @param matchRules A list of Grok parsing rules that define how to extract fields from the source field. Each rule must contain a name and a valid Grok pattern.
+         * @param matchRules A list of Grok parsing rules that define how to extract fields. Each rule must contain a name and a valid Grok pattern.
          * 
          * @return builder
          * 

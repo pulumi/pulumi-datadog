@@ -14,9 +14,17 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorParseGrok
     {
         /// <summary>
-        /// If set to `True`, disables the default Grok rules provided by Datadog.
+        /// If set to `True`, disables the default Grok rules provided by Datadog. Defaults to `False`.
         /// </summary>
         public readonly bool? DisableLibraryRules;
+        /// <summary>
+        /// The log field to parse with the Grok rules. Defaults to `"message"`.
+        /// </summary>
+        public readonly string? Field;
+        /// <summary>
+        /// A Grok parsing rule that targets logs matching a Datadog search query.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRule> IncludeRules;
         /// <summary>
         /// The list of Grok parsing rules. If multiple parsing rules are provided, they are evaluated in order. The first successful match is applied.
         /// </summary>
@@ -26,9 +34,15 @@ namespace Pulumi.Datadog.Outputs
         private ObservabilityPipelineConfigProcessorGroupProcessorParseGrok(
             bool? disableLibraryRules,
 
+            string? field,
+
+            ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRule> includeRules,
+
             ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokRule> rules)
         {
             DisableLibraryRules = disableLibraryRules;
+            Field = field;
+            IncludeRules = includeRules;
             Rules = rules;
         }
     }

@@ -21,6 +21,7 @@ import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceSplunkHec;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceSplunkTcp;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceSumoLogic;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceSyslogNg;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceWebsocket;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
@@ -120,6 +121,11 @@ public final class ObservabilityPipelineConfigSource {
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigSourceSyslogNg> syslogNgs;
+    /**
+     * @return The `websocket` source establishes a persistent WebSocket connection to a remote endpoint and ingests log events as they are pushed by the server.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigSourceWebsocket websocket;
 
     private ObservabilityPipelineConfigSource() {}
     /**
@@ -248,6 +254,13 @@ public final class ObservabilityPipelineConfigSource {
     public List<ObservabilityPipelineConfigSourceSyslogNg> syslogNgs() {
         return this.syslogNgs == null ? List.of() : this.syslogNgs;
     }
+    /**
+     * @return The `websocket` source establishes a persistent WebSocket connection to a remote endpoint and ingests log events as they are pushed by the server.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigSourceWebsocket> websocket() {
+        return Optional.ofNullable(this.websocket);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -276,6 +289,7 @@ public final class ObservabilityPipelineConfigSource {
         private @Nullable List<ObservabilityPipelineConfigSourceSplunkTcp> splunkTcps;
         private @Nullable List<ObservabilityPipelineConfigSourceSumoLogic> sumoLogics;
         private @Nullable List<ObservabilityPipelineConfigSourceSyslogNg> syslogNgs;
+        private @Nullable ObservabilityPipelineConfigSourceWebsocket websocket;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigSource defaults) {
     	      Objects.requireNonNull(defaults);
@@ -297,6 +311,7 @@ public final class ObservabilityPipelineConfigSource {
     	      this.splunkTcps = defaults.splunkTcps;
     	      this.sumoLogics = defaults.sumoLogics;
     	      this.syslogNgs = defaults.syslogNgs;
+    	      this.websocket = defaults.websocket;
         }
 
         @CustomType.Setter
@@ -457,6 +472,12 @@ public final class ObservabilityPipelineConfigSource {
         public Builder syslogNgs(ObservabilityPipelineConfigSourceSyslogNg... syslogNgs) {
             return syslogNgs(List.of(syslogNgs));
         }
+        @CustomType.Setter
+        public Builder websocket(@Nullable ObservabilityPipelineConfigSourceWebsocket websocket) {
+
+            this.websocket = websocket;
+            return this;
+        }
         public ObservabilityPipelineConfigSource build() {
             final var _resultValue = new ObservabilityPipelineConfigSource();
             _resultValue.amazonDataFirehoses = amazonDataFirehoses;
@@ -477,6 +498,7 @@ public final class ObservabilityPipelineConfigSource {
             _resultValue.splunkTcps = splunkTcps;
             _resultValue.sumoLogics = sumoLogics;
             _resultValue.syslogNgs = syslogNgs;
+            _resultValue.websocket = websocket;
             return _resultValue;
         }
     }

@@ -40,6 +40,10 @@ export interface GetSecurityMonitoringCriticalAssetArgs {
  */
 export interface GetSecurityMonitoringCriticalAssetResult {
     /**
+     * A description of the critical asset.
+     */
+    readonly description: string;
+    /**
      * Whether the critical asset is enabled.
      */
     readonly enabled: boolean;

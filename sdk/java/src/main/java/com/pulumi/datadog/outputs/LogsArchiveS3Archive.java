@@ -13,10 +13,15 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LogsArchiveS3Archive {
     /**
-     * @return Your AWS account id.
+     * @return Your AWS access key id, used as an alternative to `accountId`/`roleName`.
      * 
      */
-    private String accountId;
+    private @Nullable String accessKeyId;
+    /**
+     * @return Your AWS account id. Required with `roleName`; mutually exclusive with `accessKeyId`.
+     * 
+     */
+    private @Nullable String accountId;
     /**
      * @return Name of your s3 bucket.
      * 
@@ -38,10 +43,10 @@ public final class LogsArchiveS3Archive {
      */
     private @Nullable String path;
     /**
-     * @return Your AWS role name
+     * @return Your AWS role name. Required with `accountId`; mutually exclusive with `accessKeyId`.
      * 
      */
-    private String roleName;
+    private @Nullable String roleName;
     /**
      * @return The AWS S3 storage class used to upload the logs. Valid values are `STANDARD`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER_IR`. Defaults to `&#34;STANDARD&#34;`.
      * 
@@ -50,11 +55,18 @@ public final class LogsArchiveS3Archive {
 
     private LogsArchiveS3Archive() {}
     /**
-     * @return Your AWS account id.
+     * @return Your AWS access key id, used as an alternative to `accountId`/`roleName`.
      * 
      */
-    public String accountId() {
-        return this.accountId;
+    public Optional<String> accessKeyId() {
+        return Optional.ofNullable(this.accessKeyId);
+    }
+    /**
+     * @return Your AWS account id. Required with `roleName`; mutually exclusive with `accessKeyId`.
+     * 
+     */
+    public Optional<String> accountId() {
+        return Optional.ofNullable(this.accountId);
     }
     /**
      * @return Name of your s3 bucket.
@@ -85,11 +97,11 @@ public final class LogsArchiveS3Archive {
         return Optional.ofNullable(this.path);
     }
     /**
-     * @return Your AWS role name
+     * @return Your AWS role name. Required with `accountId`; mutually exclusive with `accessKeyId`.
      * 
      */
-    public String roleName() {
-        return this.roleName;
+    public Optional<String> roleName() {
+        return Optional.ofNullable(this.roleName);
     }
     /**
      * @return The AWS S3 storage class used to upload the logs. Valid values are `STANDARD`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER_IR`. Defaults to `&#34;STANDARD&#34;`.
@@ -108,16 +120,18 @@ public final class LogsArchiveS3Archive {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String accountId;
+        private @Nullable String accessKeyId;
+        private @Nullable String accountId;
         private String bucket;
         private @Nullable String encryptionKey;
         private @Nullable String encryptionType;
         private @Nullable String path;
-        private String roleName;
+        private @Nullable String roleName;
         private @Nullable String storageClass;
         public Builder() {}
         public Builder(LogsArchiveS3Archive defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.accessKeyId = defaults.accessKeyId;
     	      this.accountId = defaults.accountId;
     	      this.bucket = defaults.bucket;
     	      this.encryptionKey = defaults.encryptionKey;
@@ -128,10 +142,14 @@ public final class LogsArchiveS3Archive {
         }
 
         @CustomType.Setter
-        public Builder accountId(String accountId) {
-            if (accountId == null) {
-              throw new MissingRequiredPropertyException("LogsArchiveS3Archive", "accountId");
-            }
+        public Builder accessKeyId(@Nullable String accessKeyId) {
+
+            this.accessKeyId = accessKeyId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder accountId(@Nullable String accountId) {
+
             this.accountId = accountId;
             return this;
         }
@@ -162,10 +180,8 @@ public final class LogsArchiveS3Archive {
             return this;
         }
         @CustomType.Setter
-        public Builder roleName(String roleName) {
-            if (roleName == null) {
-              throw new MissingRequiredPropertyException("LogsArchiveS3Archive", "roleName");
-            }
+        public Builder roleName(@Nullable String roleName) {
+
             this.roleName = roleName;
             return this;
         }
@@ -177,6 +193,7 @@ public final class LogsArchiveS3Archive {
         }
         public LogsArchiveS3Archive build() {
             final var _resultValue = new LogsArchiveS3Archive();
+            _resultValue.accessKeyId = accessKeyId;
             _resultValue.accountId = accountId;
             _resultValue.bucket = bucket;
             _resultValue.encryptionKey = encryptionKey;

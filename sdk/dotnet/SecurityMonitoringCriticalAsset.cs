@@ -50,6 +50,12 @@ namespace Pulumi.Datadog
     public partial class SecurityMonitoringCriticalAsset : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// A description of the critical asset.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// Whether the critical asset is enabled. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
@@ -126,6 +132,12 @@ namespace Pulumi.Datadog
     public sealed class SecurityMonitoringCriticalAssetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A description of the critical asset.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Whether the critical asset is enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
@@ -169,6 +181,12 @@ namespace Pulumi.Datadog
 
     public sealed class SecurityMonitoringCriticalAssetState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description of the critical asset.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
         /// <summary>
         /// Whether the critical asset is enabled. Defaults to `True`.
         /// </summary>

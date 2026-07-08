@@ -62,6 +62,10 @@ export class SecurityMonitoringCriticalAsset extends pulumi.CustomResource {
     }
 
     /**
+     * A description of the critical asset.
+     */
+    declare public readonly description: pulumi.Output<string | undefined>;
+    /**
      * Whether the critical asset is enabled. Defaults to `true`.
      */
     declare public readonly enabled: pulumi.Output<boolean>;
@@ -95,6 +99,7 @@ export class SecurityMonitoringCriticalAsset extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityMonitoringCriticalAssetState | undefined;
+            resourceInputs["description"] = state?.description;
             resourceInputs["enabled"] = state?.enabled;
             resourceInputs["query"] = state?.query;
             resourceInputs["ruleQuery"] = state?.ruleQuery;
@@ -111,6 +116,7 @@ export class SecurityMonitoringCriticalAsset extends pulumi.CustomResource {
             if (args?.severity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'severity'");
             }
+            resourceInputs["description"] = args?.description;
             resourceInputs["enabled"] = args?.enabled;
             resourceInputs["query"] = args?.query;
             resourceInputs["ruleQuery"] = args?.ruleQuery;
@@ -126,6 +132,10 @@ export class SecurityMonitoringCriticalAsset extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SecurityMonitoringCriticalAsset resources.
  */
 export interface SecurityMonitoringCriticalAssetState {
+    /**
+     * A description of the critical asset.
+     */
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether the critical asset is enabled. Defaults to `true`.
      */
@@ -152,6 +162,10 @@ export interface SecurityMonitoringCriticalAssetState {
  * The set of arguments for constructing a SecurityMonitoringCriticalAsset resource.
  */
 export interface SecurityMonitoringCriticalAssetArgs {
+    /**
+     * A description of the critical asset.
+     */
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether the critical asset is enabled. Defaults to `true`.
      */

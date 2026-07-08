@@ -19,6 +19,21 @@ public final class SecurityMonitoringCriticalAssetArgs extends com.pulumi.resour
     public static final SecurityMonitoringCriticalAssetArgs Empty = new SecurityMonitoringCriticalAssetArgs();
 
     /**
+     * A description of the critical asset.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return A description of the critical asset.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * Whether the critical asset is enabled. Defaults to `true`.
      * 
      */
@@ -96,6 +111,7 @@ public final class SecurityMonitoringCriticalAssetArgs extends com.pulumi.resour
     private SecurityMonitoringCriticalAssetArgs() {}
 
     private SecurityMonitoringCriticalAssetArgs(SecurityMonitoringCriticalAssetArgs $) {
+        this.description = $.description;
         this.enabled = $.enabled;
         this.query = $.query;
         this.ruleQuery = $.ruleQuery;
@@ -119,6 +135,27 @@ public final class SecurityMonitoringCriticalAssetArgs extends com.pulumi.resour
 
         public Builder(SecurityMonitoringCriticalAssetArgs defaults) {
             $ = new SecurityMonitoringCriticalAssetArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param description A description of the critical asset.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description A description of the critical asset.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

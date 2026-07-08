@@ -70,6 +70,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/securityMonitoringCriticalAsset:SecurityMonitoringCriticalAsset")
 public class SecurityMonitoringCriticalAsset extends com.pulumi.resources.CustomResource {
     /**
+     * A description of the critical asset.
+     * 
+     */
+    @Export(name="description", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> description;
+
+    /**
+     * @return A description of the critical asset.
+     * 
+     */
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
+    }
+    /**
      * Whether the critical asset is enabled. Defaults to `true`.
      * 
      */

@@ -12,6 +12,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSecurityMonitoringCriticalAssetsCriticalAsset {
+    private String description;
     private Boolean enabled;
     private String id;
     private String query;
@@ -20,6 +21,9 @@ public final class GetSecurityMonitoringCriticalAssetsCriticalAsset {
     private List<String> tags;
 
     private GetSecurityMonitoringCriticalAssetsCriticalAsset() {}
+    public String description() {
+        return this.description;
+    }
     public Boolean enabled() {
         return this.enabled;
     }
@@ -48,6 +52,7 @@ public final class GetSecurityMonitoringCriticalAssetsCriticalAsset {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String description;
         private Boolean enabled;
         private String id;
         private String query;
@@ -57,6 +62,7 @@ public final class GetSecurityMonitoringCriticalAssetsCriticalAsset {
         public Builder() {}
         public Builder(GetSecurityMonitoringCriticalAssetsCriticalAsset defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.description = defaults.description;
     	      this.enabled = defaults.enabled;
     	      this.id = defaults.id;
     	      this.query = defaults.query;
@@ -65,6 +71,14 @@ public final class GetSecurityMonitoringCriticalAssetsCriticalAsset {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
+        public Builder description(String description) {
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetSecurityMonitoringCriticalAssetsCriticalAsset", "description");
+            }
+            this.description = description;
+            return this;
+        }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             if (enabled == null) {
@@ -118,6 +132,7 @@ public final class GetSecurityMonitoringCriticalAssetsCriticalAsset {
         }
         public GetSecurityMonitoringCriticalAssetsCriticalAsset build() {
             final var _resultValue = new GetSecurityMonitoringCriticalAssetsCriticalAsset();
+            _resultValue.description = description;
             _resultValue.enabled = enabled;
             _resultValue.id = id;
             _resultValue.query = query;
