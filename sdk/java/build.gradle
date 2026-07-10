@@ -95,7 +95,7 @@ publishing {
                 inceptionYear = "2022"
                 name = "pulumi-datadog"
                 packaging = "jar"
-                description = "A Pulumi package for creating and managing Datadog resources."
+                description = $/A Pulumi package for creating and managing Datadog resources./$
 
                 url = "https://github.com/pulumi/pulumi-datadog"
 
