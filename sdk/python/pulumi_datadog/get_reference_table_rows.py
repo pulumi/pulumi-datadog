@@ -28,10 +28,7 @@ class GetReferenceTableRowsResult:
     """
     A collection of values returned by getReferenceTableRows.
     """
-    def __init__(__self__, id=None, row_ids=None, rows=None, table_id=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, row_ids=None, rows=None, table_id=None):
         if row_ids and not isinstance(row_ids, list):
             raise TypeError("Expected argument 'row_ids' to be a list")
         pulumi.set(__self__, "row_ids", row_ids)
@@ -41,14 +38,6 @@ class GetReferenceTableRowsResult:
         if table_id and not isinstance(table_id, str):
             raise TypeError("Expected argument 'table_id' to be a str")
         pulumi.set(__self__, "table_id", table_id)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="rowIds")
@@ -81,7 +70,6 @@ class AwaitableGetReferenceTableRowsResult(GetReferenceTableRowsResult):
         if False:
             yield self
         return GetReferenceTableRowsResult(
-            id=self.id,
             row_ids=self.row_ids,
             rows=self.rows,
             table_id=self.table_id)
@@ -107,7 +95,6 @@ def get_reference_table_rows(row_ids: Optional[Sequence[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getReferenceTableRows:getReferenceTableRows', __args__, opts=opts, typ=GetReferenceTableRowsResult).value
 
     return AwaitableGetReferenceTableRowsResult(
-        id=pulumi.get(__ret__, 'id'),
         row_ids=pulumi.get(__ret__, 'row_ids'),
         rows=pulumi.get(__ret__, 'rows'),
         table_id=pulumi.get(__ret__, 'table_id'))
@@ -130,7 +117,6 @@ def get_reference_table_rows_output(row_ids: pulumi.Input[Optional[Sequence[_bui
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getReferenceTableRows:getReferenceTableRows', __args__, opts=opts, typ=GetReferenceTableRowsResult)
     return __ret__.apply(lambda __response__: GetReferenceTableRowsResult(
-        id=pulumi.get(__response__, 'id'),
         row_ids=pulumi.get(__response__, 'row_ids'),
         rows=pulumi.get(__response__, 'rows'),
         table_id=pulumi.get(__response__, 'table_id')))
