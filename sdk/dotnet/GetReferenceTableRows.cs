@@ -112,10 +112,6 @@ namespace Pulumi.Datadog
     public sealed class GetReferenceTableRowsResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// List of primary key values (row IDs) to retrieve. These are the values of the table's primary key field(s). Maximum 250 IDs per request.
         /// </summary>
         public readonly ImmutableArray<string> RowIds;
@@ -130,15 +126,12 @@ namespace Pulumi.Datadog
 
         [OutputConstructor]
         private GetReferenceTableRowsResult(
-            string id,
-
             ImmutableArray<string> rowIds,
 
             ImmutableArray<Outputs.GetReferenceTableRowsRowResult> rows,
 
             string tableId)
         {
-            Id = id;
             RowIds = rowIds;
             Rows = rows;
             TableId = tableId;

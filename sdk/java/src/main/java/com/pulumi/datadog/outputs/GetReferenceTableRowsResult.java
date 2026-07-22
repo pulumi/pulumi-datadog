@@ -14,11 +14,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetReferenceTableRowsResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return List of primary key values (row IDs) to retrieve. These are the values of the table&#39;s primary key field(s). Maximum 250 IDs per request.
      * 
      */
@@ -35,13 +30,6 @@ public final class GetReferenceTableRowsResult {
     private String tableId;
 
     private GetReferenceTableRowsResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     /**
      * @return List of primary key values (row IDs) to retrieve. These are the values of the table&#39;s primary key field(s). Maximum 250 IDs per request.
      * 
@@ -73,27 +61,17 @@ public final class GetReferenceTableRowsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private List<String> rowIds;
         private @Nullable List<GetReferenceTableRowsRow> rows;
         private String tableId;
         public Builder() {}
         public Builder(GetReferenceTableRowsResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.rowIds = defaults.rowIds;
     	      this.rows = defaults.rows;
     	      this.tableId = defaults.tableId;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetReferenceTableRowsResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder rowIds(List<String> rowIds) {
             if (rowIds == null) {
@@ -124,7 +102,6 @@ public final class GetReferenceTableRowsResult {
         }
         public GetReferenceTableRowsResult build() {
             final var _resultValue = new GetReferenceTableRowsResult();
-            _resultValue.id = id;
             _resultValue.rowIds = rowIds;
             _resultValue.rows = rows;
             _resultValue.tableId = tableId;

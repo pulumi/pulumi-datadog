@@ -41,10 +41,6 @@ export interface GetReferenceTableRowsArgs {
  */
 export interface GetReferenceTableRowsResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * List of primary key values (row IDs) to retrieve. These are the values of the table's primary key field(s). Maximum 250 IDs per request.
      */
     readonly rowIds: string[];

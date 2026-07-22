@@ -34,8 +34,6 @@ type GetReferenceTableRowsArgs struct {
 
 // A collection of values returned by getReferenceTableRows.
 type GetReferenceTableRowsResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// List of primary key values (row IDs) to retrieve. These are the values of the table's primary key field(s). Maximum 250 IDs per request.
 	RowIds []string `pulumi:"rowIds"`
 	// List of retrieved rows. Each row contains its ID and field values.
@@ -80,11 +78,6 @@ func (o GetReferenceTableRowsResultOutput) ToGetReferenceTableRowsResultOutput()
 
 func (o GetReferenceTableRowsResultOutput) ToGetReferenceTableRowsResultOutputWithContext(ctx context.Context) GetReferenceTableRowsResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetReferenceTableRowsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReferenceTableRowsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // List of primary key values (row IDs) to retrieve. These are the values of the table's primary key field(s). Maximum 250 IDs per request.
