@@ -16,6 +16,7 @@ import * as utilities from "./utilities";
  * // Configure agentless scanning for a GCP project
  * const example = new datadog.AgentlessScanningGcpScanOptions("example", {
  *     gcpProjectId: "company-project-prod",
+ *     cloudFunction: true,
  *     vulnContainersOs: true,
  *     vulnHostOs: true,
  * });
@@ -62,6 +63,10 @@ export class AgentlessScanningGcpScanOptions extends pulumi.CustomResource {
     }
 
     /**
+     * Indicates if scanning of Cloud Functions is enabled.
+     */
+    declare public readonly cloudFunction: pulumi.Output<boolean>;
+    /**
      * Indicates if host compliance scanning is enabled. Defaults to `false`.
      */
     declare public readonly complianceHost: pulumi.Output<boolean>;
@@ -91,12 +96,16 @@ export class AgentlessScanningGcpScanOptions extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AgentlessScanningGcpScanOptionsState | undefined;
+            resourceInputs["cloudFunction"] = state?.cloudFunction;
             resourceInputs["complianceHost"] = state?.complianceHost;
             resourceInputs["gcpProjectId"] = state?.gcpProjectId;
             resourceInputs["vulnContainersOs"] = state?.vulnContainersOs;
             resourceInputs["vulnHostOs"] = state?.vulnHostOs;
         } else {
             const args = argsOrState as AgentlessScanningGcpScanOptionsArgs | undefined;
+            if (args?.cloudFunction === undefined && !opts.urn) {
+                throw new Error("Missing required property 'cloudFunction'");
+            }
             if (args?.gcpProjectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gcpProjectId'");
             }
@@ -106,6 +115,7 @@ export class AgentlessScanningGcpScanOptions extends pulumi.CustomResource {
             if (args?.vulnHostOs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vulnHostOs'");
             }
+            resourceInputs["cloudFunction"] = args?.cloudFunction;
             resourceInputs["complianceHost"] = args?.complianceHost;
             resourceInputs["gcpProjectId"] = args?.gcpProjectId;
             resourceInputs["vulnContainersOs"] = args?.vulnContainersOs;
@@ -120,6 +130,10 @@ export class AgentlessScanningGcpScanOptions extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AgentlessScanningGcpScanOptions resources.
  */
 export interface AgentlessScanningGcpScanOptionsState {
+    /**
+     * Indicates if scanning of Cloud Functions is enabled.
+     */
+    cloudFunction?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates if host compliance scanning is enabled. Defaults to `false`.
      */
@@ -142,6 +156,10 @@ export interface AgentlessScanningGcpScanOptionsState {
  * The set of arguments for constructing a AgentlessScanningGcpScanOptions resource.
  */
 export interface AgentlessScanningGcpScanOptionsArgs {
+    /**
+     * Indicates if scanning of Cloud Functions is enabled.
+     */
+    cloudFunction: pulumi.Input<boolean>;
     /**
      * Indicates if host compliance scanning is enabled. Defaults to `false`.
      */

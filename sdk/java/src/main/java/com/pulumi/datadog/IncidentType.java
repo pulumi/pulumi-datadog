@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.IncidentTypeArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.IncidentTypeState;
+import com.pulumi.datadog.outputs.IncidentTypeConfiguration;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Optional;
@@ -29,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.datadog.IncidentType;
  * import com.pulumi.datadog.IncidentTypeArgs;
+ * import com.pulumi.datadog.inputs.IncidentTypeConfigurationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -49,6 +51,23 @@ import javax.annotation.Nullable;
  *             .isDefault(false)
  *             .build());
  * 
+ *         // Incident type with the full configuration block shown at its default values.
+ *         // Every field is optional; omitted fields fall back to these same defaults.
+ *         var withConfiguration = new IncidentType("withConfiguration", IncidentTypeArgs.builder()
+ *             .name("Customer Impacting")
+ *             .description("Incidents that impact customers")
+ *             .configuration(IncidentTypeConfigurationArgs.builder()
+ *                 .private_incidents(false)
+ *                 .private_incidents_by_default(false)
+ *                 .allow_workflows(true)
+ *                 .allow_incident_deletion(false)
+ *                 .editable_timestamps(false)
+ *                 .test_incidents(true)
+ *                 .create_message("")
+ *                 .slug_source("default")
+ *                 .build())
+ *             .build());
+ * 
  *     }
  * }
  * }
@@ -65,6 +84,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="datadog:index/incidentType:IncidentType")
 public class IncidentType extends com.pulumi.resources.CustomResource {
+    /**
+     * The incident type&#39;s behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
+     * 
+     */
+    @Export(name="configuration", refs={IncidentTypeConfiguration.class}, tree="[0]")
+    private Output<IncidentTypeConfiguration> configuration;
+
+    /**
+     * @return The incident type&#39;s behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
+     * 
+     */
+    public Output<IncidentTypeConfiguration> configuration() {
+        return this.configuration;
+    }
     /**
      * Description of the incident type. The description can have a maximum of 512 characters.
      * 

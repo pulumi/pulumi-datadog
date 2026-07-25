@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
+from . import outputs
 
 __all__ = [
     'GetIncidentTypeResult',
@@ -26,7 +27,10 @@ class GetIncidentTypeResult:
     """
     A collection of values returned by getIncidentType.
     """
-    def __init__(__self__, description=None, id=None, is_default=None, name=None):
+    def __init__(__self__, configuration=None, description=None, id=None, is_default=None, name=None):
+        if configuration and not isinstance(configuration, dict):
+            raise TypeError("Expected argument 'configuration' to be a dict")
+        pulumi.set(__self__, "configuration", configuration)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -39,6 +43,14 @@ class GetIncidentTypeResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def configuration(self) -> 'outputs.GetIncidentTypeConfigurationResult':
+        """
+        The incident type's behavior settings.
+        """
+        return pulumi.get(self, "configuration")
 
     @_builtins.property
     @pulumi.getter
@@ -79,6 +91,7 @@ class AwaitableGetIncidentTypeResult(GetIncidentTypeResult):
         if False:
             yield self
         return GetIncidentTypeResult(
+            configuration=self.configuration,
             description=self.description,
             id=self.id,
             is_default=self.is_default,
@@ -108,6 +121,7 @@ def get_incident_type(id: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getIncidentType:getIncidentType', __args__, opts=opts, typ=GetIncidentTypeResult).value
 
     return AwaitableGetIncidentTypeResult(
+        configuration=pulumi.get(__ret__, 'configuration'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         is_default=pulumi.get(__ret__, 'is_default'),
@@ -134,6 +148,7 @@ def get_incident_type_output(id: pulumi.Input[Optional[_builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getIncidentType:getIncidentType', __args__, opts=opts, typ=GetIncidentTypeResult)
     return __ret__.apply(lambda __response__: GetIncidentTypeResult(
+        configuration=pulumi.get(__response__, 'configuration'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         is_default=pulumi.get(__response__, 'is_default'),

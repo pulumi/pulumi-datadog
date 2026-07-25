@@ -58,10 +58,6 @@ import (
 //						},
 //					},
 //					&datadog.OnCallTeamRoutingRulesRuleArgs{
-//						EscalationPolicy: pulumi.String("00000000-aba2-0000-0000-000000000000"),
-//						Urgency:          pulumi.String("dynamic"),
-//					},
-//					&datadog.OnCallTeamRoutingRulesRuleArgs{
 //						Query: pulumi.String("tags.service:payment"),
 //						Actions: datadog.OnCallTeamRoutingRulesRuleActionArray{
 //							&datadog.OnCallTeamRoutingRulesRuleActionArgs{
@@ -111,6 +107,10 @@ import (
 //								},
 //							},
 //						},
+//					},
+//					&datadog.OnCallTeamRoutingRulesRuleArgs{
+//						EscalationPolicy: pulumi.String("00000000-aba2-0000-0000-000000000000"),
+//						Urgency:          pulumi.String("dynamic"),
 //					},
 //				},
 //			})

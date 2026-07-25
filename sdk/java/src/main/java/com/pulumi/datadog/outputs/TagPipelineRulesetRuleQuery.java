@@ -38,7 +38,7 @@ public final class TagPipelineRulesetRuleQuery {
      */
     private @Nullable String ifTagExists;
     /**
-     * @return The query string.
+     * @return The query string. Datadog normalizes queries to a canonical form (operator casing, spacing, redundant parentheses, quoting, and similar formatting differences). The provider validates the configured value against this canonical form during planning. If the value doesn&#39;t match, the plan fails with an error showing the canonical query to use in the configuration.
      * 
      */
     private @Nullable String query;
@@ -77,7 +77,7 @@ public final class TagPipelineRulesetRuleQuery {
         return Optional.ofNullable(this.ifTagExists);
     }
     /**
-     * @return The query string.
+     * @return The query string. Datadog normalizes queries to a canonical form (operator casing, spacing, redundant parentheses, quoting, and similar formatting differences). The provider validates the configured value against this canonical form during planning. If the value doesn&#39;t match, the plan fails with an error showing the canonical query to use in the configuration.
      * 
      */
     public Optional<String> query() {

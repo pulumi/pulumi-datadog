@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimit> PerMetricLimits;
         /// <summary>
+        /// Controls whether the processor uses exact or probabilistic tag tracking.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode TrackingMode;
+        /// <summary>
         /// The default maximum number of distinct tag value combinations allowed per metric. Between 0 and 1000000. Value must be between 0 and 1000000.
         /// </summary>
         public readonly int ValueLimit;
@@ -32,10 +36,13 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimit> perMetricLimits,
 
+            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode trackingMode,
+
             int valueLimit)
         {
             LimitExceededAction = limitExceededAction;
             PerMetricLimits = perMetricLimits;
+            TrackingMode = trackingMode;
             ValueLimit = valueLimit;
         }
     }

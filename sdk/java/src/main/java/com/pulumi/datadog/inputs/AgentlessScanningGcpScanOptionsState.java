@@ -17,6 +17,21 @@ public final class AgentlessScanningGcpScanOptionsState extends com.pulumi.resou
     public static final AgentlessScanningGcpScanOptionsState Empty = new AgentlessScanningGcpScanOptionsState();
 
     /**
+     * Indicates if scanning of Cloud Functions is enabled.
+     * 
+     */
+    @Import(name="cloudFunction")
+    private @Nullable Output<Boolean> cloudFunction;
+
+    /**
+     * @return Indicates if scanning of Cloud Functions is enabled.
+     * 
+     */
+    public Optional<Output<Boolean>> cloudFunction() {
+        return Optional.ofNullable(this.cloudFunction);
+    }
+
+    /**
      * Indicates if host compliance scanning is enabled. Defaults to `false`.
      * 
      */
@@ -79,6 +94,7 @@ public final class AgentlessScanningGcpScanOptionsState extends com.pulumi.resou
     private AgentlessScanningGcpScanOptionsState() {}
 
     private AgentlessScanningGcpScanOptionsState(AgentlessScanningGcpScanOptionsState $) {
+        this.cloudFunction = $.cloudFunction;
         this.complianceHost = $.complianceHost;
         this.gcpProjectId = $.gcpProjectId;
         this.vulnContainersOs = $.vulnContainersOs;
@@ -101,6 +117,27 @@ public final class AgentlessScanningGcpScanOptionsState extends com.pulumi.resou
 
         public Builder(AgentlessScanningGcpScanOptionsState defaults) {
             $ = new AgentlessScanningGcpScanOptionsState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param cloudFunction Indicates if scanning of Cloud Functions is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudFunction(@Nullable Output<Boolean> cloudFunction) {
+            $.cloudFunction = cloudFunction;
+            return this;
+        }
+
+        /**
+         * @param cloudFunction Indicates if scanning of Cloud Functions is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudFunction(Boolean cloudFunction) {
+            return cloudFunction(Output.of(cloudFunction));
         }
 
         /**

@@ -5,6 +5,8 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -43,6 +45,51 @@ public final class SyntheticsTestApiStepRequestBasicauthArgs extends com.pulumi.
      */
     public Optional<Output<String>> accessTokenUrl() {
         return Optional.ofNullable(this.accessTokenUrl);
+    }
+
+    /**
+     * Whether to inject the `exp` (expiration) claim automatically, for `jwt` authentication.
+     * 
+     */
+    @Import(name="addClaimsExp")
+    private @Nullable Output<Boolean> addClaimsExp;
+
+    /**
+     * @return Whether to inject the `exp` (expiration) claim automatically, for `jwt` authentication.
+     * 
+     */
+    public Optional<Output<Boolean>> addClaimsExp() {
+        return Optional.ofNullable(this.addClaimsExp);
+    }
+
+    /**
+     * Whether to inject the `iat` (issued at) claim automatically, for `jwt` authentication.
+     * 
+     */
+    @Import(name="addClaimsIat")
+    private @Nullable Output<Boolean> addClaimsIat;
+
+    /**
+     * @return Whether to inject the `iat` (issued at) claim automatically, for `jwt` authentication.
+     * 
+     */
+    public Optional<Output<Boolean>> addClaimsIat() {
+        return Optional.ofNullable(this.addClaimsIat);
+    }
+
+    /**
+     * Algorithm to use for `jwt` authentication. Valid values are `HS256`, `RS256`, `ES256`.
+     * 
+     */
+    @Import(name="algorithm")
+    private @Nullable Output<String> algorithm;
+
+    /**
+     * @return Algorithm to use for `jwt` authentication. Valid values are `HS256`, `RS256`, `ES256`.
+     * 
+     */
+    public Optional<Output<String>> algorithm() {
+        return Optional.ofNullable(this.algorithm);
     }
 
     /**
@@ -106,6 +153,36 @@ public final class SyntheticsTestApiStepRequestBasicauthArgs extends com.pulumi.
     }
 
     /**
+     * Token time-to-live in seconds, for `jwt` authentication.
+     * 
+     */
+    @Import(name="expiresIn")
+    private @Nullable Output<Integer> expiresIn;
+
+    /**
+     * @return Token time-to-live in seconds, for `jwt` authentication.
+     * 
+     */
+    public Optional<Output<Integer>> expiresIn() {
+        return Optional.ofNullable(this.expiresIn);
+    }
+
+    /**
+     * Custom JWT header as a JSON string, for `jwt` authentication.
+     * 
+     */
+    @Import(name="header")
+    private @Nullable Output<String> header;
+
+    /**
+     * @return Custom JWT header as a JSON string, for `jwt` authentication.
+     * 
+     */
+    public Optional<Output<String>> header() {
+        return Optional.ofNullable(this.header);
+    }
+
+    /**
      * Password for authentication.
      * 
      */
@@ -118,6 +195,21 @@ public final class SyntheticsTestApiStepRequestBasicauthArgs extends com.pulumi.
      */
     public Optional<Output<String>> password() {
         return Optional.ofNullable(this.password);
+    }
+
+    /**
+     * JWT claims as a JSON string, for `jwt` authentication.
+     * 
+     */
+    @Import(name="payload")
+    private @Nullable Output<String> payload;
+
+    /**
+     * @return JWT claims as a JSON string, for `jwt` authentication.
+     * 
+     */
+    public Optional<Output<String>> payload() {
+        return Optional.ofNullable(this.payload);
     }
 
     /**
@@ -163,6 +255,21 @@ public final class SyntheticsTestApiStepRequestBasicauthArgs extends com.pulumi.
      */
     public Optional<Output<String>> scope() {
         return Optional.ofNullable(this.scope);
+    }
+
+    /**
+     * Signing key for `jwt` authentication. Use the shared secret for `HS256` or the private key (PEM format) for `RS256` and `ES256`.
+     * 
+     */
+    @Import(name="secret")
+    private @Nullable Output<String> secret;
+
+    /**
+     * @return Signing key for `jwt` authentication. Use the shared secret for `HS256` or the private key (PEM format) for `RS256` and `ES256`.
+     * 
+     */
+    public Optional<Output<String>> secret() {
+        return Optional.ofNullable(this.secret);
     }
 
     /**
@@ -226,6 +333,21 @@ public final class SyntheticsTestApiStepRequestBasicauthArgs extends com.pulumi.
     }
 
     /**
+     * Prefix added before the token in the `Authorization` header for `jwt` authentication. Defaults to `Bearer`.
+     * 
+     */
+    @Import(name="tokenPrefix")
+    private @Nullable Output<String> tokenPrefix;
+
+    /**
+     * @return Prefix added before the token in the `Authorization` header for `jwt` authentication. Defaults to `Bearer`.
+     * 
+     */
+    public Optional<Output<String>> tokenPrefix() {
+        return Optional.ofNullable(this.tokenPrefix);
+    }
+
+    /**
      * Type of basic authentication to use when performing the test. Defaults to `&#34;web&#34;`.
      * 
      */
@@ -275,18 +397,26 @@ public final class SyntheticsTestApiStepRequestBasicauthArgs extends com.pulumi.
     private SyntheticsTestApiStepRequestBasicauthArgs(SyntheticsTestApiStepRequestBasicauthArgs $) {
         this.accessKey = $.accessKey;
         this.accessTokenUrl = $.accessTokenUrl;
+        this.addClaimsExp = $.addClaimsExp;
+        this.addClaimsIat = $.addClaimsIat;
+        this.algorithm = $.algorithm;
         this.audience = $.audience;
         this.clientId = $.clientId;
         this.clientSecret = $.clientSecret;
         this.domain = $.domain;
+        this.expiresIn = $.expiresIn;
+        this.header = $.header;
         this.password = $.password;
+        this.payload = $.payload;
         this.region = $.region;
         this.resource = $.resource;
         this.scope = $.scope;
+        this.secret = $.secret;
         this.secretKey = $.secretKey;
         this.serviceName = $.serviceName;
         this.sessionToken = $.sessionToken;
         this.tokenApiAuthentication = $.tokenApiAuthentication;
+        this.tokenPrefix = $.tokenPrefix;
         this.type = $.type;
         this.username = $.username;
         this.workstation = $.workstation;
@@ -350,6 +480,69 @@ public final class SyntheticsTestApiStepRequestBasicauthArgs extends com.pulumi.
          */
         public Builder accessTokenUrl(String accessTokenUrl) {
             return accessTokenUrl(Output.of(accessTokenUrl));
+        }
+
+        /**
+         * @param addClaimsExp Whether to inject the `exp` (expiration) claim automatically, for `jwt` authentication.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addClaimsExp(@Nullable Output<Boolean> addClaimsExp) {
+            $.addClaimsExp = addClaimsExp;
+            return this;
+        }
+
+        /**
+         * @param addClaimsExp Whether to inject the `exp` (expiration) claim automatically, for `jwt` authentication.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addClaimsExp(Boolean addClaimsExp) {
+            return addClaimsExp(Output.of(addClaimsExp));
+        }
+
+        /**
+         * @param addClaimsIat Whether to inject the `iat` (issued at) claim automatically, for `jwt` authentication.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addClaimsIat(@Nullable Output<Boolean> addClaimsIat) {
+            $.addClaimsIat = addClaimsIat;
+            return this;
+        }
+
+        /**
+         * @param addClaimsIat Whether to inject the `iat` (issued at) claim automatically, for `jwt` authentication.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addClaimsIat(Boolean addClaimsIat) {
+            return addClaimsIat(Output.of(addClaimsIat));
+        }
+
+        /**
+         * @param algorithm Algorithm to use for `jwt` authentication. Valid values are `HS256`, `RS256`, `ES256`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder algorithm(@Nullable Output<String> algorithm) {
+            $.algorithm = algorithm;
+            return this;
+        }
+
+        /**
+         * @param algorithm Algorithm to use for `jwt` authentication. Valid values are `HS256`, `RS256`, `ES256`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder algorithm(String algorithm) {
+            return algorithm(Output.of(algorithm));
         }
 
         /**
@@ -437,6 +630,48 @@ public final class SyntheticsTestApiStepRequestBasicauthArgs extends com.pulumi.
         }
 
         /**
+         * @param expiresIn Token time-to-live in seconds, for `jwt` authentication.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder expiresIn(@Nullable Output<Integer> expiresIn) {
+            $.expiresIn = expiresIn;
+            return this;
+        }
+
+        /**
+         * @param expiresIn Token time-to-live in seconds, for `jwt` authentication.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder expiresIn(Integer expiresIn) {
+            return expiresIn(Output.of(expiresIn));
+        }
+
+        /**
+         * @param header Custom JWT header as a JSON string, for `jwt` authentication.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder header(@Nullable Output<String> header) {
+            $.header = header;
+            return this;
+        }
+
+        /**
+         * @param header Custom JWT header as a JSON string, for `jwt` authentication.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder header(String header) {
+            return header(Output.of(header));
+        }
+
+        /**
          * @param password Password for authentication.
          * 
          * @return builder
@@ -455,6 +690,27 @@ public final class SyntheticsTestApiStepRequestBasicauthArgs extends com.pulumi.
          */
         public Builder password(String password) {
             return password(Output.of(password));
+        }
+
+        /**
+         * @param payload JWT claims as a JSON string, for `jwt` authentication.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder payload(@Nullable Output<String> payload) {
+            $.payload = payload;
+            return this;
+        }
+
+        /**
+         * @param payload JWT claims as a JSON string, for `jwt` authentication.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder payload(String payload) {
+            return payload(Output.of(payload));
         }
 
         /**
@@ -518,6 +774,27 @@ public final class SyntheticsTestApiStepRequestBasicauthArgs extends com.pulumi.
          */
         public Builder scope(String scope) {
             return scope(Output.of(scope));
+        }
+
+        /**
+         * @param secret Signing key for `jwt` authentication. Use the shared secret for `HS256` or the private key (PEM format) for `RS256` and `ES256`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secret(@Nullable Output<String> secret) {
+            $.secret = secret;
+            return this;
+        }
+
+        /**
+         * @param secret Signing key for `jwt` authentication. Use the shared secret for `HS256` or the private key (PEM format) for `RS256` and `ES256`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secret(String secret) {
+            return secret(Output.of(secret));
         }
 
         /**
@@ -602,6 +879,27 @@ public final class SyntheticsTestApiStepRequestBasicauthArgs extends com.pulumi.
          */
         public Builder tokenApiAuthentication(String tokenApiAuthentication) {
             return tokenApiAuthentication(Output.of(tokenApiAuthentication));
+        }
+
+        /**
+         * @param tokenPrefix Prefix added before the token in the `Authorization` header for `jwt` authentication. Defaults to `Bearer`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenPrefix(@Nullable Output<String> tokenPrefix) {
+            $.tokenPrefix = tokenPrefix;
+            return this;
+        }
+
+        /**
+         * @param tokenPrefix Prefix added before the token in the `Authorization` header for `jwt` authentication. Defaults to `Bearer`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenPrefix(String tokenPrefix) {
+            return tokenPrefix(Output.of(tokenPrefix));
         }
 
         /**

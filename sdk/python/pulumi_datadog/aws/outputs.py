@@ -27,6 +27,7 @@ __all__ = [
     'IntegrationAccountLogsConfigLambdaForwarderLogSourceConfig',
     'IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilter',
     'IntegrationAccountMetricsConfig',
+    'IntegrationAccountMetricsConfigMetricNameFilter',
     'IntegrationAccountMetricsConfigNamespaceFilters',
     'IntegrationAccountMetricsConfigTagFilter',
     'IntegrationAccountResourcesConfig',
@@ -525,6 +526,8 @@ class IntegrationAccountMetricsConfig(dict):
             suggest = "collect_cloudwatch_alarms"
         elif key == "collectCustomMetrics":
             suggest = "collect_custom_metrics"
+        elif key == "metricNameFilters":
+            suggest = "metric_name_filters"
         elif key == "namespaceFilters":
             suggest = "namespace_filters"
         elif key == "tagFilters":
@@ -546,6 +549,7 @@ class IntegrationAccountMetricsConfig(dict):
                  collect_cloudwatch_alarms: Optional[_builtins.bool] = None,
                  collect_custom_metrics: Optional[_builtins.bool] = None,
                  enabled: Optional[_builtins.bool] = None,
+                 metric_name_filters: Optional[Sequence['outputs.IntegrationAccountMetricsConfigMetricNameFilter']] = None,
                  namespace_filters: Optional['outputs.IntegrationAccountMetricsConfigNamespaceFilters'] = None,
                  tag_filters: Optional[Sequence['outputs.IntegrationAccountMetricsConfigTagFilter']] = None):
         """
@@ -553,6 +557,7 @@ class IntegrationAccountMetricsConfig(dict):
         :param _builtins.bool collect_cloudwatch_alarms: Enable CloudWatch alarms collection Defaults to `false`.
         :param _builtins.bool collect_custom_metrics: Enable custom metrics collection Defaults to `false`.
         :param _builtins.bool enabled: Enable AWS metrics collection Defaults to `true`.
+        :param Sequence['IntegrationAccountMetricsConfigMetricNameFilterArgs'] metric_name_filters: AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `include_only` or `exclude_only`.
         :param 'IntegrationAccountMetricsConfigNamespaceFiltersArgs' namespace_filters: AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
         :param Sequence['IntegrationAccountMetricsConfigTagFilterArgs'] tag_filters: AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
         """
@@ -564,6 +569,8 @@ class IntegrationAccountMetricsConfig(dict):
             pulumi.set(__self__, "collect_custom_metrics", collect_custom_metrics)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if metric_name_filters is not None:
+            pulumi.set(__self__, "metric_name_filters", metric_name_filters)
         if namespace_filters is not None:
             pulumi.set(__self__, "namespace_filters", namespace_filters)
         if tag_filters is not None:
@@ -602,6 +609,14 @@ class IntegrationAccountMetricsConfig(dict):
         return pulumi.get(self, "enabled")
 
     @_builtins.property
+    @pulumi.getter(name="metricNameFilters")
+    def metric_name_filters(self) -> Optional[Sequence['outputs.IntegrationAccountMetricsConfigMetricNameFilter']]:
+        """
+        AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `include_only` or `exclude_only`.
+        """
+        return pulumi.get(self, "metric_name_filters")
+
+    @_builtins.property
     @pulumi.getter(name="namespaceFilters")
     def namespace_filters(self) -> Optional['outputs.IntegrationAccountMetricsConfigNamespaceFilters']:
         """
@@ -616,6 +631,67 @@ class IntegrationAccountMetricsConfig(dict):
         AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
         """
         return pulumi.get(self, "tag_filters")
+
+
+@pulumi.output_type
+class IntegrationAccountMetricsConfigMetricNameFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludeOnlies":
+            suggest = "exclude_onlies"
+        elif key == "includeOnlies":
+            suggest = "include_onlies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationAccountMetricsConfigMetricNameFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationAccountMetricsConfigMetricNameFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationAccountMetricsConfigMetricNameFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 namespace: _builtins.str,
+                 exclude_onlies: Optional[Sequence[_builtins.str]] = None,
+                 include_onlies: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str namespace: The AWS CloudWatch namespace to which this metric name filter applies.
+        :param Sequence[_builtins.str] exclude_onlies: Exclude metric names matching one of these patterns.
+        :param Sequence[_builtins.str] include_onlies: Include only metric names matching one of these patterns.
+        """
+        pulumi.set(__self__, "namespace", namespace)
+        if exclude_onlies is not None:
+            pulumi.set(__self__, "exclude_onlies", exclude_onlies)
+        if include_onlies is not None:
+            pulumi.set(__self__, "include_onlies", include_onlies)
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> _builtins.str:
+        """
+        The AWS CloudWatch namespace to which this metric name filter applies.
+        """
+        return pulumi.get(self, "namespace")
+
+    @_builtins.property
+    @pulumi.getter(name="excludeOnlies")
+    def exclude_onlies(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Exclude metric names matching one of these patterns.
+        """
+        return pulumi.get(self, "exclude_onlies")
+
+    @_builtins.property
+    @pulumi.getter(name="includeOnlies")
+    def include_onlies(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Include only metric names matching one of these patterns.
+        """
+        return pulumi.get(self, "include_onlies")
 
 
 @pulumi.output_type

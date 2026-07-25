@@ -55,6 +55,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.LogsCustomPipelineProcessorDecoderProcessorGetArgs>? DecoderProcessor { get; set; }
 
         /// <summary>
+        /// Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
+        /// </summary>
+        [Input("excludeAttributeProcessor")]
+        public Input<Inputs.LogsCustomPipelineProcessorExcludeAttributeProcessorGetArgs>? ExcludeAttributeProcessor { get; set; }
+
+        /// <summary>
         /// Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
         /// </summary>
         [Input("geoIpParser")]

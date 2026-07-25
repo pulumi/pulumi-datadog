@@ -12,6 +12,7 @@ import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorAttributeRemapperArg
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorCategoryProcessorArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorDateRemapperArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorDecoderProcessorArgs;
+import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorExcludeAttributeProcessorArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorGeoIpParserArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorGrokParserArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorLookupProcessorArgs;
@@ -138,6 +139,21 @@ public final class LogsCustomPipelineProcessorArgs extends com.pulumi.resources.
      */
     public Optional<Output<LogsCustomPipelineProcessorDecoderProcessorArgs>> decoderProcessor() {
         return Optional.ofNullable(this.decoderProcessor);
+    }
+
+    /**
+     * Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
+     * 
+     */
+    @Import(name="excludeAttributeProcessor")
+    private @Nullable Output<LogsCustomPipelineProcessorExcludeAttributeProcessorArgs> excludeAttributeProcessor;
+
+    /**
+     * @return Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
+     * 
+     */
+    public Optional<Output<LogsCustomPipelineProcessorExcludeAttributeProcessorArgs>> excludeAttributeProcessor() {
+        return Optional.ofNullable(this.excludeAttributeProcessor);
     }
 
     /**
@@ -352,6 +368,7 @@ public final class LogsCustomPipelineProcessorArgs extends com.pulumi.resources.
         this.categoryProcessor = $.categoryProcessor;
         this.dateRemapper = $.dateRemapper;
         this.decoderProcessor = $.decoderProcessor;
+        this.excludeAttributeProcessor = $.excludeAttributeProcessor;
         this.geoIpParser = $.geoIpParser;
         this.grokParser = $.grokParser;
         this.lookupProcessor = $.lookupProcessor;
@@ -531,6 +548,27 @@ public final class LogsCustomPipelineProcessorArgs extends com.pulumi.resources.
          */
         public Builder decoderProcessor(LogsCustomPipelineProcessorDecoderProcessorArgs decoderProcessor) {
             return decoderProcessor(Output.of(decoderProcessor));
+        }
+
+        /**
+         * @param excludeAttributeProcessor Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludeAttributeProcessor(@Nullable Output<LogsCustomPipelineProcessorExcludeAttributeProcessorArgs> excludeAttributeProcessor) {
+            $.excludeAttributeProcessor = excludeAttributeProcessor;
+            return this;
+        }
+
+        /**
+         * @param excludeAttributeProcessor Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludeAttributeProcessor(LogsCustomPipelineProcessorExcludeAttributeProcessorArgs excludeAttributeProcessor) {
+            return excludeAttributeProcessor(Output.of(excludeAttributeProcessor));
         }
 
         /**

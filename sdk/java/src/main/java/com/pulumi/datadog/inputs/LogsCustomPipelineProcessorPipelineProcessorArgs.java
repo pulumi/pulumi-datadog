@@ -12,6 +12,7 @@ import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorAtt
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapperArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorDecoderProcessorArgs;
+import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorExcludeAttributeProcessorArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorGeoIpParserArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorLookupProcessorArgs;
@@ -137,6 +138,21 @@ public final class LogsCustomPipelineProcessorPipelineProcessorArgs extends com.
      */
     public Optional<Output<LogsCustomPipelineProcessorPipelineProcessorDecoderProcessorArgs>> decoderProcessor() {
         return Optional.ofNullable(this.decoderProcessor);
+    }
+
+    /**
+     * Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
+     * 
+     */
+    @Import(name="excludeAttributeProcessor")
+    private @Nullable Output<LogsCustomPipelineProcessorPipelineProcessorExcludeAttributeProcessorArgs> excludeAttributeProcessor;
+
+    /**
+     * @return Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
+     * 
+     */
+    public Optional<Output<LogsCustomPipelineProcessorPipelineProcessorExcludeAttributeProcessorArgs>> excludeAttributeProcessor() {
+        return Optional.ofNullable(this.excludeAttributeProcessor);
     }
 
     /**
@@ -344,6 +360,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessorArgs extends com.
         this.categoryProcessor = $.categoryProcessor;
         this.dateRemapper = $.dateRemapper;
         this.decoderProcessor = $.decoderProcessor;
+        this.excludeAttributeProcessor = $.excludeAttributeProcessor;
         this.geoIpParser = $.geoIpParser;
         this.grokParser = $.grokParser;
         this.lookupProcessor = $.lookupProcessor;
@@ -522,6 +539,27 @@ public final class LogsCustomPipelineProcessorPipelineProcessorArgs extends com.
          */
         public Builder decoderProcessor(LogsCustomPipelineProcessorPipelineProcessorDecoderProcessorArgs decoderProcessor) {
             return decoderProcessor(Output.of(decoderProcessor));
+        }
+
+        /**
+         * @param excludeAttributeProcessor Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludeAttributeProcessor(@Nullable Output<LogsCustomPipelineProcessorPipelineProcessorExcludeAttributeProcessorArgs> excludeAttributeProcessor) {
+            $.excludeAttributeProcessor = excludeAttributeProcessor;
+            return this;
+        }
+
+        /**
+         * @param excludeAttributeProcessor Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludeAttributeProcessor(LogsCustomPipelineProcessorPipelineProcessorExcludeAttributeProcessorArgs excludeAttributeProcessor) {
+            return excludeAttributeProcessor(Output.of(excludeAttributeProcessor));
         }
 
         /**

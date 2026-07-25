@@ -20,6 +20,7 @@ __all__ = ['AgentlessScanningAzureScanOptionsArgs', 'AgentlessScanningAzureScanO
 class AgentlessScanningAzureScanOptionsArgs:
     def __init__(__self__, *,
                  azure_subscription_id: pulumi.Input[_builtins.str],
+                 function: pulumi.Input[_builtins.bool],
                  vuln_containers_os: pulumi.Input[_builtins.bool],
                  vuln_host_os: pulumi.Input[_builtins.bool],
                  compliance_host: pulumi.Input[Optional[_builtins.bool]] = None):
@@ -27,11 +28,13 @@ class AgentlessScanningAzureScanOptionsArgs:
         The set of arguments for constructing a AgentlessScanningAzureScanOptions resource.
 
         :param pulumi.Input[_builtins.str] azure_subscription_id: The Azure subscription ID for which agentless scanning is configured. Must be a valid Azure subscription ID (UUID format).
+        :param pulumi.Input[_builtins.bool] function: Indicates if scanning of Azure Functions is enabled.
         :param pulumi.Input[_builtins.bool] vuln_containers_os: Indicates if scanning for vulnerabilities in containers is enabled.
         :param pulumi.Input[_builtins.bool] vuln_host_os: Indicates if scanning for vulnerabilities in hosts is enabled.
         :param pulumi.Input[_builtins.bool] compliance_host: Indicates whether host compliance scanning is enabled.
         """
         pulumi.set(__self__, "azure_subscription_id", azure_subscription_id)
+        pulumi.set(__self__, "function", function)
         pulumi.set(__self__, "vuln_containers_os", vuln_containers_os)
         pulumi.set(__self__, "vuln_host_os", vuln_host_os)
         if compliance_host is not None:
@@ -48,6 +51,18 @@ class AgentlessScanningAzureScanOptionsArgs:
     @azure_subscription_id.setter
     def azure_subscription_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "azure_subscription_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def function(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Indicates if scanning of Azure Functions is enabled.
+        """
+        return pulumi.get(self, "function")
+
+    @function.setter
+    def function(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "function", value)
 
     @_builtins.property
     @pulumi.getter(name="vulnContainersOs")
@@ -91,6 +106,7 @@ class _AgentlessScanningAzureScanOptionsState:
     def __init__(__self__, *,
                  azure_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  compliance_host: pulumi.Input[Optional[_builtins.bool]] = None,
+                 function: pulumi.Input[Optional[_builtins.bool]] = None,
                  vuln_containers_os: pulumi.Input[Optional[_builtins.bool]] = None,
                  vuln_host_os: pulumi.Input[Optional[_builtins.bool]] = None):
         """
@@ -98,6 +114,7 @@ class _AgentlessScanningAzureScanOptionsState:
 
         :param pulumi.Input[_builtins.str] azure_subscription_id: The Azure subscription ID for which agentless scanning is configured. Must be a valid Azure subscription ID (UUID format).
         :param pulumi.Input[_builtins.bool] compliance_host: Indicates whether host compliance scanning is enabled.
+        :param pulumi.Input[_builtins.bool] function: Indicates if scanning of Azure Functions is enabled.
         :param pulumi.Input[_builtins.bool] vuln_containers_os: Indicates if scanning for vulnerabilities in containers is enabled.
         :param pulumi.Input[_builtins.bool] vuln_host_os: Indicates if scanning for vulnerabilities in hosts is enabled.
         """
@@ -105,6 +122,8 @@ class _AgentlessScanningAzureScanOptionsState:
             pulumi.set(__self__, "azure_subscription_id", azure_subscription_id)
         if compliance_host is not None:
             pulumi.set(__self__, "compliance_host", compliance_host)
+        if function is not None:
+            pulumi.set(__self__, "function", function)
         if vuln_containers_os is not None:
             pulumi.set(__self__, "vuln_containers_os", vuln_containers_os)
         if vuln_host_os is not None:
@@ -133,6 +152,18 @@ class _AgentlessScanningAzureScanOptionsState:
     @compliance_host.setter
     def compliance_host(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "compliance_host", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def function(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates if scanning of Azure Functions is enabled.
+        """
+        return pulumi.get(self, "function")
+
+    @function.setter
+    def function(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "function", value)
 
     @_builtins.property
     @pulumi.getter(name="vulnContainersOs")
@@ -167,6 +198,7 @@ class AgentlessScanningAzureScanOptions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  compliance_host: pulumi.Input[Optional[_builtins.bool]] = None,
+                 function: pulumi.Input[Optional[_builtins.bool]] = None,
                  vuln_containers_os: pulumi.Input[Optional[_builtins.bool]] = None,
                  vuln_host_os: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
@@ -182,6 +214,7 @@ class AgentlessScanningAzureScanOptions(pulumi.CustomResource):
         # Configure agentless scanning for an Azure subscription
         example = datadog.AgentlessScanningAzureScanOptions("example",
             azure_subscription_id="12345678-1234-1234-1234-123456789012",
+            function=True,
             vuln_containers_os=True,
             vuln_host_os=True)
         ```
@@ -203,6 +236,7 @@ class AgentlessScanningAzureScanOptions(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] azure_subscription_id: The Azure subscription ID for which agentless scanning is configured. Must be a valid Azure subscription ID (UUID format).
         :param pulumi.Input[_builtins.bool] compliance_host: Indicates whether host compliance scanning is enabled.
+        :param pulumi.Input[_builtins.bool] function: Indicates if scanning of Azure Functions is enabled.
         :param pulumi.Input[_builtins.bool] vuln_containers_os: Indicates if scanning for vulnerabilities in containers is enabled.
         :param pulumi.Input[_builtins.bool] vuln_host_os: Indicates if scanning for vulnerabilities in hosts is enabled.
         """
@@ -224,6 +258,7 @@ class AgentlessScanningAzureScanOptions(pulumi.CustomResource):
         # Configure agentless scanning for an Azure subscription
         example = datadog.AgentlessScanningAzureScanOptions("example",
             azure_subscription_id="12345678-1234-1234-1234-123456789012",
+            function=True,
             vuln_containers_os=True,
             vuln_host_os=True)
         ```
@@ -258,6 +293,7 @@ class AgentlessScanningAzureScanOptions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  compliance_host: pulumi.Input[Optional[_builtins.bool]] = None,
+                 function: pulumi.Input[Optional[_builtins.bool]] = None,
                  vuln_containers_os: pulumi.Input[Optional[_builtins.bool]] = None,
                  vuln_host_os: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
@@ -273,6 +309,9 @@ class AgentlessScanningAzureScanOptions(pulumi.CustomResource):
                 raise TypeError("Missing required property 'azure_subscription_id'")
             __props__.__dict__["azure_subscription_id"] = azure_subscription_id
             __props__.__dict__["compliance_host"] = compliance_host
+            if function is None and not opts.urn:
+                raise TypeError("Missing required property 'function'")
+            __props__.__dict__["function"] = function
             if vuln_containers_os is None and not opts.urn:
                 raise TypeError("Missing required property 'vuln_containers_os'")
             __props__.__dict__["vuln_containers_os"] = vuln_containers_os
@@ -291,6 +330,7 @@ class AgentlessScanningAzureScanOptions(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             azure_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
             compliance_host: pulumi.Input[Optional[_builtins.bool]] = None,
+            function: pulumi.Input[Optional[_builtins.bool]] = None,
             vuln_containers_os: pulumi.Input[Optional[_builtins.bool]] = None,
             vuln_host_os: pulumi.Input[Optional[_builtins.bool]] = None) -> 'AgentlessScanningAzureScanOptions':
         """
@@ -302,6 +342,7 @@ class AgentlessScanningAzureScanOptions(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] azure_subscription_id: The Azure subscription ID for which agentless scanning is configured. Must be a valid Azure subscription ID (UUID format).
         :param pulumi.Input[_builtins.bool] compliance_host: Indicates whether host compliance scanning is enabled.
+        :param pulumi.Input[_builtins.bool] function: Indicates if scanning of Azure Functions is enabled.
         :param pulumi.Input[_builtins.bool] vuln_containers_os: Indicates if scanning for vulnerabilities in containers is enabled.
         :param pulumi.Input[_builtins.bool] vuln_host_os: Indicates if scanning for vulnerabilities in hosts is enabled.
         """
@@ -311,6 +352,7 @@ class AgentlessScanningAzureScanOptions(pulumi.CustomResource):
 
         __props__.__dict__["azure_subscription_id"] = azure_subscription_id
         __props__.__dict__["compliance_host"] = compliance_host
+        __props__.__dict__["function"] = function
         __props__.__dict__["vuln_containers_os"] = vuln_containers_os
         __props__.__dict__["vuln_host_os"] = vuln_host_os
         return AgentlessScanningAzureScanOptions(resource_name, opts=opts, __props__=__props__)
@@ -330,6 +372,14 @@ class AgentlessScanningAzureScanOptions(pulumi.CustomResource):
         Indicates whether host compliance scanning is enabled.
         """
         return pulumi.get(self, "compliance_host")
+
+    @_builtins.property
+    @pulumi.getter
+    def function(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Indicates if scanning of Azure Functions is enabled.
+        """
+        return pulumi.get(self, "function")
 
     @_builtins.property
     @pulumi.getter(name="vulnContainersOs")

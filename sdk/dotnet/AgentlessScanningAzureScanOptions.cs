@@ -26,6 +26,7 @@ namespace Pulumi.Datadog
     ///     var example = new Datadog.AgentlessScanningAzureScanOptions("example", new()
     ///     {
     ///         AzureSubscriptionId = "12345678-1234-1234-1234-123456789012",
+    ///         Function = true,
     ///         VulnContainersOs = true,
     ///         VulnHostOs = true,
     ///     });
@@ -59,6 +60,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("complianceHost")]
         public Output<bool> ComplianceHost { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates if scanning of Azure Functions is enabled.
+        /// </summary>
+        [Output("function")]
+        public Output<bool> Function { get; private set; } = null!;
 
         /// <summary>
         /// Indicates if scanning for vulnerabilities in containers is enabled.
@@ -131,6 +138,12 @@ namespace Pulumi.Datadog
         public Input<bool>? ComplianceHost { get; set; }
 
         /// <summary>
+        /// Indicates if scanning of Azure Functions is enabled.
+        /// </summary>
+        [Input("function", required: true)]
+        public Input<bool> Function { get; set; } = null!;
+
+        /// <summary>
         /// Indicates if scanning for vulnerabilities in containers is enabled.
         /// </summary>
         [Input("vulnContainersOs", required: true)]
@@ -161,6 +174,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("complianceHost")]
         public Input<bool>? ComplianceHost { get; set; }
+
+        /// <summary>
+        /// Indicates if scanning of Azure Functions is enabled.
+        /// </summary>
+        [Input("function")]
+        public Input<bool>? Function { get; set; }
 
         /// <summary>
         /// Indicates if scanning for vulnerabilities in containers is enabled.

@@ -5,6 +5,7 @@ package com.pulumi.datadog.aws.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.aws.inputs.IntegrationAccountMetricsConfigMetricNameFilterArgs;
 import com.pulumi.datadog.aws.inputs.IntegrationAccountMetricsConfigNamespaceFiltersArgs;
 import com.pulumi.datadog.aws.inputs.IntegrationAccountMetricsConfigTagFilterArgs;
 import java.lang.Boolean;
@@ -79,6 +80,21 @@ public final class IntegrationAccountMetricsConfigArgs extends com.pulumi.resour
     }
 
     /**
+     * AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `includeOnly` or `excludeOnly`.
+     * 
+     */
+    @Import(name="metricNameFilters")
+    private @Nullable Output<List<IntegrationAccountMetricsConfigMetricNameFilterArgs>> metricNameFilters;
+
+    /**
+     * @return AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `includeOnly` or `excludeOnly`.
+     * 
+     */
+    public Optional<Output<List<IntegrationAccountMetricsConfigMetricNameFilterArgs>>> metricNameFilters() {
+        return Optional.ofNullable(this.metricNameFilters);
+    }
+
+    /**
      * AWS metrics namespace filters. Defaults to a pre-set `excludeOnly` list if block is empty.
      * 
      */
@@ -115,6 +131,7 @@ public final class IntegrationAccountMetricsConfigArgs extends com.pulumi.resour
         this.collectCloudwatchAlarms = $.collectCloudwatchAlarms;
         this.collectCustomMetrics = $.collectCustomMetrics;
         this.enabled = $.enabled;
+        this.metricNameFilters = $.metricNameFilters;
         this.namespaceFilters = $.namespaceFilters;
         this.tagFilters = $.tagFilters;
     }
@@ -219,6 +236,37 @@ public final class IntegrationAccountMetricsConfigArgs extends com.pulumi.resour
          */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
+        }
+
+        /**
+         * @param metricNameFilters AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `includeOnly` or `excludeOnly`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricNameFilters(@Nullable Output<List<IntegrationAccountMetricsConfigMetricNameFilterArgs>> metricNameFilters) {
+            $.metricNameFilters = metricNameFilters;
+            return this;
+        }
+
+        /**
+         * @param metricNameFilters AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `includeOnly` or `excludeOnly`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricNameFilters(List<IntegrationAccountMetricsConfigMetricNameFilterArgs> metricNameFilters) {
+            return metricNameFilters(Output.of(metricNameFilters));
+        }
+
+        /**
+         * @param metricNameFilters AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `includeOnly` or `excludeOnly`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricNameFilters(IntegrationAccountMetricsConfigMetricNameFilterArgs... metricNameFilters) {
+            return metricNameFilters(List.of(metricNameFilters));
         }
 
         /**

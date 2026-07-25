@@ -35,6 +35,24 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? AccessTokenUrl { get; set; }
 
         /// <summary>
+        /// Whether to inject the `Exp` (expiration) claim automatically, for `Jwt` authentication.
+        /// </summary>
+        [Input("addClaimsExp")]
+        public Input<bool>? AddClaimsExp { get; set; }
+
+        /// <summary>
+        /// Whether to inject the `Iat` (issued at) claim automatically, for `Jwt` authentication.
+        /// </summary>
+        [Input("addClaimsIat")]
+        public Input<bool>? AddClaimsIat { get; set; }
+
+        /// <summary>
+        /// Algorithm to use for `Jwt` authentication. Valid values are `HS256`, `RS256`, `ES256`.
+        /// </summary>
+        [Input("algorithm")]
+        public Input<string>? Algorithm { get; set; }
+
+        /// <summary>
         /// Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
         /// </summary>
         [Input("audience")]
@@ -68,6 +86,18 @@ namespace Pulumi.Datadog.Inputs
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
+        /// <summary>
+        /// Token time-to-live in seconds, for `Jwt` authentication.
+        /// </summary>
+        [Input("expiresIn")]
+        public Input<int>? ExpiresIn { get; set; }
+
+        /// <summary>
+        /// Custom JWT header as a JSON string, for `Jwt` authentication.
+        /// </summary>
+        [Input("header")]
+        public Input<string>? Header { get; set; }
+
         [Input("password")]
         private Input<string>? _password;
 
@@ -83,6 +113,12 @@ namespace Pulumi.Datadog.Inputs
                 _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// JWT claims as a JSON string, for `Jwt` authentication.
+        /// </summary>
+        [Input("payload")]
+        public Input<string>? Payload { get; set; }
 
         /// <summary>
         /// Region for `SIGV4` authentication.
@@ -101,6 +137,22 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
+
+        [Input("secret")]
+        private Input<string>? _secret;
+
+        /// <summary>
+        /// Signing key for `Jwt` authentication. Use the shared secret for `HS256` or the private key (PEM format) for `RS256` and `ES256`.
+        /// </summary>
+        public Input<string>? Secret
+        {
+            get => _secret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("secretKey")]
         private Input<string>? _secretKey;
@@ -135,6 +187,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("tokenApiAuthentication")]
         public Input<string>? TokenApiAuthentication { get; set; }
+
+        /// <summary>
+        /// Prefix added before the token in the `Authorization` header for `Jwt` authentication. Defaults to `Bearer`.
+        /// </summary>
+        [Input("tokenPrefix")]
+        public Input<string>? TokenPrefix { get; set; }
 
         /// <summary>
         /// Type of basic authentication to use when performing the test. Defaults to `"web"`.

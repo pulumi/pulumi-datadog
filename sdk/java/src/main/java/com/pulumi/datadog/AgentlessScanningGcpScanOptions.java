@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  *         // Configure agentless scanning for a GCP project
  *         var example = new AgentlessScanningGcpScanOptions("example", AgentlessScanningGcpScanOptionsArgs.builder()
  *             .gcpProjectId("company-project-prod")
+ *             .cloudFunction(true)
  *             .vulnContainersOs(true)
  *             .vulnHostOs(true)
  *             .build());
@@ -68,6 +69,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="datadog:index/agentlessScanningGcpScanOptions:AgentlessScanningGcpScanOptions")
 public class AgentlessScanningGcpScanOptions extends com.pulumi.resources.CustomResource {
+    /**
+     * Indicates if scanning of Cloud Functions is enabled.
+     * 
+     */
+    @Export(name="cloudFunction", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> cloudFunction;
+
+    /**
+     * @return Indicates if scanning of Cloud Functions is enabled.
+     * 
+     */
+    public Output<Boolean> cloudFunction() {
+        return this.cloudFunction;
+    }
     /**
      * Indicates if host compliance scanning is enabled. Defaults to `false`.
      * 

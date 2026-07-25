@@ -36,6 +36,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("keyPassKey")]
         public Input<string>? KeyPassKey { get; set; }
 
+        /// <summary>
+        /// Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+        /// </summary>
+        [Input("serverName")]
+        public Input<string>? ServerName { get; set; }
+
         public ObservabilityPipelineConfigDestinationSocketTlsGetArgs()
         {
         }

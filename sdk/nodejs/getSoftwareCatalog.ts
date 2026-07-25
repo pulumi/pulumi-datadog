@@ -29,6 +29,7 @@ export function getSoftwareCatalog(args?: GetSoftwareCatalogArgs, opts?: pulumi.
         "filterOwner": args.filterOwner,
         "filterRef": args.filterRef,
         "filterRelationType": args.filterRelationType,
+        "includeDiscovered": args.includeDiscovered,
     }, opts);
 }
 
@@ -64,6 +65,10 @@ export interface GetSoftwareCatalogArgs {
      * Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
      */
     filterRelationType?: string;
+    /**
+     * Include entities that have been discovered but not yet enriched.
+     */
+    includeDiscovered?: boolean;
 }
 
 /**
@@ -106,6 +111,10 @@ export interface GetSoftwareCatalogResult {
      * The ID of this resource.
      */
     readonly id: string;
+    /**
+     * Include entities that have been discovered but not yet enriched.
+     */
+    readonly includeDiscovered?: boolean;
 }
 /**
  * Use this data source to list software catalog entities to use in other resources.
@@ -130,6 +139,7 @@ export function getSoftwareCatalogOutput(args?: GetSoftwareCatalogOutputArgs, op
         "filterOwner": args.filterOwner,
         "filterRef": args.filterRef,
         "filterRelationType": args.filterRelationType,
+        "includeDiscovered": args.includeDiscovered,
     }, opts);
 }
 
@@ -165,4 +175,8 @@ export interface GetSoftwareCatalogOutputArgs {
      * Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
      */
     filterRelationType?: pulumi.Input<string | undefined>;
+    /**
+     * Include entities that have been discovered but not yet enriched.
+     */
+    includeDiscovered?: pulumi.Input<boolean | undefined>;
 }

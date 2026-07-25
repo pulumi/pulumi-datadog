@@ -4,6 +4,7 @@
 package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -119,6 +120,21 @@ public final class GetSoftwareCatalogPlainArgs extends com.pulumi.resources.Invo
         return Optional.ofNullable(this.filterRelationType);
     }
 
+    /**
+     * Include entities that have been discovered but not yet enriched.
+     * 
+     */
+    @Import(name="includeDiscovered")
+    private @Nullable Boolean includeDiscovered;
+
+    /**
+     * @return Include entities that have been discovered but not yet enriched.
+     * 
+     */
+    public Optional<Boolean> includeDiscovered() {
+        return Optional.ofNullable(this.includeDiscovered);
+    }
+
     private GetSoftwareCatalogPlainArgs() {}
 
     private GetSoftwareCatalogPlainArgs(GetSoftwareCatalogPlainArgs $) {
@@ -129,6 +145,7 @@ public final class GetSoftwareCatalogPlainArgs extends com.pulumi.resources.Invo
         this.filterOwner = $.filterOwner;
         this.filterRef = $.filterRef;
         this.filterRelationType = $.filterRelationType;
+        this.includeDiscovered = $.includeDiscovered;
     }
 
     public static Builder builder() {
@@ -223,6 +240,17 @@ public final class GetSoftwareCatalogPlainArgs extends com.pulumi.resources.Invo
          */
         public Builder filterRelationType(@Nullable String filterRelationType) {
             $.filterRelationType = filterRelationType;
+            return this;
+        }
+
+        /**
+         * @param includeDiscovered Include entities that have been discovered but not yet enriched.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeDiscovered(@Nullable Boolean includeDiscovered) {
+            $.includeDiscovered = includeDiscovered;
             return this;
         }
 

@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.IncidentTypeConfigurationArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class IncidentTypeState extends com.pulumi.resources.ResourceArgs {
 
     public static final IncidentTypeState Empty = new IncidentTypeState();
+
+    /**
+     * The incident type&#39;s behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
+     * 
+     */
+    @Import(name="configuration")
+    private @Nullable Output<IncidentTypeConfigurationArgs> configuration;
+
+    /**
+     * @return The incident type&#39;s behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
+     * 
+     */
+    public Optional<Output<IncidentTypeConfigurationArgs>> configuration() {
+        return Optional.ofNullable(this.configuration);
+    }
 
     /**
      * Description of the incident type. The description can have a maximum of 512 characters.
@@ -64,6 +80,7 @@ public final class IncidentTypeState extends com.pulumi.resources.ResourceArgs {
     private IncidentTypeState() {}
 
     private IncidentTypeState(IncidentTypeState $) {
+        this.configuration = $.configuration;
         this.description = $.description;
         this.isDefault = $.isDefault;
         this.name = $.name;
@@ -85,6 +102,27 @@ public final class IncidentTypeState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(IncidentTypeState defaults) {
             $ = new IncidentTypeState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param configuration The incident type&#39;s behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configuration(@Nullable Output<IncidentTypeConfigurationArgs> configuration) {
+            $.configuration = configuration;
+            return this;
+        }
+
+        /**
+         * @param configuration The incident type&#39;s behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configuration(IncidentTypeConfigurationArgs configuration) {
+            return configuration(Output.of(configuration));
         }
 
         /**

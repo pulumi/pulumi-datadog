@@ -48,6 +48,21 @@ public final class AgentlessScanningAzureScanOptionsArgs extends com.pulumi.reso
     }
 
     /**
+     * Indicates if scanning of Azure Functions is enabled.
+     * 
+     */
+    @Import(name="function", required=true)
+    private Output<Boolean> function;
+
+    /**
+     * @return Indicates if scanning of Azure Functions is enabled.
+     * 
+     */
+    public Output<Boolean> function() {
+        return this.function;
+    }
+
+    /**
      * Indicates if scanning for vulnerabilities in containers is enabled.
      * 
      */
@@ -82,6 +97,7 @@ public final class AgentlessScanningAzureScanOptionsArgs extends com.pulumi.reso
     private AgentlessScanningAzureScanOptionsArgs(AgentlessScanningAzureScanOptionsArgs $) {
         this.azureSubscriptionId = $.azureSubscriptionId;
         this.complianceHost = $.complianceHost;
+        this.function = $.function;
         this.vulnContainersOs = $.vulnContainersOs;
         this.vulnHostOs = $.vulnHostOs;
     }
@@ -147,6 +163,27 @@ public final class AgentlessScanningAzureScanOptionsArgs extends com.pulumi.reso
         }
 
         /**
+         * @param function Indicates if scanning of Azure Functions is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder function(Output<Boolean> function) {
+            $.function = function;
+            return this;
+        }
+
+        /**
+         * @param function Indicates if scanning of Azure Functions is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder function(Boolean function) {
+            return function(Output.of(function));
+        }
+
+        /**
          * @param vulnContainersOs Indicates if scanning for vulnerabilities in containers is enabled.
          * 
          * @return builder
@@ -191,6 +228,9 @@ public final class AgentlessScanningAzureScanOptionsArgs extends com.pulumi.reso
         public AgentlessScanningAzureScanOptionsArgs build() {
             if ($.azureSubscriptionId == null) {
                 throw new MissingRequiredPropertyException("AgentlessScanningAzureScanOptionsArgs", "azureSubscriptionId");
+            }
+            if ($.function == null) {
+                throw new MissingRequiredPropertyException("AgentlessScanningAzureScanOptionsArgs", "function");
             }
             if ($.vulnContainersOs == null) {
                 throw new MissingRequiredPropertyException("AgentlessScanningAzureScanOptionsArgs", "vulnContainersOs");

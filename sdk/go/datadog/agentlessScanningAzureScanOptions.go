@@ -31,6 +31,7 @@ import (
 //			// Configure agentless scanning for an Azure subscription
 //			_, err := datadog.NewAgentlessScanningAzureScanOptions(ctx, "example", &datadog.AgentlessScanningAzureScanOptionsArgs{
 //				AzureSubscriptionId: pulumi.String("12345678-1234-1234-1234-123456789012"),
+//				Function:            pulumi.Bool(true),
 //				VulnContainersOs:    pulumi.Bool(true),
 //				VulnHostOs:          pulumi.Bool(true),
 //			})
@@ -61,6 +62,8 @@ type AgentlessScanningAzureScanOptions struct {
 	AzureSubscriptionId pulumi.StringOutput `pulumi:"azureSubscriptionId"`
 	// Indicates whether host compliance scanning is enabled.
 	ComplianceHost pulumi.BoolOutput `pulumi:"complianceHost"`
+	// Indicates if scanning of Azure Functions is enabled.
+	Function pulumi.BoolOutput `pulumi:"function"`
 	// Indicates if scanning for vulnerabilities in containers is enabled.
 	VulnContainersOs pulumi.BoolOutput `pulumi:"vulnContainersOs"`
 	// Indicates if scanning for vulnerabilities in hosts is enabled.
@@ -76,6 +79,9 @@ func NewAgentlessScanningAzureScanOptions(ctx *pulumi.Context,
 
 	if args.AzureSubscriptionId == nil {
 		return nil, errors.New("invalid value for required argument 'AzureSubscriptionId'")
+	}
+	if args.Function == nil {
+		return nil, errors.New("invalid value for required argument 'Function'")
 	}
 	if args.VulnContainersOs == nil {
 		return nil, errors.New("invalid value for required argument 'VulnContainersOs'")
@@ -110,6 +116,8 @@ type agentlessScanningAzureScanOptionsState struct {
 	AzureSubscriptionId *string `pulumi:"azureSubscriptionId"`
 	// Indicates whether host compliance scanning is enabled.
 	ComplianceHost *bool `pulumi:"complianceHost"`
+	// Indicates if scanning of Azure Functions is enabled.
+	Function *bool `pulumi:"function"`
 	// Indicates if scanning for vulnerabilities in containers is enabled.
 	VulnContainersOs *bool `pulumi:"vulnContainersOs"`
 	// Indicates if scanning for vulnerabilities in hosts is enabled.
@@ -121,6 +129,8 @@ type AgentlessScanningAzureScanOptionsState struct {
 	AzureSubscriptionId pulumi.StringPtrInput
 	// Indicates whether host compliance scanning is enabled.
 	ComplianceHost pulumi.BoolPtrInput
+	// Indicates if scanning of Azure Functions is enabled.
+	Function pulumi.BoolPtrInput
 	// Indicates if scanning for vulnerabilities in containers is enabled.
 	VulnContainersOs pulumi.BoolPtrInput
 	// Indicates if scanning for vulnerabilities in hosts is enabled.
@@ -136,6 +146,8 @@ type agentlessScanningAzureScanOptionsArgs struct {
 	AzureSubscriptionId string `pulumi:"azureSubscriptionId"`
 	// Indicates whether host compliance scanning is enabled.
 	ComplianceHost *bool `pulumi:"complianceHost"`
+	// Indicates if scanning of Azure Functions is enabled.
+	Function bool `pulumi:"function"`
 	// Indicates if scanning for vulnerabilities in containers is enabled.
 	VulnContainersOs bool `pulumi:"vulnContainersOs"`
 	// Indicates if scanning for vulnerabilities in hosts is enabled.
@@ -148,6 +160,8 @@ type AgentlessScanningAzureScanOptionsArgs struct {
 	AzureSubscriptionId pulumi.StringInput
 	// Indicates whether host compliance scanning is enabled.
 	ComplianceHost pulumi.BoolPtrInput
+	// Indicates if scanning of Azure Functions is enabled.
+	Function pulumi.BoolInput
 	// Indicates if scanning for vulnerabilities in containers is enabled.
 	VulnContainersOs pulumi.BoolInput
 	// Indicates if scanning for vulnerabilities in hosts is enabled.
@@ -249,6 +263,11 @@ func (o AgentlessScanningAzureScanOptionsOutput) AzureSubscriptionId() pulumi.St
 // Indicates whether host compliance scanning is enabled.
 func (o AgentlessScanningAzureScanOptionsOutput) ComplianceHost() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AgentlessScanningAzureScanOptions) pulumi.BoolOutput { return v.ComplianceHost }).(pulumi.BoolOutput)
+}
+
+// Indicates if scanning of Azure Functions is enabled.
+func (o AgentlessScanningAzureScanOptionsOutput) Function() pulumi.BoolOutput {
+	return o.ApplyT(func(v *AgentlessScanningAzureScanOptions) pulumi.BoolOutput { return v.Function }).(pulumi.BoolOutput)
 }
 
 // Indicates if scanning for vulnerabilities in containers is enabled.

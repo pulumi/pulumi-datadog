@@ -16,25 +16,25 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// How the per-tag override is applied. One of `LimitOverride`, `Excluded`. Valid values are `LimitOverride`, `Excluded`.
         /// </summary>
-        public readonly string Mode;
+        public readonly string OverrideType;
         /// <summary>
         /// The tag key this override applies to.
         /// </summary>
         public readonly string TagKey;
         /// <summary>
-        /// The cardinality cap for this tag. Required when `Mode` is `LimitOverride`; must be omitted when `Mode` is `Excluded`. Value must be between 0 and 1000000.
+        /// The cardinality cap for this tag. Required when `OverrideType` is `LimitOverride`; must be omitted when `OverrideType` is `Excluded`. Value must be between 0 and 1000000.
         /// </summary>
         public readonly int? ValueLimit;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimit(
-            string mode,
+            string overrideType,
 
             string tagKey,
 
             int? valueLimit)
         {
-            Mode = mode;
+            OverrideType = overrideType;
             TagKey = tagKey;
             ValueLimit = valueLimit;
         }

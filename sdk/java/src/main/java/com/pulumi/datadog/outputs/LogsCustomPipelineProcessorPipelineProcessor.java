@@ -11,6 +11,7 @@ import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorAt
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapper;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor;
+import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorExcludeAttributeProcessor;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorGeoIpParser;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorGrokParser;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessorLookupProcessor;
@@ -65,6 +66,11 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
      * 
      */
     private @Nullable LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor decoderProcessor;
+    /**
+     * @return Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
+     * 
+     */
+    private @Nullable LogsCustomPipelineProcessorPipelineProcessorExcludeAttributeProcessor excludeAttributeProcessor;
     /**
      * @return Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
      * 
@@ -182,6 +188,13 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
         return Optional.ofNullable(this.decoderProcessor);
     }
     /**
+     * @return Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
+     * 
+     */
+    public Optional<LogsCustomPipelineProcessorPipelineProcessorExcludeAttributeProcessor> excludeAttributeProcessor() {
+        return Optional.ofNullable(this.excludeAttributeProcessor);
+    }
+    /**
      * @return Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
      * 
      */
@@ -289,6 +302,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
         private @Nullable LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor categoryProcessor;
         private @Nullable LogsCustomPipelineProcessorPipelineProcessorDateRemapper dateRemapper;
         private @Nullable LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor decoderProcessor;
+        private @Nullable LogsCustomPipelineProcessorPipelineProcessorExcludeAttributeProcessor excludeAttributeProcessor;
         private @Nullable LogsCustomPipelineProcessorPipelineProcessorGeoIpParser geoIpParser;
         private @Nullable LogsCustomPipelineProcessorPipelineProcessorGrokParser grokParser;
         private @Nullable LogsCustomPipelineProcessorPipelineProcessorLookupProcessor lookupProcessor;
@@ -312,6 +326,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
     	      this.categoryProcessor = defaults.categoryProcessor;
     	      this.dateRemapper = defaults.dateRemapper;
     	      this.decoderProcessor = defaults.decoderProcessor;
+    	      this.excludeAttributeProcessor = defaults.excludeAttributeProcessor;
     	      this.geoIpParser = defaults.geoIpParser;
     	      this.grokParser = defaults.grokParser;
     	      this.lookupProcessor = defaults.lookupProcessor;
@@ -367,6 +382,12 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
         public Builder decoderProcessor(@Nullable LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor decoderProcessor) {
 
             this.decoderProcessor = decoderProcessor;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder excludeAttributeProcessor(@Nullable LogsCustomPipelineProcessorPipelineProcessorExcludeAttributeProcessor excludeAttributeProcessor) {
+
+            this.excludeAttributeProcessor = excludeAttributeProcessor;
             return this;
         }
         @CustomType.Setter
@@ -456,6 +477,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
             _resultValue.categoryProcessor = categoryProcessor;
             _resultValue.dateRemapper = dateRemapper;
             _resultValue.decoderProcessor = decoderProcessor;
+            _resultValue.excludeAttributeProcessor = excludeAttributeProcessor;
             _resultValue.geoIpParser = geoIpParser;
             _resultValue.grokParser = grokParser;
             _resultValue.lookupProcessor = lookupProcessor;

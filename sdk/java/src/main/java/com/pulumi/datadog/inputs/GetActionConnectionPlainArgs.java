@@ -4,8 +4,30 @@
 package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.GetActionConnectionAnthropic;
+import com.pulumi.datadog.inputs.GetActionConnectionAsana;
 import com.pulumi.datadog.inputs.GetActionConnectionAws;
+import com.pulumi.datadog.inputs.GetActionConnectionAzure;
+import com.pulumi.datadog.inputs.GetActionConnectionCircleCi;
+import com.pulumi.datadog.inputs.GetActionConnectionClickup;
+import com.pulumi.datadog.inputs.GetActionConnectionCloudflare;
+import com.pulumi.datadog.inputs.GetActionConnectionConfigCat;
+import com.pulumi.datadog.inputs.GetActionConnectionDatadog;
+import com.pulumi.datadog.inputs.GetActionConnectionFastly;
+import com.pulumi.datadog.inputs.GetActionConnectionFreshservice;
+import com.pulumi.datadog.inputs.GetActionConnectionGcp;
+import com.pulumi.datadog.inputs.GetActionConnectionGemini;
+import com.pulumi.datadog.inputs.GetActionConnectionGitlab;
+import com.pulumi.datadog.inputs.GetActionConnectionGreyNoise;
 import com.pulumi.datadog.inputs.GetActionConnectionHttp;
+import com.pulumi.datadog.inputs.GetActionConnectionLaunchDarkly;
+import com.pulumi.datadog.inputs.GetActionConnectionNotion;
+import com.pulumi.datadog.inputs.GetActionConnectionOkta;
+import com.pulumi.datadog.inputs.GetActionConnectionOpenai;
+import com.pulumi.datadog.inputs.GetActionConnectionServiceNow;
+import com.pulumi.datadog.inputs.GetActionConnectionSplit;
+import com.pulumi.datadog.inputs.GetActionConnectionStatsig;
+import com.pulumi.datadog.inputs.GetActionConnectionVirusTotal;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
@@ -16,6 +38,36 @@ import javax.annotation.Nullable;
 public final class GetActionConnectionPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetActionConnectionPlainArgs Empty = new GetActionConnectionPlainArgs();
+
+    /**
+     * Configuration for an Anthropic connection
+     * 
+     */
+    @Import(name="anthropic")
+    private @Nullable GetActionConnectionAnthropic anthropic;
+
+    /**
+     * @return Configuration for an Anthropic connection
+     * 
+     */
+    public Optional<GetActionConnectionAnthropic> anthropic() {
+        return Optional.ofNullable(this.anthropic);
+    }
+
+    /**
+     * Configuration for an Asana connection
+     * 
+     */
+    @Import(name="asana")
+    private @Nullable GetActionConnectionAsana asana;
+
+    /**
+     * @return Configuration for an Asana connection
+     * 
+     */
+    public Optional<GetActionConnectionAsana> asana() {
+        return Optional.ofNullable(this.asana);
+    }
 
     /**
      * Configuration for an AWS connection
@@ -30,6 +82,186 @@ public final class GetActionConnectionPlainArgs extends com.pulumi.resources.Inv
      */
     public Optional<GetActionConnectionAws> aws() {
         return Optional.ofNullable(this.aws);
+    }
+
+    /**
+     * Configuration for an Azure connection
+     * 
+     */
+    @Import(name="azure")
+    private @Nullable GetActionConnectionAzure azure;
+
+    /**
+     * @return Configuration for an Azure connection
+     * 
+     */
+    public Optional<GetActionConnectionAzure> azure() {
+        return Optional.ofNullable(this.azure);
+    }
+
+    /**
+     * Configuration for a CircleCI connection
+     * 
+     */
+    @Import(name="circleCi")
+    private @Nullable GetActionConnectionCircleCi circleCi;
+
+    /**
+     * @return Configuration for a CircleCI connection
+     * 
+     */
+    public Optional<GetActionConnectionCircleCi> circleCi() {
+        return Optional.ofNullable(this.circleCi);
+    }
+
+    /**
+     * Configuration for a ClickUp connection
+     * 
+     */
+    @Import(name="clickup")
+    private @Nullable GetActionConnectionClickup clickup;
+
+    /**
+     * @return Configuration for a ClickUp connection
+     * 
+     */
+    public Optional<GetActionConnectionClickup> clickup() {
+        return Optional.ofNullable(this.clickup);
+    }
+
+    /**
+     * Configuration for a Cloudflare connection
+     * 
+     */
+    @Import(name="cloudflare")
+    private @Nullable GetActionConnectionCloudflare cloudflare;
+
+    /**
+     * @return Configuration for a Cloudflare connection
+     * 
+     */
+    public Optional<GetActionConnectionCloudflare> cloudflare() {
+        return Optional.ofNullable(this.cloudflare);
+    }
+
+    /**
+     * Configuration for a ConfigCat connection
+     * 
+     */
+    @Import(name="configCat")
+    private @Nullable GetActionConnectionConfigCat configCat;
+
+    /**
+     * @return Configuration for a ConfigCat connection
+     * 
+     */
+    public Optional<GetActionConnectionConfigCat> configCat() {
+        return Optional.ofNullable(this.configCat);
+    }
+
+    /**
+     * Configuration for a Datadog connection
+     * 
+     */
+    @Import(name="datadog")
+    private @Nullable GetActionConnectionDatadog datadog;
+
+    /**
+     * @return Configuration for a Datadog connection
+     * 
+     */
+    public Optional<GetActionConnectionDatadog> datadog() {
+        return Optional.ofNullable(this.datadog);
+    }
+
+    /**
+     * Configuration for a Fastly connection
+     * 
+     */
+    @Import(name="fastly")
+    private @Nullable GetActionConnectionFastly fastly;
+
+    /**
+     * @return Configuration for a Fastly connection
+     * 
+     */
+    public Optional<GetActionConnectionFastly> fastly() {
+        return Optional.ofNullable(this.fastly);
+    }
+
+    /**
+     * Configuration for a Freshservice connection
+     * 
+     */
+    @Import(name="freshservice")
+    private @Nullable GetActionConnectionFreshservice freshservice;
+
+    /**
+     * @return Configuration for a Freshservice connection
+     * 
+     */
+    public Optional<GetActionConnectionFreshservice> freshservice() {
+        return Optional.ofNullable(this.freshservice);
+    }
+
+    /**
+     * Configuration for a Google Cloud connection
+     * 
+     */
+    @Import(name="gcp")
+    private @Nullable GetActionConnectionGcp gcp;
+
+    /**
+     * @return Configuration for a Google Cloud connection
+     * 
+     */
+    public Optional<GetActionConnectionGcp> gcp() {
+        return Optional.ofNullable(this.gcp);
+    }
+
+    /**
+     * Configuration for a Gemini connection
+     * 
+     */
+    @Import(name="gemini")
+    private @Nullable GetActionConnectionGemini gemini;
+
+    /**
+     * @return Configuration for a Gemini connection
+     * 
+     */
+    public Optional<GetActionConnectionGemini> gemini() {
+        return Optional.ofNullable(this.gemini);
+    }
+
+    /**
+     * Configuration for a GitLab connection
+     * 
+     */
+    @Import(name="gitlab")
+    private @Nullable GetActionConnectionGitlab gitlab;
+
+    /**
+     * @return Configuration for a GitLab connection
+     * 
+     */
+    public Optional<GetActionConnectionGitlab> gitlab() {
+        return Optional.ofNullable(this.gitlab);
+    }
+
+    /**
+     * Configuration for a GreyNoise connection
+     * 
+     */
+    @Import(name="greyNoise")
+    private @Nullable GetActionConnectionGreyNoise greyNoise;
+
+    /**
+     * @return Configuration for a GreyNoise connection
+     * 
+     */
+    public Optional<GetActionConnectionGreyNoise> greyNoise() {
+        return Optional.ofNullable(this.greyNoise);
     }
 
     /**
@@ -62,12 +294,154 @@ public final class GetActionConnectionPlainArgs extends com.pulumi.resources.Inv
         return this.id;
     }
 
+    /**
+     * Configuration for a LaunchDarkly connection
+     * 
+     */
+    @Import(name="launchDarkly")
+    private @Nullable GetActionConnectionLaunchDarkly launchDarkly;
+
+    /**
+     * @return Configuration for a LaunchDarkly connection
+     * 
+     */
+    public Optional<GetActionConnectionLaunchDarkly> launchDarkly() {
+        return Optional.ofNullable(this.launchDarkly);
+    }
+
+    /**
+     * Configuration for a Notion connection
+     * 
+     */
+    @Import(name="notion")
+    private @Nullable GetActionConnectionNotion notion;
+
+    /**
+     * @return Configuration for a Notion connection
+     * 
+     */
+    public Optional<GetActionConnectionNotion> notion() {
+        return Optional.ofNullable(this.notion);
+    }
+
+    /**
+     * Configuration for an Okta connection
+     * 
+     */
+    @Import(name="okta")
+    private @Nullable GetActionConnectionOkta okta;
+
+    /**
+     * @return Configuration for an Okta connection
+     * 
+     */
+    public Optional<GetActionConnectionOkta> okta() {
+        return Optional.ofNullable(this.okta);
+    }
+
+    /**
+     * Configuration for an OpenAI connection
+     * 
+     */
+    @Import(name="openai")
+    private @Nullable GetActionConnectionOpenai openai;
+
+    /**
+     * @return Configuration for an OpenAI connection
+     * 
+     */
+    public Optional<GetActionConnectionOpenai> openai() {
+        return Optional.ofNullable(this.openai);
+    }
+
+    /**
+     * Configuration for a ServiceNow connection
+     * 
+     */
+    @Import(name="serviceNow")
+    private @Nullable GetActionConnectionServiceNow serviceNow;
+
+    /**
+     * @return Configuration for a ServiceNow connection
+     * 
+     */
+    public Optional<GetActionConnectionServiceNow> serviceNow() {
+        return Optional.ofNullable(this.serviceNow);
+    }
+
+    /**
+     * Configuration for a Split connection
+     * 
+     */
+    @Import(name="split")
+    private @Nullable GetActionConnectionSplit split;
+
+    /**
+     * @return Configuration for a Split connection
+     * 
+     */
+    public Optional<GetActionConnectionSplit> split() {
+        return Optional.ofNullable(this.split);
+    }
+
+    /**
+     * Configuration for a Statsig connection
+     * 
+     */
+    @Import(name="statsig")
+    private @Nullable GetActionConnectionStatsig statsig;
+
+    /**
+     * @return Configuration for a Statsig connection
+     * 
+     */
+    public Optional<GetActionConnectionStatsig> statsig() {
+        return Optional.ofNullable(this.statsig);
+    }
+
+    /**
+     * Configuration for a VirusTotal connection
+     * 
+     */
+    @Import(name="virusTotal")
+    private @Nullable GetActionConnectionVirusTotal virusTotal;
+
+    /**
+     * @return Configuration for a VirusTotal connection
+     * 
+     */
+    public Optional<GetActionConnectionVirusTotal> virusTotal() {
+        return Optional.ofNullable(this.virusTotal);
+    }
+
     private GetActionConnectionPlainArgs() {}
 
     private GetActionConnectionPlainArgs(GetActionConnectionPlainArgs $) {
+        this.anthropic = $.anthropic;
+        this.asana = $.asana;
         this.aws = $.aws;
+        this.azure = $.azure;
+        this.circleCi = $.circleCi;
+        this.clickup = $.clickup;
+        this.cloudflare = $.cloudflare;
+        this.configCat = $.configCat;
+        this.datadog = $.datadog;
+        this.fastly = $.fastly;
+        this.freshservice = $.freshservice;
+        this.gcp = $.gcp;
+        this.gemini = $.gemini;
+        this.gitlab = $.gitlab;
+        this.greyNoise = $.greyNoise;
         this.http = $.http;
         this.id = $.id;
+        this.launchDarkly = $.launchDarkly;
+        this.notion = $.notion;
+        this.okta = $.okta;
+        this.openai = $.openai;
+        this.serviceNow = $.serviceNow;
+        this.split = $.split;
+        this.statsig = $.statsig;
+        this.virusTotal = $.virusTotal;
     }
 
     public static Builder builder() {
@@ -89,6 +463,28 @@ public final class GetActionConnectionPlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
+         * @param anthropic Configuration for an Anthropic connection
+         * 
+         * @return builder
+         * 
+         */
+        public Builder anthropic(@Nullable GetActionConnectionAnthropic anthropic) {
+            $.anthropic = anthropic;
+            return this;
+        }
+
+        /**
+         * @param asana Configuration for an Asana connection
+         * 
+         * @return builder
+         * 
+         */
+        public Builder asana(@Nullable GetActionConnectionAsana asana) {
+            $.asana = asana;
+            return this;
+        }
+
+        /**
          * @param aws Configuration for an AWS connection
          * 
          * @return builder
@@ -96,6 +492,138 @@ public final class GetActionConnectionPlainArgs extends com.pulumi.resources.Inv
          */
         public Builder aws(@Nullable GetActionConnectionAws aws) {
             $.aws = aws;
+            return this;
+        }
+
+        /**
+         * @param azure Configuration for an Azure connection
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azure(@Nullable GetActionConnectionAzure azure) {
+            $.azure = azure;
+            return this;
+        }
+
+        /**
+         * @param circleCi Configuration for a CircleCI connection
+         * 
+         * @return builder
+         * 
+         */
+        public Builder circleCi(@Nullable GetActionConnectionCircleCi circleCi) {
+            $.circleCi = circleCi;
+            return this;
+        }
+
+        /**
+         * @param clickup Configuration for a ClickUp connection
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clickup(@Nullable GetActionConnectionClickup clickup) {
+            $.clickup = clickup;
+            return this;
+        }
+
+        /**
+         * @param cloudflare Configuration for a Cloudflare connection
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudflare(@Nullable GetActionConnectionCloudflare cloudflare) {
+            $.cloudflare = cloudflare;
+            return this;
+        }
+
+        /**
+         * @param configCat Configuration for a ConfigCat connection
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configCat(@Nullable GetActionConnectionConfigCat configCat) {
+            $.configCat = configCat;
+            return this;
+        }
+
+        /**
+         * @param datadog Configuration for a Datadog connection
+         * 
+         * @return builder
+         * 
+         */
+        public Builder datadog(@Nullable GetActionConnectionDatadog datadog) {
+            $.datadog = datadog;
+            return this;
+        }
+
+        /**
+         * @param fastly Configuration for a Fastly connection
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fastly(@Nullable GetActionConnectionFastly fastly) {
+            $.fastly = fastly;
+            return this;
+        }
+
+        /**
+         * @param freshservice Configuration for a Freshservice connection
+         * 
+         * @return builder
+         * 
+         */
+        public Builder freshservice(@Nullable GetActionConnectionFreshservice freshservice) {
+            $.freshservice = freshservice;
+            return this;
+        }
+
+        /**
+         * @param gcp Configuration for a Google Cloud connection
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gcp(@Nullable GetActionConnectionGcp gcp) {
+            $.gcp = gcp;
+            return this;
+        }
+
+        /**
+         * @param gemini Configuration for a Gemini connection
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gemini(@Nullable GetActionConnectionGemini gemini) {
+            $.gemini = gemini;
+            return this;
+        }
+
+        /**
+         * @param gitlab Configuration for a GitLab connection
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gitlab(@Nullable GetActionConnectionGitlab gitlab) {
+            $.gitlab = gitlab;
+            return this;
+        }
+
+        /**
+         * @param greyNoise Configuration for a GreyNoise connection
+         * 
+         * @return builder
+         * 
+         */
+        public Builder greyNoise(@Nullable GetActionConnectionGreyNoise greyNoise) {
+            $.greyNoise = greyNoise;
             return this;
         }
 
@@ -118,6 +646,94 @@ public final class GetActionConnectionPlainArgs extends com.pulumi.resources.Inv
          */
         public Builder id(String id) {
             $.id = id;
+            return this;
+        }
+
+        /**
+         * @param launchDarkly Configuration for a LaunchDarkly connection
+         * 
+         * @return builder
+         * 
+         */
+        public Builder launchDarkly(@Nullable GetActionConnectionLaunchDarkly launchDarkly) {
+            $.launchDarkly = launchDarkly;
+            return this;
+        }
+
+        /**
+         * @param notion Configuration for a Notion connection
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notion(@Nullable GetActionConnectionNotion notion) {
+            $.notion = notion;
+            return this;
+        }
+
+        /**
+         * @param okta Configuration for an Okta connection
+         * 
+         * @return builder
+         * 
+         */
+        public Builder okta(@Nullable GetActionConnectionOkta okta) {
+            $.okta = okta;
+            return this;
+        }
+
+        /**
+         * @param openai Configuration for an OpenAI connection
+         * 
+         * @return builder
+         * 
+         */
+        public Builder openai(@Nullable GetActionConnectionOpenai openai) {
+            $.openai = openai;
+            return this;
+        }
+
+        /**
+         * @param serviceNow Configuration for a ServiceNow connection
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceNow(@Nullable GetActionConnectionServiceNow serviceNow) {
+            $.serviceNow = serviceNow;
+            return this;
+        }
+
+        /**
+         * @param split Configuration for a Split connection
+         * 
+         * @return builder
+         * 
+         */
+        public Builder split(@Nullable GetActionConnectionSplit split) {
+            $.split = split;
+            return this;
+        }
+
+        /**
+         * @param statsig Configuration for a Statsig connection
+         * 
+         * @return builder
+         * 
+         */
+        public Builder statsig(@Nullable GetActionConnectionStatsig statsig) {
+            $.statsig = statsig;
+            return this;
+        }
+
+        /**
+         * @param virusTotal Configuration for a VirusTotal connection
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virusTotal(@Nullable GetActionConnectionVirusTotal virusTotal) {
+            $.virusTotal = virusTotal;
             return this;
         }
 

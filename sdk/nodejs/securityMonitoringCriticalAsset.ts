@@ -14,8 +14,9 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * const myCriticalAsset = new datadog.SecurityMonitoringCriticalAsset("my_critical_asset", {
+ *     description: "Production database servers that should trigger critical alerts",
  *     enabled: true,
- *     query: "source:runtime-security-agent",
+ *     query: "env:production service:database",
  *     ruleQuery: "type:(log_detection OR signal_correlation OR workload_security OR application_security) ruleId:007-d1a-1f3",
  *     severity: "increase",
  *     tags: [

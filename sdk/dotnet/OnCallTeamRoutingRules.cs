@@ -64,11 +64,6 @@ namespace Pulumi.Datadog
     ///             },
     ///             new Datadog.Inputs.OnCallTeamRoutingRulesRuleArgs
     ///             {
-    ///                 EscalationPolicy = "00000000-aba2-0000-0000-000000000000",
-    ///                 Urgency = "dynamic",
-    ///             },
-    ///             new Datadog.Inputs.OnCallTeamRoutingRulesRuleArgs
-    ///             {
     ///                 Query = "tags.service:payment",
     ///                 Actions = new[]
     ///                 {
@@ -130,6 +125,11 @@ namespace Pulumi.Datadog
     ///                         },
     ///                     },
     ///                 },
+    ///             },
+    ///             new Datadog.Inputs.OnCallTeamRoutingRulesRuleArgs
+    ///             {
+    ///                 EscalationPolicy = "00000000-aba2-0000-0000-000000000000",
+    ///                 Urgency = "dynamic",
     ///             },
     ///         },
     ///     });

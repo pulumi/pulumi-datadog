@@ -46,6 +46,14 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Region;
         /// <summary>
+        /// The server-side encryption algorithm used when storing objects in S3. Valid values: `aws:kms`, `AES256`. Valid values are `aws:kms`, `AES256`.
+        /// </summary>
+        public readonly string? ServerSideEncryption;
+        /// <summary>
+        /// ID of the AWS KMS key to use for SSE-KMS encryption. Only applies when `ServerSideEncryption` is `aws:kms`.
+        /// </summary>
+        public readonly string? SsekmsKeyId;
+        /// <summary>
         /// S3 storage class. Valid values are `STANDARD`, `REDUCED_REDUNDANCY`, `INTELLIGENT_TIERING`, `STANDARD_IA`, `EXPRESS_ONEZONE`, `ONEZONE_IA`, `GLACIER`, `GLACIER_IR`, `DEEP_ARCHIVE`.
         /// </summary>
         public readonly string StorageClass;
@@ -68,6 +76,10 @@ namespace Pulumi.Datadog.Outputs
 
             string region,
 
+            string? serverSideEncryption,
+
+            string? ssekmsKeyId,
+
             string storageClass)
         {
             Auth = auth;
@@ -78,6 +90,8 @@ namespace Pulumi.Datadog.Outputs
             Encoding = encoding;
             KeyPrefix = keyPrefix;
             Region = region;
+            ServerSideEncryption = serverSideEncryption;
+            SsekmsKeyId = ssekmsKeyId;
             StorageClass = storageClass;
         }
     }

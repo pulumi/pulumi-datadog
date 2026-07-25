@@ -20,14 +20,14 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
     public static final ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitArgs Empty = new ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitArgs();
 
     /**
-     * The action to take on this metric when the limit is exceeded. Required when `mode` is `tracked`; must be omitted when `mode` is `excluded`. Valid values are `dropTag`, `dropEvent`.
+     * The action to take on this metric when the limit is exceeded. Required when `overrideType` is `limitOverride`; must be omitted when `overrideType` is `excluded`. Valid values are `dropTag`, `dropEvent`.
      * 
      */
     @Import(name="limitExceededAction")
     private @Nullable Output<String> limitExceededAction;
 
     /**
-     * @return The action to take on this metric when the limit is exceeded. Required when `mode` is `tracked`; must be omitted when `mode` is `excluded`. Valid values are `dropTag`, `dropEvent`.
+     * @return The action to take on this metric when the limit is exceeded. Required when `overrideType` is `limitOverride`; must be omitted when `overrideType` is `excluded`. Valid values are `dropTag`, `dropEvent`.
      * 
      */
     public Optional<Output<String>> limitExceededAction() {
@@ -50,29 +50,29 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
     }
 
     /**
-     * How the per-metric override is applied. One of `tracked`, `excluded`. Valid values are `tracked`, `excluded`.
+     * How the per-metric override is applied. One of `limitOverride`, `excluded`. Valid values are `limitOverride`, `excluded`.
      * 
      */
-    @Import(name="mode", required=true)
-    private Output<String> mode;
+    @Import(name="overrideType", required=true)
+    private Output<String> overrideType;
 
     /**
-     * @return How the per-metric override is applied. One of `tracked`, `excluded`. Valid values are `tracked`, `excluded`.
+     * @return How the per-metric override is applied. One of `limitOverride`, `excluded`. Valid values are `limitOverride`, `excluded`.
      * 
      */
-    public Output<String> mode() {
-        return this.mode;
+    public Output<String> overrideType() {
+        return this.overrideType;
     }
 
     /**
-     * Per-tag cardinality overrides that apply within this metric. Must be omitted when `mode` is `excluded`.
+     * Per-tag cardinality overrides that apply within this metric. Must be omitted when `overrideType` is `excluded`.
      * 
      */
     @Import(name="perTagLimits")
     private @Nullable Output<List<ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimitArgs>> perTagLimits;
 
     /**
-     * @return Per-tag cardinality overrides that apply within this metric. Must be omitted when `mode` is `excluded`.
+     * @return Per-tag cardinality overrides that apply within this metric. Must be omitted when `overrideType` is `excluded`.
      * 
      */
     public Optional<Output<List<ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimitArgs>>> perTagLimits() {
@@ -80,14 +80,14 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
     }
 
     /**
-     * The cardinality cap for this metric. Required when `mode` is `tracked`; must be omitted when `mode` is `excluded`. Value must be between 0 and 1000000.
+     * The cardinality cap for this metric. Required when `overrideType` is `limitOverride`; must be omitted when `overrideType` is `excluded`. Value must be between 0 and 1000000.
      * 
      */
     @Import(name="valueLimit")
     private @Nullable Output<Integer> valueLimit;
 
     /**
-     * @return The cardinality cap for this metric. Required when `mode` is `tracked`; must be omitted when `mode` is `excluded`. Value must be between 0 and 1000000.
+     * @return The cardinality cap for this metric. Required when `overrideType` is `limitOverride`; must be omitted when `overrideType` is `excluded`. Value must be between 0 and 1000000.
      * 
      */
     public Optional<Output<Integer>> valueLimit() {
@@ -99,7 +99,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
     private ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitArgs(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitArgs $) {
         this.limitExceededAction = $.limitExceededAction;
         this.metricName = $.metricName;
-        this.mode = $.mode;
+        this.overrideType = $.overrideType;
         this.perTagLimits = $.perTagLimits;
         this.valueLimit = $.valueLimit;
     }
@@ -123,7 +123,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
         }
 
         /**
-         * @param limitExceededAction The action to take on this metric when the limit is exceeded. Required when `mode` is `tracked`; must be omitted when `mode` is `excluded`. Valid values are `dropTag`, `dropEvent`.
+         * @param limitExceededAction The action to take on this metric when the limit is exceeded. Required when `overrideType` is `limitOverride`; must be omitted when `overrideType` is `excluded`. Valid values are `dropTag`, `dropEvent`.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
         }
 
         /**
-         * @param limitExceededAction The action to take on this metric when the limit is exceeded. Required when `mode` is `tracked`; must be omitted when `mode` is `excluded`. Valid values are `dropTag`, `dropEvent`.
+         * @param limitExceededAction The action to take on this metric when the limit is exceeded. Required when `overrideType` is `limitOverride`; must be omitted when `overrideType` is `excluded`. Valid values are `dropTag`, `dropEvent`.
          * 
          * @return builder
          * 
@@ -165,28 +165,28 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
         }
 
         /**
-         * @param mode How the per-metric override is applied. One of `tracked`, `excluded`. Valid values are `tracked`, `excluded`.
+         * @param overrideType How the per-metric override is applied. One of `limitOverride`, `excluded`. Valid values are `limitOverride`, `excluded`.
          * 
          * @return builder
          * 
          */
-        public Builder mode(Output<String> mode) {
-            $.mode = mode;
+        public Builder overrideType(Output<String> overrideType) {
+            $.overrideType = overrideType;
             return this;
         }
 
         /**
-         * @param mode How the per-metric override is applied. One of `tracked`, `excluded`. Valid values are `tracked`, `excluded`.
+         * @param overrideType How the per-metric override is applied. One of `limitOverride`, `excluded`. Valid values are `limitOverride`, `excluded`.
          * 
          * @return builder
          * 
          */
-        public Builder mode(String mode) {
-            return mode(Output.of(mode));
+        public Builder overrideType(String overrideType) {
+            return overrideType(Output.of(overrideType));
         }
 
         /**
-         * @param perTagLimits Per-tag cardinality overrides that apply within this metric. Must be omitted when `mode` is `excluded`.
+         * @param perTagLimits Per-tag cardinality overrides that apply within this metric. Must be omitted when `overrideType` is `excluded`.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
         }
 
         /**
-         * @param perTagLimits Per-tag cardinality overrides that apply within this metric. Must be omitted when `mode` is `excluded`.
+         * @param perTagLimits Per-tag cardinality overrides that apply within this metric. Must be omitted when `overrideType` is `excluded`.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
         }
 
         /**
-         * @param perTagLimits Per-tag cardinality overrides that apply within this metric. Must be omitted when `mode` is `excluded`.
+         * @param perTagLimits Per-tag cardinality overrides that apply within this metric. Must be omitted when `overrideType` is `excluded`.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
         }
 
         /**
-         * @param valueLimit The cardinality cap for this metric. Required when `mode` is `tracked`; must be omitted when `mode` is `excluded`. Value must be between 0 and 1000000.
+         * @param valueLimit The cardinality cap for this metric. Required when `overrideType` is `limitOverride`; must be omitted when `overrideType` is `excluded`. Value must be between 0 and 1000000.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
         }
 
         /**
-         * @param valueLimit The cardinality cap for this metric. Required when `mode` is `tracked`; must be omitted when `mode` is `excluded`. Value must be between 0 and 1000000.
+         * @param valueLimit The cardinality cap for this metric. Required when `overrideType` is `limitOverride`; must be omitted when `overrideType` is `excluded`. Value must be between 0 and 1000000.
          * 
          * @return builder
          * 
@@ -241,8 +241,8 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
             if ($.metricName == null) {
                 throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitArgs", "metricName");
             }
-            if ($.mode == null) {
-                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitArgs", "mode");
+            if ($.overrideType == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitArgs", "overrideType");
             }
             return $;
         }

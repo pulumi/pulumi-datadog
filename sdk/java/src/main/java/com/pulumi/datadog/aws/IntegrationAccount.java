@@ -86,6 +86,15 @@ import javax.annotation.Nullable;
  *                         "AWS/ElasticMapReduce",
  *                         "AWS/Usage")
  *                     .build())
+ *                 .metricNameFilters(                
+ *                     com.pulumi.datadog.aws.inputs.IntegrationAccountMetricsConfigMetricNameFilterArgs.builder()
+ *                         .namespace("AWS/EC2")
+ *                         .includeOnlies("aws.ec2.network_in")
+ *                         .build(),
+ *                     com.pulumi.datadog.aws.inputs.IntegrationAccountMetricsConfigMetricNameFilterArgs.builder()
+ *                         .namespace("AWS/RDS")
+ *                         .excludeOnlies("aws.rds.aurora*")
+ *                         .build())
  *                 .tagFilters(com.pulumi.datadog.aws.inputs.IntegrationAccountMetricsConfigTagFilterArgs.builder()
  *                     .namespace("AWS/EC2")
  *                     .tags("datadog:true")

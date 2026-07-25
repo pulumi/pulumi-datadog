@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.GetSoftwareCatalogEntity;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -59,6 +60,11 @@ public final class GetSoftwareCatalogResult {
      * 
      */
     private String id;
+    /**
+     * @return Include entities that have been discovered but not yet enriched.
+     * 
+     */
+    private @Nullable Boolean includeDiscovered;
 
     private GetSoftwareCatalogResult() {}
     /**
@@ -124,6 +130,13 @@ public final class GetSoftwareCatalogResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Include entities that have been discovered but not yet enriched.
+     * 
+     */
+    public Optional<Boolean> includeDiscovered() {
+        return Optional.ofNullable(this.includeDiscovered);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -143,6 +156,7 @@ public final class GetSoftwareCatalogResult {
         private @Nullable String filterRef;
         private @Nullable String filterRelationType;
         private String id;
+        private @Nullable Boolean includeDiscovered;
         public Builder() {}
         public Builder(GetSoftwareCatalogResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -155,6 +169,7 @@ public final class GetSoftwareCatalogResult {
     	      this.filterRef = defaults.filterRef;
     	      this.filterRelationType = defaults.filterRelationType;
     	      this.id = defaults.id;
+    	      this.includeDiscovered = defaults.includeDiscovered;
         }
 
         @CustomType.Setter
@@ -218,6 +233,12 @@ public final class GetSoftwareCatalogResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder includeDiscovered(@Nullable Boolean includeDiscovered) {
+
+            this.includeDiscovered = includeDiscovered;
+            return this;
+        }
         public GetSoftwareCatalogResult build() {
             final var _resultValue = new GetSoftwareCatalogResult();
             _resultValue.entities = entities;
@@ -229,6 +250,7 @@ public final class GetSoftwareCatalogResult {
             _resultValue.filterRef = filterRef;
             _resultValue.filterRelationType = filterRelationType;
             _resultValue.id = id;
+            _resultValue.includeDiscovered = includeDiscovered;
             return _resultValue;
         }
     }

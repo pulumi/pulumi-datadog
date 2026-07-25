@@ -139,10 +139,6 @@ class OnCallTeamRoutingRules(pulumi.CustomResource):
                     }],
                 },
                 {
-                    "escalation_policy": "00000000-aba2-0000-0000-000000000000",
-                    "urgency": "dynamic",
-                },
-                {
                     "query": "tags.service:payment",
                     "actions": [{
                         "escalation_policy": [{
@@ -186,6 +182,10 @@ class OnCallTeamRoutingRules(pulumi.CustomResource):
                             }],
                         }],
                     }],
+                },
+                {
+                    "escalation_policy": "00000000-aba2-0000-0000-000000000000",
+                    "urgency": "dynamic",
                 },
             ])
         ```
@@ -243,10 +243,6 @@ class OnCallTeamRoutingRules(pulumi.CustomResource):
                     }],
                 },
                 {
-                    "escalation_policy": "00000000-aba2-0000-0000-000000000000",
-                    "urgency": "dynamic",
-                },
-                {
                     "query": "tags.service:payment",
                     "actions": [{
                         "escalation_policy": [{
@@ -290,6 +286,10 @@ class OnCallTeamRoutingRules(pulumi.CustomResource):
                             }],
                         }],
                     }],
+                },
+                {
+                    "escalation_policy": "00000000-aba2-0000-0000-000000000000",
+                    "urgency": "dynamic",
                 },
             ])
         ```

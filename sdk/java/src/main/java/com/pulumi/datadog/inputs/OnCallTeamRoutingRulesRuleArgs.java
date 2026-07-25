@@ -34,14 +34,14 @@ public final class OnCallTeamRoutingRulesRuleArgs extends com.pulumi.resources.R
     }
 
     /**
-     * ID of the policy to be applied when this routing rule matches.
+     * ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `escalationPolicy` action.
      * 
      */
     @Import(name="escalationPolicy")
     private @Nullable Output<String> escalationPolicy;
 
     /**
-     * @return ID of the policy to be applied when this routing rule matches.
+     * @return ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `escalationPolicy` action.
      * 
      */
     public Optional<Output<String>> escalationPolicy() {
@@ -64,14 +64,14 @@ public final class OnCallTeamRoutingRulesRuleArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Defines the query or condition that triggers this routing rule. Defaults to `&#34;&#34;`.
+     * Defines the query or condition that triggers this routing rule. Must not be set on the last rule, which acts as a catch-all rule. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="query")
     private @Nullable Output<String> query;
 
     /**
-     * @return Defines the query or condition that triggers this routing rule. Defaults to `&#34;&#34;`.
+     * @return Defines the query or condition that triggers this routing rule. Must not be set on the last rule, which acts as a catch-all rule. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> query() {
@@ -79,14 +79,14 @@ public final class OnCallTeamRoutingRulesRuleArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Holds time zone information and a list of time restrictions for a routing rule.
+     * Holds time zone information and a list of time restrictions for a routing rule. Must not be set on the last rule, which acts as a catch-all rule.
      * 
      */
     @Import(name="timeRestrictions")
     private @Nullable Output<OnCallTeamRoutingRulesRuleTimeRestrictionsArgs> timeRestrictions;
 
     /**
-     * @return Holds time zone information and a list of time restrictions for a routing rule.
+     * @return Holds time zone information and a list of time restrictions for a routing rule. Must not be set on the last rule, which acts as a catch-all rule.
      * 
      */
     public Optional<Output<OnCallTeamRoutingRulesRuleTimeRestrictionsArgs>> timeRestrictions() {
@@ -169,7 +169,7 @@ public final class OnCallTeamRoutingRulesRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param escalationPolicy ID of the policy to be applied when this routing rule matches.
+         * @param escalationPolicy ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `escalationPolicy` action.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class OnCallTeamRoutingRulesRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param escalationPolicy ID of the policy to be applied when this routing rule matches.
+         * @param escalationPolicy ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `escalationPolicy` action.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class OnCallTeamRoutingRulesRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param query Defines the query or condition that triggers this routing rule. Defaults to `&#34;&#34;`.
+         * @param query Defines the query or condition that triggers this routing rule. Must not be set on the last rule, which acts as a catch-all rule. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class OnCallTeamRoutingRulesRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param query Defines the query or condition that triggers this routing rule. Defaults to `&#34;&#34;`.
+         * @param query Defines the query or condition that triggers this routing rule. Must not be set on the last rule, which acts as a catch-all rule. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class OnCallTeamRoutingRulesRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param timeRestrictions Holds time zone information and a list of time restrictions for a routing rule.
+         * @param timeRestrictions Holds time zone information and a list of time restrictions for a routing rule. Must not be set on the last rule, which acts as a catch-all rule.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class OnCallTeamRoutingRulesRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param timeRestrictions Holds time zone information and a list of time restrictions for a routing rule.
+         * @param timeRestrictions Holds time zone information and a list of time restrictions for a routing rule. Must not be set on the last rule, which acts as a catch-all rule.
          * 
          * @return builder
          * 

@@ -19,6 +19,7 @@ __all__ = ['AgentlessScanningGcpScanOptionsArgs', 'AgentlessScanningGcpScanOptio
 @pulumi.input_type
 class AgentlessScanningGcpScanOptionsArgs:
     def __init__(__self__, *,
+                 cloud_function: pulumi.Input[_builtins.bool],
                  gcp_project_id: pulumi.Input[_builtins.str],
                  vuln_containers_os: pulumi.Input[_builtins.bool],
                  vuln_host_os: pulumi.Input[_builtins.bool],
@@ -26,16 +27,30 @@ class AgentlessScanningGcpScanOptionsArgs:
         """
         The set of arguments for constructing a AgentlessScanningGcpScanOptions resource.
 
+        :param pulumi.Input[_builtins.bool] cloud_function: Indicates if scanning of Cloud Functions is enabled.
         :param pulumi.Input[_builtins.str] gcp_project_id: The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
         :param pulumi.Input[_builtins.bool] vuln_containers_os: Indicates if scanning for vulnerabilities in containers is enabled.
         :param pulumi.Input[_builtins.bool] vuln_host_os: Indicates if scanning for vulnerabilities in hosts is enabled.
         :param pulumi.Input[_builtins.bool] compliance_host: Indicates if host compliance scanning is enabled. Defaults to `false`.
         """
+        pulumi.set(__self__, "cloud_function", cloud_function)
         pulumi.set(__self__, "gcp_project_id", gcp_project_id)
         pulumi.set(__self__, "vuln_containers_os", vuln_containers_os)
         pulumi.set(__self__, "vuln_host_os", vuln_host_os)
         if compliance_host is not None:
             pulumi.set(__self__, "compliance_host", compliance_host)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudFunction")
+    def cloud_function(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Indicates if scanning of Cloud Functions is enabled.
+        """
+        return pulumi.get(self, "cloud_function")
+
+    @cloud_function.setter
+    def cloud_function(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "cloud_function", value)
 
     @_builtins.property
     @pulumi.getter(name="gcpProjectId")
@@ -89,6 +104,7 @@ class AgentlessScanningGcpScanOptionsArgs:
 @pulumi.input_type
 class _AgentlessScanningGcpScanOptionsState:
     def __init__(__self__, *,
+                 cloud_function: pulumi.Input[Optional[_builtins.bool]] = None,
                  compliance_host: pulumi.Input[Optional[_builtins.bool]] = None,
                  gcp_project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  vuln_containers_os: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -96,11 +112,14 @@ class _AgentlessScanningGcpScanOptionsState:
         """
         Input properties used for looking up and filtering AgentlessScanningGcpScanOptions resources.
 
+        :param pulumi.Input[_builtins.bool] cloud_function: Indicates if scanning of Cloud Functions is enabled.
         :param pulumi.Input[_builtins.bool] compliance_host: Indicates if host compliance scanning is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] gcp_project_id: The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
         :param pulumi.Input[_builtins.bool] vuln_containers_os: Indicates if scanning for vulnerabilities in containers is enabled.
         :param pulumi.Input[_builtins.bool] vuln_host_os: Indicates if scanning for vulnerabilities in hosts is enabled.
         """
+        if cloud_function is not None:
+            pulumi.set(__self__, "cloud_function", cloud_function)
         if compliance_host is not None:
             pulumi.set(__self__, "compliance_host", compliance_host)
         if gcp_project_id is not None:
@@ -109,6 +128,18 @@ class _AgentlessScanningGcpScanOptionsState:
             pulumi.set(__self__, "vuln_containers_os", vuln_containers_os)
         if vuln_host_os is not None:
             pulumi.set(__self__, "vuln_host_os", vuln_host_os)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudFunction")
+    def cloud_function(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates if scanning of Cloud Functions is enabled.
+        """
+        return pulumi.get(self, "cloud_function")
+
+    @cloud_function.setter
+    def cloud_function(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "cloud_function", value)
 
     @_builtins.property
     @pulumi.getter(name="complianceHost")
@@ -165,6 +196,7 @@ class AgentlessScanningGcpScanOptions(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cloud_function: pulumi.Input[Optional[_builtins.bool]] = None,
                  compliance_host: pulumi.Input[Optional[_builtins.bool]] = None,
                  gcp_project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  vuln_containers_os: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -182,6 +214,7 @@ class AgentlessScanningGcpScanOptions(pulumi.CustomResource):
         # Configure agentless scanning for a GCP project
         example = datadog.AgentlessScanningGcpScanOptions("example",
             gcp_project_id="company-project-prod",
+            cloud_function=True,
             vuln_containers_os=True,
             vuln_host_os=True)
         ```
@@ -201,6 +234,7 @@ class AgentlessScanningGcpScanOptions(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] cloud_function: Indicates if scanning of Cloud Functions is enabled.
         :param pulumi.Input[_builtins.bool] compliance_host: Indicates if host compliance scanning is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] gcp_project_id: The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
         :param pulumi.Input[_builtins.bool] vuln_containers_os: Indicates if scanning for vulnerabilities in containers is enabled.
@@ -224,6 +258,7 @@ class AgentlessScanningGcpScanOptions(pulumi.CustomResource):
         # Configure agentless scanning for a GCP project
         example = datadog.AgentlessScanningGcpScanOptions("example",
             gcp_project_id="company-project-prod",
+            cloud_function=True,
             vuln_containers_os=True,
             vuln_host_os=True)
         ```
@@ -256,6 +291,7 @@ class AgentlessScanningGcpScanOptions(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cloud_function: pulumi.Input[Optional[_builtins.bool]] = None,
                  compliance_host: pulumi.Input[Optional[_builtins.bool]] = None,
                  gcp_project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  vuln_containers_os: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -269,6 +305,9 @@ class AgentlessScanningGcpScanOptions(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AgentlessScanningGcpScanOptionsArgs.__new__(AgentlessScanningGcpScanOptionsArgs)
 
+            if cloud_function is None and not opts.urn:
+                raise TypeError("Missing required property 'cloud_function'")
+            __props__.__dict__["cloud_function"] = cloud_function
             __props__.__dict__["compliance_host"] = compliance_host
             if gcp_project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'gcp_project_id'")
@@ -289,6 +328,7 @@ class AgentlessScanningGcpScanOptions(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            cloud_function: pulumi.Input[Optional[_builtins.bool]] = None,
             compliance_host: pulumi.Input[Optional[_builtins.bool]] = None,
             gcp_project_id: pulumi.Input[Optional[_builtins.str]] = None,
             vuln_containers_os: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -300,6 +340,7 @@ class AgentlessScanningGcpScanOptions(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] cloud_function: Indicates if scanning of Cloud Functions is enabled.
         :param pulumi.Input[_builtins.bool] compliance_host: Indicates if host compliance scanning is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] gcp_project_id: The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
         :param pulumi.Input[_builtins.bool] vuln_containers_os: Indicates if scanning for vulnerabilities in containers is enabled.
@@ -309,11 +350,20 @@ class AgentlessScanningGcpScanOptions(pulumi.CustomResource):
 
         __props__ = _AgentlessScanningGcpScanOptionsState.__new__(_AgentlessScanningGcpScanOptionsState)
 
+        __props__.__dict__["cloud_function"] = cloud_function
         __props__.__dict__["compliance_host"] = compliance_host
         __props__.__dict__["gcp_project_id"] = gcp_project_id
         __props__.__dict__["vuln_containers_os"] = vuln_containers_os
         __props__.__dict__["vuln_host_os"] = vuln_host_os
         return AgentlessScanningGcpScanOptions(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudFunction")
+    def cloud_function(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Indicates if scanning of Cloud Functions is enabled.
+        """
+        return pulumi.get(self, "cloud_function")
 
     @_builtins.property
     @pulumi.getter(name="complianceHost")

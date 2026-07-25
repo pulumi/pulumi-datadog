@@ -56,6 +56,8 @@ type LookupIncidentTypeArgs struct {
 
 // A collection of values returned by getIncidentType.
 type LookupIncidentTypeResult struct {
+	// The incident type's behavior settings.
+	Configuration GetIncidentTypeConfiguration `pulumi:"configuration"`
 	// Description of the incident type.
 	Description string `pulumi:"description"`
 	// The ID of the incident type.
@@ -98,6 +100,11 @@ func (o LookupIncidentTypeResultOutput) ToLookupIncidentTypeResultOutput() Looku
 
 func (o LookupIncidentTypeResultOutput) ToLookupIncidentTypeResultOutputWithContext(ctx context.Context) LookupIncidentTypeResultOutput {
 	return o
+}
+
+// The incident type's behavior settings.
+func (o LookupIncidentTypeResultOutput) Configuration() GetIncidentTypeConfigurationOutput {
+	return o.ApplyT(func(v LookupIncidentTypeResult) GetIncidentTypeConfiguration { return v.Configuration }).(GetIncidentTypeConfigurationOutput)
 }
 
 // Description of the incident type.

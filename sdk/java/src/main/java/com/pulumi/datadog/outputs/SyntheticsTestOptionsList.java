@@ -76,6 +76,11 @@ public final class SyntheticsTestOptionsList {
      */
     private @Nullable String httpVersion;
     /**
+     * @return Ignore server certificate error for SSL tests.
+     * 
+     */
+    private @Nullable Boolean ignoreCertificateValidation;
+    /**
      * @return Ignore server certificate error for browser tests.
      * 
      */
@@ -212,6 +217,13 @@ public final class SyntheticsTestOptionsList {
         return Optional.ofNullable(this.httpVersion);
     }
     /**
+     * @return Ignore server certificate error for SSL tests.
+     * 
+     */
+    public Optional<Boolean> ignoreCertificateValidation() {
+        return Optional.ofNullable(this.ignoreCertificateValidation);
+    }
+    /**
      * @return Ignore server certificate error for browser tests.
      * 
      */
@@ -315,6 +327,7 @@ public final class SyntheticsTestOptionsList {
         private @Nullable Boolean disableCsp;
         private @Nullable Boolean followRedirects;
         private @Nullable String httpVersion;
+        private @Nullable Boolean ignoreCertificateValidation;
         private @Nullable Boolean ignoreServerCertificateError;
         private @Nullable Integer initialNavigationTimeout;
         private @Nullable Integer minFailureDuration;
@@ -342,6 +355,7 @@ public final class SyntheticsTestOptionsList {
     	      this.disableCsp = defaults.disableCsp;
     	      this.followRedirects = defaults.followRedirects;
     	      this.httpVersion = defaults.httpVersion;
+    	      this.ignoreCertificateValidation = defaults.ignoreCertificateValidation;
     	      this.ignoreServerCertificateError = defaults.ignoreServerCertificateError;
     	      this.initialNavigationTimeout = defaults.initialNavigationTimeout;
     	      this.minFailureDuration = defaults.minFailureDuration;
@@ -424,6 +438,12 @@ public final class SyntheticsTestOptionsList {
         public Builder httpVersion(@Nullable String httpVersion) {
 
             this.httpVersion = httpVersion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ignoreCertificateValidation(@Nullable Boolean ignoreCertificateValidation) {
+
+            this.ignoreCertificateValidation = ignoreCertificateValidation;
             return this;
         }
         @CustomType.Setter
@@ -522,6 +542,7 @@ public final class SyntheticsTestOptionsList {
             _resultValue.disableCsp = disableCsp;
             _resultValue.followRedirects = followRedirects;
             _resultValue.httpVersion = httpVersion;
+            _resultValue.ignoreCertificateValidation = ignoreCertificateValidation;
             _resultValue.ignoreServerCertificateError = ignoreServerCertificateError;
             _resultValue.initialNavigationTimeout = initialNavigationTimeout;
             _resultValue.minFailureDuration = minFailureDuration;

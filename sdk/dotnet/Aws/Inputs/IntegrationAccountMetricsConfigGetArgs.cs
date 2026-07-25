@@ -36,6 +36,18 @@ namespace Pulumi.Datadog.Aws.Inputs
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        [Input("metricNameFilters")]
+        private InputList<Inputs.IntegrationAccountMetricsConfigMetricNameFilterGetArgs>? _metricNameFilters;
+
+        /// <summary>
+        /// AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `IncludeOnly` or `ExcludeOnly`.
+        /// </summary>
+        public InputList<Inputs.IntegrationAccountMetricsConfigMetricNameFilterGetArgs> MetricNameFilters
+        {
+            get => _metricNameFilters ?? (_metricNameFilters = new InputList<Inputs.IntegrationAccountMetricsConfigMetricNameFilterGetArgs>());
+            set => _metricNameFilters = value;
+        }
+
         /// <summary>
         /// AWS metrics namespace filters. Defaults to a pre-set `ExcludeOnly` list if block is empty.
         /// </summary>

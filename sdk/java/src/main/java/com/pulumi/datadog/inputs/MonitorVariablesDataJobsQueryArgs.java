@@ -15,14 +15,14 @@ public final class MonitorVariablesDataJobsQueryArgs extends com.pulumi.resource
     public static final MonitorVariablesDataJobsQueryArgs Empty = new MonitorVariablesDataJobsQueryArgs();
 
     /**
-     * The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `dbt.model`, `dbt.test`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+     * The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
      * 
      */
     @Import(name="jobType", required=true)
     private Output<String> jobType;
 
     /**
-     * @return The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `dbt.model`, `dbt.test`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+     * @return The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
      * 
      */
     public Output<String> jobType() {
@@ -102,7 +102,7 @@ public final class MonitorVariablesDataJobsQueryArgs extends com.pulumi.resource
         }
 
         /**
-         * @param jobType The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `dbt.model`, `dbt.test`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+         * @param jobType The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class MonitorVariablesDataJobsQueryArgs extends com.pulumi.resource
         }
 
         /**
-         * @param jobType The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `dbt.model`, `dbt.test`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+         * @param jobType The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
          * 
          * @return builder
          * 

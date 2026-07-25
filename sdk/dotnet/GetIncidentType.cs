@@ -118,6 +118,10 @@ namespace Pulumi.Datadog
     public sealed class GetIncidentTypeResult
     {
         /// <summary>
+        /// The incident type's behavior settings.
+        /// </summary>
+        public readonly Outputs.GetIncidentTypeConfigurationResult Configuration;
+        /// <summary>
         /// Description of the incident type.
         /// </summary>
         public readonly string Description;
@@ -136,6 +140,8 @@ namespace Pulumi.Datadog
 
         [OutputConstructor]
         private GetIncidentTypeResult(
+            Outputs.GetIncidentTypeConfigurationResult configuration,
+
             string description,
 
             string id,
@@ -144,6 +150,7 @@ namespace Pulumi.Datadog
 
             string name)
         {
+            Configuration = configuration;
             Description = description;
             Id = id;
             IsDefault = isDefault;

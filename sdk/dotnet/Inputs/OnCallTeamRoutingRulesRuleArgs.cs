@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// ID of the policy to be applied when this routing rule matches.
+        /// ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `EscalationPolicy` action.
         /// </summary>
         [Input("escalationPolicy")]
         public Input<string>? EscalationPolicy { get; set; }
@@ -37,13 +37,13 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Defines the query or condition that triggers this routing rule. Defaults to `""`.
+        /// Defines the query or condition that triggers this routing rule. Must not be set on the last rule, which acts as a catch-all rule. Defaults to `""`.
         /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }
 
         /// <summary>
-        /// Holds time zone information and a list of time restrictions for a routing rule.
+        /// Holds time zone information and a list of time restrictions for a routing rule. Must not be set on the last rule, which acts as a catch-all rule.
         /// </summary>
         [Input("timeRestrictions")]
         public Input<Inputs.OnCallTeamRoutingRulesRuleTimeRestrictionsArgs>? TimeRestrictions { get; set; }

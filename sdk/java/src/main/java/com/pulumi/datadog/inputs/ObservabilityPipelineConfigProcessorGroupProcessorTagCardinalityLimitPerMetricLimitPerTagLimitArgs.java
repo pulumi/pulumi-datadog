@@ -21,15 +21,15 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
      * How the per-tag override is applied. One of `limitOverride`, `excluded`. Valid values are `limitOverride`, `excluded`.
      * 
      */
-    @Import(name="mode", required=true)
-    private Output<String> mode;
+    @Import(name="overrideType", required=true)
+    private Output<String> overrideType;
 
     /**
      * @return How the per-tag override is applied. One of `limitOverride`, `excluded`. Valid values are `limitOverride`, `excluded`.
      * 
      */
-    public Output<String> mode() {
-        return this.mode;
+    public Output<String> overrideType() {
+        return this.overrideType;
     }
 
     /**
@@ -48,14 +48,14 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
     }
 
     /**
-     * The cardinality cap for this tag. Required when `mode` is `limitOverride`; must be omitted when `mode` is `excluded`. Value must be between 0 and 1000000.
+     * The cardinality cap for this tag. Required when `overrideType` is `limitOverride`; must be omitted when `overrideType` is `excluded`. Value must be between 0 and 1000000.
      * 
      */
     @Import(name="valueLimit")
     private @Nullable Output<Integer> valueLimit;
 
     /**
-     * @return The cardinality cap for this tag. Required when `mode` is `limitOverride`; must be omitted when `mode` is `excluded`. Value must be between 0 and 1000000.
+     * @return The cardinality cap for this tag. Required when `overrideType` is `limitOverride`; must be omitted when `overrideType` is `excluded`. Value must be between 0 and 1000000.
      * 
      */
     public Optional<Output<Integer>> valueLimit() {
@@ -65,7 +65,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
     private ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimitArgs() {}
 
     private ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimitArgs(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimitArgs $) {
-        this.mode = $.mode;
+        this.overrideType = $.overrideType;
         this.tagKey = $.tagKey;
         this.valueLimit = $.valueLimit;
     }
@@ -89,24 +89,24 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
         }
 
         /**
-         * @param mode How the per-tag override is applied. One of `limitOverride`, `excluded`. Valid values are `limitOverride`, `excluded`.
+         * @param overrideType How the per-tag override is applied. One of `limitOverride`, `excluded`. Valid values are `limitOverride`, `excluded`.
          * 
          * @return builder
          * 
          */
-        public Builder mode(Output<String> mode) {
-            $.mode = mode;
+        public Builder overrideType(Output<String> overrideType) {
+            $.overrideType = overrideType;
             return this;
         }
 
         /**
-         * @param mode How the per-tag override is applied. One of `limitOverride`, `excluded`. Valid values are `limitOverride`, `excluded`.
+         * @param overrideType How the per-tag override is applied. One of `limitOverride`, `excluded`. Valid values are `limitOverride`, `excluded`.
          * 
          * @return builder
          * 
          */
-        public Builder mode(String mode) {
-            return mode(Output.of(mode));
+        public Builder overrideType(String overrideType) {
+            return overrideType(Output.of(overrideType));
         }
 
         /**
@@ -131,7 +131,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
         }
 
         /**
-         * @param valueLimit The cardinality cap for this tag. Required when `mode` is `limitOverride`; must be omitted when `mode` is `excluded`. Value must be between 0 and 1000000.
+         * @param valueLimit The cardinality cap for this tag. Required when `overrideType` is `limitOverride`; must be omitted when `overrideType` is `excluded`. Value must be between 0 and 1000000.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
         }
 
         /**
-         * @param valueLimit The cardinality cap for this tag. Required when `mode` is `limitOverride`; must be omitted when `mode` is `excluded`. Value must be between 0 and 1000000.
+         * @param valueLimit The cardinality cap for this tag. Required when `overrideType` is `limitOverride`; must be omitted when `overrideType` is `excluded`. Value must be between 0 and 1000000.
          * 
          * @return builder
          * 
@@ -152,8 +152,8 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
         }
 
         public ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimitArgs build() {
-            if ($.mode == null) {
-                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimitArgs", "mode");
+            if ($.overrideType == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimitArgs", "overrideType");
             }
             if ($.tagKey == null) {
                 throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimitArgs", "tagKey");

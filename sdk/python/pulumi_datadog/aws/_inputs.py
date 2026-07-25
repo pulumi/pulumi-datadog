@@ -37,6 +37,8 @@ __all__ = [
     'IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArgsDict',
     'IntegrationAccountMetricsConfigArgs',
     'IntegrationAccountMetricsConfigArgsDict',
+    'IntegrationAccountMetricsConfigMetricNameFilterArgs',
+    'IntegrationAccountMetricsConfigMetricNameFilterArgsDict',
     'IntegrationAccountMetricsConfigNamespaceFiltersArgs',
     'IntegrationAccountMetricsConfigNamespaceFiltersArgsDict',
     'IntegrationAccountMetricsConfigTagFilterArgs',
@@ -558,6 +560,10 @@ class IntegrationAccountMetricsConfigArgsDict(TypedDict):
     """
     Enable AWS metrics collection Defaults to `true`.
     """
+    metric_name_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountMetricsConfigMetricNameFilterArgsDict']]]]]
+    """
+    AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `include_only` or `exclude_only`.
+    """
     namespace_filters: NotRequired[pulumi.Input[Optional['IntegrationAccountMetricsConfigNamespaceFiltersArgsDict']]]
     """
     AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
@@ -574,6 +580,7 @@ class IntegrationAccountMetricsConfigArgs:
                  collect_cloudwatch_alarms: pulumi.Input[Optional[_builtins.bool]] = None,
                  collect_custom_metrics: pulumi.Input[Optional[_builtins.bool]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metric_name_filters: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountMetricsConfigMetricNameFilterArgs']]]] = None,
                  namespace_filters: pulumi.Input[Optional['IntegrationAccountMetricsConfigNamespaceFiltersArgs']] = None,
                  tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountMetricsConfigTagFilterArgs']]]] = None):
         """
@@ -581,6 +588,7 @@ class IntegrationAccountMetricsConfigArgs:
         :param pulumi.Input[_builtins.bool] collect_cloudwatch_alarms: Enable CloudWatch alarms collection Defaults to `false`.
         :param pulumi.Input[_builtins.bool] collect_custom_metrics: Enable custom metrics collection Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enabled: Enable AWS metrics collection Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationAccountMetricsConfigMetricNameFilterArgs']]] metric_name_filters: AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `include_only` or `exclude_only`.
         :param pulumi.Input['IntegrationAccountMetricsConfigNamespaceFiltersArgs'] namespace_filters: AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationAccountMetricsConfigTagFilterArgs']]] tag_filters: AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
         """
@@ -592,6 +600,8 @@ class IntegrationAccountMetricsConfigArgs:
             pulumi.set(__self__, "collect_custom_metrics", collect_custom_metrics)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if metric_name_filters is not None:
+            pulumi.set(__self__, "metric_name_filters", metric_name_filters)
         if namespace_filters is not None:
             pulumi.set(__self__, "namespace_filters", namespace_filters)
         if tag_filters is not None:
@@ -646,6 +656,18 @@ class IntegrationAccountMetricsConfigArgs:
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="metricNameFilters")
+    def metric_name_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountMetricsConfigMetricNameFilterArgs']]]]:
+        """
+        AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `include_only` or `exclude_only`.
+        """
+        return pulumi.get(self, "metric_name_filters")
+
+    @metric_name_filters.setter
+    def metric_name_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountMetricsConfigMetricNameFilterArgs']]]]):
+        pulumi.set(self, "metric_name_filters", value)
+
+    @_builtins.property
     @pulumi.getter(name="namespaceFilters")
     def namespace_filters(self) -> pulumi.Input[Optional['IntegrationAccountMetricsConfigNamespaceFiltersArgs']]:
         """
@@ -668,6 +690,74 @@ class IntegrationAccountMetricsConfigArgs:
     @tag_filters.setter
     def tag_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountMetricsConfigTagFilterArgs']]]]):
         pulumi.set(self, "tag_filters", value)
+
+
+class IntegrationAccountMetricsConfigMetricNameFilterArgsDict(TypedDict):
+    namespace: pulumi.Input[_builtins.str]
+    """
+    The AWS CloudWatch namespace to which this metric name filter applies.
+    """
+    exclude_onlies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Exclude metric names matching one of these patterns.
+    """
+    include_onlies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Include only metric names matching one of these patterns.
+    """
+
+@pulumi.input_type
+class IntegrationAccountMetricsConfigMetricNameFilterArgs:
+    def __init__(__self__, *,
+                 namespace: pulumi.Input[_builtins.str],
+                 exclude_onlies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 include_onlies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] namespace: The AWS CloudWatch namespace to which this metric name filter applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclude_onlies: Exclude metric names matching one of these patterns.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] include_onlies: Include only metric names matching one of these patterns.
+        """
+        pulumi.set(__self__, "namespace", namespace)
+        if exclude_onlies is not None:
+            pulumi.set(__self__, "exclude_onlies", exclude_onlies)
+        if include_onlies is not None:
+            pulumi.set(__self__, "include_onlies", include_onlies)
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> pulumi.Input[_builtins.str]:
+        """
+        The AWS CloudWatch namespace to which this metric name filter applies.
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "namespace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="excludeOnlies")
+    def exclude_onlies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Exclude metric names matching one of these patterns.
+        """
+        return pulumi.get(self, "exclude_onlies")
+
+    @exclude_onlies.setter
+    def exclude_onlies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "exclude_onlies", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includeOnlies")
+    def include_onlies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Include only metric names matching one of these patterns.
+        """
+        return pulumi.get(self, "include_onlies")
+
+    @include_onlies.setter
+    def include_onlies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "include_onlies", value)
 
 
 class IntegrationAccountMetricsConfigNamespaceFiltersArgsDict(TypedDict):

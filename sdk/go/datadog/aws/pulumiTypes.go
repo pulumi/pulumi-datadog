@@ -1475,6 +1475,8 @@ type IntegrationAccountMetricsConfig struct {
 	CollectCustomMetrics *bool `pulumi:"collectCustomMetrics"`
 	// Enable AWS metrics collection Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `includeOnly` or `excludeOnly`.
+	MetricNameFilters []IntegrationAccountMetricsConfigMetricNameFilter `pulumi:"metricNameFilters"`
 	// AWS metrics namespace filters. Defaults to a pre-set `excludeOnly` list if block is empty.
 	NamespaceFilters *IntegrationAccountMetricsConfigNamespaceFilters `pulumi:"namespaceFilters"`
 	// AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
@@ -1501,6 +1503,8 @@ type IntegrationAccountMetricsConfigArgs struct {
 	CollectCustomMetrics pulumi.BoolPtrInput `pulumi:"collectCustomMetrics"`
 	// Enable AWS metrics collection Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `includeOnly` or `excludeOnly`.
+	MetricNameFilters IntegrationAccountMetricsConfigMetricNameFilterArrayInput `pulumi:"metricNameFilters"`
 	// AWS metrics namespace filters. Defaults to a pre-set `excludeOnly` list if block is empty.
 	NamespaceFilters IntegrationAccountMetricsConfigNamespaceFiltersPtrInput `pulumi:"namespaceFilters"`
 	// AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
@@ -1604,6 +1608,13 @@ func (o IntegrationAccountMetricsConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IntegrationAccountMetricsConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `includeOnly` or `excludeOnly`.
+func (o IntegrationAccountMetricsConfigOutput) MetricNameFilters() IntegrationAccountMetricsConfigMetricNameFilterArrayOutput {
+	return o.ApplyT(func(v IntegrationAccountMetricsConfig) []IntegrationAccountMetricsConfigMetricNameFilter {
+		return v.MetricNameFilters
+	}).(IntegrationAccountMetricsConfigMetricNameFilterArrayOutput)
+}
+
 // AWS metrics namespace filters. Defaults to a pre-set `excludeOnly` list if block is empty.
 func (o IntegrationAccountMetricsConfigOutput) NamespaceFilters() IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput {
 	return o.ApplyT(func(v IntegrationAccountMetricsConfig) *IntegrationAccountMetricsConfigNamespaceFilters {
@@ -1682,6 +1693,16 @@ func (o IntegrationAccountMetricsConfigPtrOutput) Enabled() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
+// AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `includeOnly` or `excludeOnly`.
+func (o IntegrationAccountMetricsConfigPtrOutput) MetricNameFilters() IntegrationAccountMetricsConfigMetricNameFilterArrayOutput {
+	return o.ApplyT(func(v *IntegrationAccountMetricsConfig) []IntegrationAccountMetricsConfigMetricNameFilter {
+		if v == nil {
+			return nil
+		}
+		return v.MetricNameFilters
+	}).(IntegrationAccountMetricsConfigMetricNameFilterArrayOutput)
+}
+
 // AWS metrics namespace filters. Defaults to a pre-set `excludeOnly` list if block is empty.
 func (o IntegrationAccountMetricsConfigPtrOutput) NamespaceFilters() IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccountMetricsConfig) *IntegrationAccountMetricsConfigNamespaceFilters {
@@ -1700,6 +1721,121 @@ func (o IntegrationAccountMetricsConfigPtrOutput) TagFilters() IntegrationAccoun
 		}
 		return v.TagFilters
 	}).(IntegrationAccountMetricsConfigTagFilterArrayOutput)
+}
+
+type IntegrationAccountMetricsConfigMetricNameFilter struct {
+	// Exclude metric names matching one of these patterns.
+	ExcludeOnlies []string `pulumi:"excludeOnlies"`
+	// Include only metric names matching one of these patterns.
+	IncludeOnlies []string `pulumi:"includeOnlies"`
+	// The AWS CloudWatch namespace to which this metric name filter applies.
+	Namespace string `pulumi:"namespace"`
+}
+
+// IntegrationAccountMetricsConfigMetricNameFilterInput is an input type that accepts IntegrationAccountMetricsConfigMetricNameFilterArgs and IntegrationAccountMetricsConfigMetricNameFilterOutput values.
+// You can construct a concrete instance of `IntegrationAccountMetricsConfigMetricNameFilterInput` via:
+//
+//	IntegrationAccountMetricsConfigMetricNameFilterArgs{...}
+type IntegrationAccountMetricsConfigMetricNameFilterInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountMetricsConfigMetricNameFilterOutput() IntegrationAccountMetricsConfigMetricNameFilterOutput
+	ToIntegrationAccountMetricsConfigMetricNameFilterOutputWithContext(context.Context) IntegrationAccountMetricsConfigMetricNameFilterOutput
+}
+
+type IntegrationAccountMetricsConfigMetricNameFilterArgs struct {
+	// Exclude metric names matching one of these patterns.
+	ExcludeOnlies pulumi.StringArrayInput `pulumi:"excludeOnlies"`
+	// Include only metric names matching one of these patterns.
+	IncludeOnlies pulumi.StringArrayInput `pulumi:"includeOnlies"`
+	// The AWS CloudWatch namespace to which this metric name filter applies.
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+}
+
+func (IntegrationAccountMetricsConfigMetricNameFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountMetricsConfigMetricNameFilter)(nil)).Elem()
+}
+
+func (i IntegrationAccountMetricsConfigMetricNameFilterArgs) ToIntegrationAccountMetricsConfigMetricNameFilterOutput() IntegrationAccountMetricsConfigMetricNameFilterOutput {
+	return i.ToIntegrationAccountMetricsConfigMetricNameFilterOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountMetricsConfigMetricNameFilterArgs) ToIntegrationAccountMetricsConfigMetricNameFilterOutputWithContext(ctx context.Context) IntegrationAccountMetricsConfigMetricNameFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMetricsConfigMetricNameFilterOutput)
+}
+
+// IntegrationAccountMetricsConfigMetricNameFilterArrayInput is an input type that accepts IntegrationAccountMetricsConfigMetricNameFilterArray and IntegrationAccountMetricsConfigMetricNameFilterArrayOutput values.
+// You can construct a concrete instance of `IntegrationAccountMetricsConfigMetricNameFilterArrayInput` via:
+//
+//	IntegrationAccountMetricsConfigMetricNameFilterArray{ IntegrationAccountMetricsConfigMetricNameFilterArgs{...} }
+type IntegrationAccountMetricsConfigMetricNameFilterArrayInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountMetricsConfigMetricNameFilterArrayOutput() IntegrationAccountMetricsConfigMetricNameFilterArrayOutput
+	ToIntegrationAccountMetricsConfigMetricNameFilterArrayOutputWithContext(context.Context) IntegrationAccountMetricsConfigMetricNameFilterArrayOutput
+}
+
+type IntegrationAccountMetricsConfigMetricNameFilterArray []IntegrationAccountMetricsConfigMetricNameFilterInput
+
+func (IntegrationAccountMetricsConfigMetricNameFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationAccountMetricsConfigMetricNameFilter)(nil)).Elem()
+}
+
+func (i IntegrationAccountMetricsConfigMetricNameFilterArray) ToIntegrationAccountMetricsConfigMetricNameFilterArrayOutput() IntegrationAccountMetricsConfigMetricNameFilterArrayOutput {
+	return i.ToIntegrationAccountMetricsConfigMetricNameFilterArrayOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountMetricsConfigMetricNameFilterArray) ToIntegrationAccountMetricsConfigMetricNameFilterArrayOutputWithContext(ctx context.Context) IntegrationAccountMetricsConfigMetricNameFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMetricsConfigMetricNameFilterArrayOutput)
+}
+
+type IntegrationAccountMetricsConfigMetricNameFilterOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountMetricsConfigMetricNameFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountMetricsConfigMetricNameFilter)(nil)).Elem()
+}
+
+func (o IntegrationAccountMetricsConfigMetricNameFilterOutput) ToIntegrationAccountMetricsConfigMetricNameFilterOutput() IntegrationAccountMetricsConfigMetricNameFilterOutput {
+	return o
+}
+
+func (o IntegrationAccountMetricsConfigMetricNameFilterOutput) ToIntegrationAccountMetricsConfigMetricNameFilterOutputWithContext(ctx context.Context) IntegrationAccountMetricsConfigMetricNameFilterOutput {
+	return o
+}
+
+// Exclude metric names matching one of these patterns.
+func (o IntegrationAccountMetricsConfigMetricNameFilterOutput) ExcludeOnlies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntegrationAccountMetricsConfigMetricNameFilter) []string { return v.ExcludeOnlies }).(pulumi.StringArrayOutput)
+}
+
+// Include only metric names matching one of these patterns.
+func (o IntegrationAccountMetricsConfigMetricNameFilterOutput) IncludeOnlies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntegrationAccountMetricsConfigMetricNameFilter) []string { return v.IncludeOnlies }).(pulumi.StringArrayOutput)
+}
+
+// The AWS CloudWatch namespace to which this metric name filter applies.
+func (o IntegrationAccountMetricsConfigMetricNameFilterOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationAccountMetricsConfigMetricNameFilter) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+type IntegrationAccountMetricsConfigMetricNameFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountMetricsConfigMetricNameFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationAccountMetricsConfigMetricNameFilter)(nil)).Elem()
+}
+
+func (o IntegrationAccountMetricsConfigMetricNameFilterArrayOutput) ToIntegrationAccountMetricsConfigMetricNameFilterArrayOutput() IntegrationAccountMetricsConfigMetricNameFilterArrayOutput {
+	return o
+}
+
+func (o IntegrationAccountMetricsConfigMetricNameFilterArrayOutput) ToIntegrationAccountMetricsConfigMetricNameFilterArrayOutputWithContext(ctx context.Context) IntegrationAccountMetricsConfigMetricNameFilterArrayOutput {
+	return o
+}
+
+func (o IntegrationAccountMetricsConfigMetricNameFilterArrayOutput) Index(i pulumi.IntInput) IntegrationAccountMetricsConfigMetricNameFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationAccountMetricsConfigMetricNameFilter {
+		return vs[0].([]IntegrationAccountMetricsConfigMetricNameFilter)[vs[1].(int)]
+	}).(IntegrationAccountMetricsConfigMetricNameFilterOutput)
 }
 
 type IntegrationAccountMetricsConfigNamespaceFilters struct {
@@ -2544,6 +2680,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayInput)(nil)).Elem(), IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMetricsConfigInput)(nil)).Elem(), IntegrationAccountMetricsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMetricsConfigPtrInput)(nil)).Elem(), IntegrationAccountMetricsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMetricsConfigMetricNameFilterInput)(nil)).Elem(), IntegrationAccountMetricsConfigMetricNameFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMetricsConfigMetricNameFilterArrayInput)(nil)).Elem(), IntegrationAccountMetricsConfigMetricNameFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMetricsConfigNamespaceFiltersInput)(nil)).Elem(), IntegrationAccountMetricsConfigNamespaceFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMetricsConfigNamespaceFiltersPtrInput)(nil)).Elem(), IntegrationAccountMetricsConfigNamespaceFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMetricsConfigTagFilterInput)(nil)).Elem(), IntegrationAccountMetricsConfigTagFilterArgs{})
@@ -2578,6 +2716,8 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationAccountLogsConfigLambdaForwarderLogSourceConfigTagFilterArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMetricsConfigOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMetricsConfigPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountMetricsConfigMetricNameFilterOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountMetricsConfigMetricNameFilterArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMetricsConfigNamespaceFiltersOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMetricsConfigTagFilterOutput{})

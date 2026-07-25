@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action to take on this metric when the limit is exceeded. Required when `Mode` is `Tracked`; must be omitted when `Mode` is `Excluded`. Valid values are `DropTag`, `DropEvent`.
+        /// The action to take on this metric when the limit is exceeded. Required when `OverrideType` is `LimitOverride`; must be omitted when `OverrideType` is `Excluded`. Valid values are `DropTag`, `DropEvent`.
         /// </summary>
         [Input("limitExceededAction")]
         public Input<string>? LimitExceededAction { get; set; }
@@ -25,16 +25,16 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> MetricName { get; set; } = null!;
 
         /// <summary>
-        /// How the per-metric override is applied. One of `Tracked`, `Excluded`. Valid values are `Tracked`, `Excluded`.
+        /// How the per-metric override is applied. One of `LimitOverride`, `Excluded`. Valid values are `LimitOverride`, `Excluded`.
         /// </summary>
-        [Input("mode", required: true)]
-        public Input<string> Mode { get; set; } = null!;
+        [Input("overrideType", required: true)]
+        public Input<string> OverrideType { get; set; } = null!;
 
         [Input("perTagLimits")]
         private InputList<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimitArgs>? _perTagLimits;
 
         /// <summary>
-        /// Per-tag cardinality overrides that apply within this metric. Must be omitted when `Mode` is `Excluded`.
+        /// Per-tag cardinality overrides that apply within this metric. Must be omitted when `OverrideType` is `Excluded`.
         /// </summary>
         public InputList<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimitArgs> PerTagLimits
         {
@@ -43,7 +43,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The cardinality cap for this metric. Required when `Mode` is `Tracked`; must be omitted when `Mode` is `Excluded`. Value must be between 0 and 1000000.
+        /// The cardinality cap for this metric. Required when `OverrideType` is `LimitOverride`; must be omitted when `OverrideType` is `Excluded`. Value must be between 0 and 1000000.
         /// </summary>
         [Input("valueLimit")]
         public Input<int>? ValueLimit { get; set; }

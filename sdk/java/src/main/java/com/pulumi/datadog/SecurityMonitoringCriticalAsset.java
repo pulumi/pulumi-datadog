@@ -44,8 +44,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myCriticalAsset = new SecurityMonitoringCriticalAsset("myCriticalAsset", SecurityMonitoringCriticalAssetArgs.builder()
+ *             .description("Production database servers that should trigger critical alerts")
  *             .enabled(true)
- *             .query("source:runtime-security-agent")
+ *             .query("env:production service:database")
  *             .ruleQuery("type:(log_detection OR signal_correlation OR workload_security OR application_security) ruleId:007-d1a-1f3")
  *             .severity("increase")
  *             .tags(            

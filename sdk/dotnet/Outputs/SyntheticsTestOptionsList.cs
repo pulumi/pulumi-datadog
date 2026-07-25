@@ -58,6 +58,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? HttpVersion;
         /// <summary>
+        /// Ignore server certificate error for SSL tests.
+        /// </summary>
+        public readonly bool? IgnoreCertificateValidation;
+        /// <summary>
         /// Ignore server certificate error for browser tests.
         /// </summary>
         public readonly bool? IgnoreServerCertificateError;
@@ -125,6 +129,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? httpVersion,
 
+            bool? ignoreCertificateValidation,
+
             bool? ignoreServerCertificateError,
 
             int? initialNavigationTimeout,
@@ -162,6 +168,7 @@ namespace Pulumi.Datadog.Outputs
             DisableCsp = disableCsp;
             FollowRedirects = followRedirects;
             HttpVersion = httpVersion;
+            IgnoreCertificateValidation = ignoreCertificateValidation;
             IgnoreServerCertificateError = ignoreServerCertificateError;
             InitialNavigationTimeout = initialNavigationTimeout;
             MinFailureDuration = minFailureDuration;

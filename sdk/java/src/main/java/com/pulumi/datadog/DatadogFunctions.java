@@ -18,6 +18,8 @@ import com.pulumi.datadog.inputs.GetAzureUcConfigArgs;
 import com.pulumi.datadog.inputs.GetAzureUcConfigPlainArgs;
 import com.pulumi.datadog.inputs.GetCostBudgetArgs;
 import com.pulumi.datadog.inputs.GetCostBudgetPlainArgs;
+import com.pulumi.datadog.inputs.GetCostCustomForecastArgs;
+import com.pulumi.datadog.inputs.GetCostCustomForecastPlainArgs;
 import com.pulumi.datadog.inputs.GetCsmThreatsAgentRulesArgs;
 import com.pulumi.datadog.inputs.GetCsmThreatsAgentRulesPlainArgs;
 import com.pulumi.datadog.inputs.GetCustomAllocationRuleArgs;
@@ -126,8 +128,10 @@ import com.pulumi.datadog.outputs.GetAwsCurConfigResult;
 import com.pulumi.datadog.outputs.GetAzureUcConfigResult;
 import com.pulumi.datadog.outputs.GetCloudWorkloadSecurityAgentRulesResult;
 import com.pulumi.datadog.outputs.GetCostBudgetResult;
+import com.pulumi.datadog.outputs.GetCostCustomForecastResult;
 import com.pulumi.datadog.outputs.GetCsmThreatsAgentRulesResult;
 import com.pulumi.datadog.outputs.GetCsmThreatsPoliciesResult;
+import com.pulumi.datadog.outputs.GetCurrentUserResult;
 import com.pulumi.datadog.outputs.GetCustomAllocationRuleResult;
 import com.pulumi.datadog.outputs.GetDashboardListResult;
 import com.pulumi.datadog.outputs.GetDashboardResult;
@@ -1500,6 +1504,206 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invokeAsync("datadog:index/getCostBudget:getCostBudget", TypeShape.of(GetCostBudgetResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve the custom forecast for an existing Datadog cost budget.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetCostCustomForecastArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatadogFunctions.getCostCustomForecast(GetCostCustomForecastArgs.builder()
+     *             .budgetUid("a1b2c3d4-e5f6-7890-abcd-ef1234567890")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCostCustomForecastResult> getCostCustomForecast(GetCostCustomForecastArgs args) {
+        return getCostCustomForecast(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the custom forecast for an existing Datadog cost budget.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetCostCustomForecastArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatadogFunctions.getCostCustomForecast(GetCostCustomForecastArgs.builder()
+     *             .budgetUid("a1b2c3d4-e5f6-7890-abcd-ef1234567890")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetCostCustomForecastResult> getCostCustomForecastPlain(GetCostCustomForecastPlainArgs args) {
+        return getCostCustomForecastPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the custom forecast for an existing Datadog cost budget.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetCostCustomForecastArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatadogFunctions.getCostCustomForecast(GetCostCustomForecastArgs.builder()
+     *             .budgetUid("a1b2c3d4-e5f6-7890-abcd-ef1234567890")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCostCustomForecastResult> getCostCustomForecast(GetCostCustomForecastArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getCostCustomForecast:getCostCustomForecast", TypeShape.of(GetCostCustomForecastResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the custom forecast for an existing Datadog cost budget.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetCostCustomForecastArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatadogFunctions.getCostCustomForecast(GetCostCustomForecastArgs.builder()
+     *             .budgetUid("a1b2c3d4-e5f6-7890-abcd-ef1234567890")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCostCustomForecastResult> getCostCustomForecast(GetCostCustomForecastArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getCostCustomForecast:getCostCustomForecast", TypeShape.of(GetCostCustomForecastResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the custom forecast for an existing Datadog cost budget.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetCostCustomForecastArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatadogFunctions.getCostCustomForecast(GetCostCustomForecastArgs.builder()
+     *             .budgetUid("a1b2c3d4-e5f6-7890-abcd-ef1234567890")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetCostCustomForecastResult> getCostCustomForecastPlain(GetCostCustomForecastPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getCostCustomForecast:getCostCustomForecast", TypeShape.of(GetCostCustomForecastResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to retrieve information about existing Agent rules.
      * 
      * ## Example Usage
@@ -1820,6 +2024,279 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetCsmThreatsPoliciesResult> getCsmThreatsPoliciesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getCsmThreatsPolicies:getCsmThreatsPolicies", TypeShape.of(GetCsmThreatsPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieve information about the user associated with the authentication context used by the Datadog provider. This data source is also useful for retrieving organization metadata.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var me = DatadogFunctions.getCurrentUser(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var greeting = String.format("Hello %s, your org id is %s", me.name(),me.orgId());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCurrentUserResult> getCurrentUser() {
+        return getCurrentUser(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieve information about the user associated with the authentication context used by the Datadog provider. This data source is also useful for retrieving organization metadata.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var me = DatadogFunctions.getCurrentUser(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var greeting = String.format("Hello %s, your org id is %s", me.name(),me.orgId());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetCurrentUserResult> getCurrentUserPlain() {
+        return getCurrentUserPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieve information about the user associated with the authentication context used by the Datadog provider. This data source is also useful for retrieving organization metadata.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var me = DatadogFunctions.getCurrentUser(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var greeting = String.format("Hello %s, your org id is %s", me.name(),me.orgId());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCurrentUserResult> getCurrentUser(InvokeArgs args) {
+        return getCurrentUser(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieve information about the user associated with the authentication context used by the Datadog provider. This data source is also useful for retrieving organization metadata.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var me = DatadogFunctions.getCurrentUser(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var greeting = String.format("Hello %s, your org id is %s", me.name(),me.orgId());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetCurrentUserResult> getCurrentUserPlain(InvokeArgs args) {
+        return getCurrentUserPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieve information about the user associated with the authentication context used by the Datadog provider. This data source is also useful for retrieving organization metadata.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var me = DatadogFunctions.getCurrentUser(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var greeting = String.format("Hello %s, your org id is %s", me.name(),me.orgId());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCurrentUserResult> getCurrentUser(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getCurrentUser:getCurrentUser", TypeShape.of(GetCurrentUserResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieve information about the user associated with the authentication context used by the Datadog provider. This data source is also useful for retrieving organization metadata.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var me = DatadogFunctions.getCurrentUser(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var greeting = String.format("Hello %s, your org id is %s", me.name(),me.orgId());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCurrentUserResult> getCurrentUser(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getCurrentUser:getCurrentUser", TypeShape.of(GetCurrentUserResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieve information about the user associated with the authentication context used by the Datadog provider. This data source is also useful for retrieving organization metadata.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var me = DatadogFunctions.getCurrentUser(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var greeting = String.format("Hello %s, your org id is %s", me.name(),me.orgId());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetCurrentUserResult> getCurrentUserPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getCurrentUser:getCurrentUser", TypeShape.of(GetCurrentUserResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about an existing custom allocation rule.

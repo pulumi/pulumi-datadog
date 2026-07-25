@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  *         // Configure agentless scanning for an Azure subscription
  *         var example = new AgentlessScanningAzureScanOptions("example", AgentlessScanningAzureScanOptionsArgs.builder()
  *             .azureSubscriptionId("12345678-1234-1234-1234-123456789012")
+ *             .function(true)
  *             .vulnContainersOs(true)
  *             .vulnHostOs(true)
  *             .build());
@@ -95,6 +96,20 @@ public class AgentlessScanningAzureScanOptions extends com.pulumi.resources.Cust
      */
     public Output<Boolean> complianceHost() {
         return this.complianceHost;
+    }
+    /**
+     * Indicates if scanning of Azure Functions is enabled.
+     * 
+     */
+    @Export(name="function", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> function;
+
+    /**
+     * @return Indicates if scanning of Azure Functions is enabled.
+     * 
+     */
+    public Output<Boolean> function() {
+        return this.function;
     }
     /**
      * Indicates if scanning for vulnerabilities in containers is enabled.

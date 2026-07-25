@@ -16,6 +16,7 @@ import * as utilities from "./utilities";
  * // Configure agentless scanning for an Azure subscription
  * const example = new datadog.AgentlessScanningAzureScanOptions("example", {
  *     azureSubscriptionId: "12345678-1234-1234-1234-123456789012",
+ *     "function": true,
  *     vulnContainersOs: true,
  *     vulnHostOs: true,
  * });
@@ -70,6 +71,10 @@ export class AgentlessScanningAzureScanOptions extends pulumi.CustomResource {
      */
     declare public readonly complianceHost: pulumi.Output<boolean>;
     /**
+     * Indicates if scanning of Azure Functions is enabled.
+     */
+    declare public readonly function: pulumi.Output<boolean>;
+    /**
      * Indicates if scanning for vulnerabilities in containers is enabled.
      */
     declare public readonly vulnContainersOs: pulumi.Output<boolean>;
@@ -93,12 +98,16 @@ export class AgentlessScanningAzureScanOptions extends pulumi.CustomResource {
             const state = argsOrState as AgentlessScanningAzureScanOptionsState | undefined;
             resourceInputs["azureSubscriptionId"] = state?.azureSubscriptionId;
             resourceInputs["complianceHost"] = state?.complianceHost;
+            resourceInputs["function"] = state?.function;
             resourceInputs["vulnContainersOs"] = state?.vulnContainersOs;
             resourceInputs["vulnHostOs"] = state?.vulnHostOs;
         } else {
             const args = argsOrState as AgentlessScanningAzureScanOptionsArgs | undefined;
             if (args?.azureSubscriptionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'azureSubscriptionId'");
+            }
+            if (args?.function === undefined && !opts.urn) {
+                throw new Error("Missing required property 'function'");
             }
             if (args?.vulnContainersOs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vulnContainersOs'");
@@ -108,6 +117,7 @@ export class AgentlessScanningAzureScanOptions extends pulumi.CustomResource {
             }
             resourceInputs["azureSubscriptionId"] = args?.azureSubscriptionId;
             resourceInputs["complianceHost"] = args?.complianceHost;
+            resourceInputs["function"] = args?.function;
             resourceInputs["vulnContainersOs"] = args?.vulnContainersOs;
             resourceInputs["vulnHostOs"] = args?.vulnHostOs;
         }
@@ -128,6 +138,10 @@ export interface AgentlessScanningAzureScanOptionsState {
      * Indicates whether host compliance scanning is enabled.
      */
     complianceHost?: pulumi.Input<boolean | undefined>;
+    /**
+     * Indicates if scanning of Azure Functions is enabled.
+     */
+    function?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates if scanning for vulnerabilities in containers is enabled.
      */
@@ -150,6 +164,10 @@ export interface AgentlessScanningAzureScanOptionsArgs {
      * Indicates whether host compliance scanning is enabled.
      */
     complianceHost?: pulumi.Input<boolean | undefined>;
+    /**
+     * Indicates if scanning of Azure Functions is enabled.
+     */
+    function: pulumi.Input<boolean>;
     /**
      * Indicates if scanning for vulnerabilities in containers is enabled.
      */

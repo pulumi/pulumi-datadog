@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -120,6 +121,21 @@ public final class GetSoftwareCatalogArgs extends com.pulumi.resources.InvokeArg
         return Optional.ofNullable(this.filterRelationType);
     }
 
+    /**
+     * Include entities that have been discovered but not yet enriched.
+     * 
+     */
+    @Import(name="includeDiscovered")
+    private @Nullable Output<Boolean> includeDiscovered;
+
+    /**
+     * @return Include entities that have been discovered but not yet enriched.
+     * 
+     */
+    public Optional<Output<Boolean>> includeDiscovered() {
+        return Optional.ofNullable(this.includeDiscovered);
+    }
+
     private GetSoftwareCatalogArgs() {}
 
     private GetSoftwareCatalogArgs(GetSoftwareCatalogArgs $) {
@@ -130,6 +146,7 @@ public final class GetSoftwareCatalogArgs extends com.pulumi.resources.InvokeArg
         this.filterOwner = $.filterOwner;
         this.filterRef = $.filterRef;
         this.filterRelationType = $.filterRelationType;
+        this.includeDiscovered = $.includeDiscovered;
     }
 
     public static Builder builder() {
@@ -295,6 +312,27 @@ public final class GetSoftwareCatalogArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder filterRelationType(String filterRelationType) {
             return filterRelationType(Output.of(filterRelationType));
+        }
+
+        /**
+         * @param includeDiscovered Include entities that have been discovered but not yet enriched.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeDiscovered(@Nullable Output<Boolean> includeDiscovered) {
+            $.includeDiscovered = includeDiscovered;
+            return this;
+        }
+
+        /**
+         * @param includeDiscovered Include entities that have been discovered but not yet enriched.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeDiscovered(Boolean includeDiscovered) {
+            return includeDiscovered(Output.of(includeDiscovered));
         }
 
         public GetSoftwareCatalogArgs build() {

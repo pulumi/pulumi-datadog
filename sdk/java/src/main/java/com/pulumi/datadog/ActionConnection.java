@@ -10,8 +10,30 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.ActionConnectionArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.ActionConnectionState;
+import com.pulumi.datadog.outputs.ActionConnectionAnthropic;
+import com.pulumi.datadog.outputs.ActionConnectionAsana;
 import com.pulumi.datadog.outputs.ActionConnectionAws;
+import com.pulumi.datadog.outputs.ActionConnectionAzure;
+import com.pulumi.datadog.outputs.ActionConnectionCircleCi;
+import com.pulumi.datadog.outputs.ActionConnectionClickup;
+import com.pulumi.datadog.outputs.ActionConnectionCloudflare;
+import com.pulumi.datadog.outputs.ActionConnectionConfigCat;
+import com.pulumi.datadog.outputs.ActionConnectionDatadog;
+import com.pulumi.datadog.outputs.ActionConnectionFastly;
+import com.pulumi.datadog.outputs.ActionConnectionFreshservice;
+import com.pulumi.datadog.outputs.ActionConnectionGcp;
+import com.pulumi.datadog.outputs.ActionConnectionGemini;
+import com.pulumi.datadog.outputs.ActionConnectionGitlab;
+import com.pulumi.datadog.outputs.ActionConnectionGreyNoise;
 import com.pulumi.datadog.outputs.ActionConnectionHttp;
+import com.pulumi.datadog.outputs.ActionConnectionLaunchDarkly;
+import com.pulumi.datadog.outputs.ActionConnectionNotion;
+import com.pulumi.datadog.outputs.ActionConnectionOkta;
+import com.pulumi.datadog.outputs.ActionConnectionOpenai;
+import com.pulumi.datadog.outputs.ActionConnectionServiceNow;
+import com.pulumi.datadog.outputs.ActionConnectionSplit;
+import com.pulumi.datadog.outputs.ActionConnectionStatsig;
+import com.pulumi.datadog.outputs.ActionConnectionVirusTotal;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -120,6 +142,34 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/actionConnection:ActionConnection")
 public class ActionConnection extends com.pulumi.resources.CustomResource {
     /**
+     * Configuration for an Anthropic connection
+     * 
+     */
+    @Export(name="anthropic", refs={ActionConnectionAnthropic.class}, tree="[0]")
+    private Output</* @Nullable */ ActionConnectionAnthropic> anthropic;
+
+    /**
+     * @return Configuration for an Anthropic connection
+     * 
+     */
+    public Output<Optional<ActionConnectionAnthropic>> anthropic() {
+        return Codegen.optional(this.anthropic);
+    }
+    /**
+     * Configuration for an Asana connection
+     * 
+     */
+    @Export(name="asana", refs={ActionConnectionAsana.class}, tree="[0]")
+    private Output</* @Nullable */ ActionConnectionAsana> asana;
+
+    /**
+     * @return Configuration for an Asana connection
+     * 
+     */
+    public Output<Optional<ActionConnectionAsana>> asana() {
+        return Codegen.optional(this.asana);
+    }
+    /**
      * Configuration for an AWS connection
      * 
      */
@@ -132,6 +182,174 @@ public class ActionConnection extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<ActionConnectionAws>> aws() {
         return Codegen.optional(this.aws);
+    }
+    /**
+     * Configuration for an Azure connection
+     * 
+     */
+    @Export(name="azure", refs={ActionConnectionAzure.class}, tree="[0]")
+    private Output</* @Nullable */ ActionConnectionAzure> azure;
+
+    /**
+     * @return Configuration for an Azure connection
+     * 
+     */
+    public Output<Optional<ActionConnectionAzure>> azure() {
+        return Codegen.optional(this.azure);
+    }
+    /**
+     * Configuration for a CircleCI connection
+     * 
+     */
+    @Export(name="circleCi", refs={ActionConnectionCircleCi.class}, tree="[0]")
+    private Output</* @Nullable */ ActionConnectionCircleCi> circleCi;
+
+    /**
+     * @return Configuration for a CircleCI connection
+     * 
+     */
+    public Output<Optional<ActionConnectionCircleCi>> circleCi() {
+        return Codegen.optional(this.circleCi);
+    }
+    /**
+     * Configuration for a ClickUp connection
+     * 
+     */
+    @Export(name="clickup", refs={ActionConnectionClickup.class}, tree="[0]")
+    private Output</* @Nullable */ ActionConnectionClickup> clickup;
+
+    /**
+     * @return Configuration for a ClickUp connection
+     * 
+     */
+    public Output<Optional<ActionConnectionClickup>> clickup() {
+        return Codegen.optional(this.clickup);
+    }
+    /**
+     * Configuration for a Cloudflare connection
+     * 
+     */
+    @Export(name="cloudflare", refs={ActionConnectionCloudflare.class}, tree="[0]")
+    private Output</* @Nullable */ ActionConnectionCloudflare> cloudflare;
+
+    /**
+     * @return Configuration for a Cloudflare connection
+     * 
+     */
+    public Output<Optional<ActionConnectionCloudflare>> cloudflare() {
+        return Codegen.optional(this.cloudflare);
+    }
+    /**
+     * Configuration for a ConfigCat connection
+     * 
+     */
+    @Export(name="configCat", refs={ActionConnectionConfigCat.class}, tree="[0]")
+    private Output</* @Nullable */ ActionConnectionConfigCat> configCat;
+
+    /**
+     * @return Configuration for a ConfigCat connection
+     * 
+     */
+    public Output<Optional<ActionConnectionConfigCat>> configCat() {
+        return Codegen.optional(this.configCat);
+    }
+    /**
+     * Configuration for a Datadog connection
+     * 
+     */
+    @Export(name="datadog", refs={ActionConnectionDatadog.class}, tree="[0]")
+    private Output</* @Nullable */ ActionConnectionDatadog> datadog;
+
+    /**
+     * @return Configuration for a Datadog connection
+     * 
+     */
+    public Output<Optional<ActionConnectionDatadog>> datadog() {
+        return Codegen.optional(this.datadog);
+    }
+    /**
+     * Configuration for a Fastly connection
+     * 
+     */
+    @Export(name="fastly", refs={ActionConnectionFastly.class}, tree="[0]")
+    private Output</* @Nullable */ ActionConnectionFastly> fastly;
+
+    /**
+     * @return Configuration for a Fastly connection
+     * 
+     */
+    public Output<Optional<ActionConnectionFastly>> fastly() {
+        return Codegen.optional(this.fastly);
+    }
+    /**
+     * Configuration for a Freshservice connection
+     * 
+     */
+    @Export(name="freshservice", refs={ActionConnectionFreshservice.class}, tree="[0]")
+    private Output</* @Nullable */ ActionConnectionFreshservice> freshservice;
+
+    /**
+     * @return Configuration for a Freshservice connection
+     * 
+     */
+    public Output<Optional<ActionConnectionFreshservice>> freshservice() {
+        return Codegen.optional(this.freshservice);
+    }
+    /**
+     * Configuration for a Google Cloud connection
+     * 
+     */
+    @Export(name="gcp", refs={ActionConnectionGcp.class}, tree="[0]")
+    private Output</* @Nullable */ ActionConnectionGcp> gcp;
+
+    /**
+     * @return Configuration for a Google Cloud connection
+     * 
+     */
+    public Output<Optional<ActionConnectionGcp>> gcp() {
+        return Codegen.optional(this.gcp);
+    }
+    /**
+     * Configuration for a Gemini connection
+     * 
+     */
+    @Export(name="gemini", refs={ActionConnectionGemini.class}, tree="[0]")
+    private Output</* @Nullable */ ActionConnectionGemini> gemini;
+
+    /**
+     * @return Configuration for a Gemini connection
+     * 
+     */
+    public Output<Optional<ActionConnectionGemini>> gemini() {
+        return Codegen.optional(this.gemini);
+    }
+    /**
+     * Configuration for a GitLab connection
+     * 
+     */
+    @Export(name="gitlab", refs={ActionConnectionGitlab.class}, tree="[0]")
+    private Output</* @Nullable */ ActionConnectionGitlab> gitlab;
+
+    /**
+     * @return Configuration for a GitLab connection
+     * 
+     */
+    public Output<Optional<ActionConnectionGitlab>> gitlab() {
+        return Codegen.optional(this.gitlab);
+    }
+    /**
+     * Configuration for a GreyNoise connection
+     * 
+     */
+    @Export(name="greyNoise", refs={ActionConnectionGreyNoise.class}, tree="[0]")
+    private Output</* @Nullable */ ActionConnectionGreyNoise> greyNoise;
+
+    /**
+     * @return Configuration for a GreyNoise connection
+     * 
+     */
+    public Output<Optional<ActionConnectionGreyNoise>> greyNoise() {
+        return Codegen.optional(this.greyNoise);
     }
     /**
      * Configuration for an HTTP connection
@@ -148,6 +366,20 @@ public class ActionConnection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.http);
     }
     /**
+     * Configuration for a LaunchDarkly connection
+     * 
+     */
+    @Export(name="launchDarkly", refs={ActionConnectionLaunchDarkly.class}, tree="[0]")
+    private Output</* @Nullable */ ActionConnectionLaunchDarkly> launchDarkly;
+
+    /**
+     * @return Configuration for a LaunchDarkly connection
+     * 
+     */
+    public Output<Optional<ActionConnectionLaunchDarkly>> launchDarkly() {
+        return Codegen.optional(this.launchDarkly);
+    }
+    /**
      * Name of the connection
      * 
      */
@@ -160,6 +392,104 @@ public class ActionConnection extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Configuration for a Notion connection
+     * 
+     */
+    @Export(name="notion", refs={ActionConnectionNotion.class}, tree="[0]")
+    private Output</* @Nullable */ ActionConnectionNotion> notion;
+
+    /**
+     * @return Configuration for a Notion connection
+     * 
+     */
+    public Output<Optional<ActionConnectionNotion>> notion() {
+        return Codegen.optional(this.notion);
+    }
+    /**
+     * Configuration for an Okta connection
+     * 
+     */
+    @Export(name="okta", refs={ActionConnectionOkta.class}, tree="[0]")
+    private Output</* @Nullable */ ActionConnectionOkta> okta;
+
+    /**
+     * @return Configuration for an Okta connection
+     * 
+     */
+    public Output<Optional<ActionConnectionOkta>> okta() {
+        return Codegen.optional(this.okta);
+    }
+    /**
+     * Configuration for an OpenAI connection
+     * 
+     */
+    @Export(name="openai", refs={ActionConnectionOpenai.class}, tree="[0]")
+    private Output</* @Nullable */ ActionConnectionOpenai> openai;
+
+    /**
+     * @return Configuration for an OpenAI connection
+     * 
+     */
+    public Output<Optional<ActionConnectionOpenai>> openai() {
+        return Codegen.optional(this.openai);
+    }
+    /**
+     * Configuration for a ServiceNow connection
+     * 
+     */
+    @Export(name="serviceNow", refs={ActionConnectionServiceNow.class}, tree="[0]")
+    private Output</* @Nullable */ ActionConnectionServiceNow> serviceNow;
+
+    /**
+     * @return Configuration for a ServiceNow connection
+     * 
+     */
+    public Output<Optional<ActionConnectionServiceNow>> serviceNow() {
+        return Codegen.optional(this.serviceNow);
+    }
+    /**
+     * Configuration for a Split connection
+     * 
+     */
+    @Export(name="split", refs={ActionConnectionSplit.class}, tree="[0]")
+    private Output</* @Nullable */ ActionConnectionSplit> split;
+
+    /**
+     * @return Configuration for a Split connection
+     * 
+     */
+    public Output<Optional<ActionConnectionSplit>> split() {
+        return Codegen.optional(this.split);
+    }
+    /**
+     * Configuration for a Statsig connection
+     * 
+     */
+    @Export(name="statsig", refs={ActionConnectionStatsig.class}, tree="[0]")
+    private Output</* @Nullable */ ActionConnectionStatsig> statsig;
+
+    /**
+     * @return Configuration for a Statsig connection
+     * 
+     */
+    public Output<Optional<ActionConnectionStatsig>> statsig() {
+        return Codegen.optional(this.statsig);
+    }
+    /**
+     * Configuration for a VirusTotal connection
+     * 
+     */
+    @Export(name="virusTotal", refs={ActionConnectionVirusTotal.class}, tree="[0]")
+    private Output</* @Nullable */ ActionConnectionVirusTotal> virusTotal;
+
+    /**
+     * @return Configuration for a VirusTotal connection
+     * 
+     */
+    public Output<Optional<ActionConnectionVirusTotal>> virusTotal() {
+        return Codegen.optional(this.virusTotal);
     }
 
     /**

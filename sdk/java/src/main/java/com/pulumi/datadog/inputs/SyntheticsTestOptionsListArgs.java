@@ -190,6 +190,21 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * Ignore server certificate error for SSL tests.
+     * 
+     */
+    @Import(name="ignoreCertificateValidation")
+    private @Nullable Output<Boolean> ignoreCertificateValidation;
+
+    /**
+     * @return Ignore server certificate error for SSL tests.
+     * 
+     */
+    public Optional<Output<Boolean>> ignoreCertificateValidation() {
+        return Optional.ofNullable(this.ignoreCertificateValidation);
+    }
+
+    /**
      * Ignore server certificate error for browser tests.
      * 
      */
@@ -382,6 +397,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         this.disableCsp = $.disableCsp;
         this.followRedirects = $.followRedirects;
         this.httpVersion = $.httpVersion;
+        this.ignoreCertificateValidation = $.ignoreCertificateValidation;
         this.ignoreServerCertificateError = $.ignoreServerCertificateError;
         this.initialNavigationTimeout = $.initialNavigationTimeout;
         this.minFailureDuration = $.minFailureDuration;
@@ -654,6 +670,27 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
          */
         public Builder httpVersion(String httpVersion) {
             return httpVersion(Output.of(httpVersion));
+        }
+
+        /**
+         * @param ignoreCertificateValidation Ignore server certificate error for SSL tests.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreCertificateValidation(@Nullable Output<Boolean> ignoreCertificateValidation) {
+            $.ignoreCertificateValidation = ignoreCertificateValidation;
+            return this;
+        }
+
+        /**
+         * @param ignoreCertificateValidation Ignore server certificate error for SSL tests.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreCertificateValidation(Boolean ignoreCertificateValidation) {
+            return ignoreCertificateValidation(Output.of(ignoreCertificateValidation));
         }
 
         /**

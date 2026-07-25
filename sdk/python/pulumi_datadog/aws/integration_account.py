@@ -387,6 +387,16 @@ class IntegrationAccount(pulumi.CustomResource):
                         "AWS/Usage",
                     ],
                 }],
+                "metricNameFilters": [
+                    {
+                        "namespace": "AWS/EC2",
+                        "includeOnlies": ["aws.ec2.network_in"],
+                    },
+                    {
+                        "namespace": "AWS/RDS",
+                        "excludeOnlies": ["aws.rds.aurora*"],
+                    },
+                ],
                 "tagFilters": [{
                     "namespace": "AWS/EC2",
                     "tags": ["datadog:true"],
@@ -508,6 +518,16 @@ class IntegrationAccount(pulumi.CustomResource):
                         "AWS/Usage",
                     ],
                 }],
+                "metricNameFilters": [
+                    {
+                        "namespace": "AWS/EC2",
+                        "includeOnlies": ["aws.ec2.network_in"],
+                    },
+                    {
+                        "namespace": "AWS/RDS",
+                        "excludeOnlies": ["aws.rds.aurora*"],
+                    },
+                ],
                 "tagFilters": [{
                     "namespace": "AWS/EC2",
                     "tags": ["datadog:true"],

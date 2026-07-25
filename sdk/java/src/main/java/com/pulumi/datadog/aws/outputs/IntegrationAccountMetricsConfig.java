@@ -4,6 +4,7 @@
 package com.pulumi.datadog.aws.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.aws.outputs.IntegrationAccountMetricsConfigMetricNameFilter;
 import com.pulumi.datadog.aws.outputs.IntegrationAccountMetricsConfigNamespaceFilters;
 import com.pulumi.datadog.aws.outputs.IntegrationAccountMetricsConfigTagFilter;
 import java.lang.Boolean;
@@ -34,6 +35,11 @@ public final class IntegrationAccountMetricsConfig {
      * 
      */
     private @Nullable Boolean enabled;
+    /**
+     * @return AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `includeOnly` or `excludeOnly`.
+     * 
+     */
+    private @Nullable List<IntegrationAccountMetricsConfigMetricNameFilter> metricNameFilters;
     /**
      * @return AWS metrics namespace filters. Defaults to a pre-set `excludeOnly` list if block is empty.
      * 
@@ -75,6 +81,13 @@ public final class IntegrationAccountMetricsConfig {
         return Optional.ofNullable(this.enabled);
     }
     /**
+     * @return AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `includeOnly` or `excludeOnly`.
+     * 
+     */
+    public List<IntegrationAccountMetricsConfigMetricNameFilter> metricNameFilters() {
+        return this.metricNameFilters == null ? List.of() : this.metricNameFilters;
+    }
+    /**
      * @return AWS metrics namespace filters. Defaults to a pre-set `excludeOnly` list if block is empty.
      * 
      */
@@ -102,6 +115,7 @@ public final class IntegrationAccountMetricsConfig {
         private @Nullable Boolean collectCloudwatchAlarms;
         private @Nullable Boolean collectCustomMetrics;
         private @Nullable Boolean enabled;
+        private @Nullable List<IntegrationAccountMetricsConfigMetricNameFilter> metricNameFilters;
         private @Nullable IntegrationAccountMetricsConfigNamespaceFilters namespaceFilters;
         private @Nullable List<IntegrationAccountMetricsConfigTagFilter> tagFilters;
         public Builder() {}
@@ -111,6 +125,7 @@ public final class IntegrationAccountMetricsConfig {
     	      this.collectCloudwatchAlarms = defaults.collectCloudwatchAlarms;
     	      this.collectCustomMetrics = defaults.collectCustomMetrics;
     	      this.enabled = defaults.enabled;
+    	      this.metricNameFilters = defaults.metricNameFilters;
     	      this.namespaceFilters = defaults.namespaceFilters;
     	      this.tagFilters = defaults.tagFilters;
         }
@@ -140,6 +155,15 @@ public final class IntegrationAccountMetricsConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder metricNameFilters(@Nullable List<IntegrationAccountMetricsConfigMetricNameFilter> metricNameFilters) {
+
+            this.metricNameFilters = metricNameFilters;
+            return this;
+        }
+        public Builder metricNameFilters(IntegrationAccountMetricsConfigMetricNameFilter... metricNameFilters) {
+            return metricNameFilters(List.of(metricNameFilters));
+        }
+        @CustomType.Setter
         public Builder namespaceFilters(@Nullable IntegrationAccountMetricsConfigNamespaceFilters namespaceFilters) {
 
             this.namespaceFilters = namespaceFilters;
@@ -160,6 +184,7 @@ public final class IntegrationAccountMetricsConfig {
             _resultValue.collectCloudwatchAlarms = collectCloudwatchAlarms;
             _resultValue.collectCustomMetrics = collectCustomMetrics;
             _resultValue.enabled = enabled;
+            _resultValue.metricNameFilters = metricNameFilters;
             _resultValue.namespaceFilters = namespaceFilters;
             _resultValue.tagFilters = tagFilters;
             return _resultValue;

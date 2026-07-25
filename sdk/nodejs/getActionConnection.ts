@@ -23,9 +23,31 @@ import * as utilities from "./utilities";
 export function getActionConnection(args: GetActionConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetActionConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getActionConnection:getActionConnection", {
+        "anthropic": args.anthropic,
+        "asana": args.asana,
         "aws": args.aws,
+        "azure": args.azure,
+        "circleCi": args.circleCi,
+        "clickup": args.clickup,
+        "cloudflare": args.cloudflare,
+        "configCat": args.configCat,
+        "datadog": args.datadog,
+        "fastly": args.fastly,
+        "freshservice": args.freshservice,
+        "gcp": args.gcp,
+        "gemini": args.gemini,
+        "gitlab": args.gitlab,
+        "greyNoise": args.greyNoise,
         "http": args.http,
         "id": args.id,
+        "launchDarkly": args.launchDarkly,
+        "notion": args.notion,
+        "okta": args.okta,
+        "openai": args.openai,
+        "serviceNow": args.serviceNow,
+        "split": args.split,
+        "statsig": args.statsig,
+        "virusTotal": args.virusTotal,
     }, opts);
 }
 
@@ -34,9 +56,65 @@ export function getActionConnection(args: GetActionConnectionArgs, opts?: pulumi
  */
 export interface GetActionConnectionArgs {
     /**
+     * Configuration for an Anthropic connection
+     */
+    anthropic?: inputs.GetActionConnectionAnthropic;
+    /**
+     * Configuration for an Asana connection
+     */
+    asana?: inputs.GetActionConnectionAsana;
+    /**
      * Configuration for an AWS connection
      */
     aws?: inputs.GetActionConnectionAws;
+    /**
+     * Configuration for an Azure connection
+     */
+    azure?: inputs.GetActionConnectionAzure;
+    /**
+     * Configuration for a CircleCI connection
+     */
+    circleCi?: inputs.GetActionConnectionCircleCi;
+    /**
+     * Configuration for a ClickUp connection
+     */
+    clickup?: inputs.GetActionConnectionClickup;
+    /**
+     * Configuration for a Cloudflare connection
+     */
+    cloudflare?: inputs.GetActionConnectionCloudflare;
+    /**
+     * Configuration for a ConfigCat connection
+     */
+    configCat?: inputs.GetActionConnectionConfigCat;
+    /**
+     * Configuration for a Datadog connection
+     */
+    datadog?: inputs.GetActionConnectionDatadog;
+    /**
+     * Configuration for a Fastly connection
+     */
+    fastly?: inputs.GetActionConnectionFastly;
+    /**
+     * Configuration for a Freshservice connection
+     */
+    freshservice?: inputs.GetActionConnectionFreshservice;
+    /**
+     * Configuration for a Google Cloud connection
+     */
+    gcp?: inputs.GetActionConnectionGcp;
+    /**
+     * Configuration for a Gemini connection
+     */
+    gemini?: inputs.GetActionConnectionGemini;
+    /**
+     * Configuration for a GitLab connection
+     */
+    gitlab?: inputs.GetActionConnectionGitlab;
+    /**
+     * Configuration for a GreyNoise connection
+     */
+    greyNoise?: inputs.GetActionConnectionGreyNoise;
     /**
      * Configuration for an HTTP connection
      */
@@ -45,6 +123,38 @@ export interface GetActionConnectionArgs {
      * ID for Connection.
      */
     id: string;
+    /**
+     * Configuration for a LaunchDarkly connection
+     */
+    launchDarkly?: inputs.GetActionConnectionLaunchDarkly;
+    /**
+     * Configuration for a Notion connection
+     */
+    notion?: inputs.GetActionConnectionNotion;
+    /**
+     * Configuration for an Okta connection
+     */
+    okta?: inputs.GetActionConnectionOkta;
+    /**
+     * Configuration for an OpenAI connection
+     */
+    openai?: inputs.GetActionConnectionOpenai;
+    /**
+     * Configuration for a ServiceNow connection
+     */
+    serviceNow?: inputs.GetActionConnectionServiceNow;
+    /**
+     * Configuration for a Split connection
+     */
+    split?: inputs.GetActionConnectionSplit;
+    /**
+     * Configuration for a Statsig connection
+     */
+    statsig?: inputs.GetActionConnectionStatsig;
+    /**
+     * Configuration for a VirusTotal connection
+     */
+    virusTotal?: inputs.GetActionConnectionVirusTotal;
 }
 
 /**
@@ -52,9 +162,65 @@ export interface GetActionConnectionArgs {
  */
 export interface GetActionConnectionResult {
     /**
+     * Configuration for an Anthropic connection
+     */
+    readonly anthropic?: outputs.GetActionConnectionAnthropic;
+    /**
+     * Configuration for an Asana connection
+     */
+    readonly asana?: outputs.GetActionConnectionAsana;
+    /**
      * Configuration for an AWS connection
      */
     readonly aws?: outputs.GetActionConnectionAws;
+    /**
+     * Configuration for an Azure connection
+     */
+    readonly azure?: outputs.GetActionConnectionAzure;
+    /**
+     * Configuration for a CircleCI connection
+     */
+    readonly circleCi?: outputs.GetActionConnectionCircleCi;
+    /**
+     * Configuration for a ClickUp connection
+     */
+    readonly clickup?: outputs.GetActionConnectionClickup;
+    /**
+     * Configuration for a Cloudflare connection
+     */
+    readonly cloudflare?: outputs.GetActionConnectionCloudflare;
+    /**
+     * Configuration for a ConfigCat connection
+     */
+    readonly configCat?: outputs.GetActionConnectionConfigCat;
+    /**
+     * Configuration for a Datadog connection
+     */
+    readonly datadog?: outputs.GetActionConnectionDatadog;
+    /**
+     * Configuration for a Fastly connection
+     */
+    readonly fastly?: outputs.GetActionConnectionFastly;
+    /**
+     * Configuration for a Freshservice connection
+     */
+    readonly freshservice?: outputs.GetActionConnectionFreshservice;
+    /**
+     * Configuration for a Google Cloud connection
+     */
+    readonly gcp?: outputs.GetActionConnectionGcp;
+    /**
+     * Configuration for a Gemini connection
+     */
+    readonly gemini?: outputs.GetActionConnectionGemini;
+    /**
+     * Configuration for a GitLab connection
+     */
+    readonly gitlab?: outputs.GetActionConnectionGitlab;
+    /**
+     * Configuration for a GreyNoise connection
+     */
+    readonly greyNoise?: outputs.GetActionConnectionGreyNoise;
     /**
      * Configuration for an HTTP connection
      */
@@ -64,9 +230,41 @@ export interface GetActionConnectionResult {
      */
     readonly id: string;
     /**
+     * Configuration for a LaunchDarkly connection
+     */
+    readonly launchDarkly?: outputs.GetActionConnectionLaunchDarkly;
+    /**
      * Name of the connection
      */
     readonly name: string;
+    /**
+     * Configuration for a Notion connection
+     */
+    readonly notion?: outputs.GetActionConnectionNotion;
+    /**
+     * Configuration for an Okta connection
+     */
+    readonly okta?: outputs.GetActionConnectionOkta;
+    /**
+     * Configuration for an OpenAI connection
+     */
+    readonly openai?: outputs.GetActionConnectionOpenai;
+    /**
+     * Configuration for a ServiceNow connection
+     */
+    readonly serviceNow?: outputs.GetActionConnectionServiceNow;
+    /**
+     * Configuration for a Split connection
+     */
+    readonly split?: outputs.GetActionConnectionSplit;
+    /**
+     * Configuration for a Statsig connection
+     */
+    readonly statsig?: outputs.GetActionConnectionStatsig;
+    /**
+     * Configuration for a VirusTotal connection
+     */
+    readonly virusTotal?: outputs.GetActionConnectionVirusTotal;
 }
 /**
  * A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This data source requires a registered application key.
@@ -85,9 +283,31 @@ export interface GetActionConnectionResult {
 export function getActionConnectionOutput(args: GetActionConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActionConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("datadog:index/getActionConnection:getActionConnection", {
+        "anthropic": args.anthropic,
+        "asana": args.asana,
         "aws": args.aws,
+        "azure": args.azure,
+        "circleCi": args.circleCi,
+        "clickup": args.clickup,
+        "cloudflare": args.cloudflare,
+        "configCat": args.configCat,
+        "datadog": args.datadog,
+        "fastly": args.fastly,
+        "freshservice": args.freshservice,
+        "gcp": args.gcp,
+        "gemini": args.gemini,
+        "gitlab": args.gitlab,
+        "greyNoise": args.greyNoise,
         "http": args.http,
         "id": args.id,
+        "launchDarkly": args.launchDarkly,
+        "notion": args.notion,
+        "okta": args.okta,
+        "openai": args.openai,
+        "serviceNow": args.serviceNow,
+        "split": args.split,
+        "statsig": args.statsig,
+        "virusTotal": args.virusTotal,
     }, opts);
 }
 
@@ -96,9 +316,65 @@ export function getActionConnectionOutput(args: GetActionConnectionOutputArgs, o
  */
 export interface GetActionConnectionOutputArgs {
     /**
+     * Configuration for an Anthropic connection
+     */
+    anthropic?: pulumi.Input<inputs.GetActionConnectionAnthropicArgs | undefined>;
+    /**
+     * Configuration for an Asana connection
+     */
+    asana?: pulumi.Input<inputs.GetActionConnectionAsanaArgs | undefined>;
+    /**
      * Configuration for an AWS connection
      */
     aws?: pulumi.Input<inputs.GetActionConnectionAwsArgs | undefined>;
+    /**
+     * Configuration for an Azure connection
+     */
+    azure?: pulumi.Input<inputs.GetActionConnectionAzureArgs | undefined>;
+    /**
+     * Configuration for a CircleCI connection
+     */
+    circleCi?: pulumi.Input<inputs.GetActionConnectionCircleCiArgs | undefined>;
+    /**
+     * Configuration for a ClickUp connection
+     */
+    clickup?: pulumi.Input<inputs.GetActionConnectionClickupArgs | undefined>;
+    /**
+     * Configuration for a Cloudflare connection
+     */
+    cloudflare?: pulumi.Input<inputs.GetActionConnectionCloudflareArgs | undefined>;
+    /**
+     * Configuration for a ConfigCat connection
+     */
+    configCat?: pulumi.Input<inputs.GetActionConnectionConfigCatArgs | undefined>;
+    /**
+     * Configuration for a Datadog connection
+     */
+    datadog?: pulumi.Input<inputs.GetActionConnectionDatadogArgs | undefined>;
+    /**
+     * Configuration for a Fastly connection
+     */
+    fastly?: pulumi.Input<inputs.GetActionConnectionFastlyArgs | undefined>;
+    /**
+     * Configuration for a Freshservice connection
+     */
+    freshservice?: pulumi.Input<inputs.GetActionConnectionFreshserviceArgs | undefined>;
+    /**
+     * Configuration for a Google Cloud connection
+     */
+    gcp?: pulumi.Input<inputs.GetActionConnectionGcpArgs | undefined>;
+    /**
+     * Configuration for a Gemini connection
+     */
+    gemini?: pulumi.Input<inputs.GetActionConnectionGeminiArgs | undefined>;
+    /**
+     * Configuration for a GitLab connection
+     */
+    gitlab?: pulumi.Input<inputs.GetActionConnectionGitlabArgs | undefined>;
+    /**
+     * Configuration for a GreyNoise connection
+     */
+    greyNoise?: pulumi.Input<inputs.GetActionConnectionGreyNoiseArgs | undefined>;
     /**
      * Configuration for an HTTP connection
      */
@@ -107,4 +383,36 @@ export interface GetActionConnectionOutputArgs {
      * ID for Connection.
      */
     id: pulumi.Input<string>;
+    /**
+     * Configuration for a LaunchDarkly connection
+     */
+    launchDarkly?: pulumi.Input<inputs.GetActionConnectionLaunchDarklyArgs | undefined>;
+    /**
+     * Configuration for a Notion connection
+     */
+    notion?: pulumi.Input<inputs.GetActionConnectionNotionArgs | undefined>;
+    /**
+     * Configuration for an Okta connection
+     */
+    okta?: pulumi.Input<inputs.GetActionConnectionOktaArgs | undefined>;
+    /**
+     * Configuration for an OpenAI connection
+     */
+    openai?: pulumi.Input<inputs.GetActionConnectionOpenaiArgs | undefined>;
+    /**
+     * Configuration for a ServiceNow connection
+     */
+    serviceNow?: pulumi.Input<inputs.GetActionConnectionServiceNowArgs | undefined>;
+    /**
+     * Configuration for a Split connection
+     */
+    split?: pulumi.Input<inputs.GetActionConnectionSplitArgs | undefined>;
+    /**
+     * Configuration for a Statsig connection
+     */
+    statsig?: pulumi.Input<inputs.GetActionConnectionStatsigArgs | undefined>;
+    /**
+     * Configuration for a VirusTotal connection
+     */
+    virusTotal?: pulumi.Input<inputs.GetActionConnectionVirusTotalArgs | undefined>;
 }
