@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -18,6 +20,22 @@ import * as utilities from "./utilities";
  *     name: "Security Incident",
  *     description: "Security-related incidents requiring immediate attention",
  *     isDefault: false,
+ * });
+ * // Incident type with the full configuration block shown at its default values.
+ * // Every field is optional; omitted fields fall back to these same defaults.
+ * const withConfiguration = new datadog.IncidentType("with_configuration", {
+ *     name: "Customer Impacting",
+ *     description: "Incidents that impact customers",
+ *     configuration: {
+ *         private_incidents: false,
+ *         private_incidents_by_default: false,
+ *         allow_workflows: true,
+ *         allow_incident_deletion: false,
+ *         editable_timestamps: false,
+ *         test_incidents: true,
+ *         create_message: "",
+ *         slug_source: "default",
+ *     },
  * });
  * ```
  *
@@ -58,6 +76,10 @@ export class IncidentType extends pulumi.CustomResource {
     }
 
     /**
+     * The incident type's behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
+     */
+    declare public readonly configuration: pulumi.Output<outputs.IncidentTypeConfiguration>;
+    /**
      * Description of the incident type. The description can have a maximum of 512 characters.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
@@ -83,6 +105,7 @@ export class IncidentType extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IncidentTypeState | undefined;
+            resourceInputs["configuration"] = state?.configuration;
             resourceInputs["description"] = state?.description;
             resourceInputs["isDefault"] = state?.isDefault;
             resourceInputs["name"] = state?.name;
@@ -91,6 +114,7 @@ export class IncidentType extends pulumi.CustomResource {
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
+            resourceInputs["configuration"] = args?.configuration;
             resourceInputs["description"] = args?.description;
             resourceInputs["isDefault"] = args?.isDefault;
             resourceInputs["name"] = args?.name;
@@ -104,6 +128,10 @@ export class IncidentType extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IncidentType resources.
  */
 export interface IncidentTypeState {
+    /**
+     * The incident type's behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
+     */
+    configuration?: pulumi.Input<inputs.IncidentTypeConfiguration | undefined>;
     /**
      * Description of the incident type. The description can have a maximum of 512 characters.
      */
@@ -122,6 +150,10 @@ export interface IncidentTypeState {
  * The set of arguments for constructing a IncidentType resource.
  */
 export interface IncidentTypeArgs {
+    /**
+     * The incident type's behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
+     */
+    configuration?: pulumi.Input<inputs.IncidentTypeConfiguration | undefined>;
     /**
      * Description of the incident type. The description can have a maximum of 512 characters.
      */

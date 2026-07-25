@@ -17,14 +17,14 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
      * @return How the per-tag override is applied. One of `limitOverride`, `excluded`. Valid values are `limitOverride`, `excluded`.
      * 
      */
-    private String mode;
+    private String overrideType;
     /**
      * @return The tag key this override applies to.
      * 
      */
     private String tagKey;
     /**
-     * @return The cardinality cap for this tag. Required when `mode` is `limitOverride`; must be omitted when `mode` is `excluded`. Value must be between 0 and 1000000.
+     * @return The cardinality cap for this tag. Required when `overrideType` is `limitOverride`; must be omitted when `overrideType` is `excluded`. Value must be between 0 and 1000000.
      * 
      */
     private @Nullable Integer valueLimit;
@@ -34,8 +34,8 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
      * @return How the per-tag override is applied. One of `limitOverride`, `excluded`. Valid values are `limitOverride`, `excluded`.
      * 
      */
-    public String mode() {
-        return this.mode;
+    public String overrideType() {
+        return this.overrideType;
     }
     /**
      * @return The tag key this override applies to.
@@ -45,7 +45,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
         return this.tagKey;
     }
     /**
-     * @return The cardinality cap for this tag. Required when `mode` is `limitOverride`; must be omitted when `mode` is `excluded`. Value must be between 0 and 1000000.
+     * @return The cardinality cap for this tag. Required when `overrideType` is `limitOverride`; must be omitted when `overrideType` is `excluded`. Value must be between 0 and 1000000.
      * 
      */
     public Optional<Integer> valueLimit() {
@@ -61,23 +61,23 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
     }
     @CustomType.Builder
     public static final class Builder {
-        private String mode;
+        private String overrideType;
         private String tagKey;
         private @Nullable Integer valueLimit;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimit defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.mode = defaults.mode;
+    	      this.overrideType = defaults.overrideType;
     	      this.tagKey = defaults.tagKey;
     	      this.valueLimit = defaults.valueLimit;
         }
 
         @CustomType.Setter
-        public Builder mode(String mode) {
-            if (mode == null) {
-              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimit", "mode");
+        public Builder overrideType(String overrideType) {
+            if (overrideType == null) {
+              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimit", "overrideType");
             }
-            this.mode = mode;
+            this.overrideType = overrideType;
             return this;
         }
         @CustomType.Setter
@@ -96,7 +96,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
         }
         public ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimit build() {
             final var _resultValue = new ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimit();
-            _resultValue.mode = mode;
+            _resultValue.overrideType = overrideType;
             _resultValue.tagKey = tagKey;
             _resultValue.valueLimit = valueLimit;
             return _resultValue;

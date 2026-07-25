@@ -11,6 +11,7 @@ import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorAttributeRemapper;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorCategoryProcessor;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorDateRemapper;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorDecoderProcessor;
+import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorExcludeAttributeProcessor;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorGeoIpParser;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorGrokParser;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorLookupProcessor;
@@ -66,6 +67,11 @@ public final class LogsCustomPipelineProcessor {
      * 
      */
     private @Nullable LogsCustomPipelineProcessorDecoderProcessor decoderProcessor;
+    /**
+     * @return Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
+     * 
+     */
+    private @Nullable LogsCustomPipelineProcessorExcludeAttributeProcessor excludeAttributeProcessor;
     /**
      * @return Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
      * 
@@ -184,6 +190,13 @@ public final class LogsCustomPipelineProcessor {
         return Optional.ofNullable(this.decoderProcessor);
     }
     /**
+     * @return Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
+     * 
+     */
+    public Optional<LogsCustomPipelineProcessorExcludeAttributeProcessor> excludeAttributeProcessor() {
+        return Optional.ofNullable(this.excludeAttributeProcessor);
+    }
+    /**
      * @return Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
      * 
      */
@@ -294,6 +307,7 @@ public final class LogsCustomPipelineProcessor {
         private @Nullable LogsCustomPipelineProcessorCategoryProcessor categoryProcessor;
         private @Nullable LogsCustomPipelineProcessorDateRemapper dateRemapper;
         private @Nullable LogsCustomPipelineProcessorDecoderProcessor decoderProcessor;
+        private @Nullable LogsCustomPipelineProcessorExcludeAttributeProcessor excludeAttributeProcessor;
         private @Nullable LogsCustomPipelineProcessorGeoIpParser geoIpParser;
         private @Nullable LogsCustomPipelineProcessorGrokParser grokParser;
         private @Nullable LogsCustomPipelineProcessorLookupProcessor lookupProcessor;
@@ -318,6 +332,7 @@ public final class LogsCustomPipelineProcessor {
     	      this.categoryProcessor = defaults.categoryProcessor;
     	      this.dateRemapper = defaults.dateRemapper;
     	      this.decoderProcessor = defaults.decoderProcessor;
+    	      this.excludeAttributeProcessor = defaults.excludeAttributeProcessor;
     	      this.geoIpParser = defaults.geoIpParser;
     	      this.grokParser = defaults.grokParser;
     	      this.lookupProcessor = defaults.lookupProcessor;
@@ -374,6 +389,12 @@ public final class LogsCustomPipelineProcessor {
         public Builder decoderProcessor(@Nullable LogsCustomPipelineProcessorDecoderProcessor decoderProcessor) {
 
             this.decoderProcessor = decoderProcessor;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder excludeAttributeProcessor(@Nullable LogsCustomPipelineProcessorExcludeAttributeProcessor excludeAttributeProcessor) {
+
+            this.excludeAttributeProcessor = excludeAttributeProcessor;
             return this;
         }
         @CustomType.Setter
@@ -469,6 +490,7 @@ public final class LogsCustomPipelineProcessor {
             _resultValue.categoryProcessor = categoryProcessor;
             _resultValue.dateRemapper = dateRemapper;
             _resultValue.decoderProcessor = decoderProcessor;
+            _resultValue.excludeAttributeProcessor = excludeAttributeProcessor;
             _resultValue.geoIpParser = geoIpParser;
             _resultValue.grokParser = grokParser;
             _resultValue.lookupProcessor = lookupProcessor;

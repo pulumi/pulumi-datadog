@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
@@ -50,6 +51,21 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
     }
 
     /**
+     * Controls whether the processor uses exact or probabilistic tag tracking.
+     * 
+     */
+    @Import(name="trackingMode", required=true)
+    private Output<ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs> trackingMode;
+
+    /**
+     * @return Controls whether the processor uses exact or probabilistic tag tracking.
+     * 
+     */
+    public Output<ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs> trackingMode() {
+        return this.trackingMode;
+    }
+
+    /**
      * The default maximum number of distinct tag value combinations allowed per metric. Between 0 and 1000000. Value must be between 0 and 1000000.
      * 
      */
@@ -69,6 +85,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
     private ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitArgs(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitArgs $) {
         this.limitExceededAction = $.limitExceededAction;
         this.perMetricLimits = $.perMetricLimits;
+        this.trackingMode = $.trackingMode;
         this.valueLimit = $.valueLimit;
     }
 
@@ -143,6 +160,27 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
         }
 
         /**
+         * @param trackingMode Controls whether the processor uses exact or probabilistic tag tracking.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trackingMode(Output<ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs> trackingMode) {
+            $.trackingMode = trackingMode;
+            return this;
+        }
+
+        /**
+         * @param trackingMode Controls whether the processor uses exact or probabilistic tag tracking.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trackingMode(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs trackingMode) {
+            return trackingMode(Output.of(trackingMode));
+        }
+
+        /**
          * @param valueLimit The default maximum number of distinct tag value combinations allowed per metric. Between 0 and 1000000. Value must be between 0 and 1000000.
          * 
          * @return builder
@@ -166,6 +204,9 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
         public ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitArgs build() {
             if ($.limitExceededAction == null) {
                 throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitArgs", "limitExceededAction");
+            }
+            if ($.trackingMode == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitArgs", "trackingMode");
             }
             if ($.valueLimit == null) {
                 throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitArgs", "valueLimit");

@@ -30,7 +30,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? IfTagExists;
         /// <summary>
-        /// The query string.
+        /// The query string. Datadog normalizes queries to a canonical form (operator casing, spacing, redundant parentheses, quoting, and similar formatting differences). The provider validates the configured value against this canonical form during planning. If the value doesn't match, the plan fails with an error showing the canonical query to use in the configuration.
         /// </summary>
         public readonly string? Query;
 

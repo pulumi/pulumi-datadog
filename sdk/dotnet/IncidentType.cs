@@ -30,6 +30,25 @@ namespace Pulumi.Datadog
     ///         IsDefault = false,
     ///     });
     /// 
+    ///     // Incident type with the full configuration block shown at its default values.
+    ///     // Every field is optional; omitted fields fall back to these same defaults.
+    ///     var withConfiguration = new Datadog.IncidentType("with_configuration", new()
+    ///     {
+    ///         Name = "Customer Impacting",
+    ///         Description = "Incidents that impact customers",
+    ///         Configuration = new Datadog.Inputs.IncidentTypeConfigurationArgs
+    ///         {
+    ///             Private_incidents = false,
+    ///             Private_incidents_by_default = false,
+    ///             Allow_workflows = true,
+    ///             Allow_incident_deletion = false,
+    ///             Editable_timestamps = false,
+    ///             Test_incidents = true,
+    ///             Create_message = "",
+    ///             Slug_source = "default",
+    ///         },
+    ///     });
+    /// 
     /// });
     /// ```
     /// 
@@ -44,6 +63,12 @@ namespace Pulumi.Datadog
     [DatadogResourceType("datadog:index/incidentType:IncidentType")]
     public partial class IncidentType : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The incident type's behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
+        /// </summary>
+        [Output("configuration")]
+        public Output<Outputs.IncidentTypeConfiguration> Configuration { get; private set; } = null!;
+
         /// <summary>
         /// Description of the incident type. The description can have a maximum of 512 characters.
         /// </summary>
@@ -109,6 +134,12 @@ namespace Pulumi.Datadog
     public sealed class IncidentTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The incident type's behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
+        /// </summary>
+        [Input("configuration")]
+        public Input<Inputs.IncidentTypeConfigurationArgs>? Configuration { get; set; }
+
+        /// <summary>
         /// Description of the incident type. The description can have a maximum of 512 characters.
         /// </summary>
         [Input("description")]
@@ -134,6 +165,12 @@ namespace Pulumi.Datadog
 
     public sealed class IncidentTypeState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The incident type's behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
+        /// </summary>
+        [Input("configuration")]
+        public Input<Inputs.IncidentTypeConfigurationGetArgs>? Configuration { get; set; }
+
         /// <summary>
         /// Description of the incident type. The description can have a maximum of 512 characters.
         /// </summary>

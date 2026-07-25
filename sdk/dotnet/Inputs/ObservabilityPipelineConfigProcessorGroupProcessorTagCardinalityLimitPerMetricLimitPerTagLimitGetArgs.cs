@@ -15,8 +15,8 @@ namespace Pulumi.Datadog.Inputs
         /// <summary>
         /// How the per-tag override is applied. One of `LimitOverride`, `Excluded`. Valid values are `LimitOverride`, `Excluded`.
         /// </summary>
-        [Input("mode", required: true)]
-        public Input<string> Mode { get; set; } = null!;
+        [Input("overrideType", required: true)]
+        public Input<string> OverrideType { get; set; } = null!;
 
         /// <summary>
         /// The tag key this override applies to.
@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> TagKey { get; set; } = null!;
 
         /// <summary>
-        /// The cardinality cap for this tag. Required when `Mode` is `LimitOverride`; must be omitted when `Mode` is `Excluded`. Value must be between 0 and 1000000.
+        /// The cardinality cap for this tag. Required when `OverrideType` is `LimitOverride`; must be omitted when `OverrideType` is `Excluded`. Value must be between 0 and 1000000.
         /// </summary>
         [Input("valueLimit")]
         public Input<int>? ValueLimit { get; set; }

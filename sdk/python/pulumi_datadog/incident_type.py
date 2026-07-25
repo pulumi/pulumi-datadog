@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['IncidentTypeArgs', 'IncidentType']
 
@@ -20,16 +22,20 @@ __all__ = ['IncidentTypeArgs', 'IncidentType']
 class IncidentTypeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
+                 configuration: pulumi.Input[Optional['IncidentTypeConfigurationArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  is_default: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a IncidentType resource.
 
         :param pulumi.Input[_builtins.str] name: Name of the incident type. Must be between 1 and 50 characters.
+        :param pulumi.Input['IncidentTypeConfigurationArgs'] configuration: The incident type's behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
         :param pulumi.Input[_builtins.str] description: Description of the incident type. The description can have a maximum of 512 characters.
         :param pulumi.Input[_builtins.bool] is_default: Whether this incident type is the default type.
         """
         pulumi.set(__self__, "name", name)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if is_default is not None:
@@ -46,6 +52,18 @@ class IncidentTypeArgs:
     @name.setter
     def name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def configuration(self) -> pulumi.Input[Optional['IncidentTypeConfigurationArgs']]:
+        """
+        The incident type's behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: pulumi.Input[Optional['IncidentTypeConfigurationArgs']]):
+        pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -75,22 +93,38 @@ class IncidentTypeArgs:
 @pulumi.input_type
 class _IncidentTypeState:
     def __init__(__self__, *,
+                 configuration: pulumi.Input[Optional['IncidentTypeConfigurationArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  is_default: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IncidentType resources.
 
+        :param pulumi.Input['IncidentTypeConfigurationArgs'] configuration: The incident type's behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
         :param pulumi.Input[_builtins.str] description: Description of the incident type. The description can have a maximum of 512 characters.
         :param pulumi.Input[_builtins.bool] is_default: Whether this incident type is the default type.
         :param pulumi.Input[_builtins.str] name: Name of the incident type. Must be between 1 and 50 characters.
         """
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if is_default is not None:
             pulumi.set(__self__, "is_default", is_default)
         if name is not None:
             pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def configuration(self) -> pulumi.Input[Optional['IncidentTypeConfigurationArgs']]:
+        """
+        The incident type's behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: pulumi.Input[Optional['IncidentTypeConfigurationArgs']]):
+        pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -135,6 +169,7 @@ class IncidentType(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 configuration: pulumi.Input[Optional[Union['IncidentTypeConfigurationArgs', 'IncidentTypeConfigurationArgsDict']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  is_default: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -153,6 +188,21 @@ class IncidentType(pulumi.CustomResource):
             name="Security Incident",
             description="Security-related incidents requiring immediate attention",
             is_default=False)
+        # Incident type with the full configuration block shown at its default values.
+        # Every field is optional; omitted fields fall back to these same defaults.
+        with_configuration = datadog.IncidentType("with_configuration",
+            name="Customer Impacting",
+            description="Incidents that impact customers",
+            configuration={
+                "private_incidents": False,
+                "private_incidents_by_default": False,
+                "allow_workflows": True,
+                "allow_incident_deletion": False,
+                "editable_timestamps": False,
+                "test_incidents": True,
+                "create_message": "",
+                "slug_source": "default",
+            })
         ```
 
         ## Import
@@ -166,6 +216,7 @@ class IncidentType(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['IncidentTypeConfigurationArgs', 'IncidentTypeConfigurationArgsDict']] configuration: The incident type's behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
         :param pulumi.Input[_builtins.str] description: Description of the incident type. The description can have a maximum of 512 characters.
         :param pulumi.Input[_builtins.bool] is_default: Whether this incident type is the default type.
         :param pulumi.Input[_builtins.str] name: Name of the incident type. Must be between 1 and 50 characters.
@@ -190,6 +241,21 @@ class IncidentType(pulumi.CustomResource):
             name="Security Incident",
             description="Security-related incidents requiring immediate attention",
             is_default=False)
+        # Incident type with the full configuration block shown at its default values.
+        # Every field is optional; omitted fields fall back to these same defaults.
+        with_configuration = datadog.IncidentType("with_configuration",
+            name="Customer Impacting",
+            description="Incidents that impact customers",
+            configuration={
+                "private_incidents": False,
+                "private_incidents_by_default": False,
+                "allow_workflows": True,
+                "allow_incident_deletion": False,
+                "editable_timestamps": False,
+                "test_incidents": True,
+                "create_message": "",
+                "slug_source": "default",
+            })
         ```
 
         ## Import
@@ -216,6 +282,7 @@ class IncidentType(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 configuration: pulumi.Input[Optional[Union['IncidentTypeConfigurationArgs', 'IncidentTypeConfigurationArgsDict']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  is_default: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -228,6 +295,7 @@ class IncidentType(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IncidentTypeArgs.__new__(IncidentTypeArgs)
 
+            __props__.__dict__["configuration"] = configuration
             __props__.__dict__["description"] = description
             __props__.__dict__["is_default"] = is_default
             if name is None and not opts.urn:
@@ -243,6 +311,7 @@ class IncidentType(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            configuration: pulumi.Input[Optional[Union['IncidentTypeConfigurationArgs', 'IncidentTypeConfigurationArgsDict']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             is_default: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None) -> 'IncidentType':
@@ -253,6 +322,7 @@ class IncidentType(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['IncidentTypeConfigurationArgs', 'IncidentTypeConfigurationArgsDict']] configuration: The incident type's behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
         :param pulumi.Input[_builtins.str] description: Description of the incident type. The description can have a maximum of 512 characters.
         :param pulumi.Input[_builtins.bool] is_default: Whether this incident type is the default type.
         :param pulumi.Input[_builtins.str] name: Name of the incident type. Must be between 1 and 50 characters.
@@ -261,10 +331,19 @@ class IncidentType(pulumi.CustomResource):
 
         __props__ = _IncidentTypeState.__new__(_IncidentTypeState)
 
+        __props__.__dict__["configuration"] = configuration
         __props__.__dict__["description"] = description
         __props__.__dict__["is_default"] = is_default
         __props__.__dict__["name"] = name
         return IncidentType(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter
+    def configuration(self) -> pulumi.Output['outputs.IncidentTypeConfiguration']:
+        """
+        The incident type's behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
+        """
+        return pulumi.get(self, "configuration")
 
     @_builtins.property
     @pulumi.getter

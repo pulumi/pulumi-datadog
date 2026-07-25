@@ -115,6 +115,11 @@ export type CostBudget = import("./costBudget").CostBudget;
 export const CostBudget: typeof import("./costBudget").CostBudget = null as any;
 utilities.lazyLoad(exports, ["CostBudget"], () => require("./costBudget"));
 
+export { CostCustomForecastArgs, CostCustomForecastState } from "./costCustomForecast";
+export type CostCustomForecast = import("./costCustomForecast").CostCustomForecast;
+export const CostCustomForecast: typeof import("./costCustomForecast").CostCustomForecast = null as any;
+utilities.lazyLoad(exports, ["CostCustomForecast"], () => require("./costCustomForecast"));
+
 export { CsmThreatsAgentRuleArgs, CsmThreatsAgentRuleState } from "./csmThreatsAgentRule";
 export type CsmThreatsAgentRule = import("./csmThreatsAgentRule").CsmThreatsAgentRule;
 export const CsmThreatsAgentRule: typeof import("./csmThreatsAgentRule").CsmThreatsAgentRule = null as any;
@@ -235,6 +240,11 @@ export const getCostBudget: typeof import("./getCostBudget").getCostBudget = nul
 export const getCostBudgetOutput: typeof import("./getCostBudget").getCostBudgetOutput = null as any;
 utilities.lazyLoad(exports, ["getCostBudget","getCostBudgetOutput"], () => require("./getCostBudget"));
 
+export { GetCostCustomForecastArgs, GetCostCustomForecastResult, GetCostCustomForecastOutputArgs } from "./getCostCustomForecast";
+export const getCostCustomForecast: typeof import("./getCostCustomForecast").getCostCustomForecast = null as any;
+export const getCostCustomForecastOutput: typeof import("./getCostCustomForecast").getCostCustomForecastOutput = null as any;
+utilities.lazyLoad(exports, ["getCostCustomForecast","getCostCustomForecastOutput"], () => require("./getCostCustomForecast"));
+
 export { GetCsmThreatsAgentRulesArgs, GetCsmThreatsAgentRulesResult, GetCsmThreatsAgentRulesOutputArgs } from "./getCsmThreatsAgentRules";
 export const getCsmThreatsAgentRules: typeof import("./getCsmThreatsAgentRules").getCsmThreatsAgentRules = null as any;
 export const getCsmThreatsAgentRulesOutput: typeof import("./getCsmThreatsAgentRules").getCsmThreatsAgentRulesOutput = null as any;
@@ -244,6 +254,11 @@ export { GetCsmThreatsPoliciesResult } from "./getCsmThreatsPolicies";
 export const getCsmThreatsPolicies: typeof import("./getCsmThreatsPolicies").getCsmThreatsPolicies = null as any;
 export const getCsmThreatsPoliciesOutput: typeof import("./getCsmThreatsPolicies").getCsmThreatsPoliciesOutput = null as any;
 utilities.lazyLoad(exports, ["getCsmThreatsPolicies","getCsmThreatsPoliciesOutput"], () => require("./getCsmThreatsPolicies"));
+
+export { GetCurrentUserResult } from "./getCurrentUser";
+export const getCurrentUser: typeof import("./getCurrentUser").getCurrentUser = null as any;
+export const getCurrentUserOutput: typeof import("./getCurrentUser").getCurrentUserOutput = null as any;
+utilities.lazyLoad(exports, ["getCurrentUser","getCurrentUserOutput"], () => require("./getCurrentUser"));
 
 export { GetCustomAllocationRuleArgs, GetCustomAllocationRuleResult, GetCustomAllocationRuleOutputArgs } from "./getCustomAllocationRule";
 export const getCustomAllocationRule: typeof import("./getCustomAllocationRule").getCustomAllocationRule = null as any;
@@ -564,6 +579,16 @@ export { IncidentTypeArgs, IncidentTypeState } from "./incidentType";
 export type IncidentType = import("./incidentType").IncidentType;
 export const IncidentType: typeof import("./incidentType").IncidentType = null as any;
 utilities.lazyLoad(exports, ["IncidentType"], () => require("./incidentType"));
+
+export { IncidentUserDefinedFieldArgs, IncidentUserDefinedFieldState } from "./incidentUserDefinedField";
+export type IncidentUserDefinedField = import("./incidentUserDefinedField").IncidentUserDefinedField;
+export const IncidentUserDefinedField: typeof import("./incidentUserDefinedField").IncidentUserDefinedField = null as any;
+utilities.lazyLoad(exports, ["IncidentUserDefinedField"], () => require("./incidentUserDefinedField"));
+
+export { IncidentUserDefinedRoleArgs, IncidentUserDefinedRoleState } from "./incidentUserDefinedRole";
+export type IncidentUserDefinedRole = import("./incidentUserDefinedRole").IncidentUserDefinedRole;
+export const IncidentUserDefinedRole: typeof import("./incidentUserDefinedRole").IncidentUserDefinedRole = null as any;
+utilities.lazyLoad(exports, ["IncidentUserDefinedRole"], () => require("./incidentUserDefinedRole"));
 
 export { IpAllowlistArgs, IpAllowlistState } from "./ipAllowlist";
 export type IpAllowlist = import("./ipAllowlist").IpAllowlist;
@@ -1081,6 +1106,8 @@ const _module = {
                 return new ComplianceResourceEvaluationFilter(name, <any>undefined, { urn })
             case "datadog:index/costBudget:CostBudget":
                 return new CostBudget(name, <any>undefined, { urn })
+            case "datadog:index/costCustomForecast:CostCustomForecast":
+                return new CostCustomForecast(name, <any>undefined, { urn })
             case "datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule":
                 return new CsmThreatsAgentRule(name, <any>undefined, { urn })
             case "datadog:index/csmThreatsPolicy:CsmThreatsPolicy":
@@ -1119,6 +1146,10 @@ const _module = {
                 return new IncidentNotificationTemplate(name, <any>undefined, { urn })
             case "datadog:index/incidentType:IncidentType":
                 return new IncidentType(name, <any>undefined, { urn })
+            case "datadog:index/incidentUserDefinedField:IncidentUserDefinedField":
+                return new IncidentUserDefinedField(name, <any>undefined, { urn })
+            case "datadog:index/incidentUserDefinedRole:IncidentUserDefinedRole":
+                return new IncidentUserDefinedRole(name, <any>undefined, { urn })
             case "datadog:index/ipAllowlist:IpAllowlist":
                 return new IpAllowlist(name, <any>undefined, { urn })
             case "datadog:index/logsArchive:LogsArchive":
@@ -1320,6 +1351,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/cloudWorkloadSecurityAge
 pulumi.runtime.registerResourceModule("datadog", "index/complianceCustomFramework", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/complianceResourceEvaluationFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/costBudget", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/costCustomForecast", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/csmThreatsAgentRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/csmThreatsPolicy", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/customAllocationRule", _module)
@@ -1339,6 +1371,8 @@ pulumi.runtime.registerResourceModule("datadog", "index/gcpUcConfig", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/incidentNotificationRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/incidentNotificationTemplate", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/incidentType", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/incidentUserDefinedField", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/incidentUserDefinedRole", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/ipAllowlist", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/logsArchive", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/logsArchiveOrder", _module)

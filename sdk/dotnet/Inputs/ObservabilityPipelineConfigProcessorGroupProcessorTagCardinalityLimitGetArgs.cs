@@ -31,6 +31,12 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// Controls whether the processor uses exact or probabilistic tag tracking.
+        /// </summary>
+        [Input("trackingMode", required: true)]
+        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeGetArgs> TrackingMode { get; set; } = null!;
+
+        /// <summary>
         /// The default maximum number of distinct tag value combinations allowed per metric. Between 0 and 1000000. Value must be between 0 and 1000000.
         /// </summary>
         [Input("valueLimit", required: true)]

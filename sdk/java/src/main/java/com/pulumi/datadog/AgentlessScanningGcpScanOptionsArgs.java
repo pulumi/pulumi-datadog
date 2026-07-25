@@ -18,6 +18,21 @@ public final class AgentlessScanningGcpScanOptionsArgs extends com.pulumi.resour
     public static final AgentlessScanningGcpScanOptionsArgs Empty = new AgentlessScanningGcpScanOptionsArgs();
 
     /**
+     * Indicates if scanning of Cloud Functions is enabled.
+     * 
+     */
+    @Import(name="cloudFunction", required=true)
+    private Output<Boolean> cloudFunction;
+
+    /**
+     * @return Indicates if scanning of Cloud Functions is enabled.
+     * 
+     */
+    public Output<Boolean> cloudFunction() {
+        return this.cloudFunction;
+    }
+
+    /**
      * Indicates if host compliance scanning is enabled. Defaults to `false`.
      * 
      */
@@ -80,6 +95,7 @@ public final class AgentlessScanningGcpScanOptionsArgs extends com.pulumi.resour
     private AgentlessScanningGcpScanOptionsArgs() {}
 
     private AgentlessScanningGcpScanOptionsArgs(AgentlessScanningGcpScanOptionsArgs $) {
+        this.cloudFunction = $.cloudFunction;
         this.complianceHost = $.complianceHost;
         this.gcpProjectId = $.gcpProjectId;
         this.vulnContainersOs = $.vulnContainersOs;
@@ -102,6 +118,27 @@ public final class AgentlessScanningGcpScanOptionsArgs extends com.pulumi.resour
 
         public Builder(AgentlessScanningGcpScanOptionsArgs defaults) {
             $ = new AgentlessScanningGcpScanOptionsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param cloudFunction Indicates if scanning of Cloud Functions is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudFunction(Output<Boolean> cloudFunction) {
+            $.cloudFunction = cloudFunction;
+            return this;
+        }
+
+        /**
+         * @param cloudFunction Indicates if scanning of Cloud Functions is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudFunction(Boolean cloudFunction) {
+            return cloudFunction(Output.of(cloudFunction));
         }
 
         /**
@@ -189,6 +226,9 @@ public final class AgentlessScanningGcpScanOptionsArgs extends com.pulumi.resour
         }
 
         public AgentlessScanningGcpScanOptionsArgs build() {
+            if ($.cloudFunction == null) {
+                throw new MissingRequiredPropertyException("AgentlessScanningGcpScanOptionsArgs", "cloudFunction");
+            }
             if ($.gcpProjectId == null) {
                 throw new MissingRequiredPropertyException("AgentlessScanningGcpScanOptionsArgs", "gcpProjectId");
             }

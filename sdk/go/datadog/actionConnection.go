@@ -127,12 +127,56 @@ import (
 type ActionConnection struct {
 	pulumi.CustomResourceState
 
+	// Configuration for an Anthropic connection
+	Anthropic ActionConnectionAnthropicPtrOutput `pulumi:"anthropic"`
+	// Configuration for an Asana connection
+	Asana ActionConnectionAsanaPtrOutput `pulumi:"asana"`
 	// Configuration for an AWS connection
 	Aws ActionConnectionAwsPtrOutput `pulumi:"aws"`
+	// Configuration for an Azure connection
+	Azure ActionConnectionAzurePtrOutput `pulumi:"azure"`
+	// Configuration for a CircleCI connection
+	CircleCi ActionConnectionCircleCiPtrOutput `pulumi:"circleCi"`
+	// Configuration for a ClickUp connection
+	Clickup ActionConnectionClickupPtrOutput `pulumi:"clickup"`
+	// Configuration for a Cloudflare connection
+	Cloudflare ActionConnectionCloudflarePtrOutput `pulumi:"cloudflare"`
+	// Configuration for a ConfigCat connection
+	ConfigCat ActionConnectionConfigCatPtrOutput `pulumi:"configCat"`
+	// Configuration for a Datadog connection
+	Datadog ActionConnectionDatadogPtrOutput `pulumi:"datadog"`
+	// Configuration for a Fastly connection
+	Fastly ActionConnectionFastlyPtrOutput `pulumi:"fastly"`
+	// Configuration for a Freshservice connection
+	Freshservice ActionConnectionFreshservicePtrOutput `pulumi:"freshservice"`
+	// Configuration for a Google Cloud connection
+	Gcp ActionConnectionGcpPtrOutput `pulumi:"gcp"`
+	// Configuration for a Gemini connection
+	Gemini ActionConnectionGeminiPtrOutput `pulumi:"gemini"`
+	// Configuration for a GitLab connection
+	Gitlab ActionConnectionGitlabPtrOutput `pulumi:"gitlab"`
+	// Configuration for a GreyNoise connection
+	GreyNoise ActionConnectionGreyNoisePtrOutput `pulumi:"greyNoise"`
 	// Configuration for an HTTP connection
 	Http ActionConnectionHttpPtrOutput `pulumi:"http"`
+	// Configuration for a LaunchDarkly connection
+	LaunchDarkly ActionConnectionLaunchDarklyPtrOutput `pulumi:"launchDarkly"`
 	// Name of the connection
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Configuration for a Notion connection
+	Notion ActionConnectionNotionPtrOutput `pulumi:"notion"`
+	// Configuration for an Okta connection
+	Okta ActionConnectionOktaPtrOutput `pulumi:"okta"`
+	// Configuration for an OpenAI connection
+	Openai ActionConnectionOpenaiPtrOutput `pulumi:"openai"`
+	// Configuration for a ServiceNow connection
+	ServiceNow ActionConnectionServiceNowPtrOutput `pulumi:"serviceNow"`
+	// Configuration for a Split connection
+	Split ActionConnectionSplitPtrOutput `pulumi:"split"`
+	// Configuration for a Statsig connection
+	Statsig ActionConnectionStatsigPtrOutput `pulumi:"statsig"`
+	// Configuration for a VirusTotal connection
+	VirusTotal ActionConnectionVirusTotalPtrOutput `pulumi:"virusTotal"`
 }
 
 // NewActionConnection registers a new resource with the given unique name, arguments, and options.
@@ -168,21 +212,109 @@ func GetActionConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ActionConnection resources.
 type actionConnectionState struct {
+	// Configuration for an Anthropic connection
+	Anthropic *ActionConnectionAnthropic `pulumi:"anthropic"`
+	// Configuration for an Asana connection
+	Asana *ActionConnectionAsana `pulumi:"asana"`
 	// Configuration for an AWS connection
 	Aws *ActionConnectionAws `pulumi:"aws"`
+	// Configuration for an Azure connection
+	Azure *ActionConnectionAzure `pulumi:"azure"`
+	// Configuration for a CircleCI connection
+	CircleCi *ActionConnectionCircleCi `pulumi:"circleCi"`
+	// Configuration for a ClickUp connection
+	Clickup *ActionConnectionClickup `pulumi:"clickup"`
+	// Configuration for a Cloudflare connection
+	Cloudflare *ActionConnectionCloudflare `pulumi:"cloudflare"`
+	// Configuration for a ConfigCat connection
+	ConfigCat *ActionConnectionConfigCat `pulumi:"configCat"`
+	// Configuration for a Datadog connection
+	Datadog *ActionConnectionDatadog `pulumi:"datadog"`
+	// Configuration for a Fastly connection
+	Fastly *ActionConnectionFastly `pulumi:"fastly"`
+	// Configuration for a Freshservice connection
+	Freshservice *ActionConnectionFreshservice `pulumi:"freshservice"`
+	// Configuration for a Google Cloud connection
+	Gcp *ActionConnectionGcp `pulumi:"gcp"`
+	// Configuration for a Gemini connection
+	Gemini *ActionConnectionGemini `pulumi:"gemini"`
+	// Configuration for a GitLab connection
+	Gitlab *ActionConnectionGitlab `pulumi:"gitlab"`
+	// Configuration for a GreyNoise connection
+	GreyNoise *ActionConnectionGreyNoise `pulumi:"greyNoise"`
 	// Configuration for an HTTP connection
 	Http *ActionConnectionHttp `pulumi:"http"`
+	// Configuration for a LaunchDarkly connection
+	LaunchDarkly *ActionConnectionLaunchDarkly `pulumi:"launchDarkly"`
 	// Name of the connection
 	Name *string `pulumi:"name"`
+	// Configuration for a Notion connection
+	Notion *ActionConnectionNotion `pulumi:"notion"`
+	// Configuration for an Okta connection
+	Okta *ActionConnectionOkta `pulumi:"okta"`
+	// Configuration for an OpenAI connection
+	Openai *ActionConnectionOpenai `pulumi:"openai"`
+	// Configuration for a ServiceNow connection
+	ServiceNow *ActionConnectionServiceNow `pulumi:"serviceNow"`
+	// Configuration for a Split connection
+	Split *ActionConnectionSplit `pulumi:"split"`
+	// Configuration for a Statsig connection
+	Statsig *ActionConnectionStatsig `pulumi:"statsig"`
+	// Configuration for a VirusTotal connection
+	VirusTotal *ActionConnectionVirusTotal `pulumi:"virusTotal"`
 }
 
 type ActionConnectionState struct {
+	// Configuration for an Anthropic connection
+	Anthropic ActionConnectionAnthropicPtrInput
+	// Configuration for an Asana connection
+	Asana ActionConnectionAsanaPtrInput
 	// Configuration for an AWS connection
 	Aws ActionConnectionAwsPtrInput
+	// Configuration for an Azure connection
+	Azure ActionConnectionAzurePtrInput
+	// Configuration for a CircleCI connection
+	CircleCi ActionConnectionCircleCiPtrInput
+	// Configuration for a ClickUp connection
+	Clickup ActionConnectionClickupPtrInput
+	// Configuration for a Cloudflare connection
+	Cloudflare ActionConnectionCloudflarePtrInput
+	// Configuration for a ConfigCat connection
+	ConfigCat ActionConnectionConfigCatPtrInput
+	// Configuration for a Datadog connection
+	Datadog ActionConnectionDatadogPtrInput
+	// Configuration for a Fastly connection
+	Fastly ActionConnectionFastlyPtrInput
+	// Configuration for a Freshservice connection
+	Freshservice ActionConnectionFreshservicePtrInput
+	// Configuration for a Google Cloud connection
+	Gcp ActionConnectionGcpPtrInput
+	// Configuration for a Gemini connection
+	Gemini ActionConnectionGeminiPtrInput
+	// Configuration for a GitLab connection
+	Gitlab ActionConnectionGitlabPtrInput
+	// Configuration for a GreyNoise connection
+	GreyNoise ActionConnectionGreyNoisePtrInput
 	// Configuration for an HTTP connection
 	Http ActionConnectionHttpPtrInput
+	// Configuration for a LaunchDarkly connection
+	LaunchDarkly ActionConnectionLaunchDarklyPtrInput
 	// Name of the connection
 	Name pulumi.StringPtrInput
+	// Configuration for a Notion connection
+	Notion ActionConnectionNotionPtrInput
+	// Configuration for an Okta connection
+	Okta ActionConnectionOktaPtrInput
+	// Configuration for an OpenAI connection
+	Openai ActionConnectionOpenaiPtrInput
+	// Configuration for a ServiceNow connection
+	ServiceNow ActionConnectionServiceNowPtrInput
+	// Configuration for a Split connection
+	Split ActionConnectionSplitPtrInput
+	// Configuration for a Statsig connection
+	Statsig ActionConnectionStatsigPtrInput
+	// Configuration for a VirusTotal connection
+	VirusTotal ActionConnectionVirusTotalPtrInput
 }
 
 func (ActionConnectionState) ElementType() reflect.Type {
@@ -190,22 +322,110 @@ func (ActionConnectionState) ElementType() reflect.Type {
 }
 
 type actionConnectionArgs struct {
+	// Configuration for an Anthropic connection
+	Anthropic *ActionConnectionAnthropic `pulumi:"anthropic"`
+	// Configuration for an Asana connection
+	Asana *ActionConnectionAsana `pulumi:"asana"`
 	// Configuration for an AWS connection
 	Aws *ActionConnectionAws `pulumi:"aws"`
+	// Configuration for an Azure connection
+	Azure *ActionConnectionAzure `pulumi:"azure"`
+	// Configuration for a CircleCI connection
+	CircleCi *ActionConnectionCircleCi `pulumi:"circleCi"`
+	// Configuration for a ClickUp connection
+	Clickup *ActionConnectionClickup `pulumi:"clickup"`
+	// Configuration for a Cloudflare connection
+	Cloudflare *ActionConnectionCloudflare `pulumi:"cloudflare"`
+	// Configuration for a ConfigCat connection
+	ConfigCat *ActionConnectionConfigCat `pulumi:"configCat"`
+	// Configuration for a Datadog connection
+	Datadog *ActionConnectionDatadog `pulumi:"datadog"`
+	// Configuration for a Fastly connection
+	Fastly *ActionConnectionFastly `pulumi:"fastly"`
+	// Configuration for a Freshservice connection
+	Freshservice *ActionConnectionFreshservice `pulumi:"freshservice"`
+	// Configuration for a Google Cloud connection
+	Gcp *ActionConnectionGcp `pulumi:"gcp"`
+	// Configuration for a Gemini connection
+	Gemini *ActionConnectionGemini `pulumi:"gemini"`
+	// Configuration for a GitLab connection
+	Gitlab *ActionConnectionGitlab `pulumi:"gitlab"`
+	// Configuration for a GreyNoise connection
+	GreyNoise *ActionConnectionGreyNoise `pulumi:"greyNoise"`
 	// Configuration for an HTTP connection
 	Http *ActionConnectionHttp `pulumi:"http"`
+	// Configuration for a LaunchDarkly connection
+	LaunchDarkly *ActionConnectionLaunchDarkly `pulumi:"launchDarkly"`
 	// Name of the connection
 	Name string `pulumi:"name"`
+	// Configuration for a Notion connection
+	Notion *ActionConnectionNotion `pulumi:"notion"`
+	// Configuration for an Okta connection
+	Okta *ActionConnectionOkta `pulumi:"okta"`
+	// Configuration for an OpenAI connection
+	Openai *ActionConnectionOpenai `pulumi:"openai"`
+	// Configuration for a ServiceNow connection
+	ServiceNow *ActionConnectionServiceNow `pulumi:"serviceNow"`
+	// Configuration for a Split connection
+	Split *ActionConnectionSplit `pulumi:"split"`
+	// Configuration for a Statsig connection
+	Statsig *ActionConnectionStatsig `pulumi:"statsig"`
+	// Configuration for a VirusTotal connection
+	VirusTotal *ActionConnectionVirusTotal `pulumi:"virusTotal"`
 }
 
 // The set of arguments for constructing a ActionConnection resource.
 type ActionConnectionArgs struct {
+	// Configuration for an Anthropic connection
+	Anthropic ActionConnectionAnthropicPtrInput
+	// Configuration for an Asana connection
+	Asana ActionConnectionAsanaPtrInput
 	// Configuration for an AWS connection
 	Aws ActionConnectionAwsPtrInput
+	// Configuration for an Azure connection
+	Azure ActionConnectionAzurePtrInput
+	// Configuration for a CircleCI connection
+	CircleCi ActionConnectionCircleCiPtrInput
+	// Configuration for a ClickUp connection
+	Clickup ActionConnectionClickupPtrInput
+	// Configuration for a Cloudflare connection
+	Cloudflare ActionConnectionCloudflarePtrInput
+	// Configuration for a ConfigCat connection
+	ConfigCat ActionConnectionConfigCatPtrInput
+	// Configuration for a Datadog connection
+	Datadog ActionConnectionDatadogPtrInput
+	// Configuration for a Fastly connection
+	Fastly ActionConnectionFastlyPtrInput
+	// Configuration for a Freshservice connection
+	Freshservice ActionConnectionFreshservicePtrInput
+	// Configuration for a Google Cloud connection
+	Gcp ActionConnectionGcpPtrInput
+	// Configuration for a Gemini connection
+	Gemini ActionConnectionGeminiPtrInput
+	// Configuration for a GitLab connection
+	Gitlab ActionConnectionGitlabPtrInput
+	// Configuration for a GreyNoise connection
+	GreyNoise ActionConnectionGreyNoisePtrInput
 	// Configuration for an HTTP connection
 	Http ActionConnectionHttpPtrInput
+	// Configuration for a LaunchDarkly connection
+	LaunchDarkly ActionConnectionLaunchDarklyPtrInput
 	// Name of the connection
 	Name pulumi.StringInput
+	// Configuration for a Notion connection
+	Notion ActionConnectionNotionPtrInput
+	// Configuration for an Okta connection
+	Okta ActionConnectionOktaPtrInput
+	// Configuration for an OpenAI connection
+	Openai ActionConnectionOpenaiPtrInput
+	// Configuration for a ServiceNow connection
+	ServiceNow ActionConnectionServiceNowPtrInput
+	// Configuration for a Split connection
+	Split ActionConnectionSplitPtrInput
+	// Configuration for a Statsig connection
+	Statsig ActionConnectionStatsigPtrInput
+	// Configuration for a VirusTotal connection
+	VirusTotal ActionConnectionVirusTotalPtrInput
 }
 
 func (ActionConnectionArgs) ElementType() reflect.Type {
@@ -295,9 +515,79 @@ func (o ActionConnectionOutput) ToActionConnectionOutputWithContext(ctx context.
 	return o
 }
 
+// Configuration for an Anthropic connection
+func (o ActionConnectionOutput) Anthropic() ActionConnectionAnthropicPtrOutput {
+	return o.ApplyT(func(v *ActionConnection) ActionConnectionAnthropicPtrOutput { return v.Anthropic }).(ActionConnectionAnthropicPtrOutput)
+}
+
+// Configuration for an Asana connection
+func (o ActionConnectionOutput) Asana() ActionConnectionAsanaPtrOutput {
+	return o.ApplyT(func(v *ActionConnection) ActionConnectionAsanaPtrOutput { return v.Asana }).(ActionConnectionAsanaPtrOutput)
+}
+
 // Configuration for an AWS connection
 func (o ActionConnectionOutput) Aws() ActionConnectionAwsPtrOutput {
 	return o.ApplyT(func(v *ActionConnection) ActionConnectionAwsPtrOutput { return v.Aws }).(ActionConnectionAwsPtrOutput)
+}
+
+// Configuration for an Azure connection
+func (o ActionConnectionOutput) Azure() ActionConnectionAzurePtrOutput {
+	return o.ApplyT(func(v *ActionConnection) ActionConnectionAzurePtrOutput { return v.Azure }).(ActionConnectionAzurePtrOutput)
+}
+
+// Configuration for a CircleCI connection
+func (o ActionConnectionOutput) CircleCi() ActionConnectionCircleCiPtrOutput {
+	return o.ApplyT(func(v *ActionConnection) ActionConnectionCircleCiPtrOutput { return v.CircleCi }).(ActionConnectionCircleCiPtrOutput)
+}
+
+// Configuration for a ClickUp connection
+func (o ActionConnectionOutput) Clickup() ActionConnectionClickupPtrOutput {
+	return o.ApplyT(func(v *ActionConnection) ActionConnectionClickupPtrOutput { return v.Clickup }).(ActionConnectionClickupPtrOutput)
+}
+
+// Configuration for a Cloudflare connection
+func (o ActionConnectionOutput) Cloudflare() ActionConnectionCloudflarePtrOutput {
+	return o.ApplyT(func(v *ActionConnection) ActionConnectionCloudflarePtrOutput { return v.Cloudflare }).(ActionConnectionCloudflarePtrOutput)
+}
+
+// Configuration for a ConfigCat connection
+func (o ActionConnectionOutput) ConfigCat() ActionConnectionConfigCatPtrOutput {
+	return o.ApplyT(func(v *ActionConnection) ActionConnectionConfigCatPtrOutput { return v.ConfigCat }).(ActionConnectionConfigCatPtrOutput)
+}
+
+// Configuration for a Datadog connection
+func (o ActionConnectionOutput) Datadog() ActionConnectionDatadogPtrOutput {
+	return o.ApplyT(func(v *ActionConnection) ActionConnectionDatadogPtrOutput { return v.Datadog }).(ActionConnectionDatadogPtrOutput)
+}
+
+// Configuration for a Fastly connection
+func (o ActionConnectionOutput) Fastly() ActionConnectionFastlyPtrOutput {
+	return o.ApplyT(func(v *ActionConnection) ActionConnectionFastlyPtrOutput { return v.Fastly }).(ActionConnectionFastlyPtrOutput)
+}
+
+// Configuration for a Freshservice connection
+func (o ActionConnectionOutput) Freshservice() ActionConnectionFreshservicePtrOutput {
+	return o.ApplyT(func(v *ActionConnection) ActionConnectionFreshservicePtrOutput { return v.Freshservice }).(ActionConnectionFreshservicePtrOutput)
+}
+
+// Configuration for a Google Cloud connection
+func (o ActionConnectionOutput) Gcp() ActionConnectionGcpPtrOutput {
+	return o.ApplyT(func(v *ActionConnection) ActionConnectionGcpPtrOutput { return v.Gcp }).(ActionConnectionGcpPtrOutput)
+}
+
+// Configuration for a Gemini connection
+func (o ActionConnectionOutput) Gemini() ActionConnectionGeminiPtrOutput {
+	return o.ApplyT(func(v *ActionConnection) ActionConnectionGeminiPtrOutput { return v.Gemini }).(ActionConnectionGeminiPtrOutput)
+}
+
+// Configuration for a GitLab connection
+func (o ActionConnectionOutput) Gitlab() ActionConnectionGitlabPtrOutput {
+	return o.ApplyT(func(v *ActionConnection) ActionConnectionGitlabPtrOutput { return v.Gitlab }).(ActionConnectionGitlabPtrOutput)
+}
+
+// Configuration for a GreyNoise connection
+func (o ActionConnectionOutput) GreyNoise() ActionConnectionGreyNoisePtrOutput {
+	return o.ApplyT(func(v *ActionConnection) ActionConnectionGreyNoisePtrOutput { return v.GreyNoise }).(ActionConnectionGreyNoisePtrOutput)
 }
 
 // Configuration for an HTTP connection
@@ -305,9 +595,49 @@ func (o ActionConnectionOutput) Http() ActionConnectionHttpPtrOutput {
 	return o.ApplyT(func(v *ActionConnection) ActionConnectionHttpPtrOutput { return v.Http }).(ActionConnectionHttpPtrOutput)
 }
 
+// Configuration for a LaunchDarkly connection
+func (o ActionConnectionOutput) LaunchDarkly() ActionConnectionLaunchDarklyPtrOutput {
+	return o.ApplyT(func(v *ActionConnection) ActionConnectionLaunchDarklyPtrOutput { return v.LaunchDarkly }).(ActionConnectionLaunchDarklyPtrOutput)
+}
+
 // Name of the connection
 func (o ActionConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Configuration for a Notion connection
+func (o ActionConnectionOutput) Notion() ActionConnectionNotionPtrOutput {
+	return o.ApplyT(func(v *ActionConnection) ActionConnectionNotionPtrOutput { return v.Notion }).(ActionConnectionNotionPtrOutput)
+}
+
+// Configuration for an Okta connection
+func (o ActionConnectionOutput) Okta() ActionConnectionOktaPtrOutput {
+	return o.ApplyT(func(v *ActionConnection) ActionConnectionOktaPtrOutput { return v.Okta }).(ActionConnectionOktaPtrOutput)
+}
+
+// Configuration for an OpenAI connection
+func (o ActionConnectionOutput) Openai() ActionConnectionOpenaiPtrOutput {
+	return o.ApplyT(func(v *ActionConnection) ActionConnectionOpenaiPtrOutput { return v.Openai }).(ActionConnectionOpenaiPtrOutput)
+}
+
+// Configuration for a ServiceNow connection
+func (o ActionConnectionOutput) ServiceNow() ActionConnectionServiceNowPtrOutput {
+	return o.ApplyT(func(v *ActionConnection) ActionConnectionServiceNowPtrOutput { return v.ServiceNow }).(ActionConnectionServiceNowPtrOutput)
+}
+
+// Configuration for a Split connection
+func (o ActionConnectionOutput) Split() ActionConnectionSplitPtrOutput {
+	return o.ApplyT(func(v *ActionConnection) ActionConnectionSplitPtrOutput { return v.Split }).(ActionConnectionSplitPtrOutput)
+}
+
+// Configuration for a Statsig connection
+func (o ActionConnectionOutput) Statsig() ActionConnectionStatsigPtrOutput {
+	return o.ApplyT(func(v *ActionConnection) ActionConnectionStatsigPtrOutput { return v.Statsig }).(ActionConnectionStatsigPtrOutput)
+}
+
+// Configuration for a VirusTotal connection
+func (o ActionConnectionOutput) VirusTotal() ActionConnectionVirusTotalPtrOutput {
+	return o.ApplyT(func(v *ActionConnection) ActionConnectionVirusTotalPtrOutput { return v.VirusTotal }).(ActionConnectionVirusTotalPtrOutput)
 }
 
 type ActionConnectionArrayOutput struct{ *pulumi.OutputState }

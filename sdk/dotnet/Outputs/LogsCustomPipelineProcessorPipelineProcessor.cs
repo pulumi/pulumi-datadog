@@ -42,6 +42,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor? DecoderProcessor;
         /// <summary>
+        /// Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
+        /// </summary>
+        public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorExcludeAttributeProcessor? ExcludeAttributeProcessor;
+        /// <summary>
         /// Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
         /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorGeoIpParser? GeoIpParser;
@@ -110,6 +114,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor? decoderProcessor,
 
+            Outputs.LogsCustomPipelineProcessorPipelineProcessorExcludeAttributeProcessor? excludeAttributeProcessor,
+
             Outputs.LogsCustomPipelineProcessorPipelineProcessorGeoIpParser? geoIpParser,
 
             Outputs.LogsCustomPipelineProcessorPipelineProcessorGrokParser? grokParser,
@@ -143,6 +149,7 @@ namespace Pulumi.Datadog.Outputs
             CategoryProcessor = categoryProcessor;
             DateRemapper = dateRemapper;
             DecoderProcessor = decoderProcessor;
+            ExcludeAttributeProcessor = excludeAttributeProcessor;
             GeoIpParser = geoIpParser;
             GrokParser = grokParser;
             LookupProcessor = lookupProcessor;

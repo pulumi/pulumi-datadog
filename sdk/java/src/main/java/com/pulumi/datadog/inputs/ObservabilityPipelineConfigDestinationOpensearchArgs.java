@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationOpensearchAuthArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationOpensearchBufferArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationOpensearchDataStreamArgs;
 import java.lang.String;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class ObservabilityPipelineConfigDestinationOpensearchArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ObservabilityPipelineConfigDestinationOpensearchArgs Empty = new ObservabilityPipelineConfigDestinationOpensearchArgs();
+
+    /**
+     * Authentication settings for the OpenSearch destination.
+     * 
+     */
+    @Import(name="auth")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationOpensearchAuthArgs> auth;
+
+    /**
+     * @return Authentication settings for the OpenSearch destination.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationOpensearchAuthArgs>> auth() {
+        return Optional.ofNullable(this.auth);
+    }
 
     /**
      * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
@@ -62,12 +78,29 @@ public final class ObservabilityPipelineConfigDestinationOpensearchArgs extends 
         return Optional.ofNullable(this.dataStream);
     }
 
+    /**
+     * Name of the environment variable or secret that holds the OpenSearch endpoint URL.
+     * 
+     */
+    @Import(name="endpointUrlKey")
+    private @Nullable Output<String> endpointUrlKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the OpenSearch endpoint URL.
+     * 
+     */
+    public Optional<Output<String>> endpointUrlKey() {
+        return Optional.ofNullable(this.endpointUrlKey);
+    }
+
     private ObservabilityPipelineConfigDestinationOpensearchArgs() {}
 
     private ObservabilityPipelineConfigDestinationOpensearchArgs(ObservabilityPipelineConfigDestinationOpensearchArgs $) {
+        this.auth = $.auth;
         this.buffer = $.buffer;
         this.bulkIndex = $.bulkIndex;
         this.dataStream = $.dataStream;
+        this.endpointUrlKey = $.endpointUrlKey;
     }
 
     public static Builder builder() {
@@ -86,6 +119,27 @@ public final class ObservabilityPipelineConfigDestinationOpensearchArgs extends 
 
         public Builder(ObservabilityPipelineConfigDestinationOpensearchArgs defaults) {
             $ = new ObservabilityPipelineConfigDestinationOpensearchArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param auth Authentication settings for the OpenSearch destination.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder auth(@Nullable Output<ObservabilityPipelineConfigDestinationOpensearchAuthArgs> auth) {
+            $.auth = auth;
+            return this;
+        }
+
+        /**
+         * @param auth Authentication settings for the OpenSearch destination.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder auth(ObservabilityPipelineConfigDestinationOpensearchAuthArgs auth) {
+            return auth(Output.of(auth));
         }
 
         /**
@@ -149,6 +203,27 @@ public final class ObservabilityPipelineConfigDestinationOpensearchArgs extends 
          */
         public Builder dataStream(ObservabilityPipelineConfigDestinationOpensearchDataStreamArgs dataStream) {
             return dataStream(Output.of(dataStream));
+        }
+
+        /**
+         * @param endpointUrlKey Name of the environment variable or secret that holds the OpenSearch endpoint URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointUrlKey(@Nullable Output<String> endpointUrlKey) {
+            $.endpointUrlKey = endpointUrlKey;
+            return this;
+        }
+
+        /**
+         * @param endpointUrlKey Name of the environment variable or secret that holds the OpenSearch endpoint URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointUrlKey(String endpointUrlKey) {
+            return endpointUrlKey(Output.of(endpointUrlKey));
         }
 
         public ObservabilityPipelineConfigDestinationOpensearchArgs build() {

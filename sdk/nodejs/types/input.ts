@@ -5,6 +5,34 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export interface ActionConnectionAnthropic {
+    /**
+     * Configuration for Anthropic API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.ActionConnectionAnthropicApiKey | undefined>;
+}
+
+export interface ActionConnectionAnthropicApiKey {
+    /**
+     * Anthropic API token. String length must be at least 1.
+     */
+    apiToken?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionAsana {
+    /**
+     * Configuration for Asana access token authentication
+     */
+    accessToken?: pulumi.Input<inputs.ActionConnectionAsanaAccessToken | undefined>;
+}
+
+export interface ActionConnectionAsanaAccessToken {
+    /**
+     * Asana access token. String length must be at least 1.
+     */
+    accessToken?: pulumi.Input<string | undefined>;
+}
+
 export interface ActionConnectionAws {
     /**
      * Configuration for an assume role AWS connection
@@ -29,6 +57,229 @@ export interface ActionConnectionAwsAssumeRole {
      * Role to assume. String length must be at least 1.
      */
     role?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionAzure {
+    /**
+     * Configuration for Azure tenant authentication
+     */
+    tenant?: pulumi.Input<inputs.ActionConnectionAzureTenant | undefined>;
+}
+
+export interface ActionConnectionAzureTenant {
+    /**
+     * Azure application client ID. String length must be at least 1.
+     */
+    appClientId?: pulumi.Input<string | undefined>;
+    /**
+     * Azure application client secret. String length must be at least 1.
+     */
+    clientSecret?: pulumi.Input<string | undefined>;
+    /**
+     * Custom scope requested when acquiring an OAuth 2 access token. String length must be at least 1.
+     */
+    customScopes?: pulumi.Input<string | undefined>;
+    /**
+     * Azure Active Directory tenant ID. String length must be at least 1.
+     */
+    tenantId?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionCircleCi {
+    /**
+     * Configuration for CircleCI API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.ActionConnectionCircleCiApiKey | undefined>;
+}
+
+export interface ActionConnectionCircleCiApiKey {
+    /**
+     * CircleCI API token. String length must be at least 1.
+     */
+    apiToken?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionClickup {
+    /**
+     * Configuration for ClickUp API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.ActionConnectionClickupApiKey | undefined>;
+}
+
+export interface ActionConnectionClickupApiKey {
+    /**
+     * ClickUp API token. String length must be at least 1.
+     */
+    apiToken?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionCloudflare {
+    /**
+     * Configuration for Cloudflare API token authentication
+     */
+    apiToken?: pulumi.Input<inputs.ActionConnectionCloudflareApiToken | undefined>;
+    /**
+     * Configuration for Cloudflare global API token authentication
+     */
+    globalApiToken?: pulumi.Input<inputs.ActionConnectionCloudflareGlobalApiToken | undefined>;
+}
+
+export interface ActionConnectionCloudflareApiToken {
+    /**
+     * Cloudflare API token. String length must be at least 1.
+     */
+    apiToken?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionCloudflareGlobalApiToken {
+    /**
+     * Email address associated with the Cloudflare account. String length must be at least 1.
+     */
+    authEmail?: pulumi.Input<string | undefined>;
+    /**
+     * Cloudflare global API key. String length must be at least 1.
+     */
+    globalApiKey?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionConfigCat {
+    /**
+     * Configuration for ConfigCat SDK key authentication
+     */
+    sdkKey?: pulumi.Input<inputs.ActionConnectionConfigCatSdkKey | undefined>;
+}
+
+export interface ActionConnectionConfigCatSdkKey {
+    /**
+     * ConfigCat Public Management API password. String length must be at least 1.
+     */
+    apiPassword?: pulumi.Input<string | undefined>;
+    /**
+     * ConfigCat Public Management API username. String length must be at least 1.
+     */
+    apiUsername?: pulumi.Input<string | undefined>;
+    /**
+     * ConfigCat SDK key. String length must be at least 1.
+     */
+    sdkKey?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionDatadog {
+    /**
+     * Configuration for Datadog API and application key authentication
+     */
+    apiKey?: pulumi.Input<inputs.ActionConnectionDatadogApiKey | undefined>;
+}
+
+export interface ActionConnectionDatadogApiKey {
+    /**
+     * Datadog API key. String length must be at least 1.
+     */
+    apiKey?: pulumi.Input<string | undefined>;
+    /**
+     * Datadog application key. String length must be at least 1.
+     */
+    appKey?: pulumi.Input<string | undefined>;
+    /**
+     * Datadog site data center. String length must be at least 1.
+     */
+    datacenter?: pulumi.Input<string | undefined>;
+    /**
+     * Custom subdomain used for URLs generated with this connection. String length must be at least 1.
+     */
+    subdomain?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionFastly {
+    /**
+     * Configuration for Fastly API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.ActionConnectionFastlyApiKey | undefined>;
+}
+
+export interface ActionConnectionFastlyApiKey {
+    /**
+     * Fastly API key. String length must be at least 1.
+     */
+    apiKey?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionFreshservice {
+    /**
+     * Configuration for Freshservice API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.ActionConnectionFreshserviceApiKey | undefined>;
+}
+
+export interface ActionConnectionFreshserviceApiKey {
+    /**
+     * Freshservice API key. String length must be at least 1.
+     */
+    apiKey?: pulumi.Input<string | undefined>;
+    /**
+     * Freshservice domain. String length must be at least 1.
+     */
+    domain?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionGcp {
+    /**
+     * Configuration for Google Cloud service account authentication
+     */
+    serviceAccount?: pulumi.Input<inputs.ActionConnectionGcpServiceAccount | undefined>;
+}
+
+export interface ActionConnectionGcpServiceAccount {
+    /**
+     * Google Cloud service account private key. String length must be at least 1.
+     */
+    privateKey?: pulumi.Input<string | undefined>;
+    /**
+     * Google Cloud service account email. String length must be at least 1.
+     */
+    serviceAccountEmail?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionGemini {
+    /**
+     * Configuration for Gemini API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.ActionConnectionGeminiApiKey | undefined>;
+}
+
+export interface ActionConnectionGeminiApiKey {
+    /**
+     * Gemini API key. String length must be at least 1.
+     */
+    apiKey?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionGitlab {
+    /**
+     * Configuration for GitLab API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.ActionConnectionGitlabApiKey | undefined>;
+}
+
+export interface ActionConnectionGitlabApiKey {
+    /**
+     * GitLab API token. String length must be at least 1.
+     */
+    apiToken?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionGreyNoise {
+    /**
+     * Configuration for GreyNoise API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.ActionConnectionGreyNoiseApiKey | undefined>;
+}
+
+export interface ActionConnectionGreyNoiseApiKey {
+    /**
+     * GreyNoise API key. String length must be at least 1.
+     */
+    apiKey?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionConnectionHttp {
@@ -107,6 +358,130 @@ export interface ActionConnectionHttpTokenAuthUrlParameter {
      * URL parameter value. String length must be at least 1.
      */
     value?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionLaunchDarkly {
+    /**
+     * Configuration for LaunchDarkly API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.ActionConnectionLaunchDarklyApiKey | undefined>;
+}
+
+export interface ActionConnectionLaunchDarklyApiKey {
+    /**
+     * LaunchDarkly API token. String length must be at least 1.
+     */
+    apiToken?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionNotion {
+    /**
+     * Configuration for Notion API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.ActionConnectionNotionApiKey | undefined>;
+}
+
+export interface ActionConnectionNotionApiKey {
+    /**
+     * Notion API token. String length must be at least 1.
+     */
+    apiToken?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionOkta {
+    /**
+     * Configuration for Okta API token authentication
+     */
+    apiToken?: pulumi.Input<inputs.ActionConnectionOktaApiToken | undefined>;
+}
+
+export interface ActionConnectionOktaApiToken {
+    /**
+     * Okta API token. String length must be at least 1.
+     */
+    apiToken?: pulumi.Input<string | undefined>;
+    /**
+     * Okta domain. String length must be at least 1.
+     */
+    domain?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionOpenai {
+    /**
+     * Configuration for OpenAI API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.ActionConnectionOpenaiApiKey | undefined>;
+}
+
+export interface ActionConnectionOpenaiApiKey {
+    /**
+     * OpenAI API token. String length must be at least 1.
+     */
+    apiToken?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionServiceNow {
+    /**
+     * Configuration for ServiceNow basic authentication
+     */
+    basicAuth?: pulumi.Input<inputs.ActionConnectionServiceNowBasicAuth | undefined>;
+}
+
+export interface ActionConnectionServiceNowBasicAuth {
+    /**
+     * ServiceNow instance. String length must be at least 1.
+     */
+    instance?: pulumi.Input<string | undefined>;
+    /**
+     * ServiceNow password. String length must be at least 1.
+     */
+    password?: pulumi.Input<string | undefined>;
+    /**
+     * ServiceNow username. String length must be at least 1.
+     */
+    username?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionSplit {
+    /**
+     * Configuration for Split API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.ActionConnectionSplitApiKey | undefined>;
+}
+
+export interface ActionConnectionSplitApiKey {
+    /**
+     * Split API key. String length must be at least 1.
+     */
+    apiKey?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionStatsig {
+    /**
+     * Configuration for Statsig API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.ActionConnectionStatsigApiKey | undefined>;
+}
+
+export interface ActionConnectionStatsigApiKey {
+    /**
+     * Statsig API key. String length must be at least 1.
+     */
+    apiKey?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionVirusTotal {
+    /**
+     * Configuration for VirusTotal API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.ActionConnectionVirusTotalApiKey | undefined>;
+}
+
+export interface ActionConnectionVirusTotalApiKey {
+    /**
+     * VirusTotal API key. String length must be at least 1.
+     */
+    apiKey?: pulumi.Input<string | undefined>;
 }
 
 export interface ApmRetentionFilterFilter {
@@ -547,6 +922,26 @@ export interface CostBudgetEntryTagFilter {
     /**
      * **Note:** Must be one of the tags from the `metricsQuery`.
      */
+    tagKey: pulumi.Input<string>;
+    tagValue: pulumi.Input<string>;
+}
+
+export interface CostCustomForecastEntry {
+    /**
+     * The forecast override amount for the month. Value must be at least 0.000000.
+     */
+    amount: pulumi.Input<number>;
+    /**
+     * The month the entry applies to, in `YYYYMM` format.
+     */
+    month: pulumi.Input<number>;
+    /**
+     * Tag filters that scope this entry to a specific budget entry tag combination.
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<inputs.CostCustomForecastEntryTagFilter>[] | undefined>;
+}
+
+export interface CostCustomForecastEntryTagFilter {
     tagKey: pulumi.Input<string>;
     tagValue: pulumi.Input<string>;
 }
@@ -66129,6 +66524,62 @@ export interface DowntimeScheduleRecurringScheduleRecurrence {
     start?: pulumi.Input<string | undefined>;
 }
 
+export interface GetActionConnectionAnthropic {
+    /**
+     * Configuration for Anthropic API key authentication
+     */
+    apiKey?: inputs.GetActionConnectionAnthropicApiKey;
+}
+
+export interface GetActionConnectionAnthropicArgs {
+    /**
+     * Configuration for Anthropic API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.GetActionConnectionAnthropicApiKeyArgs | undefined>;
+}
+
+export interface GetActionConnectionAnthropicApiKey {
+    /**
+     * Anthropic API token
+     */
+    apiToken?: string;
+}
+
+export interface GetActionConnectionAnthropicApiKeyArgs {
+    /**
+     * Anthropic API token
+     */
+    apiToken?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionAsana {
+    /**
+     * Configuration for Asana access token authentication
+     */
+    accessToken?: inputs.GetActionConnectionAsanaAccessToken;
+}
+
+export interface GetActionConnectionAsanaArgs {
+    /**
+     * Configuration for Asana access token authentication
+     */
+    accessToken?: pulumi.Input<inputs.GetActionConnectionAsanaAccessTokenArgs | undefined>;
+}
+
+export interface GetActionConnectionAsanaAccessToken {
+    /**
+     * Asana access token
+     */
+    accessToken?: string;
+}
+
+export interface GetActionConnectionAsanaAccessTokenArgs {
+    /**
+     * Asana access token
+     */
+    accessToken?: pulumi.Input<string | undefined>;
+}
+
 export interface GetActionConnectionAws {
     /**
      * Configuration for an assume role AWS connection
@@ -66179,6 +66630,452 @@ export interface GetActionConnectionAwsAssumeRoleArgs {
      * Role to assume
      */
     role?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionAzure {
+    /**
+     * Configuration for Azure tenant authentication
+     */
+    tenant?: inputs.GetActionConnectionAzureTenant;
+}
+
+export interface GetActionConnectionAzureArgs {
+    /**
+     * Configuration for Azure tenant authentication
+     */
+    tenant?: pulumi.Input<inputs.GetActionConnectionAzureTenantArgs | undefined>;
+}
+
+export interface GetActionConnectionAzureTenant {
+    /**
+     * Azure application client ID
+     */
+    appClientId?: string;
+    /**
+     * Azure application client secret
+     */
+    clientSecret?: string;
+    /**
+     * Custom scope requested when acquiring an OAuth 2 access token
+     */
+    customScopes?: string;
+    /**
+     * Azure Active Directory tenant ID
+     */
+    tenantId?: string;
+}
+
+export interface GetActionConnectionAzureTenantArgs {
+    /**
+     * Azure application client ID
+     */
+    appClientId?: pulumi.Input<string | undefined>;
+    /**
+     * Azure application client secret
+     */
+    clientSecret?: pulumi.Input<string | undefined>;
+    /**
+     * Custom scope requested when acquiring an OAuth 2 access token
+     */
+    customScopes?: pulumi.Input<string | undefined>;
+    /**
+     * Azure Active Directory tenant ID
+     */
+    tenantId?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionCircleCi {
+    /**
+     * Configuration for CircleCI API key authentication
+     */
+    apiKey?: inputs.GetActionConnectionCircleCiApiKey;
+}
+
+export interface GetActionConnectionCircleCiArgs {
+    /**
+     * Configuration for CircleCI API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.GetActionConnectionCircleCiApiKeyArgs | undefined>;
+}
+
+export interface GetActionConnectionCircleCiApiKey {
+    /**
+     * CircleCI API token
+     */
+    apiToken?: string;
+}
+
+export interface GetActionConnectionCircleCiApiKeyArgs {
+    /**
+     * CircleCI API token
+     */
+    apiToken?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionClickup {
+    /**
+     * Configuration for ClickUp API key authentication
+     */
+    apiKey?: inputs.GetActionConnectionClickupApiKey;
+}
+
+export interface GetActionConnectionClickupArgs {
+    /**
+     * Configuration for ClickUp API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.GetActionConnectionClickupApiKeyArgs | undefined>;
+}
+
+export interface GetActionConnectionClickupApiKey {
+    /**
+     * ClickUp API token
+     */
+    apiToken?: string;
+}
+
+export interface GetActionConnectionClickupApiKeyArgs {
+    /**
+     * ClickUp API token
+     */
+    apiToken?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionCloudflare {
+    /**
+     * Configuration for Cloudflare API token authentication
+     */
+    apiToken?: inputs.GetActionConnectionCloudflareApiToken;
+    /**
+     * Configuration for Cloudflare global API token authentication
+     */
+    globalApiToken?: inputs.GetActionConnectionCloudflareGlobalApiToken;
+}
+
+export interface GetActionConnectionCloudflareArgs {
+    /**
+     * Configuration for Cloudflare API token authentication
+     */
+    apiToken?: pulumi.Input<inputs.GetActionConnectionCloudflareApiTokenArgs | undefined>;
+    /**
+     * Configuration for Cloudflare global API token authentication
+     */
+    globalApiToken?: pulumi.Input<inputs.GetActionConnectionCloudflareGlobalApiTokenArgs | undefined>;
+}
+
+export interface GetActionConnectionCloudflareApiToken {
+    /**
+     * Cloudflare API token
+     */
+    apiToken?: string;
+}
+
+export interface GetActionConnectionCloudflareApiTokenArgs {
+    /**
+     * Cloudflare API token
+     */
+    apiToken?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionCloudflareGlobalApiToken {
+    /**
+     * Email address associated with the Cloudflare account
+     */
+    authEmail?: string;
+    /**
+     * Cloudflare global API key
+     */
+    globalApiKey?: string;
+}
+
+export interface GetActionConnectionCloudflareGlobalApiTokenArgs {
+    /**
+     * Email address associated with the Cloudflare account
+     */
+    authEmail?: pulumi.Input<string | undefined>;
+    /**
+     * Cloudflare global API key
+     */
+    globalApiKey?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionConfigCat {
+    /**
+     * Configuration for ConfigCat SDK key authentication
+     */
+    sdkKey?: inputs.GetActionConnectionConfigCatSdkKey;
+}
+
+export interface GetActionConnectionConfigCatArgs {
+    /**
+     * Configuration for ConfigCat SDK key authentication
+     */
+    sdkKey?: pulumi.Input<inputs.GetActionConnectionConfigCatSdkKeyArgs | undefined>;
+}
+
+export interface GetActionConnectionConfigCatSdkKey {
+    /**
+     * ConfigCat Public Management API password
+     */
+    apiPassword?: string;
+    /**
+     * ConfigCat Public Management API username
+     */
+    apiUsername?: string;
+    /**
+     * ConfigCat SDK key
+     */
+    sdkKey?: string;
+}
+
+export interface GetActionConnectionConfigCatSdkKeyArgs {
+    /**
+     * ConfigCat Public Management API password
+     */
+    apiPassword?: pulumi.Input<string | undefined>;
+    /**
+     * ConfigCat Public Management API username
+     */
+    apiUsername?: pulumi.Input<string | undefined>;
+    /**
+     * ConfigCat SDK key
+     */
+    sdkKey?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionDatadog {
+    /**
+     * Configuration for Datadog API and application key authentication
+     */
+    apiKey?: inputs.GetActionConnectionDatadogApiKey;
+}
+
+export interface GetActionConnectionDatadogArgs {
+    /**
+     * Configuration for Datadog API and application key authentication
+     */
+    apiKey?: pulumi.Input<inputs.GetActionConnectionDatadogApiKeyArgs | undefined>;
+}
+
+export interface GetActionConnectionDatadogApiKey {
+    /**
+     * Datadog API key
+     */
+    apiKey?: string;
+    /**
+     * Datadog application key
+     */
+    appKey?: string;
+    /**
+     * Datadog site data center
+     */
+    datacenter?: string;
+    /**
+     * Custom subdomain used for URLs generated with this connection
+     */
+    subdomain?: string;
+}
+
+export interface GetActionConnectionDatadogApiKeyArgs {
+    /**
+     * Datadog API key
+     */
+    apiKey?: pulumi.Input<string | undefined>;
+    /**
+     * Datadog application key
+     */
+    appKey?: pulumi.Input<string | undefined>;
+    /**
+     * Datadog site data center
+     */
+    datacenter?: pulumi.Input<string | undefined>;
+    /**
+     * Custom subdomain used for URLs generated with this connection
+     */
+    subdomain?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionFastly {
+    /**
+     * Configuration for Fastly API key authentication
+     */
+    apiKey?: inputs.GetActionConnectionFastlyApiKey;
+}
+
+export interface GetActionConnectionFastlyArgs {
+    /**
+     * Configuration for Fastly API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.GetActionConnectionFastlyApiKeyArgs | undefined>;
+}
+
+export interface GetActionConnectionFastlyApiKey {
+    /**
+     * Fastly API key
+     */
+    apiKey?: string;
+}
+
+export interface GetActionConnectionFastlyApiKeyArgs {
+    /**
+     * Fastly API key
+     */
+    apiKey?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionFreshservice {
+    /**
+     * Configuration for Freshservice API key authentication
+     */
+    apiKey?: inputs.GetActionConnectionFreshserviceApiKey;
+}
+
+export interface GetActionConnectionFreshserviceArgs {
+    /**
+     * Configuration for Freshservice API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.GetActionConnectionFreshserviceApiKeyArgs | undefined>;
+}
+
+export interface GetActionConnectionFreshserviceApiKey {
+    /**
+     * Freshservice API key
+     */
+    apiKey?: string;
+    /**
+     * Freshservice domain
+     */
+    domain?: string;
+}
+
+export interface GetActionConnectionFreshserviceApiKeyArgs {
+    /**
+     * Freshservice API key
+     */
+    apiKey?: pulumi.Input<string | undefined>;
+    /**
+     * Freshservice domain
+     */
+    domain?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionGcp {
+    /**
+     * Configuration for Google Cloud service account authentication
+     */
+    serviceAccount?: inputs.GetActionConnectionGcpServiceAccount;
+}
+
+export interface GetActionConnectionGcpArgs {
+    /**
+     * Configuration for Google Cloud service account authentication
+     */
+    serviceAccount?: pulumi.Input<inputs.GetActionConnectionGcpServiceAccountArgs | undefined>;
+}
+
+export interface GetActionConnectionGcpServiceAccount {
+    /**
+     * Google Cloud service account private key
+     */
+    privateKey?: string;
+    /**
+     * Google Cloud service account email
+     */
+    serviceAccountEmail?: string;
+}
+
+export interface GetActionConnectionGcpServiceAccountArgs {
+    /**
+     * Google Cloud service account private key
+     */
+    privateKey?: pulumi.Input<string | undefined>;
+    /**
+     * Google Cloud service account email
+     */
+    serviceAccountEmail?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionGemini {
+    /**
+     * Configuration for Gemini API key authentication
+     */
+    apiKey?: inputs.GetActionConnectionGeminiApiKey;
+}
+
+export interface GetActionConnectionGeminiArgs {
+    /**
+     * Configuration for Gemini API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.GetActionConnectionGeminiApiKeyArgs | undefined>;
+}
+
+export interface GetActionConnectionGeminiApiKey {
+    /**
+     * Gemini API key
+     */
+    apiKey?: string;
+}
+
+export interface GetActionConnectionGeminiApiKeyArgs {
+    /**
+     * Gemini API key
+     */
+    apiKey?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionGitlab {
+    /**
+     * Configuration for GitLab API key authentication
+     */
+    apiKey?: inputs.GetActionConnectionGitlabApiKey;
+}
+
+export interface GetActionConnectionGitlabArgs {
+    /**
+     * Configuration for GitLab API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.GetActionConnectionGitlabApiKeyArgs | undefined>;
+}
+
+export interface GetActionConnectionGitlabApiKey {
+    /**
+     * GitLab API token
+     */
+    apiToken?: string;
+}
+
+export interface GetActionConnectionGitlabApiKeyArgs {
+    /**
+     * GitLab API token
+     */
+    apiToken?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionGreyNoise {
+    /**
+     * Configuration for GreyNoise API key authentication
+     */
+    apiKey?: inputs.GetActionConnectionGreyNoiseApiKey;
+}
+
+export interface GetActionConnectionGreyNoiseArgs {
+    /**
+     * Configuration for GreyNoise API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.GetActionConnectionGreyNoiseApiKeyArgs | undefined>;
+}
+
+export interface GetActionConnectionGreyNoiseApiKey {
+    /**
+     * GreyNoise API key
+     */
+    apiKey?: string;
+}
+
+export interface GetActionConnectionGreyNoiseApiKeyArgs {
+    /**
+     * GreyNoise API key
+     */
+    apiKey?: pulumi.Input<string | undefined>;
 }
 
 export interface GetActionConnectionHttp {
@@ -66329,6 +67226,254 @@ export interface GetActionConnectionHttpTokenAuthUrlParameterArgs {
      * URL parameter value
      */
     value?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionLaunchDarkly {
+    /**
+     * Configuration for LaunchDarkly API key authentication
+     */
+    apiKey?: inputs.GetActionConnectionLaunchDarklyApiKey;
+}
+
+export interface GetActionConnectionLaunchDarklyArgs {
+    /**
+     * Configuration for LaunchDarkly API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.GetActionConnectionLaunchDarklyApiKeyArgs | undefined>;
+}
+
+export interface GetActionConnectionLaunchDarklyApiKey {
+    /**
+     * LaunchDarkly API token
+     */
+    apiToken?: string;
+}
+
+export interface GetActionConnectionLaunchDarklyApiKeyArgs {
+    /**
+     * LaunchDarkly API token
+     */
+    apiToken?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionNotion {
+    /**
+     * Configuration for Notion API key authentication
+     */
+    apiKey?: inputs.GetActionConnectionNotionApiKey;
+}
+
+export interface GetActionConnectionNotionArgs {
+    /**
+     * Configuration for Notion API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.GetActionConnectionNotionApiKeyArgs | undefined>;
+}
+
+export interface GetActionConnectionNotionApiKey {
+    /**
+     * Notion API token
+     */
+    apiToken?: string;
+}
+
+export interface GetActionConnectionNotionApiKeyArgs {
+    /**
+     * Notion API token
+     */
+    apiToken?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionOkta {
+    /**
+     * Configuration for Okta API token authentication
+     */
+    apiToken?: inputs.GetActionConnectionOktaApiToken;
+}
+
+export interface GetActionConnectionOktaArgs {
+    /**
+     * Configuration for Okta API token authentication
+     */
+    apiToken?: pulumi.Input<inputs.GetActionConnectionOktaApiTokenArgs | undefined>;
+}
+
+export interface GetActionConnectionOktaApiToken {
+    /**
+     * Okta API token
+     */
+    apiToken?: string;
+    /**
+     * Okta domain
+     */
+    domain?: string;
+}
+
+export interface GetActionConnectionOktaApiTokenArgs {
+    /**
+     * Okta API token
+     */
+    apiToken?: pulumi.Input<string | undefined>;
+    /**
+     * Okta domain
+     */
+    domain?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionOpenai {
+    /**
+     * Configuration for OpenAI API key authentication
+     */
+    apiKey?: inputs.GetActionConnectionOpenaiApiKey;
+}
+
+export interface GetActionConnectionOpenaiArgs {
+    /**
+     * Configuration for OpenAI API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.GetActionConnectionOpenaiApiKeyArgs | undefined>;
+}
+
+export interface GetActionConnectionOpenaiApiKey {
+    /**
+     * OpenAI API token
+     */
+    apiToken?: string;
+}
+
+export interface GetActionConnectionOpenaiApiKeyArgs {
+    /**
+     * OpenAI API token
+     */
+    apiToken?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionServiceNow {
+    /**
+     * Configuration for ServiceNow basic authentication
+     */
+    basicAuth?: inputs.GetActionConnectionServiceNowBasicAuth;
+}
+
+export interface GetActionConnectionServiceNowArgs {
+    /**
+     * Configuration for ServiceNow basic authentication
+     */
+    basicAuth?: pulumi.Input<inputs.GetActionConnectionServiceNowBasicAuthArgs | undefined>;
+}
+
+export interface GetActionConnectionServiceNowBasicAuth {
+    /**
+     * ServiceNow instance
+     */
+    instance?: string;
+    /**
+     * ServiceNow password
+     */
+    password?: string;
+    /**
+     * ServiceNow username
+     */
+    username?: string;
+}
+
+export interface GetActionConnectionServiceNowBasicAuthArgs {
+    /**
+     * ServiceNow instance
+     */
+    instance?: pulumi.Input<string | undefined>;
+    /**
+     * ServiceNow password
+     */
+    password?: pulumi.Input<string | undefined>;
+    /**
+     * ServiceNow username
+     */
+    username?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionSplit {
+    /**
+     * Configuration for Split API key authentication
+     */
+    apiKey?: inputs.GetActionConnectionSplitApiKey;
+}
+
+export interface GetActionConnectionSplitArgs {
+    /**
+     * Configuration for Split API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.GetActionConnectionSplitApiKeyArgs | undefined>;
+}
+
+export interface GetActionConnectionSplitApiKey {
+    /**
+     * Split API key
+     */
+    apiKey?: string;
+}
+
+export interface GetActionConnectionSplitApiKeyArgs {
+    /**
+     * Split API key
+     */
+    apiKey?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionStatsig {
+    /**
+     * Configuration for Statsig API key authentication
+     */
+    apiKey?: inputs.GetActionConnectionStatsigApiKey;
+}
+
+export interface GetActionConnectionStatsigArgs {
+    /**
+     * Configuration for Statsig API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.GetActionConnectionStatsigApiKeyArgs | undefined>;
+}
+
+export interface GetActionConnectionStatsigApiKey {
+    /**
+     * Statsig API key
+     */
+    apiKey?: string;
+}
+
+export interface GetActionConnectionStatsigApiKeyArgs {
+    /**
+     * Statsig API key
+     */
+    apiKey?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionVirusTotal {
+    /**
+     * Configuration for VirusTotal API key authentication
+     */
+    apiKey?: inputs.GetActionConnectionVirusTotalApiKey;
+}
+
+export interface GetActionConnectionVirusTotalArgs {
+    /**
+     * Configuration for VirusTotal API key authentication
+     */
+    apiKey?: pulumi.Input<inputs.GetActionConnectionVirusTotalApiKeyArgs | undefined>;
+}
+
+export interface GetActionConnectionVirusTotalApiKey {
+    /**
+     * VirusTotal API key
+     */
+    apiKey?: string;
+}
+
+export interface GetActionConnectionVirusTotalApiKeyArgs {
+    /**
+     * VirusTotal API key
+     */
+    apiKey?: pulumi.Input<string | undefined>;
 }
 
 export interface GetAwsCurConfigAccountFilters {
@@ -66523,6 +67668,46 @@ export interface GetCostBudgetEntryTagFilter {
 }
 
 export interface GetCostBudgetEntryTagFilterArgs {
+    tagKey?: pulumi.Input<string | undefined>;
+    tagValue?: pulumi.Input<string | undefined>;
+}
+
+export interface GetCostCustomForecastEntry {
+    /**
+     * The forecast override amount for the month.
+     */
+    amount?: number;
+    /**
+     * The month the entry applies to, in `YYYYMM` format.
+     */
+    month?: number;
+    /**
+     * Tag filters that scope this entry to a specific budget entry tag combination.
+     */
+    tagFilters?: inputs.GetCostCustomForecastEntryTagFilter[];
+}
+
+export interface GetCostCustomForecastEntryArgs {
+    /**
+     * The forecast override amount for the month.
+     */
+    amount?: pulumi.Input<number | undefined>;
+    /**
+     * The month the entry applies to, in `YYYYMM` format.
+     */
+    month?: pulumi.Input<number | undefined>;
+    /**
+     * Tag filters that scope this entry to a specific budget entry tag combination.
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<inputs.GetCostCustomForecastEntryTagFilterArgs>[] | undefined>;
+}
+
+export interface GetCostCustomForecastEntryTagFilter {
+    tagKey?: string;
+    tagValue?: string;
+}
+
+export interface GetCostCustomForecastEntryTagFilterArgs {
     tagKey?: pulumi.Input<string | undefined>;
     tagValue?: pulumi.Input<string | undefined>;
 }
@@ -67694,6 +68879,94 @@ export interface IncidentNotificationRuleCondition {
     values: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface IncidentTypeConfiguration {
+    /**
+     * Whether incidents of this type can be deleted. Defaults to `false`.
+     */
+    allowIncidentDeletion?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether users can manually run a workflow from an incident of this type. Defaults to `true`.
+     */
+    allowWorkflows?: pulumi.Input<boolean | undefined>;
+    /**
+     * An optional message shown to users when they declare an incident of this type. Defaults to an empty string.
+     */
+    createMessage?: pulumi.Input<string | undefined>;
+    /**
+     * Whether responders can edit incident timestamps for incidents of this type. Defaults to `false`.
+     */
+    editableTimestamps?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether responders can create private incidents of this type. Defaults to `false`.
+     */
+    privateIncidents?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether the private toggle is enabled by default in the incident creation modal for this type. Defaults to `false`.
+     */
+    privateIncidentsByDefault?: pulumi.Input<boolean | undefined>;
+    /**
+     * The source used to derive the incident slug. When set to `servicenow`, incidents display the ServiceNow record ID instead of the public ID. If no ServiceNow integration exists, the public ID is displayed. Defaults to `default`. Valid values are `default`, `servicenow`.
+     */
+    slugSource?: pulumi.Input<string | undefined>;
+    /**
+     * Whether test incidents of this type can be created. Defaults to `true`.
+     */
+    testIncidents?: pulumi.Input<boolean | undefined>;
+}
+
+export interface IncidentUserDefinedFieldMetadata {
+    /**
+     * The category of the autocomplete source.
+     */
+    category?: pulumi.Input<string | undefined>;
+    /**
+     * The query parameter used to limit the number of autocomplete results.
+     */
+    searchLimitParam?: pulumi.Input<string | undefined>;
+    /**
+     * Additional query parameters to include in the search URL.
+     */
+    searchParams?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
+     * The query parameter used to pass typed input to the search URL.
+     */
+    searchQueryParam?: pulumi.Input<string | undefined>;
+    /**
+     * The JSON path to the results in the response body.
+     */
+    searchResultPath?: pulumi.Input<string | undefined>;
+    /**
+     * The URL used to populate autocomplete options.
+     */
+    searchUrl?: pulumi.Input<string | undefined>;
+}
+
+export interface IncidentUserDefinedFieldValidValue {
+    /**
+     * A detailed description of the valid value.
+     */
+    description?: pulumi.Input<string | undefined>;
+    /**
+     * The human-readable display name for this value.
+     */
+    displayName: pulumi.Input<string>;
+    /**
+     * A short description of the valid value.
+     */
+    shortDescription?: pulumi.Input<string | undefined>;
+    /**
+     * The identifier that is stored when this option is selected.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface IncidentUserDefinedRolePolicy {
+    /**
+     * Whether this role can only be assigned to one responder at a time. Defaults to `false`.
+     */
+    isSingle?: pulumi.Input<boolean | undefined>;
+}
+
 export interface IpAllowlistEntry {
     /**
      * IP address or range of addresses. String must be a valid CIDR block or IP address.
@@ -67938,6 +69211,10 @@ export interface LogsCustomPipelineProcessor {
      * Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
      */
     decoderProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorDecoderProcessor | undefined>;
+    /**
+     * Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
+     */
+    excludeAttributeProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorExcludeAttributeProcessor | undefined>;
     /**
      * Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
      */
@@ -68344,6 +69621,21 @@ export interface LogsCustomPipelineProcessorDecoderProcessor {
     target: pulumi.Input<string>;
 }
 
+export interface LogsCustomPipelineProcessorExcludeAttributeProcessor {
+    /**
+     * Name of the log attribute to remove from the log event.
+     */
+    attributeToExclude: pulumi.Input<string>;
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean | undefined>;
+    /**
+     * Name of the processor.
+     */
+    name?: pulumi.Input<string | undefined>;
+}
+
 export interface LogsCustomPipelineProcessorGeoIpParser {
     /**
      * If the processor is enabled or not.
@@ -68481,6 +69773,10 @@ export interface LogsCustomPipelineProcessorPipelineProcessor {
      * Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
      */
     decoderProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor | undefined>;
+    /**
+     * Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
+     */
+    excludeAttributeProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorExcludeAttributeProcessor | undefined>;
     /**
      * Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
      */
@@ -68884,6 +70180,21 @@ export interface LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor {
      * Decoded message
      */
     target: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorExcludeAttributeProcessor {
+    /**
+     * Name of the log attribute to remove from the log event.
+     */
+    attributeToExclude: pulumi.Input<string>;
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean | undefined>;
+    /**
+     * Name of the processor.
+     */
+    name?: pulumi.Input<string | undefined>;
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorGeoIpParser {
@@ -70544,7 +71855,7 @@ export interface MonitorVariablesCloudCostQuery {
 
 export interface MonitorVariablesDataJobsQuery {
     /**
-     * The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `dbt.model`, `dbt.test`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+     * The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
      */
     jobType: pulumi.Input<string>;
     /**
@@ -71033,6 +72344,14 @@ export interface ObservabilityPipelineConfigDestinationAmazonS3Generic {
      */
     region: pulumi.Input<string>;
     /**
+     * The server-side encryption algorithm used when storing objects in S3. Valid values: `aws:kms`, `AES256`. Valid values are `aws:kms`, `AES256`.
+     */
+    serverSideEncryption?: pulumi.Input<string | undefined>;
+    /**
+     * ID of the AWS KMS key to use for SSE-KMS encryption. Only applies when `serverSideEncryption` is `aws:kms`.
+     */
+    ssekmsKeyId?: pulumi.Input<string | undefined>;
+    /**
      * S3 storage class. Valid values are `STANDARD`, `REDUCED_REDUNDANCY`, `INTELLIGENT_TIERING`, `STANDARD_IA`, `EXPRESS_ONEZONE`, `ONEZONE_IA`, `GLACIER`, `GLACIER_IR`, `DEEP_ARCHIVE`.
      */
     storageClass: pulumi.Input<string>;
@@ -71497,6 +72816,10 @@ export interface ObservabilityPipelineConfigDestinationCloudPremTls {
      * Name of the environment variable or secret that holds the passphrase for the private key file.
      */
     keyPassKey?: pulumi.Input<string | undefined>;
+    /**
+     * Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+     */
+    serverName?: pulumi.Input<string | undefined>;
 }
 
 export interface ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem {
@@ -72237,6 +73560,10 @@ export interface ObservabilityPipelineConfigDestinationHttpClientTls {
      * Name of the environment variable or secret that holds the passphrase for the private key file.
      */
     keyPassKey?: pulumi.Input<string | undefined>;
+    /**
+     * Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+     */
+    serverName?: pulumi.Input<string | undefined>;
 }
 
 export interface ObservabilityPipelineConfigDestinationKafka {
@@ -72506,6 +73833,10 @@ export interface ObservabilityPipelineConfigDestinationNewRelicBufferMemory {
 
 export interface ObservabilityPipelineConfigDestinationOpensearch {
     /**
+     * Authentication settings for the OpenSearch destination.
+     */
+    auth?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationOpensearchAuth | undefined>;
+    /**
      * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
      */
     buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationOpensearchBuffer | undefined>;
@@ -72517,6 +73848,25 @@ export interface ObservabilityPipelineConfigDestinationOpensearch {
      * Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
      */
     dataStream?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationOpensearchDataStream | undefined>;
+    /**
+     * Name of the environment variable or secret that holds the OpenSearch endpoint URL.
+     */
+    endpointUrlKey?: pulumi.Input<string | undefined>;
+}
+
+export interface ObservabilityPipelineConfigDestinationOpensearchAuth {
+    /**
+     * Name of the environment variable or secret that holds the OpenSearch password (used when `strategy` is `basic`).
+     */
+    passwordKey?: pulumi.Input<string | undefined>;
+    /**
+     * The authentication strategy to use. Valid values are `basic`, `aws`.
+     */
+    strategy: pulumi.Input<string>;
+    /**
+     * Name of the environment variable or secret that holds the OpenSearch username (used when `strategy` is `basic`).
+     */
+    usernameKey?: pulumi.Input<string | undefined>;
 }
 
 export interface ObservabilityPipelineConfigDestinationOpensearchBuffer {
@@ -72797,6 +74147,10 @@ export interface ObservabilityPipelineConfigDestinationSocketTls {
      * Name of the environment variable or secret that holds the passphrase for the private key file.
      */
     keyPassKey?: pulumi.Input<string | undefined>;
+    /**
+     * Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+     */
+    serverName?: pulumi.Input<string | undefined>;
 }
 
 export interface ObservabilityPipelineConfigDestinationSplunkHec {
@@ -73122,6 +74476,10 @@ export interface ObservabilityPipelineConfigDestinationSyslogNgTls {
      * Name of the environment variable or secret that holds the passphrase for the private key file.
      */
     keyPassKey?: pulumi.Input<string | undefined>;
+    /**
+     * Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+     */
+    serverName?: pulumi.Input<string | undefined>;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroup {
@@ -74205,6 +75563,10 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalit
      */
     perMetricLimits?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimit>[] | undefined>;
     /**
+     * Controls whether the processor uses exact or probabilistic tag tracking.
+     */
+    trackingMode: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode>;
+    /**
      * The default maximum number of distinct tag value combinations allowed per metric. Between 0 and 1000000. Value must be between 0 and 1000000.
      */
     valueLimit: pulumi.Input<number>;
@@ -74212,7 +75574,7 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalit
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimit {
     /**
-     * The action to take on this metric when the limit is exceeded. Required when `mode` is `tracked`; must be omitted when `mode` is `excluded`. Valid values are `dropTag`, `dropEvent`.
+     * The action to take on this metric when the limit is exceeded. Required when `overrideType` is `limitOverride`; must be omitted when `overrideType` is `excluded`. Valid values are `dropTag`, `dropEvent`.
      */
     limitExceededAction?: pulumi.Input<string | undefined>;
     /**
@@ -74220,15 +75582,15 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalit
      */
     metricName: pulumi.Input<string>;
     /**
-     * How the per-metric override is applied. One of `tracked`, `excluded`. Valid values are `tracked`, `excluded`.
+     * How the per-metric override is applied. One of `limitOverride`, `excluded`. Valid values are `limitOverride`, `excluded`.
      */
-    mode: pulumi.Input<string>;
+    overrideType: pulumi.Input<string>;
     /**
-     * Per-tag cardinality overrides that apply within this metric. Must be omitted when `mode` is `excluded`.
+     * Per-tag cardinality overrides that apply within this metric. Must be omitted when `overrideType` is `excluded`.
      */
     perTagLimits?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimit>[] | undefined>;
     /**
-     * The cardinality cap for this metric. Required when `mode` is `tracked`; must be omitted when `mode` is `excluded`. Value must be between 0 and 1000000.
+     * The cardinality cap for this metric. Required when `overrideType` is `limitOverride`; must be omitted when `overrideType` is `excluded`. Value must be between 0 and 1000000.
      */
     valueLimit?: pulumi.Input<number | undefined>;
 }
@@ -74237,15 +75599,22 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalit
     /**
      * How the per-tag override is applied. One of `limitOverride`, `excluded`. Valid values are `limitOverride`, `excluded`.
      */
-    mode: pulumi.Input<string>;
+    overrideType: pulumi.Input<string>;
     /**
      * The tag key this override applies to.
      */
     tagKey: pulumi.Input<string>;
     /**
-     * The cardinality cap for this tag. Required when `mode` is `limitOverride`; must be omitted when `mode` is `excluded`. Value must be between 0 and 1000000.
+     * The cardinality cap for this tag. Required when `overrideType` is `limitOverride`; must be omitted when `overrideType` is `excluded`. Value must be between 0 and 1000000.
      */
     valueLimit?: pulumi.Input<number | undefined>;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode {
+    /**
+     * The cardinality tracking algorithm to use. One of `exactFingerprint`, `probabilistic`. Valid values are `exactFingerprint`, `probabilistic`.
+     */
+    mode: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorThrottle {
@@ -74655,6 +76024,10 @@ export interface ObservabilityPipelineConfigSourceHttpClientTls {
      * Name of the environment variable or secret that holds the passphrase for the private key file.
      */
     keyPassKey?: pulumi.Input<string | undefined>;
+    /**
+     * Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+     */
+    serverName?: pulumi.Input<string | undefined>;
 }
 
 export interface ObservabilityPipelineConfigSourceHttpServer {
@@ -75312,7 +76685,7 @@ export interface OnCallTeamRoutingRulesRule {
      */
     actions?: pulumi.Input<pulumi.Input<inputs.OnCallTeamRoutingRulesRuleAction>[] | undefined>;
     /**
-     * ID of the policy to be applied when this routing rule matches.
+     * ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `escalationPolicy` action.
      */
     escalationPolicy?: pulumi.Input<string | undefined>;
     /**
@@ -75320,11 +76693,11 @@ export interface OnCallTeamRoutingRulesRule {
      */
     id?: pulumi.Input<string | undefined>;
     /**
-     * Defines the query or condition that triggers this routing rule. Defaults to `""`.
+     * Defines the query or condition that triggers this routing rule. Must not be set on the last rule, which acts as a catch-all rule. Defaults to `""`.
      */
     query?: pulumi.Input<string | undefined>;
     /**
-     * Holds time zone information and a list of time restrictions for a routing rule.
+     * Holds time zone information and a list of time restrictions for a routing rule. Must not be set on the last rule, which acts as a catch-all rule.
      */
     timeRestrictions?: pulumi.Input<inputs.OnCallTeamRoutingRulesRuleTimeRestrictions | undefined>;
     /**
@@ -133698,6 +135071,18 @@ export interface SyntheticsTestApiStepRequestBasicauth {
      */
     accessTokenUrl?: pulumi.Input<string | undefined>;
     /**
+     * Whether to inject the `exp` (expiration) claim automatically, for `jwt` authentication.
+     */
+    addClaimsExp?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether to inject the `iat` (issued at) claim automatically, for `jwt` authentication.
+     */
+    addClaimsIat?: pulumi.Input<boolean | undefined>;
+    /**
+     * Algorithm to use for `jwt` authentication. Valid values are `HS256`, `RS256`, `ES256`.
+     */
+    algorithm?: pulumi.Input<string | undefined>;
+    /**
      * Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
      */
     audience?: pulumi.Input<string | undefined>;
@@ -133714,9 +135099,21 @@ export interface SyntheticsTestApiStepRequestBasicauth {
      */
     domain?: pulumi.Input<string | undefined>;
     /**
+     * Token time-to-live in seconds, for `jwt` authentication.
+     */
+    expiresIn?: pulumi.Input<number | undefined>;
+    /**
+     * Custom JWT header as a JSON string, for `jwt` authentication.
+     */
+    header?: pulumi.Input<string | undefined>;
+    /**
      * Password for authentication.
      */
     password?: pulumi.Input<string | undefined>;
+    /**
+     * JWT claims as a JSON string, for `jwt` authentication.
+     */
+    payload?: pulumi.Input<string | undefined>;
     /**
      * Region for `SIGV4` authentication.
      */
@@ -133729,6 +135126,10 @@ export interface SyntheticsTestApiStepRequestBasicauth {
      * Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
      */
     scope?: pulumi.Input<string | undefined>;
+    /**
+     * Signing key for `jwt` authentication. Use the shared secret for `HS256` or the private key (PEM format) for `RS256` and `ES256`.
+     */
+    secret?: pulumi.Input<string | undefined>;
     /**
      * Secret key for `SIGV4` authentication.
      */
@@ -133745,6 +135146,10 @@ export interface SyntheticsTestApiStepRequestBasicauth {
      * Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `header`, `body`.
      */
     tokenApiAuthentication?: pulumi.Input<string | undefined>;
+    /**
+     * Prefix added before the token in the `Authorization` header for `jwt` authentication. Defaults to `Bearer`.
+     */
+    tokenPrefix?: pulumi.Input<string | undefined>;
     /**
      * Type of basic authentication to use when performing the test. Defaults to `"web"`.
      */
@@ -134657,6 +136062,10 @@ export interface SyntheticsTestOptionsList {
      */
     httpVersion?: pulumi.Input<string | undefined>;
     /**
+     * Ignore server certificate error for SSL tests.
+     */
+    ignoreCertificateValidation?: pulumi.Input<boolean | undefined>;
+    /**
      * Ignore server certificate error for browser tests.
      */
     ignoreServerCertificateError?: pulumi.Input<boolean | undefined>;
@@ -134791,6 +136200,18 @@ export interface SyntheticsTestRequestBasicauth {
      */
     accessTokenUrl?: pulumi.Input<string | undefined>;
     /**
+     * Whether to inject the `exp` (expiration) claim automatically, for `jwt` authentication.
+     */
+    addClaimsExp?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether to inject the `iat` (issued at) claim automatically, for `jwt` authentication.
+     */
+    addClaimsIat?: pulumi.Input<boolean | undefined>;
+    /**
+     * Algorithm to use for `jwt` authentication. Valid values are `HS256`, `RS256`, `ES256`.
+     */
+    algorithm?: pulumi.Input<string | undefined>;
+    /**
      * Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
      */
     audience?: pulumi.Input<string | undefined>;
@@ -134807,9 +136228,21 @@ export interface SyntheticsTestRequestBasicauth {
      */
     domain?: pulumi.Input<string | undefined>;
     /**
+     * Token time-to-live in seconds, for `jwt` authentication.
+     */
+    expiresIn?: pulumi.Input<number | undefined>;
+    /**
+     * Custom JWT header as a JSON string, for `jwt` authentication.
+     */
+    header?: pulumi.Input<string | undefined>;
+    /**
      * Password for authentication.
      */
     password?: pulumi.Input<string | undefined>;
+    /**
+     * JWT claims as a JSON string, for `jwt` authentication.
+     */
+    payload?: pulumi.Input<string | undefined>;
     /**
      * Region for `SIGV4` authentication.
      */
@@ -134822,6 +136255,10 @@ export interface SyntheticsTestRequestBasicauth {
      * Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
      */
     scope?: pulumi.Input<string | undefined>;
+    /**
+     * Signing key for `jwt` authentication. Use the shared secret for `HS256` or the private key (PEM format) for `RS256` and `ES256`.
+     */
+    secret?: pulumi.Input<string | undefined>;
     /**
      * Secret key for `SIGV4` authentication.
      */
@@ -134838,6 +136275,10 @@ export interface SyntheticsTestRequestBasicauth {
      * Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `header`, `body`.
      */
     tokenApiAuthentication?: pulumi.Input<string | undefined>;
+    /**
+     * Prefix added before the token in the `Authorization` header for `jwt` authentication. Defaults to `Bearer`.
+     */
+    tokenPrefix?: pulumi.Input<string | undefined>;
     /**
      * Type of basic authentication to use when performing the test. Defaults to `"web"`.
      */
@@ -135188,7 +136629,7 @@ export interface TagPipelineRulesetRuleQuery {
      */
     ifTagExists?: pulumi.Input<string | undefined>;
     /**
-     * The query string.
+     * The query string. Datadog normalizes queries to a canonical form (operator casing, spacing, redundant parentheses, quoting, and similar formatting differences). The provider validates the configured value against this canonical form during planning. If the value doesn't match, the plan fails with an error showing the canonical query to use in the configuration.
      */
     query?: pulumi.Input<string | undefined>;
 }
@@ -135450,6 +136891,10 @@ export namespace aws {
          */
         enabled?: pulumi.Input<boolean | undefined>;
         /**
+         * AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `includeOnly` or `excludeOnly`.
+         */
+        metricNameFilters?: pulumi.Input<pulumi.Input<inputs.aws.IntegrationAccountMetricsConfigMetricNameFilter>[] | undefined>;
+        /**
          * AWS metrics namespace filters. Defaults to a pre-set `excludeOnly` list if block is empty.
          */
         namespaceFilters?: pulumi.Input<inputs.aws.IntegrationAccountMetricsConfigNamespaceFilters | undefined>;
@@ -135457,6 +136902,21 @@ export namespace aws {
          * AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
          */
         tagFilters?: pulumi.Input<pulumi.Input<inputs.aws.IntegrationAccountMetricsConfigTagFilter>[] | undefined>;
+    }
+
+    export interface IntegrationAccountMetricsConfigMetricNameFilter {
+        /**
+         * Exclude metric names matching one of these patterns.
+         */
+        excludeOnlies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Include only metric names matching one of these patterns.
+         */
+        includeOnlies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The AWS CloudWatch namespace to which this metric name filter applies.
+         */
+        namespace: pulumi.Input<string>;
     }
 
     export interface IntegrationAccountMetricsConfigNamespaceFilters {

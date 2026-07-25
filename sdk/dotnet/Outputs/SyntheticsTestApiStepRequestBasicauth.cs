@@ -22,6 +22,18 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? AccessTokenUrl;
         /// <summary>
+        /// Whether to inject the `Exp` (expiration) claim automatically, for `Jwt` authentication.
+        /// </summary>
+        public readonly bool? AddClaimsExp;
+        /// <summary>
+        /// Whether to inject the `Iat` (issued at) claim automatically, for `Jwt` authentication.
+        /// </summary>
+        public readonly bool? AddClaimsIat;
+        /// <summary>
+        /// Algorithm to use for `Jwt` authentication. Valid values are `HS256`, `RS256`, `ES256`.
+        /// </summary>
+        public readonly string? Algorithm;
+        /// <summary>
         /// Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
         /// </summary>
         public readonly string? Audience;
@@ -38,9 +50,21 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Domain;
         /// <summary>
+        /// Token time-to-live in seconds, for `Jwt` authentication.
+        /// </summary>
+        public readonly int? ExpiresIn;
+        /// <summary>
+        /// Custom JWT header as a JSON string, for `Jwt` authentication.
+        /// </summary>
+        public readonly string? Header;
+        /// <summary>
         /// Password for authentication.
         /// </summary>
         public readonly string? Password;
+        /// <summary>
+        /// JWT claims as a JSON string, for `Jwt` authentication.
+        /// </summary>
+        public readonly string? Payload;
         /// <summary>
         /// Region for `SIGV4` authentication.
         /// </summary>
@@ -53,6 +77,10 @@ namespace Pulumi.Datadog.Outputs
         /// Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
         /// </summary>
         public readonly string? Scope;
+        /// <summary>
+        /// Signing key for `Jwt` authentication. Use the shared secret for `HS256` or the private key (PEM format) for `RS256` and `ES256`.
+        /// </summary>
+        public readonly string? Secret;
         /// <summary>
         /// Secret key for `SIGV4` authentication.
         /// </summary>
@@ -69,6 +97,10 @@ namespace Pulumi.Datadog.Outputs
         /// Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `Header`, `Body`.
         /// </summary>
         public readonly string? TokenApiAuthentication;
+        /// <summary>
+        /// Prefix added before the token in the `Authorization` header for `Jwt` authentication. Defaults to `Bearer`.
+        /// </summary>
+        public readonly string? TokenPrefix;
         /// <summary>
         /// Type of basic authentication to use when performing the test. Defaults to `"web"`.
         /// </summary>
@@ -88,6 +120,12 @@ namespace Pulumi.Datadog.Outputs
 
             string? accessTokenUrl,
 
+            bool? addClaimsExp,
+
+            bool? addClaimsIat,
+
+            string? algorithm,
+
             string? audience,
 
             string? clientId,
@@ -96,13 +134,21 @@ namespace Pulumi.Datadog.Outputs
 
             string? domain,
 
+            int? expiresIn,
+
+            string? header,
+
             string? password,
+
+            string? payload,
 
             string? region,
 
             string? resource,
 
             string? scope,
+
+            string? secret,
 
             string? secretKey,
 
@@ -112,6 +158,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? tokenApiAuthentication,
 
+            string? tokenPrefix,
+
             string? type,
 
             string? username,
@@ -120,18 +168,26 @@ namespace Pulumi.Datadog.Outputs
         {
             AccessKey = accessKey;
             AccessTokenUrl = accessTokenUrl;
+            AddClaimsExp = addClaimsExp;
+            AddClaimsIat = addClaimsIat;
+            Algorithm = algorithm;
             Audience = audience;
             ClientId = clientId;
             ClientSecret = clientSecret;
             Domain = domain;
+            ExpiresIn = expiresIn;
+            Header = header;
             Password = password;
+            Payload = payload;
             Region = region;
             Resource = resource;
             Scope = scope;
+            Secret = secret;
             SecretKey = secretKey;
             ServiceName = serviceName;
             SessionToken = sessionToken;
             TokenApiAuthentication = tokenApiAuthentication;
+            TokenPrefix = tokenPrefix;
             Type = type;
             Username = username;
             Workstation = workstation;

@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.OnCallTeamRoutingRulesRuleAction> Actions;
         /// <summary>
-        /// ID of the policy to be applied when this routing rule matches.
+        /// ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `EscalationPolicy` action.
         /// </summary>
         public readonly string? EscalationPolicy;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Defines the query or condition that triggers this routing rule. Defaults to `""`.
+        /// Defines the query or condition that triggers this routing rule. Must not be set on the last rule, which acts as a catch-all rule. Defaults to `""`.
         /// </summary>
         public readonly string? Query;
         /// <summary>
-        /// Holds time zone information and a list of time restrictions for a routing rule.
+        /// Holds time zone information and a list of time restrictions for a routing rule. Must not be set on the last rule, which acts as a catch-all rule.
         /// </summary>
         public readonly Outputs.OnCallTeamRoutingRulesRuleTimeRestrictions? TimeRestrictions;
         /// <summary>

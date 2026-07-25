@@ -37,10 +37,6 @@ import * as utilities from "./utilities";
  *             }],
  *         },
  *         {
- *             escalationPolicy: "00000000-aba2-0000-0000-000000000000",
- *             urgency: "dynamic",
- *         },
- *         {
  *             query: "tags.service:payment",
  *             actions: [{
  *                 escalationPolicy: [{
@@ -84,6 +80,10 @@ import * as utilities from "./utilities";
  *                     }],
  *                 }],
  *             }],
+ *         },
+ *         {
+ *             escalationPolicy: "00000000-aba2-0000-0000-000000000000",
+ *             urgency: "dynamic",
  *         },
  *     ],
  * });

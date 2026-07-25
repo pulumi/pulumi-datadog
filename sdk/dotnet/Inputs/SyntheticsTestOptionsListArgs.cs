@@ -85,6 +85,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? HttpVersion { get; set; }
 
         /// <summary>
+        /// Ignore server certificate error for SSL tests.
+        /// </summary>
+        [Input("ignoreCertificateValidation")]
+        public Input<bool>? IgnoreCertificateValidation { get; set; }
+
+        /// <summary>
         /// Ignore server certificate error for browser tests.
         /// </summary>
         [Input("ignoreServerCertificateError")]

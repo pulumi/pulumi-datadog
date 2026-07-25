@@ -29,6 +29,10 @@ namespace Pulumi.Datadog.Outputs
         /// Name of the environment variable or secret that holds the passphrase for the private key file.
         /// </summary>
         public readonly string? KeyPassKey;
+        /// <summary>
+        /// Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+        /// </summary>
+        public readonly string? ServerName;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigSourceHttpClientTls(
@@ -38,12 +42,15 @@ namespace Pulumi.Datadog.Outputs
 
             string? keyFile,
 
-            string? keyPassKey)
+            string? keyPassKey,
+
+            string? serverName)
         {
             CaFile = caFile;
             CrtFile = crtFile;
             KeyFile = keyFile;
             KeyPassKey = keyPassKey;
+            ServerName = serverName;
         }
     }
 }

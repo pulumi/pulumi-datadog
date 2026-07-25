@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationOpensearch
     {
         /// <summary>
+        /// Authentication settings for the OpenSearch destination.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationOpensearchAuth? Auth;
+        /// <summary>
         /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationOpensearchBuffer? Buffer;
@@ -25,18 +29,28 @@ namespace Pulumi.Datadog.Outputs
         /// Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationOpensearchDataStream? DataStream;
+        /// <summary>
+        /// Name of the environment variable or secret that holds the OpenSearch endpoint URL.
+        /// </summary>
+        public readonly string? EndpointUrlKey;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationOpensearch(
+            Outputs.ObservabilityPipelineConfigDestinationOpensearchAuth? auth,
+
             Outputs.ObservabilityPipelineConfigDestinationOpensearchBuffer? buffer,
 
             string? bulkIndex,
 
-            Outputs.ObservabilityPipelineConfigDestinationOpensearchDataStream? dataStream)
+            Outputs.ObservabilityPipelineConfigDestinationOpensearchDataStream? dataStream,
+
+            string? endpointUrlKey)
         {
+            Auth = auth;
             Buffer = buffer;
             BulkIndex = bulkIndex;
             DataStream = dataStream;
+            EndpointUrlKey = endpointUrlKey;
         }
     }
 }

@@ -29,18 +29,23 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Create new restriction_policy resource
-//			_, err := datadog.NewRestrictionPolicy(ctx, "foo", &datadog.RestrictionPolicyArgs{
+//			me, err := datadog.GetCurrentUser(ctx, map[string]interface{}{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewRestrictionPolicy(ctx, "foo", &datadog.RestrictionPolicyArgs{
 //				ResourceId: pulumi.String("security-rule:abc-def-ghi"),
 //				Bindings: datadog.RestrictionPolicyBindingArray{
 //					&datadog.RestrictionPolicyBindingArgs{
 //						Principals: pulumi.StringArray{
-//							pulumi.String("role:00000000-0000-1111-0000-000000000000"),
+//							pulumi.Sprintf("user:%v", me.Id),
+//							pulumi.String("team:00000000-0000-1111-0000-000000000000"),
 //						},
 //						Relation: pulumi.String("editor"),
 //					},
 //					&datadog.RestrictionPolicyBindingArgs{
 //						Principals: pulumi.StringArray{
-//							pulumi.String("org:10000000-0000-1111-0000-000000000000"),
+//							pulumi.Sprintf("org:%v", me.OrgId),
 //						},
 //						Relation: pulumi.String("viewer"),
 //					},

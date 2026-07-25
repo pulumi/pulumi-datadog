@@ -30,6 +30,10 @@ namespace Pulumi.Datadog.Aws.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
+        /// AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `IncludeOnly` or `ExcludeOnly`.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IntegrationAccountMetricsConfigMetricNameFilter> MetricNameFilters;
+        /// <summary>
         /// AWS metrics namespace filters. Defaults to a pre-set `ExcludeOnly` list if block is empty.
         /// </summary>
         public readonly Outputs.IntegrationAccountMetricsConfigNamespaceFilters? NamespaceFilters;
@@ -48,6 +52,8 @@ namespace Pulumi.Datadog.Aws.Outputs
 
             bool? enabled,
 
+            ImmutableArray<Outputs.IntegrationAccountMetricsConfigMetricNameFilter> metricNameFilters,
+
             Outputs.IntegrationAccountMetricsConfigNamespaceFilters? namespaceFilters,
 
             ImmutableArray<Outputs.IntegrationAccountMetricsConfigTagFilter> tagFilters)
@@ -56,6 +62,7 @@ namespace Pulumi.Datadog.Aws.Outputs
             CollectCloudwatchAlarms = collectCloudwatchAlarms;
             CollectCustomMetrics = collectCustomMetrics;
             Enabled = enabled;
+            MetricNameFilters = metricNameFilters;
             NamespaceFilters = namespaceFilters;
             TagFilters = tagFilters;
         }

@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class MonitorVariablesDataJobsQuery {
     /**
-     * @return The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `dbt.model`, `dbt.test`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+     * @return The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
      * 
      */
     private String jobType;
@@ -33,7 +33,7 @@ public final class MonitorVariablesDataJobsQuery {
 
     private MonitorVariablesDataJobsQuery() {}
     /**
-     * @return The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `dbt.model`, `dbt.test`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+     * @return The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
      * 
      */
     public String jobType() {

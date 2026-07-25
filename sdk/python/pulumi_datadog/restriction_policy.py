@@ -110,15 +110,19 @@ class RestrictionPolicy(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         # Create new restriction_policy resource
+        me = datadog.get_current_user()
         foo = datadog.RestrictionPolicy("foo",
             resource_id="security-rule:abc-def-ghi",
             bindings=[
                 {
-                    "principals": ["role:00000000-0000-1111-0000-000000000000"],
+                    "principals": [
+                        f"user:{me.id}",
+                        "team:00000000-0000-1111-0000-000000000000",
+                    ],
                     "relation": "editor",
                 },
                 {
-                    "principals": ["org:10000000-0000-1111-0000-000000000000"],
+                    "principals": [f"org:{me.org_id}"],
                     "relation": "viewer",
                 },
             ])
@@ -153,15 +157,19 @@ class RestrictionPolicy(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         # Create new restriction_policy resource
+        me = datadog.get_current_user()
         foo = datadog.RestrictionPolicy("foo",
             resource_id="security-rule:abc-def-ghi",
             bindings=[
                 {
-                    "principals": ["role:00000000-0000-1111-0000-000000000000"],
+                    "principals": [
+                        f"user:{me.id}",
+                        "team:00000000-0000-1111-0000-000000000000",
+                    ],
                     "relation": "editor",
                 },
                 {
-                    "principals": ["org:10000000-0000-1111-0000-000000000000"],
+                    "principals": [f"org:{me.org_id}"],
                     "relation": "viewer",
                 },
             ])

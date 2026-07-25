@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.DatadogFunctions;
  * import com.pulumi.datadog.RestrictionPolicy;
  * import com.pulumi.datadog.RestrictionPolicyArgs;
  * import com.pulumi.datadog.inputs.RestrictionPolicyBindingArgs;
@@ -45,15 +46,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create new restriction_policy resource
+ *         final var me = DatadogFunctions.getCurrentUser(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ * 
  *         var foo = new RestrictionPolicy("foo", RestrictionPolicyArgs.builder()
  *             .resourceId("security-rule:abc-def-ghi")
  *             .bindings(            
  *                 RestrictionPolicyBindingArgs.builder()
- *                     .principals("role:00000000-0000-1111-0000-000000000000")
+ *                     .principals(                    
+ *                         String.format("user:%s", me.id()),
+ *                         "team:00000000-0000-1111-0000-000000000000")
  *                     .relation("editor")
  *                     .build(),
  *                 RestrictionPolicyBindingArgs.builder()
- *                     .principals("org:10000000-0000-1111-0000-000000000000")
+ *                     .principals(String.format("org:%s", me.orgId()))
  *                     .relation("viewer")
  *                     .build())
  *             .build());

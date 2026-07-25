@@ -86,14 +86,14 @@ public final class TagPipelineRulesetRuleQueryArgs extends com.pulumi.resources.
     }
 
     /**
-     * The query string.
+     * The query string. Datadog normalizes queries to a canonical form (operator casing, spacing, redundant parentheses, quoting, and similar formatting differences). The provider validates the configured value against this canonical form during planning. If the value doesn&#39;t match, the plan fails with an error showing the canonical query to use in the configuration.
      * 
      */
     @Import(name="query")
     private @Nullable Output<String> query;
 
     /**
-     * @return The query string.
+     * @return The query string. Datadog normalizes queries to a canonical form (operator casing, spacing, redundant parentheses, quoting, and similar formatting differences). The provider validates the configured value against this canonical form during planning. If the value doesn&#39;t match, the plan fails with an error showing the canonical query to use in the configuration.
      * 
      */
     public Optional<Output<String>> query() {
@@ -221,7 +221,7 @@ public final class TagPipelineRulesetRuleQueryArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param query The query string.
+         * @param query The query string. Datadog normalizes queries to a canonical form (operator casing, spacing, redundant parentheses, quoting, and similar formatting differences). The provider validates the configured value against this canonical form during planning. If the value doesn&#39;t match, the plan fails with an error showing the canonical query to use in the configuration.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class TagPipelineRulesetRuleQueryArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param query The query string.
+         * @param query The query string. Datadog normalizes queries to a canonical form (operator casing, spacing, redundant parentheses, quoting, and similar formatting differences). The provider validates the configured value against this canonical form during planning. If the value doesn&#39;t match, the plan fails with an error showing the canonical query to use in the configuration.
          * 
          * @return builder
          * 

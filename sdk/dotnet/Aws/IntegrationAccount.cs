@@ -109,6 +109,25 @@ namespace Pulumi.Datadog.Aws
     ///                         } },
     ///                     },
     ///                 } },
+    ///                 { "metricNameFilters", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "namespace", "AWS/EC2" },
+    ///                         { "includeOnlies", new[]
+    ///                         {
+    ///                             "aws.ec2.network_in",
+    ///                         } },
+    ///                     },
+    ///                     
+    ///                     {
+    ///                         { "namespace", "AWS/RDS" },
+    ///                         { "excludeOnlies", new[]
+    ///                         {
+    ///                             "aws.rds.aurora*",
+    ///                         } },
+    ///                     },
+    ///                 } },
     ///                 { "tagFilters", new[]
     ///                 {
     ///                     

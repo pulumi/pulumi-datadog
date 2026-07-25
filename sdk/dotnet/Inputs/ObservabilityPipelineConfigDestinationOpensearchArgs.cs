@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigDestinationOpensearchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Authentication settings for the OpenSearch destination.
+        /// </summary>
+        [Input("auth")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationOpensearchAuthArgs>? Auth { get; set; }
+
+        /// <summary>
         /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
         /// </summary>
         [Input("buffer")]
@@ -29,6 +35,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("dataStream")]
         public Input<Inputs.ObservabilityPipelineConfigDestinationOpensearchDataStreamArgs>? DataStream { get; set; }
+
+        /// <summary>
+        /// Name of the environment variable or secret that holds the OpenSearch endpoint URL.
+        /// </summary>
+        [Input("endpointUrlKey")]
+        public Input<string>? EndpointUrlKey { get; set; }
 
         public ObservabilityPipelineConfigDestinationOpensearchArgs()
         {

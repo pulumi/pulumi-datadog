@@ -76,6 +76,21 @@ public final class ObservabilityPipelineConfigDestinationSyslogNgTlsArgs extends
         return Optional.ofNullable(this.keyPassKey);
     }
 
+    /**
+     * Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn&#39;t match the certificate&#39;s Common Name or Subject Alternative Name.
+     * 
+     */
+    @Import(name="serverName")
+    private @Nullable Output<String> serverName;
+
+    /**
+     * @return Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn&#39;t match the certificate&#39;s Common Name or Subject Alternative Name.
+     * 
+     */
+    public Optional<Output<String>> serverName() {
+        return Optional.ofNullable(this.serverName);
+    }
+
     private ObservabilityPipelineConfigDestinationSyslogNgTlsArgs() {}
 
     private ObservabilityPipelineConfigDestinationSyslogNgTlsArgs(ObservabilityPipelineConfigDestinationSyslogNgTlsArgs $) {
@@ -83,6 +98,7 @@ public final class ObservabilityPipelineConfigDestinationSyslogNgTlsArgs extends
         this.crtFile = $.crtFile;
         this.keyFile = $.keyFile;
         this.keyPassKey = $.keyPassKey;
+        this.serverName = $.serverName;
     }
 
     public static Builder builder() {
@@ -185,6 +201,27 @@ public final class ObservabilityPipelineConfigDestinationSyslogNgTlsArgs extends
          */
         public Builder keyPassKey(String keyPassKey) {
             return keyPassKey(Output.of(keyPassKey));
+        }
+
+        /**
+         * @param serverName Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn&#39;t match the certificate&#39;s Common Name or Subject Alternative Name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverName(@Nullable Output<String> serverName) {
+            $.serverName = serverName;
+            return this;
+        }
+
+        /**
+         * @param serverName Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn&#39;t match the certificate&#39;s Common Name or Subject Alternative Name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverName(String serverName) {
+            return serverName(Output.of(serverName));
         }
 
         public ObservabilityPipelineConfigDestinationSyslogNgTlsArgs build() {

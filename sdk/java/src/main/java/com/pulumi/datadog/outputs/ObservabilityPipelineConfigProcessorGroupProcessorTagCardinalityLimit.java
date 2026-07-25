@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimit;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
@@ -24,6 +25,11 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimit> perMetricLimits;
+    /**
+     * @return Controls whether the processor uses exact or probabilistic tag tracking.
+     * 
+     */
+    private ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode trackingMode;
     /**
      * @return The default maximum number of distinct tag value combinations allowed per metric. Between 0 and 1000000. Value must be between 0 and 1000000.
      * 
@@ -46,6 +52,13 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
         return this.perMetricLimits == null ? List.of() : this.perMetricLimits;
     }
     /**
+     * @return Controls whether the processor uses exact or probabilistic tag tracking.
+     * 
+     */
+    public ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode trackingMode() {
+        return this.trackingMode;
+    }
+    /**
      * @return The default maximum number of distinct tag value combinations allowed per metric. Between 0 and 1000000. Value must be between 0 and 1000000.
      * 
      */
@@ -64,12 +77,14 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
     public static final class Builder {
         private String limitExceededAction;
         private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimit> perMetricLimits;
+        private ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode trackingMode;
         private Integer valueLimit;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimit defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.limitExceededAction = defaults.limitExceededAction;
     	      this.perMetricLimits = defaults.perMetricLimits;
+    	      this.trackingMode = defaults.trackingMode;
     	      this.valueLimit = defaults.valueLimit;
         }
 
@@ -91,6 +106,14 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
             return perMetricLimits(List.of(perMetricLimits));
         }
         @CustomType.Setter
+        public Builder trackingMode(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode trackingMode) {
+            if (trackingMode == null) {
+              throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimit", "trackingMode");
+            }
+            this.trackingMode = trackingMode;
+            return this;
+        }
+        @CustomType.Setter
         public Builder valueLimit(Integer valueLimit) {
             if (valueLimit == null) {
               throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimit", "valueLimit");
@@ -102,6 +125,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinal
             final var _resultValue = new ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimit();
             _resultValue.limitExceededAction = limitExceededAction;
             _resultValue.perMetricLimits = perMetricLimits;
+            _resultValue.trackingMode = trackingMode;
             _resultValue.valueLimit = valueLimit;
             return _resultValue;
         }

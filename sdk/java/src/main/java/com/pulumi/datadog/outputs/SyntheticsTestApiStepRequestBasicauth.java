@@ -4,6 +4,8 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,6 +23,21 @@ public final class SyntheticsTestApiStepRequestBasicauth {
      * 
      */
     private @Nullable String accessTokenUrl;
+    /**
+     * @return Whether to inject the `exp` (expiration) claim automatically, for `jwt` authentication.
+     * 
+     */
+    private @Nullable Boolean addClaimsExp;
+    /**
+     * @return Whether to inject the `iat` (issued at) claim automatically, for `jwt` authentication.
+     * 
+     */
+    private @Nullable Boolean addClaimsIat;
+    /**
+     * @return Algorithm to use for `jwt` authentication. Valid values are `HS256`, `RS256`, `ES256`.
+     * 
+     */
+    private @Nullable String algorithm;
     /**
      * @return Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `&#34;&#34;`.
      * 
@@ -42,10 +59,25 @@ public final class SyntheticsTestApiStepRequestBasicauth {
      */
     private @Nullable String domain;
     /**
+     * @return Token time-to-live in seconds, for `jwt` authentication.
+     * 
+     */
+    private @Nullable Integer expiresIn;
+    /**
+     * @return Custom JWT header as a JSON string, for `jwt` authentication.
+     * 
+     */
+    private @Nullable String header;
+    /**
      * @return Password for authentication.
      * 
      */
     private @Nullable String password;
+    /**
+     * @return JWT claims as a JSON string, for `jwt` authentication.
+     * 
+     */
+    private @Nullable String payload;
     /**
      * @return Region for `SIGV4` authentication.
      * 
@@ -61,6 +93,11 @@ public final class SyntheticsTestApiStepRequestBasicauth {
      * 
      */
     private @Nullable String scope;
+    /**
+     * @return Signing key for `jwt` authentication. Use the shared secret for `HS256` or the private key (PEM format) for `RS256` and `ES256`.
+     * 
+     */
+    private @Nullable String secret;
     /**
      * @return Secret key for `SIGV4` authentication.
      * 
@@ -81,6 +118,11 @@ public final class SyntheticsTestApiStepRequestBasicauth {
      * 
      */
     private @Nullable String tokenApiAuthentication;
+    /**
+     * @return Prefix added before the token in the `Authorization` header for `jwt` authentication. Defaults to `Bearer`.
+     * 
+     */
+    private @Nullable String tokenPrefix;
     /**
      * @return Type of basic authentication to use when performing the test. Defaults to `&#34;web&#34;`.
      * 
@@ -113,6 +155,27 @@ public final class SyntheticsTestApiStepRequestBasicauth {
         return Optional.ofNullable(this.accessTokenUrl);
     }
     /**
+     * @return Whether to inject the `exp` (expiration) claim automatically, for `jwt` authentication.
+     * 
+     */
+    public Optional<Boolean> addClaimsExp() {
+        return Optional.ofNullable(this.addClaimsExp);
+    }
+    /**
+     * @return Whether to inject the `iat` (issued at) claim automatically, for `jwt` authentication.
+     * 
+     */
+    public Optional<Boolean> addClaimsIat() {
+        return Optional.ofNullable(this.addClaimsIat);
+    }
+    /**
+     * @return Algorithm to use for `jwt` authentication. Valid values are `HS256`, `RS256`, `ES256`.
+     * 
+     */
+    public Optional<String> algorithm() {
+        return Optional.ofNullable(this.algorithm);
+    }
+    /**
      * @return Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `&#34;&#34;`.
      * 
      */
@@ -141,11 +204,32 @@ public final class SyntheticsTestApiStepRequestBasicauth {
         return Optional.ofNullable(this.domain);
     }
     /**
+     * @return Token time-to-live in seconds, for `jwt` authentication.
+     * 
+     */
+    public Optional<Integer> expiresIn() {
+        return Optional.ofNullable(this.expiresIn);
+    }
+    /**
+     * @return Custom JWT header as a JSON string, for `jwt` authentication.
+     * 
+     */
+    public Optional<String> header() {
+        return Optional.ofNullable(this.header);
+    }
+    /**
      * @return Password for authentication.
      * 
      */
     public Optional<String> password() {
         return Optional.ofNullable(this.password);
+    }
+    /**
+     * @return JWT claims as a JSON string, for `jwt` authentication.
+     * 
+     */
+    public Optional<String> payload() {
+        return Optional.ofNullable(this.payload);
     }
     /**
      * @return Region for `SIGV4` authentication.
@@ -167,6 +251,13 @@ public final class SyntheticsTestApiStepRequestBasicauth {
      */
     public Optional<String> scope() {
         return Optional.ofNullable(this.scope);
+    }
+    /**
+     * @return Signing key for `jwt` authentication. Use the shared secret for `HS256` or the private key (PEM format) for `RS256` and `ES256`.
+     * 
+     */
+    public Optional<String> secret() {
+        return Optional.ofNullable(this.secret);
     }
     /**
      * @return Secret key for `SIGV4` authentication.
@@ -195,6 +286,13 @@ public final class SyntheticsTestApiStepRequestBasicauth {
      */
     public Optional<String> tokenApiAuthentication() {
         return Optional.ofNullable(this.tokenApiAuthentication);
+    }
+    /**
+     * @return Prefix added before the token in the `Authorization` header for `jwt` authentication. Defaults to `Bearer`.
+     * 
+     */
+    public Optional<String> tokenPrefix() {
+        return Optional.ofNullable(this.tokenPrefix);
     }
     /**
      * @return Type of basic authentication to use when performing the test. Defaults to `&#34;web&#34;`.
@@ -229,18 +327,26 @@ public final class SyntheticsTestApiStepRequestBasicauth {
     public static final class Builder {
         private @Nullable String accessKey;
         private @Nullable String accessTokenUrl;
+        private @Nullable Boolean addClaimsExp;
+        private @Nullable Boolean addClaimsIat;
+        private @Nullable String algorithm;
         private @Nullable String audience;
         private @Nullable String clientId;
         private @Nullable String clientSecret;
         private @Nullable String domain;
+        private @Nullable Integer expiresIn;
+        private @Nullable String header;
         private @Nullable String password;
+        private @Nullable String payload;
         private @Nullable String region;
         private @Nullable String resource;
         private @Nullable String scope;
+        private @Nullable String secret;
         private @Nullable String secretKey;
         private @Nullable String serviceName;
         private @Nullable String sessionToken;
         private @Nullable String tokenApiAuthentication;
+        private @Nullable String tokenPrefix;
         private @Nullable String type;
         private @Nullable String username;
         private @Nullable String workstation;
@@ -249,18 +355,26 @@ public final class SyntheticsTestApiStepRequestBasicauth {
     	      Objects.requireNonNull(defaults);
     	      this.accessKey = defaults.accessKey;
     	      this.accessTokenUrl = defaults.accessTokenUrl;
+    	      this.addClaimsExp = defaults.addClaimsExp;
+    	      this.addClaimsIat = defaults.addClaimsIat;
+    	      this.algorithm = defaults.algorithm;
     	      this.audience = defaults.audience;
     	      this.clientId = defaults.clientId;
     	      this.clientSecret = defaults.clientSecret;
     	      this.domain = defaults.domain;
+    	      this.expiresIn = defaults.expiresIn;
+    	      this.header = defaults.header;
     	      this.password = defaults.password;
+    	      this.payload = defaults.payload;
     	      this.region = defaults.region;
     	      this.resource = defaults.resource;
     	      this.scope = defaults.scope;
+    	      this.secret = defaults.secret;
     	      this.secretKey = defaults.secretKey;
     	      this.serviceName = defaults.serviceName;
     	      this.sessionToken = defaults.sessionToken;
     	      this.tokenApiAuthentication = defaults.tokenApiAuthentication;
+    	      this.tokenPrefix = defaults.tokenPrefix;
     	      this.type = defaults.type;
     	      this.username = defaults.username;
     	      this.workstation = defaults.workstation;
@@ -276,6 +390,24 @@ public final class SyntheticsTestApiStepRequestBasicauth {
         public Builder accessTokenUrl(@Nullable String accessTokenUrl) {
 
             this.accessTokenUrl = accessTokenUrl;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder addClaimsExp(@Nullable Boolean addClaimsExp) {
+
+            this.addClaimsExp = addClaimsExp;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder addClaimsIat(@Nullable Boolean addClaimsIat) {
+
+            this.addClaimsIat = addClaimsIat;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder algorithm(@Nullable String algorithm) {
+
+            this.algorithm = algorithm;
             return this;
         }
         @CustomType.Setter
@@ -303,9 +435,27 @@ public final class SyntheticsTestApiStepRequestBasicauth {
             return this;
         }
         @CustomType.Setter
+        public Builder expiresIn(@Nullable Integer expiresIn) {
+
+            this.expiresIn = expiresIn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder header(@Nullable String header) {
+
+            this.header = header;
+            return this;
+        }
+        @CustomType.Setter
         public Builder password(@Nullable String password) {
 
             this.password = password;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder payload(@Nullable String payload) {
+
+            this.payload = payload;
             return this;
         }
         @CustomType.Setter
@@ -324,6 +474,12 @@ public final class SyntheticsTestApiStepRequestBasicauth {
         public Builder scope(@Nullable String scope) {
 
             this.scope = scope;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secret(@Nullable String secret) {
+
+            this.secret = secret;
             return this;
         }
         @CustomType.Setter
@@ -351,6 +507,12 @@ public final class SyntheticsTestApiStepRequestBasicauth {
             return this;
         }
         @CustomType.Setter
+        public Builder tokenPrefix(@Nullable String tokenPrefix) {
+
+            this.tokenPrefix = tokenPrefix;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
 
             this.type = type;
@@ -372,18 +534,26 @@ public final class SyntheticsTestApiStepRequestBasicauth {
             final var _resultValue = new SyntheticsTestApiStepRequestBasicauth();
             _resultValue.accessKey = accessKey;
             _resultValue.accessTokenUrl = accessTokenUrl;
+            _resultValue.addClaimsExp = addClaimsExp;
+            _resultValue.addClaimsIat = addClaimsIat;
+            _resultValue.algorithm = algorithm;
             _resultValue.audience = audience;
             _resultValue.clientId = clientId;
             _resultValue.clientSecret = clientSecret;
             _resultValue.domain = domain;
+            _resultValue.expiresIn = expiresIn;
+            _resultValue.header = header;
             _resultValue.password = password;
+            _resultValue.payload = payload;
             _resultValue.region = region;
             _resultValue.resource = resource;
             _resultValue.scope = scope;
+            _resultValue.secret = secret;
             _resultValue.secretKey = secretKey;
             _resultValue.serviceName = serviceName;
             _resultValue.sessionToken = sessionToken;
             _resultValue.tokenApiAuthentication = tokenApiAuthentication;
+            _resultValue.tokenPrefix = tokenPrefix;
             _resultValue.type = type;
             _resultValue.username = username;
             _resultValue.workstation = workstation;

@@ -65,6 +65,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ComplianceResourceEvaluationFilter{}
 	case "datadog:index/costBudget:CostBudget":
 		r = &CostBudget{}
+	case "datadog:index/costCustomForecast:CostCustomForecast":
+		r = &CostCustomForecast{}
 	case "datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule":
 		r = &CsmThreatsAgentRule{}
 	case "datadog:index/csmThreatsPolicy:CsmThreatsPolicy":
@@ -103,6 +105,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IncidentNotificationTemplate{}
 	case "datadog:index/incidentType:IncidentType":
 		r = &IncidentType{}
+	case "datadog:index/incidentUserDefinedField:IncidentUserDefinedField":
+		r = &IncidentUserDefinedField{}
+	case "datadog:index/incidentUserDefinedRole:IncidentUserDefinedRole":
+		r = &IncidentUserDefinedRole{}
 	case "datadog:index/ipAllowlist:IpAllowlist":
 		r = &IpAllowlist{}
 	case "datadog:index/logsArchive:LogsArchive":
@@ -420,6 +426,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/costCustomForecast",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/csmThreatsAgentRule",
 		&module{version},
 	)
@@ -511,6 +522,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/incidentType",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/incidentUserDefinedField",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/incidentUserDefinedRole",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

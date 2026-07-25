@@ -20,7 +20,7 @@ public final class OnCallTeamRoutingRulesRule {
      */
     private @Nullable List<OnCallTeamRoutingRulesRuleAction> actions;
     /**
-     * @return ID of the policy to be applied when this routing rule matches.
+     * @return ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `escalationPolicy` action.
      * 
      */
     private @Nullable String escalationPolicy;
@@ -30,12 +30,12 @@ public final class OnCallTeamRoutingRulesRule {
      */
     private @Nullable String id;
     /**
-     * @return Defines the query or condition that triggers this routing rule. Defaults to `&#34;&#34;`.
+     * @return Defines the query or condition that triggers this routing rule. Must not be set on the last rule, which acts as a catch-all rule. Defaults to `&#34;&#34;`.
      * 
      */
     private @Nullable String query;
     /**
-     * @return Holds time zone information and a list of time restrictions for a routing rule.
+     * @return Holds time zone information and a list of time restrictions for a routing rule. Must not be set on the last rule, which acts as a catch-all rule.
      * 
      */
     private @Nullable OnCallTeamRoutingRulesRuleTimeRestrictions timeRestrictions;
@@ -54,7 +54,7 @@ public final class OnCallTeamRoutingRulesRule {
         return this.actions == null ? List.of() : this.actions;
     }
     /**
-     * @return ID of the policy to be applied when this routing rule matches.
+     * @return ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `escalationPolicy` action.
      * 
      */
     public Optional<String> escalationPolicy() {
@@ -68,14 +68,14 @@ public final class OnCallTeamRoutingRulesRule {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return Defines the query or condition that triggers this routing rule. Defaults to `&#34;&#34;`.
+     * @return Defines the query or condition that triggers this routing rule. Must not be set on the last rule, which acts as a catch-all rule. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<String> query() {
         return Optional.ofNullable(this.query);
     }
     /**
-     * @return Holds time zone information and a list of time restrictions for a routing rule.
+     * @return Holds time zone information and a list of time restrictions for a routing rule. Must not be set on the last rule, which acts as a catch-all rule.
      * 
      */
     public Optional<OnCallTeamRoutingRulesRuleTimeRestrictions> timeRestrictions() {

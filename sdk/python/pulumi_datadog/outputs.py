@@ -16,14 +16,59 @@ from . import _utilities
 from . import outputs
 
 __all__ = [
+    'ActionConnectionAnthropic',
+    'ActionConnectionAnthropicApiKey',
+    'ActionConnectionAsana',
+    'ActionConnectionAsanaAccessToken',
     'ActionConnectionAws',
     'ActionConnectionAwsAssumeRole',
+    'ActionConnectionAzure',
+    'ActionConnectionAzureTenant',
+    'ActionConnectionCircleCi',
+    'ActionConnectionCircleCiApiKey',
+    'ActionConnectionClickup',
+    'ActionConnectionClickupApiKey',
+    'ActionConnectionCloudflare',
+    'ActionConnectionCloudflareApiToken',
+    'ActionConnectionCloudflareGlobalApiToken',
+    'ActionConnectionConfigCat',
+    'ActionConnectionConfigCatSdkKey',
+    'ActionConnectionDatadog',
+    'ActionConnectionDatadogApiKey',
+    'ActionConnectionFastly',
+    'ActionConnectionFastlyApiKey',
+    'ActionConnectionFreshservice',
+    'ActionConnectionFreshserviceApiKey',
+    'ActionConnectionGcp',
+    'ActionConnectionGcpServiceAccount',
+    'ActionConnectionGemini',
+    'ActionConnectionGeminiApiKey',
+    'ActionConnectionGitlab',
+    'ActionConnectionGitlabApiKey',
+    'ActionConnectionGreyNoise',
+    'ActionConnectionGreyNoiseApiKey',
     'ActionConnectionHttp',
     'ActionConnectionHttpTokenAuth',
     'ActionConnectionHttpTokenAuthBody',
     'ActionConnectionHttpTokenAuthHeader',
     'ActionConnectionHttpTokenAuthToken',
     'ActionConnectionHttpTokenAuthUrlParameter',
+    'ActionConnectionLaunchDarkly',
+    'ActionConnectionLaunchDarklyApiKey',
+    'ActionConnectionNotion',
+    'ActionConnectionNotionApiKey',
+    'ActionConnectionOkta',
+    'ActionConnectionOktaApiToken',
+    'ActionConnectionOpenai',
+    'ActionConnectionOpenaiApiKey',
+    'ActionConnectionServiceNow',
+    'ActionConnectionServiceNowBasicAuth',
+    'ActionConnectionSplit',
+    'ActionConnectionSplitApiKey',
+    'ActionConnectionStatsig',
+    'ActionConnectionStatsigApiKey',
+    'ActionConnectionVirusTotal',
+    'ActionConnectionVirusTotalApiKey',
     'ApmRetentionFilterFilter',
     'AppsecWafCustomRuleAction',
     'AppsecWafCustomRuleActionParameters',
@@ -58,6 +103,8 @@ __all__ = [
     'CostBudgetBudgetLineTagFilter',
     'CostBudgetEntry',
     'CostBudgetEntryTagFilter',
+    'CostCustomForecastEntry',
+    'CostCustomForecastEntryTagFilter',
     'CsmThreatsAgentRuleAction',
     'CsmThreatsAgentRuleActionHash',
     'CsmThreatsAgentRuleActionSet',
@@ -3290,6 +3337,10 @@ __all__ = [
     'DowntimeScheduleRecurringSchedule',
     'DowntimeScheduleRecurringScheduleRecurrence',
     'IncidentNotificationRuleCondition',
+    'IncidentTypeConfiguration',
+    'IncidentUserDefinedFieldMetadata',
+    'IncidentUserDefinedFieldValidValue',
+    'IncidentUserDefinedRolePolicy',
     'IpAllowlistEntry',
     'LogsArchiveAzureArchive',
     'LogsArchiveGcsArchive',
@@ -3324,6 +3375,7 @@ __all__ = [
     'LogsCustomPipelineProcessorCategoryProcessorCategoryFilter',
     'LogsCustomPipelineProcessorDateRemapper',
     'LogsCustomPipelineProcessorDecoderProcessor',
+    'LogsCustomPipelineProcessorExcludeAttributeProcessor',
     'LogsCustomPipelineProcessorGeoIpParser',
     'LogsCustomPipelineProcessorGrokParser',
     'LogsCustomPipelineProcessorGrokParserGrok',
@@ -3352,6 +3404,7 @@ __all__ = [
     'LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilter',
     'LogsCustomPipelineProcessorPipelineProcessorDateRemapper',
     'LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor',
+    'LogsCustomPipelineProcessorPipelineProcessorExcludeAttributeProcessor',
     'LogsCustomPipelineProcessorPipelineProcessorGeoIpParser',
     'LogsCustomPipelineProcessorPipelineProcessorGrokParser',
     'LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok',
@@ -3564,6 +3617,7 @@ __all__ = [
     'ObservabilityPipelineConfigDestinationNewRelicBufferDisk',
     'ObservabilityPipelineConfigDestinationNewRelicBufferMemory',
     'ObservabilityPipelineConfigDestinationOpensearch',
+    'ObservabilityPipelineConfigDestinationOpensearchAuth',
     'ObservabilityPipelineConfigDestinationOpensearchBuffer',
     'ObservabilityPipelineConfigDestinationOpensearchBufferDisk',
     'ObservabilityPipelineConfigDestinationOpensearchBufferMemory',
@@ -3680,6 +3734,7 @@ __all__ = [
     'ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimit',
     'ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimit',
     'ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimit',
+    'ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode',
     'ObservabilityPipelineConfigProcessorGroupProcessorThrottle',
     'ObservabilityPipelineConfigSource',
     'ObservabilityPipelineConfigSourceAmazonDataFirehose',
@@ -6737,14 +6792,59 @@ __all__ = [
     'TeamNotificationRuleSlack',
     'TeamSyncSelectionState',
     'TeamSyncSelectionStateExternalId',
+    'GetActionConnectionAnthropicResult',
+    'GetActionConnectionAnthropicApiKeyResult',
+    'GetActionConnectionAsanaResult',
+    'GetActionConnectionAsanaAccessTokenResult',
     'GetActionConnectionAwsResult',
     'GetActionConnectionAwsAssumeRoleResult',
+    'GetActionConnectionAzureResult',
+    'GetActionConnectionAzureTenantResult',
+    'GetActionConnectionCircleCiResult',
+    'GetActionConnectionCircleCiApiKeyResult',
+    'GetActionConnectionClickupResult',
+    'GetActionConnectionClickupApiKeyResult',
+    'GetActionConnectionCloudflareResult',
+    'GetActionConnectionCloudflareApiTokenResult',
+    'GetActionConnectionCloudflareGlobalApiTokenResult',
+    'GetActionConnectionConfigCatResult',
+    'GetActionConnectionConfigCatSdkKeyResult',
+    'GetActionConnectionDatadogResult',
+    'GetActionConnectionDatadogApiKeyResult',
+    'GetActionConnectionFastlyResult',
+    'GetActionConnectionFastlyApiKeyResult',
+    'GetActionConnectionFreshserviceResult',
+    'GetActionConnectionFreshserviceApiKeyResult',
+    'GetActionConnectionGcpResult',
+    'GetActionConnectionGcpServiceAccountResult',
+    'GetActionConnectionGeminiResult',
+    'GetActionConnectionGeminiApiKeyResult',
+    'GetActionConnectionGitlabResult',
+    'GetActionConnectionGitlabApiKeyResult',
+    'GetActionConnectionGreyNoiseResult',
+    'GetActionConnectionGreyNoiseApiKeyResult',
     'GetActionConnectionHttpResult',
     'GetActionConnectionHttpTokenAuthResult',
     'GetActionConnectionHttpTokenAuthBodyResult',
     'GetActionConnectionHttpTokenAuthHeaderResult',
     'GetActionConnectionHttpTokenAuthTokenResult',
     'GetActionConnectionHttpTokenAuthUrlParameterResult',
+    'GetActionConnectionLaunchDarklyResult',
+    'GetActionConnectionLaunchDarklyApiKeyResult',
+    'GetActionConnectionNotionResult',
+    'GetActionConnectionNotionApiKeyResult',
+    'GetActionConnectionOktaResult',
+    'GetActionConnectionOktaApiTokenResult',
+    'GetActionConnectionOpenaiResult',
+    'GetActionConnectionOpenaiApiKeyResult',
+    'GetActionConnectionServiceNowResult',
+    'GetActionConnectionServiceNowBasicAuthResult',
+    'GetActionConnectionSplitResult',
+    'GetActionConnectionSplitApiKeyResult',
+    'GetActionConnectionStatsigResult',
+    'GetActionConnectionStatsigApiKeyResult',
+    'GetActionConnectionVirusTotalResult',
+    'GetActionConnectionVirusTotalApiKeyResult',
     'GetAwsCurConfigAccountFiltersResult',
     'GetAzureUcConfigActualBillConfigResult',
     'GetAzureUcConfigAmortizedBillConfigResult',
@@ -6755,6 +6855,8 @@ __all__ = [
     'GetCostBudgetBudgetLineTagFilterResult',
     'GetCostBudgetEntryResult',
     'GetCostBudgetEntryTagFilterResult',
+    'GetCostCustomForecastEntryResult',
+    'GetCostCustomForecastEntryTagFilterResult',
     'GetCsmThreatsAgentRulesAgentRuleResult',
     'GetCsmThreatsAgentRulesAgentRuleActionResult',
     'GetCsmThreatsAgentRulesAgentRuleActionHashResult',
@@ -6772,6 +6874,7 @@ __all__ = [
     'GetHostsHostListMetaResult',
     'GetHostsHostListMetricsResult',
     'GetIncidentNotificationRuleConditionResult',
+    'GetIncidentTypeConfigurationResult',
     'GetLogsIndexesLogsIndexResult',
     'GetLogsIndexesLogsIndexDailyLimitResetResult',
     'GetLogsIndexesLogsIndexExclusionFilterResult',
@@ -6856,6 +6959,150 @@ __all__ = [
     'GetTeamsTeamResult',
     'GetUsersUserResult',
 ]
+
+@pulumi.output_type
+class ActionConnectionAnthropic(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionAnthropic. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionAnthropic.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionAnthropic.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.ActionConnectionAnthropicApiKey'] = None):
+        """
+        :param 'ActionConnectionAnthropicApiKeyArgs' api_key: Configuration for Anthropic API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.ActionConnectionAnthropicApiKey']:
+        """
+        Configuration for Anthropic API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class ActionConnectionAnthropicApiKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiToken":
+            suggest = "api_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionAnthropicApiKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionAnthropicApiKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionAnthropicApiKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_token: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str api_token: Anthropic API token. String length must be at least 1.
+        """
+        if api_token is not None:
+            pulumi.set(__self__, "api_token", api_token)
+
+    @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> Optional[_builtins.str]:
+        """
+        Anthropic API token. String length must be at least 1.
+        """
+        return pulumi.get(self, "api_token")
+
+
+@pulumi.output_type
+class ActionConnectionAsana(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessToken":
+            suggest = "access_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionAsana. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionAsana.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionAsana.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_token: Optional['outputs.ActionConnectionAsanaAccessToken'] = None):
+        """
+        :param 'ActionConnectionAsanaAccessTokenArgs' access_token: Configuration for Asana access token authentication
+        """
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
+
+    @_builtins.property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional['outputs.ActionConnectionAsanaAccessToken']:
+        """
+        Configuration for Asana access token authentication
+        """
+        return pulumi.get(self, "access_token")
+
+
+@pulumi.output_type
+class ActionConnectionAsanaAccessToken(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessToken":
+            suggest = "access_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionAsanaAccessToken. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionAsanaAccessToken.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionAsanaAccessToken.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_token: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str access_token: Asana access token. String length must be at least 1.
+        """
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
+
+    @_builtins.property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[_builtins.str]:
+        """
+        Asana access token. String length must be at least 1.
+        """
+        return pulumi.get(self, "access_token")
+
 
 @pulumi.output_type
 class ActionConnectionAws(dict):
@@ -6967,6 +7214,1051 @@ class ActionConnectionAwsAssumeRole(dict):
         Role to assume. String length must be at least 1.
         """
         return pulumi.get(self, "role")
+
+
+@pulumi.output_type
+class ActionConnectionAzure(dict):
+    def __init__(__self__, *,
+                 tenant: Optional['outputs.ActionConnectionAzureTenant'] = None):
+        """
+        :param 'ActionConnectionAzureTenantArgs' tenant: Configuration for Azure tenant authentication
+        """
+        if tenant is not None:
+            pulumi.set(__self__, "tenant", tenant)
+
+    @_builtins.property
+    @pulumi.getter
+    def tenant(self) -> Optional['outputs.ActionConnectionAzureTenant']:
+        """
+        Configuration for Azure tenant authentication
+        """
+        return pulumi.get(self, "tenant")
+
+
+@pulumi.output_type
+class ActionConnectionAzureTenant(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appClientId":
+            suggest = "app_client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "customScopes":
+            suggest = "custom_scopes"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionAzureTenant. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionAzureTenant.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionAzureTenant.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_client_id: Optional[_builtins.str] = None,
+                 client_secret: Optional[_builtins.str] = None,
+                 custom_scopes: Optional[_builtins.str] = None,
+                 tenant_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str app_client_id: Azure application client ID. String length must be at least 1.
+        :param _builtins.str client_secret: Azure application client secret. String length must be at least 1.
+        :param _builtins.str custom_scopes: Custom scope requested when acquiring an OAuth 2 access token. String length must be at least 1.
+        :param _builtins.str tenant_id: Azure Active Directory tenant ID. String length must be at least 1.
+        """
+        if app_client_id is not None:
+            pulumi.set(__self__, "app_client_id", app_client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if custom_scopes is not None:
+            pulumi.set(__self__, "custom_scopes", custom_scopes)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @_builtins.property
+    @pulumi.getter(name="appClientId")
+    def app_client_id(self) -> Optional[_builtins.str]:
+        """
+        Azure application client ID. String length must be at least 1.
+        """
+        return pulumi.get(self, "app_client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[_builtins.str]:
+        """
+        Azure application client secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="customScopes")
+    def custom_scopes(self) -> Optional[_builtins.str]:
+        """
+        Custom scope requested when acquiring an OAuth 2 access token. String length must be at least 1.
+        """
+        return pulumi.get(self, "custom_scopes")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[_builtins.str]:
+        """
+        Azure Active Directory tenant ID. String length must be at least 1.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class ActionConnectionCircleCi(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionCircleCi. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionCircleCi.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionCircleCi.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.ActionConnectionCircleCiApiKey'] = None):
+        """
+        :param 'ActionConnectionCircleCiApiKeyArgs' api_key: Configuration for CircleCI API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.ActionConnectionCircleCiApiKey']:
+        """
+        Configuration for CircleCI API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class ActionConnectionCircleCiApiKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiToken":
+            suggest = "api_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionCircleCiApiKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionCircleCiApiKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionCircleCiApiKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_token: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str api_token: CircleCI API token. String length must be at least 1.
+        """
+        if api_token is not None:
+            pulumi.set(__self__, "api_token", api_token)
+
+    @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> Optional[_builtins.str]:
+        """
+        CircleCI API token. String length must be at least 1.
+        """
+        return pulumi.get(self, "api_token")
+
+
+@pulumi.output_type
+class ActionConnectionClickup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionClickup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionClickup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionClickup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.ActionConnectionClickupApiKey'] = None):
+        """
+        :param 'ActionConnectionClickupApiKeyArgs' api_key: Configuration for ClickUp API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.ActionConnectionClickupApiKey']:
+        """
+        Configuration for ClickUp API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class ActionConnectionClickupApiKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiToken":
+            suggest = "api_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionClickupApiKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionClickupApiKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionClickupApiKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_token: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str api_token: ClickUp API token. String length must be at least 1.
+        """
+        if api_token is not None:
+            pulumi.set(__self__, "api_token", api_token)
+
+    @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> Optional[_builtins.str]:
+        """
+        ClickUp API token. String length must be at least 1.
+        """
+        return pulumi.get(self, "api_token")
+
+
+@pulumi.output_type
+class ActionConnectionCloudflare(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiToken":
+            suggest = "api_token"
+        elif key == "globalApiToken":
+            suggest = "global_api_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionCloudflare. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionCloudflare.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionCloudflare.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_token: Optional['outputs.ActionConnectionCloudflareApiToken'] = None,
+                 global_api_token: Optional['outputs.ActionConnectionCloudflareGlobalApiToken'] = None):
+        """
+        :param 'ActionConnectionCloudflareApiTokenArgs' api_token: Configuration for Cloudflare API token authentication
+        :param 'ActionConnectionCloudflareGlobalApiTokenArgs' global_api_token: Configuration for Cloudflare global API token authentication
+        """
+        if api_token is not None:
+            pulumi.set(__self__, "api_token", api_token)
+        if global_api_token is not None:
+            pulumi.set(__self__, "global_api_token", global_api_token)
+
+    @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> Optional['outputs.ActionConnectionCloudflareApiToken']:
+        """
+        Configuration for Cloudflare API token authentication
+        """
+        return pulumi.get(self, "api_token")
+
+    @_builtins.property
+    @pulumi.getter(name="globalApiToken")
+    def global_api_token(self) -> Optional['outputs.ActionConnectionCloudflareGlobalApiToken']:
+        """
+        Configuration for Cloudflare global API token authentication
+        """
+        return pulumi.get(self, "global_api_token")
+
+
+@pulumi.output_type
+class ActionConnectionCloudflareApiToken(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiToken":
+            suggest = "api_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionCloudflareApiToken. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionCloudflareApiToken.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionCloudflareApiToken.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_token: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str api_token: Cloudflare API token. String length must be at least 1.
+        """
+        if api_token is not None:
+            pulumi.set(__self__, "api_token", api_token)
+
+    @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> Optional[_builtins.str]:
+        """
+        Cloudflare API token. String length must be at least 1.
+        """
+        return pulumi.get(self, "api_token")
+
+
+@pulumi.output_type
+class ActionConnectionCloudflareGlobalApiToken(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authEmail":
+            suggest = "auth_email"
+        elif key == "globalApiKey":
+            suggest = "global_api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionCloudflareGlobalApiToken. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionCloudflareGlobalApiToken.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionCloudflareGlobalApiToken.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_email: Optional[_builtins.str] = None,
+                 global_api_key: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str auth_email: Email address associated with the Cloudflare account. String length must be at least 1.
+        :param _builtins.str global_api_key: Cloudflare global API key. String length must be at least 1.
+        """
+        if auth_email is not None:
+            pulumi.set(__self__, "auth_email", auth_email)
+        if global_api_key is not None:
+            pulumi.set(__self__, "global_api_key", global_api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="authEmail")
+    def auth_email(self) -> Optional[_builtins.str]:
+        """
+        Email address associated with the Cloudflare account. String length must be at least 1.
+        """
+        return pulumi.get(self, "auth_email")
+
+    @_builtins.property
+    @pulumi.getter(name="globalApiKey")
+    def global_api_key(self) -> Optional[_builtins.str]:
+        """
+        Cloudflare global API key. String length must be at least 1.
+        """
+        return pulumi.get(self, "global_api_key")
+
+
+@pulumi.output_type
+class ActionConnectionConfigCat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sdkKey":
+            suggest = "sdk_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionConfigCat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionConfigCat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionConfigCat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sdk_key: Optional['outputs.ActionConnectionConfigCatSdkKey'] = None):
+        """
+        :param 'ActionConnectionConfigCatSdkKeyArgs' sdk_key: Configuration for ConfigCat SDK key authentication
+        """
+        if sdk_key is not None:
+            pulumi.set(__self__, "sdk_key", sdk_key)
+
+    @_builtins.property
+    @pulumi.getter(name="sdkKey")
+    def sdk_key(self) -> Optional['outputs.ActionConnectionConfigCatSdkKey']:
+        """
+        Configuration for ConfigCat SDK key authentication
+        """
+        return pulumi.get(self, "sdk_key")
+
+
+@pulumi.output_type
+class ActionConnectionConfigCatSdkKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiPassword":
+            suggest = "api_password"
+        elif key == "apiUsername":
+            suggest = "api_username"
+        elif key == "sdkKey":
+            suggest = "sdk_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionConfigCatSdkKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionConfigCatSdkKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionConfigCatSdkKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_password: Optional[_builtins.str] = None,
+                 api_username: Optional[_builtins.str] = None,
+                 sdk_key: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str api_password: ConfigCat Public Management API password. String length must be at least 1.
+        :param _builtins.str api_username: ConfigCat Public Management API username. String length must be at least 1.
+        :param _builtins.str sdk_key: ConfigCat SDK key. String length must be at least 1.
+        """
+        if api_password is not None:
+            pulumi.set(__self__, "api_password", api_password)
+        if api_username is not None:
+            pulumi.set(__self__, "api_username", api_username)
+        if sdk_key is not None:
+            pulumi.set(__self__, "sdk_key", sdk_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiPassword")
+    def api_password(self) -> Optional[_builtins.str]:
+        """
+        ConfigCat Public Management API password. String length must be at least 1.
+        """
+        return pulumi.get(self, "api_password")
+
+    @_builtins.property
+    @pulumi.getter(name="apiUsername")
+    def api_username(self) -> Optional[_builtins.str]:
+        """
+        ConfigCat Public Management API username. String length must be at least 1.
+        """
+        return pulumi.get(self, "api_username")
+
+    @_builtins.property
+    @pulumi.getter(name="sdkKey")
+    def sdk_key(self) -> Optional[_builtins.str]:
+        """
+        ConfigCat SDK key. String length must be at least 1.
+        """
+        return pulumi.get(self, "sdk_key")
+
+
+@pulumi.output_type
+class ActionConnectionDatadog(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionDatadog. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionDatadog.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionDatadog.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.ActionConnectionDatadogApiKey'] = None):
+        """
+        :param 'ActionConnectionDatadogApiKeyArgs' api_key: Configuration for Datadog API and application key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.ActionConnectionDatadogApiKey']:
+        """
+        Configuration for Datadog API and application key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class ActionConnectionDatadogApiKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+        elif key == "appKey":
+            suggest = "app_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionDatadogApiKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionDatadogApiKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionDatadogApiKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional[_builtins.str] = None,
+                 app_key: Optional[_builtins.str] = None,
+                 datacenter: Optional[_builtins.str] = None,
+                 subdomain: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str api_key: Datadog API key. String length must be at least 1.
+        :param _builtins.str app_key: Datadog application key. String length must be at least 1.
+        :param _builtins.str datacenter: Datadog site data center. String length must be at least 1.
+        :param _builtins.str subdomain: Custom subdomain used for URLs generated with this connection. String length must be at least 1.
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+        if app_key is not None:
+            pulumi.set(__self__, "app_key", app_key)
+        if datacenter is not None:
+            pulumi.set(__self__, "datacenter", datacenter)
+        if subdomain is not None:
+            pulumi.set(__self__, "subdomain", subdomain)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[_builtins.str]:
+        """
+        Datadog API key. String length must be at least 1.
+        """
+        return pulumi.get(self, "api_key")
+
+    @_builtins.property
+    @pulumi.getter(name="appKey")
+    def app_key(self) -> Optional[_builtins.str]:
+        """
+        Datadog application key. String length must be at least 1.
+        """
+        return pulumi.get(self, "app_key")
+
+    @_builtins.property
+    @pulumi.getter
+    def datacenter(self) -> Optional[_builtins.str]:
+        """
+        Datadog site data center. String length must be at least 1.
+        """
+        return pulumi.get(self, "datacenter")
+
+    @_builtins.property
+    @pulumi.getter
+    def subdomain(self) -> Optional[_builtins.str]:
+        """
+        Custom subdomain used for URLs generated with this connection. String length must be at least 1.
+        """
+        return pulumi.get(self, "subdomain")
+
+
+@pulumi.output_type
+class ActionConnectionFastly(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionFastly. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionFastly.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionFastly.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.ActionConnectionFastlyApiKey'] = None):
+        """
+        :param 'ActionConnectionFastlyApiKeyArgs' api_key: Configuration for Fastly API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.ActionConnectionFastlyApiKey']:
+        """
+        Configuration for Fastly API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class ActionConnectionFastlyApiKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionFastlyApiKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionFastlyApiKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionFastlyApiKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str api_key: Fastly API key. String length must be at least 1.
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[_builtins.str]:
+        """
+        Fastly API key. String length must be at least 1.
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class ActionConnectionFreshservice(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionFreshservice. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionFreshservice.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionFreshservice.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.ActionConnectionFreshserviceApiKey'] = None):
+        """
+        :param 'ActionConnectionFreshserviceApiKeyArgs' api_key: Configuration for Freshservice API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.ActionConnectionFreshserviceApiKey']:
+        """
+        Configuration for Freshservice API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class ActionConnectionFreshserviceApiKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionFreshserviceApiKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionFreshserviceApiKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionFreshserviceApiKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional[_builtins.str] = None,
+                 domain: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str api_key: Freshservice API key. String length must be at least 1.
+        :param _builtins.str domain: Freshservice domain. String length must be at least 1.
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[_builtins.str]:
+        """
+        Freshservice API key. String length must be at least 1.
+        """
+        return pulumi.get(self, "api_key")
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> Optional[_builtins.str]:
+        """
+        Freshservice domain. String length must be at least 1.
+        """
+        return pulumi.get(self, "domain")
+
+
+@pulumi.output_type
+class ActionConnectionGcp(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceAccount":
+            suggest = "service_account"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionGcp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionGcp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionGcp.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 service_account: Optional['outputs.ActionConnectionGcpServiceAccount'] = None):
+        """
+        :param 'ActionConnectionGcpServiceAccountArgs' service_account: Configuration for Google Cloud service account authentication
+        """
+        if service_account is not None:
+            pulumi.set(__self__, "service_account", service_account)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccount")
+    def service_account(self) -> Optional['outputs.ActionConnectionGcpServiceAccount']:
+        """
+        Configuration for Google Cloud service account authentication
+        """
+        return pulumi.get(self, "service_account")
+
+
+@pulumi.output_type
+class ActionConnectionGcpServiceAccount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateKey":
+            suggest = "private_key"
+        elif key == "serviceAccountEmail":
+            suggest = "service_account_email"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionGcpServiceAccount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionGcpServiceAccount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionGcpServiceAccount.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 private_key: Optional[_builtins.str] = None,
+                 service_account_email: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str private_key: Google Cloud service account private key. String length must be at least 1.
+        :param _builtins.str service_account_email: Google Cloud service account email. String length must be at least 1.
+        """
+        if private_key is not None:
+            pulumi.set(__self__, "private_key", private_key)
+        if service_account_email is not None:
+            pulumi.set(__self__, "service_account_email", service_account_email)
+
+    @_builtins.property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> Optional[_builtins.str]:
+        """
+        Google Cloud service account private key. String length must be at least 1.
+        """
+        return pulumi.get(self, "private_key")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccountEmail")
+    def service_account_email(self) -> Optional[_builtins.str]:
+        """
+        Google Cloud service account email. String length must be at least 1.
+        """
+        return pulumi.get(self, "service_account_email")
+
+
+@pulumi.output_type
+class ActionConnectionGemini(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionGemini. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionGemini.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionGemini.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.ActionConnectionGeminiApiKey'] = None):
+        """
+        :param 'ActionConnectionGeminiApiKeyArgs' api_key: Configuration for Gemini API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.ActionConnectionGeminiApiKey']:
+        """
+        Configuration for Gemini API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class ActionConnectionGeminiApiKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionGeminiApiKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionGeminiApiKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionGeminiApiKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str api_key: Gemini API key. String length must be at least 1.
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[_builtins.str]:
+        """
+        Gemini API key. String length must be at least 1.
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class ActionConnectionGitlab(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionGitlab. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionGitlab.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionGitlab.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.ActionConnectionGitlabApiKey'] = None):
+        """
+        :param 'ActionConnectionGitlabApiKeyArgs' api_key: Configuration for GitLab API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.ActionConnectionGitlabApiKey']:
+        """
+        Configuration for GitLab API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class ActionConnectionGitlabApiKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiToken":
+            suggest = "api_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionGitlabApiKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionGitlabApiKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionGitlabApiKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_token: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str api_token: GitLab API token. String length must be at least 1.
+        """
+        if api_token is not None:
+            pulumi.set(__self__, "api_token", api_token)
+
+    @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> Optional[_builtins.str]:
+        """
+        GitLab API token. String length must be at least 1.
+        """
+        return pulumi.get(self, "api_token")
+
+
+@pulumi.output_type
+class ActionConnectionGreyNoise(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionGreyNoise. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionGreyNoise.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionGreyNoise.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.ActionConnectionGreyNoiseApiKey'] = None):
+        """
+        :param 'ActionConnectionGreyNoiseApiKeyArgs' api_key: Configuration for GreyNoise API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.ActionConnectionGreyNoiseApiKey']:
+        """
+        Configuration for GreyNoise API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class ActionConnectionGreyNoiseApiKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionGreyNoiseApiKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionGreyNoiseApiKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionGreyNoiseApiKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str api_key: GreyNoise API key. String length must be at least 1.
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[_builtins.str]:
+        """
+        GreyNoise API key. String length must be at least 1.
+        """
+        return pulumi.get(self, "api_key")
 
 
 @pulumi.output_type
@@ -7242,6 +8534,601 @@ class ActionConnectionHttpTokenAuthUrlParameter(dict):
         URL parameter value. String length must be at least 1.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ActionConnectionLaunchDarkly(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionLaunchDarkly. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionLaunchDarkly.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionLaunchDarkly.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.ActionConnectionLaunchDarklyApiKey'] = None):
+        """
+        :param 'ActionConnectionLaunchDarklyApiKeyArgs' api_key: Configuration for LaunchDarkly API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.ActionConnectionLaunchDarklyApiKey']:
+        """
+        Configuration for LaunchDarkly API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class ActionConnectionLaunchDarklyApiKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiToken":
+            suggest = "api_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionLaunchDarklyApiKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionLaunchDarklyApiKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionLaunchDarklyApiKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_token: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str api_token: LaunchDarkly API token. String length must be at least 1.
+        """
+        if api_token is not None:
+            pulumi.set(__self__, "api_token", api_token)
+
+    @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> Optional[_builtins.str]:
+        """
+        LaunchDarkly API token. String length must be at least 1.
+        """
+        return pulumi.get(self, "api_token")
+
+
+@pulumi.output_type
+class ActionConnectionNotion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionNotion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionNotion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionNotion.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.ActionConnectionNotionApiKey'] = None):
+        """
+        :param 'ActionConnectionNotionApiKeyArgs' api_key: Configuration for Notion API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.ActionConnectionNotionApiKey']:
+        """
+        Configuration for Notion API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class ActionConnectionNotionApiKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiToken":
+            suggest = "api_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionNotionApiKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionNotionApiKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionNotionApiKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_token: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str api_token: Notion API token. String length must be at least 1.
+        """
+        if api_token is not None:
+            pulumi.set(__self__, "api_token", api_token)
+
+    @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> Optional[_builtins.str]:
+        """
+        Notion API token. String length must be at least 1.
+        """
+        return pulumi.get(self, "api_token")
+
+
+@pulumi.output_type
+class ActionConnectionOkta(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiToken":
+            suggest = "api_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionOkta. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionOkta.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionOkta.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_token: Optional['outputs.ActionConnectionOktaApiToken'] = None):
+        """
+        :param 'ActionConnectionOktaApiTokenArgs' api_token: Configuration for Okta API token authentication
+        """
+        if api_token is not None:
+            pulumi.set(__self__, "api_token", api_token)
+
+    @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> Optional['outputs.ActionConnectionOktaApiToken']:
+        """
+        Configuration for Okta API token authentication
+        """
+        return pulumi.get(self, "api_token")
+
+
+@pulumi.output_type
+class ActionConnectionOktaApiToken(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiToken":
+            suggest = "api_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionOktaApiToken. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionOktaApiToken.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionOktaApiToken.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_token: Optional[_builtins.str] = None,
+                 domain: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str api_token: Okta API token. String length must be at least 1.
+        :param _builtins.str domain: Okta domain. String length must be at least 1.
+        """
+        if api_token is not None:
+            pulumi.set(__self__, "api_token", api_token)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+
+    @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> Optional[_builtins.str]:
+        """
+        Okta API token. String length must be at least 1.
+        """
+        return pulumi.get(self, "api_token")
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> Optional[_builtins.str]:
+        """
+        Okta domain. String length must be at least 1.
+        """
+        return pulumi.get(self, "domain")
+
+
+@pulumi.output_type
+class ActionConnectionOpenai(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionOpenai. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionOpenai.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionOpenai.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.ActionConnectionOpenaiApiKey'] = None):
+        """
+        :param 'ActionConnectionOpenaiApiKeyArgs' api_key: Configuration for OpenAI API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.ActionConnectionOpenaiApiKey']:
+        """
+        Configuration for OpenAI API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class ActionConnectionOpenaiApiKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiToken":
+            suggest = "api_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionOpenaiApiKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionOpenaiApiKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionOpenaiApiKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_token: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str api_token: OpenAI API token. String length must be at least 1.
+        """
+        if api_token is not None:
+            pulumi.set(__self__, "api_token", api_token)
+
+    @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> Optional[_builtins.str]:
+        """
+        OpenAI API token. String length must be at least 1.
+        """
+        return pulumi.get(self, "api_token")
+
+
+@pulumi.output_type
+class ActionConnectionServiceNow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "basicAuth":
+            suggest = "basic_auth"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionServiceNow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionServiceNow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionServiceNow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 basic_auth: Optional['outputs.ActionConnectionServiceNowBasicAuth'] = None):
+        """
+        :param 'ActionConnectionServiceNowBasicAuthArgs' basic_auth: Configuration for ServiceNow basic authentication
+        """
+        if basic_auth is not None:
+            pulumi.set(__self__, "basic_auth", basic_auth)
+
+    @_builtins.property
+    @pulumi.getter(name="basicAuth")
+    def basic_auth(self) -> Optional['outputs.ActionConnectionServiceNowBasicAuth']:
+        """
+        Configuration for ServiceNow basic authentication
+        """
+        return pulumi.get(self, "basic_auth")
+
+
+@pulumi.output_type
+class ActionConnectionServiceNowBasicAuth(dict):
+    def __init__(__self__, *,
+                 instance: Optional[_builtins.str] = None,
+                 password: Optional[_builtins.str] = None,
+                 username: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str instance: ServiceNow instance. String length must be at least 1.
+        :param _builtins.str password: ServiceNow password. String length must be at least 1.
+        :param _builtins.str username: ServiceNow username. String length must be at least 1.
+        """
+        if instance is not None:
+            pulumi.set(__self__, "instance", instance)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @_builtins.property
+    @pulumi.getter
+    def instance(self) -> Optional[_builtins.str]:
+        """
+        ServiceNow instance. String length must be at least 1.
+        """
+        return pulumi.get(self, "instance")
+
+    @_builtins.property
+    @pulumi.getter
+    def password(self) -> Optional[_builtins.str]:
+        """
+        ServiceNow password. String length must be at least 1.
+        """
+        return pulumi.get(self, "password")
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> Optional[_builtins.str]:
+        """
+        ServiceNow username. String length must be at least 1.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class ActionConnectionSplit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionSplit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionSplit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionSplit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.ActionConnectionSplitApiKey'] = None):
+        """
+        :param 'ActionConnectionSplitApiKeyArgs' api_key: Configuration for Split API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.ActionConnectionSplitApiKey']:
+        """
+        Configuration for Split API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class ActionConnectionSplitApiKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionSplitApiKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionSplitApiKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionSplitApiKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str api_key: Split API key. String length must be at least 1.
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[_builtins.str]:
+        """
+        Split API key. String length must be at least 1.
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class ActionConnectionStatsig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionStatsig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionStatsig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionStatsig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.ActionConnectionStatsigApiKey'] = None):
+        """
+        :param 'ActionConnectionStatsigApiKeyArgs' api_key: Configuration for Statsig API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.ActionConnectionStatsigApiKey']:
+        """
+        Configuration for Statsig API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class ActionConnectionStatsigApiKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionStatsigApiKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionStatsigApiKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionStatsigApiKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str api_key: Statsig API key. String length must be at least 1.
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[_builtins.str]:
+        """
+        Statsig API key. String length must be at least 1.
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class ActionConnectionVirusTotal(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionVirusTotal. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionVirusTotal.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionVirusTotal.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.ActionConnectionVirusTotalApiKey'] = None):
+        """
+        :param 'ActionConnectionVirusTotalApiKeyArgs' api_key: Configuration for VirusTotal API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.ActionConnectionVirusTotalApiKey']:
+        """
+        Configuration for VirusTotal API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class ActionConnectionVirusTotalApiKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConnectionVirusTotalApiKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConnectionVirusTotalApiKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConnectionVirusTotalApiKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str api_key: VirusTotal API key. String length must be at least 1.
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[_builtins.str]:
+        """
+        VirusTotal API key. String length must be at least 1.
+        """
+        return pulumi.get(self, "api_key")
 
 
 @pulumi.output_type
@@ -8916,6 +10803,102 @@ class CostBudgetEntryTagFilter(dict):
         """
         **Note:** Must be one of the tags from the `metrics_query`.
         """
+        return pulumi.get(self, "tag_key")
+
+    @_builtins.property
+    @pulumi.getter(name="tagValue")
+    def tag_value(self) -> _builtins.str:
+        return pulumi.get(self, "tag_value")
+
+
+@pulumi.output_type
+class CostCustomForecastEntry(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagFilters":
+            suggest = "tag_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CostCustomForecastEntry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CostCustomForecastEntry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CostCustomForecastEntry.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 amount: _builtins.float,
+                 month: _builtins.int,
+                 tag_filters: Optional[Sequence['outputs.CostCustomForecastEntryTagFilter']] = None):
+        """
+        :param _builtins.float amount: The forecast override amount for the month. Value must be at least 0.000000.
+        :param _builtins.int month: The month the entry applies to, in `YYYYMM` format.
+        :param Sequence['CostCustomForecastEntryTagFilterArgs'] tag_filters: Tag filters that scope this entry to a specific budget entry tag combination.
+        """
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "month", month)
+        if tag_filters is not None:
+            pulumi.set(__self__, "tag_filters", tag_filters)
+
+    @_builtins.property
+    @pulumi.getter
+    def amount(self) -> _builtins.float:
+        """
+        The forecast override amount for the month. Value must be at least 0.000000.
+        """
+        return pulumi.get(self, "amount")
+
+    @_builtins.property
+    @pulumi.getter
+    def month(self) -> _builtins.int:
+        """
+        The month the entry applies to, in `YYYYMM` format.
+        """
+        return pulumi.get(self, "month")
+
+    @_builtins.property
+    @pulumi.getter(name="tagFilters")
+    def tag_filters(self) -> Optional[Sequence['outputs.CostCustomForecastEntryTagFilter']]:
+        """
+        Tag filters that scope this entry to a specific budget entry tag combination.
+        """
+        return pulumi.get(self, "tag_filters")
+
+
+@pulumi.output_type
+class CostCustomForecastEntryTagFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagKey":
+            suggest = "tag_key"
+        elif key == "tagValue":
+            suggest = "tag_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CostCustomForecastEntryTagFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CostCustomForecastEntryTagFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CostCustomForecastEntryTagFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tag_key: _builtins.str,
+                 tag_value: _builtins.str):
+        pulumi.set(__self__, "tag_key", tag_key)
+        pulumi.set(__self__, "tag_value", tag_value)
+
+    @_builtins.property
+    @pulumi.getter(name="tagKey")
+    def tag_key(self) -> _builtins.str:
         return pulumi.get(self, "tag_key")
 
     @_builtins.property
@@ -233496,6 +235479,352 @@ class IncidentNotificationRuleCondition(dict):
 
 
 @pulumi.output_type
+class IncidentTypeConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowIncidentDeletion":
+            suggest = "allow_incident_deletion"
+        elif key == "allowWorkflows":
+            suggest = "allow_workflows"
+        elif key == "createMessage":
+            suggest = "create_message"
+        elif key == "editableTimestamps":
+            suggest = "editable_timestamps"
+        elif key == "privateIncidents":
+            suggest = "private_incidents"
+        elif key == "privateIncidentsByDefault":
+            suggest = "private_incidents_by_default"
+        elif key == "slugSource":
+            suggest = "slug_source"
+        elif key == "testIncidents":
+            suggest = "test_incidents"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentTypeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentTypeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentTypeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_incident_deletion: Optional[_builtins.bool] = None,
+                 allow_workflows: Optional[_builtins.bool] = None,
+                 create_message: Optional[_builtins.str] = None,
+                 editable_timestamps: Optional[_builtins.bool] = None,
+                 private_incidents: Optional[_builtins.bool] = None,
+                 private_incidents_by_default: Optional[_builtins.bool] = None,
+                 slug_source: Optional[_builtins.str] = None,
+                 test_incidents: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool allow_incident_deletion: Whether incidents of this type can be deleted. Defaults to `false`.
+        :param _builtins.bool allow_workflows: Whether users can manually run a workflow from an incident of this type. Defaults to `true`.
+        :param _builtins.str create_message: An optional message shown to users when they declare an incident of this type. Defaults to an empty string.
+        :param _builtins.bool editable_timestamps: Whether responders can edit incident timestamps for incidents of this type. Defaults to `false`.
+        :param _builtins.bool private_incidents: Whether responders can create private incidents of this type. Defaults to `false`.
+        :param _builtins.bool private_incidents_by_default: Whether the private toggle is enabled by default in the incident creation modal for this type. Defaults to `false`.
+        :param _builtins.str slug_source: The source used to derive the incident slug. When set to `servicenow`, incidents display the ServiceNow record ID instead of the public ID. If no ServiceNow integration exists, the public ID is displayed. Defaults to `default`. Valid values are `default`, `servicenow`.
+        :param _builtins.bool test_incidents: Whether test incidents of this type can be created. Defaults to `true`.
+        """
+        if allow_incident_deletion is not None:
+            pulumi.set(__self__, "allow_incident_deletion", allow_incident_deletion)
+        if allow_workflows is not None:
+            pulumi.set(__self__, "allow_workflows", allow_workflows)
+        if create_message is not None:
+            pulumi.set(__self__, "create_message", create_message)
+        if editable_timestamps is not None:
+            pulumi.set(__self__, "editable_timestamps", editable_timestamps)
+        if private_incidents is not None:
+            pulumi.set(__self__, "private_incidents", private_incidents)
+        if private_incidents_by_default is not None:
+            pulumi.set(__self__, "private_incidents_by_default", private_incidents_by_default)
+        if slug_source is not None:
+            pulumi.set(__self__, "slug_source", slug_source)
+        if test_incidents is not None:
+            pulumi.set(__self__, "test_incidents", test_incidents)
+
+    @_builtins.property
+    @pulumi.getter(name="allowIncidentDeletion")
+    def allow_incident_deletion(self) -> Optional[_builtins.bool]:
+        """
+        Whether incidents of this type can be deleted. Defaults to `false`.
+        """
+        return pulumi.get(self, "allow_incident_deletion")
+
+    @_builtins.property
+    @pulumi.getter(name="allowWorkflows")
+    def allow_workflows(self) -> Optional[_builtins.bool]:
+        """
+        Whether users can manually run a workflow from an incident of this type. Defaults to `true`.
+        """
+        return pulumi.get(self, "allow_workflows")
+
+    @_builtins.property
+    @pulumi.getter(name="createMessage")
+    def create_message(self) -> Optional[_builtins.str]:
+        """
+        An optional message shown to users when they declare an incident of this type. Defaults to an empty string.
+        """
+        return pulumi.get(self, "create_message")
+
+    @_builtins.property
+    @pulumi.getter(name="editableTimestamps")
+    def editable_timestamps(self) -> Optional[_builtins.bool]:
+        """
+        Whether responders can edit incident timestamps for incidents of this type. Defaults to `false`.
+        """
+        return pulumi.get(self, "editable_timestamps")
+
+    @_builtins.property
+    @pulumi.getter(name="privateIncidents")
+    def private_incidents(self) -> Optional[_builtins.bool]:
+        """
+        Whether responders can create private incidents of this type. Defaults to `false`.
+        """
+        return pulumi.get(self, "private_incidents")
+
+    @_builtins.property
+    @pulumi.getter(name="privateIncidentsByDefault")
+    def private_incidents_by_default(self) -> Optional[_builtins.bool]:
+        """
+        Whether the private toggle is enabled by default in the incident creation modal for this type. Defaults to `false`.
+        """
+        return pulumi.get(self, "private_incidents_by_default")
+
+    @_builtins.property
+    @pulumi.getter(name="slugSource")
+    def slug_source(self) -> Optional[_builtins.str]:
+        """
+        The source used to derive the incident slug. When set to `servicenow`, incidents display the ServiceNow record ID instead of the public ID. If no ServiceNow integration exists, the public ID is displayed. Defaults to `default`. Valid values are `default`, `servicenow`.
+        """
+        return pulumi.get(self, "slug_source")
+
+    @_builtins.property
+    @pulumi.getter(name="testIncidents")
+    def test_incidents(self) -> Optional[_builtins.bool]:
+        """
+        Whether test incidents of this type can be created. Defaults to `true`.
+        """
+        return pulumi.get(self, "test_incidents")
+
+
+@pulumi.output_type
+class IncidentUserDefinedFieldMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "searchLimitParam":
+            suggest = "search_limit_param"
+        elif key == "searchParams":
+            suggest = "search_params"
+        elif key == "searchQueryParam":
+            suggest = "search_query_param"
+        elif key == "searchResultPath":
+            suggest = "search_result_path"
+        elif key == "searchUrl":
+            suggest = "search_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentUserDefinedFieldMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentUserDefinedFieldMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentUserDefinedFieldMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 category: Optional[_builtins.str] = None,
+                 search_limit_param: Optional[_builtins.str] = None,
+                 search_params: Optional[Mapping[str, _builtins.str]] = None,
+                 search_query_param: Optional[_builtins.str] = None,
+                 search_result_path: Optional[_builtins.str] = None,
+                 search_url: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str category: The category of the autocomplete source.
+        :param _builtins.str search_limit_param: The query parameter used to limit the number of autocomplete results.
+        :param Mapping[str, _builtins.str] search_params: Additional query parameters to include in the search URL.
+        :param _builtins.str search_query_param: The query parameter used to pass typed input to the search URL.
+        :param _builtins.str search_result_path: The JSON path to the results in the response body.
+        :param _builtins.str search_url: The URL used to populate autocomplete options.
+        """
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if search_limit_param is not None:
+            pulumi.set(__self__, "search_limit_param", search_limit_param)
+        if search_params is not None:
+            pulumi.set(__self__, "search_params", search_params)
+        if search_query_param is not None:
+            pulumi.set(__self__, "search_query_param", search_query_param)
+        if search_result_path is not None:
+            pulumi.set(__self__, "search_result_path", search_result_path)
+        if search_url is not None:
+            pulumi.set(__self__, "search_url", search_url)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[_builtins.str]:
+        """
+        The category of the autocomplete source.
+        """
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter(name="searchLimitParam")
+    def search_limit_param(self) -> Optional[_builtins.str]:
+        """
+        The query parameter used to limit the number of autocomplete results.
+        """
+        return pulumi.get(self, "search_limit_param")
+
+    @_builtins.property
+    @pulumi.getter(name="searchParams")
+    def search_params(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Additional query parameters to include in the search URL.
+        """
+        return pulumi.get(self, "search_params")
+
+    @_builtins.property
+    @pulumi.getter(name="searchQueryParam")
+    def search_query_param(self) -> Optional[_builtins.str]:
+        """
+        The query parameter used to pass typed input to the search URL.
+        """
+        return pulumi.get(self, "search_query_param")
+
+    @_builtins.property
+    @pulumi.getter(name="searchResultPath")
+    def search_result_path(self) -> Optional[_builtins.str]:
+        """
+        The JSON path to the results in the response body.
+        """
+        return pulumi.get(self, "search_result_path")
+
+    @_builtins.property
+    @pulumi.getter(name="searchUrl")
+    def search_url(self) -> Optional[_builtins.str]:
+        """
+        The URL used to populate autocomplete options.
+        """
+        return pulumi.get(self, "search_url")
+
+
+@pulumi.output_type
+class IncidentUserDefinedFieldValidValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+        elif key == "shortDescription":
+            suggest = "short_description"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentUserDefinedFieldValidValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentUserDefinedFieldValidValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentUserDefinedFieldValidValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 display_name: _builtins.str,
+                 value: _builtins.str,
+                 description: Optional[_builtins.str] = None,
+                 short_description: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str display_name: The human-readable display name for this value.
+        :param _builtins.str value: The identifier that is stored when this option is selected.
+        :param _builtins.str description: A detailed description of the valid value.
+        :param _builtins.str short_description: A short description of the valid value.
+        """
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if short_description is not None:
+            pulumi.set(__self__, "short_description", short_description)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> _builtins.str:
+        """
+        The human-readable display name for this value.
+        """
+        return pulumi.get(self, "display_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        The identifier that is stored when this option is selected.
+        """
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        A detailed description of the valid value.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="shortDescription")
+    def short_description(self) -> Optional[_builtins.str]:
+        """
+        A short description of the valid value.
+        """
+        return pulumi.get(self, "short_description")
+
+
+@pulumi.output_type
+class IncidentUserDefinedRolePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isSingle":
+            suggest = "is_single"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentUserDefinedRolePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentUserDefinedRolePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentUserDefinedRolePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_single: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool is_single: Whether this role can only be assigned to one responder at a time. Defaults to `false`.
+        """
+        if is_single is not None:
+            pulumi.set(__self__, "is_single", is_single)
+
+    @_builtins.property
+    @pulumi.getter(name="isSingle")
+    def is_single(self) -> Optional[_builtins.bool]:
+        """
+        Whether this role can only be assigned to one responder at a time. Defaults to `false`.
+        """
+        return pulumi.get(self, "is_single")
+
+
+@pulumi.output_type
 class IpAllowlistEntry(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -234285,6 +236614,8 @@ class LogsCustomPipelineProcessor(dict):
             suggest = "date_remapper"
         elif key == "decoderProcessor":
             suggest = "decoder_processor"
+        elif key == "excludeAttributeProcessor":
+            suggest = "exclude_attribute_processor"
         elif key == "geoIpParser":
             suggest = "geo_ip_parser"
         elif key == "grokParser":
@@ -234331,6 +236662,7 @@ class LogsCustomPipelineProcessor(dict):
                  category_processor: Optional['outputs.LogsCustomPipelineProcessorCategoryProcessor'] = None,
                  date_remapper: Optional['outputs.LogsCustomPipelineProcessorDateRemapper'] = None,
                  decoder_processor: Optional['outputs.LogsCustomPipelineProcessorDecoderProcessor'] = None,
+                 exclude_attribute_processor: Optional['outputs.LogsCustomPipelineProcessorExcludeAttributeProcessor'] = None,
                  geo_ip_parser: Optional['outputs.LogsCustomPipelineProcessorGeoIpParser'] = None,
                  grok_parser: Optional['outputs.LogsCustomPipelineProcessorGrokParser'] = None,
                  lookup_processor: Optional['outputs.LogsCustomPipelineProcessorLookupProcessor'] = None,
@@ -234353,6 +236685,7 @@ class LogsCustomPipelineProcessor(dict):
         :param 'LogsCustomPipelineProcessorCategoryProcessorArgs' category_processor: Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
         :param 'LogsCustomPipelineProcessorDateRemapperArgs' date_remapper: Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
         :param 'LogsCustomPipelineProcessorDecoderProcessorArgs' decoder_processor: Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
+        :param 'LogsCustomPipelineProcessorExcludeAttributeProcessorArgs' exclude_attribute_processor: Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
         :param 'LogsCustomPipelineProcessorGeoIpParserArgs' geo_ip_parser: Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
         :param 'LogsCustomPipelineProcessorGrokParserArgs' grok_parser: Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
         :param 'LogsCustomPipelineProcessorLookupProcessorArgs' lookup_processor: Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
@@ -234381,6 +236714,8 @@ class LogsCustomPipelineProcessor(dict):
             pulumi.set(__self__, "date_remapper", date_remapper)
         if decoder_processor is not None:
             pulumi.set(__self__, "decoder_processor", decoder_processor)
+        if exclude_attribute_processor is not None:
+            pulumi.set(__self__, "exclude_attribute_processor", exclude_attribute_processor)
         if geo_ip_parser is not None:
             pulumi.set(__self__, "geo_ip_parser", geo_ip_parser)
         if grok_parser is not None:
@@ -234465,6 +236800,14 @@ class LogsCustomPipelineProcessor(dict):
         Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
         """
         return pulumi.get(self, "decoder_processor")
+
+    @_builtins.property
+    @pulumi.getter(name="excludeAttributeProcessor")
+    def exclude_attribute_processor(self) -> Optional['outputs.LogsCustomPipelineProcessorExcludeAttributeProcessor']:
+        """
+        Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
+        """
+        return pulumi.get(self, "exclude_attribute_processor")
 
     @_builtins.property
     @pulumi.getter(name="geoIpParser")
@@ -235813,6 +238156,67 @@ class LogsCustomPipelineProcessorDecoderProcessor(dict):
 
 
 @pulumi.output_type
+class LogsCustomPipelineProcessorExcludeAttributeProcessor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeToExclude":
+            suggest = "attribute_to_exclude"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorExcludeAttributeProcessor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorExcludeAttributeProcessor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorExcludeAttributeProcessor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute_to_exclude: _builtins.str,
+                 is_enabled: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str attribute_to_exclude: Name of the log attribute to remove from the log event.
+        :param _builtins.bool is_enabled: If the processor is enabled or not.
+        :param _builtins.str name: Name of the processor.
+        """
+        pulumi.set(__self__, "attribute_to_exclude", attribute_to_exclude)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="attributeToExclude")
+    def attribute_to_exclude(self) -> _builtins.str:
+        """
+        Name of the log attribute to remove from the log event.
+        """
+        return pulumi.get(self, "attribute_to_exclude")
+
+    @_builtins.property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[_builtins.bool]:
+        """
+        If the processor is enabled or not.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the processor.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class LogsCustomPipelineProcessorGeoIpParser(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -236269,6 +238673,8 @@ class LogsCustomPipelineProcessorPipelineProcessor(dict):
             suggest = "date_remapper"
         elif key == "decoderProcessor":
             suggest = "decoder_processor"
+        elif key == "excludeAttributeProcessor":
+            suggest = "exclude_attribute_processor"
         elif key == "geoIpParser":
             suggest = "geo_ip_parser"
         elif key == "grokParser":
@@ -236315,6 +238721,7 @@ class LogsCustomPipelineProcessorPipelineProcessor(dict):
                  category_processor: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor'] = None,
                  date_remapper: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapper'] = None,
                  decoder_processor: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor'] = None,
+                 exclude_attribute_processor: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorExcludeAttributeProcessor'] = None,
                  geo_ip_parser: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorGeoIpParser'] = None,
                  grok_parser: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorGrokParser'] = None,
                  lookup_processor: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorLookupProcessor'] = None,
@@ -236336,6 +238743,7 @@ class LogsCustomPipelineProcessorPipelineProcessor(dict):
         :param 'LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorArgs' category_processor: Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
         :param 'LogsCustomPipelineProcessorPipelineProcessorDateRemapperArgs' date_remapper: Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
         :param 'LogsCustomPipelineProcessorPipelineProcessorDecoderProcessorArgs' decoder_processor: Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
+        :param 'LogsCustomPipelineProcessorPipelineProcessorExcludeAttributeProcessorArgs' exclude_attribute_processor: Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
         :param 'LogsCustomPipelineProcessorPipelineProcessorGeoIpParserArgs' geo_ip_parser: Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
         :param 'LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs' grok_parser: Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
         :param 'LogsCustomPipelineProcessorPipelineProcessorLookupProcessorArgs' lookup_processor: Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
@@ -236364,6 +238772,8 @@ class LogsCustomPipelineProcessorPipelineProcessor(dict):
             pulumi.set(__self__, "date_remapper", date_remapper)
         if decoder_processor is not None:
             pulumi.set(__self__, "decoder_processor", decoder_processor)
+        if exclude_attribute_processor is not None:
+            pulumi.set(__self__, "exclude_attribute_processor", exclude_attribute_processor)
         if geo_ip_parser is not None:
             pulumi.set(__self__, "geo_ip_parser", geo_ip_parser)
         if grok_parser is not None:
@@ -236446,6 +238856,14 @@ class LogsCustomPipelineProcessorPipelineProcessor(dict):
         Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
         """
         return pulumi.get(self, "decoder_processor")
+
+    @_builtins.property
+    @pulumi.getter(name="excludeAttributeProcessor")
+    def exclude_attribute_processor(self) -> Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorExcludeAttributeProcessor']:
+        """
+        Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
+        """
+        return pulumi.get(self, "exclude_attribute_processor")
 
     @_builtins.property
     @pulumi.getter(name="geoIpParser")
@@ -237770,6 +240188,67 @@ class LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor(dict):
         Decoded message
         """
         return pulumi.get(self, "target")
+
+    @_builtins.property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[_builtins.bool]:
+        """
+        If the processor is enabled or not.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the processor.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class LogsCustomPipelineProcessorPipelineProcessorExcludeAttributeProcessor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeToExclude":
+            suggest = "attribute_to_exclude"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorPipelineProcessorExcludeAttributeProcessor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorExcludeAttributeProcessor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorExcludeAttributeProcessor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute_to_exclude: _builtins.str,
+                 is_enabled: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str attribute_to_exclude: Name of the log attribute to remove from the log event.
+        :param _builtins.bool is_enabled: If the processor is enabled or not.
+        :param _builtins.str name: Name of the processor.
+        """
+        pulumi.set(__self__, "attribute_to_exclude", attribute_to_exclude)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="attributeToExclude")
+    def attribute_to_exclude(self) -> _builtins.str:
+        """
+        Name of the log attribute to remove from the log event.
+        """
+        return pulumi.get(self, "attribute_to_exclude")
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
@@ -243519,7 +245998,7 @@ class MonitorVariablesDataJobsQuery(dict):
                  name: _builtins.str,
                  query_dialect: _builtins.str):
         """
-        :param _builtins.str job_type: The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `dbt.model`, `dbt.test`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+        :param _builtins.str job_type: The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
         :param _builtins.str jobs_query: Filter expression used to select the jobs to monitor.
         :param _builtins.str name: Name of the query for use in formulas. Must be `run_query`.
         :param _builtins.str query_dialect: Query dialect for data jobs queries. Currently only `metric` is supported.
@@ -243533,7 +246012,7 @@ class MonitorVariablesDataJobsQuery(dict):
     @pulumi.getter(name="jobType")
     def job_type(self) -> _builtins.str:
         """
-        The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `dbt.model`, `dbt.test`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+        The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
         """
         return pulumi.get(self, "job_type")
 
@@ -245139,6 +247618,10 @@ class ObservabilityPipelineConfigDestinationAmazonS3Generic(dict):
             suggest = "batch_settings"
         elif key == "keyPrefix":
             suggest = "key_prefix"
+        elif key == "serverSideEncryption":
+            suggest = "server_side_encryption"
+        elif key == "ssekmsKeyId":
+            suggest = "ssekms_key_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigDestinationAmazonS3Generic. Access the value via the '{suggest}' property getter instead.")
@@ -245160,7 +247643,9 @@ class ObservabilityPipelineConfigDestinationAmazonS3Generic(dict):
                  auth: Optional['outputs.ObservabilityPipelineConfigDestinationAmazonS3GenericAuth'] = None,
                  batch_settings: Optional['outputs.ObservabilityPipelineConfigDestinationAmazonS3GenericBatchSettings'] = None,
                  buffer: Optional['outputs.ObservabilityPipelineConfigDestinationAmazonS3GenericBuffer'] = None,
-                 key_prefix: Optional[_builtins.str] = None):
+                 key_prefix: Optional[_builtins.str] = None,
+                 server_side_encryption: Optional[_builtins.str] = None,
+                 ssekms_key_id: Optional[_builtins.str] = None):
         """
         :param _builtins.str bucket: S3 bucket name.
         :param 'ObservabilityPipelineConfigDestinationAmazonS3GenericCompressionArgs' compression: Compression configuration.
@@ -245171,6 +247656,8 @@ class ObservabilityPipelineConfigDestinationAmazonS3Generic(dict):
         :param 'ObservabilityPipelineConfigDestinationAmazonS3GenericBatchSettingsArgs' batch_settings: Event batching settings.
         :param 'ObservabilityPipelineConfigDestinationAmazonS3GenericBufferArgs' buffer: Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
         :param _builtins.str key_prefix: Optional prefix for object keys.
+        :param _builtins.str server_side_encryption: The server-side encryption algorithm used when storing objects in S3. Valid values: `aws:kms`, `AES256`. Valid values are `aws:kms`, `AES256`.
+        :param _builtins.str ssekms_key_id: ID of the AWS KMS key to use for SSE-KMS encryption. Only applies when `server_side_encryption` is `aws:kms`.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "compression", compression)
@@ -245185,6 +247672,10 @@ class ObservabilityPipelineConfigDestinationAmazonS3Generic(dict):
             pulumi.set(__self__, "buffer", buffer)
         if key_prefix is not None:
             pulumi.set(__self__, "key_prefix", key_prefix)
+        if server_side_encryption is not None:
+            pulumi.set(__self__, "server_side_encryption", server_side_encryption)
+        if ssekms_key_id is not None:
+            pulumi.set(__self__, "ssekms_key_id", ssekms_key_id)
 
     @_builtins.property
     @pulumi.getter
@@ -245257,6 +247748,22 @@ class ObservabilityPipelineConfigDestinationAmazonS3Generic(dict):
         Optional prefix for object keys.
         """
         return pulumi.get(self, "key_prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="serverSideEncryption")
+    def server_side_encryption(self) -> Optional[_builtins.str]:
+        """
+        The server-side encryption algorithm used when storing objects in S3. Valid values: `aws:kms`, `AES256`. Valid values are `aws:kms`, `AES256`.
+        """
+        return pulumi.get(self, "server_side_encryption")
+
+    @_builtins.property
+    @pulumi.getter(name="ssekmsKeyId")
+    def ssekms_key_id(self) -> Optional[_builtins.str]:
+        """
+        ID of the AWS KMS key to use for SSE-KMS encryption. Only applies when `server_side_encryption` is `aws:kms`.
+        """
+        return pulumi.get(self, "ssekms_key_id")
 
 
 @pulumi.output_type
@@ -246966,6 +249473,8 @@ class ObservabilityPipelineConfigDestinationCloudPremTls(dict):
             suggest = "key_file"
         elif key == "keyPassKey":
             suggest = "key_pass_key"
+        elif key == "serverName":
+            suggest = "server_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigDestinationCloudPremTls. Access the value via the '{suggest}' property getter instead.")
@@ -246982,12 +249491,14 @@ class ObservabilityPipelineConfigDestinationCloudPremTls(dict):
                  crt_file: _builtins.str,
                  ca_file: Optional[_builtins.str] = None,
                  key_file: Optional[_builtins.str] = None,
-                 key_pass_key: Optional[_builtins.str] = None):
+                 key_pass_key: Optional[_builtins.str] = None,
+                 server_name: Optional[_builtins.str] = None):
         """
         :param _builtins.str crt_file: Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
         :param _builtins.str ca_file: Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
         :param _builtins.str key_file: Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
         :param _builtins.str key_pass_key: Name of the environment variable or secret that holds the passphrase for the private key file.
+        :param _builtins.str server_name: Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
         """
         pulumi.set(__self__, "crt_file", crt_file)
         if ca_file is not None:
@@ -246996,6 +249507,8 @@ class ObservabilityPipelineConfigDestinationCloudPremTls(dict):
             pulumi.set(__self__, "key_file", key_file)
         if key_pass_key is not None:
             pulumi.set(__self__, "key_pass_key", key_pass_key)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
 
     @_builtins.property
     @pulumi.getter(name="crtFile")
@@ -247028,6 +249541,14 @@ class ObservabilityPipelineConfigDestinationCloudPremTls(dict):
         Name of the environment variable or secret that holds the passphrase for the private key file.
         """
         return pulumi.get(self, "key_pass_key")
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[_builtins.str]:
+        """
+        Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+        """
+        return pulumi.get(self, "server_name")
 
 
 @pulumi.output_type
@@ -249748,6 +252269,8 @@ class ObservabilityPipelineConfigDestinationHttpClientTls(dict):
             suggest = "key_file"
         elif key == "keyPassKey":
             suggest = "key_pass_key"
+        elif key == "serverName":
+            suggest = "server_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigDestinationHttpClientTls. Access the value via the '{suggest}' property getter instead.")
@@ -249764,12 +252287,14 @@ class ObservabilityPipelineConfigDestinationHttpClientTls(dict):
                  crt_file: _builtins.str,
                  ca_file: Optional[_builtins.str] = None,
                  key_file: Optional[_builtins.str] = None,
-                 key_pass_key: Optional[_builtins.str] = None):
+                 key_pass_key: Optional[_builtins.str] = None,
+                 server_name: Optional[_builtins.str] = None):
         """
         :param _builtins.str crt_file: Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
         :param _builtins.str ca_file: Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
         :param _builtins.str key_file: Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
         :param _builtins.str key_pass_key: Name of the environment variable or secret that holds the passphrase for the private key file.
+        :param _builtins.str server_name: Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
         """
         pulumi.set(__self__, "crt_file", crt_file)
         if ca_file is not None:
@@ -249778,6 +252303,8 @@ class ObservabilityPipelineConfigDestinationHttpClientTls(dict):
             pulumi.set(__self__, "key_file", key_file)
         if key_pass_key is not None:
             pulumi.set(__self__, "key_pass_key", key_pass_key)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
 
     @_builtins.property
     @pulumi.getter(name="crtFile")
@@ -249810,6 +252337,14 @@ class ObservabilityPipelineConfigDestinationHttpClientTls(dict):
         Name of the environment variable or secret that holds the passphrase for the private key file.
         """
         return pulumi.get(self, "key_pass_key")
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[_builtins.str]:
+        """
+        Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+        """
+        return pulumi.get(self, "server_name")
 
 
 @pulumi.output_type
@@ -250812,6 +253347,8 @@ class ObservabilityPipelineConfigDestinationOpensearch(dict):
             suggest = "bulk_index"
         elif key == "dataStream":
             suggest = "data_stream"
+        elif key == "endpointUrlKey":
+            suggest = "endpoint_url_key"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigDestinationOpensearch. Access the value via the '{suggest}' property getter instead.")
@@ -250825,20 +253362,36 @@ class ObservabilityPipelineConfigDestinationOpensearch(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 auth: Optional['outputs.ObservabilityPipelineConfigDestinationOpensearchAuth'] = None,
                  buffer: Optional['outputs.ObservabilityPipelineConfigDestinationOpensearchBuffer'] = None,
                  bulk_index: Optional[_builtins.str] = None,
-                 data_stream: Optional['outputs.ObservabilityPipelineConfigDestinationOpensearchDataStream'] = None):
+                 data_stream: Optional['outputs.ObservabilityPipelineConfigDestinationOpensearchDataStream'] = None,
+                 endpoint_url_key: Optional[_builtins.str] = None):
         """
+        :param 'ObservabilityPipelineConfigDestinationOpensearchAuthArgs' auth: Authentication settings for the OpenSearch destination.
         :param 'ObservabilityPipelineConfigDestinationOpensearchBufferArgs' buffer: Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
         :param _builtins.str bulk_index: The index or datastream to write logs to.
         :param 'ObservabilityPipelineConfigDestinationOpensearchDataStreamArgs' data_stream: Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
+        :param _builtins.str endpoint_url_key: Name of the environment variable or secret that holds the OpenSearch endpoint URL.
         """
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
         if buffer is not None:
             pulumi.set(__self__, "buffer", buffer)
         if bulk_index is not None:
             pulumi.set(__self__, "bulk_index", bulk_index)
         if data_stream is not None:
             pulumi.set(__self__, "data_stream", data_stream)
+        if endpoint_url_key is not None:
+            pulumi.set(__self__, "endpoint_url_key", endpoint_url_key)
+
+    @_builtins.property
+    @pulumi.getter
+    def auth(self) -> Optional['outputs.ObservabilityPipelineConfigDestinationOpensearchAuth']:
+        """
+        Authentication settings for the OpenSearch destination.
+        """
+        return pulumi.get(self, "auth")
 
     @_builtins.property
     @pulumi.getter
@@ -250863,6 +253416,75 @@ class ObservabilityPipelineConfigDestinationOpensearch(dict):
         Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
         """
         return pulumi.get(self, "data_stream")
+
+    @_builtins.property
+    @pulumi.getter(name="endpointUrlKey")
+    def endpoint_url_key(self) -> Optional[_builtins.str]:
+        """
+        Name of the environment variable or secret that holds the OpenSearch endpoint URL.
+        """
+        return pulumi.get(self, "endpoint_url_key")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigDestinationOpensearchAuth(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "passwordKey":
+            suggest = "password_key"
+        elif key == "usernameKey":
+            suggest = "username_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigDestinationOpensearchAuth. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigDestinationOpensearchAuth.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigDestinationOpensearchAuth.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 strategy: _builtins.str,
+                 password_key: Optional[_builtins.str] = None,
+                 username_key: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str strategy: The authentication strategy to use. Valid values are `basic`, `aws`.
+        :param _builtins.str password_key: Name of the environment variable or secret that holds the OpenSearch password (used when `strategy` is `basic`).
+        :param _builtins.str username_key: Name of the environment variable or secret that holds the OpenSearch username (used when `strategy` is `basic`).
+        """
+        pulumi.set(__self__, "strategy", strategy)
+        if password_key is not None:
+            pulumi.set(__self__, "password_key", password_key)
+        if username_key is not None:
+            pulumi.set(__self__, "username_key", username_key)
+
+    @_builtins.property
+    @pulumi.getter
+    def strategy(self) -> _builtins.str:
+        """
+        The authentication strategy to use. Valid values are `basic`, `aws`.
+        """
+        return pulumi.get(self, "strategy")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordKey")
+    def password_key(self) -> Optional[_builtins.str]:
+        """
+        Name of the environment variable or secret that holds the OpenSearch password (used when `strategy` is `basic`).
+        """
+        return pulumi.get(self, "password_key")
+
+    @_builtins.property
+    @pulumi.getter(name="usernameKey")
+    def username_key(self) -> Optional[_builtins.str]:
+        """
+        Name of the environment variable or secret that holds the OpenSearch username (used when `strategy` is `basic`).
+        """
+        return pulumi.get(self, "username_key")
 
 
 @pulumi.output_type
@@ -251867,6 +254489,8 @@ class ObservabilityPipelineConfigDestinationSocketTls(dict):
             suggest = "key_file"
         elif key == "keyPassKey":
             suggest = "key_pass_key"
+        elif key == "serverName":
+            suggest = "server_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigDestinationSocketTls. Access the value via the '{suggest}' property getter instead.")
@@ -251883,12 +254507,14 @@ class ObservabilityPipelineConfigDestinationSocketTls(dict):
                  crt_file: _builtins.str,
                  ca_file: Optional[_builtins.str] = None,
                  key_file: Optional[_builtins.str] = None,
-                 key_pass_key: Optional[_builtins.str] = None):
+                 key_pass_key: Optional[_builtins.str] = None,
+                 server_name: Optional[_builtins.str] = None):
         """
         :param _builtins.str crt_file: Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
         :param _builtins.str ca_file: Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
         :param _builtins.str key_file: Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
         :param _builtins.str key_pass_key: Name of the environment variable or secret that holds the passphrase for the private key file.
+        :param _builtins.str server_name: Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
         """
         pulumi.set(__self__, "crt_file", crt_file)
         if ca_file is not None:
@@ -251897,6 +254523,8 @@ class ObservabilityPipelineConfigDestinationSocketTls(dict):
             pulumi.set(__self__, "key_file", key_file)
         if key_pass_key is not None:
             pulumi.set(__self__, "key_pass_key", key_pass_key)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
 
     @_builtins.property
     @pulumi.getter(name="crtFile")
@@ -251929,6 +254557,14 @@ class ObservabilityPipelineConfigDestinationSocketTls(dict):
         Name of the environment variable or secret that holds the passphrase for the private key file.
         """
         return pulumi.get(self, "key_pass_key")
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[_builtins.str]:
+        """
+        Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+        """
+        return pulumi.get(self, "server_name")
 
 
 @pulumi.output_type
@@ -253095,6 +255731,8 @@ class ObservabilityPipelineConfigDestinationSyslogNgTls(dict):
             suggest = "key_file"
         elif key == "keyPassKey":
             suggest = "key_pass_key"
+        elif key == "serverName":
+            suggest = "server_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigDestinationSyslogNgTls. Access the value via the '{suggest}' property getter instead.")
@@ -253111,12 +255749,14 @@ class ObservabilityPipelineConfigDestinationSyslogNgTls(dict):
                  crt_file: _builtins.str,
                  ca_file: Optional[_builtins.str] = None,
                  key_file: Optional[_builtins.str] = None,
-                 key_pass_key: Optional[_builtins.str] = None):
+                 key_pass_key: Optional[_builtins.str] = None,
+                 server_name: Optional[_builtins.str] = None):
         """
         :param _builtins.str crt_file: Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
         :param _builtins.str ca_file: Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
         :param _builtins.str key_file: Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
         :param _builtins.str key_pass_key: Name of the environment variable or secret that holds the passphrase for the private key file.
+        :param _builtins.str server_name: Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
         """
         pulumi.set(__self__, "crt_file", crt_file)
         if ca_file is not None:
@@ -253125,6 +255765,8 @@ class ObservabilityPipelineConfigDestinationSyslogNgTls(dict):
             pulumi.set(__self__, "key_file", key_file)
         if key_pass_key is not None:
             pulumi.set(__self__, "key_pass_key", key_pass_key)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
 
     @_builtins.property
     @pulumi.getter(name="crtFile")
@@ -253157,6 +255799,14 @@ class ObservabilityPipelineConfigDestinationSyslogNgTls(dict):
         Name of the environment variable or secret that holds the passphrase for the private key file.
         """
         return pulumi.get(self, "key_pass_key")
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[_builtins.str]:
+        """
+        Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+        """
+        return pulumi.get(self, "server_name")
 
 
 @pulumi.output_type
@@ -256699,6 +259349,8 @@ class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimit(dict
         suggest = None
         if key == "limitExceededAction":
             suggest = "limit_exceeded_action"
+        elif key == "trackingMode":
+            suggest = "tracking_mode"
         elif key == "valueLimit":
             suggest = "value_limit"
         elif key == "perMetricLimits":
@@ -256717,14 +259369,17 @@ class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimit(dict
 
     def __init__(__self__, *,
                  limit_exceeded_action: _builtins.str,
+                 tracking_mode: 'outputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode',
                  value_limit: _builtins.int,
                  per_metric_limits: Optional[Sequence['outputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimit']] = None):
         """
         :param _builtins.str limit_exceeded_action: The default action to take when the cardinality limit is exceeded. One of `drop_tag`, `drop_event`. Valid values are `drop_tag`, `drop_event`.
+        :param 'ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs' tracking_mode: Controls whether the processor uses exact or probabilistic tag tracking.
         :param _builtins.int value_limit: The default maximum number of distinct tag value combinations allowed per metric. Between 0 and 1000000. Value must be between 0 and 1000000.
         :param Sequence['ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitArgs'] per_metric_limits: Per-metric cardinality overrides that take precedence over the default `value_limit`.
         """
         pulumi.set(__self__, "limit_exceeded_action", limit_exceeded_action)
+        pulumi.set(__self__, "tracking_mode", tracking_mode)
         pulumi.set(__self__, "value_limit", value_limit)
         if per_metric_limits is not None:
             pulumi.set(__self__, "per_metric_limits", per_metric_limits)
@@ -256736,6 +259391,14 @@ class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimit(dict
         The default action to take when the cardinality limit is exceeded. One of `drop_tag`, `drop_event`. Valid values are `drop_tag`, `drop_event`.
         """
         return pulumi.get(self, "limit_exceeded_action")
+
+    @_builtins.property
+    @pulumi.getter(name="trackingMode")
+    def tracking_mode(self) -> 'outputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode':
+        """
+        Controls whether the processor uses exact or probabilistic tag tracking.
+        """
+        return pulumi.get(self, "tracking_mode")
 
     @_builtins.property
     @pulumi.getter(name="valueLimit")
@@ -256761,6 +259424,8 @@ class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMe
         suggest = None
         if key == "metricName":
             suggest = "metric_name"
+        elif key == "overrideType":
+            suggest = "override_type"
         elif key == "limitExceededAction":
             suggest = "limit_exceeded_action"
         elif key == "perTagLimits":
@@ -256781,19 +259446,19 @@ class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMe
 
     def __init__(__self__, *,
                  metric_name: _builtins.str,
-                 mode: _builtins.str,
+                 override_type: _builtins.str,
                  limit_exceeded_action: Optional[_builtins.str] = None,
                  per_tag_limits: Optional[Sequence['outputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimit']] = None,
                  value_limit: Optional[_builtins.int] = None):
         """
         :param _builtins.str metric_name: The metric name this override applies to.
-        :param _builtins.str mode: How the per-metric override is applied. One of `tracked`, `excluded`. Valid values are `tracked`, `excluded`.
-        :param _builtins.str limit_exceeded_action: The action to take on this metric when the limit is exceeded. Required when `mode` is `tracked`; must be omitted when `mode` is `excluded`. Valid values are `drop_tag`, `drop_event`.
-        :param Sequence['ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimitArgs'] per_tag_limits: Per-tag cardinality overrides that apply within this metric. Must be omitted when `mode` is `excluded`.
-        :param _builtins.int value_limit: The cardinality cap for this metric. Required when `mode` is `tracked`; must be omitted when `mode` is `excluded`. Value must be between 0 and 1000000.
+        :param _builtins.str override_type: How the per-metric override is applied. One of `limit_override`, `excluded`. Valid values are `limit_override`, `excluded`.
+        :param _builtins.str limit_exceeded_action: The action to take on this metric when the limit is exceeded. Required when `override_type` is `limit_override`; must be omitted when `override_type` is `excluded`. Valid values are `drop_tag`, `drop_event`.
+        :param Sequence['ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimitArgs'] per_tag_limits: Per-tag cardinality overrides that apply within this metric. Must be omitted when `override_type` is `excluded`.
+        :param _builtins.int value_limit: The cardinality cap for this metric. Required when `override_type` is `limit_override`; must be omitted when `override_type` is `excluded`. Value must be between 0 and 1000000.
         """
         pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "override_type", override_type)
         if limit_exceeded_action is not None:
             pulumi.set(__self__, "limit_exceeded_action", limit_exceeded_action)
         if per_tag_limits is not None:
@@ -256810,18 +259475,18 @@ class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMe
         return pulumi.get(self, "metric_name")
 
     @_builtins.property
-    @pulumi.getter
-    def mode(self) -> _builtins.str:
+    @pulumi.getter(name="overrideType")
+    def override_type(self) -> _builtins.str:
         """
-        How the per-metric override is applied. One of `tracked`, `excluded`. Valid values are `tracked`, `excluded`.
+        How the per-metric override is applied. One of `limit_override`, `excluded`. Valid values are `limit_override`, `excluded`.
         """
-        return pulumi.get(self, "mode")
+        return pulumi.get(self, "override_type")
 
     @_builtins.property
     @pulumi.getter(name="limitExceededAction")
     def limit_exceeded_action(self) -> Optional[_builtins.str]:
         """
-        The action to take on this metric when the limit is exceeded. Required when `mode` is `tracked`; must be omitted when `mode` is `excluded`. Valid values are `drop_tag`, `drop_event`.
+        The action to take on this metric when the limit is exceeded. Required when `override_type` is `limit_override`; must be omitted when `override_type` is `excluded`. Valid values are `drop_tag`, `drop_event`.
         """
         return pulumi.get(self, "limit_exceeded_action")
 
@@ -256829,7 +259494,7 @@ class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMe
     @pulumi.getter(name="perTagLimits")
     def per_tag_limits(self) -> Optional[Sequence['outputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimit']]:
         """
-        Per-tag cardinality overrides that apply within this metric. Must be omitted when `mode` is `excluded`.
+        Per-tag cardinality overrides that apply within this metric. Must be omitted when `override_type` is `excluded`.
         """
         return pulumi.get(self, "per_tag_limits")
 
@@ -256837,7 +259502,7 @@ class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMe
     @pulumi.getter(name="valueLimit")
     def value_limit(self) -> Optional[_builtins.int]:
         """
-        The cardinality cap for this metric. Required when `mode` is `tracked`; must be omitted when `mode` is `excluded`. Value must be between 0 and 1000000.
+        The cardinality cap for this metric. Required when `override_type` is `limit_override`; must be omitted when `override_type` is `excluded`. Value must be between 0 and 1000000.
         """
         return pulumi.get(self, "value_limit")
 
@@ -256847,7 +259512,9 @@ class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMe
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "tagKey":
+        if key == "overrideType":
+            suggest = "override_type"
+        elif key == "tagKey":
             suggest = "tag_key"
         elif key == "valueLimit":
             suggest = "value_limit"
@@ -256864,26 +259531,26 @@ class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMe
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 mode: _builtins.str,
+                 override_type: _builtins.str,
                  tag_key: _builtins.str,
                  value_limit: Optional[_builtins.int] = None):
         """
-        :param _builtins.str mode: How the per-tag override is applied. One of `limit_override`, `excluded`. Valid values are `limit_override`, `excluded`.
+        :param _builtins.str override_type: How the per-tag override is applied. One of `limit_override`, `excluded`. Valid values are `limit_override`, `excluded`.
         :param _builtins.str tag_key: The tag key this override applies to.
-        :param _builtins.int value_limit: The cardinality cap for this tag. Required when `mode` is `limit_override`; must be omitted when `mode` is `excluded`. Value must be between 0 and 1000000.
+        :param _builtins.int value_limit: The cardinality cap for this tag. Required when `override_type` is `limit_override`; must be omitted when `override_type` is `excluded`. Value must be between 0 and 1000000.
         """
-        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "override_type", override_type)
         pulumi.set(__self__, "tag_key", tag_key)
         if value_limit is not None:
             pulumi.set(__self__, "value_limit", value_limit)
 
     @_builtins.property
-    @pulumi.getter
-    def mode(self) -> _builtins.str:
+    @pulumi.getter(name="overrideType")
+    def override_type(self) -> _builtins.str:
         """
         How the per-tag override is applied. One of `limit_override`, `excluded`. Valid values are `limit_override`, `excluded`.
         """
-        return pulumi.get(self, "mode")
+        return pulumi.get(self, "override_type")
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
@@ -256897,9 +259564,27 @@ class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMe
     @pulumi.getter(name="valueLimit")
     def value_limit(self) -> Optional[_builtins.int]:
         """
-        The cardinality cap for this tag. Required when `mode` is `limit_override`; must be omitted when `mode` is `excluded`. Value must be between 0 and 1000000.
+        The cardinality cap for this tag. Required when `override_type` is `limit_override`; must be omitted when `override_type` is `excluded`. Value must be between 0 and 1000000.
         """
         return pulumi.get(self, "value_limit")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode(dict):
+    def __init__(__self__, *,
+                 mode: _builtins.str):
+        """
+        :param _builtins.str mode: The cardinality tracking algorithm to use. One of `exact_fingerprint`, `probabilistic`. Valid values are `exact_fingerprint`, `probabilistic`.
+        """
+        pulumi.set(__self__, "mode", mode)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> _builtins.str:
+        """
+        The cardinality tracking algorithm to use. One of `exact_fingerprint`, `probabilistic`. Valid values are `exact_fingerprint`, `probabilistic`.
+        """
+        return pulumi.get(self, "mode")
 
 
 @pulumi.output_type
@@ -258405,6 +261090,8 @@ class ObservabilityPipelineConfigSourceHttpClientTls(dict):
             suggest = "key_file"
         elif key == "keyPassKey":
             suggest = "key_pass_key"
+        elif key == "serverName":
+            suggest = "server_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigSourceHttpClientTls. Access the value via the '{suggest}' property getter instead.")
@@ -258421,12 +261108,14 @@ class ObservabilityPipelineConfigSourceHttpClientTls(dict):
                  crt_file: _builtins.str,
                  ca_file: Optional[_builtins.str] = None,
                  key_file: Optional[_builtins.str] = None,
-                 key_pass_key: Optional[_builtins.str] = None):
+                 key_pass_key: Optional[_builtins.str] = None,
+                 server_name: Optional[_builtins.str] = None):
         """
         :param _builtins.str crt_file: Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
         :param _builtins.str ca_file: Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
         :param _builtins.str key_file: Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
         :param _builtins.str key_pass_key: Name of the environment variable or secret that holds the passphrase for the private key file.
+        :param _builtins.str server_name: Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
         """
         pulumi.set(__self__, "crt_file", crt_file)
         if ca_file is not None:
@@ -258435,6 +261124,8 @@ class ObservabilityPipelineConfigSourceHttpClientTls(dict):
             pulumi.set(__self__, "key_file", key_file)
         if key_pass_key is not None:
             pulumi.set(__self__, "key_pass_key", key_pass_key)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
 
     @_builtins.property
     @pulumi.getter(name="crtFile")
@@ -258467,6 +261158,14 @@ class ObservabilityPipelineConfigSourceHttpClientTls(dict):
         Name of the environment variable or secret that holds the passphrase for the private key file.
         """
         return pulumi.get(self, "key_pass_key")
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[_builtins.str]:
+        """
+        Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+        """
+        return pulumi.get(self, "server_name")
 
 
 @pulumi.output_type
@@ -260937,10 +263636,10 @@ class OnCallTeamRoutingRulesRule(dict):
                  urgency: Optional[_builtins.str] = None):
         """
         :param Sequence['OnCallTeamRoutingRulesRuleActionArgs'] actions: Specifies the list of actions to perform when the routing rule is matched.
-        :param _builtins.str escalation_policy: ID of the policy to be applied when this routing rule matches.
+        :param _builtins.str escalation_policy: ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `escalation_policy` action.
         :param _builtins.str id: The ID of this rule.
-        :param _builtins.str query: Defines the query or condition that triggers this routing rule. Defaults to `""`.
-        :param 'OnCallTeamRoutingRulesRuleTimeRestrictionsArgs' time_restrictions: Holds time zone information and a list of time restrictions for a routing rule.
+        :param _builtins.str query: Defines the query or condition that triggers this routing rule. Must not be set on the last rule, which acts as a catch-all rule. Defaults to `""`.
+        :param 'OnCallTeamRoutingRulesRuleTimeRestrictionsArgs' time_restrictions: Holds time zone information and a list of time restrictions for a routing rule. Must not be set on the last rule, which acts as a catch-all rule.
         :param _builtins.str urgency: Defines the urgency for pages created via this rule. Only valid if `escalation_policy` is set. Valid values are `high`, `low`, `dynamic`.
         """
         if actions is not None:
@@ -260968,7 +263667,7 @@ class OnCallTeamRoutingRulesRule(dict):
     @pulumi.getter(name="escalationPolicy")
     def escalation_policy(self) -> Optional[_builtins.str]:
         """
-        ID of the policy to be applied when this routing rule matches.
+        ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `escalation_policy` action.
         """
         return pulumi.get(self, "escalation_policy")
 
@@ -260984,7 +263683,7 @@ class OnCallTeamRoutingRulesRule(dict):
     @pulumi.getter
     def query(self) -> Optional[_builtins.str]:
         """
-        Defines the query or condition that triggers this routing rule. Defaults to `""`.
+        Defines the query or condition that triggers this routing rule. Must not be set on the last rule, which acts as a catch-all rule. Defaults to `""`.
         """
         return pulumi.get(self, "query")
 
@@ -260992,7 +263691,7 @@ class OnCallTeamRoutingRulesRule(dict):
     @pulumi.getter(name="timeRestrictions")
     def time_restrictions(self) -> Optional['outputs.OnCallTeamRoutingRulesRuleTimeRestrictions']:
         """
-        Holds time zone information and a list of time restrictions for a routing rule.
+        Holds time zone information and a list of time restrictions for a routing rule. Must not be set on the last rule, which acts as a catch-all rule.
         """
         return pulumi.get(self, "time_restrictions")
 
@@ -460722,10 +463421,16 @@ class SyntheticsTestApiStepRequestBasicauth(dict):
             suggest = "access_key"
         elif key == "accessTokenUrl":
             suggest = "access_token_url"
+        elif key == "addClaimsExp":
+            suggest = "add_claims_exp"
+        elif key == "addClaimsIat":
+            suggest = "add_claims_iat"
         elif key == "clientId":
             suggest = "client_id"
         elif key == "clientSecret":
             suggest = "client_secret"
+        elif key == "expiresIn":
+            suggest = "expires_in"
         elif key == "secretKey":
             suggest = "secret_key"
         elif key == "serviceName":
@@ -460734,6 +463439,8 @@ class SyntheticsTestApiStepRequestBasicauth(dict):
             suggest = "session_token"
         elif key == "tokenApiAuthentication":
             suggest = "token_api_authentication"
+        elif key == "tokenPrefix":
+            suggest = "token_prefix"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestApiStepRequestBasicauth. Access the value via the '{suggest}' property getter instead.")
@@ -460749,36 +463456,52 @@ class SyntheticsTestApiStepRequestBasicauth(dict):
     def __init__(__self__, *,
                  access_key: Optional[_builtins.str] = None,
                  access_token_url: Optional[_builtins.str] = None,
+                 add_claims_exp: Optional[_builtins.bool] = None,
+                 add_claims_iat: Optional[_builtins.bool] = None,
+                 algorithm: Optional[_builtins.str] = None,
                  audience: Optional[_builtins.str] = None,
                  client_id: Optional[_builtins.str] = None,
                  client_secret: Optional[_builtins.str] = None,
                  domain: Optional[_builtins.str] = None,
+                 expires_in: Optional[_builtins.int] = None,
+                 header: Optional[_builtins.str] = None,
                  password: Optional[_builtins.str] = None,
+                 payload: Optional[_builtins.str] = None,
                  region: Optional[_builtins.str] = None,
                  resource: Optional[_builtins.str] = None,
                  scope: Optional[_builtins.str] = None,
+                 secret: Optional[_builtins.str] = None,
                  secret_key: Optional[_builtins.str] = None,
                  service_name: Optional[_builtins.str] = None,
                  session_token: Optional[_builtins.str] = None,
                  token_api_authentication: Optional[_builtins.str] = None,
+                 token_prefix: Optional[_builtins.str] = None,
                  type: Optional[_builtins.str] = None,
                  username: Optional[_builtins.str] = None,
                  workstation: Optional[_builtins.str] = None):
         """
         :param _builtins.str access_key: Access key for `SIGV4` authentication.
         :param _builtins.str access_token_url: Access token url for `oauth-client` or `oauth-rop` authentication.
+        :param _builtins.bool add_claims_exp: Whether to inject the `exp` (expiration) claim automatically, for `jwt` authentication.
+        :param _builtins.bool add_claims_iat: Whether to inject the `iat` (issued at) claim automatically, for `jwt` authentication.
+        :param _builtins.str algorithm: Algorithm to use for `jwt` authentication. Valid values are `HS256`, `RS256`, `ES256`.
         :param _builtins.str audience: Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
         :param _builtins.str client_id: Client ID for `oauth-client` or `oauth-rop` authentication.
         :param _builtins.str client_secret: Client secret for `oauth-client` or `oauth-rop` authentication.
         :param _builtins.str domain: Domain for `ntlm` authentication.
+        :param _builtins.int expires_in: Token time-to-live in seconds, for `jwt` authentication.
+        :param _builtins.str header: Custom JWT header as a JSON string, for `jwt` authentication.
         :param _builtins.str password: Password for authentication.
+        :param _builtins.str payload: JWT claims as a JSON string, for `jwt` authentication.
         :param _builtins.str region: Region for `SIGV4` authentication.
         :param _builtins.str resource: Resource for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
         :param _builtins.str scope: Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+        :param _builtins.str secret: Signing key for `jwt` authentication. Use the shared secret for `HS256` or the private key (PEM format) for `RS256` and `ES256`.
         :param _builtins.str secret_key: Secret key for `SIGV4` authentication.
         :param _builtins.str service_name: Service name for `SIGV4` authentication.
         :param _builtins.str session_token: Session token for `SIGV4` authentication.
         :param _builtins.str token_api_authentication: Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `header`, `body`.
+        :param _builtins.str token_prefix: Prefix added before the token in the `Authorization` header for `jwt` authentication. Defaults to `Bearer`.
         :param _builtins.str type: Type of basic authentication to use when performing the test. Defaults to `"web"`.
         :param _builtins.str username: Username for authentication.
         :param _builtins.str workstation: Workstation for `ntlm` authentication.
@@ -460787,6 +463510,12 @@ class SyntheticsTestApiStepRequestBasicauth(dict):
             pulumi.set(__self__, "access_key", access_key)
         if access_token_url is not None:
             pulumi.set(__self__, "access_token_url", access_token_url)
+        if add_claims_exp is not None:
+            pulumi.set(__self__, "add_claims_exp", add_claims_exp)
+        if add_claims_iat is not None:
+            pulumi.set(__self__, "add_claims_iat", add_claims_iat)
+        if algorithm is not None:
+            pulumi.set(__self__, "algorithm", algorithm)
         if audience is not None:
             pulumi.set(__self__, "audience", audience)
         if client_id is not None:
@@ -460795,14 +463524,22 @@ class SyntheticsTestApiStepRequestBasicauth(dict):
             pulumi.set(__self__, "client_secret", client_secret)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
+        if expires_in is not None:
+            pulumi.set(__self__, "expires_in", expires_in)
+        if header is not None:
+            pulumi.set(__self__, "header", header)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if resource is not None:
             pulumi.set(__self__, "resource", resource)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
         if secret_key is not None:
             pulumi.set(__self__, "secret_key", secret_key)
         if service_name is not None:
@@ -460811,6 +463548,8 @@ class SyntheticsTestApiStepRequestBasicauth(dict):
             pulumi.set(__self__, "session_token", session_token)
         if token_api_authentication is not None:
             pulumi.set(__self__, "token_api_authentication", token_api_authentication)
+        if token_prefix is not None:
+            pulumi.set(__self__, "token_prefix", token_prefix)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if username is not None:
@@ -460833,6 +463572,30 @@ class SyntheticsTestApiStepRequestBasicauth(dict):
         Access token url for `oauth-client` or `oauth-rop` authentication.
         """
         return pulumi.get(self, "access_token_url")
+
+    @_builtins.property
+    @pulumi.getter(name="addClaimsExp")
+    def add_claims_exp(self) -> Optional[_builtins.bool]:
+        """
+        Whether to inject the `exp` (expiration) claim automatically, for `jwt` authentication.
+        """
+        return pulumi.get(self, "add_claims_exp")
+
+    @_builtins.property
+    @pulumi.getter(name="addClaimsIat")
+    def add_claims_iat(self) -> Optional[_builtins.bool]:
+        """
+        Whether to inject the `iat` (issued at) claim automatically, for `jwt` authentication.
+        """
+        return pulumi.get(self, "add_claims_iat")
+
+    @_builtins.property
+    @pulumi.getter
+    def algorithm(self) -> Optional[_builtins.str]:
+        """
+        Algorithm to use for `jwt` authentication. Valid values are `HS256`, `RS256`, `ES256`.
+        """
+        return pulumi.get(self, "algorithm")
 
     @_builtins.property
     @pulumi.getter
@@ -460867,12 +463630,36 @@ class SyntheticsTestApiStepRequestBasicauth(dict):
         return pulumi.get(self, "domain")
 
     @_builtins.property
+    @pulumi.getter(name="expiresIn")
+    def expires_in(self) -> Optional[_builtins.int]:
+        """
+        Token time-to-live in seconds, for `jwt` authentication.
+        """
+        return pulumi.get(self, "expires_in")
+
+    @_builtins.property
+    @pulumi.getter
+    def header(self) -> Optional[_builtins.str]:
+        """
+        Custom JWT header as a JSON string, for `jwt` authentication.
+        """
+        return pulumi.get(self, "header")
+
+    @_builtins.property
     @pulumi.getter
     def password(self) -> Optional[_builtins.str]:
         """
         Password for authentication.
         """
         return pulumi.get(self, "password")
+
+    @_builtins.property
+    @pulumi.getter
+    def payload(self) -> Optional[_builtins.str]:
+        """
+        JWT claims as a JSON string, for `jwt` authentication.
+        """
+        return pulumi.get(self, "payload")
 
     @_builtins.property
     @pulumi.getter
@@ -460897,6 +463684,14 @@ class SyntheticsTestApiStepRequestBasicauth(dict):
         Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
         """
         return pulumi.get(self, "scope")
+
+    @_builtins.property
+    @pulumi.getter
+    def secret(self) -> Optional[_builtins.str]:
+        """
+        Signing key for `jwt` authentication. Use the shared secret for `HS256` or the private key (PEM format) for `RS256` and `ES256`.
+        """
+        return pulumi.get(self, "secret")
 
     @_builtins.property
     @pulumi.getter(name="secretKey")
@@ -460929,6 +463724,14 @@ class SyntheticsTestApiStepRequestBasicauth(dict):
         Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `header`, `body`.
         """
         return pulumi.get(self, "token_api_authentication")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenPrefix")
+    def token_prefix(self) -> Optional[_builtins.str]:
+        """
+        Prefix added before the token in the `Authorization` header for `jwt` authentication. Defaults to `Bearer`.
+        """
+        return pulumi.get(self, "token_prefix")
 
     @_builtins.property
     @pulumi.getter
@@ -463971,6 +466774,8 @@ class SyntheticsTestOptionsList(dict):
             suggest = "follow_redirects"
         elif key == "httpVersion":
             suggest = "http_version"
+        elif key == "ignoreCertificateValidation":
+            suggest = "ignore_certificate_validation"
         elif key == "ignoreServerCertificateError":
             suggest = "ignore_server_certificate_error"
         elif key == "initialNavigationTimeout":
@@ -464016,6 +466821,7 @@ class SyntheticsTestOptionsList(dict):
                  disable_csp: Optional[_builtins.bool] = None,
                  follow_redirects: Optional[_builtins.bool] = None,
                  http_version: Optional[_builtins.str] = None,
+                 ignore_certificate_validation: Optional[_builtins.bool] = None,
                  ignore_server_certificate_error: Optional[_builtins.bool] = None,
                  initial_navigation_timeout: Optional[_builtins.int] = None,
                  min_failure_duration: Optional[_builtins.int] = None,
@@ -464041,6 +466847,7 @@ class SyntheticsTestOptionsList(dict):
         :param _builtins.bool disable_csp: Disable Content Security Policy for browser tests.
         :param _builtins.bool follow_redirects: Determines whether or not the API HTTP test should follow redirects.
         :param _builtins.str http_version: HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
+        :param _builtins.bool ignore_certificate_validation: Ignore server certificate error for SSL tests.
         :param _builtins.bool ignore_server_certificate_error: Ignore server certificate error for browser tests.
         :param _builtins.int initial_navigation_timeout: Timeout before declaring the initial step as failed (in seconds) for browser tests.
         :param _builtins.int min_failure_duration: Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
@@ -464074,6 +466881,8 @@ class SyntheticsTestOptionsList(dict):
             pulumi.set(__self__, "follow_redirects", follow_redirects)
         if http_version is not None:
             pulumi.set(__self__, "http_version", http_version)
+        if ignore_certificate_validation is not None:
+            pulumi.set(__self__, "ignore_certificate_validation", ignore_certificate_validation)
         if ignore_server_certificate_error is not None:
             pulumi.set(__self__, "ignore_server_certificate_error", ignore_server_certificate_error)
         if initial_navigation_timeout is not None:
@@ -464194,6 +467003,14 @@ class SyntheticsTestOptionsList(dict):
         HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
         """
         return pulumi.get(self, "http_version")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreCertificateValidation")
+    def ignore_certificate_validation(self) -> Optional[_builtins.bool]:
+        """
+        Ignore server certificate error for SSL tests.
+        """
+        return pulumi.get(self, "ignore_certificate_validation")
 
     @_builtins.property
     @pulumi.getter(name="ignoreServerCertificateError")
@@ -464587,10 +467404,16 @@ class SyntheticsTestRequestBasicauth(dict):
             suggest = "access_key"
         elif key == "accessTokenUrl":
             suggest = "access_token_url"
+        elif key == "addClaimsExp":
+            suggest = "add_claims_exp"
+        elif key == "addClaimsIat":
+            suggest = "add_claims_iat"
         elif key == "clientId":
             suggest = "client_id"
         elif key == "clientSecret":
             suggest = "client_secret"
+        elif key == "expiresIn":
+            suggest = "expires_in"
         elif key == "secretKey":
             suggest = "secret_key"
         elif key == "serviceName":
@@ -464599,6 +467422,8 @@ class SyntheticsTestRequestBasicauth(dict):
             suggest = "session_token"
         elif key == "tokenApiAuthentication":
             suggest = "token_api_authentication"
+        elif key == "tokenPrefix":
+            suggest = "token_prefix"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestRequestBasicauth. Access the value via the '{suggest}' property getter instead.")
@@ -464614,36 +467439,52 @@ class SyntheticsTestRequestBasicauth(dict):
     def __init__(__self__, *,
                  access_key: Optional[_builtins.str] = None,
                  access_token_url: Optional[_builtins.str] = None,
+                 add_claims_exp: Optional[_builtins.bool] = None,
+                 add_claims_iat: Optional[_builtins.bool] = None,
+                 algorithm: Optional[_builtins.str] = None,
                  audience: Optional[_builtins.str] = None,
                  client_id: Optional[_builtins.str] = None,
                  client_secret: Optional[_builtins.str] = None,
                  domain: Optional[_builtins.str] = None,
+                 expires_in: Optional[_builtins.int] = None,
+                 header: Optional[_builtins.str] = None,
                  password: Optional[_builtins.str] = None,
+                 payload: Optional[_builtins.str] = None,
                  region: Optional[_builtins.str] = None,
                  resource: Optional[_builtins.str] = None,
                  scope: Optional[_builtins.str] = None,
+                 secret: Optional[_builtins.str] = None,
                  secret_key: Optional[_builtins.str] = None,
                  service_name: Optional[_builtins.str] = None,
                  session_token: Optional[_builtins.str] = None,
                  token_api_authentication: Optional[_builtins.str] = None,
+                 token_prefix: Optional[_builtins.str] = None,
                  type: Optional[_builtins.str] = None,
                  username: Optional[_builtins.str] = None,
                  workstation: Optional[_builtins.str] = None):
         """
         :param _builtins.str access_key: Access key for `SIGV4` authentication.
         :param _builtins.str access_token_url: Access token url for `oauth-client` or `oauth-rop` authentication.
+        :param _builtins.bool add_claims_exp: Whether to inject the `exp` (expiration) claim automatically, for `jwt` authentication.
+        :param _builtins.bool add_claims_iat: Whether to inject the `iat` (issued at) claim automatically, for `jwt` authentication.
+        :param _builtins.str algorithm: Algorithm to use for `jwt` authentication. Valid values are `HS256`, `RS256`, `ES256`.
         :param _builtins.str audience: Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
         :param _builtins.str client_id: Client ID for `oauth-client` or `oauth-rop` authentication.
         :param _builtins.str client_secret: Client secret for `oauth-client` or `oauth-rop` authentication.
         :param _builtins.str domain: Domain for `ntlm` authentication.
+        :param _builtins.int expires_in: Token time-to-live in seconds, for `jwt` authentication.
+        :param _builtins.str header: Custom JWT header as a JSON string, for `jwt` authentication.
         :param _builtins.str password: Password for authentication.
+        :param _builtins.str payload: JWT claims as a JSON string, for `jwt` authentication.
         :param _builtins.str region: Region for `SIGV4` authentication.
         :param _builtins.str resource: Resource for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
         :param _builtins.str scope: Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+        :param _builtins.str secret: Signing key for `jwt` authentication. Use the shared secret for `HS256` or the private key (PEM format) for `RS256` and `ES256`.
         :param _builtins.str secret_key: Secret key for `SIGV4` authentication.
         :param _builtins.str service_name: Service name for `SIGV4` authentication.
         :param _builtins.str session_token: Session token for `SIGV4` authentication.
         :param _builtins.str token_api_authentication: Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `header`, `body`.
+        :param _builtins.str token_prefix: Prefix added before the token in the `Authorization` header for `jwt` authentication. Defaults to `Bearer`.
         :param _builtins.str type: Type of basic authentication to use when performing the test. Defaults to `"web"`.
         :param _builtins.str username: Username for authentication.
         :param _builtins.str workstation: Workstation for `ntlm` authentication.
@@ -464652,6 +467493,12 @@ class SyntheticsTestRequestBasicauth(dict):
             pulumi.set(__self__, "access_key", access_key)
         if access_token_url is not None:
             pulumi.set(__self__, "access_token_url", access_token_url)
+        if add_claims_exp is not None:
+            pulumi.set(__self__, "add_claims_exp", add_claims_exp)
+        if add_claims_iat is not None:
+            pulumi.set(__self__, "add_claims_iat", add_claims_iat)
+        if algorithm is not None:
+            pulumi.set(__self__, "algorithm", algorithm)
         if audience is not None:
             pulumi.set(__self__, "audience", audience)
         if client_id is not None:
@@ -464660,14 +467507,22 @@ class SyntheticsTestRequestBasicauth(dict):
             pulumi.set(__self__, "client_secret", client_secret)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
+        if expires_in is not None:
+            pulumi.set(__self__, "expires_in", expires_in)
+        if header is not None:
+            pulumi.set(__self__, "header", header)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if resource is not None:
             pulumi.set(__self__, "resource", resource)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
         if secret_key is not None:
             pulumi.set(__self__, "secret_key", secret_key)
         if service_name is not None:
@@ -464676,6 +467531,8 @@ class SyntheticsTestRequestBasicauth(dict):
             pulumi.set(__self__, "session_token", session_token)
         if token_api_authentication is not None:
             pulumi.set(__self__, "token_api_authentication", token_api_authentication)
+        if token_prefix is not None:
+            pulumi.set(__self__, "token_prefix", token_prefix)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if username is not None:
@@ -464698,6 +467555,30 @@ class SyntheticsTestRequestBasicauth(dict):
         Access token url for `oauth-client` or `oauth-rop` authentication.
         """
         return pulumi.get(self, "access_token_url")
+
+    @_builtins.property
+    @pulumi.getter(name="addClaimsExp")
+    def add_claims_exp(self) -> Optional[_builtins.bool]:
+        """
+        Whether to inject the `exp` (expiration) claim automatically, for `jwt` authentication.
+        """
+        return pulumi.get(self, "add_claims_exp")
+
+    @_builtins.property
+    @pulumi.getter(name="addClaimsIat")
+    def add_claims_iat(self) -> Optional[_builtins.bool]:
+        """
+        Whether to inject the `iat` (issued at) claim automatically, for `jwt` authentication.
+        """
+        return pulumi.get(self, "add_claims_iat")
+
+    @_builtins.property
+    @pulumi.getter
+    def algorithm(self) -> Optional[_builtins.str]:
+        """
+        Algorithm to use for `jwt` authentication. Valid values are `HS256`, `RS256`, `ES256`.
+        """
+        return pulumi.get(self, "algorithm")
 
     @_builtins.property
     @pulumi.getter
@@ -464732,12 +467613,36 @@ class SyntheticsTestRequestBasicauth(dict):
         return pulumi.get(self, "domain")
 
     @_builtins.property
+    @pulumi.getter(name="expiresIn")
+    def expires_in(self) -> Optional[_builtins.int]:
+        """
+        Token time-to-live in seconds, for `jwt` authentication.
+        """
+        return pulumi.get(self, "expires_in")
+
+    @_builtins.property
+    @pulumi.getter
+    def header(self) -> Optional[_builtins.str]:
+        """
+        Custom JWT header as a JSON string, for `jwt` authentication.
+        """
+        return pulumi.get(self, "header")
+
+    @_builtins.property
     @pulumi.getter
     def password(self) -> Optional[_builtins.str]:
         """
         Password for authentication.
         """
         return pulumi.get(self, "password")
+
+    @_builtins.property
+    @pulumi.getter
+    def payload(self) -> Optional[_builtins.str]:
+        """
+        JWT claims as a JSON string, for `jwt` authentication.
+        """
+        return pulumi.get(self, "payload")
 
     @_builtins.property
     @pulumi.getter
@@ -464762,6 +467667,14 @@ class SyntheticsTestRequestBasicauth(dict):
         Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
         """
         return pulumi.get(self, "scope")
+
+    @_builtins.property
+    @pulumi.getter
+    def secret(self) -> Optional[_builtins.str]:
+        """
+        Signing key for `jwt` authentication. Use the shared secret for `HS256` or the private key (PEM format) for `RS256` and `ES256`.
+        """
+        return pulumi.get(self, "secret")
 
     @_builtins.property
     @pulumi.getter(name="secretKey")
@@ -464794,6 +467707,14 @@ class SyntheticsTestRequestBasicauth(dict):
         Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `header`, `body`.
         """
         return pulumi.get(self, "token_api_authentication")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenPrefix")
+    def token_prefix(self) -> Optional[_builtins.str]:
+        """
+        Prefix added before the token in the `Authorization` header for `jwt` authentication. Defaults to `Bearer`.
+        """
+        return pulumi.get(self, "token_prefix")
 
     @_builtins.property
     @pulumi.getter
@@ -465946,7 +468867,7 @@ class TagPipelineRulesetRuleQuery(dict):
         :param _builtins.bool case_insensitivity: Whether the query matching is case insensitive.
         :param _builtins.bool if_not_exists: Whether to apply the query only if the key doesn't exist.
         :param _builtins.str if_tag_exists: Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `do_not_apply` (never apply if tag already exists). Valid values are `append`, `replace`, `do_not_apply`.
-        :param _builtins.str query: The query string.
+        :param _builtins.str query: The query string. Datadog normalizes queries to a canonical form (operator casing, spacing, redundant parentheses, quoting, and similar formatting differences). The provider validates the configured value against this canonical form during planning. If the value doesn't match, the plan fails with an error showing the canonical query to use in the configuration.
         """
         if addition is not None:
             pulumi.set(__self__, "addition", addition)
@@ -465996,7 +468917,7 @@ class TagPipelineRulesetRuleQuery(dict):
     @pulumi.getter
     def query(self) -> Optional[_builtins.str]:
         """
-        The query string.
+        The query string. Datadog normalizes queries to a canonical form (operator casing, spacing, redundant parentheses, quoting, and similar formatting differences). The provider validates the configured value against this canonical form during planning. If the value doesn't match, the plan fails with an error showing the canonical query to use in the configuration.
         """
         return pulumi.get(self, "query")
 
@@ -466458,6 +469379,80 @@ class TeamSyncSelectionStateExternalId(dict):
 
 
 @pulumi.output_type
+class GetActionConnectionAnthropicResult(dict):
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.GetActionConnectionAnthropicApiKeyResult'] = None):
+        """
+        :param 'GetActionConnectionAnthropicApiKeyArgs' api_key: Configuration for Anthropic API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.GetActionConnectionAnthropicApiKeyResult']:
+        """
+        Configuration for Anthropic API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class GetActionConnectionAnthropicApiKeyResult(dict):
+    def __init__(__self__, *,
+                 api_token: _builtins.str):
+        """
+        :param _builtins.str api_token: Anthropic API token
+        """
+        pulumi.set(__self__, "api_token", api_token)
+
+    @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> _builtins.str:
+        """
+        Anthropic API token
+        """
+        return pulumi.get(self, "api_token")
+
+
+@pulumi.output_type
+class GetActionConnectionAsanaResult(dict):
+    def __init__(__self__, *,
+                 access_token: Optional['outputs.GetActionConnectionAsanaAccessTokenResult'] = None):
+        """
+        :param 'GetActionConnectionAsanaAccessTokenArgs' access_token: Configuration for Asana access token authentication
+        """
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
+
+    @_builtins.property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional['outputs.GetActionConnectionAsanaAccessTokenResult']:
+        """
+        Configuration for Asana access token authentication
+        """
+        return pulumi.get(self, "access_token")
+
+
+@pulumi.output_type
+class GetActionConnectionAsanaAccessTokenResult(dict):
+    def __init__(__self__, *,
+                 access_token: _builtins.str):
+        """
+        :param _builtins.str access_token: Asana access token
+        """
+        pulumi.set(__self__, "access_token", access_token)
+
+    @_builtins.property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> _builtins.str:
+        """
+        Asana access token
+        """
+        return pulumi.get(self, "access_token")
+
+
+@pulumi.output_type
 class GetActionConnectionAwsResult(dict):
     def __init__(__self__, *,
                  assume_role: Optional['outputs.GetActionConnectionAwsAssumeRoleResult'] = None):
@@ -466525,6 +469520,601 @@ class GetActionConnectionAwsAssumeRoleResult(dict):
         Role to assume
         """
         return pulumi.get(self, "role")
+
+
+@pulumi.output_type
+class GetActionConnectionAzureResult(dict):
+    def __init__(__self__, *,
+                 tenant: Optional['outputs.GetActionConnectionAzureTenantResult'] = None):
+        """
+        :param 'GetActionConnectionAzureTenantArgs' tenant: Configuration for Azure tenant authentication
+        """
+        if tenant is not None:
+            pulumi.set(__self__, "tenant", tenant)
+
+    @_builtins.property
+    @pulumi.getter
+    def tenant(self) -> Optional['outputs.GetActionConnectionAzureTenantResult']:
+        """
+        Configuration for Azure tenant authentication
+        """
+        return pulumi.get(self, "tenant")
+
+
+@pulumi.output_type
+class GetActionConnectionAzureTenantResult(dict):
+    def __init__(__self__, *,
+                 app_client_id: _builtins.str,
+                 client_secret: _builtins.str,
+                 custom_scopes: _builtins.str,
+                 tenant_id: _builtins.str):
+        """
+        :param _builtins.str app_client_id: Azure application client ID
+        :param _builtins.str client_secret: Azure application client secret
+        :param _builtins.str custom_scopes: Custom scope requested when acquiring an OAuth 2 access token
+        :param _builtins.str tenant_id: Azure Active Directory tenant ID
+        """
+        pulumi.set(__self__, "app_client_id", app_client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        pulumi.set(__self__, "custom_scopes", custom_scopes)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @_builtins.property
+    @pulumi.getter(name="appClientId")
+    def app_client_id(self) -> _builtins.str:
+        """
+        Azure application client ID
+        """
+        return pulumi.get(self, "app_client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> _builtins.str:
+        """
+        Azure application client secret
+        """
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="customScopes")
+    def custom_scopes(self) -> _builtins.str:
+        """
+        Custom scope requested when acquiring an OAuth 2 access token
+        """
+        return pulumi.get(self, "custom_scopes")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> _builtins.str:
+        """
+        Azure Active Directory tenant ID
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class GetActionConnectionCircleCiResult(dict):
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.GetActionConnectionCircleCiApiKeyResult'] = None):
+        """
+        :param 'GetActionConnectionCircleCiApiKeyArgs' api_key: Configuration for CircleCI API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.GetActionConnectionCircleCiApiKeyResult']:
+        """
+        Configuration for CircleCI API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class GetActionConnectionCircleCiApiKeyResult(dict):
+    def __init__(__self__, *,
+                 api_token: _builtins.str):
+        """
+        :param _builtins.str api_token: CircleCI API token
+        """
+        pulumi.set(__self__, "api_token", api_token)
+
+    @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> _builtins.str:
+        """
+        CircleCI API token
+        """
+        return pulumi.get(self, "api_token")
+
+
+@pulumi.output_type
+class GetActionConnectionClickupResult(dict):
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.GetActionConnectionClickupApiKeyResult'] = None):
+        """
+        :param 'GetActionConnectionClickupApiKeyArgs' api_key: Configuration for ClickUp API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.GetActionConnectionClickupApiKeyResult']:
+        """
+        Configuration for ClickUp API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class GetActionConnectionClickupApiKeyResult(dict):
+    def __init__(__self__, *,
+                 api_token: _builtins.str):
+        """
+        :param _builtins.str api_token: ClickUp API token
+        """
+        pulumi.set(__self__, "api_token", api_token)
+
+    @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> _builtins.str:
+        """
+        ClickUp API token
+        """
+        return pulumi.get(self, "api_token")
+
+
+@pulumi.output_type
+class GetActionConnectionCloudflareResult(dict):
+    def __init__(__self__, *,
+                 api_token: Optional['outputs.GetActionConnectionCloudflareApiTokenResult'] = None,
+                 global_api_token: Optional['outputs.GetActionConnectionCloudflareGlobalApiTokenResult'] = None):
+        """
+        :param 'GetActionConnectionCloudflareApiTokenArgs' api_token: Configuration for Cloudflare API token authentication
+        :param 'GetActionConnectionCloudflareGlobalApiTokenArgs' global_api_token: Configuration for Cloudflare global API token authentication
+        """
+        if api_token is not None:
+            pulumi.set(__self__, "api_token", api_token)
+        if global_api_token is not None:
+            pulumi.set(__self__, "global_api_token", global_api_token)
+
+    @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> Optional['outputs.GetActionConnectionCloudflareApiTokenResult']:
+        """
+        Configuration for Cloudflare API token authentication
+        """
+        return pulumi.get(self, "api_token")
+
+    @_builtins.property
+    @pulumi.getter(name="globalApiToken")
+    def global_api_token(self) -> Optional['outputs.GetActionConnectionCloudflareGlobalApiTokenResult']:
+        """
+        Configuration for Cloudflare global API token authentication
+        """
+        return pulumi.get(self, "global_api_token")
+
+
+@pulumi.output_type
+class GetActionConnectionCloudflareApiTokenResult(dict):
+    def __init__(__self__, *,
+                 api_token: _builtins.str):
+        """
+        :param _builtins.str api_token: Cloudflare API token
+        """
+        pulumi.set(__self__, "api_token", api_token)
+
+    @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> _builtins.str:
+        """
+        Cloudflare API token
+        """
+        return pulumi.get(self, "api_token")
+
+
+@pulumi.output_type
+class GetActionConnectionCloudflareGlobalApiTokenResult(dict):
+    def __init__(__self__, *,
+                 auth_email: _builtins.str,
+                 global_api_key: _builtins.str):
+        """
+        :param _builtins.str auth_email: Email address associated with the Cloudflare account
+        :param _builtins.str global_api_key: Cloudflare global API key
+        """
+        pulumi.set(__self__, "auth_email", auth_email)
+        pulumi.set(__self__, "global_api_key", global_api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="authEmail")
+    def auth_email(self) -> _builtins.str:
+        """
+        Email address associated with the Cloudflare account
+        """
+        return pulumi.get(self, "auth_email")
+
+    @_builtins.property
+    @pulumi.getter(name="globalApiKey")
+    def global_api_key(self) -> _builtins.str:
+        """
+        Cloudflare global API key
+        """
+        return pulumi.get(self, "global_api_key")
+
+
+@pulumi.output_type
+class GetActionConnectionConfigCatResult(dict):
+    def __init__(__self__, *,
+                 sdk_key: Optional['outputs.GetActionConnectionConfigCatSdkKeyResult'] = None):
+        """
+        :param 'GetActionConnectionConfigCatSdkKeyArgs' sdk_key: Configuration for ConfigCat SDK key authentication
+        """
+        if sdk_key is not None:
+            pulumi.set(__self__, "sdk_key", sdk_key)
+
+    @_builtins.property
+    @pulumi.getter(name="sdkKey")
+    def sdk_key(self) -> Optional['outputs.GetActionConnectionConfigCatSdkKeyResult']:
+        """
+        Configuration for ConfigCat SDK key authentication
+        """
+        return pulumi.get(self, "sdk_key")
+
+
+@pulumi.output_type
+class GetActionConnectionConfigCatSdkKeyResult(dict):
+    def __init__(__self__, *,
+                 api_password: _builtins.str,
+                 api_username: _builtins.str,
+                 sdk_key: _builtins.str):
+        """
+        :param _builtins.str api_password: ConfigCat Public Management API password
+        :param _builtins.str api_username: ConfigCat Public Management API username
+        :param _builtins.str sdk_key: ConfigCat SDK key
+        """
+        pulumi.set(__self__, "api_password", api_password)
+        pulumi.set(__self__, "api_username", api_username)
+        pulumi.set(__self__, "sdk_key", sdk_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiPassword")
+    def api_password(self) -> _builtins.str:
+        """
+        ConfigCat Public Management API password
+        """
+        return pulumi.get(self, "api_password")
+
+    @_builtins.property
+    @pulumi.getter(name="apiUsername")
+    def api_username(self) -> _builtins.str:
+        """
+        ConfigCat Public Management API username
+        """
+        return pulumi.get(self, "api_username")
+
+    @_builtins.property
+    @pulumi.getter(name="sdkKey")
+    def sdk_key(self) -> _builtins.str:
+        """
+        ConfigCat SDK key
+        """
+        return pulumi.get(self, "sdk_key")
+
+
+@pulumi.output_type
+class GetActionConnectionDatadogResult(dict):
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.GetActionConnectionDatadogApiKeyResult'] = None):
+        """
+        :param 'GetActionConnectionDatadogApiKeyArgs' api_key: Configuration for Datadog API and application key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.GetActionConnectionDatadogApiKeyResult']:
+        """
+        Configuration for Datadog API and application key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class GetActionConnectionDatadogApiKeyResult(dict):
+    def __init__(__self__, *,
+                 api_key: _builtins.str,
+                 app_key: _builtins.str,
+                 datacenter: _builtins.str,
+                 subdomain: _builtins.str):
+        """
+        :param _builtins.str api_key: Datadog API key
+        :param _builtins.str app_key: Datadog application key
+        :param _builtins.str datacenter: Datadog site data center
+        :param _builtins.str subdomain: Custom subdomain used for URLs generated with this connection
+        """
+        pulumi.set(__self__, "api_key", api_key)
+        pulumi.set(__self__, "app_key", app_key)
+        pulumi.set(__self__, "datacenter", datacenter)
+        pulumi.set(__self__, "subdomain", subdomain)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> _builtins.str:
+        """
+        Datadog API key
+        """
+        return pulumi.get(self, "api_key")
+
+    @_builtins.property
+    @pulumi.getter(name="appKey")
+    def app_key(self) -> _builtins.str:
+        """
+        Datadog application key
+        """
+        return pulumi.get(self, "app_key")
+
+    @_builtins.property
+    @pulumi.getter
+    def datacenter(self) -> _builtins.str:
+        """
+        Datadog site data center
+        """
+        return pulumi.get(self, "datacenter")
+
+    @_builtins.property
+    @pulumi.getter
+    def subdomain(self) -> _builtins.str:
+        """
+        Custom subdomain used for URLs generated with this connection
+        """
+        return pulumi.get(self, "subdomain")
+
+
+@pulumi.output_type
+class GetActionConnectionFastlyResult(dict):
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.GetActionConnectionFastlyApiKeyResult'] = None):
+        """
+        :param 'GetActionConnectionFastlyApiKeyArgs' api_key: Configuration for Fastly API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.GetActionConnectionFastlyApiKeyResult']:
+        """
+        Configuration for Fastly API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class GetActionConnectionFastlyApiKeyResult(dict):
+    def __init__(__self__, *,
+                 api_key: _builtins.str):
+        """
+        :param _builtins.str api_key: Fastly API key
+        """
+        pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> _builtins.str:
+        """
+        Fastly API key
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class GetActionConnectionFreshserviceResult(dict):
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.GetActionConnectionFreshserviceApiKeyResult'] = None):
+        """
+        :param 'GetActionConnectionFreshserviceApiKeyArgs' api_key: Configuration for Freshservice API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.GetActionConnectionFreshserviceApiKeyResult']:
+        """
+        Configuration for Freshservice API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class GetActionConnectionFreshserviceApiKeyResult(dict):
+    def __init__(__self__, *,
+                 api_key: _builtins.str,
+                 domain: _builtins.str):
+        """
+        :param _builtins.str api_key: Freshservice API key
+        :param _builtins.str domain: Freshservice domain
+        """
+        pulumi.set(__self__, "api_key", api_key)
+        pulumi.set(__self__, "domain", domain)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> _builtins.str:
+        """
+        Freshservice API key
+        """
+        return pulumi.get(self, "api_key")
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> _builtins.str:
+        """
+        Freshservice domain
+        """
+        return pulumi.get(self, "domain")
+
+
+@pulumi.output_type
+class GetActionConnectionGcpResult(dict):
+    def __init__(__self__, *,
+                 service_account: Optional['outputs.GetActionConnectionGcpServiceAccountResult'] = None):
+        """
+        :param 'GetActionConnectionGcpServiceAccountArgs' service_account: Configuration for Google Cloud service account authentication
+        """
+        if service_account is not None:
+            pulumi.set(__self__, "service_account", service_account)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccount")
+    def service_account(self) -> Optional['outputs.GetActionConnectionGcpServiceAccountResult']:
+        """
+        Configuration for Google Cloud service account authentication
+        """
+        return pulumi.get(self, "service_account")
+
+
+@pulumi.output_type
+class GetActionConnectionGcpServiceAccountResult(dict):
+    def __init__(__self__, *,
+                 private_key: _builtins.str,
+                 service_account_email: _builtins.str):
+        """
+        :param _builtins.str private_key: Google Cloud service account private key
+        :param _builtins.str service_account_email: Google Cloud service account email
+        """
+        pulumi.set(__self__, "private_key", private_key)
+        pulumi.set(__self__, "service_account_email", service_account_email)
+
+    @_builtins.property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> _builtins.str:
+        """
+        Google Cloud service account private key
+        """
+        return pulumi.get(self, "private_key")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccountEmail")
+    def service_account_email(self) -> _builtins.str:
+        """
+        Google Cloud service account email
+        """
+        return pulumi.get(self, "service_account_email")
+
+
+@pulumi.output_type
+class GetActionConnectionGeminiResult(dict):
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.GetActionConnectionGeminiApiKeyResult'] = None):
+        """
+        :param 'GetActionConnectionGeminiApiKeyArgs' api_key: Configuration for Gemini API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.GetActionConnectionGeminiApiKeyResult']:
+        """
+        Configuration for Gemini API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class GetActionConnectionGeminiApiKeyResult(dict):
+    def __init__(__self__, *,
+                 api_key: _builtins.str):
+        """
+        :param _builtins.str api_key: Gemini API key
+        """
+        pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> _builtins.str:
+        """
+        Gemini API key
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class GetActionConnectionGitlabResult(dict):
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.GetActionConnectionGitlabApiKeyResult'] = None):
+        """
+        :param 'GetActionConnectionGitlabApiKeyArgs' api_key: Configuration for GitLab API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.GetActionConnectionGitlabApiKeyResult']:
+        """
+        Configuration for GitLab API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class GetActionConnectionGitlabApiKeyResult(dict):
+    def __init__(__self__, *,
+                 api_token: _builtins.str):
+        """
+        :param _builtins.str api_token: GitLab API token
+        """
+        pulumi.set(__self__, "api_token", api_token)
+
+    @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> _builtins.str:
+        """
+        GitLab API token
+        """
+        return pulumi.get(self, "api_token")
+
+
+@pulumi.output_type
+class GetActionConnectionGreyNoiseResult(dict):
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.GetActionConnectionGreyNoiseApiKeyResult'] = None):
+        """
+        :param 'GetActionConnectionGreyNoiseApiKeyArgs' api_key: Configuration for GreyNoise API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.GetActionConnectionGreyNoiseApiKeyResult']:
+        """
+        Configuration for GreyNoise API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class GetActionConnectionGreyNoiseApiKeyResult(dict):
+    def __init__(__self__, *,
+                 api_key: _builtins.str):
+        """
+        :param _builtins.str api_key: GreyNoise API key
+        """
+        pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> _builtins.str:
+        """
+        GreyNoise API key
+        """
+        return pulumi.get(self, "api_key")
 
 
 @pulumi.output_type
@@ -466733,6 +470323,335 @@ class GetActionConnectionHttpTokenAuthUrlParameterResult(dict):
         URL parameter value
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetActionConnectionLaunchDarklyResult(dict):
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.GetActionConnectionLaunchDarklyApiKeyResult'] = None):
+        """
+        :param 'GetActionConnectionLaunchDarklyApiKeyArgs' api_key: Configuration for LaunchDarkly API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.GetActionConnectionLaunchDarklyApiKeyResult']:
+        """
+        Configuration for LaunchDarkly API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class GetActionConnectionLaunchDarklyApiKeyResult(dict):
+    def __init__(__self__, *,
+                 api_token: _builtins.str):
+        """
+        :param _builtins.str api_token: LaunchDarkly API token
+        """
+        pulumi.set(__self__, "api_token", api_token)
+
+    @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> _builtins.str:
+        """
+        LaunchDarkly API token
+        """
+        return pulumi.get(self, "api_token")
+
+
+@pulumi.output_type
+class GetActionConnectionNotionResult(dict):
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.GetActionConnectionNotionApiKeyResult'] = None):
+        """
+        :param 'GetActionConnectionNotionApiKeyArgs' api_key: Configuration for Notion API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.GetActionConnectionNotionApiKeyResult']:
+        """
+        Configuration for Notion API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class GetActionConnectionNotionApiKeyResult(dict):
+    def __init__(__self__, *,
+                 api_token: _builtins.str):
+        """
+        :param _builtins.str api_token: Notion API token
+        """
+        pulumi.set(__self__, "api_token", api_token)
+
+    @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> _builtins.str:
+        """
+        Notion API token
+        """
+        return pulumi.get(self, "api_token")
+
+
+@pulumi.output_type
+class GetActionConnectionOktaResult(dict):
+    def __init__(__self__, *,
+                 api_token: Optional['outputs.GetActionConnectionOktaApiTokenResult'] = None):
+        """
+        :param 'GetActionConnectionOktaApiTokenArgs' api_token: Configuration for Okta API token authentication
+        """
+        if api_token is not None:
+            pulumi.set(__self__, "api_token", api_token)
+
+    @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> Optional['outputs.GetActionConnectionOktaApiTokenResult']:
+        """
+        Configuration for Okta API token authentication
+        """
+        return pulumi.get(self, "api_token")
+
+
+@pulumi.output_type
+class GetActionConnectionOktaApiTokenResult(dict):
+    def __init__(__self__, *,
+                 api_token: _builtins.str,
+                 domain: _builtins.str):
+        """
+        :param _builtins.str api_token: Okta API token
+        :param _builtins.str domain: Okta domain
+        """
+        pulumi.set(__self__, "api_token", api_token)
+        pulumi.set(__self__, "domain", domain)
+
+    @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> _builtins.str:
+        """
+        Okta API token
+        """
+        return pulumi.get(self, "api_token")
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> _builtins.str:
+        """
+        Okta domain
+        """
+        return pulumi.get(self, "domain")
+
+
+@pulumi.output_type
+class GetActionConnectionOpenaiResult(dict):
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.GetActionConnectionOpenaiApiKeyResult'] = None):
+        """
+        :param 'GetActionConnectionOpenaiApiKeyArgs' api_key: Configuration for OpenAI API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.GetActionConnectionOpenaiApiKeyResult']:
+        """
+        Configuration for OpenAI API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class GetActionConnectionOpenaiApiKeyResult(dict):
+    def __init__(__self__, *,
+                 api_token: _builtins.str):
+        """
+        :param _builtins.str api_token: OpenAI API token
+        """
+        pulumi.set(__self__, "api_token", api_token)
+
+    @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> _builtins.str:
+        """
+        OpenAI API token
+        """
+        return pulumi.get(self, "api_token")
+
+
+@pulumi.output_type
+class GetActionConnectionServiceNowResult(dict):
+    def __init__(__self__, *,
+                 basic_auth: Optional['outputs.GetActionConnectionServiceNowBasicAuthResult'] = None):
+        """
+        :param 'GetActionConnectionServiceNowBasicAuthArgs' basic_auth: Configuration for ServiceNow basic authentication
+        """
+        if basic_auth is not None:
+            pulumi.set(__self__, "basic_auth", basic_auth)
+
+    @_builtins.property
+    @pulumi.getter(name="basicAuth")
+    def basic_auth(self) -> Optional['outputs.GetActionConnectionServiceNowBasicAuthResult']:
+        """
+        Configuration for ServiceNow basic authentication
+        """
+        return pulumi.get(self, "basic_auth")
+
+
+@pulumi.output_type
+class GetActionConnectionServiceNowBasicAuthResult(dict):
+    def __init__(__self__, *,
+                 instance: _builtins.str,
+                 password: _builtins.str,
+                 username: _builtins.str):
+        """
+        :param _builtins.str instance: ServiceNow instance
+        :param _builtins.str password: ServiceNow password
+        :param _builtins.str username: ServiceNow username
+        """
+        pulumi.set(__self__, "instance", instance)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @_builtins.property
+    @pulumi.getter
+    def instance(self) -> _builtins.str:
+        """
+        ServiceNow instance
+        """
+        return pulumi.get(self, "instance")
+
+    @_builtins.property
+    @pulumi.getter
+    def password(self) -> _builtins.str:
+        """
+        ServiceNow password
+        """
+        return pulumi.get(self, "password")
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> _builtins.str:
+        """
+        ServiceNow username
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class GetActionConnectionSplitResult(dict):
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.GetActionConnectionSplitApiKeyResult'] = None):
+        """
+        :param 'GetActionConnectionSplitApiKeyArgs' api_key: Configuration for Split API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.GetActionConnectionSplitApiKeyResult']:
+        """
+        Configuration for Split API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class GetActionConnectionSplitApiKeyResult(dict):
+    def __init__(__self__, *,
+                 api_key: _builtins.str):
+        """
+        :param _builtins.str api_key: Split API key
+        """
+        pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> _builtins.str:
+        """
+        Split API key
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class GetActionConnectionStatsigResult(dict):
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.GetActionConnectionStatsigApiKeyResult'] = None):
+        """
+        :param 'GetActionConnectionStatsigApiKeyArgs' api_key: Configuration for Statsig API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.GetActionConnectionStatsigApiKeyResult']:
+        """
+        Configuration for Statsig API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class GetActionConnectionStatsigApiKeyResult(dict):
+    def __init__(__self__, *,
+                 api_key: _builtins.str):
+        """
+        :param _builtins.str api_key: Statsig API key
+        """
+        pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> _builtins.str:
+        """
+        Statsig API key
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class GetActionConnectionVirusTotalResult(dict):
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.GetActionConnectionVirusTotalApiKeyResult'] = None):
+        """
+        :param 'GetActionConnectionVirusTotalApiKeyArgs' api_key: Configuration for VirusTotal API key authentication
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.GetActionConnectionVirusTotalApiKeyResult']:
+        """
+        Configuration for VirusTotal API key authentication
+        """
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class GetActionConnectionVirusTotalApiKeyResult(dict):
+    def __init__(__self__, *,
+                 api_key: _builtins.str):
+        """
+        :param _builtins.str api_key: VirusTotal API key
+        """
+        pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> _builtins.str:
+        """
+        VirusTotal API key
+        """
+        return pulumi.get(self, "api_key")
 
 
 @pulumi.output_type
@@ -467079,6 +470998,66 @@ class GetCostBudgetEntryResult(dict):
 
 @pulumi.output_type
 class GetCostBudgetEntryTagFilterResult(dict):
+    def __init__(__self__, *,
+                 tag_key: _builtins.str,
+                 tag_value: _builtins.str):
+        pulumi.set(__self__, "tag_key", tag_key)
+        pulumi.set(__self__, "tag_value", tag_value)
+
+    @_builtins.property
+    @pulumi.getter(name="tagKey")
+    def tag_key(self) -> _builtins.str:
+        return pulumi.get(self, "tag_key")
+
+    @_builtins.property
+    @pulumi.getter(name="tagValue")
+    def tag_value(self) -> _builtins.str:
+        return pulumi.get(self, "tag_value")
+
+
+@pulumi.output_type
+class GetCostCustomForecastEntryResult(dict):
+    def __init__(__self__, *,
+                 amount: _builtins.float,
+                 month: _builtins.int,
+                 tag_filters: Optional[Sequence['outputs.GetCostCustomForecastEntryTagFilterResult']] = None):
+        """
+        :param _builtins.float amount: The forecast override amount for the month.
+        :param _builtins.int month: The month the entry applies to, in `YYYYMM` format.
+        :param Sequence['GetCostCustomForecastEntryTagFilterArgs'] tag_filters: Tag filters that scope this entry to a specific budget entry tag combination.
+        """
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "month", month)
+        if tag_filters is not None:
+            pulumi.set(__self__, "tag_filters", tag_filters)
+
+    @_builtins.property
+    @pulumi.getter
+    def amount(self) -> _builtins.float:
+        """
+        The forecast override amount for the month.
+        """
+        return pulumi.get(self, "amount")
+
+    @_builtins.property
+    @pulumi.getter
+    def month(self) -> _builtins.int:
+        """
+        The month the entry applies to, in `YYYYMM` format.
+        """
+        return pulumi.get(self, "month")
+
+    @_builtins.property
+    @pulumi.getter(name="tagFilters")
+    def tag_filters(self) -> Optional[Sequence['outputs.GetCostCustomForecastEntryTagFilterResult']]:
+        """
+        Tag filters that scope this entry to a specific budget entry tag combination.
+        """
+        return pulumi.get(self, "tag_filters")
+
+
+@pulumi.output_type
+class GetCostCustomForecastEntryTagFilterResult(dict):
     def __init__(__self__, *,
                  tag_key: _builtins.str,
                  tag_value: _builtins.str):
@@ -467883,6 +471862,101 @@ class GetIncidentNotificationRuleConditionResult(dict):
         The value(s) to compare against.
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetIncidentTypeConfigurationResult(dict):
+    def __init__(__self__, *,
+                 allow_incident_deletion: _builtins.bool,
+                 allow_workflows: _builtins.bool,
+                 create_message: _builtins.str,
+                 editable_timestamps: _builtins.bool,
+                 private_incidents: _builtins.bool,
+                 private_incidents_by_default: _builtins.bool,
+                 slug_source: _builtins.str,
+                 test_incidents: _builtins.bool):
+        """
+        :param _builtins.bool allow_incident_deletion: Whether incidents of this type can be deleted.
+        :param _builtins.bool allow_workflows: Whether users can manually run a workflow from an incident of this type.
+        :param _builtins.str create_message: An optional message shown to users when they declare an incident of this type.
+        :param _builtins.bool editable_timestamps: Whether responders can edit incident timestamps for incidents of this type.
+        :param _builtins.bool private_incidents: Whether responders can create private incidents of this type.
+        :param _builtins.bool private_incidents_by_default: Whether the private toggle is enabled by default in the incident creation modal for this type.
+        :param _builtins.str slug_source: The source used to derive the incident slug. When set to `servicenow`, incidents display the ServiceNow record ID instead of the public ID. If no ServiceNow integration exists, the public ID is displayed.
+        :param _builtins.bool test_incidents: Whether test incidents of this type can be created.
+        """
+        pulumi.set(__self__, "allow_incident_deletion", allow_incident_deletion)
+        pulumi.set(__self__, "allow_workflows", allow_workflows)
+        pulumi.set(__self__, "create_message", create_message)
+        pulumi.set(__self__, "editable_timestamps", editable_timestamps)
+        pulumi.set(__self__, "private_incidents", private_incidents)
+        pulumi.set(__self__, "private_incidents_by_default", private_incidents_by_default)
+        pulumi.set(__self__, "slug_source", slug_source)
+        pulumi.set(__self__, "test_incidents", test_incidents)
+
+    @_builtins.property
+    @pulumi.getter(name="allowIncidentDeletion")
+    def allow_incident_deletion(self) -> _builtins.bool:
+        """
+        Whether incidents of this type can be deleted.
+        """
+        return pulumi.get(self, "allow_incident_deletion")
+
+    @_builtins.property
+    @pulumi.getter(name="allowWorkflows")
+    def allow_workflows(self) -> _builtins.bool:
+        """
+        Whether users can manually run a workflow from an incident of this type.
+        """
+        return pulumi.get(self, "allow_workflows")
+
+    @_builtins.property
+    @pulumi.getter(name="createMessage")
+    def create_message(self) -> _builtins.str:
+        """
+        An optional message shown to users when they declare an incident of this type.
+        """
+        return pulumi.get(self, "create_message")
+
+    @_builtins.property
+    @pulumi.getter(name="editableTimestamps")
+    def editable_timestamps(self) -> _builtins.bool:
+        """
+        Whether responders can edit incident timestamps for incidents of this type.
+        """
+        return pulumi.get(self, "editable_timestamps")
+
+    @_builtins.property
+    @pulumi.getter(name="privateIncidents")
+    def private_incidents(self) -> _builtins.bool:
+        """
+        Whether responders can create private incidents of this type.
+        """
+        return pulumi.get(self, "private_incidents")
+
+    @_builtins.property
+    @pulumi.getter(name="privateIncidentsByDefault")
+    def private_incidents_by_default(self) -> _builtins.bool:
+        """
+        Whether the private toggle is enabled by default in the incident creation modal for this type.
+        """
+        return pulumi.get(self, "private_incidents_by_default")
+
+    @_builtins.property
+    @pulumi.getter(name="slugSource")
+    def slug_source(self) -> _builtins.str:
+        """
+        The source used to derive the incident slug. When set to `servicenow`, incidents display the ServiceNow record ID instead of the public ID. If no ServiceNow integration exists, the public ID is displayed.
+        """
+        return pulumi.get(self, "slug_source")
+
+    @_builtins.property
+    @pulumi.getter(name="testIncidents")
+    def test_incidents(self) -> _builtins.bool:
+        """
+        Whether test incidents of this type can be created.
+        """
+        return pulumi.get(self, "test_incidents")
 
 
 @pulumi.output_type

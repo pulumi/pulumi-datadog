@@ -23,6 +23,8 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create new restriction_policy resource
+    ///     var me = Datadog.GetCurrentUser.Invoke();
+    /// 
     ///     var foo = new Datadog.RestrictionPolicy("foo", new()
     ///     {
     ///         ResourceId = "security-rule:abc-def-ghi",
@@ -32,7 +34,8 @@ namespace Pulumi.Datadog
     ///             {
     ///                 Principals = new[]
     ///                 {
-    ///                     "role:00000000-0000-1111-0000-000000000000",
+    ///                     $"user:{me.Apply(getCurrentUserResult =&gt; getCurrentUserResult.Id)}",
+    ///                     "team:00000000-0000-1111-0000-000000000000",
     ///                 },
     ///                 Relation = "editor",
     ///             },
@@ -40,7 +43,7 @@ namespace Pulumi.Datadog
     ///             {
     ///                 Principals = new[]
     ///                 {
-    ///                     "org:10000000-0000-1111-0000-000000000000",
+    ///                     $"org:{me.Apply(getCurrentUserResult =&gt; getCurrentUserResult.OrgId)}",
     ///                 },
     ///                 Relation = "viewer",
     ///             },

@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationOpensearchAuth;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationOpensearchBuffer;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationOpensearchDataStream;
 import java.lang.String;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigDestinationOpensearch {
+    /**
+     * @return Authentication settings for the OpenSearch destination.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationOpensearchAuth auth;
     /**
      * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
      * 
@@ -28,8 +34,20 @@ public final class ObservabilityPipelineConfigDestinationOpensearch {
      * 
      */
     private @Nullable ObservabilityPipelineConfigDestinationOpensearchDataStream dataStream;
+    /**
+     * @return Name of the environment variable or secret that holds the OpenSearch endpoint URL.
+     * 
+     */
+    private @Nullable String endpointUrlKey;
 
     private ObservabilityPipelineConfigDestinationOpensearch() {}
+    /**
+     * @return Authentication settings for the OpenSearch destination.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationOpensearchAuth> auth() {
+        return Optional.ofNullable(this.auth);
+    }
     /**
      * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
      * 
@@ -51,6 +69,13 @@ public final class ObservabilityPipelineConfigDestinationOpensearch {
     public Optional<ObservabilityPipelineConfigDestinationOpensearchDataStream> dataStream() {
         return Optional.ofNullable(this.dataStream);
     }
+    /**
+     * @return Name of the environment variable or secret that holds the OpenSearch endpoint URL.
+     * 
+     */
+    public Optional<String> endpointUrlKey() {
+        return Optional.ofNullable(this.endpointUrlKey);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -61,17 +86,27 @@ public final class ObservabilityPipelineConfigDestinationOpensearch {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable ObservabilityPipelineConfigDestinationOpensearchAuth auth;
         private @Nullable ObservabilityPipelineConfigDestinationOpensearchBuffer buffer;
         private @Nullable String bulkIndex;
         private @Nullable ObservabilityPipelineConfigDestinationOpensearchDataStream dataStream;
+        private @Nullable String endpointUrlKey;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationOpensearch defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.auth = defaults.auth;
     	      this.buffer = defaults.buffer;
     	      this.bulkIndex = defaults.bulkIndex;
     	      this.dataStream = defaults.dataStream;
+    	      this.endpointUrlKey = defaults.endpointUrlKey;
         }
 
+        @CustomType.Setter
+        public Builder auth(@Nullable ObservabilityPipelineConfigDestinationOpensearchAuth auth) {
+
+            this.auth = auth;
+            return this;
+        }
         @CustomType.Setter
         public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationOpensearchBuffer buffer) {
 
@@ -90,11 +125,19 @@ public final class ObservabilityPipelineConfigDestinationOpensearch {
             this.dataStream = dataStream;
             return this;
         }
+        @CustomType.Setter
+        public Builder endpointUrlKey(@Nullable String endpointUrlKey) {
+
+            this.endpointUrlKey = endpointUrlKey;
+            return this;
+        }
         public ObservabilityPipelineConfigDestinationOpensearch build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationOpensearch();
+            _resultValue.auth = auth;
             _resultValue.buffer = buffer;
             _resultValue.bulkIndex = bulkIndex;
             _resultValue.dataStream = dataStream;
+            _resultValue.endpointUrlKey = endpointUrlKey;
             return _resultValue;
         }
     }

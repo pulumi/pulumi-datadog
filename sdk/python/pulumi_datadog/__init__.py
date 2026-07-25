@@ -28,6 +28,7 @@ from .cloud_workload_security_agent_rule import *
 from .compliance_custom_framework import *
 from .compliance_resource_evaluation_filter import *
 from .cost_budget import *
+from .cost_custom_forecast import *
 from .csm_threats_agent_rule import *
 from .csm_threats_policy import *
 from .custom_allocation_rule import *
@@ -52,8 +53,10 @@ from .get_aws_cur_config import *
 from .get_azure_uc_config import *
 from .get_cloud_workload_security_agent_rules import *
 from .get_cost_budget import *
+from .get_cost_custom_forecast import *
 from .get_csm_threats_agent_rules import *
 from .get_csm_threats_policies import *
+from .get_current_user import *
 from .get_custom_allocation_rule import *
 from .get_dashboard import *
 from .get_dashboard_list import *
@@ -118,6 +121,8 @@ from .get_workflow_automation import *
 from .incident_notification_rule import *
 from .incident_notification_template import *
 from .incident_type import *
+from .incident_user_defined_field import *
+from .incident_user_defined_role import *
 from .ip_allowlist import *
 from .logs_archive import *
 from .logs_archive_order import *
@@ -523,6 +528,14 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/costCustomForecast",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/costCustomForecast:CostCustomForecast": "CostCustomForecast"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/csmThreatsAgentRule",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -671,6 +684,22 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/incidentType:IncidentType": "IncidentType"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/incidentUserDefinedField",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/incidentUserDefinedField:IncidentUserDefinedField": "IncidentUserDefinedField"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/incidentUserDefinedRole",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/incidentUserDefinedRole:IncidentUserDefinedRole": "IncidentUserDefinedRole"
   }
  },
  {

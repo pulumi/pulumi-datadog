@@ -62,6 +62,8 @@ type LookupSoftwareCatalogArgs struct {
 	FilterRef *string `pulumi:"filterRef"`
 	// Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
 	FilterRelationType *string `pulumi:"filterRelationType"`
+	// Include entities that have been discovered but not yet enriched.
+	IncludeDiscovered *bool `pulumi:"includeDiscovered"`
 }
 
 // A collection of values returned by getSoftwareCatalog.
@@ -84,6 +86,8 @@ type LookupSoftwareCatalogResult struct {
 	FilterRelationType *string `pulumi:"filterRelationType"`
 	// The ID of this resource.
 	Id string `pulumi:"id"`
+	// Include entities that have been discovered but not yet enriched.
+	IncludeDiscovered *bool `pulumi:"includeDiscovered"`
 }
 
 func LookupSoftwareCatalogOutput(ctx *pulumi.Context, args LookupSoftwareCatalogOutputArgs, opts ...pulumi.InvokeOption) LookupSoftwareCatalogResultOutput {
@@ -111,6 +115,8 @@ type LookupSoftwareCatalogOutputArgs struct {
 	FilterRef pulumi.StringPtrInput `pulumi:"filterRef"`
 	// Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
 	FilterRelationType pulumi.StringPtrInput `pulumi:"filterRelationType"`
+	// Include entities that have been discovered but not yet enriched.
+	IncludeDiscovered pulumi.BoolPtrInput `pulumi:"includeDiscovered"`
 }
 
 func (LookupSoftwareCatalogOutputArgs) ElementType() reflect.Type {
@@ -175,6 +181,11 @@ func (o LookupSoftwareCatalogResultOutput) FilterRelationType() pulumi.StringPtr
 // The ID of this resource.
 func (o LookupSoftwareCatalogResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSoftwareCatalogResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Include entities that have been discovered but not yet enriched.
+func (o LookupSoftwareCatalogResultOutput) IncludeDiscovered() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSoftwareCatalogResult) *bool { return v.IncludeDiscovered }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

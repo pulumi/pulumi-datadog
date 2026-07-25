@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class MonitorVariablesDataJobsQueryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `dbt.model`, `dbt.test`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+        /// The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
         /// </summary>
         [Input("jobType", required: true)]
         public Input<string> JobType { get; set; } = null!;

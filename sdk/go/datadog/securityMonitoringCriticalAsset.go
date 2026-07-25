@@ -29,10 +29,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datadog.NewSecurityMonitoringCriticalAsset(ctx, "my_critical_asset", &datadog.SecurityMonitoringCriticalAssetArgs{
-//				Enabled:   pulumi.Bool(true),
-//				Query:     pulumi.String("source:runtime-security-agent"),
-//				RuleQuery: pulumi.String("type:(log_detection OR signal_correlation OR workload_security OR application_security) ruleId:007-d1a-1f3"),
-//				Severity:  pulumi.String("increase"),
+//				Description: pulumi.String("Production database servers that should trigger critical alerts"),
+//				Enabled:     pulumi.Bool(true),
+//				Query:       pulumi.String("env:production service:database"),
+//				RuleQuery:   pulumi.String("type:(log_detection OR signal_correlation OR workload_security OR application_security) ruleId:007-d1a-1f3"),
+//				Severity:    pulumi.String("increase"),
 //				Tags: pulumi.StringArray{
 //					pulumi.String("env:production"),
 //					pulumi.String("team:security"),

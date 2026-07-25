@@ -91,6 +91,20 @@ import (
 //								},
 //							},
 //						},
+//						"metricNameFilters": []interface{}{
+//							map[string]interface{}{
+//								"namespace": "AWS/EC2",
+//								"includeOnlies": []string{
+//									"aws.ec2.network_in",
+//								},
+//							},
+//							map[string]interface{}{
+//								"namespace": "AWS/RDS",
+//								"excludeOnlies": []string{
+//									"aws.rds.aurora*",
+//								},
+//							},
+//						},
 //						"tagFilters": []map[string]interface{}{
 //							map[string]interface{}{
 //								"namespace": "AWS/EC2",

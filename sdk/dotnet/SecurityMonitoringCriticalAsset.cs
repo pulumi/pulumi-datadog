@@ -24,8 +24,9 @@ namespace Pulumi.Datadog
     /// {
     ///     var myCriticalAsset = new Datadog.SecurityMonitoringCriticalAsset("my_critical_asset", new()
     ///     {
+    ///         Description = "Production database servers that should trigger critical alerts",
     ///         Enabled = true,
-    ///         Query = "source:runtime-security-agent",
+    ///         Query = "env:production service:database",
     ///         RuleQuery = "type:(log_detection OR signal_correlation OR workload_security OR application_security) ruleId:007-d1a-1f3",
     ///         Severity = "increase",
     ///         Tags = new[]

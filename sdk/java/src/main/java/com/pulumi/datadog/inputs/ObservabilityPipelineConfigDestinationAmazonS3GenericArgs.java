@@ -142,6 +142,36 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3GenericArgs ext
     }
 
     /**
+     * The server-side encryption algorithm used when storing objects in S3. Valid values: `aws:kms`, `AES256`. Valid values are `aws:kms`, `AES256`.
+     * 
+     */
+    @Import(name="serverSideEncryption")
+    private @Nullable Output<String> serverSideEncryption;
+
+    /**
+     * @return The server-side encryption algorithm used when storing objects in S3. Valid values: `aws:kms`, `AES256`. Valid values are `aws:kms`, `AES256`.
+     * 
+     */
+    public Optional<Output<String>> serverSideEncryption() {
+        return Optional.ofNullable(this.serverSideEncryption);
+    }
+
+    /**
+     * ID of the AWS KMS key to use for SSE-KMS encryption. Only applies when `serverSideEncryption` is `aws:kms`.
+     * 
+     */
+    @Import(name="ssekmsKeyId")
+    private @Nullable Output<String> ssekmsKeyId;
+
+    /**
+     * @return ID of the AWS KMS key to use for SSE-KMS encryption. Only applies when `serverSideEncryption` is `aws:kms`.
+     * 
+     */
+    public Optional<Output<String>> ssekmsKeyId() {
+        return Optional.ofNullable(this.ssekmsKeyId);
+    }
+
+    /**
      * S3 storage class. Valid values are `STANDARD`, `REDUCED_REDUNDANCY`, `INTELLIGENT_TIERING`, `STANDARD_IA`, `EXPRESS_ONEZONE`, `ONEZONE_IA`, `GLACIER`, `GLACIER_IR`, `DEEP_ARCHIVE`.
      * 
      */
@@ -167,6 +197,8 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3GenericArgs ext
         this.encoding = $.encoding;
         this.keyPrefix = $.keyPrefix;
         this.region = $.region;
+        this.serverSideEncryption = $.serverSideEncryption;
+        this.ssekmsKeyId = $.ssekmsKeyId;
         this.storageClass = $.storageClass;
     }
 
@@ -354,6 +386,48 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3GenericArgs ext
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param serverSideEncryption The server-side encryption algorithm used when storing objects in S3. Valid values: `aws:kms`, `AES256`. Valid values are `aws:kms`, `AES256`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverSideEncryption(@Nullable Output<String> serverSideEncryption) {
+            $.serverSideEncryption = serverSideEncryption;
+            return this;
+        }
+
+        /**
+         * @param serverSideEncryption The server-side encryption algorithm used when storing objects in S3. Valid values: `aws:kms`, `AES256`. Valid values are `aws:kms`, `AES256`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverSideEncryption(String serverSideEncryption) {
+            return serverSideEncryption(Output.of(serverSideEncryption));
+        }
+
+        /**
+         * @param ssekmsKeyId ID of the AWS KMS key to use for SSE-KMS encryption. Only applies when `serverSideEncryption` is `aws:kms`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ssekmsKeyId(@Nullable Output<String> ssekmsKeyId) {
+            $.ssekmsKeyId = ssekmsKeyId;
+            return this;
+        }
+
+        /**
+         * @param ssekmsKeyId ID of the AWS KMS key to use for SSE-KMS encryption. Only applies when `serverSideEncryption` is `aws:kms`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ssekmsKeyId(String ssekmsKeyId) {
+            return ssekmsKeyId(Output.of(ssekmsKeyId));
         }
 
         /**

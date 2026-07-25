@@ -27,7 +27,7 @@ class GetSoftwareCatalogResult:
     """
     A collection of values returned by getSoftwareCatalog.
     """
-    def __init__(__self__, entities=None, filter_exclude_snapshot=None, filter_id=None, filter_kind=None, filter_name=None, filter_owner=None, filter_ref=None, filter_relation_type=None, id=None):
+    def __init__(__self__, entities=None, filter_exclude_snapshot=None, filter_id=None, filter_kind=None, filter_name=None, filter_owner=None, filter_ref=None, filter_relation_type=None, id=None, include_discovered=None):
         if entities and not isinstance(entities, list):
             raise TypeError("Expected argument 'entities' to be a list")
         pulumi.set(__self__, "entities", entities)
@@ -55,6 +55,9 @@ class GetSoftwareCatalogResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if include_discovered and not isinstance(include_discovered, bool):
+            raise TypeError("Expected argument 'include_discovered' to be a bool")
+        pulumi.set(__self__, "include_discovered", include_discovered)
 
     @_builtins.property
     @pulumi.getter
@@ -128,6 +131,14 @@ class GetSoftwareCatalogResult:
         """
         return pulumi.get(self, "id")
 
+    @_builtins.property
+    @pulumi.getter(name="includeDiscovered")
+    def include_discovered(self) -> Optional[_builtins.bool]:
+        """
+        Include entities that have been discovered but not yet enriched.
+        """
+        return pulumi.get(self, "include_discovered")
+
 
 class AwaitableGetSoftwareCatalogResult(GetSoftwareCatalogResult):
     # pylint: disable=using-constant-test
@@ -143,7 +154,8 @@ class AwaitableGetSoftwareCatalogResult(GetSoftwareCatalogResult):
             filter_owner=self.filter_owner,
             filter_ref=self.filter_ref,
             filter_relation_type=self.filter_relation_type,
-            id=self.id)
+            id=self.id,
+            include_discovered=self.include_discovered)
 
 
 def get_software_catalog(filter_exclude_snapshot: Optional[_builtins.str] = None,
@@ -153,6 +165,7 @@ def get_software_catalog(filter_exclude_snapshot: Optional[_builtins.str] = None
                          filter_owner: Optional[_builtins.str] = None,
                          filter_ref: Optional[_builtins.str] = None,
                          filter_relation_type: Optional[_builtins.str] = None,
+                         include_discovered: Optional[_builtins.bool] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSoftwareCatalogResult:
     """
     Use this data source to list software catalog entities to use in other resources.
@@ -174,6 +187,7 @@ def get_software_catalog(filter_exclude_snapshot: Optional[_builtins.str] = None
     :param _builtins.str filter_owner: Filter entities by owner.
     :param _builtins.str filter_ref: Filter entities by reference.
     :param _builtins.str filter_relation_type: Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
+    :param _builtins.bool include_discovered: Include entities that have been discovered but not yet enriched.
     """
     __args__ = dict()
     __args__['filterExcludeSnapshot'] = filter_exclude_snapshot
@@ -183,6 +197,7 @@ def get_software_catalog(filter_exclude_snapshot: Optional[_builtins.str] = None
     __args__['filterOwner'] = filter_owner
     __args__['filterRef'] = filter_ref
     __args__['filterRelationType'] = filter_relation_type
+    __args__['includeDiscovered'] = include_discovered
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('datadog:index/getSoftwareCatalog:getSoftwareCatalog', __args__, opts=opts, typ=GetSoftwareCatalogResult).value
 
@@ -195,7 +210,8 @@ def get_software_catalog(filter_exclude_snapshot: Optional[_builtins.str] = None
         filter_owner=pulumi.get(__ret__, 'filter_owner'),
         filter_ref=pulumi.get(__ret__, 'filter_ref'),
         filter_relation_type=pulumi.get(__ret__, 'filter_relation_type'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        include_discovered=pulumi.get(__ret__, 'include_discovered'))
 def get_software_catalog_output(filter_exclude_snapshot: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 filter_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 filter_kind: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -203,6 +219,7 @@ def get_software_catalog_output(filter_exclude_snapshot: pulumi.Input[Optional[O
                                 filter_owner: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 filter_ref: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 filter_relation_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                include_discovered: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSoftwareCatalogResult]:
     """
     Use this data source to list software catalog entities to use in other resources.
@@ -224,6 +241,7 @@ def get_software_catalog_output(filter_exclude_snapshot: pulumi.Input[Optional[O
     :param _builtins.str filter_owner: Filter entities by owner.
     :param _builtins.str filter_ref: Filter entities by reference.
     :param _builtins.str filter_relation_type: Filter entities by relation type. Valid values are `RelationTypeOwns`, `RelationTypeOwnedBy`, `RelationTypeDependsOn`, `RelationTypeDependencyOf`, `RelationTypePartsOf`, `RelationTypeHasPart`, `RelationTypeOtherOwns`, `RelationTypeOtherOwnedBy`, `RelationTypeImplementedBy`, `RelationTypeImplements`.
+    :param _builtins.bool include_discovered: Include entities that have been discovered but not yet enriched.
     """
     __args__ = dict()
     __args__['filterExcludeSnapshot'] = filter_exclude_snapshot
@@ -233,6 +251,7 @@ def get_software_catalog_output(filter_exclude_snapshot: pulumi.Input[Optional[O
     __args__['filterOwner'] = filter_owner
     __args__['filterRef'] = filter_ref
     __args__['filterRelationType'] = filter_relation_type
+    __args__['includeDiscovered'] = include_discovered
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getSoftwareCatalog:getSoftwareCatalog', __args__, opts=opts, typ=GetSoftwareCatalogResult)
     return __ret__.apply(lambda __response__: GetSoftwareCatalogResult(
@@ -244,4 +263,5 @@ def get_software_catalog_output(filter_exclude_snapshot: pulumi.Input[Optional[O
         filter_owner=pulumi.get(__response__, 'filter_owner'),
         filter_ref=pulumi.get(__response__, 'filter_ref'),
         filter_relation_type=pulumi.get(__response__, 'filter_relation_type'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        include_discovered=pulumi.get(__response__, 'include_discovered')))

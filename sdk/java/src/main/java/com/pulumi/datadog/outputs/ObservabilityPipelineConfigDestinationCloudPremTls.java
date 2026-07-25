@@ -32,6 +32,11 @@ public final class ObservabilityPipelineConfigDestinationCloudPremTls {
      * 
      */
     private @Nullable String keyPassKey;
+    /**
+     * @return Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn&#39;t match the certificate&#39;s Common Name or Subject Alternative Name.
+     * 
+     */
+    private @Nullable String serverName;
 
     private ObservabilityPipelineConfigDestinationCloudPremTls() {}
     /**
@@ -62,6 +67,13 @@ public final class ObservabilityPipelineConfigDestinationCloudPremTls {
     public Optional<String> keyPassKey() {
         return Optional.ofNullable(this.keyPassKey);
     }
+    /**
+     * @return Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn&#39;t match the certificate&#39;s Common Name or Subject Alternative Name.
+     * 
+     */
+    public Optional<String> serverName() {
+        return Optional.ofNullable(this.serverName);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -76,6 +88,7 @@ public final class ObservabilityPipelineConfigDestinationCloudPremTls {
         private String crtFile;
         private @Nullable String keyFile;
         private @Nullable String keyPassKey;
+        private @Nullable String serverName;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationCloudPremTls defaults) {
     	      Objects.requireNonNull(defaults);
@@ -83,6 +96,7 @@ public final class ObservabilityPipelineConfigDestinationCloudPremTls {
     	      this.crtFile = defaults.crtFile;
     	      this.keyFile = defaults.keyFile;
     	      this.keyPassKey = defaults.keyPassKey;
+    	      this.serverName = defaults.serverName;
         }
 
         @CustomType.Setter
@@ -111,12 +125,19 @@ public final class ObservabilityPipelineConfigDestinationCloudPremTls {
             this.keyPassKey = keyPassKey;
             return this;
         }
+        @CustomType.Setter
+        public Builder serverName(@Nullable String serverName) {
+
+            this.serverName = serverName;
+            return this;
+        }
         public ObservabilityPipelineConfigDestinationCloudPremTls build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationCloudPremTls();
             _resultValue.caFile = caFile;
             _resultValue.crtFile = crtFile;
             _resultValue.keyFile = keyFile;
             _resultValue.keyPassKey = keyPassKey;
+            _resultValue.serverName = serverName;
             return _resultValue;
         }
     }

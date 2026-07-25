@@ -26,6 +26,7 @@ namespace Pulumi.Datadog
     ///     var example = new Datadog.AgentlessScanningGcpScanOptions("example", new()
     ///     {
     ///         GcpProjectId = "company-project-prod",
+    ///         CloudFunction = true,
     ///         VulnContainersOs = true,
     ///         VulnHostOs = true,
     ///     });
@@ -48,6 +49,12 @@ namespace Pulumi.Datadog
     [DatadogResourceType("datadog:index/agentlessScanningGcpScanOptions:AgentlessScanningGcpScanOptions")]
     public partial class AgentlessScanningGcpScanOptions : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Indicates if scanning of Cloud Functions is enabled.
+        /// </summary>
+        [Output("cloudFunction")]
+        public Output<bool> CloudFunction { get; private set; } = null!;
+
         /// <summary>
         /// Indicates if host compliance scanning is enabled. Defaults to `False`.
         /// </summary>
@@ -119,6 +126,12 @@ namespace Pulumi.Datadog
     public sealed class AgentlessScanningGcpScanOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Indicates if scanning of Cloud Functions is enabled.
+        /// </summary>
+        [Input("cloudFunction", required: true)]
+        public Input<bool> CloudFunction { get; set; } = null!;
+
+        /// <summary>
         /// Indicates if host compliance scanning is enabled. Defaults to `False`.
         /// </summary>
         [Input("complianceHost")]
@@ -150,6 +163,12 @@ namespace Pulumi.Datadog
 
     public sealed class AgentlessScanningGcpScanOptionsState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates if scanning of Cloud Functions is enabled.
+        /// </summary>
+        [Input("cloudFunction")]
+        public Input<bool>? CloudFunction { get; set; }
+
         /// <summary>
         /// Indicates if host compliance scanning is enabled. Defaults to `False`.
         /// </summary>

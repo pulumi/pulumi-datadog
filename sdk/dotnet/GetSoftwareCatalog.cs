@@ -120,6 +120,12 @@ namespace Pulumi.Datadog
         [Input("filterRelationType")]
         public string? FilterRelationType { get; set; }
 
+        /// <summary>
+        /// Include entities that have been discovered but not yet enriched.
+        /// </summary>
+        [Input("includeDiscovered")]
+        public bool? IncludeDiscovered { get; set; }
+
         public GetSoftwareCatalogArgs()
         {
         }
@@ -170,6 +176,12 @@ namespace Pulumi.Datadog
         [Input("filterRelationType")]
         public Input<string>? FilterRelationType { get; set; }
 
+        /// <summary>
+        /// Include entities that have been discovered but not yet enriched.
+        /// </summary>
+        [Input("includeDiscovered")]
+        public Input<bool>? IncludeDiscovered { get; set; }
+
         public GetSoftwareCatalogInvokeArgs()
         {
         }
@@ -216,6 +228,10 @@ namespace Pulumi.Datadog
         /// The ID of this resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Include entities that have been discovered but not yet enriched.
+        /// </summary>
+        public readonly bool? IncludeDiscovered;
 
         [OutputConstructor]
         private GetSoftwareCatalogResult(
@@ -235,7 +251,9 @@ namespace Pulumi.Datadog
 
             string? filterRelationType,
 
-            string id)
+            string id,
+
+            bool? includeDiscovered)
         {
             Entities = entities;
             FilterExcludeSnapshot = filterExcludeSnapshot;
@@ -246,6 +264,7 @@ namespace Pulumi.Datadog
             FilterRef = filterRef;
             FilterRelationType = filterRelationType;
             Id = id;
+            IncludeDiscovered = includeDiscovered;
         }
     }
 }

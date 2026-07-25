@@ -47,6 +47,21 @@ public final class AgentlessScanningAzureScanOptionsState extends com.pulumi.res
     }
 
     /**
+     * Indicates if scanning of Azure Functions is enabled.
+     * 
+     */
+    @Import(name="function")
+    private @Nullable Output<Boolean> function;
+
+    /**
+     * @return Indicates if scanning of Azure Functions is enabled.
+     * 
+     */
+    public Optional<Output<Boolean>> function() {
+        return Optional.ofNullable(this.function);
+    }
+
+    /**
      * Indicates if scanning for vulnerabilities in containers is enabled.
      * 
      */
@@ -81,6 +96,7 @@ public final class AgentlessScanningAzureScanOptionsState extends com.pulumi.res
     private AgentlessScanningAzureScanOptionsState(AgentlessScanningAzureScanOptionsState $) {
         this.azureSubscriptionId = $.azureSubscriptionId;
         this.complianceHost = $.complianceHost;
+        this.function = $.function;
         this.vulnContainersOs = $.vulnContainersOs;
         this.vulnHostOs = $.vulnHostOs;
     }
@@ -143,6 +159,27 @@ public final class AgentlessScanningAzureScanOptionsState extends com.pulumi.res
          */
         public Builder complianceHost(Boolean complianceHost) {
             return complianceHost(Output.of(complianceHost));
+        }
+
+        /**
+         * @param function Indicates if scanning of Azure Functions is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder function(@Nullable Output<Boolean> function) {
+            $.function = function;
+            return this;
+        }
+
+        /**
+         * @param function Indicates if scanning of Azure Functions is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder function(Boolean function) {
+            return function(Output.of(function));
         }
 
         /**

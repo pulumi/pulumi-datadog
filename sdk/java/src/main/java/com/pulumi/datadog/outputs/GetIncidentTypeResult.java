@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetIncidentTypeConfiguration;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -11,6 +12,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetIncidentTypeResult {
+    /**
+     * @return The incident type&#39;s behavior settings.
+     * 
+     */
+    private GetIncidentTypeConfiguration configuration;
     /**
      * @return Description of the incident type.
      * 
@@ -33,6 +39,13 @@ public final class GetIncidentTypeResult {
     private String name;
 
     private GetIncidentTypeResult() {}
+    /**
+     * @return The incident type&#39;s behavior settings.
+     * 
+     */
+    public GetIncidentTypeConfiguration configuration() {
+        return this.configuration;
+    }
     /**
      * @return Description of the incident type.
      * 
@@ -71,6 +84,7 @@ public final class GetIncidentTypeResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private GetIncidentTypeConfiguration configuration;
         private String description;
         private String id;
         private Boolean isDefault;
@@ -78,12 +92,21 @@ public final class GetIncidentTypeResult {
         public Builder() {}
         public Builder(GetIncidentTypeResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.configuration = defaults.configuration;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.isDefault = defaults.isDefault;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
+        public Builder configuration(GetIncidentTypeConfiguration configuration) {
+            if (configuration == null) {
+              throw new MissingRequiredPropertyException("GetIncidentTypeResult", "configuration");
+            }
+            this.configuration = configuration;
+            return this;
+        }
         @CustomType.Setter
         public Builder description(String description) {
             if (description == null) {
@@ -118,6 +141,7 @@ public final class GetIncidentTypeResult {
         }
         public GetIncidentTypeResult build() {
             final var _resultValue = new GetIncidentTypeResult();
+            _resultValue.configuration = configuration;
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.isDefault = isDefault;

@@ -5,6 +5,34 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export interface ActionConnectionAnthropic {
+    /**
+     * Configuration for Anthropic API key authentication
+     */
+    apiKey?: outputs.ActionConnectionAnthropicApiKey;
+}
+
+export interface ActionConnectionAnthropicApiKey {
+    /**
+     * Anthropic API token. String length must be at least 1.
+     */
+    apiToken?: string;
+}
+
+export interface ActionConnectionAsana {
+    /**
+     * Configuration for Asana access token authentication
+     */
+    accessToken?: outputs.ActionConnectionAsanaAccessToken;
+}
+
+export interface ActionConnectionAsanaAccessToken {
+    /**
+     * Asana access token. String length must be at least 1.
+     */
+    accessToken?: string;
+}
+
 export interface ActionConnectionAws {
     /**
      * Configuration for an assume role AWS connection
@@ -29,6 +57,229 @@ export interface ActionConnectionAwsAssumeRole {
      * Role to assume. String length must be at least 1.
      */
     role?: string;
+}
+
+export interface ActionConnectionAzure {
+    /**
+     * Configuration for Azure tenant authentication
+     */
+    tenant?: outputs.ActionConnectionAzureTenant;
+}
+
+export interface ActionConnectionAzureTenant {
+    /**
+     * Azure application client ID. String length must be at least 1.
+     */
+    appClientId?: string;
+    /**
+     * Azure application client secret. String length must be at least 1.
+     */
+    clientSecret?: string;
+    /**
+     * Custom scope requested when acquiring an OAuth 2 access token. String length must be at least 1.
+     */
+    customScopes?: string;
+    /**
+     * Azure Active Directory tenant ID. String length must be at least 1.
+     */
+    tenantId?: string;
+}
+
+export interface ActionConnectionCircleCi {
+    /**
+     * Configuration for CircleCI API key authentication
+     */
+    apiKey?: outputs.ActionConnectionCircleCiApiKey;
+}
+
+export interface ActionConnectionCircleCiApiKey {
+    /**
+     * CircleCI API token. String length must be at least 1.
+     */
+    apiToken?: string;
+}
+
+export interface ActionConnectionClickup {
+    /**
+     * Configuration for ClickUp API key authentication
+     */
+    apiKey?: outputs.ActionConnectionClickupApiKey;
+}
+
+export interface ActionConnectionClickupApiKey {
+    /**
+     * ClickUp API token. String length must be at least 1.
+     */
+    apiToken?: string;
+}
+
+export interface ActionConnectionCloudflare {
+    /**
+     * Configuration for Cloudflare API token authentication
+     */
+    apiToken?: outputs.ActionConnectionCloudflareApiToken;
+    /**
+     * Configuration for Cloudflare global API token authentication
+     */
+    globalApiToken?: outputs.ActionConnectionCloudflareGlobalApiToken;
+}
+
+export interface ActionConnectionCloudflareApiToken {
+    /**
+     * Cloudflare API token. String length must be at least 1.
+     */
+    apiToken?: string;
+}
+
+export interface ActionConnectionCloudflareGlobalApiToken {
+    /**
+     * Email address associated with the Cloudflare account. String length must be at least 1.
+     */
+    authEmail?: string;
+    /**
+     * Cloudflare global API key. String length must be at least 1.
+     */
+    globalApiKey?: string;
+}
+
+export interface ActionConnectionConfigCat {
+    /**
+     * Configuration for ConfigCat SDK key authentication
+     */
+    sdkKey?: outputs.ActionConnectionConfigCatSdkKey;
+}
+
+export interface ActionConnectionConfigCatSdkKey {
+    /**
+     * ConfigCat Public Management API password. String length must be at least 1.
+     */
+    apiPassword?: string;
+    /**
+     * ConfigCat Public Management API username. String length must be at least 1.
+     */
+    apiUsername?: string;
+    /**
+     * ConfigCat SDK key. String length must be at least 1.
+     */
+    sdkKey?: string;
+}
+
+export interface ActionConnectionDatadog {
+    /**
+     * Configuration for Datadog API and application key authentication
+     */
+    apiKey?: outputs.ActionConnectionDatadogApiKey;
+}
+
+export interface ActionConnectionDatadogApiKey {
+    /**
+     * Datadog API key. String length must be at least 1.
+     */
+    apiKey?: string;
+    /**
+     * Datadog application key. String length must be at least 1.
+     */
+    appKey?: string;
+    /**
+     * Datadog site data center. String length must be at least 1.
+     */
+    datacenter?: string;
+    /**
+     * Custom subdomain used for URLs generated with this connection. String length must be at least 1.
+     */
+    subdomain?: string;
+}
+
+export interface ActionConnectionFastly {
+    /**
+     * Configuration for Fastly API key authentication
+     */
+    apiKey?: outputs.ActionConnectionFastlyApiKey;
+}
+
+export interface ActionConnectionFastlyApiKey {
+    /**
+     * Fastly API key. String length must be at least 1.
+     */
+    apiKey?: string;
+}
+
+export interface ActionConnectionFreshservice {
+    /**
+     * Configuration for Freshservice API key authentication
+     */
+    apiKey?: outputs.ActionConnectionFreshserviceApiKey;
+}
+
+export interface ActionConnectionFreshserviceApiKey {
+    /**
+     * Freshservice API key. String length must be at least 1.
+     */
+    apiKey?: string;
+    /**
+     * Freshservice domain. String length must be at least 1.
+     */
+    domain?: string;
+}
+
+export interface ActionConnectionGcp {
+    /**
+     * Configuration for Google Cloud service account authentication
+     */
+    serviceAccount?: outputs.ActionConnectionGcpServiceAccount;
+}
+
+export interface ActionConnectionGcpServiceAccount {
+    /**
+     * Google Cloud service account private key. String length must be at least 1.
+     */
+    privateKey?: string;
+    /**
+     * Google Cloud service account email. String length must be at least 1.
+     */
+    serviceAccountEmail?: string;
+}
+
+export interface ActionConnectionGemini {
+    /**
+     * Configuration for Gemini API key authentication
+     */
+    apiKey?: outputs.ActionConnectionGeminiApiKey;
+}
+
+export interface ActionConnectionGeminiApiKey {
+    /**
+     * Gemini API key. String length must be at least 1.
+     */
+    apiKey?: string;
+}
+
+export interface ActionConnectionGitlab {
+    /**
+     * Configuration for GitLab API key authentication
+     */
+    apiKey?: outputs.ActionConnectionGitlabApiKey;
+}
+
+export interface ActionConnectionGitlabApiKey {
+    /**
+     * GitLab API token. String length must be at least 1.
+     */
+    apiToken?: string;
+}
+
+export interface ActionConnectionGreyNoise {
+    /**
+     * Configuration for GreyNoise API key authentication
+     */
+    apiKey?: outputs.ActionConnectionGreyNoiseApiKey;
+}
+
+export interface ActionConnectionGreyNoiseApiKey {
+    /**
+     * GreyNoise API key. String length must be at least 1.
+     */
+    apiKey?: string;
 }
 
 export interface ActionConnectionHttp {
@@ -107,6 +358,130 @@ export interface ActionConnectionHttpTokenAuthUrlParameter {
      * URL parameter value. String length must be at least 1.
      */
     value?: string;
+}
+
+export interface ActionConnectionLaunchDarkly {
+    /**
+     * Configuration for LaunchDarkly API key authentication
+     */
+    apiKey?: outputs.ActionConnectionLaunchDarklyApiKey;
+}
+
+export interface ActionConnectionLaunchDarklyApiKey {
+    /**
+     * LaunchDarkly API token. String length must be at least 1.
+     */
+    apiToken?: string;
+}
+
+export interface ActionConnectionNotion {
+    /**
+     * Configuration for Notion API key authentication
+     */
+    apiKey?: outputs.ActionConnectionNotionApiKey;
+}
+
+export interface ActionConnectionNotionApiKey {
+    /**
+     * Notion API token. String length must be at least 1.
+     */
+    apiToken?: string;
+}
+
+export interface ActionConnectionOkta {
+    /**
+     * Configuration for Okta API token authentication
+     */
+    apiToken?: outputs.ActionConnectionOktaApiToken;
+}
+
+export interface ActionConnectionOktaApiToken {
+    /**
+     * Okta API token. String length must be at least 1.
+     */
+    apiToken?: string;
+    /**
+     * Okta domain. String length must be at least 1.
+     */
+    domain?: string;
+}
+
+export interface ActionConnectionOpenai {
+    /**
+     * Configuration for OpenAI API key authentication
+     */
+    apiKey?: outputs.ActionConnectionOpenaiApiKey;
+}
+
+export interface ActionConnectionOpenaiApiKey {
+    /**
+     * OpenAI API token. String length must be at least 1.
+     */
+    apiToken?: string;
+}
+
+export interface ActionConnectionServiceNow {
+    /**
+     * Configuration for ServiceNow basic authentication
+     */
+    basicAuth?: outputs.ActionConnectionServiceNowBasicAuth;
+}
+
+export interface ActionConnectionServiceNowBasicAuth {
+    /**
+     * ServiceNow instance. String length must be at least 1.
+     */
+    instance?: string;
+    /**
+     * ServiceNow password. String length must be at least 1.
+     */
+    password?: string;
+    /**
+     * ServiceNow username. String length must be at least 1.
+     */
+    username?: string;
+}
+
+export interface ActionConnectionSplit {
+    /**
+     * Configuration for Split API key authentication
+     */
+    apiKey?: outputs.ActionConnectionSplitApiKey;
+}
+
+export interface ActionConnectionSplitApiKey {
+    /**
+     * Split API key. String length must be at least 1.
+     */
+    apiKey?: string;
+}
+
+export interface ActionConnectionStatsig {
+    /**
+     * Configuration for Statsig API key authentication
+     */
+    apiKey?: outputs.ActionConnectionStatsigApiKey;
+}
+
+export interface ActionConnectionStatsigApiKey {
+    /**
+     * Statsig API key. String length must be at least 1.
+     */
+    apiKey?: string;
+}
+
+export interface ActionConnectionVirusTotal {
+    /**
+     * Configuration for VirusTotal API key authentication
+     */
+    apiKey?: outputs.ActionConnectionVirusTotalApiKey;
+}
+
+export interface ActionConnectionVirusTotalApiKey {
+    /**
+     * VirusTotal API key. String length must be at least 1.
+     */
+    apiKey?: string;
 }
 
 export interface ApmRetentionFilterFilter {
@@ -547,6 +922,26 @@ export interface CostBudgetEntryTagFilter {
     /**
      * **Note:** Must be one of the tags from the `metricsQuery`.
      */
+    tagKey: string;
+    tagValue: string;
+}
+
+export interface CostCustomForecastEntry {
+    /**
+     * The forecast override amount for the month. Value must be at least 0.000000.
+     */
+    amount: number;
+    /**
+     * The month the entry applies to, in `YYYYMM` format.
+     */
+    month: number;
+    /**
+     * Tag filters that scope this entry to a specific budget entry tag combination.
+     */
+    tagFilters?: outputs.CostCustomForecastEntryTagFilter[];
+}
+
+export interface CostCustomForecastEntryTagFilter {
     tagKey: string;
     tagValue: string;
 }
@@ -66129,6 +66524,34 @@ export interface DowntimeScheduleRecurringScheduleRecurrence {
     start: string;
 }
 
+export interface GetActionConnectionAnthropic {
+    /**
+     * Configuration for Anthropic API key authentication
+     */
+    apiKey?: outputs.GetActionConnectionAnthropicApiKey;
+}
+
+export interface GetActionConnectionAnthropicApiKey {
+    /**
+     * Anthropic API token
+     */
+    apiToken: string;
+}
+
+export interface GetActionConnectionAsana {
+    /**
+     * Configuration for Asana access token authentication
+     */
+    accessToken?: outputs.GetActionConnectionAsanaAccessToken;
+}
+
+export interface GetActionConnectionAsanaAccessToken {
+    /**
+     * Asana access token
+     */
+    accessToken: string;
+}
+
 export interface GetActionConnectionAws {
     /**
      * Configuration for an assume role AWS connection
@@ -66153,6 +66576,229 @@ export interface GetActionConnectionAwsAssumeRole {
      * Role to assume
      */
     role: string;
+}
+
+export interface GetActionConnectionAzure {
+    /**
+     * Configuration for Azure tenant authentication
+     */
+    tenant?: outputs.GetActionConnectionAzureTenant;
+}
+
+export interface GetActionConnectionAzureTenant {
+    /**
+     * Azure application client ID
+     */
+    appClientId: string;
+    /**
+     * Azure application client secret
+     */
+    clientSecret: string;
+    /**
+     * Custom scope requested when acquiring an OAuth 2 access token
+     */
+    customScopes: string;
+    /**
+     * Azure Active Directory tenant ID
+     */
+    tenantId: string;
+}
+
+export interface GetActionConnectionCircleCi {
+    /**
+     * Configuration for CircleCI API key authentication
+     */
+    apiKey?: outputs.GetActionConnectionCircleCiApiKey;
+}
+
+export interface GetActionConnectionCircleCiApiKey {
+    /**
+     * CircleCI API token
+     */
+    apiToken: string;
+}
+
+export interface GetActionConnectionClickup {
+    /**
+     * Configuration for ClickUp API key authentication
+     */
+    apiKey?: outputs.GetActionConnectionClickupApiKey;
+}
+
+export interface GetActionConnectionClickupApiKey {
+    /**
+     * ClickUp API token
+     */
+    apiToken: string;
+}
+
+export interface GetActionConnectionCloudflare {
+    /**
+     * Configuration for Cloudflare API token authentication
+     */
+    apiToken?: outputs.GetActionConnectionCloudflareApiToken;
+    /**
+     * Configuration for Cloudflare global API token authentication
+     */
+    globalApiToken?: outputs.GetActionConnectionCloudflareGlobalApiToken;
+}
+
+export interface GetActionConnectionCloudflareApiToken {
+    /**
+     * Cloudflare API token
+     */
+    apiToken: string;
+}
+
+export interface GetActionConnectionCloudflareGlobalApiToken {
+    /**
+     * Email address associated with the Cloudflare account
+     */
+    authEmail: string;
+    /**
+     * Cloudflare global API key
+     */
+    globalApiKey: string;
+}
+
+export interface GetActionConnectionConfigCat {
+    /**
+     * Configuration for ConfigCat SDK key authentication
+     */
+    sdkKey?: outputs.GetActionConnectionConfigCatSdkKey;
+}
+
+export interface GetActionConnectionConfigCatSdkKey {
+    /**
+     * ConfigCat Public Management API password
+     */
+    apiPassword: string;
+    /**
+     * ConfigCat Public Management API username
+     */
+    apiUsername: string;
+    /**
+     * ConfigCat SDK key
+     */
+    sdkKey: string;
+}
+
+export interface GetActionConnectionDatadog {
+    /**
+     * Configuration for Datadog API and application key authentication
+     */
+    apiKey?: outputs.GetActionConnectionDatadogApiKey;
+}
+
+export interface GetActionConnectionDatadogApiKey {
+    /**
+     * Datadog API key
+     */
+    apiKey: string;
+    /**
+     * Datadog application key
+     */
+    appKey: string;
+    /**
+     * Datadog site data center
+     */
+    datacenter: string;
+    /**
+     * Custom subdomain used for URLs generated with this connection
+     */
+    subdomain: string;
+}
+
+export interface GetActionConnectionFastly {
+    /**
+     * Configuration for Fastly API key authentication
+     */
+    apiKey?: outputs.GetActionConnectionFastlyApiKey;
+}
+
+export interface GetActionConnectionFastlyApiKey {
+    /**
+     * Fastly API key
+     */
+    apiKey: string;
+}
+
+export interface GetActionConnectionFreshservice {
+    /**
+     * Configuration for Freshservice API key authentication
+     */
+    apiKey?: outputs.GetActionConnectionFreshserviceApiKey;
+}
+
+export interface GetActionConnectionFreshserviceApiKey {
+    /**
+     * Freshservice API key
+     */
+    apiKey: string;
+    /**
+     * Freshservice domain
+     */
+    domain: string;
+}
+
+export interface GetActionConnectionGcp {
+    /**
+     * Configuration for Google Cloud service account authentication
+     */
+    serviceAccount?: outputs.GetActionConnectionGcpServiceAccount;
+}
+
+export interface GetActionConnectionGcpServiceAccount {
+    /**
+     * Google Cloud service account private key
+     */
+    privateKey: string;
+    /**
+     * Google Cloud service account email
+     */
+    serviceAccountEmail: string;
+}
+
+export interface GetActionConnectionGemini {
+    /**
+     * Configuration for Gemini API key authentication
+     */
+    apiKey?: outputs.GetActionConnectionGeminiApiKey;
+}
+
+export interface GetActionConnectionGeminiApiKey {
+    /**
+     * Gemini API key
+     */
+    apiKey: string;
+}
+
+export interface GetActionConnectionGitlab {
+    /**
+     * Configuration for GitLab API key authentication
+     */
+    apiKey?: outputs.GetActionConnectionGitlabApiKey;
+}
+
+export interface GetActionConnectionGitlabApiKey {
+    /**
+     * GitLab API token
+     */
+    apiToken: string;
+}
+
+export interface GetActionConnectionGreyNoise {
+    /**
+     * Configuration for GreyNoise API key authentication
+     */
+    apiKey?: outputs.GetActionConnectionGreyNoiseApiKey;
+}
+
+export interface GetActionConnectionGreyNoiseApiKey {
+    /**
+     * GreyNoise API key
+     */
+    apiKey: string;
 }
 
 export interface GetActionConnectionHttp {
@@ -66228,6 +66874,130 @@ export interface GetActionConnectionHttpTokenAuthUrlParameter {
      * URL parameter value
      */
     value: string;
+}
+
+export interface GetActionConnectionLaunchDarkly {
+    /**
+     * Configuration for LaunchDarkly API key authentication
+     */
+    apiKey?: outputs.GetActionConnectionLaunchDarklyApiKey;
+}
+
+export interface GetActionConnectionLaunchDarklyApiKey {
+    /**
+     * LaunchDarkly API token
+     */
+    apiToken: string;
+}
+
+export interface GetActionConnectionNotion {
+    /**
+     * Configuration for Notion API key authentication
+     */
+    apiKey?: outputs.GetActionConnectionNotionApiKey;
+}
+
+export interface GetActionConnectionNotionApiKey {
+    /**
+     * Notion API token
+     */
+    apiToken: string;
+}
+
+export interface GetActionConnectionOkta {
+    /**
+     * Configuration for Okta API token authentication
+     */
+    apiToken?: outputs.GetActionConnectionOktaApiToken;
+}
+
+export interface GetActionConnectionOktaApiToken {
+    /**
+     * Okta API token
+     */
+    apiToken: string;
+    /**
+     * Okta domain
+     */
+    domain: string;
+}
+
+export interface GetActionConnectionOpenai {
+    /**
+     * Configuration for OpenAI API key authentication
+     */
+    apiKey?: outputs.GetActionConnectionOpenaiApiKey;
+}
+
+export interface GetActionConnectionOpenaiApiKey {
+    /**
+     * OpenAI API token
+     */
+    apiToken: string;
+}
+
+export interface GetActionConnectionServiceNow {
+    /**
+     * Configuration for ServiceNow basic authentication
+     */
+    basicAuth?: outputs.GetActionConnectionServiceNowBasicAuth;
+}
+
+export interface GetActionConnectionServiceNowBasicAuth {
+    /**
+     * ServiceNow instance
+     */
+    instance: string;
+    /**
+     * ServiceNow password
+     */
+    password: string;
+    /**
+     * ServiceNow username
+     */
+    username: string;
+}
+
+export interface GetActionConnectionSplit {
+    /**
+     * Configuration for Split API key authentication
+     */
+    apiKey?: outputs.GetActionConnectionSplitApiKey;
+}
+
+export interface GetActionConnectionSplitApiKey {
+    /**
+     * Split API key
+     */
+    apiKey: string;
+}
+
+export interface GetActionConnectionStatsig {
+    /**
+     * Configuration for Statsig API key authentication
+     */
+    apiKey?: outputs.GetActionConnectionStatsigApiKey;
+}
+
+export interface GetActionConnectionStatsigApiKey {
+    /**
+     * Statsig API key
+     */
+    apiKey: string;
+}
+
+export interface GetActionConnectionVirusTotal {
+    /**
+     * Configuration for VirusTotal API key authentication
+     */
+    apiKey?: outputs.GetActionConnectionVirusTotalApiKey;
+}
+
+export interface GetActionConnectionVirusTotalApiKey {
+    /**
+     * VirusTotal API key
+     */
+    apiKey: string;
 }
 
 export interface GetAwsCurConfigAccountFilters {
@@ -66347,6 +67117,26 @@ export interface GetCostBudgetEntry {
 }
 
 export interface GetCostBudgetEntryTagFilter {
+    tagKey: string;
+    tagValue: string;
+}
+
+export interface GetCostCustomForecastEntry {
+    /**
+     * The forecast override amount for the month.
+     */
+    amount: number;
+    /**
+     * The month the entry applies to, in `YYYYMM` format.
+     */
+    month: number;
+    /**
+     * Tag filters that scope this entry to a specific budget entry tag combination.
+     */
+    tagFilters?: outputs.GetCostCustomForecastEntryTagFilter[];
+}
+
+export interface GetCostCustomForecastEntryTagFilter {
     tagKey: string;
     tagValue: string;
 }
@@ -66558,6 +67348,41 @@ export interface GetIncidentNotificationRuleCondition {
      * The value(s) to compare against.
      */
     values: string[];
+}
+
+export interface GetIncidentTypeConfiguration {
+    /**
+     * Whether incidents of this type can be deleted.
+     */
+    allowIncidentDeletion: boolean;
+    /**
+     * Whether users can manually run a workflow from an incident of this type.
+     */
+    allowWorkflows: boolean;
+    /**
+     * An optional message shown to users when they declare an incident of this type.
+     */
+    createMessage: string;
+    /**
+     * Whether responders can edit incident timestamps for incidents of this type.
+     */
+    editableTimestamps: boolean;
+    /**
+     * Whether responders can create private incidents of this type.
+     */
+    privateIncidents: boolean;
+    /**
+     * Whether the private toggle is enabled by default in the incident creation modal for this type.
+     */
+    privateIncidentsByDefault: boolean;
+    /**
+     * The source used to derive the incident slug. When set to `servicenow`, incidents display the ServiceNow record ID instead of the public ID. If no ServiceNow integration exists, the public ID is displayed.
+     */
+    slugSource: string;
+    /**
+     * Whether test incidents of this type can be created.
+     */
+    testIncidents: boolean;
 }
 
 export interface GetLogsIndexesLogsIndex {
@@ -67887,6 +68712,94 @@ export interface IncidentNotificationRuleCondition {
     values: string[];
 }
 
+export interface IncidentTypeConfiguration {
+    /**
+     * Whether incidents of this type can be deleted. Defaults to `false`.
+     */
+    allowIncidentDeletion: boolean;
+    /**
+     * Whether users can manually run a workflow from an incident of this type. Defaults to `true`.
+     */
+    allowWorkflows: boolean;
+    /**
+     * An optional message shown to users when they declare an incident of this type. Defaults to an empty string.
+     */
+    createMessage: string;
+    /**
+     * Whether responders can edit incident timestamps for incidents of this type. Defaults to `false`.
+     */
+    editableTimestamps: boolean;
+    /**
+     * Whether responders can create private incidents of this type. Defaults to `false`.
+     */
+    privateIncidents: boolean;
+    /**
+     * Whether the private toggle is enabled by default in the incident creation modal for this type. Defaults to `false`.
+     */
+    privateIncidentsByDefault: boolean;
+    /**
+     * The source used to derive the incident slug. When set to `servicenow`, incidents display the ServiceNow record ID instead of the public ID. If no ServiceNow integration exists, the public ID is displayed. Defaults to `default`. Valid values are `default`, `servicenow`.
+     */
+    slugSource: string;
+    /**
+     * Whether test incidents of this type can be created. Defaults to `true`.
+     */
+    testIncidents: boolean;
+}
+
+export interface IncidentUserDefinedFieldMetadata {
+    /**
+     * The category of the autocomplete source.
+     */
+    category: string;
+    /**
+     * The query parameter used to limit the number of autocomplete results.
+     */
+    searchLimitParam: string;
+    /**
+     * Additional query parameters to include in the search URL.
+     */
+    searchParams: {[key: string]: string};
+    /**
+     * The query parameter used to pass typed input to the search URL.
+     */
+    searchQueryParam: string;
+    /**
+     * The JSON path to the results in the response body.
+     */
+    searchResultPath: string;
+    /**
+     * The URL used to populate autocomplete options.
+     */
+    searchUrl: string;
+}
+
+export interface IncidentUserDefinedFieldValidValue {
+    /**
+     * A detailed description of the valid value.
+     */
+    description: string;
+    /**
+     * The human-readable display name for this value.
+     */
+    displayName: string;
+    /**
+     * A short description of the valid value.
+     */
+    shortDescription: string;
+    /**
+     * The identifier that is stored when this option is selected.
+     */
+    value: string;
+}
+
+export interface IncidentUserDefinedRolePolicy {
+    /**
+     * Whether this role can only be assigned to one responder at a time. Defaults to `false`.
+     */
+    isSingle: boolean;
+}
+
 export interface IpAllowlistEntry {
     /**
      * IP address or range of addresses. String must be a valid CIDR block or IP address.
@@ -68131,6 +69044,10 @@ export interface LogsCustomPipelineProcessor {
      * Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
      */
     decoderProcessor?: outputs.LogsCustomPipelineProcessorDecoderProcessor;
+    /**
+     * Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
+     */
+    excludeAttributeProcessor?: outputs.LogsCustomPipelineProcessorExcludeAttributeProcessor;
     /**
      * Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
      */
@@ -68537,6 +69454,21 @@ export interface LogsCustomPipelineProcessorDecoderProcessor {
     target: string;
 }
 
+export interface LogsCustomPipelineProcessorExcludeAttributeProcessor {
+    /**
+     * Name of the log attribute to remove from the log event.
+     */
+    attributeToExclude: string;
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor.
+     */
+    name?: string;
+}
+
 export interface LogsCustomPipelineProcessorGeoIpParser {
     /**
      * If the processor is enabled or not.
@@ -68674,6 +69606,10 @@ export interface LogsCustomPipelineProcessorPipelineProcessor {
      * Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
      */
     decoderProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor;
+    /**
+     * Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
+     */
+    excludeAttributeProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorExcludeAttributeProcessor;
     /**
      * Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
      */
@@ -69077,6 +70013,21 @@ export interface LogsCustomPipelineProcessorPipelineProcessorDecoderProcessor {
      * Decoded message
      */
     target: string;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorExcludeAttributeProcessor {
+    /**
+     * Name of the log attribute to remove from the log event.
+     */
+    attributeToExclude: string;
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor.
+     */
+    name?: string;
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorGeoIpParser {
@@ -70737,7 +71688,7 @@ export interface MonitorVariablesCloudCostQuery {
 
 export interface MonitorVariablesDataJobsQuery {
     /**
-     * The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `dbt.model`, `dbt.test`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+     * The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
      */
     jobType: string;
     /**
@@ -71226,6 +72177,14 @@ export interface ObservabilityPipelineConfigDestinationAmazonS3Generic {
      */
     region: string;
     /**
+     * The server-side encryption algorithm used when storing objects in S3. Valid values: `aws:kms`, `AES256`. Valid values are `aws:kms`, `AES256`.
+     */
+    serverSideEncryption?: string;
+    /**
+     * ID of the AWS KMS key to use for SSE-KMS encryption. Only applies when `serverSideEncryption` is `aws:kms`.
+     */
+    ssekmsKeyId?: string;
+    /**
      * S3 storage class. Valid values are `STANDARD`, `REDUCED_REDUNDANCY`, `INTELLIGENT_TIERING`, `STANDARD_IA`, `EXPRESS_ONEZONE`, `ONEZONE_IA`, `GLACIER`, `GLACIER_IR`, `DEEP_ARCHIVE`.
      */
     storageClass: string;
@@ -71690,6 +72649,10 @@ export interface ObservabilityPipelineConfigDestinationCloudPremTls {
      * Name of the environment variable or secret that holds the passphrase for the private key file.
      */
     keyPassKey?: string;
+    /**
+     * Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+     */
+    serverName?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationCrowdstrikeNextGenSiem {
@@ -72430,6 +73393,10 @@ export interface ObservabilityPipelineConfigDestinationHttpClientTls {
      * Name of the environment variable or secret that holds the passphrase for the private key file.
      */
     keyPassKey?: string;
+    /**
+     * Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+     */
+    serverName?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationKafka {
@@ -72699,6 +73666,10 @@ export interface ObservabilityPipelineConfigDestinationNewRelicBufferMemory {
 
 export interface ObservabilityPipelineConfigDestinationOpensearch {
     /**
+     * Authentication settings for the OpenSearch destination.
+     */
+    auth?: outputs.ObservabilityPipelineConfigDestinationOpensearchAuth;
+    /**
      * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
      */
     buffer?: outputs.ObservabilityPipelineConfigDestinationOpensearchBuffer;
@@ -72710,6 +73681,25 @@ export interface ObservabilityPipelineConfigDestinationOpensearch {
      * Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
      */
     dataStream?: outputs.ObservabilityPipelineConfigDestinationOpensearchDataStream;
+    /**
+     * Name of the environment variable or secret that holds the OpenSearch endpoint URL.
+     */
+    endpointUrlKey?: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationOpensearchAuth {
+    /**
+     * Name of the environment variable or secret that holds the OpenSearch password (used when `strategy` is `basic`).
+     */
+    passwordKey?: string;
+    /**
+     * The authentication strategy to use. Valid values are `basic`, `aws`.
+     */
+    strategy: string;
+    /**
+     * Name of the environment variable or secret that holds the OpenSearch username (used when `strategy` is `basic`).
+     */
+    usernameKey?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationOpensearchBuffer {
@@ -72990,6 +73980,10 @@ export interface ObservabilityPipelineConfigDestinationSocketTls {
      * Name of the environment variable or secret that holds the passphrase for the private key file.
      */
     keyPassKey?: string;
+    /**
+     * Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+     */
+    serverName?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationSplunkHec {
@@ -73315,6 +74309,10 @@ export interface ObservabilityPipelineConfigDestinationSyslogNgTls {
      * Name of the environment variable or secret that holds the passphrase for the private key file.
      */
     keyPassKey?: string;
+    /**
+     * Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+     */
+    serverName?: string;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroup {
@@ -74398,6 +75396,10 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalit
      */
     perMetricLimits?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimit[];
     /**
+     * Controls whether the processor uses exact or probabilistic tag tracking.
+     */
+    trackingMode: outputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode;
+    /**
      * The default maximum number of distinct tag value combinations allowed per metric. Between 0 and 1000000. Value must be between 0 and 1000000.
      */
     valueLimit: number;
@@ -74405,7 +75407,7 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalit
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimit {
     /**
-     * The action to take on this metric when the limit is exceeded. Required when `mode` is `tracked`; must be omitted when `mode` is `excluded`. Valid values are `dropTag`, `dropEvent`.
+     * The action to take on this metric when the limit is exceeded. Required when `overrideType` is `limitOverride`; must be omitted when `overrideType` is `excluded`. Valid values are `dropTag`, `dropEvent`.
      */
     limitExceededAction?: string;
     /**
@@ -74413,15 +75415,15 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalit
      */
     metricName: string;
     /**
-     * How the per-metric override is applied. One of `tracked`, `excluded`. Valid values are `tracked`, `excluded`.
+     * How the per-metric override is applied. One of `limitOverride`, `excluded`. Valid values are `limitOverride`, `excluded`.
      */
-    mode: string;
+    overrideType: string;
     /**
-     * Per-tag cardinality overrides that apply within this metric. Must be omitted when `mode` is `excluded`.
+     * Per-tag cardinality overrides that apply within this metric. Must be omitted when `overrideType` is `excluded`.
      */
     perTagLimits?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimit[];
     /**
-     * The cardinality cap for this metric. Required when `mode` is `tracked`; must be omitted when `mode` is `excluded`. Value must be between 0 and 1000000.
+     * The cardinality cap for this metric. Required when `overrideType` is `limitOverride`; must be omitted when `overrideType` is `excluded`. Value must be between 0 and 1000000.
      */
     valueLimit?: number;
 }
@@ -74430,15 +75432,22 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalit
     /**
      * How the per-tag override is applied. One of `limitOverride`, `excluded`. Valid values are `limitOverride`, `excluded`.
      */
-    mode: string;
+    overrideType: string;
     /**
      * The tag key this override applies to.
      */
     tagKey: string;
     /**
-     * The cardinality cap for this tag. Required when `mode` is `limitOverride`; must be omitted when `mode` is `excluded`. Value must be between 0 and 1000000.
+     * The cardinality cap for this tag. Required when `overrideType` is `limitOverride`; must be omitted when `overrideType` is `excluded`. Value must be between 0 and 1000000.
      */
     valueLimit?: number;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode {
+    /**
+     * The cardinality tracking algorithm to use. One of `exactFingerprint`, `probabilistic`. Valid values are `exactFingerprint`, `probabilistic`.
+     */
+    mode: string;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorThrottle {
@@ -74848,6 +75857,10 @@ export interface ObservabilityPipelineConfigSourceHttpClientTls {
      * Name of the environment variable or secret that holds the passphrase for the private key file.
      */
     keyPassKey?: string;
+    /**
+     * Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+     */
+    serverName?: string;
 }
 
 export interface ObservabilityPipelineConfigSourceHttpServer {
@@ -75505,7 +76518,7 @@ export interface OnCallTeamRoutingRulesRule {
      */
     actions?: outputs.OnCallTeamRoutingRulesRuleAction[];
     /**
-     * ID of the policy to be applied when this routing rule matches.
+     * ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `escalationPolicy` action.
      */
     escalationPolicy?: string;
     /**
@@ -75513,11 +76526,11 @@ export interface OnCallTeamRoutingRulesRule {
      */
     id: string;
     /**
-     * Defines the query or condition that triggers this routing rule. Defaults to `""`.
+     * Defines the query or condition that triggers this routing rule. Must not be set on the last rule, which acts as a catch-all rule. Defaults to `""`.
      */
     query: string;
     /**
-     * Holds time zone information and a list of time restrictions for a routing rule.
+     * Holds time zone information and a list of time restrictions for a routing rule. Must not be set on the last rule, which acts as a catch-all rule.
      */
     timeRestrictions?: outputs.OnCallTeamRoutingRulesRuleTimeRestrictions;
     /**
@@ -133884,6 +134897,18 @@ export interface SyntheticsTestApiStepRequestBasicauth {
      */
     accessTokenUrl?: string;
     /**
+     * Whether to inject the `exp` (expiration) claim automatically, for `jwt` authentication.
+     */
+    addClaimsExp?: boolean;
+    /**
+     * Whether to inject the `iat` (issued at) claim automatically, for `jwt` authentication.
+     */
+    addClaimsIat?: boolean;
+    /**
+     * Algorithm to use for `jwt` authentication. Valid values are `HS256`, `RS256`, `ES256`.
+     */
+    algorithm?: string;
+    /**
      * Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
      */
     audience?: string;
@@ -133900,9 +134925,21 @@ export interface SyntheticsTestApiStepRequestBasicauth {
      */
     domain?: string;
     /**
+     * Token time-to-live in seconds, for `jwt` authentication.
+     */
+    expiresIn?: number;
+    /**
+     * Custom JWT header as a JSON string, for `jwt` authentication.
+     */
+    header?: string;
+    /**
      * Password for authentication.
      */
     password?: string;
+    /**
+     * JWT claims as a JSON string, for `jwt` authentication.
+     */
+    payload?: string;
     /**
      * Region for `SIGV4` authentication.
      */
@@ -133915,6 +134952,10 @@ export interface SyntheticsTestApiStepRequestBasicauth {
      * Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
      */
     scope?: string;
+    /**
+     * Signing key for `jwt` authentication. Use the shared secret for `HS256` or the private key (PEM format) for `RS256` and `ES256`.
+     */
+    secret?: string;
     /**
      * Secret key for `SIGV4` authentication.
      */
@@ -133931,6 +134972,10 @@ export interface SyntheticsTestApiStepRequestBasicauth {
      * Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `header`, `body`.
      */
     tokenApiAuthentication?: string;
+    /**
+     * Prefix added before the token in the `Authorization` header for `jwt` authentication. Defaults to `Bearer`.
+     */
+    tokenPrefix?: string;
     /**
      * Type of basic authentication to use when performing the test. Defaults to `"web"`.
      */
@@ -134843,6 +135888,10 @@ export interface SyntheticsTestOptionsList {
      */
     httpVersion?: string;
     /**
+     * Ignore server certificate error for SSL tests.
+     */
+    ignoreCertificateValidation?: boolean;
+    /**
      * Ignore server certificate error for browser tests.
      */
     ignoreServerCertificateError?: boolean;
@@ -134977,6 +136026,18 @@ export interface SyntheticsTestRequestBasicauth {
      */
     accessTokenUrl?: string;
     /**
+     * Whether to inject the `exp` (expiration) claim automatically, for `jwt` authentication.
+     */
+    addClaimsExp?: boolean;
+    /**
+     * Whether to inject the `iat` (issued at) claim automatically, for `jwt` authentication.
+     */
+    addClaimsIat?: boolean;
+    /**
+     * Algorithm to use for `jwt` authentication. Valid values are `HS256`, `RS256`, `ES256`.
+     */
+    algorithm?: string;
+    /**
      * Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
      */
     audience?: string;
@@ -134993,9 +136054,21 @@ export interface SyntheticsTestRequestBasicauth {
      */
     domain?: string;
     /**
+     * Token time-to-live in seconds, for `jwt` authentication.
+     */
+    expiresIn?: number;
+    /**
+     * Custom JWT header as a JSON string, for `jwt` authentication.
+     */
+    header?: string;
+    /**
      * Password for authentication.
      */
     password?: string;
+    /**
+     * JWT claims as a JSON string, for `jwt` authentication.
+     */
+    payload?: string;
     /**
      * Region for `SIGV4` authentication.
      */
@@ -135008,6 +136081,10 @@ export interface SyntheticsTestRequestBasicauth {
      * Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
      */
     scope?: string;
+    /**
+     * Signing key for `jwt` authentication. Use the shared secret for `HS256` or the private key (PEM format) for `RS256` and `ES256`.
+     */
+    secret?: string;
     /**
      * Secret key for `SIGV4` authentication.
      */
@@ -135024,6 +136101,10 @@ export interface SyntheticsTestRequestBasicauth {
      * Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `header`, `body`.
      */
     tokenApiAuthentication?: string;
+    /**
+     * Prefix added before the token in the `Authorization` header for `jwt` authentication. Defaults to `Bearer`.
+     */
+    tokenPrefix?: string;
     /**
      * Type of basic authentication to use when performing the test. Defaults to `"web"`.
      */
@@ -135374,7 +136455,7 @@ export interface TagPipelineRulesetRuleQuery {
      */
     ifTagExists: string;
     /**
-     * The query string.
+     * The query string. Datadog normalizes queries to a canonical form (operator casing, spacing, redundant parentheses, quoting, and similar formatting differences). The provider validates the configured value against this canonical form during planning. If the value doesn't match, the plan fails with an error showing the canonical query to use in the configuration.
      */
     query?: string;
 }
@@ -135648,6 +136729,10 @@ export namespace aws {
          */
         enabled: boolean;
         /**
+         * AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `includeOnly` or `excludeOnly`.
+         */
+        metricNameFilters?: outputs.aws.IntegrationAccountMetricsConfigMetricNameFilter[];
+        /**
          * AWS metrics namespace filters. Defaults to a pre-set `excludeOnly` list if block is empty.
          */
         namespaceFilters?: outputs.aws.IntegrationAccountMetricsConfigNamespaceFilters;
@@ -135655,6 +136740,21 @@ export namespace aws {
          * AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
          */
         tagFilters?: outputs.aws.IntegrationAccountMetricsConfigTagFilter[];
+    }
+
+    export interface IntegrationAccountMetricsConfigMetricNameFilter {
+        /**
+         * Exclude metric names matching one of these patterns.
+         */
+        excludeOnlies?: string[];
+        /**
+         * Include only metric names matching one of these patterns.
+         */
+        includeOnlies?: string[];
+        /**
+         * The AWS CloudWatch namespace to which this metric name filter applies.
+         */
+        namespace: string;
     }
 
     export interface IntegrationAccountMetricsConfigNamespaceFilters {

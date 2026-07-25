@@ -37,6 +37,25 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Incident type with the full configuration block shown at its default values.
+//			// Every field is optional; omitted fields fall back to these same defaults.
+//			_, err = datadog.NewIncidentType(ctx, "with_configuration", &datadog.IncidentTypeArgs{
+//				Name:        pulumi.String("Customer Impacting"),
+//				Description: pulumi.String("Incidents that impact customers"),
+//				Configuration: &datadog.IncidentTypeConfigurationArgs{
+//					Private_incidents:            false,
+//					Private_incidents_by_default: false,
+//					Allow_workflows:              true,
+//					Allow_incident_deletion:      false,
+//					Editable_timestamps:          false,
+//					Test_incidents:               true,
+//					Create_message:               "",
+//					Slug_source:                  "default",
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
@@ -53,6 +72,8 @@ import (
 type IncidentType struct {
 	pulumi.CustomResourceState
 
+	// The incident type's behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
+	Configuration IncidentTypeConfigurationOutput `pulumi:"configuration"`
 	// Description of the incident type. The description can have a maximum of 512 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Whether this incident type is the default type.
@@ -94,6 +115,8 @@ func GetIncidentType(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IncidentType resources.
 type incidentTypeState struct {
+	// The incident type's behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
+	Configuration *IncidentTypeConfiguration `pulumi:"configuration"`
 	// Description of the incident type. The description can have a maximum of 512 characters.
 	Description *string `pulumi:"description"`
 	// Whether this incident type is the default type.
@@ -103,6 +126,8 @@ type incidentTypeState struct {
 }
 
 type IncidentTypeState struct {
+	// The incident type's behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
+	Configuration IncidentTypeConfigurationPtrInput
 	// Description of the incident type. The description can have a maximum of 512 characters.
 	Description pulumi.StringPtrInput
 	// Whether this incident type is the default type.
@@ -116,6 +141,8 @@ func (IncidentTypeState) ElementType() reflect.Type {
 }
 
 type incidentTypeArgs struct {
+	// The incident type's behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
+	Configuration *IncidentTypeConfiguration `pulumi:"configuration"`
 	// Description of the incident type. The description can have a maximum of 512 characters.
 	Description *string `pulumi:"description"`
 	// Whether this incident type is the default type.
@@ -126,6 +153,8 @@ type incidentTypeArgs struct {
 
 // The set of arguments for constructing a IncidentType resource.
 type IncidentTypeArgs struct {
+	// The incident type's behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
+	Configuration IncidentTypeConfigurationPtrInput
 	// Description of the incident type. The description can have a maximum of 512 characters.
 	Description pulumi.StringPtrInput
 	// Whether this incident type is the default type.
@@ -219,6 +248,11 @@ func (o IncidentTypeOutput) ToIncidentTypeOutput() IncidentTypeOutput {
 
 func (o IncidentTypeOutput) ToIncidentTypeOutputWithContext(ctx context.Context) IncidentTypeOutput {
 	return o
+}
+
+// The incident type's behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
+func (o IncidentTypeOutput) Configuration() IncidentTypeConfigurationOutput {
+	return o.ApplyT(func(v *IncidentType) IncidentTypeConfigurationOutput { return v.Configuration }).(IncidentTypeConfigurationOutput)
 }
 
 // Description of the incident type. The description can have a maximum of 512 characters.

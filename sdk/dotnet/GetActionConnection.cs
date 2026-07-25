@@ -88,10 +88,94 @@ namespace Pulumi.Datadog
     public sealed class GetActionConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Configuration for an Anthropic connection
+        /// </summary>
+        [Input("anthropic")]
+        public Inputs.GetActionConnectionAnthropicArgs? Anthropic { get; set; }
+
+        /// <summary>
+        /// Configuration for an Asana connection
+        /// </summary>
+        [Input("asana")]
+        public Inputs.GetActionConnectionAsanaArgs? Asana { get; set; }
+
+        /// <summary>
         /// Configuration for an AWS connection
         /// </summary>
         [Input("aws")]
         public Inputs.GetActionConnectionAwsArgs? Aws { get; set; }
+
+        /// <summary>
+        /// Configuration for an Azure connection
+        /// </summary>
+        [Input("azure")]
+        public Inputs.GetActionConnectionAzureArgs? Azure { get; set; }
+
+        /// <summary>
+        /// Configuration for a CircleCI connection
+        /// </summary>
+        [Input("circleCi")]
+        public Inputs.GetActionConnectionCircleCiArgs? CircleCi { get; set; }
+
+        /// <summary>
+        /// Configuration for a ClickUp connection
+        /// </summary>
+        [Input("clickup")]
+        public Inputs.GetActionConnectionClickupArgs? Clickup { get; set; }
+
+        /// <summary>
+        /// Configuration for a Cloudflare connection
+        /// </summary>
+        [Input("cloudflare")]
+        public Inputs.GetActionConnectionCloudflareArgs? Cloudflare { get; set; }
+
+        /// <summary>
+        /// Configuration for a ConfigCat connection
+        /// </summary>
+        [Input("configCat")]
+        public Inputs.GetActionConnectionConfigCatArgs? ConfigCat { get; set; }
+
+        /// <summary>
+        /// Configuration for a Datadog connection
+        /// </summary>
+        [Input("datadog")]
+        public Inputs.GetActionConnectionDatadogArgs? Datadog { get; set; }
+
+        /// <summary>
+        /// Configuration for a Fastly connection
+        /// </summary>
+        [Input("fastly")]
+        public Inputs.GetActionConnectionFastlyArgs? Fastly { get; set; }
+
+        /// <summary>
+        /// Configuration for a Freshservice connection
+        /// </summary>
+        [Input("freshservice")]
+        public Inputs.GetActionConnectionFreshserviceArgs? Freshservice { get; set; }
+
+        /// <summary>
+        /// Configuration for a Google Cloud connection
+        /// </summary>
+        [Input("gcp")]
+        public Inputs.GetActionConnectionGcpArgs? Gcp { get; set; }
+
+        /// <summary>
+        /// Configuration for a Gemini connection
+        /// </summary>
+        [Input("gemini")]
+        public Inputs.GetActionConnectionGeminiArgs? Gemini { get; set; }
+
+        /// <summary>
+        /// Configuration for a GitLab connection
+        /// </summary>
+        [Input("gitlab")]
+        public Inputs.GetActionConnectionGitlabArgs? Gitlab { get; set; }
+
+        /// <summary>
+        /// Configuration for a GreyNoise connection
+        /// </summary>
+        [Input("greyNoise")]
+        public Inputs.GetActionConnectionGreyNoiseArgs? GreyNoise { get; set; }
 
         /// <summary>
         /// Configuration for an HTTP connection
@@ -105,6 +189,54 @@ namespace Pulumi.Datadog
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        /// <summary>
+        /// Configuration for a LaunchDarkly connection
+        /// </summary>
+        [Input("launchDarkly")]
+        public Inputs.GetActionConnectionLaunchDarklyArgs? LaunchDarkly { get; set; }
+
+        /// <summary>
+        /// Configuration for a Notion connection
+        /// </summary>
+        [Input("notion")]
+        public Inputs.GetActionConnectionNotionArgs? Notion { get; set; }
+
+        /// <summary>
+        /// Configuration for an Okta connection
+        /// </summary>
+        [Input("okta")]
+        public Inputs.GetActionConnectionOktaArgs? Okta { get; set; }
+
+        /// <summary>
+        /// Configuration for an OpenAI connection
+        /// </summary>
+        [Input("openai")]
+        public Inputs.GetActionConnectionOpenaiArgs? Openai { get; set; }
+
+        /// <summary>
+        /// Configuration for a ServiceNow connection
+        /// </summary>
+        [Input("serviceNow")]
+        public Inputs.GetActionConnectionServiceNowArgs? ServiceNow { get; set; }
+
+        /// <summary>
+        /// Configuration for a Split connection
+        /// </summary>
+        [Input("split")]
+        public Inputs.GetActionConnectionSplitArgs? Split { get; set; }
+
+        /// <summary>
+        /// Configuration for a Statsig connection
+        /// </summary>
+        [Input("statsig")]
+        public Inputs.GetActionConnectionStatsigArgs? Statsig { get; set; }
+
+        /// <summary>
+        /// Configuration for a VirusTotal connection
+        /// </summary>
+        [Input("virusTotal")]
+        public Inputs.GetActionConnectionVirusTotalArgs? VirusTotal { get; set; }
+
         public GetActionConnectionArgs()
         {
         }
@@ -114,10 +246,94 @@ namespace Pulumi.Datadog
     public sealed class GetActionConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Configuration for an Anthropic connection
+        /// </summary>
+        [Input("anthropic")]
+        public Input<Inputs.GetActionConnectionAnthropicInputArgs>? Anthropic { get; set; }
+
+        /// <summary>
+        /// Configuration for an Asana connection
+        /// </summary>
+        [Input("asana")]
+        public Input<Inputs.GetActionConnectionAsanaInputArgs>? Asana { get; set; }
+
+        /// <summary>
         /// Configuration for an AWS connection
         /// </summary>
         [Input("aws")]
         public Input<Inputs.GetActionConnectionAwsInputArgs>? Aws { get; set; }
+
+        /// <summary>
+        /// Configuration for an Azure connection
+        /// </summary>
+        [Input("azure")]
+        public Input<Inputs.GetActionConnectionAzureInputArgs>? Azure { get; set; }
+
+        /// <summary>
+        /// Configuration for a CircleCI connection
+        /// </summary>
+        [Input("circleCi")]
+        public Input<Inputs.GetActionConnectionCircleCiInputArgs>? CircleCi { get; set; }
+
+        /// <summary>
+        /// Configuration for a ClickUp connection
+        /// </summary>
+        [Input("clickup")]
+        public Input<Inputs.GetActionConnectionClickupInputArgs>? Clickup { get; set; }
+
+        /// <summary>
+        /// Configuration for a Cloudflare connection
+        /// </summary>
+        [Input("cloudflare")]
+        public Input<Inputs.GetActionConnectionCloudflareInputArgs>? Cloudflare { get; set; }
+
+        /// <summary>
+        /// Configuration for a ConfigCat connection
+        /// </summary>
+        [Input("configCat")]
+        public Input<Inputs.GetActionConnectionConfigCatInputArgs>? ConfigCat { get; set; }
+
+        /// <summary>
+        /// Configuration for a Datadog connection
+        /// </summary>
+        [Input("datadog")]
+        public Input<Inputs.GetActionConnectionDatadogInputArgs>? Datadog { get; set; }
+
+        /// <summary>
+        /// Configuration for a Fastly connection
+        /// </summary>
+        [Input("fastly")]
+        public Input<Inputs.GetActionConnectionFastlyInputArgs>? Fastly { get; set; }
+
+        /// <summary>
+        /// Configuration for a Freshservice connection
+        /// </summary>
+        [Input("freshservice")]
+        public Input<Inputs.GetActionConnectionFreshserviceInputArgs>? Freshservice { get; set; }
+
+        /// <summary>
+        /// Configuration for a Google Cloud connection
+        /// </summary>
+        [Input("gcp")]
+        public Input<Inputs.GetActionConnectionGcpInputArgs>? Gcp { get; set; }
+
+        /// <summary>
+        /// Configuration for a Gemini connection
+        /// </summary>
+        [Input("gemini")]
+        public Input<Inputs.GetActionConnectionGeminiInputArgs>? Gemini { get; set; }
+
+        /// <summary>
+        /// Configuration for a GitLab connection
+        /// </summary>
+        [Input("gitlab")]
+        public Input<Inputs.GetActionConnectionGitlabInputArgs>? Gitlab { get; set; }
+
+        /// <summary>
+        /// Configuration for a GreyNoise connection
+        /// </summary>
+        [Input("greyNoise")]
+        public Input<Inputs.GetActionConnectionGreyNoiseInputArgs>? GreyNoise { get; set; }
 
         /// <summary>
         /// Configuration for an HTTP connection
@@ -131,6 +347,54 @@ namespace Pulumi.Datadog
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// Configuration for a LaunchDarkly connection
+        /// </summary>
+        [Input("launchDarkly")]
+        public Input<Inputs.GetActionConnectionLaunchDarklyInputArgs>? LaunchDarkly { get; set; }
+
+        /// <summary>
+        /// Configuration for a Notion connection
+        /// </summary>
+        [Input("notion")]
+        public Input<Inputs.GetActionConnectionNotionInputArgs>? Notion { get; set; }
+
+        /// <summary>
+        /// Configuration for an Okta connection
+        /// </summary>
+        [Input("okta")]
+        public Input<Inputs.GetActionConnectionOktaInputArgs>? Okta { get; set; }
+
+        /// <summary>
+        /// Configuration for an OpenAI connection
+        /// </summary>
+        [Input("openai")]
+        public Input<Inputs.GetActionConnectionOpenaiInputArgs>? Openai { get; set; }
+
+        /// <summary>
+        /// Configuration for a ServiceNow connection
+        /// </summary>
+        [Input("serviceNow")]
+        public Input<Inputs.GetActionConnectionServiceNowInputArgs>? ServiceNow { get; set; }
+
+        /// <summary>
+        /// Configuration for a Split connection
+        /// </summary>
+        [Input("split")]
+        public Input<Inputs.GetActionConnectionSplitInputArgs>? Split { get; set; }
+
+        /// <summary>
+        /// Configuration for a Statsig connection
+        /// </summary>
+        [Input("statsig")]
+        public Input<Inputs.GetActionConnectionStatsigInputArgs>? Statsig { get; set; }
+
+        /// <summary>
+        /// Configuration for a VirusTotal connection
+        /// </summary>
+        [Input("virusTotal")]
+        public Input<Inputs.GetActionConnectionVirusTotalInputArgs>? VirusTotal { get; set; }
+
         public GetActionConnectionInvokeArgs()
         {
         }
@@ -142,9 +406,65 @@ namespace Pulumi.Datadog
     public sealed class GetActionConnectionResult
     {
         /// <summary>
+        /// Configuration for an Anthropic connection
+        /// </summary>
+        public readonly Outputs.GetActionConnectionAnthropicResult? Anthropic;
+        /// <summary>
+        /// Configuration for an Asana connection
+        /// </summary>
+        public readonly Outputs.GetActionConnectionAsanaResult? Asana;
+        /// <summary>
         /// Configuration for an AWS connection
         /// </summary>
         public readonly Outputs.GetActionConnectionAwsResult? Aws;
+        /// <summary>
+        /// Configuration for an Azure connection
+        /// </summary>
+        public readonly Outputs.GetActionConnectionAzureResult? Azure;
+        /// <summary>
+        /// Configuration for a CircleCI connection
+        /// </summary>
+        public readonly Outputs.GetActionConnectionCircleCiResult? CircleCi;
+        /// <summary>
+        /// Configuration for a ClickUp connection
+        /// </summary>
+        public readonly Outputs.GetActionConnectionClickupResult? Clickup;
+        /// <summary>
+        /// Configuration for a Cloudflare connection
+        /// </summary>
+        public readonly Outputs.GetActionConnectionCloudflareResult? Cloudflare;
+        /// <summary>
+        /// Configuration for a ConfigCat connection
+        /// </summary>
+        public readonly Outputs.GetActionConnectionConfigCatResult? ConfigCat;
+        /// <summary>
+        /// Configuration for a Datadog connection
+        /// </summary>
+        public readonly Outputs.GetActionConnectionDatadogResult? Datadog;
+        /// <summary>
+        /// Configuration for a Fastly connection
+        /// </summary>
+        public readonly Outputs.GetActionConnectionFastlyResult? Fastly;
+        /// <summary>
+        /// Configuration for a Freshservice connection
+        /// </summary>
+        public readonly Outputs.GetActionConnectionFreshserviceResult? Freshservice;
+        /// <summary>
+        /// Configuration for a Google Cloud connection
+        /// </summary>
+        public readonly Outputs.GetActionConnectionGcpResult? Gcp;
+        /// <summary>
+        /// Configuration for a Gemini connection
+        /// </summary>
+        public readonly Outputs.GetActionConnectionGeminiResult? Gemini;
+        /// <summary>
+        /// Configuration for a GitLab connection
+        /// </summary>
+        public readonly Outputs.GetActionConnectionGitlabResult? Gitlab;
+        /// <summary>
+        /// Configuration for a GreyNoise connection
+        /// </summary>
+        public readonly Outputs.GetActionConnectionGreyNoiseResult? GreyNoise;
         /// <summary>
         /// Configuration for an HTTP connection
         /// </summary>
@@ -154,24 +474,122 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Configuration for a LaunchDarkly connection
+        /// </summary>
+        public readonly Outputs.GetActionConnectionLaunchDarklyResult? LaunchDarkly;
+        /// <summary>
         /// Name of the connection
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Configuration for a Notion connection
+        /// </summary>
+        public readonly Outputs.GetActionConnectionNotionResult? Notion;
+        /// <summary>
+        /// Configuration for an Okta connection
+        /// </summary>
+        public readonly Outputs.GetActionConnectionOktaResult? Okta;
+        /// <summary>
+        /// Configuration for an OpenAI connection
+        /// </summary>
+        public readonly Outputs.GetActionConnectionOpenaiResult? Openai;
+        /// <summary>
+        /// Configuration for a ServiceNow connection
+        /// </summary>
+        public readonly Outputs.GetActionConnectionServiceNowResult? ServiceNow;
+        /// <summary>
+        /// Configuration for a Split connection
+        /// </summary>
+        public readonly Outputs.GetActionConnectionSplitResult? Split;
+        /// <summary>
+        /// Configuration for a Statsig connection
+        /// </summary>
+        public readonly Outputs.GetActionConnectionStatsigResult? Statsig;
+        /// <summary>
+        /// Configuration for a VirusTotal connection
+        /// </summary>
+        public readonly Outputs.GetActionConnectionVirusTotalResult? VirusTotal;
 
         [OutputConstructor]
         private GetActionConnectionResult(
+            Outputs.GetActionConnectionAnthropicResult? anthropic,
+
+            Outputs.GetActionConnectionAsanaResult? asana,
+
             Outputs.GetActionConnectionAwsResult? aws,
+
+            Outputs.GetActionConnectionAzureResult? azure,
+
+            Outputs.GetActionConnectionCircleCiResult? circleCi,
+
+            Outputs.GetActionConnectionClickupResult? clickup,
+
+            Outputs.GetActionConnectionCloudflareResult? cloudflare,
+
+            Outputs.GetActionConnectionConfigCatResult? configCat,
+
+            Outputs.GetActionConnectionDatadogResult? datadog,
+
+            Outputs.GetActionConnectionFastlyResult? fastly,
+
+            Outputs.GetActionConnectionFreshserviceResult? freshservice,
+
+            Outputs.GetActionConnectionGcpResult? gcp,
+
+            Outputs.GetActionConnectionGeminiResult? gemini,
+
+            Outputs.GetActionConnectionGitlabResult? gitlab,
+
+            Outputs.GetActionConnectionGreyNoiseResult? greyNoise,
 
             Outputs.GetActionConnectionHttpResult? http,
 
             string id,
 
-            string name)
+            Outputs.GetActionConnectionLaunchDarklyResult? launchDarkly,
+
+            string name,
+
+            Outputs.GetActionConnectionNotionResult? notion,
+
+            Outputs.GetActionConnectionOktaResult? okta,
+
+            Outputs.GetActionConnectionOpenaiResult? openai,
+
+            Outputs.GetActionConnectionServiceNowResult? serviceNow,
+
+            Outputs.GetActionConnectionSplitResult? split,
+
+            Outputs.GetActionConnectionStatsigResult? statsig,
+
+            Outputs.GetActionConnectionVirusTotalResult? virusTotal)
         {
+            Anthropic = anthropic;
+            Asana = asana;
             Aws = aws;
+            Azure = azure;
+            CircleCi = circleCi;
+            Clickup = clickup;
+            Cloudflare = cloudflare;
+            ConfigCat = configCat;
+            Datadog = datadog;
+            Fastly = fastly;
+            Freshservice = freshservice;
+            Gcp = gcp;
+            Gemini = gemini;
+            Gitlab = gitlab;
+            GreyNoise = greyNoise;
             Http = http;
             Id = id;
+            LaunchDarkly = launchDarkly;
             Name = name;
+            Notion = notion;
+            Okta = okta;
+            Openai = openai;
+            ServiceNow = serviceNow;
+            Split = split;
+            Statsig = statsig;
+            VirusTotal = virusTotal;
         }
     }
 }

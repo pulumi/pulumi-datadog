@@ -67,10 +67,6 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 OnCallTeamRoutingRulesRuleArgs.builder()
- *                     .escalationPolicy("00000000-aba2-0000-0000-000000000000")
- *                     .urgency("dynamic")
- *                     .build(),
- *                 OnCallTeamRoutingRulesRuleArgs.builder()
  *                     .query("tags.service:payment")
  *                     .actions(OnCallTeamRoutingRulesRuleActionArgs.builder()
  *                         .escalationPolicy(com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs.builder()
@@ -113,6 +109,10 @@ import javax.annotation.Nullable;
  *                                 .build())
  *                             .build())
  *                         .build())
+ *                     .build(),
+ *                 OnCallTeamRoutingRulesRuleArgs.builder()
+ *                     .escalationPolicy("00000000-aba2-0000-0000-000000000000")
+ *                     .urgency("dynamic")
  *                     .build())
  *             .build());
  * 

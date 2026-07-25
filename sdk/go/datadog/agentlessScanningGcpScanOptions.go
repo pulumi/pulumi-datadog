@@ -31,6 +31,7 @@ import (
 //			// Configure agentless scanning for a GCP project
 //			_, err := datadog.NewAgentlessScanningGcpScanOptions(ctx, "example", &datadog.AgentlessScanningGcpScanOptionsArgs{
 //				GcpProjectId:     pulumi.String("company-project-prod"),
+//				CloudFunction:    pulumi.Bool(true),
 //				VulnContainersOs: pulumi.Bool(true),
 //				VulnHostOs:       pulumi.Bool(true),
 //			})
@@ -57,6 +58,8 @@ import (
 type AgentlessScanningGcpScanOptions struct {
 	pulumi.CustomResourceState
 
+	// Indicates if scanning of Cloud Functions is enabled.
+	CloudFunction pulumi.BoolOutput `pulumi:"cloudFunction"`
 	// Indicates if host compliance scanning is enabled. Defaults to `false`.
 	ComplianceHost pulumi.BoolOutput `pulumi:"complianceHost"`
 	// The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
@@ -74,6 +77,9 @@ func NewAgentlessScanningGcpScanOptions(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.CloudFunction == nil {
+		return nil, errors.New("invalid value for required argument 'CloudFunction'")
+	}
 	if args.GcpProjectId == nil {
 		return nil, errors.New("invalid value for required argument 'GcpProjectId'")
 	}
@@ -106,6 +112,8 @@ func GetAgentlessScanningGcpScanOptions(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentlessScanningGcpScanOptions resources.
 type agentlessScanningGcpScanOptionsState struct {
+	// Indicates if scanning of Cloud Functions is enabled.
+	CloudFunction *bool `pulumi:"cloudFunction"`
 	// Indicates if host compliance scanning is enabled. Defaults to `false`.
 	ComplianceHost *bool `pulumi:"complianceHost"`
 	// The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
@@ -117,6 +125,8 @@ type agentlessScanningGcpScanOptionsState struct {
 }
 
 type AgentlessScanningGcpScanOptionsState struct {
+	// Indicates if scanning of Cloud Functions is enabled.
+	CloudFunction pulumi.BoolPtrInput
 	// Indicates if host compliance scanning is enabled. Defaults to `false`.
 	ComplianceHost pulumi.BoolPtrInput
 	// The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
@@ -132,6 +142,8 @@ func (AgentlessScanningGcpScanOptionsState) ElementType() reflect.Type {
 }
 
 type agentlessScanningGcpScanOptionsArgs struct {
+	// Indicates if scanning of Cloud Functions is enabled.
+	CloudFunction bool `pulumi:"cloudFunction"`
 	// Indicates if host compliance scanning is enabled. Defaults to `false`.
 	ComplianceHost *bool `pulumi:"complianceHost"`
 	// The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
@@ -144,6 +156,8 @@ type agentlessScanningGcpScanOptionsArgs struct {
 
 // The set of arguments for constructing a AgentlessScanningGcpScanOptions resource.
 type AgentlessScanningGcpScanOptionsArgs struct {
+	// Indicates if scanning of Cloud Functions is enabled.
+	CloudFunction pulumi.BoolInput
 	// Indicates if host compliance scanning is enabled. Defaults to `false`.
 	ComplianceHost pulumi.BoolPtrInput
 	// The GCP project ID for which agentless scanning is configured. Must be a valid GCP project ID: 6–30 characters, start with a lowercase letter, and include only lowercase letters, digits, or hyphens.
@@ -239,6 +253,11 @@ func (o AgentlessScanningGcpScanOptionsOutput) ToAgentlessScanningGcpScanOptions
 
 func (o AgentlessScanningGcpScanOptionsOutput) ToAgentlessScanningGcpScanOptionsOutputWithContext(ctx context.Context) AgentlessScanningGcpScanOptionsOutput {
 	return o
+}
+
+// Indicates if scanning of Cloud Functions is enabled.
+func (o AgentlessScanningGcpScanOptionsOutput) CloudFunction() pulumi.BoolOutput {
+	return o.ApplyT(func(v *AgentlessScanningGcpScanOptions) pulumi.BoolOutput { return v.CloudFunction }).(pulumi.BoolOutput)
 }
 
 // Indicates if host compliance scanning is enabled. Defaults to `false`.
