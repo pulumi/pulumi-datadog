@@ -13,16 +13,16 @@ namespace Pulumi.Datadog.Inputs
     public sealed class TagIndexingRuleOptionsDataDynamicTagsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Lookback window for determining which tags were recently queried.
+        /// Lookback window, in seconds, for excluding tags that were not queried in that period. Requires `ExcludeTagsMode` to be `True`. Value must be between 1 and 7776000.
         /// </summary>
-        [Input("queriedTagsWindowSeconds")]
-        public Input<int>? QueriedTagsWindowSeconds { get; set; }
+        [Input("excludeNotQueriedWindowSeconds")]
+        public Input<int>? ExcludeNotQueriedWindowSeconds { get; set; }
 
         /// <summary>
-        /// When true, tags from related assets are included.
+        /// When true, excludes tags not used in any dashboards or monitors. Requires `ExcludeTagsMode` to be `True`.
         /// </summary>
-        [Input("relatedAssetTags")]
-        public Input<bool>? RelatedAssetTags { get; set; }
+        [Input("excludeNotUsedInAssets")]
+        public Input<bool>? ExcludeNotUsedInAssets { get; set; }
 
         public TagIndexingRuleOptionsDataDynamicTagsGetArgs()
         {

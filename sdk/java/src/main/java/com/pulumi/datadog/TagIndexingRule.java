@@ -71,6 +71,56 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.TagIndexingRule;
+ * import com.pulumi.datadog.TagIndexingRuleArgs;
+ * import com.pulumi.datadog.inputs.TagIndexingRuleOptionsArgs;
+ * import com.pulumi.datadog.inputs.TagIndexingRuleOptionsDataArgs;
+ * import com.pulumi.datadog.inputs.TagIndexingRuleOptionsDataDynamicTagsArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var excludeExample = new TagIndexingRule("excludeExample", TagIndexingRuleArgs.builder()
+ *             .name("Exclude unused tags from all web metrics")
+ *             .metricNameMatches(            
+ *                 "web.*",
+ *                 "http.*")
+ *             .tags(            
+ *                 "debug_id",
+ *                 "internal_trace_id")
+ *             .excludeTagsMode(true)
+ *             .options(TagIndexingRuleOptionsArgs.builder()
+ *                 .version(1)
+ *                 .data(TagIndexingRuleOptionsDataArgs.builder()
+ *                     .dynamicTags(TagIndexingRuleOptionsDataDynamicTagsArgs.builder()
+ *                         .excludeNotQueriedWindowSeconds(604800)
+ *                         .excludeNotUsedInAssets(true)
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  */
 @ResourceType(type="datadog:index/tagIndexingRule:TagIndexingRule")
 public class TagIndexingRule extends com.pulumi.resources.CustomResource {

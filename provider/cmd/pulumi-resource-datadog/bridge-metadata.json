@@ -28732,6 +28732,10 @@
                 "current": "datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate",
                 "majorVersion": 5
             },
+            "datadog_incident_postmortem_template": {
+                "current": "datadog:index/incidentPostmortemTemplate:IncidentPostmortemTemplate",
+                "majorVersion": 5
+            },
             "datadog_incident_type": {
                 "current": "datadog:index/incidentType:IncidentType",
                 "majorVersion": 5
@@ -49374,6 +49378,15 @@
                 "current": "datadog:index/getRole:getRole",
                 "majorVersion": 5
             },
+            "datadog_role_permissions": {
+                "current": "datadog:index/getRolePermissions:getRolePermissions",
+                "majorVersion": 5,
+                "fields": {
+                    "permissions": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_role_users": {
                 "current": "datadog:index/getRoleUsers:getRoleUsers",
                 "majorVersion": 5,
@@ -49857,6 +49870,7 @@
             "datadog_gcp_uc_config": {},
             "datadog_incident_notification_rule": {},
             "datadog_incident_notification_template": {},
+            "datadog_incident_postmortem_template": {},
             "datadog_incident_type": {},
             "datadog_incident_user_defined_field": {},
             "datadog_incident_user_defined_role": {},
@@ -50000,6 +50014,7 @@
             "datadog:index/gcpUcConfig:GcpUcConfig": 1,
             "datadog:index/incidentNotificationRule:IncidentNotificationRule": 1,
             "datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate": 1,
+            "datadog:index/incidentPostmortemTemplate:IncidentPostmortemTemplate": 1,
             "datadog:index/incidentType:IncidentType": 1,
             "datadog:index/incidentUserDefinedField:IncidentUserDefinedField": 1,
             "datadog:index/incidentUserDefinedRole:IncidentUserDefinedRole": 1,
@@ -50151,6 +50166,7 @@
             "datadog:index/getReferenceTable:getReferenceTable": 1,
             "datadog:index/getReferenceTableRows:getReferenceTableRows": 1,
             "datadog:index/getRole:getRole": 0,
+            "datadog:index/getRolePermissions:getRolePermissions": 1,
             "datadog:index/getRoleUsers:getRoleUsers": 1,
             "datadog:index/getRoles:getRoles": 0,
             "datadog:index/getRumApplication:getRumApplication": 1,

@@ -32,14 +32,14 @@ public final class TagIndexingRuleOrderState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Ordered list of ALL tag indexing rule UUIDs. The server assigns each rule a ruleOrder value (1, 2, 3, ...) corresponding to its position in this list. This resource claims full ownership of evaluation order: rules created outside Terraform (e.g. via the UI) will appear as configuration drift on the next plan. All rules must be listed here; omitting a rule ID will result in a 404 error from the API.
+     * Ordered list of EVERY active tag indexing rule UUID in the org. The server assigns each rule a ruleOrder (1, 2, 3, ...) by its position in this list. This resource claims full ownership of the org&#39;s evaluation order: rules created outside Terraform (e.g. via the UI) appear as drift on the next plan and must be added here. The list must be the COMPLETE set of active rules and contain each UUID exactly once — omitting an existing rule or repeating a UUID is rejected by the API with a 400; listing a UUID that does not exist returns 404.
      * 
      */
     @Import(name="ruleIds")
     private @Nullable Output<List<String>> ruleIds;
 
     /**
-     * @return Ordered list of ALL tag indexing rule UUIDs. The server assigns each rule a ruleOrder value (1, 2, 3, ...) corresponding to its position in this list. This resource claims full ownership of evaluation order: rules created outside Terraform (e.g. via the UI) will appear as configuration drift on the next plan. All rules must be listed here; omitting a rule ID will result in a 404 error from the API.
+     * @return Ordered list of EVERY active tag indexing rule UUID in the org. The server assigns each rule a ruleOrder (1, 2, 3, ...) by its position in this list. This resource claims full ownership of the org&#39;s evaluation order: rules created outside Terraform (e.g. via the UI) appear as drift on the next plan and must be added here. The list must be the COMPLETE set of active rules and contain each UUID exactly once — omitting an existing rule or repeating a UUID is rejected by the API with a 400; listing a UUID that does not exist returns 404.
      * 
      */
     public Optional<Output<List<String>>> ruleIds() {
@@ -93,7 +93,7 @@ public final class TagIndexingRuleOrderState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param ruleIds Ordered list of ALL tag indexing rule UUIDs. The server assigns each rule a ruleOrder value (1, 2, 3, ...) corresponding to its position in this list. This resource claims full ownership of evaluation order: rules created outside Terraform (e.g. via the UI) will appear as configuration drift on the next plan. All rules must be listed here; omitting a rule ID will result in a 404 error from the API.
+         * @param ruleIds Ordered list of EVERY active tag indexing rule UUID in the org. The server assigns each rule a ruleOrder (1, 2, 3, ...) by its position in this list. This resource claims full ownership of the org&#39;s evaluation order: rules created outside Terraform (e.g. via the UI) appear as drift on the next plan and must be added here. The list must be the COMPLETE set of active rules and contain each UUID exactly once — omitting an existing rule or repeating a UUID is rejected by the API with a 400; listing a UUID that does not exist returns 404.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class TagIndexingRuleOrderState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param ruleIds Ordered list of ALL tag indexing rule UUIDs. The server assigns each rule a ruleOrder value (1, 2, 3, ...) corresponding to its position in this list. This resource claims full ownership of evaluation order: rules created outside Terraform (e.g. via the UI) will appear as configuration drift on the next plan. All rules must be listed here; omitting a rule ID will result in a 404 error from the API.
+         * @param ruleIds Ordered list of EVERY active tag indexing rule UUID in the org. The server assigns each rule a ruleOrder (1, 2, 3, ...) by its position in this list. This resource claims full ownership of the org&#39;s evaluation order: rules created outside Terraform (e.g. via the UI) appear as drift on the next plan and must be added here. The list must be the COMPLETE set of active rules and contain each UUID exactly once — omitting an existing rule or repeating a UUID is rejected by the API with a 400; listing a UUID that does not exist returns 404.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class TagIndexingRuleOrderState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param ruleIds Ordered list of ALL tag indexing rule UUIDs. The server assigns each rule a ruleOrder value (1, 2, 3, ...) corresponding to its position in this list. This resource claims full ownership of evaluation order: rules created outside Terraform (e.g. via the UI) will appear as configuration drift on the next plan. All rules must be listed here; omitting a rule ID will result in a 404 error from the API.
+         * @param ruleIds Ordered list of EVERY active tag indexing rule UUID in the org. The server assigns each rule a ruleOrder (1, 2, 3, ...) by its position in this list. This resource claims full ownership of the org&#39;s evaluation order: rules created outside Terraform (e.g. via the UI) appear as drift on the next plan and must be added here. The list must be the COMPLETE set of active rules and contain each UUID exactly once — omitting an existing rule or repeating a UUID is rejected by the API with a 400; listing a UUID that does not exist returns 404.
          * 
          * @return builder
          * 

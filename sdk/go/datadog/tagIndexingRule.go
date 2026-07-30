@@ -56,6 +56,48 @@ import (
 //	}
 //
 // ```
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v5/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewTagIndexingRule(ctx, "exclude_example", &datadog.TagIndexingRuleArgs{
+//				Name: pulumi.String("Exclude unused tags from all web metrics"),
+//				MetricNameMatches: pulumi.StringArray{
+//					pulumi.String("web.*"),
+//					pulumi.String("http.*"),
+//				},
+//				Tags: pulumi.StringArray{
+//					pulumi.String("debug_id"),
+//					pulumi.String("internal_trace_id"),
+//				},
+//				ExcludeTagsMode: pulumi.Bool(true),
+//				Options: &datadog.TagIndexingRuleOptionsArgs{
+//					Version: pulumi.Int(1),
+//					Data: &datadog.TagIndexingRuleOptionsDataArgs{
+//						DynamicTags: &datadog.TagIndexingRuleOptionsDataDynamicTagsArgs{
+//							ExcludeNotQueriedWindowSeconds: pulumi.Int(604800),
+//							ExcludeNotUsedInAssets:         pulumi.Bool(true),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type TagIndexingRule struct {
 	pulumi.CustomResourceState
 

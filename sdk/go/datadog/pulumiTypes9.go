@@ -13,6 +13,375 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive struct {
+	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+	Unit string `pulumi:"unit"`
+	// Value of the time span.
+	Value int `pulumi:"value"`
+}
+
+// PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveInput is an input type that accepts PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs and PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveInput` via:
+//
+//	PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs{...}
+type PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput
+	ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutputWithContext(context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput
+}
+
+type PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs struct {
+	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// Value of the time span.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput {
+	return i.ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput)
+}
+
+func (i PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput {
+	return i.ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput).ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrInput is an input type that accepts PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs, PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtr and PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrInput` via:
+//
+//	        PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput
+	ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutputWithContext(context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput
+}
+
+type powerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrType PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs
+
+func PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtr(v *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrInput {
+	return (*powerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrType)(v)
+}
+
+func (*powerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrType) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput {
+	return i.ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrType) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput)
+}
+
+type PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput {
+	return o.ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive) *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive {
+		return &v
+	}).(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput)
+}
+
+// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// Value of the time span.
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput) Elem() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive
+		return ret
+	}).(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput)
+}
+
+// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value of the time span.
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis struct {
+	// Set to `true` to include zero.
+	IncludeZero *bool `pulumi:"includeZero"`
+	// The label of the axis to display on the graph. Only usable on Scatterplot Widgets.
+	Label *string `pulumi:"label"`
+	// Specifies the maximum numeric value to show on the axis. Defaults to `auto`.
+	Max *string `pulumi:"max"`
+	// Specifies the minimum numeric value to show on the axis. Defaults to `auto`.
+	Min *string `pulumi:"min"`
+	// Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, and `pow##` (for example `pow2` or `pow0.5`).
+	Scale *string `pulumi:"scale"`
+}
+
+// PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisInput is an input type that accepts PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs and PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisInput` via:
+//
+//	PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs{...}
+type PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput
+	ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutputWithContext(context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput
+}
+
+type PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs struct {
+	// Set to `true` to include zero.
+	IncludeZero pulumi.BoolPtrInput `pulumi:"includeZero"`
+	// The label of the axis to display on the graph. Only usable on Scatterplot Widgets.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// Specifies the maximum numeric value to show on the axis. Defaults to `auto`.
+	Max pulumi.StringPtrInput `pulumi:"max"`
+	// Specifies the minimum numeric value to show on the axis. Defaults to `auto`.
+	Min pulumi.StringPtrInput `pulumi:"min"`
+	// Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, and `pow##` (for example `pow2` or `pow0.5`).
+	Scale pulumi.StringPtrInput `pulumi:"scale"`
+}
+
+func (PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput {
+	return i.ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput)
+}
+
+func (i PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput {
+	return i.ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput).ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrInput is an input type that accepts PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs, PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtr and PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrInput` via:
+//
+//	        PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput
+	ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutputWithContext(context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput
+}
+
+type powerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrType PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs
+
+func PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtr(v *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrInput {
+	return (*powerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrType)(v)
+}
+
+func (*powerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrType) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput {
+	return i.ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrType) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput)
+}
+
+type PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput {
+	return o.ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis) *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis {
+		return &v
+	}).(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput)
+}
+
+// Set to `true` to include zero.
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput) IncludeZero() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis) *bool { return v.IncludeZero }).(pulumi.BoolPtrOutput)
+}
+
+// The label of the axis to display on the graph. Only usable on Scatterplot Widgets.
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the maximum numeric value to show on the axis. Defaults to `auto`.
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput) Max() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis) *string { return v.Max }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the minimum numeric value to show on the axis. Defaults to `auto`.
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput) Min() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis) *string { return v.Min }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, and `pow##` (for example `pow2` or `pow0.5`).
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput) Scale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis) *string { return v.Scale }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput) Elem() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis
+		return ret
+	}).(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput)
+}
+
+// Set to `true` to include zero.
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput) IncludeZero() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeZero
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The label of the axis to display on the graph. Only usable on Scatterplot Widgets.
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Label
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the maximum numeric value to show on the axis. Defaults to `auto`.
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput) Max() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the minimum numeric value to show on the axis. Defaults to `auto`.
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput) Min() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, and `pow##` (for example `pow2` or `pow0.5`).
+func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput) Scale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scale
+	}).(pulumi.StringPtrOutput)
+}
+
 type PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinition struct {
 	// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
 	CustomLinks []PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink `pulumi:"customLinks"`
@@ -91478,285 +91847,11 @@ func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNum
 	}).(pulumi.StringPtrOutput)
 }
 
-type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom struct {
-	// Unit label
-	Label string `pulumi:"label"`
-}
-
-// PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomInput is an input type that accepts PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs and PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomInput` via:
-//
-//	PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs{...}
-type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput
-	ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput
-}
-
-type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs struct {
-	// Unit label
-	Label pulumi.StringInput `pulumi:"label"`
-}
-
-func (PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput {
-	return i.ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput)
-}
-
-func (i PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return i.ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput).ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrInput is an input type that accepts PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs, PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtr and PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrInput` via:
-//
-//	        PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput
-	ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput
-}
-
-type powerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrType PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs
-
-func PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtr(v *PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrInput {
-	return (*powerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrType)(v)
-}
-
-func (*powerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrType) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return i.ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrType) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
-}
-
-type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return o.ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom) *PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom {
-		return &v
-	}).(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
-}
-
-// Unit label
-func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput) Label() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom) string {
-		return v.Label
-	}).(pulumi.StringOutput)
-}
-
-type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) Elem() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom
-		return ret
-	}).(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput)
-}
-
-// Unit label
-func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) Label() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Label
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale struct {
-	// The name of the unit.
-	UnitName string `pulumi:"unitName"`
-}
-
-// PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleInput is an input type that accepts PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs and PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleInput` via:
-//
-//	PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs{...}
-type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput
-	ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput
-}
-
-type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs struct {
-	// The name of the unit.
-	UnitName pulumi.StringInput `pulumi:"unitName"`
-}
-
-func (PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput {
-	return i.ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput)
-}
-
-func (i PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return i.ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput).ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrInput is an input type that accepts PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs, PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtr and PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrInput` via:
-//
-//	        PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput
-	ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput
-}
-
-type powerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrType PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs
-
-func PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtr(v *PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrInput {
-	return (*powerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrType)(v)
-}
-
-func (*powerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrType) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return i.ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrType) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
-}
-
-type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return o.ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale) *PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale {
-		return &v
-	}).(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
-}
-
-// The name of the unit.
-func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput) UnitName() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale) string {
-		return v.UnitName
-	}).(pulumi.StringOutput)
-}
-
-type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) Elem() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale
-		return ret
-	}).(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput)
-}
-
-// The name of the unit.
-func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) UnitName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.UnitName
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionPtrInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionCustomLinkInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionCustomLinkArgs{})
@@ -92751,10 +92846,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionCustomLinkOutput{})
@@ -93749,8 +93844,4 @@ func init() {
 	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput{})
 }

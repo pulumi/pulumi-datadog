@@ -36,6 +36,33 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const excludeExample = new datadog.TagIndexingRule("exclude_example", {
+ *     name: "Exclude unused tags from all web metrics",
+ *     metricNameMatches: [
+ *         "web.*",
+ *         "http.*",
+ *     ],
+ *     tags: [
+ *         "debug_id",
+ *         "internal_trace_id",
+ *     ],
+ *     excludeTagsMode: true,
+ *     options: {
+ *         version: 1,
+ *         data: {
+ *             dynamicTags: {
+ *                 excludeNotQueriedWindowSeconds: 604800,
+ *                 excludeNotUsedInAssets: true,
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
  */
 export class TagIndexingRule extends pulumi.CustomResource {
     /**

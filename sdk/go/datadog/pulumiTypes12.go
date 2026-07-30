@@ -13,6 +13,527 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type PowerpackWidgetAlertGraphDefinition struct {
+	// The ID of the monitor used by the widget.
+	AlertId string `pulumi:"alertId"`
+	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+	HideIncompleteCostData *bool `pulumi:"hideIncompleteCostData"`
+	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+	LiveSpan *string `pulumi:"liveSpan"`
+	// The title of the widget.
+	Title *string `pulumi:"title"`
+	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+	TitleAlign *string `pulumi:"titleAlign"`
+	// The size of the widget's title (defaults to 16).
+	TitleSize *string `pulumi:"titleSize"`
+	// Type of visualization to use when displaying the widget. Valid values are `timeseries`, `toplist`.
+	VizType string `pulumi:"vizType"`
+}
+
+// PowerpackWidgetAlertGraphDefinitionInput is an input type that accepts PowerpackWidgetAlertGraphDefinitionArgs and PowerpackWidgetAlertGraphDefinitionOutput values.
+// You can construct a concrete instance of `PowerpackWidgetAlertGraphDefinitionInput` via:
+//
+//	PowerpackWidgetAlertGraphDefinitionArgs{...}
+type PowerpackWidgetAlertGraphDefinitionInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetAlertGraphDefinitionOutput() PowerpackWidgetAlertGraphDefinitionOutput
+	ToPowerpackWidgetAlertGraphDefinitionOutputWithContext(context.Context) PowerpackWidgetAlertGraphDefinitionOutput
+}
+
+type PowerpackWidgetAlertGraphDefinitionArgs struct {
+	// The ID of the monitor used by the widget.
+	AlertId pulumi.StringInput `pulumi:"alertId"`
+	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+	HideIncompleteCostData pulumi.BoolPtrInput `pulumi:"hideIncompleteCostData"`
+	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+	LiveSpan pulumi.StringPtrInput `pulumi:"liveSpan"`
+	// The title of the widget.
+	Title pulumi.StringPtrInput `pulumi:"title"`
+	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
+	// The size of the widget's title (defaults to 16).
+	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
+	// Type of visualization to use when displaying the widget. Valid values are `timeseries`, `toplist`.
+	VizType pulumi.StringInput `pulumi:"vizType"`
+}
+
+func (PowerpackWidgetAlertGraphDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetAlertGraphDefinition)(nil)).Elem()
+}
+
+func (i PowerpackWidgetAlertGraphDefinitionArgs) ToPowerpackWidgetAlertGraphDefinitionOutput() PowerpackWidgetAlertGraphDefinitionOutput {
+	return i.ToPowerpackWidgetAlertGraphDefinitionOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetAlertGraphDefinitionArgs) ToPowerpackWidgetAlertGraphDefinitionOutputWithContext(ctx context.Context) PowerpackWidgetAlertGraphDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetAlertGraphDefinitionOutput)
+}
+
+func (i PowerpackWidgetAlertGraphDefinitionArgs) ToPowerpackWidgetAlertGraphDefinitionPtrOutput() PowerpackWidgetAlertGraphDefinitionPtrOutput {
+	return i.ToPowerpackWidgetAlertGraphDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetAlertGraphDefinitionArgs) ToPowerpackWidgetAlertGraphDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetAlertGraphDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetAlertGraphDefinitionOutput).ToPowerpackWidgetAlertGraphDefinitionPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetAlertGraphDefinitionPtrInput is an input type that accepts PowerpackWidgetAlertGraphDefinitionArgs, PowerpackWidgetAlertGraphDefinitionPtr and PowerpackWidgetAlertGraphDefinitionPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetAlertGraphDefinitionPtrInput` via:
+//
+//	        PowerpackWidgetAlertGraphDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetAlertGraphDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetAlertGraphDefinitionPtrOutput() PowerpackWidgetAlertGraphDefinitionPtrOutput
+	ToPowerpackWidgetAlertGraphDefinitionPtrOutputWithContext(context.Context) PowerpackWidgetAlertGraphDefinitionPtrOutput
+}
+
+type powerpackWidgetAlertGraphDefinitionPtrType PowerpackWidgetAlertGraphDefinitionArgs
+
+func PowerpackWidgetAlertGraphDefinitionPtr(v *PowerpackWidgetAlertGraphDefinitionArgs) PowerpackWidgetAlertGraphDefinitionPtrInput {
+	return (*powerpackWidgetAlertGraphDefinitionPtrType)(v)
+}
+
+func (*powerpackWidgetAlertGraphDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetAlertGraphDefinition)(nil)).Elem()
+}
+
+func (i *powerpackWidgetAlertGraphDefinitionPtrType) ToPowerpackWidgetAlertGraphDefinitionPtrOutput() PowerpackWidgetAlertGraphDefinitionPtrOutput {
+	return i.ToPowerpackWidgetAlertGraphDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetAlertGraphDefinitionPtrType) ToPowerpackWidgetAlertGraphDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetAlertGraphDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetAlertGraphDefinitionPtrOutput)
+}
+
+type PowerpackWidgetAlertGraphDefinitionOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetAlertGraphDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetAlertGraphDefinition)(nil)).Elem()
+}
+
+func (o PowerpackWidgetAlertGraphDefinitionOutput) ToPowerpackWidgetAlertGraphDefinitionOutput() PowerpackWidgetAlertGraphDefinitionOutput {
+	return o
+}
+
+func (o PowerpackWidgetAlertGraphDefinitionOutput) ToPowerpackWidgetAlertGraphDefinitionOutputWithContext(ctx context.Context) PowerpackWidgetAlertGraphDefinitionOutput {
+	return o
+}
+
+func (o PowerpackWidgetAlertGraphDefinitionOutput) ToPowerpackWidgetAlertGraphDefinitionPtrOutput() PowerpackWidgetAlertGraphDefinitionPtrOutput {
+	return o.ToPowerpackWidgetAlertGraphDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetAlertGraphDefinitionOutput) ToPowerpackWidgetAlertGraphDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetAlertGraphDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetAlertGraphDefinition) *PowerpackWidgetAlertGraphDefinition {
+		return &v
+	}).(PowerpackWidgetAlertGraphDefinitionPtrOutput)
+}
+
+// The ID of the monitor used by the widget.
+func (o PowerpackWidgetAlertGraphDefinitionOutput) AlertId() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetAlertGraphDefinition) string { return v.AlertId }).(pulumi.StringOutput)
+}
+
+// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+func (o PowerpackWidgetAlertGraphDefinitionOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetAlertGraphDefinition) *bool { return v.HideIncompleteCostData }).(pulumi.BoolPtrOutput)
+}
+
+// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+func (o PowerpackWidgetAlertGraphDefinitionOutput) LiveSpan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetAlertGraphDefinition) *string { return v.LiveSpan }).(pulumi.StringPtrOutput)
+}
+
+// The title of the widget.
+func (o PowerpackWidgetAlertGraphDefinitionOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetAlertGraphDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+func (o PowerpackWidgetAlertGraphDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetAlertGraphDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
+}
+
+// The size of the widget's title (defaults to 16).
+func (o PowerpackWidgetAlertGraphDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetAlertGraphDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
+}
+
+// Type of visualization to use when displaying the widget. Valid values are `timeseries`, `toplist`.
+func (o PowerpackWidgetAlertGraphDefinitionOutput) VizType() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetAlertGraphDefinition) string { return v.VizType }).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetAlertGraphDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetAlertGraphDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetAlertGraphDefinition)(nil)).Elem()
+}
+
+func (o PowerpackWidgetAlertGraphDefinitionPtrOutput) ToPowerpackWidgetAlertGraphDefinitionPtrOutput() PowerpackWidgetAlertGraphDefinitionPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetAlertGraphDefinitionPtrOutput) ToPowerpackWidgetAlertGraphDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetAlertGraphDefinitionPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetAlertGraphDefinitionPtrOutput) Elem() PowerpackWidgetAlertGraphDefinitionOutput {
+	return o.ApplyT(func(v *PowerpackWidgetAlertGraphDefinition) PowerpackWidgetAlertGraphDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetAlertGraphDefinition
+		return ret
+	}).(PowerpackWidgetAlertGraphDefinitionOutput)
+}
+
+// The ID of the monitor used by the widget.
+func (o PowerpackWidgetAlertGraphDefinitionPtrOutput) AlertId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetAlertGraphDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AlertId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+func (o PowerpackWidgetAlertGraphDefinitionPtrOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetAlertGraphDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.HideIncompleteCostData
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+func (o PowerpackWidgetAlertGraphDefinitionPtrOutput) LiveSpan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetAlertGraphDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LiveSpan
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the widget.
+func (o PowerpackWidgetAlertGraphDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetAlertGraphDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(pulumi.StringPtrOutput)
+}
+
+// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+func (o PowerpackWidgetAlertGraphDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetAlertGraphDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TitleAlign
+	}).(pulumi.StringPtrOutput)
+}
+
+// The size of the widget's title (defaults to 16).
+func (o PowerpackWidgetAlertGraphDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetAlertGraphDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TitleSize
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of visualization to use when displaying the widget. Valid values are `timeseries`, `toplist`.
+func (o PowerpackWidgetAlertGraphDefinitionPtrOutput) VizType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetAlertGraphDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VizType
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetAlertValueDefinition struct {
+	// The ID of the monitor used by the widget.
+	AlertId string `pulumi:"alertId"`
+	// The description of the widget.
+	Description *string `pulumi:"description"`
+	// The precision to use when displaying the value. Use `*` for maximum precision.
+	Precision *int `pulumi:"precision"`
+	// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+	TextAlign *string `pulumi:"textAlign"`
+	// The title of the widget.
+	Title *string `pulumi:"title"`
+	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+	TitleAlign *string `pulumi:"titleAlign"`
+	// The size of the widget's title (defaults to 16).
+	TitleSize *string `pulumi:"titleSize"`
+	// The unit for the value displayed in the widget.
+	Unit *string `pulumi:"unit"`
+}
+
+// PowerpackWidgetAlertValueDefinitionInput is an input type that accepts PowerpackWidgetAlertValueDefinitionArgs and PowerpackWidgetAlertValueDefinitionOutput values.
+// You can construct a concrete instance of `PowerpackWidgetAlertValueDefinitionInput` via:
+//
+//	PowerpackWidgetAlertValueDefinitionArgs{...}
+type PowerpackWidgetAlertValueDefinitionInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetAlertValueDefinitionOutput() PowerpackWidgetAlertValueDefinitionOutput
+	ToPowerpackWidgetAlertValueDefinitionOutputWithContext(context.Context) PowerpackWidgetAlertValueDefinitionOutput
+}
+
+type PowerpackWidgetAlertValueDefinitionArgs struct {
+	// The ID of the monitor used by the widget.
+	AlertId pulumi.StringInput `pulumi:"alertId"`
+	// The description of the widget.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The precision to use when displaying the value. Use `*` for maximum precision.
+	Precision pulumi.IntPtrInput `pulumi:"precision"`
+	// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+	TextAlign pulumi.StringPtrInput `pulumi:"textAlign"`
+	// The title of the widget.
+	Title pulumi.StringPtrInput `pulumi:"title"`
+	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
+	// The size of the widget's title (defaults to 16).
+	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
+	// The unit for the value displayed in the widget.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (PowerpackWidgetAlertValueDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetAlertValueDefinition)(nil)).Elem()
+}
+
+func (i PowerpackWidgetAlertValueDefinitionArgs) ToPowerpackWidgetAlertValueDefinitionOutput() PowerpackWidgetAlertValueDefinitionOutput {
+	return i.ToPowerpackWidgetAlertValueDefinitionOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetAlertValueDefinitionArgs) ToPowerpackWidgetAlertValueDefinitionOutputWithContext(ctx context.Context) PowerpackWidgetAlertValueDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetAlertValueDefinitionOutput)
+}
+
+func (i PowerpackWidgetAlertValueDefinitionArgs) ToPowerpackWidgetAlertValueDefinitionPtrOutput() PowerpackWidgetAlertValueDefinitionPtrOutput {
+	return i.ToPowerpackWidgetAlertValueDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetAlertValueDefinitionArgs) ToPowerpackWidgetAlertValueDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetAlertValueDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetAlertValueDefinitionOutput).ToPowerpackWidgetAlertValueDefinitionPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetAlertValueDefinitionPtrInput is an input type that accepts PowerpackWidgetAlertValueDefinitionArgs, PowerpackWidgetAlertValueDefinitionPtr and PowerpackWidgetAlertValueDefinitionPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetAlertValueDefinitionPtrInput` via:
+//
+//	        PowerpackWidgetAlertValueDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetAlertValueDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetAlertValueDefinitionPtrOutput() PowerpackWidgetAlertValueDefinitionPtrOutput
+	ToPowerpackWidgetAlertValueDefinitionPtrOutputWithContext(context.Context) PowerpackWidgetAlertValueDefinitionPtrOutput
+}
+
+type powerpackWidgetAlertValueDefinitionPtrType PowerpackWidgetAlertValueDefinitionArgs
+
+func PowerpackWidgetAlertValueDefinitionPtr(v *PowerpackWidgetAlertValueDefinitionArgs) PowerpackWidgetAlertValueDefinitionPtrInput {
+	return (*powerpackWidgetAlertValueDefinitionPtrType)(v)
+}
+
+func (*powerpackWidgetAlertValueDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetAlertValueDefinition)(nil)).Elem()
+}
+
+func (i *powerpackWidgetAlertValueDefinitionPtrType) ToPowerpackWidgetAlertValueDefinitionPtrOutput() PowerpackWidgetAlertValueDefinitionPtrOutput {
+	return i.ToPowerpackWidgetAlertValueDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetAlertValueDefinitionPtrType) ToPowerpackWidgetAlertValueDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetAlertValueDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetAlertValueDefinitionPtrOutput)
+}
+
+type PowerpackWidgetAlertValueDefinitionOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetAlertValueDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetAlertValueDefinition)(nil)).Elem()
+}
+
+func (o PowerpackWidgetAlertValueDefinitionOutput) ToPowerpackWidgetAlertValueDefinitionOutput() PowerpackWidgetAlertValueDefinitionOutput {
+	return o
+}
+
+func (o PowerpackWidgetAlertValueDefinitionOutput) ToPowerpackWidgetAlertValueDefinitionOutputWithContext(ctx context.Context) PowerpackWidgetAlertValueDefinitionOutput {
+	return o
+}
+
+func (o PowerpackWidgetAlertValueDefinitionOutput) ToPowerpackWidgetAlertValueDefinitionPtrOutput() PowerpackWidgetAlertValueDefinitionPtrOutput {
+	return o.ToPowerpackWidgetAlertValueDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetAlertValueDefinitionOutput) ToPowerpackWidgetAlertValueDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetAlertValueDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetAlertValueDefinition) *PowerpackWidgetAlertValueDefinition {
+		return &v
+	}).(PowerpackWidgetAlertValueDefinitionPtrOutput)
+}
+
+// The ID of the monitor used by the widget.
+func (o PowerpackWidgetAlertValueDefinitionOutput) AlertId() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetAlertValueDefinition) string { return v.AlertId }).(pulumi.StringOutput)
+}
+
+// The description of the widget.
+func (o PowerpackWidgetAlertValueDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetAlertValueDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The precision to use when displaying the value. Use `*` for maximum precision.
+func (o PowerpackWidgetAlertValueDefinitionOutput) Precision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetAlertValueDefinition) *int { return v.Precision }).(pulumi.IntPtrOutput)
+}
+
+// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+func (o PowerpackWidgetAlertValueDefinitionOutput) TextAlign() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetAlertValueDefinition) *string { return v.TextAlign }).(pulumi.StringPtrOutput)
+}
+
+// The title of the widget.
+func (o PowerpackWidgetAlertValueDefinitionOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetAlertValueDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+func (o PowerpackWidgetAlertValueDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetAlertValueDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
+}
+
+// The size of the widget's title (defaults to 16).
+func (o PowerpackWidgetAlertValueDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetAlertValueDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
+}
+
+// The unit for the value displayed in the widget.
+func (o PowerpackWidgetAlertValueDefinitionOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetAlertValueDefinition) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetAlertValueDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetAlertValueDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetAlertValueDefinition)(nil)).Elem()
+}
+
+func (o PowerpackWidgetAlertValueDefinitionPtrOutput) ToPowerpackWidgetAlertValueDefinitionPtrOutput() PowerpackWidgetAlertValueDefinitionPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetAlertValueDefinitionPtrOutput) ToPowerpackWidgetAlertValueDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetAlertValueDefinitionPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetAlertValueDefinitionPtrOutput) Elem() PowerpackWidgetAlertValueDefinitionOutput {
+	return o.ApplyT(func(v *PowerpackWidgetAlertValueDefinition) PowerpackWidgetAlertValueDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetAlertValueDefinition
+		return ret
+	}).(PowerpackWidgetAlertValueDefinitionOutput)
+}
+
+// The ID of the monitor used by the widget.
+func (o PowerpackWidgetAlertValueDefinitionPtrOutput) AlertId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetAlertValueDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AlertId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The description of the widget.
+func (o PowerpackWidgetAlertValueDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetAlertValueDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The precision to use when displaying the value. Use `*` for maximum precision.
+func (o PowerpackWidgetAlertValueDefinitionPtrOutput) Precision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetAlertValueDefinition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Precision
+	}).(pulumi.IntPtrOutput)
+}
+
+// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+func (o PowerpackWidgetAlertValueDefinitionPtrOutput) TextAlign() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetAlertValueDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TextAlign
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the widget.
+func (o PowerpackWidgetAlertValueDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetAlertValueDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(pulumi.StringPtrOutput)
+}
+
+// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+func (o PowerpackWidgetAlertValueDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetAlertValueDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TitleAlign
+	}).(pulumi.StringPtrOutput)
+}
+
+// The size of the widget's title (defaults to 16).
+func (o PowerpackWidgetAlertValueDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetAlertValueDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TitleSize
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unit for the value displayed in the widget.
+func (o PowerpackWidgetAlertValueDefinitionPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetAlertValueDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
 type PowerpackWidgetChangeDefinition struct {
 	// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
 	CustomLinks []PowerpackWidgetChangeDefinitionCustomLink `pulumi:"customLinks"`
@@ -88795,301 +89316,11 @@ func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput)
 	}).(pulumi.IntPtrOutput)
 }
 
-type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy struct {
-	// The facet name.
-	Facet *string `pulumi:"facet"`
-	// The maximum number of items in the group.
-	Limit *int `pulumi:"limit"`
-	// A list of exactly one element describing the sort query to use.
-	SortQuery *PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery `pulumi:"sortQuery"`
-}
-
-// PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs and PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput values.
-// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByInput` via:
-//
-//	PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs{...}
-type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput
-	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput
-}
-
-type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs struct {
-	// The facet name.
-	Facet pulumi.StringPtrInput `pulumi:"facet"`
-	// The maximum number of items in the group.
-	Limit pulumi.IntPtrInput `pulumi:"limit"`
-	// A list of exactly one element describing the sort query to use.
-	SortQuery PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrInput `pulumi:"sortQuery"`
-}
-
-func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy)(nil)).Elem()
-}
-
-func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput {
-	return i.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput)
-}
-
-// PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArray and PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput values.
-// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayInput` via:
-//
-//	PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArray{ PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs{...} }
-type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput
-	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput
-}
-
-type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArray []PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByInput
-
-func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy)(nil)).Elem()
-}
-
-func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArray) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput {
-	return i.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArray) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput)
-}
-
-type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy)(nil)).Elem()
-}
-
-func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput {
-	return o
-}
-
-func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput {
-	return o
-}
-
-// The facet name.
-func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput) Facet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy) *string { return v.Facet }).(pulumi.StringPtrOutput)
-}
-
-// The maximum number of items in the group.
-func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
-}
-
-// A list of exactly one element describing the sort query to use.
-func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput) SortQuery() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy) *PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery {
-		return v.SortQuery
-	}).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput)
-}
-
-type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy)(nil)).Elem()
-}
-
-func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput {
-	return o
-}
-
-func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput {
-	return o
-}
-
-func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy {
-		return vs[0].([]PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy)[vs[1].(int)]
-	}).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput)
-}
-
-type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery struct {
-	// The aggregation method.
-	Aggregation string `pulumi:"aggregation"`
-	// The facet name.
-	Facet *string `pulumi:"facet"`
-	// Widget sorting methods. Valid values are `asc`, `desc`.
-	Order string `pulumi:"order"`
-}
-
-// PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs and PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput values.
-// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryInput` via:
-//
-//	PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs{...}
-type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput
-	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput
-}
-
-type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs struct {
-	// The aggregation method.
-	Aggregation pulumi.StringInput `pulumi:"aggregation"`
-	// The facet name.
-	Facet pulumi.StringPtrInput `pulumi:"facet"`
-	// Widget sorting methods. Valid values are `asc`, `desc`.
-	Order pulumi.StringInput `pulumi:"order"`
-}
-
-func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery)(nil)).Elem()
-}
-
-func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput {
-	return i.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput)
-}
-
-func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
-	return i.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput).ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(ctx)
-}
-
-// PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs, PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtr and PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput values.
-// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrInput` via:
-//
-//	        PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput
-	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput
-}
-
-type powerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrType PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs
-
-func PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtr(v *PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrInput {
-	return (*powerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrType)(v)
-}
-
-func (*powerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery)(nil)).Elem()
-}
-
-func (i *powerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrType) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
-	return i.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrType) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput)
-}
-
-type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery)(nil)).Elem()
-}
-
-func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput {
-	return o
-}
-
-func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput {
-	return o
-}
-
-func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
-	return o.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery) *PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery {
-		return &v
-	}).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput)
-}
-
-// The aggregation method.
-func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput) Aggregation() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery) string {
-		return v.Aggregation
-	}).(pulumi.StringOutput)
-}
-
-// The facet name.
-func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput) Facet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
-}
-
-// Widget sorting methods. Valid values are `asc`, `desc`.
-func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput) Order() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery) string { return v.Order }).(pulumi.StringOutput)
-}
-
-type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery)(nil)).Elem()
-}
-
-func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput) Elem() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput {
-	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery
-		return ret
-	}).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput)
-}
-
-// The aggregation method.
-func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Aggregation
-	}).(pulumi.StringPtrOutput)
-}
-
-// The facet name.
-func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput) Facet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Facet
-	}).(pulumi.StringPtrOutput)
-}
-
-// Widget sorting methods. Valid values are `asc`, `desc`.
-func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Order
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetAlertGraphDefinitionInput)(nil)).Elem(), PowerpackWidgetAlertGraphDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetAlertGraphDefinitionPtrInput)(nil)).Elem(), PowerpackWidgetAlertGraphDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetAlertValueDefinitionInput)(nil)).Elem(), PowerpackWidgetAlertValueDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetAlertValueDefinitionPtrInput)(nil)).Elem(), PowerpackWidgetAlertValueDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetChangeDefinitionInput)(nil)).Elem(), PowerpackWidgetChangeDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetChangeDefinitionPtrInput)(nil)).Elem(), PowerpackWidgetChangeDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetChangeDefinitionCustomLinkInput)(nil)).Elem(), PowerpackWidgetChangeDefinitionCustomLinkArgs{})
@@ -90084,10 +90315,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestLogQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs{})
+	pulumi.RegisterOutputType(PowerpackWidgetAlertGraphDefinitionOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetAlertGraphDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetAlertValueDefinitionOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetAlertValueDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetChangeDefinitionOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetChangeDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetChangeDefinitionCustomLinkOutput{})
@@ -91082,8 +91313,4 @@ func init() {
 	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput{})
 }

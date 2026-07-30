@@ -13,30 +13,30 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TagIndexingRuleOptionsDataDynamicTags {
     /**
-     * @return Lookback window for determining which tags were recently queried.
+     * @return Lookback window, in seconds, for excluding tags that were not queried in that period. Requires `excludeTagsMode` to be `true`. Value must be between 1 and 7776000.
      * 
      */
-    private @Nullable Integer queriedTagsWindowSeconds;
+    private @Nullable Integer excludeNotQueriedWindowSeconds;
     /**
-     * @return When true, tags from related assets are included.
+     * @return When true, excludes tags not used in any dashboards or monitors. Requires `excludeTagsMode` to be `true`.
      * 
      */
-    private @Nullable Boolean relatedAssetTags;
+    private @Nullable Boolean excludeNotUsedInAssets;
 
     private TagIndexingRuleOptionsDataDynamicTags() {}
     /**
-     * @return Lookback window for determining which tags were recently queried.
+     * @return Lookback window, in seconds, for excluding tags that were not queried in that period. Requires `excludeTagsMode` to be `true`. Value must be between 1 and 7776000.
      * 
      */
-    public Optional<Integer> queriedTagsWindowSeconds() {
-        return Optional.ofNullable(this.queriedTagsWindowSeconds);
+    public Optional<Integer> excludeNotQueriedWindowSeconds() {
+        return Optional.ofNullable(this.excludeNotQueriedWindowSeconds);
     }
     /**
-     * @return When true, tags from related assets are included.
+     * @return When true, excludes tags not used in any dashboards or monitors. Requires `excludeTagsMode` to be `true`.
      * 
      */
-    public Optional<Boolean> relatedAssetTags() {
-        return Optional.ofNullable(this.relatedAssetTags);
+    public Optional<Boolean> excludeNotUsedInAssets() {
+        return Optional.ofNullable(this.excludeNotUsedInAssets);
     }
 
     public static Builder builder() {
@@ -48,31 +48,31 @@ public final class TagIndexingRuleOptionsDataDynamicTags {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Integer queriedTagsWindowSeconds;
-        private @Nullable Boolean relatedAssetTags;
+        private @Nullable Integer excludeNotQueriedWindowSeconds;
+        private @Nullable Boolean excludeNotUsedInAssets;
         public Builder() {}
         public Builder(TagIndexingRuleOptionsDataDynamicTags defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.queriedTagsWindowSeconds = defaults.queriedTagsWindowSeconds;
-    	      this.relatedAssetTags = defaults.relatedAssetTags;
+    	      this.excludeNotQueriedWindowSeconds = defaults.excludeNotQueriedWindowSeconds;
+    	      this.excludeNotUsedInAssets = defaults.excludeNotUsedInAssets;
         }
 
         @CustomType.Setter
-        public Builder queriedTagsWindowSeconds(@Nullable Integer queriedTagsWindowSeconds) {
+        public Builder excludeNotQueriedWindowSeconds(@Nullable Integer excludeNotQueriedWindowSeconds) {
 
-            this.queriedTagsWindowSeconds = queriedTagsWindowSeconds;
+            this.excludeNotQueriedWindowSeconds = excludeNotQueriedWindowSeconds;
             return this;
         }
         @CustomType.Setter
-        public Builder relatedAssetTags(@Nullable Boolean relatedAssetTags) {
+        public Builder excludeNotUsedInAssets(@Nullable Boolean excludeNotUsedInAssets) {
 
-            this.relatedAssetTags = relatedAssetTags;
+            this.excludeNotUsedInAssets = excludeNotUsedInAssets;
             return this;
         }
         public TagIndexingRuleOptionsDataDynamicTags build() {
             final var _resultValue = new TagIndexingRuleOptionsDataDynamicTags();
-            _resultValue.queriedTagsWindowSeconds = queriedTagsWindowSeconds;
-            _resultValue.relatedAssetTags = relatedAssetTags;
+            _resultValue.excludeNotQueriedWindowSeconds = excludeNotQueriedWindowSeconds;
+            _resultValue.excludeNotUsedInAssets = excludeNotUsedInAssets;
             return _resultValue;
         }
     }

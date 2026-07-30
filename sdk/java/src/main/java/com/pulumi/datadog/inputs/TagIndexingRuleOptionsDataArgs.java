@@ -6,7 +6,6 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.TagIndexingRuleOptionsDataDynamicTagsArgs;
-import com.pulumi.datadog.inputs.TagIndexingRuleOptionsDataMetricMatchArgs;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -18,14 +17,14 @@ public final class TagIndexingRuleOptionsDataArgs extends com.pulumi.resources.R
     public static final TagIndexingRuleOptionsDataArgs Empty = new TagIndexingRuleOptionsDataArgs();
 
     /**
-     * Configuration for including dynamically queried tags.
+     * Configuration for excluding tags based on dynamic usage signals. Only applies when `excludeTagsMode` is `true`.
      * 
      */
     @Import(name="dynamicTags")
     private @Nullable Output<TagIndexingRuleOptionsDataDynamicTagsArgs> dynamicTags;
 
     /**
-     * @return Configuration for including dynamically queried tags.
+     * @return Configuration for excluding tags based on dynamic usage signals. Only applies when `excludeTagsMode` is `true`.
      * 
      */
     public Optional<Output<TagIndexingRuleOptionsDataDynamicTagsArgs>> dynamicTags() {
@@ -48,21 +47,6 @@ public final class TagIndexingRuleOptionsDataArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Criteria for matching metrics based on query state.
-     * 
-     */
-    @Import(name="metricMatch")
-    private @Nullable Output<TagIndexingRuleOptionsDataMetricMatchArgs> metricMatch;
-
-    /**
-     * @return Criteria for matching metrics based on query state.
-     * 
-     */
-    public Optional<Output<TagIndexingRuleOptionsDataMetricMatchArgs>> metricMatch() {
-        return Optional.ofNullable(this.metricMatch);
-    }
-
-    /**
      * When true, this rule&#39;s tag list overrides tags configured by earlier rules for the same metric. Defaults to `false`.
      * 
      */
@@ -82,7 +66,6 @@ public final class TagIndexingRuleOptionsDataArgs extends com.pulumi.resources.R
     private TagIndexingRuleOptionsDataArgs(TagIndexingRuleOptionsDataArgs $) {
         this.dynamicTags = $.dynamicTags;
         this.managePreexistingMetrics = $.managePreexistingMetrics;
-        this.metricMatch = $.metricMatch;
         this.overridePreviousRules = $.overridePreviousRules;
     }
 
@@ -105,7 +88,7 @@ public final class TagIndexingRuleOptionsDataArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param dynamicTags Configuration for including dynamically queried tags.
+         * @param dynamicTags Configuration for excluding tags based on dynamic usage signals. Only applies when `excludeTagsMode` is `true`.
          * 
          * @return builder
          * 
@@ -116,7 +99,7 @@ public final class TagIndexingRuleOptionsDataArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param dynamicTags Configuration for including dynamically queried tags.
+         * @param dynamicTags Configuration for excluding tags based on dynamic usage signals. Only applies when `excludeTagsMode` is `true`.
          * 
          * @return builder
          * 
@@ -144,27 +127,6 @@ public final class TagIndexingRuleOptionsDataArgs extends com.pulumi.resources.R
          */
         public Builder managePreexistingMetrics(Boolean managePreexistingMetrics) {
             return managePreexistingMetrics(Output.of(managePreexistingMetrics));
-        }
-
-        /**
-         * @param metricMatch Criteria for matching metrics based on query state.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder metricMatch(@Nullable Output<TagIndexingRuleOptionsDataMetricMatchArgs> metricMatch) {
-            $.metricMatch = metricMatch;
-            return this;
-        }
-
-        /**
-         * @param metricMatch Criteria for matching metrics based on query state.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder metricMatch(TagIndexingRuleOptionsDataMetricMatchArgs metricMatch) {
-            return metricMatch(Output.of(metricMatch));
         }
 
         /**

@@ -73,6 +73,8 @@ import com.pulumi.datadog.inputs.GetReferenceTablePlainArgs;
 import com.pulumi.datadog.inputs.GetReferenceTableRowsArgs;
 import com.pulumi.datadog.inputs.GetReferenceTableRowsPlainArgs;
 import com.pulumi.datadog.inputs.GetRoleArgs;
+import com.pulumi.datadog.inputs.GetRolePermissionsArgs;
+import com.pulumi.datadog.inputs.GetRolePermissionsPlainArgs;
 import com.pulumi.datadog.inputs.GetRolePlainArgs;
 import com.pulumi.datadog.inputs.GetRoleUsersArgs;
 import com.pulumi.datadog.inputs.GetRoleUsersPlainArgs;
@@ -164,6 +166,7 @@ import com.pulumi.datadog.outputs.GetPermissionsResult;
 import com.pulumi.datadog.outputs.GetPowerpackResult;
 import com.pulumi.datadog.outputs.GetReferenceTableResult;
 import com.pulumi.datadog.outputs.GetReferenceTableRowsResult;
+import com.pulumi.datadog.outputs.GetRolePermissionsResult;
 import com.pulumi.datadog.outputs.GetRoleResult;
 import com.pulumi.datadog.outputs.GetRoleUsersResult;
 import com.pulumi.datadog.outputs.GetRolesResult;
@@ -7415,6 +7418,241 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetRoleResult> getRolePlain(GetRolePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getRole:getRole", TypeShape.of(GetRoleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of permissions assigned to a Datadog role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRoleArgs;
+     * import com.pulumi.datadog.inputs.GetRolePermissionsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get the API Key Manager role
+     *         final var apiKeyManager = DatadogFunctions.getRole(GetRoleArgs.builder()
+     *             .filter("API Key Manager")
+     *             .build());
+     * 
+     *         // List permissions assigned to the API Key Manager role
+     *         final var apiKeyManagerPermissions = DatadogFunctions.getRolePermissions(GetRolePermissionsArgs.builder()
+     *             .roleId(apiKeyManager.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRolePermissionsResult> getRolePermissions(GetRolePermissionsArgs args) {
+        return getRolePermissions(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of permissions assigned to a Datadog role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRoleArgs;
+     * import com.pulumi.datadog.inputs.GetRolePermissionsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get the API Key Manager role
+     *         final var apiKeyManager = DatadogFunctions.getRole(GetRoleArgs.builder()
+     *             .filter("API Key Manager")
+     *             .build());
+     * 
+     *         // List permissions assigned to the API Key Manager role
+     *         final var apiKeyManagerPermissions = DatadogFunctions.getRolePermissions(GetRolePermissionsArgs.builder()
+     *             .roleId(apiKeyManager.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRolePermissionsResult> getRolePermissionsPlain(GetRolePermissionsPlainArgs args) {
+        return getRolePermissionsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the list of permissions assigned to a Datadog role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRoleArgs;
+     * import com.pulumi.datadog.inputs.GetRolePermissionsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get the API Key Manager role
+     *         final var apiKeyManager = DatadogFunctions.getRole(GetRoleArgs.builder()
+     *             .filter("API Key Manager")
+     *             .build());
+     * 
+     *         // List permissions assigned to the API Key Manager role
+     *         final var apiKeyManagerPermissions = DatadogFunctions.getRolePermissions(GetRolePermissionsArgs.builder()
+     *             .roleId(apiKeyManager.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRolePermissionsResult> getRolePermissions(GetRolePermissionsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getRolePermissions:getRolePermissions", TypeShape.of(GetRolePermissionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of permissions assigned to a Datadog role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRoleArgs;
+     * import com.pulumi.datadog.inputs.GetRolePermissionsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get the API Key Manager role
+     *         final var apiKeyManager = DatadogFunctions.getRole(GetRoleArgs.builder()
+     *             .filter("API Key Manager")
+     *             .build());
+     * 
+     *         // List permissions assigned to the API Key Manager role
+     *         final var apiKeyManagerPermissions = DatadogFunctions.getRolePermissions(GetRolePermissionsArgs.builder()
+     *             .roleId(apiKeyManager.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRolePermissionsResult> getRolePermissions(GetRolePermissionsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getRolePermissions:getRolePermissions", TypeShape.of(GetRolePermissionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the list of permissions assigned to a Datadog role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetRoleArgs;
+     * import com.pulumi.datadog.inputs.GetRolePermissionsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get the API Key Manager role
+     *         final var apiKeyManager = DatadogFunctions.getRole(GetRoleArgs.builder()
+     *             .filter("API Key Manager")
+     *             .build());
+     * 
+     *         // List permissions assigned to the API Key Manager role
+     *         final var apiKeyManagerPermissions = DatadogFunctions.getRolePermissions(GetRolePermissionsArgs.builder()
+     *             .roleId(apiKeyManager.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRolePermissionsResult> getRolePermissionsPlain(GetRolePermissionsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getRolePermissions:getRolePermissions", TypeShape.of(GetRolePermissionsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.

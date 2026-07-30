@@ -13,6 +13,620 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery struct {
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+	Aggregator *string `pulumi:"aggregator"`
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
+	// The data source for process queries. Valid values are `process`, `container`.
+	DataSource string `pulumi:"dataSource"`
+	// Whether to normalize the CPU percentages.
+	IsNormalizedCpu *bool `pulumi:"isNormalizedCpu"`
+	// The number of hits to return.
+	Limit *int `pulumi:"limit"`
+	// The process metric name.
+	Metric string `pulumi:"metric"`
+	// The name of query for use in formulas.
+	Name string `pulumi:"name"`
+	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
+	Sort *string `pulumi:"sort"`
+	// An array of tags to filter by.
+	TagFilters []string `pulumi:"tagFilters"`
+	// The text to use as a filter.
+	TextFilter *string `pulumi:"textFilter"`
+}
+
+// PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryInput is an input type that accepts PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs and PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryInput` via:
+//
+//	PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs{...}
+type PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput
+	ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutputWithContext(context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput
+}
+
+type PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs struct {
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+	Aggregator pulumi.StringPtrInput `pulumi:"aggregator"`
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
+	// The data source for process queries. Valid values are `process`, `container`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// Whether to normalize the CPU percentages.
+	IsNormalizedCpu pulumi.BoolPtrInput `pulumi:"isNormalizedCpu"`
+	// The number of hits to return.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// The process metric name.
+	Metric pulumi.StringInput `pulumi:"metric"`
+	// The name of query for use in formulas.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
+	Sort pulumi.StringPtrInput `pulumi:"sort"`
+	// An array of tags to filter by.
+	TagFilters pulumi.StringArrayInput `pulumi:"tagFilters"`
+	// The text to use as a filter.
+	TextFilter pulumi.StringPtrInput `pulumi:"textFilter"`
+}
+
+func (PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput {
+	return i.ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput)
+}
+
+func (i PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput {
+	return i.ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput).ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrInput is an input type that accepts PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs, PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtr and PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrInput` via:
+//
+//	        PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput
+	ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutputWithContext(context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput
+}
+
+type powerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrType PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs
+
+func PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtr(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrInput {
+	return (*powerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrType)(v)
+}
+
+func (*powerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrType) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput {
+	return i.ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrType) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput)
+}
+
+type PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput {
+	return o.ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery {
+		return &v
+	}).(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput)
+}
+
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) Aggregator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *string {
+		return v.Aggregator
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *string {
+		return v.CrossOrgUuids
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data source for process queries. Valid values are `process`, `container`.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) string {
+		return v.DataSource
+	}).(pulumi.StringOutput)
+}
+
+// Whether to normalize the CPU percentages.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) IsNormalizedCpu() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *bool {
+		return v.IsNormalizedCpu
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The number of hits to return.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *int {
+		return v.Limit
+	}).(pulumi.IntPtrOutput)
+}
+
+// The process metric name.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) Metric() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) string {
+		return v.Metric
+	}).(pulumi.StringOutput)
+}
+
+// The name of query for use in formulas.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) Sort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *string {
+		return v.Sort
+	}).(pulumi.StringPtrOutput)
+}
+
+// An array of tags to filter by.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) TagFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) []string {
+		return v.TagFilters
+	}).(pulumi.StringArrayOutput)
+}
+
+// The text to use as a filter.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) TextFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *string {
+		return v.TextFilter
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) Elem() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery
+		return ret
+	}).(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput)
+}
+
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) Aggregator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Aggregator
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrossOrgUuids
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data source for process queries. Valid values are `process`, `container`.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to normalize the CPU percentages.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) IsNormalizedCpu() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsNormalizedCpu
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The number of hits to return.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Limit
+	}).(pulumi.IntPtrOutput)
+}
+
+// The process metric name.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Metric
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of query for use in formulas.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) Sort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sort
+	}).(pulumi.StringPtrOutput)
+}
+
+// An array of tags to filter by.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) TagFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TagFilters
+	}).(pulumi.StringArrayOutput)
+}
+
+// The text to use as a filter.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) TextFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TextFilter
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery struct {
+	// Additional filters applied to the SLO query.
+	AdditionalQueryFilters *string `pulumi:"additionalQueryFilters"`
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
+	// The data source for SLO queries. Valid values are `slo`.
+	DataSource string `pulumi:"dataSource"`
+	// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+	GroupMode *string `pulumi:"groupMode"`
+	// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+	Measure string `pulumi:"measure"`
+	// The name of query for use in formulas.
+	Name *string `pulumi:"name"`
+	// ID of an SLO to query measures.
+	SloId string `pulumi:"sloId"`
+	// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
+	SloQueryType *string `pulumi:"sloQueryType"`
+}
+
+// PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryInput is an input type that accepts PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs and PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryInput` via:
+//
+//	PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs{...}
+type PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput
+	ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutputWithContext(context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput
+}
+
+type PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs struct {
+	// Additional filters applied to the SLO query.
+	AdditionalQueryFilters pulumi.StringPtrInput `pulumi:"additionalQueryFilters"`
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
+	// The data source for SLO queries. Valid values are `slo`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+	GroupMode pulumi.StringPtrInput `pulumi:"groupMode"`
+	// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+	Measure pulumi.StringInput `pulumi:"measure"`
+	// The name of query for use in formulas.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// ID of an SLO to query measures.
+	SloId pulumi.StringInput `pulumi:"sloId"`
+	// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
+	SloQueryType pulumi.StringPtrInput `pulumi:"sloQueryType"`
+}
+
+func (PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput {
+	return i.ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput)
+}
+
+func (i PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput {
+	return i.ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput).ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrInput is an input type that accepts PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs, PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtr and PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrInput` via:
+//
+//	        PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput
+	ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutputWithContext(context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput
+}
+
+type powerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrType PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs
+
+func PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtr(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrInput {
+	return (*powerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrType)(v)
+}
+
+func (*powerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrType) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput {
+	return i.ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrType) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput)
+}
+
+type PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput {
+	return o.ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery {
+		return &v
+	}).(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput)
+}
+
+// Additional filters applied to the SLO query.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) AdditionalQueryFilters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
+		return v.AdditionalQueryFilters
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
+		return v.CrossOrgUuids
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data source for SLO queries. Valid values are `slo`.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) string {
+		return v.DataSource
+	}).(pulumi.StringOutput)
+}
+
+// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) GroupMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
+		return v.GroupMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) Measure() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) string {
+		return v.Measure
+	}).(pulumi.StringOutput)
+}
+
+// The name of query for use in formulas.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of an SLO to query measures.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) SloId() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) string {
+		return v.SloId
+	}).(pulumi.StringOutput)
+}
+
+// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) SloQueryType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
+		return v.SloQueryType
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput) Elem() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery
+		return ret
+	}).(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput)
+}
+
+// Additional filters applied to the SLO query.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput) AdditionalQueryFilters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalQueryFilters
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrossOrgUuids
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data source for SLO queries. Valid values are `slo`.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput) GroupMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput) Measure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Measure
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of query for use in formulas.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of an SLO to query measures.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput) SloId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SloId
+	}).(pulumi.StringPtrOutput)
+}
+
+// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
+func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput) SloQueryType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SloQueryType
+	}).(pulumi.StringPtrOutput)
+}
+
 type PowerpackV2WidgetScatterplotDefinitionRequestX struct {
 	// Aggregator used for the request. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 	Aggregator *string `pulumi:"aggregator"`
@@ -89944,528 +90558,11 @@ func (o PowerpackWidgetArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetOutp
 	}).(PowerpackWidgetOutput)
 }
 
-type PowerpackWidgetAlertGraphDefinition struct {
-	// The ID of the monitor used by the widget.
-	AlertId string `pulumi:"alertId"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData *bool `pulumi:"hideIncompleteCostData"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan *string `pulumi:"liveSpan"`
-	// The title of the widget.
-	Title *string `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign *string `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize *string `pulumi:"titleSize"`
-	// Type of visualization to use when displaying the widget. Valid values are `timeseries`, `toplist`.
-	VizType string `pulumi:"vizType"`
-}
-
-// PowerpackWidgetAlertGraphDefinitionInput is an input type that accepts PowerpackWidgetAlertGraphDefinitionArgs and PowerpackWidgetAlertGraphDefinitionOutput values.
-// You can construct a concrete instance of `PowerpackWidgetAlertGraphDefinitionInput` via:
-//
-//	PowerpackWidgetAlertGraphDefinitionArgs{...}
-type PowerpackWidgetAlertGraphDefinitionInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetAlertGraphDefinitionOutput() PowerpackWidgetAlertGraphDefinitionOutput
-	ToPowerpackWidgetAlertGraphDefinitionOutputWithContext(context.Context) PowerpackWidgetAlertGraphDefinitionOutput
-}
-
-type PowerpackWidgetAlertGraphDefinitionArgs struct {
-	// The ID of the monitor used by the widget.
-	AlertId pulumi.StringInput `pulumi:"alertId"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData pulumi.BoolPtrInput `pulumi:"hideIncompleteCostData"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan pulumi.StringPtrInput `pulumi:"liveSpan"`
-	// The title of the widget.
-	Title pulumi.StringPtrInput `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
-	// Type of visualization to use when displaying the widget. Valid values are `timeseries`, `toplist`.
-	VizType pulumi.StringInput `pulumi:"vizType"`
-}
-
-func (PowerpackWidgetAlertGraphDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetAlertGraphDefinition)(nil)).Elem()
-}
-
-func (i PowerpackWidgetAlertGraphDefinitionArgs) ToPowerpackWidgetAlertGraphDefinitionOutput() PowerpackWidgetAlertGraphDefinitionOutput {
-	return i.ToPowerpackWidgetAlertGraphDefinitionOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetAlertGraphDefinitionArgs) ToPowerpackWidgetAlertGraphDefinitionOutputWithContext(ctx context.Context) PowerpackWidgetAlertGraphDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetAlertGraphDefinitionOutput)
-}
-
-func (i PowerpackWidgetAlertGraphDefinitionArgs) ToPowerpackWidgetAlertGraphDefinitionPtrOutput() PowerpackWidgetAlertGraphDefinitionPtrOutput {
-	return i.ToPowerpackWidgetAlertGraphDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetAlertGraphDefinitionArgs) ToPowerpackWidgetAlertGraphDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetAlertGraphDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetAlertGraphDefinitionOutput).ToPowerpackWidgetAlertGraphDefinitionPtrOutputWithContext(ctx)
-}
-
-// PowerpackWidgetAlertGraphDefinitionPtrInput is an input type that accepts PowerpackWidgetAlertGraphDefinitionArgs, PowerpackWidgetAlertGraphDefinitionPtr and PowerpackWidgetAlertGraphDefinitionPtrOutput values.
-// You can construct a concrete instance of `PowerpackWidgetAlertGraphDefinitionPtrInput` via:
-//
-//	        PowerpackWidgetAlertGraphDefinitionArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackWidgetAlertGraphDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetAlertGraphDefinitionPtrOutput() PowerpackWidgetAlertGraphDefinitionPtrOutput
-	ToPowerpackWidgetAlertGraphDefinitionPtrOutputWithContext(context.Context) PowerpackWidgetAlertGraphDefinitionPtrOutput
-}
-
-type powerpackWidgetAlertGraphDefinitionPtrType PowerpackWidgetAlertGraphDefinitionArgs
-
-func PowerpackWidgetAlertGraphDefinitionPtr(v *PowerpackWidgetAlertGraphDefinitionArgs) PowerpackWidgetAlertGraphDefinitionPtrInput {
-	return (*powerpackWidgetAlertGraphDefinitionPtrType)(v)
-}
-
-func (*powerpackWidgetAlertGraphDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackWidgetAlertGraphDefinition)(nil)).Elem()
-}
-
-func (i *powerpackWidgetAlertGraphDefinitionPtrType) ToPowerpackWidgetAlertGraphDefinitionPtrOutput() PowerpackWidgetAlertGraphDefinitionPtrOutput {
-	return i.ToPowerpackWidgetAlertGraphDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackWidgetAlertGraphDefinitionPtrType) ToPowerpackWidgetAlertGraphDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetAlertGraphDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetAlertGraphDefinitionPtrOutput)
-}
-
-type PowerpackWidgetAlertGraphDefinitionOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetAlertGraphDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetAlertGraphDefinition)(nil)).Elem()
-}
-
-func (o PowerpackWidgetAlertGraphDefinitionOutput) ToPowerpackWidgetAlertGraphDefinitionOutput() PowerpackWidgetAlertGraphDefinitionOutput {
-	return o
-}
-
-func (o PowerpackWidgetAlertGraphDefinitionOutput) ToPowerpackWidgetAlertGraphDefinitionOutputWithContext(ctx context.Context) PowerpackWidgetAlertGraphDefinitionOutput {
-	return o
-}
-
-func (o PowerpackWidgetAlertGraphDefinitionOutput) ToPowerpackWidgetAlertGraphDefinitionPtrOutput() PowerpackWidgetAlertGraphDefinitionPtrOutput {
-	return o.ToPowerpackWidgetAlertGraphDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackWidgetAlertGraphDefinitionOutput) ToPowerpackWidgetAlertGraphDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetAlertGraphDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetAlertGraphDefinition) *PowerpackWidgetAlertGraphDefinition {
-		return &v
-	}).(PowerpackWidgetAlertGraphDefinitionPtrOutput)
-}
-
-// The ID of the monitor used by the widget.
-func (o PowerpackWidgetAlertGraphDefinitionOutput) AlertId() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackWidgetAlertGraphDefinition) string { return v.AlertId }).(pulumi.StringOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o PowerpackWidgetAlertGraphDefinitionOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetAlertGraphDefinition) *bool { return v.HideIncompleteCostData }).(pulumi.BoolPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o PowerpackWidgetAlertGraphDefinitionOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetAlertGraphDefinition) *string { return v.LiveSpan }).(pulumi.StringPtrOutput)
-}
-
-// The title of the widget.
-func (o PowerpackWidgetAlertGraphDefinitionOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetAlertGraphDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o PowerpackWidgetAlertGraphDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetAlertGraphDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o PowerpackWidgetAlertGraphDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetAlertGraphDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
-}
-
-// Type of visualization to use when displaying the widget. Valid values are `timeseries`, `toplist`.
-func (o PowerpackWidgetAlertGraphDefinitionOutput) VizType() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackWidgetAlertGraphDefinition) string { return v.VizType }).(pulumi.StringOutput)
-}
-
-type PowerpackWidgetAlertGraphDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetAlertGraphDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackWidgetAlertGraphDefinition)(nil)).Elem()
-}
-
-func (o PowerpackWidgetAlertGraphDefinitionPtrOutput) ToPowerpackWidgetAlertGraphDefinitionPtrOutput() PowerpackWidgetAlertGraphDefinitionPtrOutput {
-	return o
-}
-
-func (o PowerpackWidgetAlertGraphDefinitionPtrOutput) ToPowerpackWidgetAlertGraphDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetAlertGraphDefinitionPtrOutput {
-	return o
-}
-
-func (o PowerpackWidgetAlertGraphDefinitionPtrOutput) Elem() PowerpackWidgetAlertGraphDefinitionOutput {
-	return o.ApplyT(func(v *PowerpackWidgetAlertGraphDefinition) PowerpackWidgetAlertGraphDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackWidgetAlertGraphDefinition
-		return ret
-	}).(PowerpackWidgetAlertGraphDefinitionOutput)
-}
-
-// The ID of the monitor used by the widget.
-func (o PowerpackWidgetAlertGraphDefinitionPtrOutput) AlertId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetAlertGraphDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AlertId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o PowerpackWidgetAlertGraphDefinitionPtrOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetAlertGraphDefinition) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HideIncompleteCostData
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o PowerpackWidgetAlertGraphDefinitionPtrOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetAlertGraphDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LiveSpan
-	}).(pulumi.StringPtrOutput)
-}
-
-// The title of the widget.
-func (o PowerpackWidgetAlertGraphDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetAlertGraphDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o PowerpackWidgetAlertGraphDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetAlertGraphDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleAlign
-	}).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o PowerpackWidgetAlertGraphDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetAlertGraphDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleSize
-	}).(pulumi.StringPtrOutput)
-}
-
-// Type of visualization to use when displaying the widget. Valid values are `timeseries`, `toplist`.
-func (o PowerpackWidgetAlertGraphDefinitionPtrOutput) VizType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetAlertGraphDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VizType
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackWidgetAlertValueDefinition struct {
-	// The ID of the monitor used by the widget.
-	AlertId string `pulumi:"alertId"`
-	// The description of the widget.
-	Description *string `pulumi:"description"`
-	// The precision to use when displaying the value. Use `*` for maximum precision.
-	Precision *int `pulumi:"precision"`
-	// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
-	TextAlign *string `pulumi:"textAlign"`
-	// The title of the widget.
-	Title *string `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign *string `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize *string `pulumi:"titleSize"`
-	// The unit for the value displayed in the widget.
-	Unit *string `pulumi:"unit"`
-}
-
-// PowerpackWidgetAlertValueDefinitionInput is an input type that accepts PowerpackWidgetAlertValueDefinitionArgs and PowerpackWidgetAlertValueDefinitionOutput values.
-// You can construct a concrete instance of `PowerpackWidgetAlertValueDefinitionInput` via:
-//
-//	PowerpackWidgetAlertValueDefinitionArgs{...}
-type PowerpackWidgetAlertValueDefinitionInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetAlertValueDefinitionOutput() PowerpackWidgetAlertValueDefinitionOutput
-	ToPowerpackWidgetAlertValueDefinitionOutputWithContext(context.Context) PowerpackWidgetAlertValueDefinitionOutput
-}
-
-type PowerpackWidgetAlertValueDefinitionArgs struct {
-	// The ID of the monitor used by the widget.
-	AlertId pulumi.StringInput `pulumi:"alertId"`
-	// The description of the widget.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The precision to use when displaying the value. Use `*` for maximum precision.
-	Precision pulumi.IntPtrInput `pulumi:"precision"`
-	// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
-	TextAlign pulumi.StringPtrInput `pulumi:"textAlign"`
-	// The title of the widget.
-	Title pulumi.StringPtrInput `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
-	// The unit for the value displayed in the widget.
-	Unit pulumi.StringPtrInput `pulumi:"unit"`
-}
-
-func (PowerpackWidgetAlertValueDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetAlertValueDefinition)(nil)).Elem()
-}
-
-func (i PowerpackWidgetAlertValueDefinitionArgs) ToPowerpackWidgetAlertValueDefinitionOutput() PowerpackWidgetAlertValueDefinitionOutput {
-	return i.ToPowerpackWidgetAlertValueDefinitionOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetAlertValueDefinitionArgs) ToPowerpackWidgetAlertValueDefinitionOutputWithContext(ctx context.Context) PowerpackWidgetAlertValueDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetAlertValueDefinitionOutput)
-}
-
-func (i PowerpackWidgetAlertValueDefinitionArgs) ToPowerpackWidgetAlertValueDefinitionPtrOutput() PowerpackWidgetAlertValueDefinitionPtrOutput {
-	return i.ToPowerpackWidgetAlertValueDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetAlertValueDefinitionArgs) ToPowerpackWidgetAlertValueDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetAlertValueDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetAlertValueDefinitionOutput).ToPowerpackWidgetAlertValueDefinitionPtrOutputWithContext(ctx)
-}
-
-// PowerpackWidgetAlertValueDefinitionPtrInput is an input type that accepts PowerpackWidgetAlertValueDefinitionArgs, PowerpackWidgetAlertValueDefinitionPtr and PowerpackWidgetAlertValueDefinitionPtrOutput values.
-// You can construct a concrete instance of `PowerpackWidgetAlertValueDefinitionPtrInput` via:
-//
-//	        PowerpackWidgetAlertValueDefinitionArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackWidgetAlertValueDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetAlertValueDefinitionPtrOutput() PowerpackWidgetAlertValueDefinitionPtrOutput
-	ToPowerpackWidgetAlertValueDefinitionPtrOutputWithContext(context.Context) PowerpackWidgetAlertValueDefinitionPtrOutput
-}
-
-type powerpackWidgetAlertValueDefinitionPtrType PowerpackWidgetAlertValueDefinitionArgs
-
-func PowerpackWidgetAlertValueDefinitionPtr(v *PowerpackWidgetAlertValueDefinitionArgs) PowerpackWidgetAlertValueDefinitionPtrInput {
-	return (*powerpackWidgetAlertValueDefinitionPtrType)(v)
-}
-
-func (*powerpackWidgetAlertValueDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackWidgetAlertValueDefinition)(nil)).Elem()
-}
-
-func (i *powerpackWidgetAlertValueDefinitionPtrType) ToPowerpackWidgetAlertValueDefinitionPtrOutput() PowerpackWidgetAlertValueDefinitionPtrOutput {
-	return i.ToPowerpackWidgetAlertValueDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackWidgetAlertValueDefinitionPtrType) ToPowerpackWidgetAlertValueDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetAlertValueDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetAlertValueDefinitionPtrOutput)
-}
-
-type PowerpackWidgetAlertValueDefinitionOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetAlertValueDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetAlertValueDefinition)(nil)).Elem()
-}
-
-func (o PowerpackWidgetAlertValueDefinitionOutput) ToPowerpackWidgetAlertValueDefinitionOutput() PowerpackWidgetAlertValueDefinitionOutput {
-	return o
-}
-
-func (o PowerpackWidgetAlertValueDefinitionOutput) ToPowerpackWidgetAlertValueDefinitionOutputWithContext(ctx context.Context) PowerpackWidgetAlertValueDefinitionOutput {
-	return o
-}
-
-func (o PowerpackWidgetAlertValueDefinitionOutput) ToPowerpackWidgetAlertValueDefinitionPtrOutput() PowerpackWidgetAlertValueDefinitionPtrOutput {
-	return o.ToPowerpackWidgetAlertValueDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackWidgetAlertValueDefinitionOutput) ToPowerpackWidgetAlertValueDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetAlertValueDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetAlertValueDefinition) *PowerpackWidgetAlertValueDefinition {
-		return &v
-	}).(PowerpackWidgetAlertValueDefinitionPtrOutput)
-}
-
-// The ID of the monitor used by the widget.
-func (o PowerpackWidgetAlertValueDefinitionOutput) AlertId() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackWidgetAlertValueDefinition) string { return v.AlertId }).(pulumi.StringOutput)
-}
-
-// The description of the widget.
-func (o PowerpackWidgetAlertValueDefinitionOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetAlertValueDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The precision to use when displaying the value. Use `*` for maximum precision.
-func (o PowerpackWidgetAlertValueDefinitionOutput) Precision() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetAlertValueDefinition) *int { return v.Precision }).(pulumi.IntPtrOutput)
-}
-
-// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
-func (o PowerpackWidgetAlertValueDefinitionOutput) TextAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetAlertValueDefinition) *string { return v.TextAlign }).(pulumi.StringPtrOutput)
-}
-
-// The title of the widget.
-func (o PowerpackWidgetAlertValueDefinitionOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetAlertValueDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o PowerpackWidgetAlertValueDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetAlertValueDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o PowerpackWidgetAlertValueDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetAlertValueDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
-}
-
-// The unit for the value displayed in the widget.
-func (o PowerpackWidgetAlertValueDefinitionOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetAlertValueDefinition) *string { return v.Unit }).(pulumi.StringPtrOutput)
-}
-
-type PowerpackWidgetAlertValueDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetAlertValueDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackWidgetAlertValueDefinition)(nil)).Elem()
-}
-
-func (o PowerpackWidgetAlertValueDefinitionPtrOutput) ToPowerpackWidgetAlertValueDefinitionPtrOutput() PowerpackWidgetAlertValueDefinitionPtrOutput {
-	return o
-}
-
-func (o PowerpackWidgetAlertValueDefinitionPtrOutput) ToPowerpackWidgetAlertValueDefinitionPtrOutputWithContext(ctx context.Context) PowerpackWidgetAlertValueDefinitionPtrOutput {
-	return o
-}
-
-func (o PowerpackWidgetAlertValueDefinitionPtrOutput) Elem() PowerpackWidgetAlertValueDefinitionOutput {
-	return o.ApplyT(func(v *PowerpackWidgetAlertValueDefinition) PowerpackWidgetAlertValueDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackWidgetAlertValueDefinition
-		return ret
-	}).(PowerpackWidgetAlertValueDefinitionOutput)
-}
-
-// The ID of the monitor used by the widget.
-func (o PowerpackWidgetAlertValueDefinitionPtrOutput) AlertId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetAlertValueDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AlertId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The description of the widget.
-func (o PowerpackWidgetAlertValueDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetAlertValueDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// The precision to use when displaying the value. Use `*` for maximum precision.
-func (o PowerpackWidgetAlertValueDefinitionPtrOutput) Precision() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetAlertValueDefinition) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Precision
-	}).(pulumi.IntPtrOutput)
-}
-
-// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
-func (o PowerpackWidgetAlertValueDefinitionPtrOutput) TextAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetAlertValueDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TextAlign
-	}).(pulumi.StringPtrOutput)
-}
-
-// The title of the widget.
-func (o PowerpackWidgetAlertValueDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetAlertValueDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o PowerpackWidgetAlertValueDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetAlertValueDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleAlign
-	}).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o PowerpackWidgetAlertValueDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetAlertValueDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleSize
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unit for the value displayed in the widget.
-func (o PowerpackWidgetAlertValueDefinitionPtrOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetAlertValueDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Unit
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryInput)(nil)).Elem(), PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryInput)(nil)).Elem(), PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetScatterplotDefinitionRequestXInput)(nil)).Elem(), PowerpackV2WidgetScatterplotDefinitionRequestXArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetScatterplotDefinitionRequestXPtrInput)(nil)).Elem(), PowerpackV2WidgetScatterplotDefinitionRequestXArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetScatterplotDefinitionRequestXApmQueryInput)(nil)).Elem(), PowerpackV2WidgetScatterplotDefinitionRequestXApmQueryArgs{})
@@ -91461,10 +91558,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetWildcardDefinitionTimeLivePtrInput)(nil)).Elem(), PowerpackV2WidgetWildcardDefinitionTimeLiveArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetInput)(nil)).Elem(), PowerpackWidgetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetArrayInput)(nil)).Elem(), PowerpackWidgetArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetAlertGraphDefinitionInput)(nil)).Elem(), PowerpackWidgetAlertGraphDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetAlertGraphDefinitionPtrInput)(nil)).Elem(), PowerpackWidgetAlertGraphDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetAlertValueDefinitionInput)(nil)).Elem(), PowerpackWidgetAlertValueDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetAlertValueDefinitionPtrInput)(nil)).Elem(), PowerpackWidgetAlertValueDefinitionArgs{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetScatterplotDefinitionRequestXOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetScatterplotDefinitionRequestXPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetScatterplotDefinitionRequestXApmQueryOutput{})
@@ -92460,8 +92557,4 @@ func init() {
 	pulumi.RegisterOutputType(PowerpackV2WidgetWildcardDefinitionTimeLivePtrOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetAlertGraphDefinitionOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetAlertGraphDefinitionPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetAlertValueDefinitionOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetAlertValueDefinitionPtrOutput{})
 }

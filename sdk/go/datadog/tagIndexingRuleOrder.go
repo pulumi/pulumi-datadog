@@ -59,6 +59,8 @@ import (
 //				return err
 //			}
 //			// Enforce evaluation order: broad rule first, then specific override.
+//			// rule_ids must list EVERY active tag indexing rule in the org (this resource owns the whole-org
+//			// order). Any rule omitted here will be rejected by the API.
 //			_, err = datadog.NewTagIndexingRuleOrder(ctx, "example", &datadog.TagIndexingRuleOrderArgs{
 //				Name: pulumi.String("main"),
 //				RuleIds: pulumi.StringArray{
@@ -79,7 +81,7 @@ type TagIndexingRuleOrder struct {
 
 	// A unique name for the order resource. Recommended to match the resource name. No corresponding field exists in the API.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Ordered list of ALL tag indexing rule UUIDs. The server assigns each rule a ruleOrder value (1, 2, 3, ...) corresponding to its position in this list. This resource claims full ownership of evaluation order: rules created outside Terraform (e.g. via the UI) will appear as configuration drift on the next plan. All rules must be listed here; omitting a rule ID will result in a 404 error from the API.
+	// Ordered list of EVERY active tag indexing rule UUID in the org. The server assigns each rule a ruleOrder (1, 2, 3, ...) by its position in this list. This resource claims full ownership of the org's evaluation order: rules created outside Terraform (e.g. via the UI) appear as drift on the next plan and must be added here. The list must be the COMPLETE set of active rules and contain each UUID exactly once — omitting an existing rule or repeating a UUID is rejected by the API with a 400; listing a UUID that does not exist returns 404.
 	RuleIds pulumi.StringArrayOutput `pulumi:"ruleIds"`
 }
 
@@ -121,14 +123,14 @@ func GetTagIndexingRuleOrder(ctx *pulumi.Context,
 type tagIndexingRuleOrderState struct {
 	// A unique name for the order resource. Recommended to match the resource name. No corresponding field exists in the API.
 	Name *string `pulumi:"name"`
-	// Ordered list of ALL tag indexing rule UUIDs. The server assigns each rule a ruleOrder value (1, 2, 3, ...) corresponding to its position in this list. This resource claims full ownership of evaluation order: rules created outside Terraform (e.g. via the UI) will appear as configuration drift on the next plan. All rules must be listed here; omitting a rule ID will result in a 404 error from the API.
+	// Ordered list of EVERY active tag indexing rule UUID in the org. The server assigns each rule a ruleOrder (1, 2, 3, ...) by its position in this list. This resource claims full ownership of the org's evaluation order: rules created outside Terraform (e.g. via the UI) appear as drift on the next plan and must be added here. The list must be the COMPLETE set of active rules and contain each UUID exactly once — omitting an existing rule or repeating a UUID is rejected by the API with a 400; listing a UUID that does not exist returns 404.
 	RuleIds []string `pulumi:"ruleIds"`
 }
 
 type TagIndexingRuleOrderState struct {
 	// A unique name for the order resource. Recommended to match the resource name. No corresponding field exists in the API.
 	Name pulumi.StringPtrInput
-	// Ordered list of ALL tag indexing rule UUIDs. The server assigns each rule a ruleOrder value (1, 2, 3, ...) corresponding to its position in this list. This resource claims full ownership of evaluation order: rules created outside Terraform (e.g. via the UI) will appear as configuration drift on the next plan. All rules must be listed here; omitting a rule ID will result in a 404 error from the API.
+	// Ordered list of EVERY active tag indexing rule UUID in the org. The server assigns each rule a ruleOrder (1, 2, 3, ...) by its position in this list. This resource claims full ownership of the org's evaluation order: rules created outside Terraform (e.g. via the UI) appear as drift on the next plan and must be added here. The list must be the COMPLETE set of active rules and contain each UUID exactly once — omitting an existing rule or repeating a UUID is rejected by the API with a 400; listing a UUID that does not exist returns 404.
 	RuleIds pulumi.StringArrayInput
 }
 
@@ -139,7 +141,7 @@ func (TagIndexingRuleOrderState) ElementType() reflect.Type {
 type tagIndexingRuleOrderArgs struct {
 	// A unique name for the order resource. Recommended to match the resource name. No corresponding field exists in the API.
 	Name string `pulumi:"name"`
-	// Ordered list of ALL tag indexing rule UUIDs. The server assigns each rule a ruleOrder value (1, 2, 3, ...) corresponding to its position in this list. This resource claims full ownership of evaluation order: rules created outside Terraform (e.g. via the UI) will appear as configuration drift on the next plan. All rules must be listed here; omitting a rule ID will result in a 404 error from the API.
+	// Ordered list of EVERY active tag indexing rule UUID in the org. The server assigns each rule a ruleOrder (1, 2, 3, ...) by its position in this list. This resource claims full ownership of the org's evaluation order: rules created outside Terraform (e.g. via the UI) appear as drift on the next plan and must be added here. The list must be the COMPLETE set of active rules and contain each UUID exactly once — omitting an existing rule or repeating a UUID is rejected by the API with a 400; listing a UUID that does not exist returns 404.
 	RuleIds []string `pulumi:"ruleIds"`
 }
 
@@ -147,7 +149,7 @@ type tagIndexingRuleOrderArgs struct {
 type TagIndexingRuleOrderArgs struct {
 	// A unique name for the order resource. Recommended to match the resource name. No corresponding field exists in the API.
 	Name pulumi.StringInput
-	// Ordered list of ALL tag indexing rule UUIDs. The server assigns each rule a ruleOrder value (1, 2, 3, ...) corresponding to its position in this list. This resource claims full ownership of evaluation order: rules created outside Terraform (e.g. via the UI) will appear as configuration drift on the next plan. All rules must be listed here; omitting a rule ID will result in a 404 error from the API.
+	// Ordered list of EVERY active tag indexing rule UUID in the org. The server assigns each rule a ruleOrder (1, 2, 3, ...) by its position in this list. This resource claims full ownership of the org's evaluation order: rules created outside Terraform (e.g. via the UI) appear as drift on the next plan and must be added here. The list must be the COMPLETE set of active rules and contain each UUID exactly once — omitting an existing rule or repeating a UUID is rejected by the API with a 400; listing a UUID that does not exist returns 404.
 	RuleIds pulumi.StringArrayInput
 }
 
@@ -243,7 +245,7 @@ func (o TagIndexingRuleOrderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagIndexingRuleOrder) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Ordered list of ALL tag indexing rule UUIDs. The server assigns each rule a ruleOrder value (1, 2, 3, ...) corresponding to its position in this list. This resource claims full ownership of evaluation order: rules created outside Terraform (e.g. via the UI) will appear as configuration drift on the next plan. All rules must be listed here; omitting a rule ID will result in a 404 error from the API.
+// Ordered list of EVERY active tag indexing rule UUID in the org. The server assigns each rule a ruleOrder (1, 2, 3, ...) by its position in this list. This resource claims full ownership of the org's evaluation order: rules created outside Terraform (e.g. via the UI) appear as drift on the next plan and must be added here. The list must be the COMPLETE set of active rules and contain each UUID exactly once — omitting an existing rule or repeating a UUID is rejected by the API with a 400; listing a UUID that does not exist returns 404.
 func (o TagIndexingRuleOrderOutput) RuleIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TagIndexingRuleOrder) pulumi.StringArrayOutput { return v.RuleIds }).(pulumi.StringArrayOutput)
 }

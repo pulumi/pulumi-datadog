@@ -13,6 +13,300 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy struct {
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit *int `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
+	SortQuery *PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery `pulumi:"sortQuery"`
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs and PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByInput` via:
+//
+//	PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs{...}
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs struct {
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
+	SortQuery PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrInput `pulumi:"sortQuery"`
+}
+
+func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput)
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArray and PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayInput` via:
+//
+//	PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArray{ PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs{...} }
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArray []PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByInput
+
+func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArray) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArray) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput {
+	return o
+}
+
+// The facet name.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of items in the group.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// A list of exactly one element describing the sort query to use.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput) SortQuery() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy) *PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery {
+		return v.SortQuery
+	}).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy {
+		return vs[0].([]PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy)[vs[1].(int)]
+	}).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order string `pulumi:"order"`
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs and PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryInput` via:
+//
+//	PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs{...}
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order pulumi.StringInput `pulumi:"order"`
+}
+
+func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput)
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput).ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs, PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtr and PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrInput` via:
+//
+//	        PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput
+}
+
+type powerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrType PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs
+
+func PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtr(v *PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrInput {
+	return (*powerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrType)(v)
+}
+
+func (*powerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrType) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrType) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
+	return o.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery) *PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery {
+		return &v
+	}).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery) string {
+		return v.Aggregation
+	}).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Widget sorting methods. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput) Order() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery) string { return v.Order }).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput) Elem() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery
+		return ret
+	}).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Facet
+	}).(pulumi.StringPtrOutput)
+}
+
+// Widget sorting methods. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
 type PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiCompute struct {
 	// The aggregation method.
 	Aggregation string `pulumi:"aggregation"`
@@ -46416,12 +46710,10 @@ func (o TagIndexingRuleOptionsPtrOutput) Version() pulumi.IntPtrOutput {
 }
 
 type TagIndexingRuleOptionsData struct {
-	// Configuration for including dynamically queried tags.
+	// Configuration for excluding tags based on dynamic usage signals. Only applies when `excludeTagsMode` is `true`.
 	DynamicTags *TagIndexingRuleOptionsDataDynamicTags `pulumi:"dynamicTags"`
 	// When true, the rule applies to metrics ingested before the rule was created. Defaults to `true`.
 	ManagePreexistingMetrics *bool `pulumi:"managePreexistingMetrics"`
-	// Criteria for matching metrics based on query state.
-	MetricMatch *TagIndexingRuleOptionsDataMetricMatch `pulumi:"metricMatch"`
 	// When true, this rule's tag list overrides tags configured by earlier rules for the same metric. Defaults to `false`.
 	OverridePreviousRules *bool `pulumi:"overridePreviousRules"`
 }
@@ -46438,12 +46730,10 @@ type TagIndexingRuleOptionsDataInput interface {
 }
 
 type TagIndexingRuleOptionsDataArgs struct {
-	// Configuration for including dynamically queried tags.
+	// Configuration for excluding tags based on dynamic usage signals. Only applies when `excludeTagsMode` is `true`.
 	DynamicTags TagIndexingRuleOptionsDataDynamicTagsPtrInput `pulumi:"dynamicTags"`
 	// When true, the rule applies to metrics ingested before the rule was created. Defaults to `true`.
 	ManagePreexistingMetrics pulumi.BoolPtrInput `pulumi:"managePreexistingMetrics"`
-	// Criteria for matching metrics based on query state.
-	MetricMatch TagIndexingRuleOptionsDataMetricMatchPtrInput `pulumi:"metricMatch"`
 	// When true, this rule's tag list overrides tags configured by earlier rules for the same metric. Defaults to `false`.
 	OverridePreviousRules pulumi.BoolPtrInput `pulumi:"overridePreviousRules"`
 }
@@ -46525,7 +46815,7 @@ func (o TagIndexingRuleOptionsDataOutput) ToTagIndexingRuleOptionsDataPtrOutputW
 	}).(TagIndexingRuleOptionsDataPtrOutput)
 }
 
-// Configuration for including dynamically queried tags.
+// Configuration for excluding tags based on dynamic usage signals. Only applies when `excludeTagsMode` is `true`.
 func (o TagIndexingRuleOptionsDataOutput) DynamicTags() TagIndexingRuleOptionsDataDynamicTagsPtrOutput {
 	return o.ApplyT(func(v TagIndexingRuleOptionsData) *TagIndexingRuleOptionsDataDynamicTags { return v.DynamicTags }).(TagIndexingRuleOptionsDataDynamicTagsPtrOutput)
 }
@@ -46533,11 +46823,6 @@ func (o TagIndexingRuleOptionsDataOutput) DynamicTags() TagIndexingRuleOptionsDa
 // When true, the rule applies to metrics ingested before the rule was created. Defaults to `true`.
 func (o TagIndexingRuleOptionsDataOutput) ManagePreexistingMetrics() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TagIndexingRuleOptionsData) *bool { return v.ManagePreexistingMetrics }).(pulumi.BoolPtrOutput)
-}
-
-// Criteria for matching metrics based on query state.
-func (o TagIndexingRuleOptionsDataOutput) MetricMatch() TagIndexingRuleOptionsDataMetricMatchPtrOutput {
-	return o.ApplyT(func(v TagIndexingRuleOptionsData) *TagIndexingRuleOptionsDataMetricMatch { return v.MetricMatch }).(TagIndexingRuleOptionsDataMetricMatchPtrOutput)
 }
 
 // When true, this rule's tag list overrides tags configured by earlier rules for the same metric. Defaults to `false`.
@@ -46569,7 +46854,7 @@ func (o TagIndexingRuleOptionsDataPtrOutput) Elem() TagIndexingRuleOptionsDataOu
 	}).(TagIndexingRuleOptionsDataOutput)
 }
 
-// Configuration for including dynamically queried tags.
+// Configuration for excluding tags based on dynamic usage signals. Only applies when `excludeTagsMode` is `true`.
 func (o TagIndexingRuleOptionsDataPtrOutput) DynamicTags() TagIndexingRuleOptionsDataDynamicTagsPtrOutput {
 	return o.ApplyT(func(v *TagIndexingRuleOptionsData) *TagIndexingRuleOptionsDataDynamicTags {
 		if v == nil {
@@ -46589,16 +46874,6 @@ func (o TagIndexingRuleOptionsDataPtrOutput) ManagePreexistingMetrics() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Criteria for matching metrics based on query state.
-func (o TagIndexingRuleOptionsDataPtrOutput) MetricMatch() TagIndexingRuleOptionsDataMetricMatchPtrOutput {
-	return o.ApplyT(func(v *TagIndexingRuleOptionsData) *TagIndexingRuleOptionsDataMetricMatch {
-		if v == nil {
-			return nil
-		}
-		return v.MetricMatch
-	}).(TagIndexingRuleOptionsDataMetricMatchPtrOutput)
-}
-
 // When true, this rule's tag list overrides tags configured by earlier rules for the same metric. Defaults to `false`.
 func (o TagIndexingRuleOptionsDataPtrOutput) OverridePreviousRules() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TagIndexingRuleOptionsData) *bool {
@@ -46610,10 +46885,10 @@ func (o TagIndexingRuleOptionsDataPtrOutput) OverridePreviousRules() pulumi.Bool
 }
 
 type TagIndexingRuleOptionsDataDynamicTags struct {
-	// Lookback window for determining which tags were recently queried.
-	QueriedTagsWindowSeconds *int `pulumi:"queriedTagsWindowSeconds"`
-	// When true, tags from related assets are included.
-	RelatedAssetTags *bool `pulumi:"relatedAssetTags"`
+	// Lookback window, in seconds, for excluding tags that were not queried in that period. Requires `excludeTagsMode` to be `true`. Value must be between 1 and 7776000.
+	ExcludeNotQueriedWindowSeconds *int `pulumi:"excludeNotQueriedWindowSeconds"`
+	// When true, excludes tags not used in any dashboards or monitors. Requires `excludeTagsMode` to be `true`.
+	ExcludeNotUsedInAssets *bool `pulumi:"excludeNotUsedInAssets"`
 }
 
 // TagIndexingRuleOptionsDataDynamicTagsInput is an input type that accepts TagIndexingRuleOptionsDataDynamicTagsArgs and TagIndexingRuleOptionsDataDynamicTagsOutput values.
@@ -46628,10 +46903,10 @@ type TagIndexingRuleOptionsDataDynamicTagsInput interface {
 }
 
 type TagIndexingRuleOptionsDataDynamicTagsArgs struct {
-	// Lookback window for determining which tags were recently queried.
-	QueriedTagsWindowSeconds pulumi.IntPtrInput `pulumi:"queriedTagsWindowSeconds"`
-	// When true, tags from related assets are included.
-	RelatedAssetTags pulumi.BoolPtrInput `pulumi:"relatedAssetTags"`
+	// Lookback window, in seconds, for excluding tags that were not queried in that period. Requires `excludeTagsMode` to be `true`. Value must be between 1 and 7776000.
+	ExcludeNotQueriedWindowSeconds pulumi.IntPtrInput `pulumi:"excludeNotQueriedWindowSeconds"`
+	// When true, excludes tags not used in any dashboards or monitors. Requires `excludeTagsMode` to be `true`.
+	ExcludeNotUsedInAssets pulumi.BoolPtrInput `pulumi:"excludeNotUsedInAssets"`
 }
 
 func (TagIndexingRuleOptionsDataDynamicTagsArgs) ElementType() reflect.Type {
@@ -46711,14 +46986,14 @@ func (o TagIndexingRuleOptionsDataDynamicTagsOutput) ToTagIndexingRuleOptionsDat
 	}).(TagIndexingRuleOptionsDataDynamicTagsPtrOutput)
 }
 
-// Lookback window for determining which tags were recently queried.
-func (o TagIndexingRuleOptionsDataDynamicTagsOutput) QueriedTagsWindowSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v TagIndexingRuleOptionsDataDynamicTags) *int { return v.QueriedTagsWindowSeconds }).(pulumi.IntPtrOutput)
+// Lookback window, in seconds, for excluding tags that were not queried in that period. Requires `excludeTagsMode` to be `true`. Value must be between 1 and 7776000.
+func (o TagIndexingRuleOptionsDataDynamicTagsOutput) ExcludeNotQueriedWindowSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TagIndexingRuleOptionsDataDynamicTags) *int { return v.ExcludeNotQueriedWindowSeconds }).(pulumi.IntPtrOutput)
 }
 
-// When true, tags from related assets are included.
-func (o TagIndexingRuleOptionsDataDynamicTagsOutput) RelatedAssetTags() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v TagIndexingRuleOptionsDataDynamicTags) *bool { return v.RelatedAssetTags }).(pulumi.BoolPtrOutput)
+// When true, excludes tags not used in any dashboards or monitors. Requires `excludeTagsMode` to be `true`.
+func (o TagIndexingRuleOptionsDataDynamicTagsOutput) ExcludeNotUsedInAssets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TagIndexingRuleOptionsDataDynamicTags) *bool { return v.ExcludeNotUsedInAssets }).(pulumi.BoolPtrOutput)
 }
 
 type TagIndexingRuleOptionsDataDynamicTagsPtrOutput struct{ *pulumi.OutputState }
@@ -46745,236 +47020,23 @@ func (o TagIndexingRuleOptionsDataDynamicTagsPtrOutput) Elem() TagIndexingRuleOp
 	}).(TagIndexingRuleOptionsDataDynamicTagsOutput)
 }
 
-// Lookback window for determining which tags were recently queried.
-func (o TagIndexingRuleOptionsDataDynamicTagsPtrOutput) QueriedTagsWindowSeconds() pulumi.IntPtrOutput {
+// Lookback window, in seconds, for excluding tags that were not queried in that period. Requires `excludeTagsMode` to be `true`. Value must be between 1 and 7776000.
+func (o TagIndexingRuleOptionsDataDynamicTagsPtrOutput) ExcludeNotQueriedWindowSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TagIndexingRuleOptionsDataDynamicTags) *int {
 		if v == nil {
 			return nil
 		}
-		return v.QueriedTagsWindowSeconds
+		return v.ExcludeNotQueriedWindowSeconds
 	}).(pulumi.IntPtrOutput)
 }
 
-// When true, tags from related assets are included.
-func (o TagIndexingRuleOptionsDataDynamicTagsPtrOutput) RelatedAssetTags() pulumi.BoolPtrOutput {
+// When true, excludes tags not used in any dashboards or monitors. Requires `excludeTagsMode` to be `true`.
+func (o TagIndexingRuleOptionsDataDynamicTagsPtrOutput) ExcludeNotUsedInAssets() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TagIndexingRuleOptionsDataDynamicTags) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.RelatedAssetTags
-	}).(pulumi.BoolPtrOutput)
-}
-
-type TagIndexingRuleOptionsDataMetricMatch struct {
-	// Match metrics that are being queried.
-	IsQueried *bool `pulumi:"isQueried"`
-	// Match metrics that are not being queried.
-	NotQueried *bool `pulumi:"notQueried"`
-	// Match metrics not used in any dashboards or monitors.
-	NotUsedInAssets *bool `pulumi:"notUsedInAssets"`
-	// Window in seconds for evaluating query state.
-	QueriedWindowSeconds *int `pulumi:"queriedWindowSeconds"`
-	// Match metrics used in dashboards or monitors.
-	UsedInAssets *bool `pulumi:"usedInAssets"`
-}
-
-// TagIndexingRuleOptionsDataMetricMatchInput is an input type that accepts TagIndexingRuleOptionsDataMetricMatchArgs and TagIndexingRuleOptionsDataMetricMatchOutput values.
-// You can construct a concrete instance of `TagIndexingRuleOptionsDataMetricMatchInput` via:
-//
-//	TagIndexingRuleOptionsDataMetricMatchArgs{...}
-type TagIndexingRuleOptionsDataMetricMatchInput interface {
-	pulumi.Input
-
-	ToTagIndexingRuleOptionsDataMetricMatchOutput() TagIndexingRuleOptionsDataMetricMatchOutput
-	ToTagIndexingRuleOptionsDataMetricMatchOutputWithContext(context.Context) TagIndexingRuleOptionsDataMetricMatchOutput
-}
-
-type TagIndexingRuleOptionsDataMetricMatchArgs struct {
-	// Match metrics that are being queried.
-	IsQueried pulumi.BoolPtrInput `pulumi:"isQueried"`
-	// Match metrics that are not being queried.
-	NotQueried pulumi.BoolPtrInput `pulumi:"notQueried"`
-	// Match metrics not used in any dashboards or monitors.
-	NotUsedInAssets pulumi.BoolPtrInput `pulumi:"notUsedInAssets"`
-	// Window in seconds for evaluating query state.
-	QueriedWindowSeconds pulumi.IntPtrInput `pulumi:"queriedWindowSeconds"`
-	// Match metrics used in dashboards or monitors.
-	UsedInAssets pulumi.BoolPtrInput `pulumi:"usedInAssets"`
-}
-
-func (TagIndexingRuleOptionsDataMetricMatchArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagIndexingRuleOptionsDataMetricMatch)(nil)).Elem()
-}
-
-func (i TagIndexingRuleOptionsDataMetricMatchArgs) ToTagIndexingRuleOptionsDataMetricMatchOutput() TagIndexingRuleOptionsDataMetricMatchOutput {
-	return i.ToTagIndexingRuleOptionsDataMetricMatchOutputWithContext(context.Background())
-}
-
-func (i TagIndexingRuleOptionsDataMetricMatchArgs) ToTagIndexingRuleOptionsDataMetricMatchOutputWithContext(ctx context.Context) TagIndexingRuleOptionsDataMetricMatchOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagIndexingRuleOptionsDataMetricMatchOutput)
-}
-
-func (i TagIndexingRuleOptionsDataMetricMatchArgs) ToTagIndexingRuleOptionsDataMetricMatchPtrOutput() TagIndexingRuleOptionsDataMetricMatchPtrOutput {
-	return i.ToTagIndexingRuleOptionsDataMetricMatchPtrOutputWithContext(context.Background())
-}
-
-func (i TagIndexingRuleOptionsDataMetricMatchArgs) ToTagIndexingRuleOptionsDataMetricMatchPtrOutputWithContext(ctx context.Context) TagIndexingRuleOptionsDataMetricMatchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagIndexingRuleOptionsDataMetricMatchOutput).ToTagIndexingRuleOptionsDataMetricMatchPtrOutputWithContext(ctx)
-}
-
-// TagIndexingRuleOptionsDataMetricMatchPtrInput is an input type that accepts TagIndexingRuleOptionsDataMetricMatchArgs, TagIndexingRuleOptionsDataMetricMatchPtr and TagIndexingRuleOptionsDataMetricMatchPtrOutput values.
-// You can construct a concrete instance of `TagIndexingRuleOptionsDataMetricMatchPtrInput` via:
-//
-//	        TagIndexingRuleOptionsDataMetricMatchArgs{...}
-//
-//	or:
-//
-//	        nil
-type TagIndexingRuleOptionsDataMetricMatchPtrInput interface {
-	pulumi.Input
-
-	ToTagIndexingRuleOptionsDataMetricMatchPtrOutput() TagIndexingRuleOptionsDataMetricMatchPtrOutput
-	ToTagIndexingRuleOptionsDataMetricMatchPtrOutputWithContext(context.Context) TagIndexingRuleOptionsDataMetricMatchPtrOutput
-}
-
-type tagIndexingRuleOptionsDataMetricMatchPtrType TagIndexingRuleOptionsDataMetricMatchArgs
-
-func TagIndexingRuleOptionsDataMetricMatchPtr(v *TagIndexingRuleOptionsDataMetricMatchArgs) TagIndexingRuleOptionsDataMetricMatchPtrInput {
-	return (*tagIndexingRuleOptionsDataMetricMatchPtrType)(v)
-}
-
-func (*tagIndexingRuleOptionsDataMetricMatchPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TagIndexingRuleOptionsDataMetricMatch)(nil)).Elem()
-}
-
-func (i *tagIndexingRuleOptionsDataMetricMatchPtrType) ToTagIndexingRuleOptionsDataMetricMatchPtrOutput() TagIndexingRuleOptionsDataMetricMatchPtrOutput {
-	return i.ToTagIndexingRuleOptionsDataMetricMatchPtrOutputWithContext(context.Background())
-}
-
-func (i *tagIndexingRuleOptionsDataMetricMatchPtrType) ToTagIndexingRuleOptionsDataMetricMatchPtrOutputWithContext(ctx context.Context) TagIndexingRuleOptionsDataMetricMatchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagIndexingRuleOptionsDataMetricMatchPtrOutput)
-}
-
-type TagIndexingRuleOptionsDataMetricMatchOutput struct{ *pulumi.OutputState }
-
-func (TagIndexingRuleOptionsDataMetricMatchOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagIndexingRuleOptionsDataMetricMatch)(nil)).Elem()
-}
-
-func (o TagIndexingRuleOptionsDataMetricMatchOutput) ToTagIndexingRuleOptionsDataMetricMatchOutput() TagIndexingRuleOptionsDataMetricMatchOutput {
-	return o
-}
-
-func (o TagIndexingRuleOptionsDataMetricMatchOutput) ToTagIndexingRuleOptionsDataMetricMatchOutputWithContext(ctx context.Context) TagIndexingRuleOptionsDataMetricMatchOutput {
-	return o
-}
-
-func (o TagIndexingRuleOptionsDataMetricMatchOutput) ToTagIndexingRuleOptionsDataMetricMatchPtrOutput() TagIndexingRuleOptionsDataMetricMatchPtrOutput {
-	return o.ToTagIndexingRuleOptionsDataMetricMatchPtrOutputWithContext(context.Background())
-}
-
-func (o TagIndexingRuleOptionsDataMetricMatchOutput) ToTagIndexingRuleOptionsDataMetricMatchPtrOutputWithContext(ctx context.Context) TagIndexingRuleOptionsDataMetricMatchPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagIndexingRuleOptionsDataMetricMatch) *TagIndexingRuleOptionsDataMetricMatch {
-		return &v
-	}).(TagIndexingRuleOptionsDataMetricMatchPtrOutput)
-}
-
-// Match metrics that are being queried.
-func (o TagIndexingRuleOptionsDataMetricMatchOutput) IsQueried() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v TagIndexingRuleOptionsDataMetricMatch) *bool { return v.IsQueried }).(pulumi.BoolPtrOutput)
-}
-
-// Match metrics that are not being queried.
-func (o TagIndexingRuleOptionsDataMetricMatchOutput) NotQueried() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v TagIndexingRuleOptionsDataMetricMatch) *bool { return v.NotQueried }).(pulumi.BoolPtrOutput)
-}
-
-// Match metrics not used in any dashboards or monitors.
-func (o TagIndexingRuleOptionsDataMetricMatchOutput) NotUsedInAssets() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v TagIndexingRuleOptionsDataMetricMatch) *bool { return v.NotUsedInAssets }).(pulumi.BoolPtrOutput)
-}
-
-// Window in seconds for evaluating query state.
-func (o TagIndexingRuleOptionsDataMetricMatchOutput) QueriedWindowSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v TagIndexingRuleOptionsDataMetricMatch) *int { return v.QueriedWindowSeconds }).(pulumi.IntPtrOutput)
-}
-
-// Match metrics used in dashboards or monitors.
-func (o TagIndexingRuleOptionsDataMetricMatchOutput) UsedInAssets() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v TagIndexingRuleOptionsDataMetricMatch) *bool { return v.UsedInAssets }).(pulumi.BoolPtrOutput)
-}
-
-type TagIndexingRuleOptionsDataMetricMatchPtrOutput struct{ *pulumi.OutputState }
-
-func (TagIndexingRuleOptionsDataMetricMatchPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TagIndexingRuleOptionsDataMetricMatch)(nil)).Elem()
-}
-
-func (o TagIndexingRuleOptionsDataMetricMatchPtrOutput) ToTagIndexingRuleOptionsDataMetricMatchPtrOutput() TagIndexingRuleOptionsDataMetricMatchPtrOutput {
-	return o
-}
-
-func (o TagIndexingRuleOptionsDataMetricMatchPtrOutput) ToTagIndexingRuleOptionsDataMetricMatchPtrOutputWithContext(ctx context.Context) TagIndexingRuleOptionsDataMetricMatchPtrOutput {
-	return o
-}
-
-func (o TagIndexingRuleOptionsDataMetricMatchPtrOutput) Elem() TagIndexingRuleOptionsDataMetricMatchOutput {
-	return o.ApplyT(func(v *TagIndexingRuleOptionsDataMetricMatch) TagIndexingRuleOptionsDataMetricMatch {
-		if v != nil {
-			return *v
-		}
-		var ret TagIndexingRuleOptionsDataMetricMatch
-		return ret
-	}).(TagIndexingRuleOptionsDataMetricMatchOutput)
-}
-
-// Match metrics that are being queried.
-func (o TagIndexingRuleOptionsDataMetricMatchPtrOutput) IsQueried() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *TagIndexingRuleOptionsDataMetricMatch) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsQueried
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Match metrics that are not being queried.
-func (o TagIndexingRuleOptionsDataMetricMatchPtrOutput) NotQueried() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *TagIndexingRuleOptionsDataMetricMatch) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.NotQueried
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Match metrics not used in any dashboards or monitors.
-func (o TagIndexingRuleOptionsDataMetricMatchPtrOutput) NotUsedInAssets() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *TagIndexingRuleOptionsDataMetricMatch) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.NotUsedInAssets
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Window in seconds for evaluating query state.
-func (o TagIndexingRuleOptionsDataMetricMatchPtrOutput) QueriedWindowSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *TagIndexingRuleOptionsDataMetricMatch) *int {
-		if v == nil {
-			return nil
-		}
-		return v.QueriedWindowSeconds
-	}).(pulumi.IntPtrOutput)
-}
-
-// Match metrics used in dashboards or monitors.
-func (o TagIndexingRuleOptionsDataMetricMatchPtrOutput) UsedInAssets() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *TagIndexingRuleOptionsDataMetricMatch) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.UsedInAssets
+		return v.ExcludeNotUsedInAssets
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -64758,6 +64820,106 @@ func (o GetReferenceTableSchemaFieldArrayOutput) Index(i pulumi.IntInput) GetRef
 	}).(GetReferenceTableSchemaFieldOutput)
 }
 
+type GetRolePermissionsPermission struct {
+	Name         string `pulumi:"name"`
+	PermissionId string `pulumi:"permissionId"`
+}
+
+// GetRolePermissionsPermissionInput is an input type that accepts GetRolePermissionsPermissionArgs and GetRolePermissionsPermissionOutput values.
+// You can construct a concrete instance of `GetRolePermissionsPermissionInput` via:
+//
+//	GetRolePermissionsPermissionArgs{...}
+type GetRolePermissionsPermissionInput interface {
+	pulumi.Input
+
+	ToGetRolePermissionsPermissionOutput() GetRolePermissionsPermissionOutput
+	ToGetRolePermissionsPermissionOutputWithContext(context.Context) GetRolePermissionsPermissionOutput
+}
+
+type GetRolePermissionsPermissionArgs struct {
+	Name         pulumi.StringInput `pulumi:"name"`
+	PermissionId pulumi.StringInput `pulumi:"permissionId"`
+}
+
+func (GetRolePermissionsPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRolePermissionsPermission)(nil)).Elem()
+}
+
+func (i GetRolePermissionsPermissionArgs) ToGetRolePermissionsPermissionOutput() GetRolePermissionsPermissionOutput {
+	return i.ToGetRolePermissionsPermissionOutputWithContext(context.Background())
+}
+
+func (i GetRolePermissionsPermissionArgs) ToGetRolePermissionsPermissionOutputWithContext(ctx context.Context) GetRolePermissionsPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRolePermissionsPermissionOutput)
+}
+
+// GetRolePermissionsPermissionArrayInput is an input type that accepts GetRolePermissionsPermissionArray and GetRolePermissionsPermissionArrayOutput values.
+// You can construct a concrete instance of `GetRolePermissionsPermissionArrayInput` via:
+//
+//	GetRolePermissionsPermissionArray{ GetRolePermissionsPermissionArgs{...} }
+type GetRolePermissionsPermissionArrayInput interface {
+	pulumi.Input
+
+	ToGetRolePermissionsPermissionArrayOutput() GetRolePermissionsPermissionArrayOutput
+	ToGetRolePermissionsPermissionArrayOutputWithContext(context.Context) GetRolePermissionsPermissionArrayOutput
+}
+
+type GetRolePermissionsPermissionArray []GetRolePermissionsPermissionInput
+
+func (GetRolePermissionsPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRolePermissionsPermission)(nil)).Elem()
+}
+
+func (i GetRolePermissionsPermissionArray) ToGetRolePermissionsPermissionArrayOutput() GetRolePermissionsPermissionArrayOutput {
+	return i.ToGetRolePermissionsPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i GetRolePermissionsPermissionArray) ToGetRolePermissionsPermissionArrayOutputWithContext(ctx context.Context) GetRolePermissionsPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRolePermissionsPermissionArrayOutput)
+}
+
+type GetRolePermissionsPermissionOutput struct{ *pulumi.OutputState }
+
+func (GetRolePermissionsPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRolePermissionsPermission)(nil)).Elem()
+}
+
+func (o GetRolePermissionsPermissionOutput) ToGetRolePermissionsPermissionOutput() GetRolePermissionsPermissionOutput {
+	return o
+}
+
+func (o GetRolePermissionsPermissionOutput) ToGetRolePermissionsPermissionOutputWithContext(ctx context.Context) GetRolePermissionsPermissionOutput {
+	return o
+}
+
+func (o GetRolePermissionsPermissionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRolePermissionsPermission) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetRolePermissionsPermissionOutput) PermissionId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRolePermissionsPermission) string { return v.PermissionId }).(pulumi.StringOutput)
+}
+
+type GetRolePermissionsPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRolePermissionsPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRolePermissionsPermission)(nil)).Elem()
+}
+
+func (o GetRolePermissionsPermissionArrayOutput) ToGetRolePermissionsPermissionArrayOutput() GetRolePermissionsPermissionArrayOutput {
+	return o
+}
+
+func (o GetRolePermissionsPermissionArrayOutput) ToGetRolePermissionsPermissionArrayOutputWithContext(ctx context.Context) GetRolePermissionsPermissionArrayOutput {
+	return o
+}
+
+func (o GetRolePermissionsPermissionArrayOutput) Index(i pulumi.IntInput) GetRolePermissionsPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRolePermissionsPermission {
+		return vs[0].([]GetRolePermissionsPermission)[vs[1].(int)]
+	}).(GetRolePermissionsPermissionOutput)
+}
+
 type GetRoleUsersRoleUser struct {
 	RoleId string `pulumi:"roleId"`
 	UserId string `pulumi:"userId"`
@@ -72079,6 +72241,10 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestMetadataInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestMetadataArgs{})
@@ -72600,8 +72766,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TagIndexingRuleOptionsDataPtrInput)(nil)).Elem(), TagIndexingRuleOptionsDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagIndexingRuleOptionsDataDynamicTagsInput)(nil)).Elem(), TagIndexingRuleOptionsDataDynamicTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagIndexingRuleOptionsDataDynamicTagsPtrInput)(nil)).Elem(), TagIndexingRuleOptionsDataDynamicTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TagIndexingRuleOptionsDataMetricMatchInput)(nil)).Elem(), TagIndexingRuleOptionsDataMetricMatchArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TagIndexingRuleOptionsDataMetricMatchPtrInput)(nil)).Elem(), TagIndexingRuleOptionsDataMetricMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagPipelineRulesetRuleInput)(nil)).Elem(), TagPipelineRulesetRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagPipelineRulesetRuleArrayInput)(nil)).Elem(), TagPipelineRulesetRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagPipelineRulesetRuleMappingInput)(nil)).Elem(), TagPipelineRulesetRuleMappingArgs{})
@@ -72857,6 +73021,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReferenceTableSchemaPtrInput)(nil)).Elem(), GetReferenceTableSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReferenceTableSchemaFieldInput)(nil)).Elem(), GetReferenceTableSchemaFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReferenceTableSchemaFieldArrayInput)(nil)).Elem(), GetReferenceTableSchemaFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRolePermissionsPermissionInput)(nil)).Elem(), GetRolePermissionsPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRolePermissionsPermissionArrayInput)(nil)).Elem(), GetRolePermissionsPermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleUsersRoleUserInput)(nil)).Elem(), GetRoleUsersRoleUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleUsersRoleUserArrayInput)(nil)).Elem(), GetRoleUsersRoleUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRolesRoleInput)(nil)).Elem(), GetRolesRoleArgs{})
@@ -72955,6 +73121,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamArrayInput)(nil)).Elem(), GetTeamsTeamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestMetadataOutput{})
@@ -73476,8 +73646,6 @@ func init() {
 	pulumi.RegisterOutputType(TagIndexingRuleOptionsDataPtrOutput{})
 	pulumi.RegisterOutputType(TagIndexingRuleOptionsDataDynamicTagsOutput{})
 	pulumi.RegisterOutputType(TagIndexingRuleOptionsDataDynamicTagsPtrOutput{})
-	pulumi.RegisterOutputType(TagIndexingRuleOptionsDataMetricMatchOutput{})
-	pulumi.RegisterOutputType(TagIndexingRuleOptionsDataMetricMatchPtrOutput{})
 	pulumi.RegisterOutputType(TagPipelineRulesetRuleOutput{})
 	pulumi.RegisterOutputType(TagPipelineRulesetRuleArrayOutput{})
 	pulumi.RegisterOutputType(TagPipelineRulesetRuleMappingOutput{})
@@ -73733,6 +73901,8 @@ func init() {
 	pulumi.RegisterOutputType(GetReferenceTableSchemaPtrOutput{})
 	pulumi.RegisterOutputType(GetReferenceTableSchemaFieldOutput{})
 	pulumi.RegisterOutputType(GetReferenceTableSchemaFieldArrayOutput{})
+	pulumi.RegisterOutputType(GetRolePermissionsPermissionOutput{})
+	pulumi.RegisterOutputType(GetRolePermissionsPermissionArrayOutput{})
 	pulumi.RegisterOutputType(GetRoleUsersRoleUserOutput{})
 	pulumi.RegisterOutputType(GetRoleUsersRoleUserArrayOutput{})
 	pulumi.RegisterOutputType(GetRolesRoleOutput{})

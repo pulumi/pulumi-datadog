@@ -68879,6 +68879,32 @@ export interface IncidentNotificationRuleCondition {
     values: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface IncidentPostmortemTemplateConfluencePostmortemSettings {
+    /**
+     * The ID of the Confluence account, a Datadog connected-account UUID (e.g. `3f9b1c2a-8d4e-4a11-9c2f-0b7e5d6a1f23`).
+     */
+    accountId?: pulumi.Input<string | undefined>;
+    /**
+     * The ID of the parent Confluence page under which postmortems are created: a numeric page ID (e.g. `393217`), not a page path.
+     */
+    parentId?: pulumi.Input<string | undefined>;
+    /**
+     * The Confluence space key (e.g. `ENG`), not a numeric space ID.
+     */
+    spaceId?: pulumi.Input<string | undefined>;
+}
+
+export interface IncidentPostmortemTemplateGoogleDocsPostmortemSettings {
+    /**
+     * The ID of the Google Drive account, a Datadog connected-account UUID (e.g. `a1b2c3d4-e5f6-4789-8abc-1234567890ab`).
+     */
+    accountId?: pulumi.Input<string | undefined>;
+    /**
+     * The Google Drive folder ID where postmortems are created, taken from the folder URL (e.g. `1eCqLAKQqRHt49J2aqQLGUcnPMzGHkt2B`).
+     */
+    parentFolderId?: pulumi.Input<string | undefined>;
+}
+
 export interface IncidentTypeConfiguration {
     /**
      * Whether incidents of this type can be deleted. Defaults to `false`.
@@ -136510,17 +136536,13 @@ export interface TagIndexingRuleOptions {
 
 export interface TagIndexingRuleOptionsData {
     /**
-     * Configuration for including dynamically queried tags.
+     * Configuration for excluding tags based on dynamic usage signals. Only applies when `excludeTagsMode` is `true`.
      */
     dynamicTags?: pulumi.Input<inputs.TagIndexingRuleOptionsDataDynamicTags | undefined>;
     /**
      * When true, the rule applies to metrics ingested before the rule was created. Defaults to `true`.
      */
     managePreexistingMetrics?: pulumi.Input<boolean | undefined>;
-    /**
-     * Criteria for matching metrics based on query state.
-     */
-    metricMatch?: pulumi.Input<inputs.TagIndexingRuleOptionsDataMetricMatch | undefined>;
     /**
      * When true, this rule's tag list overrides tags configured by earlier rules for the same metric. Defaults to `false`.
      */
@@ -136529,36 +136551,13 @@ export interface TagIndexingRuleOptionsData {
 
 export interface TagIndexingRuleOptionsDataDynamicTags {
     /**
-     * Lookback window for determining which tags were recently queried.
+     * Lookback window, in seconds, for excluding tags that were not queried in that period. Requires `excludeTagsMode` to be `true`. Value must be between 1 and 7776000.
      */
-    queriedTagsWindowSeconds?: pulumi.Input<number | undefined>;
+    excludeNotQueriedWindowSeconds?: pulumi.Input<number | undefined>;
     /**
-     * When true, tags from related assets are included.
+     * When true, excludes tags not used in any dashboards or monitors. Requires `excludeTagsMode` to be `true`.
      */
-    relatedAssetTags?: pulumi.Input<boolean | undefined>;
-}
-
-export interface TagIndexingRuleOptionsDataMetricMatch {
-    /**
-     * Match metrics that are being queried.
-     */
-    isQueried?: pulumi.Input<boolean | undefined>;
-    /**
-     * Match metrics that are not being queried.
-     */
-    notQueried?: pulumi.Input<boolean | undefined>;
-    /**
-     * Match metrics not used in any dashboards or monitors.
-     */
-    notUsedInAssets?: pulumi.Input<boolean | undefined>;
-    /**
-     * Window in seconds for evaluating query state.
-     */
-    queriedWindowSeconds?: pulumi.Input<number | undefined>;
-    /**
-     * Match metrics used in dashboards or monitors.
-     */
-    usedInAssets?: pulumi.Input<boolean | undefined>;
+    excludeNotUsedInAssets?: pulumi.Input<boolean | undefined>;
 }
 
 export interface TagPipelineRulesetRule {
