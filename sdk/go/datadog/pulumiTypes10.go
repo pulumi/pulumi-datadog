@@ -13,6 +13,284 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom struct {
+	// Unit label
+	Label string `pulumi:"label"`
+}
+
+// PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomInput is an input type that accepts PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs and PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomInput` via:
+//
+//	PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs{...}
+type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput
+	ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput
+}
+
+type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs struct {
+	// Unit label
+	Label pulumi.StringInput `pulumi:"label"`
+}
+
+func (PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput {
+	return i.ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput)
+}
+
+func (i PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return i.ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput).ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrInput is an input type that accepts PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs, PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtr and PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrInput` via:
+//
+//	        PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput
+	ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput
+}
+
+type powerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrType PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs
+
+func PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtr(v *PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrInput {
+	return (*powerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrType)(v)
+}
+
+func (*powerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrType) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return i.ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrType) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
+}
+
+type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return o.ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom) *PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom {
+		return &v
+	}).(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
+}
+
+// Unit label
+func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom) string {
+		return v.Label
+	}).(pulumi.StringOutput)
+}
+
+type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) Elem() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom
+		return ret
+	}).(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput)
+}
+
+// Unit label
+func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustom) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Label
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale struct {
+	// The name of the unit.
+	UnitName string `pulumi:"unitName"`
+}
+
+// PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleInput is an input type that accepts PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs and PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleInput` via:
+//
+//	PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs{...}
+type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput
+	ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput
+}
+
+type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs struct {
+	// The name of the unit.
+	UnitName pulumi.StringInput `pulumi:"unitName"`
+}
+
+func (PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput {
+	return i.ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput)
+}
+
+func (i PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return i.ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput).ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrInput is an input type that accepts PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs, PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtr and PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrInput` via:
+//
+//	        PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput
+	ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput
+}
+
+type powerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrType PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs
+
+func PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtr(v *PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrInput {
+	return (*powerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrType)(v)
+}
+
+func (*powerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrType) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return i.ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrType) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
+}
+
+type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return o.ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale) *PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale {
+		return &v
+	}).(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
+}
+
+// The name of the unit.
+func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput) UnitName() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale) string {
+		return v.UnitName
+	}).(pulumi.StringOutput)
+}
+
+type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) ToPowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) Elem() PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale) PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale
+		return ret
+	}).(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput)
+}
+
+// The name of the unit.
+func (o PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) UnitName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UnitName
+	}).(pulumi.StringPtrOutput)
+}
+
 type PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyle struct {
 	// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
 	Palette *string `pulumi:"palette"`
@@ -91252,621 +91530,11 @@ func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryMetric
 	}).(pulumi.StringPtrOutput)
 }
 
-type PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery struct {
-	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
-	Aggregator *string `pulumi:"aggregator"`
-	// The source organization UUID for cross organization queries. Feature in Private Beta.
-	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for process queries. Valid values are `process`, `container`.
-	DataSource string `pulumi:"dataSource"`
-	// Whether to normalize the CPU percentages.
-	IsNormalizedCpu *bool `pulumi:"isNormalizedCpu"`
-	// The number of hits to return.
-	Limit *int `pulumi:"limit"`
-	// The process metric name.
-	Metric string `pulumi:"metric"`
-	// The name of query for use in formulas.
-	Name string `pulumi:"name"`
-	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
-	Sort *string `pulumi:"sort"`
-	// An array of tags to filter by.
-	TagFilters []string `pulumi:"tagFilters"`
-	// The text to use as a filter.
-	TextFilter *string `pulumi:"textFilter"`
-}
-
-// PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryInput is an input type that accepts PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs and PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryInput` via:
-//
-//	PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs{...}
-type PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput
-	ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutputWithContext(context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput
-}
-
-type PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs struct {
-	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
-	Aggregator pulumi.StringPtrInput `pulumi:"aggregator"`
-	// The source organization UUID for cross organization queries. Feature in Private Beta.
-	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for process queries. Valid values are `process`, `container`.
-	DataSource pulumi.StringInput `pulumi:"dataSource"`
-	// Whether to normalize the CPU percentages.
-	IsNormalizedCpu pulumi.BoolPtrInput `pulumi:"isNormalizedCpu"`
-	// The number of hits to return.
-	Limit pulumi.IntPtrInput `pulumi:"limit"`
-	// The process metric name.
-	Metric pulumi.StringInput `pulumi:"metric"`
-	// The name of query for use in formulas.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
-	Sort pulumi.StringPtrInput `pulumi:"sort"`
-	// An array of tags to filter by.
-	TagFilters pulumi.StringArrayInput `pulumi:"tagFilters"`
-	// The text to use as a filter.
-	TextFilter pulumi.StringPtrInput `pulumi:"textFilter"`
-}
-
-func (PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput {
-	return i.ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput)
-}
-
-func (i PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput {
-	return i.ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput).ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrInput is an input type that accepts PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs, PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtr and PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrInput` via:
-//
-//	        PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput
-	ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutputWithContext(context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput
-}
-
-type powerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrType PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs
-
-func PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtr(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrInput {
-	return (*powerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrType)(v)
-}
-
-func (*powerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrType) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput {
-	return i.ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrType) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput)
-}
-
-type PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput {
-	return o.ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery {
-		return &v
-	}).(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput)
-}
-
-// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) Aggregator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *string {
-		return v.Aggregator
-	}).(pulumi.StringPtrOutput)
-}
-
-// The source organization UUID for cross organization queries. Feature in Private Beta.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *string {
-		return v.CrossOrgUuids
-	}).(pulumi.StringPtrOutput)
-}
-
-// The data source for process queries. Valid values are `process`, `container`.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) DataSource() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) string {
-		return v.DataSource
-	}).(pulumi.StringOutput)
-}
-
-// Whether to normalize the CPU percentages.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) IsNormalizedCpu() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *bool {
-		return v.IsNormalizedCpu
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The number of hits to return.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *int {
-		return v.Limit
-	}).(pulumi.IntPtrOutput)
-}
-
-// The process metric name.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) Metric() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) string {
-		return v.Metric
-	}).(pulumi.StringOutput)
-}
-
-// The name of query for use in formulas.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) string {
-		return v.Name
-	}).(pulumi.StringOutput)
-}
-
-// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) Sort() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *string {
-		return v.Sort
-	}).(pulumi.StringPtrOutput)
-}
-
-// An array of tags to filter by.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) TagFilters() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) []string {
-		return v.TagFilters
-	}).(pulumi.StringArrayOutput)
-}
-
-// The text to use as a filter.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput) TextFilter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *string {
-		return v.TextFilter
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) Elem() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery
-		return ret
-	}).(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput)
-}
-
-// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) Aggregator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Aggregator
-	}).(pulumi.StringPtrOutput)
-}
-
-// The source organization UUID for cross organization queries. Feature in Private Beta.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CrossOrgUuids
-	}).(pulumi.StringPtrOutput)
-}
-
-// The data source for process queries. Valid values are `process`, `container`.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DataSource
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether to normalize the CPU percentages.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) IsNormalizedCpu() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsNormalizedCpu
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The number of hits to return.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Limit
-	}).(pulumi.IntPtrOutput)
-}
-
-// The process metric name.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) Metric() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Metric
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of query for use in formulas.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) Sort() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Sort
-	}).(pulumi.StringPtrOutput)
-}
-
-// An array of tags to filter by.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) TagFilters() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) []string {
-		if v == nil {
-			return nil
-		}
-		return v.TagFilters
-	}).(pulumi.StringArrayOutput)
-}
-
-// The text to use as a filter.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput) TextFilter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TextFilter
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery struct {
-	// Additional filters applied to the SLO query.
-	AdditionalQueryFilters *string `pulumi:"additionalQueryFilters"`
-	// The source organization UUID for cross organization queries. Feature in Private Beta.
-	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for SLO queries. Valid values are `slo`.
-	DataSource string `pulumi:"dataSource"`
-	// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
-	GroupMode *string `pulumi:"groupMode"`
-	// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
-	Measure string `pulumi:"measure"`
-	// The name of query for use in formulas.
-	Name *string `pulumi:"name"`
-	// ID of an SLO to query measures.
-	SloId string `pulumi:"sloId"`
-	// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
-	SloQueryType *string `pulumi:"sloQueryType"`
-}
-
-// PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryInput is an input type that accepts PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs and PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryInput` via:
-//
-//	PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs{...}
-type PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput
-	ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutputWithContext(context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput
-}
-
-type PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs struct {
-	// Additional filters applied to the SLO query.
-	AdditionalQueryFilters pulumi.StringPtrInput `pulumi:"additionalQueryFilters"`
-	// The source organization UUID for cross organization queries. Feature in Private Beta.
-	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for SLO queries. Valid values are `slo`.
-	DataSource pulumi.StringInput `pulumi:"dataSource"`
-	// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
-	GroupMode pulumi.StringPtrInput `pulumi:"groupMode"`
-	// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
-	Measure pulumi.StringInput `pulumi:"measure"`
-	// The name of query for use in formulas.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// ID of an SLO to query measures.
-	SloId pulumi.StringInput `pulumi:"sloId"`
-	// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
-	SloQueryType pulumi.StringPtrInput `pulumi:"sloQueryType"`
-}
-
-func (PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput {
-	return i.ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput)
-}
-
-func (i PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput {
-	return i.ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput).ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrInput is an input type that accepts PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs, PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtr and PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrInput` via:
-//
-//	        PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput
-	ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutputWithContext(context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput
-}
-
-type powerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrType PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs
-
-func PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtr(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrInput {
-	return (*powerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrType)(v)
-}
-
-func (*powerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrType) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput {
-	return i.ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrType) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput)
-}
-
-type PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput {
-	return o.ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery {
-		return &v
-	}).(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput)
-}
-
-// Additional filters applied to the SLO query.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) AdditionalQueryFilters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
-		return v.AdditionalQueryFilters
-	}).(pulumi.StringPtrOutput)
-}
-
-// The source organization UUID for cross organization queries. Feature in Private Beta.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
-		return v.CrossOrgUuids
-	}).(pulumi.StringPtrOutput)
-}
-
-// The data source for SLO queries. Valid values are `slo`.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) DataSource() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) string {
-		return v.DataSource
-	}).(pulumi.StringOutput)
-}
-
-// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) GroupMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
-		return v.GroupMode
-	}).(pulumi.StringPtrOutput)
-}
-
-// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) Measure() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) string {
-		return v.Measure
-	}).(pulumi.StringOutput)
-}
-
-// The name of query for use in formulas.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// ID of an SLO to query measures.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) SloId() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) string {
-		return v.SloId
-	}).(pulumi.StringOutput)
-}
-
-// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput) SloQueryType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
-		return v.SloQueryType
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput) ToPowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput) Elem() PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery
-		return ret
-	}).(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput)
-}
-
-// Additional filters applied to the SLO query.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput) AdditionalQueryFilters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AdditionalQueryFilters
-	}).(pulumi.StringPtrOutput)
-}
-
-// The source organization UUID for cross organization queries. Feature in Private Beta.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CrossOrgUuids
-	}).(pulumi.StringPtrOutput)
-}
-
-// The data source for SLO queries. Valid values are `slo`.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DataSource
-	}).(pulumi.StringPtrOutput)
-}
-
-// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput) GroupMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.GroupMode
-	}).(pulumi.StringPtrOutput)
-}
-
-// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput) Measure() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Measure
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of query for use in formulas.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// ID of an SLO to query measures.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput) SloId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SloId
-	}).(pulumi.StringPtrOutput)
-}
-
-// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
-func (o PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput) SloQueryType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SloQueryType
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyleInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStylePtrInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryArgs{})
@@ -92859,10 +92527,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearchPtrInput)(nil)).Elem(), PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQueryInput)(nil)).Elem(), PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryInput)(nil)).Elem(), PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryInput)(nil)).Elem(), PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyleOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStylePtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryOutput{})
@@ -93855,8 +93523,4 @@ func init() {
 	pulumi.RegisterOutputType(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearchPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQueryOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQueryPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryPtrOutput{})
 }

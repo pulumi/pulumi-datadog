@@ -349,6 +349,32 @@ class TagIndexingRule(pulumi.CustomResource):
             })
         ```
 
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        exclude_example = datadog.TagIndexingRule("exclude_example",
+            name="Exclude unused tags from all web metrics",
+            metric_name_matches=[
+                "web.*",
+                "http.*",
+            ],
+            tags=[
+                "debug_id",
+                "internal_trace_id",
+            ],
+            exclude_tags_mode=True,
+            options={
+                "version": 1,
+                "data": {
+                    "dynamic_tags": {
+                        "exclude_not_queried_window_seconds": 604800,
+                        "exclude_not_used_in_assets": True,
+                    },
+                },
+            })
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -391,6 +417,32 @@ class TagIndexingRule(pulumi.CustomResource):
                 "data": {
                     "manage_preexisting_metrics": True,
                     "override_previous_rules": False,
+                },
+            })
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        exclude_example = datadog.TagIndexingRule("exclude_example",
+            name="Exclude unused tags from all web metrics",
+            metric_name_matches=[
+                "web.*",
+                "http.*",
+            ],
+            tags=[
+                "debug_id",
+                "internal_trace_id",
+            ],
+            exclude_tags_mode=True,
+            options={
+                "version": 1,
+                "data": {
+                    "dynamic_tags": {
+                        "exclude_not_queried_window_seconds": 604800,
+                        "exclude_not_used_in_assets": True,
+                    },
                 },
             })
         ```

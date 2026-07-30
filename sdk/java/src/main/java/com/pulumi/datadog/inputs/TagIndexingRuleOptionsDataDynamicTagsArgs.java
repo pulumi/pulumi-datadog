@@ -17,40 +17,40 @@ public final class TagIndexingRuleOptionsDataDynamicTagsArgs extends com.pulumi.
     public static final TagIndexingRuleOptionsDataDynamicTagsArgs Empty = new TagIndexingRuleOptionsDataDynamicTagsArgs();
 
     /**
-     * Lookback window for determining which tags were recently queried.
+     * Lookback window, in seconds, for excluding tags that were not queried in that period. Requires `excludeTagsMode` to be `true`. Value must be between 1 and 7776000.
      * 
      */
-    @Import(name="queriedTagsWindowSeconds")
-    private @Nullable Output<Integer> queriedTagsWindowSeconds;
+    @Import(name="excludeNotQueriedWindowSeconds")
+    private @Nullable Output<Integer> excludeNotQueriedWindowSeconds;
 
     /**
-     * @return Lookback window for determining which tags were recently queried.
+     * @return Lookback window, in seconds, for excluding tags that were not queried in that period. Requires `excludeTagsMode` to be `true`. Value must be between 1 and 7776000.
      * 
      */
-    public Optional<Output<Integer>> queriedTagsWindowSeconds() {
-        return Optional.ofNullable(this.queriedTagsWindowSeconds);
+    public Optional<Output<Integer>> excludeNotQueriedWindowSeconds() {
+        return Optional.ofNullable(this.excludeNotQueriedWindowSeconds);
     }
 
     /**
-     * When true, tags from related assets are included.
+     * When true, excludes tags not used in any dashboards or monitors. Requires `excludeTagsMode` to be `true`.
      * 
      */
-    @Import(name="relatedAssetTags")
-    private @Nullable Output<Boolean> relatedAssetTags;
+    @Import(name="excludeNotUsedInAssets")
+    private @Nullable Output<Boolean> excludeNotUsedInAssets;
 
     /**
-     * @return When true, tags from related assets are included.
+     * @return When true, excludes tags not used in any dashboards or monitors. Requires `excludeTagsMode` to be `true`.
      * 
      */
-    public Optional<Output<Boolean>> relatedAssetTags() {
-        return Optional.ofNullable(this.relatedAssetTags);
+    public Optional<Output<Boolean>> excludeNotUsedInAssets() {
+        return Optional.ofNullable(this.excludeNotUsedInAssets);
     }
 
     private TagIndexingRuleOptionsDataDynamicTagsArgs() {}
 
     private TagIndexingRuleOptionsDataDynamicTagsArgs(TagIndexingRuleOptionsDataDynamicTagsArgs $) {
-        this.queriedTagsWindowSeconds = $.queriedTagsWindowSeconds;
-        this.relatedAssetTags = $.relatedAssetTags;
+        this.excludeNotQueriedWindowSeconds = $.excludeNotQueriedWindowSeconds;
+        this.excludeNotUsedInAssets = $.excludeNotUsedInAssets;
     }
 
     public static Builder builder() {
@@ -72,45 +72,45 @@ public final class TagIndexingRuleOptionsDataDynamicTagsArgs extends com.pulumi.
         }
 
         /**
-         * @param queriedTagsWindowSeconds Lookback window for determining which tags were recently queried.
+         * @param excludeNotQueriedWindowSeconds Lookback window, in seconds, for excluding tags that were not queried in that period. Requires `excludeTagsMode` to be `true`. Value must be between 1 and 7776000.
          * 
          * @return builder
          * 
          */
-        public Builder queriedTagsWindowSeconds(@Nullable Output<Integer> queriedTagsWindowSeconds) {
-            $.queriedTagsWindowSeconds = queriedTagsWindowSeconds;
+        public Builder excludeNotQueriedWindowSeconds(@Nullable Output<Integer> excludeNotQueriedWindowSeconds) {
+            $.excludeNotQueriedWindowSeconds = excludeNotQueriedWindowSeconds;
             return this;
         }
 
         /**
-         * @param queriedTagsWindowSeconds Lookback window for determining which tags were recently queried.
+         * @param excludeNotQueriedWindowSeconds Lookback window, in seconds, for excluding tags that were not queried in that period. Requires `excludeTagsMode` to be `true`. Value must be between 1 and 7776000.
          * 
          * @return builder
          * 
          */
-        public Builder queriedTagsWindowSeconds(Integer queriedTagsWindowSeconds) {
-            return queriedTagsWindowSeconds(Output.of(queriedTagsWindowSeconds));
+        public Builder excludeNotQueriedWindowSeconds(Integer excludeNotQueriedWindowSeconds) {
+            return excludeNotQueriedWindowSeconds(Output.of(excludeNotQueriedWindowSeconds));
         }
 
         /**
-         * @param relatedAssetTags When true, tags from related assets are included.
+         * @param excludeNotUsedInAssets When true, excludes tags not used in any dashboards or monitors. Requires `excludeTagsMode` to be `true`.
          * 
          * @return builder
          * 
          */
-        public Builder relatedAssetTags(@Nullable Output<Boolean> relatedAssetTags) {
-            $.relatedAssetTags = relatedAssetTags;
+        public Builder excludeNotUsedInAssets(@Nullable Output<Boolean> excludeNotUsedInAssets) {
+            $.excludeNotUsedInAssets = excludeNotUsedInAssets;
             return this;
         }
 
         /**
-         * @param relatedAssetTags When true, tags from related assets are included.
+         * @param excludeNotUsedInAssets When true, excludes tags not used in any dashboards or monitors. Requires `excludeTagsMode` to be `true`.
          * 
          * @return builder
          * 
          */
-        public Builder relatedAssetTags(Boolean relatedAssetTags) {
-            return relatedAssetTags(Output.of(relatedAssetTags));
+        public Builder excludeNotUsedInAssets(Boolean excludeNotUsedInAssets) {
+            return excludeNotUsedInAssets(Output.of(excludeNotUsedInAssets));
         }
 
         public TagIndexingRuleOptionsDataDynamicTagsArgs build() {

@@ -77,7 +77,7 @@ namespace Pulumi.Datadog
         public Output<int?> StatsdInterval { get; private set; } = null!;
 
         /// <summary>
-        /// Metric type such as `Count`, `Gauge`, or `Rate`. Updating a metric of type `Distribution` is not supported. If you would like to see the `Distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
+        /// Metric type such as `Count`, `Distribution`, `Gauge`, or `Rate`.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Datadog
         public Input<int>? StatsdInterval { get; set; }
 
         /// <summary>
-        /// Metric type such as `Count`, `Gauge`, or `Rate`. Updating a metric of type `Distribution` is not supported. If you would like to see the `Distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
+        /// Metric type such as `Count`, `Distribution`, `Gauge`, or `Rate`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -215,7 +215,7 @@ namespace Pulumi.Datadog
         public Input<int>? StatsdInterval { get; set; }
 
         /// <summary>
-        /// Metric type such as `Count`, `Gauge`, or `Rate`. Updating a metric of type `Distribution` is not supported. If you would like to see the `Distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
+        /// Metric type such as `Count`, `Distribution`, `Gauge`, or `Rate`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

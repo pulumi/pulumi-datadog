@@ -90,6 +90,7 @@ from .get_powerpack import *
 from .get_reference_table import *
 from .get_reference_table_rows import *
 from .get_role import *
+from .get_role_permissions import *
 from .get_role_users import *
 from .get_roles import *
 from .get_rum_application import *
@@ -120,6 +121,7 @@ from .get_users import *
 from .get_workflow_automation import *
 from .incident_notification_rule import *
 from .incident_notification_template import *
+from .incident_postmortem_template import *
 from .incident_type import *
 from .incident_user_defined_field import *
 from .incident_user_defined_role import *
@@ -676,6 +678,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate": "IncidentNotificationTemplate"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/incidentPostmortemTemplate",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/incidentPostmortemTemplate:IncidentPostmortemTemplate": "IncidentPostmortemTemplate"
   }
  },
  {

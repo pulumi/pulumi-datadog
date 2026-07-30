@@ -14,22 +14,22 @@ namespace Pulumi.Datadog.Outputs
     public sealed class TagIndexingRuleOptionsDataDynamicTags
     {
         /// <summary>
-        /// Lookback window for determining which tags were recently queried.
+        /// Lookback window, in seconds, for excluding tags that were not queried in that period. Requires `ExcludeTagsMode` to be `True`. Value must be between 1 and 7776000.
         /// </summary>
-        public readonly int? QueriedTagsWindowSeconds;
+        public readonly int? ExcludeNotQueriedWindowSeconds;
         /// <summary>
-        /// When true, tags from related assets are included.
+        /// When true, excludes tags not used in any dashboards or monitors. Requires `ExcludeTagsMode` to be `True`.
         /// </summary>
-        public readonly bool? RelatedAssetTags;
+        public readonly bool? ExcludeNotUsedInAssets;
 
         [OutputConstructor]
         private TagIndexingRuleOptionsDataDynamicTags(
-            int? queriedTagsWindowSeconds,
+            int? excludeNotQueriedWindowSeconds,
 
-            bool? relatedAssetTags)
+            bool? excludeNotUsedInAssets)
         {
-            QueriedTagsWindowSeconds = queriedTagsWindowSeconds;
-            RelatedAssetTags = relatedAssetTags;
+            ExcludeNotQueriedWindowSeconds = excludeNotQueriedWindowSeconds;
+            ExcludeNotUsedInAssets = excludeNotUsedInAssets;
         }
     }
 }

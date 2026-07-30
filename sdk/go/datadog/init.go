@@ -103,6 +103,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IncidentNotificationRule{}
 	case "datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate":
 		r = &IncidentNotificationTemplate{}
+	case "datadog:index/incidentPostmortemTemplate:IncidentPostmortemTemplate":
+		r = &IncidentPostmortemTemplate{}
 	case "datadog:index/incidentType:IncidentType":
 		r = &IncidentType{}
 	case "datadog:index/incidentUserDefinedField:IncidentUserDefinedField":
@@ -517,6 +519,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/incidentNotificationTemplate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/incidentPostmortemTemplate",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

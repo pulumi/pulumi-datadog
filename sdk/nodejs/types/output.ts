@@ -67863,6 +67863,11 @@ export interface GetReferenceTableSchemaField {
     type: string;
 }
 
+export interface GetRolePermissionsPermission {
+    name: string;
+    permissionId: string;
+}
+
 export interface GetRoleUsersRoleUser {
     roleId: string;
     userId: string;
@@ -68710,6 +68715,32 @@ export interface IncidentNotificationRuleCondition {
      * The value(s) to compare against. Multiple values are ORed together.
      */
     values: string[];
+}
+
+export interface IncidentPostmortemTemplateConfluencePostmortemSettings {
+    /**
+     * The ID of the Confluence account, a Datadog connected-account UUID (e.g. `3f9b1c2a-8d4e-4a11-9c2f-0b7e5d6a1f23`).
+     */
+    accountId?: string;
+    /**
+     * The ID of the parent Confluence page under which postmortems are created: a numeric page ID (e.g. `393217`), not a page path.
+     */
+    parentId?: string;
+    /**
+     * The Confluence space key (e.g. `ENG`), not a numeric space ID.
+     */
+    spaceId?: string;
+}
+
+export interface IncidentPostmortemTemplateGoogleDocsPostmortemSettings {
+    /**
+     * The ID of the Google Drive account, a Datadog connected-account UUID (e.g. `a1b2c3d4-e5f6-4789-8abc-1234567890ab`).
+     */
+    accountId?: string;
+    /**
+     * The Google Drive folder ID where postmortems are created, taken from the folder URL (e.g. `1eCqLAKQqRHt49J2aqQLGUcnPMzGHkt2B`).
+     */
+    parentFolderId?: string;
 }
 
 export interface IncidentTypeConfiguration {
@@ -136336,17 +136367,13 @@ export interface TagIndexingRuleOptions {
 
 export interface TagIndexingRuleOptionsData {
     /**
-     * Configuration for including dynamically queried tags.
+     * Configuration for excluding tags based on dynamic usage signals. Only applies when `excludeTagsMode` is `true`.
      */
     dynamicTags?: outputs.TagIndexingRuleOptionsDataDynamicTags;
     /**
      * When true, the rule applies to metrics ingested before the rule was created. Defaults to `true`.
      */
     managePreexistingMetrics: boolean;
-    /**
-     * Criteria for matching metrics based on query state.
-     */
-    metricMatch?: outputs.TagIndexingRuleOptionsDataMetricMatch;
     /**
      * When true, this rule's tag list overrides tags configured by earlier rules for the same metric. Defaults to `false`.
      */
@@ -136355,36 +136382,13 @@ export interface TagIndexingRuleOptionsData {
 
 export interface TagIndexingRuleOptionsDataDynamicTags {
     /**
-     * Lookback window for determining which tags were recently queried.
+     * Lookback window, in seconds, for excluding tags that were not queried in that period. Requires `excludeTagsMode` to be `true`. Value must be between 1 and 7776000.
      */
-    queriedTagsWindowSeconds?: number;
+    excludeNotQueriedWindowSeconds?: number;
     /**
-     * When true, tags from related assets are included.
+     * When true, excludes tags not used in any dashboards or monitors. Requires `excludeTagsMode` to be `true`.
      */
-    relatedAssetTags?: boolean;
-}
-
-export interface TagIndexingRuleOptionsDataMetricMatch {
-    /**
-     * Match metrics that are being queried.
-     */
-    isQueried?: boolean;
-    /**
-     * Match metrics that are not being queried.
-     */
-    notQueried?: boolean;
-    /**
-     * Match metrics not used in any dashboards or monitors.
-     */
-    notUsedInAssets?: boolean;
-    /**
-     * Window in seconds for evaluating query state.
-     */
-    queriedWindowSeconds?: number;
-    /**
-     * Match metrics used in dashboards or monitors.
-     */
-    usedInAssets?: boolean;
+    excludeNotUsedInAssets?: boolean;
 }
 
 export interface TagPipelineRulesetRule {

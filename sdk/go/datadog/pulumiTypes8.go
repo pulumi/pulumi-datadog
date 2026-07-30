@@ -13,6 +13,415 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type PowerpackV2WidgetFunnelDefinition struct {
+	// The description of the widget.
+	Description *string `pulumi:"description"`
+	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+	HideIncompleteCostData *bool `pulumi:"hideIncompleteCostData"`
+	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+	LiveSpan *string `pulumi:"liveSpan"`
+	// A nested block describing the request to use when displaying the widget. Only one `request` block is allowed.
+	Request *PowerpackV2WidgetFunnelDefinitionRequest `pulumi:"request"`
+	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+	Time *PowerpackV2WidgetFunnelDefinitionTime `pulumi:"time"`
+	// The title of the widget.
+	Title *string `pulumi:"title"`
+	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+	TitleAlign *string `pulumi:"titleAlign"`
+	// The size of the widget's title (defaults to 16).
+	TitleSize *string `pulumi:"titleSize"`
+}
+
+// PowerpackV2WidgetFunnelDefinitionInput is an input type that accepts PowerpackV2WidgetFunnelDefinitionArgs and PowerpackV2WidgetFunnelDefinitionOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetFunnelDefinitionInput` via:
+//
+//	PowerpackV2WidgetFunnelDefinitionArgs{...}
+type PowerpackV2WidgetFunnelDefinitionInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetFunnelDefinitionOutput() PowerpackV2WidgetFunnelDefinitionOutput
+	ToPowerpackV2WidgetFunnelDefinitionOutputWithContext(context.Context) PowerpackV2WidgetFunnelDefinitionOutput
+}
+
+type PowerpackV2WidgetFunnelDefinitionArgs struct {
+	// The description of the widget.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+	HideIncompleteCostData pulumi.BoolPtrInput `pulumi:"hideIncompleteCostData"`
+	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+	LiveSpan pulumi.StringPtrInput `pulumi:"liveSpan"`
+	// A nested block describing the request to use when displaying the widget. Only one `request` block is allowed.
+	Request PowerpackV2WidgetFunnelDefinitionRequestPtrInput `pulumi:"request"`
+	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+	Time PowerpackV2WidgetFunnelDefinitionTimePtrInput `pulumi:"time"`
+	// The title of the widget.
+	Title pulumi.StringPtrInput `pulumi:"title"`
+	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
+	// The size of the widget's title (defaults to 16).
+	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
+}
+
+func (PowerpackV2WidgetFunnelDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetFunnelDefinition)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetFunnelDefinitionArgs) ToPowerpackV2WidgetFunnelDefinitionOutput() PowerpackV2WidgetFunnelDefinitionOutput {
+	return i.ToPowerpackV2WidgetFunnelDefinitionOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetFunnelDefinitionArgs) ToPowerpackV2WidgetFunnelDefinitionOutputWithContext(ctx context.Context) PowerpackV2WidgetFunnelDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetFunnelDefinitionOutput)
+}
+
+func (i PowerpackV2WidgetFunnelDefinitionArgs) ToPowerpackV2WidgetFunnelDefinitionPtrOutput() PowerpackV2WidgetFunnelDefinitionPtrOutput {
+	return i.ToPowerpackV2WidgetFunnelDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetFunnelDefinitionArgs) ToPowerpackV2WidgetFunnelDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetFunnelDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetFunnelDefinitionOutput).ToPowerpackV2WidgetFunnelDefinitionPtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetFunnelDefinitionPtrInput is an input type that accepts PowerpackV2WidgetFunnelDefinitionArgs, PowerpackV2WidgetFunnelDefinitionPtr and PowerpackV2WidgetFunnelDefinitionPtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetFunnelDefinitionPtrInput` via:
+//
+//	        PowerpackV2WidgetFunnelDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetFunnelDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetFunnelDefinitionPtrOutput() PowerpackV2WidgetFunnelDefinitionPtrOutput
+	ToPowerpackV2WidgetFunnelDefinitionPtrOutputWithContext(context.Context) PowerpackV2WidgetFunnelDefinitionPtrOutput
+}
+
+type powerpackV2WidgetFunnelDefinitionPtrType PowerpackV2WidgetFunnelDefinitionArgs
+
+func PowerpackV2WidgetFunnelDefinitionPtr(v *PowerpackV2WidgetFunnelDefinitionArgs) PowerpackV2WidgetFunnelDefinitionPtrInput {
+	return (*powerpackV2WidgetFunnelDefinitionPtrType)(v)
+}
+
+func (*powerpackV2WidgetFunnelDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetFunnelDefinition)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetFunnelDefinitionPtrType) ToPowerpackV2WidgetFunnelDefinitionPtrOutput() PowerpackV2WidgetFunnelDefinitionPtrOutput {
+	return i.ToPowerpackV2WidgetFunnelDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetFunnelDefinitionPtrType) ToPowerpackV2WidgetFunnelDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetFunnelDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetFunnelDefinitionPtrOutput)
+}
+
+type PowerpackV2WidgetFunnelDefinitionOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetFunnelDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetFunnelDefinition)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetFunnelDefinitionOutput) ToPowerpackV2WidgetFunnelDefinitionOutput() PowerpackV2WidgetFunnelDefinitionOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetFunnelDefinitionOutput) ToPowerpackV2WidgetFunnelDefinitionOutputWithContext(ctx context.Context) PowerpackV2WidgetFunnelDefinitionOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetFunnelDefinitionOutput) ToPowerpackV2WidgetFunnelDefinitionPtrOutput() PowerpackV2WidgetFunnelDefinitionPtrOutput {
+	return o.ToPowerpackV2WidgetFunnelDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetFunnelDefinitionOutput) ToPowerpackV2WidgetFunnelDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetFunnelDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetFunnelDefinition) *PowerpackV2WidgetFunnelDefinition {
+		return &v
+	}).(PowerpackV2WidgetFunnelDefinitionPtrOutput)
+}
+
+// The description of the widget.
+func (o PowerpackV2WidgetFunnelDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetFunnelDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+func (o PowerpackV2WidgetFunnelDefinitionOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetFunnelDefinition) *bool { return v.HideIncompleteCostData }).(pulumi.BoolPtrOutput)
+}
+
+// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+func (o PowerpackV2WidgetFunnelDefinitionOutput) LiveSpan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetFunnelDefinition) *string { return v.LiveSpan }).(pulumi.StringPtrOutput)
+}
+
+// A nested block describing the request to use when displaying the widget. Only one `request` block is allowed.
+func (o PowerpackV2WidgetFunnelDefinitionOutput) Request() PowerpackV2WidgetFunnelDefinitionRequestPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetFunnelDefinition) *PowerpackV2WidgetFunnelDefinitionRequest { return v.Request }).(PowerpackV2WidgetFunnelDefinitionRequestPtrOutput)
+}
+
+// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+func (o PowerpackV2WidgetFunnelDefinitionOutput) Time() PowerpackV2WidgetFunnelDefinitionTimePtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetFunnelDefinition) *PowerpackV2WidgetFunnelDefinitionTime { return v.Time }).(PowerpackV2WidgetFunnelDefinitionTimePtrOutput)
+}
+
+// The title of the widget.
+func (o PowerpackV2WidgetFunnelDefinitionOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetFunnelDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+func (o PowerpackV2WidgetFunnelDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetFunnelDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
+}
+
+// The size of the widget's title (defaults to 16).
+func (o PowerpackV2WidgetFunnelDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetFunnelDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackV2WidgetFunnelDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetFunnelDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetFunnelDefinition)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetFunnelDefinitionPtrOutput) ToPowerpackV2WidgetFunnelDefinitionPtrOutput() PowerpackV2WidgetFunnelDefinitionPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetFunnelDefinitionPtrOutput) ToPowerpackV2WidgetFunnelDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetFunnelDefinitionPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetFunnelDefinitionPtrOutput) Elem() PowerpackV2WidgetFunnelDefinitionOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetFunnelDefinition) PowerpackV2WidgetFunnelDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetFunnelDefinition
+		return ret
+	}).(PowerpackV2WidgetFunnelDefinitionOutput)
+}
+
+// The description of the widget.
+func (o PowerpackV2WidgetFunnelDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetFunnelDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+func (o PowerpackV2WidgetFunnelDefinitionPtrOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetFunnelDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.HideIncompleteCostData
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+func (o PowerpackV2WidgetFunnelDefinitionPtrOutput) LiveSpan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetFunnelDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LiveSpan
+	}).(pulumi.StringPtrOutput)
+}
+
+// A nested block describing the request to use when displaying the widget. Only one `request` block is allowed.
+func (o PowerpackV2WidgetFunnelDefinitionPtrOutput) Request() PowerpackV2WidgetFunnelDefinitionRequestPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetFunnelDefinition) *PowerpackV2WidgetFunnelDefinitionRequest {
+		if v == nil {
+			return nil
+		}
+		return v.Request
+	}).(PowerpackV2WidgetFunnelDefinitionRequestPtrOutput)
+}
+
+// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+func (o PowerpackV2WidgetFunnelDefinitionPtrOutput) Time() PowerpackV2WidgetFunnelDefinitionTimePtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetFunnelDefinition) *PowerpackV2WidgetFunnelDefinitionTime {
+		if v == nil {
+			return nil
+		}
+		return v.Time
+	}).(PowerpackV2WidgetFunnelDefinitionTimePtrOutput)
+}
+
+// The title of the widget.
+func (o PowerpackV2WidgetFunnelDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetFunnelDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(pulumi.StringPtrOutput)
+}
+
+// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+func (o PowerpackV2WidgetFunnelDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetFunnelDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TitleAlign
+	}).(pulumi.StringPtrOutput)
+}
+
+// The size of the widget's title (defaults to 16).
+func (o PowerpackV2WidgetFunnelDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetFunnelDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TitleSize
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackV2WidgetFunnelDefinitionRequest struct {
+	// The query for the funnel widget request.
+	Query PowerpackV2WidgetFunnelDefinitionRequestQuery `pulumi:"query"`
+}
+
+// PowerpackV2WidgetFunnelDefinitionRequestInput is an input type that accepts PowerpackV2WidgetFunnelDefinitionRequestArgs and PowerpackV2WidgetFunnelDefinitionRequestOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetFunnelDefinitionRequestInput` via:
+//
+//	PowerpackV2WidgetFunnelDefinitionRequestArgs{...}
+type PowerpackV2WidgetFunnelDefinitionRequestInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetFunnelDefinitionRequestOutput() PowerpackV2WidgetFunnelDefinitionRequestOutput
+	ToPowerpackV2WidgetFunnelDefinitionRequestOutputWithContext(context.Context) PowerpackV2WidgetFunnelDefinitionRequestOutput
+}
+
+type PowerpackV2WidgetFunnelDefinitionRequestArgs struct {
+	// The query for the funnel widget request.
+	Query PowerpackV2WidgetFunnelDefinitionRequestQueryInput `pulumi:"query"`
+}
+
+func (PowerpackV2WidgetFunnelDefinitionRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetFunnelDefinitionRequest)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetFunnelDefinitionRequestArgs) ToPowerpackV2WidgetFunnelDefinitionRequestOutput() PowerpackV2WidgetFunnelDefinitionRequestOutput {
+	return i.ToPowerpackV2WidgetFunnelDefinitionRequestOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetFunnelDefinitionRequestArgs) ToPowerpackV2WidgetFunnelDefinitionRequestOutputWithContext(ctx context.Context) PowerpackV2WidgetFunnelDefinitionRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetFunnelDefinitionRequestOutput)
+}
+
+func (i PowerpackV2WidgetFunnelDefinitionRequestArgs) ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutput() PowerpackV2WidgetFunnelDefinitionRequestPtrOutput {
+	return i.ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetFunnelDefinitionRequestArgs) ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetFunnelDefinitionRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetFunnelDefinitionRequestOutput).ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetFunnelDefinitionRequestPtrInput is an input type that accepts PowerpackV2WidgetFunnelDefinitionRequestArgs, PowerpackV2WidgetFunnelDefinitionRequestPtr and PowerpackV2WidgetFunnelDefinitionRequestPtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetFunnelDefinitionRequestPtrInput` via:
+//
+//	        PowerpackV2WidgetFunnelDefinitionRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetFunnelDefinitionRequestPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutput() PowerpackV2WidgetFunnelDefinitionRequestPtrOutput
+	ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutputWithContext(context.Context) PowerpackV2WidgetFunnelDefinitionRequestPtrOutput
+}
+
+type powerpackV2WidgetFunnelDefinitionRequestPtrType PowerpackV2WidgetFunnelDefinitionRequestArgs
+
+func PowerpackV2WidgetFunnelDefinitionRequestPtr(v *PowerpackV2WidgetFunnelDefinitionRequestArgs) PowerpackV2WidgetFunnelDefinitionRequestPtrInput {
+	return (*powerpackV2WidgetFunnelDefinitionRequestPtrType)(v)
+}
+
+func (*powerpackV2WidgetFunnelDefinitionRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetFunnelDefinitionRequest)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetFunnelDefinitionRequestPtrType) ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutput() PowerpackV2WidgetFunnelDefinitionRequestPtrOutput {
+	return i.ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetFunnelDefinitionRequestPtrType) ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetFunnelDefinitionRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetFunnelDefinitionRequestPtrOutput)
+}
+
+type PowerpackV2WidgetFunnelDefinitionRequestOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetFunnelDefinitionRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetFunnelDefinitionRequest)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetFunnelDefinitionRequestOutput) ToPowerpackV2WidgetFunnelDefinitionRequestOutput() PowerpackV2WidgetFunnelDefinitionRequestOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetFunnelDefinitionRequestOutput) ToPowerpackV2WidgetFunnelDefinitionRequestOutputWithContext(ctx context.Context) PowerpackV2WidgetFunnelDefinitionRequestOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetFunnelDefinitionRequestOutput) ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutput() PowerpackV2WidgetFunnelDefinitionRequestPtrOutput {
+	return o.ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetFunnelDefinitionRequestOutput) ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetFunnelDefinitionRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetFunnelDefinitionRequest) *PowerpackV2WidgetFunnelDefinitionRequest {
+		return &v
+	}).(PowerpackV2WidgetFunnelDefinitionRequestPtrOutput)
+}
+
+// The query for the funnel widget request.
+func (o PowerpackV2WidgetFunnelDefinitionRequestOutput) Query() PowerpackV2WidgetFunnelDefinitionRequestQueryOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetFunnelDefinitionRequest) PowerpackV2WidgetFunnelDefinitionRequestQuery {
+		return v.Query
+	}).(PowerpackV2WidgetFunnelDefinitionRequestQueryOutput)
+}
+
+type PowerpackV2WidgetFunnelDefinitionRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetFunnelDefinitionRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetFunnelDefinitionRequest)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetFunnelDefinitionRequestPtrOutput) ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutput() PowerpackV2WidgetFunnelDefinitionRequestPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetFunnelDefinitionRequestPtrOutput) ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetFunnelDefinitionRequestPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetFunnelDefinitionRequestPtrOutput) Elem() PowerpackV2WidgetFunnelDefinitionRequestOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetFunnelDefinitionRequest) PowerpackV2WidgetFunnelDefinitionRequest {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetFunnelDefinitionRequest
+		return ret
+	}).(PowerpackV2WidgetFunnelDefinitionRequestOutput)
+}
+
+// The query for the funnel widget request.
+func (o PowerpackV2WidgetFunnelDefinitionRequestPtrOutput) Query() PowerpackV2WidgetFunnelDefinitionRequestQueryPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetFunnelDefinitionRequest) *PowerpackV2WidgetFunnelDefinitionRequestQuery {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(PowerpackV2WidgetFunnelDefinitionRequestQueryPtrOutput)
+}
+
 type PowerpackV2WidgetFunnelDefinitionRequestQuery struct {
 	// The data source for funnel queries. Valid values are `rum`.
 	DataSource string `pulumi:"dataSource"`
@@ -92646,376 +93055,11 @@ func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeFixedPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-type PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive struct {
-	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-	Unit string `pulumi:"unit"`
-	// Value of the time span.
-	Value int `pulumi:"value"`
-}
-
-// PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveInput is an input type that accepts PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs and PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveInput` via:
-//
-//	PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs{...}
-type PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput
-	ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutputWithContext(context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput
-}
-
-type PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs struct {
-	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Value of the time span.
-	Value pulumi.IntInput `pulumi:"value"`
-}
-
-func (PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput {
-	return i.ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput)
-}
-
-func (i PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput {
-	return i.ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput).ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrInput is an input type that accepts PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs, PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtr and PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrInput` via:
-//
-//	        PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput
-	ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutputWithContext(context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput
-}
-
-type powerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrType PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs
-
-func PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtr(v *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrInput {
-	return (*powerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrType)(v)
-}
-
-func (*powerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrType) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput {
-	return i.ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrType) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput)
-}
-
-type PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput {
-	return o.ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive) *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive {
-		return &v
-	}).(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput)
-}
-
-// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive) string { return v.Unit }).(pulumi.StringOutput)
-}
-
-// Value of the time span.
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive) int { return v.Value }).(pulumi.IntOutput)
-}
-
-type PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput) Elem() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive
-		return ret
-	}).(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput)
-}
-
-// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Unit
-	}).(pulumi.StringPtrOutput)
-}
-
-// Value of the time span.
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput) Value() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLive) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Value
-	}).(pulumi.IntPtrOutput)
-}
-
-type PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis struct {
-	// Set to `true` to include zero.
-	IncludeZero *bool `pulumi:"includeZero"`
-	// The label of the axis to display on the graph. Only usable on Scatterplot Widgets.
-	Label *string `pulumi:"label"`
-	// Specifies the maximum numeric value to show on the axis. Defaults to `auto`.
-	Max *string `pulumi:"max"`
-	// Specifies the minimum numeric value to show on the axis. Defaults to `auto`.
-	Min *string `pulumi:"min"`
-	// Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, and `pow##` (for example `pow2` or `pow0.5`).
-	Scale *string `pulumi:"scale"`
-}
-
-// PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisInput is an input type that accepts PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs and PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisInput` via:
-//
-//	PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs{...}
-type PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput
-	ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutputWithContext(context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput
-}
-
-type PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs struct {
-	// Set to `true` to include zero.
-	IncludeZero pulumi.BoolPtrInput `pulumi:"includeZero"`
-	// The label of the axis to display on the graph. Only usable on Scatterplot Widgets.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// Specifies the maximum numeric value to show on the axis. Defaults to `auto`.
-	Max pulumi.StringPtrInput `pulumi:"max"`
-	// Specifies the minimum numeric value to show on the axis. Defaults to `auto`.
-	Min pulumi.StringPtrInput `pulumi:"min"`
-	// Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, and `pow##` (for example `pow2` or `pow0.5`).
-	Scale pulumi.StringPtrInput `pulumi:"scale"`
-}
-
-func (PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput {
-	return i.ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput)
-}
-
-func (i PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput {
-	return i.ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput).ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrInput is an input type that accepts PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs, PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtr and PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrInput` via:
-//
-//	        PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput
-	ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutputWithContext(context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput
-}
-
-type powerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrType PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs
-
-func PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtr(v *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrInput {
-	return (*powerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrType)(v)
-}
-
-func (*powerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrType) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput {
-	return i.ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrType) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput)
-}
-
-type PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput {
-	return o.ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis) *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis {
-		return &v
-	}).(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput)
-}
-
-// Set to `true` to include zero.
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput) IncludeZero() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis) *bool { return v.IncludeZero }).(pulumi.BoolPtrOutput)
-}
-
-// The label of the axis to display on the graph. Only usable on Scatterplot Widgets.
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput) Label() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis) *string { return v.Label }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the maximum numeric value to show on the axis. Defaults to `auto`.
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput) Max() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis) *string { return v.Max }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the minimum numeric value to show on the axis. Defaults to `auto`.
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput) Min() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis) *string { return v.Min }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, and `pow##` (for example `pow2` or `pow0.5`).
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput) Scale() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis) *string { return v.Scale }).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput) ToPowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput) Elem() PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis) PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis
-		return ret
-	}).(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput)
-}
-
-// Set to `true` to include zero.
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput) IncludeZero() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IncludeZero
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The label of the axis to display on the graph. Only usable on Scatterplot Widgets.
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput) Label() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Label
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the maximum numeric value to show on the axis. Defaults to `auto`.
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput) Max() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Max
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the minimum numeric value to show on the axis. Defaults to `auto`.
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput) Min() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Min
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, and `pow##` (for example `pow2` or `pow0.5`).
-func (o PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput) Scale() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxis) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Scale
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetFunnelDefinitionInput)(nil)).Elem(), PowerpackV2WidgetFunnelDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetFunnelDefinitionPtrInput)(nil)).Elem(), PowerpackV2WidgetFunnelDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetFunnelDefinitionRequestInput)(nil)).Elem(), PowerpackV2WidgetFunnelDefinitionRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetFunnelDefinitionRequestPtrInput)(nil)).Elem(), PowerpackV2WidgetFunnelDefinitionRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetFunnelDefinitionRequestQueryInput)(nil)).Elem(), PowerpackV2WidgetFunnelDefinitionRequestQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetFunnelDefinitionRequestQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetFunnelDefinitionRequestQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetFunnelDefinitionRequestQueryStepInput)(nil)).Elem(), PowerpackV2WidgetFunnelDefinitionRequestQueryStepArgs{})
@@ -94009,10 +94053,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimePtrInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeFixedInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeFixedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeFixedPtrInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeFixedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrInput)(nil)).Elem(), PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisArgs{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetFunnelDefinitionOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetFunnelDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetFunnelDefinitionRequestOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetFunnelDefinitionRequestPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetFunnelDefinitionRequestQueryOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetFunnelDefinitionRequestQueryPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetFunnelDefinitionRequestQueryStepOutput{})
@@ -95006,8 +95050,4 @@ func init() {
 	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimePtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeFixedOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeFixedPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLiveOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionTimeLivePtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionYaxisPtrOutput{})
 }

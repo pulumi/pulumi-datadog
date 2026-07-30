@@ -59878,6 +59878,337 @@ func (o IncidentNotificationRuleConditionArrayOutput) Index(i pulumi.IntInput) I
 	}).(IncidentNotificationRuleConditionOutput)
 }
 
+type IncidentPostmortemTemplateConfluencePostmortemSettings struct {
+	// The ID of the Confluence account, a Datadog connected-account UUID (e.g. `3f9b1c2a-8d4e-4a11-9c2f-0b7e5d6a1f23`).
+	AccountId *string `pulumi:"accountId"`
+	// The ID of the parent Confluence page under which postmortems are created: a numeric page ID (e.g. `393217`), not a page path.
+	ParentId *string `pulumi:"parentId"`
+	// The Confluence space key (e.g. `ENG`), not a numeric space ID.
+	SpaceId *string `pulumi:"spaceId"`
+}
+
+// IncidentPostmortemTemplateConfluencePostmortemSettingsInput is an input type that accepts IncidentPostmortemTemplateConfluencePostmortemSettingsArgs and IncidentPostmortemTemplateConfluencePostmortemSettingsOutput values.
+// You can construct a concrete instance of `IncidentPostmortemTemplateConfluencePostmortemSettingsInput` via:
+//
+//	IncidentPostmortemTemplateConfluencePostmortemSettingsArgs{...}
+type IncidentPostmortemTemplateConfluencePostmortemSettingsInput interface {
+	pulumi.Input
+
+	ToIncidentPostmortemTemplateConfluencePostmortemSettingsOutput() IncidentPostmortemTemplateConfluencePostmortemSettingsOutput
+	ToIncidentPostmortemTemplateConfluencePostmortemSettingsOutputWithContext(context.Context) IncidentPostmortemTemplateConfluencePostmortemSettingsOutput
+}
+
+type IncidentPostmortemTemplateConfluencePostmortemSettingsArgs struct {
+	// The ID of the Confluence account, a Datadog connected-account UUID (e.g. `3f9b1c2a-8d4e-4a11-9c2f-0b7e5d6a1f23`).
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// The ID of the parent Confluence page under which postmortems are created: a numeric page ID (e.g. `393217`), not a page path.
+	ParentId pulumi.StringPtrInput `pulumi:"parentId"`
+	// The Confluence space key (e.g. `ENG`), not a numeric space ID.
+	SpaceId pulumi.StringPtrInput `pulumi:"spaceId"`
+}
+
+func (IncidentPostmortemTemplateConfluencePostmortemSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentPostmortemTemplateConfluencePostmortemSettings)(nil)).Elem()
+}
+
+func (i IncidentPostmortemTemplateConfluencePostmortemSettingsArgs) ToIncidentPostmortemTemplateConfluencePostmortemSettingsOutput() IncidentPostmortemTemplateConfluencePostmortemSettingsOutput {
+	return i.ToIncidentPostmortemTemplateConfluencePostmortemSettingsOutputWithContext(context.Background())
+}
+
+func (i IncidentPostmortemTemplateConfluencePostmortemSettingsArgs) ToIncidentPostmortemTemplateConfluencePostmortemSettingsOutputWithContext(ctx context.Context) IncidentPostmortemTemplateConfluencePostmortemSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentPostmortemTemplateConfluencePostmortemSettingsOutput)
+}
+
+func (i IncidentPostmortemTemplateConfluencePostmortemSettingsArgs) ToIncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput() IncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput {
+	return i.ToIncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i IncidentPostmortemTemplateConfluencePostmortemSettingsArgs) ToIncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutputWithContext(ctx context.Context) IncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentPostmortemTemplateConfluencePostmortemSettingsOutput).ToIncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutputWithContext(ctx)
+}
+
+// IncidentPostmortemTemplateConfluencePostmortemSettingsPtrInput is an input type that accepts IncidentPostmortemTemplateConfluencePostmortemSettingsArgs, IncidentPostmortemTemplateConfluencePostmortemSettingsPtr and IncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput values.
+// You can construct a concrete instance of `IncidentPostmortemTemplateConfluencePostmortemSettingsPtrInput` via:
+//
+//	        IncidentPostmortemTemplateConfluencePostmortemSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IncidentPostmortemTemplateConfluencePostmortemSettingsPtrInput interface {
+	pulumi.Input
+
+	ToIncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput() IncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput
+	ToIncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutputWithContext(context.Context) IncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput
+}
+
+type incidentPostmortemTemplateConfluencePostmortemSettingsPtrType IncidentPostmortemTemplateConfluencePostmortemSettingsArgs
+
+func IncidentPostmortemTemplateConfluencePostmortemSettingsPtr(v *IncidentPostmortemTemplateConfluencePostmortemSettingsArgs) IncidentPostmortemTemplateConfluencePostmortemSettingsPtrInput {
+	return (*incidentPostmortemTemplateConfluencePostmortemSettingsPtrType)(v)
+}
+
+func (*incidentPostmortemTemplateConfluencePostmortemSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentPostmortemTemplateConfluencePostmortemSettings)(nil)).Elem()
+}
+
+func (i *incidentPostmortemTemplateConfluencePostmortemSettingsPtrType) ToIncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput() IncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput {
+	return i.ToIncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *incidentPostmortemTemplateConfluencePostmortemSettingsPtrType) ToIncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutputWithContext(ctx context.Context) IncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput)
+}
+
+type IncidentPostmortemTemplateConfluencePostmortemSettingsOutput struct{ *pulumi.OutputState }
+
+func (IncidentPostmortemTemplateConfluencePostmortemSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentPostmortemTemplateConfluencePostmortemSettings)(nil)).Elem()
+}
+
+func (o IncidentPostmortemTemplateConfluencePostmortemSettingsOutput) ToIncidentPostmortemTemplateConfluencePostmortemSettingsOutput() IncidentPostmortemTemplateConfluencePostmortemSettingsOutput {
+	return o
+}
+
+func (o IncidentPostmortemTemplateConfluencePostmortemSettingsOutput) ToIncidentPostmortemTemplateConfluencePostmortemSettingsOutputWithContext(ctx context.Context) IncidentPostmortemTemplateConfluencePostmortemSettingsOutput {
+	return o
+}
+
+func (o IncidentPostmortemTemplateConfluencePostmortemSettingsOutput) ToIncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput() IncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput {
+	return o.ToIncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o IncidentPostmortemTemplateConfluencePostmortemSettingsOutput) ToIncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutputWithContext(ctx context.Context) IncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IncidentPostmortemTemplateConfluencePostmortemSettings) *IncidentPostmortemTemplateConfluencePostmortemSettings {
+		return &v
+	}).(IncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput)
+}
+
+// The ID of the Confluence account, a Datadog connected-account UUID (e.g. `3f9b1c2a-8d4e-4a11-9c2f-0b7e5d6a1f23`).
+func (o IncidentPostmortemTemplateConfluencePostmortemSettingsOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentPostmortemTemplateConfluencePostmortemSettings) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the parent Confluence page under which postmortems are created: a numeric page ID (e.g. `393217`), not a page path.
+func (o IncidentPostmortemTemplateConfluencePostmortemSettingsOutput) ParentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentPostmortemTemplateConfluencePostmortemSettings) *string { return v.ParentId }).(pulumi.StringPtrOutput)
+}
+
+// The Confluence space key (e.g. `ENG`), not a numeric space ID.
+func (o IncidentPostmortemTemplateConfluencePostmortemSettingsOutput) SpaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentPostmortemTemplateConfluencePostmortemSettings) *string { return v.SpaceId }).(pulumi.StringPtrOutput)
+}
+
+type IncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (IncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentPostmortemTemplateConfluencePostmortemSettings)(nil)).Elem()
+}
+
+func (o IncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput) ToIncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput() IncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput {
+	return o
+}
+
+func (o IncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput) ToIncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutputWithContext(ctx context.Context) IncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput {
+	return o
+}
+
+func (o IncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput) Elem() IncidentPostmortemTemplateConfluencePostmortemSettingsOutput {
+	return o.ApplyT(func(v *IncidentPostmortemTemplateConfluencePostmortemSettings) IncidentPostmortemTemplateConfluencePostmortemSettings {
+		if v != nil {
+			return *v
+		}
+		var ret IncidentPostmortemTemplateConfluencePostmortemSettings
+		return ret
+	}).(IncidentPostmortemTemplateConfluencePostmortemSettingsOutput)
+}
+
+// The ID of the Confluence account, a Datadog connected-account UUID (e.g. `3f9b1c2a-8d4e-4a11-9c2f-0b7e5d6a1f23`).
+func (o IncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentPostmortemTemplateConfluencePostmortemSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the parent Confluence page under which postmortems are created: a numeric page ID (e.g. `393217`), not a page path.
+func (o IncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput) ParentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentPostmortemTemplateConfluencePostmortemSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ParentId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Confluence space key (e.g. `ENG`), not a numeric space ID.
+func (o IncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput) SpaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentPostmortemTemplateConfluencePostmortemSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SpaceId
+	}).(pulumi.StringPtrOutput)
+}
+
+type IncidentPostmortemTemplateGoogleDocsPostmortemSettings struct {
+	// The ID of the Google Drive account, a Datadog connected-account UUID (e.g. `a1b2c3d4-e5f6-4789-8abc-1234567890ab`).
+	AccountId *string `pulumi:"accountId"`
+	// The Google Drive folder ID where postmortems are created, taken from the folder URL (e.g. `1eCqLAKQqRHt49J2aqQLGUcnPMzGHkt2B`).
+	ParentFolderId *string `pulumi:"parentFolderId"`
+}
+
+// IncidentPostmortemTemplateGoogleDocsPostmortemSettingsInput is an input type that accepts IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs and IncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutput values.
+// You can construct a concrete instance of `IncidentPostmortemTemplateGoogleDocsPostmortemSettingsInput` via:
+//
+//	IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs{...}
+type IncidentPostmortemTemplateGoogleDocsPostmortemSettingsInput interface {
+	pulumi.Input
+
+	ToIncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutput() IncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutput
+	ToIncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutputWithContext(context.Context) IncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutput
+}
+
+type IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs struct {
+	// The ID of the Google Drive account, a Datadog connected-account UUID (e.g. `a1b2c3d4-e5f6-4789-8abc-1234567890ab`).
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// The Google Drive folder ID where postmortems are created, taken from the folder URL (e.g. `1eCqLAKQqRHt49J2aqQLGUcnPMzGHkt2B`).
+	ParentFolderId pulumi.StringPtrInput `pulumi:"parentFolderId"`
+}
+
+func (IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentPostmortemTemplateGoogleDocsPostmortemSettings)(nil)).Elem()
+}
+
+func (i IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs) ToIncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutput() IncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutput {
+	return i.ToIncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutputWithContext(context.Background())
+}
+
+func (i IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs) ToIncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutputWithContext(ctx context.Context) IncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutput)
+}
+
+func (i IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs) ToIncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput() IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput {
+	return i.ToIncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs) ToIncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutputWithContext(ctx context.Context) IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutput).ToIncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutputWithContext(ctx)
+}
+
+// IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrInput is an input type that accepts IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs, IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtr and IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput values.
+// You can construct a concrete instance of `IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrInput` via:
+//
+//	        IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrInput interface {
+	pulumi.Input
+
+	ToIncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput() IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput
+	ToIncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutputWithContext(context.Context) IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput
+}
+
+type incidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrType IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs
+
+func IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtr(v *IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs) IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrInput {
+	return (*incidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrType)(v)
+}
+
+func (*incidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentPostmortemTemplateGoogleDocsPostmortemSettings)(nil)).Elem()
+}
+
+func (i *incidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrType) ToIncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput() IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput {
+	return i.ToIncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *incidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrType) ToIncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutputWithContext(ctx context.Context) IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput)
+}
+
+type IncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutput struct{ *pulumi.OutputState }
+
+func (IncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentPostmortemTemplateGoogleDocsPostmortemSettings)(nil)).Elem()
+}
+
+func (o IncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutput) ToIncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutput() IncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutput {
+	return o
+}
+
+func (o IncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutput) ToIncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutputWithContext(ctx context.Context) IncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutput {
+	return o
+}
+
+func (o IncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutput) ToIncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput() IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput {
+	return o.ToIncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o IncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutput) ToIncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutputWithContext(ctx context.Context) IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IncidentPostmortemTemplateGoogleDocsPostmortemSettings) *IncidentPostmortemTemplateGoogleDocsPostmortemSettings {
+		return &v
+	}).(IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput)
+}
+
+// The ID of the Google Drive account, a Datadog connected-account UUID (e.g. `a1b2c3d4-e5f6-4789-8abc-1234567890ab`).
+func (o IncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentPostmortemTemplateGoogleDocsPostmortemSettings) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+// The Google Drive folder ID where postmortems are created, taken from the folder URL (e.g. `1eCqLAKQqRHt49J2aqQLGUcnPMzGHkt2B`).
+func (o IncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutput) ParentFolderId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentPostmortemTemplateGoogleDocsPostmortemSettings) *string { return v.ParentFolderId }).(pulumi.StringPtrOutput)
+}
+
+type IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentPostmortemTemplateGoogleDocsPostmortemSettings)(nil)).Elem()
+}
+
+func (o IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput) ToIncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput() IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput {
+	return o
+}
+
+func (o IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput) ToIncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutputWithContext(ctx context.Context) IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput {
+	return o
+}
+
+func (o IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput) Elem() IncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutput {
+	return o.ApplyT(func(v *IncidentPostmortemTemplateGoogleDocsPostmortemSettings) IncidentPostmortemTemplateGoogleDocsPostmortemSettings {
+		if v != nil {
+			return *v
+		}
+		var ret IncidentPostmortemTemplateGoogleDocsPostmortemSettings
+		return ret
+	}).(IncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutput)
+}
+
+// The ID of the Google Drive account, a Datadog connected-account UUID (e.g. `a1b2c3d4-e5f6-4789-8abc-1234567890ab`).
+func (o IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentPostmortemTemplateGoogleDocsPostmortemSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Google Drive folder ID where postmortems are created, taken from the folder URL (e.g. `1eCqLAKQqRHt49J2aqQLGUcnPMzGHkt2B`).
+func (o IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput) ParentFolderId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentPostmortemTemplateGoogleDocsPostmortemSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ParentFolderId
+	}).(pulumi.StringPtrOutput)
+}
+
 type IncidentTypeConfiguration struct {
 	// Whether incidents of this type can be deleted. Defaults to `false`.
 	AllowIncidentDeletion *bool `pulumi:"allowIncidentDeletion"`
@@ -89635,337 +89966,6 @@ func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferPtrOutput) M
 	}).(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput)
 }
 
-type ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk struct {
-	// Maximum size of the disk buffer (in bytes).
-	MaxSize *int `pulumi:"maxSize"`
-	// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
-	WhenFull *string `pulumi:"whenFull"`
-}
-
-// ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskInput is an input type that accepts ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs and ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskInput` via:
-//
-//	ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs{...}
-type ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput
-	ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput
-}
-
-type ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs struct {
-	// Maximum size of the disk buffer (in bytes).
-	MaxSize pulumi.IntPtrInput `pulumi:"maxSize"`
-	// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
-	WhenFull pulumi.StringPtrInput `pulumi:"whenFull"`
-}
-
-func (ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk)(nil)).Elem()
-}
-
-func (i ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput {
-	return i.ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput)
-}
-
-func (i ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput {
-	return i.ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput).ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutputWithContext(ctx)
-}
-
-// ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs, ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtr and ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrInput` via:
-//
-//	        ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs{...}
-//
-//	or:
-//
-//	        nil
-type ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput
-	ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput
-}
-
-type observabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrType ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs
-
-func ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtr(v *ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrInput {
-	return (*observabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrType)(v)
-}
-
-func (*observabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk)(nil)).Elem()
-}
-
-func (i *observabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrType) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput {
-	return i.ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutputWithContext(context.Background())
-}
-
-func (i *observabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrType) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput)
-}
-
-type ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput {
-	return o.ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutputWithContext(context.Background())
-}
-
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk) *ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk {
-		return &v
-	}).(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput)
-}
-
-// Maximum size of the disk buffer (in bytes).
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput) MaxSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
-}
-
-// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput) WhenFull() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk) *string { return v.WhenFull }).(pulumi.StringPtrOutput)
-}
-
-type ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput) Elem() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk {
-		if v != nil {
-			return *v
-		}
-		var ret ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk
-		return ret
-	}).(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput)
-}
-
-// Maximum size of the disk buffer (in bytes).
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput) MaxSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxSize
-	}).(pulumi.IntPtrOutput)
-}
-
-// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput) WhenFull() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return v.WhenFull
-	}).(pulumi.StringPtrOutput)
-}
-
-type ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory struct {
-	// Maximum events for the memory buffer.
-	MaxEvents *int `pulumi:"maxEvents"`
-	// Maximum size of the memory buffer (in bytes).
-	MaxSize *int `pulumi:"maxSize"`
-	// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
-	WhenFull *string `pulumi:"whenFull"`
-}
-
-// ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryInput is an input type that accepts ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs and ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryInput` via:
-//
-//	ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs{...}
-type ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput
-	ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput
-}
-
-type ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs struct {
-	// Maximum events for the memory buffer.
-	MaxEvents pulumi.IntPtrInput `pulumi:"maxEvents"`
-	// Maximum size of the memory buffer (in bytes).
-	MaxSize pulumi.IntPtrInput `pulumi:"maxSize"`
-	// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
-	WhenFull pulumi.StringPtrInput `pulumi:"whenFull"`
-}
-
-func (ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory)(nil)).Elem()
-}
-
-func (i ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput {
-	return i.ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput)
-}
-
-func (i ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput {
-	return i.ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput).ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutputWithContext(ctx)
-}
-
-// ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs, ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtr and ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrInput` via:
-//
-//	        ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs{...}
-//
-//	or:
-//
-//	        nil
-type ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput
-	ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput
-}
-
-type observabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrType ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs
-
-func ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtr(v *ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrInput {
-	return (*observabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrType)(v)
-}
-
-func (*observabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory)(nil)).Elem()
-}
-
-func (i *observabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrType) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput {
-	return i.ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutputWithContext(context.Background())
-}
-
-func (i *observabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrType) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput)
-}
-
-type ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput {
-	return o.ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutputWithContext(context.Background())
-}
-
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory) *ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory {
-		return &v
-	}).(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput)
-}
-
-// Maximum events for the memory buffer.
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput) MaxEvents() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory) *int { return v.MaxEvents }).(pulumi.IntPtrOutput)
-}
-
-// Maximum size of the memory buffer (in bytes).
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput) MaxSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
-}
-
-// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput) WhenFull() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory) *string { return v.WhenFull }).(pulumi.StringPtrOutput)
-}
-
-type ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput) Elem() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory {
-		if v != nil {
-			return *v
-		}
-		var ret ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory
-		return ret
-	}).(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput)
-}
-
-// Maximum events for the memory buffer.
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput) MaxEvents() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxEvents
-	}).(pulumi.IntPtrOutput)
-}
-
-// Maximum size of the memory buffer (in bytes).
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput) MaxSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxSize
-	}).(pulumi.IntPtrOutput)
-}
-
-// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput) WhenFull() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory) *string {
-		if v == nil {
-			return nil
-		}
-		return v.WhenFull
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupByFieldsInput)(nil)).Elem(), DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupByFieldsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupByFieldsPtrInput)(nil)).Elem(), DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupByFieldsArgs{})
@@ -90607,6 +90607,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeScheduleRecurringScheduleRecurrenceArrayInput)(nil)).Elem(), DowntimeScheduleRecurringScheduleRecurrenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentNotificationRuleConditionInput)(nil)).Elem(), IncidentNotificationRuleConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentNotificationRuleConditionArrayInput)(nil)).Elem(), IncidentNotificationRuleConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IncidentPostmortemTemplateConfluencePostmortemSettingsInput)(nil)).Elem(), IncidentPostmortemTemplateConfluencePostmortemSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IncidentPostmortemTemplateConfluencePostmortemSettingsPtrInput)(nil)).Elem(), IncidentPostmortemTemplateConfluencePostmortemSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IncidentPostmortemTemplateGoogleDocsPostmortemSettingsInput)(nil)).Elem(), IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrInput)(nil)).Elem(), IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentTypeConfigurationInput)(nil)).Elem(), IncidentTypeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentTypeConfigurationPtrInput)(nil)).Elem(), IncidentTypeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentUserDefinedFieldMetadataInput)(nil)).Elem(), IncidentUserDefinedFieldMetadataArgs{})
@@ -90950,10 +90954,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchAuthInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchBufferInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonOpensearchBufferArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchBufferPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonOpensearchBufferArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs{})
 	pulumi.RegisterOutputType(DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupByFieldsOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupByFieldsSortOutput{})
@@ -91594,6 +91594,10 @@ func init() {
 	pulumi.RegisterOutputType(DowntimeScheduleRecurringScheduleRecurrenceArrayOutput{})
 	pulumi.RegisterOutputType(IncidentNotificationRuleConditionOutput{})
 	pulumi.RegisterOutputType(IncidentNotificationRuleConditionArrayOutput{})
+	pulumi.RegisterOutputType(IncidentPostmortemTemplateConfluencePostmortemSettingsOutput{})
+	pulumi.RegisterOutputType(IncidentPostmortemTemplateConfluencePostmortemSettingsPtrOutput{})
+	pulumi.RegisterOutputType(IncidentPostmortemTemplateGoogleDocsPostmortemSettingsOutput{})
+	pulumi.RegisterOutputType(IncidentPostmortemTemplateGoogleDocsPostmortemSettingsPtrOutput{})
 	pulumi.RegisterOutputType(IncidentTypeConfigurationOutput{})
 	pulumi.RegisterOutputType(IncidentTypeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(IncidentUserDefinedFieldMetadataOutput{})
@@ -91937,8 +91941,4 @@ func init() {
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonOpensearchAuthOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferPtrOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput{})
 }

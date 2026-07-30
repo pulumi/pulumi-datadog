@@ -5,7 +5,6 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.TagIndexingRuleOptionsDataDynamicTags;
-import com.pulumi.datadog.outputs.TagIndexingRuleOptionsDataMetricMatch;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TagIndexingRuleOptionsData {
     /**
-     * @return Configuration for including dynamically queried tags.
+     * @return Configuration for excluding tags based on dynamic usage signals. Only applies when `excludeTagsMode` is `true`.
      * 
      */
     private @Nullable TagIndexingRuleOptionsDataDynamicTags dynamicTags;
@@ -24,11 +23,6 @@ public final class TagIndexingRuleOptionsData {
      */
     private @Nullable Boolean managePreexistingMetrics;
     /**
-     * @return Criteria for matching metrics based on query state.
-     * 
-     */
-    private @Nullable TagIndexingRuleOptionsDataMetricMatch metricMatch;
-    /**
      * @return When true, this rule&#39;s tag list overrides tags configured by earlier rules for the same metric. Defaults to `false`.
      * 
      */
@@ -36,7 +30,7 @@ public final class TagIndexingRuleOptionsData {
 
     private TagIndexingRuleOptionsData() {}
     /**
-     * @return Configuration for including dynamically queried tags.
+     * @return Configuration for excluding tags based on dynamic usage signals. Only applies when `excludeTagsMode` is `true`.
      * 
      */
     public Optional<TagIndexingRuleOptionsDataDynamicTags> dynamicTags() {
@@ -48,13 +42,6 @@ public final class TagIndexingRuleOptionsData {
      */
     public Optional<Boolean> managePreexistingMetrics() {
         return Optional.ofNullable(this.managePreexistingMetrics);
-    }
-    /**
-     * @return Criteria for matching metrics based on query state.
-     * 
-     */
-    public Optional<TagIndexingRuleOptionsDataMetricMatch> metricMatch() {
-        return Optional.ofNullable(this.metricMatch);
     }
     /**
      * @return When true, this rule&#39;s tag list overrides tags configured by earlier rules for the same metric. Defaults to `false`.
@@ -75,14 +62,12 @@ public final class TagIndexingRuleOptionsData {
     public static final class Builder {
         private @Nullable TagIndexingRuleOptionsDataDynamicTags dynamicTags;
         private @Nullable Boolean managePreexistingMetrics;
-        private @Nullable TagIndexingRuleOptionsDataMetricMatch metricMatch;
         private @Nullable Boolean overridePreviousRules;
         public Builder() {}
         public Builder(TagIndexingRuleOptionsData defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dynamicTags = defaults.dynamicTags;
     	      this.managePreexistingMetrics = defaults.managePreexistingMetrics;
-    	      this.metricMatch = defaults.metricMatch;
     	      this.overridePreviousRules = defaults.overridePreviousRules;
         }
 
@@ -99,12 +84,6 @@ public final class TagIndexingRuleOptionsData {
             return this;
         }
         @CustomType.Setter
-        public Builder metricMatch(@Nullable TagIndexingRuleOptionsDataMetricMatch metricMatch) {
-
-            this.metricMatch = metricMatch;
-            return this;
-        }
-        @CustomType.Setter
         public Builder overridePreviousRules(@Nullable Boolean overridePreviousRules) {
 
             this.overridePreviousRules = overridePreviousRules;
@@ -114,7 +93,6 @@ public final class TagIndexingRuleOptionsData {
             final var _resultValue = new TagIndexingRuleOptionsData();
             _resultValue.dynamicTags = dynamicTags;
             _resultValue.managePreexistingMetrics = managePreexistingMetrics;
-            _resultValue.metricMatch = metricMatch;
             _resultValue.overridePreviousRules = overridePreviousRules;
             return _resultValue;
         }

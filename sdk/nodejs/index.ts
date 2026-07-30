@@ -425,6 +425,11 @@ export const getRole: typeof import("./getRole").getRole = null as any;
 export const getRoleOutput: typeof import("./getRole").getRoleOutput = null as any;
 utilities.lazyLoad(exports, ["getRole","getRoleOutput"], () => require("./getRole"));
 
+export { GetRolePermissionsArgs, GetRolePermissionsResult, GetRolePermissionsOutputArgs } from "./getRolePermissions";
+export const getRolePermissions: typeof import("./getRolePermissions").getRolePermissions = null as any;
+export const getRolePermissionsOutput: typeof import("./getRolePermissions").getRolePermissionsOutput = null as any;
+utilities.lazyLoad(exports, ["getRolePermissions","getRolePermissionsOutput"], () => require("./getRolePermissions"));
+
 export { GetRoleUsersArgs, GetRoleUsersResult, GetRoleUsersOutputArgs } from "./getRoleUsers";
 export const getRoleUsers: typeof import("./getRoleUsers").getRoleUsers = null as any;
 export const getRoleUsersOutput: typeof import("./getRoleUsers").getRoleUsersOutput = null as any;
@@ -574,6 +579,11 @@ export { IncidentNotificationTemplateArgs, IncidentNotificationTemplateState } f
 export type IncidentNotificationTemplate = import("./incidentNotificationTemplate").IncidentNotificationTemplate;
 export const IncidentNotificationTemplate: typeof import("./incidentNotificationTemplate").IncidentNotificationTemplate = null as any;
 utilities.lazyLoad(exports, ["IncidentNotificationTemplate"], () => require("./incidentNotificationTemplate"));
+
+export { IncidentPostmortemTemplateArgs, IncidentPostmortemTemplateState } from "./incidentPostmortemTemplate";
+export type IncidentPostmortemTemplate = import("./incidentPostmortemTemplate").IncidentPostmortemTemplate;
+export const IncidentPostmortemTemplate: typeof import("./incidentPostmortemTemplate").IncidentPostmortemTemplate = null as any;
+utilities.lazyLoad(exports, ["IncidentPostmortemTemplate"], () => require("./incidentPostmortemTemplate"));
 
 export { IncidentTypeArgs, IncidentTypeState } from "./incidentType";
 export type IncidentType = import("./incidentType").IncidentType;
@@ -1144,6 +1154,8 @@ const _module = {
                 return new IncidentNotificationRule(name, <any>undefined, { urn })
             case "datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate":
                 return new IncidentNotificationTemplate(name, <any>undefined, { urn })
+            case "datadog:index/incidentPostmortemTemplate:IncidentPostmortemTemplate":
+                return new IncidentPostmortemTemplate(name, <any>undefined, { urn })
             case "datadog:index/incidentType:IncidentType":
                 return new IncidentType(name, <any>undefined, { urn })
             case "datadog:index/incidentUserDefinedField:IncidentUserDefinedField":
@@ -1370,6 +1382,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/downtimeSchedule", _modu
 pulumi.runtime.registerResourceModule("datadog", "index/gcpUcConfig", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/incidentNotificationRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/incidentNotificationTemplate", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/incidentPostmortemTemplate", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/incidentType", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/incidentUserDefinedField", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/incidentUserDefinedRole", _module)

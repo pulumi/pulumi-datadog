@@ -25,7 +25,7 @@ class TagIndexingRuleOrderArgs:
         The set of arguments for constructing a TagIndexingRuleOrder resource.
 
         :param pulumi.Input[_builtins.str] name: A unique name for the order resource. Recommended to match the resource name. No corresponding field exists in the API.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rule_ids: Ordered list of ALL tag indexing rule UUIDs. The server assigns each rule a rule_order value (1, 2, 3, ...) corresponding to its position in this list. This resource claims full ownership of evaluation order: rules created outside Terraform (e.g. via the UI) will appear as configuration drift on the next plan. All rules must be listed here; omitting a rule ID will result in a 404 error from the API.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rule_ids: Ordered list of EVERY active tag indexing rule UUID in the org. The server assigns each rule a rule_order (1, 2, 3, ...) by its position in this list. This resource claims full ownership of the org's evaluation order: rules created outside Terraform (e.g. via the UI) appear as drift on the next plan and must be added here. The list must be the COMPLETE set of active rules and contain each UUID exactly once — omitting an existing rule or repeating a UUID is rejected by the API with a 400; listing a UUID that does not exist returns 404.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "rule_ids", rule_ids)
@@ -46,7 +46,7 @@ class TagIndexingRuleOrderArgs:
     @pulumi.getter(name="ruleIds")
     def rule_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        Ordered list of ALL tag indexing rule UUIDs. The server assigns each rule a rule_order value (1, 2, 3, ...) corresponding to its position in this list. This resource claims full ownership of evaluation order: rules created outside Terraform (e.g. via the UI) will appear as configuration drift on the next plan. All rules must be listed here; omitting a rule ID will result in a 404 error from the API.
+        Ordered list of EVERY active tag indexing rule UUID in the org. The server assigns each rule a rule_order (1, 2, 3, ...) by its position in this list. This resource claims full ownership of the org's evaluation order: rules created outside Terraform (e.g. via the UI) appear as drift on the next plan and must be added here. The list must be the COMPLETE set of active rules and contain each UUID exactly once — omitting an existing rule or repeating a UUID is rejected by the API with a 400; listing a UUID that does not exist returns 404.
         """
         return pulumi.get(self, "rule_ids")
 
@@ -64,7 +64,7 @@ class _TagIndexingRuleOrderState:
         Input properties used for looking up and filtering TagIndexingRuleOrder resources.
 
         :param pulumi.Input[_builtins.str] name: A unique name for the order resource. Recommended to match the resource name. No corresponding field exists in the API.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rule_ids: Ordered list of ALL tag indexing rule UUIDs. The server assigns each rule a rule_order value (1, 2, 3, ...) corresponding to its position in this list. This resource claims full ownership of evaluation order: rules created outside Terraform (e.g. via the UI) will appear as configuration drift on the next plan. All rules must be listed here; omitting a rule ID will result in a 404 error from the API.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rule_ids: Ordered list of EVERY active tag indexing rule UUID in the org. The server assigns each rule a rule_order (1, 2, 3, ...) by its position in this list. This resource claims full ownership of the org's evaluation order: rules created outside Terraform (e.g. via the UI) appear as drift on the next plan and must be added here. The list must be the COMPLETE set of active rules and contain each UUID exactly once — omitting an existing rule or repeating a UUID is rejected by the API with a 400; listing a UUID that does not exist returns 404.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -87,7 +87,7 @@ class _TagIndexingRuleOrderState:
     @pulumi.getter(name="ruleIds")
     def rule_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Ordered list of ALL tag indexing rule UUIDs. The server assigns each rule a rule_order value (1, 2, 3, ...) corresponding to its position in this list. This resource claims full ownership of evaluation order: rules created outside Terraform (e.g. via the UI) will appear as configuration drift on the next plan. All rules must be listed here; omitting a rule ID will result in a 404 error from the API.
+        Ordered list of EVERY active tag indexing rule UUID in the org. The server assigns each rule a rule_order (1, 2, 3, ...) by its position in this list. This resource claims full ownership of the org's evaluation order: rules created outside Terraform (e.g. via the UI) appear as drift on the next plan and must be added here. The list must be the COMPLETE set of active rules and contain each UUID exactly once — omitting an existing rule or repeating a UUID is rejected by the API with a 400; listing a UUID that does not exist returns 404.
         """
         return pulumi.get(self, "rule_ids")
 
@@ -133,6 +133,8 @@ class TagIndexingRuleOrder(pulumi.CustomResource):
             ],
             exclude_tags_mode=False)
         # Enforce evaluation order: broad rule first, then specific override.
+        # rule_ids must list EVERY active tag indexing rule in the org (this resource owns the whole-org
+        # order). Any rule omitted here will be rejected by the API.
         example = datadog.TagIndexingRuleOrder("example",
             name="main",
             rule_ids=[
@@ -145,7 +147,7 @@ class TagIndexingRuleOrder(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: A unique name for the order resource. Recommended to match the resource name. No corresponding field exists in the API.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rule_ids: Ordered list of ALL tag indexing rule UUIDs. The server assigns each rule a rule_order value (1, 2, 3, ...) corresponding to its position in this list. This resource claims full ownership of evaluation order: rules created outside Terraform (e.g. via the UI) will appear as configuration drift on the next plan. All rules must be listed here; omitting a rule ID will result in a 404 error from the API.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rule_ids: Ordered list of EVERY active tag indexing rule UUID in the org. The server assigns each rule a rule_order (1, 2, 3, ...) by its position in this list. This resource claims full ownership of the org's evaluation order: rules created outside Terraform (e.g. via the UI) appear as drift on the next plan and must be added here. The list must be the COMPLETE set of active rules and contain each UUID exactly once — omitting an existing rule or repeating a UUID is rejected by the API with a 400; listing a UUID that does not exist returns 404.
         """
         ...
     @overload
@@ -181,6 +183,8 @@ class TagIndexingRuleOrder(pulumi.CustomResource):
             ],
             exclude_tags_mode=False)
         # Enforce evaluation order: broad rule first, then specific override.
+        # rule_ids must list EVERY active tag indexing rule in the org (this resource owns the whole-org
+        # order). Any rule omitted here will be rejected by the API.
         example = datadog.TagIndexingRuleOrder("example",
             name="main",
             rule_ids=[
@@ -242,7 +246,7 @@ class TagIndexingRuleOrder(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: A unique name for the order resource. Recommended to match the resource name. No corresponding field exists in the API.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rule_ids: Ordered list of ALL tag indexing rule UUIDs. The server assigns each rule a rule_order value (1, 2, 3, ...) corresponding to its position in this list. This resource claims full ownership of evaluation order: rules created outside Terraform (e.g. via the UI) will appear as configuration drift on the next plan. All rules must be listed here; omitting a rule ID will result in a 404 error from the API.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rule_ids: Ordered list of EVERY active tag indexing rule UUID in the org. The server assigns each rule a rule_order (1, 2, 3, ...) by its position in this list. This resource claims full ownership of the org's evaluation order: rules created outside Terraform (e.g. via the UI) appear as drift on the next plan and must be added here. The list must be the COMPLETE set of active rules and contain each UUID exactly once — omitting an existing rule or repeating a UUID is rejected by the API with a 400; listing a UUID that does not exist returns 404.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -264,7 +268,7 @@ class TagIndexingRuleOrder(pulumi.CustomResource):
     @pulumi.getter(name="ruleIds")
     def rule_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        Ordered list of ALL tag indexing rule UUIDs. The server assigns each rule a rule_order value (1, 2, 3, ...) corresponding to its position in this list. This resource claims full ownership of evaluation order: rules created outside Terraform (e.g. via the UI) will appear as configuration drift on the next plan. All rules must be listed here; omitting a rule ID will result in a 404 error from the API.
+        Ordered list of EVERY active tag indexing rule UUID in the org. The server assigns each rule a rule_order (1, 2, 3, ...) by its position in this list. This resource claims full ownership of the org's evaluation order: rules created outside Terraform (e.g. via the UI) appear as drift on the next plan and must be added here. The list must be the COMPLETE set of active rules and contain each UUID exactly once — omitting an existing rule or repeating a UUID is rejected by the API with a 400; listing a UUID that does not exist returns 404.
         """
         return pulumi.get(self, "rule_ids")
 

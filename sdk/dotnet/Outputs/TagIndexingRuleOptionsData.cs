@@ -14,17 +14,13 @@ namespace Pulumi.Datadog.Outputs
     public sealed class TagIndexingRuleOptionsData
     {
         /// <summary>
-        /// Configuration for including dynamically queried tags.
+        /// Configuration for excluding tags based on dynamic usage signals. Only applies when `ExcludeTagsMode` is `True`.
         /// </summary>
         public readonly Outputs.TagIndexingRuleOptionsDataDynamicTags? DynamicTags;
         /// <summary>
         /// When true, the rule applies to metrics ingested before the rule was created. Defaults to `True`.
         /// </summary>
         public readonly bool? ManagePreexistingMetrics;
-        /// <summary>
-        /// Criteria for matching metrics based on query state.
-        /// </summary>
-        public readonly Outputs.TagIndexingRuleOptionsDataMetricMatch? MetricMatch;
         /// <summary>
         /// When true, this rule's tag list overrides tags configured by earlier rules for the same metric. Defaults to `False`.
         /// </summary>
@@ -36,13 +32,10 @@ namespace Pulumi.Datadog.Outputs
 
             bool? managePreexistingMetrics,
 
-            Outputs.TagIndexingRuleOptionsDataMetricMatch? metricMatch,
-
             bool? overridePreviousRules)
         {
             DynamicTags = dynamicTags;
             ManagePreexistingMetrics = managePreexistingMetrics;
-            MetricMatch = metricMatch;
             OverridePreviousRules = overridePreviousRules;
         }
     }

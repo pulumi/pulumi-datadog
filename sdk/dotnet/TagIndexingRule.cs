@@ -50,6 +50,45 @@ namespace Pulumi.Datadog
     /// 
     /// });
     /// ```
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var excludeExample = new Datadog.TagIndexingRule("exclude_example", new()
+    ///     {
+    ///         Name = "Exclude unused tags from all web metrics",
+    ///         MetricNameMatches = new[]
+    ///         {
+    ///             "web.*",
+    ///             "http.*",
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             "debug_id",
+    ///             "internal_trace_id",
+    ///         },
+    ///         ExcludeTagsMode = true,
+    ///         Options = new Datadog.Inputs.TagIndexingRuleOptionsArgs
+    ///         {
+    ///             Version = 1,
+    ///             Data = new Datadog.Inputs.TagIndexingRuleOptionsDataArgs
+    ///             {
+    ///                 DynamicTags = new Datadog.Inputs.TagIndexingRuleOptionsDataDynamicTagsArgs
+    ///                 {
+    ///                     ExcludeNotQueriedWindowSeconds = 604800,
+    ///                     ExcludeNotUsedInAssets = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/tagIndexingRule:TagIndexingRule")]
     public partial class TagIndexingRule : global::Pulumi.CustomResource

@@ -13,6 +13,337 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk struct {
+	// Maximum size of the disk buffer (in bytes).
+	MaxSize *int `pulumi:"maxSize"`
+	// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+	WhenFull *string `pulumi:"whenFull"`
+}
+
+// ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskInput is an input type that accepts ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs and ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskInput` via:
+//
+//	ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs{...}
+type ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput
+	ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput
+}
+
+type ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs struct {
+	// Maximum size of the disk buffer (in bytes).
+	MaxSize pulumi.IntPtrInput `pulumi:"maxSize"`
+	// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+	WhenFull pulumi.StringPtrInput `pulumi:"whenFull"`
+}
+
+func (ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput {
+	return i.ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput).ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs, ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtr and ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput
+	ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput
+}
+
+type observabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrType ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs
+
+func ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtr(v *ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrInput {
+	return (*observabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrType) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrType) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk) *ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput)
+}
+
+// Maximum size of the disk buffer (in bytes).
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
+}
+
+// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput) WhenFull() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk) *string { return v.WhenFull }).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput) Elem() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk
+		return ret
+	}).(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput)
+}
+
+// Maximum size of the disk buffer (in bytes).
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput) WhenFull() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WhenFull
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory struct {
+	// Maximum events for the memory buffer.
+	MaxEvents *int `pulumi:"maxEvents"`
+	// Maximum size of the memory buffer (in bytes).
+	MaxSize *int `pulumi:"maxSize"`
+	// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+	WhenFull *string `pulumi:"whenFull"`
+}
+
+// ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryInput is an input type that accepts ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs and ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryInput` via:
+//
+//	ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs{...}
+type ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput
+	ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput
+}
+
+type ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs struct {
+	// Maximum events for the memory buffer.
+	MaxEvents pulumi.IntPtrInput `pulumi:"maxEvents"`
+	// Maximum size of the memory buffer (in bytes).
+	MaxSize pulumi.IntPtrInput `pulumi:"maxSize"`
+	// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+	WhenFull pulumi.StringPtrInput `pulumi:"whenFull"`
+}
+
+func (ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput {
+	return i.ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput).ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs, ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtr and ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput
+	ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput
+}
+
+type observabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrType ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs
+
+func ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtr(v *ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrInput {
+	return (*observabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrType) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrType) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory) *ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput)
+}
+
+// Maximum events for the memory buffer.
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput) MaxEvents() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory) *int { return v.MaxEvents }).(pulumi.IntPtrOutput)
+}
+
+// Maximum size of the memory buffer (in bytes).
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
+}
+
+// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput) WhenFull() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory) *string { return v.WhenFull }).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput) Elem() ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory) ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory
+		return ret
+	}).(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput)
+}
+
+// Maximum events for the memory buffer.
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput) MaxEvents() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxEvents
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum size of the memory buffer (in bytes).
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput) WhenFull() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WhenFull
+	}).(pulumi.StringPtrOutput)
+}
+
 type ObservabilityPipelineConfigDestinationAmazonS3 struct {
 	// AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
 	Auth *ObservabilityPipelineConfigDestinationAmazonS3Auth `pulumi:"auth"`
@@ -84689,416 +85020,11 @@ func (o PowerpackV2WidgetFreeTextDefinitionTimeLivePtrOutput) Value() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-type PowerpackV2WidgetFunnelDefinition struct {
-	// The description of the widget.
-	Description *string `pulumi:"description"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData *bool `pulumi:"hideIncompleteCostData"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan *string `pulumi:"liveSpan"`
-	// A nested block describing the request to use when displaying the widget. Only one `request` block is allowed.
-	Request *PowerpackV2WidgetFunnelDefinitionRequest `pulumi:"request"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time *PowerpackV2WidgetFunnelDefinitionTime `pulumi:"time"`
-	// The title of the widget.
-	Title *string `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign *string `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize *string `pulumi:"titleSize"`
-}
-
-// PowerpackV2WidgetFunnelDefinitionInput is an input type that accepts PowerpackV2WidgetFunnelDefinitionArgs and PowerpackV2WidgetFunnelDefinitionOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetFunnelDefinitionInput` via:
-//
-//	PowerpackV2WidgetFunnelDefinitionArgs{...}
-type PowerpackV2WidgetFunnelDefinitionInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetFunnelDefinitionOutput() PowerpackV2WidgetFunnelDefinitionOutput
-	ToPowerpackV2WidgetFunnelDefinitionOutputWithContext(context.Context) PowerpackV2WidgetFunnelDefinitionOutput
-}
-
-type PowerpackV2WidgetFunnelDefinitionArgs struct {
-	// The description of the widget.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData pulumi.BoolPtrInput `pulumi:"hideIncompleteCostData"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan pulumi.StringPtrInput `pulumi:"liveSpan"`
-	// A nested block describing the request to use when displaying the widget. Only one `request` block is allowed.
-	Request PowerpackV2WidgetFunnelDefinitionRequestPtrInput `pulumi:"request"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time PowerpackV2WidgetFunnelDefinitionTimePtrInput `pulumi:"time"`
-	// The title of the widget.
-	Title pulumi.StringPtrInput `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
-}
-
-func (PowerpackV2WidgetFunnelDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetFunnelDefinition)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetFunnelDefinitionArgs) ToPowerpackV2WidgetFunnelDefinitionOutput() PowerpackV2WidgetFunnelDefinitionOutput {
-	return i.ToPowerpackV2WidgetFunnelDefinitionOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetFunnelDefinitionArgs) ToPowerpackV2WidgetFunnelDefinitionOutputWithContext(ctx context.Context) PowerpackV2WidgetFunnelDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetFunnelDefinitionOutput)
-}
-
-func (i PowerpackV2WidgetFunnelDefinitionArgs) ToPowerpackV2WidgetFunnelDefinitionPtrOutput() PowerpackV2WidgetFunnelDefinitionPtrOutput {
-	return i.ToPowerpackV2WidgetFunnelDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetFunnelDefinitionArgs) ToPowerpackV2WidgetFunnelDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetFunnelDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetFunnelDefinitionOutput).ToPowerpackV2WidgetFunnelDefinitionPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetFunnelDefinitionPtrInput is an input type that accepts PowerpackV2WidgetFunnelDefinitionArgs, PowerpackV2WidgetFunnelDefinitionPtr and PowerpackV2WidgetFunnelDefinitionPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetFunnelDefinitionPtrInput` via:
-//
-//	        PowerpackV2WidgetFunnelDefinitionArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetFunnelDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetFunnelDefinitionPtrOutput() PowerpackV2WidgetFunnelDefinitionPtrOutput
-	ToPowerpackV2WidgetFunnelDefinitionPtrOutputWithContext(context.Context) PowerpackV2WidgetFunnelDefinitionPtrOutput
-}
-
-type powerpackV2WidgetFunnelDefinitionPtrType PowerpackV2WidgetFunnelDefinitionArgs
-
-func PowerpackV2WidgetFunnelDefinitionPtr(v *PowerpackV2WidgetFunnelDefinitionArgs) PowerpackV2WidgetFunnelDefinitionPtrInput {
-	return (*powerpackV2WidgetFunnelDefinitionPtrType)(v)
-}
-
-func (*powerpackV2WidgetFunnelDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetFunnelDefinition)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetFunnelDefinitionPtrType) ToPowerpackV2WidgetFunnelDefinitionPtrOutput() PowerpackV2WidgetFunnelDefinitionPtrOutput {
-	return i.ToPowerpackV2WidgetFunnelDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetFunnelDefinitionPtrType) ToPowerpackV2WidgetFunnelDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetFunnelDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetFunnelDefinitionPtrOutput)
-}
-
-type PowerpackV2WidgetFunnelDefinitionOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetFunnelDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetFunnelDefinition)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetFunnelDefinitionOutput) ToPowerpackV2WidgetFunnelDefinitionOutput() PowerpackV2WidgetFunnelDefinitionOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetFunnelDefinitionOutput) ToPowerpackV2WidgetFunnelDefinitionOutputWithContext(ctx context.Context) PowerpackV2WidgetFunnelDefinitionOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetFunnelDefinitionOutput) ToPowerpackV2WidgetFunnelDefinitionPtrOutput() PowerpackV2WidgetFunnelDefinitionPtrOutput {
-	return o.ToPowerpackV2WidgetFunnelDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetFunnelDefinitionOutput) ToPowerpackV2WidgetFunnelDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetFunnelDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetFunnelDefinition) *PowerpackV2WidgetFunnelDefinition {
-		return &v
-	}).(PowerpackV2WidgetFunnelDefinitionPtrOutput)
-}
-
-// The description of the widget.
-func (o PowerpackV2WidgetFunnelDefinitionOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetFunnelDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o PowerpackV2WidgetFunnelDefinitionOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetFunnelDefinition) *bool { return v.HideIncompleteCostData }).(pulumi.BoolPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o PowerpackV2WidgetFunnelDefinitionOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetFunnelDefinition) *string { return v.LiveSpan }).(pulumi.StringPtrOutput)
-}
-
-// A nested block describing the request to use when displaying the widget. Only one `request` block is allowed.
-func (o PowerpackV2WidgetFunnelDefinitionOutput) Request() PowerpackV2WidgetFunnelDefinitionRequestPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetFunnelDefinition) *PowerpackV2WidgetFunnelDefinitionRequest { return v.Request }).(PowerpackV2WidgetFunnelDefinitionRequestPtrOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o PowerpackV2WidgetFunnelDefinitionOutput) Time() PowerpackV2WidgetFunnelDefinitionTimePtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetFunnelDefinition) *PowerpackV2WidgetFunnelDefinitionTime { return v.Time }).(PowerpackV2WidgetFunnelDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o PowerpackV2WidgetFunnelDefinitionOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetFunnelDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o PowerpackV2WidgetFunnelDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetFunnelDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o PowerpackV2WidgetFunnelDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetFunnelDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetFunnelDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetFunnelDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetFunnelDefinition)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetFunnelDefinitionPtrOutput) ToPowerpackV2WidgetFunnelDefinitionPtrOutput() PowerpackV2WidgetFunnelDefinitionPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetFunnelDefinitionPtrOutput) ToPowerpackV2WidgetFunnelDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetFunnelDefinitionPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetFunnelDefinitionPtrOutput) Elem() PowerpackV2WidgetFunnelDefinitionOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetFunnelDefinition) PowerpackV2WidgetFunnelDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetFunnelDefinition
-		return ret
-	}).(PowerpackV2WidgetFunnelDefinitionOutput)
-}
-
-// The description of the widget.
-func (o PowerpackV2WidgetFunnelDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetFunnelDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o PowerpackV2WidgetFunnelDefinitionPtrOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetFunnelDefinition) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HideIncompleteCostData
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o PowerpackV2WidgetFunnelDefinitionPtrOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetFunnelDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LiveSpan
-	}).(pulumi.StringPtrOutput)
-}
-
-// A nested block describing the request to use when displaying the widget. Only one `request` block is allowed.
-func (o PowerpackV2WidgetFunnelDefinitionPtrOutput) Request() PowerpackV2WidgetFunnelDefinitionRequestPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetFunnelDefinition) *PowerpackV2WidgetFunnelDefinitionRequest {
-		if v == nil {
-			return nil
-		}
-		return v.Request
-	}).(PowerpackV2WidgetFunnelDefinitionRequestPtrOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o PowerpackV2WidgetFunnelDefinitionPtrOutput) Time() PowerpackV2WidgetFunnelDefinitionTimePtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetFunnelDefinition) *PowerpackV2WidgetFunnelDefinitionTime {
-		if v == nil {
-			return nil
-		}
-		return v.Time
-	}).(PowerpackV2WidgetFunnelDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o PowerpackV2WidgetFunnelDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetFunnelDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o PowerpackV2WidgetFunnelDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetFunnelDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleAlign
-	}).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o PowerpackV2WidgetFunnelDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetFunnelDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleSize
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetFunnelDefinitionRequest struct {
-	// The query for the funnel widget request.
-	Query PowerpackV2WidgetFunnelDefinitionRequestQuery `pulumi:"query"`
-}
-
-// PowerpackV2WidgetFunnelDefinitionRequestInput is an input type that accepts PowerpackV2WidgetFunnelDefinitionRequestArgs and PowerpackV2WidgetFunnelDefinitionRequestOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetFunnelDefinitionRequestInput` via:
-//
-//	PowerpackV2WidgetFunnelDefinitionRequestArgs{...}
-type PowerpackV2WidgetFunnelDefinitionRequestInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetFunnelDefinitionRequestOutput() PowerpackV2WidgetFunnelDefinitionRequestOutput
-	ToPowerpackV2WidgetFunnelDefinitionRequestOutputWithContext(context.Context) PowerpackV2WidgetFunnelDefinitionRequestOutput
-}
-
-type PowerpackV2WidgetFunnelDefinitionRequestArgs struct {
-	// The query for the funnel widget request.
-	Query PowerpackV2WidgetFunnelDefinitionRequestQueryInput `pulumi:"query"`
-}
-
-func (PowerpackV2WidgetFunnelDefinitionRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetFunnelDefinitionRequest)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetFunnelDefinitionRequestArgs) ToPowerpackV2WidgetFunnelDefinitionRequestOutput() PowerpackV2WidgetFunnelDefinitionRequestOutput {
-	return i.ToPowerpackV2WidgetFunnelDefinitionRequestOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetFunnelDefinitionRequestArgs) ToPowerpackV2WidgetFunnelDefinitionRequestOutputWithContext(ctx context.Context) PowerpackV2WidgetFunnelDefinitionRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetFunnelDefinitionRequestOutput)
-}
-
-func (i PowerpackV2WidgetFunnelDefinitionRequestArgs) ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutput() PowerpackV2WidgetFunnelDefinitionRequestPtrOutput {
-	return i.ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetFunnelDefinitionRequestArgs) ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetFunnelDefinitionRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetFunnelDefinitionRequestOutput).ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetFunnelDefinitionRequestPtrInput is an input type that accepts PowerpackV2WidgetFunnelDefinitionRequestArgs, PowerpackV2WidgetFunnelDefinitionRequestPtr and PowerpackV2WidgetFunnelDefinitionRequestPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetFunnelDefinitionRequestPtrInput` via:
-//
-//	        PowerpackV2WidgetFunnelDefinitionRequestArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetFunnelDefinitionRequestPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutput() PowerpackV2WidgetFunnelDefinitionRequestPtrOutput
-	ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutputWithContext(context.Context) PowerpackV2WidgetFunnelDefinitionRequestPtrOutput
-}
-
-type powerpackV2WidgetFunnelDefinitionRequestPtrType PowerpackV2WidgetFunnelDefinitionRequestArgs
-
-func PowerpackV2WidgetFunnelDefinitionRequestPtr(v *PowerpackV2WidgetFunnelDefinitionRequestArgs) PowerpackV2WidgetFunnelDefinitionRequestPtrInput {
-	return (*powerpackV2WidgetFunnelDefinitionRequestPtrType)(v)
-}
-
-func (*powerpackV2WidgetFunnelDefinitionRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetFunnelDefinitionRequest)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetFunnelDefinitionRequestPtrType) ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutput() PowerpackV2WidgetFunnelDefinitionRequestPtrOutput {
-	return i.ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetFunnelDefinitionRequestPtrType) ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetFunnelDefinitionRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetFunnelDefinitionRequestPtrOutput)
-}
-
-type PowerpackV2WidgetFunnelDefinitionRequestOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetFunnelDefinitionRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetFunnelDefinitionRequest)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetFunnelDefinitionRequestOutput) ToPowerpackV2WidgetFunnelDefinitionRequestOutput() PowerpackV2WidgetFunnelDefinitionRequestOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetFunnelDefinitionRequestOutput) ToPowerpackV2WidgetFunnelDefinitionRequestOutputWithContext(ctx context.Context) PowerpackV2WidgetFunnelDefinitionRequestOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetFunnelDefinitionRequestOutput) ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutput() PowerpackV2WidgetFunnelDefinitionRequestPtrOutput {
-	return o.ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetFunnelDefinitionRequestOutput) ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetFunnelDefinitionRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetFunnelDefinitionRequest) *PowerpackV2WidgetFunnelDefinitionRequest {
-		return &v
-	}).(PowerpackV2WidgetFunnelDefinitionRequestPtrOutput)
-}
-
-// The query for the funnel widget request.
-func (o PowerpackV2WidgetFunnelDefinitionRequestOutput) Query() PowerpackV2WidgetFunnelDefinitionRequestQueryOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetFunnelDefinitionRequest) PowerpackV2WidgetFunnelDefinitionRequestQuery {
-		return v.Query
-	}).(PowerpackV2WidgetFunnelDefinitionRequestQueryOutput)
-}
-
-type PowerpackV2WidgetFunnelDefinitionRequestPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetFunnelDefinitionRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetFunnelDefinitionRequest)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetFunnelDefinitionRequestPtrOutput) ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutput() PowerpackV2WidgetFunnelDefinitionRequestPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetFunnelDefinitionRequestPtrOutput) ToPowerpackV2WidgetFunnelDefinitionRequestPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetFunnelDefinitionRequestPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetFunnelDefinitionRequestPtrOutput) Elem() PowerpackV2WidgetFunnelDefinitionRequestOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetFunnelDefinitionRequest) PowerpackV2WidgetFunnelDefinitionRequest {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetFunnelDefinitionRequest
-		return ret
-	}).(PowerpackV2WidgetFunnelDefinitionRequestOutput)
-}
-
-// The query for the funnel widget request.
-func (o PowerpackV2WidgetFunnelDefinitionRequestPtrOutput) Query() PowerpackV2WidgetFunnelDefinitionRequestQueryPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetFunnelDefinitionRequest) *PowerpackV2WidgetFunnelDefinitionRequestQuery {
-		if v == nil {
-			return nil
-		}
-		return &v.Query
-	}).(PowerpackV2WidgetFunnelDefinitionRequestQueryPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonS3Input)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonS3ArrayInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonS3Array{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonS3AuthInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonS3AuthArgs{})
@@ -86090,10 +86016,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetFreeTextDefinitionTimeFixedPtrInput)(nil)).Elem(), PowerpackV2WidgetFreeTextDefinitionTimeFixedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetFreeTextDefinitionTimeLiveInput)(nil)).Elem(), PowerpackV2WidgetFreeTextDefinitionTimeLiveArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetFreeTextDefinitionTimeLivePtrInput)(nil)).Elem(), PowerpackV2WidgetFreeTextDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetFunnelDefinitionInput)(nil)).Elem(), PowerpackV2WidgetFunnelDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetFunnelDefinitionPtrInput)(nil)).Elem(), PowerpackV2WidgetFunnelDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetFunnelDefinitionRequestInput)(nil)).Elem(), PowerpackV2WidgetFunnelDefinitionRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetFunnelDefinitionRequestPtrInput)(nil)).Elem(), PowerpackV2WidgetFunnelDefinitionRequestArgs{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonS3Output{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonS3ArrayOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonS3AuthOutput{})
@@ -87085,8 +87011,4 @@ func init() {
 	pulumi.RegisterOutputType(PowerpackV2WidgetFreeTextDefinitionTimeFixedPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetFreeTextDefinitionTimeLiveOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetFreeTextDefinitionTimeLivePtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetFunnelDefinitionOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetFunnelDefinitionPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetFunnelDefinitionRequestOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetFunnelDefinitionRequestPtrOutput{})
 }

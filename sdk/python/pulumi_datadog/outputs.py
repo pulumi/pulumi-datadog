@@ -3337,6 +3337,8 @@ __all__ = [
     'DowntimeScheduleRecurringSchedule',
     'DowntimeScheduleRecurringScheduleRecurrence',
     'IncidentNotificationRuleCondition',
+    'IncidentPostmortemTemplateConfluencePostmortemSettings',
+    'IncidentPostmortemTemplateGoogleDocsPostmortemSettings',
     'IncidentTypeConfiguration',
     'IncidentUserDefinedFieldMetadata',
     'IncidentUserDefinedFieldValidValue',
@@ -6777,7 +6779,6 @@ __all__ = [
     'TagIndexingRuleOptions',
     'TagIndexingRuleOptionsData',
     'TagIndexingRuleOptionsDataDynamicTags',
-    'TagIndexingRuleOptionsDataMetricMatch',
     'TagPipelineRulesetRule',
     'TagPipelineRulesetRuleMapping',
     'TagPipelineRulesetRuleQuery',
@@ -6909,6 +6910,7 @@ __all__ = [
     'GetReferenceTableRowsRowResult',
     'GetReferenceTableSchemaResult',
     'GetReferenceTableSchemaFieldResult',
+    'GetRolePermissionsPermissionResult',
     'GetRoleUsersRoleUserResult',
     'GetRolesRoleResult',
     'GetRumRetentionFiltersRetentionFilterResult',
@@ -235476,6 +235478,120 @@ class IncidentNotificationRuleCondition(dict):
         The value(s) to compare against. Multiple values are ORed together.
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class IncidentPostmortemTemplateConfluencePostmortemSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+        elif key == "parentId":
+            suggest = "parent_id"
+        elif key == "spaceId":
+            suggest = "space_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentPostmortemTemplateConfluencePostmortemSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentPostmortemTemplateConfluencePostmortemSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentPostmortemTemplateConfluencePostmortemSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_id: Optional[_builtins.str] = None,
+                 parent_id: Optional[_builtins.str] = None,
+                 space_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str account_id: The ID of the Confluence account, a Datadog connected-account UUID (e.g. `3f9b1c2a-8d4e-4a11-9c2f-0b7e5d6a1f23`).
+        :param _builtins.str parent_id: The ID of the parent Confluence page under which postmortems are created: a numeric page ID (e.g. `393217`), not a page path.
+        :param _builtins.str space_id: The Confluence space key (e.g. `ENG`), not a numeric space ID.
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if parent_id is not None:
+            pulumi.set(__self__, "parent_id", parent_id)
+        if space_id is not None:
+            pulumi.set(__self__, "space_id", space_id)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the Confluence account, a Datadog connected-account UUID (e.g. `3f9b1c2a-8d4e-4a11-9c2f-0b7e5d6a1f23`).
+        """
+        return pulumi.get(self, "account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="parentId")
+    def parent_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the parent Confluence page under which postmortems are created: a numeric page ID (e.g. `393217`), not a page path.
+        """
+        return pulumi.get(self, "parent_id")
+
+    @_builtins.property
+    @pulumi.getter(name="spaceId")
+    def space_id(self) -> Optional[_builtins.str]:
+        """
+        The Confluence space key (e.g. `ENG`), not a numeric space ID.
+        """
+        return pulumi.get(self, "space_id")
+
+
+@pulumi.output_type
+class IncidentPostmortemTemplateGoogleDocsPostmortemSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+        elif key == "parentFolderId":
+            suggest = "parent_folder_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentPostmortemTemplateGoogleDocsPostmortemSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentPostmortemTemplateGoogleDocsPostmortemSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentPostmortemTemplateGoogleDocsPostmortemSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_id: Optional[_builtins.str] = None,
+                 parent_folder_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str account_id: The ID of the Google Drive account, a Datadog connected-account UUID (e.g. `a1b2c3d4-e5f6-4789-8abc-1234567890ab`).
+        :param _builtins.str parent_folder_id: The Google Drive folder ID where postmortems are created, taken from the folder URL (e.g. `1eCqLAKQqRHt49J2aqQLGUcnPMzGHkt2B`).
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if parent_folder_id is not None:
+            pulumi.set(__self__, "parent_folder_id", parent_folder_id)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the Google Drive account, a Datadog connected-account UUID (e.g. `a1b2c3d4-e5f6-4789-8abc-1234567890ab`).
+        """
+        return pulumi.get(self, "account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="parentFolderId")
+    def parent_folder_id(self) -> Optional[_builtins.str]:
+        """
+        The Google Drive folder ID where postmortems are created, taken from the folder URL (e.g. `1eCqLAKQqRHt49J2aqQLGUcnPMzGHkt2B`).
+        """
+        return pulumi.get(self, "parent_folder_id")
 
 
 @pulumi.output_type
@@ -468449,8 +468565,6 @@ class TagIndexingRuleOptionsData(dict):
             suggest = "dynamic_tags"
         elif key == "managePreexistingMetrics":
             suggest = "manage_preexisting_metrics"
-        elif key == "metricMatch":
-            suggest = "metric_match"
         elif key == "overridePreviousRules":
             suggest = "override_previous_rules"
 
@@ -468468,20 +468582,16 @@ class TagIndexingRuleOptionsData(dict):
     def __init__(__self__, *,
                  dynamic_tags: Optional['outputs.TagIndexingRuleOptionsDataDynamicTags'] = None,
                  manage_preexisting_metrics: Optional[_builtins.bool] = None,
-                 metric_match: Optional['outputs.TagIndexingRuleOptionsDataMetricMatch'] = None,
                  override_previous_rules: Optional[_builtins.bool] = None):
         """
-        :param 'TagIndexingRuleOptionsDataDynamicTagsArgs' dynamic_tags: Configuration for including dynamically queried tags.
+        :param 'TagIndexingRuleOptionsDataDynamicTagsArgs' dynamic_tags: Configuration for excluding tags based on dynamic usage signals. Only applies when `exclude_tags_mode` is `true`.
         :param _builtins.bool manage_preexisting_metrics: When true, the rule applies to metrics ingested before the rule was created. Defaults to `true`.
-        :param 'TagIndexingRuleOptionsDataMetricMatchArgs' metric_match: Criteria for matching metrics based on query state.
         :param _builtins.bool override_previous_rules: When true, this rule's tag list overrides tags configured by earlier rules for the same metric. Defaults to `false`.
         """
         if dynamic_tags is not None:
             pulumi.set(__self__, "dynamic_tags", dynamic_tags)
         if manage_preexisting_metrics is not None:
             pulumi.set(__self__, "manage_preexisting_metrics", manage_preexisting_metrics)
-        if metric_match is not None:
-            pulumi.set(__self__, "metric_match", metric_match)
         if override_previous_rules is not None:
             pulumi.set(__self__, "override_previous_rules", override_previous_rules)
 
@@ -468489,7 +468599,7 @@ class TagIndexingRuleOptionsData(dict):
     @pulumi.getter(name="dynamicTags")
     def dynamic_tags(self) -> Optional['outputs.TagIndexingRuleOptionsDataDynamicTags']:
         """
-        Configuration for including dynamically queried tags.
+        Configuration for excluding tags based on dynamic usage signals. Only applies when `exclude_tags_mode` is `true`.
         """
         return pulumi.get(self, "dynamic_tags")
 
@@ -468500,14 +468610,6 @@ class TagIndexingRuleOptionsData(dict):
         When true, the rule applies to metrics ingested before the rule was created. Defaults to `true`.
         """
         return pulumi.get(self, "manage_preexisting_metrics")
-
-    @_builtins.property
-    @pulumi.getter(name="metricMatch")
-    def metric_match(self) -> Optional['outputs.TagIndexingRuleOptionsDataMetricMatch']:
-        """
-        Criteria for matching metrics based on query state.
-        """
-        return pulumi.get(self, "metric_match")
 
     @_builtins.property
     @pulumi.getter(name="overridePreviousRules")
@@ -468523,10 +468625,10 @@ class TagIndexingRuleOptionsDataDynamicTags(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "queriedTagsWindowSeconds":
-            suggest = "queried_tags_window_seconds"
-        elif key == "relatedAssetTags":
-            suggest = "related_asset_tags"
+        if key == "excludeNotQueriedWindowSeconds":
+            suggest = "exclude_not_queried_window_seconds"
+        elif key == "excludeNotUsedInAssets":
+            suggest = "exclude_not_used_in_assets"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TagIndexingRuleOptionsDataDynamicTags. Access the value via the '{suggest}' property getter instead.")
@@ -468540,124 +468642,32 @@ class TagIndexingRuleOptionsDataDynamicTags(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 queried_tags_window_seconds: Optional[_builtins.int] = None,
-                 related_asset_tags: Optional[_builtins.bool] = None):
+                 exclude_not_queried_window_seconds: Optional[_builtins.int] = None,
+                 exclude_not_used_in_assets: Optional[_builtins.bool] = None):
         """
-        :param _builtins.int queried_tags_window_seconds: Lookback window for determining which tags were recently queried.
-        :param _builtins.bool related_asset_tags: When true, tags from related assets are included.
+        :param _builtins.int exclude_not_queried_window_seconds: Lookback window, in seconds, for excluding tags that were not queried in that period. Requires `exclude_tags_mode` to be `true`. Value must be between 1 and 7776000.
+        :param _builtins.bool exclude_not_used_in_assets: When true, excludes tags not used in any dashboards or monitors. Requires `exclude_tags_mode` to be `true`.
         """
-        if queried_tags_window_seconds is not None:
-            pulumi.set(__self__, "queried_tags_window_seconds", queried_tags_window_seconds)
-        if related_asset_tags is not None:
-            pulumi.set(__self__, "related_asset_tags", related_asset_tags)
+        if exclude_not_queried_window_seconds is not None:
+            pulumi.set(__self__, "exclude_not_queried_window_seconds", exclude_not_queried_window_seconds)
+        if exclude_not_used_in_assets is not None:
+            pulumi.set(__self__, "exclude_not_used_in_assets", exclude_not_used_in_assets)
 
     @_builtins.property
-    @pulumi.getter(name="queriedTagsWindowSeconds")
-    def queried_tags_window_seconds(self) -> Optional[_builtins.int]:
+    @pulumi.getter(name="excludeNotQueriedWindowSeconds")
+    def exclude_not_queried_window_seconds(self) -> Optional[_builtins.int]:
         """
-        Lookback window for determining which tags were recently queried.
+        Lookback window, in seconds, for excluding tags that were not queried in that period. Requires `exclude_tags_mode` to be `true`. Value must be between 1 and 7776000.
         """
-        return pulumi.get(self, "queried_tags_window_seconds")
+        return pulumi.get(self, "exclude_not_queried_window_seconds")
 
     @_builtins.property
-    @pulumi.getter(name="relatedAssetTags")
-    def related_asset_tags(self) -> Optional[_builtins.bool]:
+    @pulumi.getter(name="excludeNotUsedInAssets")
+    def exclude_not_used_in_assets(self) -> Optional[_builtins.bool]:
         """
-        When true, tags from related assets are included.
+        When true, excludes tags not used in any dashboards or monitors. Requires `exclude_tags_mode` to be `true`.
         """
-        return pulumi.get(self, "related_asset_tags")
-
-
-@pulumi.output_type
-class TagIndexingRuleOptionsDataMetricMatch(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "isQueried":
-            suggest = "is_queried"
-        elif key == "notQueried":
-            suggest = "not_queried"
-        elif key == "notUsedInAssets":
-            suggest = "not_used_in_assets"
-        elif key == "queriedWindowSeconds":
-            suggest = "queried_window_seconds"
-        elif key == "usedInAssets":
-            suggest = "used_in_assets"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TagIndexingRuleOptionsDataMetricMatch. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TagIndexingRuleOptionsDataMetricMatch.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TagIndexingRuleOptionsDataMetricMatch.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 is_queried: Optional[_builtins.bool] = None,
-                 not_queried: Optional[_builtins.bool] = None,
-                 not_used_in_assets: Optional[_builtins.bool] = None,
-                 queried_window_seconds: Optional[_builtins.int] = None,
-                 used_in_assets: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.bool is_queried: Match metrics that are being queried.
-        :param _builtins.bool not_queried: Match metrics that are not being queried.
-        :param _builtins.bool not_used_in_assets: Match metrics not used in any dashboards or monitors.
-        :param _builtins.int queried_window_seconds: Window in seconds for evaluating query state.
-        :param _builtins.bool used_in_assets: Match metrics used in dashboards or monitors.
-        """
-        if is_queried is not None:
-            pulumi.set(__self__, "is_queried", is_queried)
-        if not_queried is not None:
-            pulumi.set(__self__, "not_queried", not_queried)
-        if not_used_in_assets is not None:
-            pulumi.set(__self__, "not_used_in_assets", not_used_in_assets)
-        if queried_window_seconds is not None:
-            pulumi.set(__self__, "queried_window_seconds", queried_window_seconds)
-        if used_in_assets is not None:
-            pulumi.set(__self__, "used_in_assets", used_in_assets)
-
-    @_builtins.property
-    @pulumi.getter(name="isQueried")
-    def is_queried(self) -> Optional[_builtins.bool]:
-        """
-        Match metrics that are being queried.
-        """
-        return pulumi.get(self, "is_queried")
-
-    @_builtins.property
-    @pulumi.getter(name="notQueried")
-    def not_queried(self) -> Optional[_builtins.bool]:
-        """
-        Match metrics that are not being queried.
-        """
-        return pulumi.get(self, "not_queried")
-
-    @_builtins.property
-    @pulumi.getter(name="notUsedInAssets")
-    def not_used_in_assets(self) -> Optional[_builtins.bool]:
-        """
-        Match metrics not used in any dashboards or monitors.
-        """
-        return pulumi.get(self, "not_used_in_assets")
-
-    @_builtins.property
-    @pulumi.getter(name="queriedWindowSeconds")
-    def queried_window_seconds(self) -> Optional[_builtins.int]:
-        """
-        Window in seconds for evaluating query state.
-        """
-        return pulumi.get(self, "queried_window_seconds")
-
-    @_builtins.property
-    @pulumi.getter(name="usedInAssets")
-    def used_in_assets(self) -> Optional[_builtins.bool]:
-        """
-        Match metrics used in dashboards or monitors.
-        """
-        return pulumi.get(self, "used_in_assets")
+        return pulumi.get(self, "exclude_not_used_in_assets")
 
 
 @pulumi.output_type
@@ -473361,6 +473371,25 @@ class GetReferenceTableSchemaFieldResult(dict):
         The data type of the field (e.g., STRING, INT32).
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetRolePermissionsPermissionResult(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 permission_id: _builtins.str):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "permission_id", permission_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="permissionId")
+    def permission_id(self) -> _builtins.str:
+        return pulumi.get(self, "permission_id")
 
 
 @pulumi.output_type

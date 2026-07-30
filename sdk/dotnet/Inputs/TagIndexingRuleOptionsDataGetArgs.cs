@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class TagIndexingRuleOptionsDataGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration for including dynamically queried tags.
+        /// Configuration for excluding tags based on dynamic usage signals. Only applies when `ExcludeTagsMode` is `True`.
         /// </summary>
         [Input("dynamicTags")]
         public Input<Inputs.TagIndexingRuleOptionsDataDynamicTagsGetArgs>? DynamicTags { get; set; }
@@ -23,12 +23,6 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("managePreexistingMetrics")]
         public Input<bool>? ManagePreexistingMetrics { get; set; }
-
-        /// <summary>
-        /// Criteria for matching metrics based on query state.
-        /// </summary>
-        [Input("metricMatch")]
-        public Input<Inputs.TagIndexingRuleOptionsDataMetricMatchGetArgs>? MetricMatch { get; set; }
 
         /// <summary>
         /// When true, this rule's tag list overrides tags configured by earlier rules for the same metric. Defaults to `False`.
