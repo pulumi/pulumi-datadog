@@ -80,11 +80,11 @@ import (
 //				DashItems: datadog.DashboardListDashItemArray{
 //					&datadog.DashboardListDashItemArgs{
 //						Type:   pulumi.String("custom_timeboard"),
-//						DashId: time.ID(),
+//						DashId: time.ID().ToIDOutput().ToStringOutput(),
 //					},
 //					&datadog.DashboardListDashItemArgs{
 //						Type:   pulumi.String("custom_screenboard"),
-//						DashId: screen.ID(),
+//						DashId: screen.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})

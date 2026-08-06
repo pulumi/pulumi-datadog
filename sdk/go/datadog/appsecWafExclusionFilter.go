@@ -33,18 +33,18 @@ import (
 //				Description: "Exclude false positives on a path",
 //				Enabled:     true,
 //				PathGlob:    "/accounts/*",
-//				RulesTarget: []map[string]interface{}{
-//					map[string]interface{}{
-//						"tags": []map[string]interface{}{
-//							map[string]interface{}{
+//				RulesTarget: []map[string][]map[string]string{
+//					{
+//						"tags": []map[string]string{
+//							{
 //								"category": "attack_attempt",
 //								"type":     "lfi",
 //							},
 //						},
 //					},
 //				},
-//				Scope: []map[string]interface{}{
-//					map[string]interface{}{
+//				Scope: []map[string]string{
+//					{
 //						"env":     "www",
 //						"service": "prod",
 //					},

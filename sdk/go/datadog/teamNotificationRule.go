@@ -38,24 +38,24 @@ import (
 //				return err
 //			}
 //			_, err = datadog.NewTeamNotificationRule(ctx, "foo", &datadog.TeamNotificationRuleArgs{
-//				TeamId: foo.ID(),
+//				TeamId: foo.ID().ToIDOutput().ToStringOutput(),
 //				Email: datadog.TeamNotificationRuleEmailArgs{
-//					map[string]interface{}{
+//					map[string]bool{
 //						"enabled": true,
 //					},
 //				},
 //				MsTeams: datadog.TeamNotificationRuleMsTeamsArgs{
-//					map[string]interface{}{
+//					map[string]string{
 //						"connectorName": "test-teams-handle",
 //					},
 //				},
 //				Pagerduty: datadog.TeamNotificationRulePagerdutyArgs{
-//					map[string]interface{}{
+//					map[string]string{
 //						"serviceName": "my-service",
 //					},
 //				},
 //				Slack: datadog.TeamNotificationRuleSlackArgs{
-//					map[string]interface{}{
+//					map[string]string{
 //						"channel":   "test-channel",
 //						"workspace": "Datadog",
 //					},

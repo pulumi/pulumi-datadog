@@ -46,8 +46,8 @@ import (
 //						"allocatedByTagKeys": []string{
 //							"team",
 //						},
-//						"basedOnCosts": []map[string]interface{}{
-//							map[string]interface{}{
+//						"basedOnCosts": []map[string]string{
+//							{
 //								"condition": "is",
 //								"tag":       "aws_product",
 //								"value":     "AmazonEC2",
@@ -78,8 +78,8 @@ import (
 //						"allocatedByTagKeys": []string{
 //							"team",
 //						},
-//						"basedOnCosts": []map[string]interface{}{
-//							map[string]interface{}{
+//						"basedOnCosts": []map[string]string{
+//							{
 //								"condition": "is",
 //								"tag":       "aws_product",
 //								"value":     "AmazonS3",
@@ -110,8 +110,8 @@ import (
 //						"allocatedByTagKeys": []string{
 //							"team",
 //						},
-//						"basedOnCosts": []map[string]interface{}{
-//							map[string]interface{}{
+//						"basedOnCosts": []map[string]string{
+//							{
 //								"condition": "is",
 //								"tag":       "aws_product",
 //								"value":     "AmazonRDS",
@@ -128,9 +128,9 @@ import (
 //			// This will preserve any existing rules created outside of Terraform as long as they are at the end
 //			_, err = datadog.NewCustomAllocationRules(ctx, "preserve_order", &datadog.CustomAllocationRulesArgs{
 //				RuleIds: pulumi.StringArray{
-//					rule1.ID(),
-//					rule2.ID(),
-//					rule3.ID(),
+//					rule1.ID().ToIDOutput().ToStringOutput(),
+//					rule2.ID().ToIDOutput().ToStringOutput(),
+//					rule3.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -141,9 +141,9 @@ import (
 //			_, err = datadog.NewCustomAllocationRules(ctx, "override_order", &datadog.CustomAllocationRulesArgs{
 //				OverrideUiDefinedResources: pulumi.Bool(true),
 //				RuleIds: pulumi.StringArray{
-//					rule1.ID(),
-//					rule2.ID(),
-//					rule3.ID(),
+//					rule1.ID().ToIDOutput().ToStringOutput(),
+//					rule2.ID().ToIDOutput().ToStringOutput(),
+//					rule3.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

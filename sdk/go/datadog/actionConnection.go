@@ -34,9 +34,9 @@ import (
 //			_, err := datadog.NewActionConnection(ctx, "aws_connection", &datadog.ActionConnectionArgs{
 //				Name: pulumi.String("My AWS Connection"),
 //				Aws: datadog.ActionConnectionAwsArgs{
-//					map[string]interface{}{
-//						"assumeRole": []map[string]interface{}{
-//							map[string]interface{}{
+//					map[string][]map[string]string{
+//						"assumeRole": []map[string]string{
+//							{
 //								"accountId": "123456789012",
 //								"role":      "role2",
 //							},
@@ -50,7 +50,7 @@ import (
 //			cfg := config.New(ctx, "")
 //			token1 := cfg.Require("token1")
 //			token2 := cfg.Require("token2")
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]string{
 //				"key":   "mykey",
 //				"value": "maybe with a secret: {{ token2 }}",
 //			})
@@ -63,42 +63,42 @@ import (
 //				Http: datadog.ActionConnectionHttpArgs{
 //					map[string]interface{}{
 //						"baseUrl": "https://catfact.ninja",
-//						"tokenAuth": []map[string]interface{}{
-//							map[string]interface{}{
-//								"tokens": []map[string]interface{}{
-//									map[string]interface{}{
+//						"tokenAuth": []map[string][]map[string]string{
+//							{
+//								"tokens": []map[string]string{
+//									{
 //										"type":  "SECRET",
 //										"name":  "token1",
 //										"value": token1,
 //									},
-//									map[string]interface{}{
+//									{
 //										"type":  "SECRET",
 //										"name":  "token2",
 //										"value": token2,
 //									},
 //								},
-//								"headers": []map[string]interface{}{
-//									map[string]interface{}{
+//								"headers": []map[string]string{
+//									{
 //										"name":  "header-one",
 //										"value": "headerval",
 //									},
-//									map[string]interface{}{
+//									{
 //										"name":  "h2",
 //										"value": "{{ token1 }} test",
 //									},
 //								},
-//								"urlParameters": []map[string]interface{}{
-//									map[string]interface{}{
+//								"urlParameters": []map[string]string{
+//									{
 //										"name":  "param1",
 //										"value": "{{ token1 }}",
 //									},
-//									map[string]interface{}{
+//									{
 //										"name":  "param2",
 //										"value": "paramVal2",
 //									},
 //								},
-//								"body": []map[string]interface{}{
-//									map[string]interface{}{
+//								"body": []map[string]string{
+//									{
 //										"contentType": "application/json",
 //										"content":     json0,
 //									},

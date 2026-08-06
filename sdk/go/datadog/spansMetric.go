@@ -39,7 +39,7 @@ import (
 //					},
 //				},
 //				Filter: datadog.SpansMetricFilterArgs{
-//					map[string]interface{}{
+//					map[string]string{
 //						"query": "@http.status_code:200 service:my-service",
 //					},
 //				},

@@ -36,10 +36,10 @@ import (
 //				FileMetadata: datadog.ReferenceTableFileMetadataArgs{
 //					map[string]interface{}{
 //						"syncEnabled": true,
-//						"accessDetails": []map[string]interface{}{
-//							map[string]interface{}{
-//								"awsDetail": []map[string]interface{}{
-//									map[string]interface{}{
+//						"accessDetails": []map[string][]map[string]string{
+//							{
+//								"awsDetail": []map[string]string{
+//									{
 //										"awsAccountId":  "123456789000",
 //										"awsBucketName": "my-data-bucket",
 //										"filePath":      "reference-tables/products.csv",
@@ -54,20 +54,20 @@ import (
 //						"primaryKeys": []string{
 //							"product_id",
 //						},
-//						"fields": []map[string]interface{}{
-//							map[string]interface{}{
+//						"fields": []map[string]string{
+//							{
 //								"name": "product_id",
 //								"type": "STRING",
 //							},
-//							map[string]interface{}{
+//							{
 //								"name": "product_name",
 //								"type": "STRING",
 //							},
-//							map[string]interface{}{
+//							{
 //								"name": "category",
 //								"type": "STRING",
 //							},
-//							map[string]interface{}{
+//							{
 //								"name": "price_cents",
 //								"type": "INT32",
 //							},

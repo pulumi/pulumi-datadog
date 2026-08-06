@@ -64,7 +64,7 @@ import (
 // `),
 //
 //				Category:     pulumi.String("alert"),
-//				IncidentType: security.ID(),
+//				IncidentType: security.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

@@ -34,7 +34,7 @@ import (
 //				ClientId:  pulumi.String("87654321-4321-dcba-4321-210987654321"),
 //				Scope:     pulumi.String("/subscriptions/12345678-1234-abcd-1234-123456789012"),
 //				ActualBillConfig: datadog.AzureUcConfigActualBillConfigArgs{
-//					map[string]interface{}{
+//					map[string]string{
 //						"exportName":       "my-actual-export",
 //						"exportPath":       "exports/actual",
 //						"storageAccount":   "mystorageaccount",
@@ -42,7 +42,7 @@ import (
 //					},
 //				},
 //				AmortizedBillConfig: datadog.AzureUcConfigAmortizedBillConfigArgs{
-//					map[string]interface{}{
+//					map[string]string{
 //						"exportName":       "my-amortized-export",
 //						"exportPath":       "exports/amortized",
 //						"storageAccount":   "mystorageaccount",

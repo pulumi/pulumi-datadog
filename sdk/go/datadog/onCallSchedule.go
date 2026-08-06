@@ -41,7 +41,7 @@ import (
 //						EndDate:       pulumi.String("2026-01-01T00:00:00Z"),
 //						RotationStart: pulumi.String("2025-01-01T00:00:00Z"),
 //						Interval: datadog.OnCallScheduleLayerIntervalArgs{
-//							map[string]interface{}{
+//							map[string]int{
 //								"days":    1,
 //								"seconds": 300,
 //							},
@@ -64,7 +64,7 @@ import (
 //						RotationStart: pulumi.String("2025-01-01T00:00:00Z"),
 //						TimeZone:      pulumi.String("Asia/Tokyo"),
 //						Interval: datadog.OnCallScheduleLayerIntervalArgs{
-//							map[string]interface{}{
+//							map[string]int{
 //								"days": 7,
 //							},
 //						},

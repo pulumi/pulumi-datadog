@@ -36,7 +36,7 @@ import (
 //			}
 //			// Moves the given organization into the prod org group.
 //			_, err = datadog.NewOrgGroupMembership(ctx, "example", &datadog.OrgGroupMembershipArgs{
-//				OrgGroupId: prod.ID(),
+//				OrgGroupId: prod.ID().ToIDOutput().ToStringOutput(),
 //				OrgUuid:    pulumi.String("ff4a8255-6931-58d1-add0-a6b3602d5421"),
 //			})
 //			if err != nil {

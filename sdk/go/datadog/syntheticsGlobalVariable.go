@@ -60,7 +60,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			secretKeepers := map[string]interface{}{
+//			secretKeepers := map[string]string{
 //				"rotationDate":   "2024-02-15",
 //				"environment":    "production",
 //				"securityPolicy": "v3.1",
@@ -72,7 +72,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			// Auto-generate version from keepers
 //			secretVersion := fmt.Sprintf("rotation-%v", std.Substr(ctx, map[string]interface{}{
-//				"input": std.Md5(ctx, map[string]interface{}{
+//				"input": std.Md5(ctx, map[string]string{
 //					"input": json0,
 //				}, nil).Result,
 //				"length": 0,

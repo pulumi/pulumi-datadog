@@ -42,7 +42,7 @@ import (
 //				Type:         pulumi.String("dropdown"),
 //				Category:     pulumi.String("what_happened"),
 //				DefaultValue: pulumi.String("service_bug"),
-//				IncidentType: example.ID(),
+//				IncidentType: example.ID().ToIDOutput().ToStringOutput(),
 //				ValidValues: datadog.IncidentUserDefinedFieldValidValueArray{
 //					&datadog.IncidentUserDefinedFieldValidValueArgs{
 //						DisplayName: pulumi.String("Service Bug"),

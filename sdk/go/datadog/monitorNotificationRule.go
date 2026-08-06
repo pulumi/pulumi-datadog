@@ -35,7 +35,7 @@ import (
 //					pulumi.String("jira-checkout"),
 //				},
 //				Filter: datadog.MonitorNotificationRuleFilterArgs{
-//					map[string]interface{}{
+//					map[string][]string{
 //						"tags": []string{
 //							"team:payment",
 //						},
@@ -48,7 +48,7 @@ import (
 //			_, err = datadog.NewMonitorNotificationRule(ctx, "team_payment_notification_rule", &datadog.MonitorNotificationRuleArgs{
 //				Name: pulumi.String("Routing logic for team payment"),
 //				Filter: datadog.MonitorNotificationRuleFilterArgs{
-//					map[string]interface{}{
+//					map[string]string{
 //						"scope": "team:payment AND NOT env:dev AND service:(payment-processing OR payment-gateway)",
 //					},
 //				},

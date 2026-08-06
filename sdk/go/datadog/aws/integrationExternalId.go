@@ -39,7 +39,7 @@ import (
 //				AwsAccountId: pulumi.String("123456789019"),
 //				AwsPartition: pulumi.String("aws"),
 //				AuthConfig: aws.IntegrationAccountAuthConfigArgs{
-//					map[string]interface{}{
+//					map[string][]map[string]interface{}{
 //						"awsAuthConfigRole": []map[string]interface{}{
 //							map[string]interface{}{
 //								"roleName":   "DatadogIntegrationRole",

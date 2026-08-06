@@ -67,8 +67,8 @@ import (
 //							map[string]interface{}{
 //								"query":       "service:web* OR service:api*",
 //								"ifTagExists": "do_not_apply",
-//								"addition": []map[string]interface{}{
-//									map[string]interface{}{
+//								"addition": []map[string]string{
+//									{
 //										"key":   "team",
 //										"value": "backend",
 //									},
@@ -96,8 +96,8 @@ import (
 //								"sourceKeys": []string{
 //									"service",
 //								},
-//								"fieldPairs": []map[string]interface{}{
-//									map[string]interface{}{
+//								"fieldPairs": []map[string]string{
+//									{
 //										"inputColumn": "owner_team",
 //										"outputKey":   "owner",
 //									},
@@ -115,9 +115,9 @@ import (
 //			// UI-defined rulesets not in this list will be preserved at the end
 //			_, err = datadog.NewTagPipelineRulesets(ctx, "order", &datadog.TagPipelineRulesetsArgs{
 //				RulesetIds: pulumi.StringArray{
-//					first.ID(),
-//					second.ID(),
-//					third.ID(),
+//					first.ID().ToIDOutput().ToStringOutput(),
+//					second.ID().ToIDOutput().ToStringOutput(),
+//					third.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -162,8 +162,8 @@ import (
 //							map[string]interface{}{
 //								"query":       "service:web*",
 //								"ifTagExists": "do_not_apply",
-//								"addition": []map[string]interface{}{
-//									map[string]interface{}{
+//								"addition": []map[string]string{
+//									{
 //										"key":   "team",
 //										"value": "frontend",
 //									},
@@ -181,8 +181,8 @@ import (
 //			_, err = datadog.NewTagPipelineRulesets(ctx, "order_override", &datadog.TagPipelineRulesetsArgs{
 //				OverrideUiDefinedResources: pulumi.Bool(true),
 //				RulesetIds: pulumi.StringArray{
-//					managedFirst.ID(),
-//					managedSecond.ID(),
+//					managedFirst.ID().ToIDOutput().ToStringOutput(),
+//					managedSecond.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -231,8 +231,8 @@ import (
 //							map[string]interface{}{
 //								"query":       "service:web*",
 //								"ifTagExists": "do_not_apply",
-//								"addition": []map[string]interface{}{
-//									map[string]interface{}{
+//								"addition": []map[string]string{
+//									{
 //										"key":   "team",
 //										"value": "frontend",
 //									},
@@ -252,8 +252,8 @@ import (
 //			_, err = datadog.NewTagPipelineRulesets(ctx, "order_preserve", &datadog.TagPipelineRulesetsArgs{
 //				OverrideUiDefinedResources: pulumi.Bool(false),
 //				RulesetIds: pulumi.StringArray{
-//					preserveFirst.ID(),
-//					preserveSecond.ID(),
+//					preserveFirst.ID().ToIDOutput().ToStringOutput(),
+//					preserveSecond.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

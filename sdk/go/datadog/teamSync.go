@@ -39,7 +39,7 @@ import (
 //						Operation: pulumi.String("include"),
 //						Scope:     pulumi.String("subtree"),
 //						ExternalId: datadog.TeamSyncSelectionStateExternalIdArgs{
-//							map[string]interface{}{
+//							map[string]string{
 //								"type":  "organization",
 //								"value": "12345",
 //							},
