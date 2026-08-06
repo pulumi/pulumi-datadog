@@ -40,7 +40,7 @@ import (
 //				},
 //				EventType: pulumi.String("session"),
 //				Filter: datadog.RumMetricFilterArgs{
-//					map[string]interface{}{
+//					map[string]string{
 //						"query": "@service:web-ui",
 //					},
 //				},
@@ -51,7 +51,7 @@ import (
 //					},
 //				},
 //				Uniqueness: datadog.RumMetricUniquenessArgs{
-//					map[string]interface{}{
+//					map[string]string{
 //						"when": "match",
 //					},
 //				},

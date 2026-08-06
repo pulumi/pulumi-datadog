@@ -40,7 +40,7 @@ import (
 //			}
 //			// Create a datastore item with the primary key specified in the value map
 //			_, err = datadog.NewDatastoreItem(ctx, "user1", &datadog.DatastoreItemArgs{
-//				DatastoreId: example.ID(),
+//				DatastoreId: example.ID().ToIDOutput().ToStringOutput(),
 //				ItemKey:     pulumi.String("user-123"),
 //				Value: pulumi.StringMap{
 //					"id":       pulumi.String("user-123"),
@@ -54,7 +54,7 @@ import (
 //			}
 //			// Create another datastore item
 //			_, err = datadog.NewDatastoreItem(ctx, "user2", &datadog.DatastoreItemArgs{
-//				DatastoreId: example.ID(),
+//				DatastoreId: example.ID().ToIDOutput().ToStringOutput(),
 //				ItemKey:     pulumi.String("user-456"),
 //				Value: pulumi.StringMap{
 //					"id":       pulumi.String("user-456"),

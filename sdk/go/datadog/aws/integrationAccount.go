@@ -36,21 +36,21 @@ import (
 //				AwsAccountId: pulumi.String("123456789012"),
 //				AwsPartition: pulumi.String("aws"),
 //				AwsRegions: aws.IntegrationAccountAwsRegionsArgs{
-//					map[string]interface{}{
+//					map[string]bool{
 //						"includeAll": true,
 //					},
 //				},
 //				AuthConfig: aws.IntegrationAccountAuthConfigArgs{
-//					map[string]interface{}{
-//						"awsAuthConfigRole": []map[string]interface{}{
-//							map[string]interface{}{
+//					map[string][]map[string]string{
+//						"awsAuthConfigRole": []map[string]string{
+//							{
 //								"roleName": "DatadogIntegrationRole",
 //							},
 //						},
 //					},
 //				},
 //				LogsConfig: aws.IntegrationAccountLogsConfigArgs{
-//					map[string]interface{}{
+//					map[string][]map[string]interface{}{
 //						"lambdaForwarder": []map[string]interface{}{
 //							map[string]interface{}{
 //								"lambdas": []string{
@@ -59,8 +59,8 @@ import (
 //								"sources": []string{
 //									"s3",
 //								},
-//								"logSourceConfig": []map[string]interface{}{
-//									map[string]interface{}{
+//								"logSourceConfig": []map[string][]map[string]interface{}{
+//									map[string][]map[string]interface{}{
 //										"tagFilters": []map[string]interface{}{
 //											map[string]interface{}{
 //												"source": "s3",
@@ -82,8 +82,8 @@ import (
 //						"collectCloudwatchAlarms": true,
 //						"collectCustomMetrics":    true,
 //						"enabled":                 true,
-//						"namespaceFilters": []map[string]interface{}{
-//							map[string]interface{}{
+//						"namespaceFilters": []map[string][]string{
+//							{
 //								"excludeOnlies": []string{
 //									"AWS/SQS",
 //									"AWS/ElasticMapReduce",
@@ -116,15 +116,15 @@ import (
 //					},
 //				},
 //				ResourcesConfig: aws.IntegrationAccountResourcesConfigArgs{
-//					map[string]interface{}{
+//					map[string]bool{
 //						"cloudSecurityPostureManagementCollection": true,
 //						"extendedCollection":                       true,
 //					},
 //				},
 //				TracesConfig: aws.IntegrationAccountTracesConfigArgs{
-//					map[string]interface{}{
-//						"xrayServices": []map[string]interface{}{
-//							map[string]interface{}{
+//					map[string][]map[string]bool{
+//						"xrayServices": []map[string]bool{
+//							{
 //								"includeAll": true,
 //							},
 //						},
@@ -140,14 +140,14 @@ import (
 //					map[string]interface{}{},
 //				},
 //				LogsConfig: aws.IntegrationAccountLogsConfigArgs{
-//					map[string]interface{}{
+//					map[string][]map[string]interface{}{
 //						"lambdaForwarder": []map[string]interface{}{
 //							map[string]interface{}{},
 //						},
 //					},
 //				},
 //				MetricsConfig: aws.IntegrationAccountMetricsConfigArgs{
-//					map[string]interface{}{
+//					map[string][]map[string]interface{}{
 //						"namespaceFilters": []map[string]interface{}{
 //							map[string]interface{}{},
 //						},
@@ -157,7 +157,7 @@ import (
 //					map[string]interface{}{},
 //				},
 //				TracesConfig: aws.IntegrationAccountTracesConfigArgs{
-//					map[string]interface{}{
+//					map[string][]map[string]interface{}{
 //						"xrayServices": []map[string]interface{}{
 //							map[string]interface{}{},
 //						},
@@ -166,9 +166,9 @@ import (
 //				AwsAccountId: pulumi.String("234567890123"),
 //				AwsPartition: pulumi.String("aws"),
 //				AuthConfig: aws.IntegrationAccountAuthConfigArgs{
-//					map[string]interface{}{
-//						"awsAuthConfigRole": []map[string]interface{}{
-//							map[string]interface{}{
+//					map[string][]map[string]string{
+//						"awsAuthConfigRole": []map[string]string{
+//							{
 //								"roleName": "DatadogIntegrationRole",
 //							},
 //						},

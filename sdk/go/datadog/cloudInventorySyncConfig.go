@@ -32,7 +32,7 @@ import (
 //			_, err := datadog.NewCloudInventorySyncConfig(ctx, "aws_example", &datadog.CloudInventorySyncConfigArgs{
 //				CloudProvider: pulumi.String("aws"),
 //				Aws: datadog.CloudInventorySyncConfigAwsArgs{
-//					map[string]interface{}{
+//					map[string]string{
 //						"awsAccountId":            "123456789012",
 //						"destinationBucketName":   "my-inventory-bucket",
 //						"destinationBucketRegion": "us-east-1",
@@ -47,7 +47,7 @@ import (
 //			_, err = datadog.NewCloudInventorySyncConfig(ctx, "azure_example", &datadog.CloudInventorySyncConfigArgs{
 //				CloudProvider: pulumi.String("azure"),
 //				Azure: datadog.CloudInventorySyncConfigAzureArgs{
-//					map[string]interface{}{
+//					map[string]string{
 //						"clientId":       "00000000-0000-0000-0000-000000000000",
 //						"tenantId":       "00000000-0000-0000-0000-000000000000",
 //						"subscriptionId": "00000000-0000-0000-0000-000000000000",
@@ -64,7 +64,7 @@ import (
 //			_, err = datadog.NewCloudInventorySyncConfig(ctx, "gcp_example", &datadog.CloudInventorySyncConfigArgs{
 //				CloudProvider: pulumi.String("gcp"),
 //				Gcp: datadog.CloudInventorySyncConfigGcpArgs{
-//					map[string]interface{}{
+//					map[string]string{
 //						"projectId":             "my-gcp-project",
 //						"destinationBucketName": "my-inventory-bucket",
 //						"sourceBucketName":      "my-source-bucket",

@@ -45,7 +45,7 @@ import (
 //					},
 //				},
 //				ConnectedTeam: datadog.TeamConnectionConnectedTeamArgs{
-//					map[string]interface{}{
+//					map[string]string{
 //						"id":   "@GitHubOrg/team-handle",
 //						"type": "github_team",
 //					},

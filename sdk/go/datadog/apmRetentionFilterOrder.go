@@ -33,7 +33,7 @@ import (
 //				Name: pulumi.String("Sample order"),
 //				Rate: pulumi.String("1.0"),
 //				Filter: datadog.ApmRetentionFilterFilterArgs{
-//					map[string]interface{}{
+//					map[string]string{
 //						"query": "*",
 //					},
 //				},
@@ -46,7 +46,7 @@ import (
 //			// Create APM retention filter order
 //			_, err = datadog.NewApmRetentionFilterOrder(ctx, "bar", &datadog.ApmRetentionFilterOrderArgs{
 //				FilterIds: pulumi.StringArray{
-//					foo.ID(),
+//					foo.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

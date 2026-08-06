@@ -55,8 +55,8 @@ import (
 //								"query":             "service:web* OR service:frontend*",
 //								"caseInsensitivity": true,
 //								"ifTagExists":       "append",
-//								"addition": []map[string]interface{}{
-//									map[string]interface{}{
+//								"addition": []map[string]string{
+//									{
 //										"key":   "team",
 //										"value": "frontend",
 //									},
@@ -75,12 +75,12 @@ import (
 //								"sourceKeys": []string{
 //									"service",
 //								},
-//								"fieldPairs": []map[string]interface{}{
-//									map[string]interface{}{
+//								"fieldPairs": []map[string]string{
+//									{
 //										"inputColumn": "owner_team",
 //										"outputKey":   "owner",
 //									},
-//									map[string]interface{}{
+//									{
 //										"inputColumn": "business_unit",
 //										"outputKey":   "business_unit",
 //									},

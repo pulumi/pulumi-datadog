@@ -36,7 +36,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]bool{
 //				"org_config": false,
 //			})
 //			if err != nil {
@@ -47,7 +47,7 @@ import (
 //			// enforcement_tier = "OVERRIDE_ALLOWED" means member orgs can still override the value;
 //			// use "GROUP_MANAGED" to make the value immutable for members.
 //			_, err = datadog.NewOrgGroupPolicy(ctx, "example", &datadog.OrgGroupPolicyArgs{
-//				OrgGroupId:      prod.ID(),
+//				OrgGroupId:      prod.ID().ToIDOutput().ToStringOutput(),
 //				PolicyName:      pulumi.String("is_widget_copy_paste_enabled"),
 //				Content:         pulumi.String(json0),
 //				EnforcementTier: pulumi.String("OVERRIDE_ALLOWED"),

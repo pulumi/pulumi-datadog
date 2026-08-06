@@ -36,7 +36,7 @@ import (
 //						Actions: datadog.OnCallTeamRoutingRulesRuleActionArray{
 //							&datadog.OnCallTeamRoutingRulesRuleActionArgs{
 //								SendSlackMessage: datadog.OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs{
-//									map[string]interface{}{
+//									map[string]string{
 //										"workspace": "workspace",
 //										"channel":   "channel",
 //									},
@@ -46,8 +46,8 @@ import (
 //						TimeRestrictions: datadog.OnCallTeamRoutingRulesRuleTimeRestrictionsArgs{
 //							map[string]interface{}{
 //								"timeZone": "America/New_York",
-//								"restrictions": []map[string]interface{}{
-//									map[string]interface{}{
+//								"restrictions": []map[string]string{
+//									{
 //										"endDay":    "monday",
 //										"endTime":   "17:00:00",
 //										"startDay":  "monday",
@@ -69,32 +69,32 @@ import (
 //										"supportHours": []map[string]interface{}{
 //											map[string]interface{}{
 //												"timeZone": "America/New_York",
-//												"restrictions": []map[string]interface{}{
-//													map[string]interface{}{
+//												"restrictions": []map[string]string{
+//													{
 //														"startDay":  "monday",
 //														"startTime": "09:00:00",
 //														"endDay":    "monday",
 //														"endTime":   "17:00:00",
 //													},
-//													map[string]interface{}{
+//													{
 //														"startDay":  "tuesday",
 //														"startTime": "09:00:00",
 //														"endDay":    "tuesday",
 //														"endTime":   "17:00:00",
 //													},
-//													map[string]interface{}{
+//													{
 //														"startDay":  "wednesday",
 //														"startTime": "09:00:00",
 //														"endDay":    "wednesday",
 //														"endTime":   "17:00:00",
 //													},
-//													map[string]interface{}{
+//													{
 //														"startDay":  "thursday",
 //														"startTime": "09:00:00",
 //														"endDay":    "thursday",
 //														"endTime":   "17:00:00",
 //													},
-//													map[string]interface{}{
+//													{
 //														"startDay":  "friday",
 //														"startTime": "09:00:00",
 //														"endDay":    "friday",

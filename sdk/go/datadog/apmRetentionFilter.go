@@ -33,7 +33,7 @@ import (
 //				Name: pulumi.String("Sample order"),
 //				Rate: pulumi.String("1.0"),
 //				Filter: datadog.ApmRetentionFilterFilterArgs{
-//					map[string]interface{}{
+//					map[string]string{
 //						"query": "service:sample AND env:production AND @http.method:GET AND app:sampleapp AND @http.status_code:200 AND @duration:>600000000",
 //					},
 //				},

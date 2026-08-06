@@ -56,7 +56,7 @@ import (
 //				Description: pulumi.String("correction example"),
 //				Start:       pulumi.Int(1735707000),
 //				End:         pulumi.Int(1735718600),
-//				SloId:       exampleSlo.ID(),
+//				SloId:       exampleSlo.ID().ToIDOutput().ToStringOutput(),
 //				Timezone:    pulumi.String("UTC"),
 //			})
 //			if err != nil {
@@ -68,7 +68,7 @@ import (
 //				Start:       pulumi.Int(1735707000),
 //				Rrule:       pulumi.String("FREQ=DAILY;INTERVAL=3;COUNT=3"),
 //				Duration:    pulumi.Int(3600),
-//				SloId:       exampleSlo.ID(),
+//				SloId:       exampleSlo.ID().ToIDOutput().ToStringOutput(),
 //				Timezone:    pulumi.String("UTC"),
 //			})
 //			if err != nil {

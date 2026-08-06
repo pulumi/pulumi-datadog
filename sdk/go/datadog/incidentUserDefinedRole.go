@@ -38,7 +38,7 @@ import (
 //			_, err = datadog.NewIncidentUserDefinedRole(ctx, "tech_lead", &datadog.IncidentUserDefinedRoleArgs{
 //				Name:         pulumi.String("Tech Lead"),
 //				Description:  pulumi.String("The technical lead for the incident."),
-//				IncidentType: example.ID(),
+//				IncidentType: example.ID().ToIDOutput().ToStringOutput(),
 //				Policy: &datadog.IncidentUserDefinedRolePolicyArgs{
 //					Is_single: true,
 //				},

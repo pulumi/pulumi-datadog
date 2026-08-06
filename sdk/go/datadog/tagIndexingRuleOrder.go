@@ -64,8 +64,8 @@ import (
 //			_, err = datadog.NewTagIndexingRuleOrder(ctx, "example", &datadog.TagIndexingRuleOrderArgs{
 //				Name: pulumi.String("main"),
 //				RuleIds: pulumi.StringArray{
-//					broad.ID(),
-//					specific.ID(),
+//					broad.ID().ToIDOutput().ToStringOutput(),
+//					specific.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

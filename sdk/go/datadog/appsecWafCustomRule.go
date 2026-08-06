@@ -43,8 +43,8 @@ import (
 //						Operator: pulumi.String("match_regex"),
 //						Parameters: datadog.AppsecWafCustomRuleConditionParametersArgs{
 //							map[string]interface{}{
-//								"inputs": []map[string]interface{}{
-//									map[string]interface{}{
+//								"inputs": []map[string]string{
+//									{
 //										"address": "server.db.statement",
 //									},
 //								},

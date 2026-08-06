@@ -32,9 +32,9 @@ import (
 //			_, err := aws.NewIntegrationAccountCcmConfig(ctx, "foo", &aws.IntegrationAccountCcmConfigArgs{
 //				AwsAccountConfigId: pulumi.String("00000000-0000-0000-0000-000000000000"),
 //				CcmConfig: aws.IntegrationAccountCcmConfigCcmConfigArgs{
-//					map[string]interface{}{
-//						"dataExportConfigs": []map[string]interface{}{
-//							map[string]interface{}{
+//					map[string][]map[string]string{
+//						"dataExportConfigs": []map[string]string{
+//							{
 //								"reportName":   "cost-and-usage-report",
 //								"reportPrefix": "reports",
 //								"reportType":   "CUR2.0",

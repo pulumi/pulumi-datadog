@@ -43,22 +43,22 @@ import (
 //					map[string]interface{}{
 //						"name":     "Send_Email",
 //						"actionId": "com.datadoghq.email.send",
-//						"parameters": []map[string]interface{}{
-//							map[string]interface{}{
+//						"parameters": []map[string]string{
+//							{
 //								"name":  "to",
 //								"value": "REPLACE_ME",
 //							},
-//							map[string]interface{}{
+//							{
 //								"name":  "subject",
 //								"value": "Monitor \"{{ Source.monitor.name }}\" alerted",
 //							},
-//							map[string]interface{}{
+//							{
 //								"name":  "message",
 //								"value": "This message is from {{ WorkflowName }}. \n\nYou can find a link to the monitor here: {{ Source.url }}.",
 //							},
 //						},
-//						"display": map[string]interface{}{
-//							"bounds": map[string]interface{}{
+//						"display": map[string]map[string]int{
+//							"bounds": map[string]int{
 //								"x": 0,
 //								"y": 216,
 //							},

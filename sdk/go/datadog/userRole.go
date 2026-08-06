@@ -56,8 +56,8 @@ import (
 //			}
 //			// Assign the API Key Manager role to the user
 //			_, err = datadog.NewUserRole(ctx, "new_user_with_api_key_manager_role", &datadog.UserRoleArgs{
-//				RoleId: apiKeyManager.ID(),
-//				UserId: newUser.ID(),
+//				RoleId: apiKeyManager.ID().ToIDOutput().ToStringOutput(),
+//				UserId: newUser.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

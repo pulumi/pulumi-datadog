@@ -32,7 +32,7 @@ import (
 //			_, err := datadog.NewDowntimeSchedule(ctx, "downtime_schedule_example", &datadog.DowntimeScheduleArgs{
 //				Scope: pulumi.String("env:us9-prod7 AND team:test123"),
 //				MonitorIdentifier: datadog.DowntimeScheduleMonitorIdentifierArgs{
-//					map[string]interface{}{
+//					map[string][]string{
 //						"monitorTags": []string{
 //							"test:123",
 //							"data:test",
@@ -41,8 +41,8 @@ import (
 //				},
 //				RecurringSchedule: datadog.DowntimeScheduleRecurringScheduleArgs{
 //					map[string]interface{}{
-//						"recurrences": []map[string]interface{}{
-//							map[string]interface{}{
+//						"recurrences": []map[string]string{
+//							{
 //								"duration": "1h",
 //								"rrule":    "FREQ=DAILY;INTERVAL=1",
 //								"start":    "2050-01-02T03:04:05",

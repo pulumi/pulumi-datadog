@@ -47,8 +47,8 @@ import (
 //						"allocatedByTagKeys": []string{
 //							"team",
 //						},
-//						"basedOnCosts": []map[string]interface{}{
-//							map[string]interface{}{
+//						"basedOnCosts": []map[string]string{
+//							{
 //								"condition": "is",
 //								"tag":       "env",
 //								"value":     "prod",

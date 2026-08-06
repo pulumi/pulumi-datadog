@@ -37,7 +37,7 @@ import (
 //			}
 //			// Create new integration_fastly_service resource
 //			_, err = fastly.NewIntegrationService(ctx, "foo", &fastly.IntegrationServiceArgs{
-//				AccountId: foo.ID(),
+//				AccountId: foo.ID().ToIDOutput().ToStringOutput(),
 //				Tags: pulumi.StringArray{
 //					pulumi.String("mytag"),
 //					pulumi.String("mytag2:myvalue"),

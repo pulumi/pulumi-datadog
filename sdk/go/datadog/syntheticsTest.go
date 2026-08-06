@@ -538,7 +538,7 @@ import (
 //			"type":  "equals",
 //			"value": 1,
 //		},
-//		"nameCheck": map[string]interface{}{
+//		"nameCheck": map[string]string{
 //			"type":  "contains",
 //			"value": ".xls",
 //		},
@@ -558,11 +558,11 @@ import (
 //		return err
 //	}
 //	json2 := string(tmpJSON2)
-//	tmpJSON3, err := json.Marshal(map[string]interface{}{
+//	tmpJSON3, err := json.Marshal(map[string]map[string]interface{}{
 //		"userLocator": map[string]interface{}{
 //			"failTestOnCannotLocate": true,
-//			"values": []map[string]interface{}{
-//				map[string]interface{}{
+//			"values": []map[string]string{
+//				{
 //					"type":  "css",
 //					"value": "#simple-file-upload",
 //				},
@@ -593,7 +593,7 @@ import (
 //					"target":   200,
 //				},
 //			},
-//			"request": map[string]interface{}{
+//			"request": map[string]string{
 //				"method": "GET",
 //				"url":    "https://example.com",
 //			},
