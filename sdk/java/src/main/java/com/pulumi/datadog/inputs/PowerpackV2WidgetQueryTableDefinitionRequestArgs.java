@@ -14,6 +14,7 @@ import com.pulumi.datadog.inputs.PowerpackV2WidgetQueryTableDefinitionRequestPro
 import com.pulumi.datadog.inputs.PowerpackV2WidgetQueryTableDefinitionRequestQueryArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetQueryTableDefinitionRequestRumQueryArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetQueryTableDefinitionRequestSecurityQueryArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetQueryTableDefinitionRequestSortArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetQueryTableDefinitionRequestTextFormatArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -309,6 +310,21 @@ public final class PowerpackV2WidgetQueryTableDefinitionRequestArgs extends com.
     }
 
     /**
+     * The controls for sorting the widget request.
+     * 
+     */
+    @Import(name="sort")
+    private @Nullable Output<PowerpackV2WidgetQueryTableDefinitionRequestSortArgs> sort;
+
+    /**
+     * @return The controls for sorting the widget request.
+     * 
+     */
+    public Optional<Output<PowerpackV2WidgetQueryTableDefinitionRequestSortArgs>> sort() {
+        return Optional.ofNullable(this.sort);
+    }
+
+    /**
      * Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
      * 
      */
@@ -341,6 +357,7 @@ public final class PowerpackV2WidgetQueryTableDefinitionRequestArgs extends com.
         this.queries = $.queries;
         this.rumQuery = $.rumQuery;
         this.securityQuery = $.securityQuery;
+        this.sort = $.sort;
         this.textFormats = $.textFormats;
     }
 
@@ -771,6 +788,27 @@ public final class PowerpackV2WidgetQueryTableDefinitionRequestArgs extends com.
         @Deprecated /* Use queries and formulas instead. */
         public Builder securityQuery(PowerpackV2WidgetQueryTableDefinitionRequestSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
+        }
+
+        /**
+         * @param sort The controls for sorting the widget request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sort(@Nullable Output<PowerpackV2WidgetQueryTableDefinitionRequestSortArgs> sort) {
+            $.sort = sort;
+            return this;
+        }
+
+        /**
+         * @param sort The controls for sorting the widget request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sort(PowerpackV2WidgetQueryTableDefinitionRequestSortArgs sort) {
+            return sort(Output.of(sort));
         }
 
         /**

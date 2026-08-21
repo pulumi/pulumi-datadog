@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestHistogramRequestHistogramQueryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// APM metrics query for histogram-mode distribution.
+        /// </summary>
+        [Input("apmMetricsQuery")]
+        public Input<Inputs.DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmMetricsQueryGetArgs>? ApmMetricsQuery { get; set; }
+
+        /// <summary>
         /// APM resource stats query for histogram-mode distribution.
         /// </summary>
         [Input("apmResourceStatsQuery")]

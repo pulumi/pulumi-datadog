@@ -12,6 +12,68 @@ import (
 )
 
 // Use this data source to retrieve a Datadog Synthetic Test.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v5/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// The existing API test another team owns.
+//			checkoutApi, err := datadog.GetSyntheticsTest(ctx, &datadog.LookupSyntheticsTestArgs{
+//				TestId: "abc-123-xyz",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// A browser test over the same journey, kept in lockstep with the API test's
+//			// cadence, coverage, and alerting behavior.
+//			_, err = datadog.NewSyntheticsTest(ctx, "checkout_browser", &datadog.SyntheticsTestArgs{
+//				Name:      pulumi.String("Checkout journey (browser)"),
+//				Type:      pulumi.String("browser"),
+//				Status:    pulumi.String(checkoutApi.Status),
+//				Locations: toPulumiStringArray(checkoutApi.Locations),
+//				RequestDefinition: &datadog.SyntheticsTestRequestDefinitionArgs{
+//					Method: pulumi.String("GET"),
+//					Url:    pulumi.String("https://www.example.com/checkout"),
+//				},
+//				DeviceIds: pulumi.StringArray{
+//					pulumi.String("laptop_large"),
+//				},
+//				OptionsList: &datadog.SyntheticsTestOptionsListArgs{
+//					TickEvery:         pulumi.Int(checkoutApi.OptionsLists[0].TickEvery),
+//					MinLocationFailed: pulumi.Int(checkoutApi.OptionsLists[0].MinLocationFailed),
+//					MonitorPriority:   pulumi.Int(checkoutApi.OptionsLists[0].MonitorPriority),
+//					Retry: &datadog.SyntheticsTestOptionsListRetryArgs{
+//						Count:    pulumi.Int(checkoutApi.OptionsLists[0].Retries[0].Count),
+//						Interval: pulumi.Int(checkoutApi.OptionsLists[0].Retries[0].Interval),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+//	func toPulumiStringArray(arr []string) pulumi.StringArray {
+//		var pulumiArr pulumi.StringArray
+//		for _, v := range arr {
+//			pulumiArr = append(pulumiArr, pulumi.String(v))
+//		}
+//		return pulumiArr
+//	}
+//
+// ```
 func LookupSyntheticsTest(ctx *pulumi.Context, args *LookupSyntheticsTestArgs, opts ...pulumi.InvokeOption) (*LookupSyntheticsTestResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSyntheticsTestResult
@@ -30,14 +92,32 @@ type LookupSyntheticsTestArgs struct {
 
 // A collection of values returned by getSyntheticsTest.
 type LookupSyntheticsTestResult struct {
+	// Array with the different device IDs used to run the test. Only set for browser tests.
+	DeviceIds []string `pulumi:"deviceIds"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// Array of locations used to run the synthetic test.
+	Locations []string `pulumi:"locations"`
+	// A message to include with notifications for this synthetic test.
+	Message string `pulumi:"message"`
+	// The mobile synthetic test extra options.
+	MobileOptionsLists []GetSyntheticsTestMobileOptionsList `pulumi:"mobileOptionsLists"`
+	// ID of the monitor associated with the synthetic test.
+	MonitorId int `pulumi:"monitorId"`
 	// The name of the synthetic test.
 	Name string `pulumi:"name"`
+	// The synthetic test extra options.
+	OptionsLists []GetSyntheticsTestOptionsList `pulumi:"optionsLists"`
+	// Whether the synthetic test is started (`live`) or paused (`paused`).
+	Status string `pulumi:"status"`
+	// The subtype of the synthetic test. Only set for API tests.
+	Subtype string `pulumi:"subtype"`
 	// A list of tags assigned to the synthetic test.
 	Tags []string `pulumi:"tags"`
 	// The synthetic test id or URL to search for
 	TestId string `pulumi:"testId"`
+	// The type of the synthetic test.
+	Type string `pulumi:"type"`
 	// The start URL of the synthetic test.
 	Url string `pulumi:"url"`
 }
@@ -76,14 +156,54 @@ func (o LookupSyntheticsTestResultOutput) ToLookupSyntheticsTestResultOutputWith
 	return o
 }
 
+// Array with the different device IDs used to run the test. Only set for browser tests.
+func (o LookupSyntheticsTestResultOutput) DeviceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSyntheticsTestResult) []string { return v.DeviceIds }).(pulumi.StringArrayOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupSyntheticsTestResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSyntheticsTestResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Array of locations used to run the synthetic test.
+func (o LookupSyntheticsTestResultOutput) Locations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSyntheticsTestResult) []string { return v.Locations }).(pulumi.StringArrayOutput)
+}
+
+// A message to include with notifications for this synthetic test.
+func (o LookupSyntheticsTestResultOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSyntheticsTestResult) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// The mobile synthetic test extra options.
+func (o LookupSyntheticsTestResultOutput) MobileOptionsLists() GetSyntheticsTestMobileOptionsListArrayOutput {
+	return o.ApplyT(func(v LookupSyntheticsTestResult) []GetSyntheticsTestMobileOptionsList { return v.MobileOptionsLists }).(GetSyntheticsTestMobileOptionsListArrayOutput)
+}
+
+// ID of the monitor associated with the synthetic test.
+func (o LookupSyntheticsTestResultOutput) MonitorId() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupSyntheticsTestResult) int { return v.MonitorId }).(pulumi.IntOutput)
+}
+
 // The name of the synthetic test.
 func (o LookupSyntheticsTestResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSyntheticsTestResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The synthetic test extra options.
+func (o LookupSyntheticsTestResultOutput) OptionsLists() GetSyntheticsTestOptionsListArrayOutput {
+	return o.ApplyT(func(v LookupSyntheticsTestResult) []GetSyntheticsTestOptionsList { return v.OptionsLists }).(GetSyntheticsTestOptionsListArrayOutput)
+}
+
+// Whether the synthetic test is started (`live`) or paused (`paused`).
+func (o LookupSyntheticsTestResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSyntheticsTestResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The subtype of the synthetic test. Only set for API tests.
+func (o LookupSyntheticsTestResultOutput) Subtype() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSyntheticsTestResult) string { return v.Subtype }).(pulumi.StringOutput)
 }
 
 // A list of tags assigned to the synthetic test.
@@ -94,6 +214,11 @@ func (o LookupSyntheticsTestResultOutput) Tags() pulumi.StringArrayOutput {
 // The synthetic test id or URL to search for
 func (o LookupSyntheticsTestResultOutput) TestId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSyntheticsTestResult) string { return v.TestId }).(pulumi.StringOutput)
+}
+
+// The type of the synthetic test.
+func (o LookupSyntheticsTestResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSyntheticsTestResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The start URL of the synthetic test.

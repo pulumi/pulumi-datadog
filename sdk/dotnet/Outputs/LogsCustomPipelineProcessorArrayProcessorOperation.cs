@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorArrayProcessorOperationAppend? Append;
         /// <summary>
+        /// Operation that extracts key-value pairs from a source array and stores the result in the target attribute.
+        /// </summary>
+        public readonly Outputs.LogsCustomPipelineProcessorArrayProcessorOperationKeyValue? KeyValue;
+        /// <summary>
         /// Operation that computes the length of a source array and stores the result in a target attribute.
         /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorArrayProcessorOperationLength? Length;
@@ -30,11 +34,14 @@ namespace Pulumi.Datadog.Outputs
         private LogsCustomPipelineProcessorArrayProcessorOperation(
             Outputs.LogsCustomPipelineProcessorArrayProcessorOperationAppend? append,
 
+            Outputs.LogsCustomPipelineProcessorArrayProcessorOperationKeyValue? keyValue,
+
             Outputs.LogsCustomPipelineProcessorArrayProcessorOperationLength? length,
 
             Outputs.LogsCustomPipelineProcessorArrayProcessorOperationSelect? select)
         {
             Append = append;
+            KeyValue = keyValue;
             Length = length;
             Select = select;
         }

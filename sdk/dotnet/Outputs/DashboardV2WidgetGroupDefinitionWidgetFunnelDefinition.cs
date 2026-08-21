@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Display mode for grouped funnel results. Valid values are `Stacked`, `SideBySide`.
+        /// </summary>
+        public readonly string? GroupedDisplay;
+        /// <summary>
         /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
         /// </summary>
         public readonly bool? HideIncompleteCostData;
@@ -50,6 +54,8 @@ namespace Pulumi.Datadog.Outputs
         private DashboardV2WidgetGroupDefinitionWidgetFunnelDefinition(
             string? description,
 
+            string? groupedDisplay,
+
             bool? hideIncompleteCostData,
 
             string? liveSpan,
@@ -65,6 +71,7 @@ namespace Pulumi.Datadog.Outputs
             string? titleSize)
         {
             Description = description;
+            GroupedDisplay = groupedDisplay;
             HideIncompleteCostData = hideIncompleteCostData;
             LiveSpan = liveSpan;
             Request = request;

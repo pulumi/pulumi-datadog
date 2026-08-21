@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestQueryApmDependencyStatsQueryArgs>? ApmDependencyStatsQuery { get; set; }
 
         /// <summary>
+        /// The APM metrics query using formulas and functions.
+        /// </summary>
+        [Input("apmMetricsQuery")]
+        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestQueryApmMetricsQueryArgs>? ApmMetricsQuery { get; set; }
+
+        /// <summary>
         /// The APM Resource Stats query using formulas and functions.
         /// </summary>
         [Input("apmResourceStatsQuery")]
@@ -49,10 +55,28 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestQueryProcessQueryArgs>? ProcessQuery { get; set; }
 
         /// <summary>
+        /// The Product Analytics Extended query using formulas and functions.
+        /// </summary>
+        [Input("productAnalyticsExtendedQuery")]
+        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestQueryProductAnalyticsExtendedQueryArgs>? ProductAnalyticsExtendedQuery { get; set; }
+
+        /// <summary>
+        /// The retention query using formulas and functions.
+        /// </summary>
+        [Input("retentionQuery")]
+        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestQueryRetentionQueryArgs>? RetentionQuery { get; set; }
+
+        /// <summary>
         /// The SLO query using formulas and functions.
         /// </summary>
         [Input("sloQuery")]
         public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestQuerySloQueryArgs>? SloQuery { get; set; }
+
+        /// <summary>
+        /// The User Journey query using formulas and functions.
+        /// </summary>
+        [Input("userJourneyQuery")]
+        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestQueryUserJourneyQueryArgs>? UserJourneyQuery { get; set; }
 
         public PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestQueryArgs()
         {

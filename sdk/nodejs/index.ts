@@ -1033,6 +1033,11 @@ export type WebhookCustomVariable = import("./webhookCustomVariable").WebhookCus
 export const WebhookCustomVariable: typeof import("./webhookCustomVariable").WebhookCustomVariable = null as any;
 utilities.lazyLoad(exports, ["WebhookCustomVariable"], () => require("./webhookCustomVariable"));
 
+export { WebhookOauth2ClientCredentialsArgs, WebhookOauth2ClientCredentialsState } from "./webhookOauth2ClientCredentials";
+export type WebhookOauth2ClientCredentials = import("./webhookOauth2ClientCredentials").WebhookOauth2ClientCredentials;
+export const WebhookOauth2ClientCredentials: typeof import("./webhookOauth2ClientCredentials").WebhookOauth2ClientCredentials = null as any;
+utilities.lazyLoad(exports, ["WebhookOauth2ClientCredentials"], () => require("./webhookOauth2ClientCredentials"));
+
 export { WorkflowAutomationArgs, WorkflowAutomationState } from "./workflowAutomation";
 export type WorkflowAutomation = import("./workflowAutomation").WorkflowAutomation;
 export const WorkflowAutomation: typeof import("./workflowAutomation").WorkflowAutomation = null as any;
@@ -1334,6 +1339,8 @@ const _module = {
                 return new Webhook(name, <any>undefined, { urn })
             case "datadog:index/webhookCustomVariable:WebhookCustomVariable":
                 return new WebhookCustomVariable(name, <any>undefined, { urn })
+            case "datadog:index/webhookOauth2ClientCredentials:WebhookOauth2ClientCredentials":
+                return new WebhookOauth2ClientCredentials(name, <any>undefined, { urn })
             case "datadog:index/workflowAutomation:WorkflowAutomation":
                 return new WorkflowAutomation(name, <any>undefined, { urn })
             default:
@@ -1472,6 +1479,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/user", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/userRole", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/webhook", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/webhookCustomVariable", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/webhookOauth2ClientCredentials", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/workflowAutomation", _module)
 pulumi.runtime.registerResourcePackage("datadog", {
     version: utilities.getVersion(),

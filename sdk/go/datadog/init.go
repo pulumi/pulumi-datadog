@@ -283,6 +283,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Webhook{}
 	case "datadog:index/webhookCustomVariable:WebhookCustomVariable":
 		r = &WebhookCustomVariable{}
+	case "datadog:index/webhookOauth2ClientCredentials:WebhookOauth2ClientCredentials":
+		r = &WebhookOauth2ClientCredentials{}
 	case "datadog:index/workflowAutomation:WorkflowAutomation":
 		r = &WorkflowAutomation{}
 	default:
@@ -969,6 +971,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/webhookCustomVariable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/webhookOauth2ClientCredentials",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

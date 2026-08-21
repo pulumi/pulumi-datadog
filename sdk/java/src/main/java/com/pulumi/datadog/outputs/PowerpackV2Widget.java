@@ -9,6 +9,7 @@ import com.pulumi.datadog.outputs.PowerpackV2WidgetAlertValueDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetBarChartDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetChangeDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetCheckStatusDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetCohortDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetDistributionDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetEventStreamDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetEventTimelineDefinition;
@@ -25,8 +26,10 @@ import com.pulumi.datadog.outputs.PowerpackV2WidgetLogStreamDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetManageStatusDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetNoteDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetPointPlotDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetProductAnalyticsFunnelDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryTableDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryValueDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetRetentionCurveDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetRunWorkflowDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetSankeyDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetScatterplotDefinition;
@@ -73,6 +76,11 @@ public final class PowerpackV2Widget {
      * 
      */
     private @Nullable PowerpackV2WidgetCheckStatusDefinition checkStatusDefinition;
+    /**
+     * @return The definition for a Cohort retention-grid widget.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetCohortDefinition cohortDefinition;
     /**
      * @return The definition for a Distribution widget.
      * 
@@ -159,6 +167,11 @@ public final class PowerpackV2Widget {
      */
     private @Nullable PowerpackV2WidgetPointPlotDefinition pointPlotDefinition;
     /**
+     * @return The definition for a Product Analytics user journey funnel widget.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetProductAnalyticsFunnelDefinition productAnalyticsFunnelDefinition;
+    /**
      * @return The definition for a Query Table widget.
      * 
      */
@@ -168,6 +181,11 @@ public final class PowerpackV2Widget {
      * 
      */
     private @Nullable PowerpackV2WidgetQueryValueDefinition queryValueDefinition;
+    /**
+     * @return The definition for a Retention Curve widget.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetRetentionCurveDefinition retentionCurveDefinition;
     /**
      * @return The definition for a Run Workflow widget.
      * 
@@ -274,6 +292,13 @@ public final class PowerpackV2Widget {
      */
     public Optional<PowerpackV2WidgetCheckStatusDefinition> checkStatusDefinition() {
         return Optional.ofNullable(this.checkStatusDefinition);
+    }
+    /**
+     * @return The definition for a Cohort retention-grid widget.
+     * 
+     */
+    public Optional<PowerpackV2WidgetCohortDefinition> cohortDefinition() {
+        return Optional.ofNullable(this.cohortDefinition);
     }
     /**
      * @return The definition for a Distribution widget.
@@ -395,6 +420,13 @@ public final class PowerpackV2Widget {
         return Optional.ofNullable(this.pointPlotDefinition);
     }
     /**
+     * @return The definition for a Product Analytics user journey funnel widget.
+     * 
+     */
+    public Optional<PowerpackV2WidgetProductAnalyticsFunnelDefinition> productAnalyticsFunnelDefinition() {
+        return Optional.ofNullable(this.productAnalyticsFunnelDefinition);
+    }
+    /**
      * @return The definition for a Query Table widget.
      * 
      */
@@ -407,6 +439,13 @@ public final class PowerpackV2Widget {
      */
     public Optional<PowerpackV2WidgetQueryValueDefinition> queryValueDefinition() {
         return Optional.ofNullable(this.queryValueDefinition);
+    }
+    /**
+     * @return The definition for a Retention Curve widget.
+     * 
+     */
+    public Optional<PowerpackV2WidgetRetentionCurveDefinition> retentionCurveDefinition() {
+        return Optional.ofNullable(this.retentionCurveDefinition);
     }
     /**
      * @return The definition for a Run Workflow widget.
@@ -521,6 +560,7 @@ public final class PowerpackV2Widget {
         private @Nullable PowerpackV2WidgetBarChartDefinition barChartDefinition;
         private @Nullable PowerpackV2WidgetChangeDefinition changeDefinition;
         private @Nullable PowerpackV2WidgetCheckStatusDefinition checkStatusDefinition;
+        private @Nullable PowerpackV2WidgetCohortDefinition cohortDefinition;
         private @Nullable PowerpackV2WidgetDistributionDefinition distributionDefinition;
         private @Nullable PowerpackV2WidgetEventStreamDefinition eventStreamDefinition;
         private @Nullable PowerpackV2WidgetEventTimelineDefinition eventTimelineDefinition;
@@ -538,8 +578,10 @@ public final class PowerpackV2Widget {
         private @Nullable PowerpackV2WidgetManageStatusDefinition manageStatusDefinition;
         private @Nullable PowerpackV2WidgetNoteDefinition noteDefinition;
         private @Nullable PowerpackV2WidgetPointPlotDefinition pointPlotDefinition;
+        private @Nullable PowerpackV2WidgetProductAnalyticsFunnelDefinition productAnalyticsFunnelDefinition;
         private @Nullable PowerpackV2WidgetQueryTableDefinition queryTableDefinition;
         private @Nullable PowerpackV2WidgetQueryValueDefinition queryValueDefinition;
+        private @Nullable PowerpackV2WidgetRetentionCurveDefinition retentionCurveDefinition;
         private @Nullable PowerpackV2WidgetRunWorkflowDefinition runWorkflowDefinition;
         private @Nullable PowerpackV2WidgetSankeyDefinition sankeyDefinition;
         private @Nullable PowerpackV2WidgetScatterplotDefinition scatterplotDefinition;
@@ -562,6 +604,7 @@ public final class PowerpackV2Widget {
     	      this.barChartDefinition = defaults.barChartDefinition;
     	      this.changeDefinition = defaults.changeDefinition;
     	      this.checkStatusDefinition = defaults.checkStatusDefinition;
+    	      this.cohortDefinition = defaults.cohortDefinition;
     	      this.distributionDefinition = defaults.distributionDefinition;
     	      this.eventStreamDefinition = defaults.eventStreamDefinition;
     	      this.eventTimelineDefinition = defaults.eventTimelineDefinition;
@@ -579,8 +622,10 @@ public final class PowerpackV2Widget {
     	      this.manageStatusDefinition = defaults.manageStatusDefinition;
     	      this.noteDefinition = defaults.noteDefinition;
     	      this.pointPlotDefinition = defaults.pointPlotDefinition;
+    	      this.productAnalyticsFunnelDefinition = defaults.productAnalyticsFunnelDefinition;
     	      this.queryTableDefinition = defaults.queryTableDefinition;
     	      this.queryValueDefinition = defaults.queryValueDefinition;
+    	      this.retentionCurveDefinition = defaults.retentionCurveDefinition;
     	      this.runWorkflowDefinition = defaults.runWorkflowDefinition;
     	      this.sankeyDefinition = defaults.sankeyDefinition;
     	      this.scatterplotDefinition = defaults.scatterplotDefinition;
@@ -625,6 +670,12 @@ public final class PowerpackV2Widget {
         public Builder checkStatusDefinition(@Nullable PowerpackV2WidgetCheckStatusDefinition checkStatusDefinition) {
 
             this.checkStatusDefinition = checkStatusDefinition;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cohortDefinition(@Nullable PowerpackV2WidgetCohortDefinition cohortDefinition) {
+
+            this.cohortDefinition = cohortDefinition;
             return this;
         }
         @CustomType.Setter
@@ -730,6 +781,12 @@ public final class PowerpackV2Widget {
             return this;
         }
         @CustomType.Setter
+        public Builder productAnalyticsFunnelDefinition(@Nullable PowerpackV2WidgetProductAnalyticsFunnelDefinition productAnalyticsFunnelDefinition) {
+
+            this.productAnalyticsFunnelDefinition = productAnalyticsFunnelDefinition;
+            return this;
+        }
+        @CustomType.Setter
         public Builder queryTableDefinition(@Nullable PowerpackV2WidgetQueryTableDefinition queryTableDefinition) {
 
             this.queryTableDefinition = queryTableDefinition;
@@ -739,6 +796,12 @@ public final class PowerpackV2Widget {
         public Builder queryValueDefinition(@Nullable PowerpackV2WidgetQueryValueDefinition queryValueDefinition) {
 
             this.queryValueDefinition = queryValueDefinition;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder retentionCurveDefinition(@Nullable PowerpackV2WidgetRetentionCurveDefinition retentionCurveDefinition) {
+
+            this.retentionCurveDefinition = retentionCurveDefinition;
             return this;
         }
         @CustomType.Setter
@@ -832,6 +895,7 @@ public final class PowerpackV2Widget {
             _resultValue.barChartDefinition = barChartDefinition;
             _resultValue.changeDefinition = changeDefinition;
             _resultValue.checkStatusDefinition = checkStatusDefinition;
+            _resultValue.cohortDefinition = cohortDefinition;
             _resultValue.distributionDefinition = distributionDefinition;
             _resultValue.eventStreamDefinition = eventStreamDefinition;
             _resultValue.eventTimelineDefinition = eventTimelineDefinition;
@@ -849,8 +913,10 @@ public final class PowerpackV2Widget {
             _resultValue.manageStatusDefinition = manageStatusDefinition;
             _resultValue.noteDefinition = noteDefinition;
             _resultValue.pointPlotDefinition = pointPlotDefinition;
+            _resultValue.productAnalyticsFunnelDefinition = productAnalyticsFunnelDefinition;
             _resultValue.queryTableDefinition = queryTableDefinition;
             _resultValue.queryValueDefinition = queryValueDefinition;
+            _resultValue.retentionCurveDefinition = retentionCurveDefinition;
             _resultValue.runWorkflowDefinition = runWorkflowDefinition;
             _resultValue.sankeyDefinition = sankeyDefinition;
             _resultValue.scatterplotDefinition = scatterplotDefinition;
