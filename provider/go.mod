@@ -30,7 +30,7 @@ require (
 	cloud.google.com/go/monitoring v1.29.0 // indirect
 	cloud.google.com/go/storage v1.62.2 // indirect
 	github.com/BurntSushi/toml v1.6.0 // indirect
-	github.com/DataDog/datadog-api-client-go/v2 v2.62.1-0.20260724144647-c883eb29daea // indirect
+	github.com/DataDog/datadog-api-client-go/v2 v2.62.1-0.20260724190103-95e5c326c65e // indirect
 	github.com/DataDog/zstd v1.5.7 // indirect
 	github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp v1.33.0 // indirect
 	github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric v0.56.0 // indirect
