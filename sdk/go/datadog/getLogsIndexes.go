@@ -55,10 +55,8 @@ type GetLogsIndexesResult struct {
 }
 
 func GetLogsIndexesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetLogsIndexesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetLogsIndexesResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("datadog:index/getLogsIndexes:getLogsIndexes", nil, GetLogsIndexesResultOutput{}, options).(GetLogsIndexesResultOutput), nil
-	}).(GetLogsIndexesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getLogsIndexes:getLogsIndexes", nil, GetLogsIndexesResultOutput{}, options).(GetLogsIndexesResultOutput)
 }
 
 // A collection of values returned by getLogsIndexes.

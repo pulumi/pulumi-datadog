@@ -83,12 +83,8 @@ type LookupIncidentNotificationRuleResult struct {
 }
 
 func LookupIncidentNotificationRuleOutput(ctx *pulumi.Context, args LookupIncidentNotificationRuleOutputArgs, opts ...pulumi.InvokeOption) LookupIncidentNotificationRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIncidentNotificationRuleResultOutput, error) {
-			args := v.(LookupIncidentNotificationRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getIncidentNotificationRule:getIncidentNotificationRule", args, LookupIncidentNotificationRuleResultOutput{}, options).(LookupIncidentNotificationRuleResultOutput), nil
-		}).(LookupIncidentNotificationRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getIncidentNotificationRule:getIncidentNotificationRule", args, LookupIncidentNotificationRuleResultOutput{}, options).(LookupIncidentNotificationRuleResultOutput)
 }
 
 // A collection of arguments for invoking getIncidentNotificationRule.

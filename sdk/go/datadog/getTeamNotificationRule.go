@@ -85,12 +85,8 @@ type LookupTeamNotificationRuleResult struct {
 }
 
 func LookupTeamNotificationRuleOutput(ctx *pulumi.Context, args LookupTeamNotificationRuleOutputArgs, opts ...pulumi.InvokeOption) LookupTeamNotificationRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTeamNotificationRuleResultOutput, error) {
-			args := v.(LookupTeamNotificationRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getTeamNotificationRule:getTeamNotificationRule", args, LookupTeamNotificationRuleResultOutput{}, options).(LookupTeamNotificationRuleResultOutput), nil
-		}).(LookupTeamNotificationRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getTeamNotificationRule:getTeamNotificationRule", args, LookupTeamNotificationRuleResultOutput{}, options).(LookupTeamNotificationRuleResultOutput)
 }
 
 // A collection of arguments for invoking getTeamNotificationRule.

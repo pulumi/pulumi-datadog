@@ -72,12 +72,8 @@ type GetTeamsResult struct {
 }
 
 func GetTeamsOutput(ctx *pulumi.Context, args GetTeamsOutputArgs, opts ...pulumi.InvokeOption) GetTeamsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetTeamsResultOutput, error) {
-			args := v.(GetTeamsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getTeams:getTeams", args, GetTeamsResultOutput{}, options).(GetTeamsResultOutput), nil
-		}).(GetTeamsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getTeams:getTeams", args, GetTeamsResultOutput{}, options).(GetTeamsResultOutput)
 }
 
 // A collection of arguments for invoking getTeams.

@@ -73,12 +73,8 @@ type LookupSecurityMonitoringCriticalAssetResult struct {
 }
 
 func LookupSecurityMonitoringCriticalAssetOutput(ctx *pulumi.Context, args LookupSecurityMonitoringCriticalAssetOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityMonitoringCriticalAssetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSecurityMonitoringCriticalAssetResultOutput, error) {
-			args := v.(LookupSecurityMonitoringCriticalAssetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getSecurityMonitoringCriticalAsset:getSecurityMonitoringCriticalAsset", args, LookupSecurityMonitoringCriticalAssetResultOutput{}, options).(LookupSecurityMonitoringCriticalAssetResultOutput), nil
-		}).(LookupSecurityMonitoringCriticalAssetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getSecurityMonitoringCriticalAsset:getSecurityMonitoringCriticalAsset", args, LookupSecurityMonitoringCriticalAssetResultOutput{}, options).(LookupSecurityMonitoringCriticalAssetResultOutput)
 }
 
 // A collection of arguments for invoking getSecurityMonitoringCriticalAsset.

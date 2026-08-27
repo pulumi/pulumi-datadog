@@ -66,12 +66,8 @@ type LookupIntegrationExternalIdResult struct {
 }
 
 func LookupIntegrationExternalIdOutput(ctx *pulumi.Context, args LookupIntegrationExternalIdOutputArgs, opts ...pulumi.InvokeOption) LookupIntegrationExternalIdResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIntegrationExternalIdResultOutput, error) {
-			args := v.(LookupIntegrationExternalIdArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:aws/getIntegrationExternalId:getIntegrationExternalId", args, LookupIntegrationExternalIdResultOutput{}, options).(LookupIntegrationExternalIdResultOutput), nil
-		}).(LookupIntegrationExternalIdResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:aws/getIntegrationExternalId:getIntegrationExternalId", args, LookupIntegrationExternalIdResultOutput{}, options).(LookupIntegrationExternalIdResultOutput)
 }
 
 // A collection of arguments for invoking getIntegrationExternalId.

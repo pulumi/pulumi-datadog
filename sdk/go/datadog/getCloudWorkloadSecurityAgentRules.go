@@ -55,10 +55,8 @@ type GetCloudWorkloadSecurityAgentRulesResult struct {
 }
 
 func GetCloudWorkloadSecurityAgentRulesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetCloudWorkloadSecurityAgentRulesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetCloudWorkloadSecurityAgentRulesResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules", nil, GetCloudWorkloadSecurityAgentRulesResultOutput{}, options).(GetCloudWorkloadSecurityAgentRulesResultOutput), nil
-	}).(GetCloudWorkloadSecurityAgentRulesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules", nil, GetCloudWorkloadSecurityAgentRulesResultOutput{}, options).(GetCloudWorkloadSecurityAgentRulesResultOutput)
 }
 
 // A collection of values returned by getCloudWorkloadSecurityAgentRules.

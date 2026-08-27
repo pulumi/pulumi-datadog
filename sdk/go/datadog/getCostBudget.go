@@ -57,12 +57,8 @@ type LookupCostBudgetResult struct {
 }
 
 func LookupCostBudgetOutput(ctx *pulumi.Context, args LookupCostBudgetOutputArgs, opts ...pulumi.InvokeOption) LookupCostBudgetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCostBudgetResultOutput, error) {
-			args := v.(LookupCostBudgetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getCostBudget:getCostBudget", args, LookupCostBudgetResultOutput{}, options).(LookupCostBudgetResultOutput), nil
-		}).(LookupCostBudgetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getCostBudget:getCostBudget", args, LookupCostBudgetResultOutput{}, options).(LookupCostBudgetResultOutput)
 }
 
 // A collection of arguments for invoking getCostBudget.

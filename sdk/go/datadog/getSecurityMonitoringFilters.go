@@ -57,10 +57,8 @@ type GetSecurityMonitoringFiltersResult struct {
 }
 
 func GetSecurityMonitoringFiltersOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetSecurityMonitoringFiltersResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetSecurityMonitoringFiltersResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters", nil, GetSecurityMonitoringFiltersResultOutput{}, options).(GetSecurityMonitoringFiltersResultOutput), nil
-	}).(GetSecurityMonitoringFiltersResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters", nil, GetSecurityMonitoringFiltersResultOutput{}, options).(GetSecurityMonitoringFiltersResultOutput)
 }
 
 // A collection of values returned by getSecurityMonitoringFilters.

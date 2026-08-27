@@ -51,12 +51,8 @@ type LookupMetricMetadataResult struct {
 }
 
 func LookupMetricMetadataOutput(ctx *pulumi.Context, args LookupMetricMetadataOutputArgs, opts ...pulumi.InvokeOption) LookupMetricMetadataResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMetricMetadataResultOutput, error) {
-			args := v.(LookupMetricMetadataArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getMetricMetadata:getMetricMetadata", args, LookupMetricMetadataResultOutput{}, options).(LookupMetricMetadataResultOutput), nil
-		}).(LookupMetricMetadataResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getMetricMetadata:getMetricMetadata", args, LookupMetricMetadataResultOutput{}, options).(LookupMetricMetadataResultOutput)
 }
 
 // A collection of arguments for invoking getMetricMetadata.

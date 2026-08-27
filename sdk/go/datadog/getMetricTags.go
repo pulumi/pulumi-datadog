@@ -39,12 +39,8 @@ type GetMetricTagsResult struct {
 }
 
 func GetMetricTagsOutput(ctx *pulumi.Context, args GetMetricTagsOutputArgs, opts ...pulumi.InvokeOption) GetMetricTagsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetMetricTagsResultOutput, error) {
-			args := v.(GetMetricTagsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getMetricTags:getMetricTags", args, GetMetricTagsResultOutput{}, options).(GetMetricTagsResultOutput), nil
-		}).(GetMetricTagsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getMetricTags:getMetricTags", args, GetMetricTagsResultOutput{}, options).(GetMetricTagsResultOutput)
 }
 
 // A collection of arguments for invoking getMetricTags.

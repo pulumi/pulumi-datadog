@@ -159,12 +159,8 @@ type LookupActionConnectionResult struct {
 }
 
 func LookupActionConnectionOutput(ctx *pulumi.Context, args LookupActionConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupActionConnectionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupActionConnectionResultOutput, error) {
-			args := v.(LookupActionConnectionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getActionConnection:getActionConnection", args, LookupActionConnectionResultOutput{}, options).(LookupActionConnectionResultOutput), nil
-		}).(LookupActionConnectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getActionConnection:getActionConnection", args, LookupActionConnectionResultOutput{}, options).(LookupActionConnectionResultOutput)
 }
 
 // A collection of arguments for invoking getActionConnection.

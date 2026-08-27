@@ -59,12 +59,8 @@ type LookupAwsCurConfigResult struct {
 }
 
 func LookupAwsCurConfigOutput(ctx *pulumi.Context, args LookupAwsCurConfigOutputArgs, opts ...pulumi.InvokeOption) LookupAwsCurConfigResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAwsCurConfigResultOutput, error) {
-			args := v.(LookupAwsCurConfigArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getAwsCurConfig:getAwsCurConfig", args, LookupAwsCurConfigResultOutput{}, options).(LookupAwsCurConfigResultOutput), nil
-		}).(LookupAwsCurConfigResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getAwsCurConfig:getAwsCurConfig", args, LookupAwsCurConfigResultOutput{}, options).(LookupAwsCurConfigResultOutput)
 }
 
 // A collection of arguments for invoking getAwsCurConfig.

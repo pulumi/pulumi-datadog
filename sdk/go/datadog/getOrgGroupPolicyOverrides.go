@@ -85,12 +85,8 @@ type GetOrgGroupPolicyOverridesResult struct {
 }
 
 func GetOrgGroupPolicyOverridesOutput(ctx *pulumi.Context, args GetOrgGroupPolicyOverridesOutputArgs, opts ...pulumi.InvokeOption) GetOrgGroupPolicyOverridesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetOrgGroupPolicyOverridesResultOutput, error) {
-			args := v.(GetOrgGroupPolicyOverridesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getOrgGroupPolicyOverrides:getOrgGroupPolicyOverrides", args, GetOrgGroupPolicyOverridesResultOutput{}, options).(GetOrgGroupPolicyOverridesResultOutput), nil
-		}).(GetOrgGroupPolicyOverridesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getOrgGroupPolicyOverrides:getOrgGroupPolicyOverrides", args, GetOrgGroupPolicyOverridesResultOutput{}, options).(GetOrgGroupPolicyOverridesResultOutput)
 }
 
 // A collection of arguments for invoking getOrgGroupPolicyOverrides.

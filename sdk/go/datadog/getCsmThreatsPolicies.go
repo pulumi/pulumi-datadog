@@ -33,10 +33,8 @@ type GetCsmThreatsPoliciesResult struct {
 }
 
 func GetCsmThreatsPoliciesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetCsmThreatsPoliciesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetCsmThreatsPoliciesResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("datadog:index/getCsmThreatsPolicies:getCsmThreatsPolicies", nil, GetCsmThreatsPoliciesResultOutput{}, options).(GetCsmThreatsPoliciesResultOutput), nil
-	}).(GetCsmThreatsPoliciesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getCsmThreatsPolicies:getCsmThreatsPolicies", nil, GetCsmThreatsPoliciesResultOutput{}, options).(GetCsmThreatsPoliciesResultOutput)
 }
 
 // A collection of values returned by getCsmThreatsPolicies.

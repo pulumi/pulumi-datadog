@@ -57,10 +57,8 @@ type GetSecurityMonitoringCriticalAssetsResult struct {
 }
 
 func GetSecurityMonitoringCriticalAssetsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetSecurityMonitoringCriticalAssetsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetSecurityMonitoringCriticalAssetsResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("datadog:index/getSecurityMonitoringCriticalAssets:getSecurityMonitoringCriticalAssets", nil, GetSecurityMonitoringCriticalAssetsResultOutput{}, options).(GetSecurityMonitoringCriticalAssetsResultOutput), nil
-	}).(GetSecurityMonitoringCriticalAssetsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getSecurityMonitoringCriticalAssets:getSecurityMonitoringCriticalAssets", nil, GetSecurityMonitoringCriticalAssetsResultOutput{}, options).(GetSecurityMonitoringCriticalAssetsResultOutput)
 }
 
 // A collection of values returned by getSecurityMonitoringCriticalAssets.

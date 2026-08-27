@@ -65,12 +65,8 @@ type GetCsmThreatsAgentRulesResult struct {
 }
 
 func GetCsmThreatsAgentRulesOutput(ctx *pulumi.Context, args GetCsmThreatsAgentRulesOutputArgs, opts ...pulumi.InvokeOption) GetCsmThreatsAgentRulesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCsmThreatsAgentRulesResultOutput, error) {
-			args := v.(GetCsmThreatsAgentRulesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", args, GetCsmThreatsAgentRulesResultOutput{}, options).(GetCsmThreatsAgentRulesResultOutput), nil
-		}).(GetCsmThreatsAgentRulesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", args, GetCsmThreatsAgentRulesResultOutput{}, options).(GetCsmThreatsAgentRulesResultOutput)
 }
 
 // A collection of arguments for invoking getCsmThreatsAgentRules.

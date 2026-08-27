@@ -75,12 +75,8 @@ type LookupCostCustomForecastResult struct {
 }
 
 func LookupCostCustomForecastOutput(ctx *pulumi.Context, args LookupCostCustomForecastOutputArgs, opts ...pulumi.InvokeOption) LookupCostCustomForecastResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCostCustomForecastResultOutput, error) {
-			args := v.(LookupCostCustomForecastArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getCostCustomForecast:getCostCustomForecast", args, LookupCostCustomForecastResultOutput{}, options).(LookupCostCustomForecastResultOutput), nil
-		}).(LookupCostCustomForecastResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getCostCustomForecast:getCostCustomForecast", args, LookupCostCustomForecastResultOutput{}, options).(LookupCostCustomForecastResultOutput)
 }
 
 // A collection of arguments for invoking getCostCustomForecast.

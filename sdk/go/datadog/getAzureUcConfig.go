@@ -61,12 +61,8 @@ type LookupAzureUcConfigResult struct {
 }
 
 func LookupAzureUcConfigOutput(ctx *pulumi.Context, args LookupAzureUcConfigOutputArgs, opts ...pulumi.InvokeOption) LookupAzureUcConfigResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAzureUcConfigResultOutput, error) {
-			args := v.(LookupAzureUcConfigArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getAzureUcConfig:getAzureUcConfig", args, LookupAzureUcConfigResultOutput{}, options).(LookupAzureUcConfigResultOutput), nil
-		}).(LookupAzureUcConfigResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getAzureUcConfig:getAzureUcConfig", args, LookupAzureUcConfigResultOutput{}, options).(LookupAzureUcConfigResultOutput)
 }
 
 // A collection of arguments for invoking getAzureUcConfig.
