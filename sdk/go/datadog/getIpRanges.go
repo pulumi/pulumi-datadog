@@ -93,10 +93,8 @@ type GetIpRangesResult struct {
 }
 
 func GetIpRangesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetIpRangesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetIpRangesResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("datadog:index/getIpRanges:getIpRanges", nil, GetIpRangesResultOutput{}, options).(GetIpRangesResultOutput), nil
-	}).(GetIpRangesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getIpRanges:getIpRanges", nil, GetIpRangesResultOutput{}, options).(GetIpRangesResultOutput)
 }
 
 // A collection of values returned by getIpRanges.

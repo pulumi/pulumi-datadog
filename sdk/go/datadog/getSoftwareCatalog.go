@@ -91,12 +91,8 @@ type LookupSoftwareCatalogResult struct {
 }
 
 func LookupSoftwareCatalogOutput(ctx *pulumi.Context, args LookupSoftwareCatalogOutputArgs, opts ...pulumi.InvokeOption) LookupSoftwareCatalogResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSoftwareCatalogResultOutput, error) {
-			args := v.(LookupSoftwareCatalogArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getSoftwareCatalog:getSoftwareCatalog", args, LookupSoftwareCatalogResultOutput{}, options).(LookupSoftwareCatalogResultOutput), nil
-		}).(LookupSoftwareCatalogResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getSoftwareCatalog:getSoftwareCatalog", args, LookupSoftwareCatalogResultOutput{}, options).(LookupSoftwareCatalogResultOutput)
 }
 
 // A collection of arguments for invoking getSoftwareCatalog.

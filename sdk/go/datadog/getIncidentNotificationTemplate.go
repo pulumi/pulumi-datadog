@@ -77,12 +77,8 @@ type LookupIncidentNotificationTemplateResult struct {
 }
 
 func LookupIncidentNotificationTemplateOutput(ctx *pulumi.Context, args LookupIncidentNotificationTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupIncidentNotificationTemplateResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIncidentNotificationTemplateResultOutput, error) {
-			args := v.(LookupIncidentNotificationTemplateArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getIncidentNotificationTemplate:getIncidentNotificationTemplate", args, LookupIncidentNotificationTemplateResultOutput{}, options).(LookupIncidentNotificationTemplateResultOutput), nil
-		}).(LookupIncidentNotificationTemplateResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getIncidentNotificationTemplate:getIncidentNotificationTemplate", args, LookupIncidentNotificationTemplateResultOutput{}, options).(LookupIncidentNotificationTemplateResultOutput)
 }
 
 // A collection of arguments for invoking getIncidentNotificationTemplate.

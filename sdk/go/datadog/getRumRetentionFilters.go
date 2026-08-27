@@ -65,12 +65,8 @@ type GetRumRetentionFiltersResult struct {
 }
 
 func GetRumRetentionFiltersOutput(ctx *pulumi.Context, args GetRumRetentionFiltersOutputArgs, opts ...pulumi.InvokeOption) GetRumRetentionFiltersResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRumRetentionFiltersResultOutput, error) {
-			args := v.(GetRumRetentionFiltersArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getRumRetentionFilters:getRumRetentionFilters", args, GetRumRetentionFiltersResultOutput{}, options).(GetRumRetentionFiltersResultOutput), nil
-		}).(GetRumRetentionFiltersResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getRumRetentionFilters:getRumRetentionFilters", args, GetRumRetentionFiltersResultOutput{}, options).(GetRumRetentionFiltersResultOutput)
 }
 
 // A collection of arguments for invoking getRumRetentionFilters.

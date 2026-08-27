@@ -83,12 +83,8 @@ type GetSecurityMonitoringRulesResult struct {
 }
 
 func GetSecurityMonitoringRulesOutput(ctx *pulumi.Context, args GetSecurityMonitoringRulesOutputArgs, opts ...pulumi.InvokeOption) GetSecurityMonitoringRulesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSecurityMonitoringRulesResultOutput, error) {
-			args := v.(GetSecurityMonitoringRulesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", args, GetSecurityMonitoringRulesResultOutput{}, options).(GetSecurityMonitoringRulesResultOutput), nil
-		}).(GetSecurityMonitoringRulesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", args, GetSecurityMonitoringRulesResultOutput{}, options).(GetSecurityMonitoringRulesResultOutput)
 }
 
 // A collection of arguments for invoking getSecurityMonitoringRules.

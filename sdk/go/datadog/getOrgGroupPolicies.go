@@ -78,12 +78,8 @@ type GetOrgGroupPoliciesResult struct {
 }
 
 func GetOrgGroupPoliciesOutput(ctx *pulumi.Context, args GetOrgGroupPoliciesOutputArgs, opts ...pulumi.InvokeOption) GetOrgGroupPoliciesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetOrgGroupPoliciesResultOutput, error) {
-			args := v.(GetOrgGroupPoliciesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getOrgGroupPolicies:getOrgGroupPolicies", args, GetOrgGroupPoliciesResultOutput{}, options).(GetOrgGroupPoliciesResultOutput), nil
-		}).(GetOrgGroupPoliciesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getOrgGroupPolicies:getOrgGroupPolicies", args, GetOrgGroupPoliciesResultOutput{}, options).(GetOrgGroupPoliciesResultOutput)
 }
 
 // A collection of arguments for invoking getOrgGroupPolicies.

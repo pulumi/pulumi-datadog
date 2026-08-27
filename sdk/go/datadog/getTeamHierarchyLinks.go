@@ -49,12 +49,8 @@ type LookupTeamHierarchyLinksResult struct {
 }
 
 func LookupTeamHierarchyLinksOutput(ctx *pulumi.Context, args LookupTeamHierarchyLinksOutputArgs, opts ...pulumi.InvokeOption) LookupTeamHierarchyLinksResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTeamHierarchyLinksResultOutput, error) {
-			args := v.(LookupTeamHierarchyLinksArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getTeamHierarchyLinks:getTeamHierarchyLinks", args, LookupTeamHierarchyLinksResultOutput{}, options).(LookupTeamHierarchyLinksResultOutput), nil
-		}).(LookupTeamHierarchyLinksResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getTeamHierarchyLinks:getTeamHierarchyLinks", args, LookupTeamHierarchyLinksResultOutput{}, options).(LookupTeamHierarchyLinksResultOutput)
 }
 
 // A collection of arguments for invoking getTeamHierarchyLinks.

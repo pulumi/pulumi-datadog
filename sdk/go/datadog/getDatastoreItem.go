@@ -53,12 +53,8 @@ type LookupDatastoreItemResult struct {
 }
 
 func LookupDatastoreItemOutput(ctx *pulumi.Context, args LookupDatastoreItemOutputArgs, opts ...pulumi.InvokeOption) LookupDatastoreItemResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDatastoreItemResultOutput, error) {
-			args := v.(LookupDatastoreItemArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getDatastoreItem:getDatastoreItem", args, LookupDatastoreItemResultOutput{}, options).(LookupDatastoreItemResultOutput), nil
-		}).(LookupDatastoreItemResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getDatastoreItem:getDatastoreItem", args, LookupDatastoreItemResultOutput{}, options).(LookupDatastoreItemResultOutput)
 }
 
 // A collection of arguments for invoking getDatastoreItem.

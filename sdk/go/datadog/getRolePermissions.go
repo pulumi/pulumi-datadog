@@ -73,12 +73,8 @@ type GetRolePermissionsResult struct {
 }
 
 func GetRolePermissionsOutput(ctx *pulumi.Context, args GetRolePermissionsOutputArgs, opts ...pulumi.InvokeOption) GetRolePermissionsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRolePermissionsResultOutput, error) {
-			args := v.(GetRolePermissionsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getRolePermissions:getRolePermissions", args, GetRolePermissionsResultOutput{}, options).(GetRolePermissionsResultOutput), nil
-		}).(GetRolePermissionsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getRolePermissions:getRolePermissions", args, GetRolePermissionsResultOutput{}, options).(GetRolePermissionsResultOutput)
 }
 
 // A collection of arguments for invoking getRolePermissions.

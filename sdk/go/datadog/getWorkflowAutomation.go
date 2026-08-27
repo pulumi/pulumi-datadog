@@ -71,12 +71,8 @@ type LookupWorkflowAutomationResult struct {
 }
 
 func LookupWorkflowAutomationOutput(ctx *pulumi.Context, args LookupWorkflowAutomationOutputArgs, opts ...pulumi.InvokeOption) LookupWorkflowAutomationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupWorkflowAutomationResultOutput, error) {
-			args := v.(LookupWorkflowAutomationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getWorkflowAutomation:getWorkflowAutomation", args, LookupWorkflowAutomationResultOutput{}, options).(LookupWorkflowAutomationResultOutput), nil
-		}).(LookupWorkflowAutomationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getWorkflowAutomation:getWorkflowAutomation", args, LookupWorkflowAutomationResultOutput{}, options).(LookupWorkflowAutomationResultOutput)
 }
 
 // A collection of arguments for invoking getWorkflowAutomation.

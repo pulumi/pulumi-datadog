@@ -37,12 +37,8 @@ type LookupPowerpackResult struct {
 }
 
 func LookupPowerpackOutput(ctx *pulumi.Context, args LookupPowerpackOutputArgs, opts ...pulumi.InvokeOption) LookupPowerpackResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPowerpackResultOutput, error) {
-			args := v.(LookupPowerpackArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getPowerpack:getPowerpack", args, LookupPowerpackResultOutput{}, options).(LookupPowerpackResultOutput), nil
-		}).(LookupPowerpackResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getPowerpack:getPowerpack", args, LookupPowerpackResultOutput{}, options).(LookupPowerpackResultOutput)
 }
 
 // A collection of arguments for invoking getPowerpack.

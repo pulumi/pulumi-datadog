@@ -63,12 +63,8 @@ type LookupReferenceTableResult struct {
 }
 
 func LookupReferenceTableOutput(ctx *pulumi.Context, args LookupReferenceTableOutputArgs, opts ...pulumi.InvokeOption) LookupReferenceTableResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupReferenceTableResultOutput, error) {
-			args := v.(LookupReferenceTableArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getReferenceTable:getReferenceTable", args, LookupReferenceTableResultOutput{}, options).(LookupReferenceTableResultOutput), nil
-		}).(LookupReferenceTableResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getReferenceTable:getReferenceTable", args, LookupReferenceTableResultOutput{}, options).(LookupReferenceTableResultOutput)
 }
 
 // A collection of arguments for invoking getReferenceTable.

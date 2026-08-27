@@ -31,10 +31,8 @@ type GetLogsArchivesOrderResult struct {
 }
 
 func GetLogsArchivesOrderOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetLogsArchivesOrderResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetLogsArchivesOrderResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("datadog:index/getLogsArchivesOrder:getLogsArchivesOrder", nil, GetLogsArchivesOrderResultOutput{}, options).(GetLogsArchivesOrderResultOutput), nil
-	}).(GetLogsArchivesOrderResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getLogsArchivesOrder:getLogsArchivesOrder", nil, GetLogsArchivesOrderResultOutput{}, options).(GetLogsArchivesOrderResultOutput)
 }
 
 // A collection of values returned by getLogsArchivesOrder.

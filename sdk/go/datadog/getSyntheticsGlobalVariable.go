@@ -39,12 +39,8 @@ type LookupSyntheticsGlobalVariableResult struct {
 }
 
 func LookupSyntheticsGlobalVariableOutput(ctx *pulumi.Context, args LookupSyntheticsGlobalVariableOutputArgs, opts ...pulumi.InvokeOption) LookupSyntheticsGlobalVariableResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSyntheticsGlobalVariableResultOutput, error) {
-			args := v.(LookupSyntheticsGlobalVariableArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable", args, LookupSyntheticsGlobalVariableResultOutput{}, options).(LookupSyntheticsGlobalVariableResultOutput), nil
-		}).(LookupSyntheticsGlobalVariableResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable", args, LookupSyntheticsGlobalVariableResultOutput{}, options).(LookupSyntheticsGlobalVariableResultOutput)
 }
 
 // A collection of arguments for invoking getSyntheticsGlobalVariable.

@@ -73,12 +73,8 @@ type LookupAppBuilderAppResult struct {
 }
 
 func LookupAppBuilderAppOutput(ctx *pulumi.Context, args LookupAppBuilderAppOutputArgs, opts ...pulumi.InvokeOption) LookupAppBuilderAppResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAppBuilderAppResultOutput, error) {
-			args := v.(LookupAppBuilderAppArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getAppBuilderApp:getAppBuilderApp", args, LookupAppBuilderAppResultOutput{}, options).(LookupAppBuilderAppResultOutput), nil
-		}).(LookupAppBuilderAppResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getAppBuilderApp:getAppBuilderApp", args, LookupAppBuilderAppResultOutput{}, options).(LookupAppBuilderAppResultOutput)
 }
 
 // A collection of arguments for invoking getAppBuilderApp.

@@ -31,10 +31,8 @@ type GetIntegrationIamPermissionsResourceCollectionResult struct {
 }
 
 func GetIntegrationIamPermissionsResourceCollectionOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetIntegrationIamPermissionsResourceCollectionResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetIntegrationIamPermissionsResourceCollectionResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("datadog:aws/getIntegrationIamPermissionsResourceCollection:getIntegrationIamPermissionsResourceCollection", nil, GetIntegrationIamPermissionsResourceCollectionResultOutput{}, options).(GetIntegrationIamPermissionsResourceCollectionResultOutput), nil
-	}).(GetIntegrationIamPermissionsResourceCollectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:aws/getIntegrationIamPermissionsResourceCollection:getIntegrationIamPermissionsResourceCollection", nil, GetIntegrationIamPermissionsResourceCollectionResultOutput{}, options).(GetIntegrationIamPermissionsResourceCollectionResultOutput)
 }
 
 // A collection of values returned by getIntegrationIamPermissionsResourceCollection.

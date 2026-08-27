@@ -86,12 +86,8 @@ type LookupDashboardListResult struct {
 }
 
 func LookupDashboardListOutput(ctx *pulumi.Context, args LookupDashboardListOutputArgs, opts ...pulumi.InvokeOption) LookupDashboardListResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDashboardListResultOutput, error) {
-			args := v.(LookupDashboardListArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getDashboardList:getDashboardList", args, LookupDashboardListResultOutput{}, options).(LookupDashboardListResultOutput), nil
-		}).(LookupDashboardListResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getDashboardList:getDashboardList", args, LookupDashboardListResultOutput{}, options).(LookupDashboardListResultOutput)
 }
 
 // A collection of arguments for invoking getDashboardList.

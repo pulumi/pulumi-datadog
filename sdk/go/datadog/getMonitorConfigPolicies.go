@@ -55,10 +55,8 @@ type GetMonitorConfigPoliciesResult struct {
 }
 
 func GetMonitorConfigPoliciesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetMonitorConfigPoliciesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetMonitorConfigPoliciesResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("datadog:index/getMonitorConfigPolicies:getMonitorConfigPolicies", nil, GetMonitorConfigPoliciesResultOutput{}, options).(GetMonitorConfigPoliciesResultOutput), nil
-	}).(GetMonitorConfigPoliciesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getMonitorConfigPolicies:getMonitorConfigPolicies", nil, GetMonitorConfigPoliciesResultOutput{}, options).(GetMonitorConfigPoliciesResultOutput)
 }
 
 // A collection of values returned by getMonitorConfigPolicies.

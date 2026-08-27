@@ -43,12 +43,8 @@ type GetReferenceTableRowsResult struct {
 }
 
 func GetReferenceTableRowsOutput(ctx *pulumi.Context, args GetReferenceTableRowsOutputArgs, opts ...pulumi.InvokeOption) GetReferenceTableRowsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetReferenceTableRowsResultOutput, error) {
-			args := v.(GetReferenceTableRowsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getReferenceTableRows:getReferenceTableRows", args, GetReferenceTableRowsResultOutput{}, options).(GetReferenceTableRowsResultOutput), nil
-		}).(GetReferenceTableRowsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getReferenceTableRows:getReferenceTableRows", args, GetReferenceTableRowsResultOutput{}, options).(GetReferenceTableRowsResultOutput)
 }
 
 // A collection of arguments for invoking getReferenceTableRows.

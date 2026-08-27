@@ -55,10 +55,8 @@ type GetLogsPipelinesOrderResult struct {
 }
 
 func GetLogsPipelinesOrderOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetLogsPipelinesOrderResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetLogsPipelinesOrderResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("datadog:index/getLogsPipelinesOrder:getLogsPipelinesOrder", nil, GetLogsPipelinesOrderResultOutput{}, options).(GetLogsPipelinesOrderResultOutput), nil
-	}).(GetLogsPipelinesOrderResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getLogsPipelinesOrder:getLogsPipelinesOrder", nil, GetLogsPipelinesOrderResultOutput{}, options).(GetLogsPipelinesOrderResultOutput)
 }
 
 // A collection of values returned by getLogsPipelinesOrder.

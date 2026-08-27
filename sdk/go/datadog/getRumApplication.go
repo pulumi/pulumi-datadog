@@ -51,12 +51,8 @@ type LookupRumApplicationResult struct {
 }
 
 func LookupRumApplicationOutput(ctx *pulumi.Context, args LookupRumApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupRumApplicationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRumApplicationResultOutput, error) {
-			args := v.(LookupRumApplicationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getRumApplication:getRumApplication", args, LookupRumApplicationResultOutput{}, options).(LookupRumApplicationResultOutput), nil
-		}).(LookupRumApplicationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getRumApplication:getRumApplication", args, LookupRumApplicationResultOutput{}, options).(LookupRumApplicationResultOutput)
 }
 
 // A collection of arguments for invoking getRumApplication.

@@ -31,10 +31,8 @@ type GetIntegrationAvailableNamespacesResult struct {
 }
 
 func GetIntegrationAvailableNamespacesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetIntegrationAvailableNamespacesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetIntegrationAvailableNamespacesResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("datadog:aws/getIntegrationAvailableNamespaces:getIntegrationAvailableNamespaces", nil, GetIntegrationAvailableNamespacesResultOutput{}, options).(GetIntegrationAvailableNamespacesResultOutput), nil
-	}).(GetIntegrationAvailableNamespacesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:aws/getIntegrationAvailableNamespaces:getIntegrationAvailableNamespaces", nil, GetIntegrationAvailableNamespacesResultOutput{}, options).(GetIntegrationAvailableNamespacesResultOutput)
 }
 
 // A collection of values returned by getIntegrationAvailableNamespaces.

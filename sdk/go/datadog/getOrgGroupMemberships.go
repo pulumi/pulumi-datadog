@@ -77,12 +77,8 @@ type GetOrgGroupMembershipsResult struct {
 }
 
 func GetOrgGroupMembershipsOutput(ctx *pulumi.Context, args GetOrgGroupMembershipsOutputArgs, opts ...pulumi.InvokeOption) GetOrgGroupMembershipsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetOrgGroupMembershipsResultOutput, error) {
-			args := v.(GetOrgGroupMembershipsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getOrgGroupMemberships:getOrgGroupMemberships", args, GetOrgGroupMembershipsResultOutput{}, options).(GetOrgGroupMembershipsResultOutput), nil
-		}).(GetOrgGroupMembershipsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getOrgGroupMemberships:getOrgGroupMemberships", args, GetOrgGroupMembershipsResultOutput{}, options).(GetOrgGroupMembershipsResultOutput)
 }
 
 // A collection of arguments for invoking getOrgGroupMemberships.

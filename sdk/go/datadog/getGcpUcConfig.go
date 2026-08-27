@@ -61,12 +61,8 @@ type LookupGcpUcConfigResult struct {
 }
 
 func LookupGcpUcConfigOutput(ctx *pulumi.Context, args LookupGcpUcConfigOutputArgs, opts ...pulumi.InvokeOption) LookupGcpUcConfigResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupGcpUcConfigResultOutput, error) {
-			args := v.(LookupGcpUcConfigArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getGcpUcConfig:getGcpUcConfig", args, LookupGcpUcConfigResultOutput{}, options).(LookupGcpUcConfigResultOutput), nil
-		}).(LookupGcpUcConfigResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getGcpUcConfig:getGcpUcConfig", args, LookupGcpUcConfigResultOutput{}, options).(LookupGcpUcConfigResultOutput)
 }
 
 // A collection of arguments for invoking getGcpUcConfig.

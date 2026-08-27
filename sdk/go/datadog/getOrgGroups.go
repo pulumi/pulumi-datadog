@@ -56,10 +56,8 @@ type GetOrgGroupsResult struct {
 }
 
 func GetOrgGroupsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetOrgGroupsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetOrgGroupsResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("datadog:index/getOrgGroups:getOrgGroups", nil, GetOrgGroupsResultOutput{}, options).(GetOrgGroupsResultOutput), nil
-	}).(GetOrgGroupsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getOrgGroups:getOrgGroups", nil, GetOrgGroupsResultOutput{}, options).(GetOrgGroupsResultOutput)
 }
 
 // A collection of values returned by getOrgGroups.

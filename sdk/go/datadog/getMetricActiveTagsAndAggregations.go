@@ -45,12 +45,8 @@ type GetMetricActiveTagsAndAggregationsResult struct {
 }
 
 func GetMetricActiveTagsAndAggregationsOutput(ctx *pulumi.Context, args GetMetricActiveTagsAndAggregationsOutputArgs, opts ...pulumi.InvokeOption) GetMetricActiveTagsAndAggregationsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetMetricActiveTagsAndAggregationsResultOutput, error) {
-			args := v.(GetMetricActiveTagsAndAggregationsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getMetricActiveTagsAndAggregations:getMetricActiveTagsAndAggregations", args, GetMetricActiveTagsAndAggregationsResultOutput{}, options).(GetMetricActiveTagsAndAggregationsResultOutput), nil
-		}).(GetMetricActiveTagsAndAggregationsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getMetricActiveTagsAndAggregations:getMetricActiveTagsAndAggregations", args, GetMetricActiveTagsAndAggregationsResultOutput{}, options).(GetMetricActiveTagsAndAggregationsResultOutput)
 }
 
 // A collection of arguments for invoking getMetricActiveTagsAndAggregations.

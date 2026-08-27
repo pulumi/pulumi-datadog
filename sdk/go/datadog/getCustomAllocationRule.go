@@ -61,12 +61,8 @@ type LookupCustomAllocationRuleResult struct {
 }
 
 func LookupCustomAllocationRuleOutput(ctx *pulumi.Context, args LookupCustomAllocationRuleOutputArgs, opts ...pulumi.InvokeOption) LookupCustomAllocationRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCustomAllocationRuleResultOutput, error) {
-			args := v.(LookupCustomAllocationRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getCustomAllocationRule:getCustomAllocationRule", args, LookupCustomAllocationRuleResultOutput{}, options).(LookupCustomAllocationRuleResultOutput), nil
-		}).(LookupCustomAllocationRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getCustomAllocationRule:getCustomAllocationRule", args, LookupCustomAllocationRuleResultOutput{}, options).(LookupCustomAllocationRuleResultOutput)
 }
 
 // A collection of arguments for invoking getCustomAllocationRule.

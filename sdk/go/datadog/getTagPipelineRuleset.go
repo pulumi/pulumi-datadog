@@ -47,12 +47,8 @@ type LookupTagPipelineRulesetResult struct {
 }
 
 func LookupTagPipelineRulesetOutput(ctx *pulumi.Context, args LookupTagPipelineRulesetOutputArgs, opts ...pulumi.InvokeOption) LookupTagPipelineRulesetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTagPipelineRulesetResultOutput, error) {
-			args := v.(LookupTagPipelineRulesetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getTagPipelineRuleset:getTagPipelineRuleset", args, LookupTagPipelineRulesetResultOutput{}, options).(LookupTagPipelineRulesetResultOutput), nil
-		}).(LookupTagPipelineRulesetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getTagPipelineRuleset:getTagPipelineRuleset", args, LookupTagPipelineRulesetResultOutput{}, options).(LookupTagPipelineRulesetResultOutput)
 }
 
 // A collection of arguments for invoking getTagPipelineRuleset.

@@ -41,12 +41,8 @@ type GetLogsPipelinesResult struct {
 }
 
 func GetLogsPipelinesOutput(ctx *pulumi.Context, args GetLogsPipelinesOutputArgs, opts ...pulumi.InvokeOption) GetLogsPipelinesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetLogsPipelinesResultOutput, error) {
-			args := v.(GetLogsPipelinesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("datadog:index/getLogsPipelines:getLogsPipelines", args, GetLogsPipelinesResultOutput{}, options).(GetLogsPipelinesResultOutput), nil
-		}).(GetLogsPipelinesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("datadog:index/getLogsPipelines:getLogsPipelines", args, GetLogsPipelinesResultOutput{}, options).(GetLogsPipelinesResultOutput)
 }
 
 // A collection of arguments for invoking getLogsPipelines.
