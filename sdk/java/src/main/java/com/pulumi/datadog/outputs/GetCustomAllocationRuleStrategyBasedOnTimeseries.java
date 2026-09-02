@@ -4,11 +4,26 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class GetCustomAllocationRuleStrategyBasedOnTimeseries {
+    /**
+     * @return The timeseries query that determines the allocation proportions, encoded as a JSON object. Set when `method` is `proportionalTimeseries`.
+     * 
+     */
+    private String json;
+
     private GetCustomAllocationRuleStrategyBasedOnTimeseries() {}
+    /**
+     * @return The timeseries query that determines the allocation proportions, encoded as a JSON object. Set when `method` is `proportionalTimeseries`.
+     * 
+     */
+    public String json() {
+        return this.json;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -19,13 +34,24 @@ public final class GetCustomAllocationRuleStrategyBasedOnTimeseries {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String json;
         public Builder() {}
         public Builder(GetCustomAllocationRuleStrategyBasedOnTimeseries defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.json = defaults.json;
         }
 
+        @CustomType.Setter
+        public Builder json(String json) {
+            if (json == null) {
+              throw new MissingRequiredPropertyException("GetCustomAllocationRuleStrategyBasedOnTimeseries", "json");
+            }
+            this.json = json;
+            return this;
+        }
         public GetCustomAllocationRuleStrategyBasedOnTimeseries build() {
             final var _resultValue = new GetCustomAllocationRuleStrategyBasedOnTimeseries();
+            _resultValue.json = json;
             return _resultValue;
         }
     }

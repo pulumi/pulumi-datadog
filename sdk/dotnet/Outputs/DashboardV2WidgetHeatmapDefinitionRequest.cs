@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardV2WidgetHeatmapDefinitionRequestFormula> Formulas;
         /// <summary>
+        /// Histogram request for distribution of point values.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetHeatmapDefinitionRequestHistogramRequest? HistogramRequest;
+        /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardV2WidgetHeatmapDefinitionRequestLogQuery? LogQuery;
@@ -56,6 +60,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardV2WidgetHeatmapDefinitionRequestFormula> formulas,
 
+            Outputs.DashboardV2WidgetHeatmapDefinitionRequestHistogramRequest? histogramRequest,
+
             Outputs.DashboardV2WidgetHeatmapDefinitionRequestLogQuery? logQuery,
 
             Outputs.DashboardV2WidgetHeatmapDefinitionRequestProcessQuery? processQuery,
@@ -72,6 +78,7 @@ namespace Pulumi.Datadog.Outputs
         {
             ApmQuery = apmQuery;
             Formulas = formulas;
+            HistogramRequest = histogramRequest;
             LogQuery = logQuery;
             ProcessQuery = processQuery;
             Q = q;

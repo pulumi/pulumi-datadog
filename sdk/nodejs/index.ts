@@ -570,6 +570,11 @@ export const getWorkflowAutomation: typeof import("./getWorkflowAutomation").get
 export const getWorkflowAutomationOutput: typeof import("./getWorkflowAutomation").getWorkflowAutomationOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkflowAutomation","getWorkflowAutomationOutput"], () => require("./getWorkflowAutomation"));
 
+export { GovernanceControlArgs, GovernanceControlState } from "./governanceControl";
+export type GovernanceControl = import("./governanceControl").GovernanceControl;
+export const GovernanceControl: typeof import("./governanceControl").GovernanceControl = null as any;
+utilities.lazyLoad(exports, ["GovernanceControl"], () => require("./governanceControl"));
+
 export { IncidentNotificationRuleArgs, IncidentNotificationRuleState } from "./incidentNotificationRule";
 export type IncidentNotificationRule = import("./incidentNotificationRule").IncidentNotificationRule;
 export const IncidentNotificationRule: typeof import("./incidentNotificationRule").IncidentNotificationRule = null as any;
@@ -1033,6 +1038,11 @@ export type WebhookCustomVariable = import("./webhookCustomVariable").WebhookCus
 export const WebhookCustomVariable: typeof import("./webhookCustomVariable").WebhookCustomVariable = null as any;
 utilities.lazyLoad(exports, ["WebhookCustomVariable"], () => require("./webhookCustomVariable"));
 
+export { WebhookOauth2ClientCredentialsArgs, WebhookOauth2ClientCredentialsState } from "./webhookOauth2ClientCredentials";
+export type WebhookOauth2ClientCredentials = import("./webhookOauth2ClientCredentials").WebhookOauth2ClientCredentials;
+export const WebhookOauth2ClientCredentials: typeof import("./webhookOauth2ClientCredentials").WebhookOauth2ClientCredentials = null as any;
+utilities.lazyLoad(exports, ["WebhookOauth2ClientCredentials"], () => require("./webhookOauth2ClientCredentials"));
+
 export { WorkflowAutomationArgs, WorkflowAutomationState } from "./workflowAutomation";
 export type WorkflowAutomation = import("./workflowAutomation").WorkflowAutomation;
 export const WorkflowAutomation: typeof import("./workflowAutomation").WorkflowAutomation = null as any;
@@ -1150,6 +1160,8 @@ const _module = {
                 return new DowntimeSchedule(name, <any>undefined, { urn })
             case "datadog:index/gcpUcConfig:GcpUcConfig":
                 return new GcpUcConfig(name, <any>undefined, { urn })
+            case "datadog:index/governanceControl:GovernanceControl":
+                return new GovernanceControl(name, <any>undefined, { urn })
             case "datadog:index/incidentNotificationRule:IncidentNotificationRule":
                 return new IncidentNotificationRule(name, <any>undefined, { urn })
             case "datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate":
@@ -1334,6 +1346,8 @@ const _module = {
                 return new Webhook(name, <any>undefined, { urn })
             case "datadog:index/webhookCustomVariable:WebhookCustomVariable":
                 return new WebhookCustomVariable(name, <any>undefined, { urn })
+            case "datadog:index/webhookOauth2ClientCredentials:WebhookOauth2ClientCredentials":
+                return new WebhookOauth2ClientCredentials(name, <any>undefined, { urn })
             case "datadog:index/workflowAutomation:WorkflowAutomation":
                 return new WorkflowAutomation(name, <any>undefined, { urn })
             default:
@@ -1380,6 +1394,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/domainAllowlist", _modul
 pulumi.runtime.registerResourceModule("datadog", "index/downtime", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/downtimeSchedule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/gcpUcConfig", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/governanceControl", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/incidentNotificationRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/incidentNotificationTemplate", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/incidentPostmortemTemplate", _module)
@@ -1472,6 +1487,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/user", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/userRole", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/webhook", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/webhookCustomVariable", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/webhookOauth2ClientCredentials", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/workflowAutomation", _module)
 pulumi.runtime.registerResourcePackage("datadog", {
     version: utilities.getVersion(),

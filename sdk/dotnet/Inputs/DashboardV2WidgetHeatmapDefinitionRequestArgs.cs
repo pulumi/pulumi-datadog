@@ -31,6 +31,12 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// Histogram request for distribution of point values.
+        /// </summary>
+        [Input("histogramRequest")]
+        public Input<Inputs.DashboardV2WidgetHeatmapDefinitionRequestHistogramRequestArgs>? HistogramRequest { get; set; }
+
+        /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("logQuery")]

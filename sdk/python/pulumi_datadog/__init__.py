@@ -119,6 +119,7 @@ from .get_teams import *
 from .get_user import *
 from .get_users import *
 from .get_workflow_automation import *
+from .governance_control import *
 from .incident_notification_rule import *
 from .incident_notification_template import *
 from .incident_postmortem_template import *
@@ -212,6 +213,7 @@ from .user import *
 from .user_role import *
 from .webhook import *
 from .webhook_custom_variable import *
+from .webhook_oauth2_client_credentials import *
 from .workflow_automation import *
 from ._inputs import *
 from . import outputs
@@ -662,6 +664,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/gcpUcConfig:GcpUcConfig": "GcpUcConfig"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/governanceControl",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/governanceControl:GovernanceControl": "GovernanceControl"
   }
  },
  {
@@ -1398,6 +1408,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/webhookCustomVariable:WebhookCustomVariable": "WebhookCustomVariable"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/webhookOauth2ClientCredentials",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/webhookOauth2ClientCredentials:WebhookOauth2ClientCredentials": "WebhookOauth2ClientCredentials"
   }
  },
  {

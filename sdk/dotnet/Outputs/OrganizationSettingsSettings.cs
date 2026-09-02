@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.OrganizationSettingsSettingsSaml Saml;
         /// <summary>
-        /// The access role of the user. Options are `St` (standard user), `Adm` (admin user), or `Ro` (read-only user). Allowed enum values: `St`, `Adm` , `Ro`, `ERROR` Defaults to `"st"`.
+        /// The access role of the user. Options are `St` (standard user), `Adm` (admin user), or `Ro` (read-only user). Allowed enum values: `St`, `Adm`, `Ro`, `ERROR`. When omitted, the current value is left unchanged.
         /// </summary>
         public readonly string? SamlAutocreateAccessRole;
         /// <summary>

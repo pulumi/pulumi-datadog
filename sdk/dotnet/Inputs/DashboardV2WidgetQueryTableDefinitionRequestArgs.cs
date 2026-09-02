@@ -126,6 +126,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("securityQuery")]
         public Input<Inputs.DashboardV2WidgetQueryTableDefinitionRequestSecurityQueryArgs>? SecurityQuery { get; set; }
 
+        /// <summary>
+        /// The controls for sorting the widget request.
+        /// </summary>
+        [Input("sort")]
+        public Input<Inputs.DashboardV2WidgetQueryTableDefinitionRequestSortArgs>? Sort { get; set; }
+
         [Input("textFormats")]
         private InputList<Inputs.DashboardV2WidgetQueryTableDefinitionRequestTextFormatArgs>? _textFormats;
 

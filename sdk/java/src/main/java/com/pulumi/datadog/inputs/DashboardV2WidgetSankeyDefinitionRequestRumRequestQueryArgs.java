@@ -5,6 +5,9 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryAudienceFiltersArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryJoinKeysArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryOccurrenceArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,6 +19,21 @@ import javax.annotation.Nullable;
 public final class DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryArgs Empty = new DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryArgs();
+
+    /**
+     * Product Analytics and RUM audience filters.
+     * 
+     */
+    @Import(name="audienceFilters")
+    private @Nullable Output<DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryAudienceFiltersArgs> audienceFilters;
+
+    /**
+     * @return Product Analytics and RUM audience filters.
+     * 
+     */
+    public Optional<Output<DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryAudienceFiltersArgs>> audienceFilters() {
+        return Optional.ofNullable(this.audienceFilters);
+    }
 
     /**
      * The data source for the Sankey RUM query. Valid values are `rum`, `productAnalytics`.
@@ -48,6 +66,21 @@ public final class DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryArgs e
     }
 
     /**
+     * Join keys for the Sankey query.
+     * 
+     */
+    @Import(name="joinKeys")
+    private @Nullable Output<DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryJoinKeysArgs> joinKeys;
+
+    /**
+     * @return Join keys for the Sankey query.
+     * 
+     */
+    public Optional<Output<DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryJoinKeysArgs>> joinKeys() {
+        return Optional.ofNullable(this.joinKeys);
+    }
+
+    /**
      * The mode for the Sankey RUM query. Valid values are `source`, `target`.
      * 
      */
@@ -75,6 +108,21 @@ public final class DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryArgs e
      */
     public Optional<Output<Integer>> numberOfSteps() {
         return Optional.ofNullable(this.numberOfSteps);
+    }
+
+    /**
+     * Filter applied to occurrence counts when building a Product Analytics audience.
+     * 
+     */
+    @Import(name="occurrence")
+    private @Nullable Output<DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryOccurrenceArgs> occurrence;
+
+    /**
+     * @return Filter applied to occurrence counts when building a Product Analytics audience.
+     * 
+     */
+    public Optional<Output<DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryOccurrenceArgs>> occurrence() {
+        return Optional.ofNullable(this.occurrence);
     }
 
     /**
@@ -140,10 +188,13 @@ public final class DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryArgs e
     private DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryArgs() {}
 
     private DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryArgs(DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryArgs $) {
+        this.audienceFilters = $.audienceFilters;
         this.dataSource = $.dataSource;
         this.entriesPerStep = $.entriesPerStep;
+        this.joinKeys = $.joinKeys;
         this.mode = $.mode;
         this.numberOfSteps = $.numberOfSteps;
+        this.occurrence = $.occurrence;
         this.queryString = $.queryString;
         this.source = $.source;
         this.subqueryId = $.subqueryId;
@@ -166,6 +217,27 @@ public final class DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryArgs e
 
         public Builder(DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryArgs defaults) {
             $ = new DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param audienceFilters Product Analytics and RUM audience filters.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder audienceFilters(@Nullable Output<DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryAudienceFiltersArgs> audienceFilters) {
+            $.audienceFilters = audienceFilters;
+            return this;
+        }
+
+        /**
+         * @param audienceFilters Product Analytics and RUM audience filters.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder audienceFilters(DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryAudienceFiltersArgs audienceFilters) {
+            return audienceFilters(Output.of(audienceFilters));
         }
 
         /**
@@ -211,6 +283,27 @@ public final class DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryArgs e
         }
 
         /**
+         * @param joinKeys Join keys for the Sankey query.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder joinKeys(@Nullable Output<DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryJoinKeysArgs> joinKeys) {
+            $.joinKeys = joinKeys;
+            return this;
+        }
+
+        /**
+         * @param joinKeys Join keys for the Sankey query.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder joinKeys(DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryJoinKeysArgs joinKeys) {
+            return joinKeys(Output.of(joinKeys));
+        }
+
+        /**
          * @param mode The mode for the Sankey RUM query. Valid values are `source`, `target`.
          * 
          * @return builder
@@ -250,6 +343,27 @@ public final class DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryArgs e
          */
         public Builder numberOfSteps(Integer numberOfSteps) {
             return numberOfSteps(Output.of(numberOfSteps));
+        }
+
+        /**
+         * @param occurrence Filter applied to occurrence counts when building a Product Analytics audience.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder occurrence(@Nullable Output<DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryOccurrenceArgs> occurrence) {
+            $.occurrence = occurrence;
+            return this;
+        }
+
+        /**
+         * @param occurrence Filter applied to occurrence counts when building a Product Analytics audience.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder occurrence(DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryOccurrenceArgs occurrence) {
+            return occurrence(Output.of(occurrence));
         }
 
         /**

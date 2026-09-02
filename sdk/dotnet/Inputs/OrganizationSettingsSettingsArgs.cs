@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.OrganizationSettingsSettingsSamlArgs> Saml { get; set; } = null!;
 
         /// <summary>
-        /// The access role of the user. Options are `St` (standard user), `Adm` (admin user), or `Ro` (read-only user). Allowed enum values: `St`, `Adm` , `Ro`, `ERROR` Defaults to `"st"`.
+        /// The access role of the user. Options are `St` (standard user), `Adm` (admin user), or `Ro` (read-only user). Allowed enum values: `St`, `Adm`, `Ro`, `ERROR`. When omitted, the current value is left unchanged.
         /// </summary>
         [Input("samlAutocreateAccessRole")]
         public Input<string>? SamlAutocreateAccessRole { get; set; }

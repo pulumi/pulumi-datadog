@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// APM metrics query for histogram-mode distribution.
+        /// </summary>
+        [Input("apmMetricsQuery")]
+        public Input<Inputs.PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryApmMetricsQueryArgs>? ApmMetricsQuery { get; set; }
+
+        /// <summary>
         /// APM resource stats query for histogram-mode distribution.
         /// </summary>
         [Input("apmResourceStatsQuery")]

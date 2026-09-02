@@ -40,6 +40,16 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3 {
      */
     private String region;
     /**
+     * @return The server-side encryption algorithm used when storing objects in S3. Valid values: `aws:kms`, `AES256`. Valid values are `aws:kms`, `AES256`.
+     * 
+     */
+    private @Nullable String serverSideEncryption;
+    /**
+     * @return ID of the AWS KMS key to use for SSE-KMS encryption. Only applies when `serverSideEncryption` is `aws:kms`.
+     * 
+     */
+    private @Nullable String ssekmsKeyId;
+    /**
      * @return S3 storage class. Valid values are `STANDARD`, `REDUCED_REDUNDANCY`, `INTELLIGENT_TIERING`, `STANDARD_IA`, `EXPRESS_ONEZONE`, `ONEZONE_IA`, `GLACIER`, `GLACIER_IR`, `DEEP_ARCHIVE`.
      * 
      */
@@ -82,6 +92,20 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3 {
         return this.region;
     }
     /**
+     * @return The server-side encryption algorithm used when storing objects in S3. Valid values: `aws:kms`, `AES256`. Valid values are `aws:kms`, `AES256`.
+     * 
+     */
+    public Optional<String> serverSideEncryption() {
+        return Optional.ofNullable(this.serverSideEncryption);
+    }
+    /**
+     * @return ID of the AWS KMS key to use for SSE-KMS encryption. Only applies when `serverSideEncryption` is `aws:kms`.
+     * 
+     */
+    public Optional<String> ssekmsKeyId() {
+        return Optional.ofNullable(this.ssekmsKeyId);
+    }
+    /**
      * @return S3 storage class. Valid values are `STANDARD`, `REDUCED_REDUNDANCY`, `INTELLIGENT_TIERING`, `STANDARD_IA`, `EXPRESS_ONEZONE`, `ONEZONE_IA`, `GLACIER`, `GLACIER_IR`, `DEEP_ARCHIVE`.
      * 
      */
@@ -103,6 +127,8 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3 {
         private @Nullable ObservabilityPipelineConfigDestinationAmazonS3Buffer buffer;
         private String keyPrefix;
         private String region;
+        private @Nullable String serverSideEncryption;
+        private @Nullable String ssekmsKeyId;
         private String storageClass;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationAmazonS3 defaults) {
@@ -112,6 +138,8 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3 {
     	      this.buffer = defaults.buffer;
     	      this.keyPrefix = defaults.keyPrefix;
     	      this.region = defaults.region;
+    	      this.serverSideEncryption = defaults.serverSideEncryption;
+    	      this.ssekmsKeyId = defaults.ssekmsKeyId;
     	      this.storageClass = defaults.storageClass;
         }
 
@@ -152,6 +180,18 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3 {
             return this;
         }
         @CustomType.Setter
+        public Builder serverSideEncryption(@Nullable String serverSideEncryption) {
+
+            this.serverSideEncryption = serverSideEncryption;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ssekmsKeyId(@Nullable String ssekmsKeyId) {
+
+            this.ssekmsKeyId = ssekmsKeyId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder storageClass(String storageClass) {
             if (storageClass == null) {
               throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationAmazonS3", "storageClass");
@@ -166,6 +206,8 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3 {
             _resultValue.buffer = buffer;
             _resultValue.keyPrefix = keyPrefix;
             _resultValue.region = region;
+            _resultValue.serverSideEncryption = serverSideEncryption;
+            _resultValue.ssekmsKeyId = ssekmsKeyId;
             _resultValue.storageClass = storageClass;
             return _resultValue;
         }

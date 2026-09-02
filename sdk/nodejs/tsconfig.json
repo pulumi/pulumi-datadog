@@ -160,6 +160,7 @@
         "getUser.ts",
         "getUsers.ts",
         "getWorkflowAutomation.ts",
+        "governanceControl.ts",
         "incidentNotificationRule.ts",
         "incidentNotificationTemplate.ts",
         "incidentPostmortemTemplate.ts",
@@ -268,6 +269,7 @@
         "utilities.ts",
         "webhook.ts",
         "webhookCustomVariable.ts",
+        "webhookOauth2ClientCredentials.ts",
         "workflowAutomation.ts"
     ]
 }

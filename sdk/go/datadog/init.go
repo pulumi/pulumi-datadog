@@ -99,6 +99,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DowntimeSchedule{}
 	case "datadog:index/gcpUcConfig:GcpUcConfig":
 		r = &GcpUcConfig{}
+	case "datadog:index/governanceControl:GovernanceControl":
+		r = &GovernanceControl{}
 	case "datadog:index/incidentNotificationRule:IncidentNotificationRule":
 		r = &IncidentNotificationRule{}
 	case "datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate":
@@ -283,6 +285,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Webhook{}
 	case "datadog:index/webhookCustomVariable:WebhookCustomVariable":
 		r = &WebhookCustomVariable{}
+	case "datadog:index/webhookOauth2ClientCredentials:WebhookOauth2ClientCredentials":
+		r = &WebhookOauth2ClientCredentials{}
 	case "datadog:index/workflowAutomation:WorkflowAutomation":
 		r = &WorkflowAutomation{}
 	default:
@@ -509,6 +513,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/gcpUcConfig",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/governanceControl",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -969,6 +978,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/webhookCustomVariable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/webhookOauth2ClientCredentials",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

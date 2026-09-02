@@ -74,6 +74,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery? SecurityQuery;
         /// <summary>
+        /// The controls for sorting the widget request.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSort? Sort;
+        /// <summary>
         /// Text formats define how to format text in table widget content. Multiple `TextFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestTextFormat> TextFormats;
@@ -110,6 +114,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery? securityQuery,
 
+            Outputs.DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSort? sort,
+
             ImmutableArray<Outputs.DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestTextFormat> textFormats)
         {
             Aggregator = aggregator;
@@ -127,6 +133,7 @@ namespace Pulumi.Datadog.Outputs
             Queries = queries;
             RumQuery = rumQuery;
             SecurityQuery = securityQuery;
+            Sort = sort;
             TextFormats = textFormats;
         }
     }
