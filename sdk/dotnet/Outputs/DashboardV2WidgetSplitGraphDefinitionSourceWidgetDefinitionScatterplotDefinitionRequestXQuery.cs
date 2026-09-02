@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXQueryApmDependencyStatsQuery? ApmDependencyStatsQuery;
         /// <summary>
+        /// The APM metrics query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXQueryApmMetricsQuery? ApmMetricsQuery;
+        /// <summary>
         /// The APM Resource Stats query using formulas and functions.
         /// </summary>
         public readonly Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXQueryApmResourceStatsQuery? ApmResourceStatsQuery;
@@ -38,13 +42,27 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXQueryProcessQuery? ProcessQuery;
         /// <summary>
+        /// The Product Analytics Extended query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXQueryProductAnalyticsExtendedQuery? ProductAnalyticsExtendedQuery;
+        /// <summary>
+        /// The retention query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXQueryRetentionQuery? RetentionQuery;
+        /// <summary>
         /// The SLO query using formulas and functions.
         /// </summary>
         public readonly Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXQuerySloQuery? SloQuery;
+        /// <summary>
+        /// The User Journey query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXQueryUserJourneyQuery? UserJourneyQuery;
 
         [OutputConstructor]
         private DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXQuery(
             Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXQueryApmDependencyStatsQuery? apmDependencyStatsQuery,
+
+            Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXQueryApmMetricsQuery? apmMetricsQuery,
 
             Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXQueryApmResourceStatsQuery? apmResourceStatsQuery,
 
@@ -56,15 +74,25 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXQueryProcessQuery? processQuery,
 
-            Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXQuerySloQuery? sloQuery)
+            Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXQueryProductAnalyticsExtendedQuery? productAnalyticsExtendedQuery,
+
+            Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXQueryRetentionQuery? retentionQuery,
+
+            Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXQuerySloQuery? sloQuery,
+
+            Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXQueryUserJourneyQuery? userJourneyQuery)
         {
             ApmDependencyStatsQuery = apmDependencyStatsQuery;
+            ApmMetricsQuery = apmMetricsQuery;
             ApmResourceStatsQuery = apmResourceStatsQuery;
             CloudCostQuery = cloudCostQuery;
             EventQuery = eventQuery;
             MetricQuery = metricQuery;
             ProcessQuery = processQuery;
+            ProductAnalyticsExtendedQuery = productAnalyticsExtendedQuery;
+            RetentionQuery = retentionQuery;
             SloQuery = sloQuery;
+            UserJourneyQuery = userJourneyQuery;
         }
     }
 }

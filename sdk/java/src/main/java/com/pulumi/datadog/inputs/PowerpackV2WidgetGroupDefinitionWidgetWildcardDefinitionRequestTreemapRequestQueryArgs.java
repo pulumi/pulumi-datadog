@@ -6,12 +6,16 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryApmDependencyStatsQueryArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryApmMetricsQueryArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryApmResourceStatsQueryArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryCloudCostQueryArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryEventQueryArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryMetricQueryArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryProcessQueryArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryProductAnalyticsExtendedQueryArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQueryArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryArgs;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -34,6 +38,21 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionReque
      */
     public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryApmDependencyStatsQueryArgs>> apmDependencyStatsQuery() {
         return Optional.ofNullable(this.apmDependencyStatsQuery);
+    }
+
+    /**
+     * The APM metrics query using formulas and functions.
+     * 
+     */
+    @Import(name="apmMetricsQuery")
+    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryApmMetricsQueryArgs> apmMetricsQuery;
+
+    /**
+     * @return The APM metrics query using formulas and functions.
+     * 
+     */
+    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryApmMetricsQueryArgs>> apmMetricsQuery() {
+        return Optional.ofNullable(this.apmMetricsQuery);
     }
 
     /**
@@ -112,6 +131,36 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionReque
     }
 
     /**
+     * The Product Analytics Extended query using formulas and functions.
+     * 
+     */
+    @Import(name="productAnalyticsExtendedQuery")
+    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryProductAnalyticsExtendedQueryArgs> productAnalyticsExtendedQuery;
+
+    /**
+     * @return The Product Analytics Extended query using formulas and functions.
+     * 
+     */
+    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryProductAnalyticsExtendedQueryArgs>> productAnalyticsExtendedQuery() {
+        return Optional.ofNullable(this.productAnalyticsExtendedQuery);
+    }
+
+    /**
+     * The retention query using formulas and functions.
+     * 
+     */
+    @Import(name="retentionQuery")
+    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQueryArgs> retentionQuery;
+
+    /**
+     * @return The retention query using formulas and functions.
+     * 
+     */
+    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQueryArgs>> retentionQuery() {
+        return Optional.ofNullable(this.retentionQuery);
+    }
+
+    /**
      * The SLO query using formulas and functions.
      * 
      */
@@ -126,16 +175,35 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionReque
         return Optional.ofNullable(this.sloQuery);
     }
 
+    /**
+     * The User Journey query using formulas and functions.
+     * 
+     */
+    @Import(name="userJourneyQuery")
+    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryArgs> userJourneyQuery;
+
+    /**
+     * @return The User Journey query using formulas and functions.
+     * 
+     */
+    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryArgs>> userJourneyQuery() {
+        return Optional.ofNullable(this.userJourneyQuery);
+    }
+
     private PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryArgs() {}
 
     private PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryArgs(PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryArgs $) {
         this.apmDependencyStatsQuery = $.apmDependencyStatsQuery;
+        this.apmMetricsQuery = $.apmMetricsQuery;
         this.apmResourceStatsQuery = $.apmResourceStatsQuery;
         this.cloudCostQuery = $.cloudCostQuery;
         this.eventQuery = $.eventQuery;
         this.metricQuery = $.metricQuery;
         this.processQuery = $.processQuery;
+        this.productAnalyticsExtendedQuery = $.productAnalyticsExtendedQuery;
+        this.retentionQuery = $.retentionQuery;
         this.sloQuery = $.sloQuery;
+        this.userJourneyQuery = $.userJourneyQuery;
     }
 
     public static Builder builder() {
@@ -175,6 +243,27 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionReque
          */
         public Builder apmDependencyStatsQuery(PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryApmDependencyStatsQueryArgs apmDependencyStatsQuery) {
             return apmDependencyStatsQuery(Output.of(apmDependencyStatsQuery));
+        }
+
+        /**
+         * @param apmMetricsQuery The APM metrics query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apmMetricsQuery(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryApmMetricsQueryArgs> apmMetricsQuery) {
+            $.apmMetricsQuery = apmMetricsQuery;
+            return this;
+        }
+
+        /**
+         * @param apmMetricsQuery The APM metrics query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apmMetricsQuery(PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryApmMetricsQueryArgs apmMetricsQuery) {
+            return apmMetricsQuery(Output.of(apmMetricsQuery));
         }
 
         /**
@@ -283,6 +372,48 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionReque
         }
 
         /**
+         * @param productAnalyticsExtendedQuery The Product Analytics Extended query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder productAnalyticsExtendedQuery(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryProductAnalyticsExtendedQueryArgs> productAnalyticsExtendedQuery) {
+            $.productAnalyticsExtendedQuery = productAnalyticsExtendedQuery;
+            return this;
+        }
+
+        /**
+         * @param productAnalyticsExtendedQuery The Product Analytics Extended query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder productAnalyticsExtendedQuery(PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryProductAnalyticsExtendedQueryArgs productAnalyticsExtendedQuery) {
+            return productAnalyticsExtendedQuery(Output.of(productAnalyticsExtendedQuery));
+        }
+
+        /**
+         * @param retentionQuery The retention query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retentionQuery(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQueryArgs> retentionQuery) {
+            $.retentionQuery = retentionQuery;
+            return this;
+        }
+
+        /**
+         * @param retentionQuery The retention query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retentionQuery(PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQueryArgs retentionQuery) {
+            return retentionQuery(Output.of(retentionQuery));
+        }
+
+        /**
          * @param sloQuery The SLO query using formulas and functions.
          * 
          * @return builder
@@ -301,6 +432,27 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionReque
          */
         public Builder sloQuery(PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryArgs sloQuery) {
             return sloQuery(Output.of(sloQuery));
+        }
+
+        /**
+         * @param userJourneyQuery The User Journey query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userJourneyQuery(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryArgs> userJourneyQuery) {
+            $.userJourneyQuery = userJourneyQuery;
+            return this;
+        }
+
+        /**
+         * @param userJourneyQuery The User Journey query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userJourneyQuery(PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryArgs userJourneyQuery) {
+            return userJourneyQuery(Output.of(userJourneyQuery));
         }
 
         public PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryArgs build() {

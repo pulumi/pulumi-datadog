@@ -52,14 +52,14 @@ public final class OrganizationSettingsSettingsArgs extends com.pulumi.resources
     }
 
     /**
-     * The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR` Defaults to `&#34;st&#34;`.
+     * The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm`, `ro`, `ERROR`. When omitted, the current value is left unchanged.
      * 
      */
     @Import(name="samlAutocreateAccessRole")
     private @Nullable Output<String> samlAutocreateAccessRole;
 
     /**
-     * @return The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR` Defaults to `&#34;st&#34;`.
+     * @return The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm`, `ro`, `ERROR`. When omitted, the current value is left unchanged.
      * 
      */
     public Optional<Output<String>> samlAutocreateAccessRole() {
@@ -247,7 +247,7 @@ public final class OrganizationSettingsSettingsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param samlAutocreateAccessRole The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR` Defaults to `&#34;st&#34;`.
+         * @param samlAutocreateAccessRole The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm`, `ro`, `ERROR`. When omitted, the current value is left unchanged.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class OrganizationSettingsSettingsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param samlAutocreateAccessRole The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR` Defaults to `&#34;st&#34;`.
+         * @param samlAutocreateAccessRole The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm`, `ro`, `ERROR`. When omitted, the current value is left unchanged.
          * 
          * @return builder
          * 

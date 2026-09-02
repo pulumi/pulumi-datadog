@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackV2WidgetDistributionDefinitionRequestHistogramQuery
     {
         /// <summary>
+        /// APM metrics query for histogram-mode distribution.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryApmMetricsQuery? ApmMetricsQuery;
+        /// <summary>
         /// APM resource stats query for histogram-mode distribution.
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryApmResourceStatsQuery? ApmResourceStatsQuery;
@@ -28,12 +32,15 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private PowerpackV2WidgetDistributionDefinitionRequestHistogramQuery(
+            Outputs.PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryApmMetricsQuery? apmMetricsQuery,
+
             Outputs.PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryApmResourceStatsQuery? apmResourceStatsQuery,
 
             Outputs.PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEventQuery? eventQuery,
 
             Outputs.PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryMetricQuery? metricQuery)
         {
+            ApmMetricsQuery = apmMetricsQuery;
             ApmResourceStatsQuery = apmResourceStatsQuery;
             EventQuery = eventQuery;
             MetricQuery = metricQuery;

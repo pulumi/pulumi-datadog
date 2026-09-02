@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryApmDependencyStatsQuery? ApmDependencyStatsQuery;
         /// <summary>
+        /// The APM metrics query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryApmMetricsQuery? ApmMetricsQuery;
+        /// <summary>
         /// The APM Resource Stats query using formulas and functions.
         /// </summary>
         public readonly Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryApmResourceStatsQuery? ApmResourceStatsQuery;
@@ -38,13 +42,27 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryProcessQuery? ProcessQuery;
         /// <summary>
+        /// The Product Analytics Extended query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryProductAnalyticsExtendedQuery? ProductAnalyticsExtendedQuery;
+        /// <summary>
+        /// The retention query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryRetentionQuery? RetentionQuery;
+        /// <summary>
         /// The SLO query using formulas and functions.
         /// </summary>
         public readonly Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQuerySloQuery? SloQuery;
+        /// <summary>
+        /// The User Journey query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryUserJourneyQuery? UserJourneyQuery;
 
         [OutputConstructor]
         private DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQuery(
             Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryApmDependencyStatsQuery? apmDependencyStatsQuery,
+
+            Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryApmMetricsQuery? apmMetricsQuery,
 
             Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryApmResourceStatsQuery? apmResourceStatsQuery,
 
@@ -56,15 +74,25 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryProcessQuery? processQuery,
 
-            Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQuerySloQuery? sloQuery)
+            Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryProductAnalyticsExtendedQuery? productAnalyticsExtendedQuery,
+
+            Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryRetentionQuery? retentionQuery,
+
+            Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQuerySloQuery? sloQuery,
+
+            Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryUserJourneyQuery? userJourneyQuery)
         {
             ApmDependencyStatsQuery = apmDependencyStatsQuery;
+            ApmMetricsQuery = apmMetricsQuery;
             ApmResourceStatsQuery = apmResourceStatsQuery;
             CloudCostQuery = cloudCostQuery;
             EventQuery = eventQuery;
             MetricQuery = metricQuery;
             ProcessQuery = processQuery;
+            ProductAnalyticsExtendedQuery = productAnalyticsExtendedQuery;
+            RetentionQuery = retentionQuery;
             SloQuery = sloQuery;
+            UserJourneyQuery = userJourneyQuery;
         }
     }
 }

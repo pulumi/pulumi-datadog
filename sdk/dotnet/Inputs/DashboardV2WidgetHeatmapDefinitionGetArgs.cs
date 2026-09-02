@@ -76,7 +76,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardV2WidgetHeatmapDefinitionRequestGetArgs>? _requests;
 
         /// <summary>
-        /// A nested block describing the request to use when displaying the widget. Multiple `Request` blocks are allowed using the structure below (exactly one of `Q`, `ApmQuery`, `LogQuery`, `RumQuery`, `SecurityQuery` or `ProcessQuery` is required within the request block).
+        /// A nested block describing the request to use when displaying the widget. Multiple `Request` blocks are allowed using the structure below.
         /// </summary>
         public InputList<Inputs.DashboardV2WidgetHeatmapDefinitionRequestGetArgs> Requests
         {

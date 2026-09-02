@@ -13,18 +13,165 @@ namespace Pulumi.Datadog
     {
         /// <summary>
         /// Use this data source to retrieve a Datadog Synthetic Test.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // The existing API test another team owns.
+        ///     var checkoutApi = Datadog.GetSyntheticsTest.Invoke(new()
+        ///     {
+        ///         TestId = "abc-123-xyz",
+        ///     });
+        /// 
+        ///     // A browser test over the same journey, kept in lockstep with the API test's
+        ///     // cadence, coverage, and alerting behavior.
+        ///     var checkoutBrowser = new Datadog.SyntheticsTest("checkout_browser", new()
+        ///     {
+        ///         Name = "Checkout journey (browser)",
+        ///         Type = "browser",
+        ///         Status = checkoutApi.Apply(getSyntheticsTestResult =&gt; getSyntheticsTestResult.Status),
+        ///         Locations = checkoutApi.Apply(getSyntheticsTestResult =&gt; getSyntheticsTestResult.Locations),
+        ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
+        ///         {
+        ///             Method = "GET",
+        ///             Url = "https://www.example.com/checkout",
+        ///         },
+        ///         DeviceIds = new[]
+        ///         {
+        ///             "laptop_large",
+        ///         },
+        ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+        ///         {
+        ///             TickEvery = checkoutApi.Apply(getSyntheticsTestResult =&gt; getSyntheticsTestResult.OptionsLists[0]?.TickEvery),
+        ///             MinLocationFailed = checkoutApi.Apply(getSyntheticsTestResult =&gt; getSyntheticsTestResult.OptionsLists[0]?.MinLocationFailed),
+        ///             MonitorPriority = checkoutApi.Apply(getSyntheticsTestResult =&gt; getSyntheticsTestResult.OptionsLists[0]?.MonitorPriority),
+        ///             Retry = new Datadog.Inputs.SyntheticsTestOptionsListRetryArgs
+        ///             {
+        ///                 Count = checkoutApi.Apply(getSyntheticsTestResult =&gt; getSyntheticsTestResult.OptionsLists[0]?.Retries[0]?.Count),
+        ///                 Interval = checkoutApi.Apply(getSyntheticsTestResult =&gt; getSyntheticsTestResult.OptionsLists[0]?.Retries[0]?.Interval),
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetSyntheticsTestResult> InvokeAsync(GetSyntheticsTestArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSyntheticsTestResult>("datadog:index/getSyntheticsTest:getSyntheticsTest", args ?? new GetSyntheticsTestArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve a Datadog Synthetic Test.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // The existing API test another team owns.
+        ///     var checkoutApi = Datadog.GetSyntheticsTest.Invoke(new()
+        ///     {
+        ///         TestId = "abc-123-xyz",
+        ///     });
+        /// 
+        ///     // A browser test over the same journey, kept in lockstep with the API test's
+        ///     // cadence, coverage, and alerting behavior.
+        ///     var checkoutBrowser = new Datadog.SyntheticsTest("checkout_browser", new()
+        ///     {
+        ///         Name = "Checkout journey (browser)",
+        ///         Type = "browser",
+        ///         Status = checkoutApi.Apply(getSyntheticsTestResult =&gt; getSyntheticsTestResult.Status),
+        ///         Locations = checkoutApi.Apply(getSyntheticsTestResult =&gt; getSyntheticsTestResult.Locations),
+        ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
+        ///         {
+        ///             Method = "GET",
+        ///             Url = "https://www.example.com/checkout",
+        ///         },
+        ///         DeviceIds = new[]
+        ///         {
+        ///             "laptop_large",
+        ///         },
+        ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+        ///         {
+        ///             TickEvery = checkoutApi.Apply(getSyntheticsTestResult =&gt; getSyntheticsTestResult.OptionsLists[0]?.TickEvery),
+        ///             MinLocationFailed = checkoutApi.Apply(getSyntheticsTestResult =&gt; getSyntheticsTestResult.OptionsLists[0]?.MinLocationFailed),
+        ///             MonitorPriority = checkoutApi.Apply(getSyntheticsTestResult =&gt; getSyntheticsTestResult.OptionsLists[0]?.MonitorPriority),
+        ///             Retry = new Datadog.Inputs.SyntheticsTestOptionsListRetryArgs
+        ///             {
+        ///                 Count = checkoutApi.Apply(getSyntheticsTestResult =&gt; getSyntheticsTestResult.OptionsLists[0]?.Retries[0]?.Count),
+        ///                 Interval = checkoutApi.Apply(getSyntheticsTestResult =&gt; getSyntheticsTestResult.OptionsLists[0]?.Retries[0]?.Interval),
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetSyntheticsTestResult> Invoke(GetSyntheticsTestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyntheticsTestResult>("datadog:index/getSyntheticsTest:getSyntheticsTest", args ?? new GetSyntheticsTestInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve a Datadog Synthetic Test.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // The existing API test another team owns.
+        ///     var checkoutApi = Datadog.GetSyntheticsTest.Invoke(new()
+        ///     {
+        ///         TestId = "abc-123-xyz",
+        ///     });
+        /// 
+        ///     // A browser test over the same journey, kept in lockstep with the API test's
+        ///     // cadence, coverage, and alerting behavior.
+        ///     var checkoutBrowser = new Datadog.SyntheticsTest("checkout_browser", new()
+        ///     {
+        ///         Name = "Checkout journey (browser)",
+        ///         Type = "browser",
+        ///         Status = checkoutApi.Apply(getSyntheticsTestResult =&gt; getSyntheticsTestResult.Status),
+        ///         Locations = checkoutApi.Apply(getSyntheticsTestResult =&gt; getSyntheticsTestResult.Locations),
+        ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
+        ///         {
+        ///             Method = "GET",
+        ///             Url = "https://www.example.com/checkout",
+        ///         },
+        ///         DeviceIds = new[]
+        ///         {
+        ///             "laptop_large",
+        ///         },
+        ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+        ///         {
+        ///             TickEvery = checkoutApi.Apply(getSyntheticsTestResult =&gt; getSyntheticsTestResult.OptionsLists[0]?.TickEvery),
+        ///             MinLocationFailed = checkoutApi.Apply(getSyntheticsTestResult =&gt; getSyntheticsTestResult.OptionsLists[0]?.MinLocationFailed),
+        ///             MonitorPriority = checkoutApi.Apply(getSyntheticsTestResult =&gt; getSyntheticsTestResult.OptionsLists[0]?.MonitorPriority),
+        ///             Retry = new Datadog.Inputs.SyntheticsTestOptionsListRetryArgs
+        ///             {
+        ///                 Count = checkoutApi.Apply(getSyntheticsTestResult =&gt; getSyntheticsTestResult.OptionsLists[0]?.Retries[0]?.Count),
+        ///                 Interval = checkoutApi.Apply(getSyntheticsTestResult =&gt; getSyntheticsTestResult.OptionsLists[0]?.Retries[0]?.Interval),
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetSyntheticsTestResult> Invoke(GetSyntheticsTestInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyntheticsTestResult>("datadog:index/getSyntheticsTest:getSyntheticsTest", args ?? new GetSyntheticsTestInvokeArgs(), options.WithDefaults());
@@ -64,13 +211,45 @@ namespace Pulumi.Datadog
     public sealed class GetSyntheticsTestResult
     {
         /// <summary>
+        /// Array with the different device IDs used to run the test. Only set for browser tests.
+        /// </summary>
+        public readonly ImmutableArray<string> DeviceIds;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Array of locations used to run the synthetic test.
+        /// </summary>
+        public readonly ImmutableArray<string> Locations;
+        /// <summary>
+        /// A message to include with notifications for this synthetic test.
+        /// </summary>
+        public readonly string Message;
+        /// <summary>
+        /// The mobile synthetic test extra options.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetSyntheticsTestMobileOptionsListResult> MobileOptionsLists;
+        /// <summary>
+        /// ID of the monitor associated with the synthetic test.
+        /// </summary>
+        public readonly int MonitorId;
+        /// <summary>
         /// The name of the synthetic test.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The synthetic test extra options.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetSyntheticsTestOptionsListResult> OptionsLists;
+        /// <summary>
+        /// Whether the synthetic test is started (`Live`) or paused (`Paused`).
+        /// </summary>
+        public readonly string Status;
+        /// <summary>
+        /// The subtype of the synthetic test. Only set for API tests.
+        /// </summary>
+        public readonly string Subtype;
         /// <summary>
         /// A list of tags assigned to the synthetic test.
         /// </summary>
@@ -80,26 +259,57 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string TestId;
         /// <summary>
+        /// The type of the synthetic test.
+        /// </summary>
+        public readonly string Type;
+        /// <summary>
         /// The start URL of the synthetic test.
         /// </summary>
         public readonly string Url;
 
         [OutputConstructor]
         private GetSyntheticsTestResult(
+            ImmutableArray<string> deviceIds,
+
             string id,
 
+            ImmutableArray<string> locations,
+
+            string message,
+
+            ImmutableArray<Outputs.GetSyntheticsTestMobileOptionsListResult> mobileOptionsLists,
+
+            int monitorId,
+
             string name,
+
+            ImmutableArray<Outputs.GetSyntheticsTestOptionsListResult> optionsLists,
+
+            string status,
+
+            string subtype,
 
             ImmutableArray<string> tags,
 
             string testId,
 
+            string type,
+
             string url)
         {
+            DeviceIds = deviceIds;
             Id = id;
+            Locations = locations;
+            Message = message;
+            MobileOptionsLists = mobileOptionsLists;
+            MonitorId = monitorId;
             Name = name;
+            OptionsLists = optionsLists;
+            Status = status;
+            Subtype = subtype;
             Tags = tags;
             TestId = testId;
+            Type = type;
             Url = url;
         }
     }

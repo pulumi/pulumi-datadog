@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeQueryApmDependencyStatsQuery? ApmDependencyStatsQuery;
         /// <summary>
+        /// The APM metrics query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeQueryApmMetricsQuery? ApmMetricsQuery;
+        /// <summary>
         /// The APM Resource Stats query using formulas and functions.
         /// </summary>
         public readonly Outputs.DashboardV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeQueryApmResourceStatsQuery? ApmResourceStatsQuery;
@@ -38,13 +42,27 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeQueryProcessQuery? ProcessQuery;
         /// <summary>
+        /// The Product Analytics Extended query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeQueryProductAnalyticsExtendedQuery? ProductAnalyticsExtendedQuery;
+        /// <summary>
+        /// The retention query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeQueryRetentionQuery? RetentionQuery;
+        /// <summary>
         /// The SLO query using formulas and functions.
         /// </summary>
         public readonly Outputs.DashboardV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeQuerySloQuery? SloQuery;
+        /// <summary>
+        /// The User Journey query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeQueryUserJourneyQuery? UserJourneyQuery;
 
         [OutputConstructor]
         private DashboardV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeQuery(
             Outputs.DashboardV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeQueryApmDependencyStatsQuery? apmDependencyStatsQuery,
+
+            Outputs.DashboardV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeQueryApmMetricsQuery? apmMetricsQuery,
 
             Outputs.DashboardV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeQueryApmResourceStatsQuery? apmResourceStatsQuery,
 
@@ -56,15 +74,25 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeQueryProcessQuery? processQuery,
 
-            Outputs.DashboardV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeQuerySloQuery? sloQuery)
+            Outputs.DashboardV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeQueryProductAnalyticsExtendedQuery? productAnalyticsExtendedQuery,
+
+            Outputs.DashboardV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeQueryRetentionQuery? retentionQuery,
+
+            Outputs.DashboardV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeQuerySloQuery? sloQuery,
+
+            Outputs.DashboardV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeQueryUserJourneyQuery? userJourneyQuery)
         {
             ApmDependencyStatsQuery = apmDependencyStatsQuery;
+            ApmMetricsQuery = apmMetricsQuery;
             ApmResourceStatsQuery = apmResourceStatsQuery;
             CloudCostQuery = cloudCostQuery;
             EventQuery = eventQuery;
             MetricQuery = metricQuery;
             ProcessQuery = processQuery;
+            ProductAnalyticsExtendedQuery = productAnalyticsExtendedQuery;
+            RetentionQuery = retentionQuery;
             SloQuery = sloQuery;
+            UserJourneyQuery = userJourneyQuery;
         }
     }
 }

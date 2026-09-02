@@ -5,12 +5,16 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryApmDependencyStatsQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryApmMetricsQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryApmResourceStatsQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryCloudCostQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryEventQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryMetricQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryProcessQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryProductAnalyticsExtendedQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +26,11 @@ public final class DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionReque
      * 
      */
     private @Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryApmDependencyStatsQuery apmDependencyStatsQuery;
+    /**
+     * @return The APM metrics query using formulas and functions.
+     * 
+     */
+    private @Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryApmMetricsQuery apmMetricsQuery;
     /**
      * @return The APM Resource Stats query using formulas and functions.
      * 
@@ -48,10 +57,25 @@ public final class DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionReque
      */
     private @Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryProcessQuery processQuery;
     /**
+     * @return The Product Analytics Extended query using formulas and functions.
+     * 
+     */
+    private @Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryProductAnalyticsExtendedQuery productAnalyticsExtendedQuery;
+    /**
+     * @return The retention query using formulas and functions.
+     * 
+     */
+    private @Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuery retentionQuery;
+    /**
      * @return The SLO query using formulas and functions.
      * 
      */
     private @Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery sloQuery;
+    /**
+     * @return The User Journey query using formulas and functions.
+     * 
+     */
+    private @Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery userJourneyQuery;
 
     private DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQuery() {}
     /**
@@ -60,6 +84,13 @@ public final class DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionReque
      */
     public Optional<DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryApmDependencyStatsQuery> apmDependencyStatsQuery() {
         return Optional.ofNullable(this.apmDependencyStatsQuery);
+    }
+    /**
+     * @return The APM metrics query using formulas and functions.
+     * 
+     */
+    public Optional<DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryApmMetricsQuery> apmMetricsQuery() {
+        return Optional.ofNullable(this.apmMetricsQuery);
     }
     /**
      * @return The APM Resource Stats query using formulas and functions.
@@ -97,11 +128,32 @@ public final class DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionReque
         return Optional.ofNullable(this.processQuery);
     }
     /**
+     * @return The Product Analytics Extended query using formulas and functions.
+     * 
+     */
+    public Optional<DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryProductAnalyticsExtendedQuery> productAnalyticsExtendedQuery() {
+        return Optional.ofNullable(this.productAnalyticsExtendedQuery);
+    }
+    /**
+     * @return The retention query using formulas and functions.
+     * 
+     */
+    public Optional<DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuery> retentionQuery() {
+        return Optional.ofNullable(this.retentionQuery);
+    }
+    /**
      * @return The SLO query using formulas and functions.
      * 
      */
     public Optional<DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery> sloQuery() {
         return Optional.ofNullable(this.sloQuery);
+    }
+    /**
+     * @return The User Journey query using formulas and functions.
+     * 
+     */
+    public Optional<DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery> userJourneyQuery() {
+        return Optional.ofNullable(this.userJourneyQuery);
     }
 
     public static Builder builder() {
@@ -114,28 +166,42 @@ public final class DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionReque
     @CustomType.Builder
     public static final class Builder {
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryApmDependencyStatsQuery apmDependencyStatsQuery;
+        private @Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryApmMetricsQuery apmMetricsQuery;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryApmResourceStatsQuery apmResourceStatsQuery;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryCloudCostQuery cloudCostQuery;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryEventQuery eventQuery;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryMetricQuery metricQuery;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryProcessQuery processQuery;
+        private @Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryProductAnalyticsExtendedQuery productAnalyticsExtendedQuery;
+        private @Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuery retentionQuery;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery sloQuery;
+        private @Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery userJourneyQuery;
         public Builder() {}
         public Builder(DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQuery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apmDependencyStatsQuery = defaults.apmDependencyStatsQuery;
+    	      this.apmMetricsQuery = defaults.apmMetricsQuery;
     	      this.apmResourceStatsQuery = defaults.apmResourceStatsQuery;
     	      this.cloudCostQuery = defaults.cloudCostQuery;
     	      this.eventQuery = defaults.eventQuery;
     	      this.metricQuery = defaults.metricQuery;
     	      this.processQuery = defaults.processQuery;
+    	      this.productAnalyticsExtendedQuery = defaults.productAnalyticsExtendedQuery;
+    	      this.retentionQuery = defaults.retentionQuery;
     	      this.sloQuery = defaults.sloQuery;
+    	      this.userJourneyQuery = defaults.userJourneyQuery;
         }
 
         @CustomType.Setter
         public Builder apmDependencyStatsQuery(@Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryApmDependencyStatsQuery apmDependencyStatsQuery) {
 
             this.apmDependencyStatsQuery = apmDependencyStatsQuery;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder apmMetricsQuery(@Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryApmMetricsQuery apmMetricsQuery) {
+
+            this.apmMetricsQuery = apmMetricsQuery;
             return this;
         }
         @CustomType.Setter
@@ -169,20 +235,42 @@ public final class DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionReque
             return this;
         }
         @CustomType.Setter
+        public Builder productAnalyticsExtendedQuery(@Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryProductAnalyticsExtendedQuery productAnalyticsExtendedQuery) {
+
+            this.productAnalyticsExtendedQuery = productAnalyticsExtendedQuery;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder retentionQuery(@Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuery retentionQuery) {
+
+            this.retentionQuery = retentionQuery;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sloQuery(@Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery sloQuery) {
 
             this.sloQuery = sloQuery;
             return this;
         }
+        @CustomType.Setter
+        public Builder userJourneyQuery(@Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery userJourneyQuery) {
+
+            this.userJourneyQuery = userJourneyQuery;
+            return this;
+        }
         public DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQuery build() {
             final var _resultValue = new DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestTreemapRequestQuery();
             _resultValue.apmDependencyStatsQuery = apmDependencyStatsQuery;
+            _resultValue.apmMetricsQuery = apmMetricsQuery;
             _resultValue.apmResourceStatsQuery = apmResourceStatsQuery;
             _resultValue.cloudCostQuery = cloudCostQuery;
             _resultValue.eventQuery = eventQuery;
             _resultValue.metricQuery = metricQuery;
             _resultValue.processQuery = processQuery;
+            _resultValue.productAnalyticsExtendedQuery = productAnalyticsExtendedQuery;
+            _resultValue.retentionQuery = retentionQuery;
             _resultValue.sloQuery = sloQuery;
+            _resultValue.userJourneyQuery = userJourneyQuery;
             return _resultValue;
         }
     }
