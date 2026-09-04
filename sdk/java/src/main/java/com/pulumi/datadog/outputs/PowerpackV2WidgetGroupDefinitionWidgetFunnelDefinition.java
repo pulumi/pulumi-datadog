@@ -20,6 +20,11 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetFunnelDefinition {
      */
     private @Nullable String description;
     /**
+     * @return Display mode for grouped funnel results. Valid values are `stacked`, `sideBySide`.
+     * 
+     */
+    private @Nullable String groupedDisplay;
+    /**
      * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
      * 
      */
@@ -62,6 +67,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetFunnelDefinition {
      */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
+    }
+    /**
+     * @return Display mode for grouped funnel results. Valid values are `stacked`, `sideBySide`.
+     * 
+     */
+    public Optional<String> groupedDisplay() {
+        return Optional.ofNullable(this.groupedDisplay);
     }
     /**
      * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
@@ -123,6 +135,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetFunnelDefinition {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
+        private @Nullable String groupedDisplay;
         private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String liveSpan;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetFunnelDefinitionRequest request;
@@ -134,6 +147,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetFunnelDefinition {
         public Builder(PowerpackV2WidgetGroupDefinitionWidgetFunnelDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
+    	      this.groupedDisplay = defaults.groupedDisplay;
     	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.liveSpan = defaults.liveSpan;
     	      this.request = defaults.request;
@@ -147,6 +161,12 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetFunnelDefinition {
         public Builder description(@Nullable String description) {
 
             this.description = description;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder groupedDisplay(@Nullable String groupedDisplay) {
+
+            this.groupedDisplay = groupedDisplay;
             return this;
         }
         @CustomType.Setter
@@ -194,6 +214,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetFunnelDefinition {
         public PowerpackV2WidgetGroupDefinitionWidgetFunnelDefinition build() {
             final var _resultValue = new PowerpackV2WidgetGroupDefinitionWidgetFunnelDefinition();
             _resultValue.description = description;
+            _resultValue.groupedDisplay = groupedDisplay;
             _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.liveSpan = liveSpan;
             _resultValue.request = request;

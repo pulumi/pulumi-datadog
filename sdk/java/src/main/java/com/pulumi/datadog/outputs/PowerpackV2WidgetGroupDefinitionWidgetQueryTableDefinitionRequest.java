@@ -13,6 +13,7 @@ import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryTab
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSort;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestTextFormat;
 import java.lang.Integer;
 import java.lang.String;
@@ -126,6 +127,11 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionReq
      */
     @Deprecated /* Use queries and formulas instead. */
     private @Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery securityQuery;
+    /**
+     * @return The controls for sorting the widget request.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSort sort;
     /**
      * @return Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
      * 
@@ -267,6 +273,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionReq
         return Optional.ofNullable(this.securityQuery);
     }
     /**
+     * @return The controls for sorting the widget request.
+     * 
+     */
+    public Optional<PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSort> sort() {
+        return Optional.ofNullable(this.sort);
+    }
+    /**
      * @return Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
      * 
      */
@@ -298,6 +311,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionReq
         private @Nullable List<PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuery> queries;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery rumQuery;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery securityQuery;
+        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSort sort;
         private @Nullable List<PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestTextFormat> textFormats;
         public Builder() {}
         public Builder(PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequest defaults) {
@@ -317,6 +331,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionReq
     	      this.queries = defaults.queries;
     	      this.rumQuery = defaults.rumQuery;
     	      this.securityQuery = defaults.securityQuery;
+    	      this.sort = defaults.sort;
     	      this.textFormats = defaults.textFormats;
         }
 
@@ -423,6 +438,12 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionReq
             return this;
         }
         @CustomType.Setter
+        public Builder sort(@Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSort sort) {
+
+            this.sort = sort;
+            return this;
+        }
+        @CustomType.Setter
         public Builder textFormats(@Nullable List<PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestTextFormat> textFormats) {
 
             this.textFormats = textFormats;
@@ -448,6 +469,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionReq
             _resultValue.queries = queries;
             _resultValue.rumQuery = rumQuery;
             _resultValue.securityQuery = securityQuery;
+            _resultValue.sort = sort;
             _resultValue.textFormats = textFormats;
             return _resultValue;
         }

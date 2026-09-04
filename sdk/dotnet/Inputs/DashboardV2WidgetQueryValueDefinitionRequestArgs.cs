@@ -30,6 +30,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("auditQuery")]
         public Input<Inputs.DashboardV2WidgetQueryValueDefinitionRequestAuditQueryArgs>? AuditQuery { get; set; }
 
+        /// <summary>
+        /// A change indicator that compares the current value to a historical period.
+        /// </summary>
+        [Input("comparison")]
+        public Input<Inputs.DashboardV2WidgetQueryValueDefinitionRequestComparisonArgs>? Comparison { get; set; }
+
         [Input("conditionalFormats")]
         private InputList<Inputs.DashboardV2WidgetQueryValueDefinitionRequestConditionalFormatArgs>? _conditionalFormats;
 

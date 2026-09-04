@@ -13,6 +13,7 @@ import com.pulumi.datadog.outputs.DashboardV2WidgetSplitGraphDefinitionSourceWid
 import com.pulumi.datadog.outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestRumQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSort;
 import com.pulumi.datadog.outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestTextFormat;
 import java.lang.Integer;
 import java.lang.String;
@@ -126,6 +127,11 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQu
      */
     @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQuery securityQuery;
+    /**
+     * @return The controls for sorting the widget request.
+     * 
+     */
+    private @Nullable DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSort sort;
     /**
      * @return Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
      * 
@@ -267,6 +273,13 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQu
         return Optional.ofNullable(this.securityQuery);
     }
     /**
+     * @return The controls for sorting the widget request.
+     * 
+     */
+    public Optional<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSort> sort() {
+        return Optional.ofNullable(this.sort);
+    }
+    /**
      * @return Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
      * 
      */
@@ -298,6 +311,7 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQu
         private @Nullable List<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQuery> queries;
         private @Nullable DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestRumQuery rumQuery;
         private @Nullable DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQuery securityQuery;
+        private @Nullable DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSort sort;
         private @Nullable List<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestTextFormat> textFormats;
         public Builder() {}
         public Builder(DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequest defaults) {
@@ -317,6 +331,7 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQu
     	      this.queries = defaults.queries;
     	      this.rumQuery = defaults.rumQuery;
     	      this.securityQuery = defaults.securityQuery;
+    	      this.sort = defaults.sort;
     	      this.textFormats = defaults.textFormats;
         }
 
@@ -423,6 +438,12 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQu
             return this;
         }
         @CustomType.Setter
+        public Builder sort(@Nullable DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSort sort) {
+
+            this.sort = sort;
+            return this;
+        }
+        @CustomType.Setter
         public Builder textFormats(@Nullable List<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestTextFormat> textFormats) {
 
             this.textFormats = textFormats;
@@ -448,6 +469,7 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQu
             _resultValue.queries = queries;
             _resultValue.rumQuery = rumQuery;
             _resultValue.securityQuery = securityQuery;
+            _resultValue.sort = sort;
             _resultValue.textFormats = textFormats;
             return _resultValue;
         }
