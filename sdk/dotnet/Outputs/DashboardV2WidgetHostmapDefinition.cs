@@ -50,7 +50,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Notes;
         /// <summary>
-        /// A nested block describing the request to use when displaying the widget. Multiple `Request` blocks are allowed using the structure below.
+        /// A request using the legacy metric format, the infrastructure-backed format, or the DDSQL data-projection format.
         /// </summary>
         public readonly Outputs.DashboardV2WidgetHostmapDefinitionRequest? Request;
         /// <summary>

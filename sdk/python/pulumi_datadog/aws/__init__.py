@@ -6,6 +6,7 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_integration_account import *
 from .get_integration_available_logs_services import *
 from .get_integration_available_namespaces import *
 from .get_integration_external_id import *

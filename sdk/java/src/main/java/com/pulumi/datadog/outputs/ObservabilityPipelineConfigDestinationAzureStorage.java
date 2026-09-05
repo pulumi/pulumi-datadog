@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAzureStorageBuffer;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAzureStorageCompression;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
@@ -23,6 +24,11 @@ public final class ObservabilityPipelineConfigDestinationAzureStorage {
      * 
      */
     private @Nullable ObservabilityPipelineConfigDestinationAzureStorageBuffer buffer;
+    /**
+     * @return Compression configuration for archived logs. When omitted, the worker default (gzip) is used.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationAzureStorageCompression compression;
     /**
      * @return Name of the environment variable or secret that holds the Azure Storage connection string.
      * 
@@ -50,6 +56,13 @@ public final class ObservabilityPipelineConfigDestinationAzureStorage {
         return Optional.ofNullable(this.buffer);
     }
     /**
+     * @return Compression configuration for archived logs. When omitted, the worker default (gzip) is used.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationAzureStorageCompression> compression() {
+        return Optional.ofNullable(this.compression);
+    }
+    /**
      * @return Name of the environment variable or secret that holds the Azure Storage connection string.
      * 
      */
@@ -75,6 +88,7 @@ public final class ObservabilityPipelineConfigDestinationAzureStorage {
     public static final class Builder {
         private @Nullable String blobPrefix;
         private @Nullable ObservabilityPipelineConfigDestinationAzureStorageBuffer buffer;
+        private @Nullable ObservabilityPipelineConfigDestinationAzureStorageCompression compression;
         private @Nullable String connectionStringKey;
         private String containerName;
         public Builder() {}
@@ -82,6 +96,7 @@ public final class ObservabilityPipelineConfigDestinationAzureStorage {
     	      Objects.requireNonNull(defaults);
     	      this.blobPrefix = defaults.blobPrefix;
     	      this.buffer = defaults.buffer;
+    	      this.compression = defaults.compression;
     	      this.connectionStringKey = defaults.connectionStringKey;
     	      this.containerName = defaults.containerName;
         }
@@ -96,6 +111,12 @@ public final class ObservabilityPipelineConfigDestinationAzureStorage {
         public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationAzureStorageBuffer buffer) {
 
             this.buffer = buffer;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder compression(@Nullable ObservabilityPipelineConfigDestinationAzureStorageCompression compression) {
+
+            this.compression = compression;
             return this;
         }
         @CustomType.Setter
@@ -116,6 +137,7 @@ public final class ObservabilityPipelineConfigDestinationAzureStorage {
             final var _resultValue = new ObservabilityPipelineConfigDestinationAzureStorage();
             _resultValue.blobPrefix = blobPrefix;
             _resultValue.buffer = buffer;
+            _resultValue.compression = compression;
             _resultValue.connectionStringKey = connectionStringKey;
             _resultValue.containerName = containerName;
             return _resultValue;

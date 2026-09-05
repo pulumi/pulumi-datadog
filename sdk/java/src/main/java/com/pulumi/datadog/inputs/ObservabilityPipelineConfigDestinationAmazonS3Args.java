@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonS3AuthArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonS3BufferArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonS3CompressionArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
@@ -64,6 +65,21 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3Args extends co
     }
 
     /**
+     * Compression configuration for archived logs. When omitted, the worker default (gzip) is used.
+     * 
+     */
+    @Import(name="compression")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationAmazonS3CompressionArgs> compression;
+
+    /**
+     * @return Compression configuration for archived logs. When omitted, the worker default (gzip) is used.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationAmazonS3CompressionArgs>> compression() {
+        return Optional.ofNullable(this.compression);
+    }
+
+    /**
      * Prefix for object keys.
      * 
      */
@@ -94,6 +110,36 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3Args extends co
     }
 
     /**
+     * The server-side encryption algorithm used when storing objects in S3. Valid values: `aws:kms`, `AES256`. Valid values are `aws:kms`, `AES256`.
+     * 
+     */
+    @Import(name="serverSideEncryption")
+    private @Nullable Output<String> serverSideEncryption;
+
+    /**
+     * @return The server-side encryption algorithm used when storing objects in S3. Valid values: `aws:kms`, `AES256`. Valid values are `aws:kms`, `AES256`.
+     * 
+     */
+    public Optional<Output<String>> serverSideEncryption() {
+        return Optional.ofNullable(this.serverSideEncryption);
+    }
+
+    /**
+     * ID of the AWS KMS key to use for SSE-KMS encryption. Only applies when `serverSideEncryption` is `aws:kms`.
+     * 
+     */
+    @Import(name="ssekmsKeyId")
+    private @Nullable Output<String> ssekmsKeyId;
+
+    /**
+     * @return ID of the AWS KMS key to use for SSE-KMS encryption. Only applies when `serverSideEncryption` is `aws:kms`.
+     * 
+     */
+    public Optional<Output<String>> ssekmsKeyId() {
+        return Optional.ofNullable(this.ssekmsKeyId);
+    }
+
+    /**
      * S3 storage class. Valid values are `STANDARD`, `REDUCED_REDUNDANCY`, `INTELLIGENT_TIERING`, `STANDARD_IA`, `EXPRESS_ONEZONE`, `ONEZONE_IA`, `GLACIER`, `GLACIER_IR`, `DEEP_ARCHIVE`.
      * 
      */
@@ -114,8 +160,11 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3Args extends co
         this.auth = $.auth;
         this.bucket = $.bucket;
         this.buffer = $.buffer;
+        this.compression = $.compression;
         this.keyPrefix = $.keyPrefix;
         this.region = $.region;
+        this.serverSideEncryption = $.serverSideEncryption;
+        this.ssekmsKeyId = $.ssekmsKeyId;
         this.storageClass = $.storageClass;
     }
 
@@ -201,6 +250,27 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3Args extends co
         }
 
         /**
+         * @param compression Compression configuration for archived logs. When omitted, the worker default (gzip) is used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compression(@Nullable Output<ObservabilityPipelineConfigDestinationAmazonS3CompressionArgs> compression) {
+            $.compression = compression;
+            return this;
+        }
+
+        /**
+         * @param compression Compression configuration for archived logs. When omitted, the worker default (gzip) is used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compression(ObservabilityPipelineConfigDestinationAmazonS3CompressionArgs compression) {
+            return compression(Output.of(compression));
+        }
+
+        /**
          * @param keyPrefix Prefix for object keys.
          * 
          * @return builder
@@ -240,6 +310,48 @@ public final class ObservabilityPipelineConfigDestinationAmazonS3Args extends co
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param serverSideEncryption The server-side encryption algorithm used when storing objects in S3. Valid values: `aws:kms`, `AES256`. Valid values are `aws:kms`, `AES256`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverSideEncryption(@Nullable Output<String> serverSideEncryption) {
+            $.serverSideEncryption = serverSideEncryption;
+            return this;
+        }
+
+        /**
+         * @param serverSideEncryption The server-side encryption algorithm used when storing objects in S3. Valid values: `aws:kms`, `AES256`. Valid values are `aws:kms`, `AES256`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverSideEncryption(String serverSideEncryption) {
+            return serverSideEncryption(Output.of(serverSideEncryption));
+        }
+
+        /**
+         * @param ssekmsKeyId ID of the AWS KMS key to use for SSE-KMS encryption. Only applies when `serverSideEncryption` is `aws:kms`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ssekmsKeyId(@Nullable Output<String> ssekmsKeyId) {
+            $.ssekmsKeyId = ssekmsKeyId;
+            return this;
+        }
+
+        /**
+         * @param ssekmsKeyId ID of the AWS KMS key to use for SSE-KMS encryption. Only applies when `serverSideEncryption` is `aws:kms`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ssekmsKeyId(String ssekmsKeyId) {
+            return ssekmsKeyId(Output.of(ssekmsKeyId));
         }
 
         /**

@@ -130,14 +130,14 @@ public final class DashboardV2WidgetGroupDefinitionWidgetHeatmapDefinitionArgs e
     }
 
     /**
-     * A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     * A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
      * 
      */
     @Import(name="requests")
     private @Nullable Output<List<DashboardV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestArgs>> requests;
 
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
      * 
      */
     public Optional<Output<List<DashboardV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestArgs>>> requests() {
@@ -465,7 +465,7 @@ public final class DashboardV2WidgetGroupDefinitionWidgetHeatmapDefinitionArgs e
         }
 
         /**
-         * @param requests A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class DashboardV2WidgetGroupDefinitionWidgetHeatmapDefinitionArgs e
         }
 
         /**
-         * @param requests A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -486,7 +486,7 @@ public final class DashboardV2WidgetGroupDefinitionWidgetHeatmapDefinitionArgs e
         }
 
         /**
-         * @param requests A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
          * 
          * @return builder
          * 

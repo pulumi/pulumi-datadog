@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryApmMetricsQueryArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryApmResourceStatsQueryArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEventQueryArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryMetricQueryArgs;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryArgs Empty = new PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryArgs();
+
+    /**
+     * APM metrics query for histogram-mode distribution.
+     * 
+     */
+    @Import(name="apmMetricsQuery")
+    private @Nullable Output<PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryApmMetricsQueryArgs> apmMetricsQuery;
+
+    /**
+     * @return APM metrics query for histogram-mode distribution.
+     * 
+     */
+    public Optional<Output<PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryApmMetricsQueryArgs>> apmMetricsQuery() {
+        return Optional.ofNullable(this.apmMetricsQuery);
+    }
 
     /**
      * APM resource stats query for histogram-mode distribution.
@@ -65,6 +81,7 @@ public final class PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryA
     private PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryArgs() {}
 
     private PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryArgs(PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryArgs $) {
+        this.apmMetricsQuery = $.apmMetricsQuery;
         this.apmResourceStatsQuery = $.apmResourceStatsQuery;
         this.eventQuery = $.eventQuery;
         this.metricQuery = $.metricQuery;
@@ -86,6 +103,27 @@ public final class PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryA
 
         public Builder(PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryArgs defaults) {
             $ = new PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param apmMetricsQuery APM metrics query for histogram-mode distribution.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apmMetricsQuery(@Nullable Output<PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryApmMetricsQueryArgs> apmMetricsQuery) {
+            $.apmMetricsQuery = apmMetricsQuery;
+            return this;
+        }
+
+        /**
+         * @param apmMetricsQuery APM metrics query for histogram-mode distribution.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apmMetricsQuery(PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryApmMetricsQueryArgs apmMetricsQuery) {
+            return apmMetricsQuery(Output.of(apmMetricsQuery));
         }
 
         /**

@@ -4,8 +4,19 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardV2WidgetHostmapDefinitionRequestChild;
+import com.pulumi.datadog.outputs.DashboardV2WidgetHostmapDefinitionRequestConditionalFormat;
+import com.pulumi.datadog.outputs.DashboardV2WidgetHostmapDefinitionRequestEnrichment;
 import com.pulumi.datadog.outputs.DashboardV2WidgetHostmapDefinitionRequestFill;
+import com.pulumi.datadog.outputs.DashboardV2WidgetHostmapDefinitionRequestGroupBy;
+import com.pulumi.datadog.outputs.DashboardV2WidgetHostmapDefinitionRequestProjection;
+import com.pulumi.datadog.outputs.DashboardV2WidgetHostmapDefinitionRequestQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetHostmapDefinitionRequestSize;
+import com.pulumi.datadog.outputs.DashboardV2WidgetHostmapDefinitionRequestStyle;
+import java.lang.Boolean;
+import java.lang.Integer;
+import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -13,17 +24,103 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardV2WidgetHostmapDefinitionRequest {
     /**
+     * @return Optional child request for one level of hierarchical visualization.
+     * 
+     */
+    private @Nullable DashboardV2WidgetHostmapDefinitionRequestChild child;
+    /**
+     * @return Conditional formatting rules applied to fill values.
+     * 
+     */
+    private @Nullable List<DashboardV2WidgetHostmapDefinitionRequestConditionalFormat> conditionalFormats;
+    /**
+     * @return Metric or event queries joined to the entity set.
+     * 
+     */
+    private @Nullable List<DashboardV2WidgetHostmapDefinitionRequestEnrichment> enrichments;
+    /**
      * @return The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
      * 
      */
     private @Nullable DashboardV2WidgetHostmapDefinitionRequestFill fill;
     /**
+     * @return Filter string for the entity set in tag format, such as `env:prod`.
+     * 
+     */
+    private @Nullable String filter;
+    /**
+     * @return Ordered grouping hierarchy for infrastructure entities.
+     * 
+     */
+    private @Nullable List<DashboardV2WidgetHostmapDefinitionRequestGroupBy> groupBies;
+    /**
+     * @return Maximum number of rows to return from the DDSQL data-projection request.
+     * 
+     */
+    private @Nullable Integer limit;
+    /**
+     * @return Whether to hide entities that have no group assignment.
+     * 
+     */
+    private @Nullable Boolean noGroupHosts;
+    /**
+     * @return Whether to hide entities that have no enrichment data.
+     * 
+     */
+    private @Nullable Boolean noMetricHosts;
+    /**
+     * @return Infrastructure entity type to visualize. Valid values are `host`, `container`, `pod`, `cluster`.
+     * 
+     */
+    private @Nullable String nodeType;
+    /**
+     * @return Mapping from published-dataset columns to host map dimensions.
+     * 
+     */
+    private @Nullable DashboardV2WidgetHostmapDefinitionRequestProjection projection;
+    /**
+     * @return Published-dataset query used by the DDSQL data-projection request.
+     * 
+     */
+    private @Nullable DashboardV2WidgetHostmapDefinitionRequestQuery query;
+    /**
+     * @return Identifies an infrastructure-backed or DDSQL data-projection host map request. Valid values are `infrastructureHostmap`, `dataProjection`.
+     * 
+     */
+    private @Nullable String requestType;
+    /**
      * @return The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
      * 
      */
     private @Nullable DashboardV2WidgetHostmapDefinitionRequestSize size;
+    /**
+     * @return Style configuration for the infrastructure host map.
+     * 
+     */
+    private @Nullable DashboardV2WidgetHostmapDefinitionRequestStyle style;
 
     private DashboardV2WidgetHostmapDefinitionRequest() {}
+    /**
+     * @return Optional child request for one level of hierarchical visualization.
+     * 
+     */
+    public Optional<DashboardV2WidgetHostmapDefinitionRequestChild> child() {
+        return Optional.ofNullable(this.child);
+    }
+    /**
+     * @return Conditional formatting rules applied to fill values.
+     * 
+     */
+    public List<DashboardV2WidgetHostmapDefinitionRequestConditionalFormat> conditionalFormats() {
+        return this.conditionalFormats == null ? List.of() : this.conditionalFormats;
+    }
+    /**
+     * @return Metric or event queries joined to the entity set.
+     * 
+     */
+    public List<DashboardV2WidgetHostmapDefinitionRequestEnrichment> enrichments() {
+        return this.enrichments == null ? List.of() : this.enrichments;
+    }
     /**
      * @return The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
      * 
@@ -32,11 +129,81 @@ public final class DashboardV2WidgetHostmapDefinitionRequest {
         return Optional.ofNullable(this.fill);
     }
     /**
+     * @return Filter string for the entity set in tag format, such as `env:prod`.
+     * 
+     */
+    public Optional<String> filter() {
+        return Optional.ofNullable(this.filter);
+    }
+    /**
+     * @return Ordered grouping hierarchy for infrastructure entities.
+     * 
+     */
+    public List<DashboardV2WidgetHostmapDefinitionRequestGroupBy> groupBies() {
+        return this.groupBies == null ? List.of() : this.groupBies;
+    }
+    /**
+     * @return Maximum number of rows to return from the DDSQL data-projection request.
+     * 
+     */
+    public Optional<Integer> limit() {
+        return Optional.ofNullable(this.limit);
+    }
+    /**
+     * @return Whether to hide entities that have no group assignment.
+     * 
+     */
+    public Optional<Boolean> noGroupHosts() {
+        return Optional.ofNullable(this.noGroupHosts);
+    }
+    /**
+     * @return Whether to hide entities that have no enrichment data.
+     * 
+     */
+    public Optional<Boolean> noMetricHosts() {
+        return Optional.ofNullable(this.noMetricHosts);
+    }
+    /**
+     * @return Infrastructure entity type to visualize. Valid values are `host`, `container`, `pod`, `cluster`.
+     * 
+     */
+    public Optional<String> nodeType() {
+        return Optional.ofNullable(this.nodeType);
+    }
+    /**
+     * @return Mapping from published-dataset columns to host map dimensions.
+     * 
+     */
+    public Optional<DashboardV2WidgetHostmapDefinitionRequestProjection> projection() {
+        return Optional.ofNullable(this.projection);
+    }
+    /**
+     * @return Published-dataset query used by the DDSQL data-projection request.
+     * 
+     */
+    public Optional<DashboardV2WidgetHostmapDefinitionRequestQuery> query() {
+        return Optional.ofNullable(this.query);
+    }
+    /**
+     * @return Identifies an infrastructure-backed or DDSQL data-projection host map request. Valid values are `infrastructureHostmap`, `dataProjection`.
+     * 
+     */
+    public Optional<String> requestType() {
+        return Optional.ofNullable(this.requestType);
+    }
+    /**
      * @return The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
      * 
      */
     public Optional<DashboardV2WidgetHostmapDefinitionRequestSize> size() {
         return Optional.ofNullable(this.size);
+    }
+    /**
+     * @return Style configuration for the infrastructure host map.
+     * 
+     */
+    public Optional<DashboardV2WidgetHostmapDefinitionRequestStyle> style() {
+        return Optional.ofNullable(this.style);
     }
 
     public static Builder builder() {
@@ -48,19 +215,126 @@ public final class DashboardV2WidgetHostmapDefinitionRequest {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable DashboardV2WidgetHostmapDefinitionRequestChild child;
+        private @Nullable List<DashboardV2WidgetHostmapDefinitionRequestConditionalFormat> conditionalFormats;
+        private @Nullable List<DashboardV2WidgetHostmapDefinitionRequestEnrichment> enrichments;
         private @Nullable DashboardV2WidgetHostmapDefinitionRequestFill fill;
+        private @Nullable String filter;
+        private @Nullable List<DashboardV2WidgetHostmapDefinitionRequestGroupBy> groupBies;
+        private @Nullable Integer limit;
+        private @Nullable Boolean noGroupHosts;
+        private @Nullable Boolean noMetricHosts;
+        private @Nullable String nodeType;
+        private @Nullable DashboardV2WidgetHostmapDefinitionRequestProjection projection;
+        private @Nullable DashboardV2WidgetHostmapDefinitionRequestQuery query;
+        private @Nullable String requestType;
         private @Nullable DashboardV2WidgetHostmapDefinitionRequestSize size;
+        private @Nullable DashboardV2WidgetHostmapDefinitionRequestStyle style;
         public Builder() {}
         public Builder(DashboardV2WidgetHostmapDefinitionRequest defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.child = defaults.child;
+    	      this.conditionalFormats = defaults.conditionalFormats;
+    	      this.enrichments = defaults.enrichments;
     	      this.fill = defaults.fill;
+    	      this.filter = defaults.filter;
+    	      this.groupBies = defaults.groupBies;
+    	      this.limit = defaults.limit;
+    	      this.noGroupHosts = defaults.noGroupHosts;
+    	      this.noMetricHosts = defaults.noMetricHosts;
+    	      this.nodeType = defaults.nodeType;
+    	      this.projection = defaults.projection;
+    	      this.query = defaults.query;
+    	      this.requestType = defaults.requestType;
     	      this.size = defaults.size;
+    	      this.style = defaults.style;
         }
 
+        @CustomType.Setter
+        public Builder child(@Nullable DashboardV2WidgetHostmapDefinitionRequestChild child) {
+
+            this.child = child;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder conditionalFormats(@Nullable List<DashboardV2WidgetHostmapDefinitionRequestConditionalFormat> conditionalFormats) {
+
+            this.conditionalFormats = conditionalFormats;
+            return this;
+        }
+        public Builder conditionalFormats(DashboardV2WidgetHostmapDefinitionRequestConditionalFormat... conditionalFormats) {
+            return conditionalFormats(List.of(conditionalFormats));
+        }
+        @CustomType.Setter
+        public Builder enrichments(@Nullable List<DashboardV2WidgetHostmapDefinitionRequestEnrichment> enrichments) {
+
+            this.enrichments = enrichments;
+            return this;
+        }
+        public Builder enrichments(DashboardV2WidgetHostmapDefinitionRequestEnrichment... enrichments) {
+            return enrichments(List.of(enrichments));
+        }
         @CustomType.Setter
         public Builder fill(@Nullable DashboardV2WidgetHostmapDefinitionRequestFill fill) {
 
             this.fill = fill;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder filter(@Nullable String filter) {
+
+            this.filter = filter;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder groupBies(@Nullable List<DashboardV2WidgetHostmapDefinitionRequestGroupBy> groupBies) {
+
+            this.groupBies = groupBies;
+            return this;
+        }
+        public Builder groupBies(DashboardV2WidgetHostmapDefinitionRequestGroupBy... groupBies) {
+            return groupBies(List.of(groupBies));
+        }
+        @CustomType.Setter
+        public Builder limit(@Nullable Integer limit) {
+
+            this.limit = limit;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder noGroupHosts(@Nullable Boolean noGroupHosts) {
+
+            this.noGroupHosts = noGroupHosts;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder noMetricHosts(@Nullable Boolean noMetricHosts) {
+
+            this.noMetricHosts = noMetricHosts;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder nodeType(@Nullable String nodeType) {
+
+            this.nodeType = nodeType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder projection(@Nullable DashboardV2WidgetHostmapDefinitionRequestProjection projection) {
+
+            this.projection = projection;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder query(@Nullable DashboardV2WidgetHostmapDefinitionRequestQuery query) {
+
+            this.query = query;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder requestType(@Nullable String requestType) {
+
+            this.requestType = requestType;
             return this;
         }
         @CustomType.Setter
@@ -69,10 +343,29 @@ public final class DashboardV2WidgetHostmapDefinitionRequest {
             this.size = size;
             return this;
         }
+        @CustomType.Setter
+        public Builder style(@Nullable DashboardV2WidgetHostmapDefinitionRequestStyle style) {
+
+            this.style = style;
+            return this;
+        }
         public DashboardV2WidgetHostmapDefinitionRequest build() {
             final var _resultValue = new DashboardV2WidgetHostmapDefinitionRequest();
+            _resultValue.child = child;
+            _resultValue.conditionalFormats = conditionalFormats;
+            _resultValue.enrichments = enrichments;
             _resultValue.fill = fill;
+            _resultValue.filter = filter;
+            _resultValue.groupBies = groupBies;
+            _resultValue.limit = limit;
+            _resultValue.noGroupHosts = noGroupHosts;
+            _resultValue.noMetricHosts = noMetricHosts;
+            _resultValue.nodeType = nodeType;
+            _resultValue.projection = projection;
+            _resultValue.query = query;
+            _resultValue.requestType = requestType;
             _resultValue.size = size;
+            _resultValue.style = style;
             return _resultValue;
         }
     }

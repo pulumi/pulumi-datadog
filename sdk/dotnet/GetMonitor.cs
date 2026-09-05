@@ -254,7 +254,7 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly bool NotifyAudit;
         /// <summary>
-        /// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `Cluster`, `Namespace`, and `Pod` can be configured to only notify on each new `Cluster` violating the alert conditions by setting `NotifyBy` to `['cluster']`. Tags mentioned in `NotifyBy` must be a subset of the grouping tags in the query. For example, a query grouped by `Cluster` and `Namespace` cannot notify on `Region`. Setting `NotifyBy` to `[*]` configures the monitor to notify as a simple-alert.
+        /// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `Cluster`, `Namespace`, and `Pod` can be configured to only notify on each new `Cluster` violating the alert conditions by setting `NotifyBy` to `['cluster']`. Tags mentioned in `NotifyBy` must be a proper subset of the grouping tags in the query. For example, a query grouped by `Cluster` and `Namespace` cannot notify on `Region` because `Region` is not part of the grouping tags; furthermore, the same query cannot set `NotifyBy` to `['cluster', 'namespace']` because that is not a proper subset. Setting `NotifyBy` to `[*]` configures the monitor to notify as a simple-alert.
         /// </summary>
         public readonly ImmutableArray<string> NotifyBies;
         /// <summary>

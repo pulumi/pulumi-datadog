@@ -34,6 +34,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetCheckStatusDefinition? CheckStatusDefinition;
         /// <summary>
+        /// The definition for a Cohort retention-grid widget.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetCohortDefinition? CohortDefinition;
+        /// <summary>
         /// The definition for a Distribution widget.
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinition? DistributionDefinition;
@@ -98,6 +102,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinition? PointPlotDefinition;
         /// <summary>
+        /// The definition for a Product Analytics user journey funnel widget.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetProductAnalyticsFunnelDefinition? ProductAnalyticsFunnelDefinition;
+        /// <summary>
         /// The definition for a Query Table widget.
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinition? QueryTableDefinition;
@@ -105,6 +113,10 @@ namespace Pulumi.Datadog.Outputs
         /// The definition for a Query Value widget.
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinition? QueryValueDefinition;
+        /// <summary>
+        /// The definition for a Retention Curve widget.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetRetentionCurveDefinition? RetentionCurveDefinition;
         /// <summary>
         /// The definition for a Run Workflow widget.
         /// </summary>
@@ -174,6 +186,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.PowerpackV2WidgetGroupDefinitionWidgetCheckStatusDefinition? checkStatusDefinition,
 
+            Outputs.PowerpackV2WidgetGroupDefinitionWidgetCohortDefinition? cohortDefinition,
+
             Outputs.PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinition? distributionDefinition,
 
             Outputs.PowerpackV2WidgetGroupDefinitionWidgetEventStreamDefinition? eventStreamDefinition,
@@ -206,9 +220,13 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinition? pointPlotDefinition,
 
+            Outputs.PowerpackV2WidgetGroupDefinitionWidgetProductAnalyticsFunnelDefinition? productAnalyticsFunnelDefinition,
+
             Outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinition? queryTableDefinition,
 
             Outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinition? queryValueDefinition,
+
+            Outputs.PowerpackV2WidgetGroupDefinitionWidgetRetentionCurveDefinition? retentionCurveDefinition,
 
             Outputs.PowerpackV2WidgetGroupDefinitionWidgetRunWorkflowDefinition? runWorkflowDefinition,
 
@@ -243,6 +261,7 @@ namespace Pulumi.Datadog.Outputs
             BarChartDefinition = barChartDefinition;
             ChangeDefinition = changeDefinition;
             CheckStatusDefinition = checkStatusDefinition;
+            CohortDefinition = cohortDefinition;
             DistributionDefinition = distributionDefinition;
             EventStreamDefinition = eventStreamDefinition;
             EventTimelineDefinition = eventTimelineDefinition;
@@ -259,8 +278,10 @@ namespace Pulumi.Datadog.Outputs
             ManageStatusDefinition = manageStatusDefinition;
             NoteDefinition = noteDefinition;
             PointPlotDefinition = pointPlotDefinition;
+            ProductAnalyticsFunnelDefinition = productAnalyticsFunnelDefinition;
             QueryTableDefinition = queryTableDefinition;
             QueryValueDefinition = queryValueDefinition;
+            RetentionCurveDefinition = retentionCurveDefinition;
             RunWorkflowDefinition = runWorkflowDefinition;
             SankeyDefinition = sankeyDefinition;
             ScatterplotDefinition = scatterplotDefinition;

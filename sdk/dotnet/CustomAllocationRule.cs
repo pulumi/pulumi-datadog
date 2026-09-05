@@ -17,6 +17,7 @@ namespace Pulumi.Datadog
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
     /// 
@@ -59,6 +60,66 @@ namespace Pulumi.Datadog
     ///                 } },
     ///                 { "granularity", "daily" },
     ///                 { "method", "even" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // A "Dynamic by metric" rule, which splits costs by each destination's share of a
+    ///     // metric rather than by spend. The query is supplied as JSON using Datadog's
+    ///     // formulas-and-functions request format.
+    ///     var myTimeseriesAllocationRule = new Datadog.CustomAllocationRule("my_timeseries_allocation_rule", new()
+    ///     {
+    ///         CostsToAllocates = new[]
+    ///         {
+    ///             new Datadog.Inputs.CustomAllocationRuleCostsToAllocateArgs
+    ///             {
+    ///                 Condition = "is",
+    ///                 Tag = "azure_product_family",
+    ///                 Value = "dbforpostgresql",
+    ///             },
+    ///         },
+    ///         Enabled = true,
+    ///         Providernames = new[]
+    ///         {
+    ///             "azure",
+    ///         },
+    ///         RuleName = "postgres-by-query-time",
+    ///         Strategy = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "granularity", "daily" },
+    ///                 { "method", "proportional_timeseries" },
+    ///                 { "evaluateGroupedByTagKeys", new[]
+    ///                 {
+    ///                     "env",
+    ///                 } },
+    ///                 { "basedOnTimeseries", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "json", JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["response_format"] = "timeseries",
+    ///                             ["queries"] = new[]
+    ///                             {
+    ///                                 new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     ["name"] = "query1",
+    ///                                     ["data_source"] = "metrics",
+    ///                                     ["query"] = "sum:postgresql.queries.time{*} by {user,env}.as_count()",
+    ///                                 },
+    ///                             },
+    ///                             ["formulas"] = new[]
+    ///                             {
+    ///                                 new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     ["formula"] = "query1",
+    ///                                 },
+    ///                             },
+    ///                         }) },
+    ///                     },
+    ///                 } },
     ///             },
     ///         },
     ///     });

@@ -13,6 +13,7 @@ import com.pulumi.datadog.outputs.DashboardV2WidgetQueryTableDefinitionRequestPr
 import com.pulumi.datadog.outputs.DashboardV2WidgetQueryTableDefinitionRequestQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetQueryTableDefinitionRequestRumQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetQueryTableDefinitionRequestSecurityQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetQueryTableDefinitionRequestSort;
 import com.pulumi.datadog.outputs.DashboardV2WidgetQueryTableDefinitionRequestTextFormat;
 import java.lang.Integer;
 import java.lang.String;
@@ -126,6 +127,11 @@ public final class DashboardV2WidgetQueryTableDefinitionRequest {
      */
     @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardV2WidgetQueryTableDefinitionRequestSecurityQuery securityQuery;
+    /**
+     * @return The controls for sorting the widget request.
+     * 
+     */
+    private @Nullable DashboardV2WidgetQueryTableDefinitionRequestSort sort;
     /**
      * @return Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
      * 
@@ -267,6 +273,13 @@ public final class DashboardV2WidgetQueryTableDefinitionRequest {
         return Optional.ofNullable(this.securityQuery);
     }
     /**
+     * @return The controls for sorting the widget request.
+     * 
+     */
+    public Optional<DashboardV2WidgetQueryTableDefinitionRequestSort> sort() {
+        return Optional.ofNullable(this.sort);
+    }
+    /**
      * @return Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
      * 
      */
@@ -298,6 +311,7 @@ public final class DashboardV2WidgetQueryTableDefinitionRequest {
         private @Nullable List<DashboardV2WidgetQueryTableDefinitionRequestQuery> queries;
         private @Nullable DashboardV2WidgetQueryTableDefinitionRequestRumQuery rumQuery;
         private @Nullable DashboardV2WidgetQueryTableDefinitionRequestSecurityQuery securityQuery;
+        private @Nullable DashboardV2WidgetQueryTableDefinitionRequestSort sort;
         private @Nullable List<DashboardV2WidgetQueryTableDefinitionRequestTextFormat> textFormats;
         public Builder() {}
         public Builder(DashboardV2WidgetQueryTableDefinitionRequest defaults) {
@@ -317,6 +331,7 @@ public final class DashboardV2WidgetQueryTableDefinitionRequest {
     	      this.queries = defaults.queries;
     	      this.rumQuery = defaults.rumQuery;
     	      this.securityQuery = defaults.securityQuery;
+    	      this.sort = defaults.sort;
     	      this.textFormats = defaults.textFormats;
         }
 
@@ -423,6 +438,12 @@ public final class DashboardV2WidgetQueryTableDefinitionRequest {
             return this;
         }
         @CustomType.Setter
+        public Builder sort(@Nullable DashboardV2WidgetQueryTableDefinitionRequestSort sort) {
+
+            this.sort = sort;
+            return this;
+        }
+        @CustomType.Setter
         public Builder textFormats(@Nullable List<DashboardV2WidgetQueryTableDefinitionRequestTextFormat> textFormats) {
 
             this.textFormats = textFormats;
@@ -448,6 +469,7 @@ public final class DashboardV2WidgetQueryTableDefinitionRequest {
             _resultValue.queries = queries;
             _resultValue.rumQuery = rumQuery;
             _resultValue.securityQuery = securityQuery;
+            _resultValue.sort = sort;
             _resultValue.textFormats = textFormats;
             return _resultValue;
         }

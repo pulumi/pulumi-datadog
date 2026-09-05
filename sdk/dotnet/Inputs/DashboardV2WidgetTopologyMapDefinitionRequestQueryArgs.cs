@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardV2WidgetTopologyMapDefinitionRequestQueryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The data source for the Topology request ('service*map' or 'data*streams').
+        /// The data source for the Topology request. Valid values are `ServiceMap`, `DataStreams`.
         /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
@@ -31,7 +31,13 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// Name of the service.
+        /// A search string for filtering services. When set, this replaces the `Service` field.
+        /// </summary>
+        [Input("queryString")]
+        public Input<string>? QueryString { get; set; }
+
+        /// <summary>
+        /// Name of the service. Leave this empty and use `QueryString` instead.
         /// </summary>
         [Input("service", required: true)]
         public Input<string> Service { get; set; } = null!;

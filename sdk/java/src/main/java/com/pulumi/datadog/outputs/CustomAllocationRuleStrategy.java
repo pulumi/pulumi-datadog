@@ -38,7 +38,7 @@ public final class CustomAllocationRuleStrategy {
      */
     private @Nullable String granularity;
     /**
-     * @return The allocation method. Valid values are `even`, `proportional`, `proportionalTimeseries`, or `percent`.
+     * @return The allocation method. Valid values are `even`, `percent`, `proportional`, `proportionalTimeseries`.
      * 
      */
     private @Nullable String method;
@@ -81,7 +81,7 @@ public final class CustomAllocationRuleStrategy {
         return Optional.ofNullable(this.granularity);
     }
     /**
-     * @return The allocation method. Valid values are `even`, `proportional`, `proportionalTimeseries`, or `percent`.
+     * @return The allocation method. Valid values are `even`, `percent`, `proportional`, `proportionalTimeseries`.
      * 
      */
     public Optional<String> method() {

@@ -5,8 +5,19 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestChildArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestConditionalFormatArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestEnrichmentArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestFillArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestGroupByArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestProjectionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestQueryArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestStyleArgs;
+import java.lang.Boolean;
+import java.lang.Integer;
+import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,6 +26,51 @@ import javax.annotation.Nullable;
 public final class PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestArgs Empty = new PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestArgs();
+
+    /**
+     * Optional child request for one level of hierarchical visualization.
+     * 
+     */
+    @Import(name="child")
+    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestChildArgs> child;
+
+    /**
+     * @return Optional child request for one level of hierarchical visualization.
+     * 
+     */
+    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestChildArgs>> child() {
+        return Optional.ofNullable(this.child);
+    }
+
+    /**
+     * Conditional formatting rules applied to fill values.
+     * 
+     */
+    @Import(name="conditionalFormats")
+    private @Nullable Output<List<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestConditionalFormatArgs>> conditionalFormats;
+
+    /**
+     * @return Conditional formatting rules applied to fill values.
+     * 
+     */
+    public Optional<Output<List<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestConditionalFormatArgs>>> conditionalFormats() {
+        return Optional.ofNullable(this.conditionalFormats);
+    }
+
+    /**
+     * Metric or event queries joined to the entity set.
+     * 
+     */
+    @Import(name="enrichments")
+    private @Nullable Output<List<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestEnrichmentArgs>> enrichments;
+
+    /**
+     * @return Metric or event queries joined to the entity set.
+     * 
+     */
+    public Optional<Output<List<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestEnrichmentArgs>>> enrichments() {
+        return Optional.ofNullable(this.enrichments);
+    }
 
     /**
      * The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
@@ -32,6 +88,141 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionReques
     }
 
     /**
+     * Filter string for the entity set in tag format, such as `env:prod`.
+     * 
+     */
+    @Import(name="filter")
+    private @Nullable Output<String> filter;
+
+    /**
+     * @return Filter string for the entity set in tag format, such as `env:prod`.
+     * 
+     */
+    public Optional<Output<String>> filter() {
+        return Optional.ofNullable(this.filter);
+    }
+
+    /**
+     * Ordered grouping hierarchy for infrastructure entities.
+     * 
+     */
+    @Import(name="groupBies")
+    private @Nullable Output<List<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestGroupByArgs>> groupBies;
+
+    /**
+     * @return Ordered grouping hierarchy for infrastructure entities.
+     * 
+     */
+    public Optional<Output<List<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestGroupByArgs>>> groupBies() {
+        return Optional.ofNullable(this.groupBies);
+    }
+
+    /**
+     * Maximum number of rows to return from the DDSQL data-projection request.
+     * 
+     */
+    @Import(name="limit")
+    private @Nullable Output<Integer> limit;
+
+    /**
+     * @return Maximum number of rows to return from the DDSQL data-projection request.
+     * 
+     */
+    public Optional<Output<Integer>> limit() {
+        return Optional.ofNullable(this.limit);
+    }
+
+    /**
+     * Whether to hide entities that have no group assignment.
+     * 
+     */
+    @Import(name="noGroupHosts")
+    private @Nullable Output<Boolean> noGroupHosts;
+
+    /**
+     * @return Whether to hide entities that have no group assignment.
+     * 
+     */
+    public Optional<Output<Boolean>> noGroupHosts() {
+        return Optional.ofNullable(this.noGroupHosts);
+    }
+
+    /**
+     * Whether to hide entities that have no enrichment data.
+     * 
+     */
+    @Import(name="noMetricHosts")
+    private @Nullable Output<Boolean> noMetricHosts;
+
+    /**
+     * @return Whether to hide entities that have no enrichment data.
+     * 
+     */
+    public Optional<Output<Boolean>> noMetricHosts() {
+        return Optional.ofNullable(this.noMetricHosts);
+    }
+
+    /**
+     * Infrastructure entity type to visualize. Valid values are `host`, `container`, `pod`, `cluster`.
+     * 
+     */
+    @Import(name="nodeType")
+    private @Nullable Output<String> nodeType;
+
+    /**
+     * @return Infrastructure entity type to visualize. Valid values are `host`, `container`, `pod`, `cluster`.
+     * 
+     */
+    public Optional<Output<String>> nodeType() {
+        return Optional.ofNullable(this.nodeType);
+    }
+
+    /**
+     * Mapping from published-dataset columns to host map dimensions.
+     * 
+     */
+    @Import(name="projection")
+    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestProjectionArgs> projection;
+
+    /**
+     * @return Mapping from published-dataset columns to host map dimensions.
+     * 
+     */
+    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestProjectionArgs>> projection() {
+        return Optional.ofNullable(this.projection);
+    }
+
+    /**
+     * Published-dataset query used by the DDSQL data-projection request.
+     * 
+     */
+    @Import(name="query")
+    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestQueryArgs> query;
+
+    /**
+     * @return Published-dataset query used by the DDSQL data-projection request.
+     * 
+     */
+    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestQueryArgs>> query() {
+        return Optional.ofNullable(this.query);
+    }
+
+    /**
+     * Identifies an infrastructure-backed or DDSQL data-projection host map request. Valid values are `infrastructureHostmap`, `dataProjection`.
+     * 
+     */
+    @Import(name="requestType")
+    private @Nullable Output<String> requestType;
+
+    /**
+     * @return Identifies an infrastructure-backed or DDSQL data-projection host map request. Valid values are `infrastructureHostmap`, `dataProjection`.
+     * 
+     */
+    public Optional<Output<String>> requestType() {
+        return Optional.ofNullable(this.requestType);
+    }
+
+    /**
      * The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
      * 
      */
@@ -46,11 +237,39 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionReques
         return Optional.ofNullable(this.size);
     }
 
+    /**
+     * Style configuration for the infrastructure host map.
+     * 
+     */
+    @Import(name="style")
+    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestStyleArgs> style;
+
+    /**
+     * @return Style configuration for the infrastructure host map.
+     * 
+     */
+    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestStyleArgs>> style() {
+        return Optional.ofNullable(this.style);
+    }
+
     private PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestArgs() {}
 
     private PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestArgs(PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestArgs $) {
+        this.child = $.child;
+        this.conditionalFormats = $.conditionalFormats;
+        this.enrichments = $.enrichments;
         this.fill = $.fill;
+        this.filter = $.filter;
+        this.groupBies = $.groupBies;
+        this.limit = $.limit;
+        this.noGroupHosts = $.noGroupHosts;
+        this.noMetricHosts = $.noMetricHosts;
+        this.nodeType = $.nodeType;
+        this.projection = $.projection;
+        this.query = $.query;
+        this.requestType = $.requestType;
         this.size = $.size;
+        this.style = $.style;
     }
 
     public static Builder builder() {
@@ -69,6 +288,89 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionReques
 
         public Builder(PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestArgs defaults) {
             $ = new PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param child Optional child request for one level of hierarchical visualization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder child(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestChildArgs> child) {
+            $.child = child;
+            return this;
+        }
+
+        /**
+         * @param child Optional child request for one level of hierarchical visualization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder child(PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestChildArgs child) {
+            return child(Output.of(child));
+        }
+
+        /**
+         * @param conditionalFormats Conditional formatting rules applied to fill values.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder conditionalFormats(@Nullable Output<List<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestConditionalFormatArgs>> conditionalFormats) {
+            $.conditionalFormats = conditionalFormats;
+            return this;
+        }
+
+        /**
+         * @param conditionalFormats Conditional formatting rules applied to fill values.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder conditionalFormats(List<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestConditionalFormatArgs> conditionalFormats) {
+            return conditionalFormats(Output.of(conditionalFormats));
+        }
+
+        /**
+         * @param conditionalFormats Conditional formatting rules applied to fill values.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder conditionalFormats(PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestConditionalFormatArgs... conditionalFormats) {
+            return conditionalFormats(List.of(conditionalFormats));
+        }
+
+        /**
+         * @param enrichments Metric or event queries joined to the entity set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enrichments(@Nullable Output<List<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestEnrichmentArgs>> enrichments) {
+            $.enrichments = enrichments;
+            return this;
+        }
+
+        /**
+         * @param enrichments Metric or event queries joined to the entity set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enrichments(List<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestEnrichmentArgs> enrichments) {
+            return enrichments(Output.of(enrichments));
+        }
+
+        /**
+         * @param enrichments Metric or event queries joined to the entity set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enrichments(PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestEnrichmentArgs... enrichments) {
+            return enrichments(List.of(enrichments));
         }
 
         /**
@@ -93,6 +395,205 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionReques
         }
 
         /**
+         * @param filter Filter string for the entity set in tag format, such as `env:prod`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filter(@Nullable Output<String> filter) {
+            $.filter = filter;
+            return this;
+        }
+
+        /**
+         * @param filter Filter string for the entity set in tag format, such as `env:prod`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filter(String filter) {
+            return filter(Output.of(filter));
+        }
+
+        /**
+         * @param groupBies Ordered grouping hierarchy for infrastructure entities.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupBies(@Nullable Output<List<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestGroupByArgs>> groupBies) {
+            $.groupBies = groupBies;
+            return this;
+        }
+
+        /**
+         * @param groupBies Ordered grouping hierarchy for infrastructure entities.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupBies(List<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestGroupByArgs> groupBies) {
+            return groupBies(Output.of(groupBies));
+        }
+
+        /**
+         * @param groupBies Ordered grouping hierarchy for infrastructure entities.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupBies(PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestGroupByArgs... groupBies) {
+            return groupBies(List.of(groupBies));
+        }
+
+        /**
+         * @param limit Maximum number of rows to return from the DDSQL data-projection request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder limit(@Nullable Output<Integer> limit) {
+            $.limit = limit;
+            return this;
+        }
+
+        /**
+         * @param limit Maximum number of rows to return from the DDSQL data-projection request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder limit(Integer limit) {
+            return limit(Output.of(limit));
+        }
+
+        /**
+         * @param noGroupHosts Whether to hide entities that have no group assignment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder noGroupHosts(@Nullable Output<Boolean> noGroupHosts) {
+            $.noGroupHosts = noGroupHosts;
+            return this;
+        }
+
+        /**
+         * @param noGroupHosts Whether to hide entities that have no group assignment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder noGroupHosts(Boolean noGroupHosts) {
+            return noGroupHosts(Output.of(noGroupHosts));
+        }
+
+        /**
+         * @param noMetricHosts Whether to hide entities that have no enrichment data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder noMetricHosts(@Nullable Output<Boolean> noMetricHosts) {
+            $.noMetricHosts = noMetricHosts;
+            return this;
+        }
+
+        /**
+         * @param noMetricHosts Whether to hide entities that have no enrichment data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder noMetricHosts(Boolean noMetricHosts) {
+            return noMetricHosts(Output.of(noMetricHosts));
+        }
+
+        /**
+         * @param nodeType Infrastructure entity type to visualize. Valid values are `host`, `container`, `pod`, `cluster`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeType(@Nullable Output<String> nodeType) {
+            $.nodeType = nodeType;
+            return this;
+        }
+
+        /**
+         * @param nodeType Infrastructure entity type to visualize. Valid values are `host`, `container`, `pod`, `cluster`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeType(String nodeType) {
+            return nodeType(Output.of(nodeType));
+        }
+
+        /**
+         * @param projection Mapping from published-dataset columns to host map dimensions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder projection(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestProjectionArgs> projection) {
+            $.projection = projection;
+            return this;
+        }
+
+        /**
+         * @param projection Mapping from published-dataset columns to host map dimensions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder projection(PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestProjectionArgs projection) {
+            return projection(Output.of(projection));
+        }
+
+        /**
+         * @param query Published-dataset query used by the DDSQL data-projection request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder query(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestQueryArgs> query) {
+            $.query = query;
+            return this;
+        }
+
+        /**
+         * @param query Published-dataset query used by the DDSQL data-projection request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder query(PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestQueryArgs query) {
+            return query(Output.of(query));
+        }
+
+        /**
+         * @param requestType Identifies an infrastructure-backed or DDSQL data-projection host map request. Valid values are `infrastructureHostmap`, `dataProjection`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestType(@Nullable Output<String> requestType) {
+            $.requestType = requestType;
+            return this;
+        }
+
+        /**
+         * @param requestType Identifies an infrastructure-backed or DDSQL data-projection host map request. Valid values are `infrastructureHostmap`, `dataProjection`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestType(String requestType) {
+            return requestType(Output.of(requestType));
+        }
+
+        /**
          * @param size The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
          * 
          * @return builder
@@ -111,6 +612,27 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionReques
          */
         public Builder size(PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeArgs size) {
             return size(Output.of(size));
+        }
+
+        /**
+         * @param style Style configuration for the infrastructure host map.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder style(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestStyleArgs> style) {
+            $.style = style;
+            return this;
+        }
+
+        /**
+         * @param style Style configuration for the infrastructure host map.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder style(PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestStyleArgs style) {
+            return style(Output.of(style));
         }
 
         public PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestArgs build() {

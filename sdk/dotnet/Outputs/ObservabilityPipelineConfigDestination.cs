@@ -102,6 +102,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationOpensearch> Opensearches;
         /// <summary>
+        /// The `Opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationOpentelemetry? Opentelemetry;
+        /// <summary>
         /// The `Rsyslog` destination forwards logs to an external `Rsyslog` server over TCP or UDP using the syslog protocol.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationRsyslog> Rsyslogs;
@@ -176,6 +180,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationOpensearch> opensearches,
 
+            Outputs.ObservabilityPipelineConfigDestinationOpentelemetry? opentelemetry,
+
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationRsyslog> rsyslogs,
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationSentinelOne> sentinelOnes,
@@ -212,6 +218,7 @@ namespace Pulumi.Datadog.Outputs
             MicrosoftSentinels = microsoftSentinels;
             NewRelics = newRelics;
             Opensearches = opensearches;
+            Opentelemetry = opentelemetry;
             Rsyslogs = rsyslogs;
             SentinelOnes = sentinelOnes;
             Sockets = sockets;
