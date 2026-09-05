@@ -10,6 +10,11 @@ export type ActionConnection = import("./actionConnection").ActionConnection;
 export const ActionConnection: typeof import("./actionConnection").ActionConnection = null as any;
 utilities.lazyLoad(exports, ["ActionConnection"], () => require("./actionConnection"));
 
+export { ActionExecutionPolicyArgs, ActionExecutionPolicyState } from "./actionExecutionPolicy";
+export type ActionExecutionPolicy = import("./actionExecutionPolicy").ActionExecutionPolicy;
+export const ActionExecutionPolicy: typeof import("./actionExecutionPolicy").ActionExecutionPolicy = null as any;
+utilities.lazyLoad(exports, ["ActionExecutionPolicy"], () => require("./actionExecutionPolicy"));
+
 export { AgentlessScanningAwsScanOptionsArgs, AgentlessScanningAwsScanOptionsState } from "./agentlessScanningAwsScanOptions";
 export type AgentlessScanningAwsScanOptions = import("./agentlessScanningAwsScanOptions").AgentlessScanningAwsScanOptions;
 export const AgentlessScanningAwsScanOptions: typeof import("./agentlessScanningAwsScanOptions").AgentlessScanningAwsScanOptions = null as any;
@@ -505,6 +510,46 @@ export const getSoftwareCatalog: typeof import("./getSoftwareCatalog").getSoftwa
 export const getSoftwareCatalogOutput: typeof import("./getSoftwareCatalog").getSoftwareCatalogOutput = null as any;
 utilities.lazyLoad(exports, ["getSoftwareCatalog","getSoftwareCatalogOutput"], () => require("./getSoftwareCatalog"));
 
+export { GetStatusPageArgs, GetStatusPageResult, GetStatusPageOutputArgs } from "./getStatusPage";
+export const getStatusPage: typeof import("./getStatusPage").getStatusPage = null as any;
+export const getStatusPageOutput: typeof import("./getStatusPage").getStatusPageOutput = null as any;
+utilities.lazyLoad(exports, ["getStatusPage","getStatusPageOutput"], () => require("./getStatusPage"));
+
+export { GetStatusPageComponentArgs, GetStatusPageComponentResult, GetStatusPageComponentOutputArgs } from "./getStatusPageComponent";
+export const getStatusPageComponent: typeof import("./getStatusPageComponent").getStatusPageComponent = null as any;
+export const getStatusPageComponentOutput: typeof import("./getStatusPageComponent").getStatusPageComponentOutput = null as any;
+utilities.lazyLoad(exports, ["getStatusPageComponent","getStatusPageComponentOutput"], () => require("./getStatusPageComponent"));
+
+export { GetStatusPageComponentsArgs, GetStatusPageComponentsResult, GetStatusPageComponentsOutputArgs } from "./getStatusPageComponents";
+export const getStatusPageComponents: typeof import("./getStatusPageComponents").getStatusPageComponents = null as any;
+export const getStatusPageComponentsOutput: typeof import("./getStatusPageComponents").getStatusPageComponentsOutput = null as any;
+utilities.lazyLoad(exports, ["getStatusPageComponents","getStatusPageComponentsOutput"], () => require("./getStatusPageComponents"));
+
+export { GetStatusPageDegradationTemplateArgs, GetStatusPageDegradationTemplateResult, GetStatusPageDegradationTemplateOutputArgs } from "./getStatusPageDegradationTemplate";
+export const getStatusPageDegradationTemplate: typeof import("./getStatusPageDegradationTemplate").getStatusPageDegradationTemplate = null as any;
+export const getStatusPageDegradationTemplateOutput: typeof import("./getStatusPageDegradationTemplate").getStatusPageDegradationTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getStatusPageDegradationTemplate","getStatusPageDegradationTemplateOutput"], () => require("./getStatusPageDegradationTemplate"));
+
+export { GetStatusPageDegradationTemplatesArgs, GetStatusPageDegradationTemplatesResult, GetStatusPageDegradationTemplatesOutputArgs } from "./getStatusPageDegradationTemplates";
+export const getStatusPageDegradationTemplates: typeof import("./getStatusPageDegradationTemplates").getStatusPageDegradationTemplates = null as any;
+export const getStatusPageDegradationTemplatesOutput: typeof import("./getStatusPageDegradationTemplates").getStatusPageDegradationTemplatesOutput = null as any;
+utilities.lazyLoad(exports, ["getStatusPageDegradationTemplates","getStatusPageDegradationTemplatesOutput"], () => require("./getStatusPageDegradationTemplates"));
+
+export { GetStatusPageMaintenanceTemplateArgs, GetStatusPageMaintenanceTemplateResult, GetStatusPageMaintenanceTemplateOutputArgs } from "./getStatusPageMaintenanceTemplate";
+export const getStatusPageMaintenanceTemplate: typeof import("./getStatusPageMaintenanceTemplate").getStatusPageMaintenanceTemplate = null as any;
+export const getStatusPageMaintenanceTemplateOutput: typeof import("./getStatusPageMaintenanceTemplate").getStatusPageMaintenanceTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getStatusPageMaintenanceTemplate","getStatusPageMaintenanceTemplateOutput"], () => require("./getStatusPageMaintenanceTemplate"));
+
+export { GetStatusPageMaintenanceTemplatesArgs, GetStatusPageMaintenanceTemplatesResult, GetStatusPageMaintenanceTemplatesOutputArgs } from "./getStatusPageMaintenanceTemplates";
+export const getStatusPageMaintenanceTemplates: typeof import("./getStatusPageMaintenanceTemplates").getStatusPageMaintenanceTemplates = null as any;
+export const getStatusPageMaintenanceTemplatesOutput: typeof import("./getStatusPageMaintenanceTemplates").getStatusPageMaintenanceTemplatesOutput = null as any;
+utilities.lazyLoad(exports, ["getStatusPageMaintenanceTemplates","getStatusPageMaintenanceTemplatesOutput"], () => require("./getStatusPageMaintenanceTemplates"));
+
+export { GetStatusPagesArgs, GetStatusPagesResult, GetStatusPagesOutputArgs } from "./getStatusPages";
+export const getStatusPages: typeof import("./getStatusPages").getStatusPages = null as any;
+export const getStatusPagesOutput: typeof import("./getStatusPages").getStatusPagesOutput = null as any;
+utilities.lazyLoad(exports, ["getStatusPages","getStatusPagesOutput"], () => require("./getStatusPages"));
+
 export { GetSyntheticsGlobalVariableArgs, GetSyntheticsGlobalVariableResult, GetSyntheticsGlobalVariableOutputArgs } from "./getSyntheticsGlobalVariable";
 export const getSyntheticsGlobalVariable: typeof import("./getSyntheticsGlobalVariable").getSyntheticsGlobalVariable = null as any;
 export const getSyntheticsGlobalVariableOutput: typeof import("./getSyntheticsGlobalVariable").getSyntheticsGlobalVariableOutput = null as any;
@@ -569,6 +614,11 @@ export { GetWorkflowAutomationArgs, GetWorkflowAutomationResult, GetWorkflowAuto
 export const getWorkflowAutomation: typeof import("./getWorkflowAutomation").getWorkflowAutomation = null as any;
 export const getWorkflowAutomationOutput: typeof import("./getWorkflowAutomation").getWorkflowAutomationOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkflowAutomation","getWorkflowAutomationOutput"], () => require("./getWorkflowAutomation"));
+
+export { GovernanceControlArgs, GovernanceControlState } from "./governanceControl";
+export type GovernanceControl = import("./governanceControl").GovernanceControl;
+export const GovernanceControl: typeof import("./governanceControl").GovernanceControl = null as any;
+utilities.lazyLoad(exports, ["GovernanceControl"], () => require("./governanceControl"));
 
 export { IncidentNotificationRuleArgs, IncidentNotificationRuleState } from "./incidentNotificationRule";
 export type IncidentNotificationRule = import("./incidentNotificationRule").IncidentNotificationRule;
@@ -783,6 +833,11 @@ export type RumApplication = import("./rumApplication").RumApplication;
 export const RumApplication: typeof import("./rumApplication").RumApplication = null as any;
 utilities.lazyLoad(exports, ["RumApplication"], () => require("./rumApplication"));
 
+export { RumExclusionFilterArgs, RumExclusionFilterState } from "./rumExclusionFilter";
+export type RumExclusionFilter = import("./rumExclusionFilter").RumExclusionFilter;
+export const RumExclusionFilter: typeof import("./rumExclusionFilter").RumExclusionFilter = null as any;
+utilities.lazyLoad(exports, ["RumExclusionFilter"], () => require("./rumExclusionFilter"));
+
 export { RumMetricArgs, RumMetricState } from "./rumMetric";
 export type RumMetric = import("./rumMetric").RumMetric;
 export const RumMetric: typeof import("./rumMetric").RumMetric = null as any;
@@ -797,6 +852,11 @@ export { RumRetentionFiltersOrderArgs, RumRetentionFiltersOrderState } from "./r
 export type RumRetentionFiltersOrder = import("./rumRetentionFiltersOrder").RumRetentionFiltersOrder;
 export const RumRetentionFiltersOrder: typeof import("./rumRetentionFiltersOrder").RumRetentionFiltersOrder = null as any;
 utilities.lazyLoad(exports, ["RumRetentionFiltersOrder"], () => require("./rumRetentionFiltersOrder"));
+
+export { RumRetentionQuotaArgs, RumRetentionQuotaState } from "./rumRetentionQuota";
+export type RumRetentionQuota = import("./rumRetentionQuota").RumRetentionQuota;
+export const RumRetentionQuota: typeof import("./rumRetentionQuota").RumRetentionQuota = null as any;
+utilities.lazyLoad(exports, ["RumRetentionQuota"], () => require("./rumRetentionQuota"));
 
 export { SecureEmbedDashboardArgs, SecureEmbedDashboardState } from "./secureEmbedDashboard";
 export type SecureEmbedDashboard = import("./secureEmbedDashboard").SecureEmbedDashboard;
@@ -923,6 +983,26 @@ export type SpansMetric = import("./spansMetric").SpansMetric;
 export const SpansMetric: typeof import("./spansMetric").SpansMetric = null as any;
 utilities.lazyLoad(exports, ["SpansMetric"], () => require("./spansMetric"));
 
+export { StatusPageArgs, StatusPageState } from "./statusPage";
+export type StatusPage = import("./statusPage").StatusPage;
+export const StatusPage: typeof import("./statusPage").StatusPage = null as any;
+utilities.lazyLoad(exports, ["StatusPage"], () => require("./statusPage"));
+
+export { StatusPageComponentArgs, StatusPageComponentState } from "./statusPageComponent";
+export type StatusPageComponent = import("./statusPageComponent").StatusPageComponent;
+export const StatusPageComponent: typeof import("./statusPageComponent").StatusPageComponent = null as any;
+utilities.lazyLoad(exports, ["StatusPageComponent"], () => require("./statusPageComponent"));
+
+export { StatusPageDegradationTemplateArgs, StatusPageDegradationTemplateState } from "./statusPageDegradationTemplate";
+export type StatusPageDegradationTemplate = import("./statusPageDegradationTemplate").StatusPageDegradationTemplate;
+export const StatusPageDegradationTemplate: typeof import("./statusPageDegradationTemplate").StatusPageDegradationTemplate = null as any;
+utilities.lazyLoad(exports, ["StatusPageDegradationTemplate"], () => require("./statusPageDegradationTemplate"));
+
+export { StatusPageMaintenanceTemplateArgs, StatusPageMaintenanceTemplateState } from "./statusPageMaintenanceTemplate";
+export type StatusPageMaintenanceTemplate = import("./statusPageMaintenanceTemplate").StatusPageMaintenanceTemplate;
+export const StatusPageMaintenanceTemplate: typeof import("./statusPageMaintenanceTemplate").StatusPageMaintenanceTemplate = null as any;
+utilities.lazyLoad(exports, ["StatusPageMaintenanceTemplate"], () => require("./statusPageMaintenanceTemplate"));
+
 export { SyntheticsConcurrencyCapArgs, SyntheticsConcurrencyCapState } from "./syntheticsConcurrencyCap";
 export type SyntheticsConcurrencyCap = import("./syntheticsConcurrencyCap").SyntheticsConcurrencyCap;
 export const SyntheticsConcurrencyCap: typeof import("./syntheticsConcurrencyCap").SyntheticsConcurrencyCap = null as any;
@@ -972,6 +1052,11 @@ export { TagPipelineRulesetsArgs, TagPipelineRulesetsState } from "./tagPipeline
 export type TagPipelineRulesets = import("./tagPipelineRulesets").TagPipelineRulesets;
 export const TagPipelineRulesets: typeof import("./tagPipelineRulesets").TagPipelineRulesets = null as any;
 utilities.lazyLoad(exports, ["TagPipelineRulesets"], () => require("./tagPipelineRulesets"));
+
+export { TagRuleArgs, TagRuleState } from "./tagRule";
+export type TagRule = import("./tagRule").TagRule;
+export const TagRule: typeof import("./tagRule").TagRule = null as any;
+utilities.lazyLoad(exports, ["TagRule"], () => require("./tagRule"));
 
 export { TeamArgs, TeamState } from "./team";
 export type Team = import("./team").Team;
@@ -1033,6 +1118,11 @@ export type WebhookCustomVariable = import("./webhookCustomVariable").WebhookCus
 export const WebhookCustomVariable: typeof import("./webhookCustomVariable").WebhookCustomVariable = null as any;
 utilities.lazyLoad(exports, ["WebhookCustomVariable"], () => require("./webhookCustomVariable"));
 
+export { WebhookOauth2ClientCredentialsArgs, WebhookOauth2ClientCredentialsState } from "./webhookOauth2ClientCredentials";
+export type WebhookOauth2ClientCredentials = import("./webhookOauth2ClientCredentials").WebhookOauth2ClientCredentials;
+export const WebhookOauth2ClientCredentials: typeof import("./webhookOauth2ClientCredentials").WebhookOauth2ClientCredentials = null as any;
+utilities.lazyLoad(exports, ["WebhookOauth2ClientCredentials"], () => require("./webhookOauth2ClientCredentials"));
+
 export { WorkflowAutomationArgs, WorkflowAutomationState } from "./workflowAutomation";
 export type WorkflowAutomation = import("./workflowAutomation").WorkflowAutomation;
 export const WorkflowAutomation: typeof import("./workflowAutomation").WorkflowAutomation = null as any;
@@ -1074,6 +1164,8 @@ const _module = {
         switch (type) {
             case "datadog:index/actionConnection:ActionConnection":
                 return new ActionConnection(name, <any>undefined, { urn })
+            case "datadog:index/actionExecutionPolicy:ActionExecutionPolicy":
+                return new ActionExecutionPolicy(name, <any>undefined, { urn })
             case "datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions":
                 return new AgentlessScanningAwsScanOptions(name, <any>undefined, { urn })
             case "datadog:index/agentlessScanningAzureScanOptions:AgentlessScanningAzureScanOptions":
@@ -1150,6 +1242,8 @@ const _module = {
                 return new DowntimeSchedule(name, <any>undefined, { urn })
             case "datadog:index/gcpUcConfig:GcpUcConfig":
                 return new GcpUcConfig(name, <any>undefined, { urn })
+            case "datadog:index/governanceControl:GovernanceControl":
+                return new GovernanceControl(name, <any>undefined, { urn })
             case "datadog:index/incidentNotificationRule:IncidentNotificationRule":
                 return new IncidentNotificationRule(name, <any>undefined, { urn })
             case "datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate":
@@ -1234,12 +1328,16 @@ const _module = {
                 return new Role(name, <any>undefined, { urn })
             case "datadog:index/rumApplication:RumApplication":
                 return new RumApplication(name, <any>undefined, { urn })
+            case "datadog:index/rumExclusionFilter:RumExclusionFilter":
+                return new RumExclusionFilter(name, <any>undefined, { urn })
             case "datadog:index/rumMetric:RumMetric":
                 return new RumMetric(name, <any>undefined, { urn })
             case "datadog:index/rumRetentionFilter:RumRetentionFilter":
                 return new RumRetentionFilter(name, <any>undefined, { urn })
             case "datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder":
                 return new RumRetentionFiltersOrder(name, <any>undefined, { urn })
+            case "datadog:index/rumRetentionQuota:RumRetentionQuota":
+                return new RumRetentionQuota(name, <any>undefined, { urn })
             case "datadog:index/secureEmbedDashboard:SecureEmbedDashboard":
                 return new SecureEmbedDashboard(name, <any>undefined, { urn })
             case "datadog:index/securityFindingsDueDateRule:SecurityFindingsDueDateRule":
@@ -1290,6 +1388,14 @@ const _module = {
                 return new SoftwareCatalog(name, <any>undefined, { urn })
             case "datadog:index/spansMetric:SpansMetric":
                 return new SpansMetric(name, <any>undefined, { urn })
+            case "datadog:index/statusPage:StatusPage":
+                return new StatusPage(name, <any>undefined, { urn })
+            case "datadog:index/statusPageComponent:StatusPageComponent":
+                return new StatusPageComponent(name, <any>undefined, { urn })
+            case "datadog:index/statusPageDegradationTemplate:StatusPageDegradationTemplate":
+                return new StatusPageDegradationTemplate(name, <any>undefined, { urn })
+            case "datadog:index/statusPageMaintenanceTemplate:StatusPageMaintenanceTemplate":
+                return new StatusPageMaintenanceTemplate(name, <any>undefined, { urn })
             case "datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap":
                 return new SyntheticsConcurrencyCap(name, <any>undefined, { urn })
             case "datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable":
@@ -1310,6 +1416,8 @@ const _module = {
                 return new TagPipelineRuleset(name, <any>undefined, { urn })
             case "datadog:index/tagPipelineRulesets:TagPipelineRulesets":
                 return new TagPipelineRulesets(name, <any>undefined, { urn })
+            case "datadog:index/tagRule:TagRule":
+                return new TagRule(name, <any>undefined, { urn })
             case "datadog:index/team:Team":
                 return new Team(name, <any>undefined, { urn })
             case "datadog:index/teamConnection:TeamConnection":
@@ -1334,6 +1442,8 @@ const _module = {
                 return new Webhook(name, <any>undefined, { urn })
             case "datadog:index/webhookCustomVariable:WebhookCustomVariable":
                 return new WebhookCustomVariable(name, <any>undefined, { urn })
+            case "datadog:index/webhookOauth2ClientCredentials:WebhookOauth2ClientCredentials":
+                return new WebhookOauth2ClientCredentials(name, <any>undefined, { urn })
             case "datadog:index/workflowAutomation:WorkflowAutomation":
                 return new WorkflowAutomation(name, <any>undefined, { urn })
             default:
@@ -1342,6 +1452,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("datadog", "index/actionConnection", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/actionExecutionPolicy", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/agentlessScanningAwsScanOptions", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/agentlessScanningAzureScanOptions", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/agentlessScanningGcpScanOptions", _module)
@@ -1380,6 +1491,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/domainAllowlist", _modul
 pulumi.runtime.registerResourceModule("datadog", "index/downtime", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/downtimeSchedule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/gcpUcConfig", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/governanceControl", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/incidentNotificationRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/incidentNotificationTemplate", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/incidentPostmortemTemplate", _module)
@@ -1422,9 +1534,11 @@ pulumi.runtime.registerResourceModule("datadog", "index/referenceTable", _module
 pulumi.runtime.registerResourceModule("datadog", "index/restrictionPolicy", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/role", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/rumApplication", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/rumExclusionFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/rumMetric", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/rumRetentionFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/rumRetentionFiltersOrder", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/rumRetentionQuota", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/secureEmbedDashboard", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityFindingsDueDateRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityFindingsDueDateRulesOrder", _module)
@@ -1450,6 +1564,10 @@ pulumi.runtime.registerResourceModule("datadog", "index/serviceLevelObjective", 
 pulumi.runtime.registerResourceModule("datadog", "index/sloCorrection", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/softwareCatalog", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/spansMetric", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/statusPage", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/statusPageComponent", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/statusPageDegradationTemplate", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/statusPageMaintenanceTemplate", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsConcurrencyCap", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsGlobalVariable", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsPrivateLocation", _module)
@@ -1460,6 +1578,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/tagIndexingRuleExemption
 pulumi.runtime.registerResourceModule("datadog", "index/tagIndexingRuleOrder", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/tagPipelineRuleset", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/tagPipelineRulesets", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/tagRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/team", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/teamConnection", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/teamHierarchyLinks", _module)
@@ -1472,6 +1591,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/user", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/userRole", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/webhook", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/webhookCustomVariable", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/webhookOauth2ClientCredentials", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/workflowAutomation", _module)
 pulumi.runtime.registerResourcePackage("datadog", {
     version: utilities.getVersion(),

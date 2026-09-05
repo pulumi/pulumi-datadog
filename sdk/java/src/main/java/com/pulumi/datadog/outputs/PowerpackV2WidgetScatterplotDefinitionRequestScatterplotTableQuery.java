@@ -5,12 +5,16 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryApmMetricsQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryCloudCostQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProductAnalyticsExtendedQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryRetentionQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryUserJourneyQuery;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +26,11 @@ public final class PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTable
      * 
      */
     private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery apmDependencyStatsQuery;
+    /**
+     * @return The APM metrics query using formulas and functions.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryApmMetricsQuery apmMetricsQuery;
     /**
      * @return The APM Resource Stats query using formulas and functions.
      * 
@@ -48,10 +57,25 @@ public final class PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTable
      */
     private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery processQuery;
     /**
+     * @return The Product Analytics Extended query using formulas and functions.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProductAnalyticsExtendedQuery productAnalyticsExtendedQuery;
+    /**
+     * @return The retention query using formulas and functions.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryRetentionQuery retentionQuery;
+    /**
      * @return The SLO query using formulas and functions.
      * 
      */
     private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery sloQuery;
+    /**
+     * @return The User Journey query using formulas and functions.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryUserJourneyQuery userJourneyQuery;
 
     private PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuery() {}
     /**
@@ -60,6 +84,13 @@ public final class PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTable
      */
     public Optional<PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery> apmDependencyStatsQuery() {
         return Optional.ofNullable(this.apmDependencyStatsQuery);
+    }
+    /**
+     * @return The APM metrics query using formulas and functions.
+     * 
+     */
+    public Optional<PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryApmMetricsQuery> apmMetricsQuery() {
+        return Optional.ofNullable(this.apmMetricsQuery);
     }
     /**
      * @return The APM Resource Stats query using formulas and functions.
@@ -97,11 +128,32 @@ public final class PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTable
         return Optional.ofNullable(this.processQuery);
     }
     /**
+     * @return The Product Analytics Extended query using formulas and functions.
+     * 
+     */
+    public Optional<PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProductAnalyticsExtendedQuery> productAnalyticsExtendedQuery() {
+        return Optional.ofNullable(this.productAnalyticsExtendedQuery);
+    }
+    /**
+     * @return The retention query using formulas and functions.
+     * 
+     */
+    public Optional<PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryRetentionQuery> retentionQuery() {
+        return Optional.ofNullable(this.retentionQuery);
+    }
+    /**
      * @return The SLO query using formulas and functions.
      * 
      */
     public Optional<PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery> sloQuery() {
         return Optional.ofNullable(this.sloQuery);
+    }
+    /**
+     * @return The User Journey query using formulas and functions.
+     * 
+     */
+    public Optional<PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryUserJourneyQuery> userJourneyQuery() {
+        return Optional.ofNullable(this.userJourneyQuery);
     }
 
     public static Builder builder() {
@@ -114,28 +166,42 @@ public final class PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTable
     @CustomType.Builder
     public static final class Builder {
         private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery apmDependencyStatsQuery;
+        private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryApmMetricsQuery apmMetricsQuery;
         private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery apmResourceStatsQuery;
         private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryCloudCostQuery cloudCostQuery;
         private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery eventQuery;
         private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery metricQuery;
         private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery processQuery;
+        private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProductAnalyticsExtendedQuery productAnalyticsExtendedQuery;
+        private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryRetentionQuery retentionQuery;
         private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery sloQuery;
+        private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryUserJourneyQuery userJourneyQuery;
         public Builder() {}
         public Builder(PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apmDependencyStatsQuery = defaults.apmDependencyStatsQuery;
+    	      this.apmMetricsQuery = defaults.apmMetricsQuery;
     	      this.apmResourceStatsQuery = defaults.apmResourceStatsQuery;
     	      this.cloudCostQuery = defaults.cloudCostQuery;
     	      this.eventQuery = defaults.eventQuery;
     	      this.metricQuery = defaults.metricQuery;
     	      this.processQuery = defaults.processQuery;
+    	      this.productAnalyticsExtendedQuery = defaults.productAnalyticsExtendedQuery;
+    	      this.retentionQuery = defaults.retentionQuery;
     	      this.sloQuery = defaults.sloQuery;
+    	      this.userJourneyQuery = defaults.userJourneyQuery;
         }
 
         @CustomType.Setter
         public Builder apmDependencyStatsQuery(@Nullable PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery apmDependencyStatsQuery) {
 
             this.apmDependencyStatsQuery = apmDependencyStatsQuery;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder apmMetricsQuery(@Nullable PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryApmMetricsQuery apmMetricsQuery) {
+
+            this.apmMetricsQuery = apmMetricsQuery;
             return this;
         }
         @CustomType.Setter
@@ -169,20 +235,42 @@ public final class PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTable
             return this;
         }
         @CustomType.Setter
+        public Builder productAnalyticsExtendedQuery(@Nullable PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProductAnalyticsExtendedQuery productAnalyticsExtendedQuery) {
+
+            this.productAnalyticsExtendedQuery = productAnalyticsExtendedQuery;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder retentionQuery(@Nullable PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryRetentionQuery retentionQuery) {
+
+            this.retentionQuery = retentionQuery;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sloQuery(@Nullable PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery sloQuery) {
 
             this.sloQuery = sloQuery;
             return this;
         }
+        @CustomType.Setter
+        public Builder userJourneyQuery(@Nullable PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryUserJourneyQuery userJourneyQuery) {
+
+            this.userJourneyQuery = userJourneyQuery;
+            return this;
+        }
         public PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuery build() {
             final var _resultValue = new PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuery();
             _resultValue.apmDependencyStatsQuery = apmDependencyStatsQuery;
+            _resultValue.apmMetricsQuery = apmMetricsQuery;
             _resultValue.apmResourceStatsQuery = apmResourceStatsQuery;
             _resultValue.cloudCostQuery = cloudCostQuery;
             _resultValue.eventQuery = eventQuery;
             _resultValue.metricQuery = metricQuery;
             _resultValue.processQuery = processQuery;
+            _resultValue.productAnalyticsExtendedQuery = productAnalyticsExtendedQuery;
+            _resultValue.retentionQuery = retentionQuery;
             _resultValue.sloQuery = sloQuery;
+            _resultValue.userJourneyQuery = userJourneyQuery;
             return _resultValue;
         }
     }

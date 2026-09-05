@@ -6,12 +6,16 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryApmDependencyStatsQueryArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryApmMetricsQueryArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryApmResourceStatsQueryArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryCloudCostQueryArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQueryArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryMetricQueryArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryProcessQueryArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryProductAnalyticsExtendedQueryArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryRetentionQueryArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQuerySloQueryArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryUserJourneyQueryArgs;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -34,6 +38,21 @@ public final class PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQu
      */
     public Optional<Output<PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryApmDependencyStatsQueryArgs>> apmDependencyStatsQuery() {
         return Optional.ofNullable(this.apmDependencyStatsQuery);
+    }
+
+    /**
+     * The APM metrics query using formulas and functions.
+     * 
+     */
+    @Import(name="apmMetricsQuery")
+    private @Nullable Output<PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryApmMetricsQueryArgs> apmMetricsQuery;
+
+    /**
+     * @return The APM metrics query using formulas and functions.
+     * 
+     */
+    public Optional<Output<PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryApmMetricsQueryArgs>> apmMetricsQuery() {
+        return Optional.ofNullable(this.apmMetricsQuery);
     }
 
     /**
@@ -112,6 +131,36 @@ public final class PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQu
     }
 
     /**
+     * The Product Analytics Extended query using formulas and functions.
+     * 
+     */
+    @Import(name="productAnalyticsExtendedQuery")
+    private @Nullable Output<PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryProductAnalyticsExtendedQueryArgs> productAnalyticsExtendedQuery;
+
+    /**
+     * @return The Product Analytics Extended query using formulas and functions.
+     * 
+     */
+    public Optional<Output<PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryProductAnalyticsExtendedQueryArgs>> productAnalyticsExtendedQuery() {
+        return Optional.ofNullable(this.productAnalyticsExtendedQuery);
+    }
+
+    /**
+     * The retention query using formulas and functions.
+     * 
+     */
+    @Import(name="retentionQuery")
+    private @Nullable Output<PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryRetentionQueryArgs> retentionQuery;
+
+    /**
+     * @return The retention query using formulas and functions.
+     * 
+     */
+    public Optional<Output<PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryRetentionQueryArgs>> retentionQuery() {
+        return Optional.ofNullable(this.retentionQuery);
+    }
+
+    /**
      * The SLO query using formulas and functions.
      * 
      */
@@ -126,16 +175,35 @@ public final class PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQu
         return Optional.ofNullable(this.sloQuery);
     }
 
+    /**
+     * The User Journey query using formulas and functions.
+     * 
+     */
+    @Import(name="userJourneyQuery")
+    private @Nullable Output<PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryUserJourneyQueryArgs> userJourneyQuery;
+
+    /**
+     * @return The User Journey query using formulas and functions.
+     * 
+     */
+    public Optional<Output<PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryUserJourneyQueryArgs>> userJourneyQuery() {
+        return Optional.ofNullable(this.userJourneyQuery);
+    }
+
     private PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryArgs() {}
 
     private PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryArgs(PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryArgs $) {
         this.apmDependencyStatsQuery = $.apmDependencyStatsQuery;
+        this.apmMetricsQuery = $.apmMetricsQuery;
         this.apmResourceStatsQuery = $.apmResourceStatsQuery;
         this.cloudCostQuery = $.cloudCostQuery;
         this.eventQuery = $.eventQuery;
         this.metricQuery = $.metricQuery;
         this.processQuery = $.processQuery;
+        this.productAnalyticsExtendedQuery = $.productAnalyticsExtendedQuery;
+        this.retentionQuery = $.retentionQuery;
         this.sloQuery = $.sloQuery;
+        this.userJourneyQuery = $.userJourneyQuery;
     }
 
     public static Builder builder() {
@@ -175,6 +243,27 @@ public final class PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQu
          */
         public Builder apmDependencyStatsQuery(PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryApmDependencyStatsQueryArgs apmDependencyStatsQuery) {
             return apmDependencyStatsQuery(Output.of(apmDependencyStatsQuery));
+        }
+
+        /**
+         * @param apmMetricsQuery The APM metrics query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apmMetricsQuery(@Nullable Output<PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryApmMetricsQueryArgs> apmMetricsQuery) {
+            $.apmMetricsQuery = apmMetricsQuery;
+            return this;
+        }
+
+        /**
+         * @param apmMetricsQuery The APM metrics query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apmMetricsQuery(PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryApmMetricsQueryArgs apmMetricsQuery) {
+            return apmMetricsQuery(Output.of(apmMetricsQuery));
         }
 
         /**
@@ -283,6 +372,48 @@ public final class PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQu
         }
 
         /**
+         * @param productAnalyticsExtendedQuery The Product Analytics Extended query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder productAnalyticsExtendedQuery(@Nullable Output<PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryProductAnalyticsExtendedQueryArgs> productAnalyticsExtendedQuery) {
+            $.productAnalyticsExtendedQuery = productAnalyticsExtendedQuery;
+            return this;
+        }
+
+        /**
+         * @param productAnalyticsExtendedQuery The Product Analytics Extended query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder productAnalyticsExtendedQuery(PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryProductAnalyticsExtendedQueryArgs productAnalyticsExtendedQuery) {
+            return productAnalyticsExtendedQuery(Output.of(productAnalyticsExtendedQuery));
+        }
+
+        /**
+         * @param retentionQuery The retention query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retentionQuery(@Nullable Output<PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryRetentionQueryArgs> retentionQuery) {
+            $.retentionQuery = retentionQuery;
+            return this;
+        }
+
+        /**
+         * @param retentionQuery The retention query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retentionQuery(PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryRetentionQueryArgs retentionQuery) {
+            return retentionQuery(Output.of(retentionQuery));
+        }
+
+        /**
          * @param sloQuery The SLO query using formulas and functions.
          * 
          * @return builder
@@ -301,6 +432,27 @@ public final class PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQu
          */
         public Builder sloQuery(PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQuerySloQueryArgs sloQuery) {
             return sloQuery(Output.of(sloQuery));
+        }
+
+        /**
+         * @param userJourneyQuery The User Journey query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userJourneyQuery(@Nullable Output<PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryUserJourneyQueryArgs> userJourneyQuery) {
+            $.userJourneyQuery = userJourneyQuery;
+            return this;
+        }
+
+        /**
+         * @param userJourneyQuery The User Journey query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userJourneyQuery(PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryUserJourneyQueryArgs userJourneyQuery) {
+            return userJourneyQuery(Output.of(userJourneyQuery));
         }
 
         public PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryArgs build() {

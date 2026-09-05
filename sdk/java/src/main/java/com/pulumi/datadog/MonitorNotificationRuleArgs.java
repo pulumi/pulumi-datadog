@@ -5,6 +5,7 @@ package com.pulumi.datadog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.MonitorNotificationRuleBundleConfigArgs;
 import com.pulumi.datadog.inputs.MonitorNotificationRuleConditionalRecipientsArgs;
 import com.pulumi.datadog.inputs.MonitorNotificationRuleFilterArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -18,6 +19,21 @@ import javax.annotation.Nullable;
 public final class MonitorNotificationRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final MonitorNotificationRuleArgs Empty = new MonitorNotificationRuleArgs();
+
+    /**
+     * Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+     * 
+     */
+    @Import(name="bundleConfig")
+    private @Nullable Output<MonitorNotificationRuleBundleConfigArgs> bundleConfig;
+
+    /**
+     * @return Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+     * 
+     */
+    public Optional<Output<MonitorNotificationRuleBundleConfigArgs>> bundleConfig() {
+        return Optional.ofNullable(this.bundleConfig);
+    }
 
     /**
      * Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
@@ -82,6 +98,7 @@ public final class MonitorNotificationRuleArgs extends com.pulumi.resources.Reso
     private MonitorNotificationRuleArgs() {}
 
     private MonitorNotificationRuleArgs(MonitorNotificationRuleArgs $) {
+        this.bundleConfig = $.bundleConfig;
         this.conditionalRecipients = $.conditionalRecipients;
         this.filter = $.filter;
         this.name = $.name;
@@ -104,6 +121,27 @@ public final class MonitorNotificationRuleArgs extends com.pulumi.resources.Reso
 
         public Builder(MonitorNotificationRuleArgs defaults) {
             $ = new MonitorNotificationRuleArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param bundleConfig Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bundleConfig(@Nullable Output<MonitorNotificationRuleBundleConfigArgs> bundleConfig) {
+            $.bundleConfig = bundleConfig;
+            return this;
+        }
+
+        /**
+         * @param bundleConfig Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bundleConfig(MonitorNotificationRuleBundleConfigArgs bundleConfig) {
+            return bundleConfig(Output.of(bundleConfig));
         }
 
         /**

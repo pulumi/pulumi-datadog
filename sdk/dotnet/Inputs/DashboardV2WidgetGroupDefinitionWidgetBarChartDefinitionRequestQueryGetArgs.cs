@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardV2WidgetGroupDefinitionWidgetBarChartDefinitionRequestQueryApmDependencyStatsQueryGetArgs>? ApmDependencyStatsQuery { get; set; }
 
         /// <summary>
+        /// The APM metrics query using formulas and functions.
+        /// </summary>
+        [Input("apmMetricsQuery")]
+        public Input<Inputs.DashboardV2WidgetGroupDefinitionWidgetBarChartDefinitionRequestQueryApmMetricsQueryGetArgs>? ApmMetricsQuery { get; set; }
+
+        /// <summary>
         /// The APM Resource Stats query using formulas and functions.
         /// </summary>
         [Input("apmResourceStatsQuery")]
@@ -49,10 +55,28 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardV2WidgetGroupDefinitionWidgetBarChartDefinitionRequestQueryProcessQueryGetArgs>? ProcessQuery { get; set; }
 
         /// <summary>
+        /// The Product Analytics Extended query using formulas and functions.
+        /// </summary>
+        [Input("productAnalyticsExtendedQuery")]
+        public Input<Inputs.DashboardV2WidgetGroupDefinitionWidgetBarChartDefinitionRequestQueryProductAnalyticsExtendedQueryGetArgs>? ProductAnalyticsExtendedQuery { get; set; }
+
+        /// <summary>
+        /// The retention query using formulas and functions.
+        /// </summary>
+        [Input("retentionQuery")]
+        public Input<Inputs.DashboardV2WidgetGroupDefinitionWidgetBarChartDefinitionRequestQueryRetentionQueryGetArgs>? RetentionQuery { get; set; }
+
+        /// <summary>
         /// The SLO query using formulas and functions.
         /// </summary>
         [Input("sloQuery")]
         public Input<Inputs.DashboardV2WidgetGroupDefinitionWidgetBarChartDefinitionRequestQuerySloQueryGetArgs>? SloQuery { get; set; }
+
+        /// <summary>
+        /// The User Journey query using formulas and functions.
+        /// </summary>
+        [Input("userJourneyQuery")]
+        public Input<Inputs.DashboardV2WidgetGroupDefinitionWidgetBarChartDefinitionRequestQueryUserJourneyQueryGetArgs>? UserJourneyQuery { get; set; }
 
         public DashboardV2WidgetGroupDefinitionWidgetBarChartDefinitionRequestQueryGetArgs()
         {

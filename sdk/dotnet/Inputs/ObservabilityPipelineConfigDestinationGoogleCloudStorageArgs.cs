@@ -37,6 +37,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageBufferArgs>? Buffer { get; set; }
 
         /// <summary>
+        /// Compression configuration for archived logs. When omitted, the worker default (gzip) is used.
+        /// </summary>
+        [Input("compression")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageCompressionArgs>? Compression { get; set; }
+
+        /// <summary>
         /// Optional prefix for object keys within the GCS bucket.
         /// </summary>
         [Input("keyPrefix")]

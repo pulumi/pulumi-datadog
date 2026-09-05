@@ -26,6 +26,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQuery? AuditQuery;
         /// <summary>
+        /// A change indicator that compares the current value to a historical period.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestComparison? Comparison;
+        /// <summary>
         /// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `ConditionalFormats` blocks are allowed using the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestConditionalFormat> ConditionalFormats;
@@ -66,6 +70,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQuery? auditQuery,
 
+            Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestComparison? comparison,
+
             ImmutableArray<Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestConditionalFormat> conditionalFormats,
 
             ImmutableArray<Outputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestFormula> formulas,
@@ -85,6 +91,7 @@ namespace Pulumi.Datadog.Outputs
             Aggregator = aggregator;
             ApmQuery = apmQuery;
             AuditQuery = auditQuery;
+            Comparison = comparison;
             ConditionalFormats = conditionalFormats;
             Formulas = formulas;
             LogQuery = logQuery;

@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAzureStorageBufferArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAzureStorageCompressionArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
@@ -48,6 +49,21 @@ public final class ObservabilityPipelineConfigDestinationAzureStorageArgs extend
     }
 
     /**
+     * Compression configuration for archived logs. When omitted, the worker default (gzip) is used.
+     * 
+     */
+    @Import(name="compression")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationAzureStorageCompressionArgs> compression;
+
+    /**
+     * @return Compression configuration for archived logs. When omitted, the worker default (gzip) is used.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationAzureStorageCompressionArgs>> compression() {
+        return Optional.ofNullable(this.compression);
+    }
+
+    /**
      * Name of the environment variable or secret that holds the Azure Storage connection string.
      * 
      */
@@ -82,6 +98,7 @@ public final class ObservabilityPipelineConfigDestinationAzureStorageArgs extend
     private ObservabilityPipelineConfigDestinationAzureStorageArgs(ObservabilityPipelineConfigDestinationAzureStorageArgs $) {
         this.blobPrefix = $.blobPrefix;
         this.buffer = $.buffer;
+        this.compression = $.compression;
         this.connectionStringKey = $.connectionStringKey;
         this.containerName = $.containerName;
     }
@@ -144,6 +161,27 @@ public final class ObservabilityPipelineConfigDestinationAzureStorageArgs extend
          */
         public Builder buffer(ObservabilityPipelineConfigDestinationAzureStorageBufferArgs buffer) {
             return buffer(Output.of(buffer));
+        }
+
+        /**
+         * @param compression Compression configuration for archived logs. When omitted, the worker default (gzip) is used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compression(@Nullable Output<ObservabilityPipelineConfigDestinationAzureStorageCompressionArgs> compression) {
+            $.compression = compression;
+            return this;
+        }
+
+        /**
+         * @param compression Compression configuration for archived logs. When omitted, the worker default (gzip) is used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compression(ObservabilityPipelineConfigDestinationAzureStorageCompressionArgs compression) {
+            return compression(Output.of(compression));
         }
 
         /**

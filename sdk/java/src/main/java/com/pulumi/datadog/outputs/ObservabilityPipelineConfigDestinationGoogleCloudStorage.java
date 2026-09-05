@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageAuth;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageBuffer;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageCompression;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageMetadata;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -36,6 +37,11 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorage {
      * 
      */
     private @Nullable ObservabilityPipelineConfigDestinationGoogleCloudStorageBuffer buffer;
+    /**
+     * @return Compression configuration for archived logs. When omitted, the worker default (gzip) is used.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationGoogleCloudStorageCompression compression;
     /**
      * @return Optional prefix for object keys within the GCS bucket.
      * 
@@ -82,6 +88,13 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorage {
         return Optional.ofNullable(this.buffer);
     }
     /**
+     * @return Compression configuration for archived logs. When omitted, the worker default (gzip) is used.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationGoogleCloudStorageCompression> compression() {
+        return Optional.ofNullable(this.compression);
+    }
+    /**
      * @return Optional prefix for object keys within the GCS bucket.
      * 
      */
@@ -116,6 +129,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorage {
         private @Nullable ObservabilityPipelineConfigDestinationGoogleCloudStorageAuth auth;
         private String bucket;
         private @Nullable ObservabilityPipelineConfigDestinationGoogleCloudStorageBuffer buffer;
+        private @Nullable ObservabilityPipelineConfigDestinationGoogleCloudStorageCompression compression;
         private @Nullable String keyPrefix;
         private @Nullable List<ObservabilityPipelineConfigDestinationGoogleCloudStorageMetadata> metadatas;
         private String storageClass;
@@ -126,6 +140,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorage {
     	      this.auth = defaults.auth;
     	      this.bucket = defaults.bucket;
     	      this.buffer = defaults.buffer;
+    	      this.compression = defaults.compression;
     	      this.keyPrefix = defaults.keyPrefix;
     	      this.metadatas = defaults.metadatas;
     	      this.storageClass = defaults.storageClass;
@@ -158,6 +173,12 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorage {
             return this;
         }
         @CustomType.Setter
+        public Builder compression(@Nullable ObservabilityPipelineConfigDestinationGoogleCloudStorageCompression compression) {
+
+            this.compression = compression;
+            return this;
+        }
+        @CustomType.Setter
         public Builder keyPrefix(@Nullable String keyPrefix) {
 
             this.keyPrefix = keyPrefix;
@@ -186,6 +207,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorage {
             _resultValue.auth = auth;
             _resultValue.bucket = bucket;
             _resultValue.buffer = buffer;
+            _resultValue.compression = compression;
             _resultValue.keyPrefix = keyPrefix;
             _resultValue.metadatas = metadatas;
             _resultValue.storageClass = storageClass;

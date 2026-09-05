@@ -6,12 +6,16 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestQueryApmMetricsQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestQueryApmResourceStatsQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestQueryCloudCostQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestQueryMetricQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestQueryProcessQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestQueryProductAnalyticsExtendedQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestQueryRetentionQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestQuerySloQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestQueryUserJourneyQueryArgs;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -34,6 +38,21 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequestQueryArgs extends
      */
     public Optional<Output<DashboardV2WidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQueryArgs>> apmDependencyStatsQuery() {
         return Optional.ofNullable(this.apmDependencyStatsQuery);
+    }
+
+    /**
+     * The APM metrics query using formulas and functions.
+     * 
+     */
+    @Import(name="apmMetricsQuery")
+    private @Nullable Output<DashboardV2WidgetTimeseriesDefinitionRequestQueryApmMetricsQueryArgs> apmMetricsQuery;
+
+    /**
+     * @return The APM metrics query using formulas and functions.
+     * 
+     */
+    public Optional<Output<DashboardV2WidgetTimeseriesDefinitionRequestQueryApmMetricsQueryArgs>> apmMetricsQuery() {
+        return Optional.ofNullable(this.apmMetricsQuery);
     }
 
     /**
@@ -112,6 +131,36 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequestQueryArgs extends
     }
 
     /**
+     * The Product Analytics Extended query using formulas and functions.
+     * 
+     */
+    @Import(name="productAnalyticsExtendedQuery")
+    private @Nullable Output<DashboardV2WidgetTimeseriesDefinitionRequestQueryProductAnalyticsExtendedQueryArgs> productAnalyticsExtendedQuery;
+
+    /**
+     * @return The Product Analytics Extended query using formulas and functions.
+     * 
+     */
+    public Optional<Output<DashboardV2WidgetTimeseriesDefinitionRequestQueryProductAnalyticsExtendedQueryArgs>> productAnalyticsExtendedQuery() {
+        return Optional.ofNullable(this.productAnalyticsExtendedQuery);
+    }
+
+    /**
+     * The retention query using formulas and functions.
+     * 
+     */
+    @Import(name="retentionQuery")
+    private @Nullable Output<DashboardV2WidgetTimeseriesDefinitionRequestQueryRetentionQueryArgs> retentionQuery;
+
+    /**
+     * @return The retention query using formulas and functions.
+     * 
+     */
+    public Optional<Output<DashboardV2WidgetTimeseriesDefinitionRequestQueryRetentionQueryArgs>> retentionQuery() {
+        return Optional.ofNullable(this.retentionQuery);
+    }
+
+    /**
      * The SLO query using formulas and functions.
      * 
      */
@@ -126,16 +175,35 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequestQueryArgs extends
         return Optional.ofNullable(this.sloQuery);
     }
 
+    /**
+     * The User Journey query using formulas and functions.
+     * 
+     */
+    @Import(name="userJourneyQuery")
+    private @Nullable Output<DashboardV2WidgetTimeseriesDefinitionRequestQueryUserJourneyQueryArgs> userJourneyQuery;
+
+    /**
+     * @return The User Journey query using formulas and functions.
+     * 
+     */
+    public Optional<Output<DashboardV2WidgetTimeseriesDefinitionRequestQueryUserJourneyQueryArgs>> userJourneyQuery() {
+        return Optional.ofNullable(this.userJourneyQuery);
+    }
+
     private DashboardV2WidgetTimeseriesDefinitionRequestQueryArgs() {}
 
     private DashboardV2WidgetTimeseriesDefinitionRequestQueryArgs(DashboardV2WidgetTimeseriesDefinitionRequestQueryArgs $) {
         this.apmDependencyStatsQuery = $.apmDependencyStatsQuery;
+        this.apmMetricsQuery = $.apmMetricsQuery;
         this.apmResourceStatsQuery = $.apmResourceStatsQuery;
         this.cloudCostQuery = $.cloudCostQuery;
         this.eventQuery = $.eventQuery;
         this.metricQuery = $.metricQuery;
         this.processQuery = $.processQuery;
+        this.productAnalyticsExtendedQuery = $.productAnalyticsExtendedQuery;
+        this.retentionQuery = $.retentionQuery;
         this.sloQuery = $.sloQuery;
+        this.userJourneyQuery = $.userJourneyQuery;
     }
 
     public static Builder builder() {
@@ -175,6 +243,27 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequestQueryArgs extends
          */
         public Builder apmDependencyStatsQuery(DashboardV2WidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQueryArgs apmDependencyStatsQuery) {
             return apmDependencyStatsQuery(Output.of(apmDependencyStatsQuery));
+        }
+
+        /**
+         * @param apmMetricsQuery The APM metrics query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apmMetricsQuery(@Nullable Output<DashboardV2WidgetTimeseriesDefinitionRequestQueryApmMetricsQueryArgs> apmMetricsQuery) {
+            $.apmMetricsQuery = apmMetricsQuery;
+            return this;
+        }
+
+        /**
+         * @param apmMetricsQuery The APM metrics query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apmMetricsQuery(DashboardV2WidgetTimeseriesDefinitionRequestQueryApmMetricsQueryArgs apmMetricsQuery) {
+            return apmMetricsQuery(Output.of(apmMetricsQuery));
         }
 
         /**
@@ -283,6 +372,48 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequestQueryArgs extends
         }
 
         /**
+         * @param productAnalyticsExtendedQuery The Product Analytics Extended query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder productAnalyticsExtendedQuery(@Nullable Output<DashboardV2WidgetTimeseriesDefinitionRequestQueryProductAnalyticsExtendedQueryArgs> productAnalyticsExtendedQuery) {
+            $.productAnalyticsExtendedQuery = productAnalyticsExtendedQuery;
+            return this;
+        }
+
+        /**
+         * @param productAnalyticsExtendedQuery The Product Analytics Extended query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder productAnalyticsExtendedQuery(DashboardV2WidgetTimeseriesDefinitionRequestQueryProductAnalyticsExtendedQueryArgs productAnalyticsExtendedQuery) {
+            return productAnalyticsExtendedQuery(Output.of(productAnalyticsExtendedQuery));
+        }
+
+        /**
+         * @param retentionQuery The retention query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retentionQuery(@Nullable Output<DashboardV2WidgetTimeseriesDefinitionRequestQueryRetentionQueryArgs> retentionQuery) {
+            $.retentionQuery = retentionQuery;
+            return this;
+        }
+
+        /**
+         * @param retentionQuery The retention query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retentionQuery(DashboardV2WidgetTimeseriesDefinitionRequestQueryRetentionQueryArgs retentionQuery) {
+            return retentionQuery(Output.of(retentionQuery));
+        }
+
+        /**
          * @param sloQuery The SLO query using formulas and functions.
          * 
          * @return builder
@@ -301,6 +432,27 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequestQueryArgs extends
          */
         public Builder sloQuery(DashboardV2WidgetTimeseriesDefinitionRequestQuerySloQueryArgs sloQuery) {
             return sloQuery(Output.of(sloQuery));
+        }
+
+        /**
+         * @param userJourneyQuery The User Journey query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userJourneyQuery(@Nullable Output<DashboardV2WidgetTimeseriesDefinitionRequestQueryUserJourneyQueryArgs> userJourneyQuery) {
+            $.userJourneyQuery = userJourneyQuery;
+            return this;
+        }
+
+        /**
+         * @param userJourneyQuery The User Journey query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userJourneyQuery(DashboardV2WidgetTimeseriesDefinitionRequestQueryUserJourneyQueryArgs userJourneyQuery) {
+            return userJourneyQuery(Output.of(userJourneyQuery));
         }
 
         public DashboardV2WidgetTimeseriesDefinitionRequestQueryArgs build() {

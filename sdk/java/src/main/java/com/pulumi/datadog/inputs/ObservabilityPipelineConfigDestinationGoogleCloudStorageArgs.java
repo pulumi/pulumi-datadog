@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageAuthArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageBufferArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageCompressionArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageMetadataArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -81,6 +82,21 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorageArgs 
     }
 
     /**
+     * Compression configuration for archived logs. When omitted, the worker default (gzip) is used.
+     * 
+     */
+    @Import(name="compression")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationGoogleCloudStorageCompressionArgs> compression;
+
+    /**
+     * @return Compression configuration for archived logs. When omitted, the worker default (gzip) is used.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationGoogleCloudStorageCompressionArgs>> compression() {
+        return Optional.ofNullable(this.compression);
+    }
+
+    /**
      * Optional prefix for object keys within the GCS bucket.
      * 
      */
@@ -132,6 +148,7 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorageArgs 
         this.auth = $.auth;
         this.bucket = $.bucket;
         this.buffer = $.buffer;
+        this.compression = $.compression;
         this.keyPrefix = $.keyPrefix;
         this.metadatas = $.metadatas;
         this.storageClass = $.storageClass;
@@ -237,6 +254,27 @@ public final class ObservabilityPipelineConfigDestinationGoogleCloudStorageArgs 
          */
         public Builder buffer(ObservabilityPipelineConfigDestinationGoogleCloudStorageBufferArgs buffer) {
             return buffer(Output.of(buffer));
+        }
+
+        /**
+         * @param compression Compression configuration for archived logs. When omitted, the worker default (gzip) is used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compression(@Nullable Output<ObservabilityPipelineConfigDestinationGoogleCloudStorageCompressionArgs> compression) {
+            $.compression = compression;
+            return this;
+        }
+
+        /**
+         * @param compression Compression configuration for archived logs. When omitted, the worker default (gzip) is used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compression(ObservabilityPipelineConfigDestinationGoogleCloudStorageCompressionArgs compression) {
+            return compression(Output.of(compression));
         }
 
         /**

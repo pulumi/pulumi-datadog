@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigDestinationSplunkHec {
     /**
-     * @return If `true`, Splunk tries to extract timestamps from incoming log events.
+     * @return If `true`, Splunk tries to extract timestamps from incoming log events. If `false`, Splunk assigns the time the event was received. Only applies when `endpointTarget` is `event`; cannot be `true` when `endpointTarget` is `raw`.
      * 
      */
     private @Nullable Boolean autoExtractTimestamp;
@@ -30,6 +30,11 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
      * 
      */
     private String encoding;
+    /**
+     * @return The Splunk HEC endpoint to send events to. Use `event` to send structured events to the `/event` endpoint, or `raw` to send the raw message to the `/raw` endpoint. Valid values are `event`, `raw`.
+     * 
+     */
+    private @Nullable String endpointTarget;
     /**
      * @return Name of the environment variable or secret that holds the Splunk HEC endpoint URL.
      * 
@@ -63,7 +68,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
 
     private ObservabilityPipelineConfigDestinationSplunkHec() {}
     /**
-     * @return If `true`, Splunk tries to extract timestamps from incoming log events.
+     * @return If `true`, Splunk tries to extract timestamps from incoming log events. If `false`, Splunk assigns the time the event was received. Only applies when `endpointTarget` is `event`; cannot be `true` when `endpointTarget` is `raw`.
      * 
      */
     public Optional<Boolean> autoExtractTimestamp() {
@@ -82,6 +87,13 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
      */
     public String encoding() {
         return this.encoding;
+    }
+    /**
+     * @return The Splunk HEC endpoint to send events to. Use `event` to send structured events to the `/event` endpoint, or `raw` to send the raw message to the `/raw` endpoint. Valid values are `event`, `raw`.
+     * 
+     */
+    public Optional<String> endpointTarget() {
+        return Optional.ofNullable(this.endpointTarget);
     }
     /**
      * @return Name of the environment variable or secret that holds the Splunk HEC endpoint URL.
@@ -138,6 +150,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
         private @Nullable Boolean autoExtractTimestamp;
         private @Nullable ObservabilityPipelineConfigDestinationSplunkHecBuffer buffer;
         private String encoding;
+        private @Nullable String endpointTarget;
         private @Nullable String endpointUrlKey;
         private @Nullable String index;
         private @Nullable List<String> indexedFields;
@@ -150,6 +163,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
     	      this.autoExtractTimestamp = defaults.autoExtractTimestamp;
     	      this.buffer = defaults.buffer;
     	      this.encoding = defaults.encoding;
+    	      this.endpointTarget = defaults.endpointTarget;
     	      this.endpointUrlKey = defaults.endpointUrlKey;
     	      this.index = defaults.index;
     	      this.indexedFields = defaults.indexedFields;
@@ -176,6 +190,12 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
               throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationSplunkHec", "encoding");
             }
             this.encoding = encoding;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder endpointTarget(@Nullable String endpointTarget) {
+
+            this.endpointTarget = endpointTarget;
             return this;
         }
         @CustomType.Setter
@@ -222,6 +242,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHec {
             _resultValue.autoExtractTimestamp = autoExtractTimestamp;
             _resultValue.buffer = buffer;
             _resultValue.encoding = encoding;
+            _resultValue.endpointTarget = endpointTarget;
             _resultValue.endpointUrlKey = endpointUrlKey;
             _resultValue.index = index;
             _resultValue.indexedFields = indexedFields;

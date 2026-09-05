@@ -20,14 +20,14 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
     public static final ObservabilityPipelineConfigDestinationSplunkHecArgs Empty = new ObservabilityPipelineConfigDestinationSplunkHecArgs();
 
     /**
-     * If `true`, Splunk tries to extract timestamps from incoming log events.
+     * If `true`, Splunk tries to extract timestamps from incoming log events. If `false`, Splunk assigns the time the event was received. Only applies when `endpointTarget` is `event`; cannot be `true` when `endpointTarget` is `raw`.
      * 
      */
     @Import(name="autoExtractTimestamp")
     private @Nullable Output<Boolean> autoExtractTimestamp;
 
     /**
-     * @return If `true`, Splunk tries to extract timestamps from incoming log events.
+     * @return If `true`, Splunk tries to extract timestamps from incoming log events. If `false`, Splunk assigns the time the event was received. Only applies when `endpointTarget` is `event`; cannot be `true` when `endpointTarget` is `raw`.
      * 
      */
     public Optional<Output<Boolean>> autoExtractTimestamp() {
@@ -62,6 +62,21 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
      */
     public Output<String> encoding() {
         return this.encoding;
+    }
+
+    /**
+     * The Splunk HEC endpoint to send events to. Use `event` to send structured events to the `/event` endpoint, or `raw` to send the raw message to the `/raw` endpoint. Valid values are `event`, `raw`.
+     * 
+     */
+    @Import(name="endpointTarget")
+    private @Nullable Output<String> endpointTarget;
+
+    /**
+     * @return The Splunk HEC endpoint to send events to. Use `event` to send structured events to the `/event` endpoint, or `raw` to send the raw message to the `/raw` endpoint. Valid values are `event`, `raw`.
+     * 
+     */
+    public Optional<Output<String>> endpointTarget() {
+        return Optional.ofNullable(this.endpointTarget);
     }
 
     /**
@@ -160,6 +175,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
         this.autoExtractTimestamp = $.autoExtractTimestamp;
         this.buffer = $.buffer;
         this.encoding = $.encoding;
+        this.endpointTarget = $.endpointTarget;
         this.endpointUrlKey = $.endpointUrlKey;
         this.index = $.index;
         this.indexedFields = $.indexedFields;
@@ -187,7 +203,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
         }
 
         /**
-         * @param autoExtractTimestamp If `true`, Splunk tries to extract timestamps from incoming log events.
+         * @param autoExtractTimestamp If `true`, Splunk tries to extract timestamps from incoming log events. If `false`, Splunk assigns the time the event was received. Only applies when `endpointTarget` is `event`; cannot be `true` when `endpointTarget` is `raw`.
          * 
          * @return builder
          * 
@@ -198,7 +214,7 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
         }
 
         /**
-         * @param autoExtractTimestamp If `true`, Splunk tries to extract timestamps from incoming log events.
+         * @param autoExtractTimestamp If `true`, Splunk tries to extract timestamps from incoming log events. If `false`, Splunk assigns the time the event was received. Only applies when `endpointTarget` is `event`; cannot be `true` when `endpointTarget` is `raw`.
          * 
          * @return builder
          * 
@@ -247,6 +263,27 @@ public final class ObservabilityPipelineConfigDestinationSplunkHecArgs extends c
          */
         public Builder encoding(String encoding) {
             return encoding(Output.of(encoding));
+        }
+
+        /**
+         * @param endpointTarget The Splunk HEC endpoint to send events to. Use `event` to send structured events to the `/event` endpoint, or `raw` to send the raw message to the `/raw` endpoint. Valid values are `event`, `raw`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointTarget(@Nullable Output<String> endpointTarget) {
+            $.endpointTarget = endpointTarget;
+            return this;
+        }
+
+        /**
+         * @param endpointTarget The Splunk HEC endpoint to send events to. Use `event` to send structured events to the `/event` endpoint, or `raw` to send the raw message to the `/raw` endpoint. Valid values are `event`, `raw`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointTarget(String endpointTarget) {
+            return endpointTarget(Output.of(endpointTarget));
         }
 
         /**

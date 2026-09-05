@@ -99,6 +99,12 @@ namespace Pulumi.Datadog
     public partial class MonitorNotificationRule : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+        /// </summary>
+        [Output("bundleConfig")]
+        public Output<Outputs.MonitorNotificationRuleBundleConfig?> BundleConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Use conditional recipients to define different recipients for different situations. Cannot be used with `Recipients`.
         /// </summary>
         [Output("conditionalRecipients")]
@@ -169,6 +175,12 @@ namespace Pulumi.Datadog
     public sealed class MonitorNotificationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+        /// </summary>
+        [Input("bundleConfig")]
+        public Input<Inputs.MonitorNotificationRuleBundleConfigArgs>? BundleConfig { get; set; }
+
+        /// <summary>
         /// Use conditional recipients to define different recipients for different situations. Cannot be used with `Recipients`.
         /// </summary>
         [Input("conditionalRecipients")]
@@ -206,6 +218,12 @@ namespace Pulumi.Datadog
 
     public sealed class MonitorNotificationRuleState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+        /// </summary>
+        [Input("bundleConfig")]
+        public Input<Inputs.MonitorNotificationRuleBundleConfigGetArgs>? BundleConfig { get; set; }
+
         /// <summary>
         /// Use conditional recipients to define different recipients for different situations. Cannot be used with `Recipients`.
         /// </summary>

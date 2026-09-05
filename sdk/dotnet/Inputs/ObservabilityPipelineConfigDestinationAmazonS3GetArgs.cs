@@ -31,6 +31,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.ObservabilityPipelineConfigDestinationAmazonS3BufferGetArgs>? Buffer { get; set; }
 
         /// <summary>
+        /// Compression configuration for archived logs. When omitted, the worker default (gzip) is used.
+        /// </summary>
+        [Input("compression")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationAmazonS3CompressionGetArgs>? Compression { get; set; }
+
+        /// <summary>
         /// Prefix for object keys.
         /// </summary>
         [Input("keyPrefix", required: true)]
@@ -41,6 +47,18 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
+
+        /// <summary>
+        /// The server-side encryption algorithm used when storing objects in S3. Valid values: `aws:kms`, `AES256`. Valid values are `aws:kms`, `AES256`.
+        /// </summary>
+        [Input("serverSideEncryption")]
+        public Input<string>? ServerSideEncryption { get; set; }
+
+        /// <summary>
+        /// ID of the AWS KMS key to use for SSE-KMS encryption. Only applies when `ServerSideEncryption` is `aws:kms`.
+        /// </summary>
+        [Input("ssekmsKeyId")]
+        public Input<string>? SsekmsKeyId { get; set; }
 
         /// <summary>
         /// S3 storage class. Valid values are `STANDARD`, `REDUCED_REDUNDANCY`, `INTELLIGENT_TIERING`, `STANDARD_IA`, `EXPRESS_ONEZONE`, `ONEZONE_IA`, `GLACIER`, `GLACIER_IR`, `DEEP_ARCHIVE`.

@@ -14,22 +14,113 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequest
     {
         /// <summary>
+        /// Optional child request for one level of hierarchical visualization.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestChild? Child;
+        /// <summary>
+        /// Conditional formatting rules applied to fill values.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestConditionalFormat> ConditionalFormats;
+        /// <summary>
+        /// Metric or event queries joined to the entity set.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestEnrichment> Enrichments;
+        /// <summary>
         /// The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `Q`, `ApmQuery`, `LogQuery`, `RumQuery`, `SecurityQuery` or `ProcessQuery` is required within the request block).
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestFill? Fill;
         /// <summary>
+        /// Filter string for the entity set in tag format, such as `env:prod`.
+        /// </summary>
+        public readonly string? Filter;
+        /// <summary>
+        /// Ordered grouping hierarchy for infrastructure entities.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestGroupBy> GroupBies;
+        /// <summary>
+        /// Maximum number of rows to return from the DDSQL data-projection request.
+        /// </summary>
+        public readonly int? Limit;
+        /// <summary>
+        /// Whether to hide entities that have no group assignment.
+        /// </summary>
+        public readonly bool? NoGroupHosts;
+        /// <summary>
+        /// Whether to hide entities that have no enrichment data.
+        /// </summary>
+        public readonly bool? NoMetricHosts;
+        /// <summary>
+        /// Infrastructure entity type to visualize. Valid values are `Host`, `Container`, `Pod`, `Cluster`.
+        /// </summary>
+        public readonly string? NodeType;
+        /// <summary>
+        /// Mapping from published-dataset columns to host map dimensions.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestProjection? Projection;
+        /// <summary>
+        /// Published-dataset query used by the DDSQL data-projection request.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestQuery? Query;
+        /// <summary>
+        /// Identifies an infrastructure-backed or DDSQL data-projection host map request. Valid values are `InfrastructureHostmap`, `DataProjection`.
+        /// </summary>
+        public readonly string? RequestType;
+        /// <summary>
         /// The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `Q`, `ApmQuery`, `LogQuery`, `RumQuery`, `SecurityQuery` or `ProcessQuery` is required within the request block).
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestSize? Size;
+        /// <summary>
+        /// Style configuration for the infrastructure host map.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestStyle? Style;
 
         [OutputConstructor]
         private PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequest(
+            Outputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestChild? child,
+
+            ImmutableArray<Outputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestConditionalFormat> conditionalFormats,
+
+            ImmutableArray<Outputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestEnrichment> enrichments,
+
             Outputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestFill? fill,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestSize? size)
+            string? filter,
+
+            ImmutableArray<Outputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestGroupBy> groupBies,
+
+            int? limit,
+
+            bool? noGroupHosts,
+
+            bool? noMetricHosts,
+
+            string? nodeType,
+
+            Outputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestProjection? projection,
+
+            Outputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestQuery? query,
+
+            string? requestType,
+
+            Outputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestSize? size,
+
+            Outputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestStyle? style)
         {
+            Child = child;
+            ConditionalFormats = conditionalFormats;
+            Enrichments = enrichments;
             Fill = fill;
+            Filter = filter;
+            GroupBies = groupBies;
+            Limit = limit;
+            NoGroupHosts = noGroupHosts;
+            NoMetricHosts = noMetricHosts;
+            NodeType = nodeType;
+            Projection = projection;
+            Query = query;
+            RequestType = requestType;
             Size = size;
+            Style = style;
         }
     }
 }

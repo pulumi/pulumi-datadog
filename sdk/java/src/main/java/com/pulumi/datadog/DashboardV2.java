@@ -400,6 +400,20 @@ public class DashboardV2 extends com.pulumi.resources.CustomResource {
         return this.url;
     }
     /**
+     * Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `true`. Setting this to `false` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+     * 
+     */
+    @Export(name="validate", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> validate;
+
+    /**
+     * @return Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `true`. Setting this to `false` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+     * 
+     */
+    public Output<Optional<Boolean>> validate() {
+        return Codegen.optional(this.validate);
+    }
+    /**
      * The list of widgets to display on the dashboard.
      * 
      */

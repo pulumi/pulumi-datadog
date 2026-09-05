@@ -94,6 +94,8 @@ import (
 type MonitorNotificationRule struct {
 	pulumi.CustomResourceState
 
+	// Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+	BundleConfig MonitorNotificationRuleBundleConfigPtrOutput `pulumi:"bundleConfig"`
 	// Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
 	ConditionalRecipients MonitorNotificationRuleConditionalRecipientsPtrOutput `pulumi:"conditionalRecipients"`
 	// Specifies the matching criteria for monitor notifications.
@@ -140,6 +142,8 @@ func GetMonitorNotificationRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MonitorNotificationRule resources.
 type monitorNotificationRuleState struct {
+	// Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+	BundleConfig *MonitorNotificationRuleBundleConfig `pulumi:"bundleConfig"`
 	// Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
 	ConditionalRecipients *MonitorNotificationRuleConditionalRecipients `pulumi:"conditionalRecipients"`
 	// Specifies the matching criteria for monitor notifications.
@@ -151,6 +155,8 @@ type monitorNotificationRuleState struct {
 }
 
 type MonitorNotificationRuleState struct {
+	// Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+	BundleConfig MonitorNotificationRuleBundleConfigPtrInput
 	// Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
 	ConditionalRecipients MonitorNotificationRuleConditionalRecipientsPtrInput
 	// Specifies the matching criteria for monitor notifications.
@@ -166,6 +172,8 @@ func (MonitorNotificationRuleState) ElementType() reflect.Type {
 }
 
 type monitorNotificationRuleArgs struct {
+	// Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+	BundleConfig *MonitorNotificationRuleBundleConfig `pulumi:"bundleConfig"`
 	// Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
 	ConditionalRecipients *MonitorNotificationRuleConditionalRecipients `pulumi:"conditionalRecipients"`
 	// Specifies the matching criteria for monitor notifications.
@@ -178,6 +186,8 @@ type monitorNotificationRuleArgs struct {
 
 // The set of arguments for constructing a MonitorNotificationRule resource.
 type MonitorNotificationRuleArgs struct {
+	// Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+	BundleConfig MonitorNotificationRuleBundleConfigPtrInput
 	// Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
 	ConditionalRecipients MonitorNotificationRuleConditionalRecipientsPtrInput
 	// Specifies the matching criteria for monitor notifications.
@@ -273,6 +283,11 @@ func (o MonitorNotificationRuleOutput) ToMonitorNotificationRuleOutput() Monitor
 
 func (o MonitorNotificationRuleOutput) ToMonitorNotificationRuleOutputWithContext(ctx context.Context) MonitorNotificationRuleOutput {
 	return o
+}
+
+// Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+func (o MonitorNotificationRuleOutput) BundleConfig() MonitorNotificationRuleBundleConfigPtrOutput {
+	return o.ApplyT(func(v *MonitorNotificationRule) MonitorNotificationRuleBundleConfigPtrOutput { return v.BundleConfig }).(MonitorNotificationRuleBundleConfigPtrOutput)
 }
 
 // Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
