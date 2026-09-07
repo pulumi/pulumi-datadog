@@ -4,6 +4,9 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQueryAudienceFilters;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQueryJoinKeys;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQueryOccurrence;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
@@ -13,6 +16,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQuery {
+    /**
+     * @return Product Analytics and RUM audience filters.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQueryAudienceFilters audienceFilters;
     /**
      * @return The data source for the Sankey RUM query. Valid values are `rum`, `productAnalytics`.
      * 
@@ -24,6 +32,11 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequest
      */
     private @Nullable Integer entriesPerStep;
     /**
+     * @return Join keys for the Sankey query.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQueryJoinKeys joinKeys;
+    /**
      * @return The mode for the Sankey RUM query. Valid values are `source`, `target`.
      * 
      */
@@ -33,6 +46,11 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequest
      * 
      */
     private @Nullable Integer numberOfSteps;
+    /**
+     * @return Filter applied to occurrence counts when building a Product Analytics audience.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQueryOccurrence occurrence;
     /**
      * @return The search query string.
      * 
@@ -56,6 +74,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequest
 
     private PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQuery() {}
     /**
+     * @return Product Analytics and RUM audience filters.
+     * 
+     */
+    public Optional<PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQueryAudienceFilters> audienceFilters() {
+        return Optional.ofNullable(this.audienceFilters);
+    }
+    /**
      * @return The data source for the Sankey RUM query. Valid values are `rum`, `productAnalytics`.
      * 
      */
@@ -70,6 +95,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequest
         return Optional.ofNullable(this.entriesPerStep);
     }
     /**
+     * @return Join keys for the Sankey query.
+     * 
+     */
+    public Optional<PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQueryJoinKeys> joinKeys() {
+        return Optional.ofNullable(this.joinKeys);
+    }
+    /**
      * @return The mode for the Sankey RUM query. Valid values are `source`, `target`.
      * 
      */
@@ -82,6 +114,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequest
      */
     public Optional<Integer> numberOfSteps() {
         return Optional.ofNullable(this.numberOfSteps);
+    }
+    /**
+     * @return Filter applied to occurrence counts when building a Product Analytics audience.
+     * 
+     */
+    public Optional<PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQueryOccurrence> occurrence() {
+        return Optional.ofNullable(this.occurrence);
     }
     /**
      * @return The search query string.
@@ -121,10 +160,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequest
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQueryAudienceFilters audienceFilters;
         private String dataSource;
         private @Nullable Integer entriesPerStep;
+        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQueryJoinKeys joinKeys;
         private String mode;
         private @Nullable Integer numberOfSteps;
+        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQueryOccurrence occurrence;
         private String queryString;
         private @Nullable String source;
         private @Nullable String subqueryId;
@@ -132,16 +174,25 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequest
         public Builder() {}
         public Builder(PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQuery defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.audienceFilters = defaults.audienceFilters;
     	      this.dataSource = defaults.dataSource;
     	      this.entriesPerStep = defaults.entriesPerStep;
+    	      this.joinKeys = defaults.joinKeys;
     	      this.mode = defaults.mode;
     	      this.numberOfSteps = defaults.numberOfSteps;
+    	      this.occurrence = defaults.occurrence;
     	      this.queryString = defaults.queryString;
     	      this.source = defaults.source;
     	      this.subqueryId = defaults.subqueryId;
     	      this.target = defaults.target;
         }
 
+        @CustomType.Setter
+        public Builder audienceFilters(@Nullable PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQueryAudienceFilters audienceFilters) {
+
+            this.audienceFilters = audienceFilters;
+            return this;
+        }
         @CustomType.Setter
         public Builder dataSource(String dataSource) {
             if (dataSource == null) {
@@ -157,6 +208,12 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequest
             return this;
         }
         @CustomType.Setter
+        public Builder joinKeys(@Nullable PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQueryJoinKeys joinKeys) {
+
+            this.joinKeys = joinKeys;
+            return this;
+        }
+        @CustomType.Setter
         public Builder mode(String mode) {
             if (mode == null) {
               throw new MissingRequiredPropertyException("PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQuery", "mode");
@@ -168,6 +225,12 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequest
         public Builder numberOfSteps(@Nullable Integer numberOfSteps) {
 
             this.numberOfSteps = numberOfSteps;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder occurrence(@Nullable PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQueryOccurrence occurrence) {
+
+            this.occurrence = occurrence;
             return this;
         }
         @CustomType.Setter
@@ -198,10 +261,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequest
         }
         public PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQuery build() {
             final var _resultValue = new PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQuery();
+            _resultValue.audienceFilters = audienceFilters;
             _resultValue.dataSource = dataSource;
             _resultValue.entriesPerStep = entriesPerStep;
+            _resultValue.joinKeys = joinKeys;
             _resultValue.mode = mode;
             _resultValue.numberOfSteps = numberOfSteps;
+            _resultValue.occurrence = occurrence;
             _resultValue.queryString = queryString;
             _resultValue.source = source;
             _resultValue.subqueryId = subqueryId;

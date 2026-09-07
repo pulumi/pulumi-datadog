@@ -11078,12 +11078,136 @@ public final class DatadogFunctions {
     /**
      * Use this data source to retrieve a Datadog Synthetic Test.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSyntheticsTestArgs;
+     * import com.pulumi.datadog.SyntheticsTest;
+     * import com.pulumi.datadog.SyntheticsTestArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestRequestDefinitionArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListRetryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // The existing API test another team owns.
+     *         final var checkoutApi = DatadogFunctions.getSyntheticsTest(GetSyntheticsTestArgs.builder()
+     *             .testId("abc-123-xyz")
+     *             .build());
+     * 
+     *         // A browser test over the same journey, kept in lockstep with the API test's
+     *         // cadence, coverage, and alerting behavior.
+     *         var checkoutBrowser = new SyntheticsTest("checkoutBrowser", SyntheticsTestArgs.builder()
+     *             .name("Checkout journey (browser)")
+     *             .type("browser")
+     *             .status(checkoutApi.status())
+     *             .locations(checkoutApi.locations())
+     *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+     *                 .method("GET")
+     *                 .url("https://www.example.com/checkout")
+     *                 .build())
+     *             .deviceIds("laptop_large")
+     *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+     *                 .tickEvery(checkoutApi.optionsLists()[0].tickEvery())
+     *                 .minLocationFailed(checkoutApi.optionsLists()[0].minLocationFailed())
+     *                 .monitorPriority(checkoutApi.optionsLists()[0].monitorPriority())
+     *                 .retry(SyntheticsTestOptionsListRetryArgs.builder()
+     *                     .count(checkoutApi.optionsLists()[0].retries()[0].count())
+     *                     .interval(checkoutApi.optionsLists()[0].retries()[0].interval())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetSyntheticsTestResult> getSyntheticsTest(GetSyntheticsTestArgs args) {
         return getSyntheticsTest(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to retrieve a Datadog Synthetic Test.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSyntheticsTestArgs;
+     * import com.pulumi.datadog.SyntheticsTest;
+     * import com.pulumi.datadog.SyntheticsTestArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestRequestDefinitionArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListRetryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // The existing API test another team owns.
+     *         final var checkoutApi = DatadogFunctions.getSyntheticsTest(GetSyntheticsTestArgs.builder()
+     *             .testId("abc-123-xyz")
+     *             .build());
+     * 
+     *         // A browser test over the same journey, kept in lockstep with the API test's
+     *         // cadence, coverage, and alerting behavior.
+     *         var checkoutBrowser = new SyntheticsTest("checkoutBrowser", SyntheticsTestArgs.builder()
+     *             .name("Checkout journey (browser)")
+     *             .type("browser")
+     *             .status(checkoutApi.status())
+     *             .locations(checkoutApi.locations())
+     *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+     *                 .method("GET")
+     *                 .url("https://www.example.com/checkout")
+     *                 .build())
+     *             .deviceIds("laptop_large")
+     *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+     *                 .tickEvery(checkoutApi.optionsLists()[0].tickEvery())
+     *                 .minLocationFailed(checkoutApi.optionsLists()[0].minLocationFailed())
+     *                 .monitorPriority(checkoutApi.optionsLists()[0].monitorPriority())
+     *                 .retry(SyntheticsTestOptionsListRetryArgs.builder()
+     *                     .count(checkoutApi.optionsLists()[0].retries()[0].count())
+     *                     .interval(checkoutApi.optionsLists()[0].retries()[0].interval())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetSyntheticsTestResult> getSyntheticsTestPlain(GetSyntheticsTestPlainArgs args) {
@@ -11092,6 +11216,68 @@ public final class DatadogFunctions {
     /**
      * Use this data source to retrieve a Datadog Synthetic Test.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSyntheticsTestArgs;
+     * import com.pulumi.datadog.SyntheticsTest;
+     * import com.pulumi.datadog.SyntheticsTestArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestRequestDefinitionArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListRetryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // The existing API test another team owns.
+     *         final var checkoutApi = DatadogFunctions.getSyntheticsTest(GetSyntheticsTestArgs.builder()
+     *             .testId("abc-123-xyz")
+     *             .build());
+     * 
+     *         // A browser test over the same journey, kept in lockstep with the API test's
+     *         // cadence, coverage, and alerting behavior.
+     *         var checkoutBrowser = new SyntheticsTest("checkoutBrowser", SyntheticsTestArgs.builder()
+     *             .name("Checkout journey (browser)")
+     *             .type("browser")
+     *             .status(checkoutApi.status())
+     *             .locations(checkoutApi.locations())
+     *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+     *                 .method("GET")
+     *                 .url("https://www.example.com/checkout")
+     *                 .build())
+     *             .deviceIds("laptop_large")
+     *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+     *                 .tickEvery(checkoutApi.optionsLists()[0].tickEvery())
+     *                 .minLocationFailed(checkoutApi.optionsLists()[0].minLocationFailed())
+     *                 .monitorPriority(checkoutApi.optionsLists()[0].monitorPriority())
+     *                 .retry(SyntheticsTestOptionsListRetryArgs.builder()
+     *                     .count(checkoutApi.optionsLists()[0].retries()[0].count())
+     *                     .interval(checkoutApi.optionsLists()[0].retries()[0].interval())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetSyntheticsTestResult> getSyntheticsTest(GetSyntheticsTestArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getSyntheticsTest:getSyntheticsTest", TypeShape.of(GetSyntheticsTestResult.class), args, Utilities.withVersion(options));
@@ -11099,12 +11285,136 @@ public final class DatadogFunctions {
     /**
      * Use this data source to retrieve a Datadog Synthetic Test.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSyntheticsTestArgs;
+     * import com.pulumi.datadog.SyntheticsTest;
+     * import com.pulumi.datadog.SyntheticsTestArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestRequestDefinitionArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListRetryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // The existing API test another team owns.
+     *         final var checkoutApi = DatadogFunctions.getSyntheticsTest(GetSyntheticsTestArgs.builder()
+     *             .testId("abc-123-xyz")
+     *             .build());
+     * 
+     *         // A browser test over the same journey, kept in lockstep with the API test's
+     *         // cadence, coverage, and alerting behavior.
+     *         var checkoutBrowser = new SyntheticsTest("checkoutBrowser", SyntheticsTestArgs.builder()
+     *             .name("Checkout journey (browser)")
+     *             .type("browser")
+     *             .status(checkoutApi.status())
+     *             .locations(checkoutApi.locations())
+     *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+     *                 .method("GET")
+     *                 .url("https://www.example.com/checkout")
+     *                 .build())
+     *             .deviceIds("laptop_large")
+     *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+     *                 .tickEvery(checkoutApi.optionsLists()[0].tickEvery())
+     *                 .minLocationFailed(checkoutApi.optionsLists()[0].minLocationFailed())
+     *                 .monitorPriority(checkoutApi.optionsLists()[0].monitorPriority())
+     *                 .retry(SyntheticsTestOptionsListRetryArgs.builder()
+     *                     .count(checkoutApi.optionsLists()[0].retries()[0].count())
+     *                     .interval(checkoutApi.optionsLists()[0].retries()[0].interval())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetSyntheticsTestResult> getSyntheticsTest(GetSyntheticsTestArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getSyntheticsTest:getSyntheticsTest", TypeShape.of(GetSyntheticsTestResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve a Datadog Synthetic Test.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSyntheticsTestArgs;
+     * import com.pulumi.datadog.SyntheticsTest;
+     * import com.pulumi.datadog.SyntheticsTestArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestRequestDefinitionArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListRetryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // The existing API test another team owns.
+     *         final var checkoutApi = DatadogFunctions.getSyntheticsTest(GetSyntheticsTestArgs.builder()
+     *             .testId("abc-123-xyz")
+     *             .build());
+     * 
+     *         // A browser test over the same journey, kept in lockstep with the API test's
+     *         // cadence, coverage, and alerting behavior.
+     *         var checkoutBrowser = new SyntheticsTest("checkoutBrowser", SyntheticsTestArgs.builder()
+     *             .name("Checkout journey (browser)")
+     *             .type("browser")
+     *             .status(checkoutApi.status())
+     *             .locations(checkoutApi.locations())
+     *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+     *                 .method("GET")
+     *                 .url("https://www.example.com/checkout")
+     *                 .build())
+     *             .deviceIds("laptop_large")
+     *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+     *                 .tickEvery(checkoutApi.optionsLists()[0].tickEvery())
+     *                 .minLocationFailed(checkoutApi.optionsLists()[0].minLocationFailed())
+     *                 .monitorPriority(checkoutApi.optionsLists()[0].monitorPriority())
+     *                 .retry(SyntheticsTestOptionsListRetryArgs.builder()
+     *                     .count(checkoutApi.optionsLists()[0].retries()[0].count())
+     *                     .interval(checkoutApi.optionsLists()[0].retries()[0].interval())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetSyntheticsTestResult> getSyntheticsTestPlain(GetSyntheticsTestPlainArgs args, InvokeOptions options) {

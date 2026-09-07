@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryValueDefinitionRequestApmQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryValueDefinitionRequestAuditQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryValueDefinitionRequestComparison;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryValueDefinitionRequestConditionalFormat;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryValueDefinitionRequestFormula;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryValueDefinitionRequestLogQuery;
@@ -44,6 +45,11 @@ public final class PowerpackV2WidgetQueryValueDefinitionRequest {
      */
     @Deprecated /* Use queries and formulas instead. */
     private @Nullable PowerpackV2WidgetQueryValueDefinitionRequestAuditQuery auditQuery;
+    /**
+     * @return A change indicator that compares the current value to a historical period.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetQueryValueDefinitionRequestComparison comparison;
     /**
      * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
      * 
@@ -136,6 +142,13 @@ public final class PowerpackV2WidgetQueryValueDefinitionRequest {
         return Optional.ofNullable(this.auditQuery);
     }
     /**
+     * @return A change indicator that compares the current value to a historical period.
+     * 
+     */
+    public Optional<PowerpackV2WidgetQueryValueDefinitionRequestComparison> comparison() {
+        return Optional.ofNullable(this.comparison);
+    }
+    /**
      * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
      * 
      */
@@ -224,6 +237,7 @@ public final class PowerpackV2WidgetQueryValueDefinitionRequest {
         private @Nullable String aggregator;
         private @Nullable PowerpackV2WidgetQueryValueDefinitionRequestApmQuery apmQuery;
         private @Nullable PowerpackV2WidgetQueryValueDefinitionRequestAuditQuery auditQuery;
+        private @Nullable PowerpackV2WidgetQueryValueDefinitionRequestComparison comparison;
         private @Nullable List<PowerpackV2WidgetQueryValueDefinitionRequestConditionalFormat> conditionalFormats;
         private @Nullable List<PowerpackV2WidgetQueryValueDefinitionRequestFormula> formulas;
         private @Nullable PowerpackV2WidgetQueryValueDefinitionRequestLogQuery logQuery;
@@ -238,6 +252,7 @@ public final class PowerpackV2WidgetQueryValueDefinitionRequest {
     	      this.aggregator = defaults.aggregator;
     	      this.apmQuery = defaults.apmQuery;
     	      this.auditQuery = defaults.auditQuery;
+    	      this.comparison = defaults.comparison;
     	      this.conditionalFormats = defaults.conditionalFormats;
     	      this.formulas = defaults.formulas;
     	      this.logQuery = defaults.logQuery;
@@ -264,6 +279,12 @@ public final class PowerpackV2WidgetQueryValueDefinitionRequest {
         public Builder auditQuery(@Nullable PowerpackV2WidgetQueryValueDefinitionRequestAuditQuery auditQuery) {
 
             this.auditQuery = auditQuery;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder comparison(@Nullable PowerpackV2WidgetQueryValueDefinitionRequestComparison comparison) {
+
+            this.comparison = comparison;
             return this;
         }
         @CustomType.Setter
@@ -328,6 +349,7 @@ public final class PowerpackV2WidgetQueryValueDefinitionRequest {
             _resultValue.aggregator = aggregator;
             _resultValue.apmQuery = apmQuery;
             _resultValue.auditQuery = auditQuery;
+            _resultValue.comparison = comparison;
             _resultValue.conditionalFormats = conditionalFormats;
             _resultValue.formulas = formulas;
             _resultValue.logQuery = logQuery;

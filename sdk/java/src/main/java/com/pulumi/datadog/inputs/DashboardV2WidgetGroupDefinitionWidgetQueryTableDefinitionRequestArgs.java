@@ -14,6 +14,7 @@ import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetQueryTabl
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSortArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestTextFormatArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -309,6 +310,21 @@ public final class DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionReq
     }
 
     /**
+     * The controls for sorting the widget request.
+     * 
+     */
+    @Import(name="sort")
+    private @Nullable Output<DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSortArgs> sort;
+
+    /**
+     * @return The controls for sorting the widget request.
+     * 
+     */
+    public Optional<Output<DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSortArgs>> sort() {
+        return Optional.ofNullable(this.sort);
+    }
+
+    /**
      * Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
      * 
      */
@@ -341,6 +357,7 @@ public final class DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionReq
         this.queries = $.queries;
         this.rumQuery = $.rumQuery;
         this.securityQuery = $.securityQuery;
+        this.sort = $.sort;
         this.textFormats = $.textFormats;
     }
 
@@ -771,6 +788,27 @@ public final class DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionReq
         @Deprecated /* Use queries and formulas instead. */
         public Builder securityQuery(DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
+        }
+
+        /**
+         * @param sort The controls for sorting the widget request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sort(@Nullable Output<DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSortArgs> sort) {
+            $.sort = sort;
+            return this;
+        }
+
+        /**
+         * @param sort The controls for sorting the widget request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sort(DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSortArgs sort) {
+            return sort(Output.of(sort));
         }
 
         /**

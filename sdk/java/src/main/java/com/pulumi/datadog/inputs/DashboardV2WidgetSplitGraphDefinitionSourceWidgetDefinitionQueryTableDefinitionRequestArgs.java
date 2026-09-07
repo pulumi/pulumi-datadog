@@ -14,6 +14,7 @@ import com.pulumi.datadog.inputs.DashboardV2WidgetSplitGraphDefinitionSourceWidg
 import com.pulumi.datadog.inputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestRumQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSortArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestTextFormatArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -309,6 +310,21 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQu
     }
 
     /**
+     * The controls for sorting the widget request.
+     * 
+     */
+    @Import(name="sort")
+    private @Nullable Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSortArgs> sort;
+
+    /**
+     * @return The controls for sorting the widget request.
+     * 
+     */
+    public Optional<Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSortArgs>> sort() {
+        return Optional.ofNullable(this.sort);
+    }
+
+    /**
      * Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
      * 
      */
@@ -341,6 +357,7 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQu
         this.queries = $.queries;
         this.rumQuery = $.rumQuery;
         this.securityQuery = $.securityQuery;
+        this.sort = $.sort;
         this.textFormats = $.textFormats;
     }
 
@@ -771,6 +788,27 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQu
         @Deprecated /* Use queries and formulas instead. */
         public Builder securityQuery(DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
+        }
+
+        /**
+         * @param sort The controls for sorting the widget request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sort(@Nullable Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSortArgs> sort) {
+            $.sort = sort;
+            return this;
+        }
+
+        /**
+         * @param sort The controls for sorting the widget request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sort(DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSortArgs sort) {
+            return sort(Output.of(sort));
         }
 
         /**

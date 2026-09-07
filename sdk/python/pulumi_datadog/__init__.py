@@ -212,6 +212,7 @@ from .user import *
 from .user_role import *
 from .webhook import *
 from .webhook_custom_variable import *
+from .webhook_oauth2_client_credentials import *
 from .workflow_automation import *
 from ._inputs import *
 from . import outputs
@@ -1398,6 +1399,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/webhookCustomVariable:WebhookCustomVariable": "WebhookCustomVariable"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/webhookOauth2ClientCredentials",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/webhookOauth2ClientCredentials:WebhookOauth2ClientCredentials": "WebhookOauth2ClientCredentials"
   }
  },
  {
