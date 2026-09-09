@@ -25,6 +25,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.ObservabilityPipelineConfigDestinationAzureStorageBufferGetArgs>? Buffer { get; set; }
 
         /// <summary>
+        /// Compression configuration for archived logs. When omitted, the worker default (gzip) is used.
+        /// </summary>
+        [Input("compression")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationAzureStorageCompressionGetArgs>? Compression { get; set; }
+
+        /// <summary>
         /// Name of the environment variable or secret that holds the Azure Storage connection string.
         /// </summary>
         [Input("connectionStringKey")]

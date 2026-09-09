@@ -8,11 +8,13 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class PowerpackV2WidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery {
     /**
-     * @return The data source for the Topology request (&#39;service*map&#39; or &#39;data*streams&#39;).
+     * @return The data source for the Topology request. Valid values are `serviceMap`, `dataStreams`.
      * 
      */
     private String dataSource;
@@ -22,14 +24,19 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetTopologyMapDefinitionRe
      */
     private List<String> filters;
     /**
-     * @return Name of the service.
+     * @return A search string for filtering services. When set, this replaces the `service` field.
+     * 
+     */
+    private @Nullable String queryString;
+    /**
+     * @return Name of the service. Leave this empty and use `queryString` instead.
      * 
      */
     private String service;
 
     private PowerpackV2WidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery() {}
     /**
-     * @return The data source for the Topology request (&#39;service*map&#39; or &#39;data*streams&#39;).
+     * @return The data source for the Topology request. Valid values are `serviceMap`, `dataStreams`.
      * 
      */
     public String dataSource() {
@@ -43,7 +50,14 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetTopologyMapDefinitionRe
         return this.filters;
     }
     /**
-     * @return Name of the service.
+     * @return A search string for filtering services. When set, this replaces the `service` field.
+     * 
+     */
+    public Optional<String> queryString() {
+        return Optional.ofNullable(this.queryString);
+    }
+    /**
+     * @return Name of the service. Leave this empty and use `queryString` instead.
      * 
      */
     public String service() {
@@ -61,12 +75,14 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetTopologyMapDefinitionRe
     public static final class Builder {
         private String dataSource;
         private List<String> filters;
+        private @Nullable String queryString;
         private String service;
         public Builder() {}
         public Builder(PowerpackV2WidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataSource = defaults.dataSource;
     	      this.filters = defaults.filters;
+    	      this.queryString = defaults.queryString;
     	      this.service = defaults.service;
         }
 
@@ -90,6 +106,12 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetTopologyMapDefinitionRe
             return filters(List.of(filters));
         }
         @CustomType.Setter
+        public Builder queryString(@Nullable String queryString) {
+
+            this.queryString = queryString;
+            return this;
+        }
+        @CustomType.Setter
         public Builder service(String service) {
             if (service == null) {
               throw new MissingRequiredPropertyException("PowerpackV2WidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery", "service");
@@ -101,6 +123,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetTopologyMapDefinitionRe
             final var _resultValue = new PowerpackV2WidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery();
             _resultValue.dataSource = dataSource;
             _resultValue.filters = filters;
+            _resultValue.queryString = queryString;
             _resultValue.service = service;
             return _resultValue;
         }

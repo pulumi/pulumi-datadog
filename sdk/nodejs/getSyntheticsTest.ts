@@ -2,10 +2,46 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve a Datadog Synthetic Test.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // The existing API test another team owns.
+ * const checkoutApi = datadog.getSyntheticsTest({
+ *     testId: "abc-123-xyz",
+ * });
+ * // A browser test over the same journey, kept in lockstep with the API test's
+ * // cadence, coverage, and alerting behavior.
+ * const checkoutBrowser = new datadog.SyntheticsTest("checkout_browser", {
+ *     name: "Checkout journey (browser)",
+ *     type: "browser",
+ *     status: checkoutApi.then(checkoutApi => checkoutApi.status),
+ *     locations: checkoutApi.then(checkoutApi => checkoutApi.locations),
+ *     requestDefinition: {
+ *         method: "GET",
+ *         url: "https://www.example.com/checkout",
+ *     },
+ *     deviceIds: ["laptop_large"],
+ *     optionsList: {
+ *         tickEvery: checkoutApi.then(checkoutApi => checkoutApi.optionsLists?.[0]?.tickEvery),
+ *         minLocationFailed: checkoutApi.then(checkoutApi => checkoutApi.optionsLists?.[0]?.minLocationFailed),
+ *         monitorPriority: checkoutApi.then(checkoutApi => checkoutApi.optionsLists?.[0]?.monitorPriority),
+ *         retry: {
+ *             count: checkoutApi.then(checkoutApi => checkoutApi.optionsLists?.[0]?.retries?.[0]?.count),
+ *             interval: checkoutApi.then(checkoutApi => checkoutApi.optionsLists?.[0]?.retries?.[0]?.interval),
+ *         },
+ *     },
+ * });
+ * ```
  */
 export function getSyntheticsTest(args: GetSyntheticsTestArgs, opts?: pulumi.InvokeOptions): Promise<GetSyntheticsTestResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -29,13 +65,45 @@ export interface GetSyntheticsTestArgs {
  */
 export interface GetSyntheticsTestResult {
     /**
+     * Array with the different device IDs used to run the test. Only set for browser tests.
+     */
+    readonly deviceIds: string[];
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     /**
+     * Array of locations used to run the synthetic test.
+     */
+    readonly locations: string[];
+    /**
+     * A message to include with notifications for this synthetic test.
+     */
+    readonly message: string;
+    /**
+     * The mobile synthetic test extra options.
+     */
+    readonly mobileOptionsLists: outputs.GetSyntheticsTestMobileOptionsList[];
+    /**
+     * ID of the monitor associated with the synthetic test.
+     */
+    readonly monitorId: number;
+    /**
      * The name of the synthetic test.
      */
     readonly name: string;
+    /**
+     * The synthetic test extra options.
+     */
+    readonly optionsLists: outputs.GetSyntheticsTestOptionsList[];
+    /**
+     * Whether the synthetic test is started (`live`) or paused (`paused`).
+     */
+    readonly status: string;
+    /**
+     * The subtype of the synthetic test. Only set for API tests.
+     */
+    readonly subtype: string;
     /**
      * A list of tags assigned to the synthetic test.
      */
@@ -45,12 +113,50 @@ export interface GetSyntheticsTestResult {
      */
     readonly testId: string;
     /**
+     * The type of the synthetic test.
+     */
+    readonly type: string;
+    /**
      * The start URL of the synthetic test.
      */
     readonly url: string;
 }
 /**
  * Use this data source to retrieve a Datadog Synthetic Test.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // The existing API test another team owns.
+ * const checkoutApi = datadog.getSyntheticsTest({
+ *     testId: "abc-123-xyz",
+ * });
+ * // A browser test over the same journey, kept in lockstep with the API test's
+ * // cadence, coverage, and alerting behavior.
+ * const checkoutBrowser = new datadog.SyntheticsTest("checkout_browser", {
+ *     name: "Checkout journey (browser)",
+ *     type: "browser",
+ *     status: checkoutApi.then(checkoutApi => checkoutApi.status),
+ *     locations: checkoutApi.then(checkoutApi => checkoutApi.locations),
+ *     requestDefinition: {
+ *         method: "GET",
+ *         url: "https://www.example.com/checkout",
+ *     },
+ *     deviceIds: ["laptop_large"],
+ *     optionsList: {
+ *         tickEvery: checkoutApi.then(checkoutApi => checkoutApi.optionsLists?.[0]?.tickEvery),
+ *         minLocationFailed: checkoutApi.then(checkoutApi => checkoutApi.optionsLists?.[0]?.minLocationFailed),
+ *         monitorPriority: checkoutApi.then(checkoutApi => checkoutApi.optionsLists?.[0]?.monitorPriority),
+ *         retry: {
+ *             count: checkoutApi.then(checkoutApi => checkoutApi.optionsLists?.[0]?.retries?.[0]?.count),
+ *             interval: checkoutApi.then(checkoutApi => checkoutApi.optionsLists?.[0]?.retries?.[0]?.interval),
+ *         },
+ *     },
+ * });
+ * ```
  */
 export function getSyntheticsTestOutput(args: GetSyntheticsTestOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSyntheticsTestResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

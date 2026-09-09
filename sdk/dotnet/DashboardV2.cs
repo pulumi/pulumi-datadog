@@ -311,6 +311,12 @@ namespace Pulumi.Datadog
         public Output<string> Url { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `True`. Setting this to `False` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+        /// </summary>
+        [Output("validate")]
+        public Output<bool?> Validate { get; private set; } = null!;
+
+        /// <summary>
         /// The list of widgets to display on the dashboard.
         /// </summary>
         [Output("widgets")]
@@ -494,6 +500,12 @@ namespace Pulumi.Datadog
         [Input("url")]
         public Input<string>? Url { get; set; }
 
+        /// <summary>
+        /// Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `True`. Setting this to `False` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+        /// </summary>
+        [Input("validate")]
+        public Input<bool>? Validate { get; set; }
+
         [Input("widgets")]
         private InputList<Inputs.DashboardV2WidgetArgs>? _widgets;
 
@@ -645,6 +657,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
+
+        /// <summary>
+        /// Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `True`. Setting this to `False` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+        /// </summary>
+        [Input("validate")]
+        public Input<bool>? Validate { get; set; }
 
         [Input("widgets")]
         private InputList<Inputs.DashboardV2WidgetGetArgs>? _widgets;

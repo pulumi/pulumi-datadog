@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmMetricsQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmResourceStatsQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEventQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryMetricQuery;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQuery {
+    /**
+     * @return APM metrics query for histogram-mode distribution.
+     * 
+     */
+    private @Nullable DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmMetricsQuery apmMetricsQuery;
     /**
      * @return APM resource stats query for histogram-mode distribution.
      * 
@@ -30,6 +36,13 @@ public final class DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHis
     private @Nullable DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryMetricQuery metricQuery;
 
     private DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQuery() {}
+    /**
+     * @return APM metrics query for histogram-mode distribution.
+     * 
+     */
+    public Optional<DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmMetricsQuery> apmMetricsQuery() {
+        return Optional.ofNullable(this.apmMetricsQuery);
+    }
     /**
      * @return APM resource stats query for histogram-mode distribution.
      * 
@@ -61,17 +74,25 @@ public final class DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHis
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmMetricsQuery apmMetricsQuery;
         private @Nullable DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmResourceStatsQuery apmResourceStatsQuery;
         private @Nullable DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEventQuery eventQuery;
         private @Nullable DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryMetricQuery metricQuery;
         public Builder() {}
         public Builder(DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQuery defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.apmMetricsQuery = defaults.apmMetricsQuery;
     	      this.apmResourceStatsQuery = defaults.apmResourceStatsQuery;
     	      this.eventQuery = defaults.eventQuery;
     	      this.metricQuery = defaults.metricQuery;
         }
 
+        @CustomType.Setter
+        public Builder apmMetricsQuery(@Nullable DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmMetricsQuery apmMetricsQuery) {
+
+            this.apmMetricsQuery = apmMetricsQuery;
+            return this;
+        }
         @CustomType.Setter
         public Builder apmResourceStatsQuery(@Nullable DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmResourceStatsQuery apmResourceStatsQuery) {
 
@@ -92,6 +113,7 @@ public final class DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHis
         }
         public DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQuery build() {
             final var _resultValue = new DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQuery();
+            _resultValue.apmMetricsQuery = apmMetricsQuery;
             _resultValue.apmResourceStatsQuery = apmResourceStatsQuery;
             _resultValue.eventQuery = eventQuery;
             _resultValue.metricQuery = metricQuery;

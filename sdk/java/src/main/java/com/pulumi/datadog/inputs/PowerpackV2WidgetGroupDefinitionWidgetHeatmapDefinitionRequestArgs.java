@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormulaArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestHistogramRequestArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQueryArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryArgs;
@@ -60,6 +61,21 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionReques
      */
     public Optional<Output<List<PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormulaArgs>>> formulas() {
         return Optional.ofNullable(this.formulas);
+    }
+
+    /**
+     * Histogram request for distribution of point values.
+     * 
+     */
+    @Import(name="histogramRequest")
+    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestHistogramRequestArgs> histogramRequest;
+
+    /**
+     * @return Histogram request for distribution of point values.
+     * 
+     */
+    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestHistogramRequestArgs>> histogramRequest() {
+        return Optional.ofNullable(this.histogramRequest);
     }
 
     /**
@@ -212,6 +228,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionReques
     private PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestArgs(PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestArgs $) {
         this.apmQuery = $.apmQuery;
         this.formulas = $.formulas;
+        this.histogramRequest = $.histogramRequest;
         this.logQuery = $.logQuery;
         this.processQuery = $.processQuery;
         this.q = $.q;
@@ -297,6 +314,27 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionReques
          */
         public Builder formulas(PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormulaArgs... formulas) {
             return formulas(List.of(formulas));
+        }
+
+        /**
+         * @param histogramRequest Histogram request for distribution of point values.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder histogramRequest(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestHistogramRequestArgs> histogramRequest) {
+            $.histogramRequest = histogramRequest;
+            return this;
+        }
+
+        /**
+         * @param histogramRequest Histogram request for distribution of point values.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder histogramRequest(PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestHistogramRequestArgs histogramRequest) {
+            return histogramRequest(Output.of(histogramRequest));
         }
 
         /**

@@ -158,7 +158,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     declare public readonly notifyAudit: pulumi.Output<boolean | undefined>;
     /**
-     * Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notifyBy` to `['cluster']`. Tags mentioned in `notifyBy` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notifyBy` to `[*]` configures the monitor to notify as a simple-alert.
+     * Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notifyBy` to `['cluster']`. Tags mentioned in `notifyBy` must be a proper subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region` because `region` is not part of the grouping tags; furthermore, the same query cannot set `notifyBy` to `['cluster', 'namespace']` because that is not a proper subset. Setting `notifyBy` to `[*]` configures the monitor to notify as a simple-alert.
      */
     declare public readonly notifyBies: pulumi.Output<string[] | undefined>;
     /**
@@ -421,7 +421,7 @@ export interface MonitorState {
      */
     notifyAudit?: pulumi.Input<boolean | undefined>;
     /**
-     * Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notifyBy` to `['cluster']`. Tags mentioned in `notifyBy` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notifyBy` to `[*]` configures the monitor to notify as a simple-alert.
+     * Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notifyBy` to `['cluster']`. Tags mentioned in `notifyBy` must be a proper subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region` because `region` is not part of the grouping tags; furthermore, the same query cannot set `notifyBy` to `['cluster', 'namespace']` because that is not a proper subset. Setting `notifyBy` to `[*]` configures the monitor to notify as a simple-alert.
      */
     notifyBies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -580,7 +580,7 @@ export interface MonitorArgs {
      */
     notifyAudit?: pulumi.Input<boolean | undefined>;
     /**
-     * Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notifyBy` to `['cluster']`. Tags mentioned in `notifyBy` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notifyBy` to `[*]` configures the monitor to notify as a simple-alert.
+     * Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notifyBy` to `['cluster']`. Tags mentioned in `notifyBy` must be a proper subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region` because `region` is not part of the grouping tags; furthermore, the same query cannot set `notifyBy` to `['cluster', 'namespace']` because that is not a proper subset. Setting `notifyBy` to `[*]` configures the monitor to notify as a simple-alert.
      */
     notifyBies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

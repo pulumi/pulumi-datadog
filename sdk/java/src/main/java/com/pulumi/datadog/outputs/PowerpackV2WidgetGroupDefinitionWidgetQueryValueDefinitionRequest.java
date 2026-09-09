@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestComparison;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery;
@@ -44,6 +45,11 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionReq
      */
     @Deprecated /* Use queries and formulas instead. */
     private @Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQuery auditQuery;
+    /**
+     * @return A change indicator that compares the current value to a historical period.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestComparison comparison;
     /**
      * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
      * 
@@ -136,6 +142,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionReq
         return Optional.ofNullable(this.auditQuery);
     }
     /**
+     * @return A change indicator that compares the current value to a historical period.
+     * 
+     */
+    public Optional<PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestComparison> comparison() {
+        return Optional.ofNullable(this.comparison);
+    }
+    /**
      * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
      * 
      */
@@ -224,6 +237,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionReq
         private @Nullable String aggregator;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery apmQuery;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQuery auditQuery;
+        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestComparison comparison;
         private @Nullable List<PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat> conditionalFormats;
         private @Nullable List<PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula> formulas;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery logQuery;
@@ -238,6 +252,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionReq
     	      this.aggregator = defaults.aggregator;
     	      this.apmQuery = defaults.apmQuery;
     	      this.auditQuery = defaults.auditQuery;
+    	      this.comparison = defaults.comparison;
     	      this.conditionalFormats = defaults.conditionalFormats;
     	      this.formulas = defaults.formulas;
     	      this.logQuery = defaults.logQuery;
@@ -264,6 +279,12 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionReq
         public Builder auditQuery(@Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQuery auditQuery) {
 
             this.auditQuery = auditQuery;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder comparison(@Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestComparison comparison) {
+
+            this.comparison = comparison;
             return this;
         }
         @CustomType.Setter
@@ -328,6 +349,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionReq
             _resultValue.aggregator = aggregator;
             _resultValue.apmQuery = apmQuery;
             _resultValue.auditQuery = auditQuery;
+            _resultValue.comparison = comparison;
             _resultValue.conditionalFormats = conditionalFormats;
             _resultValue.formulas = formulas;
             _resultValue.logQuery = logQuery;

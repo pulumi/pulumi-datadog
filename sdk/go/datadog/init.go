@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "datadog:index/actionConnection:ActionConnection":
 		r = &ActionConnection{}
+	case "datadog:index/actionExecutionPolicy:ActionExecutionPolicy":
+		r = &ActionExecutionPolicy{}
 	case "datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions":
 		r = &AgentlessScanningAwsScanOptions{}
 	case "datadog:index/agentlessScanningAzureScanOptions:AgentlessScanningAzureScanOptions":
@@ -99,6 +101,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DowntimeSchedule{}
 	case "datadog:index/gcpUcConfig:GcpUcConfig":
 		r = &GcpUcConfig{}
+	case "datadog:index/governanceControl:GovernanceControl":
+		r = &GovernanceControl{}
 	case "datadog:index/incidentNotificationRule:IncidentNotificationRule":
 		r = &IncidentNotificationRule{}
 	case "datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate":
@@ -183,12 +187,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Role{}
 	case "datadog:index/rumApplication:RumApplication":
 		r = &RumApplication{}
+	case "datadog:index/rumExclusionFilter:RumExclusionFilter":
+		r = &RumExclusionFilter{}
 	case "datadog:index/rumMetric:RumMetric":
 		r = &RumMetric{}
 	case "datadog:index/rumRetentionFilter:RumRetentionFilter":
 		r = &RumRetentionFilter{}
 	case "datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder":
 		r = &RumRetentionFiltersOrder{}
+	case "datadog:index/rumRetentionQuota:RumRetentionQuota":
+		r = &RumRetentionQuota{}
 	case "datadog:index/secureEmbedDashboard:SecureEmbedDashboard":
 		r = &SecureEmbedDashboard{}
 	case "datadog:index/securityFindingsDueDateRule:SecurityFindingsDueDateRule":
@@ -239,6 +247,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SoftwareCatalog{}
 	case "datadog:index/spansMetric:SpansMetric":
 		r = &SpansMetric{}
+	case "datadog:index/statusPage:StatusPage":
+		r = &StatusPage{}
+	case "datadog:index/statusPageComponent:StatusPageComponent":
+		r = &StatusPageComponent{}
+	case "datadog:index/statusPageDegradationTemplate:StatusPageDegradationTemplate":
+		r = &StatusPageDegradationTemplate{}
+	case "datadog:index/statusPageMaintenanceTemplate:StatusPageMaintenanceTemplate":
+		r = &StatusPageMaintenanceTemplate{}
 	case "datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap":
 		r = &SyntheticsConcurrencyCap{}
 	case "datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable":
@@ -259,6 +275,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TagPipelineRuleset{}
 	case "datadog:index/tagPipelineRulesets:TagPipelineRulesets":
 		r = &TagPipelineRulesets{}
+	case "datadog:index/tagRule:TagRule":
+		r = &TagRule{}
 	case "datadog:index/team:Team":
 		r = &Team{}
 	case "datadog:index/teamConnection:TeamConnection":
@@ -283,6 +301,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Webhook{}
 	case "datadog:index/webhookCustomVariable:WebhookCustomVariable":
 		r = &WebhookCustomVariable{}
+	case "datadog:index/webhookOauth2ClientCredentials:WebhookOauth2ClientCredentials":
+		r = &WebhookOauth2ClientCredentials{}
 	case "datadog:index/workflowAutomation:WorkflowAutomation":
 		r = &WorkflowAutomation{}
 	default:
@@ -319,6 +339,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/actionConnection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/actionExecutionPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -509,6 +534,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/gcpUcConfig",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/governanceControl",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -723,6 +753,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/rumExclusionFilter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/rumMetric",
 		&module{version},
 	)
@@ -734,6 +769,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/rumRetentionFiltersOrder",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/rumRetentionQuota",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -863,6 +903,26 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/statusPage",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/statusPageComponent",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/statusPageDegradationTemplate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/statusPageMaintenanceTemplate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/syntheticsConcurrencyCap",
 		&module{version},
 	)
@@ -909,6 +969,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/tagPipelineRulesets",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/tagRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -969,6 +1034,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/webhookCustomVariable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/webhookOauth2ClientCredentials",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

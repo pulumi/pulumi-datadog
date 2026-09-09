@@ -157,14 +157,14 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionArgs e
     }
 
     /**
-     * A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
+     * A request using the legacy metric format, the infrastructure-backed format, or the DDSQL data-projection format.
      * 
      */
     @Import(name="request")
     private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestArgs> request;
 
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
+     * @return A request using the legacy metric format, the infrastructure-backed format, or the DDSQL data-projection format.
      * 
      */
     public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequestArgs>> request() {
@@ -510,7 +510,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionArgs e
         }
 
         /**
-         * @param request A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
+         * @param request A request using the legacy metric format, the infrastructure-backed format, or the DDSQL data-projection format.
          * 
          * @return builder
          * 
@@ -521,7 +521,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionArgs e
         }
 
         /**
-         * @param request A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
+         * @param request A request using the legacy metric format, the infrastructure-backed format, or the DDSQL data-projection format.
          * 
          * @return builder
          * 

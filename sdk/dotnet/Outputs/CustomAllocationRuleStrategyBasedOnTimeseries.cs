@@ -13,9 +13,15 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class CustomAllocationRuleStrategyBasedOnTimeseries
     {
+        /// <summary>
+        /// The timeseries query that determines the allocation proportions, encoded as a JSON object. Required when `Method` is `ProportionalTimeseries`. Uses Datadog's formulas-and-functions request format with `Queries`, `Formulas`, and `ResponseFormat` keys. Build it with `jsonencode()`. The set of supported `DataSource` values is defined by the API, not by this provider.
+        /// </summary>
+        public readonly string? Json;
+
         [OutputConstructor]
-        private CustomAllocationRuleStrategyBasedOnTimeseries()
+        private CustomAllocationRuleStrategyBasedOnTimeseries(string? json)
         {
+            Json = json;
         }
     }
 }

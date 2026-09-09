@@ -13,6 +13,7 @@ import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetQueryTab
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSort;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestTextFormat;
 import java.lang.Integer;
 import java.lang.String;
@@ -126,6 +127,11 @@ public final class DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionReq
      */
     @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery securityQuery;
+    /**
+     * @return The controls for sorting the widget request.
+     * 
+     */
+    private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSort sort;
     /**
      * @return Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
      * 
@@ -267,6 +273,13 @@ public final class DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionReq
         return Optional.ofNullable(this.securityQuery);
     }
     /**
+     * @return The controls for sorting the widget request.
+     * 
+     */
+    public Optional<DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSort> sort() {
+        return Optional.ofNullable(this.sort);
+    }
+    /**
      * @return Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
      * 
      */
@@ -298,6 +311,7 @@ public final class DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionReq
         private @Nullable List<DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuery> queries;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery rumQuery;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery securityQuery;
+        private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSort sort;
         private @Nullable List<DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestTextFormat> textFormats;
         public Builder() {}
         public Builder(DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequest defaults) {
@@ -317,6 +331,7 @@ public final class DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionReq
     	      this.queries = defaults.queries;
     	      this.rumQuery = defaults.rumQuery;
     	      this.securityQuery = defaults.securityQuery;
+    	      this.sort = defaults.sort;
     	      this.textFormats = defaults.textFormats;
         }
 
@@ -423,6 +438,12 @@ public final class DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionReq
             return this;
         }
         @CustomType.Setter
+        public Builder sort(@Nullable DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestSort sort) {
+
+            this.sort = sort;
+            return this;
+        }
+        @CustomType.Setter
         public Builder textFormats(@Nullable List<DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionRequestTextFormat> textFormats) {
 
             this.textFormats = textFormats;
@@ -448,6 +469,7 @@ public final class DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionReq
             _resultValue.queries = queries;
             _resultValue.rumQuery = rumQuery;
             _resultValue.securityQuery = securityQuery;
+            _resultValue.sort = sort;
             _resultValue.textFormats = textFormats;
             return _resultValue;
         }

@@ -79,7 +79,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Notes { get; set; }
 
         /// <summary>
-        /// A nested block describing the request to use when displaying the widget. Multiple `Request` blocks are allowed using the structure below.
+        /// A request using the legacy metric format, the infrastructure-backed format, or the DDSQL data-projection format.
         /// </summary>
         [Input("request")]
         public Input<Inputs.PowerpackV2WidgetHostmapDefinitionRequestGetArgs>? Request { get; set; }
